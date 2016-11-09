@@ -264,7 +264,6 @@
 		B122F2331DD36DF70018A701 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				B122F2421DD373160018A701 /* NavigationController */,
 				B122F2391DD36F220018A701 /* UIButtons */,
 				B122F23F1DD371830018A701 /* UINavigationControllers */,
 				B122F23A1DD36F420018A701 /* UITableViewCells */,
@@ -300,13 +299,6 @@
 				B122F2401DD371B30018A701 /* BaseNavigationController.swift */,
 			);
 			path = UINavigationControllers;
-			sourceTree = "<group>";
-		};
-		B122F2421DD373160018A701 /* NavigationController */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = NavigationController;
 			sourceTree = "<group>";
 		};
 		B15FD3FD1DD1DD8C00782324 = {
