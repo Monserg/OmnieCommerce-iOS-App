@@ -11,7 +11,6 @@
 
 import UIKit
 import SWRevealViewController
-//import Localize_Swift
 
 // MARK: - Input & Output protocols
 protocol OrdersShowViewControllerInput {
@@ -28,7 +27,6 @@ class OrdersShowViewController: UIViewController, OrdersShowViewControllerInput 
     var router: OrdersShowRouter!
     
     @IBOutlet weak var menuBarButton: UIBarButtonItem!
-    @IBOutlet weak var ordersLabel: UILabel!
     
 
     // MARK: - Class initialization
@@ -49,9 +47,6 @@ class OrdersShowViewController: UIViewController, OrdersShowViewControllerInput 
 
     // MARK: - Custom Functions
     func doSomethingOnLoad() {
-        // Localize Title
-        //self.ordersLabel.text = "Молоко".localized()
-
         // Add Slide Menu actions
         if revealViewController() != nil {
             self.menuBarButton.target = revealViewController()

@@ -1,0 +1,13 @@
+/* 
+  Localizable.strings
+  OmnieCommerce
+
+  Created by msm72 on 09.11.16.
+  Copyright © 2016 Omniesoft. All rights reserved.
+*/
+
+"Orders"            =   "Мої замовлення";
+"Messages"          =   "Повідомлення";
+"Favorite"          =   "Улюблене";
+"Categories"        =   "Категорії";
+"News"              =   "Новини";
