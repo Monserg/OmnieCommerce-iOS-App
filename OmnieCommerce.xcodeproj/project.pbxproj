@@ -56,7 +56,7 @@
 		B122F22E1DD35ECC0018A701 /* FavoriteShow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B122F22D1DD35ECC0018A701 /* FavoriteShow.storyboard */; };
 		B122F2301DD35EE10018A701 /* CategoriesShow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B122F22F1DD35EE10018A701 /* CategoriesShow.storyboard */; };
 		B122F2321DD35EF10018A701 /* NewsShow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B122F2311DD35EF10018A701 /* NewsShow.storyboard */; };
-		B122F2361DD36E960018A701 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B122F2351DD36E960018A701 /* BaseNavigationController.swift */; };
+		B122F2411DD371B30018A701 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B122F2401DD371B30018A701 /* BaseNavigationController.swift */; };
 		B15FD40A1DD1DD8C00782324 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15FD4091DD1DD8C00782324 /* AppDelegate.swift */; };
 		B15FD4111DD1DD8C00782324 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B15FD4101DD1DD8C00782324 /* Assets.xcassets */; };
 		B15FD4141DD1DD8C00782324 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B15FD4121DD1DD8C00782324 /* LaunchScreen.storyboard */; };
@@ -113,7 +113,7 @@
 		B122F22D1DD35ECC0018A701 /* FavoriteShow.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FavoriteShow.storyboard; sourceTree = "<group>"; };
 		B122F22F1DD35EE10018A701 /* CategoriesShow.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CategoriesShow.storyboard; sourceTree = "<group>"; };
 		B122F2311DD35EF10018A701 /* NewsShow.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = NewsShow.storyboard; sourceTree = "<group>"; };
-		B122F2351DD36E960018A701 /* BaseNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
+		B122F2401DD371B30018A701 /* BaseNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
 		B15FD4061DD1DD8C00782324 /* OmnieCommerce.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OmnieCommerce.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B15FD4091DD1DD8C00782324 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B15FD4101DD1DD8C00782324 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -265,19 +265,11 @@
 			isa = PBXGroup;
 			children = (
 				B122F2391DD36F220018A701 /* UIButtons */,
-				B122F2341DD36E3E0018A701 /* UINavigationControllers */,
+				B122F23F1DD371830018A701 /* UINavigationControllers */,
 				B122F23A1DD36F420018A701 /* UITableViewCells */,
 				B122F2381DD36F120018A701 /* UITextFields */,
 			);
 			path = Common;
-			sourceTree = "<group>";
-		};
-		B122F2341DD36E3E0018A701 /* UINavigationControllers */ = {
-			isa = PBXGroup;
-			children = (
-				B122F2351DD36E960018A701 /* BaseNavigationController.swift */,
-			);
-			path = UINavigationControllers;
 			sourceTree = "<group>";
 		};
 		B122F2381DD36F120018A701 /* UITextFields */ = {
@@ -299,6 +291,14 @@
 			children = (
 			);
 			path = UITableViewCells;
+			sourceTree = "<group>";
+		};
+		B122F23F1DD371830018A701 /* UINavigationControllers */ = {
+			isa = PBXGroup;
+			children = (
+				B122F2401DD371B30018A701 /* BaseNavigationController.swift */,
+			);
+			path = UINavigationControllers;
 			sourceTree = "<group>";
 		};
 		B15FD3FD1DD1DD8C00782324 = {
@@ -501,7 +501,7 @@
 				B122F2241DD35CC80018A701 /* SlideMenuShowModels.swift in Sources */,
 				B122F2131DD35C2C0018A701 /* NewsShowConfigurator.swift in Sources */,
 				B122F1FA1DD35BC70018A701 /* FavoriteShowPresenter.swift in Sources */,
-				B122F2361DD36E960018A701 /* BaseNavigationController.swift in Sources */,
+				B122F2411DD371B30018A701 /* BaseNavigationController.swift in Sources */,
 				B122F1DC1DD35B760018A701 /* OrdersShowInteractor.swift in Sources */,
 				B122F2181DD35C2C0018A701 /* NewsShowViewController.swift in Sources */,
 				B122F1F81DD35BC70018A701 /* FavoriteShowInteractor.swift in Sources */,

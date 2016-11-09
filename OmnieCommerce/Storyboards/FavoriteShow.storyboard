@@ -12,7 +12,7 @@
         <!--Favorite-->
         <scene sceneID="eBJ-eB-wHn">
             <objects>
-                <viewController storyboardIdentifier="FavoriteShowVC" id="cl3-2v-9ef" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FavoriteShowVC" id="cl3-2v-9ef" customClass="FavoriteShowViewController" customModule="OmnieCommerce" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="2k6-Z8-E0D"/>
                         <viewControllerLayoutGuide type="bottom" id="nCN-Xg-drg"/>
@@ -30,10 +30,10 @@
             </objects>
             <point key="canvasLocation" x="1312.8" y="184.85757121439281"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Base Navigation Controller-->
         <scene sceneID="8nW-UV-dYv">
             <objects>
-                <navigationController storyboardIdentifier="FavoriteShowNC" automaticallyAdjustsScrollViewInsets="NO" id="vcg-jx-izI" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="FavoriteShowNC" automaticallyAdjustsScrollViewInsets="NO" id="vcg-jx-izI" customClass="BaseNavigationController" customModule="OmnieCommerce" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ZDq-oz-Jag">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>

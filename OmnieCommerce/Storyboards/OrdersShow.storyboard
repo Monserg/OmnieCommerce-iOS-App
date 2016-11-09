@@ -12,7 +12,7 @@
         <!--Orders-->
         <scene sceneID="qXN-Rq-qym">
             <objects>
-                <viewController storyboardIdentifier="OrdersShowVC" id="EDW-bL-Rz6" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="OrdersShowVC" id="EDW-bL-Rz6" customClass="OrdersShowViewController" customModule="OmnieCommerce" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="3ad-7T-bZr"/>
                         <viewControllerLayoutGuide type="bottom" id="DTO-wG-tQo"/>
@@ -30,10 +30,10 @@
             </objects>
             <point key="canvasLocation" x="1543.2" y="147.97601199400302"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Base Navigation Controller-->
         <scene sceneID="yqS-Bc-pCM">
             <objects>
-                <navigationController storyboardIdentifier="OrdersShowNC" automaticallyAdjustsScrollViewInsets="NO" id="g2I-y5-hYL" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="OrdersShowNC" automaticallyAdjustsScrollViewInsets="NO" id="g2I-y5-hYL" customClass="BaseNavigationController" customModule="OmnieCommerce" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="RsX-5O-ea1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>

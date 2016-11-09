@@ -27,10 +27,10 @@
             </objects>
             <point key="canvasLocation" x="50" y="156"/>
         </scene>
-        <!--View Controller-->
+        <!--Slide Menu Show View Controller-->
         <scene sceneID="udQ-Rs-dBx">
             <objects>
-                <viewController storyboardIdentifier="RearVC" id="gGK-Bx-yUm" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SlideMenuShowVC" id="gGK-Bx-yUm" customClass="SlideMenuShowViewController" customModule="OmnieCommerce" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="6iE-gr-udO"/>
                         <viewControllerLayoutGuide type="bottom" id="xha-dY-dTj"/>
