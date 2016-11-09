@@ -25,6 +25,9 @@
                     <navigationItem key="navigationItem" title="Favorite" id="Nv2-Z9-lWC">
                         <barButtonItem key="leftBarButtonItem" title="Item" id="M7v-y6-kBv" userLabel="Menu Bar Button"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="menuBarButton" destination="M7v-y6-kBv" id="wv6-Gr-2Xr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fDu-SB-jh3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -41,6 +41,9 @@
                     <navigationItem key="navigationItem" title="Categories" id="M2x-tJ-1Sm">
                         <barButtonItem key="leftBarButtonItem" title="Item" id="i2J-ug-M5A" userLabel="Menu Bar Button"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="menuBarButton" destination="i2J-ug-M5A" id="Zqj-oc-9nE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Otj-fC-KTJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -10,6 +10,8 @@
 //
 
 import UIKit
+import SWRevealViewController
+
 
 // MARK: - Input & Output protocols
 protocol MessagesShowViewControllerInput {
@@ -25,7 +27,9 @@ class MessagesShowViewController: UIViewController, MessagesShowViewControllerIn
     var output: MessagesShowViewControllerOutput!
     var router: MessagesShowRouter!
     
+    @IBOutlet weak var menuBarButton: UIBarButtonItem!
 
+    
     // MARK: - Class initialization
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -44,6 +48,15 @@ class MessagesShowViewController: UIViewController, MessagesShowViewControllerIn
 
     // MARK: - Custom Functions
     func doSomethingOnLoad() {
+        // Add Slide Menu actions
+        if revealViewController() != nil {
+            self.menuBarButton.target = revealViewController()
+            self.menuBarButton.action = #selector(SWRevealViewController.revealToggle(_:))
+            revealViewController().rightViewRevealWidth = 150
+            
+            view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        }
+
         // NOTE: Ask the Interactor to do some work
         let request = MessagesShow.Something.Request()
         output.doSomething(request: request)

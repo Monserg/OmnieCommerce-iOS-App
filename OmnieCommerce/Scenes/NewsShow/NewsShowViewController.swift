@@ -10,6 +10,7 @@
 //
 
 import UIKit
+import SWRevealViewController
 
 // MARK: - Input & Output protocols
 protocol NewsShowViewControllerInput {
@@ -25,7 +26,9 @@ class NewsShowViewController: UIViewController, NewsShowViewControllerInput {
     var output: NewsShowViewControllerOutput!
     var router: NewsShowRouter!
     
+    @IBOutlet weak var menuBarButton: UIBarButtonItem!
 
+    
     // MARK: - Class initialization
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -44,6 +47,15 @@ class NewsShowViewController: UIViewController, NewsShowViewControllerInput {
 
     // MARK: - Custom Functions
     func doSomethingOnLoad() {
+        // Add Slide Menu actions
+        if revealViewController() != nil {
+            self.menuBarButton.target = revealViewController()
+            self.menuBarButton.action = #selector(SWRevealViewController.revealToggle(_:))
+            revealViewController().rightViewRevealWidth = 150
+            
+            view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        }
+
         // NOTE: Ask the Interactor to do some work
         let request = NewsShow.Something.Request()
         output.doSomething(request: request)

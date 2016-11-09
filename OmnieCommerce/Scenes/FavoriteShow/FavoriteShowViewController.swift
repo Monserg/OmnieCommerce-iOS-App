@@ -10,6 +10,7 @@
 //
 
 import UIKit
+import SWRevealViewController
 
 // MARK: - Input & Output protocols
 protocol FavoriteShowViewControllerInput {
@@ -25,7 +26,9 @@ class FavoriteShowViewController: UIViewController, FavoriteShowViewControllerIn
     var output: FavoriteShowViewControllerOutput!
     var router: FavoriteShowRouter!
     
+    @IBOutlet weak var menuBarButton: UIBarButtonItem!
 
+    
     // MARK: - Class initialization
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -44,6 +47,15 @@ class FavoriteShowViewController: UIViewController, FavoriteShowViewControllerIn
 
     // MARK: - Custom Functions
     func doSomethingOnLoad() {
+        // Add Slide Menu actions
+        if revealViewController() != nil {
+            self.menuBarButton.target = revealViewController()
+            self.menuBarButton.action = #selector(SWRevealViewController.revealToggle(_:))
+            revealViewController().rightViewRevealWidth = 150
+            
+            view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        }
+
         // NOTE: Ask the Interactor to do some work
         let request = FavoriteShow.Something.Request()
         output.doSomething(request: request)

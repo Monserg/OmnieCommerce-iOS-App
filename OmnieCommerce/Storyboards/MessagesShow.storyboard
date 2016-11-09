@@ -25,6 +25,9 @@
                     <navigationItem key="navigationItem" title="Messages" id="Jkl-SG-JVQ">
                         <barButtonItem key="leftBarButtonItem" title="Item" id="cJW-un-zc0" userLabel="Menu Bar Button"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="menuBarButton" destination="cJW-un-zc0" id="CtK-6n-kHH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k2E-dX-hca" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

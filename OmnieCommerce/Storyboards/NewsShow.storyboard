@@ -25,6 +25,9 @@
                     <navigationItem key="navigationItem" title="News" id="saI-lc-2iO">
                         <barButtonItem key="leftBarButtonItem" title="Item" id="KSm-hJ-Msm" userLabel="Menu Bar Button"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="menuBarButton" destination="KSm-hJ-Msm" id="CiN-Na-Gts"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2fW-dN-t4N" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
