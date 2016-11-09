@@ -20,13 +20,26 @@
                     <view key="view" contentMode="scaleToFill" id="oKk-pR-n0g">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Orders" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6lb-Ur-cUY">
+                                <rect key="frame" x="161" y="323" width="53" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="6lb-Ur-cUY" firstAttribute="centerY" secondItem="oKk-pR-n0g" secondAttribute="centerY" id="Vcg-Cc-XzL"/>
+                            <constraint firstItem="6lb-Ur-cUY" firstAttribute="centerX" secondItem="oKk-pR-n0g" secondAttribute="centerX" id="fTB-ra-BQu"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Orders" id="5Gb-Un-bfT">
                         <barButtonItem key="leftBarButtonItem" title="Item" id="6in-qy-H00" userLabel="Menu Bar Button"/>
                     </navigationItem>
                     <connections>
                         <outlet property="menuBarButton" destination="6in-qy-H00" id="Rpj-SX-m4f"/>
+                        <outlet property="ordersLabel" destination="6lb-Ur-cUY" id="6xE-Id-jRX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x1J-23-oc8" userLabel="First Responder" sceneMemberID="firstResponder"/>

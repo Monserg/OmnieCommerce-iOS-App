@@ -7,13 +7,15 @@
 //
 
 import UIKit
+//import Localize_Swift
 
 class BaseNavigationController: UINavigationController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        // Localize Title
+        //self.navigationBar.topItem?.title = "Orders".localized()
     }
 
     override func didReceiveMemoryWarning() {
