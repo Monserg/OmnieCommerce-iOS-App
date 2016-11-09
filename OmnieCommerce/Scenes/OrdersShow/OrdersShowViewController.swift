@@ -10,6 +10,7 @@
 //
 
 import UIKit
+import SWRevealViewController
 
 // MARK: - Input & Output protocols
 protocol OrdersShowViewControllerInput {
@@ -24,6 +25,8 @@ class OrdersShowViewController: UIViewController, OrdersShowViewControllerInput 
     // MARK: - Properties
     var output: OrdersShowViewControllerOutput!
     var router: OrdersShowRouter!
+    
+    @IBOutlet weak var menuBarButton: UIBarButtonItem!
     
 
     // MARK: - Class initialization
@@ -44,6 +47,15 @@ class OrdersShowViewController: UIViewController, OrdersShowViewControllerInput 
 
     // MARK: - Custom Functions
     func doSomethingOnLoad() {
+        // Add Slide Menu actions
+        if revealViewController() != nil {
+            self.menuBarButton.target = revealViewController()
+            self.menuBarButton.action = #selector(SWRevealViewController.revealToggle(_:))
+            revealViewController().rightViewRevealWidth = 150
+            
+            view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        }
+        
         // NOTE: Ask the Interactor to do some work
         let request = OrdersShow.Something.Request()
         output.doSomething(request: request)

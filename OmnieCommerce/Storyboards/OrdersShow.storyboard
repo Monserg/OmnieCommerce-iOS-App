@@ -25,6 +25,9 @@
                     <navigationItem key="navigationItem" title="Orders" id="5Gb-Un-bfT">
                         <barButtonItem key="leftBarButtonItem" title="Item" id="6in-qy-H00" userLabel="Menu Bar Button"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="menuBarButton" destination="6in-qy-H00" id="Rpj-SX-m4f"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x1J-23-oc8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
