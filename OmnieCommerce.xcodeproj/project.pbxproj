@@ -44,6 +44,13 @@
 		B122F2171DD35C2C0018A701 /* NewsShowRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B122F2101DD35C2C0018A701 /* NewsShowRouter.swift */; };
 		B122F2181DD35C2C0018A701 /* NewsShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B122F2111DD35C2C0018A701 /* NewsShowViewController.swift */; };
 		B122F2191DD35C2C0018A701 /* NewsShowWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B122F2121DD35C2C0018A701 /* NewsShowWorker.swift */; };
+		B122F2221DD35CC80018A701 /* SlideMenuShowConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B122F21B1DD35CC80018A701 /* SlideMenuShowConfigurator.swift */; };
+		B122F2231DD35CC80018A701 /* SlideMenuShowInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B122F21C1DD35CC80018A701 /* SlideMenuShowInteractor.swift */; };
+		B122F2241DD35CC80018A701 /* SlideMenuShowModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B122F21D1DD35CC80018A701 /* SlideMenuShowModels.swift */; };
+		B122F2251DD35CC80018A701 /* SlideMenuShowPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B122F21E1DD35CC80018A701 /* SlideMenuShowPresenter.swift */; };
+		B122F2261DD35CC80018A701 /* SlideMenuShowRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B122F21F1DD35CC80018A701 /* SlideMenuShowRouter.swift */; };
+		B122F2271DD35CC80018A701 /* SlideMenuShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B122F2201DD35CC80018A701 /* SlideMenuShowViewController.swift */; };
+		B122F2281DD35CC80018A701 /* SlideMenuShowWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B122F2211DD35CC80018A701 /* SlideMenuShowWorker.swift */; };
 		B15FD40A1DD1DD8C00782324 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15FD4091DD1DD8C00782324 /* AppDelegate.swift */; };
 		B15FD40F1DD1DD8C00782324 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B15FD40D1DD1DD8C00782324 /* Main.storyboard */; };
 		B15FD4111DD1DD8C00782324 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B15FD4101DD1DD8C00782324 /* Assets.xcassets */; };
@@ -89,6 +96,13 @@
 		B122F2101DD35C2C0018A701 /* NewsShowRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsShowRouter.swift; sourceTree = "<group>"; };
 		B122F2111DD35C2C0018A701 /* NewsShowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsShowViewController.swift; sourceTree = "<group>"; };
 		B122F2121DD35C2C0018A701 /* NewsShowWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsShowWorker.swift; sourceTree = "<group>"; };
+		B122F21B1DD35CC80018A701 /* SlideMenuShowConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideMenuShowConfigurator.swift; sourceTree = "<group>"; };
+		B122F21C1DD35CC80018A701 /* SlideMenuShowInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideMenuShowInteractor.swift; sourceTree = "<group>"; };
+		B122F21D1DD35CC80018A701 /* SlideMenuShowModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideMenuShowModels.swift; sourceTree = "<group>"; };
+		B122F21E1DD35CC80018A701 /* SlideMenuShowPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideMenuShowPresenter.swift; sourceTree = "<group>"; };
+		B122F21F1DD35CC80018A701 /* SlideMenuShowRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideMenuShowRouter.swift; sourceTree = "<group>"; };
+		B122F2201DD35CC80018A701 /* SlideMenuShowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideMenuShowViewController.swift; sourceTree = "<group>"; };
+		B122F2211DD35CC80018A701 /* SlideMenuShowWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideMenuShowWorker.swift; sourceTree = "<group>"; };
 		B15FD4061DD1DD8C00782324 /* OmnieCommerce.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OmnieCommerce.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B15FD4091DD1DD8C00782324 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B15FD40E1DD1DD8C00782324 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -143,6 +157,7 @@
 				B122F1CF1DD35B060018A701 /* MessagesShow */,
 				B122F1D21DD35B320018A701 /* NewsShow */,
 				B122F1D31DD35B3B0018A701 /* OrdersShow */,
+				B122F21A1DD35CA60018A701 /* SlideMenuShow */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -215,6 +230,20 @@
 				B122F1DA1DD35B760018A701 /* OrdersShowWorker.swift */,
 			);
 			path = OrdersShow;
+			sourceTree = "<group>";
+		};
+		B122F21A1DD35CA60018A701 /* SlideMenuShow */ = {
+			isa = PBXGroup;
+			children = (
+				B122F21B1DD35CC80018A701 /* SlideMenuShowConfigurator.swift */,
+				B122F21C1DD35CC80018A701 /* SlideMenuShowInteractor.swift */,
+				B122F21D1DD35CC80018A701 /* SlideMenuShowModels.swift */,
+				B122F21E1DD35CC80018A701 /* SlideMenuShowPresenter.swift */,
+				B122F21F1DD35CC80018A701 /* SlideMenuShowRouter.swift */,
+				B122F2201DD35CC80018A701 /* SlideMenuShowViewController.swift */,
+				B122F2211DD35CC80018A701 /* SlideMenuShowWorker.swift */,
+			);
+			path = SlideMenuShow;
 			sourceTree = "<group>";
 		};
 		B15FD3FD1DD1DD8C00782324 = {
@@ -379,7 +408,9 @@
 				B122F2051DD35BEB0018A701 /* CategoriesShowConfigurator.swift in Sources */,
 				B122F2091DD35BEB0018A701 /* CategoriesShowRouter.swift in Sources */,
 				B122F1EB1DD35BA70018A701 /* MessagesShowModels.swift in Sources */,
+				B122F2261DD35CC80018A701 /* SlideMenuShowRouter.swift in Sources */,
 				B122F1DB1DD35B760018A701 /* OrdersShowConfigurator.swift in Sources */,
+				B122F2281DD35CC80018A701 /* SlideMenuShowWorker.swift in Sources */,
 				B122F2071DD35BEB0018A701 /* CategoriesShowModels.swift in Sources */,
 				B122F1DD1DD35B760018A701 /* OrdersShowModels.swift in Sources */,
 				B122F1DF1DD35B760018A701 /* OrdersShowRouter.swift in Sources */,
@@ -389,21 +420,26 @@
 				B15FD40A1DD1DD8C00782324 /* AppDelegate.swift in Sources */,
 				B122F2161DD35C2C0018A701 /* NewsShowPresenter.swift in Sources */,
 				B122F20B1DD35BEB0018A701 /* CategoriesShowWorker.swift in Sources */,
+				B122F2221DD35CC80018A701 /* SlideMenuShowConfigurator.swift in Sources */,
 				B122F1E01DD35B760018A701 /* OrdersShowViewController.swift in Sources */,
 				B122F1FD1DD35BC70018A701 /* FavoriteShowWorker.swift in Sources */,
 				B122F2081DD35BEB0018A701 /* CategoriesShowPresenter.swift in Sources */,
 				B122F20A1DD35BEB0018A701 /* CategoriesShowViewController.swift in Sources */,
 				B122F2151DD35C2C0018A701 /* NewsShowModels.swift in Sources */,
+				B122F2251DD35CC80018A701 /* SlideMenuShowPresenter.swift in Sources */,
 				B122F1EC1DD35BA70018A701 /* MessagesShowPresenter.swift in Sources */,
 				B122F1DE1DD35B760018A701 /* OrdersShowPresenter.swift in Sources */,
+				B122F2271DD35CC80018A701 /* SlideMenuShowViewController.swift in Sources */,
 				B122F1EA1DD35BA70018A701 /* MessagesShowInteractor.swift in Sources */,
 				B122F2141DD35C2C0018A701 /* NewsShowInteractor.swift in Sources */,
 				B122F1FC1DD35BC70018A701 /* FavoriteShowViewController.swift in Sources */,
 				B122F1E91DD35BA70018A701 /* MessagesShowConfigurator.swift in Sources */,
+				B122F2231DD35CC80018A701 /* SlideMenuShowInteractor.swift in Sources */,
 				B122F1EE1DD35BA70018A701 /* MessagesShowViewController.swift in Sources */,
 				B122F1F71DD35BC70018A701 /* FavoriteShowConfigurator.swift in Sources */,
 				B122F2061DD35BEB0018A701 /* CategoriesShowInteractor.swift in Sources */,
 				B122F1EF1DD35BA70018A701 /* MessagesShowWorker.swift in Sources */,
+				B122F2241DD35CC80018A701 /* SlideMenuShowModels.swift in Sources */,
 				B122F2131DD35C2C0018A701 /* NewsShowConfigurator.swift in Sources */,
 				B122F1FA1DD35BC70018A701 /* FavoriteShowPresenter.swift in Sources */,
 				B122F1DC1DD35B760018A701 /* OrdersShowInteractor.swift in Sources */,
