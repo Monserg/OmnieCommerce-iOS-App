@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Localize-Swift.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-OmnieCommerce.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -17,12 +22,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>1383F2E6421EC483F8D20072F50DFBD3</key>
+		<key>1D1D124E2C850D54D2C84181CE1F366D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>24B30CB2AFA42B2FAED81ED4FDE60C44</key>
+		<key>86433867888749E4CF5A5AEC59DD39D3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>98EC4BC8B67D93E4D26BB87744C04C50</key>
 		<dict>
 			<key>primary</key>
 			<true/>

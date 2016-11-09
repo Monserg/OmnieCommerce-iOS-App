@@ -1,12 +1,15 @@
 PODS:
+  - Localize-Swift (1.6)
   - SWRevealViewController (2.3.0)
 
 DEPENDENCIES:
+  - Localize-Swift (~> 1.6)
   - SWRevealViewController (~> 2.3)
 
 SPEC CHECKSUMS:
+  Localize-Swift: d34c70b34ffb1468b2942c3f0b5c1dfd9119877e
   SWRevealViewController: 6d3fd97f70112fd7cef9de14df4260eacce4c63a
 
-PODFILE CHECKSUM: 5423659d7a77b5ed9fbadbdf0699facfc5606aa9
+PODFILE CHECKSUM: ca9ed8356643afd34ba54f49950ff7277e33f13e
 
 COCOAPODS: 1.1.1
