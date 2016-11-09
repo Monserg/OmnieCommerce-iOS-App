@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2AED68836D19B23C3805FA4F /* Pods_OmnieCommerce.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7BBCD9A2BBB6D643C1B64E4 /* Pods_OmnieCommerce.framework */; };
 		B15FD40A1DD1DD8C00782324 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15FD4091DD1DD8C00782324 /* AppDelegate.swift */; };
 		B15FD40C1DD1DD8C00782324 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15FD40B1DD1DD8C00782324 /* ViewController.swift */; };
 		B15FD40F1DD1DD8C00782324 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B15FD40D1DD1DD8C00782324 /* Main.storyboard */; };
@@ -15,6 +16,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6AA4A159468D8EA48A132ED8 /* Pods-OmnieCommerce.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OmnieCommerce.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OmnieCommerce/Pods-OmnieCommerce.debug.xcconfig"; sourceTree = "<group>"; };
+		A7BBCD9A2BBB6D643C1B64E4 /* Pods_OmnieCommerce.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OmnieCommerce.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B15FD4061DD1DD8C00782324 /* OmnieCommerce.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OmnieCommerce.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B15FD4091DD1DD8C00782324 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B15FD40B1DD1DD8C00782324 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +25,7 @@
 		B15FD4101DD1DD8C00782324 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B15FD4131DD1DD8C00782324 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B15FD4151DD1DD8C00782324 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ED913E9D2C7028252CE0B73A /* Pods-OmnieCommerce.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OmnieCommerce.release.xcconfig"; path = "Pods/Target Support Files/Pods-OmnieCommerce/Pods-OmnieCommerce.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +33,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2AED68836D19B23C3805FA4F /* Pods_OmnieCommerce.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7D55511864B4F4B37A506981 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A7BBCD9A2BBB6D643C1B64E4 /* Pods_OmnieCommerce.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		917033EC92127F3DB867C2E7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6AA4A159468D8EA48A132ED8 /* Pods-OmnieCommerce.debug.xcconfig */,
+				ED913E9D2C7028252CE0B73A /* Pods-OmnieCommerce.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		B15FD3FD1DD1DD8C00782324 = {
 			isa = PBXGroup;
 			children = (
 				B15FD4081DD1DD8C00782324 /* OmnieCommerce */,
 				B15FD4071DD1DD8C00782324 /* Products */,
+				917033EC92127F3DB867C2E7 /* Pods */,
+				7D55511864B4F4B37A506981 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -71,9 +95,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B15FD4181DD1DD8C00782324 /* Build configuration list for PBXNativeTarget "OmnieCommerce" */;
 			buildPhases = (
+				4DFE75489A5B7434FD9BD351 /* [CP] Check Pods Manifest.lock */,
 				B15FD4021DD1DD8C00782324 /* Sources */,
 				B15FD4031DD1DD8C00782324 /* Frameworks */,
 				B15FD4041DD1DD8C00782324 /* Resources */,
+				301D6FDE06EAF74B8EA1FA2C /* [CP] Embed Pods Frameworks */,
+				F1A5DC9819D333494AB95284 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -130,6 +157,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		301D6FDE06EAF74B8EA1FA2C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OmnieCommerce/Pods-OmnieCommerce-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4DFE75489A5B7434FD9BD351 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F1A5DC9819D333494AB95284 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OmnieCommerce/Pods-OmnieCommerce-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B15FD4021DD1DD8C00782324 /* Sources */ = {
@@ -258,6 +333,7 @@
 		};
 		B15FD4191DD1DD8C00782324 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6AA4A159468D8EA48A132ED8 /* Pods-OmnieCommerce.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = OmnieCommerce/Info.plist;
@@ -270,6 +346,7 @@
 		};
 		B15FD41A1DD1DD8C00782324 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ED913E9D2C7028252CE0B73A /* Pods-OmnieCommerce.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = OmnieCommerce/Info.plist;
