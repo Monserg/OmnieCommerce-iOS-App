@@ -13,6 +13,7 @@ class TopBarView: UIView {
     // MARK: - Properties
     @IBOutlet var view: UIView!
     @IBOutlet weak var menuButton: UIButton!
+    @IBOutlet weak var titleLabel: UILabel!
     
     
     // MARK: - Class Functions

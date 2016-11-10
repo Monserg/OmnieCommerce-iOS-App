@@ -25,7 +25,7 @@
             </objects>
             <point key="canvasLocation" x="583" y="-14"/>
         </scene>
-        <!--Categories-->
+        <!--Categories Show View Controller-->
         <scene sceneID="41q-Km-ZsM">
             <objects>
                 <viewController storyboardIdentifier="CategoriesShowVC" id="9s1-kT-Mzo" customClass="CategoriesShowViewController" customModule="OmnieCommerce" customModuleProvider="target" sceneMemberID="viewController">
@@ -36,13 +36,27 @@
                     <view key="view" contentMode="scaleToFill" id="tP1-Vk-hMS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fg2-g7-Pmf" customClass="TopBarView" customModule="OmnieCommerce" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="W36-Am-I3D"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Fg2-g7-Pmf" firstAttribute="top" secondItem="tP1-Vk-hMS" secondAttribute="top" id="4cs-5Y-4zx"/>
+                            <constraint firstAttribute="trailing" secondItem="Fg2-g7-Pmf" secondAttribute="trailing" id="6ia-VD-qjQ"/>
+                            <constraint firstItem="Fg2-g7-Pmf" firstAttribute="leading" secondItem="tP1-Vk-hMS" secondAttribute="leading" id="YA4-sD-5WW"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Categories" id="M2x-tJ-1Sm">
-                        <barButtonItem key="leftBarButtonItem" title="Item" id="i2J-ug-M5A" userLabel="Menu Bar Button"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="M2x-tJ-1Sm"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <nil key="simulatedTopBarMetrics"/>
                     <connections>
-                        <outlet property="menuBarButton" destination="i2J-ug-M5A" id="Zqj-oc-9nE"/>
+                        <outlet property="categoriesTopBarView" destination="Fg2-g7-Pmf" id="dv6-T0-YBP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Otj-fC-KTJ" userLabel="First Responder" sceneMemberID="firstResponder"/>

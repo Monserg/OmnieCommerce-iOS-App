@@ -10,7 +10,6 @@
 //
 
 import UIKit
-import SWRevealViewController
 
 // MARK: - Input & Output protocols
 protocol CategoriesShowViewControllerInput {
@@ -21,12 +20,12 @@ protocol CategoriesShowViewControllerOutput {
     func doSomething(request: CategoriesShow.Something.Request)
 }
 
-class CategoriesShowViewController: UIViewController, CategoriesShowViewControllerInput {
+class CategoriesShowViewController: BaseViewController, CategoriesShowViewControllerInput {
     // MARK: - Properties
     var output: CategoriesShowViewControllerOutput!
     var router: CategoriesShowRouter!
     
-    @IBOutlet weak var menuBarButton: UIBarButtonItem!
+    @IBOutlet weak var categoriesTopBarView: TopBarView!
 
     
     // MARK: - Class initialization
@@ -41,21 +40,14 @@ class CategoriesShowViewController: UIViewController, CategoriesShowViewControll
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setup(self.categoriesTopBarView, title: "Categories")
+
         doSomethingOnLoad()
     }
     
 
     // MARK: - Custom Functions
     func doSomethingOnLoad() {
-        // Add Slide Menu actions
-        if revealViewController() != nil {
-            self.menuBarButton.target = revealViewController()
-            self.menuBarButton.action = #selector(SWRevealViewController.revealToggle(_:))
-            revealViewController().rightViewRevealWidth = 296
-            
-            view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-        }
-
         // NOTE: Ask the Interactor to do some work
         let request = CategoriesShow.Something.Request()
         output.doSomething(request: request)

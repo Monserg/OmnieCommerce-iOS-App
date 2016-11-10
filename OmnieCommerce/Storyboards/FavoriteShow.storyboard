@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Favorite-->
+        <!--Favorite Show View Controller-->
         <scene sceneID="eBJ-eB-wHn">
             <objects>
                 <viewController storyboardIdentifier="FavoriteShowVC" id="cl3-2v-9ef" customClass="FavoriteShowViewController" customModule="OmnieCommerce" customModuleProvider="target" sceneMemberID="viewController">
@@ -20,13 +20,27 @@
                     <view key="view" contentMode="scaleToFill" id="cZ9-jX-hvf">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dRx-wv-CTN" customClass="TopBarView" customModule="OmnieCommerce" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="EVF-a3-38m"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="dRx-wv-CTN" secondAttribute="trailing" id="A7D-Vq-oLZ"/>
+                            <constraint firstItem="dRx-wv-CTN" firstAttribute="top" secondItem="cZ9-jX-hvf" secondAttribute="top" id="dQu-i2-0Su"/>
+                            <constraint firstItem="dRx-wv-CTN" firstAttribute="leading" secondItem="cZ9-jX-hvf" secondAttribute="leading" id="wa0-gb-FfS"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Favorite" id="Nv2-Z9-lWC">
-                        <barButtonItem key="leftBarButtonItem" title="Item" id="M7v-y6-kBv" userLabel="Menu Bar Button"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="Nv2-Z9-lWC"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <nil key="simulatedTopBarMetrics"/>
                     <connections>
-                        <outlet property="menuBarButton" destination="M7v-y6-kBv" id="wv6-Gr-2Xr"/>
+                        <outlet property="favoriteTopBarView" destination="dRx-wv-CTN" id="H25-iq-dZj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fDu-SB-jh3" userLabel="First Responder" sceneMemberID="firstResponder"/>

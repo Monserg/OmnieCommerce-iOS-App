@@ -40,8 +40,8 @@ class OrdersShowViewController: BaseViewController, OrdersShowViewControllerInpu
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setup(self.ordersTopBarView)
-        
+        setup(self.ordersTopBarView, title: "Orders")
+
         doSomethingOnLoad()
     }
     

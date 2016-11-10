@@ -86,7 +86,27 @@ extension SlideMenuShowViewController: UITableViewDataSource {
 // MARK: - UITableViewDelegate
 extension SlideMenuShowViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.performSegue(withIdentifier: "MessagesShowSegue", sender: self)
+        switch indexPath.row {
+        case 0:
+            let ordersNC = UIStoryboard(name: "OrdersShow", bundle: nil).instantiateViewController(withIdentifier: "OrdersShowNC") as! BaseNavigationController            
+            revealViewController().pushFrontViewController(ordersNC.viewControllers.first, animated: true)
+            
+        case 1:
+            self.performSegue(withIdentifier: "MessagesShowSegue", sender: self)
+
+        case 2:
+            self.performSegue(withIdentifier: "FavoriteShowSegue", sender: self)
+
+        case 3:
+            self.performSegue(withIdentifier: "CategoriesShowSegue", sender: self)
+
+        case 4:
+            self.performSegue(withIdentifier: "NewsShowSegue", sender: self)
+
+        default:
+            self.performSegue(withIdentifier: "OrdersShowSegue", sender: self)
+
+        }
     }
 }
 
