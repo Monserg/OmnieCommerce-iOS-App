@@ -122,10 +122,10 @@
                     </view>
                     <connections>
                         <outlet property="tableView" destination="WZG-sg-g6U" id="xn8-B7-vcE"/>
-                        <segue destination="Wvw-lA-bT0" kind="show" id="Kqf-Tp-rjF"/>
-                        <segue destination="Bws-sL-lkw" kind="show" id="tjs-Tb-HVS"/>
-                        <segue destination="ovb-vd-9O9" kind="show" id="Xi5-nb-TSj"/>
                         <segue destination="QZX-hd-D6z" kind="custom" identifier="MessagesShowSegue" customClass="SWRevealViewControllerSeguePushController" id="sA9-Oo-rBh"/>
+                        <segue destination="Wvw-lA-bT0" kind="custom" identifier="FavoriteShowSegue" customClass="SWRevealViewControllerSeguePushController" id="Y06-6q-snD"/>
+                        <segue destination="Bws-sL-lkw" kind="custom" identifier="CategoriesShowSegue" customClass="SWRevealViewControllerSeguePushController" id="Tnv-O9-0c6"/>
+                        <segue destination="ovb-vd-9O9" kind="custom" identifier="NewsShowSegue" customClass="SWRevealViewControllerSeguePushController" id="PWn-d2-a8a"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lPB-Mb-8R7" userLabel="First Responder" sceneMemberID="firstResponder"/>

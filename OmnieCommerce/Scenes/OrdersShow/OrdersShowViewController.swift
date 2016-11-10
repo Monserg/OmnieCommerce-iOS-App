@@ -10,7 +10,6 @@
 //
 
 import UIKit
-import SWRevealViewController
 
 // MARK: - Input & Output protocols
 protocol OrdersShowViewControllerInput {
@@ -21,12 +20,12 @@ protocol OrdersShowViewControllerOutput {
     func doSomething(request: OrdersShow.Something.Request)
 }
 
-class OrdersShowViewController: UIViewController, OrdersShowViewControllerInput {
+class OrdersShowViewController: BaseViewController, OrdersShowViewControllerInput {
     // MARK: - Properties
     var output: OrdersShowViewControllerOutput!
     var router: OrdersShowRouter!
     
-    @IBOutlet weak var topBarView: TopBarView!
+    @IBOutlet weak var ordersTopBarView: TopBarView!
     
 
     // MARK: - Class initialization
@@ -41,21 +40,14 @@ class OrdersShowViewController: UIViewController, OrdersShowViewControllerInput 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setup(self.ordersTopBarView)
+        
         doSomethingOnLoad()
     }
     
 
     // MARK: - Custom Functions
     func doSomethingOnLoad() {
-        // Add Slide Menu actions
-        if revealViewController() != nil {
-            self.topBarView.menuButton.addTarget(revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), for: .touchUpInside)
-            revealViewController().rightViewRevealWidth = 296
-            revealViewController().frontViewShadowColor = UIColor.white
-
-            view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-        }
-        
         // NOTE: Ask the Interactor to do some work
         let request = OrdersShow.Something.Request()
         output.doSomething(request: request)

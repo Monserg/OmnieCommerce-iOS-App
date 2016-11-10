@@ -10,8 +10,6 @@
 //
 
 import UIKit
-import SWRevealViewController
-
 
 // MARK: - Input & Output protocols
 protocol MessagesShowViewControllerInput {
@@ -22,12 +20,12 @@ protocol MessagesShowViewControllerOutput {
     func doSomething(request: MessagesShow.Something.Request)
 }
 
-class MessagesShowViewController: UIViewController, MessagesShowViewControllerInput {
+class MessagesShowViewController: BaseViewController, MessagesShowViewControllerInput {
     // MARK: - Properties
     var output: MessagesShowViewControllerOutput!
     var router: MessagesShowRouter!
     
-    @IBOutlet weak var menuBarButton: UIBarButtonItem!
+    @IBOutlet weak var messagesTopBarView: TopBarView!
 
     
     // MARK: - Class initialization
@@ -42,21 +40,14 @@ class MessagesShowViewController: UIViewController, MessagesShowViewControllerIn
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setup(self.messagesTopBarView)
+        
         doSomethingOnLoad()
     }
     
 
     // MARK: - Custom Functions
     func doSomethingOnLoad() {
-        // Add Slide Menu actions
-        if revealViewController() != nil {
-//            self.menuBarButton.target = revealViewController()
-//            self.menuBarButton.action = #selector(SWRevealViewController.revealToggle(_:))
-            revealViewController().rightViewRevealWidth = 296
-            
-            view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-        }
-
         // NOTE: Ask the Interactor to do some work
         let request = MessagesShow.Something.Request()
         output.doSomething(request: request)
