@@ -49,9 +49,10 @@ class OrdersShowViewController: UIViewController, OrdersShowViewControllerInput 
     func doSomethingOnLoad() {
         // Add Slide Menu actions
         if revealViewController() != nil {
-            //self.topBarView.menuButton.addTarget(revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), for: .touchUpInside)
-            revealViewController().rightViewRevealWidth = 150
-            
+            self.topBarView.menuButton.addTarget(revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), for: .touchUpInside)
+            revealViewController().rightViewRevealWidth = 296
+            revealViewController().frontViewShadowColor = UIColor.white
+
             view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
         
