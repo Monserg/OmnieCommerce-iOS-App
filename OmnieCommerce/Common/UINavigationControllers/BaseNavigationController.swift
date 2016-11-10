@@ -14,6 +14,9 @@ class BaseNavigationController: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // Hide NavBar
+        self.isNavigationBarHidden = true
+        
         // Localize Title
         self.navigationBar.topItem?.title = self.navigationBar.topItem?.title?.localized()
     }

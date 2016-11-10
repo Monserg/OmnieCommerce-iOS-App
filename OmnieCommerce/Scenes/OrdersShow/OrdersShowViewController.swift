@@ -26,7 +26,7 @@ class OrdersShowViewController: UIViewController, OrdersShowViewControllerInput 
     var output: OrdersShowViewControllerOutput!
     var router: OrdersShowRouter!
     
-    @IBOutlet weak var menuBarButton: UIBarButtonItem!
+    @IBOutlet weak var topBarView: TopBarView!
     
 
     // MARK: - Class initialization
@@ -49,8 +49,7 @@ class OrdersShowViewController: UIViewController, OrdersShowViewControllerInput 
     func doSomethingOnLoad() {
         // Add Slide Menu actions
         if revealViewController() != nil {
-            self.menuBarButton.target = revealViewController()
-            self.menuBarButton.action = #selector(SWRevealViewController.revealToggle(_:))
+            //self.topBarView.menuButton.addTarget(revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), for: .touchUpInside)
             revealViewController().rightViewRevealWidth = 150
             
             view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())

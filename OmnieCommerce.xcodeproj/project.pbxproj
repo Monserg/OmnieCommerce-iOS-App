@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		2AED68836D19B23C3805FA4F /* Pods_OmnieCommerce.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7BBCD9A2BBB6D643C1B64E4 /* Pods_OmnieCommerce.framework */; };
+		B1228FAD1DD44D3400A90FBB /* TopBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1228FAC1DD44D3400A90FBB /* TopBarView.swift */; };
+		B1228FAF1DD44D5900A90FBB /* TopBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1228FAE1DD44D5800A90FBB /* TopBarView.xib */; };
 		B122F1BF1DD3575E0018A701 /* SlideMenuShow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B122F1BE1DD3575E0018A701 /* SlideMenuShow.storyboard */; };
 		B122F1DB1DD35B760018A701 /* OrdersShowConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B122F1D41DD35B760018A701 /* OrdersShowConfigurator.swift */; };
 		B122F1DC1DD35B760018A701 /* OrdersShowInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B122F1D51DD35B760018A701 /* OrdersShowInteractor.swift */; };
@@ -66,6 +68,8 @@
 /* Begin PBXFileReference section */
 		6AA4A159468D8EA48A132ED8 /* Pods-OmnieCommerce.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OmnieCommerce.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OmnieCommerce/Pods-OmnieCommerce.debug.xcconfig"; sourceTree = "<group>"; };
 		A7BBCD9A2BBB6D643C1B64E4 /* Pods_OmnieCommerce.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OmnieCommerce.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B1228FAC1DD44D3400A90FBB /* TopBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopBarView.swift; sourceTree = "<group>"; };
+		B1228FAE1DD44D5800A90FBB /* TopBarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TopBarView.xib; sourceTree = "<group>"; };
 		B122F1BE1DD3575E0018A701 /* SlideMenuShow.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SlideMenuShow.storyboard; sourceTree = "<group>"; };
 		B122F1D41DD35B760018A701 /* OrdersShowConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrdersShowConfigurator.swift; sourceTree = "<group>"; };
 		B122F1D51DD35B760018A701 /* OrdersShowInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrdersShowInteractor.swift; sourceTree = "<group>"; };
@@ -123,9 +127,9 @@
 		B122F24D1DD393360018A701 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B15FD4061DD1DD8C00782324 /* OmnieCommerce.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OmnieCommerce.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B15FD4091DD1DD8C00782324 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B15FD4101DD1DD8C00782324 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B15FD4101DD1DD8C00782324 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = OmnieCommerce/Assets.xcassets; sourceTree = "<group>"; };
 		B15FD4131DD1DD8C00782324 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		B15FD4151DD1DD8C00782324 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B15FD4151DD1DD8C00782324 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Info.plist; sourceTree = "<group>"; };
 		ED913E9D2C7028252CE0B73A /* Pods-OmnieCommerce.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OmnieCommerce.release.xcconfig"; path = "Pods/Target Support Files/Pods-OmnieCommerce/Pods-OmnieCommerce.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -158,11 +162,29 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		B1228FAA1DD44C7A00A90FBB /* UIViews */ = {
+			isa = PBXGroup;
+			children = (
+				B1228FAC1DD44D3400A90FBB /* TopBarView.swift */,
+				B1228FAE1DD44D5800A90FBB /* TopBarView.xib */,
+			);
+			path = UIViews;
+			sourceTree = "<group>";
+		};
+		B1228FAB1DD44CD700A90FBB /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				B15FD4151DD1DD8C00782324 /* Info.plist */,
+			);
+			path = "Support Files";
+			sourceTree = "<group>";
+		};
 		B122F1BD1DD357270018A701 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
 				B122F22F1DD35EE10018A701 /* CategoriesShow.storyboard */,
 				B122F22D1DD35ECC0018A701 /* FavoriteShow.storyboard */,
+				B15FD4121DD1DD8C00782324 /* LaunchScreen.storyboard */,
 				B122F22B1DD35E550018A701 /* MessagesShow.storyboard */,
 				B122F2311DD35EF10018A701 /* NewsShow.storyboard */,
 				B122F2291DD35D6F0018A701 /* OrdersShow.storyboard */,
@@ -275,6 +297,7 @@
 				B122F23F1DD371830018A701 /* UINavigationControllers */,
 				B122F23A1DD36F420018A701 /* UITableViewCells */,
 				B122F2381DD36F120018A701 /* UITextFields */,
+				B1228FAA1DD44C7A00A90FBB /* UIViews */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -320,6 +343,7 @@
 			isa = PBXGroup;
 			children = (
 				B15FD4081DD1DD8C00782324 /* OmnieCommerce */,
+				B15FD4101DD1DD8C00782324 /* Assets.xcassets */,
 				B15FD4071DD1DD8C00782324 /* Products */,
 				917033EC92127F3DB867C2E7 /* Pods */,
 				7D55511864B4F4B37A506981 /* Frameworks */,
@@ -338,13 +362,11 @@
 			isa = PBXGroup;
 			children = (
 				B15FD4091DD1DD8C00782324 /* AppDelegate.swift */,
-				B15FD4101DD1DD8C00782324 /* Assets.xcassets */,
 				B122F2331DD36DF70018A701 /* Common */,
-				B15FD4151DD1DD8C00782324 /* Info.plist */,
-				B15FD4121DD1DD8C00782324 /* LaunchScreen.storyboard */,
 				B122F2451DD392C60018A701 /* Resources */,
 				B122F1C01DD35A110018A701 /* Scenes */,
 				B122F1BD1DD357270018A701 /* Storyboards */,
+				B1228FAB1DD44CD700A90FBB /* Support Files */,
 			);
 			path = OmnieCommerce;
 			sourceTree = "<group>";
@@ -413,6 +435,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1228FAF1DD44D5900A90FBB /* TopBarView.xib in Resources */,
 				B122F2321DD35EF10018A701 /* NewsShow.storyboard in Resources */,
 				B122F2301DD35EE10018A701 /* CategoriesShow.storyboard in Resources */,
 				B122F22A1DD35D6F0018A701 /* OrdersShow.storyboard in Resources */,
@@ -490,6 +513,7 @@
 				B122F1DB1DD35B760018A701 /* OrdersShowConfigurator.swift in Sources */,
 				B122F2281DD35CC80018A701 /* SlideMenuShowWorker.swift in Sources */,
 				B122F2071DD35BEB0018A701 /* CategoriesShowModels.swift in Sources */,
+				B1228FAD1DD44D3400A90FBB /* TopBarView.swift in Sources */,
 				B122F1DD1DD35B760018A701 /* OrdersShowModels.swift in Sources */,
 				B122F1DF1DD35B760018A701 /* OrdersShowRouter.swift in Sources */,
 				B122F1E11DD35B760018A701 /* OrdersShowWorker.swift in Sources */,
@@ -549,6 +573,7 @@
 				B122F2441DD38A450018A701 /* uk */,
 			);
 			name = LaunchScreen.storyboard;
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -655,7 +680,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6AA4A159468D8EA48A132ED8 /* Pods-OmnieCommerce.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
 				INFOPLIST_FILE = OmnieCommerce/Info.plist;
@@ -671,7 +696,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = ED913E9D2C7028252CE0B73A /* Pods-OmnieCommerce.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
 				INFOPLIST_FILE = OmnieCommerce/Info.plist;

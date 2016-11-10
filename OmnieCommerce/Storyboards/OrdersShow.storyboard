@@ -20,13 +20,26 @@
                     <view key="view" contentMode="scaleToFill" id="oKk-pR-n0g">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" restorationIdentifier="TopBarView" translatesAutoresizingMaskIntoConstraints="NO" id="0nN-5h-FmO" userLabel="Top Bar View" customClass="TopBarView" customModule="OmnieCommerce" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="mHQ-gI-BBq"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="0nN-5h-FmO" secondAttribute="trailing" id="3D8-nk-ofk"/>
+                            <constraint firstItem="0nN-5h-FmO" firstAttribute="leading" secondItem="oKk-pR-n0g" secondAttribute="leading" id="CjR-yb-X9A"/>
+                            <constraint firstItem="0nN-5h-FmO" firstAttribute="top" secondItem="oKk-pR-n0g" secondAttribute="top" id="PKg-An-nEH"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Orders" id="5Gb-Un-bfT">
-                        <barButtonItem key="leftBarButtonItem" title="Item" id="6in-qy-H00" userLabel="Menu Bar Button"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Orders" id="5Gb-Un-bfT"/>
+                    <nil key="simulatedTopBarMetrics"/>
                     <connections>
-                        <outlet property="menuBarButton" destination="6in-qy-H00" id="Rpj-SX-m4f"/>
+                        <outlet property="topBarView" destination="0nN-5h-FmO" id="Hlm-Ih-uTe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x1J-23-oc8" userLabel="First Responder" sceneMemberID="firstResponder"/>
