@@ -28,12 +28,30 @@
                                     <constraint firstAttribute="height" constant="100" id="mHQ-gI-BBq"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BJ5-f8-RkF" customClass="CircleButton" customModule="OmnieCommerce" customModuleProvider="target">
+                                <rect key="frame" x="147" y="293" width="80" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="b5x-rC-s1i"/>
+                                    <constraint firstAttribute="height" constant="80" id="dtL-qZ-sif"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="40"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="BJ5-f8-RkF" firstAttribute="centerY" secondItem="oKk-pR-n0g" secondAttribute="centerY" id="1u9-5o-4OI"/>
                             <constraint firstAttribute="trailing" secondItem="0nN-5h-FmO" secondAttribute="trailing" id="3D8-nk-ofk"/>
                             <constraint firstItem="0nN-5h-FmO" firstAttribute="leading" secondItem="oKk-pR-n0g" secondAttribute="leading" id="CjR-yb-X9A"/>
                             <constraint firstItem="0nN-5h-FmO" firstAttribute="top" secondItem="oKk-pR-n0g" secondAttribute="top" id="PKg-An-nEH"/>
+                            <constraint firstItem="BJ5-f8-RkF" firstAttribute="centerX" secondItem="oKk-pR-n0g" secondAttribute="centerX" id="ne8-Ca-rmt"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Orders" id="5Gb-Un-bfT"/>

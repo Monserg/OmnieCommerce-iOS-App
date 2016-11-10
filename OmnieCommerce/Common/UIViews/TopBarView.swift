@@ -12,8 +12,9 @@ import UIKit
 class TopBarView: UIView {
     // MARK: - Properties
     @IBOutlet var view: UIView!
-    @IBOutlet weak var menuButton: UIButton!
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var menuButton: UIButton!
+    @IBOutlet weak var searchButton: UIButton!
     
     
     // MARK: - Class Functions
