@@ -51,7 +51,7 @@ class CategoriesShowViewController: UIViewController, CategoriesShowViewControll
         if revealViewController() != nil {
             self.menuBarButton.target = revealViewController()
             self.menuBarButton.action = #selector(SWRevealViewController.revealToggle(_:))
-            revealViewController().rightViewRevealWidth = 150
+            revealViewController().rightViewRevealWidth = 296
             
             view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }

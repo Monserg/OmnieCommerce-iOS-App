@@ -50,9 +50,9 @@ class MessagesShowViewController: UIViewController, MessagesShowViewControllerIn
     func doSomethingOnLoad() {
         // Add Slide Menu actions
         if revealViewController() != nil {
-            self.menuBarButton.target = revealViewController()
-            self.menuBarButton.action = #selector(SWRevealViewController.revealToggle(_:))
-            revealViewController().rightViewRevealWidth = 150
+//            self.menuBarButton.target = revealViewController()
+//            self.menuBarButton.action = #selector(SWRevealViewController.revealToggle(_:))
+            revealViewController().rightViewRevealWidth = 296
             
             view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }

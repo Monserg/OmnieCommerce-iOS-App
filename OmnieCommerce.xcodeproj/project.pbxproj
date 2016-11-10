@@ -10,6 +10,8 @@
 		2AED68836D19B23C3805FA4F /* Pods_OmnieCommerce.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7BBCD9A2BBB6D643C1B64E4 /* Pods_OmnieCommerce.framework */; };
 		B1228FAD1DD44D3400A90FBB /* TopBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1228FAC1DD44D3400A90FBB /* TopBarView.swift */; };
 		B1228FAF1DD44D5900A90FBB /* TopBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1228FAE1DD44D5800A90FBB /* TopBarView.xib */; };
+		B1228FB21DD47C9F00A90FBB /* MenuViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1228FB11DD47C9F00A90FBB /* MenuViewCell.swift */; };
+		B1228FB51DD4856A00A90FBB /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1228FB41DD4856A00A90FBB /* MenuItem.swift */; };
 		B122F1BF1DD3575E0018A701 /* SlideMenuShow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B122F1BE1DD3575E0018A701 /* SlideMenuShow.storyboard */; };
 		B122F1DB1DD35B760018A701 /* OrdersShowConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B122F1D41DD35B760018A701 /* OrdersShowConfigurator.swift */; };
 		B122F1DC1DD35B760018A701 /* OrdersShowInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B122F1D51DD35B760018A701 /* OrdersShowInteractor.swift */; };
@@ -70,6 +72,8 @@
 		A7BBCD9A2BBB6D643C1B64E4 /* Pods_OmnieCommerce.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OmnieCommerce.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1228FAC1DD44D3400A90FBB /* TopBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopBarView.swift; sourceTree = "<group>"; };
 		B1228FAE1DD44D5800A90FBB /* TopBarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TopBarView.xib; sourceTree = "<group>"; };
+		B1228FB11DD47C9F00A90FBB /* MenuViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewCell.swift; sourceTree = "<group>"; };
+		B1228FB41DD4856A00A90FBB /* MenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
 		B122F1BE1DD3575E0018A701 /* SlideMenuShow.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SlideMenuShow.storyboard; sourceTree = "<group>"; };
 		B122F1D41DD35B760018A701 /* OrdersShowConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrdersShowConfigurator.swift; sourceTree = "<group>"; };
 		B122F1D51DD35B760018A701 /* OrdersShowInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrdersShowInteractor.swift; sourceTree = "<group>"; };
@@ -177,6 +181,21 @@
 				B15FD4151DD1DD8C00782324 /* Info.plist */,
 			);
 			path = "Support Files";
+			sourceTree = "<group>";
+		};
+		B1228FB01DD47C2B00A90FBB /* UITableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = UITableViewCell;
+			sourceTree = "<group>";
+		};
+		B1228FB31DD4853E00A90FBB /* DataModel */ = {
+			isa = PBXGroup;
+			children = (
+				B1228FB41DD4856A00A90FBB /* MenuItem.swift */,
+			);
+			path = DataModel;
 			sourceTree = "<group>";
 		};
 		B122F1BD1DD357270018A701 /* Storyboards */ = {
@@ -293,8 +312,10 @@
 		B122F2331DD36DF70018A701 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				B1228FB31DD4853E00A90FBB /* DataModel */,
 				B122F2391DD36F220018A701 /* UIButtons */,
 				B122F23F1DD371830018A701 /* UINavigationControllers */,
+				B1228FB01DD47C2B00A90FBB /* UITableViewCell */,
 				B122F23A1DD36F420018A701 /* UITableViewCells */,
 				B122F2381DD36F120018A701 /* UITextFields */,
 				B1228FAA1DD44C7A00A90FBB /* UIViews */,
@@ -319,6 +340,7 @@
 		B122F23A1DD36F420018A701 /* UITableViewCells */ = {
 			isa = PBXGroup;
 			children = (
+				B1228FB11DD47C9F00A90FBB /* MenuViewCell.swift */,
 			);
 			path = UITableViewCells;
 			sourceTree = "<group>";
@@ -510,6 +532,7 @@
 				B122F2091DD35BEB0018A701 /* CategoriesShowRouter.swift in Sources */,
 				B122F1EB1DD35BA70018A701 /* MessagesShowModels.swift in Sources */,
 				B122F2261DD35CC80018A701 /* SlideMenuShowRouter.swift in Sources */,
+				B1228FB51DD4856A00A90FBB /* MenuItem.swift in Sources */,
 				B122F1DB1DD35B760018A701 /* OrdersShowConfigurator.swift in Sources */,
 				B122F2281DD35CC80018A701 /* SlideMenuShowWorker.swift in Sources */,
 				B122F2071DD35BEB0018A701 /* CategoriesShowModels.swift in Sources */,
@@ -532,6 +555,7 @@
 				B122F1EC1DD35BA70018A701 /* MessagesShowPresenter.swift in Sources */,
 				B122F1DE1DD35B760018A701 /* OrdersShowPresenter.swift in Sources */,
 				B122F2271DD35CC80018A701 /* SlideMenuShowViewController.swift in Sources */,
+				B1228FB21DD47C9F00A90FBB /* MenuViewCell.swift in Sources */,
 				B122F1EA1DD35BA70018A701 /* MessagesShowInteractor.swift in Sources */,
 				B122F2141DD35C2C0018A701 /* NewsShowInteractor.swift in Sources */,
 				B122F1FC1DD35BC70018A701 /* FavoriteShowViewController.swift in Sources */,

@@ -25,7 +25,9 @@ class SlideMenuShowViewController: UIViewController, SlideMenuShowViewController
     var output: SlideMenuShowViewControllerOutput!
     var router: SlideMenuShowRouter!
     
+    @IBOutlet weak var tableView: UITableView!
 
+    
     // MARK: - Class initialization
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -37,6 +39,10 @@ class SlideMenuShowViewController: UIViewController, SlideMenuShowViewController
     // MARK: - Class Functions
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Delegates
+        self.tableView.dataSource = self
+        self.tableView.delegate = self
         
         doSomethingOnLoad()
     }
@@ -55,3 +61,34 @@ class SlideMenuShowViewController: UIViewController, SlideMenuShowViewController
         // nameTextField.text = viewModel.name
     }
 }
+
+
+// MARK: - UITableViewDataSource
+extension SlideMenuShowViewController: UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 5
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MenuCell", for: indexPath) as! MenuViewCell
+        
+        cell.titleLabel.text = "Label \(indexPath.row)"
+        
+        return cell
+    }
+}
+
+
+// MARK: - UITableViewDelegate
+extension SlideMenuShowViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.performSegue(withIdentifier: "MessagesShowSegue", sender: self)
+    }
+}
+
+
+// 

@@ -58,18 +58,111 @@
                                     <constraint firstAttribute="height" constant="163" id="5iQ-qV-hiL"/>
                                 </constraints>
                             </imageView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WZG-sg-g6U">
+                                <rect key="frame" x="0.0" y="163" width="375" height="504"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MenuCell" rowHeight="76" id="73d-ES-P2q" customClass="MenuViewCell" customModule="OmnieCommerce" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="76"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="73d-ES-P2q" id="jiu-Jx-Ka4">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="76"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="K6d-kZ-LK3" userLabel="Menu Icon Image View">
+                                                    <rect key="frame" x="20" y="28" width="20" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="20" id="Mf0-cs-Weg"/>
+                                                        <constraint firstAttribute="width" constant="20" id="XjT-Te-td2"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J7d-7z-vYN" userLabel="Menu Title Label">
+                                                    <rect key="frame" x="60" y="27.5" width="255" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ujP-xh-nUq" userLabel="Menu Accessory Image View">
+                                                    <rect key="frame" x="335" y="28" width="20" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="20" id="VGO-kA-rCD"/>
+                                                        <constraint firstAttribute="height" constant="20" id="emd-cm-DuY"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="K6d-kZ-LK3" firstAttribute="leading" secondItem="jiu-Jx-Ka4" secondAttribute="leading" constant="20" id="RPV-sY-j5w"/>
+                                                <constraint firstItem="ujP-xh-nUq" firstAttribute="leading" secondItem="J7d-7z-vYN" secondAttribute="trailing" constant="20" id="WQp-uU-amr"/>
+                                                <constraint firstItem="K6d-kZ-LK3" firstAttribute="centerY" secondItem="jiu-Jx-Ka4" secondAttribute="centerY" id="gFQ-80-d2q"/>
+                                                <constraint firstItem="J7d-7z-vYN" firstAttribute="leading" secondItem="K6d-kZ-LK3" secondAttribute="trailing" constant="20" id="h3Q-nH-OCY"/>
+                                                <constraint firstItem="J7d-7z-vYN" firstAttribute="centerY" secondItem="jiu-Jx-Ka4" secondAttribute="centerY" id="n2i-hp-vUV"/>
+                                                <constraint firstItem="ujP-xh-nUq" firstAttribute="centerY" secondItem="jiu-Jx-Ka4" secondAttribute="centerY" id="oYC-5C-NLR"/>
+                                                <constraint firstAttribute="trailing" secondItem="ujP-xh-nUq" secondAttribute="trailing" constant="20" id="tOM-em-x9r"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="accessoryImageView" destination="ujP-xh-nUq" id="Ya2-7e-PrH"/>
+                                            <outlet property="iconImageView" destination="K6d-kZ-LK3" id="bDD-aH-fNR"/>
+                                            <outlet property="titleLabel" destination="J7d-7z-vYN" id="Xlv-qY-lIf"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="WZG-sg-g6U" firstAttribute="top" secondItem="vfP-Q7-LZg" secondAttribute="bottom" id="5v4-0M-h6k"/>
                             <constraint firstItem="vfP-Q7-LZg" firstAttribute="top" secondItem="EVF-jT-32L" secondAttribute="top" id="CCZ-LV-b0O"/>
                             <constraint firstItem="vfP-Q7-LZg" firstAttribute="leading" secondItem="EVF-jT-32L" secondAttribute="leading" id="IjJ-Fi-OW4"/>
+                            <constraint firstItem="WZG-sg-g6U" firstAttribute="leading" secondItem="EVF-jT-32L" secondAttribute="leading" id="Kei-9N-pqE"/>
+                            <constraint firstItem="xha-dY-dTj" firstAttribute="top" secondItem="WZG-sg-g6U" secondAttribute="bottom" id="N5k-zB-lS3"/>
                             <constraint firstAttribute="trailing" secondItem="vfP-Q7-LZg" secondAttribute="trailing" id="OzN-cV-MAX"/>
+                            <constraint firstAttribute="trailing" secondItem="WZG-sg-g6U" secondAttribute="trailing" id="lDB-c6-aaE"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="WZG-sg-g6U" id="xn8-B7-vcE"/>
+                        <segue destination="Wvw-lA-bT0" kind="show" id="Kqf-Tp-rjF"/>
+                        <segue destination="Bws-sL-lkw" kind="show" id="tjs-Tb-HVS"/>
+                        <segue destination="ovb-vd-9O9" kind="show" id="Xi5-nb-TSj"/>
+                        <segue destination="QZX-hd-D6z" kind="custom" identifier="MessagesShowSegue" customClass="SWRevealViewControllerSeguePushController" id="sA9-Oo-rBh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lPB-Mb-8R7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1266" y="155"/>
+        </scene>
+        <!--MessagesShowNC-->
+        <scene sceneID="OuL-Ca-OVY">
+            <objects>
+                <viewControllerPlaceholder storyboardName="MessagesShow" referencedIdentifier="MessagesShowNC" id="QZX-hd-D6z" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zMh-77-Y5J" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1986" y="29"/>
+        </scene>
+        <!--FavoriteShowNC-->
+        <scene sceneID="Ta1-8J-grG">
+            <objects>
+                <viewControllerPlaceholder storyboardName="FavoriteShow" referencedIdentifier="FavoriteShowNC" id="Wvw-lA-bT0" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="edq-aR-ahx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1977" y="103"/>
+        </scene>
+        <!--CategoriesShowNC-->
+        <scene sceneID="cEn-J3-UV5">
+            <objects>
+                <viewControllerPlaceholder storyboardName="CategoriesShow" referencedIdentifier="CategoriesShowNC" id="Bws-sL-lkw" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sfk-7m-hif" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1990" y="182"/>
+        </scene>
+        <!--NewsShowNC-->
+        <scene sceneID="vYu-jR-xBm">
+            <objects>
+                <viewControllerPlaceholder storyboardName="NewsShow" referencedIdentifier="NewsShowNC" id="ovb-vd-9O9" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HVe-TN-n4a" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1964" y="262"/>
         </scene>
     </scenes>
 </document>
