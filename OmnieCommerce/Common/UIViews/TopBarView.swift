@@ -44,6 +44,8 @@ class TopBarView: UIView {
         view = loadViewFromNib()
         view.frame = bounds
         view.autoresizingMask = [UIViewAutoresizing.flexibleWidth, UIViewAutoresizing.flexibleHeight]
+        view.backgroundColor = Config.Colors.topView
+        
         addSubview(view)
     }
     
@@ -54,13 +56,4 @@ class TopBarView: UIView {
         
         return view
     }
-    
-    
-//    required init?(coder aDecoder: NSCoder) {
-//        super.init(coder: aDecoder)
-//        
-//        UINib(nibName: "TopBarView", bundle: nil).instantiate(withOwner: self, options: nil)
-//        addSubview(view)
-//        view.frame = self.bounds
-//    }
 }
