@@ -44,9 +44,16 @@ class TopBarView: UIView {
         view = loadViewFromNib()
         view.frame = bounds
         view.autoresizingMask = [UIViewAutoresizing.flexibleWidth, UIViewAutoresizing.flexibleHeight]
-        view.backgroundColor = Config.Colors.topView
+        
+        // Config
+        titleLabel.font = Config.Labels.Fonts.helveticaNeueCyr32
+        titleLabel.textColor = Config.Labels.Colors.veryLightGray
+        view.backgroundColor = Config.Views.Colors.darkCyan
         
         addSubview(view)
+
+        // FIXME: USE FOR KERN WORD
+        // titleLabel.attributedText = NSAttributedString(string: "commerce", attributes: Config.Labels.Fonts.helveticaNeueCyrRoman16Kern486)
     }
     
     func loadViewFromNib() -> UIView {

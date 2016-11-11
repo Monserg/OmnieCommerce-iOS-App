@@ -68,6 +68,31 @@
 		B15FD4111DD1DD8C00782324 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B15FD4101DD1DD8C00782324 /* Assets.xcassets */; };
 		B15FD4141DD1DD8C00782324 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B15FD4121DD1DD8C00782324 /* LaunchScreen.storyboard */; };
 		B1BF92441DD5FC8000BECBBB /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1BF92431DD5FC8000BECBBB /* Config.swift */; };
+		B1BF92681DD6516C00BECBBB /* helveticaneuecyr-black.otf in Resources */ = {isa = PBXBuildFile; fileRef = B1BF924F1DD650F400BECBBB /* helveticaneuecyr-black.otf */; };
+		B1BF92691DD6516C00BECBBB /* helveticaneuecyr-blackitalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = B1BF92501DD650F400BECBBB /* helveticaneuecyr-blackitalic.otf */; };
+		B1BF926A1DD6516C00BECBBB /* helveticaneuecyr-bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = B1BF92511DD650F400BECBBB /* helveticaneuecyr-bold.otf */; };
+		B1BF926B1DD6516C00BECBBB /* helveticaneuecyr-bolditalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = B1BF92521DD650F400BECBBB /* helveticaneuecyr-bolditalic.otf */; };
+		B1BF926C1DD6516C00BECBBB /* helveticaneuecyr-heavy.otf in Resources */ = {isa = PBXBuildFile; fileRef = B1BF92531DD650F400BECBBB /* helveticaneuecyr-heavy.otf */; };
+		B1BF926D1DD6516C00BECBBB /* helveticaneuecyr-heavyitalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = B1BF92541DD650F400BECBBB /* helveticaneuecyr-heavyitalic.otf */; };
+		B1BF926E1DD6516C00BECBBB /* helveticaneuecyr-italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = B1BF92551DD650F400BECBBB /* helveticaneuecyr-italic.otf */; };
+		B1BF926F1DD6516C00BECBBB /* helveticaneuecyr-light.otf in Resources */ = {isa = PBXBuildFile; fileRef = B1BF92561DD650F400BECBBB /* helveticaneuecyr-light.otf */; };
+		B1BF92701DD6516C00BECBBB /* helveticaneuecyr-lightitalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = B1BF92571DD650F400BECBBB /* helveticaneuecyr-lightitalic.otf */; };
+		B1BF92711DD6516C00BECBBB /* helveticaneuecyr-medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = B1BF92581DD650F400BECBBB /* helveticaneuecyr-medium.otf */; };
+		B1BF92721DD6516C00BECBBB /* helveticaneuecyr-mediumitaicl.otf in Resources */ = {isa = PBXBuildFile; fileRef = B1BF92591DD650F400BECBBB /* helveticaneuecyr-mediumitaicl.otf */; };
+		B1BF92731DD6516C00BECBBB /* helveticaneuecyr-roman.otf in Resources */ = {isa = PBXBuildFile; fileRef = B1BF925A1DD650F400BECBBB /* helveticaneuecyr-roman.otf */; };
+		B1BF92741DD6516C00BECBBB /* helveticaneuecyr-thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = B1BF925B1DD650F400BECBBB /* helveticaneuecyr-thin.otf */; };
+		B1BF92751DD6516C00BECBBB /* helveticaneuecyr-thinitalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = B1BF925C1DD650F400BECBBB /* helveticaneuecyr-thinitalic.otf */; };
+		B1BF92761DD6516C00BECBBB /* helveticaneuecyr-ultralight.otf in Resources */ = {isa = PBXBuildFile; fileRef = B1BF925D1DD650F400BECBBB /* helveticaneuecyr-ultralight.otf */; };
+		B1BF92771DD6516C00BECBBB /* helveticaneuecyr-ultralightitalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = B1BF925E1DD650F400BECBBB /* helveticaneuecyr-ultralightitalic.otf */; };
+		B1BF92781DD6516C00BECBBB /* UBUNTU-B.TTF in Resources */ = {isa = PBXBuildFile; fileRef = B1BF925F1DD650F400BECBBB /* UBUNTU-B.TTF */; };
+		B1BF92791DD6516C00BECBBB /* UBUNTU-BI.TTF in Resources */ = {isa = PBXBuildFile; fileRef = B1BF92601DD650F400BECBBB /* UBUNTU-BI.TTF */; };
+		B1BF927A1DD6516C00BECBBB /* UBUNTU-C.TTF in Resources */ = {isa = PBXBuildFile; fileRef = B1BF92611DD650F400BECBBB /* UBUNTU-C.TTF */; };
+		B1BF927B1DD6516C00BECBBB /* UBUNTU-I.TTF in Resources */ = {isa = PBXBuildFile; fileRef = B1BF92621DD650F400BECBBB /* UBUNTU-I.TTF */; };
+		B1BF927C1DD6516C00BECBBB /* UBUNTU-L.TTF in Resources */ = {isa = PBXBuildFile; fileRef = B1BF92631DD650F400BECBBB /* UBUNTU-L.TTF */; };
+		B1BF927D1DD6516C00BECBBB /* UBUNTU-LI.TTF in Resources */ = {isa = PBXBuildFile; fileRef = B1BF92641DD650F400BECBBB /* UBUNTU-LI.TTF */; };
+		B1BF927E1DD6516C00BECBBB /* UBUNTU-M.TTF in Resources */ = {isa = PBXBuildFile; fileRef = B1BF92651DD650F400BECBBB /* UBUNTU-M.TTF */; };
+		B1BF927F1DD6516C00BECBBB /* UBUNTU-MI.TTF in Resources */ = {isa = PBXBuildFile; fileRef = B1BF92661DD650F400BECBBB /* UBUNTU-MI.TTF */; };
+		B1BF92801DD6516C00BECBBB /* UBUNTU-R.TTF in Resources */ = {isa = PBXBuildFile; fileRef = B1BF92671DD650F400BECBBB /* UBUNTU-R.TTF */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -140,6 +165,31 @@
 		B15FD4131DD1DD8C00782324 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B15FD4151DD1DD8C00782324 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Info.plist; sourceTree = "<group>"; };
 		B1BF92431DD5FC8000BECBBB /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		B1BF924F1DD650F400BECBBB /* helveticaneuecyr-black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "helveticaneuecyr-black.otf"; sourceTree = "<group>"; };
+		B1BF92501DD650F400BECBBB /* helveticaneuecyr-blackitalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "helveticaneuecyr-blackitalic.otf"; sourceTree = "<group>"; };
+		B1BF92511DD650F400BECBBB /* helveticaneuecyr-bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "helveticaneuecyr-bold.otf"; sourceTree = "<group>"; };
+		B1BF92521DD650F400BECBBB /* helveticaneuecyr-bolditalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "helveticaneuecyr-bolditalic.otf"; sourceTree = "<group>"; };
+		B1BF92531DD650F400BECBBB /* helveticaneuecyr-heavy.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "helveticaneuecyr-heavy.otf"; sourceTree = "<group>"; };
+		B1BF92541DD650F400BECBBB /* helveticaneuecyr-heavyitalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "helveticaneuecyr-heavyitalic.otf"; sourceTree = "<group>"; };
+		B1BF92551DD650F400BECBBB /* helveticaneuecyr-italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "helveticaneuecyr-italic.otf"; sourceTree = "<group>"; };
+		B1BF92561DD650F400BECBBB /* helveticaneuecyr-light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "helveticaneuecyr-light.otf"; sourceTree = "<group>"; };
+		B1BF92571DD650F400BECBBB /* helveticaneuecyr-lightitalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "helveticaneuecyr-lightitalic.otf"; sourceTree = "<group>"; };
+		B1BF92581DD650F400BECBBB /* helveticaneuecyr-medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "helveticaneuecyr-medium.otf"; sourceTree = "<group>"; };
+		B1BF92591DD650F400BECBBB /* helveticaneuecyr-mediumitaicl.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "helveticaneuecyr-mediumitaicl.otf"; sourceTree = "<group>"; };
+		B1BF925A1DD650F400BECBBB /* helveticaneuecyr-roman.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "helveticaneuecyr-roman.otf"; sourceTree = "<group>"; };
+		B1BF925B1DD650F400BECBBB /* helveticaneuecyr-thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "helveticaneuecyr-thin.otf"; sourceTree = "<group>"; };
+		B1BF925C1DD650F400BECBBB /* helveticaneuecyr-thinitalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "helveticaneuecyr-thinitalic.otf"; sourceTree = "<group>"; };
+		B1BF925D1DD650F400BECBBB /* helveticaneuecyr-ultralight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "helveticaneuecyr-ultralight.otf"; sourceTree = "<group>"; };
+		B1BF925E1DD650F400BECBBB /* helveticaneuecyr-ultralightitalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "helveticaneuecyr-ultralightitalic.otf"; sourceTree = "<group>"; };
+		B1BF925F1DD650F400BECBBB /* UBUNTU-B.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "UBUNTU-B.TTF"; sourceTree = "<group>"; };
+		B1BF92601DD650F400BECBBB /* UBUNTU-BI.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "UBUNTU-BI.TTF"; sourceTree = "<group>"; };
+		B1BF92611DD650F400BECBBB /* UBUNTU-C.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "UBUNTU-C.TTF"; sourceTree = "<group>"; };
+		B1BF92621DD650F400BECBBB /* UBUNTU-I.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "UBUNTU-I.TTF"; sourceTree = "<group>"; };
+		B1BF92631DD650F400BECBBB /* UBUNTU-L.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "UBUNTU-L.TTF"; sourceTree = "<group>"; };
+		B1BF92641DD650F400BECBBB /* UBUNTU-LI.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "UBUNTU-LI.TTF"; sourceTree = "<group>"; };
+		B1BF92651DD650F400BECBBB /* UBUNTU-M.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "UBUNTU-M.TTF"; sourceTree = "<group>"; };
+		B1BF92661DD650F400BECBBB /* UBUNTU-MI.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "UBUNTU-MI.TTF"; sourceTree = "<group>"; };
+		B1BF92671DD650F400BECBBB /* UBUNTU-R.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "UBUNTU-R.TTF"; sourceTree = "<group>"; };
 		ED913E9D2C7028252CE0B73A /* Pods-OmnieCommerce.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OmnieCommerce.release.xcconfig"; path = "Pods/Target Support Files/Pods-OmnieCommerce/Pods-OmnieCommerce.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -381,6 +431,7 @@
 		B122F2451DD392C60018A701 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				B1BF924E1DD6508A00BECBBB /* Fonts */,
 				B122F24A1DD393330018A701 /* Localizable.strings */,
 			);
 			path = Resources;
@@ -416,6 +467,38 @@
 				B1228FAB1DD44CD700A90FBB /* Support Files */,
 			);
 			path = OmnieCommerce;
+			sourceTree = "<group>";
+		};
+		B1BF924E1DD6508A00BECBBB /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				B1BF924F1DD650F400BECBBB /* helveticaneuecyr-black.otf */,
+				B1BF92501DD650F400BECBBB /* helveticaneuecyr-blackitalic.otf */,
+				B1BF92511DD650F400BECBBB /* helveticaneuecyr-bold.otf */,
+				B1BF92521DD650F400BECBBB /* helveticaneuecyr-bolditalic.otf */,
+				B1BF92531DD650F400BECBBB /* helveticaneuecyr-heavy.otf */,
+				B1BF92541DD650F400BECBBB /* helveticaneuecyr-heavyitalic.otf */,
+				B1BF92551DD650F400BECBBB /* helveticaneuecyr-italic.otf */,
+				B1BF92561DD650F400BECBBB /* helveticaneuecyr-light.otf */,
+				B1BF92571DD650F400BECBBB /* helveticaneuecyr-lightitalic.otf */,
+				B1BF92581DD650F400BECBBB /* helveticaneuecyr-medium.otf */,
+				B1BF92591DD650F400BECBBB /* helveticaneuecyr-mediumitaicl.otf */,
+				B1BF925A1DD650F400BECBBB /* helveticaneuecyr-roman.otf */,
+				B1BF925B1DD650F400BECBBB /* helveticaneuecyr-thin.otf */,
+				B1BF925C1DD650F400BECBBB /* helveticaneuecyr-thinitalic.otf */,
+				B1BF925D1DD650F400BECBBB /* helveticaneuecyr-ultralight.otf */,
+				B1BF925E1DD650F400BECBBB /* helveticaneuecyr-ultralightitalic.otf */,
+				B1BF925F1DD650F400BECBBB /* UBUNTU-B.TTF */,
+				B1BF92601DD650F400BECBBB /* UBUNTU-BI.TTF */,
+				B1BF92611DD650F400BECBBB /* UBUNTU-C.TTF */,
+				B1BF92621DD650F400BECBBB /* UBUNTU-I.TTF */,
+				B1BF92631DD650F400BECBBB /* UBUNTU-L.TTF */,
+				B1BF92641DD650F400BECBBB /* UBUNTU-LI.TTF */,
+				B1BF92651DD650F400BECBBB /* UBUNTU-M.TTF */,
+				B1BF92661DD650F400BECBBB /* UBUNTU-MI.TTF */,
+				B1BF92671DD650F400BECBBB /* UBUNTU-R.TTF */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -483,6 +566,31 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1BF92681DD6516C00BECBBB /* helveticaneuecyr-black.otf in Resources */,
+				B1BF92691DD6516C00BECBBB /* helveticaneuecyr-blackitalic.otf in Resources */,
+				B1BF926A1DD6516C00BECBBB /* helveticaneuecyr-bold.otf in Resources */,
+				B1BF926B1DD6516C00BECBBB /* helveticaneuecyr-bolditalic.otf in Resources */,
+				B1BF926C1DD6516C00BECBBB /* helveticaneuecyr-heavy.otf in Resources */,
+				B1BF926D1DD6516C00BECBBB /* helveticaneuecyr-heavyitalic.otf in Resources */,
+				B1BF926E1DD6516C00BECBBB /* helveticaneuecyr-italic.otf in Resources */,
+				B1BF926F1DD6516C00BECBBB /* helveticaneuecyr-light.otf in Resources */,
+				B1BF92701DD6516C00BECBBB /* helveticaneuecyr-lightitalic.otf in Resources */,
+				B1BF92711DD6516C00BECBBB /* helveticaneuecyr-medium.otf in Resources */,
+				B1BF92721DD6516C00BECBBB /* helveticaneuecyr-mediumitaicl.otf in Resources */,
+				B1BF92731DD6516C00BECBBB /* helveticaneuecyr-roman.otf in Resources */,
+				B1BF92741DD6516C00BECBBB /* helveticaneuecyr-thin.otf in Resources */,
+				B1BF92751DD6516C00BECBBB /* helveticaneuecyr-thinitalic.otf in Resources */,
+				B1BF92761DD6516C00BECBBB /* helveticaneuecyr-ultralight.otf in Resources */,
+				B1BF92771DD6516C00BECBBB /* helveticaneuecyr-ultralightitalic.otf in Resources */,
+				B1BF92781DD6516C00BECBBB /* UBUNTU-B.TTF in Resources */,
+				B1BF92791DD6516C00BECBBB /* UBUNTU-BI.TTF in Resources */,
+				B1BF927A1DD6516C00BECBBB /* UBUNTU-C.TTF in Resources */,
+				B1BF927B1DD6516C00BECBBB /* UBUNTU-I.TTF in Resources */,
+				B1BF927C1DD6516C00BECBBB /* UBUNTU-L.TTF in Resources */,
+				B1BF927D1DD6516C00BECBBB /* UBUNTU-LI.TTF in Resources */,
+				B1BF927E1DD6516C00BECBBB /* UBUNTU-M.TTF in Resources */,
+				B1BF927F1DD6516C00BECBBB /* UBUNTU-MI.TTF in Resources */,
+				B1BF92801DD6516C00BECBBB /* UBUNTU-R.TTF in Resources */,
 				B1228FAF1DD44D5900A90FBB /* TopBarView.xib in Resources */,
 				B122F2321DD35EF10018A701 /* NewsShow.storyboard in Resources */,
 				B122F2301DD35EE10018A701 /* CategoriesShow.storyboard in Resources */,
@@ -733,7 +841,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6AA4A159468D8EA48A132ED8 /* Pods-OmnieCommerce.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
@@ -752,7 +860,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = ED913E9D2C7028252CE0B73A /* Pods-OmnieCommerce.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";

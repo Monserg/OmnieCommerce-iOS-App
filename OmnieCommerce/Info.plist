@@ -2,6 +2,34 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string>helveticaneuecyr-black.otf</string>
+		<string>helveticaneuecyr-blackitalic.otf</string>
+		<string>helveticaneuecyr-bold.otf</string>
+		<string>helveticaneuecyr-bolditalic.otf</string>
+		<string>helveticaneuecyr-heavy.otf</string>
+		<string>helveticaneuecyr-heavyitalic.otf</string>
+		<string>helveticaneuecyr-italic.otf</string>
+		<string>helveticaneuecyr-light.otf</string>
+		<string>helveticaneuecyr-lightitalic.otf</string>
+		<string>helveticaneuecyr-medium.otf</string>
+		<string>helveticaneuecyr-mediumitaicl.otf</string>
+		<string>helveticaneuecyr-roman.otf</string>
+		<string>helveticaneuecyr-thin.otf</string>
+		<string>helveticaneuecyr-thinitalic.otf</string>
+		<string>helveticaneuecyr-ultralight.otf</string>
+		<string>helveticaneuecyr-ultralightitalic.otf</string>
+		<string>UBUNTU-B.TTF</string>
+		<string>UBUNTU-BI.TTF</string>
+		<string>UBUNTU-C.TTF</string>
+		<string>UBUNTU-I.TTF</string>
+		<string>UBUNTU-L.TTF</string>
+		<string>UBUNTU-LI.TTF</string>
+		<string>UBUNTU-M.TTF</string>
+		<string>UBUNTU-MI.TTF</string>
+		<string>UBUNTU-R.TTF</string>
+	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
 	<key>CFBundleDevelopmentRegion</key>

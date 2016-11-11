@@ -5,29 +5,90 @@
 //  Created by msm72 on 11.11.16.
 //  Copyright © 2016 Omniesoft. All rights reserved.
 //
+//  http://www.colorhexa.com/009395
+//  http://iosfonts.com
+//
 
 import UIKit
 
 struct Config {
-    struct Theme {
-        // Background color
-        static let debugBackground = UIColor.purple
+    struct Themes {
+        struct Fonts {
+        }
         
-        // Button colors
-        static let buttonDisabled       =   UIColor(hexString: "#ffe700ff")
-        static let buttonNormal         =   UIColor(hexString: "#ffe700ff")
-        static let buttonSelected       =   UIColor(hexString: "#ffe700ff")
-        static let backgroundPattern    =   UIColor(hexString: "#ffe700ff")
+        struct Colors {
+        }
     }
     
-    struct Colors {
-        static let topView = UIColor(hexString: "#009395")
+    struct Buttons {
+        struct Fonts {
+            static let ubuntuLightSoftOrangeUnderline12     =   [   NSFontAttributeName             :   Labels.Fonts.ubuntuLight12!,
+                                                                    NSForegroundColorAttributeName  :   Colors.softOrange!,
+                                                                    NSKernAttributeName             :   0.0,
+                                                                    NSUnderlineStyleAttributeName   :   NSUnderlineStyle.styleSingle.rawValue
+                ] as [String : Any]
+
+            static let ubuntuLightVeryLightGrayUnderline12  =   [   NSFontAttributeName             :   Labels.Fonts.ubuntuLight12!,
+                                                                    NSForegroundColorAttributeName  :   Colors.veryLightGray!,
+                                                                    NSKernAttributeName             :   0.0,
+                                                                    NSUnderlineStyleAttributeName   :   NSUnderlineStyle.styleSingle.rawValue
+                                                                ] as [String : Any]
+
+            static let ubuntuRegular16                      =   UIFont(name: "Ubuntu-Regular", size: 16.0)
+        }
         
+        struct Colors {
+            static let softOrange                           =   UIColor(hexString: "#009395")
+            static let veryLightGray                        =   UIColor(hexString: "#dedede")
+            static let veryDarkGray                         =   UIColor(hexString: "#343434")
+        }
+    }
+
+    struct Labels {
+        struct Fonts {
+            static let ubuntuLight9                         =   UIFont(name: "Ubuntu-Light", size: 9.0)
+            static let ubuntuLight12                        =   UIFont(name: "Ubuntu-Light", size: 12.0)
+            static let ubuntuLight16                        =   UIFont(name: "Ubuntu-Light", size: 16.0)
+            static let ubuntuLightItalic12                  =   UIFont(name: "Ubuntu-LightItalic", size: 12.0)
+            
+            static let helveticaNeueCyr32                   =   UIFont(name: "helveticaNeueCyr", size: 32.0)
+            static let helveticaNeueCyrThin47               =   UIFont(name: "helveticaNeueCyr-Thin", size: 47.0)
+            static let helveticaNeueCyrThin51               =   UIFont(name: "helveticaNeueCyr-Thin", size: 51.0)
+            static let helveticaNeueCyrRoman16              =   UIFont(name: "helveticaNeueCyr-Roman", size: 16.0)
+            
+            static let helveticaNeueCyrRoman16Kern486       =   [   NSFontAttributeName             :   Labels.Fonts.helveticaNeueCyrRoman16!,
+                                                                    NSForegroundColorAttributeName  :   Colors.veryLightGray!,
+                                                                    NSKernAttributeName             :   4.86,
+                                                                    NSUnderlineStyleAttributeName   :   NSUnderlineStyle.styleNone.rawValue
+                                                                ] as [String : Any]
+        }
+        
+        struct Colors {
+            static let darkCyan                             =   UIColor(hexString: "#009395")
+            static let lightGrayishCyan                     =   UIColor(hexString: "#cce8e8")
+            static let veryLightGray                        =   UIColor(hexString: "#dedede")
+        }
     }
     
-    struct Fonts {
-        static let defaultFont = UIFont(name: "ProximaNova-Regular", size:18.0)
-        static let navBarFont  = UIFont(name: "ProximaNova-Regular", size:16.0)
+    struct TextFields {
+        struct Fonts {
+            static let ubuntuLightItalic16                  =   UIFont(name: "Ubuntu-LightItalic", size: 16.0)
+        }
+        
+        struct Colors {
+            static let softOrange                           =   UIColor(hexString: "#009395")
+        }
+    }
+    
+    struct Views {
+        struct Colors {
+            static let darkCyan                             =   UIColor(hexString: "#009395")
+            static let veryLightOrange                      =   UIColor(hexString: "#ffd76c")
+
+            static let veryDarkDesaturatedBlue20            =   UIColor(hexString: "#203c48")
+            static let veryDarkDesaturatedBlue24            =   UIColor(hexString: "#24323f")
+            static let veryDarkDesaturatedBlue2f            =   UIColor(hexString: "#2f3c49")
+        }
     }
 }
 
