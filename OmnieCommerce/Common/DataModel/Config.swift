@@ -59,6 +59,8 @@ struct Config {
             static let ubuntuLightItalic12                  =   UIFont(name: "Ubuntu-LightItalic", size: 12.0)
             static let ubuntuLightItalic16                  =   UIFont(name: "Ubuntu-LightItalic", size: 16.0)
             
+            static let ubuntuRegular16                      =   UIFont(name: "Ubuntu-Regular", size: 16.0)
+
             static let helveticaNeueCyr32                   =   UIFont(name: "helveticaNeueCyr", size: 32.0)
             static let helveticaNeueCyrThin33               =   UIFont(name: "helveticaNeueCyr-Thin", size: 33.0)
             static let helveticaNeueCyrThin47               =   UIFont(name: "helveticaNeueCyr-Thin", size: 47.0)
@@ -76,6 +78,7 @@ struct Config {
             static let darkCyan                             =   UIColor(hexString: "#009395")
             static let moderateRed                          =   UIColor(hexString: "#c73b3c")
             static let grayishBlue                          =   UIColor(hexString: "#d5d5d6")
+            static let veryDarkGray                         =   UIColor(hexString: "#333333")
             static let veryLightGray                        =   UIColor(hexString: "#dedede")
             static let veryLightOrange                      =   UIColor(hexString: "#ffd76c")
             static let lightGrayishCyan                     =   UIColor(hexString: "#cce8e8")
@@ -84,6 +87,7 @@ struct Config {
     
     struct TextFields {
         struct Fonts {
+            static let ubuntuLight12                        =   UIFont(name: "Ubuntu-Light", size: 12.0)
             static let ubuntuLightItalic16                  =   UIFont(name: "Ubuntu-LightItalic", size: 16.0)
         }
         
@@ -91,6 +95,8 @@ struct Config {
             static let darkCyan                             =   UIColor(hexString: "#009395")
             static let softOrange                           =   UIColor(hexString: "#d9ba68")
             static let grayishBlue                          =   UIColor(hexString: "#d5d5d6")
+            static let veryLightGray                        =   UIColor(hexString: "#dedede")
+            static let veryDarkDesaturatedBlue24            =   UIColor(hexString: "#24323f")
         }
     }
     
