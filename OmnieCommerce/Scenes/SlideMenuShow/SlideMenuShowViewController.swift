@@ -66,11 +66,31 @@ class SlideMenuShowViewController: UIViewController, SlideMenuShowViewController
 // MARK: - UITableViewDataSource
 extension SlideMenuShowViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return 5
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        switch section {
+        case 0:
+            return 5
+            
+        case 1:
+            return 4
+
+        case 2:
+            return 3
+
+        // OmnieSoft
+        case 3:
+            return 1
+
+        // Logout
+        case 4:
+            return 1
+
+        default:
+            return 0
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -86,26 +106,57 @@ extension SlideMenuShowViewController: UITableViewDataSource {
 // MARK: - UITableViewDelegate
 extension SlideMenuShowViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        switch indexPath.row {
-        case 0:
-            let ordersNC = UIStoryboard(name: "OrdersShow", bundle: nil).instantiateViewController(withIdentifier: "OrdersShowNC") as! BaseNavigationController
-            revealViewController().pushFrontViewController(ordersNC.viewControllers.first, animated: true)
+        tableView.deselectRow(at: indexPath, animated: true)
+
+        // Menu section 0
+        if indexPath.section == 0 {
+            switch indexPath.row {
+            case 0:
+                let ordersNC = UIStoryboard(name: "OrdersShow", bundle: nil).instantiateViewController(withIdentifier: "OrdersShowNC") as! BaseNavigationController
+                revealViewController().pushFrontViewController(ordersNC.viewControllers.first, animated: true)
+                
+            case 1:
+                self.performSegue(withIdentifier: "MessagesShowSegue", sender: self)
+                
+            case 2:
+                self.performSegue(withIdentifier: "FavoriteShowSegue", sender: self)
+                
+            case 3:
+                self.performSegue(withIdentifier: "CategoriesShowSegue", sender: self)
+                
+            case 4:
+                self.performSegue(withIdentifier: "NewsShowSegue", sender: self)
+                
+            default:
+                self.performSegue(withIdentifier: "OrdersShowSegue", sender: self)
+            }
+        }
+        
+        // Menu section 1
+        else if indexPath.section == 1 {
             
-        case 1:
-            self.performSegue(withIdentifier: "MessagesShowSegue", sender: self)
-
-        case 2:
-            self.performSegue(withIdentifier: "FavoriteShowSegue", sender: self)
-
-        case 3:
-            self.performSegue(withIdentifier: "CategoriesShowSegue", sender: self)
-
-        case 4:
-            self.performSegue(withIdentifier: "NewsShowSegue", sender: self)
-
-        default:
-            self.performSegue(withIdentifier: "OrdersShowSegue", sender: self)
-
+        }
+        
+        // Menu section 2
+        else if indexPath.section == 2 {
+            
+        }
+        
+        // Menu section 3 (OmnieSoft)
+        else if indexPath.section == 3 {
+            
+        }
+            
+        // Menu section 4 (Logout)
+        else if indexPath.section == 4 {
+            self.revealViewController().revealToggle(animated: true)
+            
+            let window = UIApplication.shared.windows[0]
+            let signInShowStoryboard = UIStoryboard(name: "SignInShow", bundle: nil)
+            let initialNC = signInShowStoryboard.instantiateViewController(withIdentifier: "SignInShowNC") as! BaseNavigationController
+            window.rootViewController = initialNC
+            
+            window.makeKeyAndVisible()
         }
     }
 }
