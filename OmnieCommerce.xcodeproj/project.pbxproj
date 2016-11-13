@@ -85,6 +85,7 @@
 		B14E97681DD8B05E001E1DE2 /* ForgotPasswordShowRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14E97611DD8B05E001E1DE2 /* ForgotPasswordShowRouter.swift */; };
 		B14E97691DD8B05E001E1DE2 /* ForgotPasswordShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14E97621DD8B05E001E1DE2 /* ForgotPasswordShowViewController.swift */; };
 		B14E976A1DD8B05E001E1DE2 /* ForgotPasswordShowWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14E97631DD8B05E001E1DE2 /* ForgotPasswordShowWorker.swift */; };
+		B14E976C1DD8B8CB001E1DE2 /* SignInShow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B14E976B1DD8B8CB001E1DE2 /* SignInShow.storyboard */; };
 		B15FD40A1DD1DD8C00782324 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15FD4091DD1DD8C00782324 /* AppDelegate.swift */; };
 		B15FD4111DD1DD8C00782324 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B15FD4101DD1DD8C00782324 /* Assets.xcassets */; };
 		B15FD4141DD1DD8C00782324 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B15FD4121DD1DD8C00782324 /* LaunchScreen.storyboard */; };
@@ -201,6 +202,7 @@
 		B14E97611DD8B05E001E1DE2 /* ForgotPasswordShowRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordShowRouter.swift; sourceTree = "<group>"; };
 		B14E97621DD8B05E001E1DE2 /* ForgotPasswordShowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordShowViewController.swift; sourceTree = "<group>"; };
 		B14E97631DD8B05E001E1DE2 /* ForgotPasswordShowWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordShowWorker.swift; sourceTree = "<group>"; };
+		B14E976B1DD8B8CB001E1DE2 /* SignInShow.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SignInShow.storyboard; sourceTree = "<group>"; };
 		B15FD4061DD1DD8C00782324 /* OmnieCommerce.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OmnieCommerce.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B15FD4091DD1DD8C00782324 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B15FD4101DD1DD8C00782324 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = OmnieCommerce/Assets.xcassets; sourceTree = "<group>"; };
@@ -321,6 +323,7 @@
 				B122F22B1DD35E550018A701 /* MessagesShow.storyboard */,
 				B122F2311DD35EF10018A701 /* NewsShow.storyboard */,
 				B122F2291DD35D6F0018A701 /* OrdersShow.storyboard */,
+				B14E976B1DD8B8CB001E1DE2 /* SignInShow.storyboard */,
 				B122F1BE1DD3575E0018A701 /* SlideMenuShow.storyboard */,
 			);
 			path = Storyboards;
@@ -654,6 +657,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B1BF92681DD6516C00BECBBB /* helveticaneuecyr-black.otf in Resources */,
+				B14E976C1DD8B8CB001E1DE2 /* SignInShow.storyboard in Resources */,
 				B1BF92691DD6516C00BECBBB /* helveticaneuecyr-blackitalic.otf in Resources */,
 				B1BF926A1DD6516C00BECBBB /* helveticaneuecyr-bold.otf in Resources */,
 				B1BF926B1DD6516C00BECBBB /* helveticaneuecyr-bolditalic.otf in Resources */,

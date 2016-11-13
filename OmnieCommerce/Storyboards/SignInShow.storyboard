@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="HnD-Xp-HUn">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Sign In Show View Controller-->
+        <scene sceneID="s7A-xU-9Se">
+            <objects>
+                <viewController storyboardIdentifier="SignInShowVC" id="h1R-QH-7Vr" customClass="SignInShowViewController" customModule="OmnieCommerce" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="JrD-8b-O6P"/>
+                        <viewControllerLayoutGuide type="bottom" id="IZh-Xm-m95"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="HHh-KM-0ql">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vUs-Mf-aXo" customClass="TopBarView" customModule="OmnieCommerce" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="206"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="206" id="RPG-70-pQT"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SignInShow" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DsZ-Om-A0G">
+                                <rect key="frame" x="142.5" y="323" width="90" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="DsZ-Om-A0G" firstAttribute="centerX" secondItem="HHh-KM-0ql" secondAttribute="centerX" id="3vb-sR-W0Q"/>
+                            <constraint firstItem="DsZ-Om-A0G" firstAttribute="centerY" secondItem="HHh-KM-0ql" secondAttribute="centerY" id="DeH-XX-kW7"/>
+                            <constraint firstItem="vUs-Mf-aXo" firstAttribute="top" secondItem="HHh-KM-0ql" secondAttribute="top" id="P4h-LA-GZq"/>
+                            <constraint firstItem="vUs-Mf-aXo" firstAttribute="leading" secondItem="HHh-KM-0ql" secondAttribute="leading" id="ZKs-8d-1jU"/>
+                            <constraint firstAttribute="trailing" secondItem="vUs-Mf-aXo" secondAttribute="trailing" id="b0U-sS-Gw3"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="ntm-md-tcH"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="guy-Ua-Psu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1188" y="71.514242878560722"/>
+        </scene>
+        <!--Base Navigation Controller-->
+        <scene sceneID="y6J-jc-xpw">
+            <objects>
+                <navigationController storyboardIdentifier="SignInShowNC" automaticallyAdjustsScrollViewInsets="NO" id="HnD-Xp-HUn" customClass="BaseNavigationController" customModule="OmnieCommerce" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="hMj-in-c4l">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="h1R-QH-7Vr" kind="relationship" relationship="rootViewController" id="pV1-lj-bZ6"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zH1-wG-3jO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="248.80000000000001" y="71.514242878560722"/>
+        </scene>
+    </scenes>
+</document>
