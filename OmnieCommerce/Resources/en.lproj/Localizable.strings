@@ -6,8 +6,18 @@
   Copyright © 2016 Omniesoft. All rights reserved.
 */
 
+// Menu Items
 "Orders"            =   "My Orders";
 "Messages"          =   "Messages";
-"Favorite"          =   "Favorite";
+"Favourite"         =   "Favourite";
 "Categories"        =   "Categories";
 "News"              =   "News";
+"DiscountCards"     =   "Discount Cards";
+"OmnieCards"        =   "Omnie Cards";
+"BusinessCards"     =   "Business Cards";
+"Handbook"          =   "Handbook";
+"PersonalPage"      =   "Personal Page";
+"Settings"          =   "Settings";
+"About"             =   "About";
+"OnmieSoft"         =   "OnmieSoft";
+"LogOut"            =   "Log Out";

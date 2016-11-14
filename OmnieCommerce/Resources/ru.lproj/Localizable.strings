@@ -6,8 +6,18 @@
   Copyright © 2016 Omniesoft. All rights reserved.
 */
 
+// Menu Items
 "Orders"            =   "Мои заказы";
 "Messages"          =   "Сообщения";
-"Favorite"          =   "Избранное";
+"Favourite"         =   "Избранное";
 "Categories"        =   "Категории";
 "News"              =   "Новости";
+"DiscountCards"     =   "Карточки";
+"OmnieCards"        =   "Omnie Cards";
+"BusinessCards"     =   "Визитница";
+"Handbook"          =   "Справочник";
+"PersonalPage"      =   "Мой кабинет";
+"Settings"          =   "Настройки";
+"About"             =   "Справка";
+"OnmieSoft"         =   "OnmieSoft";
+"LogOut"            =   "Выйти";

@@ -115,6 +115,7 @@
 		B1BF927E1DD6516C00BECBBB /* UBUNTU-M.TTF in Resources */ = {isa = PBXBuildFile; fileRef = B1BF92651DD650F400BECBBB /* UBUNTU-M.TTF */; };
 		B1BF927F1DD6516C00BECBBB /* UBUNTU-MI.TTF in Resources */ = {isa = PBXBuildFile; fileRef = B1BF92661DD650F400BECBBB /* UBUNTU-MI.TTF */; };
 		B1BF92801DD6516C00BECBBB /* UBUNTU-R.TTF in Resources */ = {isa = PBXBuildFile; fileRef = B1BF92671DD650F400BECBBB /* UBUNTU-R.TTF */; };
+		B1C6F35D1DD9C718004695C2 /* MenuItemsList.plist in Resources */ = {isa = PBXBuildFile; fileRef = B1C6F35C1DD9C718004695C2 /* MenuItemsList.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -234,6 +235,7 @@
 		B1BF92651DD650F400BECBBB /* UBUNTU-M.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "UBUNTU-M.TTF"; sourceTree = "<group>"; };
 		B1BF92661DD650F400BECBBB /* UBUNTU-MI.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "UBUNTU-MI.TTF"; sourceTree = "<group>"; };
 		B1BF92671DD650F400BECBBB /* UBUNTU-R.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "UBUNTU-R.TTF"; sourceTree = "<group>"; };
+		B1C6F35C1DD9C718004695C2 /* MenuItemsList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = MenuItemsList.plist; sourceTree = "<group>"; };
 		ED913E9D2C7028252CE0B73A /* Pods-OmnieCommerce.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OmnieCommerce.release.xcconfig"; path = "Pods/Target Support Files/Pods-OmnieCommerce/Pods-OmnieCommerce.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -279,6 +281,7 @@
 			isa = PBXGroup;
 			children = (
 				B15FD4151DD1DD8C00782324 /* Info.plist */,
+				B1C6F35C1DD9C718004695C2 /* MenuItemsList.plist */,
 			);
 			path = "Support Files";
 			sourceTree = "<group>";
@@ -658,6 +661,7 @@
 			files = (
 				B1BF92681DD6516C00BECBBB /* helveticaneuecyr-black.otf in Resources */,
 				B14E976C1DD8B8CB001E1DE2 /* SignInShow.storyboard in Resources */,
+				B1C6F35D1DD9C718004695C2 /* MenuItemsList.plist in Resources */,
 				B1BF92691DD6516C00BECBBB /* helveticaneuecyr-blackitalic.otf in Resources */,
 				B1BF926A1DD6516C00BECBBB /* helveticaneuecyr-bold.otf in Resources */,
 				B1BF926B1DD6516C00BECBBB /* helveticaneuecyr-bolditalic.otf in Resources */,

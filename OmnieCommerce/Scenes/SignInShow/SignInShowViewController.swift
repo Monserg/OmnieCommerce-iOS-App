@@ -41,7 +41,19 @@ class SignInShowViewController: UIViewController, SignInShowViewControllerInput 
         doSomethingOnLoad()
     }
     
+    deinit {
+        print("SignInShowViewController deinit.")
+    }
 
+    
+    // MARK: - Actions
+    @IBAction func unwindToSignInShow(_ segue: UIStoryboardSegue) {}
+
+    @IBAction func asdasdasd(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    
     // MARK: - Custom Functions
     func doSomethingOnLoad() {
         // NOTE: Ask the Interactor to do some work

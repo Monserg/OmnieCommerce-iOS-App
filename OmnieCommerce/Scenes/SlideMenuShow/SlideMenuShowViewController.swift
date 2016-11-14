@@ -46,7 +46,10 @@ class SlideMenuShowViewController: UIViewController, SlideMenuShowViewController
         
         doSomethingOnLoad()
     }
-    
+
+    deinit {
+        print("SlideMenuShowViewController deinit.")
+    }
 
     // MARK: - Custom Functions
     func doSomethingOnLoad() {
@@ -156,7 +159,11 @@ extension SlideMenuShowViewController: UITableViewDelegate {
             let initialNC = signInShowStoryboard.instantiateViewController(withIdentifier: "SignInShowNC") as! BaseNavigationController
             window.rootViewController = initialNC
             
-            window.makeKeyAndVisible()
+            self.present(initialNC, animated: true, completion: {
+                self.navigationController?.popToRootViewController(animated: true)
+//                self.revealViewController().dismiss(animated: true, completion: nil)
+            })
+            //window.makeKeyAndVisible()
         }
     }
 }

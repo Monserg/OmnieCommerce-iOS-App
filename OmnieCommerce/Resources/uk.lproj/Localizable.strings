@@ -6,8 +6,18 @@
   Copyright © 2016 Omniesoft. All rights reserved.
 */
 
+// Menu Items
 "Orders"            =   "Мої замовлення";
 "Messages"          =   "Повідомлення";
-"Favorite"          =   "Улюблене";
+"Favourite"         =   "Улюблене";
 "Categories"        =   "Категорії";
 "News"              =   "Новини";
+"DiscountCards"     =   "Картки";
+"OmnieCards"        =   "Omnie Cards";
+"BusinessCards"     =   "Візитниця";
+"Handbook"          =   "Довідник";
+"PersonalPage"      =   "Мій кабінет";
+"Settings"          =   "Налаштування";
+"About"             =   "Справка";
+"OnmieSoft"         =   "OnmieSoft";
+"LogOut"            =   "Вийти";
