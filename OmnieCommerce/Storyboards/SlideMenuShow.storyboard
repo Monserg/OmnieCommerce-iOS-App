@@ -131,6 +131,7 @@
                         <segue destination="hww-9z-hjK" kind="custom" identifier="PersonalPageShowSegue" customClass="SWRevealViewControllerSeguePushController" id="utH-IV-ynA"/>
                         <segue destination="du9-Ix-Be2" kind="custom" identifier="HandbookShowSegue" customClass="SWRevealViewControllerSeguePushController" id="l6q-Wx-O3m"/>
                         <segue destination="lKi-KB-3wQ" kind="custom" identifier="BusinessCardsShowSegue" customClass="SWRevealViewControllerSeguePushController" id="aPE-Ri-irh"/>
+                        <segue destination="kPz-0K-xqZ" kind="custom" identifier="OmnieCardsShowSegue" customClass="SWRevealViewControllerSeguePushController" id="4XM-Xk-fiG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lPB-Mb-8R7" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -200,6 +201,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lkB-3h-aj6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2000" y="512"/>
+        </scene>
+        <!--OmnieCardsShowNC-->
+        <scene sceneID="Vtk-97-LEs">
+            <objects>
+                <viewControllerPlaceholder storyboardName="OmnieCardsShow" referencedIdentifier="OmnieCardsShowNC" id="kPz-0K-xqZ" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8aM-qI-TTG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1185" y="615"/>
         </scene>
         <!--BusinessCardsShowNC-->
         <scene sceneID="ybA-9Z-Sai">

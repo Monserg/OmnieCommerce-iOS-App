@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Omnie Cards Show View Controller-->
+        <scene sceneID="y8t-ML-7lg">
+            <objects>
+                <viewController storyboardIdentifier="OmnieCardsShowVC" id="LWa-7D-fsf" customClass="OmnieCardsShowViewController" customModule="OmnieCommerce" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="BJW-Zg-N22"/>
+                        <viewControllerLayoutGuide type="bottom" id="AtF-s6-9gj"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="mMd-Q2-vub">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qfb-kj-Smx" customClass="TopBarView" customModule="OmnieCommerce" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="JFk-Qy-qES"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OmnieCardsShow" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4uM-EC-3Zf">
+                                <rect key="frame" x="119" y="323" width="138" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="4uM-EC-3Zf" firstAttribute="centerX" secondItem="mMd-Q2-vub" secondAttribute="centerX" id="BHv-kW-ImP"/>
+                            <constraint firstAttribute="trailing" secondItem="Qfb-kj-Smx" secondAttribute="trailing" id="OoE-z8-fhC"/>
+                            <constraint firstItem="Qfb-kj-Smx" firstAttribute="top" secondItem="mMd-Q2-vub" secondAttribute="top" id="QJo-5K-kkV"/>
+                            <constraint firstItem="Qfb-kj-Smx" firstAttribute="leading" secondItem="mMd-Q2-vub" secondAttribute="leading" id="Tem-ep-I3m"/>
+                            <constraint firstItem="4uM-EC-3Zf" firstAttribute="centerY" secondItem="mMd-Q2-vub" secondAttribute="centerY" id="gcm-2t-19q"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="RA6-Rp-ipT"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wnn-6C-4Zh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1172" y="106.59670164917542"/>
+        </scene>
+        <!--Base Navigation Controller-->
+        <scene sceneID="G5a-6C-4Cy">
+            <objects>
+                <navigationController storyboardIdentifier="OmnieCardsShowNC" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="QmK-mD-cWY" customClass="BaseNavigationController" customModule="OmnieCommerce" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ZYn-Je-r4m">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="LWa-7D-fsf" kind="relationship" relationship="rootViewController" id="KE3-8D-q3A"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vNl-HL-1Le" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="232.80000000000001" y="106.59670164917542"/>
+        </scene>
+    </scenes>
+</document>

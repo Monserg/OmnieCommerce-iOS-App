@@ -176,6 +176,7 @@
 		B1CF54E61DDB552300E98049 /* PersonalPageShow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1CF54E51DDB552300E98049 /* PersonalPageShow.storyboard */; };
 		B1CF54E81DDB55E300E98049 /* HandbookShow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1CF54E71DDB55E300E98049 /* HandbookShow.storyboard */; };
 		B1CF54EA1DDB56BD00E98049 /* BusinessCardsShow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1CF54E91DDB56BD00E98049 /* BusinessCardsShow.storyboard */; };
+		B1CF54EC1DDB57C300E98049 /* OmnieCardsShow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1CF54EB1DDB57C300E98049 /* OmnieCardsShow.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -356,6 +357,7 @@
 		B1CF54E51DDB552300E98049 /* PersonalPageShow.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PersonalPageShow.storyboard; sourceTree = "<group>"; };
 		B1CF54E71DDB55E300E98049 /* HandbookShow.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = HandbookShow.storyboard; sourceTree = "<group>"; };
 		B1CF54E91DDB56BD00E98049 /* BusinessCardsShow.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = BusinessCardsShow.storyboard; sourceTree = "<group>"; };
+		B1CF54EB1DDB57C300E98049 /* OmnieCardsShow.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = OmnieCardsShow.storyboard; sourceTree = "<group>"; };
 		ED913E9D2C7028252CE0B73A /* Pods-OmnieCommerce.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OmnieCommerce.release.xcconfig"; path = "Pods/Target Support Files/Pods-OmnieCommerce/Pods-OmnieCommerce.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -447,6 +449,7 @@
 				B15FD4121DD1DD8C00782324 /* LaunchScreen.storyboard */,
 				B122F22B1DD35E550018A701 /* MessagesShow.storyboard */,
 				B122F2311DD35EF10018A701 /* NewsShow.storyboard */,
+				B1CF54EB1DDB57C300E98049 /* OmnieCardsShow.storyboard */,
 				B122F2291DD35D6F0018A701 /* OrdersShow.storyboard */,
 				B1CF54E51DDB552300E98049 /* PersonalPageShow.storyboard */,
 				B1CF54E31DDB543300E98049 /* SettingsShow.storyboard */,
@@ -921,6 +924,7 @@
 				B1BF92741DD6516C00BECBBB /* helveticaneuecyr-thin.otf in Resources */,
 				B1BF92751DD6516C00BECBBB /* helveticaneuecyr-thinitalic.otf in Resources */,
 				B1BF92761DD6516C00BECBBB /* helveticaneuecyr-ultralight.otf in Resources */,
+				B1CF54EC1DDB57C300E98049 /* OmnieCardsShow.storyboard in Resources */,
 				B1BF92771DD6516C00BECBBB /* helveticaneuecyr-ultralightitalic.otf in Resources */,
 				B1BF92781DD6516C00BECBBB /* UBUNTU-B.TTF in Resources */,
 				B1BF92791DD6516C00BECBBB /* UBUNTU-BI.TTF in Resources */,
