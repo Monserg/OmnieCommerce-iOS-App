@@ -14,6 +14,8 @@ class MenuViewCell: UITableViewCell {
     @IBOutlet weak var accessoryImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     
+    var segueName = String()
+    
     
     // MARK: - Class Functions
     override func awakeFromNib() {
@@ -26,5 +28,6 @@ class MenuViewCell: UITableViewCell {
     // MARK: - Custom Functions
     func setup(menuItem: NSDictionary) {
         titleLabel.text = (menuItem.object(forKey: "name") as! String).localized()
+        segueName = (menuItem.object(forKey: "segue") as! String)
     }
 }

@@ -105,61 +105,31 @@ extension SlideMenuShowViewController: UITableViewDataSource {
 // MARK: - UITableViewDelegate
 extension SlideMenuShowViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-
-        // Menu section 0
-        if indexPath.section == 0 {
-            switch indexPath.row {
-            case 0:
-                let ordersNC = UIStoryboard(name: "OrdersShow", bundle: nil).instantiateViewController(withIdentifier: "OrdersShowNC") as! BaseNavigationController
-                revealViewController().pushFrontViewController(ordersNC.viewControllers.first, animated: true)
+        let cell = tableView.cellForRow(at: indexPath) as! MenuViewCell
+        
+        if indexPath.section == 0 && indexPath.row == 0 {
+            let ordersNC = UIStoryboard(name: "OrdersShow", bundle: nil).instantiateViewController(withIdentifier: "OrdersShowNC") as! BaseNavigationController
+            revealViewController().pushFrontViewController(ordersNC.viewControllers.first, animated: true)
+        } else {
+            // Menu section 4 (Logout)
+            if indexPath.section == 4 {
+                self.revealViewController().revealToggle(animated: true)
                 
-            case 1:
-                self.performSegue(withIdentifier: "MessagesShowSegue", sender: self)
+                let window = UIApplication.shared.windows[0]
+                let signInShowStoryboard = UIStoryboard(name: "SignInShow", bundle: nil)
+                let initialNC = signInShowStoryboard.instantiateViewController(withIdentifier: "SignInShowNC") as! BaseNavigationController
+                window.rootViewController = initialNC
                 
-            case 2:
-                self.performSegue(withIdentifier: "FavoriteShowSegue", sender: self)
-                
-            case 3:
-                self.performSegue(withIdentifier: "CategoriesShowSegue", sender: self)
-                
-            case 4:
-                self.performSegue(withIdentifier: "NewsShowSegue", sender: self)
-                
-            default:
-                self.performSegue(withIdentifier: "OrdersShowSegue", sender: self)
+                self.present(initialNC, animated: true, completion: {
+                    self.navigationController?.popToRootViewController(animated: true)
+                    //                self.revealViewController().dismiss(animated: true, completion: nil)
+                })
+                //window.makeKeyAndVisible()
+            } else {
+                self.performSegue(withIdentifier: cell.segueName, sender: self)
             }
         }
         
-        // Menu section 1
-        else if indexPath.section == 1 {
-            
-        }
-        
-        // Menu section 2
-        else if indexPath.section == 2 {
-            
-        }
-        
-        // Menu section 3 (OmnieSoft)
-        else if indexPath.section == 3 {
-            
-        }
-            
-        // Menu section 4 (Logout)
-        else if indexPath.section == 4 {
-            self.revealViewController().revealToggle(animated: true)
-            
-            let window = UIApplication.shared.windows[0]
-            let signInShowStoryboard = UIStoryboard(name: "SignInShow", bundle: nil)
-            let initialNC = signInShowStoryboard.instantiateViewController(withIdentifier: "SignInShowNC") as! BaseNavigationController
-            window.rootViewController = initialNC
-            
-            self.present(initialNC, animated: true, completion: {
-                self.navigationController?.popToRootViewController(animated: true)
-//                self.revealViewController().dismiss(animated: true, completion: nil)
-            })
-            //window.makeKeyAndVisible()
-        }
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
