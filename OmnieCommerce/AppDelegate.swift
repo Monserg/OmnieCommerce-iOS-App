@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {       
         // Check initial scene
-        let userStatus = 1//arc4random() % 2
+        let userStatus = 0//arc4random() % 2
         self.window = UIWindow(frame: UIScreen.main.bounds)
         
         switch userStatus {

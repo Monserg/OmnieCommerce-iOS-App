@@ -25,7 +25,19 @@ class SignInShowViewController: UIViewController, SignInShowViewControllerInput 
     var output: SignInShowViewControllerOutput!
     var router: SignInShowRouter!
     
+    @IBOutlet var topBarView: TopBarView!
+    @IBOutlet weak var backgroundImageView: UIImageView!
+    
+    @IBOutlet weak var vkontakteButton: CustomButton!
+    @IBOutlet weak var googleButton: CustomButton!
+    @IBOutlet weak var facebookButton: CustomButton!
+    
+    @IBOutlet weak var topBarViewHeightPortraitConstraint: NSLayoutConstraint!
+    @IBOutlet weak var topBarViewHeightLandscapeConstraint: NSLayoutConstraint!
+    
+    var topBarViewHeight: CGFloat = 100.0
 
+    
     // MARK: - Class initialization
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -38,11 +50,49 @@ class SignInShowViewController: UIViewController, SignInShowViewControllerInput 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Config scene
+        topBarView.cirleRadius = .small
+        topBarViewHeight = (topBarView.cirleRadius == .small) ? Config.Constants.topViewBarHeightSmall : Config.Constants.topViewBarHeightBig
+        topBarViewHeightPortraitConstraint.constant = topBarViewHeight
+        topBarViewHeightLandscapeConstraint.constant = topBarViewHeight
+        self.view.layoutIfNeeded()
+        
+        // Set buttons type
+        vkontakteButton.type = .social
+        googleButton.type = .social
+        facebookButton.type = .social
+        
         doSomethingOnLoad()
     }
     
     deinit {
         print("SignInShowViewController deinit.")
+    }
+
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        if UIApplication.shared.statusBarOrientation.isLandscape {
+            print("Landscape")
+            
+            topBarView.center = CGPoint(x: topBarViewHeight / 2, y: UIScreen.main.bounds.height / 2)
+        } else {
+            print("Portrait")
+            
+            topBarView.center = CGPoint(x: UIScreen.main.bounds.width / 2, y: topBarViewHeight / 2)
+        }
+        
+        topBarView.setNeedsDisplay()
+        
+        if (topBarView.cirleRadius == .small) {
+            vkontakteButton.setNeedsDisplay()
+            googleButton.setNeedsDisplay()
+            facebookButton.setNeedsDisplay()
+        } else {
+            vkontakteButton.isHidden = true
+            googleButton.isHidden = true
+            facebookButton.isHidden = true
+        }
     }
 
     
