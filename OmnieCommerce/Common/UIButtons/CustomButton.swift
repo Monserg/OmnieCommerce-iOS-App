@@ -42,10 +42,10 @@ import UIKit
         if (self.type == .social) {
             let sidesRatio = Double(UIScreen.main.bounds.height / UIScreen.main.bounds.width)
             
-            let circleX = UIApplication.shared.statusBarOrientation.isPortrait ? Double(UIScreen.main.bounds.width / 2) : (203.0 - Config.Constants.circleViewRadiusSmall)
-            let circleY = UIApplication.shared.statusBarOrientation.isPortrait ? (203.0 - Config.Constants.circleViewRadiusSmall) : Double(UIScreen.main.bounds.height / 2)
-            let degreeVkontakte = UIApplication.shared.statusBarOrientation.isPortrait ? 155.0 * sidesRatio : 352.0 * (sidesRatio + 0.444)
-            let degreeGoogle = UIApplication.shared.statusBarOrientation.isPortrait ? 157.3 * sidesRatio : 348.0 * (sidesRatio + 0.444)
+            let circleX = UIApplication.shared.statusBarOrientation.isPortrait ? Double(UIScreen.main.bounds.width / 2) : (205.0 - Config.Constants.circleViewRadiusSmall - Double(Config.Constants.topViewBarLineThickness / 2))
+            let circleY = UIApplication.shared.statusBarOrientation.isPortrait ? (205.0 - Config.Constants.circleViewRadiusSmall) : Double(UIScreen.main.bounds.height / 2)
+            let degreeVkontakte = UIApplication.shared.statusBarOrientation.isPortrait ? 154.4 * sidesRatio : 353.2 * (sidesRatio + 0.444)
+            let degreeGoogle = UIApplication.shared.statusBarOrientation.isPortrait ? 157.0 * sidesRatio : 348.6 * (sidesRatio + 0.444)
             let degreeFacebook = UIApplication.shared.statusBarOrientation.isPortrait ? 159.6 * sidesRatio : 344.0 * (sidesRatio + 0.444)
             
             self.layer.backgroundColor = Config.Buttons.Colors.softOrange?.cgColor
