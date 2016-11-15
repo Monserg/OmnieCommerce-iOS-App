@@ -77,7 +77,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J7d-7z-vYN" userLabel="Menu Title Label">
-                                                    <rect key="frame" x="60" y="27.5" width="255" height="21"/>
+                                                    <rect key="frame" x="60" y="28" width="255" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -130,6 +130,7 @@
                         <segue destination="gAS-u1-4jd" kind="custom" identifier="SettingsShowSegue" customClass="SWRevealViewControllerSeguePushController" id="53p-XD-3DR"/>
                         <segue destination="hww-9z-hjK" kind="custom" identifier="PersonalPageShowSegue" customClass="SWRevealViewControllerSeguePushController" id="utH-IV-ynA"/>
                         <segue destination="du9-Ix-Be2" kind="custom" identifier="HandbookShowSegue" customClass="SWRevealViewControllerSeguePushController" id="l6q-Wx-O3m"/>
+                        <segue destination="lKi-KB-3wQ" kind="custom" identifier="BusinessCardsShowSegue" customClass="SWRevealViewControllerSeguePushController" id="aPE-Ri-irh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lPB-Mb-8R7" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -199,6 +200,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lkB-3h-aj6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2000" y="512"/>
+        </scene>
+        <!--BusinessCardsShowNC-->
+        <scene sceneID="ybA-9Z-Sai">
+            <objects>
+                <viewControllerPlaceholder storyboardName="BusinessCardsShow" referencedIdentifier="BusinessCardsShowNC" id="lKi-KB-3wQ" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QRA-wk-0Yg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1636" y="613"/>
         </scene>
     </scenes>
 </document>
