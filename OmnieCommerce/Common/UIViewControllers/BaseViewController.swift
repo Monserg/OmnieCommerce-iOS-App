@@ -11,10 +11,6 @@ import Localize_Swift
 import SWRevealViewController
 
 class BaseViewController: UIViewController {
-    // MARK: - Properties
-    var titleText = String()
-    
-
     // MARK: - Class Functions
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +25,6 @@ class BaseViewController: UIViewController {
     func setup(withTitle title: String) {
         // Add Slide Menu actions
         if revealViewController() != nil {
-            titleText = title.localized()
             
 //            topBarView.menuButton.addTarget(revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), for: .touchUpInside)
             revealViewController().rightViewRevealWidth = 296

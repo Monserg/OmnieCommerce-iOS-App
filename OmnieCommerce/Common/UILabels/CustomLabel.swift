@@ -8,27 +8,28 @@
 //
 
 import UIKit
+import Localize_Swift
 
-class CustomLabel: UILabel {
+@IBDesignable class CustomLabel: UILabel {
     // MARK: - Properties
     enum Types {
         case title
         case standard
     }
     
-    var type = Types.standard
-    
-    
-    // MARK: - Custom Functions
-    func setup(withType type: Types) {
-        switch type {
-        case .title:
-            self.font = Config.Labels.Fonts.helveticaNeueCyrLight32
-            self.textColor = Config.Labels.Colors.veryLightGray
+    @IBInspectable var style: CGFloat = 0 {
+        didSet {
+            self.text = self.text?.localized()
             
-        default:
-            self.font = UIFont.systemFont(ofSize: 13.0)
-            self.textColor = UIColor.red
+            switch style {
+            case 1:
+                self.font = Config.Labels.Fonts.helveticaNeueCyrLight32
+                self.textColor = Config.Labels.Colors.veryLightGray
+                
+            default:
+                self.font = UIFont.systemFont(ofSize: 13.0)
+                self.textColor = UIColor.red
+            }
         }
     }
 }

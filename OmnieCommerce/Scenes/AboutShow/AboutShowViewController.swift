@@ -43,8 +43,7 @@ class AboutShowViewController: BaseViewController, AboutShowViewControllerInput 
         super.viewDidLoad()
         
         setup(withTitle: "About")
-        titleLabel.text = self.titleText
-        titleLabel.setup(withType: .title)
+//        titleLabel.text = self.titleText
         
         doSomethingOnLoad()
     }
