@@ -88,39 +88,14 @@ extension SlideMenuShowViewController: UITableViewDataSource {
         let sectionArray = menuItemsList.object(forKey: "Section \(section)") as! NSArray
         
         return sectionArray.count
-        /*
-        switch section {
-        case 0:
-            return 5
-            
-        case 1:
-            return 4
-
-        case 2:
-            return 3
-
-        // OmnieSoft
-        case 3:
-            return 1
-
-        // Logout
-        case 4:
-            return 1
-
-        default:
-            return 1
-        }
- */
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MenuCell", for: indexPath) as! MenuViewCell
-        
-        print(indexPath)
         let sectionArray = menuItemsList.object(forKey: "Section \(indexPath.section)") as! NSArray
         let sectionDictionary = sectionArray[indexPath.row] as! NSDictionary
         
-        cell.titleLabel.text = (sectionDictionary.object(forKey: "name") as! String)
+        cell.setup(menuItem: sectionDictionary)
         
         return cell
     }
