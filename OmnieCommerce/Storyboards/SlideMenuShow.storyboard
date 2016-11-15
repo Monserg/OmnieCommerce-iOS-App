@@ -128,6 +128,7 @@
                         <segue destination="ovb-vd-9O9" kind="custom" identifier="NewsShowSegue" customClass="SWRevealViewControllerSeguePushController" id="PWn-d2-a8a"/>
                         <segue destination="uvA-NJ-6M8" kind="custom" identifier="AboutShowSegue" customClass="SWRevealViewControllerSeguePushController" id="35Z-GX-pT3"/>
                         <segue destination="gAS-u1-4jd" kind="custom" identifier="SettingsShowSegue" customClass="SWRevealViewControllerSeguePushController" id="53p-XD-3DR"/>
+                        <segue destination="hww-9z-hjK" kind="custom" identifier="PersonalPageShowSegue" customClass="SWRevealViewControllerSeguePushController" id="utH-IV-ynA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lPB-Mb-8R7" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -181,6 +182,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C4S-DH-tGP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1976" y="399"/>
+        </scene>
+        <!--PersonalPageShowNC-->
+        <scene sceneID="sQd-4U-5yW">
+            <objects>
+                <viewControllerPlaceholder storyboardName="PersonalPageShow" referencedIdentifier="PersonalPageShowNC" id="hww-9z-hjK" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3fW-X3-cE5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2001" y="461"/>
         </scene>
     </scenes>
 </document>
