@@ -126,6 +126,7 @@
                         <segue destination="Wvw-lA-bT0" kind="custom" identifier="FavoriteShowSegue" customClass="SWRevealViewControllerSeguePushController" id="Y06-6q-snD"/>
                         <segue destination="Bws-sL-lkw" kind="custom" identifier="CategoriesShowSegue" customClass="SWRevealViewControllerSeguePushController" id="Tnv-O9-0c6"/>
                         <segue destination="ovb-vd-9O9" kind="custom" identifier="NewsShowSegue" customClass="SWRevealViewControllerSeguePushController" id="PWn-d2-a8a"/>
+                        <segue destination="uvA-NJ-6M8" kind="custom" identifier="AboutShowSegue" customClass="SWRevealViewControllerSeguePushController" id="35Z-GX-pT3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lPB-Mb-8R7" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -163,6 +164,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HVe-TN-n4a" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1964" y="262"/>
+        </scene>
+        <!--AboutShowNC-->
+        <scene sceneID="AOh-bc-wbF">
+            <objects>
+                <viewControllerPlaceholder storyboardName="AboutShow" referencedIdentifier="AboutShowNC" id="uvA-NJ-6M8" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Gbu-s3-yQt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1966" y="328"/>
         </scene>
     </scenes>
 </document>

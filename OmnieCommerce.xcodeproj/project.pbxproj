@@ -171,6 +171,7 @@
 		B1CF54DC1DDB51BE00E98049 /* SettingsShowRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CF54D51DDB51BE00E98049 /* SettingsShowRouter.swift */; };
 		B1CF54DD1DDB51BE00E98049 /* SettingsShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CF54D61DDB51BE00E98049 /* SettingsShowViewController.swift */; };
 		B1CF54DE1DDB51BE00E98049 /* SettingsShowWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CF54D71DDB51BE00E98049 /* SettingsShowWorker.swift */; };
+		B1CF54E21DDB529300E98049 /* AboutShow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1CF54E11DDB529300E98049 /* AboutShow.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -346,6 +347,7 @@
 		B1CF54D51DDB51BE00E98049 /* SettingsShowRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsShowRouter.swift; sourceTree = "<group>"; };
 		B1CF54D61DDB51BE00E98049 /* SettingsShowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsShowViewController.swift; sourceTree = "<group>"; };
 		B1CF54D71DDB51BE00E98049 /* SettingsShowWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsShowWorker.swift; sourceTree = "<group>"; };
+		B1CF54E11DDB529300E98049 /* AboutShow.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AboutShow.storyboard; sourceTree = "<group>"; };
 		ED913E9D2C7028252CE0B73A /* Pods-OmnieCommerce.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OmnieCommerce.release.xcconfig"; path = "Pods/Target Support Files/Pods-OmnieCommerce/Pods-OmnieCommerce.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -429,6 +431,7 @@
 		B122F1BD1DD357270018A701 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				B1CF54E11DDB529300E98049 /* AboutShow.storyboard */,
 				B122F22F1DD35EE10018A701 /* CategoriesShow.storyboard */,
 				B122F22D1DD35ECC0018A701 /* FavoriteShow.storyboard */,
 				B15FD4121DD1DD8C00782324 /* LaunchScreen.storyboard */,
@@ -908,6 +911,7 @@
 				B1BF92771DD6516C00BECBBB /* helveticaneuecyr-ultralightitalic.otf in Resources */,
 				B1BF92781DD6516C00BECBBB /* UBUNTU-B.TTF in Resources */,
 				B1BF92791DD6516C00BECBBB /* UBUNTU-BI.TTF in Resources */,
+				B1CF54E21DDB529300E98049 /* AboutShow.storyboard in Resources */,
 				B1BF927A1DD6516C00BECBBB /* UBUNTU-C.TTF in Resources */,
 				B1BF927B1DD6516C00BECBBB /* UBUNTU-I.TTF in Resources */,
 				B1BF927C1DD6516C00BECBBB /* UBUNTU-L.TTF in Resources */,
