@@ -129,6 +129,7 @@
                         <segue destination="uvA-NJ-6M8" kind="custom" identifier="AboutShowSegue" customClass="SWRevealViewControllerSeguePushController" id="35Z-GX-pT3"/>
                         <segue destination="gAS-u1-4jd" kind="custom" identifier="SettingsShowSegue" customClass="SWRevealViewControllerSeguePushController" id="53p-XD-3DR"/>
                         <segue destination="hww-9z-hjK" kind="custom" identifier="PersonalPageShowSegue" customClass="SWRevealViewControllerSeguePushController" id="utH-IV-ynA"/>
+                        <segue destination="du9-Ix-Be2" kind="custom" identifier="HandbookShowSegue" customClass="SWRevealViewControllerSeguePushController" id="l6q-Wx-O3m"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lPB-Mb-8R7" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -190,6 +191,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3fW-X3-cE5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2001" y="461"/>
+        </scene>
+        <!--HandbookShowNC-->
+        <scene sceneID="JWG-nN-PKY">
+            <objects>
+                <viewControllerPlaceholder storyboardName="HandbookShow" referencedIdentifier="HandbookShowNC" id="du9-Ix-Be2" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lkB-3h-aj6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2000" y="512"/>
         </scene>
     </scenes>
 </document>
