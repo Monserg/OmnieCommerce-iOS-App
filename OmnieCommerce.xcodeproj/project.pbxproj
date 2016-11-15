@@ -172,6 +172,7 @@
 		B1CF54DD1DDB51BE00E98049 /* SettingsShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CF54D61DDB51BE00E98049 /* SettingsShowViewController.swift */; };
 		B1CF54DE1DDB51BE00E98049 /* SettingsShowWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CF54D71DDB51BE00E98049 /* SettingsShowWorker.swift */; };
 		B1CF54E21DDB529300E98049 /* AboutShow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1CF54E11DDB529300E98049 /* AboutShow.storyboard */; };
+		B1CF54E41DDB543300E98049 /* SettingsShow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1CF54E31DDB543300E98049 /* SettingsShow.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -348,6 +349,7 @@
 		B1CF54D61DDB51BE00E98049 /* SettingsShowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsShowViewController.swift; sourceTree = "<group>"; };
 		B1CF54D71DDB51BE00E98049 /* SettingsShowWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsShowWorker.swift; sourceTree = "<group>"; };
 		B1CF54E11DDB529300E98049 /* AboutShow.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AboutShow.storyboard; sourceTree = "<group>"; };
+		B1CF54E31DDB543300E98049 /* SettingsShow.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SettingsShow.storyboard; sourceTree = "<group>"; };
 		ED913E9D2C7028252CE0B73A /* Pods-OmnieCommerce.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OmnieCommerce.release.xcconfig"; path = "Pods/Target Support Files/Pods-OmnieCommerce/Pods-OmnieCommerce.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -438,6 +440,7 @@
 				B122F22B1DD35E550018A701 /* MessagesShow.storyboard */,
 				B122F2311DD35EF10018A701 /* NewsShow.storyboard */,
 				B122F2291DD35D6F0018A701 /* OrdersShow.storyboard */,
+				B1CF54E31DDB543300E98049 /* SettingsShow.storyboard */,
 				B14E976B1DD8B8CB001E1DE2 /* SignInShow.storyboard */,
 				B122F1BE1DD3575E0018A701 /* SlideMenuShow.storyboard */,
 			);
@@ -925,6 +928,7 @@
 				B122F22C1DD35E550018A701 /* MessagesShow.storyboard in Resources */,
 				B122F2481DD393330018A701 /* Localizable.strings in Resources */,
 				B15FD4141DD1DD8C00782324 /* LaunchScreen.storyboard in Resources */,
+				B1CF54E41DDB543300E98049 /* SettingsShow.storyboard in Resources */,
 				B122F1BF1DD3575E0018A701 /* SlideMenuShow.storyboard in Resources */,
 				B15FD4111DD1DD8C00782324 /* Assets.xcassets in Resources */,
 				B122F22E1DD35ECC0018A701 /* FavoriteShow.storyboard in Resources */,

@@ -20,7 +20,7 @@ protocol SettingsShowViewControllerOutput {
     func doSomething(request: SettingsShow.Something.Request)
 }
 
-class SettingsShowViewController: UIViewController, SettingsShowViewControllerInput {
+class SettingsShowViewController: BaseViewController, SettingsShowViewControllerInput {
     // MARK: - Properties
     var output: SettingsShowViewControllerOutput!
     var router: SettingsShowRouter!
