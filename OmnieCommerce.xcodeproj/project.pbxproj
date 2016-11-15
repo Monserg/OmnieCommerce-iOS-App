@@ -115,6 +115,62 @@
 		B1BF92801DD6516C00BECBBB /* UBUNTU-R.TTF in Resources */ = {isa = PBXBuildFile; fileRef = B1BF92671DD650F400BECBBB /* UBUNTU-R.TTF */; };
 		B1C6F35D1DD9C718004695C2 /* MenuItemsList.plist in Resources */ = {isa = PBXBuildFile; fileRef = B1C6F35C1DD9C718004695C2 /* MenuItemsList.plist */; };
 		B1CF54641DDAE78200E98049 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CF54631DDAE78200E98049 /* CustomButton.swift */; };
+		B1CF54761DDB50D900E98049 /* AboutShowConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CF546F1DDB50D900E98049 /* AboutShowConfigurator.swift */; };
+		B1CF54771DDB50D900E98049 /* AboutShowInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CF54701DDB50D900E98049 /* AboutShowInteractor.swift */; };
+		B1CF54781DDB50D900E98049 /* AboutShowModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CF54711DDB50D900E98049 /* AboutShowModels.swift */; };
+		B1CF54791DDB50D900E98049 /* AboutShowPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CF54721DDB50D900E98049 /* AboutShowPresenter.swift */; };
+		B1CF547A1DDB50D900E98049 /* AboutShowRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CF54731DDB50D900E98049 /* AboutShowRouter.swift */; };
+		B1CF547B1DDB50D900E98049 /* AboutShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CF54741DDB50D900E98049 /* AboutShowViewController.swift */; };
+		B1CF547C1DDB50D900E98049 /* AboutShowWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CF54751DDB50D900E98049 /* AboutShowWorker.swift */; };
+		B1CF54841DDB50F100E98049 /* BusinessCardsShowConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CF547D1DDB50F100E98049 /* BusinessCardsShowConfigurator.swift */; };
+		B1CF54851DDB50F100E98049 /* BusinessCardsShowInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CF547E1DDB50F100E98049 /* BusinessCardsShowInteractor.swift */; };
+		B1CF54861DDB50F100E98049 /* BusinessCardsShowModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CF547F1DDB50F100E98049 /* BusinessCardsShowModels.swift */; };
+		B1CF54871DDB50F100E98049 /* BusinessCardsShowPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CF54801DDB50F100E98049 /* BusinessCardsShowPresenter.swift */; };
+		B1CF54881DDB50F100E98049 /* BusinessCardsShowRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CF54811DDB50F100E98049 /* BusinessCardsShowRouter.swift */; };
+		B1CF54891DDB50F100E98049 /* BusinessCardsShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CF54821DDB50F100E98049 /* BusinessCardsShowViewController.swift */; };
+		B1CF548A1DDB50F100E98049 /* BusinessCardsShowWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CF54831DDB50F100E98049 /* BusinessCardsShowWorker.swift */; };
+		B1CF54921DDB512000E98049 /* DiscountCardsShowConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CF548B1DDB512000E98049 /* DiscountCardsShowConfigurator.swift */; };
+		B1CF54931DDB512000E98049 /* DiscountCardsShowInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CF548C1DDB512000E98049 /* DiscountCardsShowInteractor.swift */; };
+		B1CF54941DDB512000E98049 /* DiscountCardsShowModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CF548D1DDB512000E98049 /* DiscountCardsShowModels.swift */; };
+		B1CF54951DDB512000E98049 /* DiscountCardsShowPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CF548E1DDB512000E98049 /* DiscountCardsShowPresenter.swift */; };
+		B1CF54961DDB512000E98049 /* DiscountCardsShowRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CF548F1DDB512000E98049 /* DiscountCardsShowRouter.swift */; };
+		B1CF54971DDB512000E98049 /* DiscountCardsShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CF54901DDB512000E98049 /* DiscountCardsShowViewController.swift */; };
+		B1CF54981DDB512000E98049 /* DiscountCardsShowWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CF54911DDB512000E98049 /* DiscountCardsShowWorker.swift */; };
+		B1CF54A01DDB515000E98049 /* HandbookShowConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CF54991DDB515000E98049 /* HandbookShowConfigurator.swift */; };
+		B1CF54A11DDB515000E98049 /* HandbookShowInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CF549A1DDB515000E98049 /* HandbookShowInteractor.swift */; };
+		B1CF54A21DDB515000E98049 /* HandbookShowModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CF549B1DDB515000E98049 /* HandbookShowModels.swift */; };
+		B1CF54A31DDB515000E98049 /* HandbookShowPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CF549C1DDB515000E98049 /* HandbookShowPresenter.swift */; };
+		B1CF54A41DDB515000E98049 /* HandbookShowRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CF549D1DDB515000E98049 /* HandbookShowRouter.swift */; };
+		B1CF54A51DDB515000E98049 /* HandbookShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CF549E1DDB515000E98049 /* HandbookShowViewController.swift */; };
+		B1CF54A61DDB515000E98049 /* HandbookShowWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CF549F1DDB515000E98049 /* HandbookShowWorker.swift */; };
+		B1CF54AE1DDB516E00E98049 /* OmnieCardsShowConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CF54A71DDB516E00E98049 /* OmnieCardsShowConfigurator.swift */; };
+		B1CF54AF1DDB516E00E98049 /* OmnieCardsShowInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CF54A81DDB516E00E98049 /* OmnieCardsShowInteractor.swift */; };
+		B1CF54B01DDB516E00E98049 /* OmnieCardsShowModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CF54A91DDB516E00E98049 /* OmnieCardsShowModels.swift */; };
+		B1CF54B11DDB516E00E98049 /* OmnieCardsShowPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CF54AA1DDB516E00E98049 /* OmnieCardsShowPresenter.swift */; };
+		B1CF54B21DDB516E00E98049 /* OmnieCardsShowRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CF54AB1DDB516E00E98049 /* OmnieCardsShowRouter.swift */; };
+		B1CF54B31DDB516E00E98049 /* OmnieCardsShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CF54AC1DDB516E00E98049 /* OmnieCardsShowViewController.swift */; };
+		B1CF54B41DDB516E00E98049 /* OmnieCardsShowWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CF54AD1DDB516E00E98049 /* OmnieCardsShowWorker.swift */; };
+		B1CF54BC1DDB519000E98049 /* OnmieSoftShowConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CF54B51DDB519000E98049 /* OnmieSoftShowConfigurator.swift */; };
+		B1CF54BD1DDB519000E98049 /* OnmieSoftShowInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CF54B61DDB519000E98049 /* OnmieSoftShowInteractor.swift */; };
+		B1CF54BE1DDB519000E98049 /* OnmieSoftShowModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CF54B71DDB519000E98049 /* OnmieSoftShowModels.swift */; };
+		B1CF54BF1DDB519000E98049 /* OnmieSoftShowPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CF54B81DDB519000E98049 /* OnmieSoftShowPresenter.swift */; };
+		B1CF54C01DDB519000E98049 /* OnmieSoftShowRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CF54B91DDB519000E98049 /* OnmieSoftShowRouter.swift */; };
+		B1CF54C11DDB519000E98049 /* OnmieSoftShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CF54BA1DDB519000E98049 /* OnmieSoftShowViewController.swift */; };
+		B1CF54C21DDB519000E98049 /* OnmieSoftShowWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CF54BB1DDB519000E98049 /* OnmieSoftShowWorker.swift */; };
+		B1CF54CA1DDB51A500E98049 /* PersonalPageShowConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CF54C31DDB51A500E98049 /* PersonalPageShowConfigurator.swift */; };
+		B1CF54CB1DDB51A500E98049 /* PersonalPageShowInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CF54C41DDB51A500E98049 /* PersonalPageShowInteractor.swift */; };
+		B1CF54CC1DDB51A500E98049 /* PersonalPageShowModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CF54C51DDB51A500E98049 /* PersonalPageShowModels.swift */; };
+		B1CF54CD1DDB51A500E98049 /* PersonalPageShowPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CF54C61DDB51A500E98049 /* PersonalPageShowPresenter.swift */; };
+		B1CF54CE1DDB51A500E98049 /* PersonalPageShowRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CF54C71DDB51A500E98049 /* PersonalPageShowRouter.swift */; };
+		B1CF54CF1DDB51A500E98049 /* PersonalPageShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CF54C81DDB51A500E98049 /* PersonalPageShowViewController.swift */; };
+		B1CF54D01DDB51A500E98049 /* PersonalPageShowWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CF54C91DDB51A500E98049 /* PersonalPageShowWorker.swift */; };
+		B1CF54D81DDB51BE00E98049 /* SettingsShowConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CF54D11DDB51BE00E98049 /* SettingsShowConfigurator.swift */; };
+		B1CF54D91DDB51BE00E98049 /* SettingsShowInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CF54D21DDB51BE00E98049 /* SettingsShowInteractor.swift */; };
+		B1CF54DA1DDB51BE00E98049 /* SettingsShowModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CF54D31DDB51BE00E98049 /* SettingsShowModels.swift */; };
+		B1CF54DB1DDB51BE00E98049 /* SettingsShowPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CF54D41DDB51BE00E98049 /* SettingsShowPresenter.swift */; };
+		B1CF54DC1DDB51BE00E98049 /* SettingsShowRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CF54D51DDB51BE00E98049 /* SettingsShowRouter.swift */; };
+		B1CF54DD1DDB51BE00E98049 /* SettingsShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CF54D61DDB51BE00E98049 /* SettingsShowViewController.swift */; };
+		B1CF54DE1DDB51BE00E98049 /* SettingsShowWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CF54D71DDB51BE00E98049 /* SettingsShowWorker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -234,6 +290,62 @@
 		B1BF92671DD650F400BECBBB /* UBUNTU-R.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "UBUNTU-R.TTF"; sourceTree = "<group>"; };
 		B1C6F35C1DD9C718004695C2 /* MenuItemsList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = MenuItemsList.plist; sourceTree = "<group>"; };
 		B1CF54631DDAE78200E98049 /* CustomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		B1CF546F1DDB50D900E98049 /* AboutShowConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutShowConfigurator.swift; sourceTree = "<group>"; };
+		B1CF54701DDB50D900E98049 /* AboutShowInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutShowInteractor.swift; sourceTree = "<group>"; };
+		B1CF54711DDB50D900E98049 /* AboutShowModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutShowModels.swift; sourceTree = "<group>"; };
+		B1CF54721DDB50D900E98049 /* AboutShowPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutShowPresenter.swift; sourceTree = "<group>"; };
+		B1CF54731DDB50D900E98049 /* AboutShowRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutShowRouter.swift; sourceTree = "<group>"; };
+		B1CF54741DDB50D900E98049 /* AboutShowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutShowViewController.swift; sourceTree = "<group>"; };
+		B1CF54751DDB50D900E98049 /* AboutShowWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutShowWorker.swift; sourceTree = "<group>"; };
+		B1CF547D1DDB50F100E98049 /* BusinessCardsShowConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessCardsShowConfigurator.swift; sourceTree = "<group>"; };
+		B1CF547E1DDB50F100E98049 /* BusinessCardsShowInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessCardsShowInteractor.swift; sourceTree = "<group>"; };
+		B1CF547F1DDB50F100E98049 /* BusinessCardsShowModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessCardsShowModels.swift; sourceTree = "<group>"; };
+		B1CF54801DDB50F100E98049 /* BusinessCardsShowPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessCardsShowPresenter.swift; sourceTree = "<group>"; };
+		B1CF54811DDB50F100E98049 /* BusinessCardsShowRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessCardsShowRouter.swift; sourceTree = "<group>"; };
+		B1CF54821DDB50F100E98049 /* BusinessCardsShowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessCardsShowViewController.swift; sourceTree = "<group>"; };
+		B1CF54831DDB50F100E98049 /* BusinessCardsShowWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessCardsShowWorker.swift; sourceTree = "<group>"; };
+		B1CF548B1DDB512000E98049 /* DiscountCardsShowConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscountCardsShowConfigurator.swift; sourceTree = "<group>"; };
+		B1CF548C1DDB512000E98049 /* DiscountCardsShowInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscountCardsShowInteractor.swift; sourceTree = "<group>"; };
+		B1CF548D1DDB512000E98049 /* DiscountCardsShowModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscountCardsShowModels.swift; sourceTree = "<group>"; };
+		B1CF548E1DDB512000E98049 /* DiscountCardsShowPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscountCardsShowPresenter.swift; sourceTree = "<group>"; };
+		B1CF548F1DDB512000E98049 /* DiscountCardsShowRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscountCardsShowRouter.swift; sourceTree = "<group>"; };
+		B1CF54901DDB512000E98049 /* DiscountCardsShowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscountCardsShowViewController.swift; sourceTree = "<group>"; };
+		B1CF54911DDB512000E98049 /* DiscountCardsShowWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscountCardsShowWorker.swift; sourceTree = "<group>"; };
+		B1CF54991DDB515000E98049 /* HandbookShowConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HandbookShowConfigurator.swift; sourceTree = "<group>"; };
+		B1CF549A1DDB515000E98049 /* HandbookShowInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HandbookShowInteractor.swift; sourceTree = "<group>"; };
+		B1CF549B1DDB515000E98049 /* HandbookShowModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HandbookShowModels.swift; sourceTree = "<group>"; };
+		B1CF549C1DDB515000E98049 /* HandbookShowPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HandbookShowPresenter.swift; sourceTree = "<group>"; };
+		B1CF549D1DDB515000E98049 /* HandbookShowRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HandbookShowRouter.swift; sourceTree = "<group>"; };
+		B1CF549E1DDB515000E98049 /* HandbookShowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HandbookShowViewController.swift; sourceTree = "<group>"; };
+		B1CF549F1DDB515000E98049 /* HandbookShowWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HandbookShowWorker.swift; sourceTree = "<group>"; };
+		B1CF54A71DDB516E00E98049 /* OmnieCardsShowConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OmnieCardsShowConfigurator.swift; sourceTree = "<group>"; };
+		B1CF54A81DDB516E00E98049 /* OmnieCardsShowInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OmnieCardsShowInteractor.swift; sourceTree = "<group>"; };
+		B1CF54A91DDB516E00E98049 /* OmnieCardsShowModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OmnieCardsShowModels.swift; sourceTree = "<group>"; };
+		B1CF54AA1DDB516E00E98049 /* OmnieCardsShowPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OmnieCardsShowPresenter.swift; sourceTree = "<group>"; };
+		B1CF54AB1DDB516E00E98049 /* OmnieCardsShowRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OmnieCardsShowRouter.swift; sourceTree = "<group>"; };
+		B1CF54AC1DDB516E00E98049 /* OmnieCardsShowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OmnieCardsShowViewController.swift; sourceTree = "<group>"; };
+		B1CF54AD1DDB516E00E98049 /* OmnieCardsShowWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OmnieCardsShowWorker.swift; sourceTree = "<group>"; };
+		B1CF54B51DDB519000E98049 /* OnmieSoftShowConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnmieSoftShowConfigurator.swift; sourceTree = "<group>"; };
+		B1CF54B61DDB519000E98049 /* OnmieSoftShowInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnmieSoftShowInteractor.swift; sourceTree = "<group>"; };
+		B1CF54B71DDB519000E98049 /* OnmieSoftShowModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnmieSoftShowModels.swift; sourceTree = "<group>"; };
+		B1CF54B81DDB519000E98049 /* OnmieSoftShowPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnmieSoftShowPresenter.swift; sourceTree = "<group>"; };
+		B1CF54B91DDB519000E98049 /* OnmieSoftShowRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnmieSoftShowRouter.swift; sourceTree = "<group>"; };
+		B1CF54BA1DDB519000E98049 /* OnmieSoftShowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnmieSoftShowViewController.swift; sourceTree = "<group>"; };
+		B1CF54BB1DDB519000E98049 /* OnmieSoftShowWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnmieSoftShowWorker.swift; sourceTree = "<group>"; };
+		B1CF54C31DDB51A500E98049 /* PersonalPageShowConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalPageShowConfigurator.swift; sourceTree = "<group>"; };
+		B1CF54C41DDB51A500E98049 /* PersonalPageShowInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalPageShowInteractor.swift; sourceTree = "<group>"; };
+		B1CF54C51DDB51A500E98049 /* PersonalPageShowModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalPageShowModels.swift; sourceTree = "<group>"; };
+		B1CF54C61DDB51A500E98049 /* PersonalPageShowPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalPageShowPresenter.swift; sourceTree = "<group>"; };
+		B1CF54C71DDB51A500E98049 /* PersonalPageShowRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalPageShowRouter.swift; sourceTree = "<group>"; };
+		B1CF54C81DDB51A500E98049 /* PersonalPageShowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalPageShowViewController.swift; sourceTree = "<group>"; };
+		B1CF54C91DDB51A500E98049 /* PersonalPageShowWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalPageShowWorker.swift; sourceTree = "<group>"; };
+		B1CF54D11DDB51BE00E98049 /* SettingsShowConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsShowConfigurator.swift; sourceTree = "<group>"; };
+		B1CF54D21DDB51BE00E98049 /* SettingsShowInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsShowInteractor.swift; sourceTree = "<group>"; };
+		B1CF54D31DDB51BE00E98049 /* SettingsShowModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsShowModels.swift; sourceTree = "<group>"; };
+		B1CF54D41DDB51BE00E98049 /* SettingsShowPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsShowPresenter.swift; sourceTree = "<group>"; };
+		B1CF54D51DDB51BE00E98049 /* SettingsShowRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsShowRouter.swift; sourceTree = "<group>"; };
+		B1CF54D61DDB51BE00E98049 /* SettingsShowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsShowViewController.swift; sourceTree = "<group>"; };
+		B1CF54D71DDB51BE00E98049 /* SettingsShowWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsShowWorker.swift; sourceTree = "<group>"; };
 		ED913E9D2C7028252CE0B73A /* Pods-OmnieCommerce.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OmnieCommerce.release.xcconfig"; path = "Pods/Target Support Files/Pods-OmnieCommerce/Pods-OmnieCommerce.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -332,12 +444,20 @@
 		B122F1C01DD35A110018A701 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				B1CF54681DDB503200E98049 /* AboutShow */,
+				B1CF546C1DDB507900E98049 /* BusinessCardsShow */,
 				B122F1D01DD35B1C0018A701 /* CategoriesShow */,
+				B1CF546E1DDB50AB00E98049 /* DiscountCardsShow */,
 				B122F1D11DD35B270018A701 /* FavoriteShow */,
 				B14E97401DD8B016001E1DE2 /* ForgotPasswordShow */,
+				B1CF546B1DDB506A00E98049 /* HandbookShow */,
 				B122F1CF1DD35B060018A701 /* MessagesShow */,
 				B122F1D21DD35B320018A701 /* NewsShow */,
+				B1CF546D1DDB508A00E98049 /* OmnieCardsShow */,
+				B1CF54671DDB501900E98049 /* OnmieSoftShow */,
 				B122F1D31DD35B3B0018A701 /* OrdersShow */,
+				B1CF546A1DDB505800E98049 /* PersonalPageShow */,
+				B1CF54691DDB504600E98049 /* SettingsShow */,
 				B14E973E1DD8AFCF001E1DE2 /* SignInShow */,
 				B14E973F1DD8AFDC001E1DE2 /* SignUpShow */,
 				B122F21A1DD35CA60018A701 /* SlideMenuShow */,
@@ -591,6 +711,118 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		B1CF54671DDB501900E98049 /* OnmieSoftShow */ = {
+			isa = PBXGroup;
+			children = (
+				B1CF54B51DDB519000E98049 /* OnmieSoftShowConfigurator.swift */,
+				B1CF54B61DDB519000E98049 /* OnmieSoftShowInteractor.swift */,
+				B1CF54B71DDB519000E98049 /* OnmieSoftShowModels.swift */,
+				B1CF54B81DDB519000E98049 /* OnmieSoftShowPresenter.swift */,
+				B1CF54B91DDB519000E98049 /* OnmieSoftShowRouter.swift */,
+				B1CF54BA1DDB519000E98049 /* OnmieSoftShowViewController.swift */,
+				B1CF54BB1DDB519000E98049 /* OnmieSoftShowWorker.swift */,
+			);
+			path = OnmieSoftShow;
+			sourceTree = "<group>";
+		};
+		B1CF54681DDB503200E98049 /* AboutShow */ = {
+			isa = PBXGroup;
+			children = (
+				B1CF546F1DDB50D900E98049 /* AboutShowConfigurator.swift */,
+				B1CF54701DDB50D900E98049 /* AboutShowInteractor.swift */,
+				B1CF54711DDB50D900E98049 /* AboutShowModels.swift */,
+				B1CF54721DDB50D900E98049 /* AboutShowPresenter.swift */,
+				B1CF54731DDB50D900E98049 /* AboutShowRouter.swift */,
+				B1CF54741DDB50D900E98049 /* AboutShowViewController.swift */,
+				B1CF54751DDB50D900E98049 /* AboutShowWorker.swift */,
+			);
+			path = AboutShow;
+			sourceTree = "<group>";
+		};
+		B1CF54691DDB504600E98049 /* SettingsShow */ = {
+			isa = PBXGroup;
+			children = (
+				B1CF54D11DDB51BE00E98049 /* SettingsShowConfigurator.swift */,
+				B1CF54D21DDB51BE00E98049 /* SettingsShowInteractor.swift */,
+				B1CF54D31DDB51BE00E98049 /* SettingsShowModels.swift */,
+				B1CF54D41DDB51BE00E98049 /* SettingsShowPresenter.swift */,
+				B1CF54D51DDB51BE00E98049 /* SettingsShowRouter.swift */,
+				B1CF54D61DDB51BE00E98049 /* SettingsShowViewController.swift */,
+				B1CF54D71DDB51BE00E98049 /* SettingsShowWorker.swift */,
+			);
+			path = SettingsShow;
+			sourceTree = "<group>";
+		};
+		B1CF546A1DDB505800E98049 /* PersonalPageShow */ = {
+			isa = PBXGroup;
+			children = (
+				B1CF54C31DDB51A500E98049 /* PersonalPageShowConfigurator.swift */,
+				B1CF54C41DDB51A500E98049 /* PersonalPageShowInteractor.swift */,
+				B1CF54C51DDB51A500E98049 /* PersonalPageShowModels.swift */,
+				B1CF54C61DDB51A500E98049 /* PersonalPageShowPresenter.swift */,
+				B1CF54C71DDB51A500E98049 /* PersonalPageShowRouter.swift */,
+				B1CF54C81DDB51A500E98049 /* PersonalPageShowViewController.swift */,
+				B1CF54C91DDB51A500E98049 /* PersonalPageShowWorker.swift */,
+			);
+			path = PersonalPageShow;
+			sourceTree = "<group>";
+		};
+		B1CF546B1DDB506A00E98049 /* HandbookShow */ = {
+			isa = PBXGroup;
+			children = (
+				B1CF54991DDB515000E98049 /* HandbookShowConfigurator.swift */,
+				B1CF549A1DDB515000E98049 /* HandbookShowInteractor.swift */,
+				B1CF549B1DDB515000E98049 /* HandbookShowModels.swift */,
+				B1CF549C1DDB515000E98049 /* HandbookShowPresenter.swift */,
+				B1CF549D1DDB515000E98049 /* HandbookShowRouter.swift */,
+				B1CF549E1DDB515000E98049 /* HandbookShowViewController.swift */,
+				B1CF549F1DDB515000E98049 /* HandbookShowWorker.swift */,
+			);
+			path = HandbookShow;
+			sourceTree = "<group>";
+		};
+		B1CF546C1DDB507900E98049 /* BusinessCardsShow */ = {
+			isa = PBXGroup;
+			children = (
+				B1CF547D1DDB50F100E98049 /* BusinessCardsShowConfigurator.swift */,
+				B1CF547E1DDB50F100E98049 /* BusinessCardsShowInteractor.swift */,
+				B1CF547F1DDB50F100E98049 /* BusinessCardsShowModels.swift */,
+				B1CF54801DDB50F100E98049 /* BusinessCardsShowPresenter.swift */,
+				B1CF54811DDB50F100E98049 /* BusinessCardsShowRouter.swift */,
+				B1CF54821DDB50F100E98049 /* BusinessCardsShowViewController.swift */,
+				B1CF54831DDB50F100E98049 /* BusinessCardsShowWorker.swift */,
+			);
+			path = BusinessCardsShow;
+			sourceTree = "<group>";
+		};
+		B1CF546D1DDB508A00E98049 /* OmnieCardsShow */ = {
+			isa = PBXGroup;
+			children = (
+				B1CF54A71DDB516E00E98049 /* OmnieCardsShowConfigurator.swift */,
+				B1CF54A81DDB516E00E98049 /* OmnieCardsShowInteractor.swift */,
+				B1CF54A91DDB516E00E98049 /* OmnieCardsShowModels.swift */,
+				B1CF54AA1DDB516E00E98049 /* OmnieCardsShowPresenter.swift */,
+				B1CF54AB1DDB516E00E98049 /* OmnieCardsShowRouter.swift */,
+				B1CF54AC1DDB516E00E98049 /* OmnieCardsShowViewController.swift */,
+				B1CF54AD1DDB516E00E98049 /* OmnieCardsShowWorker.swift */,
+			);
+			path = OmnieCardsShow;
+			sourceTree = "<group>";
+		};
+		B1CF546E1DDB50AB00E98049 /* DiscountCardsShow */ = {
+			isa = PBXGroup;
+			children = (
+				B1CF548B1DDB512000E98049 /* DiscountCardsShowConfigurator.swift */,
+				B1CF548C1DDB512000E98049 /* DiscountCardsShowInteractor.swift */,
+				B1CF548D1DDB512000E98049 /* DiscountCardsShowModels.swift */,
+				B1CF548E1DDB512000E98049 /* DiscountCardsShowPresenter.swift */,
+				B1CF548F1DDB512000E98049 /* DiscountCardsShowRouter.swift */,
+				B1CF54901DDB512000E98049 /* DiscountCardsShowViewController.swift */,
+				B1CF54911DDB512000E98049 /* DiscountCardsShowWorker.swift */,
+			);
+			path = DiscountCardsShow;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -753,74 +985,130 @@
 				B122F1F91DD35BC70018A701 /* FavoriteShowModels.swift in Sources */,
 				B122F1FB1DD35BC70018A701 /* FavoriteShowRouter.swift in Sources */,
 				B122F2171DD35C2C0018A701 /* NewsShowRouter.swift in Sources */,
+				B1CF547B1DDB50D900E98049 /* AboutShowViewController.swift in Sources */,
 				B122F2051DD35BEB0018A701 /* CategoriesShowConfigurator.swift in Sources */,
+				B1CF54B41DDB516E00E98049 /* OmnieCardsShowWorker.swift in Sources */,
 				B122F2091DD35BEB0018A701 /* CategoriesShowRouter.swift in Sources */,
 				B122F1EB1DD35BA70018A701 /* MessagesShowModels.swift in Sources */,
 				B122F2261DD35CC80018A701 /* SlideMenuShowRouter.swift in Sources */,
 				B1228FB51DD4856A00A90FBB /* MenuItem.swift in Sources */,
 				B122F1DB1DD35B760018A701 /* OrdersShowConfigurator.swift in Sources */,
 				B14E97691DD8B05E001E1DE2 /* ForgotPasswordShowViewController.swift in Sources */,
+				B1CF54B01DDB516E00E98049 /* OmnieCardsShowModels.swift in Sources */,
+				B1CF54971DDB512000E98049 /* DiscountCardsShowViewController.swift in Sources */,
 				B122F2281DD35CC80018A701 /* SlideMenuShowWorker.swift in Sources */,
 				B122F2071DD35BEB0018A701 /* CategoriesShowModels.swift in Sources */,
+				B1CF54CD1DDB51A500E98049 /* PersonalPageShowPresenter.swift in Sources */,
+				B1CF54C11DDB519000E98049 /* OnmieSoftShowViewController.swift in Sources */,
+				B1CF54B31DDB516E00E98049 /* OmnieCardsShowViewController.swift in Sources */,
+				B1CF54D01DDB51A500E98049 /* PersonalPageShowWorker.swift in Sources */,
 				B1228FAD1DD44D3400A90FBB /* TopBarView.swift in Sources */,
+				B1CF54921DDB512000E98049 /* DiscountCardsShowConfigurator.swift in Sources */,
+				B1CF54871DDB50F100E98049 /* BusinessCardsShowPresenter.swift in Sources */,
+				B1CF54771DDB50D900E98049 /* AboutShowInteractor.swift in Sources */,
+				B1CF54951DDB512000E98049 /* DiscountCardsShowPresenter.swift in Sources */,
+				B1CF54861DDB50F100E98049 /* BusinessCardsShowModels.swift in Sources */,
 				B122F1DD1DD35B760018A701 /* OrdersShowModels.swift in Sources */,
+				B1CF54CC1DDB51A500E98049 /* PersonalPageShowModels.swift in Sources */,
+				B1CF54A41DDB515000E98049 /* HandbookShowRouter.swift in Sources */,
+				B1CF54A31DDB515000E98049 /* HandbookShowPresenter.swift in Sources */,
 				B14E97591DD8B052001E1DE2 /* SignUpShowPresenter.swift in Sources */,
+				B1CF54781DDB50D900E98049 /* AboutShowModels.swift in Sources */,
 				B14E97561DD8B052001E1DE2 /* SignUpShowConfigurator.swift in Sources */,
 				B14E97671DD8B05E001E1DE2 /* ForgotPasswordShowPresenter.swift in Sources */,
 				B122F1DF1DD35B760018A701 /* OrdersShowRouter.swift in Sources */,
+				B1CF54CA1DDB51A500E98049 /* PersonalPageShowConfigurator.swift in Sources */,
+				B1CF548A1DDB50F100E98049 /* BusinessCardsShowWorker.swift in Sources */,
 				B122F1E11DD35B760018A701 /* OrdersShowWorker.swift in Sources */,
 				B122F2191DD35C2C0018A701 /* NewsShowWorker.swift in Sources */,
 				B1CF54641DDAE78200E98049 /* CustomButton.swift in Sources */,
 				B122F1ED1DD35BA70018A701 /* MessagesShowRouter.swift in Sources */,
 				B14E97491DD8B042001E1DE2 /* SignInShowInteractor.swift in Sources */,
 				B15FD40A1DD1DD8C00782324 /* AppDelegate.swift in Sources */,
+				B1CF54B21DDB516E00E98049 /* OmnieCardsShowRouter.swift in Sources */,
+				B1CF54C21DDB519000E98049 /* OnmieSoftShowWorker.swift in Sources */,
 				B122F2161DD35C2C0018A701 /* NewsShowPresenter.swift in Sources */,
+				B1CF54A51DDB515000E98049 /* HandbookShowViewController.swift in Sources */,
 				B122F20B1DD35BEB0018A701 /* CategoriesShowWorker.swift in Sources */,
+				B1CF54DD1DDB51BE00E98049 /* SettingsShowViewController.swift in Sources */,
+				B1CF54841DDB50F100E98049 /* BusinessCardsShowConfigurator.swift in Sources */,
 				B14E97641DD8B05E001E1DE2 /* ForgotPasswordShowConfigurator.swift in Sources */,
+				B1CF54881DDB50F100E98049 /* BusinessCardsShowRouter.swift in Sources */,
 				B122F2221DD35CC80018A701 /* SlideMenuShowConfigurator.swift in Sources */,
 				B14E974A1DD8B042001E1DE2 /* SignInShowModels.swift in Sources */,
 				B122F1E01DD35B760018A701 /* OrdersShowViewController.swift in Sources */,
+				B1CF54A01DDB515000E98049 /* HandbookShowConfigurator.swift in Sources */,
+				B1CF54981DDB512000E98049 /* DiscountCardsShowWorker.swift in Sources */,
 				B122F1FD1DD35BC70018A701 /* FavoriteShowWorker.swift in Sources */,
 				B14E974D1DD8B042001E1DE2 /* SignInShowViewController.swift in Sources */,
+				B1CF54A21DDB515000E98049 /* HandbookShowModels.swift in Sources */,
 				B122F2081DD35BEB0018A701 /* CategoriesShowPresenter.swift in Sources */,
 				B122F20A1DD35BEB0018A701 /* CategoriesShowViewController.swift in Sources */,
+				B1CF54CE1DDB51A500E98049 /* PersonalPageShowRouter.swift in Sources */,
+				B1CF54AF1DDB516E00E98049 /* OmnieCardsShowInteractor.swift in Sources */,
 				B122F2151DD35C2C0018A701 /* NewsShowModels.swift in Sources */,
+				B1CF547A1DDB50D900E98049 /* AboutShowRouter.swift in Sources */,
 				B14E974C1DD8B042001E1DE2 /* SignInShowRouter.swift in Sources */,
 				B14E97651DD8B05E001E1DE2 /* ForgotPasswordShowInteractor.swift in Sources */,
+				B1CF54961DDB512000E98049 /* DiscountCardsShowRouter.swift in Sources */,
 				B14E97661DD8B05E001E1DE2 /* ForgotPasswordShowModels.swift in Sources */,
+				B1CF54A61DDB515000E98049 /* HandbookShowWorker.swift in Sources */,
 				B14E974E1DD8B042001E1DE2 /* SignInShowWorker.swift in Sources */,
 				B122F2251DD35CC80018A701 /* SlideMenuShowPresenter.swift in Sources */,
 				B14E975C1DD8B052001E1DE2 /* SignUpShowWorker.swift in Sources */,
+				B1CF54D81DDB51BE00E98049 /* SettingsShowConfigurator.swift in Sources */,
 				B122F1EC1DD35BA70018A701 /* MessagesShowPresenter.swift in Sources */,
 				B122F1DE1DD35B760018A701 /* OrdersShowPresenter.swift in Sources */,
 				B14E975B1DD8B052001E1DE2 /* SignUpShowViewController.swift in Sources */,
+				B1CF54A11DDB515000E98049 /* HandbookShowInteractor.swift in Sources */,
+				B1CF54CF1DDB51A500E98049 /* PersonalPageShowViewController.swift in Sources */,
 				B1228FBA1DD49ED400A90FBB /* BaseViewController.swift in Sources */,
 				B122F2271DD35CC80018A701 /* SlideMenuShowViewController.swift in Sources */,
+				B1CF54851DDB50F100E98049 /* BusinessCardsShowInteractor.swift in Sources */,
 				B1228FB21DD47C9F00A90FBB /* MenuViewCell.swift in Sources */,
 				B122F1EA1DD35BA70018A701 /* MessagesShowInteractor.swift in Sources */,
+				B1CF54DB1DDB51BE00E98049 /* SettingsShowPresenter.swift in Sources */,
 				B14E97481DD8B042001E1DE2 /* SignInShowConfigurator.swift in Sources */,
 				B122F2141DD35C2C0018A701 /* NewsShowInteractor.swift in Sources */,
+				B1CF54AE1DDB516E00E98049 /* OmnieCardsShowConfigurator.swift in Sources */,
+				B1CF54BF1DDB519000E98049 /* OnmieSoftShowPresenter.swift in Sources */,
 				B14E97571DD8B052001E1DE2 /* SignUpShowInteractor.swift in Sources */,
 				B122F1FC1DD35BC70018A701 /* FavoriteShowViewController.swift in Sources */,
+				B1CF54BD1DDB519000E98049 /* OnmieSoftShowInteractor.swift in Sources */,
 				B122F1E91DD35BA70018A701 /* MessagesShowConfigurator.swift in Sources */,
 				B1BF92441DD5FC8000BECBBB /* Config.swift in Sources */,
 				B122F2231DD35CC80018A701 /* SlideMenuShowInteractor.swift in Sources */,
 				B122F1EE1DD35BA70018A701 /* MessagesShowViewController.swift in Sources */,
+				B1CF54891DDB50F100E98049 /* BusinessCardsShowViewController.swift in Sources */,
+				B1CF54D91DDB51BE00E98049 /* SettingsShowInteractor.swift in Sources */,
+				B1CF547C1DDB50D900E98049 /* AboutShowWorker.swift in Sources */,
+				B1CF54DA1DDB51BE00E98049 /* SettingsShowModels.swift in Sources */,
+				B1CF54791DDB50D900E98049 /* AboutShowPresenter.swift in Sources */,
 				B122F1F71DD35BC70018A701 /* FavoriteShowConfigurator.swift in Sources */,
 				B122F2061DD35BEB0018A701 /* CategoriesShowInteractor.swift in Sources */,
+				B1CF54931DDB512000E98049 /* DiscountCardsShowInteractor.swift in Sources */,
+				B1CF54C01DDB519000E98049 /* OnmieSoftShowRouter.swift in Sources */,
+				B1CF54BC1DDB519000E98049 /* OnmieSoftShowConfigurator.swift in Sources */,
 				B122F1EF1DD35BA70018A701 /* MessagesShowWorker.swift in Sources */,
 				B122F2241DD35CC80018A701 /* SlideMenuShowModels.swift in Sources */,
+				B1CF54CB1DDB51A500E98049 /* PersonalPageShowInteractor.swift in Sources */,
 				B122F2131DD35C2C0018A701 /* NewsShowConfigurator.swift in Sources */,
+				B1CF54761DDB50D900E98049 /* AboutShowConfigurator.swift in Sources */,
 				B122F1FA1DD35BC70018A701 /* FavoriteShowPresenter.swift in Sources */,
+				B1CF54BE1DDB519000E98049 /* OnmieSoftShowModels.swift in Sources */,
+				B1CF54DC1DDB51BE00E98049 /* SettingsShowRouter.swift in Sources */,
 				B122F2411DD371B30018A701 /* BaseNavigationController.swift in Sources */,
 				B122F1DC1DD35B760018A701 /* OrdersShowInteractor.swift in Sources */,
 				B14E97681DD8B05E001E1DE2 /* ForgotPasswordShowRouter.swift in Sources */,
+				B1CF54B11DDB516E00E98049 /* OmnieCardsShowPresenter.swift in Sources */,
 				B14E97581DD8B052001E1DE2 /* SignUpShowModels.swift in Sources */,
 				B14E974B1DD8B042001E1DE2 /* SignInShowPresenter.swift in Sources */,
+				B1CF54941DDB512000E98049 /* DiscountCardsShowModels.swift in Sources */,
 				B14E975A1DD8B052001E1DE2 /* SignUpShowRouter.swift in Sources */,
 				B122F2181DD35C2C0018A701 /* NewsShowViewController.swift in Sources */,
 				B122F1F81DD35BC70018A701 /* FavoriteShowInteractor.swift in Sources */,
 				B14E976A1DD8B05E001E1DE2 /* ForgotPasswordShowWorker.swift in Sources */,
+				B1CF54DE1DDB51BE00E98049 /* SettingsShowWorker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
