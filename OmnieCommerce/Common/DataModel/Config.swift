@@ -12,6 +12,15 @@
 import UIKit
 
 struct Config {
+    struct Constants {
+//        static let radiusSmall                              =   568.0
+//        static let topViewHeightSmall                       =   193.0
+//        static let topViewLineHeightSmall                   =   203.0
+//        static let radiusBig                                =   1531.0
+//        static let topViewHeightBig                         =   216.0
+//        static let topViewLineThickness                     =   3.0
+    }
+    
     struct Themes {
         struct Fonts {
         }
