@@ -48,7 +48,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wwl-qi-06k" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1135.2" y="118.29085457271366"/>
+            <point key="canvasLocation" x="790" y="118"/>
         </scene>
         <!--Base Navigation Controller-->
         <scene sceneID="16W-V8-KOV">
@@ -58,8 +58,9 @@
 CQ
 </string>
                     <toolbarItems/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="K1C-FM-eAU">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="K1C-FM-eAU">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

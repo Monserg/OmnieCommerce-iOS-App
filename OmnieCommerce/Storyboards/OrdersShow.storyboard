@@ -59,22 +59,22 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Orders" id="5Gb-Un-bfT"/>
-                    <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="ordersTopBarView" destination="0nN-5h-FmO" id="PbZ-V0-wtG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x1J-23-oc8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1543.2" y="147.97601199400302"/>
+            <point key="canvasLocation" x="1152" y="148"/>
         </scene>
         <!--Base Navigation Controller-->
         <scene sceneID="yqS-Bc-pCM">
             <objects>
                 <navigationController storyboardIdentifier="OrdersShowNC" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="g2I-y5-hYL" customClass="BaseNavigationController" customModule="OmnieCommerce" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="RsX-5O-ea1">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="RsX-5O-ea1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

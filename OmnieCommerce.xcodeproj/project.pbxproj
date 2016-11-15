@@ -177,6 +177,7 @@
 		B1CF54E81DDB55E300E98049 /* HandbookShow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1CF54E71DDB55E300E98049 /* HandbookShow.storyboard */; };
 		B1CF54EA1DDB56BD00E98049 /* BusinessCardsShow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1CF54E91DDB56BD00E98049 /* BusinessCardsShow.storyboard */; };
 		B1CF54EC1DDB57C300E98049 /* OmnieCardsShow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1CF54EB1DDB57C300E98049 /* OmnieCardsShow.storyboard */; };
+		B1CF54EE1DDB588600E98049 /* DiscountCardsShow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1CF54ED1DDB588600E98049 /* DiscountCardsShow.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -358,6 +359,7 @@
 		B1CF54E71DDB55E300E98049 /* HandbookShow.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = HandbookShow.storyboard; sourceTree = "<group>"; };
 		B1CF54E91DDB56BD00E98049 /* BusinessCardsShow.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = BusinessCardsShow.storyboard; sourceTree = "<group>"; };
 		B1CF54EB1DDB57C300E98049 /* OmnieCardsShow.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = OmnieCardsShow.storyboard; sourceTree = "<group>"; };
+		B1CF54ED1DDB588600E98049 /* DiscountCardsShow.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DiscountCardsShow.storyboard; sourceTree = "<group>"; };
 		ED913E9D2C7028252CE0B73A /* Pods-OmnieCommerce.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OmnieCommerce.release.xcconfig"; path = "Pods/Target Support Files/Pods-OmnieCommerce/Pods-OmnieCommerce.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -444,6 +446,7 @@
 				B1CF54E11DDB529300E98049 /* AboutShow.storyboard */,
 				B1CF54E91DDB56BD00E98049 /* BusinessCardsShow.storyboard */,
 				B122F22F1DD35EE10018A701 /* CategoriesShow.storyboard */,
+				B1CF54ED1DDB588600E98049 /* DiscountCardsShow.storyboard */,
 				B122F22D1DD35ECC0018A701 /* FavoriteShow.storyboard */,
 				B1CF54E71DDB55E300E98049 /* HandbookShow.storyboard */,
 				B15FD4121DD1DD8C00782324 /* LaunchScreen.storyboard */,
@@ -943,6 +946,7 @@
 				B122F22C1DD35E550018A701 /* MessagesShow.storyboard in Resources */,
 				B1CF54E61DDB552300E98049 /* PersonalPageShow.storyboard in Resources */,
 				B122F2481DD393330018A701 /* Localizable.strings in Resources */,
+				B1CF54EE1DDB588600E98049 /* DiscountCardsShow.storyboard in Resources */,
 				B15FD4141DD1DD8C00782324 /* LaunchScreen.storyboard in Resources */,
 				B1CF54E41DDB543300E98049 /* SettingsShow.storyboard in Resources */,
 				B122F1BF1DD3575E0018A701 /* SlideMenuShow.storyboard in Resources */,
