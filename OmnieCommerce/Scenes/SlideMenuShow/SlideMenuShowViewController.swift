@@ -25,6 +25,8 @@ class SlideMenuShowViewController: UIViewController, SlideMenuShowViewController
     var output: SlideMenuShowViewControllerOutput!
     var router: SlideMenuShowRouter!
     
+    var menuItemsList = NSDictionary()
+    
     @IBOutlet weak var tableView: UITableView!
 
     
@@ -45,6 +47,9 @@ class SlideMenuShowViewController: UIViewController, SlideMenuShowViewController
         self.tableView.delegate = self
         
         doSomethingOnLoad()
+        
+        // FIXME: - REMOVE TO WORKER
+        getMenuItemsFromPropertyList()
     }
 
     deinit {
@@ -63,16 +68,27 @@ class SlideMenuShowViewController: UIViewController, SlideMenuShowViewController
         // NOTE: Display the result from the Presenter
         // nameTextField.text = viewModel.name
     }
+    
+    func getMenuItemsFromPropertyList() {
+        let path = Bundle.main.path(forResource: "MenuItemsList", ofType: "plist")
+        menuItemsList = NSDictionary(contentsOfFile: path!)!
+        
+        tableView.reloadData()
+    }
 }
 
 
 // MARK: - UITableViewDataSource
 extension SlideMenuShowViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 5
+        return menuItemsList.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        let sectionArray = menuItemsList.object(forKey: "Section \(section)") as! NSArray
+        
+        return sectionArray.count
+        /*
         switch section {
         case 0:
             return 5
@@ -92,14 +108,19 @@ extension SlideMenuShowViewController: UITableViewDataSource {
             return 1
 
         default:
-            return 0
+            return 1
         }
+ */
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MenuCell", for: indexPath) as! MenuViewCell
         
-        cell.titleLabel.text = "Label \(indexPath.row)"
+        print(indexPath)
+        let sectionArray = menuItemsList.object(forKey: "Section \(indexPath.section)") as! NSArray
+        let sectionDictionary = sectionArray[indexPath.row] as! NSDictionary
+        
+        cell.titleLabel.text = (sectionDictionary.object(forKey: "name") as! String)
         
         return cell
     }

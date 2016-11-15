@@ -28,8 +28,8 @@ class BaseViewController: UIViewController {
     func setup(_ topBarView: TopBarView, title: String) {
         // Add Slide Menu actions
         if revealViewController() != nil {
-            topBarView.titleLabel.text = title.localized()
-            topBarView.menuButton.addTarget(revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), for: .touchUpInside)
+//            topBarView.titleLabel.text = title.localized()
+//            topBarView.menuButton.addTarget(revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), for: .touchUpInside)
             revealViewController().rightViewRevealWidth = 296
             revealViewController().frontViewShadowColor = UIColor.white
             

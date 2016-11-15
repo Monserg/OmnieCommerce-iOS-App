@@ -51,7 +51,7 @@ class SignInShowViewController: UIViewController, SignInShowViewControllerInput 
         super.viewDidLoad()
         
         // Config scene
-        topBarView.cirleRadius = .small
+        topBarView.cirleRadius = .big
         topBarViewHeight = (topBarView.cirleRadius == .small) ? Config.Constants.topViewBarHeightSmall : Config.Constants.topViewBarHeightBig
         topBarViewHeightPortraitConstraint.constant = topBarViewHeight
         topBarViewHeightLandscapeConstraint.constant = topBarViewHeight

@@ -164,7 +164,7 @@
             <objects>
                 <navigationController storyboardIdentifier="SignInShowNC" automaticallyAdjustsScrollViewInsets="NO" id="HnD-Xp-HUn" customClass="BaseNavigationController" customModule="OmnieCommerce" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="hMj-in-c4l">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="hMj-in-c4l">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

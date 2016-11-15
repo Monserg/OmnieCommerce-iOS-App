@@ -36,7 +36,14 @@
 			<key>segue</key>
 			<string>CategoriesShowSegue</string>
 		</dict>
-		<string>News</string>
+		<dict>
+			<key>name</key>
+			<string>News</string>
+			<key>icon</key>
+			<string>icon-news.png</string>
+			<key>segue</key>
+			<string>NewsShowSegue</string>
+		</dict>
 	</array>
 	<key>Section 1</key>
 	<array>
