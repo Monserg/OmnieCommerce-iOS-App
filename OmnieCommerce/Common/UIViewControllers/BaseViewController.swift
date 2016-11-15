@@ -12,6 +12,7 @@ import SWRevealViewController
 
 class BaseViewController: UIViewController {
     // MARK: - Properties
+    var titleText = String()
     
 
     // MARK: - Class Functions
@@ -25,10 +26,11 @@ class BaseViewController: UIViewController {
     
     
     // MARK: - Custom Functions
-    func setup(_ topBarView: TopBarView, title: String) {
+    func setup(withTitle title: String) {
         // Add Slide Menu actions
         if revealViewController() != nil {
-//            topBarView.titleLabel.text = title.localized()
+            titleText = title.localized()
+            
 //            topBarView.menuButton.addTarget(revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), for: .touchUpInside)
             revealViewController().rightViewRevealWidth = 296
             revealViewController().frontViewShadowColor = UIColor.white

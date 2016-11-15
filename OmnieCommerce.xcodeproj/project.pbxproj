@@ -178,6 +178,7 @@
 		B1CF54EA1DDB56BD00E98049 /* BusinessCardsShow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1CF54E91DDB56BD00E98049 /* BusinessCardsShow.storyboard */; };
 		B1CF54EC1DDB57C300E98049 /* OmnieCardsShow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1CF54EB1DDB57C300E98049 /* OmnieCardsShow.storyboard */; };
 		B1CF54EE1DDB588600E98049 /* DiscountCardsShow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1CF54ED1DDB588600E98049 /* DiscountCardsShow.storyboard */; };
+		B1CF54F01DDB5F1A00E98049 /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CF54EF1DDB5F1A00E98049 /* CustomLabel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -360,6 +361,7 @@
 		B1CF54E91DDB56BD00E98049 /* BusinessCardsShow.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = BusinessCardsShow.storyboard; sourceTree = "<group>"; };
 		B1CF54EB1DDB57C300E98049 /* OmnieCardsShow.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = OmnieCardsShow.storyboard; sourceTree = "<group>"; };
 		B1CF54ED1DDB588600E98049 /* DiscountCardsShow.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DiscountCardsShow.storyboard; sourceTree = "<group>"; };
+		B1CF54EF1DDB5F1A00E98049 /* CustomLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
 		ED913E9D2C7028252CE0B73A /* Pods-OmnieCommerce.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OmnieCommerce.release.xcconfig"; path = "Pods/Target Support Files/Pods-OmnieCommerce/Pods-OmnieCommerce.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -436,6 +438,7 @@
 		B1228FBB1DD4BDE600A90FBB /* UILabels */ = {
 			isa = PBXGroup;
 			children = (
+				B1CF54EF1DDB5F1A00E98049 /* CustomLabel.swift */,
 			);
 			path = UILabels;
 			sourceTree = "<group>";
@@ -1081,6 +1084,7 @@
 				B1CF54961DDB512000E98049 /* DiscountCardsShowRouter.swift in Sources */,
 				B14E97661DD8B05E001E1DE2 /* ForgotPasswordShowModels.swift in Sources */,
 				B1CF54A61DDB515000E98049 /* HandbookShowWorker.swift in Sources */,
+				B1CF54F01DDB5F1A00E98049 /* CustomLabel.swift in Sources */,
 				B14E974E1DD8B042001E1DE2 /* SignInShowWorker.swift in Sources */,
 				B122F2251DD35CC80018A701 /* SlideMenuShowPresenter.swift in Sources */,
 				B14E975C1DD8B052001E1DE2 /* SignUpShowWorker.swift in Sources */,

@@ -10,8 +10,6 @@ import UIKit
 
 class TopBarView: UIView {
     // MARK: - Properties
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var menuButton: UIButton!
     @IBOutlet weak var searchButton: UIButton!
     
     // Small cirle radius = 568, fill height = 192, line height = 205, top view height = 218

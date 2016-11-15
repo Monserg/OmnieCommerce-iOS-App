@@ -25,7 +25,11 @@ class AboutShowViewController: BaseViewController, AboutShowViewControllerInput 
     var output: AboutShowViewControllerOutput!
     var router: AboutShowRouter!
     
+    @IBOutlet weak var aboutTopBarView: TopBarView!
+    @IBOutlet weak var titleLabel: CustomLabel!
+    @IBOutlet weak var menuButton: UIButton!
 
+ 
     // MARK: - Class initialization
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -37,6 +41,10 @@ class AboutShowViewController: BaseViewController, AboutShowViewControllerInput 
     // MARK: - Class Functions
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setup(withTitle: "About")
+        titleLabel.text = self.titleText
+        titleLabel.setup(withType: .title)
         
         doSomethingOnLoad()
     }
