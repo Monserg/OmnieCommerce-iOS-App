@@ -25,7 +25,7 @@ class CategoriesShowViewController: BaseViewController, CategoriesShowViewContro
     var output: CategoriesShowViewControllerOutput!
     var router: CategoriesShowRouter!
     
-    @IBOutlet weak var categoriesTopBarView: TopBarView!
+    @IBOutlet weak var topBarView: TopBarView!
 
     
     // MARK: - Class initialization

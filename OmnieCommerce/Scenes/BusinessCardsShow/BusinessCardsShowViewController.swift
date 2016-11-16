@@ -25,7 +25,9 @@ class BusinessCardsShowViewController: BaseViewController, BusinessCardsShowView
     var output: BusinessCardsShowViewControllerOutput!
     var router: BusinessCardsShowRouter!
     
+    @IBOutlet weak var topBarView: TopBarView!
 
+    
     // MARK: - Class initialization
     override func awakeFromNib() {
         super.awakeFromNib()

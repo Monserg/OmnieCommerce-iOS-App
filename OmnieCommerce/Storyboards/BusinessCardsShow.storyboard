@@ -48,6 +48,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="NMq-fn-4R1"/>
+                    <connections>
+                        <outlet property="topBarView" destination="r2E-6A-P6i" id="UXB-Zj-oc0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nZg-d8-bRr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
