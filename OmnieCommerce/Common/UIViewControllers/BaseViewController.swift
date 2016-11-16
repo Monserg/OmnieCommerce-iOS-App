@@ -11,6 +11,10 @@ import Localize_Swift
 import SWRevealViewController
 
 class BaseViewController: UIViewController {
+    // MARK: - Properties
+    var topBarViewRounding = CircleView.CirleRadius.small
+
+        
     // MARK: - Class Functions
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,15 +26,24 @@ class BaseViewController: UIViewController {
     
     
     // MARK: - Custom Functions
-    func setup() {
-        // Add Slide Menu actions
-        if revealViewController() != nil {
-            
-//            topBarView.menuButton.addTarget(revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), for: .touchUpInside)
-            revealViewController().rightViewRevealWidth = 296
-            revealViewController().frontViewShadowColor = UIColor.white
-            
-            view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+    func setup(topBarView: TopBarView) {
+        // .small radius
+        if (topBarViewRounding == .small) {
+            print(".small")
+        }
+        
+        // .big radius
+        else {
+            // Add Slide Menu actions
+            if revealViewController() != nil {
+                print(".big")
+
+                topBarView.actionButton.addTarget(revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), for: .touchUpInside)
+                revealViewController().rightViewRevealWidth = 296
+                revealViewController().frontViewShadowColor = UIColor.white
+                
+                view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+            }
         }
     }
 }

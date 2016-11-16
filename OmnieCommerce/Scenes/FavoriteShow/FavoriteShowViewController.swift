@@ -40,7 +40,7 @@ class FavoriteShowViewController: BaseViewController, FavoriteShowViewController
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setup()
+//        setup()
 
         doSomethingOnLoad()
     }

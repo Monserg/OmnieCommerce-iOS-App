@@ -40,7 +40,7 @@ class NewsShowViewController: BaseViewController, NewsShowViewControllerInput {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setup()
+//        setup()
 
         doSomethingOnLoad()
     }

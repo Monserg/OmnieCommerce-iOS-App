@@ -30,6 +30,8 @@ import Localize_Swift
                 self.font = UIFont.systemFont(ofSize: 13.0)
                 self.textColor = UIColor.red
             }
+            
+            self.adjustsFontSizeToFitWidth = true
         }
     }
 }

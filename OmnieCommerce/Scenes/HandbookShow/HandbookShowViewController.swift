@@ -40,7 +40,7 @@ class HandbookShowViewController: BaseViewController, HandbookShowViewController
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setup()
+//        setup()
         
         doSomethingOnLoad()
     }

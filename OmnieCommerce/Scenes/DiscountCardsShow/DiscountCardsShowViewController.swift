@@ -40,7 +40,7 @@ class DiscountCardsShowViewController: BaseViewController, DiscountCardsShowView
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setup()
+//        setup()
         
         doSomethingOnLoad()
     }

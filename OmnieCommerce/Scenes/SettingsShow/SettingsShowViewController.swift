@@ -40,7 +40,7 @@ class SettingsShowViewController: BaseViewController, SettingsShowViewController
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setup()
+//        setup()
         
         doSomethingOnLoad()
     }

@@ -40,7 +40,7 @@ class AboutShowViewController: BaseViewController, AboutShowViewControllerInput 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setup()
+//        setup()
         
         doSomethingOnLoad()
     }
