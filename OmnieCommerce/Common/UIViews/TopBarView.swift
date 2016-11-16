@@ -12,13 +12,19 @@ import UIKit
     // MARK: - Properties
     @IBOutlet var view: UIView!
     @IBOutlet weak var circleView: CircleView!
+    @IBOutlet weak var navigationBarView: UIView!
     @IBOutlet weak var titleLabel: CustomLabel!
     @IBOutlet weak var actionButton: UIButton!
     @IBOutlet weak var searchButton: UIButton!
     
     @IBInspectable var titleText: String? {
         didSet {
-            titleLabel.text = titleText!.localized()
+            // Enter "Hide" for don't show panel
+            if titleText != "Hide" {
+                titleLabel.text = titleText!.localized()
+            } else {
+                navigationBarView.isHidden = true
+            }
         }
     }
  

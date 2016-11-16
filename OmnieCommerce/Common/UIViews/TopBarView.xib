@@ -14,6 +14,7 @@
             <connections>
                 <outlet property="actionButton" destination="Clv-2w-mnU" id="Ncy-pa-rTz"/>
                 <outlet property="circleView" destination="0jP-h8-fPB" id="gaa-aZ-9xl"/>
+                <outlet property="navigationBarView" destination="Aaz-gF-QEr" id="n12-Jb-nVt"/>
                 <outlet property="searchButton" destination="XVY-EZ-uYj" id="c57-vk-etV"/>
                 <outlet property="titleLabel" destination="tjF-XW-izK" id="Vtc-2n-qdu"/>
                 <outlet property="view" destination="iN0-l3-epB" id="G9t-42-umf"/>
@@ -32,7 +33,7 @@
                     <rect key="frame" x="0.0" y="20" width="486" height="44"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tjF-XW-izK" userLabel="Titile Label" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                            <rect key="frame" x="76" y="8" width="334" height="29"/>
+                            <rect key="frame" x="76" y="7.5" width="334" height="29"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>

@@ -20,7 +20,7 @@ protocol SignInShowViewControllerOutput {
     func doSomething(request: SignInShow.Something.Request)
 }
 
-class SignInShowViewController: UIViewController, SignInShowViewControllerInput {
+class SignInShowViewController: BaseViewController, SignInShowViewControllerInput {
     // MARK: - Properties
     var output: SignInShowViewControllerOutput!
     var router: SignInShowRouter!
