@@ -24,6 +24,9 @@ struct Config {
         static let circleViewBarHeightSmall: CGFloat            =   192.0
         
         static let topViewBarLineThickness: CGFloat             =   3.0
+        
+        // FIXME: - DELETE AFTER TEST
+        static let isUserGuest: Bool                            =   false
     }
     
     struct Themes {

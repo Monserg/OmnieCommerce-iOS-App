@@ -17,18 +17,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {       
         // Check initial scene
-        let userStatus = 0 //arc4random() % 2
         self.window = UIWindow(frame: UIScreen.main.bounds)
         
-        switch userStatus {
+        switch Config.Constants.isUserGuest {
         // User authorized
-        case 1:
+        case false:
             let ordersShowStoryboard = UIStoryboard(name: "SlideMenuShow", bundle: nil)
             let initialVC = ordersShowStoryboard.instantiateViewController(withIdentifier: "RevealVC") as! SWRevealViewController
             self.window?.rootViewController = initialVC
             
         // Guest
-        default:
+        case true:
             let signInShowStoryboard = UIStoryboard(name: "SignInShow", bundle: nil)
             let initialNC = signInShowStoryboard.instantiateViewController(withIdentifier: "SignInShowNC") as! BaseNavigationController
             self.window?.rootViewController = initialNC
