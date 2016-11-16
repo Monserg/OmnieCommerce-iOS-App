@@ -25,7 +25,7 @@ class NewsShowViewController: BaseViewController, NewsShowViewControllerInput {
     var output: NewsShowViewControllerOutput!
     var router: NewsShowRouter!
     
-    @IBOutlet weak var newsTopBarView: TopBarView!
+    @IBOutlet weak var topBarView: TopBarView!
 
     
     // MARK: - Class initialization
