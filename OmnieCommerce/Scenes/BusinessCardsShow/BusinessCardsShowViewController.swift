@@ -38,6 +38,8 @@ class BusinessCardsShowViewController: BaseViewController, BusinessCardsShowView
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setup()
+        
         doSomethingOnLoad()
     }
     
