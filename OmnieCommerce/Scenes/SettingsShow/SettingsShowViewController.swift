@@ -25,7 +25,9 @@ class SettingsShowViewController: BaseViewController, SettingsShowViewController
     var output: SettingsShowViewControllerOutput!
     var router: SettingsShowRouter!
     
+    @IBOutlet weak var topBarView: TopBarView!
 
+    
     // MARK: - Class initialization
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -37,6 +39,8 @@ class SettingsShowViewController: BaseViewController, SettingsShowViewController
     // MARK: - Class Functions
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setup()
         
         doSomethingOnLoad()
     }
