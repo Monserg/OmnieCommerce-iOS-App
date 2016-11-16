@@ -25,7 +25,7 @@ class FavoriteShowViewController: BaseViewController, FavoriteShowViewController
     var output: FavoriteShowViewControllerOutput!
     var router: FavoriteShowRouter!
     
-    @IBOutlet weak var favoriteTopBarView: TopBarView!
+    @IBOutlet weak var topBarView: TopBarView!
     
     
     // MARK: - Class initialization

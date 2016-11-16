@@ -27,6 +27,9 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="EVF-a3-38m"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="titleText" value="Favourite"/>
+                                </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -40,7 +43,7 @@
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
-                        <outlet property="favoriteTopBarView" destination="dRx-wv-CTN" id="H25-iq-dZj"/>
+                        <outlet property="topBarView" destination="dRx-wv-CTN" id="Lv0-BM-zw6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fDu-SB-jh3" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -52,7 +55,7 @@
             <objects>
                 <navigationController storyboardIdentifier="FavoriteShowNC" automaticallyAdjustsScrollViewInsets="NO" id="vcg-jx-izI" customClass="BaseNavigationController" customModule="OmnieCommerce" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ZDq-oz-Jag">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="ZDq-oz-Jag">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
