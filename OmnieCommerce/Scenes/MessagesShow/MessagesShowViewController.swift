@@ -25,7 +25,7 @@ class MessagesShowViewController: BaseViewController, MessagesShowViewController
     var output: MessagesShowViewControllerOutput!
     var router: MessagesShowRouter!
     
-    @IBOutlet weak var messagesTopBarView: TopBarView!
+    @IBOutlet weak var topBarView: TopBarView!
 
     
     // MARK: - Class initialization

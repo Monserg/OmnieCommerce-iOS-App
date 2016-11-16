@@ -25,7 +25,9 @@ class HandbookShowViewController: BaseViewController, HandbookShowViewController
     var output: HandbookShowViewControllerOutput!
     var router: HandbookShowRouter!
     
+    @IBOutlet weak var topBarView: TopBarView!
 
+    
     // MARK: - Class initialization
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -37,6 +39,8 @@ class HandbookShowViewController: BaseViewController, HandbookShowViewController
     // MARK: - Class Functions
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setup()
         
         doSomethingOnLoad()
     }

@@ -33,6 +33,9 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="Q3Y-BW-Xxf"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="titleText" value="Handbook"/>
+                                </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -45,6 +48,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="pdq-Tq-NOG"/>
+                    <connections>
+                        <outlet property="topBarView" destination="QIO-EA-wXe" id="3TJ-Xs-RKW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Agf-AF-wsv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -57,7 +63,7 @@
                     <toolbarItems/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="pHS-Rq-tb8">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="pHS-Rq-tb8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

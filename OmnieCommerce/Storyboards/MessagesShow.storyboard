@@ -27,6 +27,9 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="9aV-Mk-64z"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="titleText" value="Messages"/>
+                                </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -40,7 +43,7 @@
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
-                        <outlet property="messagesTopBarView" destination="EhI-Ef-LH8" id="wGm-Iv-Zp8"/>
+                        <outlet property="topBarView" destination="EhI-Ef-LH8" id="rDT-Li-kFT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k2E-dX-hca" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -52,7 +55,7 @@
             <objects>
                 <navigationController storyboardIdentifier="MessagesShowNC" automaticallyAdjustsScrollViewInsets="NO" id="YAB-jH-ZBO" customClass="BaseNavigationController" customModule="OmnieCommerce" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="gPT-Va-oc5">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="gPT-Va-oc5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
