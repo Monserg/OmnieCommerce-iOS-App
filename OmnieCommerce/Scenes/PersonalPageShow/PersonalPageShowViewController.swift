@@ -25,7 +25,9 @@ class PersonalPageShowViewController: BaseViewController, PersonalPageShowViewCo
     var output: PersonalPageShowViewControllerOutput!
     var router: PersonalPageShowRouter!
     
+    @IBOutlet weak var topBarView: TopBarView!
 
+    
     // MARK: - Class initialization
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -37,6 +39,8 @@ class PersonalPageShowViewController: BaseViewController, PersonalPageShowViewCo
     // MARK: - Class Functions
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setup()
         
         doSomethingOnLoad()
     }
