@@ -17,9 +17,9 @@ class CircleView: UIView {
         case big
     }
     
-    var cirleRadius = CirleRadius.big {
+    var cirleRadiusStyle = CirleRadius.big {
         didSet {
-            print(cirleRadius)
+            print(cirleRadiusStyle)
         }
     }
         
@@ -32,15 +32,18 @@ class CircleView: UIView {
         
         // Set the circle outerline-colour
         Config.Views.Colors.darkCyan?.set()
-        let contextHeight = (cirleRadius == .small) ? Config.Constants.circleViewBarHeightSmall : Config.Constants.circleViewBarHeightBig
-        let circleRadius = (cirleRadius == .small) ? CGFloat(Config.Constants.circleViewRadiusSmall) : CGFloat(Config.Constants.circleViewRadiusBig)
-        
+        let contextHeight = (cirleRadiusStyle == .small) ? Config.Constants.circleViewBarHeightSmall : Config.Constants.circleViewBarHeightBig
+        let circleRadiusValue = (cirleRadiusStyle == .small) ? CGFloat(Config.Constants.circleViewRadiusSmall) : CGFloat(Config.Constants.circleViewRadiusBig)
         
         // Create Fill Circle
         if UIApplication.shared.statusBarOrientation.isPortrait {
-            contextFill!.addArc(center: CGPoint(x: frame.size.width/2, y: contextHeight - circleRadius), radius: circleRadius, startAngle: (rect.size.width - 10)/2, endAngle: 0, clockwise: true)
+            let centerPortrait = CGPoint(x: frame.size.width / 2, y: contextHeight - circleRadiusValue)
+            
+            contextFill!.addArc(center: centerPortrait, radius: circleRadiusValue, startAngle: (rect.size.width - 10) / 2, endAngle: 0, clockwise: true)
         } else {
-            contextFill!.addArc(center: CGPoint(x: contextHeight - circleRadius, y: frame.size.height/2), radius: circleRadius, startAngle: (rect.size.width - 10)/2, endAngle: 0, clockwise: true)
+            let centerLandscape = (cirleRadiusStyle == .big) ? CGPoint(x: frame.size.width / 2, y: contextHeight - circleRadiusValue) : CGPoint(x: contextHeight - circleRadiusValue, y: frame.size.height / 2)
+            
+            contextFill!.addArc(center: centerLandscape, radius: circleRadiusValue, startAngle: (rect.size.width - 10) / 2, endAngle: 0, clockwise: true)
         }
         
         contextFill!.fillPath()
@@ -53,9 +56,13 @@ class CircleView: UIView {
         
         // Create Line Circle
         if UIApplication.shared.statusBarOrientation.isPortrait {
-            contextLine!.addArc(center: CGPoint(x: frame.size.width/2, y: contextHeight + 13 - circleRadius), radius: circleRadius, startAngle: (rect.size.width - 10)/2, endAngle: 0, clockwise: true)
+            let centerPortrait = CGPoint(x: frame.size.width / 2, y: contextHeight + 13 - circleRadiusValue)
+            
+            contextLine!.addArc(center: centerPortrait, radius: circleRadiusValue, startAngle: (rect.size.width - 10) / 2, endAngle: 0, clockwise: true)
         } else {
-            contextLine!.addArc(center: CGPoint(x: contextHeight + 13 - circleRadius, y: frame.size.height/2), radius: circleRadius, startAngle: (rect.size.width - 10)/2, endAngle: 0, clockwise: true)
+            let centerLandscape = (cirleRadiusStyle == .big) ? CGPoint(x: frame.size.width / 2, y: contextHeight + 13 - circleRadiusValue) : CGPoint(x: contextHeight + 13 - circleRadiusValue, y: frame.size.height / 2)
+                
+            contextLine!.addArc(center: centerLandscape, radius: circleRadiusValue, startAngle: (rect.size.width - 10) / 2, endAngle: 0, clockwise: true)
         }
         
         contextLine!.strokePath()

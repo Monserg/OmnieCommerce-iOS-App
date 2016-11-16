@@ -51,8 +51,8 @@ class SignInShowViewController: BaseViewController, SignInShowViewControllerInpu
         super.viewDidLoad()
         
         // Config scene
-        topBarView.circleView.cirleRadius = .small
-        topBarViewHeight = (topBarView.circleView.cirleRadius == .small) ? Config.Constants.topViewBarHeightSmall : Config.Constants.topViewBarHeightBig
+        topBarView.circleView.cirleRadiusStyle = .small
+        topBarViewHeight = (topBarView.circleView.cirleRadiusStyle == .small) ? Config.Constants.topViewBarHeightSmall : Config.Constants.topViewBarHeightBig
         topBarViewHeightPortraitConstraint.constant = topBarViewHeight
         topBarViewHeightLandscapeConstraint.constant = topBarViewHeight
         self.view.layoutIfNeeded()
@@ -84,7 +84,7 @@ class SignInShowViewController: BaseViewController, SignInShowViewControllerInpu
         
         topBarView.setNeedsDisplay()
         
-        if (topBarView.circleView.cirleRadius == .small) {
+        if (topBarView.circleView.cirleRadiusStyle == .small) {
             vkontakteButton.setNeedsDisplay()
             googleButton.setNeedsDisplay()
             facebookButton.setNeedsDisplay()
