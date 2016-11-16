@@ -25,7 +25,9 @@ class DiscountCardsShowViewController: BaseViewController, DiscountCardsShowView
     var output: DiscountCardsShowViewControllerOutput!
     var router: DiscountCardsShowRouter!
     
+    @IBOutlet weak var topBarView: TopBarView!
 
+    
     // MARK: - Class initialization
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -37,6 +39,8 @@ class DiscountCardsShowViewController: BaseViewController, DiscountCardsShowView
     // MARK: - Class Functions
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setup()
         
         doSomethingOnLoad()
     }
