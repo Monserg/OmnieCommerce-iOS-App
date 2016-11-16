@@ -25,7 +25,9 @@ class OmnieCardsShowViewController: BaseViewController, OmnieCardsShowViewContro
     var output: OmnieCardsShowViewControllerOutput!
     var router: OmnieCardsShowRouter!
     
+    @IBOutlet weak var topBarView: TopBarView!
 
+    
     // MARK: - Class initialization
     override func awakeFromNib() {
         super.awakeFromNib()
