@@ -40,7 +40,7 @@ class MessagesShowViewController: BaseViewController, MessagesShowViewController
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setup(withTitle: "Messages")
+        setup()
         
         doSomethingOnLoad()
     }

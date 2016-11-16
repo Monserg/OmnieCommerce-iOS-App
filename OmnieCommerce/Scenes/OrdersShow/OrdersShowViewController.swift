@@ -25,7 +25,7 @@ class OrdersShowViewController: BaseViewController, OrdersShowViewControllerInpu
     var output: OrdersShowViewControllerOutput!
     var router: OrdersShowRouter!
     
-    @IBOutlet weak var ordersTopBarView: TopBarView!
+    @IBOutlet weak var topBarView: TopBarView!
     
 
     // MARK: - Class initialization
@@ -40,7 +40,7 @@ class OrdersShowViewController: BaseViewController, OrdersShowViewControllerInpu
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setup(withTitle: "Orders")
+        setup()
 
         doSomethingOnLoad()
     }

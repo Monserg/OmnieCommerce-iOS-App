@@ -27,6 +27,9 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="mHQ-gI-BBq"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="titleText" value="Orders"/>
+                                </userDefinedRuntimeAttributes>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BJ5-f8-RkF" customClass="CustomButton" customModule="OmnieCommerce" customModuleProvider="target">
                                 <rect key="frame" x="97" y="293" width="180" height="80"/>
@@ -60,12 +63,12 @@
                     </view>
                     <navigationItem key="navigationItem" title="Orders" id="5Gb-Un-bfT"/>
                     <connections>
-                        <outlet property="ordersTopBarView" destination="0nN-5h-FmO" id="PbZ-V0-wtG"/>
+                        <outlet property="topBarView" destination="0nN-5h-FmO" id="e8h-k5-fDI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x1J-23-oc8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1152" y="148"/>
+            <point key="canvasLocation" x="1452" y="148"/>
         </scene>
         <!--Base Navigation Controller-->
         <scene sceneID="yqS-Bc-pCM">

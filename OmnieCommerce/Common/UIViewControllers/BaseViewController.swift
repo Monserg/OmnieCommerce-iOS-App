@@ -22,7 +22,7 @@ class BaseViewController: UIViewController {
     
     
     // MARK: - Custom Functions
-    func setup(withTitle title: String) {
+    func setup() {
         // Add Slide Menu actions
         if revealViewController() != nil {
             

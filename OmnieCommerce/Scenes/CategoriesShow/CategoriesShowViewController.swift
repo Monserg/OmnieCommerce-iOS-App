@@ -40,7 +40,7 @@ class CategoriesShowViewController: BaseViewController, CategoriesShowViewContro
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setup(withTitle: "Categories")
+        setup()
 
         doSomethingOnLoad()
     }

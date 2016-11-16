@@ -62,6 +62,8 @@
 		B122F2321DD35EF10018A701 /* NewsShow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B122F2311DD35EF10018A701 /* NewsShow.storyboard */; };
 		B122F2411DD371B30018A701 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B122F2401DD371B30018A701 /* BaseNavigationController.swift */; };
 		B122F2481DD393330018A701 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B122F24A1DD393330018A701 /* Localizable.strings */; };
+		B1305D381DDB9B93000CA5FE /* TopBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1305D371DDB9B93000CA5FE /* TopBarView.xib */; };
+		B1305D3A1DDC738F000CA5FE /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1305D391DDC738F000CA5FE /* CircleView.swift */; };
 		B14E97481DD8B042001E1DE2 /* SignInShowConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14E97411DD8B042001E1DE2 /* SignInShowConfigurator.swift */; };
 		B14E97491DD8B042001E1DE2 /* SignInShowInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14E97421DD8B042001E1DE2 /* SignInShowInteractor.swift */; };
 		B14E974A1DD8B042001E1DE2 /* SignInShowModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14E97431DD8B042001E1DE2 /* SignInShowModels.swift */; };
@@ -243,6 +245,8 @@
 		B122F24B1DD393340018A701 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B122F24C1DD393350018A701 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B122F24D1DD393360018A701 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Localizable.strings; sourceTree = "<group>"; };
+		B1305D371DDB9B93000CA5FE /* TopBarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TopBarView.xib; sourceTree = "<group>"; };
+		B1305D391DDC738F000CA5FE /* CircleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
 		B14E97411DD8B042001E1DE2 /* SignInShowConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInShowConfigurator.swift; sourceTree = "<group>"; };
 		B14E97421DD8B042001E1DE2 /* SignInShowInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInShowInteractor.swift; sourceTree = "<group>"; };
 		B14E97431DD8B042001E1DE2 /* SignInShowModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInShowModels.swift; sourceTree = "<group>"; };
@@ -397,7 +401,9 @@
 		B1228FAA1DD44C7A00A90FBB /* UIViews */ = {
 			isa = PBXGroup;
 			children = (
+				B1305D391DDC738F000CA5FE /* CircleView.swift */,
 				B1228FAC1DD44D3400A90FBB /* TopBarView.swift */,
+				B1305D371DDB9B93000CA5FE /* TopBarView.xib */,
 			);
 			path = UIViews;
 			sourceTree = "<group>";
@@ -918,6 +924,7 @@
 				B1BF92691DD6516C00BECBBB /* helveticaneuecyr-blackitalic.otf in Resources */,
 				B1BF926A1DD6516C00BECBBB /* helveticaneuecyr-bold.otf in Resources */,
 				B1CF54E81DDB55E300E98049 /* HandbookShow.storyboard in Resources */,
+				B1305D381DDB9B93000CA5FE /* TopBarView.xib in Resources */,
 				B1BF926B1DD6516C00BECBBB /* helveticaneuecyr-bolditalic.otf in Resources */,
 				B1BF926C1DD6516C00BECBBB /* helveticaneuecyr-heavy.otf in Resources */,
 				B1BF926D1DD6516C00BECBBB /* helveticaneuecyr-heavyitalic.otf in Resources */,
@@ -1031,6 +1038,7 @@
 				B122F2071DD35BEB0018A701 /* CategoriesShowModels.swift in Sources */,
 				B1CF54CD1DDB51A500E98049 /* PersonalPageShowPresenter.swift in Sources */,
 				B1CF54C11DDB519000E98049 /* OnmieSoftShowViewController.swift in Sources */,
+				B1305D3A1DDC738F000CA5FE /* CircleView.swift in Sources */,
 				B1CF54B31DDB516E00E98049 /* OmnieCardsShowViewController.swift in Sources */,
 				B1CF54D01DDB51A500E98049 /* PersonalPageShowWorker.swift in Sources */,
 				B1228FAD1DD44D3400A90FBB /* TopBarView.swift in Sources */,
