@@ -42,8 +42,8 @@
                         <constraints>
                             <constraint firstItem="Oes-Is-1cH" firstAttribute="centerY" secondItem="U6k-Jd-Hxd" secondAttribute="centerY" id="1tL-HS-bVO"/>
                             <constraint firstItem="r2E-6A-P6i" firstAttribute="top" secondItem="U6k-Jd-Hxd" secondAttribute="top" id="BIZ-xI-dJA">
-                                <variation key="heightClass=compact-widthClass=compact" constant="-17"/>
-                                <variation key="heightClass=compact-widthClass=regular" constant="-17"/>
+                                <variation key="heightClass=compact-widthClass=compact" constant="-16"/>
+                                <variation key="heightClass=compact-widthClass=regular" constant="-16"/>
                             </constraint>
                             <constraint firstItem="Oes-Is-1cH" firstAttribute="centerX" secondItem="U6k-Jd-Hxd" secondAttribute="centerX" id="kf1-0h-ncf"/>
                             <constraint firstAttribute="trailing" secondItem="r2E-6A-P6i" secondAttribute="trailing" id="m3L-TM-DAA"/>
@@ -67,7 +67,7 @@
                     <toolbarItems/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="lKy-lt-hQh">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="lKy-lt-hQh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

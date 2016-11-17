@@ -36,8 +36,8 @@
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="dRx-wv-CTN" secondAttribute="trailing" id="A7D-Vq-oLZ"/>
                             <constraint firstItem="dRx-wv-CTN" firstAttribute="top" secondItem="cZ9-jX-hvf" secondAttribute="top" id="dQu-i2-0Su">
-                                <variation key="heightClass=compact-widthClass=compact" constant="-17"/>
-                                <variation key="heightClass=compact-widthClass=regular" constant="-17"/>
+                                <variation key="heightClass=compact-widthClass=compact" constant="-16"/>
+                                <variation key="heightClass=compact-widthClass=regular" constant="-16"/>
                             </constraint>
                             <constraint firstItem="dRx-wv-CTN" firstAttribute="leading" secondItem="cZ9-jX-hvf" secondAttribute="leading" id="wa0-gb-FfS"/>
                         </constraints>
@@ -59,7 +59,7 @@
             <objects>
                 <navigationController storyboardIdentifier="FavoriteShowNC" automaticallyAdjustsScrollViewInsets="NO" id="vcg-jx-izI" customClass="BaseNavigationController" customModule="OmnieCommerce" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ZDq-oz-Jag">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="ZDq-oz-Jag">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

@@ -41,8 +41,8 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="K4O-Hp-7T4" firstAttribute="top" secondItem="A4D-yP-xw0" secondAttribute="top" id="7WP-Ue-bPh">
-                                <variation key="heightClass=compact-widthClass=compact" constant="-17"/>
-                                <variation key="heightClass=compact-widthClass=regular" constant="-17"/>
+                                <variation key="heightClass=compact-widthClass=compact" constant="-16"/>
+                                <variation key="heightClass=compact-widthClass=regular" constant="-16"/>
                             </constraint>
                             <constraint firstItem="Riz-XC-mOO" firstAttribute="centerY" secondItem="A4D-yP-xw0" secondAttribute="centerY" id="GRJ-rd-DJR"/>
                             <constraint firstItem="K4O-Hp-7T4" firstAttribute="leading" secondItem="A4D-yP-xw0" secondAttribute="leading" id="Uza-Y8-Gkp"/>

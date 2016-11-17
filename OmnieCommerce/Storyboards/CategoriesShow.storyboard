@@ -14,7 +14,7 @@
             <objects>
                 <navigationController storyboardIdentifier="CategoriesShowNC" navigationBarHidden="YES" id="24b-G7-hfs" customClass="BaseNavigationController" customModule="OmnieCommerce" customModuleProvider="target" sceneMemberID="viewController">
                     <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="PI4-fx-hmq">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="PI4-fx-hmq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -52,8 +52,8 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Fg2-g7-Pmf" firstAttribute="top" secondItem="tP1-Vk-hMS" secondAttribute="top" id="4cs-5Y-4zx">
-                                <variation key="heightClass=compact-widthClass=compact" constant="-17"/>
-                                <variation key="heightClass=compact-widthClass=regular" constant="-17"/>
+                                <variation key="heightClass=compact-widthClass=compact" constant="-16"/>
+                                <variation key="heightClass=compact-widthClass=regular" constant="-16"/>
                             </constraint>
                             <constraint firstAttribute="trailing" secondItem="Fg2-g7-Pmf" secondAttribute="trailing" id="6ia-VD-qjQ"/>
                             <constraint firstItem="Fg2-g7-Pmf" firstAttribute="leading" secondItem="tP1-Vk-hMS" secondAttribute="leading" id="YA4-sD-5WW"/>
