@@ -39,6 +39,7 @@ import UIKit
         
         UINib(nibName: "TopBarView", bundle: nil).instantiate(withOwner: self, options: nil)
         addSubview(view)
+        view.backgroundColor = Config.Views.Colors.veryDarkDesaturatedBlue24
         view.frame = self.bounds
     }
 

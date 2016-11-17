@@ -7,7 +7,6 @@
 //
 
 import UIKit
-//import SWRevealViewController
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,26 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {       
-        // Check initial scene
-//        self.window = UIWindow(frame: UIScreen.main.bounds)
-        
-//        switch Config.Constants.isUserGuest {
-//        // User authorized
-//        case false:
-//            let ordersShowStoryboard = UIStoryboard(name: "SlideMenuShow", bundle: nil)
-//            let initialVC = ordersShowStoryboard.instantiateViewController(withIdentifier: "RevealVC") as! SWRevealViewController
-//            self.window?.rootViewController = initialVC
-//            
-//        // Guest
-//        case true:
-//            let signInShowStoryboard = UIStoryboard(name: "SignInShow", bundle: nil)
-//            let initialNC = signInShowStoryboard.instantiateViewController(withIdentifier: "SignInShowNC") as! BaseNavigationController
-//            self.window?.rootViewController = initialNC
-//        }
-//        
-//        self.window?.makeKeyAndVisible()
-
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         return true
     }
 
@@ -59,7 +39,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
-
 }
-

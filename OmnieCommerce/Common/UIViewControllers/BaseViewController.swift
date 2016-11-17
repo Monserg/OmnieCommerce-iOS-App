@@ -27,6 +27,9 @@ class BaseViewController: UIViewController {
     
     // MARK: - Custom Functions
     func setup(topBarView: TopBarView) {
+        // Set background color
+        self.view.backgroundColor = Config.Views.Colors.veryDarkDesaturatedBlue24
+        
         // .small radius
         if (topBarViewRounding == .small) {
             print(".small")
