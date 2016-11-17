@@ -33,7 +33,7 @@ class CircleView: UIView {
         // Set the circle outerline-colour
         Config.Views.Colors.darkCyan?.set()
         let contextHeight = (cirleRadiusStyle == .small) ? Config.Constants.circleViewBarHeightSmall : Config.Constants.circleViewBarHeightBig
-        let circleRadiusValue = (cirleRadiusStyle == .small) ? CGFloat(Config.Constants.circleViewRadiusSmall) : CGFloat(Config.Constants.circleViewRadiusBig)
+        let circleRadiusValue = (cirleRadiusStyle == .small) ? CGFloat(Config.Constants.circleViewRadiusSmall) : (UIApplication.shared.statusBarOrientation.isPortrait) ? CGFloat(Config.Constants.circleViewRadiusPortraitBig) : CGFloat(Config.Constants.circleViewRadiusLandscapeBig)
         
         // Create Fill Circle
         if UIApplication.shared.statusBarOrientation.isPortrait {

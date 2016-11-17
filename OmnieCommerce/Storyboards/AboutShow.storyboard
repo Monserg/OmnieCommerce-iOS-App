@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina5_5" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -18,7 +18,7 @@
                         <viewControllerLayoutGuide type="bottom" id="zmx-1U-Vn4"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="DZ4-b6-Q6f">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AboutShow" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SNK-Dx-Mzd">
@@ -44,7 +44,10 @@
                             <constraint firstItem="SNK-Dx-Mzd" firstAttribute="centerY" secondItem="DZ4-b6-Q6f" secondAttribute="centerY" id="FuB-q1-6Yh"/>
                             <constraint firstAttribute="trailing" secondItem="9iU-ZQ-06Y" secondAttribute="trailing" id="bqz-Rh-DXm"/>
                             <constraint firstItem="9iU-ZQ-06Y" firstAttribute="leading" secondItem="DZ4-b6-Q6f" secondAttribute="leading" id="ewK-tO-COT"/>
-                            <constraint firstItem="9iU-ZQ-06Y" firstAttribute="top" secondItem="DZ4-b6-Q6f" secondAttribute="top" id="uRg-Se-QWW"/>
+                            <constraint firstItem="9iU-ZQ-06Y" firstAttribute="top" secondItem="DZ4-b6-Q6f" secondAttribute="top" id="uRg-Se-QWW">
+                                <variation key="heightClass=compact-widthClass=compact" constant="-17"/>
+                                <variation key="heightClass=compact-widthClass=regular" constant="-17"/>
+                            </constraint>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="7Iy-MM-fBq"/>

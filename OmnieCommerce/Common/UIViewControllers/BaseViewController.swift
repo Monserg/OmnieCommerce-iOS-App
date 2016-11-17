@@ -37,7 +37,7 @@ class BaseViewController: UIViewController {
             // Add Slide Menu actions
             if revealViewController() != nil {
                 print(".big")
-
+                
                 topBarView.actionButton.addTarget(revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), for: .touchUpInside)
                 revealViewController().rightViewRevealWidth = 296
                 revealViewController().frontViewShadowColor = UIColor.white

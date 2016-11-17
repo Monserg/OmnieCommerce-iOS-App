@@ -15,7 +15,8 @@ struct Config {
     struct Constants {
         // Big circle radius = 1531,    fill height = 80,   line height = 93 (+13),     top view height = 96 (+3)
         static let topViewBarHeightBig: CGFloat                 =   96.0
-        static let circleViewRadiusBig: Double                  =   (UIApplication.shared.statusBarOrientation.isPortrait) ? 1531.0 : 4631.0
+        static let circleViewRadiusPortraitBig: Double          =   1531.0
+        static let circleViewRadiusLandscapeBig: Double         =   4631.0
         static let circleViewBarHeightBig: CGFloat              =   80.0
         
         // Small cirle radius = 568,    fill height = 192,  line height = 205 (+13),    top view height = 218
