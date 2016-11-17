@@ -43,13 +43,17 @@
                             <constraint firstAttribute="trailing" secondItem="08z-zS-Fzg" secondAttribute="trailing" id="8B0-PH-C6O"/>
                             <constraint firstItem="mJG-hb-gHh" firstAttribute="centerY" secondItem="WeC-xT-hwP" secondAttribute="centerY" id="8CJ-pq-AwP"/>
                             <constraint firstItem="08z-zS-Fzg" firstAttribute="leading" secondItem="WeC-xT-hwP" secondAttribute="leading" id="NVt-r3-ud2"/>
-                            <constraint firstItem="08z-zS-Fzg" firstAttribute="top" secondItem="WeC-xT-hwP" secondAttribute="top" id="Sh7-1G-Yci"/>
+                            <constraint firstItem="08z-zS-Fzg" firstAttribute="top" secondItem="WeC-xT-hwP" secondAttribute="top" id="Sh7-1G-Yci">
+                                <variation key="heightClass=compact-widthClass=compact" constant="-16"/>
+                                <variation key="heightClass=compact-widthClass=regular" constant="-16"/>
+                            </constraint>
                             <constraint firstItem="mJG-hb-gHh" firstAttribute="centerX" secondItem="WeC-xT-hwP" secondAttribute="centerX" id="svZ-QT-54e"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="HKj-PK-W47"/>
                     <connections>
                         <outlet property="topBarView" destination="08z-zS-Fzg" id="aSo-kz-DU0"/>
+                        <outlet property="topBarViewHeightPortraitConstraint" destination="DHJ-Xk-90a" id="uDJ-4l-qQi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gf8-eD-6Bd" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -62,7 +66,7 @@
                 <navigationController storyboardIdentifier="PersonalPageShowNC" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="5ua-Ud-9pH" customClass="BaseNavigationController" customModule="OmnieCommerce" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="rDE-36-aLe">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="rDE-36-aLe">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
