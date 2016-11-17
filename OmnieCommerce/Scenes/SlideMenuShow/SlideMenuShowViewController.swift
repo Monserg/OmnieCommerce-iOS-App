@@ -52,6 +52,10 @@ class SlideMenuShowViewController: UIViewController, SlideMenuShowViewController
         // Config VC
         textButton.setAttributedTitle(NSAttributedString(string: "Add organization name".localized(), attributes: Config.Buttons.Fonts.ubuntuRegularVeryLightOrangeUnderline12), for: .normal)
         
+        // Register the Nib header/footer section views
+        tableView.register(UINib(nibName: "MenuSectionHeaderView", bundle: nil), forHeaderFooterViewReuseIdentifier: "MenuSectionHeaderView")
+        tableView.register(UINib(nibName: "MenuSectionFooterView", bundle: nil), forHeaderFooterViewReuseIdentifier: "MenuSectionFooterView")
+        
         doSomethingOnLoad()
         
         // FIXME: - REMOVE TO WORKER
@@ -144,4 +148,25 @@ extension SlideMenuShowViewController: UITableViewDelegate {
         
         tableView.deselectRow(at: indexPath, animated: true)
     }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 36.0
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return (section == 0) ? 12.0 : 0.0
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        return (section == 0) ? tableView.dequeueReusableHeaderFooterView(withIdentifier: "MenuSectionHeaderView") as? MenuSectionHeaderView : nil
+    }
+
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return (section == 0) ? 7.0 : 0.0
+    }
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        return (section == 0) ? tableView.dequeueReusableHeaderFooterView(withIdentifier: "MenuSectionFooterView") as? MenuSectionFooterView : nil
+    }
+    
 }

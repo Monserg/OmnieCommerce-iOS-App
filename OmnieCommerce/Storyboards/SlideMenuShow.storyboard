@@ -93,6 +93,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="296" id="8vi-aG-FMX"/>
                                 </constraints>
+                                <color key="sectionIndexBackgroundColor" red="0.14509803921568626" green="0.20000000000000001" blue="0.25098039215686274" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MenuCell" rowHeight="76" id="73d-ES-P2q" customClass="MenuViewCell" customModule="OmnieCommerce" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="296" height="76"/>
@@ -109,11 +110,16 @@
                                                         <constraint firstAttribute="width" constant="20" id="XjT-Te-td2"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J7d-7z-vYN" userLabel="Menu Title Label">
-                                                    <rect key="frame" x="60" y="28" width="176" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J7d-7z-vYN" userLabel="Menu Title Label" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
+                                                    <rect key="frame" x="60" y="29.5" width="176" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="style">
+                                                            <real key="value" value="3"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ujP-xh-nUq" userLabel="Menu Accessory Image View">
                                                     <rect key="frame" x="256" y="28" width="20" height="20"/>
@@ -143,7 +149,7 @@
                                 </prototypes>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.14509803921568626" green="0.20000000000000001" blue="0.25098039215686274" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="WZG-sg-g6U" firstAttribute="leading" secondItem="EVF-jT-32L" secondAttribute="leading" id="Kei-9N-pqE"/>
                             <constraint firstItem="DAM-QF-nkQ" firstAttribute="leading" secondItem="EVF-jT-32L" secondAttribute="leading" id="MP3-o9-Izl"/>

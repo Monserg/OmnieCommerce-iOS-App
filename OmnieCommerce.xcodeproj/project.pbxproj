@@ -86,6 +86,10 @@
 		B14E97691DD8B05E001E1DE2 /* ForgotPasswordShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14E97621DD8B05E001E1DE2 /* ForgotPasswordShowViewController.swift */; };
 		B14E976A1DD8B05E001E1DE2 /* ForgotPasswordShowWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14E97631DD8B05E001E1DE2 /* ForgotPasswordShowWorker.swift */; };
 		B14E976C1DD8B8CB001E1DE2 /* SignInShow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B14E976B1DD8B8CB001E1DE2 /* SignInShow.storyboard */; };
+		B15291571DDE3FEF00BBA1E0 /* MenuSectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B15291561DDE3FEF00BBA1E0 /* MenuSectionHeaderView.xib */; };
+		B15291591DDE3FFA00BBA1E0 /* MenuSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15291581DDE3FFA00BBA1E0 /* MenuSectionHeaderView.swift */; };
+		B152915B1DDE44A200BBA1E0 /* MenuSectionFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B152915A1DDE44A200BBA1E0 /* MenuSectionFooterView.swift */; };
+		B152915D1DDE44B700BBA1E0 /* MenuSectionFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B152915C1DDE44B700BBA1E0 /* MenuSectionFooterView.xib */; };
 		B15FD40A1DD1DD8C00782324 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15FD4091DD1DD8C00782324 /* AppDelegate.swift */; };
 		B1BF92441DD5FC8000BECBBB /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1BF92431DD5FC8000BECBBB /* Config.swift */; };
 		B1BF92681DD6516C00BECBBB /* helveticaneuecyr-black.otf in Resources */ = {isa = PBXBuildFile; fileRef = B1BF924F1DD650F400BECBBB /* helveticaneuecyr-black.otf */; };
@@ -268,6 +272,10 @@
 		B14E97621DD8B05E001E1DE2 /* ForgotPasswordShowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordShowViewController.swift; sourceTree = "<group>"; };
 		B14E97631DD8B05E001E1DE2 /* ForgotPasswordShowWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordShowWorker.swift; sourceTree = "<group>"; };
 		B14E976B1DD8B8CB001E1DE2 /* SignInShow.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SignInShow.storyboard; sourceTree = "<group>"; };
+		B15291561DDE3FEF00BBA1E0 /* MenuSectionHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuSectionHeaderView.xib; sourceTree = "<group>"; };
+		B15291581DDE3FFA00BBA1E0 /* MenuSectionHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuSectionHeaderView.swift; sourceTree = "<group>"; };
+		B152915A1DDE44A200BBA1E0 /* MenuSectionFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuSectionFooterView.swift; sourceTree = "<group>"; };
+		B152915C1DDE44B700BBA1E0 /* MenuSectionFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuSectionFooterView.xib; sourceTree = "<group>"; };
 		B15FD4061DD1DD8C00782324 /* OmnieCommerce.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OmnieCommerce.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B15FD4091DD1DD8C00782324 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B15FD4151DD1DD8C00782324 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Info.plist; sourceTree = "<group>"; };
@@ -402,6 +410,10 @@
 			isa = PBXGroup;
 			children = (
 				B1305D391DDC738F000CA5FE /* CircleView.swift */,
+				B152915A1DDE44A200BBA1E0 /* MenuSectionFooterView.swift */,
+				B152915C1DDE44B700BBA1E0 /* MenuSectionFooterView.xib */,
+				B15291581DDE3FFA00BBA1E0 /* MenuSectionHeaderView.swift */,
+				B15291561DDE3FEF00BBA1E0 /* MenuSectionHeaderView.xib */,
 				B1228FAC1DD44D3400A90FBB /* TopBarView.swift */,
 				B1305D371DDB9B93000CA5FE /* TopBarView.xib */,
 			);
@@ -917,6 +929,7 @@
 				B1C6F35D1DD9C718004695C2 /* MenuItemsList.plist in Resources */,
 				B1BF92691DD6516C00BECBBB /* helveticaneuecyr-blackitalic.otf in Resources */,
 				B1BF926A1DD6516C00BECBBB /* helveticaneuecyr-bold.otf in Resources */,
+				B15291571DDE3FEF00BBA1E0 /* MenuSectionHeaderView.xib in Resources */,
 				B1CF54E81DDB55E300E98049 /* HandbookShow.storyboard in Resources */,
 				B1305D381DDB9B93000CA5FE /* TopBarView.xib in Resources */,
 				B1BF926B1DD6516C00BECBBB /* helveticaneuecyr-bolditalic.otf in Resources */,
@@ -924,6 +937,7 @@
 				B1BF926D1DD6516C00BECBBB /* helveticaneuecyr-heavyitalic.otf in Resources */,
 				B1BF926E1DD6516C00BECBBB /* helveticaneuecyr-italic.otf in Resources */,
 				B1BF926F1DD6516C00BECBBB /* helveticaneuecyr-light.otf in Resources */,
+				B152915D1DDE44B700BBA1E0 /* MenuSectionFooterView.xib in Resources */,
 				B1BF92701DD6516C00BECBBB /* helveticaneuecyr-lightitalic.otf in Resources */,
 				B1BF92711DD6516C00BECBBB /* helveticaneuecyr-medium.otf in Resources */,
 				B1BF92721DD6516C00BECBBB /* helveticaneuecyr-mediumitaicl.otf in Resources */,
@@ -1015,6 +1029,7 @@
 			files = (
 				B122F1F91DD35BC70018A701 /* FavoriteShowModels.swift in Sources */,
 				B122F1FB1DD35BC70018A701 /* FavoriteShowRouter.swift in Sources */,
+				B152915B1DDE44A200BBA1E0 /* MenuSectionFooterView.swift in Sources */,
 				B122F2171DD35C2C0018A701 /* NewsShowRouter.swift in Sources */,
 				B1CF547B1DDB50D900E98049 /* AboutShowViewController.swift in Sources */,
 				B122F2051DD35BEB0018A701 /* CategoriesShowConfigurator.swift in Sources */,
@@ -1027,6 +1042,7 @@
 				B14E97691DD8B05E001E1DE2 /* ForgotPasswordShowViewController.swift in Sources */,
 				B1CF54B01DDB516E00E98049 /* OmnieCardsShowModels.swift in Sources */,
 				B1CF54971DDB512000E98049 /* DiscountCardsShowViewController.swift in Sources */,
+				B15291591DDE3FFA00BBA1E0 /* MenuSectionHeaderView.swift in Sources */,
 				B122F2281DD35CC80018A701 /* SlideMenuShowWorker.swift in Sources */,
 				B122F2071DD35BEB0018A701 /* CategoriesShowModels.swift in Sources */,
 				B1CF54CD1DDB51A500E98049 /* PersonalPageShowPresenter.swift in Sources */,
