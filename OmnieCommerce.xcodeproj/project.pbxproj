@@ -417,13 +417,6 @@
 			path = "Support Files";
 			sourceTree = "<group>";
 		};
-		B1228FB01DD47C2B00A90FBB /* UITableViewCell */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = UITableViewCell;
-			sourceTree = "<group>";
-		};
 		B1228FB31DD4853E00A90FBB /* DataModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -586,7 +579,6 @@
 				B122F2391DD36F220018A701 /* UIButtons */,
 				B1228FBB1DD4BDE600A90FBB /* UILabels */,
 				B122F23F1DD371830018A701 /* UINavigationControllers */,
-				B1228FB01DD47C2B00A90FBB /* UITableViewCell */,
 				B122F23A1DD36F420018A701 /* UITableViewCells */,
 				B122F2381DD36F120018A701 /* UITextFields */,
 				B1228FB61DD497FC00A90FBB /* UIViewControllers */,

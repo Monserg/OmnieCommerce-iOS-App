@@ -48,42 +48,75 @@
                         <viewControllerLayoutGuide type="bottom" id="xha-dY-dTj"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="EVF-jT-32L">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="296" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vfP-Q7-LZg" userLabel="Organization Image View">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="130"/>
-                                <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DAM-QF-nkQ" userLabel="Advertising View">
+                                <rect key="frame" x="0.0" y="0.0" width="296" height="130"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cQZ-ze-6Pb" userLabel="Action Button">
+                                        <rect key="frame" x="0.0" y="0.0" width="296" height="130"/>
+                                        <state key="normal" title="Button" image="image-background"/>
+                                        <connections>
+                                            <action selector="handlerAdvertisingViewTap:" destination="gGK-Bx-yUm" eventType="touchUpInside" id="xQK-p4-rp1"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FNI-Ac-F4o" userLabel="Text Button">
+                                        <rect key="frame" x="0.0" y="101" width="296" height="29"/>
+                                        <color key="backgroundColor" red="0.14509803921568626" green="0.20000000000000001" blue="0.25098039215686274" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="29" id="VWH-mP-nU1"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="handlerAdvertisingViewTap:" destination="gGK-Bx-yUm" eventType="touchUpInside" id="3l0-1Z-vlt"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="130" id="5iQ-qV-hiL"/>
+                                    <constraint firstAttribute="width" constant="296" id="4fF-91-1YA"/>
+                                    <constraint firstItem="cQZ-ze-6Pb" firstAttribute="leading" secondItem="DAM-QF-nkQ" secondAttribute="leading" id="69I-vW-OU1"/>
+                                    <constraint firstAttribute="bottom" secondItem="FNI-Ac-F4o" secondAttribute="bottom" id="70q-mL-rl9"/>
+                                    <constraint firstAttribute="trailing" secondItem="FNI-Ac-F4o" secondAttribute="trailing" id="NYZ-db-3IV"/>
+                                    <constraint firstAttribute="trailing" secondItem="cQZ-ze-6Pb" secondAttribute="trailing" id="Tei-oy-F8V"/>
+                                    <constraint firstItem="cQZ-ze-6Pb" firstAttribute="top" secondItem="DAM-QF-nkQ" secondAttribute="top" id="Xqo-rU-xKV"/>
+                                    <constraint firstAttribute="height" constant="130" id="n0F-9l-w7v"/>
+                                    <constraint firstAttribute="bottom" secondItem="cQZ-ze-6Pb" secondAttribute="bottom" id="nx5-Nj-Zcy"/>
+                                    <constraint firstItem="FNI-Ac-F4o" firstAttribute="leading" secondItem="DAM-QF-nkQ" secondAttribute="leading" id="whZ-n2-08T"/>
                                 </constraints>
-                            </imageView>
+                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WZG-sg-g6U">
-                                <rect key="frame" x="0.0" y="130" width="375" height="537"/>
+                                <rect key="frame" x="0.0" y="130" width="296" height="537"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="296" id="8vi-aG-FMX"/>
+                                </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MenuCell" rowHeight="76" id="73d-ES-P2q" customClass="MenuViewCell" customModule="OmnieCommerce" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="76"/>
+                                        <rect key="frame" x="0.0" y="28" width="296" height="76"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="73d-ES-P2q" id="jiu-Jx-Ka4">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="76"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="296" height="76"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="K6d-kZ-LK3" userLabel="Menu Icon Image View">
                                                     <rect key="frame" x="20" y="28" width="20" height="20"/>
+                                                    <color key="backgroundColor" red="1" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="20" id="Mf0-cs-Weg"/>
                                                         <constraint firstAttribute="width" constant="20" id="XjT-Te-td2"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J7d-7z-vYN" userLabel="Menu Title Label">
-                                                    <rect key="frame" x="60" y="28" width="255" height="21"/>
+                                                    <rect key="frame" x="60" y="28" width="176" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ujP-xh-nUq" userLabel="Menu Accessory Image View">
-                                                    <rect key="frame" x="335" y="28" width="20" height="20"/>
+                                                    <rect key="frame" x="256" y="28" width="20" height="20"/>
+                                                    <color key="backgroundColor" red="1" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="20" id="VGO-kA-rCD"/>
                                                         <constraint firstAttribute="height" constant="20" id="emd-cm-DuY"/>
@@ -108,30 +141,22 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DAM-QF-nkQ">
-                                <rect key="frame" x="0.0" y="0.0" width="296" height="130"/>
-                                <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="296" id="4fF-91-1YA"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="WZG-sg-g6U" firstAttribute="top" secondItem="vfP-Q7-LZg" secondAttribute="bottom" id="5v4-0M-h6k"/>
-                            <constraint firstItem="vfP-Q7-LZg" firstAttribute="top" secondItem="EVF-jT-32L" secondAttribute="top" id="CCZ-LV-b0O"/>
-                            <constraint firstItem="vfP-Q7-LZg" firstAttribute="leading" secondItem="EVF-jT-32L" secondAttribute="leading" id="IjJ-Fi-OW4"/>
                             <constraint firstItem="WZG-sg-g6U" firstAttribute="leading" secondItem="EVF-jT-32L" secondAttribute="leading" id="Kei-9N-pqE"/>
                             <constraint firstItem="DAM-QF-nkQ" firstAttribute="leading" secondItem="EVF-jT-32L" secondAttribute="leading" id="MP3-o9-Izl"/>
                             <constraint firstItem="xha-dY-dTj" firstAttribute="top" secondItem="WZG-sg-g6U" secondAttribute="bottom" id="N5k-zB-lS3"/>
-                            <constraint firstAttribute="trailing" secondItem="vfP-Q7-LZg" secondAttribute="trailing" id="OzN-cV-MAX"/>
                             <constraint firstItem="DAM-QF-nkQ" firstAttribute="top" secondItem="EVF-jT-32L" secondAttribute="top" id="SYp-kW-DKa"/>
                             <constraint firstItem="WZG-sg-g6U" firstAttribute="top" secondItem="DAM-QF-nkQ" secondAttribute="bottom" id="cxa-EY-4eK"/>
-                            <constraint firstAttribute="trailing" secondItem="WZG-sg-g6U" secondAttribute="trailing" id="lDB-c6-aaE"/>
                         </constraints>
                     </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="296" height="667"/>
                     <connections>
+                        <outlet property="advertisingView" destination="DAM-QF-nkQ" id="FrO-cC-OOS"/>
                         <outlet property="tableView" destination="WZG-sg-g6U" id="xn8-B7-vcE"/>
+                        <outlet property="textButton" destination="FNI-Ac-F4o" id="ZLe-fx-baG"/>
                         <segue destination="QZX-hd-D6z" kind="custom" identifier="MessagesShowSegue" customClass="SWRevealViewControllerSeguePushController" id="sA9-Oo-rBh"/>
                         <segue destination="Wvw-lA-bT0" kind="custom" identifier="FavoriteShowSegue" customClass="SWRevealViewControllerSeguePushController" id="Y06-6q-snD"/>
                         <segue destination="Bws-sL-lkw" kind="custom" identifier="CategoriesShowSegue" customClass="SWRevealViewControllerSeguePushController" id="Tnv-O9-0c6"/>
@@ -238,4 +263,7 @@
             <point key="canvasLocation" x="2090" y="91"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="image-background" width="375" height="667"/>
+    </resources>
 </document>

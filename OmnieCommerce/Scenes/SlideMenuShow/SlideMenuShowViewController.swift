@@ -28,6 +28,9 @@ class SlideMenuShowViewController: UIViewController, SlideMenuShowViewController
     var menuItemsList = NSDictionary()
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var advertisingView: UIView!
+    @IBOutlet weak var textButton: UIButton!
+    
 
     
     // MARK: - Class initialization
@@ -46,6 +49,9 @@ class SlideMenuShowViewController: UIViewController, SlideMenuShowViewController
         self.tableView.dataSource = self
         self.tableView.delegate = self
         
+        // Config VC
+        textButton.setAttributedTitle(NSAttributedString(string: "Add organization name".localized(), attributes: Config.Buttons.Fonts.ubuntuRegularVeryLightOrangeUnderline12), for: .normal)
+        
         doSomethingOnLoad()
         
         // FIXME: - REMOVE TO WORKER
@@ -56,6 +62,12 @@ class SlideMenuShowViewController: UIViewController, SlideMenuShowViewController
         print("SlideMenuShowViewController deinit.")
     }
 
+    
+    // MARK: - Actions
+    @IBAction func handlerAdvertisingViewTap(_ sender: UIButton) {
+    }
+    
+    
     // MARK: - Custom Functions
     func doSomethingOnLoad() {
         // NOTE: Ask the Interactor to do some work

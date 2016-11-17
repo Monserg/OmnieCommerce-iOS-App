@@ -36,13 +36,26 @@ class BaseViewController: UIViewController {
         else {
             // Add Slide Menu actions
             if revealViewController() != nil {
-                print(".big")
-                
                 topBarView.actionButton.addTarget(revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), for: .touchUpInside)
-                revealViewController().rightViewRevealWidth = 296
-                revealViewController().rearViewRevealWidth = 296
-                revealViewController().frontViewShadowColor = UIColor.white
                 
+                // Sidebar is width 296
+                revealViewController().rearViewRevealWidth = 296
+                
+                revealViewController().rearViewRevealDisplacement = 198
+                
+                revealViewController().rearViewRevealOverdraw = 0
+                
+                // Faster slide animation
+                revealViewController().toggleAnimationDuration = 0.3
+                
+                // Simply ease out. No Spring animation.
+                revealViewController().toggleAnimationType = .easeOut
+                
+                // More shadow
+                revealViewController().frontViewShadowRadius = 5
+                revealViewController().frontViewShadowColor = UIColor.white
+
+
                 view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
             }
         }

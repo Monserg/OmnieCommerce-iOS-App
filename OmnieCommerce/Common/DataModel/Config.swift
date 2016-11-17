@@ -27,7 +27,7 @@ struct Config {
         static let topViewBarLineThickness: CGFloat             =   3.0
         
         // FIXME: - DELETE AFTER TEST
-        static let isUserGuest: Bool                            =   false
+        static let isUserGuest: Bool                            =   true
     }
     
     struct Themes {
@@ -53,7 +53,7 @@ struct Config {
                                                                     ] as [String : Any]
 
             static let ubuntuRegularVeryLightOrangeUnderline12  =   [   NSFontAttributeName             :   Labels.Fonts.ubuntuLight12!,
-                                                                        NSForegroundColorAttributeName  :   Colors.veryLightGray!,
+                                                                        NSForegroundColorAttributeName  :   Colors.veryLightOrange!,
                                                                         NSKernAttributeName             :   0.0,
                                                                         NSUnderlineStyleAttributeName   :   NSUnderlineStyle.styleSingle.rawValue
                                                                     ] as [String : Any]

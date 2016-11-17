@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -21,11 +22,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image-background" translatesAutoresizingMaskIntoConstraints="NO" id="XX4-zh-Iaw" userLabel="Background Image View">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image-background" translatesAutoresizingMaskIntoConstraints="NO" id="cua-Vz-mw9" userLabel="Background Image View">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.14509803921568626" green="0.20000000000000001" blue="0.25098039215686274" alpha="0.93999999999999995" colorSpace="calibratedRGB"/>
                             </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="njZ-rW-JXW" userLabel="Blackout View">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" red="0.14509803921568626" green="0.20000000000000001" blue="0.25098039215686274" alpha="0.93999999999999995" colorSpace="calibratedRGB"/>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vUs-Mf-aXo" customClass="TopBarView" customModule="OmnieCommerce" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="206"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -101,32 +105,22 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="XX4-zh-Iaw" secondAttribute="trailing" id="51T-Tc-A42"/>
-                            <constraint firstAttribute="bottom" secondItem="vUs-Mf-aXo" secondAttribute="bottom" id="6us-C2-XI2"/>
+                            <constraint firstAttribute="trailing" secondItem="cua-Vz-mw9" secondAttribute="trailing" id="0I5-Wp-vkm"/>
+                            <constraint firstItem="cua-Vz-mw9" firstAttribute="leading" secondItem="HHh-KM-0ql" secondAttribute="leading" id="3II-Go-XQg"/>
+                            <constraint firstItem="IZh-Xm-m95" firstAttribute="top" secondItem="cua-Vz-mw9" secondAttribute="bottom" id="9Z6-Qf-KdK"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="njZ-rW-JXW" secondAttribute="bottom" id="FDG-dL-9nU"/>
+                            <constraint firstAttribute="trailing" secondItem="njZ-rW-JXW" secondAttribute="trailing" id="GKF-ux-6SA"/>
+                            <constraint firstItem="njZ-rW-JXW" firstAttribute="top" secondItem="HHh-KM-0ql" secondAttribute="topMargin" id="Hxo-fq-4px"/>
                             <constraint firstItem="vUs-Mf-aXo" firstAttribute="top" secondItem="HHh-KM-0ql" secondAttribute="top" id="P4h-LA-GZq"/>
                             <constraint firstItem="vUs-Mf-aXo" firstAttribute="leading" secondItem="HHh-KM-0ql" secondAttribute="leading" id="ZKs-8d-1jU"/>
                             <constraint firstAttribute="trailing" secondItem="vUs-Mf-aXo" secondAttribute="trailing" id="b0U-sS-Gw3"/>
-                            <constraint firstItem="XX4-zh-Iaw" firstAttribute="leading" secondItem="HHh-KM-0ql" secondAttribute="leading" id="b53-mA-qVg"/>
-                            <constraint firstItem="vUs-Mf-aXo" firstAttribute="leading" secondItem="HHh-KM-0ql" secondAttribute="leading" id="gsL-aV-ovD"/>
-                            <constraint firstItem="XX4-zh-Iaw" firstAttribute="top" secondItem="HHh-KM-0ql" secondAttribute="top" id="hjj-Wa-rGJ"/>
-                            <constraint firstItem="vUs-Mf-aXo" firstAttribute="top" secondItem="HHh-KM-0ql" secondAttribute="top" id="nCM-9Y-abY"/>
-                            <constraint firstAttribute="bottom" secondItem="XX4-zh-Iaw" secondAttribute="bottom" id="x6Q-hE-Lom"/>
+                            <constraint firstItem="njZ-rW-JXW" firstAttribute="leading" secondItem="HHh-KM-0ql" secondAttribute="leading" id="bV3-64-6mh"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="6us-C2-XI2"/>
                                 <exclude reference="P4h-LA-GZq"/>
                                 <exclude reference="ZKs-8d-1jU"/>
                                 <exclude reference="b0U-sS-Gw3"/>
-                                <exclude reference="gsL-aV-ovD"/>
-                                <exclude reference="nCM-9Y-abY"/>
-                            </mask>
-                        </variation>
-                        <variation key="heightClass=compact-widthClass=compact">
-                            <mask key="constraints">
-                                <include reference="6us-C2-XI2"/>
-                                <include reference="gsL-aV-ovD"/>
-                                <include reference="nCM-9Y-abY"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -141,7 +135,6 @@
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
-                        <outlet property="backgroundImageView" destination="XX4-zh-Iaw" id="FRK-xa-GbV"/>
                         <outlet property="facebookButton" destination="X6r-yO-BPI" id="XHl-SK-Q1w"/>
                         <outlet property="googleButton" destination="DWI-hD-cDM" id="1Jc-he-ooE"/>
                         <outlet property="topBarView" destination="vUs-Mf-aXo" id="WMG-Pt-C6q"/>
@@ -159,7 +152,7 @@
             <objects>
                 <navigationController storyboardIdentifier="SignInShowNC" automaticallyAdjustsScrollViewInsets="NO" id="HnD-Xp-HUn" customClass="BaseNavigationController" customModule="OmnieCommerce" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="hMj-in-c4l">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="hMj-in-c4l">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -174,6 +167,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="image-background" width="667" height="375"/>
+        <image name="image-background" width="375" height="667"/>
     </resources>
 </document>
