@@ -26,6 +26,15 @@ class OmnieCardsShowViewController: BaseViewController, OmnieCardsShowViewContro
     var router: OmnieCardsShowRouter!
     
     @IBOutlet weak var topBarView: TopBarView!
+    @IBOutlet weak var topBarViewHeightPortraitConstraint: NSLayoutConstraint!
+    
+    override var topBarViewRounding: CircleView.CirleRadius {
+        willSet {
+            if (newValue == .big) {
+                topBarViewHeightPortraitConstraint.constant = Config.Constants.topViewBarHeightBig
+            }
+        }
+    }
 
     
     // MARK: - Class initialization
@@ -40,6 +49,10 @@ class OmnieCardsShowViewController: BaseViewController, OmnieCardsShowViewContro
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Config topBarView
+        topBarViewRounding = .big
+        setup(topBarView: topBarView)
+
         doSomethingOnLoad()
     }
     
