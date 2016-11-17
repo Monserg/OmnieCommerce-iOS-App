@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina4_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -18,7 +18,7 @@
                         <viewControllerLayoutGuide type="bottom" id="6XG-4v-L70"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Ueb-xh-5L2">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HandbookShow" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y2Z-YD-oIx">
@@ -41,7 +41,10 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="QIO-EA-wXe" firstAttribute="leading" secondItem="Ueb-xh-5L2" secondAttribute="leading" id="4tA-e0-QW4"/>
-                            <constraint firstItem="QIO-EA-wXe" firstAttribute="top" secondItem="Ueb-xh-5L2" secondAttribute="top" id="R7e-Fb-qKN"/>
+                            <constraint firstItem="QIO-EA-wXe" firstAttribute="top" secondItem="Ueb-xh-5L2" secondAttribute="top" id="R7e-Fb-qKN">
+                                <variation key="heightClass=compact-widthClass=compact" constant="-16"/>
+                                <variation key="heightClass=compact-widthClass=regular" constant="-16"/>
+                            </constraint>
                             <constraint firstItem="y2Z-YD-oIx" firstAttribute="centerX" secondItem="Ueb-xh-5L2" secondAttribute="centerX" id="dy2-8d-YNe"/>
                             <constraint firstItem="y2Z-YD-oIx" firstAttribute="centerY" secondItem="Ueb-xh-5L2" secondAttribute="centerY" id="eLa-1n-EFa"/>
                             <constraint firstAttribute="trailing" secondItem="QIO-EA-wXe" secondAttribute="trailing" id="zYa-WF-StA"/>
@@ -50,6 +53,7 @@
                     <navigationItem key="navigationItem" id="pdq-Tq-NOG"/>
                     <connections>
                         <outlet property="topBarView" destination="QIO-EA-wXe" id="3TJ-Xs-RKW"/>
+                        <outlet property="topBarViewHeightPortraitConstraint" destination="Q3Y-BW-Xxf" id="rO2-ub-sej"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Agf-AF-wsv" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -63,7 +67,7 @@
                     <toolbarItems/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="pHS-Rq-tb8">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="pHS-Rq-tb8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
