@@ -40,6 +40,7 @@ class BaseViewController: UIViewController {
                 
                 topBarView.actionButton.addTarget(revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), for: .touchUpInside)
                 revealViewController().rightViewRevealWidth = 296
+                revealViewController().rearViewRevealWidth = 296
                 revealViewController().frontViewShadowColor = UIColor.white
                 
                 view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
