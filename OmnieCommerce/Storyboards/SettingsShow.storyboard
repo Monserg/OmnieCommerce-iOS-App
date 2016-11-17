@@ -22,13 +22,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SettingsShow" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fu7-PB-Vo7">
-                                <rect key="frame" x="135" y="323" width="106" height="21"/>
+                                <rect key="frame" x="280.5" y="177" width="106" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zS9-gZ-teb" customClass="TopBarView" customModule="OmnieCommerce" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="128"/>
+                                <rect key="frame" x="0.0" y="0.0" width="667" height="128"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="bvK-ka-Y2g"/>
@@ -40,7 +40,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="zS9-gZ-teb" firstAttribute="top" secondItem="YdI-eJ-QVc" secondAttribute="top" id="Ep8-G2-tjh"/>
+                            <constraint firstItem="zS9-gZ-teb" firstAttribute="top" secondItem="YdI-eJ-QVc" secondAttribute="top" id="Ep8-G2-tjh">
+                                <variation key="heightClass=compact-widthClass=compact" constant="-16"/>
+                                <variation key="heightClass=compact-widthClass=regular" constant="-16"/>
+                            </constraint>
                             <constraint firstItem="zS9-gZ-teb" firstAttribute="leading" secondItem="YdI-eJ-QVc" secondAttribute="leading" id="S3T-BJ-8Q5"/>
                             <constraint firstItem="Fu7-PB-Vo7" firstAttribute="centerY" secondItem="YdI-eJ-QVc" secondAttribute="centerY" id="T8x-Kc-OTb"/>
                             <constraint firstItem="Fu7-PB-Vo7" firstAttribute="centerX" secondItem="YdI-eJ-QVc" secondAttribute="centerX" id="bWm-MQ-6bU"/>
@@ -50,6 +53,7 @@
                     <navigationItem key="navigationItem" id="bWc-GJ-DAt"/>
                     <connections>
                         <outlet property="topBarView" destination="zS9-gZ-teb" id="uf0-Yv-rdw"/>
+                        <outlet property="topBarViewHeightPortraitConstraint" destination="bvK-ka-Y2g" id="iQh-Bw-RLe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wwl-qi-06k" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -65,7 +69,7 @@ CQ
 </string>
                     <toolbarItems/>
                     <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="K1C-FM-eAU">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="K1C-FM-eAU">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
