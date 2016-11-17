@@ -13,6 +13,7 @@ class LaunchScreenViewController: UIViewController {
     // MARK: - Properties
     @IBOutlet weak var backgroundImageView: UIImageView!
     @IBOutlet weak var blackoutView: UIView!
+    @IBOutlet weak var copyrightLabel: CustomLabel!
     
     
     // MARK: - Class Functions
@@ -36,7 +37,6 @@ class LaunchScreenViewController: UIViewController {
         
         if (isUserGuest) {
             backgroundImageView.image = UIImage(named: "image-background")
-            //backgroundImageView.backgroundColor = Config.Views.Colors.veryDarkDesaturatedBlue25Alfa1
             blackoutView.isHidden = false
             blackoutView.backgroundColor = Config.Views.Colors.veryDarkDesaturatedBlue25Alfa94
             

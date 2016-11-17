@@ -32,26 +32,42 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BusinessCardsShow" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oes-Is-1cH">
-                                <rect key="frame" x="82" y="229.5" width="156" height="21"/>
+                                <rect key="frame" x="82" y="230" width="156" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v8x-1f-kET" userLabel="Copyright Label" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
+                                <rect key="frame" x="8" y="450" width="304" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="style">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="v8x-1f-kET" firstAttribute="centerX" secondItem="U6k-Jd-Hxd" secondAttribute="centerX" id="1Md-DP-tYu"/>
                             <constraint firstItem="Oes-Is-1cH" firstAttribute="centerY" secondItem="U6k-Jd-Hxd" secondAttribute="centerY" id="1tL-HS-bVO"/>
+                            <constraint firstItem="v8x-1f-kET" firstAttribute="leading" secondItem="U6k-Jd-Hxd" secondAttribute="leading" constant="8" id="5Tt-br-3im"/>
                             <constraint firstItem="r2E-6A-P6i" firstAttribute="top" secondItem="U6k-Jd-Hxd" secondAttribute="top" id="BIZ-xI-dJA">
                                 <variation key="heightClass=compact-widthClass=compact" constant="-16"/>
                                 <variation key="heightClass=compact-widthClass=regular" constant="-16"/>
                             </constraint>
                             <constraint firstItem="Oes-Is-1cH" firstAttribute="centerX" secondItem="U6k-Jd-Hxd" secondAttribute="centerX" id="kf1-0h-ncf"/>
+                            <constraint firstAttribute="trailing" secondItem="v8x-1f-kET" secondAttribute="trailing" constant="8" id="lLf-vL-m6J"/>
                             <constraint firstAttribute="trailing" secondItem="r2E-6A-P6i" secondAttribute="trailing" id="m3L-TM-DAA"/>
+                            <constraint firstAttribute="bottom" secondItem="v8x-1f-kET" secondAttribute="bottom" constant="9" id="qDH-Fj-5TB"/>
                             <constraint firstItem="r2E-6A-P6i" firstAttribute="leading" secondItem="U6k-Jd-Hxd" secondAttribute="leading" id="qEY-0c-jdJ"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="NMq-fn-4R1"/>
                     <connections>
+                        <outlet property="copyrightLabel" destination="v8x-1f-kET" id="fgb-yD-bjq"/>
                         <outlet property="topBarView" destination="r2E-6A-P6i" id="UXB-Zj-oc0"/>
                         <outlet property="topBarViewHeightPortraitConstraint" destination="0Iz-PX-90U" id="dG3-Si-IZJ"/>
                     </connections>

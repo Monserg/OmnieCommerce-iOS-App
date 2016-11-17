@@ -31,10 +31,24 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="titleText" value="Messages"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ime-Oq-WN9" userLabel="Copyright Label" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
+                                <rect key="frame" x="8" y="637" width="359" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="style">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="EhI-Ef-LH8" firstAttribute="leading" secondItem="8hc-OJ-fkn" secondAttribute="leading" id="2Rz-12-RVZ"/>
+                            <constraint firstAttribute="trailing" secondItem="Ime-Oq-WN9" secondAttribute="trailing" constant="8" id="GI9-BN-KjI"/>
+                            <constraint firstAttribute="bottom" secondItem="Ime-Oq-WN9" secondAttribute="bottom" constant="9" id="RqU-hS-wpb"/>
+                            <constraint firstItem="Ime-Oq-WN9" firstAttribute="leading" secondItem="8hc-OJ-fkn" secondAttribute="leading" constant="8" id="YeQ-wo-S7H"/>
                             <constraint firstItem="EhI-Ef-LH8" firstAttribute="top" secondItem="8hc-OJ-fkn" secondAttribute="top" id="kfW-EN-SFe">
                                 <variation key="heightClass=compact-widthClass=compact" constant="-16"/>
                                 <variation key="heightClass=compact-widthClass=regular" constant="-16"/>
@@ -46,6 +60,7 @@
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="copyrightLabel" destination="Ime-Oq-WN9" id="YXp-t1-BA6"/>
                         <outlet property="topBarView" destination="EhI-Ef-LH8" id="rDT-Li-kFT"/>
                         <outlet property="topBarViewHeightPortraitConstraint" destination="9aV-Mk-64z" id="hjE-C8-zBx"/>
                     </connections>

@@ -13,7 +13,8 @@ import SWRevealViewController
 class BaseViewController: UIViewController {
     // MARK: - Properties
     var topBarViewRounding = CircleView.CirleRadius.small
-
+//    let onmieSoftCopyright = "\u{00A9} Omniesoft, 2016"
+    
         
     // MARK: - Class Functions
     override func viewDidLoad() {

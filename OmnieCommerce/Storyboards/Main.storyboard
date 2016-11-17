@@ -28,6 +28,17 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i2t-m6-iVM">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="039-hk-hae" userLabel="Copyright Label" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
+                                <rect key="frame" x="8" y="647.5" width="359" height="10.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="style">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -36,14 +47,18 @@
                             <constraint firstAttribute="bottom" secondItem="hn9-sw-5gw" secondAttribute="bottom" id="Gt1-qo-wjz"/>
                             <constraint firstItem="i2t-m6-iVM" firstAttribute="top" secondItem="VE3-52-97s" secondAttribute="top" id="LIc-hp-YLK"/>
                             <constraint firstItem="hn9-sw-5gw" firstAttribute="leading" secondItem="VE3-52-97s" secondAttribute="leading" id="MxW-wU-ACG"/>
+                            <constraint firstItem="039-hk-hae" firstAttribute="leading" secondItem="VE3-52-97s" secondAttribute="leading" constant="8" id="Q1Y-dJ-R58"/>
                             <constraint firstItem="hn9-sw-5gw" firstAttribute="top" secondItem="VE3-52-97s" secondAttribute="top" id="fin-XC-Roc"/>
+                            <constraint firstAttribute="trailing" secondItem="039-hk-hae" secondAttribute="trailing" constant="8" id="kWP-RL-hvc"/>
                             <constraint firstAttribute="bottom" secondItem="i2t-m6-iVM" secondAttribute="bottom" id="n3Y-05-Tic"/>
                             <constraint firstItem="i2t-m6-iVM" firstAttribute="leading" secondItem="VE3-52-97s" secondAttribute="leading" id="sE4-wy-xuG"/>
+                            <constraint firstAttribute="bottom" secondItem="039-hk-hae" secondAttribute="bottom" constant="9" id="xwk-x3-w2B"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="backgroundImageView" destination="hn9-sw-5gw" id="coa-Nb-60S"/>
                         <outlet property="blackoutView" destination="i2t-m6-iVM" id="JoY-2R-AW7"/>
+                        <outlet property="copyrightLabel" destination="039-hk-hae" id="hjw-Su-mGK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MAW-4y-eQZ" userLabel="First Responder" sceneMemberID="firstResponder"/>

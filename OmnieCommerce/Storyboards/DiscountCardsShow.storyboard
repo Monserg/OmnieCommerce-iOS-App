@@ -37,6 +37,17 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="titleText" value="DiscountCards"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mhd-tM-ire" userLabel="Copyright Label" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
+                                <rect key="frame" x="8" y="638" width="359" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="style">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -44,14 +55,19 @@
                                 <variation key="heightClass=compact-widthClass=compact" constant="-16"/>
                                 <variation key="heightClass=compact-widthClass=regular" constant="-16"/>
                             </constraint>
+                            <constraint firstAttribute="trailing" secondItem="Mhd-tM-ire" secondAttribute="trailing" constant="8" id="AaT-uz-y0p"/>
                             <constraint firstItem="Riz-XC-mOO" firstAttribute="centerY" secondItem="A4D-yP-xw0" secondAttribute="centerY" id="GRJ-rd-DJR"/>
+                            <constraint firstAttribute="bottom" secondItem="Mhd-tM-ire" secondAttribute="bottom" constant="8" id="I5B-45-Ist"/>
                             <constraint firstItem="K4O-Hp-7T4" firstAttribute="leading" secondItem="A4D-yP-xw0" secondAttribute="leading" id="Uza-Y8-Gkp"/>
+                            <constraint firstItem="Mhd-tM-ire" firstAttribute="leading" secondItem="A4D-yP-xw0" secondAttribute="leading" constant="8" id="Zd0-3j-CRY"/>
                             <constraint firstAttribute="trailing" secondItem="K4O-Hp-7T4" secondAttribute="trailing" id="ap6-sg-toG"/>
+                            <constraint firstItem="Mhd-tM-ire" firstAttribute="centerX" secondItem="A4D-yP-xw0" secondAttribute="centerX" id="g82-U3-YBO"/>
                             <constraint firstItem="Riz-XC-mOO" firstAttribute="centerX" secondItem="A4D-yP-xw0" secondAttribute="centerX" id="lD5-Zj-f0K"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="RQS-qq-19K"/>
                     <connections>
+                        <outlet property="copyrightLabel" destination="Mhd-tM-ire" id="T71-fj-Har"/>
                         <outlet property="topBarView" destination="K4O-Hp-7T4" id="Atv-uF-53a"/>
                         <outlet property="topBarViewHeightPortraitConstraint" destination="6dg-BM-Ib1" id="dRP-iS-xtd"/>
                     </connections>

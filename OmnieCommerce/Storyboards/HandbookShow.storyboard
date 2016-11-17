@@ -37,6 +37,17 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="titleText" value="Handbook"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0jm-qd-ave" userLabel="Copyright Label" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
+                                <rect key="frame" x="8" y="637" width="359" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="style">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -45,13 +56,17 @@
                                 <variation key="heightClass=compact-widthClass=compact" constant="-16"/>
                                 <variation key="heightClass=compact-widthClass=regular" constant="-16"/>
                             </constraint>
+                            <constraint firstAttribute="trailing" secondItem="0jm-qd-ave" secondAttribute="trailing" constant="8" id="bes-ze-Nvg"/>
                             <constraint firstItem="y2Z-YD-oIx" firstAttribute="centerX" secondItem="Ueb-xh-5L2" secondAttribute="centerX" id="dy2-8d-YNe"/>
                             <constraint firstItem="y2Z-YD-oIx" firstAttribute="centerY" secondItem="Ueb-xh-5L2" secondAttribute="centerY" id="eLa-1n-EFa"/>
+                            <constraint firstAttribute="bottom" secondItem="0jm-qd-ave" secondAttribute="bottom" constant="9" id="hmh-SC-0Ma"/>
+                            <constraint firstItem="0jm-qd-ave" firstAttribute="leading" secondItem="Ueb-xh-5L2" secondAttribute="leading" constant="8" id="jOa-Zo-Oud"/>
                             <constraint firstAttribute="trailing" secondItem="QIO-EA-wXe" secondAttribute="trailing" id="zYa-WF-StA"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="pdq-Tq-NOG"/>
                     <connections>
+                        <outlet property="copyrightLabel" destination="0jm-qd-ave" id="cDl-2a-Ob0"/>
                         <outlet property="topBarView" destination="QIO-EA-wXe" id="3TJ-Xs-RKW"/>
                         <outlet property="topBarViewHeightPortraitConstraint" destination="Q3Y-BW-Xxf" id="rO2-ub-sej"/>
                     </connections>

@@ -37,6 +37,17 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Z8-aZ-gEE" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
+                                <rect key="frame" x="8" y="637" width="359" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="style">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -47,11 +58,15 @@
                                 <variation key="heightClass=compact-widthClass=regular" constant="-16"/>
                             </constraint>
                             <constraint firstItem="Qfb-kj-Smx" firstAttribute="leading" secondItem="mMd-Q2-vub" secondAttribute="leading" id="Tem-ep-I3m"/>
+                            <constraint firstItem="1Z8-aZ-gEE" firstAttribute="leading" secondItem="mMd-Q2-vub" secondAttribute="leading" constant="8" id="Vcu-Ip-XcS"/>
                             <constraint firstItem="4uM-EC-3Zf" firstAttribute="centerY" secondItem="mMd-Q2-vub" secondAttribute="centerY" id="gcm-2t-19q"/>
+                            <constraint firstAttribute="trailing" secondItem="1Z8-aZ-gEE" secondAttribute="trailing" constant="8" id="raY-e4-3NO"/>
+                            <constraint firstAttribute="bottom" secondItem="1Z8-aZ-gEE" secondAttribute="bottom" constant="9" id="ut0-mE-Upl"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="RA6-Rp-ipT"/>
                     <connections>
+                        <outlet property="copyrightLabel" destination="1Z8-aZ-gEE" id="FCT-bA-Rks"/>
                         <outlet property="topBarView" destination="Qfb-kj-Smx" id="r8f-uS-ozb"/>
                         <outlet property="topBarViewHeightPortraitConstraint" destination="JFk-Qy-qES" id="BUf-qb-Fc7"/>
                     </connections>

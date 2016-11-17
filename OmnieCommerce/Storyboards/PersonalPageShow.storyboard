@@ -37,21 +37,36 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ASc-N1-FS2" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
+                                <rect key="frame" x="8" y="637" width="359" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="style">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="08z-zS-Fzg" secondAttribute="trailing" id="8B0-PH-C6O"/>
                             <constraint firstItem="mJG-hb-gHh" firstAttribute="centerY" secondItem="WeC-xT-hwP" secondAttribute="centerY" id="8CJ-pq-AwP"/>
+                            <constraint firstItem="ASc-N1-FS2" firstAttribute="leading" secondItem="WeC-xT-hwP" secondAttribute="leading" constant="8" id="L1B-DT-fEK"/>
                             <constraint firstItem="08z-zS-Fzg" firstAttribute="leading" secondItem="WeC-xT-hwP" secondAttribute="leading" id="NVt-r3-ud2"/>
                             <constraint firstItem="08z-zS-Fzg" firstAttribute="top" secondItem="WeC-xT-hwP" secondAttribute="top" id="Sh7-1G-Yci">
                                 <variation key="heightClass=compact-widthClass=compact" constant="-16"/>
                                 <variation key="heightClass=compact-widthClass=regular" constant="-16"/>
                             </constraint>
+                            <constraint firstAttribute="trailing" secondItem="ASc-N1-FS2" secondAttribute="trailing" constant="8" id="Twb-8R-nxq"/>
+                            <constraint firstAttribute="bottom" secondItem="ASc-N1-FS2" secondAttribute="bottom" constant="9" id="imL-6g-csA"/>
                             <constraint firstItem="mJG-hb-gHh" firstAttribute="centerX" secondItem="WeC-xT-hwP" secondAttribute="centerX" id="svZ-QT-54e"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="HKj-PK-W47"/>
                     <connections>
+                        <outlet property="copyrightLabel" destination="ASc-N1-FS2" id="Z9Q-9I-Pv1"/>
                         <outlet property="topBarView" destination="08z-zS-Fzg" id="aSo-kz-DU0"/>
                         <outlet property="topBarViewHeightPortraitConstraint" destination="DHJ-Xk-90a" id="uDJ-4l-qQi"/>
                     </connections>

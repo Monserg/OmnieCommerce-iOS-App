@@ -31,6 +31,17 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="titleText" value="News"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="krF-Rc-3FU" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
+                                <rect key="frame" x="8" y="637" width="359" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="style">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -38,14 +49,18 @@
                                 <variation key="heightClass=compact-widthClass=compact" constant="-16"/>
                                 <variation key="heightClass=compact-widthClass=regular" constant="-16"/>
                             </constraint>
+                            <constraint firstAttribute="bottom" secondItem="krF-Rc-3FU" secondAttribute="bottom" constant="9" id="U9b-VZ-tOU"/>
+                            <constraint firstItem="krF-Rc-3FU" firstAttribute="leading" secondItem="kfe-de-o53" secondAttribute="leading" constant="8" id="gKR-ED-pMH"/>
                             <constraint firstItem="KMj-II-PyU" firstAttribute="leading" secondItem="kfe-de-o53" secondAttribute="leading" id="jnZ-Lh-cha"/>
                             <constraint firstAttribute="trailing" secondItem="KMj-II-PyU" secondAttribute="trailing" id="r5Q-ox-nqr"/>
+                            <constraint firstAttribute="trailing" secondItem="krF-Rc-3FU" secondAttribute="trailing" constant="8" id="vv7-ZM-MSa"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="saI-lc-2iO"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="copyrightLabel" destination="krF-Rc-3FU" id="GIf-FF-rYt"/>
                         <outlet property="topBarView" destination="KMj-II-PyU" id="OQZ-aZ-VIe"/>
                         <outlet property="topBarViewHeightPortraitConstraint" destination="Htg-WR-zRy" id="6as-WT-FWC"/>
                     </connections>

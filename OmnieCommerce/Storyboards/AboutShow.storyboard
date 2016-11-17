@@ -22,13 +22,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AboutShow" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SNK-Dx-Mzd">
-                                <rect key="frame" x="143" y="323" width="89" height="21"/>
+                                <rect key="frame" x="163" y="358" width="89" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9iU-ZQ-06Y" customClass="TopBarView" customModule="OmnieCommerce" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="128"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="128"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="m2V-5t-zv7"/>
@@ -37,13 +37,28 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="titleText" value="About"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4K9-SO-NQz" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
+                                <rect key="frame" x="8" y="707" width="398" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="style">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="SNK-Dx-Mzd" firstAttribute="centerX" secondItem="DZ4-b6-Q6f" secondAttribute="centerX" id="B1q-fk-PmU"/>
                             <constraint firstItem="SNK-Dx-Mzd" firstAttribute="centerY" secondItem="DZ4-b6-Q6f" secondAttribute="centerY" id="FuB-q1-6Yh"/>
+                            <constraint firstAttribute="bottom" secondItem="4K9-SO-NQz" secondAttribute="bottom" constant="8" id="Gxf-xj-YJN"/>
+                            <constraint firstItem="4K9-SO-NQz" firstAttribute="centerX" secondItem="DZ4-b6-Q6f" secondAttribute="centerX" id="b3A-Lj-TqH"/>
                             <constraint firstAttribute="trailing" secondItem="9iU-ZQ-06Y" secondAttribute="trailing" id="bqz-Rh-DXm"/>
                             <constraint firstItem="9iU-ZQ-06Y" firstAttribute="leading" secondItem="DZ4-b6-Q6f" secondAttribute="leading" id="ewK-tO-COT"/>
+                            <constraint firstAttribute="trailing" secondItem="4K9-SO-NQz" secondAttribute="trailing" constant="8" id="gGG-RV-9mA"/>
+                            <constraint firstItem="4K9-SO-NQz" firstAttribute="leading" secondItem="DZ4-b6-Q6f" secondAttribute="leading" constant="8" id="gmt-Qi-aNJ"/>
                             <constraint firstItem="9iU-ZQ-06Y" firstAttribute="top" secondItem="DZ4-b6-Q6f" secondAttribute="top" id="uRg-Se-QWW">
                                 <variation key="heightClass=compact-widthClass=compact" constant="-16"/>
                                 <variation key="heightClass=compact-widthClass=regular" constant="-16"/>
@@ -52,6 +67,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="7Iy-MM-fBq"/>
                     <connections>
+                        <outlet property="copyrightLabel" destination="4K9-SO-NQz" id="uvz-Ck-2Fe"/>
                         <outlet property="topBarView" destination="9iU-ZQ-06Y" id="zNj-dg-3ta"/>
                         <outlet property="topBarViewHeightPortraitConstraint" destination="m2V-5t-zv7" id="D6F-mC-MLU"/>
                     </connections>
@@ -67,7 +83,7 @@
                     <toolbarItems/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="7D2-ml-fks">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="7D2-ml-fks">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

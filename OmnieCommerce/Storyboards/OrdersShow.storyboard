@@ -31,19 +31,35 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="titleText" value="Orders"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EBq-Ba-TWn" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
+                                <rect key="frame" x="8" y="706" width="398" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="style">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="0nN-5h-FmO" secondAttribute="trailing" id="3D8-nk-ofk"/>
+                            <constraint firstAttribute="trailing" secondItem="EBq-Ba-TWn" secondAttribute="trailing" constant="8" id="8x8-8v-8nr"/>
+                            <constraint firstAttribute="bottom" secondItem="EBq-Ba-TWn" secondAttribute="bottom" constant="9" id="9rE-uP-SSh"/>
+                            <constraint firstItem="EBq-Ba-TWn" firstAttribute="centerX" secondItem="oKk-pR-n0g" secondAttribute="centerX" id="Bo8-FN-hGj"/>
                             <constraint firstItem="0nN-5h-FmO" firstAttribute="leading" secondItem="oKk-pR-n0g" secondAttribute="leading" id="CjR-yb-X9A"/>
                             <constraint firstItem="0nN-5h-FmO" firstAttribute="top" secondItem="oKk-pR-n0g" secondAttribute="top" id="PKg-An-nEH">
                                 <variation key="heightClass=compact-widthClass=compact" constant="-16"/>
                                 <variation key="heightClass=compact-widthClass=regular" constant="-16"/>
                             </constraint>
+                            <constraint firstItem="EBq-Ba-TWn" firstAttribute="leading" secondItem="oKk-pR-n0g" secondAttribute="leading" constant="8" id="mjY-xP-tWi"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Orders" id="5Gb-Un-bfT"/>
                     <connections>
+                        <outlet property="copyrightLabel" destination="EBq-Ba-TWn" id="9Op-AH-kSN"/>
                         <outlet property="topBarView" destination="0nN-5h-FmO" id="e8h-k5-fDI"/>
                         <outlet property="topBarViewHeightPortraitConstraint" destination="bQh-mO-YRX" id="uMU-gW-1qX"/>
                     </connections>
@@ -59,7 +75,7 @@
                     <toolbarItems/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="RsX-5O-ea1">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="RsX-5O-ea1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

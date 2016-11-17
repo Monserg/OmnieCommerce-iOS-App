@@ -26,6 +26,7 @@ class DiscountCardsShowViewController: BaseViewController, DiscountCardsShowView
     var router: DiscountCardsShowRouter!
     
     @IBOutlet weak var topBarView: TopBarView!
+    @IBOutlet weak var copyrightLabel: CustomLabel!
     @IBOutlet weak var topBarViewHeightPortraitConstraint: NSLayoutConstraint!
     
     override var topBarViewRounding: CircleView.CirleRadius {
