@@ -50,6 +50,7 @@
                     <navigationItem key="navigationItem" id="7Iy-MM-fBq"/>
                     <connections>
                         <outlet property="topBarView" destination="9iU-ZQ-06Y" id="zNj-dg-3ta"/>
+                        <outlet property="topBarViewHeightPortraitConstraint" destination="m2V-5t-zv7" id="D6F-mC-MLU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k2Z-7B-eLp" userLabel="First Responder" sceneMemberID="firstResponder"/>

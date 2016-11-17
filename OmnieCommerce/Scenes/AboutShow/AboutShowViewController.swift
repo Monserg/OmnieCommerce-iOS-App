@@ -26,7 +26,16 @@ class AboutShowViewController: BaseViewController, AboutShowViewControllerInput 
     var router: AboutShowRouter!
     
     @IBOutlet weak var topBarView: TopBarView!
-
+    @IBOutlet weak var topBarViewHeightPortraitConstraint: NSLayoutConstraint!
+    
+    override var topBarViewRounding: CircleView.CirleRadius {
+        willSet {
+            if (newValue == .big) {
+                topBarViewHeightPortraitConstraint.constant = Config.Constants.topViewBarHeightBig
+            }
+        }
+    }
+    
  
     // MARK: - Class initialization
     override func awakeFromNib() {
@@ -40,7 +49,9 @@ class AboutShowViewController: BaseViewController, AboutShowViewControllerInput 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        setup()
+        // Config topBarView
+        topBarViewRounding = .big
+        setup(topBarView: topBarView)
         
         doSomethingOnLoad()
     }
