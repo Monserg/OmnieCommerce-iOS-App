@@ -26,6 +26,15 @@ class NewsShowViewController: BaseViewController, NewsShowViewControllerInput {
     var router: NewsShowRouter!
     
     @IBOutlet weak var topBarView: TopBarView!
+    @IBOutlet weak var topBarViewHeightPortraitConstraint: NSLayoutConstraint!
+    
+    override var topBarViewRounding: CircleView.CirleRadius {
+        willSet {
+            if (newValue == .big) {
+                topBarViewHeightPortraitConstraint.constant = Config.Constants.topViewBarHeightBig
+            }
+        }
+    }
 
     
     // MARK: - Class initialization
@@ -40,7 +49,9 @@ class NewsShowViewController: BaseViewController, NewsShowViewControllerInput {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        setup()
+        // Config topBarView
+        topBarViewRounding = .big
+        setup(topBarView: topBarView)
 
         doSomethingOnLoad()
     }
