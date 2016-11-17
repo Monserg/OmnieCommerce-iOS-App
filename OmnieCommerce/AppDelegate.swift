@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import SWRevealViewController
+//import SWRevealViewController
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,23 +17,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {       
         // Check initial scene
-        self.window = UIWindow(frame: UIScreen.main.bounds)
+//        self.window = UIWindow(frame: UIScreen.main.bounds)
         
-        switch Config.Constants.isUserGuest {
-        // User authorized
-        case false:
-            let ordersShowStoryboard = UIStoryboard(name: "SlideMenuShow", bundle: nil)
-            let initialVC = ordersShowStoryboard.instantiateViewController(withIdentifier: "RevealVC") as! SWRevealViewController
-            self.window?.rootViewController = initialVC
-            
-        // Guest
-        case true:
-            let signInShowStoryboard = UIStoryboard(name: "SignInShow", bundle: nil)
-            let initialNC = signInShowStoryboard.instantiateViewController(withIdentifier: "SignInShowNC") as! BaseNavigationController
-            self.window?.rootViewController = initialNC
-        }
-        
-        self.window?.makeKeyAndVisible()
+//        switch Config.Constants.isUserGuest {
+//        // User authorized
+//        case false:
+//            let ordersShowStoryboard = UIStoryboard(name: "SlideMenuShow", bundle: nil)
+//            let initialVC = ordersShowStoryboard.instantiateViewController(withIdentifier: "RevealVC") as! SWRevealViewController
+//            self.window?.rootViewController = initialVC
+//            
+//        // Guest
+//        case true:
+//            let signInShowStoryboard = UIStoryboard(name: "SignInShow", bundle: nil)
+//            let initialNC = signInShowStoryboard.instantiateViewController(withIdentifier: "SignInShowNC") as! BaseNavigationController
+//            self.window?.rootViewController = initialNC
+//        }
+//        
+//        self.window?.makeKeyAndVisible()
 
         return true
     }

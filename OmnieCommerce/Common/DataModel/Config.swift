@@ -27,7 +27,7 @@ struct Config {
         static let topViewBarLineThickness: CGFloat             =   3.0
         
         // FIXME: - DELETE AFTER TEST
-        static let isUserGuest: Bool                            =   true
+        static let isUserGuest: Bool                            =   false
     }
     
     struct Themes {
@@ -128,6 +128,9 @@ struct Config {
             static let veryDarkDesaturatedBlue2f                =   UIColor(hexString: "#2f3c49")
 
             static let veryDarkGrayishBlue35                    =   UIColor(hexString: "#38444e")
+
+            static let veryDarkDesaturatedBlue25Alfa1           =   UIColor(hexString: "#253340", withAlpha: 1.0)
+            static let veryDarkDesaturatedBlue25Alfa94          =   UIColor(hexString: "#253340", withAlpha: 0.94)
         }
     }
 }
@@ -152,6 +155,32 @@ extension UIColor {
                     blueColor = CGFloat(hexNumber & 0x0000ff) / 255
                     
                     self.init(red: redColor, green: greenColor, blue: blueColor, alpha: 1.0)
+                    
+                    return
+                }
+            }
+        }
+        
+        return nil
+    }
+
+    public convenience init?(hexString: String, withAlpha alpha: CGFloat) {
+        let redColor, greenColor, blueColor: CGFloat
+        
+        if hexString.hasPrefix("#") {
+            let start = hexString.index(hexString.startIndex, offsetBy: 1)
+            let hexColor = hexString.substring(from: start)
+            
+            if hexColor.characters.count == 6 {
+                let scanner = Scanner(string: hexColor)
+                var hexNumber: UInt32 = 0
+                
+                if scanner.scanHexInt32(&hexNumber) {
+                    redColor = CGFloat((hexNumber & 0xff0000) >> 16) / 255
+                    greenColor = CGFloat((hexNumber & 0x00ff00) >> 8) / 255
+                    blueColor = CGFloat(hexNumber & 0x0000ff) / 255
+                    
+                    self.init(red: redColor, green: greenColor, blue: blueColor, alpha: alpha)
                     
                     return
                 }

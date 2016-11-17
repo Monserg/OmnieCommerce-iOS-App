@@ -87,7 +87,6 @@
 		B14E976A1DD8B05E001E1DE2 /* ForgotPasswordShowWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14E97631DD8B05E001E1DE2 /* ForgotPasswordShowWorker.swift */; };
 		B14E976C1DD8B8CB001E1DE2 /* SignInShow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B14E976B1DD8B8CB001E1DE2 /* SignInShow.storyboard */; };
 		B15FD40A1DD1DD8C00782324 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15FD4091DD1DD8C00782324 /* AppDelegate.swift */; };
-		B15FD4141DD1DD8C00782324 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B15FD4121DD1DD8C00782324 /* LaunchScreen.storyboard */; };
 		B1BF92441DD5FC8000BECBBB /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1BF92431DD5FC8000BECBBB /* Config.swift */; };
 		B1BF92681DD6516C00BECBBB /* helveticaneuecyr-black.otf in Resources */ = {isa = PBXBuildFile; fileRef = B1BF924F1DD650F400BECBBB /* helveticaneuecyr-black.otf */; };
 		B1BF92691DD6516C00BECBBB /* helveticaneuecyr-blackitalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = B1BF92501DD650F400BECBBB /* helveticaneuecyr-blackitalic.otf */; };
@@ -181,6 +180,8 @@
 		B1CF54EE1DDB588600E98049 /* DiscountCardsShow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1CF54ED1DDB588600E98049 /* DiscountCardsShow.storyboard */; };
 		B1CF54F01DDB5F1A00E98049 /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CF54EF1DDB5F1A00E98049 /* CustomLabel.swift */; };
 		B1E52AAF1DDDA84C00C3B24D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1E52AAE1DDDA84C00C3B24D /* Assets.xcassets */; };
+		B1E52AB11DDDD0EA00C3B24D /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E52AB01DDDD0EA00C3B24D /* LaunchScreenViewController.swift */; };
+		B1E52AD31DDDDEC600C3B24D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1E52AD21DDDDEC600C3B24D /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -239,8 +240,6 @@
 		B122F22F1DD35EE10018A701 /* CategoriesShow.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CategoriesShow.storyboard; sourceTree = "<group>"; };
 		B122F2311DD35EF10018A701 /* NewsShow.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = NewsShow.storyboard; sourceTree = "<group>"; };
 		B122F2401DD371B30018A701 /* BaseNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
-		B122F2431DD38A3E0018A701 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
-		B122F2441DD38A450018A701 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		B122F2491DD393330018A701 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B122F24B1DD393340018A701 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B122F24C1DD393350018A701 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -271,7 +270,6 @@
 		B14E976B1DD8B8CB001E1DE2 /* SignInShow.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SignInShow.storyboard; sourceTree = "<group>"; };
 		B15FD4061DD1DD8C00782324 /* OmnieCommerce.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OmnieCommerce.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B15FD4091DD1DD8C00782324 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B15FD4131DD1DD8C00782324 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B15FD4151DD1DD8C00782324 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Info.plist; sourceTree = "<group>"; };
 		B1BF92431DD5FC8000BECBBB /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		B1BF924F1DD650F400BECBBB /* helveticaneuecyr-black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "helveticaneuecyr-black.otf"; sourceTree = "<group>"; };
@@ -366,6 +364,8 @@
 		B1CF54ED1DDB588600E98049 /* DiscountCardsShow.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DiscountCardsShow.storyboard; sourceTree = "<group>"; };
 		B1CF54EF1DDB5F1A00E98049 /* CustomLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
 		B1E52AAE1DDDA84C00C3B24D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../Scenes/Assets.xcassets; sourceTree = "<group>"; };
+		B1E52AB01DDDD0EA00C3B24D /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewController.swift; sourceTree = "<group>"; };
+		B1E52AD21DDDDEC600C3B24D /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		ED913E9D2C7028252CE0B73A /* Pods-OmnieCommerce.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OmnieCommerce.release.xcconfig"; path = "Pods/Target Support Files/Pods-OmnieCommerce/Pods-OmnieCommerce.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -430,6 +430,7 @@
 			isa = PBXGroup;
 			children = (
 				B1228FB91DD49ED400A90FBB /* BaseViewController.swift */,
+				B1E52AB01DDDD0EA00C3B24D /* LaunchScreenViewController.swift */,
 			);
 			path = UIViewControllers;
 			sourceTree = "<group>";
@@ -451,7 +452,7 @@
 				B1CF54ED1DDB588600E98049 /* DiscountCardsShow.storyboard */,
 				B122F22D1DD35ECC0018A701 /* FavoriteShow.storyboard */,
 				B1CF54E71DDB55E300E98049 /* HandbookShow.storyboard */,
-				B15FD4121DD1DD8C00782324 /* LaunchScreen.storyboard */,
+				B1E52AD21DDDDEC600C3B24D /* Main.storyboard */,
 				B122F22B1DD35E550018A701 /* MessagesShow.storyboard */,
 				B122F2311DD35EF10018A701 /* NewsShow.storyboard */,
 				B1CF54EB1DDB57C300E98049 /* OmnieCardsShow.storyboard */,
@@ -937,6 +938,7 @@
 				B1CF54EA1DDB56BD00E98049 /* BusinessCardsShow.storyboard in Resources */,
 				B1CF54E21DDB529300E98049 /* AboutShow.storyboard in Resources */,
 				B1BF927A1DD6516C00BECBBB /* UBUNTU-C.TTF in Resources */,
+				B1E52AD31DDDDEC600C3B24D /* Main.storyboard in Resources */,
 				B1BF927B1DD6516C00BECBBB /* UBUNTU-I.TTF in Resources */,
 				B1BF927C1DD6516C00BECBBB /* UBUNTU-L.TTF in Resources */,
 				B1BF927D1DD6516C00BECBBB /* UBUNTU-LI.TTF in Resources */,
@@ -950,7 +952,6 @@
 				B1CF54E61DDB552300E98049 /* PersonalPageShow.storyboard in Resources */,
 				B122F2481DD393330018A701 /* Localizable.strings in Resources */,
 				B1CF54EE1DDB588600E98049 /* DiscountCardsShow.storyboard in Resources */,
-				B15FD4141DD1DD8C00782324 /* LaunchScreen.storyboard in Resources */,
 				B1CF54E41DDB543300E98049 /* SettingsShow.storyboard in Resources */,
 				B122F1BF1DD3575E0018A701 /* SlideMenuShow.storyboard in Resources */,
 				B122F22E1DD35ECC0018A701 /* FavoriteShow.storyboard in Resources */,
@@ -1130,6 +1131,7 @@
 				B1CF54BE1DDB519000E98049 /* OnmieSoftShowModels.swift in Sources */,
 				B1CF54DC1DDB51BE00E98049 /* SettingsShowRouter.swift in Sources */,
 				B122F2411DD371B30018A701 /* BaseNavigationController.swift in Sources */,
+				B1E52AB11DDDD0EA00C3B24D /* LaunchScreenViewController.swift in Sources */,
 				B122F1DC1DD35B760018A701 /* OrdersShowInteractor.swift in Sources */,
 				B14E97681DD8B05E001E1DE2 /* ForgotPasswordShowRouter.swift in Sources */,
 				B1CF54B11DDB516E00E98049 /* OmnieCardsShowPresenter.swift in Sources */,
@@ -1156,17 +1158,6 @@
 				B122F24D1DD393360018A701 /* uk */,
 			);
 			name = Localizable.strings;
-			sourceTree = "<group>";
-		};
-		B15FD4121DD1DD8C00782324 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B15FD4131DD1DD8C00782324 /* Base */,
-				B122F2431DD38A3E0018A701 /* ru */,
-				B122F2441DD38A450018A701 /* uk */,
-			);
-			name = LaunchScreen.storyboard;
-			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

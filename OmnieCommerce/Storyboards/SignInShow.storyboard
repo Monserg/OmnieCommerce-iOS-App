@@ -13,7 +13,7 @@
         <!--Sign In Show View Controller-->
         <scene sceneID="s7A-xU-9Se">
             <objects>
-                <viewController storyboardIdentifier="SignInShowVC" id="h1R-QH-7Vr" customClass="SignInShowViewController" customModule="OmnieCommerce" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignInShowVC" modalTransitionStyle="crossDissolve" id="h1R-QH-7Vr" customClass="SignInShowViewController" customModule="OmnieCommerce" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="JrD-8b-O6P"/>
                         <viewControllerLayoutGuide type="bottom" id="IZh-Xm-m95"/>
@@ -150,7 +150,7 @@
         <!--Base Navigation Controller-->
         <scene sceneID="y6J-jc-xpw">
             <objects>
-                <navigationController storyboardIdentifier="SignInShowNC" automaticallyAdjustsScrollViewInsets="NO" id="HnD-Xp-HUn" customClass="BaseNavigationController" customModule="OmnieCommerce" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="SignInShowNC" automaticallyAdjustsScrollViewInsets="NO" modalTransitionStyle="crossDissolve" id="HnD-Xp-HUn" customClass="BaseNavigationController" customModule="OmnieCommerce" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="hMj-in-c4l">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>

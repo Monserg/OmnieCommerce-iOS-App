@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="xyJ-Db-82U">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Launch Screen View Controller-->
+        <scene sceneID="1Vc-yt-0j0">
+            <objects>
+                <viewController storyboardIdentifier="LaunchScreenVC" id="xyJ-Db-82U" customClass="LaunchScreenViewController" customModule="OmnieCommerce" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="McX-Mh-Bsx"/>
+                        <viewControllerLayoutGuide type="bottom" id="fFr-fb-oLc"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="VE3-52-97s">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hn9-sw-5gw">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i2t-m6-iVM">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="i2t-m6-iVM" secondAttribute="trailing" id="1U4-Sh-lZw"/>
+                            <constraint firstAttribute="trailing" secondItem="hn9-sw-5gw" secondAttribute="trailing" id="6t7-Ml-4v9"/>
+                            <constraint firstAttribute="bottom" secondItem="hn9-sw-5gw" secondAttribute="bottom" id="Gt1-qo-wjz"/>
+                            <constraint firstItem="i2t-m6-iVM" firstAttribute="top" secondItem="VE3-52-97s" secondAttribute="top" id="LIc-hp-YLK"/>
+                            <constraint firstItem="hn9-sw-5gw" firstAttribute="leading" secondItem="VE3-52-97s" secondAttribute="leading" id="MxW-wU-ACG"/>
+                            <constraint firstItem="hn9-sw-5gw" firstAttribute="top" secondItem="VE3-52-97s" secondAttribute="top" id="fin-XC-Roc"/>
+                            <constraint firstAttribute="bottom" secondItem="i2t-m6-iVM" secondAttribute="bottom" id="n3Y-05-Tic"/>
+                            <constraint firstItem="i2t-m6-iVM" firstAttribute="leading" secondItem="VE3-52-97s" secondAttribute="leading" id="sE4-wy-xuG"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="backgroundImageView" destination="hn9-sw-5gw" id="coa-Nb-60S"/>
+                        <outlet property="blackoutView" destination="i2t-m6-iVM" id="JoY-2R-AW7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MAW-4y-eQZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="308" y="170"/>
+        </scene>
+    </scenes>
+</document>
