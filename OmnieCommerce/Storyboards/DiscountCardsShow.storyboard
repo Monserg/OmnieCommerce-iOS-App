@@ -40,7 +40,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="K4O-Hp-7T4" firstAttribute="top" secondItem="A4D-yP-xw0" secondAttribute="top" id="7WP-Ue-bPh"/>
+                            <constraint firstItem="K4O-Hp-7T4" firstAttribute="top" secondItem="A4D-yP-xw0" secondAttribute="top" id="7WP-Ue-bPh">
+                                <variation key="heightClass=compact-widthClass=compact" constant="-17"/>
+                                <variation key="heightClass=compact-widthClass=regular" constant="-17"/>
+                            </constraint>
                             <constraint firstItem="Riz-XC-mOO" firstAttribute="centerY" secondItem="A4D-yP-xw0" secondAttribute="centerY" id="GRJ-rd-DJR"/>
                             <constraint firstItem="K4O-Hp-7T4" firstAttribute="leading" secondItem="A4D-yP-xw0" secondAttribute="leading" id="Uza-Y8-Gkp"/>
                             <constraint firstAttribute="trailing" secondItem="K4O-Hp-7T4" secondAttribute="trailing" id="ap6-sg-toG"/>
@@ -50,6 +53,7 @@
                     <navigationItem key="navigationItem" id="RQS-qq-19K"/>
                     <connections>
                         <outlet property="topBarView" destination="K4O-Hp-7T4" id="Atv-uF-53a"/>
+                        <outlet property="topBarViewHeightPortraitConstraint" destination="6dg-BM-Ib1" id="dRP-iS-xtd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NVo-Mt-ymv" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -63,7 +67,7 @@
                     <toolbarItems/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="z6D-Fr-pFE">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="z6D-Fr-pFE">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
