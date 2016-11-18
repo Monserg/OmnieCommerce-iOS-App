@@ -32,6 +32,9 @@ class SignInShowViewController: BaseViewController, SignInShowViewControllerInpu
     @IBOutlet weak var googleButton: CustomButton!
     @IBOutlet weak var facebookButton: CustomButton!
     
+    @IBOutlet weak var nameTextField: CustomTextField!
+    @IBOutlet weak var passwordTextField: CustomTextField!
+    
     @IBOutlet weak var topBarViewHeightPortraitConstraint: NSLayoutConstraint!
     @IBOutlet weak var topBarViewHeightLandscapeConstraint: NSLayoutConstraint!
     
@@ -50,6 +53,10 @@ class SignInShowViewController: BaseViewController, SignInShowViewControllerInpu
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Delegates
+        nameTextField.delegate = self
+        passwordTextField.delegate = self
+        
         // Config scene
         topBarView.circleView.cirleRadiusStyle = .small
         topBarViewHeight = (topBarView.circleView.cirleRadiusStyle == .small) ? Config.Constants.topViewBarHeightSmall : Config.Constants.topViewBarHeightBig
@@ -62,8 +69,14 @@ class SignInShowViewController: BaseViewController, SignInShowViewControllerInpu
         googleButton.type = .social
         facebookButton.type = .social
         
+        setup(topBarView: topBarView)
+        
         doSomethingOnLoad()
     }
+    
+//    override func handleTap(gestureRecognizer: UIGestureRecognizer) {
+//        view.endEditing(true)
+//    }
     
     deinit {
         print("SignInShowViewController deinit.")
@@ -115,5 +128,29 @@ class SignInShowViewController: BaseViewController, SignInShowViewControllerInpu
     func displaySomething(viewModel: SignInShow.Something.ViewModel) {
         // NOTE: Display the result from the Presenter
         // nameTextField.text = viewModel.name
+    }
+}
+
+
+// MARK: - UITextFieldDelegate
+extension SignInShowViewController: UITextFieldDelegate {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        textField.placeholder = nil
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == nameTextField {
+            passwordTextField.becomeFirstResponder()
+        } else {
+            // FIXME: RUN LOGIN FUNC
+            print("login run.")
+            textField.resignFirstResponder()
+        }
+        
+        return true
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        textField.attributedPlaceholder = (textField as! CustomTextField).attributedPlaceholderText
     }
 }

@@ -62,6 +62,7 @@
 		B122F2321DD35EF10018A701 /* NewsShow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B122F2311DD35EF10018A701 /* NewsShow.storyboard */; };
 		B122F2411DD371B30018A701 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B122F2401DD371B30018A701 /* BaseNavigationController.swift */; };
 		B122F2481DD393330018A701 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B122F24A1DD393330018A701 /* Localizable.strings */; };
+		B12AC2301DDF3BDB00FA0924 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12AC22F1DDF3BDB00FA0924 /* CustomTextField.swift */; };
 		B1305D381DDB9B93000CA5FE /* TopBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1305D371DDB9B93000CA5FE /* TopBarView.xib */; };
 		B1305D3A1DDC738F000CA5FE /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1305D391DDC738F000CA5FE /* CircleView.swift */; };
 		B14E97481DD8B042001E1DE2 /* SignInShowConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14E97411DD8B042001E1DE2 /* SignInShowConfigurator.swift */; };
@@ -249,6 +250,7 @@
 		B122F24B1DD393340018A701 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B122F24C1DD393350018A701 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B122F24D1DD393360018A701 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Localizable.strings; sourceTree = "<group>"; };
+		B12AC22F1DDF3BDB00FA0924 /* CustomTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		B1305D371DDB9B93000CA5FE /* TopBarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TopBarView.xib; sourceTree = "<group>"; };
 		B1305D391DDC738F000CA5FE /* CircleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
 		B14E97411DD8B042001E1DE2 /* SignInShowConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInShowConfigurator.swift; sourceTree = "<group>"; };
@@ -606,6 +608,7 @@
 		B122F2381DD36F120018A701 /* UITextFields */ = {
 			isa = PBXGroup;
 			children = (
+				B12AC22F1DDF3BDB00FA0924 /* CustomTextField.swift */,
 			);
 			path = UITextFields;
 			sourceTree = "<group>";
@@ -1152,6 +1155,7 @@
 				B1CF54DC1DDB51BE00E98049 /* SettingsShowRouter.swift in Sources */,
 				B122F2411DD371B30018A701 /* BaseNavigationController.swift in Sources */,
 				B1E52AB11DDDD0EA00C3B24D /* LaunchScreenViewController.swift in Sources */,
+				B12AC2301DDF3BDB00FA0924 /* CustomTextField.swift in Sources */,
 				B122F1DC1DD35B760018A701 /* OrdersShowInteractor.swift in Sources */,
 				B14E97681DD8B05E001E1DE2 /* ForgotPasswordShowRouter.swift in Sources */,
 				B1CF54B11DDB516E00E98049 /* OmnieCardsShowPresenter.swift in Sources */,
@@ -1284,7 +1288,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6AA4A159468D8EA48A132ED8 /* Pods-OmnieCommerce.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
@@ -1303,7 +1307,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = ED913E9D2C7028252CE0B73A /* Pods-OmnieCommerce.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";

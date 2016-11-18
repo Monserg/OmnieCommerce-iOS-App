@@ -31,3 +31,8 @@
 // Buttons
 "Register"              =   "Зареєструватись";
 "Forgot password?"      =   "Забули пароль?";
+
+
+// TextField Placeholders
+"Name"                  =   "Ім'я";
+"Password"              =   "Пароль";

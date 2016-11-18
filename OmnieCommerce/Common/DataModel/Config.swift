@@ -74,6 +74,7 @@ struct Config {
             static let ubuntuLight9                             =   UIFont(name: "Ubuntu-Light", size: 9.0)
             static let ubuntuLight12                            =   UIFont(name: "Ubuntu-Light", size: 12.0)
             static let ubuntuLight16                            =   UIFont(name: "Ubuntu-Light", size: 16.0)
+            static let ubuntuLightItalic10                      =   UIFont(name: "Ubuntu-LightItalic", size: 10.0)
             static let ubuntuLightItalic12                      =   UIFont(name: "Ubuntu-LightItalic", size: 12.0)
             static let ubuntuLightItalic16                      =   UIFont(name: "Ubuntu-LightItalic", size: 16.0)
             

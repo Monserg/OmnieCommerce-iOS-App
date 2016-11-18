@@ -31,3 +31,8 @@
 // Buttons
 "Register"              =   "Register";
 "Forgot password?"      =   "Forgot password?";
+
+
+// TextField Placeholders
+"Name"                  =   "Name";
+"Password"              =   "Password";

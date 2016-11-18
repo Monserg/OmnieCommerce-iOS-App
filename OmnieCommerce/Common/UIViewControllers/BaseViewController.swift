@@ -13,7 +13,6 @@ import SWRevealViewController
 class BaseViewController: UIViewController {
     // MARK: - Properties
     var topBarViewRounding = CircleView.CirleRadius.small
-//    let onmieSoftCopyright = "\u{00A9} Omniesoft, 2016"
     
         
     // MARK: - Class Functions
@@ -28,16 +27,20 @@ class BaseViewController: UIViewController {
     
     // MARK: - Custom Functions
     func setup(topBarView: TopBarView) {
-        // Set background color
-        self.view.backgroundColor = Config.Views.Colors.veryDarkDesaturatedBlue24
-        
         // .small radius
         if (topBarViewRounding == .small) {
             print(".small")
+            
+            let gestureRecognizer = UITapGestureRecognizer.init(target: self, action: #selector(BaseViewController.handleTap(gestureRecognizer:)))
+            gestureRecognizer.delegate = self
+            view.addGestureRecognizer(gestureRecognizer)
         }
         
         // .big radius
         else {
+            // Set background color
+            self.view.backgroundColor = Config.Views.Colors.veryDarkDesaturatedBlue24
+
             // Add Slide Menu actions
             if revealViewController() != nil {
                 topBarView.actionButton.addTarget(revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), for: .touchUpInside)
@@ -59,9 +62,16 @@ class BaseViewController: UIViewController {
                 revealViewController().frontViewShadowRadius = 5
                 revealViewController().frontViewShadowColor = UIColor.white
 
-
                 view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
             }
         }
+    }
+}
+
+
+// MARK: - UIGestureRecognizerDelegate
+extension BaseViewController: UIGestureRecognizerDelegate {
+    func handleTap(gestureRecognizer: UIGestureRecognizer) {
+        view.endEditing(true)
     }
 }
