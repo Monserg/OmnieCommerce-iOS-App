@@ -17,6 +17,7 @@ import Localize_Swift
         case title
         case copyright
         case menuItem
+        case congratulations
     }
     
     @IBInspectable var style: CGFloat = 0 {
@@ -38,6 +39,11 @@ import Localize_Swift
             // menuItem = 3
             case 3:
                 self.font = Config.Labels.Fonts.ubuntuLight16
+                self.textColor = Config.Labels.Colors.veryLightGray
+
+            // congratulations = 4
+            case 4:
+                self.font = Config.Labels.Fonts.helveticaNeueCyrThin47
                 self.textColor = Config.Labels.Colors.veryLightGray
 
             // standard = 0

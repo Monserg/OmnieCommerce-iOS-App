@@ -39,18 +39,6 @@ import UIKit
         
         UINib(nibName: "TopBarView", bundle: nil).instantiate(withOwner: self, options: nil)
         addSubview(view)
-        view.backgroundColor = Config.Views.Colors.veryDarkDesaturatedBlue24
         view.frame = self.bounds
     }
-
-    
-    // TODO: - MAY BE ADD CONFIG/SETUP FUNC?
-    // Config
-    //    titleLabel.font = Config.Labels.Fonts.helveticaNeueCyr32
-    //    titleLabel.textColor = Config.Labels.Colors.veryLightGray
-    //view.backgroundColor = Config.Views.Colors.darkCyan
-    
-    // FIXME: USE FOR KERN WORD
-    // titleLabel.attributedText = NSAttributedString(string: "commerce", attributes: Config.Labels.Fonts.helveticaNeueCyrRoman16Kern486)
-
 }

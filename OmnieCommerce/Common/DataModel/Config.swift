@@ -27,7 +27,7 @@ struct Config {
         static let topViewBarLineThickness: CGFloat             =   3.0
         
         // FIXME: - DELETE AFTER TEST
-        static let isUserGuest: Bool                            =   false
+        static let isUserGuest: Bool                            =   true
     }
     
     struct Themes {
@@ -80,6 +80,7 @@ struct Config {
             static let ubuntuRegular16                          =   UIFont(name: "Ubuntu-Regular", size: 16.0)
 
             static let helveticaNeueCyrLight32                  =   UIFont(name: "helveticaNeueCyr-Light", size: 32.0)
+            static let helveticaNeueCyrThin21                   =   UIFont(name: "helveticaNeueCyr-Thin", size: 21.0)
             static let helveticaNeueCyrThin33                   =   UIFont(name: "helveticaNeueCyr-Thin", size: 33.0)
             static let helveticaNeueCyrThin47                   =   UIFont(name: "helveticaNeueCyr-Thin", size: 47.0)
             static let helveticaNeueCyrThin51                   =   UIFont(name: "helveticaNeueCyr-Thin", size: 51.0)

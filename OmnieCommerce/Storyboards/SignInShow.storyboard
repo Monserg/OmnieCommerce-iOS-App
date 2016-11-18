@@ -31,11 +31,11 @@
                                 <color key="backgroundColor" red="0.14509803921568626" green="0.20000000000000001" blue="0.25098039215686274" alpha="0.93999999999999995" colorSpace="calibratedRGB"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vUs-Mf-aXo" customClass="TopBarView" customModule="OmnieCommerce" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="206"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="218"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="206" id="RPG-70-pQT"/>
-                                    <constraint firstAttribute="width" constant="216" id="bBN-Y8-mwZ"/>
+                                    <constraint firstAttribute="height" constant="218" id="RPG-70-pQT"/>
+                                    <constraint firstAttribute="width" constant="218" id="bBN-Y8-mwZ"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="titleText" value="Hide"/>
@@ -102,16 +102,31 @@
                                     <action selector="asdasdasd:" destination="h1R-QH-7Vr" eventType="touchUpInside" id="Dom-kY-YXj"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Congratulations" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SKB-6u-w8c" userLabel="Congratulations Label" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
+                                <rect key="frame" x="8" y="271" width="359" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="style">
+                                        <real key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="cua-Vz-mw9" secondAttribute="trailing" id="0I5-Wp-vkm"/>
                             <constraint firstItem="cua-Vz-mw9" firstAttribute="leading" secondItem="HHh-KM-0ql" secondAttribute="leading" id="3II-Go-XQg"/>
                             <constraint firstItem="IZh-Xm-m95" firstAttribute="top" secondItem="cua-Vz-mw9" secondAttribute="bottom" id="9Z6-Qf-KdK"/>
+                            <constraint firstItem="SKB-6u-w8c" firstAttribute="centerX" secondItem="HHh-KM-0ql" secondAttribute="centerX" id="Akj-uJ-wMs"/>
+                            <constraint firstItem="SKB-6u-w8c" firstAttribute="top" secondItem="vUs-Mf-aXo" secondAttribute="bottom" constant="53" id="C4f-VS-PEM"/>
                             <constraint firstAttribute="bottomMargin" secondItem="njZ-rW-JXW" secondAttribute="bottom" id="FDG-dL-9nU"/>
                             <constraint firstAttribute="trailing" secondItem="njZ-rW-JXW" secondAttribute="trailing" id="GKF-ux-6SA"/>
                             <constraint firstItem="njZ-rW-JXW" firstAttribute="top" secondItem="HHh-KM-0ql" secondAttribute="topMargin" id="Hxo-fq-4px"/>
                             <constraint firstItem="vUs-Mf-aXo" firstAttribute="top" secondItem="HHh-KM-0ql" secondAttribute="top" id="P4h-LA-GZq"/>
+                            <constraint firstItem="SKB-6u-w8c" firstAttribute="leading" secondItem="HHh-KM-0ql" secondAttribute="leading" constant="8" id="XeB-jh-y2R"/>
+                            <constraint firstAttribute="trailing" secondItem="SKB-6u-w8c" secondAttribute="trailing" constant="8" id="Z4u-uC-4Ja"/>
                             <constraint firstItem="vUs-Mf-aXo" firstAttribute="leading" secondItem="HHh-KM-0ql" secondAttribute="leading" id="ZKs-8d-1jU"/>
                             <constraint firstAttribute="trailing" secondItem="vUs-Mf-aXo" secondAttribute="trailing" id="b0U-sS-Gw3"/>
                             <constraint firstItem="njZ-rW-JXW" firstAttribute="leading" secondItem="HHh-KM-0ql" secondAttribute="leading" id="bV3-64-6mh"/>
@@ -135,6 +150,7 @@
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="congratulationsLabel" destination="SKB-6u-w8c" id="YOR-sb-Kww"/>
                         <outlet property="facebookButton" destination="X6r-yO-BPI" id="XHl-SK-Q1w"/>
                         <outlet property="googleButton" destination="DWI-hD-cDM" id="1Jc-he-ooE"/>
                         <outlet property="topBarView" destination="vUs-Mf-aXo" id="WMG-Pt-C6q"/>
