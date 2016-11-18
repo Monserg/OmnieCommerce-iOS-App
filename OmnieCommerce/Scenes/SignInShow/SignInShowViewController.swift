@@ -32,9 +32,6 @@ class SignInShowViewController: BaseViewController, SignInShowViewControllerInpu
     @IBOutlet weak var googleButton: CustomButton!
     @IBOutlet weak var facebookButton: CustomButton!
     
-    @IBOutlet weak var congratulationsLabel: CustomLabel!
-    
-    
     @IBOutlet weak var topBarViewHeightPortraitConstraint: NSLayoutConstraint!
     @IBOutlet weak var topBarViewHeightLandscapeConstraint: NSLayoutConstraint!
     

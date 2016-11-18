@@ -7,21 +7,27 @@
 */
 
 // Menu Items
-"Orders"            =   "Мои заказы";
-"Messages"          =   "Сообщения";
-"Favourite"         =   "Избранное";
-"Categories"        =   "Категории";
-"News"              =   "Новости";
-"DiscountCards"     =   "Карточки";
-"OmnieCards"        =   "Omnie Cards";
-"BusinessCards"     =   "Визитница";
-"Handbook"          =   "Справочник";
-"PersonalPage"      =   "Мой кабинет";
-"Settings"          =   "Настройки";
-"About"             =   "Справка";
-"OnmieSoft"         =   "OnmieSoft";
-"LogOut"            =   "Выйти";
+"Orders"                =   "Мои заказы";
+"Messages"              =   "Сообщения";
+"Favourite"             =   "Избранное";
+"Categories"            =   "Категории";
+"News"                  =   "Новости";
+"DiscountCards"         =   "Карточки";
+"OmnieCards"            =   "Omnie Cards";
+"BusinessCards"         =   "Визитница";
+"Handbook"              =   "Справочник";
+"PersonalPage"          =   "Мой кабинет";
+"Settings"              =   "Настройки";
+"About"                 =   "Справка";
+"OnmieSoft"             =   "OnmieSoft";
+"LogOut"                =   "Выйти";
 
 
 // Labels
-"Congratulations"   =   "Поздравляем!";
+"Congratulations"       =   "Поздравляем!";
+"Not yet registered?"   =   "Ещё не зарегистрированы?";
+
+
+// Buttons
+"Register"              =   "Регистрироваться";
+"Forgot password?"      =   "Забыли пароль?";

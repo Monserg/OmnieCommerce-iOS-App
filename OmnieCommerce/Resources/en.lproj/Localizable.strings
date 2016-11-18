@@ -7,21 +7,27 @@
 */
 
 // Menu Items
-"Orders"            =   "My Orders";
-"Messages"          =   "Messages";
-"Favourite"         =   "Favourite";
-"Categories"        =   "Categories";
-"News"              =   "News";
-"DiscountCards"     =   "Discount Cards";
-"OmnieCards"        =   "Omnie Cards";
-"BusinessCards"     =   "Business Cards";
-"Handbook"          =   "Handbook";
-"PersonalPage"      =   "Personal Page";
-"Settings"          =   "Settings";
-"About"             =   "About";
-"OnmieSoft"         =   "OnmieSoft";
-"LogOut"            =   "Log Out";
+"Orders"                =   "My Orders";
+"Messages"              =   "Messages";
+"Favourite"             =   "Favourite";
+"Categories"            =   "Categories";
+"News"                  =   "News";
+"DiscountCards"         =   "Discount Cards";
+"OmnieCards"            =   "Omnie Cards";
+"BusinessCards"         =   "Business Cards";
+"Handbook"              =   "Handbook";
+"PersonalPage"          =   "Personal Page";
+"Settings"              =   "Settings";
+"About"                 =   "About";
+"OnmieSoft"             =   "OnmieSoft";
+"LogOut"                =   "Log Out";
 
 
 // Labels
-"Congratulations"   =   "Congratulations!";
+"Congratulations"       =   "Congratulations!";
+"Not yet registered?"   =   "Not yet registered?";
+
+
+// Buttons
+"Register"              =   "Register";
+"Forgot password?"      =   "Forgot password?";

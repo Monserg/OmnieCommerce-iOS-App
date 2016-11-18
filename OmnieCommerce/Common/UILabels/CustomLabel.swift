@@ -48,8 +48,8 @@ import Localize_Swift
 
             // standard = 0
             default:
-                self.font = UIFont.systemFont(ofSize: 13.0)
-                self.textColor = UIColor.red
+                self.font = Config.Labels.Fonts.ubuntuLight12
+                self.textColor = Config.Labels.Colors.veryLightGray
             }
             
             self.adjustsFontSizeToFitWidth = true

@@ -7,21 +7,27 @@
 */
 
 // Menu Items
-"Orders"            =   "Мої замовлення";
-"Messages"          =   "Повідомлення";
-"Favourite"         =   "Улюблене";
-"Categories"        =   "Категорії";
-"News"              =   "Новини";
-"DiscountCards"     =   "Картки";
-"OmnieCards"        =   "Omnie Cards";
-"BusinessCards"     =   "Візитниця";
-"Handbook"          =   "Довідник";
-"PersonalPage"      =   "Мій кабінет";
-"Settings"          =   "Налаштування";
-"About"             =   "Справка";
-"OnmieSoft"         =   "OnmieSoft";
-"LogOut"            =   "Вийти";
+"Orders"                =   "Мої замовлення";
+"Messages"              =   "Повідомлення";
+"Favourite"             =   "Улюблене";
+"Categories"            =   "Категорії";
+"News"                  =   "Новини";
+"DiscountCards"         =   "Картки";
+"OmnieCards"            =   "Omnie Cards";
+"BusinessCards"         =   "Візитниця";
+"Handbook"              =   "Довідник";
+"PersonalPage"          =   "Мій кабінет";
+"Settings"              =   "Налаштування";
+"About"                 =   "Справка";
+"OnmieSoft"             =   "OnmieSoft";
+"LogOut"                =   "Вийти";
 
 
 // Labels
-"Congratulations"   =   "Вітаємо!";
+"Congratulations"       =   "Вітаємо!";
+"Not yet registered?"   =   "Ще не зареєстровані?";
+
+
+// Buttons
+"Register"              =   "Зареєструватись";
+"Forgot password?"      =   "Забули пароль?";
