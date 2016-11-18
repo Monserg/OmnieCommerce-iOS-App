@@ -52,12 +52,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="top" translatesAutoresizingMaskIntoConstraints="NO" id="DAM-QF-nkQ" userLabel="Advertising View">
-                                <rect key="frame" x="0.0" y="-20" width="296" height="130"/>
+                                <rect key="frame" x="0.0" y="0.0" width="296" height="130"/>
                                 <subviews>
-                                    <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="top" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cQZ-ze-6Pb" userLabel="Action Button">
+                                    <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cQZ-ze-6Pb" userLabel="Action Button">
                                         <rect key="frame" x="0.0" y="0.0" width="296" height="130"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <state key="normal" image="image-background"/>
+                                        <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" image="image-ocean"/>
                                         <connections>
                                             <action selector="handlerAdvertisingViewTap:" destination="gGK-Bx-yUm" eventType="touchUpInside" id="xQK-p4-rp1"/>
                                         </connections>
@@ -87,13 +87,12 @@
                                     <constraint firstItem="FNI-Ac-F4o" firstAttribute="leading" secondItem="DAM-QF-nkQ" secondAttribute="leading" id="whZ-n2-08T"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WZG-sg-g6U">
-                                <rect key="frame" x="0.0" y="110" width="296" height="557"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WZG-sg-g6U" customClass="CustomTableView" customModule="OmnieCommerce" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="130" width="296" height="537"/>
+                                <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="296" id="8vi-aG-FMX"/>
                                 </constraints>
-                                <color key="sectionIndexBackgroundColor" red="0.14509803921568626" green="0.20000000000000001" blue="0.25098039215686274" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MenuCell" rowHeight="76" id="73d-ES-P2q" customClass="MenuViewCell" customModule="OmnieCommerce" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="296" height="76"/>
@@ -147,14 +146,19 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="mark">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" red="0.14509803921568626" green="0.20000000000000001" blue="0.25098039215686274" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="DAM-QF-nkQ" firstAttribute="top" secondItem="EVF-jT-32L" secondAttribute="top" id="IWV-5L-VTl"/>
                             <constraint firstItem="WZG-sg-g6U" firstAttribute="leading" secondItem="EVF-jT-32L" secondAttribute="leading" id="Kei-9N-pqE"/>
                             <constraint firstItem="DAM-QF-nkQ" firstAttribute="leading" secondItem="EVF-jT-32L" secondAttribute="leading" id="MP3-o9-Izl"/>
                             <constraint firstItem="xha-dY-dTj" firstAttribute="top" secondItem="WZG-sg-g6U" secondAttribute="bottom" id="N5k-zB-lS3"/>
-                            <constraint firstItem="DAM-QF-nkQ" firstAttribute="top" secondItem="EVF-jT-32L" secondAttribute="top" constant="-20" id="SYp-kW-DKa"/>
                             <constraint firstItem="WZG-sg-g6U" firstAttribute="top" secondItem="DAM-QF-nkQ" secondAttribute="bottom" id="cxa-EY-4eK"/>
                         </constraints>
                     </view>
@@ -272,7 +276,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="image-background" width="375" height="667"/>
         <image name="image-no-photo" width="66" height="60"/>
+        <image name="image-ocean" width="600" height="300"/>
     </resources>
 </document>

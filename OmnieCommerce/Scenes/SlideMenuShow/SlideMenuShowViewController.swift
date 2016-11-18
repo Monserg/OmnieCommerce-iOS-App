@@ -154,19 +154,18 @@ extension SlideMenuShowViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return (section == 0) ? 12.0 : 0.0
+        return (section == 0) ? 12.0 : 7.0
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        return (section == 0) ? tableView.dequeueReusableHeaderFooterView(withIdentifier: "MenuSectionHeaderView") as? MenuSectionHeaderView : nil
+        return tableView.dequeueReusableHeaderFooterView(withIdentifier: "MenuSectionHeaderView") as? MenuSectionHeaderView
     }
 
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return (section == 0) ? 7.0 : 0.0
+        return (section != menuItemsList.count - 1) ? 7.0 : 12.0
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        return (section == 0) ? tableView.dequeueReusableHeaderFooterView(withIdentifier: "MenuSectionFooterView") as? MenuSectionFooterView : nil
+        return (section != menuItemsList.count - 1) ? tableView.dequeueReusableHeaderFooterView(withIdentifier: "MenuSectionFooterView") as? MenuSectionFooterView : tableView.dequeueReusableHeaderFooterView(withIdentifier: "MenuSectionHeaderView") as? MenuSectionHeaderView
     }
-    
 }

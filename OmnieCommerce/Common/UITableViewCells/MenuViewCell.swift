@@ -31,10 +31,10 @@ class MenuViewCell: UITableViewCell {
         titleLabel.text = (menuItem.object(forKey: "name") as! String).localized()
         segueName = (menuItem.object(forKey: "segue") as! String)
         
-        let selectedView = UIView()
+//        let selectedView = UIView()
         
         // FIXME: CHANGE COLOR TO REAL!!!
-        selectedView.backgroundColor = Config.Views.Colors.veryDarkDesaturatedBlue25Alfa94
-        self.selectedBackgroundView = selectedView
+//        selectedView.backgroundColor = Config.Views.Colors.veryDarkDesaturatedBlue25Alfa94
+//        self.selectedBackgroundView = selectedView
     }
 }
