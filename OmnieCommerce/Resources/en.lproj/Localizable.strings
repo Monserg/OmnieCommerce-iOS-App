@@ -31,6 +31,9 @@
 // Buttons
 "Register"              =   "Register";
 "Forgot password?"      =   "Forgot password?";
+"Sign In"               =   "Login";
+"Sign Up"               =   "Sign Up";
+"Forgot Password"       =   "Forgot Password?";
 
 
 // TextField Placeholders

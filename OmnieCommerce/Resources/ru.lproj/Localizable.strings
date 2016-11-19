@@ -31,6 +31,9 @@
 // Buttons
 "Register"              =   "Регистрироваться";
 "Forgot password?"      =   "Забыли пароль?";
+"Sign In"               =   "Войти";
+"Sign Up"               =   "Зарегистрироваться";
+"Forgot Password"       =   "Забыли пароль?";
 
 
 // TextField Placeholders

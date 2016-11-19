@@ -205,8 +205,15 @@
                                             <constraint firstAttribute="trailing" secondItem="QIU-1h-SGl" secondAttribute="trailing" constant="-8" id="wpP-TI-dFY"/>
                                         </constraints>
                                     </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yo4-Yq-buL" userLabel="Sign In Button" customClass="CustomButton" customModule="OmnieCommerce" customModuleProvider="target">
+                                        <rect key="frame" x="70" y="225" width="274" height="36"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="36" id="xib-LB-Dgr"/>
+                                        </constraints>
+                                        <state key="normal" title="Sign In"/>
+                                    </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Not yet registered?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VbS-MU-h1x" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                                        <rect key="frame" x="70" y="298" width="146" height="21"/>
+                                        <rect key="frame" x="70" y="281" width="146" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -216,20 +223,36 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ntB-nh-XW3" userLabel="Sign Up Button" customClass="CustomButton" customModule="OmnieCommerce" customModuleProvider="target">
+                                        <rect key="frame" x="224" y="281.33333333333337" width="55" height="30.000000000000057"/>
+                                        <state key="normal" title="Sign Up"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wNF-L3-c5m" userLabel="Forgot Password Button" customClass="CustomButton" customModule="OmnieCommerce" customModuleProvider="target">
+                                        <rect key="frame" x="70" y="324" width="115" height="30"/>
+                                        <state key="normal" title="Forgot Password"/>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstItem="Yo4-Yq-buL" firstAttribute="top" secondItem="MtY-38-Pkk" secondAttribute="bottom" constant="25" id="1ZK-ch-WgC"/>
                                     <constraint firstAttribute="trailing" secondItem="6ZC-ln-axG" secondAttribute="trailing" constant="70" id="4cX-8S-uCc"/>
+                                    <constraint firstItem="ntB-nh-XW3" firstAttribute="height" secondItem="VbS-MU-h1x" secondAttribute="height" id="5NM-Kh-k3E"/>
+                                    <constraint firstItem="wNF-L3-c5m" firstAttribute="top" secondItem="VbS-MU-h1x" secondAttribute="bottom" constant="13" id="7Ki-oQ-vLZ"/>
+                                    <constraint firstAttribute="trailing" secondItem="Yo4-Yq-buL" secondAttribute="trailing" constant="70" id="7lj-D2-jxw"/>
                                     <constraint firstItem="SKB-6u-w8c" firstAttribute="top" secondItem="xJo-Kl-dmV" secondAttribute="top" constant="53" id="DKj-KO-ohk"/>
                                     <constraint firstItem="MtY-38-Pkk" firstAttribute="top" secondItem="6ZC-ln-axG" secondAttribute="bottom" constant="20" id="ExO-qm-BrO"/>
                                     <constraint firstAttribute="trailing" secondItem="SKB-6u-w8c" secondAttribute="trailing" constant="8" id="JeG-1Y-zpp"/>
                                     <constraint firstItem="SKB-6u-w8c" firstAttribute="leading" secondItem="xJo-Kl-dmV" secondAttribute="leading" constant="8" id="Osc-QM-jv7"/>
                                     <constraint firstAttribute="trailing" secondItem="MtY-38-Pkk" secondAttribute="trailing" constant="70" id="Vjg-xO-rz5"/>
+                                    <constraint firstItem="ntB-nh-XW3" firstAttribute="centerY" secondItem="VbS-MU-h1x" secondAttribute="centerY" id="a3z-2x-UjE"/>
                                     <constraint firstItem="6ZC-ln-axG" firstAttribute="top" secondItem="SKB-6u-w8c" secondAttribute="bottom" constant="40" id="deS-8X-xIV"/>
-                                    <constraint firstItem="VbS-MU-h1x" firstAttribute="top" secondItem="MtY-38-Pkk" secondAttribute="bottom" constant="98" id="jSw-nM-ZKt"/>
+                                    <constraint firstItem="ntB-nh-XW3" firstAttribute="leading" secondItem="VbS-MU-h1x" secondAttribute="trailing" constant="8" id="mg5-zd-r8l"/>
                                     <constraint firstItem="MtY-38-Pkk" firstAttribute="leading" secondItem="xJo-Kl-dmV" secondAttribute="leading" constant="70" id="oRh-AT-vQ4"/>
                                     <constraint firstItem="6ZC-ln-axG" firstAttribute="leading" secondItem="xJo-Kl-dmV" secondAttribute="leading" constant="70" id="qwB-2a-aKr"/>
+                                    <constraint firstItem="VbS-MU-h1x" firstAttribute="top" secondItem="Yo4-Yq-buL" secondAttribute="bottom" constant="20" id="r68-VH-fLh"/>
+                                    <constraint firstItem="wNF-L3-c5m" firstAttribute="leading" secondItem="xJo-Kl-dmV" secondAttribute="leading" constant="70" id="rbN-Hv-mYa"/>
                                     <constraint firstItem="VbS-MU-h1x" firstAttribute="leading" secondItem="xJo-Kl-dmV" secondAttribute="leading" constant="70" id="wsv-QP-t9d"/>
+                                    <constraint firstItem="Yo4-Yq-buL" firstAttribute="leading" secondItem="xJo-Kl-dmV" secondAttribute="leading" constant="70" id="xYb-Tf-QhA"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -287,7 +310,7 @@
             <objects>
                 <navigationController storyboardIdentifier="SignInShowNC" automaticallyAdjustsScrollViewInsets="NO" modalTransitionStyle="crossDissolve" id="HnD-Xp-HUn" customClass="BaseNavigationController" customModule="OmnieCommerce" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="hMj-in-c4l">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="hMj-in-c4l">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
