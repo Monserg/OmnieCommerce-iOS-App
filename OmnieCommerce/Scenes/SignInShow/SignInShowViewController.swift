@@ -38,7 +38,7 @@ class SignInShowViewController: BaseViewController, SignInShowViewControllerInpu
     @IBOutlet weak var topBarViewHeightPortraitConstraint: NSLayoutConstraint!
     @IBOutlet weak var topBarViewHeightLandscapeConstraint: NSLayoutConstraint!
     
-    var topBarViewHeight: CGFloat = 100.0
+    @IBOutlet weak var contentView: UIView!
 
     
     // MARK: - Class initialization
@@ -68,6 +68,8 @@ class SignInShowViewController: BaseViewController, SignInShowViewControllerInpu
         vkontakteButton.type = .social
         googleButton.type = .social
         facebookButton.type = .social
+        
+        content = contentView
         
         setup(topBarView: topBarView)
         
@@ -132,6 +134,7 @@ class SignInShowViewController: BaseViewController, SignInShowViewControllerInpu
 extension SignInShowViewController: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
         textField.placeholder = nil
+        selectedRange = textField.convert(textField.bounds, to: view)
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

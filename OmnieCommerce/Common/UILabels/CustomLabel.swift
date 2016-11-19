@@ -55,4 +55,14 @@ import Localize_Swift
             self.adjustsFontSizeToFitWidth = true
         }
     }
+    
+    
+    // MARK: - Class initialization
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
 }

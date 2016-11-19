@@ -37,6 +37,16 @@ import UIKit
     var type: Types = .standard
     
     
+    // MARK: - Class initialization
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+
+    
     // MARK: - Class Functions
     override func draw(_ rect: CGRect) {
         if (self.type == .social) {

@@ -21,6 +21,16 @@ import UIKit
     @IBInspectable var isRectangleBorderLine: Bool = false
 
     
+    // MARK: - Class initialization
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+
+    
     // MARK: - Class Functions
     override func draw(_ rect: CGRect) {
         let dottes: [CGFloat] = [0.0, 4.0]

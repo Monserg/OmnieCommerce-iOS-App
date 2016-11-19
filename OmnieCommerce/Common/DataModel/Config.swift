@@ -20,7 +20,7 @@ struct Config {
         static let circleViewBarHeightBig: CGFloat              =   80.0
         
         // Small cirle radius = 568,    fill height = 192,  line height = 205 (+13),    top view height = 218
-        static let topViewBarHeightSmall: CGFloat               =   218.0
+        static let topViewBarHeightSmall: CGFloat               =   228.0
         static let circleViewRadiusSmall: Double                =   568.0
         static let circleViewBarHeightSmall: CGFloat            =   192.0
         
