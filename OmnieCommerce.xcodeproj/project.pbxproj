@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		2AED68836D19B23C3805FA4F /* Pods_OmnieCommerce.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7BBCD9A2BBB6D643C1B64E4 /* Pods_OmnieCommerce.framework */; };
+		B11E074E1DE032D90052AFC5 /* DottedBorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11E074D1DE032D90052AFC5 /* DottedBorderView.swift */; };
+		B11E07501DE033520052AFC5 /* DottedBorderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B11E074F1DE033520052AFC5 /* DottedBorderView.xib */; };
 		B1228FAD1DD44D3400A90FBB /* TopBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1228FAC1DD44D3400A90FBB /* TopBarView.swift */; };
 		B1228FB21DD47C9F00A90FBB /* MenuViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1228FB11DD47C9F00A90FBB /* MenuViewCell.swift */; };
 		B1228FB51DD4856A00A90FBB /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1228FB41DD4856A00A90FBB /* MenuItem.swift */; };
@@ -193,6 +195,8 @@
 /* Begin PBXFileReference section */
 		6AA4A159468D8EA48A132ED8 /* Pods-OmnieCommerce.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OmnieCommerce.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OmnieCommerce/Pods-OmnieCommerce.debug.xcconfig"; sourceTree = "<group>"; };
 		A7BBCD9A2BBB6D643C1B64E4 /* Pods_OmnieCommerce.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OmnieCommerce.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B11E074D1DE032D90052AFC5 /* DottedBorderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DottedBorderView.swift; sourceTree = "<group>"; };
+		B11E074F1DE033520052AFC5 /* DottedBorderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DottedBorderView.xib; sourceTree = "<group>"; };
 		B1228FAC1DD44D3400A90FBB /* TopBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopBarView.swift; sourceTree = "<group>"; };
 		B1228FB11DD47C9F00A90FBB /* MenuViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewCell.swift; sourceTree = "<group>"; };
 		B1228FB41DD4856A00A90FBB /* MenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
@@ -415,6 +419,8 @@
 			children = (
 				B1305D391DDC738F000CA5FE /* CircleView.swift */,
 				B152915E1DDEB8B500BBA1E0 /* CustomTableView.swift */,
+				B11E074D1DE032D90052AFC5 /* DottedBorderView.swift */,
+				B11E074F1DE033520052AFC5 /* DottedBorderView.xib */,
 				B152915A1DDE44A200BBA1E0 /* MenuSectionFooterView.swift */,
 				B152915C1DDE44B700BBA1E0 /* MenuSectionFooterView.xib */,
 				B15291581DDE3FFA00BBA1E0 /* MenuSectionHeaderView.swift */,
@@ -931,6 +937,7 @@
 			files = (
 				B1BF92681DD6516C00BECBBB /* helveticaneuecyr-black.otf in Resources */,
 				B14E976C1DD8B8CB001E1DE2 /* SignInShow.storyboard in Resources */,
+				B11E07501DE033520052AFC5 /* DottedBorderView.xib in Resources */,
 				B1E52AAF1DDDA84C00C3B24D /* Assets.xcassets in Resources */,
 				B1C6F35D1DD9C718004695C2 /* MenuItemsList.plist in Resources */,
 				B1BF92691DD6516C00BECBBB /* helveticaneuecyr-blackitalic.otf in Resources */,
@@ -1134,6 +1141,7 @@
 				B122F1E91DD35BA70018A701 /* MessagesShowConfigurator.swift in Sources */,
 				B1BF92441DD5FC8000BECBBB /* Config.swift in Sources */,
 				B122F2231DD35CC80018A701 /* SlideMenuShowInteractor.swift in Sources */,
+				B11E074E1DE032D90052AFC5 /* DottedBorderView.swift in Sources */,
 				B122F1EE1DD35BA70018A701 /* MessagesShowViewController.swift in Sources */,
 				B1CF54891DDB50F100E98049 /* BusinessCardsShowViewController.swift in Sources */,
 				B1CF54D91DDB51BE00E98049 /* SettingsShowInteractor.swift in Sources */,
@@ -1288,7 +1296,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6AA4A159468D8EA48A132ED8 /* Pods-OmnieCommerce.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
@@ -1307,7 +1315,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = ED913E9D2C7028252CE0B73A /* Pods-OmnieCommerce.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";

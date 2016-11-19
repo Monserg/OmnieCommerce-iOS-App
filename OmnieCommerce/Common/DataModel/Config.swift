@@ -124,6 +124,8 @@ struct Config {
         struct Colors {
             static let darkCyan                                 =   UIColor(hexString: "#009395")
             static let veryLightOrange                          =   UIColor(hexString: "#ffd76c")
+            static let veryLightOrangeAlfa60                    =   UIColor(hexString: "#ffd76c", withAlpha: 0.6)
+            static let lightGrayAlfa20                          =   UIColor(hexString: "#cacaca", withAlpha: 0.2)
 
             static let veryDarkDesaturatedBlue20                =   UIColor(hexString: "#203c48")
             static let veryDarkDesaturatedBlue24                =   UIColor(hexString: "#24323f")

@@ -42,6 +42,34 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tgW-Vi-iJS">
+                                <rect key="frame" x="107" y="268" width="200" height="200"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PNT-JO-PCE" customClass="DottedBorderView" customModule="OmnieCommerce" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="colorBorderLine">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="radiusBorderLine">
+                                                <real key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isRectangleBorderLine" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="widthBorderLine" value="1.5"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="IWa-lj-9gu"/>
+                                    <constraint firstAttribute="bottom" secondItem="PNT-JO-PCE" secondAttribute="bottom" id="OP5-vQ-52v"/>
+                                    <constraint firstItem="PNT-JO-PCE" firstAttribute="leading" secondItem="tgW-Vi-iJS" secondAttribute="leading" id="Ri1-HH-E1W"/>
+                                    <constraint firstAttribute="trailing" secondItem="PNT-JO-PCE" secondAttribute="trailing" id="V9J-rq-ThW"/>
+                                    <constraint firstAttribute="width" constant="200" id="fCY-p6-UNj"/>
+                                    <constraint firstItem="PNT-JO-PCE" firstAttribute="top" secondItem="tgW-Vi-iJS" secondAttribute="top" id="gdU-dI-ue2"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -55,6 +83,8 @@
                                 <variation key="heightClass=compact-widthClass=regular" constant="-16"/>
                             </constraint>
                             <constraint firstItem="EBq-Ba-TWn" firstAttribute="leading" secondItem="oKk-pR-n0g" secondAttribute="leading" constant="8" id="mjY-xP-tWi"/>
+                            <constraint firstItem="tgW-Vi-iJS" firstAttribute="centerX" secondItem="oKk-pR-n0g" secondAttribute="centerX" id="qkp-Lv-jtU"/>
+                            <constraint firstItem="tgW-Vi-iJS" firstAttribute="centerY" secondItem="oKk-pR-n0g" secondAttribute="centerY" id="r4j-gm-igT"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Orders" id="5Gb-Un-bfT"/>

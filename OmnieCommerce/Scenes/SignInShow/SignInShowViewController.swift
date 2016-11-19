@@ -73,11 +73,7 @@ class SignInShowViewController: BaseViewController, SignInShowViewControllerInpu
         
         doSomethingOnLoad()
     }
-    
-//    override func handleTap(gestureRecognizer: UIGestureRecognizer) {
-//        view.endEditing(true)
-//    }
-    
+        
     deinit {
         print("SignInShowViewController deinit.")
     }

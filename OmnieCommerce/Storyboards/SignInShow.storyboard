@@ -57,7 +57,7 @@
                                     </mask>
                                 </variation>
                             </view>
-                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sQb-Jd-ZQM" userLabel="Vkontakte Button" customClass="CustomButton" customModule="OmnieCommerce" customModuleProvider="target">
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sQb-Jd-ZQM" userLabel="Vkontakte Button" customClass="CustomButton" customModule="OmnieCommerce" customModuleProvider="target">
                                 <rect key="frame" x="219" y="214" width="44" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Vk">
@@ -72,7 +72,7 @@
                                     <action selector="asdasdasd:" destination="h1R-QH-7Vr" eventType="touchUpInside" id="Qp1-AA-ZU1"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DWI-hD-cDM" userLabel="Google Button" customClass="CustomButton" customModule="OmnieCommerce" customModuleProvider="target">
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DWI-hD-cDM" userLabel="Google Button" customClass="CustomButton" customModule="OmnieCommerce" customModuleProvider="target">
                                 <rect key="frame" x="269" y="214" width="44" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="G">
@@ -87,7 +87,7 @@
                                     <action selector="asdasdasd:" destination="h1R-QH-7Vr" eventType="touchUpInside" id="JQQ-oi-quC"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X6r-yO-BPI" userLabel="Facebook Button" customClass="CustomButton" customModule="OmnieCommerce" customModuleProvider="target">
+                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X6r-yO-BPI" userLabel="Facebook Button" customClass="CustomButton" customModule="OmnieCommerce" customModuleProvider="target">
                                 <rect key="frame" x="317" y="214" width="44" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="f">
@@ -113,7 +113,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Not yet registered?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VbS-MU-h1x" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Not yet registered?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VbS-MU-h1x" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
                                 <rect key="frame" x="106" y="555" width="163" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -125,57 +125,127 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ve0-QC-lC3" userLabel="Name Text Field" customClass="CustomTextField" customModule="OmnieCommerce" customModuleProvider="target">
-                                <rect key="frame" x="70" y="332" width="235" height="30"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6ZC-ln-axG" userLabel="Name Dotted Border View">
+                                <rect key="frame" x="70" y="332" width="235" height="62"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ve0-QC-lC3" userLabel="Name Text Field" customClass="CustomTextField" customModule="OmnieCommerce" customModuleProvider="target">
+                                        <rect key="frame" x="8" y="5" width="227" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="JdH-Hx-pLQ"/>
+                                        </constraints>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no" keyboardType="alphabet" keyboardAppearance="light" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderLineStyle">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="textStyle">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="styleBorderLine">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="colorBorderLine">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="radiusBorderLine">
+                                                <real key="value" value="12"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="widthBorderLine" value="1.5"/>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isRectangleBorderLine" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="JdH-Hx-pLQ"/>
+                                    <constraint firstAttribute="height" constant="62" id="4za-I5-iye"/>
+                                    <constraint firstAttribute="trailing" secondItem="ve0-QC-lC3" secondAttribute="trailing" id="OqD-MB-Fmi"/>
+                                    <constraint firstItem="ve0-QC-lC3" firstAttribute="top" secondItem="6ZC-ln-axG" secondAttribute="top" constant="5" id="Xou-Xa-w1Q"/>
+                                    <constraint firstItem="ve0-QC-lC3" firstAttribute="leading" secondItem="6ZC-ln-axG" secondAttribute="leading" constant="8" id="xvG-du-cNp"/>
                                 </constraints>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no" keyboardType="alphabet" keyboardAppearance="light" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="style">
-                                        <real key="value" value="1"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="QIU-1h-SGl" userLabel="Password Text Field" customClass="CustomTextField" customModule="OmnieCommerce" customModuleProvider="target">
-                                <rect key="frame" x="70" y="382" width="235" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="cso-VN-BGZ"/>
-                                </constraints>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="alphabet" keyboardAppearance="light" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="style">
+                                    <userDefinedRuntimeAttribute type="number" keyPath="styleBorderLine">
                                         <real key="value" value="0.0"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="colorBorderLine">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="radiusBorderLine">
+                                        <real key="value" value="12"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="widthBorderLine" value="1.5"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isRectangleBorderLine" value="NO"/>
                                 </userDefinedRuntimeAttributes>
-                            </textField>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MtY-38-Pkk" userLabel="Password View">
+                                <rect key="frame" x="70" y="456" width="235" height="33"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vBt-Th-aoP" customClass="DottedBorderView" customModule="OmnieCommerce" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="235" height="33"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="colorBorderLine">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="radiusBorderLine">
+                                                <real key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="widthBorderLine" value="1.5"/>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isRectangleBorderLine" value="NO"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="QIU-1h-SGl" userLabel="Password Text Field" customClass="CustomTextField" customModule="OmnieCommerce" customModuleProvider="target">
+                                        <rect key="frame" x="8" y="5" width="219" height="20"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="cso-VN-BGZ"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="alphabet" keyboardAppearance="light" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="textColorType">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="vBt-Th-aoP" firstAttribute="leading" secondItem="MtY-38-Pkk" secondAttribute="leading" id="8uL-1x-497"/>
+                                    <constraint firstAttribute="trailing" secondItem="vBt-Th-aoP" secondAttribute="trailing" id="Flk-lY-GsS"/>
+                                    <constraint firstItem="QIU-1h-SGl" firstAttribute="top" secondItem="MtY-38-Pkk" secondAttribute="top" constant="5" id="NPP-mr-pBm"/>
+                                    <constraint firstAttribute="bottom" secondItem="vBt-Th-aoP" secondAttribute="bottom" id="Tx9-Bq-I5u"/>
+                                    <constraint firstAttribute="height" constant="33" id="WCr-rl-zXv"/>
+                                    <constraint firstItem="vBt-Th-aoP" firstAttribute="top" secondItem="MtY-38-Pkk" secondAttribute="top" id="kzT-7i-ds3"/>
+                                    <constraint firstItem="QIU-1h-SGl" firstAttribute="leading" secondItem="MtY-38-Pkk" secondAttribute="leading" constant="8" id="rIe-QY-UKl"/>
+                                    <constraint firstAttribute="trailing" secondItem="QIU-1h-SGl" secondAttribute="trailing" constant="8" id="wpP-TI-dFY"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="cua-Vz-mw9" secondAttribute="trailing" id="0I5-Wp-vkm"/>
                             <constraint firstItem="cua-Vz-mw9" firstAttribute="leading" secondItem="HHh-KM-0ql" secondAttribute="leading" id="3II-Go-XQg"/>
-                            <constraint firstAttribute="trailing" secondItem="ve0-QC-lC3" secondAttribute="trailing" constant="70" id="5cZ-Cy-kiO"/>
                             <constraint firstItem="IZh-Xm-m95" firstAttribute="top" secondItem="cua-Vz-mw9" secondAttribute="bottom" id="9Z6-Qf-KdK"/>
                             <constraint firstItem="SKB-6u-w8c" firstAttribute="centerX" secondItem="HHh-KM-0ql" secondAttribute="centerX" id="Akj-uJ-wMs"/>
                             <constraint firstItem="SKB-6u-w8c" firstAttribute="top" secondItem="vUs-Mf-aXo" secondAttribute="bottom" constant="53" id="C4f-VS-PEM"/>
                             <constraint firstAttribute="bottomMargin" secondItem="njZ-rW-JXW" secondAttribute="bottom" id="FDG-dL-9nU"/>
                             <constraint firstAttribute="trailing" secondItem="njZ-rW-JXW" secondAttribute="trailing" id="GKF-ux-6SA"/>
                             <constraint firstItem="njZ-rW-JXW" firstAttribute="top" secondItem="HHh-KM-0ql" secondAttribute="topMargin" id="Hxo-fq-4px"/>
-                            <constraint firstItem="QIU-1h-SGl" firstAttribute="leading" secondItem="HHh-KM-0ql" secondAttribute="leading" constant="70" id="Itl-Ol-WHY"/>
-                            <constraint firstAttribute="trailing" secondItem="QIU-1h-SGl" secondAttribute="trailing" constant="70" id="NPH-a7-ixx"/>
                             <constraint firstItem="vUs-Mf-aXo" firstAttribute="top" secondItem="HHh-KM-0ql" secondAttribute="top" id="P4h-LA-GZq"/>
+                            <constraint firstAttribute="trailing" secondItem="MtY-38-Pkk" secondAttribute="trailing" constant="70" id="Su2-9j-67s"/>
                             <constraint firstItem="SKB-6u-w8c" firstAttribute="leading" secondItem="HHh-KM-0ql" secondAttribute="leading" constant="8" id="XeB-jh-y2R"/>
                             <constraint firstAttribute="trailing" secondItem="SKB-6u-w8c" secondAttribute="trailing" constant="8" id="Z4u-uC-4Ja"/>
                             <constraint firstItem="vUs-Mf-aXo" firstAttribute="leading" secondItem="HHh-KM-0ql" secondAttribute="leading" id="ZKs-8d-1jU"/>
                             <constraint firstAttribute="trailing" secondItem="vUs-Mf-aXo" secondAttribute="trailing" id="b0U-sS-Gw3"/>
                             <constraint firstItem="njZ-rW-JXW" firstAttribute="leading" secondItem="HHh-KM-0ql" secondAttribute="leading" id="bV3-64-6mh"/>
-                            <constraint firstItem="ve0-QC-lC3" firstAttribute="top" secondItem="SKB-6u-w8c" secondAttribute="bottom" constant="40" id="kQa-55-TwX"/>
-                            <constraint firstItem="ve0-QC-lC3" firstAttribute="leading" secondItem="HHh-KM-0ql" secondAttribute="leading" constant="70" id="tmI-75-nDw"/>
-                            <constraint firstItem="QIU-1h-SGl" firstAttribute="top" secondItem="ve0-QC-lC3" secondAttribute="bottom" constant="20" id="vVt-nP-kBf"/>
+                            <constraint firstItem="6ZC-ln-axG" firstAttribute="leading" secondItem="HHh-KM-0ql" secondAttribute="leading" constant="70" id="d65-bt-Hfb"/>
+                            <constraint firstItem="6ZC-ln-axG" firstAttribute="top" secondItem="SKB-6u-w8c" secondAttribute="bottom" constant="40" id="dNg-fN-Gwq"/>
+                            <constraint firstItem="MtY-38-Pkk" firstAttribute="top" secondItem="6ZC-ln-axG" secondAttribute="bottom" constant="62" id="kSF-fn-L0o"/>
+                            <constraint firstAttribute="trailing" secondItem="6ZC-ln-axG" secondAttribute="trailing" constant="70" id="kVe-S5-r7C"/>
+                            <constraint firstItem="MtY-38-Pkk" firstAttribute="leading" secondItem="HHh-KM-0ql" secondAttribute="leading" constant="70" id="lHh-hW-MAj"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -199,7 +269,7 @@
                         <outlet property="facebookButton" destination="X6r-yO-BPI" id="XHl-SK-Q1w"/>
                         <outlet property="googleButton" destination="DWI-hD-cDM" id="1Jc-he-ooE"/>
                         <outlet property="nameTextField" destination="ve0-QC-lC3" id="FK7-5d-Vti"/>
-                        <outlet property="passwordTextField" destination="QIU-1h-SGl" id="98L-sN-Rtw"/>
+                        <outlet property="passwordTextField" destination="QIU-1h-SGl" id="E1R-wt-9ra"/>
                         <outlet property="topBarView" destination="vUs-Mf-aXo" id="WMG-Pt-C6q"/>
                         <outlet property="topBarViewHeightLandscapeConstraint" destination="bBN-Y8-mwZ" id="y25-WQ-qFa"/>
                         <outlet property="topBarViewHeightPortraitConstraint" destination="RPG-70-pQT" id="nvn-9S-W5j"/>
@@ -213,8 +283,10 @@
         <!--Base Navigation Controller-->
         <scene sceneID="y6J-jc-xpw">
             <objects>
-                <navigationController storyboardIdentifier="SignInShowNC" automaticallyAdjustsScrollViewInsets="NO" modalTransitionStyle="crossDissolve" id="HnD-Xp-HUn" customClass="BaseNavigationController" customModule="OmnieCommerce" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="SignInShowNC" automaticallyAdjustsScrollViewInsets="NO" modalTransitionStyle="crossDissolve" navigationBarHidden="YES" id="HnD-Xp-HUn" customClass="BaseNavigationController" customModule="OmnieCommerce" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <nil key="simulatedTopBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="hMj-in-c4l">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>

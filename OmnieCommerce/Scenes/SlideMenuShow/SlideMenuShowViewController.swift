@@ -32,7 +32,6 @@ class SlideMenuShowViewController: UIViewController, SlideMenuShowViewController
     @IBOutlet weak var textButton: UIButton!
     
 
-    
     // MARK: - Class initialization
     override func awakeFromNib() {
         super.awakeFromNib()
