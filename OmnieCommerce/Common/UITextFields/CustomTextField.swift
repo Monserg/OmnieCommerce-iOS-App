@@ -29,6 +29,7 @@ import Localize_Swift
                 self.font = Config.Labels.Fonts.ubuntuLightItalic16
                 self.textColor = Config.Labels.Colors.darkCyan
                 self.tintColor = Config.Labels.Colors.darkCyan
+                changeClearButtonColor()
                 
             // grayishBlue = 0.0
             default:
@@ -37,6 +38,7 @@ import Localize_Swift
                 self.font = Config.Labels.Fonts.ubuntuLightItalic16
                 self.textColor = Config.Labels.Colors.grayishBlue
                 self.tintColor = Config.Labels.Colors.grayishBlue
+                changeClearButtonColor()
             }
             
             attributedPlaceholderText = self.attributedPlaceholder
@@ -44,4 +46,20 @@ import Localize_Swift
     }
     
     var attributedPlaceholderText: NSAttributedString!
+    
+    
+    // MARK: - Custom Functions
+    func changeClearButtonColor() {
+        // Change clear button color
+        if let clearButton = self.value(forKey: "_clearButton") as? UIButton {
+            // Create a template copy of the original button image
+            let templateImage = clearButton.imageView?.image?.withRenderingMode(.alwaysTemplate)
+            
+            // Set the template image copy as the button image
+            clearButton.setImage(templateImage, for: .normal)
+                        
+            // Finally, set the image color
+            clearButton.tintColor = self.tintColor
+        }
+    }
 }

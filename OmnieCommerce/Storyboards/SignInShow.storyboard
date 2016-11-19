@@ -125,61 +125,52 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6ZC-ln-axG" userLabel="Name Dotted Border View">
-                                <rect key="frame" x="70" y="332" width="235" height="62"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6ZC-ln-axG" userLabel="Name View">
+                                <rect key="frame" x="70" y="332" width="235" height="33"/>
                                 <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KBa-7C-EEz" customClass="DottedBorderView" customModule="OmnieCommerce" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="235" height="33"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="colorBorderLine">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="radiusBorderLine">
+                                                <real key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="widthBorderLine" value="1.5"/>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isRectangleBorderLine" value="NO"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ve0-QC-lC3" userLabel="Name Text Field" customClass="CustomTextField" customModule="OmnieCommerce" customModuleProvider="target">
-                                        <rect key="frame" x="8" y="5" width="227" height="30"/>
+                                        <rect key="frame" x="8" y="5" width="227" height="20"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="JdH-Hx-pLQ"/>
+                                            <constraint firstAttribute="height" constant="20" id="JdH-Hx-pLQ"/>
                                         </constraints>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no" keyboardType="alphabet" keyboardAppearance="light" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
                                         <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="borderLineStyle">
-                                                <real key="value" value="0.0"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="textStyle">
+                                            <userDefinedRuntimeAttribute type="number" keyPath="textColorType">
                                                 <real key="value" value="1"/>
                                             </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="styleBorderLine">
-                                                <real key="value" value="0.0"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="colorBorderLine">
-                                                <real key="value" value="1"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="radiusBorderLine">
-                                                <real key="value" value="12"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="widthBorderLine" value="1.5"/>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isRectangleBorderLine" value="YES"/>
                                         </userDefinedRuntimeAttributes>
                                     </textField>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="62" id="4za-I5-iye"/>
-                                    <constraint firstAttribute="trailing" secondItem="ve0-QC-lC3" secondAttribute="trailing" id="OqD-MB-Fmi"/>
+                                    <constraint firstAttribute="height" constant="33" id="4za-I5-iye"/>
+                                    <constraint firstAttribute="trailing" secondItem="KBa-7C-EEz" secondAttribute="trailing" id="5ZL-Yl-Hb4"/>
+                                    <constraint firstAttribute="bottom" secondItem="KBa-7C-EEz" secondAttribute="bottom" id="Dp8-ep-QQC"/>
+                                    <constraint firstAttribute="trailing" secondItem="ve0-QC-lC3" secondAttribute="trailing" constant="-8" id="OqD-MB-Fmi"/>
                                     <constraint firstItem="ve0-QC-lC3" firstAttribute="top" secondItem="6ZC-ln-axG" secondAttribute="top" constant="5" id="Xou-Xa-w1Q"/>
+                                    <constraint firstItem="KBa-7C-EEz" firstAttribute="top" secondItem="6ZC-ln-axG" secondAttribute="top" id="pcx-hi-EwX"/>
                                     <constraint firstItem="ve0-QC-lC3" firstAttribute="leading" secondItem="6ZC-ln-axG" secondAttribute="leading" constant="8" id="xvG-du-cNp"/>
+                                    <constraint firstItem="KBa-7C-EEz" firstAttribute="leading" secondItem="6ZC-ln-axG" secondAttribute="leading" id="ztM-tb-Gj0"/>
                                 </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="styleBorderLine">
-                                        <real key="value" value="0.0"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="colorBorderLine">
-                                        <real key="value" value="0.0"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="radiusBorderLine">
-                                        <real key="value" value="12"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="widthBorderLine" value="1.5"/>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isRectangleBorderLine" value="NO"/>
-                                </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MtY-38-Pkk" userLabel="Password View">
-                                <rect key="frame" x="70" y="456" width="235" height="33"/>
+                                <rect key="frame" x="70" y="385" width="235" height="33"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vBt-Th-aoP" customClass="DottedBorderView" customModule="OmnieCommerce" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="235" height="33"/>
@@ -196,7 +187,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="QIU-1h-SGl" userLabel="Password Text Field" customClass="CustomTextField" customModule="OmnieCommerce" customModuleProvider="target">
-                                        <rect key="frame" x="8" y="5" width="219" height="20"/>
+                                        <rect key="frame" x="8" y="5" width="227" height="20"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="cso-VN-BGZ"/>
@@ -220,7 +211,7 @@
                                     <constraint firstAttribute="height" constant="33" id="WCr-rl-zXv"/>
                                     <constraint firstItem="vBt-Th-aoP" firstAttribute="top" secondItem="MtY-38-Pkk" secondAttribute="top" id="kzT-7i-ds3"/>
                                     <constraint firstItem="QIU-1h-SGl" firstAttribute="leading" secondItem="MtY-38-Pkk" secondAttribute="leading" constant="8" id="rIe-QY-UKl"/>
-                                    <constraint firstAttribute="trailing" secondItem="QIU-1h-SGl" secondAttribute="trailing" constant="8" id="wpP-TI-dFY"/>
+                                    <constraint firstAttribute="trailing" secondItem="QIU-1h-SGl" secondAttribute="trailing" constant="-8" id="wpP-TI-dFY"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -236,6 +227,7 @@
                             <constraint firstItem="njZ-rW-JXW" firstAttribute="top" secondItem="HHh-KM-0ql" secondAttribute="topMargin" id="Hxo-fq-4px"/>
                             <constraint firstItem="vUs-Mf-aXo" firstAttribute="top" secondItem="HHh-KM-0ql" secondAttribute="top" id="P4h-LA-GZq"/>
                             <constraint firstAttribute="trailing" secondItem="MtY-38-Pkk" secondAttribute="trailing" constant="70" id="Su2-9j-67s"/>
+                            <constraint firstItem="MtY-38-Pkk" firstAttribute="top" secondItem="6ZC-ln-axG" secondAttribute="bottom" constant="20" id="Tbb-R3-Efd"/>
                             <constraint firstItem="SKB-6u-w8c" firstAttribute="leading" secondItem="HHh-KM-0ql" secondAttribute="leading" constant="8" id="XeB-jh-y2R"/>
                             <constraint firstAttribute="trailing" secondItem="SKB-6u-w8c" secondAttribute="trailing" constant="8" id="Z4u-uC-4Ja"/>
                             <constraint firstItem="vUs-Mf-aXo" firstAttribute="leading" secondItem="HHh-KM-0ql" secondAttribute="leading" id="ZKs-8d-1jU"/>
@@ -243,7 +235,6 @@
                             <constraint firstItem="njZ-rW-JXW" firstAttribute="leading" secondItem="HHh-KM-0ql" secondAttribute="leading" id="bV3-64-6mh"/>
                             <constraint firstItem="6ZC-ln-axG" firstAttribute="leading" secondItem="HHh-KM-0ql" secondAttribute="leading" constant="70" id="d65-bt-Hfb"/>
                             <constraint firstItem="6ZC-ln-axG" firstAttribute="top" secondItem="SKB-6u-w8c" secondAttribute="bottom" constant="40" id="dNg-fN-Gwq"/>
-                            <constraint firstItem="MtY-38-Pkk" firstAttribute="top" secondItem="6ZC-ln-axG" secondAttribute="bottom" constant="62" id="kSF-fn-L0o"/>
                             <constraint firstAttribute="trailing" secondItem="6ZC-ln-axG" secondAttribute="trailing" constant="70" id="kVe-S5-r7C"/>
                             <constraint firstItem="MtY-38-Pkk" firstAttribute="leading" secondItem="HHh-KM-0ql" secondAttribute="leading" constant="70" id="lHh-hW-MAj"/>
                         </constraints>
