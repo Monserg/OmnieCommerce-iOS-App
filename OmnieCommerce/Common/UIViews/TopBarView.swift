@@ -32,13 +32,17 @@ import UIKit
     // MARK: - Class initialization
     override init(frame: CGRect) {
         super.init(frame: frame)
-    }
+
+        UINib(nibName: NSStringFromClass(self.classForCoder), bundle: nil).instantiate(withOwner: self, options: nil)
+        addSubview(view)
+        view.frame = frame
+}
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
-        UINib(nibName: "TopBarView", bundle: nil).instantiate(withOwner: self, options: nil)
+        UINib(nibName: NSStringFromClass(self.classForCoder), bundle: nil).instantiate(withOwner: self, options: nil)
         addSubview(view)
-        view.frame = self.bounds
+        view.frame = frame
     }
 }

@@ -95,6 +95,10 @@
 		B152915D1DDE44B700BBA1E0 /* MenuSectionFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B152915C1DDE44B700BBA1E0 /* MenuSectionFooterView.xib */; };
 		B152915F1DDEB8B500BBA1E0 /* CustomTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B152915E1DDEB8B500BBA1E0 /* CustomTableView.swift */; };
 		B15FD40A1DD1DD8C00782324 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15FD4091DD1DD8C00782324 /* AppDelegate.swift */; };
+		B1739D161DE314C70029BCCA /* UIButton+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1739D151DE314C70029BCCA /* UIButton+Ext.swift */; };
+		B1739D181DE314D50029BCCA /* UILabel+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1739D171DE314D50029BCCA /* UILabel+Ext.swift */; };
+		B1739D1A1DE314DF0029BCCA /* UIColor+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1739D191DE314DF0029BCCA /* UIColor+Ext.swift */; };
+		B1739D1C1DE314E80029BCCA /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1739D1B1DE314E80029BCCA /* UIView+Ext.swift */; };
 		B1BF92441DD5FC8000BECBBB /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1BF92431DD5FC8000BECBBB /* Config.swift */; };
 		B1BF92681DD6516C00BECBBB /* helveticaneuecyr-black.otf in Resources */ = {isa = PBXBuildFile; fileRef = B1BF924F1DD650F400BECBBB /* helveticaneuecyr-black.otf */; };
 		B1BF92691DD6516C00BECBBB /* helveticaneuecyr-blackitalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = B1BF92501DD650F400BECBBB /* helveticaneuecyr-blackitalic.otf */; };
@@ -287,6 +291,10 @@
 		B15FD4061DD1DD8C00782324 /* OmnieCommerce.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OmnieCommerce.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B15FD4091DD1DD8C00782324 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B15FD4151DD1DD8C00782324 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Info.plist; sourceTree = "<group>"; };
+		B1739D151DE314C70029BCCA /* UIButton+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Ext.swift"; sourceTree = "<group>"; };
+		B1739D171DE314D50029BCCA /* UILabel+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+Ext.swift"; sourceTree = "<group>"; };
+		B1739D191DE314DF0029BCCA /* UIColor+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Ext.swift"; sourceTree = "<group>"; };
+		B1739D1B1DE314E80029BCCA /* UIView+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 		B1BF92431DD5FC8000BECBBB /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		B1BF924F1DD650F400BECBBB /* helveticaneuecyr-black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "helveticaneuecyr-black.otf"; sourceTree = "<group>"; };
 		B1BF92501DD650F400BECBBB /* helveticaneuecyr-blackitalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "helveticaneuecyr-blackitalic.otf"; sourceTree = "<group>"; };
@@ -600,6 +608,7 @@
 			isa = PBXGroup;
 			children = (
 				B1228FB31DD4853E00A90FBB /* DataModel */,
+				B1739D141DE3145F0029BCCA /* Extensions */,
 				B122F2391DD36F220018A701 /* UIButtons */,
 				B1228FBB1DD4BDE600A90FBB /* UILabels */,
 				B122F23F1DD371830018A701 /* UINavigationControllers */,
@@ -724,6 +733,17 @@
 				B1228FAB1DD44CD700A90FBB /* Support Files */,
 			);
 			path = OmnieCommerce;
+			sourceTree = "<group>";
+		};
+		B1739D141DE3145F0029BCCA /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B1739D151DE314C70029BCCA /* UIButton+Ext.swift */,
+				B1739D171DE314D50029BCCA /* UILabel+Ext.swift */,
+				B1739D191DE314DF0029BCCA /* UIColor+Ext.swift */,
+				B1739D1B1DE314E80029BCCA /* UIView+Ext.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		B1BF924E1DD6508A00BECBBB /* Fonts */ = {
@@ -1043,6 +1063,7 @@
 				B122F1F91DD35BC70018A701 /* FavoriteShowModels.swift in Sources */,
 				B122F1FB1DD35BC70018A701 /* FavoriteShowRouter.swift in Sources */,
 				B152915B1DDE44A200BBA1E0 /* MenuSectionFooterView.swift in Sources */,
+				B1739D161DE314C70029BCCA /* UIButton+Ext.swift in Sources */,
 				B122F2171DD35C2C0018A701 /* NewsShowRouter.swift in Sources */,
 				B1CF547B1DDB50D900E98049 /* AboutShowViewController.swift in Sources */,
 				B122F2051DD35BEB0018A701 /* CategoriesShowConfigurator.swift in Sources */,
@@ -1069,8 +1090,11 @@
 				B1CF54771DDB50D900E98049 /* AboutShowInteractor.swift in Sources */,
 				B1CF54951DDB512000E98049 /* DiscountCardsShowPresenter.swift in Sources */,
 				B1CF54861DDB50F100E98049 /* BusinessCardsShowModels.swift in Sources */,
+				B1739D181DE314D50029BCCA /* UILabel+Ext.swift in Sources */,
 				B122F1DD1DD35B760018A701 /* OrdersShowModels.swift in Sources */,
 				B1CF54CC1DDB51A500E98049 /* PersonalPageShowModels.swift in Sources */,
+				B1739D1A1DE314DF0029BCCA /* UIColor+Ext.swift in Sources */,
+				B1739D1C1DE314E80029BCCA /* UIView+Ext.swift in Sources */,
 				B1CF54A41DDB515000E98049 /* HandbookShowRouter.swift in Sources */,
 				B1CF54A31DDB515000E98049 /* HandbookShowPresenter.swift in Sources */,
 				B14E97591DD8B052001E1DE2 /* SignUpShowPresenter.swift in Sources */,

@@ -28,9 +28,9 @@ class SignInShowViewController: BaseViewController, SignInShowViewControllerInpu
     @IBOutlet var topBarView: TopBarView!
     @IBOutlet weak var backgroundImageView: UIImageView!
     
-    @IBOutlet weak var vkontakteButton: CustomButton!
-    @IBOutlet weak var googleButton: CustomButton!
-    @IBOutlet weak var facebookButton: CustomButton!
+    @IBOutlet weak var vkontakteButton: UIButton!
+    @IBOutlet weak var googleButton: UIButton!
+    @IBOutlet weak var facebookButton: UIButton!
     
     @IBOutlet weak var nameTextField: CustomTextField!
     @IBOutlet weak var passwordTextField: CustomTextField!
@@ -65,9 +65,9 @@ class SignInShowViewController: BaseViewController, SignInShowViewControllerInpu
         self.view.layoutIfNeeded()
         
         // Set buttons type
-        vkontakteButton.type = .social
-        googleButton.type = .social
-        facebookButton.type = .social
+//        vkontakteButton.type = .social
+//        googleButton.type = .social
+//        facebookButton.type = .social
         
         content = contentView
         

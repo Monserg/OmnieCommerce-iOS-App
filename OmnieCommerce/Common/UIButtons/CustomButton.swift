@@ -10,70 +10,70 @@ import UIKit
 
 @IBDesignable class CustomButton: UIButton {
     // MARK: - Properties
-    @IBInspectable var borderColor: UIColor = UIColor.white {
-        didSet {
-            layer.borderColor = borderColor.cgColor
-        }
-    }
-    
-    @IBInspectable var borderWidth: CGFloat = 2.0 {
-        didSet {
-            layer.borderWidth = borderWidth
-        }
-    }
-    
-    @IBInspectable var cornerRadius: CGFloat = 2.0 {
-        didSet {
-            layer.cornerRadius = cornerRadius
-            clipsToBounds = true
-        }
-    }
-    
-    enum Types {
-        case social
-        case standard
-    }
-
-    var type: Types = .standard
-    
-    
-    // MARK: - Class initialization
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
-
-    
-    // MARK: - Class Functions
-    override func draw(_ rect: CGRect) {
-        if (self.type == .social) {
-            let sidesRatio = Double(UIScreen.main.bounds.height / UIScreen.main.bounds.width)
-            
-            let circleX = UIApplication.shared.statusBarOrientation.isPortrait ? Double(UIScreen.main.bounds.width / 2) : (205.0 - Config.Constants.circleViewRadiusSmall - Double(Config.Constants.topViewBarLineThickness / 2))
-            let circleY = UIApplication.shared.statusBarOrientation.isPortrait ? (205.0 - Config.Constants.circleViewRadiusSmall) : Double(UIScreen.main.bounds.height / 2)
-            let degreeVkontakte = UIApplication.shared.statusBarOrientation.isPortrait ? 154.4 * sidesRatio : 353.2 * (sidesRatio + 0.444)
-            let degreeGoogle = UIApplication.shared.statusBarOrientation.isPortrait ? 157.0 * sidesRatio : 348.6 * (sidesRatio + 0.444)
-            let degreeFacebook = UIApplication.shared.statusBarOrientation.isPortrait ? 159.6 * sidesRatio : 344.0 * (sidesRatio + 0.444)
-            
-            self.layer.backgroundColor = Config.Buttons.Colors.softOrange?.cgColor
-
-            switch self.tag {
-            // Google
-            case 2:
-                self.center = CGPoint(x: circleX + Config.Constants.circleViewRadiusSmall * cos((M_PI * degreeGoogle)/180), y: circleY - Config.Constants.circleViewRadiusSmall * sin((M_PI * degreeGoogle)/180))
-                
-            // Facebook
-            case 3:
-                self.center = CGPoint(x: circleX + Config.Constants.circleViewRadiusSmall * cos((M_PI * degreeFacebook)/180), y: circleY - Config.Constants.circleViewRadiusSmall * sin((M_PI * degreeFacebook)/180))
-                
-            // Vkontakte
-            default:
-                self.center = CGPoint(x: circleX + Config.Constants.circleViewRadiusSmall * cos((M_PI * degreeVkontakte)/180), y: circleY - Config.Constants.circleViewRadiusSmall * sin((M_PI * degreeVkontakte)/180))
-            }
-        }
-    }
+//    @IBInspectable var borderColor: UIColor = UIColor.white {
+//        didSet {
+//            layer.borderColor = borderColor.cgColor
+//        }
+//    }
+//    
+//    @IBInspectable var borderWidth: CGFloat = 2.0 {
+//        didSet {
+//            layer.borderWidth = borderWidth
+//        }
+//    }
+//    
+//    @IBInspectable var cornerRadius: CGFloat = 2.0 {
+//        didSet {
+//            layer.cornerRadius = cornerRadius
+//            clipsToBounds = true
+//        }
+//    }
+//    
+//    enum Types {
+//        case social
+//        case standard
+//    }
+//
+//    var type: Types = .standard
+//    
+//    
+//    // MARK: - Class initialization
+//    override init(frame: CGRect) {
+//        super.init(frame: frame)
+//    }
+//    
+//    required init?(coder aDecoder: NSCoder) {
+//        super.init(coder: aDecoder)
+//    }
+//
+//    
+//    // MARK: - Class Functions
+//    override func draw(_ rect: CGRect) {
+//        if (self.type == .social) {
+//            let sidesRatio = Double(UIScreen.main.bounds.height / UIScreen.main.bounds.width)
+//            
+//            let circleX = UIApplication.shared.statusBarOrientation.isPortrait ? Double(UIScreen.main.bounds.width / 2) : (205.0 - Config.Constants.circleViewRadiusSmall - Double(Config.Constants.topViewBarLineThickness / 2))
+//            let circleY = UIApplication.shared.statusBarOrientation.isPortrait ? (205.0 - Config.Constants.circleViewRadiusSmall) : Double(UIScreen.main.bounds.height / 2)
+//            let degreeVkontakte = UIApplication.shared.statusBarOrientation.isPortrait ? 154.4 * sidesRatio : 353.2 * (sidesRatio + 0.444)
+//            let degreeGoogle = UIApplication.shared.statusBarOrientation.isPortrait ? 157.0 * sidesRatio : 348.6 * (sidesRatio + 0.444)
+//            let degreeFacebook = UIApplication.shared.statusBarOrientation.isPortrait ? 159.6 * sidesRatio : 344.0 * (sidesRatio + 0.444)
+//            
+//            self.layer.backgroundColor = Config.Buttons.Colors.softOrange?.cgColor
+//
+//            switch self.tag {
+//            // Google
+//            case 2:
+//                self.center = CGPoint(x: circleX + Config.Constants.circleViewRadiusSmall * cos((M_PI * degreeGoogle)/180), y: circleY - Config.Constants.circleViewRadiusSmall * sin((M_PI * degreeGoogle)/180))
+//                
+//            // Facebook
+//            case 3:
+//                self.center = CGPoint(x: circleX + Config.Constants.circleViewRadiusSmall * cos((M_PI * degreeFacebook)/180), y: circleY - Config.Constants.circleViewRadiusSmall * sin((M_PI * degreeFacebook)/180))
+//                
+//            // Vkontakte
+//            default:
+//                self.center = CGPoint(x: circleX + Config.Constants.circleViewRadiusSmall * cos((M_PI * degreeVkontakte)/180), y: circleY - Config.Constants.circleViewRadiusSmall * sin((M_PI * degreeVkontakte)/180))
+//            }
+//        }
+//    }
 
 }
