@@ -36,7 +36,7 @@ struct Config {
                                                                     NSForegroundColorAttributeName  :   Colors.softOrange!,
                                                                     NSKernAttributeName             :   0.0,
                                                                     NSUnderlineStyleAttributeName   :   NSUnderlineStyle.styleSingle.rawValue
-            ] as [String : Any]
+                                                                ] as [String : Any]
         
         static let ubuntuLightVeryLightGrayUnderline12      =   [   NSFontAttributeName             :   Fonts.ubuntuLight12!,
                                                                     NSForegroundColorAttributeName  :   Colors.veryLightGray!,

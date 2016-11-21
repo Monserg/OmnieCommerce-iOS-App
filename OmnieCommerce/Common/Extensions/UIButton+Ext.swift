@@ -8,59 +8,61 @@
 
 import UIKit
 
-/// Стиль кнопки
 enum ButtonStyle: String {
-    /// Светлый стиль
-    case Light              =   "light"
-    
-    /// Темный стиль
-    case Dark               =   "dark"
-    
-    /// Оттенок
-    var tintColor: UIColor {
-        switch self {
-        case .Light:
-            return UIColor.black
-        
-        case .Dark:
-            return UIColor.lightGray
-        }
-    }
-    
-    /// Цвет границы
-    var borderColor:        UIColor { return tintColor }
-
-    /// Цвет фона
-    var backgroundColor:    UIColor { return UIColor.clear }
-    
-    /// Толщина границы
-    var borderWidth:        CGFloat { return 1 }
-    
-    /// Радиус границы
-    var cornerRadius:       CGFloat { return 4 }
+    case Social = "Social"
+    case Fill = "Fill"
+    case Underline = "Underline"
+    case UnderlineColor = "UnderlineColor"
 }
 
 
 extension UIButton {
-    /// Стиль кнопки
-    @IBInspectable var style: String? {
+    @IBInspectable var buttonStyle: String? {
         set { setupWithStyleNamed(newValue) }
         get { return nil }
     }
     
-    /// Применение стиля по его строковому названию
     func setupWithStyleNamed(_ named: String?) {
-        if let styleName = named, let style = ButtonStyle(rawValue: styleName) {
-            setupWithStyle(style)
+        if let styleName = named, let buttonStyle = ButtonStyle(rawValue: styleName) {
+            setupWithStyle(buttonStyle)
         }
     }
     
-    /// Применение стиля по его идентификатору
-    func setupWithStyle(_ style: ButtonStyle) {
-        backgroundColor     =   style.backgroundColor
-        tintColor           =   style.tintColor
-        borderColor         =   style.borderColor
-        borderWidth         =   style.borderWidth
-        cornerRadius        =   style.cornerRadius
+    func setupWithStyle(_ buttonStyle: ButtonStyle) {
+        setTitle(titleLabel?.text?.localized(), for: .normal)
+        setTitle(titleLabel?.text?.localized(), for: .highlighted)
+
+        switch buttonStyle {
+        case .Social:
+            backgroundColor = (Config.Constants.isAppThemesLight) ? UIColor.white : Config.Colors.softOrange
+            tintColor = UIColor.clear
+            borderColor = UIColor.clear
+            borderWidth = 0
+            cornerRadius = frame.size.height / 2
+
+        case .Fill:
+            backgroundColor = (Config.Constants.isAppThemesLight) ? UIColor.white : Config.Colors.veryLightOrange
+            tintColor = (Config.Constants.isAppThemesLight) ? UIColor.black : Config.Colors.veryDarkGray
+            titleLabel?.font = (Config.Constants.isAppThemesLight) ? UIFont.systemFont(ofSize: 12) : Config.Fonts.ubuntuRegular16
+            borderColor = UIColor.clear
+            borderWidth = 0
+            cornerRadius = frame.size.height / 2
+
+        case .Underline:
+            backgroundColor = UIColor.clear
+            borderColor = UIColor.clear
+            borderWidth = 0
+            cornerRadius = 0
+            (Config.Constants.isAppThemesLight) ? setAttributedTitle(NSAttributedString.init(string: (titleLabel?.text?.localized())!, attributes: Config.Fonts.ubuntuLightVeryLightGrayUnderline12), for: .normal) : setAttributedTitle(NSAttributedString.init(string: (titleLabel?.text?.localized())!, attributes: Config.Fonts.ubuntuLightVeryLightGrayUnderline12), for: .normal)
+            (Config.Constants.isAppThemesLight) ? setAttributedTitle(NSAttributedString.init(string: (titleLabel?.text?.localized())!, attributes: Config.Fonts.ubuntuLightVeryLightGrayUnderline12), for: .highlighted) : setAttributedTitle(NSAttributedString.init(string: (titleLabel?.text?.localized())!, attributes: Config.Fonts.ubuntuLightVeryLightGrayUnderline12), for: .highlighted)
+
+        case .UnderlineColor:
+            backgroundColor = UIColor.clear
+            borderColor = UIColor.clear
+            borderWidth = 0
+            cornerRadius = 0
+            (Config.Constants.isAppThemesLight) ? setAttributedTitle(NSAttributedString.init(string: (titleLabel?.text?.localized())!, attributes: Config.Fonts.ubuntuLightSoftOrangeUnderline12), for: .normal) : setAttributedTitle(NSAttributedString.init(string: (titleLabel?.text?.localized())!, attributes: Config.Fonts.ubuntuLightSoftOrangeUnderline12), for: .normal)
+            (Config.Constants.isAppThemesLight) ? setAttributedTitle(NSAttributedString.init(string: (titleLabel?.text?.localized())!, attributes: Config.Fonts.ubuntuLightSoftOrangeUnderline12), for: .highlighted) : setAttributedTitle(NSAttributedString.init(string: (titleLabel?.text?.localized())!, attributes: Config.Fonts.ubuntuLightSoftOrangeUnderline12), for: .highlighted)
+        }
     }
 }

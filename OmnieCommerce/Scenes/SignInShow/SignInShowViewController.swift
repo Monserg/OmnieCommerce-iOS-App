@@ -58,11 +58,11 @@ class SignInShowViewController: BaseViewController, SignInShowViewControllerInpu
         passwordTextField.delegate = self
         
         // Config scene
-        topBarView.circleView.cirleRadiusStyle = .small
-        topBarViewHeight = (topBarView.circleView.cirleRadiusStyle == .small) ? Config.Constants.topViewBarHeightSmall : Config.Constants.topViewBarHeightBig
-        topBarViewHeightPortraitConstraint.constant = topBarViewHeight
-        topBarViewHeightLandscapeConstraint.constant = topBarViewHeight
-        self.view.layoutIfNeeded()
+//        topBarView.circleView.cirleRadiusStyle = .small
+//        topBarViewHeight = (topBarView.circleView.cirleRadiusStyle == .small) ? Config.Constants.topViewBarHeightSmall : Config.Constants.topViewBarHeightBig
+//        topBarViewHeightPortraitConstraint.constant = topBarViewHeight
+//        topBarViewHeightLandscapeConstraint.constant = topBarViewHeight
+//        self.view.layoutIfNeeded()
         
         // Set buttons type
 //        vkontakteButton.type = .social
@@ -95,15 +95,15 @@ class SignInShowViewController: BaseViewController, SignInShowViewControllerInpu
         
         topBarView.setNeedsDisplay()
         
-        if (topBarView.circleView.cirleRadiusStyle == .small) {
-            vkontakteButton.setNeedsDisplay()
-            googleButton.setNeedsDisplay()
-            facebookButton.setNeedsDisplay()
-        } else {
-            vkontakteButton.isHidden = true
-            googleButton.isHidden = true
-            facebookButton.isHidden = true
-        }
+//        if (topBarView.circleView.cirleRadiusStyle == .small) {
+//            vkontakteButton.setNeedsDisplay()
+//            googleButton.setNeedsDisplay()
+//            facebookButton.setNeedsDisplay()
+//        } else {
+//            vkontakteButton.isHidden = true
+//            googleButton.isHidden = true
+//            facebookButton.isHidden = true
+//        }
     }
 
     
