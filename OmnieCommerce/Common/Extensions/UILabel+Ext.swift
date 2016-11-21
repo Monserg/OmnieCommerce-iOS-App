@@ -10,9 +10,11 @@ import UIKit
 
 enum LabelStyle: String {
     case Standard = "Standard"
+    case Error = "Error"
     case Title = "Title"
     case Copyright = "Copyright"
     case MenuItem = "MenuItem"
+    case ForgotPassword = "ForgotPassword"
     case Congratulations = "Congratulations"
 }
 
@@ -33,6 +35,10 @@ extension UILabel {
         text = text?.localized()
         
         switch labelStyle {
+        case .Error:
+            font = (Config.Constants.isAppThemesLight) ? UIFont.systemFont(ofSize: 12) : Config.Fonts.ubuntuLightItalic12
+            textColor = (Config.Constants.isAppThemesLight) ? UIColor.white : Config.Colors.moderateRed
+            
         case .Title:
             font = (Config.Constants.isAppThemesLight) ? UIFont.systemFont(ofSize: 12) : Config.Fonts.helveticaNeueCyrLight32
             textColor = (Config.Constants.isAppThemesLight) ? UIColor.white : Config.Colors.veryLightGray
@@ -44,6 +50,10 @@ extension UILabel {
             
         case .MenuItem:
             font = (Config.Constants.isAppThemesLight) ? UIFont.systemFont(ofSize: 12) : Config.Fonts.ubuntuLight16
+            textColor = (Config.Constants.isAppThemesLight) ? UIColor.white : Config.Colors.veryLightGray
+            
+        case .ForgotPassword:
+            font = (Config.Constants.isAppThemesLight) ? UIFont.systemFont(ofSize: 12) : Config.Fonts.helveticaNeueCyrThin33
             textColor = (Config.Constants.isAppThemesLight) ? UIColor.white : Config.Colors.veryLightGray
             
         case .Congratulations:

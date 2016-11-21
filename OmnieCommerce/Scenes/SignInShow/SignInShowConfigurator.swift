@@ -14,6 +14,8 @@ import UIKit
 // MARK: - Connect View, Interactor, and Presenter
 extension SignInShowViewController: SignInShowPresenterOutput {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        navigationController?.isNavigationBarHidden = true
+
         router.passDataToNextScene(segue: segue)
     }
 }

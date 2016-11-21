@@ -41,7 +41,20 @@ class ForgotPasswordShowViewController: BaseViewController, ForgotPasswordShowVi
         doSomethingOnLoad()
     }
     
+    deinit {
+        print("ForgotPasswordShowViewController deinit.")
+    }
 
+
+    // MARK: - Actions
+    @IBAction func handleSendButtonTap(_ sender: CustomButton) {
+    }
+    
+    @IBAction func handleCancelButtonTap(_ sender: CustomButton) {
+        _ = navigationController?.popToRootViewController(animated: true)
+    }
+    
+    
     // MARK: - Custom Functions
     func doSomethingOnLoad() {
         // NOTE: Ask the Interactor to do some work

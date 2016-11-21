@@ -26,6 +26,8 @@
 // Labels
 "Congratulations"       =   "Вітаємо!";
 "Not yet registered?"   =   "Ще не зареєстровані?";
+"Forgot Password"       =   "Забули пароль";
+"Phone or email error"  =   "* неправильний номер або email";
 
 
 // Buttons
@@ -34,8 +36,9 @@
 "Sign In"               =   "Зайти";
 "Sign Up"               =   "Зареєструватись";
 "Check In"              =   "Реєстрація";
-"Forgot Password"       =   "Забули пароль?";
+"Forgot Password?"      =   "Забули пароль?";
 "Cancel"                =   "Відмінити";
+"Send"                  =   "Відправити";
 
 
 // TextField Placeholders

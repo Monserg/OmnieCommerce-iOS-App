@@ -42,7 +42,7 @@ class SignUpShowViewController: BaseViewController, SignUpShowViewControllerInpu
     }
     
     deinit {
-        print("SignInShowViewController deinit.")
+        print("SignUpShowViewController deinit.")
     }
 
     

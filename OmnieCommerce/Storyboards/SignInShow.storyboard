@@ -231,8 +231,8 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wNF-L3-c5m" userLabel="Forgot Password Button" customClass="CustomButton" customModule="OmnieCommerce" customModuleProvider="target">
-                                        <rect key="frame" x="70" y="340" width="91" height="25.333333333333371"/>
-                                        <state key="normal" title="Forgot Password"/>
+                                        <rect key="frame" x="70" y="340" width="95" height="25.333333333333371"/>
+                                        <state key="normal" title="Forgot Password?"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="string" keyPath="buttonStyle" value="Underline"/>
                                         </userDefinedRuntimeAttributes>
