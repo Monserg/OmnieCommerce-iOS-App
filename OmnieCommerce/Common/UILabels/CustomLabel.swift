@@ -27,29 +27,29 @@ import Localize_Swift
             switch style {
             // title = 1
             case 1:
-                self.font = Config.Labels.Fonts.helveticaNeueCyrLight32
-                self.textColor = Config.Labels.Colors.veryLightGray
+                self.font = Config.Fonts.helveticaNeueCyrLight32
+                self.textColor = Config.Colors.veryLightGray
                 
             // copyright = 2
             case 2:
-                self.font = Config.Labels.Fonts.ubuntuLight9
-                self.textColor = Config.Labels.Colors.darkCyan
+                self.font = Config.Fonts.ubuntuLight9
+                self.textColor = Config.Colors.darkCyan
                 self.text = "\u{00A9} Omniesoft, 2016"
                 
             // menuItem = 3
             case 3:
-                self.font = Config.Labels.Fonts.ubuntuLight16
-                self.textColor = Config.Labels.Colors.veryLightGray
+                self.font = Config.Fonts.ubuntuLight16
+                self.textColor = Config.Colors.veryLightGray
 
             // congratulations = 4
             case 4:
-                self.font = Config.Labels.Fonts.helveticaNeueCyrThin47
-                self.textColor = Config.Labels.Colors.veryLightGray
+                self.font = Config.Fonts.helveticaNeueCyrThin47
+                self.textColor = Config.Colors.veryLightGray
 
             // standard = 0
             default:
-                self.font = Config.Labels.Fonts.ubuntuLight12
-                self.textColor = Config.Labels.Colors.veryLightGray
+                self.font = Config.Fonts.ubuntuLight12
+                self.textColor = Config.Colors.veryLightGray
             }
             
             self.adjustsFontSizeToFitWidth = true

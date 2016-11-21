@@ -38,7 +38,7 @@ class LaunchScreenViewController: UIViewController {
         if (isUserGuest) {
             backgroundImageView.image = UIImage(named: "image-background")
             blackoutView.isHidden = false
-            blackoutView.backgroundColor = Config.Views.Colors.veryDarkDesaturatedBlue25Alfa94
+            blackoutView.backgroundColor = Config.Colors.veryDarkDesaturatedBlue25Alfa94
             
             // Initial VC
             let signInShowStoryboard = UIStoryboard(name: "SignInShow", bundle: nil)
@@ -51,7 +51,7 @@ class LaunchScreenViewController: UIViewController {
         } else {
             backgroundImageView.isHidden = true
             backgroundImageView.backgroundColor = UIColor.clear
-            blackoutView.backgroundColor = Config.Views.Colors.veryDarkDesaturatedBlue25Alfa94
+            blackoutView.backgroundColor = Config.Colors.veryDarkDesaturatedBlue25Alfa94
             
             // Initial VC
             let ordersShowStoryboard = UIStoryboard(name: "SlideMenuShow", bundle: nil)

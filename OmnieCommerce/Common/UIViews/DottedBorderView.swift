@@ -49,7 +49,7 @@ import UIKit
         dottedLinePath.lineWidth = lineWidth
         dottedLinePath.setLineDash(dottes, count: dottes.count, phase: 0.0)
         dottedLinePath.lineCapStyle = .round
-        (colorBorderLine == 0.0) ? Config.Views.Colors.lightGrayAlfa20?.set() : Config.Views.Colors.veryLightOrangeAlfa60?.set()
+        (colorBorderLine == 0.0) ? Config.Colors.lightGrayAlfa20?.set() : Config.Colors.veryLightOrangeAlfa60?.set()
         
         dottedLinePath.stroke()
     }

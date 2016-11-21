@@ -49,7 +49,7 @@ class SlideMenuShowViewController: UIViewController, SlideMenuShowViewController
         self.tableView.delegate = self
         
         // Config VC
-        textButton.setAttributedTitle(NSAttributedString(string: "Add organization name".localized(), attributes: Config.Buttons.Fonts.ubuntuRegularVeryLightOrangeUnderline12), for: .normal)
+        textButton.setAttributedTitle(NSAttributedString(string: "Add organization name".localized(), attributes: Config.Fonts.ubuntuRegularVeryLightOrangeUnderline12), for: .normal)
         
         // Register the Nib header/footer section views
         tableView.register(UINib(nibName: "MenuSectionHeaderView", bundle: nil), forHeaderFooterViewReuseIdentifier: "MenuSectionHeaderView")

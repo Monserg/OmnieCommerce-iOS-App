@@ -24,20 +24,20 @@ import Localize_Swift
             switch textColorType {
             // darkCyan = 1.0
             case 1.0:
-                self.attributedPlaceholder = NSAttributedString(string: (self.placeholder?.localized())!, attributes: [NSFontAttributeName :  Config.Labels.Fonts.ubuntuLightItalic16!, NSForegroundColorAttributeName : Config.Labels.Colors.darkCyan!, NSKernAttributeName : 0.0, NSParagraphStyleAttributeName : paragraphStyle])
+                self.attributedPlaceholder = NSAttributedString(string: (self.placeholder?.localized())!, attributes: [NSFontAttributeName :  Config.Fonts.ubuntuLightItalic16!, NSForegroundColorAttributeName : Config.Colors.darkCyan!, NSKernAttributeName : 0.0, NSParagraphStyleAttributeName : paragraphStyle])
                 
-                self.font = Config.Labels.Fonts.ubuntuLightItalic16
-                self.textColor = Config.Labels.Colors.darkCyan
-                self.tintColor = Config.Labels.Colors.darkCyan
+                self.font = Config.Fonts.ubuntuLightItalic16
+                self.textColor = Config.Colors.darkCyan
+                self.tintColor = Config.Colors.darkCyan
                 changeClearButtonColor()
                 
             // grayishBlue = 0.0
             default:
-                self.attributedPlaceholder = NSAttributedString(string: (self.placeholder?.localized())!, attributes: [NSFontAttributeName :  Config.Labels.Fonts.ubuntuLightItalic16!, NSForegroundColorAttributeName : Config.Labels.Colors.grayishBlue!, NSKernAttributeName : 0.0, NSParagraphStyleAttributeName : paragraphStyle])
+                self.attributedPlaceholder = NSAttributedString(string: (self.placeholder?.localized())!, attributes: [NSFontAttributeName :  Config.Fonts.ubuntuLightItalic16!, NSForegroundColorAttributeName : Config.Colors.grayishBlue!, NSKernAttributeName : 0.0, NSParagraphStyleAttributeName : paragraphStyle])
                 
-                self.font = Config.Labels.Fonts.ubuntuLightItalic16
-                self.textColor = Config.Labels.Colors.grayishBlue
-                self.tintColor = Config.Labels.Colors.grayishBlue
+                self.font = Config.Fonts.ubuntuLightItalic16
+                self.textColor = Config.Colors.grayishBlue
+                self.tintColor = Config.Colors.grayishBlue
                 changeClearButtonColor()
             }
             

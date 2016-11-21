@@ -66,7 +66,7 @@ class BaseViewController: UIViewController {
         // .big radius
         else {
             // Set background color
-            self.view.backgroundColor = Config.Views.Colors.veryDarkDesaturatedBlue24
+            self.view.backgroundColor = Config.Colors.veryDarkDesaturatedBlue24
 
             // Add Slide Menu actions
             if revealViewController() != nil {
