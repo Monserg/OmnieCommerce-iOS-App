@@ -108,8 +108,6 @@ class SignInShowViewController: BaseViewController, SignInShowViewControllerInpu
 
     
     // MARK: - Actions
-    @IBAction func unwindToSignInShow(_ segue: UIStoryboardSegue) {}
-
     @IBAction func asdasdasd(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
     }

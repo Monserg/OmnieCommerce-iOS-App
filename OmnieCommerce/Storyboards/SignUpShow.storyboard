@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="SAh-c2-Tyl">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Sign Up Show View Controller-->
+        <scene sceneID="PJN-ix-iDk">
+            <objects>
+                <viewController storyboardIdentifier="SignUpShowVC" id="SAh-c2-Tyl" customClass="SignUpShowViewController" customModule="OmnieCommerce" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="HAh-GB-hre"/>
+                        <viewControllerLayoutGuide type="bottom" id="NV0-kg-bVV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="bmY-zp-Dgl">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image-background" translatesAutoresizingMaskIntoConstraints="NO" id="vCX-La-BsC" userLabel="Background Image View">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tXS-5L-ZrF" userLabel="Blackout View">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" red="0.14509803921568626" green="0.20000000000000001" blue="0.25098039215686274" alpha="0.93999999999999995" colorSpace="calibratedRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qal-OG-pXP" userLabel="Top Bar View">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="128"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="pJv-S3-BEl"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wLN-Ho-Px8" userLabel="Content View">
+                                <rect key="frame" x="0.0" y="128" width="375" height="539"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Check In" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GfF-rh-vtI" userLabel="Check In Label" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
+                                        <rect key="frame" x="8" y="50" width="359" height="42.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="labelStyle" value="Congratulations"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LvK-b9-J6k" userLabel="Sign Up Button" customClass="CustomButton" customModule="OmnieCommerce" customModuleProvider="target">
+                                        <rect key="frame" x="70" y="370" width="235" height="36"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="36" id="gdJ-bb-L7P"/>
+                                        </constraints>
+                                        <state key="normal" title="Sign Up"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="buttonStyle" value="Fill"/>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="handlerSignUpButtonTap:" destination="SAh-c2-Tyl" eventType="touchUpInside" id="ExY-vS-Rm2"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dKU-v2-dWK" userLabel="Cancel Button" customClass="CustomButton" customModule="OmnieCommerce" customModuleProvider="target">
+                                        <rect key="frame" x="70" y="421" width="235" height="36"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="36" id="1zt-XD-rtD"/>
+                                        </constraints>
+                                        <state key="normal" title="Cancel"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="buttonStyle" value="Border"/>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="handlerCancelButtonTap:" destination="SAh-c2-Tyl" eventType="touchUpInside" id="Zoq-Gy-6ak"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="LvK-b9-J6k" firstAttribute="top" secondItem="GfF-rh-vtI" secondAttribute="bottom" constant="277.5" id="4eP-fM-Fj8"/>
+                                    <constraint firstAttribute="trailing" secondItem="LvK-b9-J6k" secondAttribute="trailing" constant="70" id="DFP-Xd-2Nj"/>
+                                    <constraint firstItem="GfF-rh-vtI" firstAttribute="top" secondItem="wLN-Ho-Px8" secondAttribute="top" constant="50" id="Tcv-8v-SiN"/>
+                                    <constraint firstAttribute="trailing" secondItem="dKU-v2-dWK" secondAttribute="trailing" constant="70" id="Y9M-yG-kMq"/>
+                                    <constraint firstItem="dKU-v2-dWK" firstAttribute="leading" secondItem="wLN-Ho-Px8" secondAttribute="leading" constant="70" id="cqt-1v-vGA"/>
+                                    <constraint firstItem="GfF-rh-vtI" firstAttribute="centerX" secondItem="wLN-Ho-Px8" secondAttribute="centerX" id="d1n-Tu-qEq"/>
+                                    <constraint firstItem="LvK-b9-J6k" firstAttribute="leading" secondItem="wLN-Ho-Px8" secondAttribute="leading" constant="70" id="gUB-21-Hd2"/>
+                                    <constraint firstItem="dKU-v2-dWK" firstAttribute="top" secondItem="LvK-b9-J6k" secondAttribute="bottom" constant="15" id="hQd-8t-KYe"/>
+                                    <constraint firstItem="GfF-rh-vtI" firstAttribute="leading" secondItem="wLN-Ho-Px8" secondAttribute="leading" constant="8" id="hdH-iX-o4I"/>
+                                    <constraint firstAttribute="trailing" secondItem="GfF-rh-vtI" secondAttribute="trailing" constant="8" id="sFA-gR-Gc5"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="tXS-5L-ZrF" secondAttribute="trailing" id="AqG-a6-HuB"/>
+                            <constraint firstItem="qal-OG-pXP" firstAttribute="top" secondItem="bmY-zp-Dgl" secondAttribute="top" id="BWL-Jl-ejx"/>
+                            <constraint firstItem="vCX-La-BsC" firstAttribute="leading" secondItem="bmY-zp-Dgl" secondAttribute="leading" id="Cxv-UA-UYo"/>
+                            <constraint firstAttribute="bottom" secondItem="tXS-5L-ZrF" secondAttribute="bottom" id="HKD-a2-MNY"/>
+                            <constraint firstAttribute="trailing" secondItem="qal-OG-pXP" secondAttribute="trailing" id="HcW-a3-iIr"/>
+                            <constraint firstItem="qal-OG-pXP" firstAttribute="leading" secondItem="bmY-zp-Dgl" secondAttribute="leading" id="aez-EI-KvE"/>
+                            <constraint firstItem="wLN-Ho-Px8" firstAttribute="leading" secondItem="bmY-zp-Dgl" secondAttribute="leading" id="buq-MZ-XJD"/>
+                            <constraint firstAttribute="bottom" secondItem="wLN-Ho-Px8" secondAttribute="bottom" id="dV9-0I-QCY"/>
+                            <constraint firstItem="vCX-La-BsC" firstAttribute="top" secondItem="bmY-zp-Dgl" secondAttribute="top" id="hY7-lz-yB9"/>
+                            <constraint firstAttribute="bottom" secondItem="vCX-La-BsC" secondAttribute="bottom" id="pOm-JJ-ZYM"/>
+                            <constraint firstItem="tXS-5L-ZrF" firstAttribute="leading" secondItem="bmY-zp-Dgl" secondAttribute="leading" id="pus-VQ-TXg"/>
+                            <constraint firstItem="tXS-5L-ZrF" firstAttribute="top" secondItem="bmY-zp-Dgl" secondAttribute="top" id="sXX-VW-RQY"/>
+                            <constraint firstAttribute="trailing" secondItem="vCX-La-BsC" secondAttribute="trailing" id="uEc-mh-CyO"/>
+                            <constraint firstItem="wLN-Ho-Px8" firstAttribute="top" secondItem="qal-OG-pXP" secondAttribute="bottom" id="v2r-dK-AUQ"/>
+                            <constraint firstAttribute="trailing" secondItem="wLN-Ho-Px8" secondAttribute="trailing" id="wUE-xH-vea"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bQg-aJ-tes" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="76" y="163"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="image-background" width="375" height="667"/>
+    </resources>
+</document>

@@ -33,7 +33,9 @@
 "Forgot password?"      =   "Забыли пароль?";
 "Sign In"               =   "Войти";
 "Sign Up"               =   "Зарегистрироваться";
+"Check In"              =   "Регистрация";
 "Forgot Password"       =   "Забыли пароль?";
+"Cancel"                =   "Отменить";
 
 
 // TextField Placeholders

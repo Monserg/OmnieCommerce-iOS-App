@@ -20,7 +20,7 @@ protocol ForgotPasswordShowViewControllerOutput {
     func doSomething(request: ForgotPasswordShow.Something.Request)
 }
 
-class ForgotPasswordShowViewController: UIViewController, ForgotPasswordShowViewControllerInput {
+class ForgotPasswordShowViewController: BaseViewController, ForgotPasswordShowViewControllerInput {
     // MARK: - Properties
     var output: ForgotPasswordShowViewControllerOutput!
     var router: ForgotPasswordShowRouter!

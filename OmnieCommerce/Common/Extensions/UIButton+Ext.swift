@@ -11,6 +11,7 @@ import UIKit
 enum ButtonStyle: String {
     case Social = "Social"
     case Fill = "Fill"
+    case Border = "Border"
     case Underline = "Underline"
     case UnderlineColor = "UnderlineColor"
 }
@@ -48,6 +49,14 @@ extension UIButton {
             borderWidth = 0
             cornerRadius = frame.size.height / 2
 
+        case .Border:
+            backgroundColor = UIColor.clear
+            tintColor = (Config.Constants.isAppThemesLight) ? UIColor.black : Config.Colors.veryLightGray
+            titleLabel?.font = (Config.Constants.isAppThemesLight) ? UIFont.systemFont(ofSize: 12) : Config.Fonts.ubuntuRegular16
+            borderColor = (Config.Constants.isAppThemesLight) ? UIColor.black : Config.Colors.veryLightOrange
+            borderWidth = 1
+            cornerRadius = frame.size.height / 2
+            
         case .Underline:
             backgroundColor = UIColor.clear
             borderColor = UIColor.clear

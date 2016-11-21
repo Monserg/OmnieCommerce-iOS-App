@@ -33,7 +33,9 @@
 "Forgot password?"      =   "Forgot password?";
 "Sign In"               =   "Login";
 "Sign Up"               =   "Sign Up";
+"Check In"              =   "Check In";
 "Forgot Password"       =   "Forgot Password?";
+"Cancel"                =   "Cancel";
 
 
 // TextField Placeholders

@@ -20,7 +20,7 @@ protocol SignUpShowViewControllerOutput {
     func doSomething(request: SignUpShow.Something.Request)
 }
 
-class SignUpShowViewController: UIViewController, SignUpShowViewControllerInput {
+class SignUpShowViewController: BaseViewController, SignUpShowViewControllerInput {
     // MARK: - Properties
     var output: SignUpShowViewControllerOutput!
     var router: SignUpShowRouter!
@@ -41,7 +41,20 @@ class SignUpShowViewController: UIViewController, SignUpShowViewControllerInput 
         doSomethingOnLoad()
     }
     
+    deinit {
+        print("SignInShowViewController deinit.")
+    }
 
+    
+    // MARK: - Actions
+    @IBAction func handlerSignUpButtonTap(_ sender: CustomButton) {
+    }
+    
+    @IBAction func handlerCancelButtonTap(_ sender: CustomButton) {
+        _ = navigationController?.popToRootViewController(animated: true)
+    }
+    
+    
     // MARK: - Custom Functions
     func doSomethingOnLoad() {
         // NOTE: Ask the Interactor to do some work
