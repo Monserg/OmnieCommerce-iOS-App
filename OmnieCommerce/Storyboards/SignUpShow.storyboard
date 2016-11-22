@@ -48,7 +48,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LvK-b9-J6k" userLabel="Sign Up Button" customClass="CustomButton" customModule="OmnieCommerce" customModuleProvider="target">
-                                        <rect key="frame" x="70" y="370" width="235" height="36"/>
+                                        <rect key="frame" x="70" y="276" width="235" height="36"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="36" id="gdJ-bb-L7P"/>
                                         </constraints>
@@ -61,7 +61,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dKU-v2-dWK" userLabel="Cancel Button" customClass="CustomButton" customModule="OmnieCommerce" customModuleProvider="target">
-                                        <rect key="frame" x="70" y="421" width="235" height="36"/>
+                                        <rect key="frame" x="70" y="327" width="235" height="36"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="36" id="1zt-XD-rtD"/>
                                         </constraints>
@@ -74,40 +74,135 @@
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8t8-xc-QXq" userLabel="Name View">
-                                        <rect key="frame" x="70" y="112.5" width="235" height="40"/>
+                                        <rect key="frame" x="70" y="112" width="235" height="33"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VWd-Ml-cVe" userLabel="Dotted Line View" customClass="DottedBorderView" customModule="OmnieCommerce" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="235" height="40"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="235" height="33"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="string" keyPath="viewStyle" value="BottomDottedLineColor"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="viewStyle" value="BottomDottedLine"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="borderWidth" value="1.5"/>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="9v3-8d-3pT" userLabel="Name Text Field" customClass="CustomTextField" customModule="OmnieCommerce" customModuleProvider="target">
+                                                <rect key="frame" x="8" y="5" width="235" height="20"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="20" id="419-Jq-LYn"/>
+                                                </constraints>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="alphabet" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="textFieldStyle" value="DarkCyan"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </textField>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="9v3-8d-3pT" secondAttribute="trailing" constant="-8" id="8wW-OG-GE3"/>
                                             <constraint firstAttribute="bottom" secondItem="VWd-Ml-cVe" secondAttribute="bottom" id="HmY-0l-idT"/>
-                                            <constraint firstAttribute="height" constant="40" id="PPR-8W-dRv"/>
+                                            <constraint firstItem="9v3-8d-3pT" firstAttribute="top" secondItem="8t8-xc-QXq" secondAttribute="top" constant="5" id="Jrb-gA-EeV"/>
+                                            <constraint firstItem="9v3-8d-3pT" firstAttribute="leading" secondItem="8t8-xc-QXq" secondAttribute="leading" constant="8" id="Kba-aj-2oQ"/>
+                                            <constraint firstAttribute="height" constant="33" id="PPR-8W-dRv"/>
                                             <constraint firstItem="VWd-Ml-cVe" firstAttribute="top" secondItem="8t8-xc-QXq" secondAttribute="top" id="QeI-KR-DgC"/>
                                             <constraint firstAttribute="trailing" secondItem="VWd-Ml-cVe" secondAttribute="trailing" id="SRk-hu-HEP"/>
                                             <constraint firstItem="VWd-Ml-cVe" firstAttribute="leading" secondItem="8t8-xc-QXq" secondAttribute="leading" id="rJG-bR-x5P"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k03-Ud-UDR" userLabel="Email View">
+                                        <rect key="frame" x="70" y="165" width="235" height="33"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3nQ-Di-1Op" userLabel="Dotted Line View" customClass="DottedBorderView" customModule="OmnieCommerce" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="235" height="33"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="viewStyle" value="BottomDottedLine"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="borderWidth" value="1.5"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="qm1-Ua-9IK" userLabel="Email Text Field" customClass="CustomTextField" customModule="OmnieCommerce" customModuleProvider="target">
+                                                <rect key="frame" x="8" y="5" width="235" height="20"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="20" id="uXd-vl-KBh"/>
+                                                </constraints>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="alphabet" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="textFieldStyle" value="GrayishBlue"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </textField>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="33" id="4h1-fT-kGs"/>
+                                            <constraint firstAttribute="trailing" secondItem="3nQ-Di-1Op" secondAttribute="trailing" id="52H-I1-CLe"/>
+                                            <constraint firstAttribute="trailing" secondItem="qm1-Ua-9IK" secondAttribute="trailing" constant="-8" id="8cG-xD-1ZF"/>
+                                            <constraint firstItem="3nQ-Di-1Op" firstAttribute="leading" secondItem="k03-Ud-UDR" secondAttribute="leading" id="Bz4-1y-WgC"/>
+                                            <constraint firstItem="qm1-Ua-9IK" firstAttribute="leading" secondItem="k03-Ud-UDR" secondAttribute="leading" constant="8" id="GSd-yn-v64"/>
+                                            <constraint firstItem="qm1-Ua-9IK" firstAttribute="top" secondItem="k03-Ud-UDR" secondAttribute="top" constant="5" id="Ymc-Vp-eZD"/>
+                                            <constraint firstAttribute="bottom" secondItem="3nQ-Di-1Op" secondAttribute="bottom" id="eHD-du-daC"/>
+                                            <constraint firstItem="3nQ-Di-1Op" firstAttribute="top" secondItem="k03-Ud-UDR" secondAttribute="top" id="it8-bG-8kU"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tR4-SM-s20" userLabel="Password View">
+                                        <rect key="frame" x="70" y="218" width="235" height="33"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yzl-i6-LaY" userLabel="Dotted Line View" customClass="DottedBorderView" customModule="OmnieCommerce" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="235" height="33"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="viewStyle" value="BottomDottedLine"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="borderWidth" value="1.5"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="937-7K-bAv" userLabel="Password Text Field" customClass="CustomTextField" customModule="OmnieCommerce" customModuleProvider="target">
+                                                <rect key="frame" x="8" y="5" width="235" height="20"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="20" id="JIb-Dt-lAh"/>
+                                                </constraints>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="textFieldStyle" value="DarkCyan"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </textField>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="Yzl-i6-LaY" secondAttribute="bottom" id="9dE-Kh-OEY"/>
+                                            <constraint firstItem="937-7K-bAv" firstAttribute="top" secondItem="tR4-SM-s20" secondAttribute="top" constant="5" id="Gf2-ka-O1y"/>
+                                            <constraint firstAttribute="height" constant="33" id="J7V-ca-44c"/>
+                                            <constraint firstItem="937-7K-bAv" firstAttribute="leading" secondItem="tR4-SM-s20" secondAttribute="leading" constant="8" id="O1L-Ye-KbR"/>
+                                            <constraint firstAttribute="trailing" secondItem="Yzl-i6-LaY" secondAttribute="trailing" id="V6E-ic-nRv"/>
+                                            <constraint firstItem="Yzl-i6-LaY" firstAttribute="leading" secondItem="tR4-SM-s20" secondAttribute="leading" id="o0B-h2-U3x"/>
+                                            <constraint firstAttribute="trailing" secondItem="937-7K-bAv" secondAttribute="trailing" constant="-8" id="p3p-FW-DzW"/>
+                                            <constraint firstItem="Yzl-i6-LaY" firstAttribute="top" secondItem="tR4-SM-s20" secondAttribute="top" id="yZ0-4B-ieI"/>
                                         </constraints>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="8t8-xc-QXq" firstAttribute="leading" secondItem="wLN-Ho-Px8" secondAttribute="leading" constant="70" id="36i-Zl-xTw"/>
-                                    <constraint firstItem="LvK-b9-J6k" firstAttribute="top" secondItem="GfF-rh-vtI" secondAttribute="bottom" constant="277.5" id="4eP-fM-Fj8"/>
+                                    <constraint firstItem="k03-Ud-UDR" firstAttribute="top" secondItem="8t8-xc-QXq" secondAttribute="bottom" constant="20" id="7tk-Gi-vJF"/>
                                     <constraint firstAttribute="trailing" secondItem="LvK-b9-J6k" secondAttribute="trailing" constant="70" id="DFP-Xd-2Nj"/>
+                                    <constraint firstItem="k03-Ud-UDR" firstAttribute="leading" secondItem="wLN-Ho-Px8" secondAttribute="leading" constant="70" id="GOh-3W-Cba"/>
+                                    <constraint firstItem="tR4-SM-s20" firstAttribute="leading" secondItem="wLN-Ho-Px8" secondAttribute="leading" constant="70" id="HeP-de-hIr"/>
                                     <constraint firstItem="GfF-rh-vtI" firstAttribute="top" secondItem="wLN-Ho-Px8" secondAttribute="top" constant="50" id="Tcv-8v-SiN"/>
                                     <constraint firstAttribute="trailing" secondItem="dKU-v2-dWK" secondAttribute="trailing" constant="70" id="Y9M-yG-kMq"/>
+                                    <constraint firstAttribute="trailing" secondItem="k03-Ud-UDR" secondAttribute="trailing" constant="70" id="YTb-OZ-gNm"/>
+                                    <constraint firstItem="tR4-SM-s20" firstAttribute="top" secondItem="k03-Ud-UDR" secondAttribute="bottom" constant="20" id="bAe-7I-NMw"/>
                                     <constraint firstItem="dKU-v2-dWK" firstAttribute="leading" secondItem="wLN-Ho-Px8" secondAttribute="leading" constant="70" id="cqt-1v-vGA"/>
                                     <constraint firstItem="GfF-rh-vtI" firstAttribute="centerX" secondItem="wLN-Ho-Px8" secondAttribute="centerX" id="d1n-Tu-qEq"/>
                                     <constraint firstItem="LvK-b9-J6k" firstAttribute="leading" secondItem="wLN-Ho-Px8" secondAttribute="leading" constant="70" id="gUB-21-Hd2"/>
                                     <constraint firstItem="8t8-xc-QXq" firstAttribute="top" secondItem="GfF-rh-vtI" secondAttribute="bottom" constant="20" id="gWv-kH-Xfm"/>
                                     <constraint firstItem="dKU-v2-dWK" firstAttribute="top" secondItem="LvK-b9-J6k" secondAttribute="bottom" constant="15" id="hQd-8t-KYe"/>
                                     <constraint firstItem="GfF-rh-vtI" firstAttribute="leading" secondItem="wLN-Ho-Px8" secondAttribute="leading" constant="8" id="hdH-iX-o4I"/>
+                                    <constraint firstAttribute="trailing" secondItem="tR4-SM-s20" secondAttribute="trailing" constant="70" id="ktR-wg-iYo"/>
                                     <constraint firstAttribute="trailing" secondItem="8t8-xc-QXq" secondAttribute="trailing" constant="70" id="oYo-DS-ie2"/>
+                                    <constraint firstItem="LvK-b9-J6k" firstAttribute="top" secondItem="tR4-SM-s20" secondAttribute="bottom" constant="25" id="pTz-iP-SHy"/>
                                     <constraint firstAttribute="trailing" secondItem="GfF-rh-vtI" secondAttribute="trailing" constant="8" id="sFA-gR-Gc5"/>
                                 </constraints>
                             </view>
