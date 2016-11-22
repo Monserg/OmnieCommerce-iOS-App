@@ -121,3 +121,33 @@ extension BaseViewController: UIGestureRecognizerDelegate {
         view.endEditing(true)
     }
 }
+
+
+// MARK: - UITextFieldDelegate
+extension BaseViewController: UITextFieldDelegate {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        (textField as! CustomTextField).attributedPlaceholderString = textField.attributedPlaceholder
+        textField.placeholder = nil
+        selectedRange = textField.convert(textField.bounds, to: view)
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        textField.attributedPlaceholder = (textField as! CustomTextField).attributedPlaceholderString
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if (NSStringFromClass(type(of: self)).hasSuffix("SignInShowViewController")) {
+            let vc = self as! SignInShowViewController
+            
+            if textField == vc.nameTextField {
+                vc.passwordTextField.becomeFirstResponder()
+            } else {
+                // FIXME: RUN LOGIN FUNC
+                print("login run.")
+                textField.resignFirstResponder()
+            }
+        }
+        
+        return true
+    }
+}

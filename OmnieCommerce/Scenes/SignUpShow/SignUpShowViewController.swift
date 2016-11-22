@@ -25,7 +25,9 @@ class SignUpShowViewController: BaseViewController, SignUpShowViewControllerInpu
     var output: SignUpShowViewControllerOutput!
     var router: SignUpShowRouter!
     
+    @IBOutlet weak var contentView: UIView!
 
+    
     // MARK: - Class initialization
     override func awakeFromNib() {
         super.awakeFromNib()

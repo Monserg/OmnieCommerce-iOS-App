@@ -126,29 +126,3 @@ class SignInShowViewController: BaseViewController, SignInShowViewControllerInpu
         // nameTextField.text = viewModel.name
     }
 }
-
-
-// MARK: - UITextFieldDelegate
-extension SignInShowViewController: UITextFieldDelegate {
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        (textField as! CustomTextField).attributedPlaceholderString = textField.attributedPlaceholder
-        textField.placeholder = nil
-        selectedRange = textField.convert(textField.bounds, to: view)
-    }
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if textField == nameTextField {
-            passwordTextField.becomeFirstResponder()
-        } else {
-            // FIXME: RUN LOGIN FUNC
-            print("login run.")
-            textField.resignFirstResponder()
-        }
-        
-        return true
-    }
-    
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        textField.attributedPlaceholder = (textField as! CustomTextField).attributedPlaceholderString
-    }
-}

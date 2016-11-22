@@ -226,6 +226,9 @@
                             <constraint firstAttribute="trailing" secondItem="wLN-Ho-Px8" secondAttribute="trailing" id="wUE-xH-vea"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="contentView" destination="wLN-Ho-Px8" id="Qzx-MY-wbi"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bQg-aJ-tes" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -25,7 +25,11 @@ class ForgotPasswordShowViewController: BaseViewController, ForgotPasswordShowVi
     var output: ForgotPasswordShowViewControllerOutput!
     var router: ForgotPasswordShowRouter!
     
+    @IBOutlet var topBarView: TopBarView!
+    @IBOutlet weak var contentView: UIView!
+    @IBOutlet weak var phoneEmailTextField: CustomTextField!
 
+    
     // MARK: - Class initialization
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -38,6 +42,13 @@ class ForgotPasswordShowViewController: BaseViewController, ForgotPasswordShowVi
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Delegates
+        phoneEmailTextField.delegate = self
+        
+        content = contentView
+        
+        setup(topBarView: topBarView)
+
         doSomethingOnLoad()
     }
     
