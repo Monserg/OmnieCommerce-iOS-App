@@ -25,7 +25,11 @@ class SignUpShowViewController: BaseViewController, SignUpShowViewControllerInpu
     var output: SignUpShowViewControllerOutput!
     var router: SignUpShowRouter!
     
+    @IBOutlet weak var topBarView: TopBarView!
     @IBOutlet weak var contentView: UIView!
+    @IBOutlet weak var nameTextField: CustomTextField!
+    @IBOutlet weak var emailTextField: CustomTextField!
+    @IBOutlet weak var passwordTextField: CustomTextField!
 
     
     // MARK: - Class initialization
@@ -40,6 +44,15 @@ class SignUpShowViewController: BaseViewController, SignUpShowViewControllerInpu
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Delegates
+        nameTextField.delegate = self
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
+        
+        // Config scene
+        content = contentView
+        setup(topBarView: topBarView)
+
         doSomethingOnLoad()
     }
     

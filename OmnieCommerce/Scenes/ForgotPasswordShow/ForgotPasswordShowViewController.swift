@@ -28,6 +28,7 @@ class ForgotPasswordShowViewController: BaseViewController, ForgotPasswordShowVi
     @IBOutlet var topBarView: TopBarView!
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var phoneEmailTextField: CustomTextField!
+    @IBOutlet weak var phoneEmailErrorLabel: CustomLabel!
 
     
     // MARK: - Class initialization
@@ -45,8 +46,10 @@ class ForgotPasswordShowViewController: BaseViewController, ForgotPasswordShowVi
         // Delegates
         phoneEmailTextField.delegate = self
         
-        content = contentView
         
+        // Config scene
+        phoneEmailErrorLabel.isHidden = true
+        content = contentView
         setup(topBarView: topBarView)
 
         doSomethingOnLoad()

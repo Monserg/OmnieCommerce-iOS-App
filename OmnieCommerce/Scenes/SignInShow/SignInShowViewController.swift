@@ -69,8 +69,7 @@ class SignInShowViewController: BaseViewController, SignInShowViewControllerInpu
 //        googleButton.type = .social
 //        facebookButton.type = .social
         
-        content = contentView
-        
+        content = contentView        
         setup(topBarView: topBarView)
         
         doSomethingOnLoad()

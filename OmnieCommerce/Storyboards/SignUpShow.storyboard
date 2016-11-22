@@ -228,6 +228,10 @@
                     </view>
                     <connections>
                         <outlet property="contentView" destination="wLN-Ho-Px8" id="Qzx-MY-wbi"/>
+                        <outlet property="emailTextField" destination="qm1-Ua-9IK" id="APB-U8-shy"/>
+                        <outlet property="nameTextField" destination="9v3-8d-3pT" id="gk4-AB-9rF"/>
+                        <outlet property="passwordTextField" destination="937-7K-bAv" id="mDe-rP-Weu"/>
+                        <outlet property="topBarView" destination="qal-OG-pXP" id="mzw-ci-JZY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bQg-aJ-tes" userLabel="First Responder" sceneMemberID="firstResponder"/>

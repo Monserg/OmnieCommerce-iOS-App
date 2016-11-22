@@ -23,5 +23,5 @@ import Localize_Swift
         super.init(coder: aDecoder)
         
         keyboardAppearance = (Config.Constants.isAppThemesLight) ? .dark : .light
-    }
+    }    
 }
