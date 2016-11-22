@@ -9,8 +9,8 @@
 import UIKit
 
 enum TextFieldStyle: String {
-    case grayishBlue = "GrayishBlue"
     case darkCyan = "DarkCyan"
+    case grayishBlue = "GrayishBlue"
 }
 
 
