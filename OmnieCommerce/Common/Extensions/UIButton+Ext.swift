@@ -23,6 +23,11 @@ extension UIButton {
         get { return nil }
     }
     
+    @IBInspectable var borderWidth: CGFloat {
+        set { layer.borderWidth = newValue }
+        get { return layer.borderWidth }
+    }
+
     func setupWithStyleNamed(_ named: String?) {
         if let styleName = named, let buttonStyle = ButtonStyle(rawValue: styleName) {
             setupWithStyle(buttonStyle)

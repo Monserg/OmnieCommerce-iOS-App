@@ -8,23 +8,19 @@
 
 import UIKit
 
-extension UIView {
-    enum ThemeStyle: String {
-        case Light = "light"
-        case Dark  = "dark"
-    }
 
-    var themeStyle: ThemeStyle { return .Dark }
-    
+
+extension UIView {
+    // MARK: - Properties
     @IBInspectable var cornerRadius: CGFloat {
         set { layer.cornerRadius = newValue  }
         get { return layer.cornerRadius }
     }
     
-    @IBInspectable var borderWidth: CGFloat {
-        set { layer.borderWidth = newValue }
-        get { return layer.borderWidth }
-    }
+//    @IBInspectable var borderWidth: CGFloat {
+//        set { layer.borderWidth = newValue }
+//        get { return layer.borderWidth }
+//    }
     
     @IBInspectable var borderColor: UIColor? {
         set { layer.borderColor = newValue?.cgColor  }

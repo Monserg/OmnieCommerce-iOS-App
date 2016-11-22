@@ -73,9 +73,30 @@
                                             <action selector="handlerCancelButtonTap:" destination="SAh-c2-Tyl" eventType="touchUpInside" id="Zoq-Gy-6ak"/>
                                         </connections>
                                     </button>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8t8-xc-QXq" userLabel="Name View">
+                                        <rect key="frame" x="70" y="112.5" width="235" height="40"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VWd-Ml-cVe" userLabel="Dotted Line View" customClass="DottedBorderView" customModule="OmnieCommerce" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="235" height="40"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="viewStyle" value="BottomDottedLineColor"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="VWd-Ml-cVe" secondAttribute="bottom" id="HmY-0l-idT"/>
+                                            <constraint firstAttribute="height" constant="40" id="PPR-8W-dRv"/>
+                                            <constraint firstItem="VWd-Ml-cVe" firstAttribute="top" secondItem="8t8-xc-QXq" secondAttribute="top" id="QeI-KR-DgC"/>
+                                            <constraint firstAttribute="trailing" secondItem="VWd-Ml-cVe" secondAttribute="trailing" id="SRk-hu-HEP"/>
+                                            <constraint firstItem="VWd-Ml-cVe" firstAttribute="leading" secondItem="8t8-xc-QXq" secondAttribute="leading" id="rJG-bR-x5P"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstItem="8t8-xc-QXq" firstAttribute="leading" secondItem="wLN-Ho-Px8" secondAttribute="leading" constant="70" id="36i-Zl-xTw"/>
                                     <constraint firstItem="LvK-b9-J6k" firstAttribute="top" secondItem="GfF-rh-vtI" secondAttribute="bottom" constant="277.5" id="4eP-fM-Fj8"/>
                                     <constraint firstAttribute="trailing" secondItem="LvK-b9-J6k" secondAttribute="trailing" constant="70" id="DFP-Xd-2Nj"/>
                                     <constraint firstItem="GfF-rh-vtI" firstAttribute="top" secondItem="wLN-Ho-Px8" secondAttribute="top" constant="50" id="Tcv-8v-SiN"/>
@@ -83,8 +104,10 @@
                                     <constraint firstItem="dKU-v2-dWK" firstAttribute="leading" secondItem="wLN-Ho-Px8" secondAttribute="leading" constant="70" id="cqt-1v-vGA"/>
                                     <constraint firstItem="GfF-rh-vtI" firstAttribute="centerX" secondItem="wLN-Ho-Px8" secondAttribute="centerX" id="d1n-Tu-qEq"/>
                                     <constraint firstItem="LvK-b9-J6k" firstAttribute="leading" secondItem="wLN-Ho-Px8" secondAttribute="leading" constant="70" id="gUB-21-Hd2"/>
+                                    <constraint firstItem="8t8-xc-QXq" firstAttribute="top" secondItem="GfF-rh-vtI" secondAttribute="bottom" constant="20" id="gWv-kH-Xfm"/>
                                     <constraint firstItem="dKU-v2-dWK" firstAttribute="top" secondItem="LvK-b9-J6k" secondAttribute="bottom" constant="15" id="hQd-8t-KYe"/>
                                     <constraint firstItem="GfF-rh-vtI" firstAttribute="leading" secondItem="wLN-Ho-Px8" secondAttribute="leading" constant="8" id="hdH-iX-o4I"/>
+                                    <constraint firstAttribute="trailing" secondItem="8t8-xc-QXq" secondAttribute="trailing" constant="70" id="oYo-DS-ie2"/>
                                     <constraint firstAttribute="trailing" secondItem="GfF-rh-vtI" secondAttribute="trailing" constant="8" id="sFA-gR-Gc5"/>
                                 </constraints>
                             </view>

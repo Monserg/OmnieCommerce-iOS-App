@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		2AED68836D19B23C3805FA4F /* Pods_OmnieCommerce.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7BBCD9A2BBB6D643C1B64E4 /* Pods_OmnieCommerce.framework */; };
 		B11E074E1DE032D90052AFC5 /* DottedBorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11E074D1DE032D90052AFC5 /* DottedBorderView.swift */; };
-		B11E07501DE033520052AFC5 /* DottedBorderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B11E074F1DE033520052AFC5 /* DottedBorderView.xib */; };
 		B1228FAD1DD44D3400A90FBB /* TopBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1228FAC1DD44D3400A90FBB /* TopBarView.swift */; };
 		B1228FB21DD47C9F00A90FBB /* MenuViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1228FB11DD47C9F00A90FBB /* MenuViewCell.swift */; };
 		B1228FB51DD4856A00A90FBB /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1228FB41DD4856A00A90FBB /* MenuItem.swift */; };
@@ -128,6 +127,7 @@
 		B1BF927F1DD6516C00BECBBB /* UBUNTU-MI.TTF in Resources */ = {isa = PBXBuildFile; fileRef = B1BF92661DD650F400BECBBB /* UBUNTU-MI.TTF */; };
 		B1BF92801DD6516C00BECBBB /* UBUNTU-R.TTF in Resources */ = {isa = PBXBuildFile; fileRef = B1BF92671DD650F400BECBBB /* UBUNTU-R.TTF */; };
 		B1C6F35D1DD9C718004695C2 /* MenuItemsList.plist in Resources */ = {isa = PBXBuildFile; fileRef = B1C6F35C1DD9C718004695C2 /* MenuItemsList.plist */; };
+		B1CBAB921DE446E700A8BCA2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1CBAB911DE446E700A8BCA2 /* Assets.xcassets */; };
 		B1CF54641DDAE78200E98049 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CF54631DDAE78200E98049 /* CustomButton.swift */; };
 		B1CF54761DDB50D900E98049 /* AboutShowConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CF546F1DDB50D900E98049 /* AboutShowConfigurator.swift */; };
 		B1CF54771DDB50D900E98049 /* AboutShowInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CF54701DDB50D900E98049 /* AboutShowInteractor.swift */; };
@@ -194,7 +194,6 @@
 		B1CF54EE1DDB588600E98049 /* DiscountCardsShow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1CF54ED1DDB588600E98049 /* DiscountCardsShow.storyboard */; };
 		B1CF54F01DDB5F1A00E98049 /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CF54EF1DDB5F1A00E98049 /* CustomLabel.swift */; };
 		B1DB3C761DE4205500C0A079 /* UITextField+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DB3C751DE4205500C0A079 /* UITextField+Ext.swift */; };
-		B1E52AAF1DDDA84C00C3B24D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1E52AAE1DDDA84C00C3B24D /* Assets.xcassets */; };
 		B1E52AB11DDDD0EA00C3B24D /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E52AB01DDDD0EA00C3B24D /* LaunchScreenViewController.swift */; };
 		B1E52AD31DDDDEC600C3B24D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1E52AD21DDDDEC600C3B24D /* Main.storyboard */; };
 /* End PBXBuildFile section */
@@ -203,7 +202,6 @@
 		6AA4A159468D8EA48A132ED8 /* Pods-OmnieCommerce.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OmnieCommerce.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OmnieCommerce/Pods-OmnieCommerce.debug.xcconfig"; sourceTree = "<group>"; };
 		A7BBCD9A2BBB6D643C1B64E4 /* Pods_OmnieCommerce.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OmnieCommerce.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B11E074D1DE032D90052AFC5 /* DottedBorderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DottedBorderView.swift; sourceTree = "<group>"; };
-		B11E074F1DE033520052AFC5 /* DottedBorderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DottedBorderView.xib; sourceTree = "<group>"; };
 		B1228FAC1DD44D3400A90FBB /* TopBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopBarView.swift; sourceTree = "<group>"; };
 		B1228FB11DD47C9F00A90FBB /* MenuViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewCell.swift; sourceTree = "<group>"; };
 		B1228FB41DD4856A00A90FBB /* MenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
@@ -327,6 +325,7 @@
 		B1BF92661DD650F400BECBBB /* UBUNTU-MI.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "UBUNTU-MI.TTF"; sourceTree = "<group>"; };
 		B1BF92671DD650F400BECBBB /* UBUNTU-R.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "UBUNTU-R.TTF"; sourceTree = "<group>"; };
 		B1C6F35C1DD9C718004695C2 /* MenuItemsList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = MenuItemsList.plist; sourceTree = "<group>"; };
+		B1CBAB911DE446E700A8BCA2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B1CF54631DDAE78200E98049 /* CustomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		B1CF546F1DDB50D900E98049 /* AboutShowConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutShowConfigurator.swift; sourceTree = "<group>"; };
 		B1CF54701DDB50D900E98049 /* AboutShowInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutShowInteractor.swift; sourceTree = "<group>"; };
@@ -393,7 +392,6 @@
 		B1CF54ED1DDB588600E98049 /* DiscountCardsShow.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DiscountCardsShow.storyboard; sourceTree = "<group>"; };
 		B1CF54EF1DDB5F1A00E98049 /* CustomLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
 		B1DB3C751DE4205500C0A079 /* UITextField+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+Ext.swift"; sourceTree = "<group>"; };
-		B1E52AAE1DDDA84C00C3B24D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../Scenes/Assets.xcassets; sourceTree = "<group>"; };
 		B1E52AB01DDDD0EA00C3B24D /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewController.swift; sourceTree = "<group>"; };
 		B1E52AD21DDDDEC600C3B24D /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		ED913E9D2C7028252CE0B73A /* Pods-OmnieCommerce.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OmnieCommerce.release.xcconfig"; path = "Pods/Target Support Files/Pods-OmnieCommerce/Pods-OmnieCommerce.release.xcconfig"; sourceTree = "<group>"; };
@@ -434,7 +432,6 @@
 				B1305D391DDC738F000CA5FE /* CircleView.swift */,
 				B152915E1DDEB8B500BBA1E0 /* CustomTableView.swift */,
 				B11E074D1DE032D90052AFC5 /* DottedBorderView.swift */,
-				B11E074F1DE033520052AFC5 /* DottedBorderView.xib */,
 				B152915A1DDE44A200BBA1E0 /* MenuSectionFooterView.swift */,
 				B152915C1DDE44B700BBA1E0 /* MenuSectionFooterView.xib */,
 				B15291581DDE3FFA00BBA1E0 /* MenuSectionHeaderView.swift */,
@@ -663,7 +660,7 @@
 		B122F2451DD392C60018A701 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				B1E52AAE1DDDA84C00C3B24D /* Assets.xcassets */,
+				B1CBAB911DE446E700A8BCA2 /* Assets.xcassets */,
 				B1BF924E1DD6508A00BECBBB /* Fonts */,
 				B122F24A1DD393330018A701 /* Localizable.strings */,
 			);
@@ -966,8 +963,6 @@
 			files = (
 				B1BF92681DD6516C00BECBBB /* helveticaneuecyr-black.otf in Resources */,
 				B14E976C1DD8B8CB001E1DE2 /* SignInShow.storyboard in Resources */,
-				B11E07501DE033520052AFC5 /* DottedBorderView.xib in Resources */,
-				B1E52AAF1DDDA84C00C3B24D /* Assets.xcassets in Resources */,
 				B1C6F35D1DD9C718004695C2 /* MenuItemsList.plist in Resources */,
 				B1BF92691DD6516C00BECBBB /* helveticaneuecyr-blackitalic.otf in Resources */,
 				B1BF926A1DD6516C00BECBBB /* helveticaneuecyr-bold.otf in Resources */,
@@ -1012,6 +1007,7 @@
 				B1CF54EE1DDB588600E98049 /* DiscountCardsShow.storyboard in Resources */,
 				B1CF54E41DDB543300E98049 /* SettingsShow.storyboard in Resources */,
 				B122F1BF1DD3575E0018A701 /* SlideMenuShow.storyboard in Resources */,
+				B1CBAB921DE446E700A8BCA2 /* Assets.xcassets in Resources */,
 				B122F22E1DD35ECC0018A701 /* FavoriteShow.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

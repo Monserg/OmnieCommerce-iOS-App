@@ -8,7 +8,6 @@
 //
 
 import UIKit
-import Localize_Swift
 
 @IBDesignable class CustomLabel: UILabel {
 }
