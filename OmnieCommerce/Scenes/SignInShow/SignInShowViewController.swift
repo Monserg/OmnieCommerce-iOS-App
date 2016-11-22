@@ -131,6 +131,7 @@ class SignInShowViewController: BaseViewController, SignInShowViewControllerInpu
 // MARK: - UITextFieldDelegate
 extension SignInShowViewController: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
+        (textField as! CustomTextField).attributedPlaceholderString = textField.attributedPlaceholder
         textField.placeholder = nil
         selectedRange = textField.convert(textField.bounds, to: view)
     }
@@ -148,6 +149,6 @@ extension SignInShowViewController: UITextFieldDelegate {
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        textField.attributedPlaceholder = (textField as! CustomTextField).attributedPlaceholderText
+        textField.attributedPlaceholder = (textField as! CustomTextField).attributedPlaceholderString
     }
 }
