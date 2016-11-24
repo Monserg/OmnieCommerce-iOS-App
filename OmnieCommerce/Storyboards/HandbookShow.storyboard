@@ -27,15 +27,12 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QIO-EA-wXe" customClass="TopBarView" customModule="OmnieCommerce" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QIO-EA-wXe">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="128"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="Q3Y-BW-Xxf"/>
                                 </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="titleText" value="Handbook"/>
-                                </userDefinedRuntimeAttributes>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0jm-qd-ave" userLabel="Copyright Label" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
                                 <rect key="frame" x="8" y="637" width="359" height="21"/>
@@ -43,9 +40,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="style">
-                                        <real key="value" value="2"/>
-                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="labelStyle" value="Copyright"/>
                                 </userDefinedRuntimeAttributes>
                             </label>
                         </subviews>
@@ -67,7 +62,6 @@
                     <navigationItem key="navigationItem" id="pdq-Tq-NOG"/>
                     <connections>
                         <outlet property="copyrightLabel" destination="0jm-qd-ave" id="cDl-2a-Ob0"/>
-                        <outlet property="topBarView" destination="QIO-EA-wXe" id="3TJ-Xs-RKW"/>
                         <outlet property="topBarViewHeightPortraitConstraint" destination="Q3Y-BW-Xxf" id="rO2-ub-sej"/>
                     </connections>
                 </viewController>

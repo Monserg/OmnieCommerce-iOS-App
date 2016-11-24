@@ -21,15 +21,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qfb-kj-Smx" customClass="TopBarView" customModule="OmnieCommerce" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qfb-kj-Smx">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="128"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="JFk-Qy-qES"/>
                                 </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="titleText" value="OmnieCards"/>
-                                </userDefinedRuntimeAttributes>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OmnieCardsShow" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4uM-EC-3Zf">
                                 <rect key="frame" x="119" y="323" width="138" height="21"/>
@@ -67,7 +64,6 @@
                     <navigationItem key="navigationItem" id="RA6-Rp-ipT"/>
                     <connections>
                         <outlet property="copyrightLabel" destination="1Z8-aZ-gEE" id="FCT-bA-Rks"/>
-                        <outlet property="topBarView" destination="Qfb-kj-Smx" id="r8f-uS-ozb"/>
                         <outlet property="topBarViewHeightPortraitConstraint" destination="JFk-Qy-qES" id="BUf-qb-Fc7"/>
                     </connections>
                 </viewController>
@@ -82,7 +78,7 @@
                     <toolbarItems/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="ZYn-Je-r4m">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ZYn-Je-r4m">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

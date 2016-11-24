@@ -25,6 +25,9 @@ struct Config {
         static let circleViewBarHeightSmall: CGFloat        =   192.0
         
         static let topViewBarLineThickness: CGFloat         =   3.0
+        static let bigTopBarViewHeightCoefficient: CGFloat  =   667 / 220.0
+        static let bigTopBarViewWidthCoefficient: CGFloat   =   667 / 300.0
+        
         
         // FIXME: - DELETE AFTER TEST
         static let isUserGuest: Bool                        =   true

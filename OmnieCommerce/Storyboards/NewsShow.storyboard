@@ -21,15 +21,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KMj-II-PyU" customClass="TopBarView" customModule="OmnieCommerce" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KMj-II-PyU">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="Htg-WR-zRy"/>
                                 </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="titleText" value="News"/>
-                                </userDefinedRuntimeAttributes>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="krF-Rc-3FU" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
                                 <rect key="frame" x="8" y="637" width="359" height="21"/>
@@ -61,7 +58,6 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="copyrightLabel" destination="krF-Rc-3FU" id="GIf-FF-rYt"/>
-                        <outlet property="topBarView" destination="KMj-II-PyU" id="OQZ-aZ-VIe"/>
                         <outlet property="topBarViewHeightPortraitConstraint" destination="Htg-WR-zRy" id="6as-WT-FWC"/>
                     </connections>
                 </viewController>
@@ -74,7 +70,7 @@
             <objects>
                 <navigationController storyboardIdentifier="NewsShowNC" automaticallyAdjustsScrollViewInsets="NO" id="y4G-zF-e55" customClass="BaseNavigationController" customModule="OmnieCommerce" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="GUk-oy-T9T">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="GUk-oy-T9T">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

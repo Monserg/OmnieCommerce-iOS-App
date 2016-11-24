@@ -36,7 +36,7 @@ class LaunchScreenViewController: UIViewController {
         let isUserGuest = Config.Constants.isUserGuest
         
         if (isUserGuest) {
-            backgroundImageView.image = UIImage(named: "image-background")
+            backgroundImageView.image = (UIApplication.shared.statusBarOrientation.isPortrait) ? UIImage(named: "image-background-portrait") : UIImage(named: "image-background-landscape")
             blackoutView.isHidden = false
             blackoutView.backgroundColor = Config.Colors.veryDarkDesaturatedBlue25Alfa94
             

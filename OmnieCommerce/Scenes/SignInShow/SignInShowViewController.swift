@@ -25,20 +25,30 @@ class SignInShowViewController: BaseViewController, SignInShowViewControllerInpu
     var output: SignInShowViewControllerOutput!
     var router: SignInShowRouter!
     
-    @IBOutlet var topBarView: TopBarView!
-    @IBOutlet weak var backgroundImageView: UIImageView!
+    @IBOutlet var bigTopBarView: BigTopBarView!
+
+    @IBOutlet weak var bigTopBarViewBottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var bigTopBarViewTrailingConstraint: NSLayoutConstraint!
     
-    @IBOutlet weak var vkontakteButton: UIButton!
-    @IBOutlet weak var googleButton: UIButton!
-    @IBOutlet weak var facebookButton: UIButton!
     
-    @IBOutlet weak var nameTextField: CustomTextField!
-    @IBOutlet weak var passwordTextField: CustomTextField!
     
-    @IBOutlet weak var topBarViewHeightPortraitConstraint: NSLayoutConstraint!
-    @IBOutlet weak var topBarViewHeightLandscapeConstraint: NSLayoutConstraint!
     
-    @IBOutlet weak var contentView: UIView!
+    
+    
+    
+    //    @IBOutlet weak var backgroundImageView: UIImageView!
+    
+//    @IBOutlet weak var vkontakteButton: UIButton!
+//    @IBOutlet weak var googleButton: UIButton!
+//    @IBOutlet weak var facebookButton: UIButton!
+//    
+//    @IBOutlet weak var nameTextField: CustomTextField!
+//    @IBOutlet weak var passwordTextField: CustomTextField!
+//    
+//    @IBOutlet weak var topBarViewHeightPortraitConstraint: NSLayoutConstraint!
+//    @IBOutlet weak var topBarViewHeightLandscapeConstraint: NSLayoutConstraint!
+//    
+//    @IBOutlet weak var contentView: UIView!
 
     
     // MARK: - Class initialization
@@ -57,7 +67,15 @@ class SignInShowViewController: BaseViewController, SignInShowViewControllerInpu
 //        nameTextField.delegate = self
 //        passwordTextField.delegate = self
         
-        // Config scene
+//        // Config scene
+//        bigTopBarViewBottomConstraint.constant = view.bounds.height - view.bounds.height / 3.032
+//            //(UIApplication.shared.statusBarOrientation.isPortrait) ? CGFloat(Double(view.frame.height) * Config.Constants.bigTopBarViewHeightCoefficient) : 11
+//        
+//        print(bigTopBarView.frame)
+//        bigTopBarView.updateConstraintsIfNeeded()
+//        view.layoutIfNeeded()
+//        print(bigTopBarView.frame)
+        
 //        topBarView.circleView.cirleRadiusStyle = .small
 //        topBarViewHeight = (topBarView.circleView.cirleRadiusStyle == .small) ? Config.Constants.topViewBarHeightSmall : Config.Constants.topViewBarHeightBig
 //        topBarViewHeightPortraitConstraint.constant = topBarViewHeight
@@ -74,24 +92,25 @@ class SignInShowViewController: BaseViewController, SignInShowViewControllerInpu
         
         doSomethingOnLoad()
     }
-        
+    
     deinit {
         print("SignInShowViewController deinit.")
     }
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        
-//        if UIApplication.shared.statusBarOrientation.isLandscape {
-//            print("Landscape")
-//            
-//            topBarView.center = CGPoint(x: topBarViewHeight / 2, y: UIScreen.main.bounds.height / 2)
-//        } else {
-//            print("Portrait")
-//            
+    
+        if UIApplication.shared.statusBarOrientation.isLandscape {
+            bigTopBarViewTrailingConstraint.constant = view.bounds.width - view.bounds.width / Config.Constants.bigTopBarViewWidthCoefficient
+            bigTopBarView.updateConstraintsIfNeeded()
+        } else {
+            // Config scene
+            bigTopBarViewBottomConstraint.constant = view.bounds.height - view.bounds.height / Config.Constants.bigTopBarViewHeightCoefficient
+            bigTopBarView.updateConstraintsIfNeeded()
+
 //            topBarView.center = CGPoint(x: UIScreen.main.bounds.width / 2, y: topBarViewHeight / 2)
-//        }
-//        
+        }
+//
 //        topBarView.setNeedsDisplay()
         
 //        if (topBarView.circleView.cirleRadiusStyle == .small) {

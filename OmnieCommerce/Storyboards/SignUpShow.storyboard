@@ -21,7 +21,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image-background" translatesAutoresizingMaskIntoConstraints="NO" id="vCX-La-BsC" userLabel="Background Image View">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vCX-La-BsC" userLabel="Background Image View">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tXS-5L-ZrF" userLabel="Blackout View">
@@ -253,7 +253,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dVl-ed-LxC" userLabel="Background Image View">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <variation key="heightClass=compact-widthClass=compact" image="image-background-landscape"/>
-                                <variation key="heightClass=compact-widthClass=regular" image="29C715D0-F277-4FB3-9451-6E35CFC771E9"/>
+                                <variation key="heightClass=compact-widthClass=regular" image="541098EF-E881-44F3-B465-50DD6CC15552"/>
                                 <variation key="heightClass=regular-widthClass=compact" image="image-background-portrait"/>
                             </imageView>
                         </subviews>
@@ -272,7 +272,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="29C715D0-F277-4FB3-9451-6E35CFC771E9" width="667" height="375">
+        <image name="541098EF-E881-44F3-B465-50DD6CC15552" width="667" height="375">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -17001,7 +17001,6 @@ AA9OQAAPTkgAD05LAA9OUAAPTl8AD05jAA9OagAPTnIAD05/AA9OhAAPToYAD06IAA9OjQAPTpUAD06Y
 AA9OnQAPTqUAD06oAA9OugAPTr0AD07CAAAAAAAABAEAAAAAAAAAQQAAAAAAAAAAAAAAAAAPTsQ
 </mutableData>
         </image>
-        <image name="image-background" width="375" height="667"/>
         <image name="image-background-landscape" width="667" height="375"/>
         <image name="image-background-portrait" width="375" height="667"/>
     </resources>

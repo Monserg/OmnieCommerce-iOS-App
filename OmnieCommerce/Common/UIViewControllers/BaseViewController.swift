@@ -160,50 +160,50 @@ extension BaseViewController: UITextFieldDelegate {
         textField.attributedPlaceholder = (textField as! CustomTextField).attributedPlaceholderString
     }
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if (NSStringFromClass(type(of: self)).hasSuffix("SignInShowViewController")) {
-            let signInShowVC = self as! SignInShowViewController
-            
-            if textField == signInShowVC.nameTextField {
-                signInShowVC.passwordTextField.becomeFirstResponder()
-            } else {
-                // FIXME: RUN LOGIN FUNC
-                print("login run.")
-                textField.resignFirstResponder()
-            }
-        }
+//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+//        if (NSStringFromClass(type(of: self)).hasSuffix("SignInShowViewController")) {
+//            let signInShowVC = self as! SignInShowViewController
+//            
+//            if textField == signInShowVC.nameTextField {
+//                signInShowVC.passwordTextField.becomeFirstResponder()
+//            } else {
+//                // FIXME: RUN LOGIN FUNC
+//                print("login run.")
+//                textField.resignFirstResponder()
+//            }
+//        }
 
-        else if (NSStringFromClass(type(of: self)).hasSuffix("SignUpShowViewController")) {
-            let signUpShowVC = self as! SignUpShowViewController
-            
-            if textField == signUpShowVC.nameTextField {
-                signUpShowVC.emailTextField.becomeFirstResponder()
-            } else if textField == signUpShowVC.emailTextField {
-                if (textField.isValidEmail(textField.text!)) {
-                    signUpShowVC.passwordTextField.becomeFirstResponder()
-                }
-            } else {
-                // FIXME: RUN LOGIN FUNC
-                print("login run.")
-                textField.resignFirstResponder()
-            }
-        }
+//        else if (NSStringFromClass(type(of: self)).hasSuffix("SignUpShowViewController")) {
+//            let signUpShowVC = self as! SignUpShowViewController
+//            
+//            if textField == signUpShowVC.nameTextField {
+//                signUpShowVC.emailTextField.becomeFirstResponder()
+//            } else if textField == signUpShowVC.emailTextField {
+//                if (textField.isValidEmail(textField.text!)) {
+//                    signUpShowVC.passwordTextField.becomeFirstResponder()
+//                }
+//            } else {
+//                // FIXME: RUN LOGIN FUNC
+//                print("login run.")
+//                textField.resignFirstResponder()
+//            }
+//        }
 
-        else if (NSStringFromClass(type(of: self)).hasSuffix("ForgotPasswordShowViewController")) {
-            let forgotPasswordShowVC = self as! ForgotPasswordShowViewController
-            
-            if (textField.isValidEmail(textField.text!)) {
-                forgotPasswordShowVC.phoneEmailErrorLabel.isHidden = true
-                textField.resignFirstResponder()
-                
-                // TODO: - RUN SEND BUTTON HANDLER
-            } else {
-                forgotPasswordShowVC.phoneEmailErrorLabel.isHidden = false
- 
-                return false
-            }
-        }
-
-        return true
-    }
+//        else if (NSStringFromClass(type(of: self)).hasSuffix("ForgotPasswordShowViewController")) {
+//            let forgotPasswordShowVC = self as! ForgotPasswordShowViewController
+//            
+//            if (textField.isValidEmail(textField.text!)) {
+//                forgotPasswordShowVC.phoneEmailErrorLabel.isHidden = true
+//                textField.resignFirstResponder()
+//                
+//                // TODO: - RUN SEND BUTTON HANDLER
+//            } else {
+//                forgotPasswordShowVC.phoneEmailErrorLabel.isHidden = false
+// 
+//                return false
+//            }
+//        }
+//
+//        return true
+//    }
 }
