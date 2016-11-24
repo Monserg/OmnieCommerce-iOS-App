@@ -111,7 +111,7 @@ class SignInShowViewController: BaseViewController, SignInShowViewControllerInpu
 //            topBarView.center = CGPoint(x: UIScreen.main.bounds.width / 2, y: topBarViewHeight / 2)
         }
 //
-//        topBarView.setNeedsDisplay()
+        bigTopBarView.circleView.setNeedsDisplay()
         
 //        if (topBarView.circleView.cirleRadiusStyle == .small) {
 //            vkontakteButton.setNeedsDisplay()

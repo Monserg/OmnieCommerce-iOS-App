@@ -96,6 +96,7 @@
 		B15FD40A1DD1DD8C00782324 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15FD4091DD1DD8C00782324 /* AppDelegate.swift */; };
 		B16E966F1DE6C94000147CEF /* BigTopBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16E966E1DE6C94000147CEF /* BigTopBarView.swift */; };
 		B16E96711DE6C94D00147CEF /* BigTopBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B16E96701DE6C94D00147CEF /* BigTopBarView.xib */; };
+		B16E96731DE717E400147CEF /* BigCirleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16E96721DE717E400147CEF /* BigCirleView.swift */; };
 		B1739D161DE314C70029BCCA /* UIButton+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1739D151DE314C70029BCCA /* UIButton+Ext.swift */; };
 		B1739D181DE314D50029BCCA /* UILabel+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1739D171DE314D50029BCCA /* UILabel+Ext.swift */; };
 		B1739D1A1DE314DF0029BCCA /* UIColor+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1739D191DE314DF0029BCCA /* UIColor+Ext.swift */; };
@@ -296,6 +297,7 @@
 		B15FD4151DD1DD8C00782324 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Info.plist; sourceTree = "<group>"; };
 		B16E966E1DE6C94000147CEF /* BigTopBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BigTopBarView.swift; sourceTree = "<group>"; };
 		B16E96701DE6C94D00147CEF /* BigTopBarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BigTopBarView.xib; sourceTree = "<group>"; };
+		B16E96721DE717E400147CEF /* BigCirleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BigCirleView.swift; sourceTree = "<group>"; };
 		B1739D151DE314C70029BCCA /* UIButton+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Ext.swift"; sourceTree = "<group>"; };
 		B1739D171DE314D50029BCCA /* UILabel+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+Ext.swift"; sourceTree = "<group>"; };
 		B1739D191DE314DF0029BCCA /* UIColor+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Ext.swift"; sourceTree = "<group>"; };
@@ -433,7 +435,9 @@
 		B1228FAA1DD44C7A00A90FBB /* UIViews */ = {
 			isa = PBXGroup;
 			children = (
+				B122F23A1DD36F420018A701 /* UITableViewCells */,
 				B1305D391DDC738F000CA5FE /* CircleView.swift */,
+				B16E96721DE717E400147CEF /* BigCirleView.swift */,
 				B152915E1DDEB8B500BBA1E0 /* CustomTableView.swift */,
 				B11E074D1DE032D90052AFC5 /* DottedBorderView.swift */,
 				B152915A1DDE44A200BBA1E0 /* MenuSectionFooterView.swift */,
@@ -623,7 +627,6 @@
 				B122F2391DD36F220018A701 /* UIButtons */,
 				B1228FBB1DD4BDE600A90FBB /* UILabels */,
 				B122F23F1DD371830018A701 /* UINavigationControllers */,
-				B122F23A1DD36F420018A701 /* UITableViewCells */,
 				B122F2381DD36F120018A701 /* UITextFields */,
 				B1228FB61DD497FC00A90FBB /* UIViewControllers */,
 				B1228FAA1DD44C7A00A90FBB /* UIViews */,
@@ -652,7 +655,8 @@
 			children = (
 				B1228FB11DD47C9F00A90FBB /* MenuViewCell.swift */,
 			);
-			path = UITableViewCells;
+			name = UITableViewCells;
+			path = ../UITableViewCells;
 			sourceTree = "<group>";
 		};
 		B122F23F1DD371830018A701 /* UINavigationControllers */ = {
@@ -1104,6 +1108,7 @@
 				B1CF54921DDB512000E98049 /* DiscountCardsShowConfigurator.swift in Sources */,
 				B1CF54871DDB50F100E98049 /* BusinessCardsShowPresenter.swift in Sources */,
 				B1CF54771DDB50D900E98049 /* AboutShowInteractor.swift in Sources */,
+				B16E96731DE717E400147CEF /* BigCirleView.swift in Sources */,
 				B1CF54951DDB512000E98049 /* DiscountCardsShowPresenter.swift in Sources */,
 				B1CF54861DDB50F100E98049 /* BusinessCardsShowModels.swift in Sources */,
 				B1739D181DE314D50029BCCA /* UILabel+Ext.swift in Sources */,
@@ -1337,7 +1342,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6AA4A159468D8EA48A132ED8 /* Pods-OmnieCommerce.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 2DS2B364WY;
@@ -1357,7 +1362,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = ED913E9D2C7028252CE0B73A /* Pods-OmnieCommerce.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 2DS2B364WY;

@@ -13,7 +13,7 @@ import SWRevealViewController
 class BaseViewController: UIViewController {
     // MARK: - Properties
     var selectedRange: CGRect?
-    var topBarViewRounding = CircleView.CirleRadius.small
+    var topBarViewRounding = String()
     let scrollView = UIScrollView()
     var content = UIView()
     var topBarViewHeight: CGFloat = 100.0
@@ -68,7 +68,7 @@ class BaseViewController: UIViewController {
     // MARK: - Custom Functions
     func setup(topBarView: TopBarView) {
         // .small radius
-        if (topBarViewRounding == .small) {
+        if (topBarViewRounding == "Small") {
             print(".small")
             
             let gestureRecognizer = UITapGestureRecognizer.init(target: self, action: #selector(BaseViewController.handleTap(gestureRecognizer:)))

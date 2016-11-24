@@ -29,9 +29,9 @@ class AboutShowViewController: BaseViewController, AboutShowViewControllerInput 
     @IBOutlet weak var copyrightLabel: CustomLabel!
     @IBOutlet weak var topBarViewHeightPortraitConstraint: NSLayoutConstraint!
     
-    override var topBarViewRounding: CircleView.CirleRadius {
+    override var topBarViewRounding: String {
         willSet {
-            if (newValue == .big) {
+            if (newValue == "Big") {
                 topBarViewHeightPortraitConstraint.constant = Config.Constants.topViewBarHeightBig
             }
         }
@@ -51,7 +51,7 @@ class AboutShowViewController: BaseViewController, AboutShowViewControllerInput 
         super.viewDidLoad()
         
         // Config topBarView
-        topBarViewRounding = .big
+        topBarViewRounding = "Big"
         setup(topBarView: topBarView)
         
         doSomethingOnLoad()

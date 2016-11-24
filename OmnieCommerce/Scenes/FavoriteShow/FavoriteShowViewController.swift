@@ -29,13 +29,13 @@ class FavoriteShowViewController: BaseViewController, FavoriteShowViewController
     @IBOutlet weak var copyrightLabel: CustomLabel!
     @IBOutlet weak var topBarViewHeightPortraitConstraint: NSLayoutConstraint!
     
-    override var topBarViewRounding: CircleView.CirleRadius {
-        willSet {
-            if (newValue == .big) {
-                topBarViewHeightPortraitConstraint.constant = Config.Constants.topViewBarHeightBig
-            }
-        }
-    }
+//    override var topBarViewRounding: String {
+//        willSet {
+//            if (newValue == .big) {
+//                topBarViewHeightPortraitConstraint.constant = Config.Constants.topViewBarHeightBig
+//            }
+//        }
+//    }
     
     
     // MARK: - Class initialization
@@ -51,7 +51,7 @@ class FavoriteShowViewController: BaseViewController, FavoriteShowViewController
         super.viewDidLoad()
         
         // Config topBarView
-        topBarViewRounding = .big
+//        topBarViewRounding = "Big"
         setup(topBarView: topBarView)
 
         doSomethingOnLoad()
