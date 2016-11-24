@@ -7,5 +7,6 @@ target 'OmnieCommerce' do
 
     pod 'SWRevealViewController', '~> 2.3'
     pod 'Localize-Swift', '~> 1.6'
-
+    pod 'Device', '~> 2.0.0'
+    
 end

@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Device.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Localize-Swift.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -22,17 +27,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>1D1D124E2C850D54D2C84181CE1F366D</key>
+		<key>55726601E2132A34A005A93C9DF7A07C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>5E90024CA4621EC0A8B8C777C958214A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>74967E3E3987F9BAE9EBF4D0C785BDDB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>86433867888749E4CF5A5AEC59DD39D3</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>98EC4BC8B67D93E4D26BB87744C04C50</key>
 		<dict>
 			<key>primary</key>
 			<true/>

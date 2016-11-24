@@ -7,89 +7,122 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		05451F1940272118A8C2B6AA6C9031C2 /* SWRevealViewController-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 41DE95D867EB1D700EEF46BAF73B7318 /* SWRevealViewController-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1ED698893278DB4C4AFA4E57340A5AC6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A635401944412E396EA69FF81D70EAD8 /* Foundation.framework */; };
+		06DA09BF59E23420B910B38ADB271981 /* SWRevealViewController-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = FA5C1528200BEC3B00B7916C0C20CB4E /* SWRevealViewController-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		11C7735FDFED235935DFEE17429A12EE /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A850D8F1A0BEC2B12D717FD3129AA6 /* Device.swift */; };
 		20CA7EA232A8924DA33303A885546E8F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A635401944412E396EA69FF81D70EAD8 /* Foundation.framework */; };
-		2D7C06AFDB38E1FC46B485B41B026E51 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A635401944412E396EA69FF81D70EAD8 /* Foundation.framework */; };
-		319C10228199103146E2A6DBDDAEE1AB /* Localize-Swift-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 958B3DCCD8C564395FB3F155FEFD85AC /* Localize-Swift-dummy.m */; };
-		345AC829479B728AB6BA3977E08CDADA /* Localize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86BC953390D8CBCABFE178FF19BABC43 /* Localize.swift */; };
-		492B02EF444C02DF9F5B9B5068248112 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7512E09FD626FC8CE110467EAD517EA /* CoreGraphics.framework */; };
-		6208144385DF7476048B7DB78FF0AAB1 /* Localize-Swift-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A4592D726DC5448A23B45F8703041CF7 /* Localize-Swift-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		83F563ABBF5A51BA691C4E295DA26FEC /* SWRevealViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 19C5E8A2D87E1E1870631BA1BD52B0A3 /* SWRevealViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9F787931F5A22E7481F7EBF8994897E8 /* SWRevealViewController-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E25694325223ACAE7705A816919895EF /* SWRevealViewController-dummy.m */; };
-		C8DA4663658734BC3F3EF7779F086F91 /* Pods-OmnieCommerce-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B06D7CF5539554B27E328D4FDE8AB2C /* Pods-OmnieCommerce-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E9271A8CFBD8B0A5A33FFA8563317D36 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDE48CF412BAF9A6DCB1C65D613990A0 /* SWRevealViewController.m */; };
-		EAA100AE115E2E4AE713E03A86A96148 /* Pods-OmnieCommerce-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 09C2718DC8C20295E09F8CC934C8E07B /* Pods-OmnieCommerce-dummy.m */; };
-		FA272CB16E208FA3A04920A2D1351BF0 /* Localize_Swift.h in Headers */ = {isa = PBXBuildFile; fileRef = 888C003DA64CA06B95B332DE8DB508E5 /* Localize_Swift.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		319C10228199103146E2A6DBDDAEE1AB /* Localize-Swift-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D13A792D86DD2CC6ECA809C5634B15B /* Localize-Swift-dummy.m */; };
+		345AC829479B728AB6BA3977E08CDADA /* Localize.swift in Sources */ = {isa = PBXBuildFile; fileRef = F999900F82C67CC03FE405DA8E6B851A /* Localize.swift */; };
+		503466642D23F06B0F55BC08C5EF3140 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7512E09FD626FC8CE110467EAD517EA /* CoreGraphics.framework */; };
+		6208144385DF7476048B7DB78FF0AAB1 /* Localize-Swift-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 26D546F235F8595F29564C18FCC08301 /* Localize-Swift-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6D61804E0C998C71520AC1A6C83FAA60 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A635401944412E396EA69FF81D70EAD8 /* Foundation.framework */; };
+		8907F698C02A1E3DD5CA2DD4B7387AFB /* Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A0A663556860DB59157660EECD59D9 /* Version.swift */; };
+		8CF381CFE809227EEDE92995264EE90D /* Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E1624A608FE7C07439C43FF30438A4 /* Size.swift */; };
+		90B70574F11D62C1241E4C6919D1A0CB /* SWRevealViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 32FC72C6B95021415EBBCB39894D3BFA /* SWRevealViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		919308EF328A64397C4637D0D234F1D3 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA96A4CF82FE57370769BB4BCFEE635 /* SWRevealViewController.m */; };
+		95D1804FEDC921E2224BC58D9425255A /* Device-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D74FFAEC5CF481E147DDEBEDC0C26B2A /* Device-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AE6AB8D9D76665174209676D0A680206 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A635401944412E396EA69FF81D70EAD8 /* Foundation.framework */; };
+		B27B163CFCBEEC45948AEC1EDA74B5C4 /* Device-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 674D86A410361988DA28DACC7BA41B39 /* Device-dummy.m */; };
+		BD8B8A0C20873375B823263C4122C94E /* Pods-OmnieCommerce-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B06D7CF5539554B27E328D4FDE8AB2C /* Pods-OmnieCommerce-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C4E91626C752046FBCAB6DBC5C2A974D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A635401944412E396EA69FF81D70EAD8 /* Foundation.framework */; };
+		CA303441F745B2A4F8CEE6BBF6CFEF3C /* Pods-OmnieCommerce-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 09C2718DC8C20295E09F8CC934C8E07B /* Pods-OmnieCommerce-dummy.m */; };
+		D34A0E8F6ED4FFAEB8F0FF6A64746EA5 /* SWRevealViewController-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F64B0358728A28972F77B639ADE5E196 /* SWRevealViewController-dummy.m */; };
+		DD14B8ECC2DFA91E25604F654803A64B /* Type.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FF5CC17EAA8D0918EC809A21B514ED /* Type.swift */; };
+		FA272CB16E208FA3A04920A2D1351BF0 /* Localize_Swift.h in Headers */ = {isa = PBXBuildFile; fileRef = 93AAA26B4BA3B07050886000896DCDEA /* Localize_Swift.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		8050B7AED68A3DF07EF6F21F2FEEA761 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 1D1D124E2C850D54D2C84181CE1F366D;
-			remoteInfo = SWRevealViewController;
-		};
-		EA8CC995128B941CD96E9DFB31B9E0B8 /* PBXContainerItemProxy */ = {
+		11479FA7EB2D7216450657D539191D38 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 86433867888749E4CF5A5AEC59DD39D3;
 			remoteInfo = "Localize-Swift";
 		};
+		497205858BBE5349CB43F0793176ABAF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 55726601E2132A34A005A93C9DF7A07C;
+			remoteInfo = SWRevealViewController;
+		};
+		BDFE1311C9BB59F757679E924F4AB759 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5E90024CA4621EC0A8B8C777C958214A;
+			remoteInfo = Device;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		09C2718DC8C20295E09F8CC934C8E07B /* Pods-OmnieCommerce-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-OmnieCommerce-dummy.m"; sourceTree = "<group>"; };
-		115DE22593BA02A276569A8FDEA202CF /* Localize-Swift.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Localize-Swift.modulemap"; sourceTree = "<group>"; };
-		19C5E8A2D87E1E1870631BA1BD52B0A3 /* SWRevealViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SWRevealViewController.h; path = SWRevealViewController/SWRevealViewController.h; sourceTree = "<group>"; };
+		0D13A792D86DD2CC6ECA809C5634B15B /* Localize-Swift-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Localize-Swift-dummy.m"; sourceTree = "<group>"; };
 		1B06D7CF5539554B27E328D4FDE8AB2C /* Pods-OmnieCommerce-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-OmnieCommerce-umbrella.h"; sourceTree = "<group>"; };
-		1E47799748A86A19210BD0D43C9FD5B1 /* SWRevealViewController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SWRevealViewController.framework; path = SWRevealViewController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		24415F4F3B31093AE2F98C34C9931258 /* Localize_Swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Localize_Swift.framework; path = "Localize-Swift.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		25C8BDCD0B0012B83564ACF43C7B5805 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		261838FEA7691C2E717D83D4F64C93A8 /* Localize-Swift-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Localize-Swift-prefix.pch"; sourceTree = "<group>"; };
-		33DE5B818BEDFD17B03648DF49771C03 /* Localize-Swift.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Localize-Swift.xcconfig"; sourceTree = "<group>"; };
+		26D546F235F8595F29564C18FCC08301 /* Localize-Swift-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Localize-Swift-umbrella.h"; sourceTree = "<group>"; };
+		27E1624A608FE7C07439C43FF30438A4 /* Size.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Size.swift; path = Source/Size.swift; sourceTree = "<group>"; };
+		28A850D8F1A0BEC2B12D717FD3129AA6 /* Device.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Device.swift; path = Source/Device.swift; sourceTree = "<group>"; };
+		32FC72C6B95021415EBBCB39894D3BFA /* SWRevealViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SWRevealViewController.h; path = SWRevealViewController/SWRevealViewController.h; sourceTree = "<group>"; };
+		36A0A663556860DB59157660EECD59D9 /* Version.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Version.swift; path = Source/Version.swift; sourceTree = "<group>"; };
+		383237903B35CBF9AEAAA758244C8597 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		38C501CFD5ED95C0EF7A3FF618454050 /* Device.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Device.xcconfig; sourceTree = "<group>"; };
 		396D90496B4243BAF15946F3B0C6E9AE /* Pods-OmnieCommerce-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-OmnieCommerce-acknowledgements.plist"; sourceTree = "<group>"; };
-		41DE95D867EB1D700EEF46BAF73B7318 /* SWRevealViewController-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SWRevealViewController-umbrella.h"; sourceTree = "<group>"; };
-		4871490D19D27C045DFCA8C9539C9C62 /* SWRevealViewController.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SWRevealViewController.xcconfig; sourceTree = "<group>"; };
-		4920DDEBA904D155EEC23E0AAE7A82F5 /* SWRevealViewController-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SWRevealViewController-prefix.pch"; sourceTree = "<group>"; };
-		499D5F6B166066F19CA25155FAE94441 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3D85B4C1DF33334C2D531733B4D5D4CB /* SWRevealViewController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SWRevealViewController.framework; path = SWRevealViewController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BF6ABFDFF364941CB9F6D0A9C93B4C7 /* Pods-OmnieCommerce-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-OmnieCommerce-acknowledgements.markdown"; sourceTree = "<group>"; };
+		674D86A410361988DA28DACC7BA41B39 /* Device-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Device-dummy.m"; sourceTree = "<group>"; };
 		679E952D94BC20DB863CE52B91EAD024 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7B8BDE6EE1365FC5A2E478D17D7924D3 /* SWRevealViewController.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = SWRevealViewController.modulemap; sourceTree = "<group>"; };
+		7F9D84259B3B343458B4893A51966A3F /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8565B90FDA8314C26E87E468B1BB7858 /* Pods-OmnieCommerce.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-OmnieCommerce.debug.xcconfig"; sourceTree = "<group>"; };
-		86BC953390D8CBCABFE178FF19BABC43 /* Localize.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Localize.swift; path = Sources/Localize.swift; sourceTree = "<group>"; };
-		888C003DA64CA06B95B332DE8DB508E5 /* Localize_Swift.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Localize_Swift.h; path = Sources/Localize_Swift.h; sourceTree = "<group>"; };
-		92DFBFD0242DFFEAC268D3D3C8A4E5D1 /* Pods_OmnieCommerce.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_OmnieCommerce.framework; path = "Pods-OmnieCommerce.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		90F2E88972B40890CD1E96FC773EA982 /* Localize-Swift-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Localize-Swift-prefix.pch"; sourceTree = "<group>"; };
+		914A5D82D9DDB225AA6D10686F630005 /* SWRevealViewController.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = SWRevealViewController.modulemap; sourceTree = "<group>"; };
+		91C6E323EFA441BF8D1DB2B3DD0C4D23 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		958B3DCCD8C564395FB3F155FEFD85AC /* Localize-Swift-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Localize-Swift-dummy.m"; sourceTree = "<group>"; };
+		93AAA26B4BA3B07050886000896DCDEA /* Localize_Swift.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Localize_Swift.h; path = Sources/Localize_Swift.h; sourceTree = "<group>"; };
 		984348DDCC2F272E4DB442EFA02B34DA /* Pods-OmnieCommerce-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-OmnieCommerce-frameworks.sh"; sourceTree = "<group>"; };
-		A4592D726DC5448A23B45F8703041CF7 /* Localize-Swift-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Localize-Swift-umbrella.h"; sourceTree = "<group>"; };
+		9EA01241BA1308EFA787272BC6EAA922 /* Localize-Swift.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Localize-Swift.xcconfig"; sourceTree = "<group>"; };
+		9F28450EF19120B30323595C627B407E /* Device.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = Device.modulemap; sourceTree = "<group>"; };
+		A4FF5CC17EAA8D0918EC809A21B514ED /* Type.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Type.swift; path = Source/Type.swift; sourceTree = "<group>"; };
 		A635401944412E396EA69FF81D70EAD8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		A7BB67459544BFADD6699459C08EB2D5 /* Pods_OmnieCommerce.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_OmnieCommerce.framework; path = "Pods-OmnieCommerce.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		ABA7DFCCD14E01549CE861C279B90005 /* Device.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Device.framework; path = Device.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D04E744802869EAE8788987F33F0C5DE /* Device-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Device-prefix.pch"; sourceTree = "<group>"; };
+		D55D4B9B4C12EC28CE822A6FBF8E11E7 /* SWRevealViewController.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SWRevealViewController.xcconfig; sourceTree = "<group>"; };
+		D74FFAEC5CF481E147DDEBEDC0C26B2A /* Device-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Device-umbrella.h"; sourceTree = "<group>"; };
+		DF58B5B3CA54FE65DF5ADF041F992CFE /* Localize-Swift.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Localize-Swift.modulemap"; sourceTree = "<group>"; };
 		E08653028C3DBDFB485591836F3E9D48 /* Pods-OmnieCommerce.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-OmnieCommerce.modulemap"; sourceTree = "<group>"; };
-		E25694325223ACAE7705A816919895EF /* SWRevealViewController-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SWRevealViewController-dummy.m"; sourceTree = "<group>"; };
+		E48655CCB6026652715577B47830883E /* SWRevealViewController-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SWRevealViewController-prefix.pch"; sourceTree = "<group>"; };
 		E7512E09FD626FC8CE110467EAD517EA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
 		F091DCB3A8A7E323207FB159BFA6E0C7 /* Pods-OmnieCommerce-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-OmnieCommerce-resources.sh"; sourceTree = "<group>"; };
+		F1446494EAF8E03CDF38636FBF1F7445 /* Localize_Swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Localize_Swift.framework; path = "Localize-Swift.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F39771E801843997A2B4925D9222399E /* Pods-OmnieCommerce.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-OmnieCommerce.release.xcconfig"; sourceTree = "<group>"; };
-		FDE48CF412BAF9A6DCB1C65D613990A0 /* SWRevealViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SWRevealViewController.m; path = SWRevealViewController/SWRevealViewController.m; sourceTree = "<group>"; };
+		F64B0358728A28972F77B639ADE5E196 /* SWRevealViewController-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SWRevealViewController-dummy.m"; sourceTree = "<group>"; };
+		F999900F82C67CC03FE405DA8E6B851A /* Localize.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Localize.swift; path = Sources/Localize.swift; sourceTree = "<group>"; };
+		FA5C1528200BEC3B00B7916C0C20CB4E /* SWRevealViewController-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SWRevealViewController-umbrella.h"; sourceTree = "<group>"; };
+		FAA96A4CF82FE57370769BB4BCFEE635 /* SWRevealViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SWRevealViewController.m; path = SWRevealViewController/SWRevealViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		2900B9259CD59A3C8D18C40BEDE8F2B0 /* Frameworks */ = {
+		4DE591D014DF18427894DBF43BE21B5B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1ED698893278DB4C4AFA4E57340A5AC6 /* Foundation.framework in Frameworks */,
+				6D61804E0C998C71520AC1A6C83FAA60 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		52169064C005696186B2C5591F79DB71 /* Frameworks */ = {
+		69431423F129CF52261D78E204CDF539 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				492B02EF444C02DF9F5B9B5068248112 /* CoreGraphics.framework in Frameworks */,
-				2D7C06AFDB38E1FC46B485B41B026E51 /* Foundation.framework in Frameworks */,
+				AE6AB8D9D76665174209676D0A680206 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BAA411BF43C39D94B92D700E3599C713 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				503466642D23F06B0F55BC08C5EF3140 /* CoreGraphics.framework in Frameworks */,
+				C4E91626C752046FBCAB6DBC5C2A974D /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -121,15 +154,18 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		2ADCED6922B9B255CE7C8DDF39CF9D99 /* Localize-Swift */ = {
+		361CB4F7613BC729324BAB65E40E4F00 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				86BC953390D8CBCABFE178FF19BABC43 /* Localize.swift */,
-				888C003DA64CA06B95B332DE8DB508E5 /* Localize_Swift.h */,
-				D0BBBF93B15053188CEDC669E795A76C /* Support Files */,
+				9F28450EF19120B30323595C627B407E /* Device.modulemap */,
+				38C501CFD5ED95C0EF7A3FF618454050 /* Device.xcconfig */,
+				674D86A410361988DA28DACC7BA41B39 /* Device-dummy.m */,
+				D04E744802869EAE8788987F33F0C5DE /* Device-prefix.pch */,
+				D74FFAEC5CF481E147DDEBEDC0C26B2A /* Device-umbrella.h */,
+				7F9D84259B3B343458B4893A51966A3F /* Info.plist */,
 			);
-			name = "Localize-Swift";
-			path = "Localize-Swift";
+			name = "Support Files";
+			path = "../Target Support Files/Device";
 			sourceTree = "<group>";
 		};
 		433CD3331B6C3787F473C941B61FC68F /* Frameworks */ = {
@@ -140,18 +176,42 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		5A2F81495F168C4A03CFDE75C66BCB6F /* Support Files */ = {
+		452150706907E34305138CD05FE1A94E /* Localize-Swift */ = {
 			isa = PBXGroup;
 			children = (
-				499D5F6B166066F19CA25155FAE94441 /* Info.plist */,
-				7B8BDE6EE1365FC5A2E478D17D7924D3 /* SWRevealViewController.modulemap */,
-				4871490D19D27C045DFCA8C9539C9C62 /* SWRevealViewController.xcconfig */,
-				E25694325223ACAE7705A816919895EF /* SWRevealViewController-dummy.m */,
-				4920DDEBA904D155EEC23E0AAE7A82F5 /* SWRevealViewController-prefix.pch */,
-				41DE95D867EB1D700EEF46BAF73B7318 /* SWRevealViewController-umbrella.h */,
+				F999900F82C67CC03FE405DA8E6B851A /* Localize.swift */,
+				93AAA26B4BA3B07050886000896DCDEA /* Localize_Swift.h */,
+				466BF740BDBBBAB7D9F1E45C79A28981 /* Support Files */,
+			);
+			name = "Localize-Swift";
+			path = "Localize-Swift";
+			sourceTree = "<group>";
+		};
+		466BF740BDBBBAB7D9F1E45C79A28981 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				91C6E323EFA441BF8D1DB2B3DD0C4D23 /* Info.plist */,
+				DF58B5B3CA54FE65DF5ADF041F992CFE /* Localize-Swift.modulemap */,
+				9EA01241BA1308EFA787272BC6EAA922 /* Localize-Swift.xcconfig */,
+				0D13A792D86DD2CC6ECA809C5634B15B /* Localize-Swift-dummy.m */,
+				90F2E88972B40890CD1E96FC773EA982 /* Localize-Swift-prefix.pch */,
+				26D546F235F8595F29564C18FCC08301 /* Localize-Swift-umbrella.h */,
 			);
 			name = "Support Files";
-			path = "../Target Support Files/SWRevealViewController";
+			path = "../Target Support Files/Localize-Swift";
+			sourceTree = "<group>";
+		};
+		666B6119DEBEFB3D140E994E223BEA6C /* Device */ = {
+			isa = PBXGroup;
+			children = (
+				28A850D8F1A0BEC2B12D717FD3129AA6 /* Device.swift */,
+				27E1624A608FE7C07439C43FF30438A4 /* Size.swift */,
+				A4FF5CC17EAA8D0918EC809A21B514ED /* Type.swift */,
+				36A0A663556860DB59157660EECD59D9 /* Version.swift */,
+				361CB4F7613BC729324BAB65E40E4F00 /* Support Files */,
+			);
+			name = Device;
+			path = Device;
 			sourceTree = "<group>";
 		};
 		7DB346D0F39D3F0E887471402A8071AB = {
@@ -159,44 +219,35 @@
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
 				433CD3331B6C3787F473C941B61FC68F /* Frameworks */,
-				C16466782F4D365417CED1F5DC976A79 /* Pods */,
-				EB6D1B8B097F880B8B1E8FF982A94B8E /* Products */,
+				F536063EE1F58CFAD9ED9B0DD6E8898A /* Pods */,
+				D525086465CCB9AA2230166416B80560 /* Products */,
 				0B875D0783357E8F090935C198114E32 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		A68212B81CBA73AE1B8F157097F08EBB /* SWRevealViewController */ = {
+		988384B12F8DCF5B4AE5B6CF8F67B5BC /* SWRevealViewController */ = {
 			isa = PBXGroup;
 			children = (
-				19C5E8A2D87E1E1870631BA1BD52B0A3 /* SWRevealViewController.h */,
-				FDE48CF412BAF9A6DCB1C65D613990A0 /* SWRevealViewController.m */,
-				5A2F81495F168C4A03CFDE75C66BCB6F /* Support Files */,
+				32FC72C6B95021415EBBCB39894D3BFA /* SWRevealViewController.h */,
+				FAA96A4CF82FE57370769BB4BCFEE635 /* SWRevealViewController.m */,
+				9EB5D6C4FEC46F95632E76A505627AA4 /* Support Files */,
 			);
 			name = SWRevealViewController;
 			path = SWRevealViewController;
 			sourceTree = "<group>";
 		};
-		C16466782F4D365417CED1F5DC976A79 /* Pods */ = {
+		9EB5D6C4FEC46F95632E76A505627AA4 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				2ADCED6922B9B255CE7C8DDF39CF9D99 /* Localize-Swift */,
-				A68212B81CBA73AE1B8F157097F08EBB /* SWRevealViewController */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		D0BBBF93B15053188CEDC669E795A76C /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				25C8BDCD0B0012B83564ACF43C7B5805 /* Info.plist */,
-				115DE22593BA02A276569A8FDEA202CF /* Localize-Swift.modulemap */,
-				33DE5B818BEDFD17B03648DF49771C03 /* Localize-Swift.xcconfig */,
-				958B3DCCD8C564395FB3F155FEFD85AC /* Localize-Swift-dummy.m */,
-				261838FEA7691C2E717D83D4F64C93A8 /* Localize-Swift-prefix.pch */,
-				A4592D726DC5448A23B45F8703041CF7 /* Localize-Swift-umbrella.h */,
+				383237903B35CBF9AEAAA758244C8597 /* Info.plist */,
+				914A5D82D9DDB225AA6D10686F630005 /* SWRevealViewController.modulemap */,
+				D55D4B9B4C12EC28CE822A6FBF8E11E7 /* SWRevealViewController.xcconfig */,
+				F64B0358728A28972F77B639ADE5E196 /* SWRevealViewController-dummy.m */,
+				E48655CCB6026652715577B47830883E /* SWRevealViewController-prefix.pch */,
+				FA5C1528200BEC3B00B7916C0C20CB4E /* SWRevealViewController-umbrella.h */,
 			);
 			name = "Support Files";
-			path = "../Target Support Files/Localize-Swift";
+			path = "../Target Support Files/SWRevealViewController";
 			sourceTree = "<group>";
 		};
 		D39A0B4A8E1DF1057902DC8151ED6800 /* Pods-OmnieCommerce */ = {
@@ -217,19 +268,38 @@
 			path = "Target Support Files/Pods-OmnieCommerce";
 			sourceTree = "<group>";
 		};
-		EB6D1B8B097F880B8B1E8FF982A94B8E /* Products */ = {
+		D525086465CCB9AA2230166416B80560 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				24415F4F3B31093AE2F98C34C9931258 /* Localize_Swift.framework */,
-				92DFBFD0242DFFEAC268D3D3C8A4E5D1 /* Pods_OmnieCommerce.framework */,
-				1E47799748A86A19210BD0D43C9FD5B1 /* SWRevealViewController.framework */,
+				ABA7DFCCD14E01549CE861C279B90005 /* Device.framework */,
+				F1446494EAF8E03CDF38636FBF1F7445 /* Localize_Swift.framework */,
+				A7BB67459544BFADD6699459C08EB2D5 /* Pods_OmnieCommerce.framework */,
+				3D85B4C1DF33334C2D531733B4D5D4CB /* SWRevealViewController.framework */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		F536063EE1F58CFAD9ED9B0DD6E8898A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				666B6119DEBEFB3D140E994E223BEA6C /* Device */,
+				452150706907E34305138CD05FE1A94E /* Localize-Swift */,
+				988384B12F8DCF5B4AE5B6CF8F67B5BC /* SWRevealViewController */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		0FA9889BF6C0D38E6E622780486934A9 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				95D1804FEDC921E2224BC58D9425255A /* Device-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2616FAD82526411117EC9CD71025CEC0 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -239,33 +309,33 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		55A856A7179A01794338E3D960A61FD7 /* Headers */ = {
+		38DC1D629080856435E4BE75B95897D6 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C8DA4663658734BC3F3EF7779F086F91 /* Pods-OmnieCommerce-umbrella.h in Headers */,
+				06DA09BF59E23420B910B38ADB271981 /* SWRevealViewController-umbrella.h in Headers */,
+				90B70574F11D62C1241E4C6919D1A0CB /* SWRevealViewController.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		921013B67357169DCCB786B771CDFECB /* Headers */ = {
+		9FCD0DE3BF2158B3EE826880109A5415 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				05451F1940272118A8C2B6AA6C9031C2 /* SWRevealViewController-umbrella.h in Headers */,
-				83F563ABBF5A51BA691C4E295DA26FEC /* SWRevealViewController.h in Headers */,
+				BD8B8A0C20873375B823263C4122C94E /* Pods-OmnieCommerce-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		1D1D124E2C850D54D2C84181CE1F366D /* SWRevealViewController */ = {
+		55726601E2132A34A005A93C9DF7A07C /* SWRevealViewController */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 363C418FD3EDA84CCED6AF68D27A1D16 /* Build configuration list for PBXNativeTarget "SWRevealViewController" */;
+			buildConfigurationList = EAB81450BD217610EA1825B7967366CE /* Build configuration list for PBXNativeTarget "SWRevealViewController" */;
 			buildPhases = (
-				08C023DFBE765A42C1015710A85267E0 /* Sources */,
-				52169064C005696186B2C5591F79DB71 /* Frameworks */,
-				921013B67357169DCCB786B771CDFECB /* Headers */,
+				69CB403E0525308F7A256C47789CC2DF /* Sources */,
+				BAA411BF43C39D94B92D700E3599C713 /* Frameworks */,
+				38DC1D629080856435E4BE75B95897D6 /* Headers */,
 			);
 			buildRules = (
 			);
@@ -273,7 +343,44 @@
 			);
 			name = SWRevealViewController;
 			productName = SWRevealViewController;
-			productReference = 1E47799748A86A19210BD0D43C9FD5B1 /* SWRevealViewController.framework */;
+			productReference = 3D85B4C1DF33334C2D531733B4D5D4CB /* SWRevealViewController.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		5E90024CA4621EC0A8B8C777C958214A /* Device */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A2E7FAADB4B505BC390985BE8CF336FE /* Build configuration list for PBXNativeTarget "Device" */;
+			buildPhases = (
+				CD4864F12B23EA1B7163899E8447FB8F /* Sources */,
+				69431423F129CF52261D78E204CDF539 /* Frameworks */,
+				0FA9889BF6C0D38E6E622780486934A9 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Device;
+			productName = Device;
+			productReference = ABA7DFCCD14E01549CE861C279B90005 /* Device.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		74967E3E3987F9BAE9EBF4D0C785BDDB /* Pods-OmnieCommerce */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 48CEB4FD965680FD80175C671C945D63 /* Build configuration list for PBXNativeTarget "Pods-OmnieCommerce" */;
+			buildPhases = (
+				0EF6B28086DA239B5D1C528AEB08C083 /* Sources */,
+				4DE591D014DF18427894DBF43BE21B5B /* Frameworks */,
+				9FCD0DE3BF2158B3EE826880109A5415 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				751B1194B0885EE25BB48D3410147F7C /* PBXTargetDependency */,
+				BAC3D259F6939142C0A4F61BBEF50716 /* PBXTargetDependency */,
+				70C98EC200CA80949DC3297B3028AC11 /* PBXTargetDependency */,
+			);
+			name = "Pods-OmnieCommerce";
+			productName = "Pods-OmnieCommerce";
+			productReference = A7BB67459544BFADD6699459C08EB2D5 /* Pods_OmnieCommerce.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		86433867888749E4CF5A5AEC59DD39D3 /* Localize-Swift */ = {
@@ -290,26 +397,7 @@
 			);
 			name = "Localize-Swift";
 			productName = "Localize-Swift";
-			productReference = 24415F4F3B31093AE2F98C34C9931258 /* Localize_Swift.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		98EC4BC8B67D93E4D26BB87744C04C50 /* Pods-OmnieCommerce */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 0D888A661806031DDEEFA9A4662FEC56 /* Build configuration list for PBXNativeTarget "Pods-OmnieCommerce" */;
-			buildPhases = (
-				791D2551C80213EFCD137310FE42A327 /* Sources */,
-				2900B9259CD59A3C8D18C40BEDE8F2B0 /* Frameworks */,
-				55A856A7179A01794338E3D960A61FD7 /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				D51916A16646A51A6959572E28D09335 /* PBXTargetDependency */,
-				1557BA67275E82FD38A4F86D61EE05C4 /* PBXTargetDependency */,
-			);
-			name = "Pods-OmnieCommerce";
-			productName = "Pods-OmnieCommerce";
-			productReference = 92DFBFD0242DFFEAC268D3D3C8A4E5D1 /* Pods_OmnieCommerce.framework */;
+			productReference = F1446494EAF8E03CDF38636FBF1F7445 /* Localize_Swift.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -329,13 +417,14 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = EB6D1B8B097F880B8B1E8FF982A94B8E /* Products */;
+			productRefGroup = D525086465CCB9AA2230166416B80560 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
+				5E90024CA4621EC0A8B8C777C958214A /* Device */,
 				86433867888749E4CF5A5AEC59DD39D3 /* Localize-Swift */,
-				98EC4BC8B67D93E4D26BB87744C04C50 /* Pods-OmnieCommerce */,
-				1D1D124E2C850D54D2C84181CE1F366D /* SWRevealViewController */,
+				74967E3E3987F9BAE9EBF4D0C785BDDB /* Pods-OmnieCommerce */,
+				55726601E2132A34A005A93C9DF7A07C /* SWRevealViewController */,
 			);
 		};
 /* End PBXProject section */
@@ -350,72 +439,94 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		08C023DFBE765A42C1015710A85267E0 /* Sources */ = {
+		0EF6B28086DA239B5D1C528AEB08C083 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9F787931F5A22E7481F7EBF8994897E8 /* SWRevealViewController-dummy.m in Sources */,
-				E9271A8CFBD8B0A5A33FFA8563317D36 /* SWRevealViewController.m in Sources */,
+				CA303441F745B2A4F8CEE6BBF6CFEF3C /* Pods-OmnieCommerce-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		791D2551C80213EFCD137310FE42A327 /* Sources */ = {
+		69CB403E0525308F7A256C47789CC2DF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EAA100AE115E2E4AE713E03A86A96148 /* Pods-OmnieCommerce-dummy.m in Sources */,
+				D34A0E8F6ED4FFAEB8F0FF6A64746EA5 /* SWRevealViewController-dummy.m in Sources */,
+				919308EF328A64397C4637D0D234F1D3 /* SWRevealViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CD4864F12B23EA1B7163899E8447FB8F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B27B163CFCBEEC45948AEC1EDA74B5C4 /* Device-dummy.m in Sources */,
+				11C7735FDFED235935DFEE17429A12EE /* Device.swift in Sources */,
+				8CF381CFE809227EEDE92995264EE90D /* Size.swift in Sources */,
+				DD14B8ECC2DFA91E25604F654803A64B /* Type.swift in Sources */,
+				8907F698C02A1E3DD5CA2DD4B7387AFB /* Version.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		1557BA67275E82FD38A4F86D61EE05C4 /* PBXTargetDependency */ = {
+		70C98EC200CA80949DC3297B3028AC11 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = SWRevealViewController;
-			target = 1D1D124E2C850D54D2C84181CE1F366D /* SWRevealViewController */;
-			targetProxy = 8050B7AED68A3DF07EF6F21F2FEEA761 /* PBXContainerItemProxy */;
+			target = 55726601E2132A34A005A93C9DF7A07C /* SWRevealViewController */;
+			targetProxy = 497205858BBE5349CB43F0793176ABAF /* PBXContainerItemProxy */;
 		};
-		D51916A16646A51A6959572E28D09335 /* PBXTargetDependency */ = {
+		751B1194B0885EE25BB48D3410147F7C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Device;
+			target = 5E90024CA4621EC0A8B8C777C958214A /* Device */;
+			targetProxy = BDFE1311C9BB59F757679E924F4AB759 /* PBXContainerItemProxy */;
+		};
+		BAC3D259F6939142C0A4F61BBEF50716 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Localize-Swift";
 			target = 86433867888749E4CF5A5AEC59DD39D3 /* Localize-Swift */;
-			targetProxy = EA8CC995128B941CD96E9DFB31B9E0B8 /* PBXContainerItemProxy */;
+			targetProxy = 11479FA7EB2D7216450657D539191D38 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		022D631AC5CB4BF520DE9A108CE0E32E /* Release */ = {
+		0FA8AEC4404430E05F58EFEC02848240 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4871490D19D27C045DFCA8C9539C9C62 /* SWRevealViewController.xcconfig */;
+			baseConfigurationReference = 8565B90FDA8314C26E87E468B1BB7858 /* Pods-OmnieCommerce.debug.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/SWRevealViewController/SWRevealViewController-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/SWRevealViewController/Info.plist";
+				INFOPLIST_FILE = "Target Support Files/Pods-OmnieCommerce/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/SWRevealViewController/SWRevealViewController.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = SWRevealViewController;
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-OmnieCommerce/Pods-OmnieCommerce.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_OmnieCommerce;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Release;
+			name = Debug;
 		};
 		59B042A655B7C20CBAB90E385BF4E4C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -461,9 +572,41 @@
 			};
 			name = Debug;
 		};
+		5C88EBDFC416E63507D84CAD44DF2C62 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D55D4B9B4C12EC28CE822A6FBF8E11E7 /* SWRevealViewController.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/SWRevealViewController/SWRevealViewController-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SWRevealViewController/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/SWRevealViewController/SWRevealViewController.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = SWRevealViewController;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		79B2022DE2220E0D2DD5B977D6D28CE2 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 33DE5B818BEDFD17B03648DF49771C03 /* Localize-Swift.xcconfig */;
+			baseConfigurationReference = 9EA01241BA1308EFA787272BC6EAA922 /* Localize-Swift.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -493,29 +636,64 @@
 			};
 			name = Release;
 		};
-		8627DC399284682CB5C8E675748279EE /* Debug */ = {
+		79F250D975072966EC869E5AEE504794 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4871490D19D27C045DFCA8C9539C9C62 /* SWRevealViewController.xcconfig */;
+			baseConfigurationReference = F39771E801843997A2B4925D9222399E /* Pods-OmnieCommerce.release.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/SWRevealViewController/SWRevealViewController-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/SWRevealViewController/Info.plist";
+				INFOPLIST_FILE = "Target Support Files/Pods-OmnieCommerce/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-OmnieCommerce/Pods-OmnieCommerce.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_OmnieCommerce;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		8E7E6BF5EA23BB6BBA11B782E8B4B24C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 38C501CFD5ED95C0EF7A3FF618454050 /* Device.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Device/Device-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Device/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/SWRevealViewController/SWRevealViewController.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = SWRevealViewController;
+				MODULEMAP_FILE = "Target Support Files/Device/Device.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = Device;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
@@ -523,11 +701,11 @@
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Debug;
+			name = Release;
 		};
 		9E58FC0049F65C5063578CA014566261 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 33DE5B818BEDFD17B03648DF49771C03 /* Localize-Swift.xcconfig */;
+			baseConfigurationReference = 9EA01241BA1308EFA787272BC6EAA922 /* Localize-Swift.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -598,44 +776,9 @@
 			};
 			name = Release;
 		};
-		D1731A2795ABAB93398812ED623A20AB /* Release */ = {
+		D36D5213D039EFECBA6FF64701AF06C9 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F39771E801843997A2B4925D9222399E /* Pods-OmnieCommerce.release.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-OmnieCommerce/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-OmnieCommerce/Pods-OmnieCommerce.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_OmnieCommerce;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		DDD6B7194AEF733F6A6E44811FDADC31 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8565B90FDA8314C26E87E468B1BB7858 /* Pods-OmnieCommerce.debug.xcconfig */;
+			baseConfigurationReference = D55D4B9B4C12EC28CE822A6FBF8E11E7 /* SWRevealViewController.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -648,21 +791,50 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-OmnieCommerce/Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/SWRevealViewController/SWRevealViewController-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SWRevealViewController/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-OmnieCommerce/Pods-OmnieCommerce.modulemap";
+				MODULEMAP_FILE = "Target Support Files/SWRevealViewController/SWRevealViewController.modulemap";
 				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_OmnieCommerce;
+				PRODUCT_NAME = SWRevealViewController;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		F28BE1EC715FDCE8D548E9F53857494D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 38C501CFD5ED95C0EF7A3FF618454050 /* Device.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Device/Device-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Device/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Device/Device.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = Device;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -672,15 +844,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		0D888A661806031DDEEFA9A4662FEC56 /* Build configuration list for PBXNativeTarget "Pods-OmnieCommerce" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				DDD6B7194AEF733F6A6E44811FDADC31 /* Debug */,
-				D1731A2795ABAB93398812ED623A20AB /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		152B9F5A252E3B27A4EADAC44DB82460 /* Build configuration list for PBXNativeTarget "Localize-Swift" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -699,11 +862,29 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		363C418FD3EDA84CCED6AF68D27A1D16 /* Build configuration list for PBXNativeTarget "SWRevealViewController" */ = {
+		48CEB4FD965680FD80175C671C945D63 /* Build configuration list for PBXNativeTarget "Pods-OmnieCommerce" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				8627DC399284682CB5C8E675748279EE /* Debug */,
-				022D631AC5CB4BF520DE9A108CE0E32E /* Release */,
+				0FA8AEC4404430E05F58EFEC02848240 /* Debug */,
+				79F250D975072966EC869E5AEE504794 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A2E7FAADB4B505BC390985BE8CF336FE /* Build configuration list for PBXNativeTarget "Device" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F28BE1EC715FDCE8D548E9F53857494D /* Debug */,
+				8E7E6BF5EA23BB6BBA11B782E8B4B24C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EAB81450BD217610EA1825B7967366CE /* Build configuration list for PBXNativeTarget "SWRevealViewController" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D36D5213D039EFECBA6FF64701AF06C9 /* Debug */,
+				5C88EBDFC416E63507D84CAD44DF2C62 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
