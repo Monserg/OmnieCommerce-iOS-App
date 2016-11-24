@@ -44,7 +44,7 @@ class BaseViewController: UIViewController {
             if (NSStringFromClass(type(of: self)).hasSuffix("ForgotPasswordShowViewController")) {
                 let forgotPasswordShowVC = self as! ForgotPasswordShowViewController
 
-                if (!forgotPasswordShowVC.phoneEmailTextField.isValidEmail(forgotPasswordShowVC.phoneEmailTextField.text!)) {
+                if (!forgotPasswordShowVC.phoneEmailTextField.isValidEmail(forgotPasswordShowVC.phoneEmailTextField.text!) && !(forgotPasswordShowVC.phoneEmailTextField.text?.isEmpty)!) {
                     forgotPasswordShowVC.phoneEmailErrorLabel.isHidden = false
                 }
             }

@@ -54,8 +54,8 @@ class SignInShowViewController: BaseViewController, SignInShowViewControllerInpu
         super.viewDidLoad()
         
         // Delegates
-        nameTextField.delegate = self
-        passwordTextField.delegate = self
+//        nameTextField.delegate = self
+//        passwordTextField.delegate = self
         
         // Config scene
 //        topBarView.circleView.cirleRadiusStyle = .small
@@ -69,8 +69,8 @@ class SignInShowViewController: BaseViewController, SignInShowViewControllerInpu
 //        googleButton.type = .social
 //        facebookButton.type = .social
         
-        content = contentView        
-        setup(topBarView: topBarView)
+//        content = contentView        
+//        setup(topBarView: topBarView)
         
         doSomethingOnLoad()
     }
@@ -82,17 +82,17 @@ class SignInShowViewController: BaseViewController, SignInShowViewControllerInpu
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        if UIApplication.shared.statusBarOrientation.isLandscape {
-            print("Landscape")
-            
-            topBarView.center = CGPoint(x: topBarViewHeight / 2, y: UIScreen.main.bounds.height / 2)
-        } else {
-            print("Portrait")
-            
-            topBarView.center = CGPoint(x: UIScreen.main.bounds.width / 2, y: topBarViewHeight / 2)
-        }
-        
-        topBarView.setNeedsDisplay()
+//        if UIApplication.shared.statusBarOrientation.isLandscape {
+//            print("Landscape")
+//            
+//            topBarView.center = CGPoint(x: topBarViewHeight / 2, y: UIScreen.main.bounds.height / 2)
+//        } else {
+//            print("Portrait")
+//            
+//            topBarView.center = CGPoint(x: UIScreen.main.bounds.width / 2, y: topBarViewHeight / 2)
+//        }
+//        
+//        topBarView.setNeedsDisplay()
         
 //        if (topBarView.circleView.cirleRadiusStyle == .small) {
 //            vkontakteButton.setNeedsDisplay()
