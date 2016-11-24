@@ -25,7 +25,7 @@
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </view>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="2BC6A359-2044-4D2E-943B-81EA31776650" translatesAutoresizingMaskIntoConstraints="NO" id="gfb-lO-wBB" userLabel="Logo Image View">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="66E9BC52-6F6A-451D-A3F8-69D8A9F3044E" translatesAutoresizingMaskIntoConstraints="NO" id="gfb-lO-wBB" userLabel="Logo Image View">
                     <rect key="frame" x="74" y="193.66666666666669" width="230" height="130.00000000000006"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
@@ -41,7 +41,7 @@
                         </constraint>
                     </constraints>
                     <variation key="heightClass=compact-widthClass=compact" image="image-logo-horizontal"/>
-                    <variation key="heightClass=compact-widthClass=regular" image="579D9466-1DC9-46E3-8D52-319026997D24"/>
+                    <variation key="heightClass=compact-widthClass=regular" image="4355EBD0-687F-4B09-BEBB-A9AE79A96B14"/>
                     <variation key="heightClass=regular-widthClass=compact" image="image-logo-vertical"/>
                 </imageView>
             </subviews>
@@ -68,7 +68,7 @@
         </view>
     </objects>
     <resources>
-        <image name="2BC6A359-2044-4D2E-943B-81EA31776650" width="113" height="148">
+        <image name="4355EBD0-687F-4B09-BEBB-A9AE79A96B14" width="113" height="148">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -1236,7 +1236,7 @@ AAEPJwABDywAAQ87AAEPPwABD0YAAQ9OAAEPWwABD2AAAQ9iAAEPZAABD2kAAQ9xAAEPdAABD3kAAQ+B
 AAEPhAABD5YAAQ+ZAAEPngAAAAAAAAQBAAAAAAAAAEEAAAAAAAAAAAAAAAAAAQ+gA
 </mutableData>
         </image>
-        <image name="579D9466-1DC9-46E3-8D52-319026997D24" width="113" height="148">
+        <image name="66E9BC52-6F6A-451D-A3F8-69D8A9F3044E" width="113" height="148">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw

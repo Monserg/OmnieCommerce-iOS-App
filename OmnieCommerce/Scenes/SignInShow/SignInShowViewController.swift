@@ -26,6 +26,7 @@ class SignInShowViewController: BaseViewController, SignInShowViewControllerInpu
     var router: SignInShowRouter!
     
     @IBOutlet var bigTopBarView: BigTopBarView!
+    @IBOutlet weak var scrollView: UIScrollView!
 
     @IBOutlet weak var bigTopBarViewBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var bigTopBarViewTrailingConstraint: NSLayoutConstraint!
@@ -36,7 +37,6 @@ class SignInShowViewController: BaseViewController, SignInShowViewControllerInpu
     
     
     
-    //    @IBOutlet weak var backgroundImageView: UIImageView!
     
 //    @IBOutlet weak var vkontakteButton: UIButton!
 //    @IBOutlet weak var googleButton: UIButton!
@@ -64,6 +64,8 @@ class SignInShowViewController: BaseViewController, SignInShowViewControllerInpu
         super.viewDidLoad()
         
         // Delegates
+        scrollViewBase = scrollView
+        
 //        nameTextField.delegate = self
 //        passwordTextField.delegate = self
         
@@ -88,7 +90,8 @@ class SignInShowViewController: BaseViewController, SignInShowViewControllerInpu
 //        facebookButton.type = .social
         
 //        content = contentView        
-//        setup(topBarView: topBarView)
+        
+        setup(topBarView: bigTopBarView)
         
         doSomethingOnLoad()
     }
@@ -107,10 +110,8 @@ class SignInShowViewController: BaseViewController, SignInShowViewControllerInpu
             // Config scene
             bigTopBarViewBottomConstraint.constant = view.bounds.height - view.bounds.height / Config.Constants.bigTopBarViewHeightCoefficient
             bigTopBarView.updateConstraintsIfNeeded()
-
-//            topBarView.center = CGPoint(x: UIScreen.main.bounds.width / 2, y: topBarViewHeight / 2)
         }
-//
+
         bigTopBarView.circleView.setNeedsDisplay()
         
 //        if (topBarView.circleView.cirleRadiusStyle == .small) {

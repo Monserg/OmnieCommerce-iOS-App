@@ -14,7 +14,7 @@ class BaseViewController: UIViewController {
     // MARK: - Properties
     var selectedRange: CGRect?
     var topBarViewRounding = String()
-    let scrollView = UIScrollView()
+    var scrollViewBase = UIScrollView()
     var content = UIView()
     var topBarViewHeight: CGFloat = 100.0
     
@@ -49,24 +49,24 @@ class BaseViewController: UIViewController {
                 }
             }
 
-            scrollView.contentInset = UIEdgeInsets(top: -topBarViewHeight, left: 0, bottom: 0, right: 0)
+            scrollViewBase.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         } else {
-            scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardViewEndFrame.height + 10, right: 0)
+            scrollViewBase.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardViewEndFrame.height + 10, right: 0)
         }
         
-        scrollView.scrollIndicatorInsets = scrollView.contentInset
-        scrollView.showsVerticalScrollIndicator = false
+        scrollViewBase.scrollIndicatorInsets = scrollViewBase.contentInset
+        scrollViewBase.showsVerticalScrollIndicator = false
         
         guard selectedRange != nil else {
             return
         }
         
-        scrollView.scrollRectToVisible(selectedRange!, animated: true)
+        scrollViewBase.scrollRectToVisible(selectedRange!, animated: true)
     }
     
     
     // MARK: - Custom Functions
-    func setup(topBarView: TopBarView) {
+    func setup(topBarView: UIView) {
         // .small radius
         if (topBarViewRounding == "Small") {
             print(".small")
@@ -83,7 +83,7 @@ class BaseViewController: UIViewController {
 
             // Add Slide Menu actions
             if revealViewController() != nil {
-                topBarView.actionButton.addTarget(revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), for: .touchUpInside)
+//                topBarView.actionButton.addTarget(revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), for: .touchUpInside)
                 
                 // Sidebar is width 296
                 revealViewController().rearViewRevealWidth = 296
@@ -107,15 +107,15 @@ class BaseViewController: UIViewController {
         }
         
         // Setup UIScrollView
-        scrollView.frame = CGRect.init(x: 0, y: topBarView.frame.height, width: view.bounds.width, height: view.bounds.height - topBarView.bounds.height)
-        scrollView.delegate = self
-        scrollView.contentSize = scrollView.frame.size
-        scrollView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        scrollView.contentOffset = CGPoint.init(x: 0, y: topBarViewHeight)
+        scrollViewBase.frame = CGRect.init(x: 0, y: topBarView.frame.height, width: view.bounds.width, height: view.bounds.height - topBarView.bounds.height)
+        scrollViewBase.delegate = self
+        scrollViewBase.contentSize = CGSize.init(width: 60, height: 2000)
+        scrollViewBase.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        scrollViewBase.contentOffset = CGPoint.init(x: 0, y: topBarViewHeight)
 
         content.translatesAutoresizingMaskIntoConstraints = true
-        scrollView.addSubview(content)
-        view.addSubview(scrollView)
+        scrollViewBase.addSubview(content)
+        view.addSubview(scrollViewBase)
     }
 }
 

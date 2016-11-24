@@ -29,13 +29,13 @@ class SettingsShowViewController: BaseViewController, SettingsShowViewController
     @IBOutlet weak var copyrightLabel: CustomLabel!
     @IBOutlet weak var topBarViewHeightPortraitConstraint: NSLayoutConstraint!
     
-    override var topBarViewRounding: String {
-        willSet {
-            if (newValue == "Big") {
-                topBarViewHeightPortraitConstraint.constant = Config.Constants.topViewBarHeightBig
-            }
-        }
-    }
+//    override var topBarViewRounding: String {
+//        willSet {
+//            if (newValue == "Big") {
+//                topBarViewHeightPortraitConstraint.constant = Config.Constants.topViewBarHeightBig
+//            }
+//        }
+//    }
 
     
     // MARK: - Class initialization
@@ -51,7 +51,7 @@ class SettingsShowViewController: BaseViewController, SettingsShowViewController
         super.viewDidLoad()
         
         // Config topBarView
-        topBarViewRounding = "Big"
+//        topBarViewRounding = "Big"
         setup(topBarView: topBarView)
         
         doSomethingOnLoad()
