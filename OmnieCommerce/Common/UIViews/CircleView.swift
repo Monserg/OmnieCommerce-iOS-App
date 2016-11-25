@@ -26,12 +26,12 @@ import UIKit
     
     // MARK: - Class Functions
     override func draw(_ rect: CGRect) {
-        // Get the Graphics Context
-        let contextFill = UIGraphicsGetCurrentContext()
-        let contextLine = UIGraphicsGetCurrentContext()
-        
-        // Set the circle outerline-colour
-        Config.Colors.darkCyan?.set()
+//        // Get the Graphics Context
+//        let contextFill = UIGraphicsGetCurrentContext()
+//        let contextLine = UIGraphicsGetCurrentContext()
+//        
+//        // Set the circle outerline-colour
+//        Config.Colors.darkCyan?.set()
         
 //        if let viewStyle = CirleRadiusStyle(rawValue: cirleRadiusStyle) {
 //            let contextHeight = (viewStyle == .Small) ? Config.Constants.circleViewBarHeightSmall : Config.Constants.circleViewBarHeightBig

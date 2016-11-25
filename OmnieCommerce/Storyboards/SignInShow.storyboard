@@ -121,7 +121,7 @@
                                     </mask>
                                 </variation>
                             </view>
-                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sQb-Jd-ZQM" userLabel="Vkontakte Button" customClass="CustomButton" customModule="OmnieCommerce" customModuleProvider="target">
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sQb-Jd-ZQM" userLabel="Vkontakte Button" customClass="CustomButton" customModule="OmnieCommerce" customModuleProvider="target">
                                 <rect key="frame" x="219" y="214" width="34" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Vk">
@@ -134,7 +134,7 @@
                                     <action selector="asdasdasd:" destination="h1R-QH-7Vr" eventType="touchUpInside" id="Qp1-AA-ZU1"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DWI-hD-cDM" userLabel="Google Button" customClass="CustomButton" customModule="OmnieCommerce" customModuleProvider="target">
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DWI-hD-cDM" userLabel="Google Button" customClass="CustomButton" customModule="OmnieCommerce" customModuleProvider="target">
                                 <rect key="frame" x="269" y="214" width="34" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="G">
@@ -147,7 +147,7 @@
                                     <action selector="asdasdasd:" destination="h1R-QH-7Vr" eventType="touchUpInside" id="JQQ-oi-quC"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X6r-yO-BPI" userLabel="Facebook Button" customClass="CustomButton" customModule="OmnieCommerce" customModuleProvider="target">
+                            <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X6r-yO-BPI" userLabel="Facebook Button" customClass="CustomButton" customModule="OmnieCommerce" customModuleProvider="target">
                                 <rect key="frame" x="317" y="214" width="34" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="f">
@@ -164,7 +164,7 @@
                                 <rect key="frame" x="0.0" y="128" width="375" height="539"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Congratulations" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SKB-6u-w8c" userLabel="Congratulations Label" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                                        <rect key="frame" x="8" y="53" width="359" height="20.5"/>
+                                        <rect key="frame" x="8" y="53" width="359" height="42.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -173,7 +173,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6ZC-ln-axG" userLabel="Name View">
-                                        <rect key="frame" x="70" y="113.5" width="235" height="33"/>
+                                        <rect key="frame" x="70" y="135.5" width="235" height="33"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KBa-7C-EEz" customClass="DottedBorderView" customModule="OmnieCommerce" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="235" height="33"/>
@@ -208,7 +208,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MtY-38-Pkk" userLabel="Password View">
-                                        <rect key="frame" x="70" y="166.5" width="235" height="33"/>
+                                        <rect key="frame" x="70" y="188.5" width="235" height="33"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vBt-Th-aoP" customClass="DottedBorderView" customModule="OmnieCommerce" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="235" height="33"/>
@@ -244,7 +244,7 @@
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yo4-Yq-buL" userLabel="Sign In Button" customClass="CustomButton" customModule="OmnieCommerce" customModuleProvider="target">
-                                        <rect key="frame" x="70" y="224.5" width="235" height="36"/>
+                                        <rect key="frame" x="70" y="246.5" width="235" height="36"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="36" id="xib-LB-Dgr"/>
                                         </constraints>
@@ -254,7 +254,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Not yet registered?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VbS-MU-h1x" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                                        <rect key="frame" x="70" y="280.5" width="146" height="30"/>
+                                        <rect key="frame" x="70" y="302.5" width="102.5" height="25.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -263,7 +263,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ntB-nh-XW3" userLabel="Sign Up Button" customClass="CustomButton" customModule="OmnieCommerce" customModuleProvider="target">
-                                        <rect key="frame" x="223.5" y="280.5" width="81.5" height="30"/>
+                                        <rect key="frame" x="180" y="302.5" width="125" height="25.5"/>
                                         <state key="normal" title="Sign Up"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="string" keyPath="buttonStyle" value="UnderlineColor"/>
@@ -273,7 +273,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wNF-L3-c5m" userLabel="Forgot Password Button" customClass="CustomButton" customModule="OmnieCommerce" customModuleProvider="target">
-                                        <rect key="frame" x="70" y="324" width="235" height="30"/>
+                                        <rect key="frame" x="70" y="341.5" width="235" height="25.5"/>
                                         <state key="normal" title="Forgot Password?"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="string" keyPath="buttonStyle" value="Underline"/>
@@ -382,7 +382,7 @@
                 <navigationController storyboardIdentifier="SignInShowNC" automaticallyAdjustsScrollViewInsets="NO" modalTransitionStyle="crossDissolve" navigationBarHidden="YES" id="HnD-Xp-HUn" customClass="BaseNavigationController" customModule="OmnieCommerce" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="hMj-in-c4l">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="hMj-in-c4l">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

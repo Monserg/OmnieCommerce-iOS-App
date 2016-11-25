@@ -33,7 +33,7 @@ import UIKit
     override init(frame: CGRect) {
         super.init(frame: frame)
 
-        UINib(nibName: NSStringFromClass(self.classForCoder), bundle: nil).instantiate(withOwner: self, options: nil)
+        UINib(nibName: String(describing: BigTopBarView.self), bundle: Bundle(for: BigTopBarView.self)).instantiate(withOwner: self, options: nil)
         addSubview(view)
         view.frame = frame
 }
@@ -41,7 +41,7 @@ import UIKit
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
-        UINib(nibName: NSStringFromClass(self.classForCoder), bundle: nil).instantiate(withOwner: self, options: nil)
+        UINib(nibName: String(describing: BigTopBarView.self), bundle: Bundle(for: BigTopBarView.self)).instantiate(withOwner: self, options: nil)
         addSubview(view)
         view.frame = frame
     }

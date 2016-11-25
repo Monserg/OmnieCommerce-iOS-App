@@ -8,7 +8,7 @@
 
 import UIKit
 
-//@IBDesignable
+@IBDesignable
 class BigTopBarView: UIView {
     // MARK: - Properties
     @IBOutlet var view: UIView!
@@ -19,7 +19,7 @@ class BigTopBarView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        UINib(nibName: "BigTopBarView", bundle: nil).instantiate(withOwner: self, options: nil)
+        UINib(nibName: String(describing: BigTopBarView.self), bundle: Bundle(for: BigTopBarView.self)).instantiate(withOwner: self, options: nil)
         addSubview(view)
         view.frame = frame
     }
@@ -27,7 +27,7 @@ class BigTopBarView: UIView {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
-        UINib(nibName: "BigTopBarView", bundle: nil).instantiate(withOwner: self, options: nil)
+        UINib(nibName: String(describing: BigTopBarView.self), bundle: Bundle(for: BigTopBarView.self)).instantiate(withOwner: self, options: nil)
         addSubview(view)
         view.frame = frame
     }
