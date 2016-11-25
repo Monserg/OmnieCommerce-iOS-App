@@ -15,7 +15,9 @@ struct Config {
     struct Constants {
         static let fillViewRadiusPortrait: Double          =   360
         static let fillViewRadiusLandscape: Double         =   289
+        static let fillViewLineViewDistance: Double        =   13
         static let lineViewThickness: CGFloat              =   3
+        static let lineViewSocialButtonDistance: Double    =   3
 
 //        // Big circle radius = 1531,    fill height = 80,   line height = 93 (+13),     top view height = 96 (+3)
 //        static let topViewBarHeightBig: CGFloat             =   96.0

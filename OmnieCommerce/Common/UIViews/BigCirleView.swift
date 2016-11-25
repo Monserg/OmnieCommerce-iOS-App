@@ -20,13 +20,10 @@ import Device
     // MARK: - Class Functions
     override func draw(_ rect: CGRect) {
         // Get the Graphics Context
-        let lineViewRadiusPortrait: Double          =   Double(rect.size.height) - 3.0 - 3.0
-//        let fillViewRadiusPortrait: Double          =   360
-        let fillViewHeightPortrait: CGFloat         =   CGFloat(lineViewRadiusPortrait - 13.0)
-        let lineViewRadiusLandscape: Double         =   Double(rect.size.width) - 3.0 - 3.0
-//        let fillViewRadiusLandscape: Double         =   289
-        let fillViewWidthLandscape: CGFloat         =   CGFloat(lineViewRadiusLandscape - 13.0)
-//        let lineViewThickness: CGFloat              =   3
+        let lineViewRadiusPortrait: Double      =   Double(rect.size.height - Config.Constants.lineViewThickness) - Config.Constants.lineViewSocialButtonDistance
+        let fillViewHeightPortrait: CGFloat     =   CGFloat(lineViewRadiusPortrait - Config.Constants.fillViewLineViewDistance)
+        let lineViewRadiusLandscape: Double     =   Double(rect.size.width - Config.Constants.lineViewThickness) - Config.Constants.lineViewSocialButtonDistance
+        let fillViewWidthLandscape: CGFloat     =   CGFloat(lineViewRadiusLandscape - Config.Constants.fillViewLineViewDistance)
         
         let contextFillView = UIGraphicsGetCurrentContext()
         let contextLineView = UIGraphicsGetCurrentContext()
