@@ -55,7 +55,8 @@ import UIKit
         contextLineView!.setLineWidth(Config.Constants.lineViewThickness)
         
         // Set the circle outerline-colour
-        Config.Colors.veryDarkGrayishBlue38?.set()
+//        Config.Colors.veryDarkGrayishBlue38?.set()
+        UIColor.white.set()
         
         // Create Line Circle
         if UIApplication.shared.statusBarOrientation.isPortrait {

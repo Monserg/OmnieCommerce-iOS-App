@@ -40,8 +40,8 @@
                                 </constraint>
                             </constraints>
                             <variation key="heightClass=compact-widthClass=compact" image="image-logo-horizontal"/>
-                            <variation key="heightClass=compact-widthClass=regular" image="966822B1-D9E6-45A8-8930-02EEA6A9357D"/>
-                            <variation key="heightClass=regular-widthClass=compact" image="image-logo-vertical"/>
+                            <variation key="heightClass=compact-widthClass=regular" image="09CB372D-26F4-427A-A589-9CE345F9EAD3"/>
+                            <variation key="heightClass=regular-widthClass=compact" image="919ED1B5-50ED-4B59-9A92-5E1BE6F94878"/>
                         </imageView>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -69,11 +69,11 @@
                     <color key="value" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </userDefinedRuntimeAttribute>
             </userDefinedRuntimeAttributes>
-            <point key="canvasLocation" x="-292" y="-472"/>
+            <point key="canvasLocation" x="-747" y="-544"/>
         </view>
     </objects>
     <resources>
-        <image name="966822B1-D9E6-45A8-8930-02EEA6A9357D" width="113" height="148">
+        <image name="09CB372D-26F4-427A-A589-9CE345F9EAD3" width="113" height="148">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGOzxYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBMU
 GR4fJSYsLzU4VSRudWxs1QkKCwwNDg8QERJWTlNTaXplViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBz
@@ -87,6 +87,22 @@ D05TS2V5ZWRBcmNoaXZlctE9PlRyb290gAEACAARABoAIwAtADIANwBFAEsAVgBdAGQAcQB4AIAAggCE
 AIkAiwCNAJgAnQCoAKoArACuALMAtgC4ALoAvAC+AMUAzQDZANsA3QDfAV4BYwFuAXcBfQGAAYkBjgGW
 AZkBoAGoAbUBugG8Ab4BwwHLAc4B0wHbAd4B8AHzAfgAAAAAAAACAQAAAAAAAAA/AAAAAAAAAAAAAAAA
 AAAB+g
+</mutableData>
+        </image>
+        <image name="919ED1B5-50ED-4B59-9A92-5E1BE6F94878" width="151" height="86">
+            <mutableData key="keyedArchiveRepresentation">
+YnBsaXN0MDDUAQIDBAUGOzxYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBMU
+GR4fJSYsLzU4VSRudWxs1QkKCwwNDg8QERJWTlNTaXplViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBz
+V05TQ29sb3KAAoAMEiTAAACAA4AKWXsxNTEsIDg2fdIVChYYWk5TLm9iamVjdHOhF4AEgAnSFQoaGKIb
+HIAFgAaACRAF0yAKISIjJFdOUy5iYXNlW05TLnJlbGF0aXZlgACACIAHXxB8ZmlsZTovLy9BcHBsaWNh
+dGlvbnMvWGNvZGUuYXBwL0NvbnRlbnRzL1BsdWdJbnMvSURFSW50ZXJmYWNlQnVpbGRlcktpdC5pZGVw
+bHVnaW4vQ29udGVudHMvUmVzb3VyY2VzL0lCTWlzc2luZ0ltYWdlR2x5cGgudGlmZtInKCkqWiRjbGFz
+c25hbWVYJGNsYXNzZXNVTlNVUkyiKStYTlNPYmplY3TSJygtLldOU0FycmF5oi0r0zAxCjIzNFdOU1do
+aXRlXE5TQ29sb3JTcGFjZUQwIDAAEAOAC9InKDY3V05TQ29sb3KiNivSJyg5OldOU0ltYWdlojkrXxAP
+TlNLZXllZEFyY2hpdmVy0T0+VHJvb3SAAQAIABEAGgAjAC0AMgA3AEUASwBWAF0AZABxAHgAgACCAIQA
+iQCLAI0AlwCcAKcAqQCrAK0AsgC1ALcAuQC7AL0AxADMANgA2gDcAN4BXQFiAW0BdgF8AX8BiAGNAZUB
+mAGfAacBtAG5AbsBvQHCAcoBzQHSAdoB3QHvAfIB9wAAAAAAAAIBAAAAAAAAAD8AAAAAAAAAAAAAAAAA
+AAH5A
 </mutableData>
         </image>
         <image name="image-logo-horizontal" width="113" height="148"/>

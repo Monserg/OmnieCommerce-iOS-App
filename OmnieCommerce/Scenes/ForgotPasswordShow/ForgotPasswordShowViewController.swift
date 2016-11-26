@@ -30,11 +30,10 @@ class ForgotPasswordShowViewController: BaseViewController, ForgotPasswordShowVi
     @IBOutlet weak var phoneEmailTextField: CustomTextField!
     @IBOutlet weak var phoneEmailErrorLabel: CustomLabel!
 
-    //    @IBOutlet weak var vkontakteButton: UIButton!
-    //    @IBOutlet weak var googleButton: UIButton!
-    //    @IBOutlet weak var facebookButton: UIButton!
-    //
-
+    @IBOutlet weak var vkontakteButton: CustomButton!
+    @IBOutlet weak var googleButton: CustomButton!
+    @IBOutlet weak var facebookButton: CustomButton!
+    
     
     // MARK: - Class Initialization
     override func awakeFromNib() {
@@ -68,7 +67,12 @@ class ForgotPasswordShowViewController: BaseViewController, ForgotPasswordShowVi
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         print(object: "\(type(of: self)): \(#function) run. New size = \(size)")
         
-        setupScene(withSize: size)
+        bigTopBarView.setNeedsDisplay()
+        bigTopBarView.circleView.setNeedsDisplay()
+        
+        vkontakteButton.setNeedsDisplay()
+        googleButton.setNeedsDisplay()
+        facebookButton.setNeedsDisplay()
     }
 
     
@@ -100,23 +104,5 @@ class ForgotPasswordShowViewController: BaseViewController, ForgotPasswordShowVi
 
         // NOTE: Display the result from the Presenter
         // nameTextField.text = viewModel.name
-    }
-    
-    func setupScene(withSize size: CGSize) {
-        print(object: "\(type(of: self)): \(#function) run. Screen view size = \(size)")
-        
-        bigTopBarView.setNeedsDisplay()
-        bigTopBarView.circleView.setNeedsDisplay()
-        
-        
-        //        if (topBarView.circleView.cirleRadiusStyle == .small) {
-        //            vkontakteButton.setNeedsDisplay()
-        //            googleButton.setNeedsDisplay()
-        //            facebookButton.setNeedsDisplay()
-        //        } else {
-        //            vkontakteButton.isHidden = true
-        //            googleButton.isHidden = true
-        //            facebookButton.isHidden = true
-        //        }
     }
 }

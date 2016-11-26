@@ -31,7 +31,7 @@ class SignInShowViewController: BaseViewController, SignInShowViewControllerInpu
     @IBOutlet weak var passwordTextField: CustomTextField!
 
     
-//    @IBOutlet weak var vkontakteButton: UIButton!
+    @IBOutlet weak var vkontakteButton: CustomButton!
 //    @IBOutlet weak var googleButton: UIButton!
 //    @IBOutlet weak var facebookButton: UIButton!
 //    
@@ -61,7 +61,7 @@ class SignInShowViewController: BaseViewController, SignInShowViewControllerInpu
         
         
         // Set buttons type
-//        vkontakteButton.type = .social
+        vkontakteButton.designStyle = "Social"
 //        googleButton.type = .social
 //        facebookButton.type = .social
         
@@ -84,12 +84,12 @@ class SignInShowViewController: BaseViewController, SignInShowViewControllerInpu
     }
     
     
-    // MARK: - Actions
-    @IBAction func asdasdasd(_ sender: UIButton) {
-        print(object: "\(type(of: self)): \(#function) run.")
-
-        self.dismiss(animated: true, completion: nil)
-    }
+///    // MARK: - Actions
+///    @IBAction func asdasdasd(_ sender: UIButton) {
+///        print(object: "\(type(of: self)): \(#function) run.")
+///
+// /       self.dismiss(animated: true, completion: nil)
+///    }
     
     
     // MARK: - Custom Functions
@@ -114,6 +114,7 @@ class SignInShowViewController: BaseViewController, SignInShowViewControllerInpu
 
         bigTopBarView.setNeedsDisplay()
         bigTopBarView.circleView.setNeedsDisplay()
+        vkontakteButton.setNeedsDisplay()
         
         
         //        if (topBarView.circleView.cirleRadiusStyle == .small) {

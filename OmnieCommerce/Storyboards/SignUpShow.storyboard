@@ -252,7 +252,7 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image-background-landscape" translatesAutoresizingMaskIntoConstraints="NO" id="dVl-ed-LxC" userLabel="Background Image View">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
-                                <variation key="heightClass=compact-widthClass=compact" image="833121BC-9B42-4A04-85C8-E09F022279C5"/>
+                                <variation key="heightClass=compact-widthClass=compact" image="2F039823-0CCD-4841-B935-EEB6BEBB93B8"/>
                                 <variation key="heightClass=compact-widthClass=regular" image="image-background-landscape"/>
                                 <variation key="heightClass=regular-widthClass=compact" image="image-background-portrait"/>
                             </imageView>
@@ -272,7 +272,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="833121BC-9B42-4A04-85C8-E09F022279C5" width="667" height="375">
+        <image name="2F039823-0CCD-4841-B935-EEB6BEBB93B8" width="667" height="375">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGOzxYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBMU
 GR4fJSYsLzU4VSRudWxs1QkKCwwNDg8QERJWTlNTaXplViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBz
