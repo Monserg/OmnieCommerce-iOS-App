@@ -43,13 +43,15 @@ class ForgotPasswordShowViewController: BaseViewController, ForgotPasswordShowVi
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        topBarViewStyle = .Big
+
         // Delegates
         phoneEmailTextField.delegate = self
         
         
         // Config scene
         phoneEmailErrorLabel.isHidden = true
-        contentViewBase = contentView
+///        contentViewBase = contentView
         setup(topBarView: topBarView)
 
         doSomethingOnLoad()

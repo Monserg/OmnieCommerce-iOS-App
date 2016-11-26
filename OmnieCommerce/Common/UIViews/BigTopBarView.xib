@@ -40,7 +40,7 @@
                                 </constraint>
                             </constraints>
                             <variation key="heightClass=compact-widthClass=compact" image="image-logo-horizontal"/>
-                            <variation key="heightClass=compact-widthClass=regular" image="3741C277-7493-47C3-B55C-E5B72195435B"/>
+                            <variation key="heightClass=compact-widthClass=regular" image="6163DF2E-AC6B-453F-BFAA-7993303DE29C"/>
                             <variation key="heightClass=regular-widthClass=compact" image="image-logo-vertical"/>
                         </imageView>
                     </subviews>
@@ -73,7 +73,7 @@
         </view>
     </objects>
     <resources>
-        <image name="3741C277-7493-47C3-B55C-E5B72195435B" width="113" height="148">
+        <image name="6163DF2E-AC6B-453F-BFAA-7993303DE29C" width="113" height="148">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGOzxYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBMU
 GR4fJSYsLzU4VSRudWxs1QkKCwwNDg8QERJWTlNTaXplViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBz

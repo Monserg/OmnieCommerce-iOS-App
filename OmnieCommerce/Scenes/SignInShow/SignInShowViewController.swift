@@ -28,22 +28,13 @@ class SignInShowViewController: BaseViewController, SignInShowViewControllerInpu
     @IBOutlet var bigTopBarView: BigTopBarView!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var contentView: UIView!
+    @IBOutlet weak var nameTextField: CustomTextField!
+    @IBOutlet weak var passwordTextField: CustomTextField!
 
-    
-    
-    
-    
-    
     
 //    @IBOutlet weak var vkontakteButton: UIButton!
 //    @IBOutlet weak var googleButton: UIButton!
 //    @IBOutlet weak var facebookButton: UIButton!
-//    
-//    @IBOutlet weak var nameTextField: CustomTextField!
-//    @IBOutlet weak var passwordTextField: CustomTextField!
-//    
-//    @IBOutlet weak var topBarViewHeightPortraitConstraint: NSLayoutConstraint!
-//    @IBOutlet weak var topBarViewHeightLandscapeConstraint: NSLayoutConstraint!
 //    
 
     
@@ -59,38 +50,23 @@ class SignInShowViewController: BaseViewController, SignInShowViewControllerInpu
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        setupScene(withSize: view.bounds.size)
-
+        topBarViewStyle = .Big
+        
         // Delegates
         scrollView.delegate = self
         
         scrollViewBase = scrollView
-//        contentViewBase = contentView
+///        contentViewBase = contentView
         
-//        nameTextField.delegate = self
-//        passwordTextField.delegate = self
+        nameTextField.delegate = self
+        passwordTextField.delegate = self
         
-//        // Config scene
-//        bigTopBarViewBottomConstraint.constant = view.bounds.height - view.bounds.height / 3.032
-//            //(UIApplication.shared.statusBarOrientation.isPortrait) ? CGFloat(Double(view.frame.height) * Config.Constants.bigTopBarViewHeightCoefficient) : 11
-//        
-//        print(bigTopBarView.frame)
-//        bigTopBarView.updateConstraintsIfNeeded()
-//        view.layoutIfNeeded()
-//        print(bigTopBarView.frame)
-        
-//        topBarView.circleView.cirleRadiusStyle = .small
-//        topBarViewHeight = (topBarView.circleView.cirleRadiusStyle == .small) ? Config.Constants.topViewBarHeightSmall : Config.Constants.topViewBarHeightBig
-//        topBarViewHeightPortraitConstraint.constant = topBarViewHeight
-//        topBarViewHeightLandscapeConstraint.constant = topBarViewHeight
-//        self.view.layoutIfNeeded()
         
         // Set buttons type
 //        vkontakteButton.type = .social
 //        googleButton.type = .social
 //        facebookButton.type = .social
         
-//        content = contentView        
         
         setup(topBarView: bigTopBarView)
         

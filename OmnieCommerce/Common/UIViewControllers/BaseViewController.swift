@@ -10,13 +10,18 @@ import UIKit
 import Localize_Swift
 import SWRevealViewController
 
+enum TopBarViewStyle {
+    case Big
+    case Small
+}
 class BaseViewController: UIViewController {
     // MARK: - Properties
     var selectedRange: CGRect?
-    var topBarViewRounding = String()
+    var topBarViewStyle = TopBarViewStyle.Big
     var scrollViewBase = UIScrollView()
-    var contentViewBase = UIView()
-    var topBarViewHeight: CGFloat = 100.0
+    
+///    var contentViewBase = UIView()
+///    var topBarViewHeight: CGFloat = 100.0
     
     
     // MARK: - Class Functions
@@ -42,7 +47,6 @@ class BaseViewController: UIViewController {
         super.viewDidAppear(true)
     }
 
-    
     override func didReceiveMemoryWarning() {
         print(object: "\(type(of: self)): \(#function) run.")
         
@@ -56,6 +60,8 @@ class BaseViewController: UIViewController {
     
     // MARK: - Actions
     func handleKeyboardAction(notification: Notification) {
+        print(object: "\(type(of: self)): \(#function) run.")
+        
         let userInfo = notification.userInfo!
         
         let keyboardScreenEndFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
@@ -78,10 +84,10 @@ class BaseViewController: UIViewController {
         scrollViewBase.scrollIndicatorInsets = scrollViewBase.contentInset
         scrollViewBase.showsVerticalScrollIndicator = false
         
-        guard selectedRange != nil else {
+        guard (selectedRange != nil && (keyboardViewEndFrame.contains((selectedRange?.origin)!))) else {
             return
         }
-        
+
         scrollViewBase.scrollRectToVisible(selectedRange!, animated: true)
     }
     
@@ -90,21 +96,21 @@ class BaseViewController: UIViewController {
     func setup(topBarView: UIView) {
         print(object: "\(type(of: self)): \(#function) run.")
 
-        // .small radius
-        if (topBarViewRounding == "Small") {
+        // TopBarView big height
+        if (topBarViewStyle == .Big) {
             let gestureRecognizer = UITapGestureRecognizer.init(target: self, action: #selector(BaseViewController.handleTap(gestureRecognizer:)))
             gestureRecognizer.delegate = self
             view.addGestureRecognizer(gestureRecognizer)
         }
         
-        // .big radius
+        // TopBarView small height
         else {
             // Set background color
             self.view.backgroundColor = Config.Colors.veryDarkDesaturatedBlue24
 
             // Add Slide Menu actions
             if revealViewController() != nil {
-//                topBarView.actionButton.addTarget(revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), for: .touchUpInside)
+//                self.topBarView.actionButton.addTarget(revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), for: .touchUpInside)
                 
                 // Sidebar is width 296
                 revealViewController().rearViewRevealWidth = 296
@@ -164,6 +170,8 @@ extension BaseViewController: UIScrollViewDelegate {
 // MARK: - UIGestureRecognizerDelegate
 extension BaseViewController: UIGestureRecognizerDelegate {
     func handleTap(gestureRecognizer: UIGestureRecognizer) {
+        print(object: "\(type(of: self)): \(#function) run.")
+        
         view.endEditing(true)
     }
 }
@@ -184,59 +192,63 @@ extension BaseViewController: UITextFieldDelegate {
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
+        print(object: "\(type(of: self)): \(#function) run.")
+        
         (textField as! CustomTextField).attributedPlaceholderString = textField.attributedPlaceholder
         textField.placeholder = nil
         selectedRange = textField.convert(textField.bounds, to: view)
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
+        print(object: "\(type(of: self)): \(#function) run.")
+        
         textField.attributedPlaceholder = (textField as! CustomTextField).attributedPlaceholderString
     }
     
-//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-//        if (NSStringFromClass(type(of: self)).hasSuffix("SignInShowViewController")) {
-//            let signInShowVC = self as! SignInShowViewController
-//            
-//            if textField == signInShowVC.nameTextField {
-//                signInShowVC.passwordTextField.becomeFirstResponder()
-//            } else {
-//                // FIXME: RUN LOGIN FUNC
-//                print("login run.")
-//                textField.resignFirstResponder()
-//            }
-//        }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        print(object: "\(type(of: self)): \(#function) run. Owner = \(self)")
+        
+        if (NSStringFromClass(type(of: self)).hasSuffix("SignInShowViewController")) {
+            let signInShowVC = self as! SignInShowViewController
+            
+            if textField == signInShowVC.nameTextField {
+                signInShowVC.passwordTextField.becomeFirstResponder()
+            } else {
+                // FIXME: RUN LOGIN FUNC
+                textField.resignFirstResponder()
+            }
+        }
 
-//        else if (NSStringFromClass(type(of: self)).hasSuffix("SignUpShowViewController")) {
-//            let signUpShowVC = self as! SignUpShowViewController
-//            
-//            if textField == signUpShowVC.nameTextField {
-//                signUpShowVC.emailTextField.becomeFirstResponder()
-//            } else if textField == signUpShowVC.emailTextField {
-//                if (textField.isValidEmail(textField.text!)) {
-//                    signUpShowVC.passwordTextField.becomeFirstResponder()
-//                }
-//            } else {
-//                // FIXME: RUN LOGIN FUNC
-//                print("login run.")
-//                textField.resignFirstResponder()
-//            }
-//        }
+        else if (NSStringFromClass(type(of: self)).hasSuffix("SignUpShowViewController")) {
+            let signUpShowVC = self as! SignUpShowViewController
+            
+            if textField == signUpShowVC.nameTextField {
+                signUpShowVC.emailTextField.becomeFirstResponder()
+            } else if textField == signUpShowVC.emailTextField {
+                if (textField.isValidEmail(textField.text!)) {
+                    signUpShowVC.passwordTextField.becomeFirstResponder()
+                }
+            } else {
+                // FIXME: RUN LOGIN FUNC
+                textField.resignFirstResponder()
+            }
+        }
 
-//        else if (NSStringFromClass(type(of: self)).hasSuffix("ForgotPasswordShowViewController")) {
-//            let forgotPasswordShowVC = self as! ForgotPasswordShowViewController
-//            
-//            if (textField.isValidEmail(textField.text!)) {
-//                forgotPasswordShowVC.phoneEmailErrorLabel.isHidden = true
-//                textField.resignFirstResponder()
-//                
-//                // TODO: - RUN SEND BUTTON HANDLER
-//            } else {
-//                forgotPasswordShowVC.phoneEmailErrorLabel.isHidden = false
-// 
-//                return false
-//            }
-//        }
-//
-//        return true
-//    }
+        else if (NSStringFromClass(type(of: self)).hasSuffix("ForgotPasswordShowViewController")) {
+            let forgotPasswordShowVC = self as! ForgotPasswordShowViewController
+            
+            if (textField.isValidEmail(textField.text!)) {
+                forgotPasswordShowVC.phoneEmailErrorLabel.isHidden = true
+                textField.resignFirstResponder()
+                
+                // TODO: - RUN SEND BUTTON HANDLER
+            } else {
+                forgotPasswordShowVC.phoneEmailErrorLabel.isHidden = false
+ 
+                return false
+            }
+        }
+
+        return true
+    }
 }

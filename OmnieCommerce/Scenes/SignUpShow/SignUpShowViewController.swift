@@ -44,22 +44,20 @@ class SignUpShowViewController: BaseViewController, SignUpShowViewControllerInpu
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        topBarViewStyle = .Big
+        
         // Delegates
-        nameTextField.delegate = self
-        emailTextField.delegate = self
-        passwordTextField.delegate = self
+//        nameTextField.delegate = self
+//        emailTextField.delegate = self
+//        passwordTextField.delegate = self
         
         // Config scene
-        contentViewBase = contentView
+///        contentViewBase = contentView
         setup(topBarView: topBarView)
 
         doSomethingOnLoad()
     }
     
-    deinit {
-        print(object: "\(type(of: self)): \(#function) run.")
-    }
-
     
     // MARK: - Actions
     @IBAction func handlerSignUpButtonTap(_ sender: CustomButton) {
