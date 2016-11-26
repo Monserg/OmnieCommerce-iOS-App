@@ -32,9 +32,9 @@ class SignInShowViewController: BaseViewController, SignInShowViewControllerInpu
 
     
     @IBOutlet weak var vkontakteButton: CustomButton!
-//    @IBOutlet weak var googleButton: UIButton!
-//    @IBOutlet weak var facebookButton: UIButton!
-//    
+    @IBOutlet weak var googleButton: CustomButton!
+    @IBOutlet weak var facebookButton: CustomButton!
+    
 
     
     // MARK: - Class Initialization
@@ -49,22 +49,19 @@ class SignInShowViewController: BaseViewController, SignInShowViewControllerInpu
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        topBarViewStyle = .Big
-        
         // Delegates
         scrollView.delegate = self
         nameTextField.delegate = self
         passwordTextField.delegate = self
         
+        // Config controls
+        topBarViewStyle = .Big
         scrollViewBase = scrollView
-        
-        
-        
+
         // Set buttons type
         vkontakteButton.designStyle = "Social"
-//        googleButton.type = .social
-//        facebookButton.type = .social
-        
+        googleButton.designStyle = "Social"
+        facebookButton.designStyle = "Social"
         
         setup(topBarView: bigTopBarView)
         
@@ -84,12 +81,21 @@ class SignInShowViewController: BaseViewController, SignInShowViewControllerInpu
     }
     
     
-///    // MARK: - Actions
-///    @IBAction func asdasdasd(_ sender: UIButton) {
-///        print(object: "\(type(of: self)): \(#function) run.")
-///
-// /       self.dismiss(animated: true, completion: nil)
-///    }
+    // MARK: - Actions
+    @IBAction func handlerVkontakteButtonTap(_ sender: CustomButton) {
+        print(object: "\(type(of: self)): \(#function) run.")
+    
+    }
+    
+    @IBAction func handlerGoogleButtonTap(_ sender: CustomButton) {
+        print(object: "\(type(of: self)): \(#function) run.")
+    
+    }
+    
+    @IBAction func handlerFacebookButtonTap(_ sender: CustomButton) {
+        print(object: "\(type(of: self)): \(#function) run.")
+        
+    }
     
     
     // MARK: - Custom Functions
@@ -115,16 +121,7 @@ class SignInShowViewController: BaseViewController, SignInShowViewControllerInpu
         bigTopBarView.setNeedsDisplay()
         bigTopBarView.circleView.setNeedsDisplay()
         vkontakteButton.setNeedsDisplay()
-        
-        
-        //        if (topBarView.circleView.cirleRadiusStyle == .small) {
-        //            vkontakteButton.setNeedsDisplay()
-        //            googleButton.setNeedsDisplay()
-        //            facebookButton.setNeedsDisplay()
-        //        } else {
-        //            vkontakteButton.isHidden = true
-        //            googleButton.isHidden = true
-        //            facebookButton.isHidden = true
-        //        }
+        googleButton.setNeedsDisplay()
+        facebookButton.setNeedsDisplay()
     }
 }

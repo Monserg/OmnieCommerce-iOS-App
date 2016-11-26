@@ -38,30 +38,26 @@ import UIKit
             
             let circleY = UIApplication.shared.statusBarOrientation.isPortrait ? Double(UIScreen.main.bounds.height * Config.Constants.bigTopBarViewHeightCoefficient - Config.Constants.lineViewThickness) - Config.Constants.lineViewSocialButtonDistance - Double(Config.Constants.lineViewThickness / 2) - Config.Constants.fillViewRadiusPortrait : Double(UIScreen.main.bounds.height / 2)
             
+            var buttonDegree = 180.0
+            
             switch self.tag {
             // Google
             case 2:
-                let googleButtonDegree = UIApplication.shared.statusBarOrientation.isPortrait ? 157.0 : 348.6
-                
-                center = CGPoint.init(x: circleX + Config.Constants.fillViewRadiusPortrait * cos((M_PI * googleButtonDegree) / 180), y: circleY - Config.Constants.fillViewRadiusPortrait * sin((M_PI * googleButtonDegree) / 180))
+                buttonDegree = (UIApplication.shared.statusBarOrientation.isPortrait) ? 288.1 : 332.1 * (sidesRatio + 0.444)
                 
             // Facebook
             case 3:
-                let facebookButtonDegree = UIApplication.shared.statusBarOrientation.isPortrait ? 159.6 : 344.0
-                
-                center = CGPoint.init(x: circleX + Config.Constants.fillViewRadiusPortrait * cos((M_PI * facebookButtonDegree) / 180), y: circleY - Config.Constants.fillViewRadiusPortrait * sin((M_PI * facebookButtonDegree) / 180))
+                buttonDegree = (UIApplication.shared.statusBarOrientation.isPortrait) ? 296.1 : 322.1 * (sidesRatio + 0.444)
                 
             // VKontakte
             default:
-                if (UIApplication.shared.statusBarOrientation.isPortrait) {
-                    let vkontakteDegree = 280.1 //156.4
-                    
-                    center = CGPoint.init(x: circleX + Config.Constants.fillViewRadiusPortrait * cos((M_PI * vkontakteDegree) / 180), y: circleY - Config.Constants.fillViewRadiusPortrait * sin((M_PI * vkontakteDegree) / 180))
-                } else {
-                    let vkontakteDegree = 353.2 * (sidesRatio + 0.444)
-                    
-                    center = CGPoint.init(x: circleX + Config.Constants.fillViewRadiusLandscape * cos((M_PI * vkontakteDegree) / 180), y: circleY - Config.Constants.fillViewRadiusLandscape * sin((M_PI * vkontakteDegree) / 180))
-                }
+                buttonDegree = (UIApplication.shared.statusBarOrientation.isPortrait) ? 280.1 : 342.1 * (sidesRatio + 0.444)
+            }
+            
+            if (UIApplication.shared.statusBarOrientation.isPortrait) {
+                center = CGPoint.init(x: circleX + Config.Constants.fillViewRadiusPortrait * cos((M_PI * buttonDegree) / 180), y: circleY - Config.Constants.fillViewRadiusPortrait * sin((M_PI * buttonDegree) / 180))
+            } else {
+                center = CGPoint.init(x: circleX + Config.Constants.fillViewRadiusLandscape * cos((M_PI * buttonDegree) / 180), y: circleY - Config.Constants.fillViewRadiusLandscape * sin((M_PI * buttonDegree) / 180))
             }
         }
     }
