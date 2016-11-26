@@ -435,7 +435,6 @@
 		B1228FAA1DD44C7A00A90FBB /* UIViews */ = {
 			isa = PBXGroup;
 			children = (
-				B122F23A1DD36F420018A701 /* UITableViewCells */,
 				B1305D391DDC738F000CA5FE /* CircleView.swift */,
 				B16E96721DE717E400147CEF /* BigCirleView.swift */,
 				B152915E1DDEB8B500BBA1E0 /* CustomTableView.swift */,
@@ -627,6 +626,7 @@
 				B122F2391DD36F220018A701 /* UIButtons */,
 				B1228FBB1DD4BDE600A90FBB /* UILabels */,
 				B122F23F1DD371830018A701 /* UINavigationControllers */,
+				B122F23A1DD36F420018A701 /* UITableViewCells */,
 				B122F2381DD36F120018A701 /* UITextFields */,
 				B1228FB61DD497FC00A90FBB /* UIViewControllers */,
 				B1228FAA1DD44C7A00A90FBB /* UIViews */,
@@ -655,8 +655,7 @@
 			children = (
 				B1228FB11DD47C9F00A90FBB /* MenuViewCell.swift */,
 			);
-			name = UITableViewCells;
-			path = ../UITableViewCells;
+			path = UITableViewCells;
 			sourceTree = "<group>";
 		};
 		B122F23F1DD371830018A701 /* UINavigationControllers */ = {
@@ -1349,6 +1348,7 @@
 				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
 				INFOPLIST_FILE = OmnieCommerce/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\"";
 				PRODUCT_BUNDLE_IDENTIFIER = ua.com.omniesoft.OmnieCommerce;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "";

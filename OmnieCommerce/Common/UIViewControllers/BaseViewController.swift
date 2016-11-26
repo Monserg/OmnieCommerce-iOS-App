@@ -15,23 +15,44 @@ class BaseViewController: UIViewController {
     var selectedRange: CGRect?
     var topBarViewRounding = String()
     var scrollViewBase = UIScrollView()
-    var content = UIView()
+    var contentViewBase = UIView()
     var topBarViewHeight: CGFloat = 100.0
     
     
     // MARK: - Class Functions
     override func viewDidLoad() {
+        print(object: "\(type(of: self)): \(#function) run. View size = \(view.bounds.size)")
+        
         super.viewDidLoad()
         
         // Add Observers
         NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardAction), name: .UIKeyboardWillHide, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardAction), name: .UIKeyboardWillChangeFrame, object: nil)
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        print(object: "\(type(of: self)): \(#function) run.")
 
+        super.viewWillAppear(true)
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        print(object: "\(type(of: self)): \(#function) run.")
+        
+        super.viewDidAppear(true)
+    }
+
+    
     override func didReceiveMemoryWarning() {
+        print(object: "\(type(of: self)): \(#function) run.")
+        
         super.didReceiveMemoryWarning()
     }
     
+    deinit {
+        print(object: "\(type(of: self)): \(#function) run.")
+    }
+
     
     // MARK: - Actions
     func handleKeyboardAction(notification: Notification) {
@@ -67,10 +88,10 @@ class BaseViewController: UIViewController {
     
     // MARK: - Custom Functions
     func setup(topBarView: UIView) {
+        print(object: "\(type(of: self)): \(#function) run.")
+
         // .small radius
         if (topBarViewRounding == "Small") {
-            print(".small")
-            
             let gestureRecognizer = UITapGestureRecognizer.init(target: self, action: #selector(BaseViewController.handleTap(gestureRecognizer:)))
             gestureRecognizer.delegate = self
             view.addGestureRecognizer(gestureRecognizer)
@@ -107,15 +128,27 @@ class BaseViewController: UIViewController {
         }
         
         // Setup UIScrollView
-        scrollViewBase.frame = CGRect.init(x: 0, y: topBarView.frame.height, width: view.bounds.width, height: view.bounds.height - topBarView.bounds.height)
-        scrollViewBase.delegate = self
-        scrollViewBase.contentSize = CGSize.init(width: 60, height: 2000)
-        scrollViewBase.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        scrollViewBase.contentOffset = CGPoint.init(x: 0, y: topBarViewHeight)
+//        scrollViewBase.frame = CGRect.init(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height - topBarView.bounds.height)
+//        scrollViewBase.delegate = self
+        //scrollViewBase.contentSize = CGSize.init(width: 60, height: 2000)
+//        scrollViewBase.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+//        scrollViewBase.contentOffset = CGPoint.init(x: 0, y: topBarViewHeight)
 
-        content.translatesAutoresizingMaskIntoConstraints = true
-        scrollViewBase.addSubview(content)
-        view.addSubview(scrollViewBase)
+//        contentViewBase.translatesAutoresizingMaskIntoConstraints = false
+//        scrollViewBase.addSubview(contentViewBase)
+//        view.addSubview(scrollViewBase)
+    }
+    
+    
+    // MARK: - Custom Functions
+    func releasePrint(object: Any) {
+        Swift.print(object)
+    }
+    
+    func print(object: Any) {
+        #if DEBUG
+            Swift.print(object)
+        #endif
     }
 }
 
@@ -123,7 +156,7 @@ class BaseViewController: UIViewController {
 // MARK: - UIScrollViewDelegate
 extension BaseViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        print(scrollView.contentOffset.y)
+        print(object: "\(type(of: self)): \(#function) run. UIScrollView.contentOffset.y = \(scrollView.contentOffset.y)")
     }
 }
 

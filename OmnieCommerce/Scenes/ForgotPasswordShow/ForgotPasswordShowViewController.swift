@@ -49,14 +49,14 @@ class ForgotPasswordShowViewController: BaseViewController, ForgotPasswordShowVi
         
         // Config scene
         phoneEmailErrorLabel.isHidden = true
-        content = contentView
+        contentViewBase = contentView
         setup(topBarView: topBarView)
 
         doSomethingOnLoad()
     }
     
     deinit {
-        print("ForgotPasswordShowViewController deinit.")
+        print(object: "\(type(of: self)): \(#function) run.")
     }
 
 

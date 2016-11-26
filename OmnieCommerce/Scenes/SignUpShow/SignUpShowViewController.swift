@@ -50,14 +50,14 @@ class SignUpShowViewController: BaseViewController, SignUpShowViewControllerInpu
         passwordTextField.delegate = self
         
         // Config scene
-        content = contentView
+        contentViewBase = contentView
         setup(topBarView: topBarView)
 
         doSomethingOnLoad()
     }
     
     deinit {
-        print("SignUpShowViewController deinit.")
+        print(object: "\(type(of: self)): \(#function) run.")
     }
 
     

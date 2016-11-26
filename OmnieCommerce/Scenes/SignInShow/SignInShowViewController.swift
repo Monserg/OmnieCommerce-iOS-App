@@ -27,11 +27,8 @@ class SignInShowViewController: BaseViewController, SignInShowViewControllerInpu
     
     @IBOutlet var bigTopBarView: BigTopBarView!
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var contentView: UIView!
 
-    @IBOutlet weak var bigTopBarViewBottomConstraint: NSLayoutConstraint!
-    @IBOutlet weak var bigTopBarViewTrailingConstraint: NSLayoutConstraint!
-    
-    
     
     
     
@@ -48,7 +45,6 @@ class SignInShowViewController: BaseViewController, SignInShowViewControllerInpu
 //    @IBOutlet weak var topBarViewHeightPortraitConstraint: NSLayoutConstraint!
 //    @IBOutlet weak var topBarViewHeightLandscapeConstraint: NSLayoutConstraint!
 //    
-//    @IBOutlet weak var contentView: UIView!
 
     
     // MARK: - Class initialization
@@ -63,8 +59,13 @@ class SignInShowViewController: BaseViewController, SignInShowViewControllerInpu
     override func viewDidLoad() {
         super.viewDidLoad()
         
+//        setupScene(withSize: view.bounds.size)
+
         // Delegates
+        scrollView.delegate = self
+        
         scrollViewBase = scrollView
+//        contentViewBase = contentView
         
 //        nameTextField.delegate = self
 //        passwordTextField.delegate = self
@@ -96,44 +97,30 @@ class SignInShowViewController: BaseViewController, SignInShowViewControllerInpu
         doSomethingOnLoad()
     }
     
-    deinit {
-        print("SignInShowViewController deinit.")
-    }
-
     override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-    
-        if UIApplication.shared.statusBarOrientation.isLandscape {
-            bigTopBarViewTrailingConstraint.constant = view.bounds.width - view.bounds.width / Config.Constants.bigTopBarViewWidthCoefficient
-            bigTopBarView.updateConstraintsIfNeeded()
-        } else {
-            // Config scene
-            bigTopBarViewBottomConstraint.constant = view.bounds.height - view.bounds.height / Config.Constants.bigTopBarViewHeightCoefficient
-            bigTopBarView.updateConstraintsIfNeeded()
-        }
-
-        bigTopBarView.circleView.setNeedsDisplay()
-        
-//        if (topBarView.circleView.cirleRadiusStyle == .small) {
-//            vkontakteButton.setNeedsDisplay()
-//            googleButton.setNeedsDisplay()
-//            facebookButton.setNeedsDisplay()
-//        } else {
-//            vkontakteButton.isHidden = true
-//            googleButton.isHidden = true
-//            facebookButton.isHidden = true
-//        }
+        super.viewDidLayoutSubviews()    
     }
 
+    // MARK: - Transition
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        print(object: "\(type(of: self)): \(#function) run. New size = \(size)")
+        
+        setupScene(withSize: size)
+    }
+    
     
     // MARK: - Actions
     @IBAction func asdasdasd(_ sender: UIButton) {
+        print(object: "\(type(of: self)): \(#function) run.")
+
         self.dismiss(animated: true, completion: nil)
     }
     
     
     // MARK: - Custom Functions
     func doSomethingOnLoad() {
+        print(object: "\(type(of: self)): \(#function) run.")
+
         // NOTE: Ask the Interactor to do some work
         let request = SignInShow.Something.Request()
         output.doSomething(request: request)
@@ -141,7 +128,27 @@ class SignInShowViewController: BaseViewController, SignInShowViewControllerInpu
     
     // Display logic
     func displaySomething(viewModel: SignInShow.Something.ViewModel) {
+        print(object: "\(type(of: self)): \(#function) run.")
+
         // NOTE: Display the result from the Presenter
         // nameTextField.text = viewModel.name
+    }
+    
+    func setupScene(withSize size: CGSize) {
+        print(object: "\(type(of: self)): \(#function) run. Screen view size = \(size)")
+
+        bigTopBarView.setNeedsDisplay()
+        bigTopBarView.circleView.setNeedsDisplay()
+        
+        
+        //        if (topBarView.circleView.cirleRadiusStyle == .small) {
+        //            vkontakteButton.setNeedsDisplay()
+        //            googleButton.setNeedsDisplay()
+        //            facebookButton.setNeedsDisplay()
+        //        } else {
+        //            vkontakteButton.isHidden = true
+        //            googleButton.isHidden = true
+        //            facebookButton.isHidden = true
+        //        }
     }
 }

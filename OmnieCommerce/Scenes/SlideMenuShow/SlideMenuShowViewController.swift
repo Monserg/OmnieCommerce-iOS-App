@@ -61,10 +61,6 @@ class SlideMenuShowViewController: UIViewController, SlideMenuShowViewController
         getMenuItemsFromPropertyList()
     }
 
-    deinit {
-        print("SlideMenuShowViewController deinit.")
-    }
-
     
     // MARK: - Actions
     @IBAction func handlerAdvertisingViewTap(_ sender: UIButton) {

@@ -18,9 +18,7 @@ import UIKit
     }
 
     @IBInspectable var cirleRadiusStyle = String() {
-        didSet {
-            print(cirleRadiusStyle)
-        }
+        didSet { }
     }
         
     

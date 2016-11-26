@@ -13,11 +13,11 @@ import UIKit
 
 struct Config {
     struct Constants {
-        static let fillViewRadiusPortrait: Double          =   360
-        static let fillViewRadiusLandscape: Double         =   289
-        static let fillViewLineViewDistance: Double        =   13
-        static let lineViewThickness: CGFloat              =   3
-        static let lineViewSocialButtonDistance: Double    =   3
+        static let fillViewRadiusPortrait: Double          =   360.0
+        static let fillViewRadiusLandscape: Double         =   289.0
+        static let fillViewLineViewDistance: Double        =   10.0
+        static let lineViewThickness: CGFloat              =   3.0
+        static let lineViewSocialButtonDistance: Double    =   3.0
 
 //        // Big circle radius = 1531,    fill height = 80,   line height = 93 (+13),     top view height = 96 (+3)
 //        static let topViewBarHeightBig: CGFloat             =   96.0
@@ -101,5 +101,5 @@ struct Config {
         static let veryLightOrangeAlfa60                    =   UIColor(hexString: "#ffd76c", withAlpha: 0.6)
         static let veryDarkDesaturatedBlue25Alfa1           =   UIColor(hexString: "#253340", withAlpha: 1.0)
         static let veryDarkDesaturatedBlue25Alfa94          =   UIColor(hexString: "#253340", withAlpha: 0.94)
-    }
+    }    
 }
