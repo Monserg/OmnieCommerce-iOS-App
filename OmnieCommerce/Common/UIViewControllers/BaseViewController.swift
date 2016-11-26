@@ -129,17 +129,6 @@ class BaseViewController: UIViewController {
                 view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
             }
         }
-        
-        // Setup UIScrollView
-//        scrollViewBase.frame = CGRect.init(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height - topBarView.bounds.height)
-//        scrollViewBase.delegate = self
-        //scrollViewBase.contentSize = CGSize.init(width: 60, height: 2000)
-//        scrollViewBase.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-//        scrollViewBase.contentOffset = CGPoint.init(x: 0, y: topBarViewHeight)
-
-//        contentViewBase.translatesAutoresizingMaskIntoConstraints = false
-//        scrollViewBase.addSubview(contentViewBase)
-//        view.addSubview(scrollViewBase)
     }
     
     

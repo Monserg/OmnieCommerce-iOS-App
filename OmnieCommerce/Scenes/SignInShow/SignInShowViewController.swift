@@ -30,11 +30,12 @@ class SignInShowViewController: BaseViewController, SignInShowViewControllerInpu
     @IBOutlet weak var nameTextField: CustomTextField!
     @IBOutlet weak var passwordTextField: CustomTextField!
 
-    
+    @IBOutlet weak var forgotPasswordButton: CustomButton!
     @IBOutlet weak var vkontakteButton: CustomButton!
     @IBOutlet weak var googleButton: CustomButton!
     @IBOutlet weak var facebookButton: CustomButton!
     
+    @IBOutlet weak var contentViewHeightConstraint: NSLayoutConstraint!
 
     
     // MARK: - Class Initialization
@@ -64,6 +65,7 @@ class SignInShowViewController: BaseViewController, SignInShowViewControllerInpu
         facebookButton.designStyle = "Social"
         
         setup(topBarView: bigTopBarView)
+        calculateContentSize(withSize: view.frame.size)
         
         doSomethingOnLoad()
     }
@@ -123,5 +125,17 @@ class SignInShowViewController: BaseViewController, SignInShowViewControllerInpu
         vkontakteButton.setNeedsDisplay()
         googleButton.setNeedsDisplay()
         facebookButton.setNeedsDisplay()
+        
+        calculateContentSize(withSize: size)
+    }
+    
+    func calculateContentSize(withSize size: CGSize) {
+        let lastControlObjectMaxY = forgotPasswordButton.convert(forgotPasswordButton.bounds, to: view).maxY + 10
+        
+        if (size.height < lastControlObjectMaxY) {
+            contentViewHeightConstraint.constant = size.height - (lastControlObjectMaxY - size.height)
+        } else {
+            contentViewHeightConstraint.constant = 0
+        }
     }
 }

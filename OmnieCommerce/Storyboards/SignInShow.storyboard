@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="HnD-Xp-HUn">
-    <device id="retina5_5" orientation="portrait">
+    <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -19,38 +19,38 @@
                         <viewControllerLayoutGuide type="bottom" id="NOf-bn-wRv"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="xRw-Ib-gFI">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="88E6172B-49BE-4CCF-BB4E-F745CA86DDDD" translatesAutoresizingMaskIntoConstraints="NO" id="38x-X2-VbJ" userLabel="Background Image View">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="4F60DF42-21D5-4649-92D1-A5C160A0C4D0" translatesAutoresizingMaskIntoConstraints="NO" id="38x-X2-VbJ" userLabel="Background Image View">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" red="0.1450980392" green="0.20000000000000001" blue="0.25098039220000001" alpha="0.93999999999999995" colorSpace="calibratedRGB"/>
                                 <variation key="heightClass=compact-widthClass=compact" image="image-background-landscape"/>
-                                <variation key="heightClass=compact-widthClass=regular" image="B6F09F05-F32F-409B-8000-940080B927DF"/>
+                                <variation key="heightClass=compact-widthClass=regular" image="982C73F1-16FC-4A2D-8E7C-0F5E6C806276"/>
                                 <variation key="heightClass=regular-widthClass=compact" image="image-background-portrait"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aC8-Sv-85m" userLabel="Blackout View">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" red="0.1450980392" green="0.20000000000000001" blue="0.25098039220000001" alpha="0.93999999999999995" colorSpace="calibratedRGB"/>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="CcX-zO-J6n">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tAx-WJ-ccu" userLabel="Big Top Bar View" customClass="BigTopBarView" customModule="OmnieCommerce" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="242.33333333333334"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="187"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nhy-kr-5FA">
-                                        <rect key="frame" x="0.0" y="242.33333333333331" width="414" height="493.66666666666669"/>
+                                        <rect key="frame" x="0.0" y="187" width="320" height="381"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3KI-M8-X44" userLabel="Content View">
-                                                <rect key="frame" x="0.0" y="0.33333333333331439" width="414" height="493.66666666666674"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="381"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IG8-hq-JBf" userLabel="Controls View">
-                                                        <rect key="frame" x="87.666666666666686" y="53.666666666666657" width="240" height="440.00000000000011"/>
+                                                        <rect key="frame" x="40.5" y="53" width="240" height="328"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Congratulations" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0jU-8i-lmM" userLabel="Congratulations Label" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="0.66666666666668561" width="240" height="42.333333333333314"/>
+                                                                <rect key="frame" x="0.0" y="0.5" width="240" height="42.5"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <nil key="highlightedColor"/>
@@ -62,14 +62,14 @@
                                                                 <rect key="frame" x="0.0" y="83" width="240" height="33"/>
                                                                 <subviews>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WKZ-5p-pzL" customClass="DottedBorderView" customModule="OmnieCommerce" customModuleProvider="target">
-                                                                        <rect key="frame" x="0.0" y="0.33333333333337123" width="240" height="33"/>
+                                                                        <rect key="frame" x="0.0" y="0.5" width="240" height="33"/>
                                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                         <userDefinedRuntimeAttributes>
                                                                             <userDefinedRuntimeAttribute type="string" keyPath="viewStyle" value="BottomDottedLine"/>
                                                                         </userDefinedRuntimeAttributes>
                                                                     </view>
                                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="RHt-Kr-ZGR" userLabel="Name Text Field" customClass="CustomTextField" customModule="OmnieCommerce" customModuleProvider="target">
-                                                                        <rect key="frame" x="8" y="5.3333333333333712" width="240" height="20"/>
+                                                                        <rect key="frame" x="8" y="5.5" width="240" height="20"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="20" id="7sO-F8-L2L"/>
                                                                         </constraints>
@@ -97,14 +97,14 @@
                                                                 <rect key="frame" x="0.0" y="136" width="240" height="33"/>
                                                                 <subviews>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5L5-5d-8fw" customClass="DottedBorderView" customModule="OmnieCommerce" customModuleProvider="target">
-                                                                        <rect key="frame" x="0.0" y="0.33333333333337123" width="240" height="33"/>
+                                                                        <rect key="frame" x="0.0" y="0.5" width="240" height="33"/>
                                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                         <userDefinedRuntimeAttributes>
                                                                             <userDefinedRuntimeAttribute type="string" keyPath="viewStyle" value="BottomDottedLine"/>
                                                                         </userDefinedRuntimeAttributes>
                                                                     </view>
                                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="jVR-tF-tJq" userLabel="Password Text Field" customClass="CustomTextField" customModule="OmnieCommerce" customModuleProvider="target">
-                                                                        <rect key="frame" x="8" y="5.3333333333333712" width="240" height="20"/>
+                                                                        <rect key="frame" x="8" y="5.5" width="240" height="20"/>
                                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="20" id="y92-hg-EML"/>
@@ -130,7 +130,7 @@
                                                                 </constraints>
                                                             </view>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wXW-4T-s7F" userLabel="Sign In Button" customClass="CustomButton" customModule="OmnieCommerce" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="194" width="240" height="36.000000000000057"/>
+                                                                <rect key="frame" x="0.0" y="194" width="240" height="36"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="36" id="vFC-jN-ynz"/>
                                                                 </constraints>
@@ -141,7 +141,7 @@
                                                                 </userDefinedRuntimeAttributes>
                                                             </button>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Not yet registered?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vMy-6O-pyt" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="250.00000000000006" width="102.33333333333333" height="25.333333333333258"/>
+                                                                <rect key="frame" x="0.0" y="250" width="102.5" height="25.5"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <nil key="highlightedColor"/>
@@ -150,7 +150,7 @@
                                                                 </userDefinedRuntimeAttributes>
                                                             </label>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0ov-ev-vnB" userLabel="Sign Up Button" customClass="CustomButton" customModule="OmnieCommerce" customModuleProvider="target">
-                                                                <rect key="frame" x="110.33333333333334" y="250.00000000000006" width="129.66666666666669" height="25.333333333333258"/>
+                                                                <rect key="frame" x="110.5" y="250" width="129.5" height="25.5"/>
                                                                 <state key="normal" title="Sign Up"/>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="string" keyPath="buttonStyle" value="UnderlineColor"/>
@@ -160,7 +160,7 @@
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xqf-1i-gLg" userLabel="Forgot Password Button" customClass="CustomButton" customModule="OmnieCommerce" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="288.33333333333331" width="240" height="25.333333333333371"/>
+                                                                <rect key="frame" x="0.0" y="288.5" width="240" height="25.5"/>
                                                                 <state key="normal" title="Forgot Password?"/>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="string" keyPath="buttonStyle" value="Underline"/>
@@ -320,7 +320,9 @@
                     <navigationItem key="navigationItem" id="V6A-0G-Q3E"/>
                     <connections>
                         <outlet property="bigTopBarView" destination="tAx-WJ-ccu" id="AY2-Hi-vZ6"/>
+                        <outlet property="contentViewHeightConstraint" destination="wRj-kL-FVV" id="uxv-Ss-DpU"/>
                         <outlet property="facebookButton" destination="Qfx-nY-oDM" id="nvN-wW-84F"/>
+                        <outlet property="forgotPasswordButton" destination="Xqf-1i-gLg" id="w9A-da-ZRb"/>
                         <outlet property="googleButton" destination="ymG-8Z-r5W" id="v0k-wI-TJU"/>
                         <outlet property="nameTextField" destination="RHt-Kr-ZGR" id="hhs-E4-uOZ"/>
                         <outlet property="passwordTextField" destination="jVR-tF-tJq" id="A65-eg-cPV"/>
@@ -369,7 +371,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="88E6172B-49BE-4CCF-BB4E-F745CA86DDDD" width="667" height="375">
+        <image name="4F60DF42-21D5-4649-92D1-A5C160A0C4D0" width="667" height="375">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -17098,7 +17100,7 @@ AA9OQAAPTkgAD05LAA9OUAAPTl8AD05jAA9OagAPTnIAD05/AA9OhAAPToYAD06IAA9OjQAPTpUAD06Y
 AA9OnQAPTqUAD06oAA9OugAPTr0AD07CAAAAAAAABAEAAAAAAAAAQQAAAAAAAAAAAAAAAAAPTsQ
 </mutableData>
         </image>
-        <image name="B6F09F05-F32F-409B-8000-940080B927DF" width="667" height="375">
+        <image name="982C73F1-16FC-4A2D-8E7C-0F5E6C806276" width="667" height="375">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -33830,7 +33832,7 @@ AA9OnQAPTqUAD06oAA9OugAPTr0AD07CAAAAAAAABAEAAAAAAAAAQQAAAAAAAAAAAAAAAAAPTsQ
         <image name="icon-facebook-normal" width="7" height="13"/>
         <image name="icon-google-normal" width="13" height="13"/>
         <image name="icon-vk-normal" width="18" height="10"/>
-        <image name="image-background-landscape" width="736" height="414"/>
-        <image name="image-background-portrait" width="414" height="736"/>
+        <image name="image-background-landscape" width="667" height="375"/>
+        <image name="image-background-portrait" width="375" height="667"/>
     </resources>
 </document>
