@@ -29,7 +29,7 @@ class OnmieSoftShowConfigurator {
     static let sharedInstance = OnmieSoftShowConfigurator()
     
     
-    // MARK: - Class initialization
+    // MARK: - Class Initialization
     private init() {}
     
 

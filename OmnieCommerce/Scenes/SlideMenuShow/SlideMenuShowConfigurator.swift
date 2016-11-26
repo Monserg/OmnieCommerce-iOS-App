@@ -29,7 +29,7 @@ class SlideMenuShowConfigurator {
     static let sharedInstance = SlideMenuShowConfigurator()
     
     
-    // MARK: - Class initialization
+    // MARK: - Class Initialization
     private init() {}
     
 

@@ -29,7 +29,7 @@ class CategoriesShowConfigurator {
     static let sharedInstance = CategoriesShowConfigurator()
     
     
-    // MARK: - Class initialization
+    // MARK: - Class Initialization
     private init() {}
     
 

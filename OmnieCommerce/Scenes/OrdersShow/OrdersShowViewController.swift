@@ -38,7 +38,7 @@ class OrdersShowViewController: BaseViewController, OrdersShowViewControllerInpu
 //    }
 
 
-    // MARK: - Class initialization
+    // MARK: - Class Initialization
     override func awakeFromNib() {
         super.awakeFromNib()
         

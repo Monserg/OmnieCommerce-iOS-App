@@ -26,7 +26,7 @@ class OnmieSoftShowViewController: UIViewController, OnmieSoftShowViewController
     var router: OnmieSoftShowRouter!
     
 
-    // MARK: - Class initialization
+    // MARK: - Class Initialization
     override func awakeFromNib() {
         super.awakeFromNib()
         

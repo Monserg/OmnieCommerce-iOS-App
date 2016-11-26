@@ -29,7 +29,7 @@ class BusinessCardsShowConfigurator {
     static let sharedInstance = BusinessCardsShowConfigurator()
     
     
-    // MARK: - Class initialization
+    // MARK: - Class Initialization
     private init() {}
     
 

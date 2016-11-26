@@ -38,7 +38,7 @@ class BusinessCardsShowViewController: BaseViewController, BusinessCardsShowView
 //    }
 
     
-    // MARK: - Class initialization
+    // MARK: - Class Initialization
     override func awakeFromNib() {
         super.awakeFromNib()
         

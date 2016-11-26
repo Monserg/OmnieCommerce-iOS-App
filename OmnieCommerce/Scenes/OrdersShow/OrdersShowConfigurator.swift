@@ -29,7 +29,7 @@ class OrdersShowConfigurator {
     static let sharedInstance = OrdersShowConfigurator()
     
     
-    // MARK: - Class initialization
+    // MARK: - Class Initialization
     private init() {}
     
 

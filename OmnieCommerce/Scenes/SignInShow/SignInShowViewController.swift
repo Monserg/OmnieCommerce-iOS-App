@@ -27,7 +27,7 @@ class SignInShowViewController: BaseViewController, SignInShowViewControllerInpu
     
     @IBOutlet var bigTopBarView: BigTopBarView!
     @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var contentView: UIView!
+///    @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var nameTextField: CustomTextField!
     @IBOutlet weak var passwordTextField: CustomTextField!
 
@@ -38,7 +38,7 @@ class SignInShowViewController: BaseViewController, SignInShowViewControllerInpu
 //    
 
     
-    // MARK: - Class initialization
+    // MARK: - Class Initialization
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -54,12 +54,11 @@ class SignInShowViewController: BaseViewController, SignInShowViewControllerInpu
         
         // Delegates
         scrollView.delegate = self
-        
-        scrollViewBase = scrollView
-///        contentViewBase = contentView
-        
         nameTextField.delegate = self
         passwordTextField.delegate = self
+        
+        scrollViewBase = scrollView
+        
         
         
         // Set buttons type
@@ -77,6 +76,7 @@ class SignInShowViewController: BaseViewController, SignInShowViewControllerInpu
         super.viewDidLayoutSubviews()    
     }
 
+    
     // MARK: - Transition
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         print(object: "\(type(of: self)): \(#function) run. New size = \(size)")

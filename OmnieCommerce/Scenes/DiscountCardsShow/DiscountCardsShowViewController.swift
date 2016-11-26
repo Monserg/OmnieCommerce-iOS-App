@@ -38,7 +38,7 @@ class DiscountCardsShowViewController: BaseViewController, DiscountCardsShowView
 //    }
 
     
-    // MARK: - Class initialization
+    // MARK: - Class Initialization
     override func awakeFromNib() {
         super.awakeFromNib()
         

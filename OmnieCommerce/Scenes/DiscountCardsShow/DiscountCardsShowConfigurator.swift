@@ -29,7 +29,7 @@ class DiscountCardsShowConfigurator {
     static let sharedInstance = DiscountCardsShowConfigurator()
     
     
-    // MARK: - Class initialization
+    // MARK: - Class Initialization
     private init() {}
     
 

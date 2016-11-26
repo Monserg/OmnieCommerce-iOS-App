@@ -29,7 +29,7 @@ class OmnieCardsShowConfigurator {
     static let sharedInstance = OmnieCardsShowConfigurator()
     
     
-    // MARK: - Class initialization
+    // MARK: - Class Initialization
     private init() {}
     
 

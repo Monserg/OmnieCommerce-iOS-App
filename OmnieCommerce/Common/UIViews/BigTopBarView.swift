@@ -16,7 +16,7 @@ class BigTopBarView: UIView {
     @IBOutlet weak var logoImageView: UIImageView!
     
     
-    // MARK: - Class initialization
+    // MARK: - Class Initialization
     override init(frame: CGRect) {
         super.init(frame: frame)
         

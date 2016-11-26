@@ -25,13 +25,18 @@ class ForgotPasswordShowViewController: BaseViewController, ForgotPasswordShowVi
     var output: ForgotPasswordShowViewControllerOutput!
     var router: ForgotPasswordShowRouter!
     
-    @IBOutlet var topBarView: TopBarView!
-    @IBOutlet weak var contentView: UIView!
+    @IBOutlet var bigTopBarView: BigTopBarView!
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var phoneEmailTextField: CustomTextField!
     @IBOutlet weak var phoneEmailErrorLabel: CustomLabel!
 
+    //    @IBOutlet weak var vkontakteButton: UIButton!
+    //    @IBOutlet weak var googleButton: UIButton!
+    //    @IBOutlet weak var facebookButton: UIButton!
+    //
+
     
-    // MARK: - Class initialization
+    // MARK: - Class Initialization
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -46,33 +51,44 @@ class ForgotPasswordShowViewController: BaseViewController, ForgotPasswordShowVi
         topBarViewStyle = .Big
 
         // Delegates
+        scrollView.delegate = self
         phoneEmailTextField.delegate = self
         
-        
         // Config scene
+        scrollViewBase = scrollView
         phoneEmailErrorLabel.isHidden = true
-///        contentViewBase = contentView
-        setup(topBarView: topBarView)
+        
+        setup(topBarView: bigTopBarView)
 
         doSomethingOnLoad()
     }
     
-    deinit {
-        print(object: "\(type(of: self)): \(#function) run.")
+
+    // MARK: - Transition
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        print(object: "\(type(of: self)): \(#function) run. New size = \(size)")
+        
+        setupScene(withSize: size)
     }
 
-
+    
     // MARK: - Actions
     @IBAction func handleSendButtonTap(_ sender: CustomButton) {
+        print(object: "\(type(of: self)): \(#function) run.")
+
     }
     
     @IBAction func handleCancelButtonTap(_ sender: CustomButton) {
+        print(object: "\(type(of: self)): \(#function) run.")
+
         _ = navigationController?.popToRootViewController(animated: true)
     }
     
     
     // MARK: - Custom Functions
     func doSomethingOnLoad() {
+        print(object: "\(type(of: self)): \(#function) run.")
+
         // NOTE: Ask the Interactor to do some work
         let request = ForgotPasswordShow.Something.Request()
         output.doSomething(request: request)
@@ -80,7 +96,27 @@ class ForgotPasswordShowViewController: BaseViewController, ForgotPasswordShowVi
     
     // Display logic
     func displaySomething(viewModel: ForgotPasswordShow.Something.ViewModel) {
+        print(object: "\(type(of: self)): \(#function) run.")
+
         // NOTE: Display the result from the Presenter
         // nameTextField.text = viewModel.name
+    }
+    
+    func setupScene(withSize size: CGSize) {
+        print(object: "\(type(of: self)): \(#function) run. Screen view size = \(size)")
+        
+        bigTopBarView.setNeedsDisplay()
+        bigTopBarView.circleView.setNeedsDisplay()
+        
+        
+        //        if (topBarView.circleView.cirleRadiusStyle == .small) {
+        //            vkontakteButton.setNeedsDisplay()
+        //            googleButton.setNeedsDisplay()
+        //            facebookButton.setNeedsDisplay()
+        //        } else {
+        //            vkontakteButton.isHidden = true
+        //            googleButton.isHidden = true
+        //            facebookButton.isHidden = true
+        //        }
     }
 }

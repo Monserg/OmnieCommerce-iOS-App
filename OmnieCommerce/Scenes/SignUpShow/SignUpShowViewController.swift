@@ -32,7 +32,7 @@ class SignUpShowViewController: BaseViewController, SignUpShowViewControllerInpu
     @IBOutlet weak var passwordTextField: CustomTextField!
 
     
-    // MARK: - Class initialization
+    // MARK: - Class Initialization
     override func awakeFromNib() {
         super.awakeFromNib()
         

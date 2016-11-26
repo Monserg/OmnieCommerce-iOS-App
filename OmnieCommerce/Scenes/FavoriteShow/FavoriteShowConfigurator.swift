@@ -29,7 +29,7 @@ class FavoriteShowConfigurator {
     static let sharedInstance = FavoriteShowConfigurator()
     
     
-    // MARK: - Class initialization
+    // MARK: - Class Initialization
     private init() {}
     
 

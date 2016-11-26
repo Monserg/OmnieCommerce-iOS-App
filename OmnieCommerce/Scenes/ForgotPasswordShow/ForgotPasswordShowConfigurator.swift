@@ -29,7 +29,7 @@ class ForgotPasswordShowConfigurator {
     static let sharedInstance = ForgotPasswordShowConfigurator()
     
     
-    // MARK: - Class initialization
+    // MARK: - Class Initialization
     private init() {}
     
 

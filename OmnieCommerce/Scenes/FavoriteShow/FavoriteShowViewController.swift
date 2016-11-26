@@ -38,7 +38,7 @@ class FavoriteShowViewController: BaseViewController, FavoriteShowViewController
 //    }
     
     
-    // MARK: - Class initialization
+    // MARK: - Class Initialization
     override func awakeFromNib() {
         super.awakeFromNib()
         

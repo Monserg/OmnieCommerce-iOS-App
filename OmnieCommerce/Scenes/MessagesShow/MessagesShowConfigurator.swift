@@ -29,7 +29,7 @@ class MessagesShowConfigurator {
     static let sharedInstance = MessagesShowConfigurator()
     
     
-    // MARK: - Class initialization
+    // MARK: - Class Initialization
     private init() {}
     
 

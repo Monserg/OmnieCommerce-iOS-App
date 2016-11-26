@@ -29,7 +29,7 @@ class SignUpShowConfigurator {
     static let sharedInstance = SignUpShowConfigurator()
     
     
-    // MARK: - Class initialization
+    // MARK: - Class Initialization
     private init() {}
     
 

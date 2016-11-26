@@ -29,7 +29,7 @@ class NewsShowConfigurator {
     static let sharedInstance = NewsShowConfigurator()
     
     
-    // MARK: - Class initialization
+    // MARK: - Class Initialization
     private init() {}
     
 

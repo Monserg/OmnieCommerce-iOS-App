@@ -31,7 +31,7 @@ class SignInShowConfigurator {
     static let sharedInstance = SignInShowConfigurator()
     
     
-    // MARK: - Class initialization
+    // MARK: - Class Initialization
     private init() {}
     
 

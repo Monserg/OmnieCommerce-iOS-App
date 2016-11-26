@@ -9,7 +9,7 @@
 import UIKit
 
 @IBDesignable class BigCirleView: UIView {
-    // MARK: - Class initialization
+    // MARK: - Class Initialization
     override init(frame: CGRect) {
         super.init(frame: frame)
         

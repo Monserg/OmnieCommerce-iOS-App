@@ -29,7 +29,7 @@ class AboutShowConfigurator {
     static let sharedInstance = AboutShowConfigurator()
     
     
-    // MARK: - Class initialization
+    // MARK: - Class Initialization
     private init() {}
     
 

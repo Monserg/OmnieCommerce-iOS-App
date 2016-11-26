@@ -29,7 +29,7 @@ class HandbookShowConfigurator {
     static let sharedInstance = HandbookShowConfigurator()
     
     
-    // MARK: - Class initialization
+    // MARK: - Class Initialization
     private init() {}
     
 

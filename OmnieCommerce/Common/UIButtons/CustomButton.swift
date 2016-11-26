@@ -9,7 +9,7 @@
 import UIKit
 
 @IBDesignable class CustomButton: UIButton {
-    // MARK: - Class initialization
+    // MARK: - Class Initialization
     override init(frame: CGRect) {
         super.init(frame: frame)
     }

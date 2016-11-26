@@ -14,7 +14,7 @@ import Localize_Swift
     var attributedPlaceholderString: NSAttributedString!
     
     
-    // MARK: - Class initialization
+    // MARK: - Class Initialization
     override init(frame: CGRect) {
         super.init(frame: frame)
     }

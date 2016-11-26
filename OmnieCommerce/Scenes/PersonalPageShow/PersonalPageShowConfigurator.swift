@@ -29,7 +29,7 @@ class PersonalPageShowConfigurator {
     static let sharedInstance = PersonalPageShowConfigurator()
     
     
-    // MARK: - Class initialization
+    // MARK: - Class Initialization
     private init() {}
     
 
