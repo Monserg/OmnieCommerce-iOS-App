@@ -19,10 +19,7 @@ class BaseViewController: UIViewController {
     var selectedRange: CGRect?
     var topBarViewStyle = TopBarViewStyle.Big
     var scrollViewBase = UIScrollView()
-    
-///    var contentViewBase = UIView()
-///    var topBarViewHeight: CGFloat = 100.0
-    
+        
     
     // MARK: - Class Functions
     override func viewDidLoad() {

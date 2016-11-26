@@ -27,7 +27,6 @@ class SignInShowViewController: BaseViewController, SignInShowViewControllerInpu
     
     @IBOutlet var bigTopBarView: BigTopBarView!
     @IBOutlet weak var scrollView: UIScrollView!
-///    @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var nameTextField: CustomTextField!
     @IBOutlet weak var passwordTextField: CustomTextField!
 
