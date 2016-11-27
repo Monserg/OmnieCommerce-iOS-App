@@ -47,19 +47,21 @@ class ForgotPasswordShowViewController: BaseViewController, ForgotPasswordShowVi
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        topBarViewStyle = .Big
-
         // Delegates
         scrollView.delegate = self
         phoneEmailTextField.delegate = self
         
-        // Config scene
+        // Config controls
+        topBarViewStyle = .Big
         scrollViewBase = scrollView
         phoneEmailErrorLabel.isHidden = true
         
+        // Set buttons type
+        vkontakteButton.designStyle = "Social"
+        googleButton.designStyle = "Social"
+        facebookButton.designStyle = "Social"
+        
         setup(topBarView: bigTopBarView)
-
-        doSomethingOnLoad()
     }
     
 
@@ -67,12 +69,7 @@ class ForgotPasswordShowViewController: BaseViewController, ForgotPasswordShowVi
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         print(object: "\(type(of: self)): \(#function) run. New size = \(size)")
         
-        bigTopBarView.setNeedsDisplay()
-        bigTopBarView.circleView.setNeedsDisplay()
-        
-        vkontakteButton.setNeedsDisplay()
-        googleButton.setNeedsDisplay()
-        facebookButton.setNeedsDisplay()
+        setupScene(withSize: size)
     }
 
     
@@ -88,6 +85,21 @@ class ForgotPasswordShowViewController: BaseViewController, ForgotPasswordShowVi
         _ = navigationController?.popToRootViewController(animated: true)
     }
     
+    @IBAction func handlerVkontakteButtonTap(_ sender: CustomButton) {
+        print(object: "\(type(of: self)): \(#function) run.")
+        
+    }
+    
+    @IBAction func handlerGoogleButtonTap(_ sender: CustomButton) {
+        print(object: "\(type(of: self)): \(#function) run.")
+        
+    }
+    
+    @IBAction func handlerFacebookButtonTap(_ sender: CustomButton) {
+        print(object: "\(type(of: self)): \(#function) run.")
+        
+    }
+
     
     // MARK: - Custom Functions
     func doSomethingOnLoad() {
@@ -104,5 +116,15 @@ class ForgotPasswordShowViewController: BaseViewController, ForgotPasswordShowVi
 
         // NOTE: Display the result from the Presenter
         // nameTextField.text = viewModel.name
+    }
+    
+    func setupScene(withSize size: CGSize) {
+        print(object: "\(type(of: self)): \(#function) run. Screen view size = \(size)")
+        
+        bigTopBarView.setNeedsDisplay()
+        bigTopBarView.circleView.setNeedsDisplay()
+        vkontakteButton.setNeedsDisplay()
+        googleButton.setNeedsDisplay()
+        facebookButton.setNeedsDisplay()
     }
 }
