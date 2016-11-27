@@ -40,8 +40,8 @@
                                 </constraint>
                             </constraints>
                             <variation key="heightClass=compact-widthClass=compact" image="image-logo-horizontal"/>
-                            <variation key="heightClass=compact-widthClass=regular" image="F252E5D5-5B9E-455A-AE92-0745FA287F99"/>
-                            <variation key="heightClass=regular-widthClass=compact" image="EB86A421-B084-4B3F-BBC6-2C26A9DE59A0"/>
+                            <variation key="heightClass=compact-widthClass=regular" image="E9325FBD-F637-4522-9E08-309FE980F7C0"/>
+                            <variation key="heightClass=regular-widthClass=compact" image="D9D3C249-5F80-461A-A394-9A9457105DCD"/>
                         </imageView>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -73,7 +73,7 @@
         </view>
     </objects>
     <resources>
-        <image name="EB86A421-B084-4B3F-BBC6-2C26A9DE59A0" width="151" height="86">
+        <image name="D9D3C249-5F80-461A-A394-9A9457105DCD" width="151" height="86">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGOzxYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBMU
 GR4fJSYsLzU4VSRudWxs1QkKCwwNDg8QERJWTlNTaXplViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBz
@@ -89,7 +89,7 @@ mAGfAacBtAG5AbsBvQHCAcoBzQHSAdoB3QHvAfIB9wAAAAAAAAIBAAAAAAAAAD8AAAAAAAAAAAAAAAAA
 AAH5A
 </mutableData>
         </image>
-        <image name="F252E5D5-5B9E-455A-AE92-0745FA287F99" width="113" height="148">
+        <image name="E9325FBD-F637-4522-9E08-309FE980F7C0" width="113" height="148">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGOzxYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBMU
 GR4fJSYsLzU4VSRudWxs1QkKCwwNDg8QERJWTlNTaXplViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBz

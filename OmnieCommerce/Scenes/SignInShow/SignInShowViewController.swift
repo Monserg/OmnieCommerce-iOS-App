@@ -35,8 +35,6 @@ class SignInShowViewController: BaseViewController, SignInShowViewControllerInpu
     @IBOutlet weak var googleButton: CustomButton!
     @IBOutlet weak var facebookButton: CustomButton!
     
-    @IBOutlet weak var contentViewHeightConstraint: NSLayoutConstraint!
-
     
     // MARK: - Class Initialization
     override func awakeFromNib() {
@@ -65,7 +63,6 @@ class SignInShowViewController: BaseViewController, SignInShowViewControllerInpu
         facebookButton.designStyle = "Social"
         
         setup(topBarView: bigTopBarView)
-        calculateContentSize(withSize: view.frame.size)
         
         doSomethingOnLoad()
     }
@@ -84,6 +81,10 @@ class SignInShowViewController: BaseViewController, SignInShowViewControllerInpu
     
     
     // MARK: - Actions
+    @IBAction func handlerSignInButtonTap(_ sender: CustomButton) {
+        print(object: "\(type(of: self)): \(#function) run.")
+    }
+    
     @IBAction func handlerVkontakteButtonTap(_ sender: CustomButton) {
         print(object: "\(type(of: self)): \(#function) run.")
     
@@ -125,17 +126,5 @@ class SignInShowViewController: BaseViewController, SignInShowViewControllerInpu
         vkontakteButton.setNeedsDisplay()
         googleButton.setNeedsDisplay()
         facebookButton.setNeedsDisplay()
-        
-        calculateContentSize(withSize: size)
-    }
-    
-    func calculateContentSize(withSize size: CGSize) {
-        let lastControlObjectMaxY = forgotPasswordButton.convert(forgotPasswordButton.bounds, to: view).maxY + 10
-        
-        if (size.height < lastControlObjectMaxY) {
-            contentViewHeightConstraint.constant = size.height - (lastControlObjectMaxY - size.height)
-        } else {
-            contentViewHeightConstraint.constant = 0
-        }
     }
 }

@@ -32,26 +32,26 @@ import UIKit
         clipsToBounds = true
         
         if (designStyle == "Social") {
-            let sidesRatio = Double(UIScreen.main.bounds.height / UIScreen.main.bounds.width)
-            
             let circleX = UIApplication.shared.statusBarOrientation.isPortrait ? Double(UIScreen.main.bounds.width / 2) : Double(UIScreen.main.bounds.width * Config.Constants.bigTopBarViewWidthCoefficient - Config.Constants.lineViewThickness) - Config.Constants.lineViewSocialButtonDistance - Double(Config.Constants.lineViewThickness / 2) - Config.Constants.fillViewRadiusLandscape
             
             let circleY = UIApplication.shared.statusBarOrientation.isPortrait ? Double(UIScreen.main.bounds.height * Config.Constants.bigTopBarViewHeightCoefficient - Config.Constants.lineViewThickness) - Config.Constants.lineViewSocialButtonDistance - Double(Config.Constants.lineViewThickness / 2) - Config.Constants.fillViewRadiusPortrait : Double(UIScreen.main.bounds.height / 2)
             
             var buttonDegree = 180.0
+            let ratio = Double(UIScreen.main.bounds.width / 320)
+            
             
             switch self.tag {
             // Google
             case 2:
-                buttonDegree = (UIApplication.shared.statusBarOrientation.isPortrait) ? 288.1 : 332.1 * (sidesRatio + 0.444)
+                buttonDegree = (UIApplication.shared.statusBarOrientation.isPortrait) ? 282.6 + ratio : 340.1 + ratio
                 
             // Facebook
             case 3:
-                buttonDegree = (UIApplication.shared.statusBarOrientation.isPortrait) ? 296.1 : 322.1 * (sidesRatio + 0.444)
+                buttonDegree = (UIApplication.shared.statusBarOrientation.isPortrait) ? 290.1 + ratio : 331.1 + ratio
                 
             // VKontakte
             default:
-                buttonDegree = (UIApplication.shared.statusBarOrientation.isPortrait) ? 280.1 : 342.1 * (sidesRatio + 0.444)
+                buttonDegree = (UIApplication.shared.statusBarOrientation.isPortrait) ? 275.1 + ratio : 349.1 + ratio
             }
             
             if (UIApplication.shared.statusBarOrientation.isPortrait) {

@@ -64,7 +64,7 @@ class BaseViewController: UIViewController {
         let keyboardScreenEndFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
         let keyboardViewEndFrame = view.convert(keyboardScreenEndFrame, from: view.window)
         
-        if notification.name == .UIKeyboardWillHide {
+        if (notification.name == .UIKeyboardWillHide) {
             if (NSStringFromClass(type(of: self)).hasSuffix("ForgotPasswordShowViewController")) {
                 let forgotPasswordShowVC = self as! ForgotPasswordShowViewController
 
@@ -75,13 +75,24 @@ class BaseViewController: UIViewController {
 
             scrollViewBase.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         } else {
-            scrollViewBase.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardViewEndFrame.height + 10, right: 0)
+            if (NSStringFromClass(type(of: self)).hasSuffix("ForgotPasswordShowViewController")) {
+                scrollViewBase.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardViewEndFrame.height + 10 + 25, right: 0)
+            } else {
+                scrollViewBase.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardViewEndFrame.height + 10, right: 0)
+            }
         }
+        
         
         scrollViewBase.scrollIndicatorInsets = scrollViewBase.contentInset
         scrollViewBase.showsVerticalScrollIndicator = false
         
         guard (selectedRange != nil && (keyboardViewEndFrame.contains((selectedRange?.origin)!))) else {
+            DispatchQueue.main.async {
+                UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseOut, animations: {
+                    self.scrollViewBase.contentOffset.y = 0
+                }, completion: nil)
+            }
+            
             return
         }
 
