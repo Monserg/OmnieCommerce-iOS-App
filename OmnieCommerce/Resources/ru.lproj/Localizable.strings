@@ -27,7 +27,8 @@
 "Congratulations"       =   "Поздравляем!";
 "Not yet registered?"   =   "Ещё не зарегистрированы?";
 "Forgot Password"       =   "Забыли пароль";
-"Phone or email error"  =   "* wrong number or email";
+"Phone or email error"  =   "* неправильный номер или Email";
+"Email error"           =   "* неправильный Email";
 
 
 // Buttons

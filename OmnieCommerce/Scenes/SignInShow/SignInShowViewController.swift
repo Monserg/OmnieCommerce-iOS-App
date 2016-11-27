@@ -30,7 +30,6 @@ class SignInShowViewController: BaseViewController, SignInShowViewControllerInpu
     @IBOutlet weak var nameTextField: CustomTextField!
     @IBOutlet weak var passwordTextField: CustomTextField!
 
-    @IBOutlet weak var forgotPasswordButton: CustomButton!
     @IBOutlet weak var vkontakteButton: CustomButton!
     @IBOutlet weak var googleButton: CustomButton!
     @IBOutlet weak var facebookButton: CustomButton!
@@ -67,10 +66,6 @@ class SignInShowViewController: BaseViewController, SignInShowViewControllerInpu
         doSomethingOnLoad()
     }
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()    
-    }
-
     
     // MARK: - Transition
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {

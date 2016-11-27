@@ -27,7 +27,8 @@
 "Congratulations"       =   "Вітаємо!";
 "Not yet registered?"   =   "Ще не зареєстровані?";
 "Forgot Password"       =   "Забули пароль";
-"Phone or email error"  =   "* невірний номер або email";
+"Phone or email error"  =   "* невірний номер або Email";
+"Email error"           =   "* невірний Email";
 
 
 // Buttons

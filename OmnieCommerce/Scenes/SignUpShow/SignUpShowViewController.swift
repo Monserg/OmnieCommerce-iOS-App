@@ -25,11 +25,16 @@ class SignUpShowViewController: BaseViewController, SignUpShowViewControllerInpu
     var output: SignUpShowViewControllerOutput!
     var router: SignUpShowRouter!
     
-    @IBOutlet weak var topBarView: TopBarView!
-    @IBOutlet weak var contentView: UIView!
+    @IBOutlet var bigTopBarView: BigTopBarView!
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var nameTextField: CustomTextField!
     @IBOutlet weak var emailTextField: CustomTextField!
     @IBOutlet weak var passwordTextField: CustomTextField!
+    @IBOutlet weak var emailErrorLabel: CustomLabel!
+
+    @IBOutlet weak var vkontakteButton: CustomButton!
+    @IBOutlet weak var googleButton: CustomButton!
+    @IBOutlet weak var facebookButton: CustomButton!
 
     
     // MARK: - Class Initialization
@@ -44,32 +49,66 @@ class SignUpShowViewController: BaseViewController, SignUpShowViewControllerInpu
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        topBarViewStyle = .Big
-        
         // Delegates
-//        nameTextField.delegate = self
-//        emailTextField.delegate = self
-//        passwordTextField.delegate = self
+        scrollView.delegate = self
+        nameTextField.delegate = self
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
         
-        // Config scene
-///        contentViewBase = contentView
-        setup(topBarView: topBarView)
-
-        doSomethingOnLoad()
+        // Config controls
+        topBarViewStyle = .Big
+        scrollViewBase = scrollView
+        emailErrorLabel.isHidden = true
+        
+        // Set buttons type
+        vkontakteButton.designStyle = "Social"
+        googleButton.designStyle = "Social"
+        facebookButton.designStyle = "Social"
+        
+        setup(topBarView: bigTopBarView)
     }
     
+    
+    // MARK: - Transition
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        print(object: "\(type(of: self)): \(#function) run. New size = \(size)")
+        
+        setupScene(withSize: size)
+    }
+
     
     // MARK: - Actions
     @IBAction func handlerSignUpButtonTap(_ sender: CustomButton) {
+        print(object: "\(type(of: self)): \(#function) run.")
+        
     }
     
     @IBAction func handlerCancelButtonTap(_ sender: CustomButton) {
+        print(object: "\(type(of: self)): \(#function) run.")
+        
         _ = navigationController?.popToRootViewController(animated: true)
     }
     
+    @IBAction func handlerVkontakteButtonTap(_ sender: CustomButton) {
+        print(object: "\(type(of: self)): \(#function) run.")
+        
+    }
+    
+    @IBAction func handlerGoogleButtonTap(_ sender: CustomButton) {
+        print(object: "\(type(of: self)): \(#function) run.")
+        
+    }
+    
+    @IBAction func handlerFacebookButtonTap(_ sender: CustomButton) {
+        print(object: "\(type(of: self)): \(#function) run.")
+        
+    }
+
     
     // MARK: - Custom Functions
     func doSomethingOnLoad() {
+        print(object: "\(type(of: self)): \(#function) run.")
+        
         // NOTE: Ask the Interactor to do some work
         let request = SignUpShow.Something.Request()
         output.doSomething(request: request)
@@ -77,7 +116,19 @@ class SignUpShowViewController: BaseViewController, SignUpShowViewControllerInpu
     
     // Display logic
     func displaySomething(viewModel: SignUpShow.Something.ViewModel) {
+        print(object: "\(type(of: self)): \(#function) run.")
+        
         // NOTE: Display the result from the Presenter
         // nameTextField.text = viewModel.name
+    }
+    
+    func setupScene(withSize size: CGSize) {
+        print(object: "\(type(of: self)): \(#function) run. Screen view size = \(size)")
+        
+        bigTopBarView.setNeedsDisplay()
+        bigTopBarView.circleView.setNeedsDisplay()
+        vkontakteButton.setNeedsDisplay()
+        googleButton.setNeedsDisplay()
+        facebookButton.setNeedsDisplay()
     }
 }

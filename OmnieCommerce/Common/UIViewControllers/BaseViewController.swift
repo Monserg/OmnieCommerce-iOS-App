@@ -71,21 +71,27 @@ class BaseViewController: UIViewController {
                 if (!forgotPasswordShowVC.phoneEmailTextField.isValidEmail(forgotPasswordShowVC.phoneEmailTextField.text!) && !(forgotPasswordShowVC.phoneEmailTextField.text?.isEmpty)!) {
                     forgotPasswordShowVC.phoneEmailErrorLabel.isHidden = false
                 }
+            } else if (NSStringFromClass(type(of: self)).hasSuffix("SignUpShowViewController")) {
+                let signUpShowVC = self as! SignUpShowViewController
+                
+                if (!signUpShowVC.emailTextField.isValidEmail(signUpShowVC.emailTextField.text!) && !(signUpShowVC.emailTextField.text?.isEmpty)!) {
+                    signUpShowVC.emailErrorLabel.isHidden = false
+                }
             }
 
             scrollViewBase.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         } else {
             if (NSStringFromClass(type(of: self)).hasSuffix("ForgotPasswordShowViewController")) {
                 scrollViewBase.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardViewEndFrame.height + 10 + 25, right: 0)
+            } else if (NSStringFromClass(type(of: self)).hasSuffix("SignUpShowViewController")) {
+                let signUpShowVC = self as! SignUpShowViewController
+                
+                scrollViewBase.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardViewEndFrame.height + ((signUpShowVC.emailTextField.isFirstResponder) ? 10 + 25 : 10), right: 0)
             } else {
                 scrollViewBase.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardViewEndFrame.height + 10, right: 0)
             }
         }
-        
-        
-        scrollViewBase.scrollIndicatorInsets = scrollViewBase.contentInset
-        scrollViewBase.showsVerticalScrollIndicator = false
-        
+                
         guard (selectedRange != nil && (keyboardViewEndFrame.contains((selectedRange?.origin)!))) else {
             DispatchQueue.main.async {
                 UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseOut, animations: {
@@ -183,6 +189,12 @@ extension BaseViewController: UITextFieldDelegate {
             if (!forgotPasswordShowVC.phoneEmailErrorLabel.isHidden) {
                 forgotPasswordShowVC.phoneEmailErrorLabel.isHidden = true
             }
+        } else if (NSStringFromClass(type(of: self)).hasSuffix("SignUpShowViewController")) {
+            let signUpShowVC = self as! SignUpShowViewController
+            
+            if (!signUpShowVC.emailErrorLabel.isHidden) {
+                signUpShowVC.emailErrorLabel.isHidden = true
+            }
         }
         
         return true
@@ -223,7 +235,12 @@ extension BaseViewController: UITextFieldDelegate {
                 signUpShowVC.emailTextField.becomeFirstResponder()
             } else if textField == signUpShowVC.emailTextField {
                 if (textField.isValidEmail(textField.text!)) {
+                    signUpShowVC.emailErrorLabel.isHidden = true
                     signUpShowVC.passwordTextField.becomeFirstResponder()
+                } else {
+                    signUpShowVC.emailErrorLabel.isHidden = false
+
+                    return false
                 }
             } else {
                 // FIXME: RUN LOGIN FUNC
