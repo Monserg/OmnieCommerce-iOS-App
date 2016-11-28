@@ -1,14 +1,14 @@
 //
-//  BigCirleView.swift
+//  SmallCirleView.swift
 //  OmnieCommerce
 //
-//  Created by msm72 on 24.11.16.
+//  Created by msm72 on 28.11.16.
 //  Copyright © 2016 Omniesoft. All rights reserved.
 //
 
 import UIKit
 
-@IBDesignable class BigCirleView: UIView {
+@IBDesignable class SmallCirleView: UIView {
     // MARK: - Class Initialization
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -21,12 +21,12 @@ import UIKit
         
         print(object: "\(type(of: self)): \(#function) run. Initialization frame = \(frame)")
     }
-
+    
     
     // MARK: - Class Functions
-    override func draw(_ rect: CGRect) {    
+    override func draw(_ rect: CGRect) {
         print(object: "\(type(of: self)): \(#function) run. Rect = \(rect)")
-
+        
         // Get the Graphics Context
         let contextFillView                     =   UIGraphicsGetCurrentContext()
         let contextLineView                     =   UIGraphicsGetCurrentContext()
@@ -40,13 +40,13 @@ import UIKit
         
         // Create Fill Circle
         if UIApplication.shared.statusBarOrientation.isPortrait {
-            let centerFillViewPortrait = CGPoint(x: frame.size.width / 2, y: CGFloat(Double(fillViewHeightPortrait) - Config.Constants.fillViewBigRadiusPortrait))
+            let centerFillViewPortrait = CGPoint(x: frame.size.width / 2, y: CGFloat(Double(fillViewHeightPortrait) - Config.Constants.fillViewSmallRadiusPortrait))
             
-            contextFillView!.addArc(center: centerFillViewPortrait, radius: CGFloat(Config.Constants.fillViewBigRadiusPortrait), startAngle: (rect.size.width - 10) / 2, endAngle: 0, clockwise: true)
+            contextFillView!.addArc(center: centerFillViewPortrait, radius: CGFloat(Config.Constants.fillViewSmallRadiusPortrait), startAngle: (rect.size.width - 10) / 2, endAngle: 0, clockwise: true)
         } else {
-            let centerFillViewLandscape = CGPoint(x: CGFloat(Double(fillViewWidthLandscape) - Config.Constants.fillViewBigRadiusLandscape), y: frame.size.height / 2)
+            let centerFillViewLandscape = CGPoint(x: CGFloat(Double(fillViewWidthLandscape) - Config.Constants.fillViewSmallRadiusLandscape), y: frame.size.height / 2)
             
-            contextFillView!.addArc(center: centerFillViewLandscape, radius: CGFloat(Config.Constants.fillViewBigRadiusLandscape), startAngle: (rect.size.width - 10) / 2, endAngle: 0, clockwise: true)
+            contextFillView!.addArc(center: centerFillViewLandscape, radius: CGFloat(Config.Constants.fillViewSmallRadiusLandscape), startAngle: (rect.size.width - 10) / 2, endAngle: 0, clockwise: true)
         }
         
         contextFillView!.fillPath()
@@ -56,17 +56,17 @@ import UIKit
         
         // Set the circle outerline-colour
         Config.Colors.veryDarkGrayishBlue38?.set()
-///        UIColor.white.set()
+        ///        UIColor.white.set()
         
         // Create Line Circle
         if UIApplication.shared.statusBarOrientation.isPortrait {
-            let centerLineViewPortrait = CGPoint(x: frame.size.width / 2, y: CGFloat(Double(lineViewHeightPortrait) - Config.Constants.fillViewBigRadiusPortrait))
+            let centerLineViewPortrait = CGPoint(x: frame.size.width / 2, y: CGFloat(Double(lineViewHeightPortrait) - Config.Constants.fillViewSmallRadiusPortrait))
             
-            contextLineView!.addArc(center: centerLineViewPortrait, radius: CGFloat(Config.Constants.fillViewBigRadiusPortrait), startAngle: (rect.size.width - 10) / 2, endAngle: 0, clockwise: true)
+            contextLineView!.addArc(center: centerLineViewPortrait, radius: CGFloat(Config.Constants.fillViewSmallRadiusPortrait), startAngle: (rect.size.width - 10) / 2, endAngle: 0, clockwise: true)
         } else {
-            let centerLineViewLandscape = CGPoint(x: CGFloat(Double(lineViewWidthLandscape) - Config.Constants.fillViewBigRadiusLandscape), y: frame.size.height / 2)
+            let centerLineViewLandscape = CGPoint(x: CGFloat(Double(lineViewWidthLandscape) - Config.Constants.fillViewSmallRadiusLandscape), y: frame.size.height / 2)
             
-            contextLineView!.addArc(center: centerLineViewLandscape, radius: CGFloat(Config.Constants.fillViewBigRadiusLandscape), startAngle: (rect.size.width - 10) / 2, endAngle: 0, clockwise: true)
+            contextLineView!.addArc(center: centerLineViewLandscape, radius: CGFloat(Config.Constants.fillViewSmallRadiusLandscape), startAngle: (rect.size.width - 10) / 2, endAngle: 0, clockwise: true)
         }
         
         contextLineView!.strokePath()

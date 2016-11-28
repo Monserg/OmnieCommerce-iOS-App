@@ -103,6 +103,10 @@
 		B1739D1C1DE314E80029BCCA /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1739D1B1DE314E80029BCCA /* UIView+Ext.swift */; };
 		B1739D421DE363C00029BCCA /* SignUpShow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1739D411DE363C00029BCCA /* SignUpShow.storyboard */; };
 		B1739D441DE363FD0029BCCA /* ForgotPasswordShow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1739D431DE363FD0029BCCA /* ForgotPasswordShow.storyboard */; };
+		B18A45C61DEC21BA003EBD2F /* SmallTopBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B18A45C51DEC21BA003EBD2F /* SmallTopBarView.xib */; };
+		B18A45C81DEC23B2003EBD2F /* SmallTopBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18A45C71DEC23B2003EBD2F /* SmallTopBarView.swift */; };
+		B18A45CA1DEC282B003EBD2F /* DotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18A45C91DEC282B003EBD2F /* DotView.swift */; };
+		B18A45CC1DEC3918003EBD2F /* SmallCirleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18A45CB1DEC3918003EBD2F /* SmallCirleView.swift */; };
 		B1BF92441DD5FC8000BECBBB /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1BF92431DD5FC8000BECBBB /* Config.swift */; };
 		B1BF92681DD6516C00BECBBB /* helveticaneuecyr-black.otf in Resources */ = {isa = PBXBuildFile; fileRef = B1BF924F1DD650F400BECBBB /* helveticaneuecyr-black.otf */; };
 		B1BF92691DD6516C00BECBBB /* helveticaneuecyr-blackitalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = B1BF92501DD650F400BECBBB /* helveticaneuecyr-blackitalic.otf */; };
@@ -304,6 +308,10 @@
 		B1739D1B1DE314E80029BCCA /* UIView+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 		B1739D411DE363C00029BCCA /* SignUpShow.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SignUpShow.storyboard; sourceTree = "<group>"; };
 		B1739D431DE363FD0029BCCA /* ForgotPasswordShow.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ForgotPasswordShow.storyboard; sourceTree = "<group>"; };
+		B18A45C51DEC21BA003EBD2F /* SmallTopBarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SmallTopBarView.xib; sourceTree = "<group>"; };
+		B18A45C71DEC23B2003EBD2F /* SmallTopBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmallTopBarView.swift; sourceTree = "<group>"; };
+		B18A45C91DEC282B003EBD2F /* DotView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DotView.swift; sourceTree = "<group>"; };
+		B18A45CB1DEC3918003EBD2F /* SmallCirleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmallCirleView.swift; sourceTree = "<group>"; };
 		B1BF92431DD5FC8000BECBBB /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		B1BF924F1DD650F400BECBBB /* helveticaneuecyr-black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "helveticaneuecyr-black.otf"; sourceTree = "<group>"; };
 		B1BF92501DD650F400BECBBB /* helveticaneuecyr-blackitalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "helveticaneuecyr-blackitalic.otf"; sourceTree = "<group>"; };
@@ -435,18 +443,22 @@
 		B1228FAA1DD44C7A00A90FBB /* UIViews */ = {
 			isa = PBXGroup;
 			children = (
-				B1305D391DDC738F000CA5FE /* CircleView.swift */,
 				B16E96721DE717E400147CEF /* BigCirleView.swift */,
+				B18A45CB1DEC3918003EBD2F /* SmallCirleView.swift */,
+				B16E966E1DE6C94000147CEF /* BigTopBarView.swift */,
+				B16E96701DE6C94D00147CEF /* BigTopBarView.xib */,
+				B1305D391DDC738F000CA5FE /* CircleView.swift */,
+				B18A45C91DEC282B003EBD2F /* DotView.swift */,
 				B152915E1DDEB8B500BBA1E0 /* CustomTableView.swift */,
 				B11E074D1DE032D90052AFC5 /* DottedBorderView.swift */,
 				B152915A1DDE44A200BBA1E0 /* MenuSectionFooterView.swift */,
 				B152915C1DDE44B700BBA1E0 /* MenuSectionFooterView.xib */,
 				B15291581DDE3FFA00BBA1E0 /* MenuSectionHeaderView.swift */,
 				B15291561DDE3FEF00BBA1E0 /* MenuSectionHeaderView.xib */,
+				B18A45C71DEC23B2003EBD2F /* SmallTopBarView.swift */,
+				B18A45C51DEC21BA003EBD2F /* SmallTopBarView.xib */,
 				B1228FAC1DD44D3400A90FBB /* TopBarView.swift */,
 				B1305D371DDB9B93000CA5FE /* TopBarView.xib */,
-				B16E966E1DE6C94000147CEF /* BigTopBarView.swift */,
-				B16E96701DE6C94D00147CEF /* BigTopBarView.xib */,
 			);
 			path = UIViews;
 			sourceTree = "<group>";
@@ -993,6 +1005,7 @@
 				B1BF92731DD6516C00BECBBB /* helveticaneuecyr-roman.otf in Resources */,
 				B1BF92741DD6516C00BECBBB /* helveticaneuecyr-thin.otf in Resources */,
 				B1BF92751DD6516C00BECBBB /* helveticaneuecyr-thinitalic.otf in Resources */,
+				B18A45C61DEC21BA003EBD2F /* SmallTopBarView.xib in Resources */,
 				B1BF92761DD6516C00BECBBB /* helveticaneuecyr-ultralight.otf in Resources */,
 				B1CF54EC1DDB57C300E98049 /* OmnieCardsShow.storyboard in Resources */,
 				B1BF92771DD6516C00BECBBB /* helveticaneuecyr-ultralightitalic.otf in Resources */,
@@ -1138,6 +1151,7 @@
 				B1CF54A51DDB515000E98049 /* HandbookShowViewController.swift in Sources */,
 				B122F20B1DD35BEB0018A701 /* CategoriesShowWorker.swift in Sources */,
 				B1CF54DD1DDB51BE00E98049 /* SettingsShowViewController.swift in Sources */,
+				B18A45CC1DEC3918003EBD2F /* SmallCirleView.swift in Sources */,
 				B1CF54841DDB50F100E98049 /* BusinessCardsShowConfigurator.swift in Sources */,
 				B14E97641DD8B05E001E1DE2 /* ForgotPasswordShowConfigurator.swift in Sources */,
 				B1CF54881DDB50F100E98049 /* BusinessCardsShowRouter.swift in Sources */,
@@ -1152,6 +1166,7 @@
 				B122F2081DD35BEB0018A701 /* CategoriesShowPresenter.swift in Sources */,
 				B122F20A1DD35BEB0018A701 /* CategoriesShowViewController.swift in Sources */,
 				B1CF54CE1DDB51A500E98049 /* PersonalPageShowRouter.swift in Sources */,
+				B18A45CA1DEC282B003EBD2F /* DotView.swift in Sources */,
 				B1CF54AF1DDB516E00E98049 /* OmnieCardsShowInteractor.swift in Sources */,
 				B122F2151DD35C2C0018A701 /* NewsShowModels.swift in Sources */,
 				B1CF547A1DDB50D900E98049 /* AboutShowRouter.swift in Sources */,
@@ -1177,6 +1192,7 @@
 				B122F1EA1DD35BA70018A701 /* MessagesShowInteractor.swift in Sources */,
 				B1CF54DB1DDB51BE00E98049 /* SettingsShowPresenter.swift in Sources */,
 				B14E97481DD8B042001E1DE2 /* SignInShowConfigurator.swift in Sources */,
+				B18A45C81DEC23B2003EBD2F /* SmallTopBarView.swift in Sources */,
 				B122F2141DD35C2C0018A701 /* NewsShowInteractor.swift in Sources */,
 				B1CF54AE1DDB516E00E98049 /* OmnieCardsShowConfigurator.swift in Sources */,
 				B1CF54BF1DDB519000E98049 /* OnmieSoftShowPresenter.swift in Sources */,

@@ -32,9 +32,9 @@ import UIKit
         clipsToBounds = true
         
         if (designStyle == "Social") {
-            let circleX = UIApplication.shared.statusBarOrientation.isPortrait ? Double(UIScreen.main.bounds.width / 2) : Double(UIScreen.main.bounds.width * Config.Constants.bigTopBarViewWidthCoefficient - Config.Constants.lineViewThickness) - Config.Constants.lineViewSocialButtonDistance - Double(Config.Constants.lineViewThickness / 2) - Config.Constants.fillViewRadiusLandscape
+            let circleX = UIApplication.shared.statusBarOrientation.isPortrait ? Double(UIScreen.main.bounds.width / 2) : Double(UIScreen.main.bounds.width * Config.Constants.bigTopBarViewWidthCoefficient - Config.Constants.lineViewThickness) - Config.Constants.lineViewSocialButtonDistance - Double(Config.Constants.lineViewThickness / 2) - Config.Constants.fillViewBigRadiusLandscape
             
-            let circleY = UIApplication.shared.statusBarOrientation.isPortrait ? Double(UIScreen.main.bounds.height * Config.Constants.bigTopBarViewHeightCoefficient - Config.Constants.lineViewThickness) - Config.Constants.lineViewSocialButtonDistance - Double(Config.Constants.lineViewThickness / 2) - Config.Constants.fillViewRadiusPortrait : Double(UIScreen.main.bounds.height / 2)
+            let circleY = UIApplication.shared.statusBarOrientation.isPortrait ? Double(UIScreen.main.bounds.height * Config.Constants.bigTopBarViewHeightCoefficient - Config.Constants.lineViewThickness) - Config.Constants.lineViewSocialButtonDistance - Double(Config.Constants.lineViewThickness / 2) - Config.Constants.fillViewBigRadiusPortrait : Double(UIScreen.main.bounds.height / 2)
             
             var buttonDegree = 180.0
             let ratio = Double(UIScreen.main.bounds.width / 320)
@@ -55,9 +55,9 @@ import UIKit
             }
             
             if (UIApplication.shared.statusBarOrientation.isPortrait) {
-                center = CGPoint.init(x: circleX + Config.Constants.fillViewRadiusPortrait * cos((M_PI * buttonDegree) / 180), y: circleY - Config.Constants.fillViewRadiusPortrait * sin((M_PI * buttonDegree) / 180))
+                center = CGPoint.init(x: circleX + Config.Constants.fillViewBigRadiusPortrait * cos((M_PI * buttonDegree) / 180), y: circleY - Config.Constants.fillViewBigRadiusPortrait * sin((M_PI * buttonDegree) / 180))
             } else {
-                center = CGPoint.init(x: circleX + Config.Constants.fillViewRadiusLandscape * cos((M_PI * buttonDegree) / 180), y: circleY - Config.Constants.fillViewRadiusLandscape * sin((M_PI * buttonDegree) / 180))
+                center = CGPoint.init(x: circleX + Config.Constants.fillViewBigRadiusLandscape * cos((M_PI * buttonDegree) / 180), y: circleY - Config.Constants.fillViewBigRadiusLandscape * sin((M_PI * buttonDegree) / 180))
             }
         }
     }
