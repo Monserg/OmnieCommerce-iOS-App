@@ -14,7 +14,7 @@ import UIKit
 struct Config {
     struct Constants {
         static let fillViewSmallRadiusPortrait: Double          =   1531.0
-        static let fillViewSmallRadiusLandscape: Double         =   2126.0
+        static let fillViewSmallRadiusLandscape: Double         =   3126.0
         static let fillViewBigRadiusPortrait: Double            =   360.0
         static let fillViewBigRadiusLandscape: Double           =   289.0
         static let fillViewLineViewDistance: Double             =   10.0

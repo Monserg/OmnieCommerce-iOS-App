@@ -27,15 +27,6 @@ class CategoriesShowViewController: BaseViewController, CategoriesShowViewContro
     
     @IBOutlet weak var smallTopBarView: SmallTopBarView!
     @IBOutlet weak var copyrightLabel: CustomLabel!
-    @IBOutlet weak var topBarViewHeightPortraitConstraint: NSLayoutConstraint!
-    
-//    override var topBarViewRounding: CircleView.CirleRadius {
-//        willSet {
-//            if (newValue == .big) {
-//                topBarViewHeightPortraitConstraint.constant = Config.Constants.topViewBarHeightBig
-//            }
-//        }
-//    }
 
     
     // MARK: - Class Initialization
@@ -51,7 +42,8 @@ class CategoriesShowViewController: BaseViewController, CategoriesShowViewContro
         super.viewDidLoad()
         
         // Config topBarView
-//        topBarViewRounding = .big
+        smallTopBarView.type = "ParentSearch"
+        topBarViewStyle = .Small
         setup(topBarView: smallTopBarView)
 
         doSomethingOnLoad()
@@ -60,6 +52,8 @@ class CategoriesShowViewController: BaseViewController, CategoriesShowViewContro
 
     // MARK: - Custom Functions
     func doSomethingOnLoad() {
+        print(object: "\(type(of: self)): \(#function) run.")
+        
         // NOTE: Ask the Interactor to do some work
         let request = CategoriesShow.Something.Request()
         output.doSomething(request: request)
@@ -67,7 +61,24 @@ class CategoriesShowViewController: BaseViewController, CategoriesShowViewContro
     
     // Display logic
     func displaySomething(viewModel: CategoriesShow.Something.ViewModel) {
+        print(object: "\(type(of: self)): \(#function) run.")
+        
         // NOTE: Display the result from the Presenter
         // nameTextField.text = viewModel.name
+    }
+    
+    func setupScene(withSize size: CGSize) {
+        print(object: "\(type(of: self)): \(#function) run. Screen view size = \(size)")
+        
+        smallTopBarView.setNeedsDisplay()
+        smallTopBarView.circleView.setNeedsDisplay()
+    }
+    
+    
+    // MARK: - Transition
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        print(object: "\(type(of: self)): \(#function) run. New size = \(size)")
+        
+        setupScene(withSize: size)
     }
 }
