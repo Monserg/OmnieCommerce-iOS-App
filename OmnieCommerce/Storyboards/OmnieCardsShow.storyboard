@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina5_5" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -18,24 +18,25 @@
                         <viewControllerLayoutGuide type="bottom" id="AtF-s6-9gj"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="mMd-Q2-vub">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qfb-kj-Smx">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="128"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qfb-kj-Smx" customClass="SmallTopBarView" customModule="OmnieCommerce" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="736" height="80"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="128" id="JFk-Qy-qES"/>
+                                    <constraint firstAttribute="height" constant="95" id="JFk-Qy-qES">
+                                        <variation key="heightClass=compact-widthClass=compact" constant="80"/>
+                                        <variation key="heightClass=compact-widthClass=regular" constant="80"/>
+                                    </constraint>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="titleText" value="OmnieCards"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="type" value="ParentSearch"/>
+                                </userDefinedRuntimeAttributes>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OmnieCardsShow" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4uM-EC-3Zf">
-                                <rect key="frame" x="119" y="323" width="138" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Z8-aZ-gEE" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                                <rect key="frame" x="8" y="647.5" width="359" height="10.5"/>
+                                <rect key="frame" x="8" y="394.66666666666674" width="720" height="10.333333333333314"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -44,17 +45,15 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="4uM-EC-3Zf" firstAttribute="centerX" secondItem="mMd-Q2-vub" secondAttribute="centerX" id="BHv-kW-ImP"/>
                             <constraint firstAttribute="trailing" secondItem="Qfb-kj-Smx" secondAttribute="trailing" id="OoE-z8-fhC"/>
                             <constraint firstItem="Qfb-kj-Smx" firstAttribute="top" secondItem="mMd-Q2-vub" secondAttribute="top" id="QJo-5K-kkV">
-                                <variation key="heightClass=compact-widthClass=compact" constant="-16"/>
-                                <variation key="heightClass=compact-widthClass=regular" constant="-16"/>
+                                <variation key="heightClass=compact-widthClass=compact" constant="0.0"/>
+                                <variation key="heightClass=compact-widthClass=regular" constant="0.0"/>
                             </constraint>
                             <constraint firstItem="Qfb-kj-Smx" firstAttribute="leading" secondItem="mMd-Q2-vub" secondAttribute="leading" id="Tem-ep-I3m"/>
                             <constraint firstItem="1Z8-aZ-gEE" firstAttribute="leading" secondItem="mMd-Q2-vub" secondAttribute="leading" constant="8" id="Vcu-Ip-XcS"/>
-                            <constraint firstItem="4uM-EC-3Zf" firstAttribute="centerY" secondItem="mMd-Q2-vub" secondAttribute="centerY" id="gcm-2t-19q"/>
                             <constraint firstAttribute="trailing" secondItem="1Z8-aZ-gEE" secondAttribute="trailing" constant="8" id="raY-e4-3NO"/>
                             <constraint firstAttribute="bottom" secondItem="1Z8-aZ-gEE" secondAttribute="bottom" constant="9" id="ut0-mE-Upl"/>
                         </constraints>
@@ -62,7 +61,7 @@
                     <navigationItem key="navigationItem" id="RA6-Rp-ipT"/>
                     <connections>
                         <outlet property="copyrightLabel" destination="1Z8-aZ-gEE" id="FCT-bA-Rks"/>
-                        <outlet property="topBarViewHeightPortraitConstraint" destination="JFk-Qy-qES" id="BUf-qb-Fc7"/>
+                        <outlet property="smallTopBarView" destination="Qfb-kj-Smx" id="L0R-cV-1H1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wnn-6C-4Zh" userLabel="First Responder" sceneMemberID="firstResponder"/>
