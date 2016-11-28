@@ -32,8 +32,8 @@ import UIKit
         let contextLineView                     =   UIGraphicsGetCurrentContext()
         let lineViewHeightPortrait: Double      =   Double(rect.size.height - Config.Constants.lineViewThickness) - Config.Constants.lineViewSocialButtonDistance
         let fillViewHeightPortrait: CGFloat     =   CGFloat(lineViewHeightPortrait - Config.Constants.fillViewLineViewDistance)
-        let lineViewWidthLandscape: Double      =   Double(rect.size.width - Config.Constants.lineViewThickness) - Config.Constants.lineViewSocialButtonDistance
-        let fillViewWidthLandscape: CGFloat     =   CGFloat(lineViewWidthLandscape - Config.Constants.fillViewLineViewDistance)
+        let lineViewHeightLandscape: Double     =   Double(rect.size.height - Config.Constants.lineViewThickness) - Config.Constants.lineViewSocialButtonDistance
+        let fillViewHeightLandscape: CGFloat    =   CGFloat(lineViewHeightLandscape - Config.Constants.fillViewLineViewDistance)
         
         // Set the circle outerline-colour
         Config.Colors.darkCyan?.set()
@@ -44,7 +44,7 @@ import UIKit
             
             contextFillView!.addArc(center: centerFillViewPortrait, radius: CGFloat(Config.Constants.fillViewSmallRadiusPortrait), startAngle: (rect.size.width - 10) / 2, endAngle: 0, clockwise: true)
         } else {
-            let centerFillViewLandscape = CGPoint(x: CGFloat(Double(fillViewWidthLandscape) - Config.Constants.fillViewSmallRadiusLandscape), y: frame.size.height / 2)
+            let centerFillViewLandscape = CGPoint(x: frame.size.width / 2, y: CGFloat(Double(fillViewHeightLandscape) - Config.Constants.fillViewSmallRadiusLandscape))
             
             contextFillView!.addArc(center: centerFillViewLandscape, radius: CGFloat(Config.Constants.fillViewSmallRadiusLandscape), startAngle: (rect.size.width - 10) / 2, endAngle: 0, clockwise: true)
         }
@@ -64,8 +64,8 @@ import UIKit
             
             contextLineView!.addArc(center: centerLineViewPortrait, radius: CGFloat(Config.Constants.fillViewSmallRadiusPortrait), startAngle: (rect.size.width - 10) / 2, endAngle: 0, clockwise: true)
         } else {
-            let centerLineViewLandscape = CGPoint(x: CGFloat(Double(lineViewWidthLandscape) - Config.Constants.fillViewSmallRadiusLandscape), y: frame.size.height / 2)
-            
+            let centerLineViewLandscape = CGPoint(x: frame.size.width / 2, y: CGFloat(Double(lineViewHeightLandscape) - Config.Constants.fillViewSmallRadiusLandscape))
+
             contextLineView!.addArc(center: centerLineViewLandscape, radius: CGFloat(Config.Constants.fillViewSmallRadiusLandscape), startAngle: (rect.size.width - 10) / 2, endAngle: 0, clockwise: true)
         }
         

@@ -21,8 +21,8 @@ struct Config {
         static let lineViewThickness: CGFloat                   =   3.0
         static let lineViewSocialButtonDistance: Double         =   3.0
         
-        static let smallTopBarViewHeightCoefficient: CGFloat    =   75.0 / 667
-        static let smallTopBarViewWidthCoefficient: CGFloat     =   80.0 / 667
+        static let smallTopBarViewHeightCoefficientPortraitt    =   CGFloat(75.0 / 667)
+        static let smallTopBarViewHeightCoefficientLandscape    =   CGFloat(80.0 / 667)
         static let bigTopBarViewHeightCoefficient: CGFloat      =   220.0 / 667
         static let bigTopBarViewWidthCoefficient: CGFloat       =   300.0 / 667
         
