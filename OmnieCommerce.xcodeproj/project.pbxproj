@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		2AED68836D19B23C3805FA4F /* Pods_OmnieCommerce.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7BBCD9A2BBB6D643C1B64E4 /* Pods_OmnieCommerce.framework */; };
 		B11E074E1DE032D90052AFC5 /* DottedBorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11E074D1DE032D90052AFC5 /* DottedBorderView.swift */; };
-		B1228FAD1DD44D3400A90FBB /* TopBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1228FAC1DD44D3400A90FBB /* TopBarView.swift */; };
 		B1228FB21DD47C9F00A90FBB /* MenuViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1228FB11DD47C9F00A90FBB /* MenuViewCell.swift */; };
 		B1228FB51DD4856A00A90FBB /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1228FB41DD4856A00A90FBB /* MenuItem.swift */; };
 		B1228FBA1DD49ED400A90FBB /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1228FB91DD49ED400A90FBB /* BaseViewController.swift */; };
@@ -64,7 +63,6 @@
 		B122F2411DD371B30018A701 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B122F2401DD371B30018A701 /* BaseNavigationController.swift */; };
 		B122F2481DD393330018A701 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B122F24A1DD393330018A701 /* Localizable.strings */; };
 		B12AC2301DDF3BDB00FA0924 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12AC22F1DDF3BDB00FA0924 /* CustomTextField.swift */; };
-		B1305D381DDB9B93000CA5FE /* TopBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1305D371DDB9B93000CA5FE /* TopBarView.xib */; };
 		B1305D3A1DDC738F000CA5FE /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1305D391DDC738F000CA5FE /* CircleView.swift */; };
 		B14E97481DD8B042001E1DE2 /* SignInShowConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14E97411DD8B042001E1DE2 /* SignInShowConfigurator.swift */; };
 		B14E97491DD8B042001E1DE2 /* SignInShowInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14E97421DD8B042001E1DE2 /* SignInShowInteractor.swift */; };
@@ -209,7 +207,6 @@
 		6AA4A159468D8EA48A132ED8 /* Pods-OmnieCommerce.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OmnieCommerce.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OmnieCommerce/Pods-OmnieCommerce.debug.xcconfig"; sourceTree = "<group>"; };
 		A7BBCD9A2BBB6D643C1B64E4 /* Pods_OmnieCommerce.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OmnieCommerce.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B11E074D1DE032D90052AFC5 /* DottedBorderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DottedBorderView.swift; sourceTree = "<group>"; };
-		B1228FAC1DD44D3400A90FBB /* TopBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopBarView.swift; sourceTree = "<group>"; };
 		B1228FB11DD47C9F00A90FBB /* MenuViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewCell.swift; sourceTree = "<group>"; };
 		B1228FB41DD4856A00A90FBB /* MenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
 		B1228FB91DD49ED400A90FBB /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -267,7 +264,6 @@
 		B122F24C1DD393350018A701 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B122F24D1DD393360018A701 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B12AC22F1DDF3BDB00FA0924 /* CustomTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
-		B1305D371DDB9B93000CA5FE /* TopBarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TopBarView.xib; sourceTree = "<group>"; };
 		B1305D391DDC738F000CA5FE /* CircleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
 		B14E97411DD8B042001E1DE2 /* SignInShowConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInShowConfigurator.swift; sourceTree = "<group>"; };
 		B14E97421DD8B042001E1DE2 /* SignInShowInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInShowInteractor.swift; sourceTree = "<group>"; };
@@ -444,21 +440,19 @@
 			isa = PBXGroup;
 			children = (
 				B16E96721DE717E400147CEF /* BigCirleView.swift */,
-				B18A45CB1DEC3918003EBD2F /* SmallCirleView.swift */,
 				B16E966E1DE6C94000147CEF /* BigTopBarView.swift */,
 				B16E96701DE6C94D00147CEF /* BigTopBarView.xib */,
 				B1305D391DDC738F000CA5FE /* CircleView.swift */,
-				B18A45C91DEC282B003EBD2F /* DotView.swift */,
 				B152915E1DDEB8B500BBA1E0 /* CustomTableView.swift */,
 				B11E074D1DE032D90052AFC5 /* DottedBorderView.swift */,
+				B18A45C91DEC282B003EBD2F /* DotView.swift */,
 				B152915A1DDE44A200BBA1E0 /* MenuSectionFooterView.swift */,
 				B152915C1DDE44B700BBA1E0 /* MenuSectionFooterView.xib */,
 				B15291581DDE3FFA00BBA1E0 /* MenuSectionHeaderView.swift */,
 				B15291561DDE3FEF00BBA1E0 /* MenuSectionHeaderView.xib */,
+				B18A45CB1DEC3918003EBD2F /* SmallCirleView.swift */,
 				B18A45C71DEC23B2003EBD2F /* SmallTopBarView.swift */,
 				B18A45C51DEC21BA003EBD2F /* SmallTopBarView.xib */,
-				B1228FAC1DD44D3400A90FBB /* TopBarView.swift */,
-				B1305D371DDB9B93000CA5FE /* TopBarView.xib */,
 			);
 			path = UIViews;
 			sourceTree = "<group>";
@@ -991,7 +985,6 @@
 				B1BF926A1DD6516C00BECBBB /* helveticaneuecyr-bold.otf in Resources */,
 				B15291571DDE3FEF00BBA1E0 /* MenuSectionHeaderView.xib in Resources */,
 				B1CF54E81DDB55E300E98049 /* HandbookShow.storyboard in Resources */,
-				B1305D381DDB9B93000CA5FE /* TopBarView.xib in Resources */,
 				B1BF926B1DD6516C00BECBBB /* helveticaneuecyr-bolditalic.otf in Resources */,
 				B1BF926C1DD6516C00BECBBB /* helveticaneuecyr-heavy.otf in Resources */,
 				B1BF926D1DD6516C00BECBBB /* helveticaneuecyr-heavyitalic.otf in Resources */,
@@ -1116,7 +1109,6 @@
 				B1305D3A1DDC738F000CA5FE /* CircleView.swift in Sources */,
 				B1CF54B31DDB516E00E98049 /* OmnieCardsShowViewController.swift in Sources */,
 				B1CF54D01DDB51A500E98049 /* PersonalPageShowWorker.swift in Sources */,
-				B1228FAD1DD44D3400A90FBB /* TopBarView.swift in Sources */,
 				B1CF54921DDB512000E98049 /* DiscountCardsShowConfigurator.swift in Sources */,
 				B1CF54871DDB50F100E98049 /* BusinessCardsShowPresenter.swift in Sources */,
 				B1CF54771DDB50D900E98049 /* AboutShowInteractor.swift in Sources */,

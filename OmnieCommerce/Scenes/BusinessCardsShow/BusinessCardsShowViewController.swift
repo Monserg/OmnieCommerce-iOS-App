@@ -25,7 +25,7 @@ class BusinessCardsShowViewController: BaseViewController, BusinessCardsShowView
     var output: BusinessCardsShowViewControllerOutput!
     var router: BusinessCardsShowRouter!
     
-    @IBOutlet weak var topBarView: TopBarView!
+    @IBOutlet weak var smallTopBarView: SmallTopBarView!
     @IBOutlet weak var copyrightLabel: CustomLabel!
     @IBOutlet weak var topBarViewHeightPortraitConstraint: NSLayoutConstraint!
     
@@ -52,7 +52,7 @@ class BusinessCardsShowViewController: BaseViewController, BusinessCardsShowView
         
         // Config topBarView
 //        topBarViewRounding = .big
-        setup(topBarView: topBarView)
+        setup(topBarView: smallTopBarView)
         
         doSomethingOnLoad()
     }

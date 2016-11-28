@@ -25,17 +25,8 @@ class OrdersShowViewController: BaseViewController, OrdersShowViewControllerInpu
     var output: OrdersShowViewControllerOutput!
     var router: OrdersShowRouter!
     
-    @IBOutlet weak var topBarView: TopBarView!
+    @IBOutlet weak var smallTopBarView: SmallTopBarView!
     @IBOutlet weak var copyrightLabel: CustomLabel!
-    @IBOutlet weak var topBarViewHeightPortraitConstraint: NSLayoutConstraint!
-
-//    override var topBarViewRounding: CircleView.CirleRadius {
-//        willSet {
-//            if (newValue == .big) {
-//                topBarViewHeightPortraitConstraint.constant = Config.Constants.topViewBarHeightBig
-//            }
-//        }
-//    }
 
 
     // MARK: - Class Initialization
@@ -51,15 +42,26 @@ class OrdersShowViewController: BaseViewController, OrdersShowViewControllerInpu
         super.viewDidLoad()
         
         // Config topBarView
-//        topBarViewRounding = .big
-        setup(topBarView: topBarView)
+        smallTopBarView.type = "ParentSearch"
+        topBarViewStyle = .Small
+        setup(topBarView: smallTopBarView)
 
         doSomethingOnLoad()
     }
     
 
+    // MARK: - Transition
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        print(object: "\(type(of: self)): \(#function) run. New size = \(size)")
+        
+        setupScene(withSize: size)
+    }
+
+    
     // MARK: - Custom Functions
     func doSomethingOnLoad() {
+        print(object: "\(type(of: self)): \(#function) run.")
+        
         // NOTE: Ask the Interactor to do some work
         let request = OrdersShow.Something.Request()
         output.doSomething(request: request)
@@ -67,7 +69,17 @@ class OrdersShowViewController: BaseViewController, OrdersShowViewControllerInpu
     
     // Display logic
     func displaySomething(viewModel: OrdersShow.Something.ViewModel) {
+        print(object: "\(type(of: self)): \(#function) run.")
+        
         // NOTE: Display the result from the Presenter
         // nameTextField.text = viewModel.name
+    }
+    
+    func setupScene(withSize size: CGSize) {
+        print(object: "\(type(of: self)): \(#function) run. Screen view size = \(size)")
+        
+        smallTopBarView.setNeedsDisplay()
+        smallTopBarView.circleView.setNeedsDisplay()
+        view.bringSubview(toFront: smallTopBarView.dottesStackView)
     }
 }

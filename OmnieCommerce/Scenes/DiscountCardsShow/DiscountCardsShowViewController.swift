@@ -25,7 +25,7 @@ class DiscountCardsShowViewController: BaseViewController, DiscountCardsShowView
     var output: DiscountCardsShowViewControllerOutput!
     var router: DiscountCardsShowRouter!
     
-    @IBOutlet weak var topBarView: TopBarView!
+    @IBOutlet weak var smallTopBarView: SmallTopBarView!
     @IBOutlet weak var copyrightLabel: CustomLabel!
     @IBOutlet weak var topBarViewHeightPortraitConstraint: NSLayoutConstraint!
     
@@ -52,7 +52,7 @@ class DiscountCardsShowViewController: BaseViewController, DiscountCardsShowView
         
         // Config topBarView
 //        topBarViewRounding = .big
-        setup(topBarView: topBarView)
+        setup(topBarView: smallTopBarView)
         
         doSomethingOnLoad()
     }

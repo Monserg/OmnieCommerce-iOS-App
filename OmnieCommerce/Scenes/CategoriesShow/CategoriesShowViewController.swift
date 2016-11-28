@@ -25,7 +25,7 @@ class CategoriesShowViewController: BaseViewController, CategoriesShowViewContro
     var output: CategoriesShowViewControllerOutput!
     var router: CategoriesShowRouter!
     
-    @IBOutlet weak var topBarView: TopBarView!
+    @IBOutlet weak var smallTopBarView: SmallTopBarView!
     @IBOutlet weak var copyrightLabel: CustomLabel!
     @IBOutlet weak var topBarViewHeightPortraitConstraint: NSLayoutConstraint!
     
@@ -52,7 +52,7 @@ class CategoriesShowViewController: BaseViewController, CategoriesShowViewContro
         
         // Config topBarView
 //        topBarViewRounding = .big
-        setup(topBarView: topBarView)
+        setup(topBarView: smallTopBarView)
 
         doSomethingOnLoad()
     }

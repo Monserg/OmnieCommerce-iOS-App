@@ -25,7 +25,7 @@ class OmnieCardsShowViewController: BaseViewController, OmnieCardsShowViewContro
     var output: OmnieCardsShowViewControllerOutput!
     var router: OmnieCardsShowRouter!
     
-    @IBOutlet weak var topBarView: TopBarView!
+    @IBOutlet weak var smallTopBarView: SmallTopBarView!
     @IBOutlet weak var copyrightLabel: CustomLabel!
     @IBOutlet weak var topBarViewHeightPortraitConstraint: NSLayoutConstraint!
     
@@ -52,7 +52,7 @@ class OmnieCardsShowViewController: BaseViewController, OmnieCardsShowViewContro
         
         // Config topBarView
 //        topBarViewRounding = "Big"
-        setup(topBarView: topBarView)
+        setup(topBarView: smallTopBarView)
 
         doSomethingOnLoad()
     }

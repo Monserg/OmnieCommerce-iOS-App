@@ -25,7 +25,7 @@ class SettingsShowViewController: BaseViewController, SettingsShowViewController
     var output: SettingsShowViewControllerOutput!
     var router: SettingsShowRouter!
     
-    @IBOutlet weak var topBarView: TopBarView!
+    @IBOutlet weak var smallTopBarView: SmallTopBarView!
     @IBOutlet weak var copyrightLabel: CustomLabel!
     @IBOutlet weak var topBarViewHeightPortraitConstraint: NSLayoutConstraint!
     
@@ -52,7 +52,7 @@ class SettingsShowViewController: BaseViewController, SettingsShowViewController
         
         // Config topBarView
 //        topBarViewRounding = "Big"
-        setup(topBarView: topBarView)
+        setup(topBarView: smallTopBarView)
         
         doSomethingOnLoad()
     }

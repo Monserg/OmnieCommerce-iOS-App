@@ -25,7 +25,7 @@ class PersonalPageShowViewController: BaseViewController, PersonalPageShowViewCo
     var output: PersonalPageShowViewControllerOutput!
     var router: PersonalPageShowRouter!
     
-    @IBOutlet weak var topBarView: TopBarView!
+    @IBOutlet weak var smallTopBarView: SmallTopBarView!
     @IBOutlet weak var copyrightLabel: CustomLabel!
     @IBOutlet weak var topBarViewHeightPortraitConstraint: NSLayoutConstraint!
     
@@ -52,7 +52,7 @@ class PersonalPageShowViewController: BaseViewController, PersonalPageShowViewCo
         
         // Config topBarView
 //        topBarViewRounding = .big
-        setup(topBarView: topBarView)
+        setup(topBarView: smallTopBarView)
         
         doSomethingOnLoad()
     }

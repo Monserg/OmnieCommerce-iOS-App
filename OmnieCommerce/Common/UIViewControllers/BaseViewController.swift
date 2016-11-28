@@ -14,6 +14,7 @@ enum TopBarViewStyle {
     case Big
     case Small
 }
+
 class BaseViewController: UIViewController {
     // MARK: - Properties
     var selectedRange: CGRect?
@@ -124,7 +125,7 @@ class BaseViewController: UIViewController {
 
             // Add Slide Menu actions
             if revealViewController() != nil {
-//                self.topBarView.actionButton.addTarget(revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), for: .touchUpInside)
+                (topBarView as! SmallTopBarView).actionButton.addTarget(revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), for: .touchUpInside)
                 
                 // Sidebar is width 296
                 revealViewController().rearViewRevealWidth = 296

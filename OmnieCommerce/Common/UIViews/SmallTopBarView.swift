@@ -18,32 +18,21 @@ enum ViewType: String {
 @IBDesignable class SmallTopBarView: UIView {
     // MARK: - Properties
     @IBOutlet var view: UIView!
+    @IBOutlet weak var circleView: SmallCirleView!
     @IBOutlet weak var titleLabel: CustomLabel!
     @IBOutlet weak var actionButton: UIButton!
     @IBOutlet weak var searchButton: UIButton!
     @IBOutlet weak var dottesStackView: UIStackView!
     
-    @IBInspectable var type: String = "Parent" {
+    @IBInspectable var titleText: String? {
         didSet {
-            searchButton.isHidden = true
-            dottesStackView.isHidden = false
-            titleLabel.text = titleLabel.text?.localized()
-            titleLabel.clipsToBounds = true
-            actionButton.setBackgroundImage(UIImage.init(named: "icon-menu-normal"), for: .normal)
-
-            switch ViewType(rawValue: type)! {
-            case .Child:
-                actionButton.setBackgroundImage(UIImage.init(named: "icon-back-normal"), for: .normal)
-
-            case .ChildSearch:
-                searchButton.isHidden = false
-
-            case .Parent:
-                actionButton.setBackgroundImage(UIImage.init(named: "icon-menu-normal"), for: .normal)
-
-            case .ParentSearch:
-                searchButton.isHidden = false
-            }
+            setup()
+        }
+    }
+    
+    @IBInspectable var type: String? {
+        didSet {
+            setup()
         }
     }
     
@@ -68,18 +57,42 @@ enum ViewType: String {
         
         print(object: "\(type(of: self)): \(#function) run. Initialization view.frame = \(view.frame)")
     }
-
-    
-    // MARK: - Actions
-    
-    @IBAction func handlerSearchButtonTap(_ sender: UIButton) {
-        print(object: "\(type(of: self)): \(#function) run.")
-        
-    }
     
     
     // MARK: - Class Functions
     override func draw(_ rect: CGRect) {
         print(object: "\(type(of: self)): \(#function) run. Rect = \(rect)")
+    }
+    
+    
+    // MARK: - Actions
+    @IBAction func handlerSearchButtonTap(_ sender: UIButton) {
+        print(object: "\(type(of: self)): \(#function) run.")
+        
+    }
+
+    
+    // MARK: - Custom Functions
+    func setup() {
+        searchButton.isHidden = true
+        actionButton.isHidden = false
+        titleLabel.clipsToBounds = true
+        dottesStackView.isHidden = false
+        titleLabel.text = titleText?.localized() ?? "Label"
+        actionButton.setImage(UIImage.init(named: "icon-menu-normal"), for: .normal)
+        
+        switch ViewType(rawValue: type ?? "Parent")! {
+        case .Child:
+            actionButton.setImage(UIImage.init(named: "icon-back-normal"), for: .normal)
+            
+        case .ChildSearch:
+            searchButton.isHidden = false
+            
+        case .ParentSearch:
+            searchButton.isHidden = false
+            
+        case .Parent:
+            actionButton.setImage(UIImage.init(named: "icon-menu-normal"), for: .normal)
+        }
     }
 }
