@@ -21,19 +21,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="08z-zS-Fzg">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="128"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="08z-zS-Fzg" customClass="SmallTopBarView" customModule="OmnieCommerce" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="95"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="128" id="DHJ-Xk-90a"/>
+                                    <constraint firstAttribute="height" constant="95" id="DHJ-Xk-90a">
+                                        <variation key="heightClass=compact-widthClass=compact" constant="80"/>
+                                        <variation key="heightClass=compact-widthClass=regular" constant="80"/>
+                                    </constraint>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="titleText" value="PersonalPage"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="type" value="ParentSearch"/>
+                                </userDefinedRuntimeAttributes>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PersonalPageShow" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mJG-hb-gHh">
-                                <rect key="frame" x="114" y="323" width="147" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ASc-N1-FS2" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
                                 <rect key="frame" x="8" y="647.5" width="359" height="10.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -44,25 +45,23 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="08z-zS-Fzg" secondAttribute="trailing" id="8B0-PH-C6O"/>
-                            <constraint firstItem="mJG-hb-gHh" firstAttribute="centerY" secondItem="WeC-xT-hwP" secondAttribute="centerY" id="8CJ-pq-AwP"/>
                             <constraint firstItem="ASc-N1-FS2" firstAttribute="leading" secondItem="WeC-xT-hwP" secondAttribute="leading" constant="8" id="L1B-DT-fEK"/>
                             <constraint firstItem="08z-zS-Fzg" firstAttribute="leading" secondItem="WeC-xT-hwP" secondAttribute="leading" id="NVt-r3-ud2"/>
                             <constraint firstItem="08z-zS-Fzg" firstAttribute="top" secondItem="WeC-xT-hwP" secondAttribute="top" id="Sh7-1G-Yci">
                                 <variation key="heightClass=compact-widthClass=compact" constant="-16"/>
-                                <variation key="heightClass=compact-widthClass=regular" constant="-16"/>
+                                <variation key="heightClass=compact-widthClass=regular" constant="0.0"/>
                             </constraint>
                             <constraint firstAttribute="trailing" secondItem="ASc-N1-FS2" secondAttribute="trailing" constant="8" id="Twb-8R-nxq"/>
                             <constraint firstAttribute="bottom" secondItem="ASc-N1-FS2" secondAttribute="bottom" constant="9" id="imL-6g-csA"/>
-                            <constraint firstItem="mJG-hb-gHh" firstAttribute="centerX" secondItem="WeC-xT-hwP" secondAttribute="centerX" id="svZ-QT-54e"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="HKj-PK-W47"/>
                     <connections>
                         <outlet property="copyrightLabel" destination="ASc-N1-FS2" id="Z9Q-9I-Pv1"/>
-                        <outlet property="topBarViewHeightPortraitConstraint" destination="DHJ-Xk-90a" id="uDJ-4l-qQi"/>
+                        <outlet property="smallTopBarView" destination="08z-zS-Fzg" id="wbC-t6-RHH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gf8-eD-6Bd" userLabel="First Responder" sceneMemberID="firstResponder"/>
