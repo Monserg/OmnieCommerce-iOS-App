@@ -110,7 +110,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J7d-7z-vYN" userLabel="Menu Title Label" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                                                    <rect key="frame" x="60" y="30" width="176" height="18"/>
+                                                    <rect key="frame" x="60" y="29" width="176" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>

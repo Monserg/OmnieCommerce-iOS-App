@@ -21,18 +21,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DiscountCardsShow" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Riz-XC-mOO">
-                                <rect key="frame" x="110" y="323" width="156" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K4O-Hp-7T4">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="128"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K4O-Hp-7T4" customClass="SmallTopBarView" customModule="OmnieCommerce" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="95"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="128" id="6dg-BM-Ib1"/>
+                                    <constraint firstAttribute="height" constant="95" id="6dg-BM-Ib1">
+                                        <variation key="heightClass=compact-widthClass=compact" constant="80"/>
+                                        <variation key="heightClass=compact-widthClass=regular" constant="80"/>
+                                    </constraint>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="titleText" value="DiscountCards"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="type" value="ParentSearch"/>
+                                </userDefinedRuntimeAttributes>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mhd-tM-ire" userLabel="Copyright Label" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
                                 <rect key="frame" x="8" y="648.5" width="359" height="10.5"/>
@@ -44,26 +45,24 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="K4O-Hp-7T4" firstAttribute="top" secondItem="A4D-yP-xw0" secondAttribute="top" id="7WP-Ue-bPh">
-                                <variation key="heightClass=compact-widthClass=compact" constant="-16"/>
-                                <variation key="heightClass=compact-widthClass=regular" constant="-16"/>
+                                <variation key="heightClass=compact-widthClass=compact" constant="0.0"/>
+                                <variation key="heightClass=compact-widthClass=regular" constant="0.0"/>
                             </constraint>
                             <constraint firstAttribute="trailing" secondItem="Mhd-tM-ire" secondAttribute="trailing" constant="8" id="AaT-uz-y0p"/>
-                            <constraint firstItem="Riz-XC-mOO" firstAttribute="centerY" secondItem="A4D-yP-xw0" secondAttribute="centerY" id="GRJ-rd-DJR"/>
                             <constraint firstAttribute="bottom" secondItem="Mhd-tM-ire" secondAttribute="bottom" constant="8" id="I5B-45-Ist"/>
                             <constraint firstItem="K4O-Hp-7T4" firstAttribute="leading" secondItem="A4D-yP-xw0" secondAttribute="leading" id="Uza-Y8-Gkp"/>
                             <constraint firstItem="Mhd-tM-ire" firstAttribute="leading" secondItem="A4D-yP-xw0" secondAttribute="leading" constant="8" id="Zd0-3j-CRY"/>
                             <constraint firstAttribute="trailing" secondItem="K4O-Hp-7T4" secondAttribute="trailing" id="ap6-sg-toG"/>
                             <constraint firstItem="Mhd-tM-ire" firstAttribute="centerX" secondItem="A4D-yP-xw0" secondAttribute="centerX" id="g82-U3-YBO"/>
-                            <constraint firstItem="Riz-XC-mOO" firstAttribute="centerX" secondItem="A4D-yP-xw0" secondAttribute="centerX" id="lD5-Zj-f0K"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="RQS-qq-19K"/>
                     <connections>
                         <outlet property="copyrightLabel" destination="Mhd-tM-ire" id="T71-fj-Har"/>
-                        <outlet property="topBarViewHeightPortraitConstraint" destination="6dg-BM-Ib1" id="dRP-iS-xtd"/>
+                        <outlet property="smallTopBarView" destination="K4O-Hp-7T4" id="q8S-72-lAF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NVo-Mt-ymv" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -77,7 +76,7 @@
                     <toolbarItems/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="z6D-Fr-pFE">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="z6D-Fr-pFE">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
