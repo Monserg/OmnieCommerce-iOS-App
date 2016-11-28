@@ -29,14 +29,6 @@ class FavoriteShowViewController: BaseViewController, FavoriteShowViewController
     @IBOutlet weak var copyrightLabel: CustomLabel!
     @IBOutlet weak var topBarViewHeightPortraitConstraint: NSLayoutConstraint!
     
-//    override var topBarViewRounding: String {
-//        willSet {
-//            if (newValue == .big) {
-//                topBarViewHeightPortraitConstraint.constant = Config.Constants.topViewBarHeightBig
-//            }
-//        }
-//    }
-    
     
     // MARK: - Class Initialization
     override func awakeFromNib() {
@@ -51,7 +43,8 @@ class FavoriteShowViewController: BaseViewController, FavoriteShowViewController
         super.viewDidLoad()
         
         // Config topBarView
-//        topBarViewRounding = "Big"
+        smallTopBarView.type = "ParentSearch"
+        topBarViewStyle = .Small
         setup(topBarView: smallTopBarView)
 
         doSomethingOnLoad()
@@ -60,6 +53,8 @@ class FavoriteShowViewController: BaseViewController, FavoriteShowViewController
 
     // MARK: - Custom Functions
     func doSomethingOnLoad() {
+        print(object: "\(type(of: self)): \(#function) run.")
+        
         // NOTE: Ask the Interactor to do some work
         let request = FavoriteShow.Something.Request()
         output.doSomething(request: request)
@@ -67,7 +62,24 @@ class FavoriteShowViewController: BaseViewController, FavoriteShowViewController
     
     // Display logic
     func displaySomething(viewModel: FavoriteShow.Something.ViewModel) {
+        print(object: "\(type(of: self)): \(#function) run.")
+        
         // NOTE: Display the result from the Presenter
         // nameTextField.text = viewModel.name
+    }
+    
+    func setupScene(withSize size: CGSize) {
+        print(object: "\(type(of: self)): \(#function) run. Screen view size = \(size)")
+        
+        smallTopBarView.setNeedsDisplay()
+        smallTopBarView.circleView.setNeedsDisplay()
+    }
+    
+    
+    // MARK: - Transition
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        print(object: "\(type(of: self)): \(#function) run. New size = \(size)")
+        
+        setupScene(withSize: size)
     }
 }

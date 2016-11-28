@@ -14,15 +14,13 @@ import UIKit
 struct Config {
     struct Constants {
         static let fillViewSmallRadiusPortrait: Double          =   1531.0
-        static let fillViewSmallRadiusLandscape: Double         =   5726.0
+        static let fillViewSmallRadiusLandscape: Double         =   2126.0
         static let fillViewBigRadiusPortrait: Double            =   360.0
         static let fillViewBigRadiusLandscape: Double           =   289.0
         static let fillViewLineViewDistance: Double             =   10.0
         static let lineViewThickness: CGFloat                   =   3.0
         static let lineViewSocialButtonDistance: Double         =   3.0
         
-        static let smallTopBarViewHeightCoefficientPortraitt    =   CGFloat(75.0 / 667)
-        static let smallTopBarViewHeightCoefficientLandscape    =   CGFloat(80.0 / 667)
         static let bigTopBarViewHeightCoefficient: CGFloat      =   220.0 / 667
         static let bigTopBarViewWidthCoefficient: CGFloat       =   300.0 / 667
         
