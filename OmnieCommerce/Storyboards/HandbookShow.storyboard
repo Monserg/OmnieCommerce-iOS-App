@@ -21,21 +21,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HandbookShow" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y2Z-YD-oIx">
-                                <rect key="frame" x="127" y="323" width="122" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QIO-EA-wXe">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="128"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QIO-EA-wXe" customClass="SmallTopBarView" customModule="OmnieCommerce" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="95"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="128" id="Q3Y-BW-Xxf"/>
+                                    <constraint firstAttribute="height" constant="95" id="Q3Y-BW-Xxf">
+                                        <variation key="heightClass=compact-widthClass=compact" constant="80"/>
+                                        <variation key="heightClass=compact-widthClass=regular" constant="80"/>
+                                    </constraint>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="titleText" value="Handbook"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="type" value="ParentSearch"/>
+                                </userDefinedRuntimeAttributes>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0jm-qd-ave" userLabel="Copyright Label" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                                <rect key="frame" x="8" y="647.5" width="359" height="10.5"/>
+                                <rect key="frame" x="8" y="637.5" width="359" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -44,16 +45,14 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="QIO-EA-wXe" firstAttribute="leading" secondItem="Ueb-xh-5L2" secondAttribute="leading" id="4tA-e0-QW4"/>
                             <constraint firstItem="QIO-EA-wXe" firstAttribute="top" secondItem="Ueb-xh-5L2" secondAttribute="top" id="R7e-Fb-qKN">
-                                <variation key="heightClass=compact-widthClass=compact" constant="-16"/>
-                                <variation key="heightClass=compact-widthClass=regular" constant="-16"/>
+                                <variation key="heightClass=compact-widthClass=compact" constant="0.0"/>
+                                <variation key="heightClass=compact-widthClass=regular" constant="0.0"/>
                             </constraint>
                             <constraint firstAttribute="trailing" secondItem="0jm-qd-ave" secondAttribute="trailing" constant="8" id="bes-ze-Nvg"/>
-                            <constraint firstItem="y2Z-YD-oIx" firstAttribute="centerX" secondItem="Ueb-xh-5L2" secondAttribute="centerX" id="dy2-8d-YNe"/>
-                            <constraint firstItem="y2Z-YD-oIx" firstAttribute="centerY" secondItem="Ueb-xh-5L2" secondAttribute="centerY" id="eLa-1n-EFa"/>
                             <constraint firstAttribute="bottom" secondItem="0jm-qd-ave" secondAttribute="bottom" constant="9" id="hmh-SC-0Ma"/>
                             <constraint firstItem="0jm-qd-ave" firstAttribute="leading" secondItem="Ueb-xh-5L2" secondAttribute="leading" constant="8" id="jOa-Zo-Oud"/>
                             <constraint firstAttribute="trailing" secondItem="QIO-EA-wXe" secondAttribute="trailing" id="zYa-WF-StA"/>
@@ -62,7 +61,7 @@
                     <navigationItem key="navigationItem" id="pdq-Tq-NOG"/>
                     <connections>
                         <outlet property="copyrightLabel" destination="0jm-qd-ave" id="cDl-2a-Ob0"/>
-                        <outlet property="topBarViewHeightPortraitConstraint" destination="Q3Y-BW-Xxf" id="rO2-ub-sej"/>
+                        <outlet property="smallTopBarView" destination="QIO-EA-wXe" id="evt-Av-CPX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Agf-AF-wsv" userLabel="First Responder" sceneMemberID="firstResponder"/>

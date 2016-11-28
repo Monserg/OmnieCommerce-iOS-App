@@ -41,7 +41,7 @@
                             <state key="normal" image="icon-menu-normal"/>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Orders" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HQM-9u-rBz" userLabel="Title Label" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                            <rect key="frame" x="56" y="8" width="306" height="29"/>
+                            <rect key="frame" x="56" y="12.5" width="306" height="20.5"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
@@ -52,7 +52,7 @@
                             </userDefinedRuntimeAttributes>
                         </label>
                         <stackView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="ef5-nQ-6Bi">
-                            <rect key="frame" x="189" y="41" width="36" height="4"/>
+                            <rect key="frame" x="189" y="37" width="36" height="4"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x6s-gG-iKi" userLabel="Dot 1 View" customClass="DotView" customModule="OmnieCommerce" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="4" height="4"/>
