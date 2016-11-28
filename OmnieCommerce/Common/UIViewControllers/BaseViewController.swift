@@ -22,6 +22,14 @@ class BaseViewController: UIViewController {
     var scrollViewBase = UIScrollView()
         
     
+    // MARK: - Class Initialization
+    override func awakeFromNib() {
+        print(object: "\(type(of: self)): \(#function) run.")
+        
+        super.awakeFromNib()
+    }
+
+    
     // MARK: - Class Functions
     override func viewDidLoad() {
         print(object: "\(type(of: self)): \(#function) run. View size = \(view.bounds.size)")

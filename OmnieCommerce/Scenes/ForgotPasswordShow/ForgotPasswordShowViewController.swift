@@ -64,42 +64,6 @@ class ForgotPasswordShowViewController: BaseViewController, ForgotPasswordShowVi
         setup(topBarView: bigTopBarView)
     }
     
-
-    // MARK: - Transition
-    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        print(object: "\(type(of: self)): \(#function) run. New size = \(size)")
-        
-        setupScene(withSize: size)
-    }
-
-    
-    // MARK: - Actions
-    @IBAction func handleSendButtonTap(_ sender: CustomButton) {
-        print(object: "\(type(of: self)): \(#function) run.")
-
-    }
-    
-    @IBAction func handleCancelButtonTap(_ sender: CustomButton) {
-        print(object: "\(type(of: self)): \(#function) run.")
-
-        _ = navigationController?.popToRootViewController(animated: true)
-    }
-    
-    @IBAction func handlerVkontakteButtonTap(_ sender: CustomButton) {
-        print(object: "\(type(of: self)): \(#function) run.")
-        
-    }
-    
-    @IBAction func handlerGoogleButtonTap(_ sender: CustomButton) {
-        print(object: "\(type(of: self)): \(#function) run.")
-        
-    }
-    
-    @IBAction func handlerFacebookButtonTap(_ sender: CustomButton) {
-        print(object: "\(type(of: self)): \(#function) run.")
-        
-    }
-
     
     // MARK: - Custom Functions
     func doSomethingOnLoad() {
@@ -126,5 +90,41 @@ class ForgotPasswordShowViewController: BaseViewController, ForgotPasswordShowVi
         vkontakteButton.setNeedsDisplay()
         googleButton.setNeedsDisplay()
         facebookButton.setNeedsDisplay()
+    }
+    
+    
+    // MARK: - Actions
+    @IBAction func handleSendButtonTap(_ sender: CustomButton) {
+        print(object: "\(type(of: self)): \(#function) run.")
+        
+    }
+    
+    @IBAction func handleCancelButtonTap(_ sender: CustomButton) {
+        print(object: "\(type(of: self)): \(#function) run.")
+        
+        _ = navigationController?.popToRootViewController(animated: true)
+    }
+    
+    @IBAction func handlerVkontakteButtonTap(_ sender: CustomButton) {
+        print(object: "\(type(of: self)): \(#function) run.")
+        
+    }
+    
+    @IBAction func handlerGoogleButtonTap(_ sender: CustomButton) {
+        print(object: "\(type(of: self)): \(#function) run.")
+        
+    }
+    
+    @IBAction func handlerFacebookButtonTap(_ sender: CustomButton) {
+        print(object: "\(type(of: self)): \(#function) run.")
+        
+    }
+    
+    
+    // MARK: - Transition
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        print(object: "\(type(of: self)): \(#function) run. New size = \(size)")
+        
+        setupScene(withSize: size)
     }
 }

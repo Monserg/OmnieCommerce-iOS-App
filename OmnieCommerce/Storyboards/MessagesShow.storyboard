@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -18,18 +19,19 @@
                         <viewControllerLayoutGuide type="bottom" id="77M-lv-vy3"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8hc-OJ-fkn">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EhI-Ef-LH8" userLabel="Top Bar View">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="9aV-Mk-64z"/>
-                                </constraints>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EhI-Ef-LH8" userLabel="Small Top Bar View" customClass="SmallTopBarView" customModule="OmnieCommerce" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="82.666666666666671"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="titleText" value="Messages"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="type" value="ParentSearch"/>
+                                </userDefinedRuntimeAttributes>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ime-Oq-WN9" userLabel="Copyright Label" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                                <rect key="frame" x="8" y="647.5" width="359" height="10.5"/>
+                                <rect key="frame" x="8" y="716.66666666666652" width="398" height="10.333333333333371"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -38,15 +40,19 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="EhI-Ef-LH8" firstAttribute="leading" secondItem="8hc-OJ-fkn" secondAttribute="leading" id="2Rz-12-RVZ"/>
                             <constraint firstAttribute="trailing" secondItem="Ime-Oq-WN9" secondAttribute="trailing" constant="8" id="GI9-BN-KjI"/>
                             <constraint firstAttribute="bottom" secondItem="Ime-Oq-WN9" secondAttribute="bottom" constant="9" id="RqU-hS-wpb"/>
                             <constraint firstItem="Ime-Oq-WN9" firstAttribute="leading" secondItem="8hc-OJ-fkn" secondAttribute="leading" constant="8" id="YeQ-wo-S7H"/>
                             <constraint firstItem="EhI-Ef-LH8" firstAttribute="top" secondItem="8hc-OJ-fkn" secondAttribute="top" id="kfW-EN-SFe">
-                                <variation key="heightClass=compact-widthClass=compact" constant="-16"/>
-                                <variation key="heightClass=compact-widthClass=regular" constant="-16"/>
+                                <variation key="heightClass=compact-widthClass=compact" constant="0.0"/>
+                                <variation key="heightClass=compact-widthClass=regular" constant="0.0"/>
+                            </constraint>
+                            <constraint firstItem="EhI-Ef-LH8" firstAttribute="height" secondItem="8hc-OJ-fkn" secondAttribute="height" multiplier="0.112444" id="ntu-pO-fKu">
+                                <variation key="heightClass=compact-widthClass=compact" constant="26"/>
+                                <variation key="heightClass=compact-widthClass=regular" constant="27"/>
                             </constraint>
                             <constraint firstAttribute="trailing" secondItem="EhI-Ef-LH8" secondAttribute="trailing" id="rqE-bm-dPq"/>
                         </constraints>
@@ -56,7 +62,7 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="copyrightLabel" destination="Ime-Oq-WN9" id="YXp-t1-BA6"/>
-                        <outlet property="topBarViewHeightPortraitConstraint" destination="9aV-Mk-64z" id="hjE-C8-zBx"/>
+                        <outlet property="smallTopBarView" destination="EhI-Ef-LH8" id="qm3-6M-PRe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k2E-dX-hca" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -68,7 +74,7 @@
             <objects>
                 <navigationController storyboardIdentifier="MessagesShowNC" automaticallyAdjustsScrollViewInsets="NO" id="YAB-jH-ZBO" customClass="BaseNavigationController" customModule="OmnieCommerce" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="gPT-Va-oc5">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="gPT-Va-oc5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

@@ -49,14 +49,6 @@ class OrdersShowViewController: BaseViewController, OrdersShowViewControllerInpu
         doSomethingOnLoad()
     }
     
-
-    // MARK: - Transition
-    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        print(object: "\(type(of: self)): \(#function) run. New size = \(size)")
-        
-        setupScene(withSize: size)
-    }
-
     
     // MARK: - Custom Functions
     func doSomethingOnLoad() {
@@ -80,6 +72,13 @@ class OrdersShowViewController: BaseViewController, OrdersShowViewControllerInpu
         
         smallTopBarView.setNeedsDisplay()
         smallTopBarView.circleView.setNeedsDisplay()
-        view.bringSubview(toFront: smallTopBarView.dottesStackView)
+    }
+    
+    
+    // MARK: - Transition
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        print(object: "\(type(of: self)): \(#function) run. New size = \(size)")
+        
+        setupScene(withSize: size)
     }
 }

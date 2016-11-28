@@ -69,13 +69,33 @@ class SignUpShowViewController: BaseViewController, SignUpShowViewControllerInpu
     }
     
     
-    // MARK: - Transition
-    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        print(object: "\(type(of: self)): \(#function) run. New size = \(size)")
+    // MARK: - Custom Functions
+    func doSomethingOnLoad() {
+        print(object: "\(type(of: self)): \(#function) run.")
         
-        setupScene(withSize: size)
+        // NOTE: Ask the Interactor to do some work
+        let request = SignUpShow.Something.Request()
+        output.doSomething(request: request)
     }
-
+    
+    // Display logic
+    func displaySomething(viewModel: SignUpShow.Something.ViewModel) {
+        print(object: "\(type(of: self)): \(#function) run.")
+        
+        // NOTE: Display the result from the Presenter
+        // nameTextField.text = viewModel.name
+    }
+    
+    func setupScene(withSize size: CGSize) {
+        print(object: "\(type(of: self)): \(#function) run. Screen view size = \(size)")
+        
+        bigTopBarView.setNeedsDisplay()
+        bigTopBarView.circleView.setNeedsDisplay()
+        vkontakteButton.setNeedsDisplay()
+        googleButton.setNeedsDisplay()
+        facebookButton.setNeedsDisplay()
+    }
+    
     
     // MARK: - Actions
     @IBAction func handlerSignUpButtonTap(_ sender: CustomButton) {
@@ -103,32 +123,12 @@ class SignUpShowViewController: BaseViewController, SignUpShowViewControllerInpu
         print(object: "\(type(of: self)): \(#function) run.")
         
     }
-
     
-    // MARK: - Custom Functions
-    func doSomethingOnLoad() {
-        print(object: "\(type(of: self)): \(#function) run.")
-        
-        // NOTE: Ask the Interactor to do some work
-        let request = SignUpShow.Something.Request()
-        output.doSomething(request: request)
-    }
     
-    // Display logic
-    func displaySomething(viewModel: SignUpShow.Something.ViewModel) {
-        print(object: "\(type(of: self)): \(#function) run.")
+    // MARK: - Transition
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        print(object: "\(type(of: self)): \(#function) run. New size = \(size)")
         
-        // NOTE: Display the result from the Presenter
-        // nameTextField.text = viewModel.name
-    }
-    
-    func setupScene(withSize size: CGSize) {
-        print(object: "\(type(of: self)): \(#function) run. Screen view size = \(size)")
-        
-        bigTopBarView.setNeedsDisplay()
-        bigTopBarView.circleView.setNeedsDisplay()
-        vkontakteButton.setNeedsDisplay()
-        googleButton.setNeedsDisplay()
-        facebookButton.setNeedsDisplay()
+        setupScene(withSize: size)
     }
 }

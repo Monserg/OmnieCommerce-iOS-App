@@ -67,35 +67,6 @@ class SignInShowViewController: BaseViewController, SignInShowViewControllerInpu
     }
     
     
-    // MARK: - Transition
-    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        print(object: "\(type(of: self)): \(#function) run. New size = \(size)")
-        
-        setupScene(withSize: size)
-    }
-    
-    
-    // MARK: - Actions
-    @IBAction func handlerSignInButtonTap(_ sender: CustomButton) {
-        print(object: "\(type(of: self)): \(#function) run.")
-    }
-    
-    @IBAction func handlerVkontakteButtonTap(_ sender: CustomButton) {
-        print(object: "\(type(of: self)): \(#function) run.")
-    
-    }
-    
-    @IBAction func handlerGoogleButtonTap(_ sender: CustomButton) {
-        print(object: "\(type(of: self)): \(#function) run.")
-    
-    }
-    
-    @IBAction func handlerFacebookButtonTap(_ sender: CustomButton) {
-        print(object: "\(type(of: self)): \(#function) run.")
-        
-    }
-    
-    
     // MARK: - Custom Functions
     func doSomethingOnLoad() {
         print(object: "\(type(of: self)): \(#function) run.")
@@ -121,5 +92,34 @@ class SignInShowViewController: BaseViewController, SignInShowViewControllerInpu
         vkontakteButton.setNeedsDisplay()
         googleButton.setNeedsDisplay()
         facebookButton.setNeedsDisplay()
+    }
+    
+    
+    // MARK: - Actions
+    @IBAction func handlerSignInButtonTap(_ sender: CustomButton) {
+        print(object: "\(type(of: self)): \(#function) run.")
+    }
+    
+    @IBAction func handlerVkontakteButtonTap(_ sender: CustomButton) {
+        print(object: "\(type(of: self)): \(#function) run.")
+        
+    }
+    
+    @IBAction func handlerGoogleButtonTap(_ sender: CustomButton) {
+        print(object: "\(type(of: self)): \(#function) run.")
+        
+    }
+    
+    @IBAction func handlerFacebookButtonTap(_ sender: CustomButton) {
+        print(object: "\(type(of: self)): \(#function) run.")
+        
+    }
+    
+    
+    // MARK: - Transition
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        print(object: "\(type(of: self)): \(#function) run. New size = \(size)")
+        
+        setupScene(withSize: size)
     }
 }
