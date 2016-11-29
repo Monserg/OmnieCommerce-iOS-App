@@ -33,6 +33,7 @@ class CategoriesShowViewController: BaseViewController, CategoriesShowViewContro
     @IBOutlet weak var copyrightLabel: CustomLabel!
     @IBOutlet weak var collectionView: UICollectionView!
 
+    @IBOutlet weak var cityButton: CustomButton!
     
     // MARK: - Class Initialization
     override func awakeFromNib() {
@@ -86,6 +87,13 @@ class CategoriesShowViewController: BaseViewController, CategoriesShowViewContro
         
         smallTopBarView.setNeedsDisplay()
         smallTopBarView.circleView.setNeedsDisplay()
+    }
+    
+    
+    // MARK: - Actions
+    @IBAction func handlerCityButtonTap(_ sender: CustomButton) {
+        print(object: "\(type(of: self)): \(#function) run.")
+        
     }
     
     

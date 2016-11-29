@@ -38,7 +38,7 @@ class LaunchScreenViewController: BaseViewController {
         if (isUserGuest) {
             backgroundImageView.image = (UIApplication.shared.statusBarOrientation.isPortrait) ? UIImage(named: "image-background-portrait") : UIImage(named: "image-background-landscape")
             blackoutView.isHidden = false
-            blackoutView.backgroundColor = Config.Colors.veryDarkDesaturatedBlue25Alfa94
+            blackoutView.backgroundColor = Config.Colors.veryDarkDesaturatedBlue25Alpha94
             
             // Initial VC
             let signInShowStoryboard = UIStoryboard(name: "SignInShow", bundle: nil)
@@ -51,7 +51,7 @@ class LaunchScreenViewController: BaseViewController {
         } else {
             backgroundImageView.isHidden = true
             backgroundImageView.backgroundColor = UIColor.clear
-            blackoutView.backgroundColor = Config.Colors.veryDarkDesaturatedBlue25Alfa94
+            blackoutView.backgroundColor = Config.Colors.veryDarkDesaturatedBlue25Alpha94
             
             // Initial VC
             let ordersShowStoryboard = UIStoryboard(name: "SlideMenuShow", bundle: nil)

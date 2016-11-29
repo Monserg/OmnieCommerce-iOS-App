@@ -20,11 +20,11 @@ import UIKit
             switch mark {
             // menu = 1
             case 1:
-                self.backgroundColor = Config.Colors.veryDarkDesaturatedBlue25Alfa1
+                self.backgroundColor = Config.Colors.veryDarkDesaturatedBlue25Alpha1
                 
             // standard = 0
             default:
-                self.backgroundColor = Config.Colors.veryDarkDesaturatedBlue25Alfa1
+                self.backgroundColor = Config.Colors.veryDarkDesaturatedBlue25Alpha1
             }
         }
     }

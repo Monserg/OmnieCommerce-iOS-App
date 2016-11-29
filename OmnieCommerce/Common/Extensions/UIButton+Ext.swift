@@ -14,6 +14,7 @@ enum ButtonStyle: String {
     case Border = "Border"
     case Underline = "Underline"
     case UnderlineColor = "UnderlineColor"
+    case DropDownList = "DropDownList"
 }
 
 
@@ -77,6 +78,16 @@ extension UIButton {
             cornerRadius = 0
             (Config.Constants.isAppThemesLight) ? setAttributedTitle(NSAttributedString.init(string: (titleLabel?.text?.localized())!, attributes: Config.Fonts.ubuntuLightSoftOrangeUnderline12), for: .normal) : setAttributedTitle(NSAttributedString.init(string: (titleLabel?.text?.localized())!, attributes: Config.Fonts.ubuntuLightSoftOrangeUnderline12), for: .normal)
             (Config.Constants.isAppThemesLight) ? setAttributedTitle(NSAttributedString.init(string: (titleLabel?.text?.localized())!, attributes: Config.Fonts.ubuntuLightSoftOrangeUnderline12), for: .highlighted) : setAttributedTitle(NSAttributedString.init(string: (titleLabel?.text?.localized())!, attributes: Config.Fonts.ubuntuLightSoftOrangeUnderline12), for: .highlighted)
+            
+        case .DropDownList:
+            backgroundColor = (Config.Constants.isAppThemesLight) ? UIColor.white : Config.Colors.veryDarkDesaturatedBlue24
+            setAttributedTitle(NSAttributedString(string: (titleLabel?.text)!, attributes: Config.Fonts.ubuntuLightVeryLightGray12), for: .normal)
+            setAttributedTitle(NSAttributedString(string: (titleLabel?.text)!, attributes: Config.Fonts.ubuntuLightVeryLightGray12Alpha30), for: .highlighted)
+            borderColor = Config.Colors.darkCyan
+            borderWidth = 1.0
+            cornerRadius = 5.0
+            titleEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 0)
+            imageEdgeInsets = UIEdgeInsetsMake(3, frame.width - 18 - borderWidth, 0, 0)
         }
     }
 }
