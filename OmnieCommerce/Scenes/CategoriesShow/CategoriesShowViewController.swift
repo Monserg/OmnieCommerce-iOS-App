@@ -25,7 +25,9 @@ class CategoriesShowViewController: BaseViewController, CategoriesShowViewContro
     var output: CategoriesShowViewControllerOutput!
     var router: CategoriesShowRouter!
     
-    var dataSource = [ "Auto Service", "Health", "Beauty", "Training", "Restaurants", "Tourism", "Sport" ]
+    var names = [ "Auto Service", "Health", "Beauty", "Training", "Restaurants", "Tourism", "Sport" ]
+    var images = [ "image-auto-service-normal", "image-health-normal", "image-beauty-normal", "image-training-normal", "image-restaurants-normal", "image-tourism-normal", "image-sport-normal" ]
+    var dataSource = Array<Category>()
     
     @IBOutlet weak var smallTopBarView: SmallTopBarView!
     @IBOutlet weak var copyrightLabel: CustomLabel!
@@ -43,6 +45,11 @@ class CategoriesShowViewController: BaseViewController, CategoriesShowViewContro
     // MARK: - Class Functions
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Initialization
+        for i in 0 ..< names.count {
+            dataSource.append(Category.init(names[i], images[i]))
+        }
         
         // Delegates
         collectionView.delegate = self
@@ -103,9 +110,11 @@ extension CategoriesShowViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategoryCell", for: indexPath) as! CustomCollectionViewCell
-
-        cell.backgroundColor = Config.Colors.veryLightOrange
-
+        let category = dataSource[indexPath.row] as Category
+        
+        cell.imageView.image = UIImage.init(named: category.icon)
+        cell.name.text = category.title
+        
         return cell
     }
 }

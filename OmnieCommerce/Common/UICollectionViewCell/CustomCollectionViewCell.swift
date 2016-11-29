@@ -9,6 +9,12 @@
 import UIKit
 
 @IBDesignable class CustomCollectionViewCell: UICollectionViewCell {
+    // MARK: - Properties
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var name: CustomLabel!
+    
+    
+
     // MARK: - Class Initialization
     override init(frame: CGRect) {
         super.init(frame: frame)

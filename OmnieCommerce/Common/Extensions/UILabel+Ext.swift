@@ -16,6 +16,7 @@ enum LabelStyle: String {
     case MenuItem = "MenuItem"
     case ForgotPassword = "ForgotPassword"
     case Congratulations = "Congratulations"
+    case CategoryName = "CategoryName"
 }
 
 
@@ -60,6 +61,10 @@ extension UILabel {
             font = (Config.Constants.isAppThemesLight) ? UIFont.systemFont(ofSize: 12) : Config.Fonts.helveticaNeueCyrThin47
             textColor = (Config.Constants.isAppThemesLight) ? UIColor.white : Config.Colors.veryLightGray
             
+        case .CategoryName:
+            font = (Config.Constants.isAppThemesLight) ? UIFont.systemFont(ofSize: 12) : Config.Fonts.ubuntuRegular16
+            textColor = (Config.Constants.isAppThemesLight) ? UIColor.white : Config.Colors.veryDarkGray
+
         default:
             font = (Config.Constants.isAppThemesLight) ? UIFont.systemFont(ofSize: 12) : Config.Fonts.ubuntuLight12
             textColor = (Config.Constants.isAppThemesLight) ? UIColor.white : Config.Colors.veryLightGray

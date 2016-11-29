@@ -14,7 +14,7 @@
             <objects>
                 <navigationController storyboardIdentifier="CategoriesShowNC" navigationBarHidden="YES" id="24b-G7-hfs" customClass="BaseNavigationController" customModule="OmnieCommerce" customModuleProvider="target" sceneMemberID="viewController">
                     <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="PI4-fx-hmq">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="PI4-fx-hmq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -81,14 +81,46 @@
                                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                                             <rect key="frame" x="0.0" y="0.0" width="170" height="102"/>
                                                             <autoresizingMask key="autoresizingMask"/>
+                                                            <subviews>
+                                                                <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image-tourism-normal" translatesAutoresizingMaskIntoConstraints="NO" id="WKG-mb-qfF">
+                                                                    <rect key="frame" x="50" y="20" width="70" height="45"/>
+                                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="70" id="RWG-yr-uIn"/>
+                                                                        <constraint firstAttribute="height" constant="45" id="dEt-gC-D9s"/>
+                                                                    </constraints>
+                                                                </imageView>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zRj-pA-iSn" userLabel="Name Label" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
+                                                                    <rect key="frame" x="8" y="75" width="154" height="18"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                    <userDefinedRuntimeAttributes>
+                                                                        <userDefinedRuntimeAttribute type="string" keyPath="labelStyle" value="CategoryName"/>
+                                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                                                    </userDefinedRuntimeAttributes>
+                                                                </label>
+                                                            </subviews>
                                                         </view>
                                                         <color key="backgroundColor" red="1" green="0.84313725490196079" blue="0.42352941176470588" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <constraints>
+                                                            <constraint firstItem="WKG-mb-qfF" firstAttribute="centerX" secondItem="GJ1-ZT-vho" secondAttribute="centerX" id="6bX-91-cy5"/>
+                                                            <constraint firstItem="zRj-pA-iSn" firstAttribute="leading" secondItem="GJ1-ZT-vho" secondAttribute="leading" constant="8" id="CRe-kM-fVW"/>
+                                                            <constraint firstAttribute="trailing" secondItem="zRj-pA-iSn" secondAttribute="trailing" constant="8" id="SQB-EI-Teh"/>
+                                                            <constraint firstItem="zRj-pA-iSn" firstAttribute="top" secondItem="WKG-mb-qfF" secondAttribute="bottom" constant="10" id="Wuj-zy-5PQ"/>
+                                                            <constraint firstItem="zRj-pA-iSn" firstAttribute="centerX" secondItem="GJ1-ZT-vho" secondAttribute="centerX" id="oGH-fP-IwO"/>
+                                                            <constraint firstItem="WKG-mb-qfF" firstAttribute="top" secondItem="GJ1-ZT-vho" secondAttribute="top" constant="20" id="uQR-Vt-UX2"/>
+                                                        </constraints>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                                 <real key="value" value="5"/>
                                                             </userDefinedRuntimeAttribute>
                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <outlet property="imageView" destination="WKG-mb-qfF" id="I4P-Li-AAz"/>
+                                                            <outlet property="name" destination="zRj-pA-iSn" id="2K5-mm-v8q"/>
+                                                        </connections>
                                                     </collectionViewCell>
                                                 </cells>
                                             </collectionView>
@@ -163,4 +195,7 @@
             <point key="canvasLocation" x="1556" y="-15.742128935532236"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="image-tourism-normal" width="40" height="40"/>
+    </resources>
 </document>
