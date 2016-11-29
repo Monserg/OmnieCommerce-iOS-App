@@ -32,6 +32,8 @@ class CategoriesShowViewController: BaseViewController, CategoriesShowViewContro
     @IBOutlet weak var smallTopBarView: SmallTopBarView!
     @IBOutlet weak var copyrightLabel: CustomLabel!
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var cityView: UIView!
+    @IBOutlet var dropDownContainer: UIView!
 
     @IBOutlet weak var cityButton: CustomButton!
     
@@ -94,6 +96,15 @@ class CategoriesShowViewController: BaseViewController, CategoriesShowViewContro
     @IBAction func handlerCityButtonTap(_ sender: CustomButton) {
         print(object: "\(type(of: self)): \(#function) run.")
         
+        dropDownContainer.frame = CGRect.init(x: 8, y: 0, width: cityButton.bounds.width, height: 103)
+        cityView.addSubview(dropDownContainer)
+        cityView.sendSubview(toBack: dropDownContainer)
+        
+        UIView.animate(withDuration: 0.5, animations: { () -> Void in
+            var containerFrame = self.dropDownContainer.frame
+            containerFrame = CGRect.init(x: 8, y: self.cityButton.frame.maxY + 2, width: containerFrame.size.width, height: containerFrame.size.height)
+            self.dropDownContainer.frame = containerFrame
+        }, completion: nil)
     }
     
     

@@ -7,181 +7,151 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		02CAE638EF1CEEBD6F5740498F9CA3F8 /* DropDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4E60551A9E15FB087C70DCBF71FEB3 /* DropDown.swift */; };
-		098F056D90AF9CD3FD60D8A81DF043B6 /* DropDownCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D66C19A3DB90CE4E1F8CCFB76F5A9A /* DropDownCell.swift */; };
-		11C7735FDFED235935DFEE17429A12EE /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD71BC48950EAC7C5D354C36F7D7A0F /* Device.swift */; };
-		171BD47BB5F170610ED703FE45861F3D /* SWRevealViewController-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = BB906B55BF35938EF1E2CE3EC3B9B6DD /* SWRevealViewController-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		11C7735FDFED235935DFEE17429A12EE /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B5EB95E17BCEAFE4994F10714FDAAD8 /* Device.swift */; };
+		12E1F66C9D967802E34E7A487D79C0AB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7512E09FD626FC8CE110467EAD517EA /* CoreGraphics.framework */; };
+		1F08421A1DD952367897C4E5BF18A16D /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 78167422CDD16E8B9EB6F6ADD3A5395A /* SWRevealViewController.m */; };
 		20CA7EA232A8924DA33303A885546E8F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A635401944412E396EA69FF81D70EAD8 /* Foundation.framework */; };
-		2E7E74DF0C455B0BC43BFDD1D0163E64 /* DropDown-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E70BBB34591F06600E052D0AFEFE5CC6 /* DropDown-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		317F10C5DFB10D5A608005FC7933B786 /* CosmosLocalizedRating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B92BFB8AB6B42A2D21A96C695C9422 /* CosmosLocalizedRating.swift */; };
-		319C10228199103146E2A6DBDDAEE1AB /* Localize-Swift-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 98E258DE5F709187EB3907B103BD9A82 /* Localize-Swift-dummy.m */; };
-		345AC829479B728AB6BA3977E08CDADA /* Localize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491030AFB0B2E18C0C1E7E1D1586BC50 /* Localize.swift */; };
-		37C293AEA575D6E5186739D1B07805F2 /* DropDownCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0F626BE7F0D51B25F09D361D8E37B53 /* DropDownCell.xib */; };
-		3A24A356DAF7CA974FDC87C30945D587 /* StarFillMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59FC501DF4EE58595544BF85D31CAAD3 /* StarFillMode.swift */; };
-		42CC7CA7E8E0395A8B9024BAEF8EFF70 /* Cosmos-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B62DA6986960BE685142DAA9623EEC80 /* Cosmos-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		43FBBAF51381FD3A43CF5BE8A1D5A987 /* CosmosDefaultSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A8A2F9D06DEC287CDA9450666B64AE /* CosmosDefaultSettings.swift */; };
-		442ADADA3215E1E5CA1557E708D4228C /* DropDown+Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0828B71E507FBC76C44B5CF9B555AD6 /* DropDown+Appearance.swift */; };
-		45B3F3B07CA700F626B91C54D806CD6A /* CosmosAccessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E3039E5C25FB3ACB6495403F5E243C /* CosmosAccessibility.swift */; };
-		5666985B18AAC2D2FCB8457874E6FEC6 /* CosmosSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = C467E8293C3F204DCB7C6FB1DCA32152 /* CosmosSize.swift */; };
-		60495E622C40CDDD567955426319353F /* SWRevealViewController-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = FBFB2BF191D9C9C851DAE4AE706B1B0D /* SWRevealViewController-dummy.m */; };
-		609A2B9C3A862679F4A42F4492B0AE33 /* CosmosSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346DF47C8B793EB5933E344531089762 /* CosmosSettings.swift */; };
-		61EDA300867EBA324719069365B721A1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A635401944412E396EA69FF81D70EAD8 /* Foundation.framework */; };
-		6208144385DF7476048B7DB78FF0AAB1 /* Localize-Swift-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AB4A66EED00091C61F2F5A4F2CFA5D6 /* Localize-Swift-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		698ACEFFD3C3465780D173B9640168D6 /* CosmosTouchTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63237D2241480CCD2D021CAA90E6564 /* CosmosTouchTarget.swift */; };
+		317F10C5DFB10D5A608005FC7933B786 /* CosmosLocalizedRating.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2276CF26752ABF6D6FC006DE7575AEB /* CosmosLocalizedRating.swift */; };
+		319C10228199103146E2A6DBDDAEE1AB /* Localize-Swift-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A112BB25B3AD4356C925AE08B939BF /* Localize-Swift-dummy.m */; };
+		345AC829479B728AB6BA3977E08CDADA /* Localize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47E34B212B9CF5FA26A47D0AB2377909 /* Localize.swift */; };
+		3A24A356DAF7CA974FDC87C30945D587 /* StarFillMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9C7A4CCE66F0C499D1EE3C4802A766 /* StarFillMode.swift */; };
+		42CC7CA7E8E0395A8B9024BAEF8EFF70 /* Cosmos-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = DF386D3C0AA7DC849FBA5324142EB08E /* Cosmos-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		43FBBAF51381FD3A43CF5BE8A1D5A987 /* CosmosDefaultSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895752B3952574F7B32F0E64326A118F /* CosmosDefaultSettings.swift */; };
+		45B3F3B07CA700F626B91C54D806CD6A /* CosmosAccessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229AC1CF5E5E8AED00701BBC25835E61 /* CosmosAccessibility.swift */; };
+		495DB4C3E9BC2AA38931F66B50D49FE2 /* Pods-OmnieCommerce-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B06D7CF5539554B27E328D4FDE8AB2C /* Pods-OmnieCommerce-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5666985B18AAC2D2FCB8457874E6FEC6 /* CosmosSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FB131871D0B3F31FF2C850CFAFFD2F /* CosmosSize.swift */; };
+		609A2B9C3A862679F4A42F4492B0AE33 /* CosmosSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6851D236745876A1C21689E7712F68 /* CosmosSettings.swift */; };
+		6208144385DF7476048B7DB78FF0AAB1 /* Localize-Swift-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 52829871A35D161933077B0D75A07E9E /* Localize-Swift-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		698ACEFFD3C3465780D173B9640168D6 /* CosmosTouchTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5283C8921839B5D1F97A66B87FFF7A /* CosmosTouchTarget.swift */; };
 		6BABAE169EE16B6BF6E7850423B91087 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A635401944412E396EA69FF81D70EAD8 /* Foundation.framework */; };
-		6C280CCB3CD3A9410C0887D8C780FC7B /* Pods-OmnieCommerce-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B06D7CF5539554B27E328D4FDE8AB2C /* Pods-OmnieCommerce-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6D6125745D2472D29B6130DEB874B3BD /* CosmosText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BBBE56EC6BEABBEBD4D203A5B90406 /* CosmosText.swift */; };
-		6FBC104FC5777149F039F9BD453A59D8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7512E09FD626FC8CE110467EAD517EA /* CoreGraphics.framework */; };
-		7A1420C124ACD748ADE9645FF13CB5C2 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2CB5C66BE50DFFA376905E247F9C8E3 /* SWRevealViewController.m */; };
-		86C743EB1FCA2FF13C50EADCE263091E /* Cosmos-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 18009C924A5BB27EDAD6CC5C13A0AC49 /* Cosmos-dummy.m */; };
-		8907F698C02A1E3DD5CA2DD4B7387AFB /* Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF40A03136EAE10085456D33E066CB0 /* Version.swift */; };
-		8AE54699D0182BAF0D6E51024976477A /* CosmosLayerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FDF66624B6B7AE8E3B9DF635A40704 /* CosmosLayerHelper.swift */; };
-		8CF381CFE809227EEDE92995264EE90D /* Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762A7527C39956722D84934B22B62378 /* Size.swift */; };
-		95D1804FEDC921E2224BC58D9425255A /* Device-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 45BFDFE0FC1B37D945FE122930A4568D /* Device-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9D0221E27E37CDA9DF26DD3CFA56D75B /* DPDKeyboardListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86F8387FF5B50E652202A53E9DEEC6B /* DPDKeyboardListener.swift */; };
-		9D87C63AA789D2902AA8973B4AAC0CB7 /* StarLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABA0BFCDD6D4834D6ABD7989A586AC6 /* StarLayer.swift */; };
-		9DA213E20108ED36E90D976BD38FE34F /* CosmosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81076EE9475C6DED71CF8B5DBD4265E2 /* CosmosView.swift */; };
-		9DAA4939B8EADFC46CD301E82D16D378 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A635401944412E396EA69FF81D70EAD8 /* Foundation.framework */; };
-		A2A2359BF0BE96A64570CBC09069C5FF /* CosmosLayers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261A647967EE068C844A411A15A10055 /* CosmosLayers.swift */; };
-		A401CF18D15DF246F40FAC4E8F06CBC7 /* DPDUIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D28A386FDC711EB582B658C281CF9C /* DPDUIView+Extension.swift */; };
-		A812E7811821F66B3B7499F6F1B513BA /* DPDConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302AE08F3EBCF89D205718DAF1B767B2 /* DPDConstants.swift */; };
-		AC6581D9387744158B44BE683403C3BC /* DropDown-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 89D817587A67E0AEC664E5A4E7CC1254 /* DropDown-dummy.m */; };
+		6D6125745D2472D29B6130DEB874B3BD /* CosmosText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805E8C0AA309AEB2BFC8CDE3EABA05F3 /* CosmosText.swift */; };
+		7540CC3D9DB29B58F8A15812328585D8 /* SWRevealViewController-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1442B257937848958585943D938028B3 /* SWRevealViewController-dummy.m */; };
+		7B5404D94EB5C73582D6B55135F73460 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A635401944412E396EA69FF81D70EAD8 /* Foundation.framework */; };
+		7FC5DE3A3E45AD81DB1511D7BDD88752 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A635401944412E396EA69FF81D70EAD8 /* Foundation.framework */; };
+		86C743EB1FCA2FF13C50EADCE263091E /* Cosmos-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 68281AB95AA69F21CFCEBE6B6615BC43 /* Cosmos-dummy.m */; };
+		8907F698C02A1E3DD5CA2DD4B7387AFB /* Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E2C576977D2A75789468A155D6BB5EF /* Version.swift */; };
+		89A628E47BDA5DEA7DC06A1E9EA91033 /* SWRevealViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = AD95BD68C3DDC6FB943D8E3F49A07B75 /* SWRevealViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8AE54699D0182BAF0D6E51024976477A /* CosmosLayerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332C5CE0DFA841A0ACCCE8A89F83AAED /* CosmosLayerHelper.swift */; };
+		8CF381CFE809227EEDE92995264EE90D /* Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67EB6705C6C7C9FC1D3431B2276EA3F /* Size.swift */; };
+		95D1804FEDC921E2224BC58D9425255A /* Device-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B3F894E7D708ACCD8F5F97B066E8EE18 /* Device-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9D87C63AA789D2902AA8973B4AAC0CB7 /* StarLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CAB0577F071B34AE1F0F0D5BA901AC /* StarLayer.swift */; };
+		9DA213E20108ED36E90D976BD38FE34F /* CosmosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5627E8F49F63C619E878276C81D8311C /* CosmosView.swift */; };
+		A2A2359BF0BE96A64570CBC09069C5FF /* CosmosLayers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038B14B84C1338F328B0313EF700976C /* CosmosLayers.swift */; };
+		A3C938574FD2334F6A8D6CF03F624313 /* SWRevealViewController-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = BA21B36D57027176FD5A68849C2CE680 /* SWRevealViewController-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AE6AB8D9D76665174209676D0A680206 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A635401944412E396EA69FF81D70EAD8 /* Foundation.framework */; };
-		B27B163CFCBEEC45948AEC1EDA74B5C4 /* Device-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 742A6B91C024D8C6F55A2D2245C2DA45 /* Device-dummy.m */; };
-		B66DB5AA59800D672844FD99CDB081E9 /* CosmosTouch.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6B0A79F11D38C43911ED437ED0440A /* CosmosTouch.swift */; };
-		BEAD8CFE0153A08561EEA79202BB849B /* Pods-OmnieCommerce-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 09C2718DC8C20295E09F8CC934C8E07B /* Pods-OmnieCommerce-dummy.m */; };
-		C2013BDC16253140A597B09EEA80AA9D /* CosmosRating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9195B3392E53ABF50E1BEC497D2D3FFB /* CosmosRating.swift */; };
-		C8F2138847CA8A1C62F483B70B5DDD28 /* SWRevealViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 4FCF2F45CD2E9796FA873E4569CEB2F8 /* SWRevealViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		DD14B8ECC2DFA91E25604F654803A64B /* Type.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3317A4D2CDFC8104BC1271BDE91E76 /* Type.swift */; };
-		F9A5FC36C1A7DE6880EE195D3618E0F6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A635401944412E396EA69FF81D70EAD8 /* Foundation.framework */; };
-		FA272CB16E208FA3A04920A2D1351BF0 /* Localize_Swift.h in Headers */ = {isa = PBXBuildFile; fileRef = 95F17D60F64E6C0C068241EEE3CEC2F7 /* Localize_Swift.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B27B163CFCBEEC45948AEC1EDA74B5C4 /* Device-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = DE8930AA00820CEA3A6D997EE14D6567 /* Device-dummy.m */; };
+		B66DB5AA59800D672844FD99CDB081E9 /* CosmosTouch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4FA865EE864DAA7B09D5E0D896CE0B /* CosmosTouch.swift */; };
+		C2013BDC16253140A597B09EEA80AA9D /* CosmosRating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5770BF5AF5412429D3D079C3F7B94968 /* CosmosRating.swift */; };
+		CC72119DC4C9044C28AD57DD3FEF99E9 /* Pods-OmnieCommerce-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 09C2718DC8C20295E09F8CC934C8E07B /* Pods-OmnieCommerce-dummy.m */; };
+		DD14B8ECC2DFA91E25604F654803A64B /* Type.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0092FA2A6E729164706A98CE10C2A6D0 /* Type.swift */; };
+		FA272CB16E208FA3A04920A2D1351BF0 /* Localize_Swift.h in Headers */ = {isa = PBXBuildFile; fileRef = 4439EA08C04DA4DA39AB0B3E1AD8B643 /* Localize_Swift.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		2DF2366E354444A6D3D0052F956D198D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 2F0FE1E2A5B1EF15139E10A40F05CE94;
-			remoteInfo = Cosmos;
-		};
-		8C79191E065BF37B4E000A32296C6F57 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 5E90024CA4621EC0A8B8C777C958214A;
-			remoteInfo = Device;
-		};
-		C04FEF64FEAEB467A20D4170C302BACF /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 5168099F2EBFC99A707C03C9EADE01A5;
-			remoteInfo = DropDown;
-		};
-		EA5A14A43B9F323F4A16DECC06C1A7AC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 3E22DD08F640995820D958328616D156;
-			remoteInfo = SWRevealViewController;
-		};
-		F01C8508C149525599CAE7AE4F7DCF5F /* PBXContainerItemProxy */ = {
+		708CBEC99B2E67EE5C438EAF7F88CC50 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 86433867888749E4CF5A5AEC59DD39D3;
 			remoteInfo = "Localize-Swift";
 		};
+		8A8F6D3081A1C1A7092194C12561F6AF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5EE9782305350C05382DF4D4A8E1D15E;
+			remoteInfo = SWRevealViewController;
+		};
+		ADBF4DF09136D0A5850D0EBFD417A9DD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2F0FE1E2A5B1EF15139E10A40F05CE94;
+			remoteInfo = Cosmos;
+		};
+		F8DB0C3331514B0115B59F9D1E1F9C45 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5E90024CA4621EC0A8B8C777C958214A;
+			remoteInfo = Device;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		07234D08B787C1242B27A89F60FF5D94 /* Device.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Device.framework; path = Device.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		0840F2BB234EF2C8D8E9B9C34B34E905 /* Device-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Device-prefix.pch"; sourceTree = "<group>"; };
-		09BBBE56EC6BEABBEBD4D203A5B90406 /* CosmosText.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CosmosText.swift; path = Cosmos/CosmosText.swift; sourceTree = "<group>"; };
+		0092FA2A6E729164706A98CE10C2A6D0 /* Type.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Type.swift; path = Source/Type.swift; sourceTree = "<group>"; };
+		038B14B84C1338F328B0313EF700976C /* CosmosLayers.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CosmosLayers.swift; path = Cosmos/CosmosLayers.swift; sourceTree = "<group>"; };
+		054555A194725264B5B9811FC78EF324 /* Localize-Swift-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Localize-Swift-prefix.pch"; sourceTree = "<group>"; };
 		09C2718DC8C20295E09F8CC934C8E07B /* Pods-OmnieCommerce-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-OmnieCommerce-dummy.m"; sourceTree = "<group>"; };
-		0AB4A66EED00091C61F2F5A4F2CFA5D6 /* Localize-Swift-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Localize-Swift-umbrella.h"; sourceTree = "<group>"; };
-		0CB2E811C4A453A1198F62C1A91C9A09 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0FF40A03136EAE10085456D33E066CB0 /* Version.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Version.swift; path = Source/Version.swift; sourceTree = "<group>"; };
-		11F31831FBE77163F826F17E3F7304C7 /* DropDown.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = DropDown.framework; path = DropDown.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		18009C924A5BB27EDAD6CC5C13A0AC49 /* Cosmos-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Cosmos-dummy.m"; sourceTree = "<group>"; };
+		1442B257937848958585943D938028B3 /* SWRevealViewController-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SWRevealViewController-dummy.m"; sourceTree = "<group>"; };
+		1810F3BE22FDA89BFDC1160FF5A3E66B /* SWRevealViewController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SWRevealViewController.framework; path = SWRevealViewController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		190C5A99215C0A8B9CB68F4F92B2CC4F /* SWRevealViewController.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SWRevealViewController.xcconfig; sourceTree = "<group>"; };
 		1B06D7CF5539554B27E328D4FDE8AB2C /* Pods-OmnieCommerce-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-OmnieCommerce-umbrella.h"; sourceTree = "<group>"; };
-		1B0DBDAA14DD8701061DC89F7658A407 /* SWRevealViewController-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SWRevealViewController-prefix.pch"; sourceTree = "<group>"; };
-		1E15134233ECA1D45D0B33649607F0D0 /* Localize-Swift-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Localize-Swift-prefix.pch"; sourceTree = "<group>"; };
-		261A647967EE068C844A411A15A10055 /* CosmosLayers.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CosmosLayers.swift; path = Cosmos/CosmosLayers.swift; sourceTree = "<group>"; };
-		2ABA0BFCDD6D4834D6ABD7989A586AC6 /* StarLayer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StarLayer.swift; path = Cosmos/StarLayer.swift; sourceTree = "<group>"; };
-		2BD71BC48950EAC7C5D354C36F7D7A0F /* Device.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Device.swift; path = Source/Device.swift; sourceTree = "<group>"; };
-		302AE08F3EBCF89D205718DAF1B767B2 /* DPDConstants.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DPDConstants.swift; path = DropDown/helpers/DPDConstants.swift; sourceTree = "<group>"; };
-		30B92BFB8AB6B42A2D21A96C695C9422 /* CosmosLocalizedRating.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CosmosLocalizedRating.swift; path = Cosmos/CosmosLocalizedRating.swift; sourceTree = "<group>"; };
-		346DF47C8B793EB5933E344531089762 /* CosmosSettings.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CosmosSettings.swift; path = Cosmos/CosmosSettings.swift; sourceTree = "<group>"; };
-		35A04F573ADA5B5E7BAA08F2D1EAEA71 /* Localize-Swift.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Localize-Swift.modulemap"; sourceTree = "<group>"; };
+		1C5283C8921839B5D1F97A66B87FFF7A /* CosmosTouchTarget.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CosmosTouchTarget.swift; path = Cosmos/Helpers/CosmosTouchTarget.swift; sourceTree = "<group>"; };
+		1FA4526DB924B8D65DFF76EDA20D2A8F /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		229AC1CF5E5E8AED00701BBC25835E61 /* CosmosAccessibility.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CosmosAccessibility.swift; path = Cosmos/CosmosAccessibility.swift; sourceTree = "<group>"; };
+		25C383D4BA923E56616779074A5BEB84 /* Localize-Swift.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Localize-Swift.xcconfig"; sourceTree = "<group>"; };
+		2C98564D4FEEDD9CBFCF5656313DD1B3 /* Device.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Device.xcconfig; sourceTree = "<group>"; };
+		32A112BB25B3AD4356C925AE08B939BF /* Localize-Swift-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Localize-Swift-dummy.m"; sourceTree = "<group>"; };
+		332C5CE0DFA841A0ACCCE8A89F83AAED /* CosmosLayerHelper.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CosmosLayerHelper.swift; path = Cosmos/CosmosLayerHelper.swift; sourceTree = "<group>"; };
+		3489D919048A023504155B7E9C1A2BD4 /* Cosmos-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Cosmos-prefix.pch"; sourceTree = "<group>"; };
 		396D90496B4243BAF15946F3B0C6E9AE /* Pods-OmnieCommerce-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-OmnieCommerce-acknowledgements.plist"; sourceTree = "<group>"; };
-		45BFDFE0FC1B37D945FE122930A4568D /* Device-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Device-umbrella.h"; sourceTree = "<group>"; };
-		491030AFB0B2E18C0C1E7E1D1586BC50 /* Localize.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Localize.swift; path = Sources/Localize.swift; sourceTree = "<group>"; };
+		4439EA08C04DA4DA39AB0B3E1AD8B643 /* Localize_Swift.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Localize_Swift.h; path = Sources/Localize_Swift.h; sourceTree = "<group>"; };
+		47E34B212B9CF5FA26A47D0AB2377909 /* Localize.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Localize.swift; path = Sources/Localize.swift; sourceTree = "<group>"; };
 		4BF6ABFDFF364941CB9F6D0A9C93B4C7 /* Pods-OmnieCommerce-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-OmnieCommerce-acknowledgements.markdown"; sourceTree = "<group>"; };
-		4CD1217C9C49928E46C52EE85B1F9EFD /* Device.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Device.xcconfig; sourceTree = "<group>"; };
-		4FCF2F45CD2E9796FA873E4569CEB2F8 /* SWRevealViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SWRevealViewController.h; path = SWRevealViewController/SWRevealViewController.h; sourceTree = "<group>"; };
-		50594EC5C5FF1C13299EE1AAB3E094BF /* SWRevealViewController.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SWRevealViewController.xcconfig; sourceTree = "<group>"; };
-		53D28A386FDC711EB582B658C281CF9C /* DPDUIView+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "DPDUIView+Extension.swift"; path = "DropDown/helpers/DPDUIView+Extension.swift"; sourceTree = "<group>"; };
-		5478DAD687A647E67A6ECAD41AF7803D /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		56FDF66624B6B7AE8E3B9DF635A40704 /* CosmosLayerHelper.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CosmosLayerHelper.swift; path = Cosmos/CosmosLayerHelper.swift; sourceTree = "<group>"; };
-		593BAE5B81CF63CEA3C2C6DB96F6CFEC /* SWRevealViewController.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = SWRevealViewController.modulemap; sourceTree = "<group>"; };
-		59FC501DF4EE58595544BF85D31CAAD3 /* StarFillMode.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StarFillMode.swift; path = Cosmos/StarFillMode.swift; sourceTree = "<group>"; };
-		661F51238641E8B770D75A52E315109F /* DropDown.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = DropDown.xcconfig; sourceTree = "<group>"; };
+		52829871A35D161933077B0D75A07E9E /* Localize-Swift-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Localize-Swift-umbrella.h"; sourceTree = "<group>"; };
+		52D48DE77E77415ED7BD25129591A070 /* Device.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = Device.modulemap; sourceTree = "<group>"; };
+		5627E8F49F63C619E878276C81D8311C /* CosmosView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CosmosView.swift; path = Cosmos/CosmosView.swift; sourceTree = "<group>"; };
+		57157E65D140A104089CF5561F7A8D44 /* SWRevealViewController.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = SWRevealViewController.modulemap; sourceTree = "<group>"; };
+		5770BF5AF5412429D3D079C3F7B94968 /* CosmosRating.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CosmosRating.swift; path = Cosmos/CosmosRating.swift; sourceTree = "<group>"; };
+		57CAB0577F071B34AE1F0F0D5BA901AC /* StarLayer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StarLayer.swift; path = Cosmos/StarLayer.swift; sourceTree = "<group>"; };
 		679E952D94BC20DB863CE52B91EAD024 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6B296AC5A590AB1A7D93B4C3B8F8DDDE /* Localize_Swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Localize_Swift.framework; path = "Localize-Swift.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		6B5F5581F45DBFA99FBC249F46239AAF /* Cosmos.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = Cosmos.modulemap; sourceTree = "<group>"; };
-		742A6B91C024D8C6F55A2D2245C2DA45 /* Device-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Device-dummy.m"; sourceTree = "<group>"; };
-		753AF7AAB1F964EAEE47E221DDB1DE0C /* Localize-Swift.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Localize-Swift.xcconfig"; sourceTree = "<group>"; };
-		762A7527C39956722D84934B22B62378 /* Size.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Size.swift; path = Source/Size.swift; sourceTree = "<group>"; };
-		81076EE9475C6DED71CF8B5DBD4265E2 /* CosmosView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CosmosView.swift; path = Cosmos/CosmosView.swift; sourceTree = "<group>"; };
+		68281AB95AA69F21CFCEBE6B6615BC43 /* Cosmos-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Cosmos-dummy.m"; sourceTree = "<group>"; };
+		6B5EB95E17BCEAFE4994F10714FDAAD8 /* Device.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Device.swift; path = Source/Device.swift; sourceTree = "<group>"; };
+		6BDDBA4C5D6864D2342303AC934118A4 /* Localize_Swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Localize_Swift.framework; path = "Localize-Swift.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6E2C576977D2A75789468A155D6BB5EF /* Version.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Version.swift; path = Source/Version.swift; sourceTree = "<group>"; };
+		742AA607118AFA704424E2DFD45C3674 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		78167422CDD16E8B9EB6F6ADD3A5395A /* SWRevealViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SWRevealViewController.m; path = SWRevealViewController/SWRevealViewController.m; sourceTree = "<group>"; };
+		7BE74A0BA5A3118CE9804E0DDE9A5C43 /* Device.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Device.framework; path = Device.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		805E8C0AA309AEB2BFC8CDE3EABA05F3 /* CosmosText.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CosmosText.swift; path = Cosmos/CosmosText.swift; sourceTree = "<group>"; };
 		8565B90FDA8314C26E87E468B1BB7858 /* Pods-OmnieCommerce.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-OmnieCommerce.debug.xcconfig"; sourceTree = "<group>"; };
-		895CD056FCBBA1082EAED6B81A6BBCFD /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		89D817587A67E0AEC664E5A4E7CC1254 /* DropDown-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "DropDown-dummy.m"; sourceTree = "<group>"; };
-		9195B3392E53ABF50E1BEC497D2D3FFB /* CosmosRating.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CosmosRating.swift; path = Cosmos/CosmosRating.swift; sourceTree = "<group>"; };
+		895752B3952574F7B32F0E64326A118F /* CosmosDefaultSettings.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CosmosDefaultSettings.swift; path = Cosmos/CosmosDefaultSettings.swift; sourceTree = "<group>"; };
+		8B4FA865EE864DAA7B09D5E0D896CE0B /* CosmosTouch.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CosmosTouch.swift; path = Cosmos/CosmosTouch.swift; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		95F17D60F64E6C0C068241EEE3CEC2F7 /* Localize_Swift.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Localize_Swift.h; path = Sources/Localize_Swift.h; sourceTree = "<group>"; };
+		941A1D98459944C4FBD59AAFAA383750 /* Pods_OmnieCommerce.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_OmnieCommerce.framework; path = "Pods-OmnieCommerce.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		984348DDCC2F272E4DB442EFA02B34DA /* Pods-OmnieCommerce-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-OmnieCommerce-frameworks.sh"; sourceTree = "<group>"; };
-		988DD77482BF7870BAA9E022CF66981C /* DropDown-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DropDown-prefix.pch"; sourceTree = "<group>"; };
-		98E258DE5F709187EB3907B103BD9A82 /* Localize-Swift-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Localize-Swift-dummy.m"; sourceTree = "<group>"; };
-		A23594E75E1AA932566DBD208C11D8D2 /* Device.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = Device.modulemap; sourceTree = "<group>"; };
+		99D444C8B1AF3C9EBCFB0CF4969E1352 /* Cosmos.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Cosmos.xcconfig; sourceTree = "<group>"; };
+		9FCA63C7C3683587A4F8488772F7CF09 /* Device-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Device-prefix.pch"; sourceTree = "<group>"; };
+		A053F43F59218A1780646C9F3A8C38E4 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A635401944412E396EA69FF81D70EAD8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		AA3317A4D2CDFC8104BC1271BDE91E76 /* Type.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Type.swift; path = Source/Type.swift; sourceTree = "<group>"; };
-		B0A8A2F9D06DEC287CDA9450666B64AE /* CosmosDefaultSettings.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CosmosDefaultSettings.swift; path = Cosmos/CosmosDefaultSettings.swift; sourceTree = "<group>"; };
-		B2719B15691964A1AE9F2D8F6D2FAC7E /* Cosmos-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Cosmos-prefix.pch"; sourceTree = "<group>"; };
-		B62DA6986960BE685142DAA9623EEC80 /* Cosmos-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Cosmos-umbrella.h"; sourceTree = "<group>"; };
-		BB1B19AFEFBEF556401DF59A1EA960A0 /* Cosmos.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Cosmos.framework; path = Cosmos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		BB906B55BF35938EF1E2CE3EC3B9B6DD /* SWRevealViewController-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SWRevealViewController-umbrella.h"; sourceTree = "<group>"; };
-		BEE6DDE9BE68299DDCFA630CF77FC2C5 /* Cosmos.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Cosmos.xcconfig; sourceTree = "<group>"; };
-		C0828B71E507FBC76C44B5CF9B555AD6 /* DropDown+Appearance.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "DropDown+Appearance.swift"; path = "DropDown/src/DropDown+Appearance.swift"; sourceTree = "<group>"; };
-		C0F626BE7F0D51B25F09D361D8E37B53 /* DropDownCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = DropDownCell.xib; path = DropDown/resources/DropDownCell.xib; sourceTree = "<group>"; };
-		C301F7FC1D14685010E4D54368EDB835 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C36BAE50AB401DA0CE6A5D0ADAD04589 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C467E8293C3F204DCB7C6FB1DCA32152 /* CosmosSize.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CosmosSize.swift; path = Cosmos/CosmosSize.swift; sourceTree = "<group>"; };
-		C63237D2241480CCD2D021CAA90E6564 /* CosmosTouchTarget.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CosmosTouchTarget.swift; path = Cosmos/Helpers/CosmosTouchTarget.swift; sourceTree = "<group>"; };
-		D3BC1343B5CE6B6EA656C23E33BAF5EA /* SWRevealViewController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SWRevealViewController.framework; path = SWRevealViewController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		DE4E60551A9E15FB087C70DCBF71FEB3 /* DropDown.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DropDown.swift; path = DropDown/src/DropDown.swift; sourceTree = "<group>"; };
+		A94A86C961504199EF83E648FDFCD69E /* Cosmos.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Cosmos.framework; path = Cosmos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AD95BD68C3DDC6FB943D8E3F49A07B75 /* SWRevealViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SWRevealViewController.h; path = SWRevealViewController/SWRevealViewController.h; sourceTree = "<group>"; };
+		B146C91870933DEAA66444FC206039F5 /* SWRevealViewController-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SWRevealViewController-prefix.pch"; sourceTree = "<group>"; };
+		B3F894E7D708ACCD8F5F97B066E8EE18 /* Device-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Device-umbrella.h"; sourceTree = "<group>"; };
+		B97932C09CD6A856EBBEC66FE170E8EE /* Localize-Swift.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Localize-Swift.modulemap"; sourceTree = "<group>"; };
+		BA21B36D57027176FD5A68849C2CE680 /* SWRevealViewController-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SWRevealViewController-umbrella.h"; sourceTree = "<group>"; };
+		BF9C7A4CCE66F0C499D1EE3C4802A766 /* StarFillMode.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StarFillMode.swift; path = Cosmos/StarFillMode.swift; sourceTree = "<group>"; };
+		C608D4363EA2809B59737DDEB6DE8DBE /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C67EB6705C6C7C9FC1D3431B2276EA3F /* Size.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Size.swift; path = Source/Size.swift; sourceTree = "<group>"; };
+		D2276CF26752ABF6D6FC006DE7575AEB /* CosmosLocalizedRating.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CosmosLocalizedRating.swift; path = Cosmos/CosmosLocalizedRating.swift; sourceTree = "<group>"; };
+		DE8930AA00820CEA3A6D997EE14D6567 /* Device-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Device-dummy.m"; sourceTree = "<group>"; };
+		DF386D3C0AA7DC849FBA5324142EB08E /* Cosmos-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Cosmos-umbrella.h"; sourceTree = "<group>"; };
 		E08653028C3DBDFB485591836F3E9D48 /* Pods-OmnieCommerce.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-OmnieCommerce.modulemap"; sourceTree = "<group>"; };
-		E2E3039E5C25FB3ACB6495403F5E243C /* CosmosAccessibility.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CosmosAccessibility.swift; path = Cosmos/CosmosAccessibility.swift; sourceTree = "<group>"; };
-		E572E365D0FCFDC4B93C04D52576ED9E /* Pods_OmnieCommerce.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_OmnieCommerce.framework; path = "Pods-OmnieCommerce.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		E70BBB34591F06600E052D0AFEFE5CC6 /* DropDown-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DropDown-umbrella.h"; sourceTree = "<group>"; };
 		E7512E09FD626FC8CE110467EAD517EA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
-		E86F8387FF5B50E652202A53E9DEEC6B /* DPDKeyboardListener.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DPDKeyboardListener.swift; path = DropDown/helpers/DPDKeyboardListener.swift; sourceTree = "<group>"; };
 		F091DCB3A8A7E323207FB159BFA6E0C7 /* Pods-OmnieCommerce-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-OmnieCommerce-resources.sh"; sourceTree = "<group>"; };
-		F1D66C19A3DB90CE4E1F8CCFB76F5A9A /* DropDownCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DropDownCell.swift; path = DropDown/src/DropDownCell.swift; sourceTree = "<group>"; };
-		F2CB5C66BE50DFFA376905E247F9C8E3 /* SWRevealViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SWRevealViewController.m; path = SWRevealViewController/SWRevealViewController.m; sourceTree = "<group>"; };
+		F1FB131871D0B3F31FF2C850CFAFFD2F /* CosmosSize.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CosmosSize.swift; path = Cosmos/CosmosSize.swift; sourceTree = "<group>"; };
+		F24934317D0306A169BB335F0F10A7DD /* Cosmos.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = Cosmos.modulemap; sourceTree = "<group>"; };
 		F39771E801843997A2B4925D9222399E /* Pods-OmnieCommerce.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-OmnieCommerce.release.xcconfig"; sourceTree = "<group>"; };
-		F913753CC097ED3BD0BFE42D317D9486 /* DropDown.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = DropDown.modulemap; sourceTree = "<group>"; };
-		FBFB2BF191D9C9C851DAE4AE706B1B0D /* SWRevealViewController-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SWRevealViewController-dummy.m"; sourceTree = "<group>"; };
-		FF6B0A79F11D38C43911ED437ED0440A /* CosmosTouch.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CosmosTouch.swift; path = Cosmos/CosmosTouch.swift; sourceTree = "<group>"; };
+		FE6851D236745876A1C21689E7712F68 /* CosmosSettings.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CosmosSettings.swift; path = Cosmos/CosmosSettings.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		3FE28484C632D94C9779E4E74AE0BD29 /* Frameworks */ = {
+		493C77385D5AFD44DDEFF00A3168BA0D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9DAA4939B8EADFC46CD301E82D16D378 /* Foundation.framework in Frameworks */,
+				12E1F66C9D967802E34E7A487D79C0AB /* CoreGraphics.framework in Frameworks */,
+				7B5404D94EB5C73582D6B55135F73460 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -201,12 +171,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DC3FD98ED9CE2412807F10578069F39B /* Frameworks */ = {
+		B2C666B556A5292B112725629F926FB2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6FBC104FC5777149F039F9BD453A59D8 /* CoreGraphics.framework in Frameworks */,
-				61EDA300867EBA324719069365B721A1 /* Foundation.framework in Frameworks */,
+				7FC5DE3A3E45AD81DB1511D7BDD88752 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -218,17 +187,34 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		EBCF7180C645171542D644293A1E22D0 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				F9A5FC36C1A7DE6880EE195D3618E0F6 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0265E19C295DBE5B020B8AEB509E33A3 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				52D48DE77E77415ED7BD25129591A070 /* Device.modulemap */,
+				2C98564D4FEEDD9CBFCF5656313DD1B3 /* Device.xcconfig */,
+				DE8930AA00820CEA3A6D997EE14D6567 /* Device-dummy.m */,
+				9FCA63C7C3683587A4F8488772F7CF09 /* Device-prefix.pch */,
+				B3F894E7D708ACCD8F5F97B066E8EE18 /* Device-umbrella.h */,
+				742AA607118AFA704424E2DFD45C3674 /* Info.plist */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Device";
+			sourceTree = "<group>";
+		};
+		089FBD32B30F5B315908C6CE06CB3BA0 /* SWRevealViewController */ = {
+			isa = PBXGroup;
+			children = (
+				AD95BD68C3DDC6FB943D8E3F49A07B75 /* SWRevealViewController.h */,
+				78167422CDD16E8B9EB6F6ADD3A5395A /* SWRevealViewController.m */,
+				7F40E59B8767C3E212AFB078D8ADA5E2 /* Support Files */,
+			);
+			name = SWRevealViewController;
+			path = SWRevealViewController;
+			sourceTree = "<group>";
+		};
 		0B875D0783357E8F090935C198114E32 /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -246,47 +232,17 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		0F539FA28B56FB3A1B958BFBD3812A94 /* Device */ = {
+		30BDBCFED5CE17F64D8CFD39AF79AE17 /* Device */ = {
 			isa = PBXGroup;
 			children = (
-				2BD71BC48950EAC7C5D354C36F7D7A0F /* Device.swift */,
-				762A7527C39956722D84934B22B62378 /* Size.swift */,
-				AA3317A4D2CDFC8104BC1271BDE91E76 /* Type.swift */,
-				0FF40A03136EAE10085456D33E066CB0 /* Version.swift */,
-				98A1F505AF10F8D437486C41E1635F49 /* Support Files */,
+				6B5EB95E17BCEAFE4994F10714FDAAD8 /* Device.swift */,
+				C67EB6705C6C7C9FC1D3431B2276EA3F /* Size.swift */,
+				0092FA2A6E729164706A98CE10C2A6D0 /* Type.swift */,
+				6E2C576977D2A75789468A155D6BB5EF /* Version.swift */,
+				0265E19C295DBE5B020B8AEB509E33A3 /* Support Files */,
 			);
 			name = Device;
 			path = Device;
-			sourceTree = "<group>";
-		};
-		2757E5710D11070FF244E17FE3909D13 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				6B5F5581F45DBFA99FBC249F46239AAF /* Cosmos.modulemap */,
-				BEE6DDE9BE68299DDCFA630CF77FC2C5 /* Cosmos.xcconfig */,
-				18009C924A5BB27EDAD6CC5C13A0AC49 /* Cosmos-dummy.m */,
-				B2719B15691964A1AE9F2D8F6D2FAC7E /* Cosmos-prefix.pch */,
-				B62DA6986960BE685142DAA9623EEC80 /* Cosmos-umbrella.h */,
-				C36BAE50AB401DA0CE6A5D0ADAD04589 /* Info.plist */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/Cosmos";
-			sourceTree = "<group>";
-		};
-		31311A0EA40ABE5049D0EC56621A2ABF /* DropDown */ = {
-			isa = PBXGroup;
-			children = (
-				302AE08F3EBCF89D205718DAF1B767B2 /* DPDConstants.swift */,
-				E86F8387FF5B50E652202A53E9DEEC6B /* DPDKeyboardListener.swift */,
-				53D28A386FDC711EB582B658C281CF9C /* DPDUIView+Extension.swift */,
-				DE4E60551A9E15FB087C70DCBF71FEB3 /* DropDown.swift */,
-				C0828B71E507FBC76C44B5CF9B555AD6 /* DropDown+Appearance.swift */,
-				F1D66C19A3DB90CE4E1F8CCFB76F5A9A /* DropDownCell.swift */,
-				45E0BF1EEFBA1DA3803CC285DD1C57EE /* Resources */,
-				A129E1401F5E25FF32307E2422C0AC45 /* Support Files */,
-			);
-			name = DropDown;
-			path = DropDown;
 			sourceTree = "<group>";
 		};
 		433CD3331B6C3787F473C941B61FC68F /* Frameworks */ = {
@@ -297,126 +253,78 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		45E0BF1EEFBA1DA3803CC285DD1C57EE /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				C0F626BE7F0D51B25F09D361D8E37B53 /* DropDownCell.xib */,
-			);
-			name = Resources;
-			sourceTree = "<group>";
-		};
-		4C21CBE33BC17AA2D4826323BFF47604 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				BB1B19AFEFBEF556401DF59A1EA960A0 /* Cosmos.framework */,
-				07234D08B787C1242B27A89F60FF5D94 /* Device.framework */,
-				11F31831FBE77163F826F17E3F7304C7 /* DropDown.framework */,
-				6B296AC5A590AB1A7D93B4C3B8F8DDDE /* Localize_Swift.framework */,
-				E572E365D0FCFDC4B93C04D52576ED9E /* Pods_OmnieCommerce.framework */,
-				D3BC1343B5CE6B6EA656C23E33BAF5EA /* SWRevealViewController.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		66300A4336E5A409E54A4FFB1BF5D9FD /* Cosmos */ = {
-			isa = PBXGroup;
-			children = (
-				E2E3039E5C25FB3ACB6495403F5E243C /* CosmosAccessibility.swift */,
-				B0A8A2F9D06DEC287CDA9450666B64AE /* CosmosDefaultSettings.swift */,
-				56FDF66624B6B7AE8E3B9DF635A40704 /* CosmosLayerHelper.swift */,
-				261A647967EE068C844A411A15A10055 /* CosmosLayers.swift */,
-				30B92BFB8AB6B42A2D21A96C695C9422 /* CosmosLocalizedRating.swift */,
-				9195B3392E53ABF50E1BEC497D2D3FFB /* CosmosRating.swift */,
-				346DF47C8B793EB5933E344531089762 /* CosmosSettings.swift */,
-				C467E8293C3F204DCB7C6FB1DCA32152 /* CosmosSize.swift */,
-				09BBBE56EC6BEABBEBD4D203A5B90406 /* CosmosText.swift */,
-				FF6B0A79F11D38C43911ED437ED0440A /* CosmosTouch.swift */,
-				C63237D2241480CCD2D021CAA90E6564 /* CosmosTouchTarget.swift */,
-				81076EE9475C6DED71CF8B5DBD4265E2 /* CosmosView.swift */,
-				59FC501DF4EE58595544BF85D31CAAD3 /* StarFillMode.swift */,
-				2ABA0BFCDD6D4834D6ABD7989A586AC6 /* StarLayer.swift */,
-				2757E5710D11070FF244E17FE3909D13 /* Support Files */,
-			);
-			name = Cosmos;
-			path = Cosmos;
-			sourceTree = "<group>";
-		};
 		7DB346D0F39D3F0E887471402A8071AB = {
 			isa = PBXGroup;
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
 				433CD3331B6C3787F473C941B61FC68F /* Frameworks */,
-				F1D39DDBDB36F86E35D4FD10659997FB /* Pods */,
-				4C21CBE33BC17AA2D4826323BFF47604 /* Products */,
+				DBF05BB985317627DF834D98CCCF0092 /* Pods */,
+				C50D03620EE53C4362973E352FCA56F6 /* Products */,
 				0B875D0783357E8F090935C198114E32 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		98A1F505AF10F8D437486C41E1635F49 /* Support Files */ = {
+		7F40E59B8767C3E212AFB078D8ADA5E2 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				A23594E75E1AA932566DBD208C11D8D2 /* Device.modulemap */,
-				4CD1217C9C49928E46C52EE85B1F9EFD /* Device.xcconfig */,
-				742A6B91C024D8C6F55A2D2245C2DA45 /* Device-dummy.m */,
-				0840F2BB234EF2C8D8E9B9C34B34E905 /* Device-prefix.pch */,
-				45BFDFE0FC1B37D945FE122930A4568D /* Device-umbrella.h */,
-				C301F7FC1D14685010E4D54368EDB835 /* Info.plist */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/Device";
-			sourceTree = "<group>";
-		};
-		A129E1401F5E25FF32307E2422C0AC45 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				F913753CC097ED3BD0BFE42D317D9486 /* DropDown.modulemap */,
-				661F51238641E8B770D75A52E315109F /* DropDown.xcconfig */,
-				89D817587A67E0AEC664E5A4E7CC1254 /* DropDown-dummy.m */,
-				988DD77482BF7870BAA9E022CF66981C /* DropDown-prefix.pch */,
-				E70BBB34591F06600E052D0AFEFE5CC6 /* DropDown-umbrella.h */,
-				0CB2E811C4A453A1198F62C1A91C9A09 /* Info.plist */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/DropDown";
-			sourceTree = "<group>";
-		};
-		AC942B9008CA96325F4761DA2B6C0620 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				895CD056FCBBA1082EAED6B81A6BBCFD /* Info.plist */,
-				593BAE5B81CF63CEA3C2C6DB96F6CFEC /* SWRevealViewController.modulemap */,
-				50594EC5C5FF1C13299EE1AAB3E094BF /* SWRevealViewController.xcconfig */,
-				FBFB2BF191D9C9C851DAE4AE706B1B0D /* SWRevealViewController-dummy.m */,
-				1B0DBDAA14DD8701061DC89F7658A407 /* SWRevealViewController-prefix.pch */,
-				BB906B55BF35938EF1E2CE3EC3B9B6DD /* SWRevealViewController-umbrella.h */,
+				A053F43F59218A1780646C9F3A8C38E4 /* Info.plist */,
+				57157E65D140A104089CF5561F7A8D44 /* SWRevealViewController.modulemap */,
+				190C5A99215C0A8B9CB68F4F92B2CC4F /* SWRevealViewController.xcconfig */,
+				1442B257937848958585943D938028B3 /* SWRevealViewController-dummy.m */,
+				B146C91870933DEAA66444FC206039F5 /* SWRevealViewController-prefix.pch */,
+				BA21B36D57027176FD5A68849C2CE680 /* SWRevealViewController-umbrella.h */,
 			);
 			name = "Support Files";
 			path = "../Target Support Files/SWRevealViewController";
 			sourceTree = "<group>";
 		};
-		BED5B1E71262B4ED6578D5291971FAA6 /* Localize-Swift */ = {
+		95ECD3D64BE987D8B100052C88B7D1CE /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				491030AFB0B2E18C0C1E7E1D1586BC50 /* Localize.swift */,
-				95F17D60F64E6C0C068241EEE3CEC2F7 /* Localize_Swift.h */,
-				C0875F094D938FCF4F11B862A97146D0 /* Support Files */,
-			);
-			name = "Localize-Swift";
-			path = "Localize-Swift";
-			sourceTree = "<group>";
-		};
-		C0875F094D938FCF4F11B862A97146D0 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				5478DAD687A647E67A6ECAD41AF7803D /* Info.plist */,
-				35A04F573ADA5B5E7BAA08F2D1EAEA71 /* Localize-Swift.modulemap */,
-				753AF7AAB1F964EAEE47E221DDB1DE0C /* Localize-Swift.xcconfig */,
-				98E258DE5F709187EB3907B103BD9A82 /* Localize-Swift-dummy.m */,
-				1E15134233ECA1D45D0B33649607F0D0 /* Localize-Swift-prefix.pch */,
-				0AB4A66EED00091C61F2F5A4F2CFA5D6 /* Localize-Swift-umbrella.h */,
+				C608D4363EA2809B59737DDEB6DE8DBE /* Info.plist */,
+				B97932C09CD6A856EBBEC66FE170E8EE /* Localize-Swift.modulemap */,
+				25C383D4BA923E56616779074A5BEB84 /* Localize-Swift.xcconfig */,
+				32A112BB25B3AD4356C925AE08B939BF /* Localize-Swift-dummy.m */,
+				054555A194725264B5B9811FC78EF324 /* Localize-Swift-prefix.pch */,
+				52829871A35D161933077B0D75A07E9E /* Localize-Swift-umbrella.h */,
 			);
 			name = "Support Files";
 			path = "../Target Support Files/Localize-Swift";
+			sourceTree = "<group>";
+		};
+		C50D03620EE53C4362973E352FCA56F6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A94A86C961504199EF83E648FDFCD69E /* Cosmos.framework */,
+				7BE74A0BA5A3118CE9804E0DDE9A5C43 /* Device.framework */,
+				6BDDBA4C5D6864D2342303AC934118A4 /* Localize_Swift.framework */,
+				941A1D98459944C4FBD59AAFAA383750 /* Pods_OmnieCommerce.framework */,
+				1810F3BE22FDA89BFDC1160FF5A3E66B /* SWRevealViewController.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CFBB02EF35DAD7D28298C20E44537487 /* Cosmos */ = {
+			isa = PBXGroup;
+			children = (
+				229AC1CF5E5E8AED00701BBC25835E61 /* CosmosAccessibility.swift */,
+				895752B3952574F7B32F0E64326A118F /* CosmosDefaultSettings.swift */,
+				332C5CE0DFA841A0ACCCE8A89F83AAED /* CosmosLayerHelper.swift */,
+				038B14B84C1338F328B0313EF700976C /* CosmosLayers.swift */,
+				D2276CF26752ABF6D6FC006DE7575AEB /* CosmosLocalizedRating.swift */,
+				5770BF5AF5412429D3D079C3F7B94968 /* CosmosRating.swift */,
+				FE6851D236745876A1C21689E7712F68 /* CosmosSettings.swift */,
+				F1FB131871D0B3F31FF2C850CFAFFD2F /* CosmosSize.swift */,
+				805E8C0AA309AEB2BFC8CDE3EABA05F3 /* CosmosText.swift */,
+				8B4FA865EE864DAA7B09D5E0D896CE0B /* CosmosTouch.swift */,
+				1C5283C8921839B5D1F97A66B87FFF7A /* CosmosTouchTarget.swift */,
+				5627E8F49F63C619E878276C81D8311C /* CosmosView.swift */,
+				BF9C7A4CCE66F0C499D1EE3C4802A766 /* StarFillMode.swift */,
+				57CAB0577F071B34AE1F0F0D5BA901AC /* StarLayer.swift */,
+				FA6CCC194D8B438D338B36059FA47B47 /* Support Files */,
+			);
+			name = Cosmos;
+			path = Cosmos;
 			sourceTree = "<group>";
 		};
 		D39A0B4A8E1DF1057902DC8151ED6800 /* Pods-OmnieCommerce */ = {
@@ -437,45 +345,58 @@
 			path = "Target Support Files/Pods-OmnieCommerce";
 			sourceTree = "<group>";
 		};
-		E46CC798139CA06B0A41CBCF5787AE9D /* SWRevealViewController */ = {
+		DBF05BB985317627DF834D98CCCF0092 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				4FCF2F45CD2E9796FA873E4569CEB2F8 /* SWRevealViewController.h */,
-				F2CB5C66BE50DFFA376905E247F9C8E3 /* SWRevealViewController.m */,
-				AC942B9008CA96325F4761DA2B6C0620 /* Support Files */,
-			);
-			name = SWRevealViewController;
-			path = SWRevealViewController;
-			sourceTree = "<group>";
-		};
-		F1D39DDBDB36F86E35D4FD10659997FB /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				66300A4336E5A409E54A4FFB1BF5D9FD /* Cosmos */,
-				0F539FA28B56FB3A1B958BFBD3812A94 /* Device */,
-				31311A0EA40ABE5049D0EC56621A2ABF /* DropDown */,
-				BED5B1E71262B4ED6578D5291971FAA6 /* Localize-Swift */,
-				E46CC798139CA06B0A41CBCF5787AE9D /* SWRevealViewController */,
+				CFBB02EF35DAD7D28298C20E44537487 /* Cosmos */,
+				30BDBCFED5CE17F64D8CFD39AF79AE17 /* Device */,
+				EE118029A6B4A6F8ACDEAAADE5C38EBB /* Localize-Swift */,
+				089FBD32B30F5B315908C6CE06CB3BA0 /* SWRevealViewController */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		EE118029A6B4A6F8ACDEAAADE5C38EBB /* Localize-Swift */ = {
+			isa = PBXGroup;
+			children = (
+				47E34B212B9CF5FA26A47D0AB2377909 /* Localize.swift */,
+				4439EA08C04DA4DA39AB0B3E1AD8B643 /* Localize_Swift.h */,
+				95ECD3D64BE987D8B100052C88B7D1CE /* Support Files */,
+			);
+			name = "Localize-Swift";
+			path = "Localize-Swift";
+			sourceTree = "<group>";
+		};
+		FA6CCC194D8B438D338B36059FA47B47 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				F24934317D0306A169BB335F0F10A7DD /* Cosmos.modulemap */,
+				99D444C8B1AF3C9EBCFB0CF4969E1352 /* Cosmos.xcconfig */,
+				68281AB95AA69F21CFCEBE6B6615BC43 /* Cosmos-dummy.m */,
+				3489D919048A023504155B7E9C1A2BD4 /* Cosmos-prefix.pch */,
+				DF386D3C0AA7DC849FBA5324142EB08E /* Cosmos-umbrella.h */,
+				1FA4526DB924B8D65DFF76EDA20D2A8F /* Info.plist */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Cosmos";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		03E1A8ABDB713409A5E6B63EAC25914F /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				495DB4C3E9BC2AA38931F66B50D49FE2 /* Pods-OmnieCommerce-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		0FA9889BF6C0D38E6E622780486934A9 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				95D1804FEDC921E2224BC58D9425255A /* Device-umbrella.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		1904CD5E5CEA9226AFC355E19C3EB159 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				2E7E74DF0C455B0BC43BFDD1D0163E64 /* DropDown-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -496,20 +417,12 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6DBB6225CF570906B3E962E7C2E933F9 /* Headers */ = {
+		61CFD8D65C24860FDECA8DF282058EF0 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				171BD47BB5F170610ED703FE45861F3D /* SWRevealViewController-umbrella.h in Headers */,
-				C8F2138847CA8A1C62F483B70B5DDD28 /* SWRevealViewController.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		EEE901685C99DFCC531C0F64C40C500B /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				6C280CCB3CD3A9410C0887D8C780FC7B /* Pods-OmnieCommerce-umbrella.h in Headers */,
+				A3C938574FD2334F6A8D6CF03F624313 /* SWRevealViewController-umbrella.h in Headers */,
+				89A628E47BDA5DEA7DC06A1E9EA91033 /* SWRevealViewController.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -530,42 +443,7 @@
 			);
 			name = Cosmos;
 			productName = Cosmos;
-			productReference = BB1B19AFEFBEF556401DF59A1EA960A0 /* Cosmos.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		3E22DD08F640995820D958328616D156 /* SWRevealViewController */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 0A94FCF3B6FBDEBF45E48CF1AF3983A8 /* Build configuration list for PBXNativeTarget "SWRevealViewController" */;
-			buildPhases = (
-				FB9B4B764E633F980AB983023FE55B36 /* Sources */,
-				DC3FD98ED9CE2412807F10578069F39B /* Frameworks */,
-				6DBB6225CF570906B3E962E7C2E933F9 /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = SWRevealViewController;
-			productName = SWRevealViewController;
-			productReference = D3BC1343B5CE6B6EA656C23E33BAF5EA /* SWRevealViewController.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		5168099F2EBFC99A707C03C9EADE01A5 /* DropDown */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 45143614893062803984DA50AB90C1D5 /* Build configuration list for PBXNativeTarget "DropDown" */;
-			buildPhases = (
-				ED45CA897A4B81CB8204042001D7AEE8 /* Sources */,
-				3FE28484C632D94C9779E4E74AE0BD29 /* Frameworks */,
-				D7D924A57BC65B5D41E46B156A8DCF2B /* Resources */,
-				1904CD5E5CEA9226AFC355E19C3EB159 /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = DropDown;
-			productName = DropDown;
-			productReference = 11F31831FBE77163F826F17E3F7304C7 /* DropDown.framework */;
+			productReference = A94A86C961504199EF83E648FDFCD69E /* Cosmos.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		5E90024CA4621EC0A8B8C777C958214A /* Device */ = {
@@ -582,7 +460,24 @@
 			);
 			name = Device;
 			productName = Device;
-			productReference = 07234D08B787C1242B27A89F60FF5D94 /* Device.framework */;
+			productReference = 7BE74A0BA5A3118CE9804E0DDE9A5C43 /* Device.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		5EE9782305350C05382DF4D4A8E1D15E /* SWRevealViewController */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3104402A09EFDF9C5059AFF29D7839A9 /* Build configuration list for PBXNativeTarget "SWRevealViewController" */;
+			buildPhases = (
+				1A517B8DFA19A333FE090D5EE205B76E /* Sources */,
+				493C77385D5AFD44DDEFF00A3168BA0D /* Frameworks */,
+				61CFD8D65C24860FDECA8DF282058EF0 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SWRevealViewController;
+			productName = SWRevealViewController;
+			productReference = 1810F3BE22FDA89BFDC1160FF5A3E66B /* SWRevealViewController.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		86433867888749E4CF5A5AEC59DD39D3 /* Localize-Swift */ = {
@@ -599,29 +494,28 @@
 			);
 			name = "Localize-Swift";
 			productName = "Localize-Swift";
-			productReference = 6B296AC5A590AB1A7D93B4C3B8F8DDDE /* Localize_Swift.framework */;
+			productReference = 6BDDBA4C5D6864D2342303AC934118A4 /* Localize_Swift.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		AC3F609ABA7776BACDAFCD8CA2F17727 /* Pods-OmnieCommerce */ = {
+		DBAC0B639168327299361C87264653A1 /* Pods-OmnieCommerce */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C3F3DAAA9ADC6D499C9DB1B59DC44A8B /* Build configuration list for PBXNativeTarget "Pods-OmnieCommerce" */;
+			buildConfigurationList = 02ED927DED1A4B31A5E01603E917355B /* Build configuration list for PBXNativeTarget "Pods-OmnieCommerce" */;
 			buildPhases = (
-				7EE642F2AF4F22F985D47CFD1EE40E74 /* Sources */,
-				EBCF7180C645171542D644293A1E22D0 /* Frameworks */,
-				EEE901685C99DFCC531C0F64C40C500B /* Headers */,
+				080D0A8607F741AFFA7FF8155AC1E38A /* Sources */,
+				B2C666B556A5292B112725629F926FB2 /* Frameworks */,
+				03E1A8ABDB713409A5E6B63EAC25914F /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				739FCF7C93BD7F4F4F3389F5DBBC3C73 /* PBXTargetDependency */,
-				176D535DF1540928F8C5EC693A286AC6 /* PBXTargetDependency */,
-				A0B6474D900F3B3DEA6387AB28647B73 /* PBXTargetDependency */,
-				E3D02FC2B5347E2470A25A362C71EE90 /* PBXTargetDependency */,
-				DC20E52821FC8B281F5F84C5A5E37CC4 /* PBXTargetDependency */,
+				CD80172CBA91355A499EC8AED5511F83 /* PBXTargetDependency */,
+				C9DD8FF52D833F7CEC51C875F523487B /* PBXTargetDependency */,
+				01669F24CFAC0DBEF5C791810A17CEB0 /* PBXTargetDependency */,
+				3D1EB3D968B69C05ABB892E5F0522308 /* PBXTargetDependency */,
 			);
 			name = "Pods-OmnieCommerce";
 			productName = "Pods-OmnieCommerce";
-			productReference = E572E365D0FCFDC4B93C04D52576ED9E /* Pods_OmnieCommerce.framework */;
+			productReference = 941A1D98459944C4FBD59AAFAA383750 /* Pods_OmnieCommerce.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -641,30 +535,18 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = 4C21CBE33BC17AA2D4826323BFF47604 /* Products */;
+			productRefGroup = C50D03620EE53C4362973E352FCA56F6 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				2F0FE1E2A5B1EF15139E10A40F05CE94 /* Cosmos */,
 				5E90024CA4621EC0A8B8C777C958214A /* Device */,
-				5168099F2EBFC99A707C03C9EADE01A5 /* DropDown */,
 				86433867888749E4CF5A5AEC59DD39D3 /* Localize-Swift */,
-				AC3F609ABA7776BACDAFCD8CA2F17727 /* Pods-OmnieCommerce */,
-				3E22DD08F640995820D958328616D156 /* SWRevealViewController */,
+				DBAC0B639168327299361C87264653A1 /* Pods-OmnieCommerce */,
+				5EE9782305350C05382DF4D4A8E1D15E /* SWRevealViewController */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXResourcesBuildPhase section */
-		D7D924A57BC65B5D41E46B156A8DCF2B /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				37C293AEA575D6E5186739D1B07805F2 /* DropDownCell.xib in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		01416019C21B9BADF8FF7B8E769DEB80 /* Sources */ = {
@@ -676,11 +558,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7EE642F2AF4F22F985D47CFD1EE40E74 /* Sources */ = {
+		080D0A8607F741AFFA7FF8155AC1E38A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BEAD8CFE0153A08561EEA79202BB849B /* Pods-OmnieCommerce-dummy.m in Sources */,
+				CC72119DC4C9044C28AD57DD3FEF99E9 /* Pods-OmnieCommerce-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1A517B8DFA19A333FE090D5EE205B76E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7540CC3D9DB29B58F8A15812328585D8 /* SWRevealViewController-dummy.m in Sources */,
+				1F08421A1DD952367897C4E5BF18A16D /* SWRevealViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -718,139 +609,45 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		ED45CA897A4B81CB8204042001D7AEE8 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A812E7811821F66B3B7499F6F1B513BA /* DPDConstants.swift in Sources */,
-				9D0221E27E37CDA9DF26DD3CFA56D75B /* DPDKeyboardListener.swift in Sources */,
-				A401CF18D15DF246F40FAC4E8F06CBC7 /* DPDUIView+Extension.swift in Sources */,
-				442ADADA3215E1E5CA1557E708D4228C /* DropDown+Appearance.swift in Sources */,
-				AC6581D9387744158B44BE683403C3BC /* DropDown-dummy.m in Sources */,
-				02CAE638EF1CEEBD6F5740498F9CA3F8 /* DropDown.swift in Sources */,
-				098F056D90AF9CD3FD60D8A81DF043B6 /* DropDownCell.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FB9B4B764E633F980AB983023FE55B36 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				60495E622C40CDDD567955426319353F /* SWRevealViewController-dummy.m in Sources */,
-				7A1420C124ACD748ADE9645FF13CB5C2 /* SWRevealViewController.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		176D535DF1540928F8C5EC693A286AC6 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = Device;
-			target = 5E90024CA4621EC0A8B8C777C958214A /* Device */;
-			targetProxy = 8C79191E065BF37B4E000A32296C6F57 /* PBXContainerItemProxy */;
-		};
-		739FCF7C93BD7F4F4F3389F5DBBC3C73 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = Cosmos;
-			target = 2F0FE1E2A5B1EF15139E10A40F05CE94 /* Cosmos */;
-			targetProxy = 2DF2366E354444A6D3D0052F956D198D /* PBXContainerItemProxy */;
-		};
-		A0B6474D900F3B3DEA6387AB28647B73 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = DropDown;
-			target = 5168099F2EBFC99A707C03C9EADE01A5 /* DropDown */;
-			targetProxy = C04FEF64FEAEB467A20D4170C302BACF /* PBXContainerItemProxy */;
-		};
-		DC20E52821FC8B281F5F84C5A5E37CC4 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = SWRevealViewController;
-			target = 3E22DD08F640995820D958328616D156 /* SWRevealViewController */;
-			targetProxy = EA5A14A43B9F323F4A16DECC06C1A7AC /* PBXContainerItemProxy */;
-		};
-		E3D02FC2B5347E2470A25A362C71EE90 /* PBXTargetDependency */ = {
+		01669F24CFAC0DBEF5C791810A17CEB0 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Localize-Swift";
 			target = 86433867888749E4CF5A5AEC59DD39D3 /* Localize-Swift */;
-			targetProxy = F01C8508C149525599CAE7AE4F7DCF5F /* PBXContainerItemProxy */;
+			targetProxy = 708CBEC99B2E67EE5C438EAF7F88CC50 /* PBXContainerItemProxy */;
+		};
+		3D1EB3D968B69C05ABB892E5F0522308 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SWRevealViewController;
+			target = 5EE9782305350C05382DF4D4A8E1D15E /* SWRevealViewController */;
+			targetProxy = 8A8F6D3081A1C1A7092194C12561F6AF /* PBXContainerItemProxy */;
+		};
+		C9DD8FF52D833F7CEC51C875F523487B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Device;
+			target = 5E90024CA4621EC0A8B8C777C958214A /* Device */;
+			targetProxy = F8DB0C3331514B0115B59F9D1E1F9C45 /* PBXContainerItemProxy */;
+		};
+		CD80172CBA91355A499EC8AED5511F83 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Cosmos;
+			target = 2F0FE1E2A5B1EF15139E10A40F05CE94 /* Cosmos */;
+			targetProxy = ADBF4DF09136D0A5850D0EBFD417A9DD /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		04ADDA48259B854054D5CA01F6EC9D67 /* Debug */ = {
+		4B5ECDB7181B7A83C34B130DFE2CA27F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 661F51238641E8B770D75A52E315109F /* DropDown.xcconfig */;
+			baseConfigurationReference = 190C5A99215C0A8B9CB68F4F92B2CC4F /* SWRevealViewController.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/DropDown/DropDown-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/DropDown/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/DropDown/DropDown.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = DropDown;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		166E640816FD8016FF291BD935B20736 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 661F51238641E8B770D75A52E315109F /* DropDown.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/DropDown/DropDown-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/DropDown/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/DropDown/DropDown.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = DropDown;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		25C1D17EBAEC71511E66B5988C408274 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 50594EC5C5FF1C13299EE1AAB3E094BF /* SWRevealViewController.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -863,7 +660,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/SWRevealViewController/SWRevealViewController.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_NAME = SWRevealViewController;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -872,17 +669,17 @@
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Release;
+			name = Debug;
 		};
-		2C4DC114F23E288A1BBF825D04154BC3 /* Debug */ = {
+		590D5DFAD14D052DB3048890D521BEA8 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8565B90FDA8314C26E87E468B1BB7858 /* Pods-OmnieCommerce.debug.xcconfig */;
+			baseConfigurationReference = F39771E801843997A2B4925D9222399E /* Pods-OmnieCommerce.release.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -895,7 +692,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-OmnieCommerce/Pods-OmnieCommerce.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
@@ -903,44 +700,11 @@
 				PRODUCT_NAME = Pods_OmnieCommerce;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Debug;
-		};
-		416B25BBB2C2C140971865CA2C2B9C3D /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 50594EC5C5FF1C13299EE1AAB3E094BF /* SWRevealViewController.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/SWRevealViewController/SWRevealViewController-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/SWRevealViewController/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/SWRevealViewController/SWRevealViewController.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = SWRevealViewController;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
+			name = Release;
 		};
 		59B042A655B7C20CBAB90E385BF4E4C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -988,7 +752,7 @@
 		};
 		79B2022DE2220E0D2DD5B977D6D28CE2 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 753AF7AAB1F964EAEE47E221DDB1DE0C /* Localize-Swift.xcconfig */;
+			baseConfigurationReference = 25C383D4BA923E56616779074A5BEB84 /* Localize-Swift.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -1020,7 +784,7 @@
 		};
 		8E7E6BF5EA23BB6BBA11B782E8B4B24C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4CD1217C9C49928E46C52EE85B1F9EFD /* Device.xcconfig */;
+			baseConfigurationReference = 2C98564D4FEEDD9CBFCF5656313DD1B3 /* Device.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -1052,7 +816,7 @@
 		};
 		9E58FC0049F65C5063578CA014566261 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 753AF7AAB1F964EAEE47E221DDB1DE0C /* Localize-Swift.xcconfig */;
+			baseConfigurationReference = 25C383D4BA923E56616779074A5BEB84 /* Localize-Swift.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -1085,7 +849,7 @@
 		};
 		A0DBE5A5EE6B2C72BEBE74ABB1787EDD /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BEE6DDE9BE68299DDCFA630CF77FC2C5 /* Cosmos.xcconfig */;
+			baseConfigurationReference = 99D444C8B1AF3C9EBCFB0CF4969E1352 /* Cosmos.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -1156,15 +920,15 @@
 			};
 			name = Release;
 		};
-		CAB027488002EE6B96E1FBA88720F28F /* Release */ = {
+		DCBABFDA5A17043C3CE83F1F9F10B7B5 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F39771E801843997A2B4925D9222399E /* Pods-OmnieCommerce.release.xcconfig */;
+			baseConfigurationReference = 8565B90FDA8314C26E87E468B1BB7858 /* Pods-OmnieCommerce.debug.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -1177,7 +941,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-OmnieCommerce/Pods-OmnieCommerce.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_ENABLE_DEBUG_INFO = YES;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
@@ -1185,6 +949,39 @@
 				PRODUCT_NAME = Pods_OmnieCommerce;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		EFCE42B49DFD63A0E47D80609956085A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 190C5A99215C0A8B9CB68F4F92B2CC4F /* SWRevealViewController.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/SWRevealViewController/SWRevealViewController-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SWRevealViewController/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/SWRevealViewController/SWRevealViewController.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = SWRevealViewController;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -1193,7 +990,7 @@
 		};
 		F28BE1EC715FDCE8D548E9F53857494D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4CD1217C9C49928E46C52EE85B1F9EFD /* Device.xcconfig */;
+			baseConfigurationReference = 2C98564D4FEEDD9CBFCF5656313DD1B3 /* Device.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -1226,7 +1023,7 @@
 		};
 		F76CDAE469257C78C5C56435E65B7BBB /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BEE6DDE9BE68299DDCFA630CF77FC2C5 /* Cosmos.xcconfig */;
+			baseConfigurationReference = 99D444C8B1AF3C9EBCFB0CF4969E1352 /* Cosmos.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -1259,11 +1056,11 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		0A94FCF3B6FBDEBF45E48CF1AF3983A8 /* Build configuration list for PBXNativeTarget "SWRevealViewController" */ = {
+		02ED927DED1A4B31A5E01603E917355B /* Build configuration list for PBXNativeTarget "Pods-OmnieCommerce" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				416B25BBB2C2C140971865CA2C2B9C3D /* Debug */,
-				25C1D17EBAEC71511E66B5988C408274 /* Release */,
+				DCBABFDA5A17043C3CE83F1F9F10B7B5 /* Debug */,
+				590D5DFAD14D052DB3048890D521BEA8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1286,11 +1083,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		45143614893062803984DA50AB90C1D5 /* Build configuration list for PBXNativeTarget "DropDown" */ = {
+		3104402A09EFDF9C5059AFF29D7839A9 /* Build configuration list for PBXNativeTarget "SWRevealViewController" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				04ADDA48259B854054D5CA01F6EC9D67 /* Debug */,
-				166E640816FD8016FF291BD935B20736 /* Release */,
+				4B5ECDB7181B7A83C34B130DFE2CA27F /* Debug */,
+				EFCE42B49DFD63A0E47D80609956085A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1309,15 +1106,6 @@
 			buildConfigurations = (
 				A0DBE5A5EE6B2C72BEBE74ABB1787EDD /* Debug */,
 				F76CDAE469257C78C5C56435E65B7BBB /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		C3F3DAAA9ADC6D499C9DB1B59DC44A8B /* Build configuration list for PBXNativeTarget "Pods-OmnieCommerce" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				2C4DC114F23E288A1BBF825D04154BC3 /* Debug */,
-				CAB027488002EE6B96E1FBA88720F28F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

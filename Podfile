@@ -9,6 +9,5 @@ target 'OmnieCommerce' do
     pod 'Localize-Swift', '~> 1.6'
     pod 'Device', '~> 2.0.0'
     pod 'Cosmos', '~> 7.0'
-    pod 'DropDown', '~> 2'
     
 end

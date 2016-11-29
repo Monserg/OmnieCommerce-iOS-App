@@ -14,11 +14,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>DropDown.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Localize-Swift.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -42,17 +37,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3E22DD08F640995820D958328616D156</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>5168099F2EBFC99A707C03C9EADE01A5</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>5E90024CA4621EC0A8B8C777C958214A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>5EE9782305350C05382DF4D4A8E1D15E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -62,7 +52,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>AC3F609ABA7776BACDAFCD8CA2F17727</key>
+		<key>DBAC0B639168327299361C87264653A1</key>
 		<dict>
 			<key>primary</key>
 			<true/>

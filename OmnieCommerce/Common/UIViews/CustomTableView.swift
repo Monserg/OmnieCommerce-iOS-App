@@ -15,6 +15,11 @@ import UIKit
         case menu
     }
 
+    @IBInspectable var borderWidth: CGFloat {
+        set { layer.borderWidth = newValue }
+        get { return layer.borderWidth }
+    }
+
     @IBInspectable var mark: CGFloat = 0 {
         didSet {
             switch mark {

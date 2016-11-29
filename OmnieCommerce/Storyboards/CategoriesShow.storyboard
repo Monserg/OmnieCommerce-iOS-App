@@ -53,42 +53,14 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xJ0-Pa-l1A">
-                                <rect key="frame" x="0.0" y="95" width="320" height="346.5"/>
+                                <rect key="frame" x="0.0" y="95" width="320" height="356.5"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cu8-DP-jNG" userLabel="Content View">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="527"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oTC-Vw-t0Y" userLabel="Select City View">
-                                                <rect key="frame" x="0.0" y="0.0" width="320" height="71"/>
-                                                <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b7l-X1-Tog" userLabel="City Button" customClass="CustomButton" customModule="OmnieCommerce" customModuleProvider="target">
-                                                        <rect key="frame" x="8" y="18" width="304" height="33"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="33" id="y50-Og-ypd"/>
-                                                        </constraints>
-                                                        <state key="normal" title="City" image="icon-drop-down-accessory-normal"/>
-                                                        <state key="highlighted">
-                                                            <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                        </state>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="string" keyPath="buttonStyle" value="DropDownList"/>
-                                                        </userDefinedRuntimeAttributes>
-                                                        <connections>
-                                                            <action selector="handlerCityButtonTap:" destination="9s1-kT-Mzo" eventType="touchUpInside" id="1tp-N4-mn6"/>
-                                                        </connections>
-                                                    </button>
-                                                </subviews>
-                                                <color key="backgroundColor" red="0.14117647058823529" green="0.19607843137254902" blue="0.24705882352941178" alpha="0.0" colorSpace="calibratedRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="trailing" secondItem="b7l-X1-Tog" secondAttribute="trailing" constant="8" id="Nsi-WO-b4N"/>
-                                                    <constraint firstItem="b7l-X1-Tog" firstAttribute="top" secondItem="oTC-Vw-t0Y" secondAttribute="top" constant="18" id="pAe-Xx-cZe"/>
-                                                    <constraint firstAttribute="height" constant="71" id="qWw-92-nSj"/>
-                                                    <constraint firstItem="b7l-X1-Tog" firstAttribute="leading" secondItem="oTC-Vw-t0Y" secondAttribute="leading" constant="8" id="uRs-0B-0FU"/>
-                                                </constraints>
-                                            </view>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="YeW-Nj-fIe">
                                                 <rect key="frame" x="8" y="71" width="304" height="456"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <color key="backgroundColor" red="0.14117647058823529" green="0.19607843137254902" blue="0.24705882352941178" alpha="1" colorSpace="calibratedRGB"/>
                                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="16" minimumInteritemSpacing="16" id="LnN-ln-h1C">
                                                     <size key="itemSize" width="170" height="102"/>
                                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -145,8 +117,37 @@
                                                     </collectionViewCell>
                                                 </cells>
                                             </collectionView>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oTC-Vw-t0Y" userLabel="City View">
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="71"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b7l-X1-Tog" userLabel="City Button" customClass="CustomButton" customModule="OmnieCommerce" customModuleProvider="target">
+                                                        <rect key="frame" x="8" y="18" width="304" height="33"/>
+                                                        <color key="backgroundColor" red="0.14117647058823529" green="0.19607843137254902" blue="0.24705882352941178" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="33" id="y50-Og-ypd"/>
+                                                        </constraints>
+                                                        <state key="normal" title="City" image="icon-drop-down-accessory-normal"/>
+                                                        <state key="highlighted">
+                                                            <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </state>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="buttonStyle" value="DropDownList"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="handlerCityButtonTap:" destination="9s1-kT-Mzo" eventType="touchUpInside" id="1tp-N4-mn6"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="b7l-X1-Tog" secondAttribute="trailing" constant="8" id="Nsi-WO-b4N"/>
+                                                    <constraint firstItem="b7l-X1-Tog" firstAttribute="top" secondItem="oTC-Vw-t0Y" secondAttribute="top" constant="18" id="pAe-Xx-cZe"/>
+                                                    <constraint firstAttribute="height" constant="71" id="qWw-92-nSj"/>
+                                                    <constraint firstItem="b7l-X1-Tog" firstAttribute="leading" secondItem="oTC-Vw-t0Y" secondAttribute="leading" constant="8" id="uRs-0B-0FU"/>
+                                                </constraints>
+                                            </view>
                                         </subviews>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" red="0.14117647058823529" green="0.19607843137254902" blue="0.24705882352941178" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="527" id="0Cy-pQ-DgZ"/>
                                             <constraint firstItem="oTC-Vw-t0Y" firstAttribute="leading" secondItem="cu8-DP-jNG" secondAttribute="leading" id="80Y-2a-0iE"/>
@@ -165,7 +166,7 @@
                                         </constraints>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.14117647058823529" green="0.19607843137254902" blue="0.24705882352941178" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="cu8-DP-jNG" secondAttribute="bottom" id="3P8-xC-liE"/>
                                     <constraint firstAttribute="trailing" secondItem="cu8-DP-jNG" secondAttribute="trailing" id="Tbc-nW-39M"/>
@@ -175,7 +176,7 @@
                                 </constraints>
                             </scrollView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3d9-Qt-0Tr" userLabel="Copyright Label" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                                <rect key="frame" x="8" y="450.5" width="304" height="20.5"/>
+                                <rect key="frame" x="8" y="460.5" width="304" height="10.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -184,7 +185,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.14117647058823529" green="0.19607843137254902" blue="0.24705882352941178" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="3d9-Qt-0Tr" firstAttribute="leading" secondItem="tP1-Vk-hMS" secondAttribute="leading" constant="8" id="4AF-wA-xbg"/>
                             <constraint firstItem="Fg2-g7-Pmf" firstAttribute="top" secondItem="tP1-Vk-hMS" secondAttribute="top" id="4cs-5Y-4zx">
@@ -207,14 +208,40 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="cityButton" destination="b7l-X1-Tog" id="9RM-0c-KEc"/>
+                        <outlet property="cityView" destination="oTC-Vw-t0Y" id="64U-N3-qX5"/>
                         <outlet property="collectionView" destination="YeW-Nj-fIe" id="1gN-Ft-XR8"/>
                         <outlet property="copyrightLabel" destination="3d9-Qt-0Tr" id="zEn-bA-QNI"/>
+                        <outlet property="dropDownContainer" destination="lEW-lR-ZyX" id="gzS-Ku-qfq"/>
                         <outlet property="smallTopBarView" destination="Fg2-g7-Pmf" id="riy-IY-my1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Otj-fC-KTJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <containerView opaque="NO" contentMode="scaleToFill" id="lEW-lR-ZyX">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="128"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                    <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <connections>
+                        <segue destination="hBk-Fg-2si" kind="embed" id="Vu3-eB-xHj"/>
+                    </connections>
+                </containerView>
             </objects>
             <point key="canvasLocation" x="1556" y="-15.742128935532236"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="eKr-FZ-NnG">
+            <objects>
+                <viewController id="hBk-Fg-2si" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ERI-f1-7cp">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="100"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xd6-Rl-XGs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2274" y="-461"/>
         </scene>
     </scenes>
     <resources>
