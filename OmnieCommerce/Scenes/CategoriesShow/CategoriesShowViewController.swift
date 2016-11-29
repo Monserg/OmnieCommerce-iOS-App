@@ -25,8 +25,11 @@ class CategoriesShowViewController: BaseViewController, CategoriesShowViewContro
     var output: CategoriesShowViewControllerOutput!
     var router: CategoriesShowRouter!
     
+    var dataSource = [ "Auto Service", "Health", "Beauty", "Training", "Restaurants", "Tourism", "Sport" ]
+    
     @IBOutlet weak var smallTopBarView: SmallTopBarView!
     @IBOutlet weak var copyrightLabel: CustomLabel!
+    @IBOutlet weak var collectionView: UICollectionView!
 
     
     // MARK: - Class Initialization
@@ -40,6 +43,10 @@ class CategoriesShowViewController: BaseViewController, CategoriesShowViewContro
     // MARK: - Class Functions
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Delegates
+        collectionView.delegate = self
+        collectionView.dataSource = self
         
         // Config topBarView
         smallTopBarView.type = "ParentSearch"
@@ -80,5 +87,43 @@ class CategoriesShowViewController: BaseViewController, CategoriesShowViewContro
         print(object: "\(type(of: self)): \(#function) run. New size = \(size)")
         
         setupScene(withSize: size)
+    }
+}
+
+
+// MARK: - UICollectionViewDataSource
+extension CategoriesShowViewController: UICollectionViewDataSource {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return dataSource.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategoryCell", for: indexPath) as! CustomCollectionViewCell
+
+        cell.backgroundColor = Config.Colors.veryLightOrange
+
+        return cell
+    }
+}
+
+
+// MARK: - UICollectionViewDelegate
+extension CategoriesShowViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print(object: "\(type(of: self)): \(#function) run.")
+        
+        collectionView.deselectItem(at: indexPath, animated: true)
+    }
+}
+
+
+// MARK: - UICollectionViewDelegateFlowLayout
+extension CategoriesShowViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return (UIApplication.shared.statusBarOrientation.isPortrait) ? CGSize.init(width: (collectionView.frame.width - 16.0) / 2, height: 102) : CGSize.init(width: (collectionView.frame.width - 16 * 2) / 3, height: 102)
     }
 }

@@ -29,6 +29,13 @@
 "Forgot Password"       =   "Forgot Password";
 "Phone or email error"  =   "* wrong Phone number or Email";
 "Email error"           =   "* wrong Email";
+"Auto Service"          =   "Auto Service";
+"Health"                =   "Health";
+"Beauty"                =   "Beauty";
+"Training"              =   "Training";
+"Restaurants"           =   "Restaurants";
+"Tourism"               =   "Tourism";
+"Sport"                 =   "Sport";
 
 
 // Buttons

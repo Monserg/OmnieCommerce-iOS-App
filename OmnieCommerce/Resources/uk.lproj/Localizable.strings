@@ -29,6 +29,13 @@
 "Forgot Password"       =   "Забули пароль";
 "Phone or email error"  =   "* невірний номер або Email";
 "Email error"           =   "* невірний Email";
+"Auto service"          =   "Автосервіс";
+"Health"                =   "Здоров'я";
+"Beauty"                =   "Краса";
+"Training"              =   "Навчання";
+"Restaurants"           =   "Ресторани";
+"Tourism"               =   "Туризм";
+"Sport"                 =   "Спорт";
 
 
 // Buttons

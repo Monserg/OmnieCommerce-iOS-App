@@ -8,7 +8,7 @@
 			<key>name</key>
 			<string>Orders</string>
 			<key>icon</key>
-			<string>icon-orders.png</string>
+			<string>icon-menu-orders-normal.png</string>
 			<key>segue</key>
 			<string>OrdersShowSegue</string>
 		</dict>
@@ -16,7 +16,7 @@
 			<key>name</key>
 			<string>Messages</string>
 			<key>icon</key>
-			<string>icon-messages.png</string>
+			<string>icon-menu-messages-normal.png</string>
 			<key>segue</key>
 			<string>MessagesShowSegue</string>
 		</dict>
@@ -24,7 +24,7 @@
 			<key>name</key>
 			<string>Favourite</string>
 			<key>icon</key>
-			<string>icon-favourite.png</string>
+			<string>icon-menu-favourite-normal.png</string>
 			<key>segue</key>
 			<string>FavoriteShowSegue</string>
 		</dict>
@@ -32,7 +32,7 @@
 			<key>name</key>
 			<string>Categories</string>
 			<key>icon</key>
-			<string>icon-categories.png</string>
+			<string>icon-menu-categories-normal.png</string>
 			<key>segue</key>
 			<string>CategoriesShowSegue</string>
 		</dict>
@@ -40,7 +40,7 @@
 			<key>name</key>
 			<string>News</string>
 			<key>icon</key>
-			<string>icon-news.png</string>
+			<string>icon-menu-news-normal.png</string>
 			<key>segue</key>
 			<string>NewsShowSegue</string>
 		</dict>
@@ -51,7 +51,7 @@
 			<key>name</key>
 			<string>DiscountCards</string>
 			<key>icon</key>
-			<string>icon-discount-cards.png</string>
+			<string>icon-menu-discount-cards-normal.png</string>
 			<key>segue</key>
 			<string>DiscountCardsShowSegue</string>
 		</dict>
@@ -59,7 +59,7 @@
 			<key>name</key>
 			<string>OmnieCards</string>
 			<key>icon</key>
-			<string>icon-omnie-cards.png</string>
+			<string>icon-menu-omnie-cards-normal.png</string>
 			<key>segue</key>
 			<string>OmnieCardsShowSegue</string>
 		</dict>
@@ -67,7 +67,7 @@
 			<key>name</key>
 			<string>BusinessCards</string>
 			<key>icon</key>
-			<string>icon-business-cards.png</string>
+			<string>icon-menu-business-cards-normal.png</string>
 			<key>segue</key>
 			<string>BusinessCardsShowSegue</string>
 		</dict>
@@ -75,7 +75,7 @@
 			<key>name</key>
 			<string>Handbook</string>
 			<key>icon</key>
-			<string>icon-handbook.png</string>
+			<string>icon-menu-handbook-normal.png</string>
 			<key>segue</key>
 			<string>HandbookShowSegue</string>
 		</dict>
@@ -86,7 +86,7 @@
 			<key>name</key>
 			<string>PersonalPage</string>
 			<key>icon</key>
-			<string>icon-personal-page.png</string>
+			<string>icon-menu-personal-page-normal.png</string>
 			<key>segue</key>
 			<string>PersonalPageShowSegue</string>
 		</dict>
@@ -94,7 +94,7 @@
 			<key>name</key>
 			<string>Settings</string>
 			<key>icon</key>
-			<string>icon-settings.png</string>
+			<string>icon-menusettings-normal.png</string>
 			<key>segue</key>
 			<string>SettingsShowSegue</string>
 		</dict>
@@ -102,7 +102,7 @@
 			<key>name</key>
 			<string>About</string>
 			<key>icon</key>
-			<string>icon-about.png</string>
+			<string>icon-menu-about-normal.png</string>
 			<key>segue</key>
 			<string>AboutShowSegue</string>
 		</dict>
@@ -113,7 +113,7 @@
 			<key>name</key>
 			<string>OnmieSoft</string>
 			<key>icon</key>
-			<string>icon-onmie-soft.png</string>
+			<string>icon-menu-onmie-soft-normal.png</string>
 			<key>segue</key>
 			<string>OnmieSoftShowSegue</string>
 		</dict>
@@ -124,7 +124,7 @@
 			<key>name</key>
 			<string>LogOut</string>
 			<key>icon</key>
-			<string>icon-logout.png</string>
+			<string>icon-menu-logout-normal.png</string>
 			<key>segue</key>
 			<string>LogOutShowSegue</string>
 		</dict>

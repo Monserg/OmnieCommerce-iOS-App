@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Cosmos.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Device.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -27,7 +32,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>55726601E2132A34A005A93C9DF7A07C</key>
+		<key>2F0FE1E2A5B1EF15139E10A40F05CE94</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -37,12 +42,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>74967E3E3987F9BAE9EBF4D0C785BDDB</key>
+		<key>5EE9782305350C05382DF4D4A8E1D15E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>86433867888749E4CF5A5AEC59DD39D3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DBAC0B639168327299361C87264653A1</key>
 		<dict>
 			<key>primary</key>
 			<true/>
