@@ -96,7 +96,8 @@ class CategoriesShowViewController: BaseViewController, CategoriesShowViewContro
     @IBAction func handlerCityButtonTap(_ sender: CustomButton) {
         print(object: "\(type(of: self)): \(#function) run.")
         
-        dropDownContainer.frame = CGRect.init(x: 8, y: 0, width: cityButton.bounds.width, height: 103)
+        dropDownContainer.frame = CGRect.init(x: 8, y: sender.bounds.minY + 18, width: cityButton.bounds.width, height: 103)
+        dropDownContainer.alpha = 0
         cityView.addSubview(dropDownContainer)
         cityView.sendSubview(toBack: dropDownContainer)
         
@@ -104,6 +105,7 @@ class CategoriesShowViewController: BaseViewController, CategoriesShowViewContro
             var containerFrame = self.dropDownContainer.frame
             containerFrame = CGRect.init(x: 8, y: self.cityButton.frame.maxY + 2, width: containerFrame.size.width, height: containerFrame.size.height)
             self.dropDownContainer.frame = containerFrame
+            self.dropDownContainer.alpha = 1
         }, completion: nil)
     }
     
