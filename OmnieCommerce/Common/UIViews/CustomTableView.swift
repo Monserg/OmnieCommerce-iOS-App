@@ -1,4 +1,4 @@
-//
+
 //  CustomTableView.swift
 //  OmnieCommerce
 //
@@ -8,29 +8,42 @@
 
 import UIKit
 
+enum TableCellStyle: String {
+    case Menu = "Menu"
+    case DropDown = "DropDown"
+    case Standard = "Standard"
+}
+
 @IBDesignable class CustomTableView: UITableView {
     // MARK: - Properties
-    enum Types: Int {
-        case standard = 0
-        case menu
-    }
-
     @IBInspectable var borderWidth: CGFloat {
         set { layer.borderWidth = newValue }
         get { return layer.borderWidth }
     }
 
-    @IBInspectable var mark: CGFloat = 0 {
+    @IBInspectable var tableCellStyle: String? {
         didSet {
-            switch mark {
-            // menu = 1
-            case 1:
+            switch TableCellStyle.init(rawValue: tableCellStyle!)! {
+            case .Menu:
                 self.backgroundColor = Config.Colors.veryDarkDesaturatedBlue25Alpha1
                 
-            // standard = 0
+            case .DropDown:
+                self.backgroundColor = Config.Colors.veryDarkDesaturatedBlue24
+
             default:
                 self.backgroundColor = Config.Colors.veryDarkDesaturatedBlue25Alpha1
             }
         }
+    }
+    
+    func setScrollIndicatorColor(color: UIColor) {
+        for view in self.subviews {
+            if view.isKind(of: UIImageView.self), let imageView = view as? UIImageView, let image = imageView.image {
+                imageView.tintColor = color
+                imageView.image = image.withRenderingMode(.alwaysTemplate)
+            }
+        }
+        
+        self.flashScrollIndicators()
     }
 }

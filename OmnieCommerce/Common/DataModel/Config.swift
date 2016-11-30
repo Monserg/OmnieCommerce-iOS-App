@@ -24,6 +24,7 @@ struct Config {
         static let bigTopBarViewHeightCoefficient: CGFloat      =   220.0 / 667
         static let bigTopBarViewWidthCoefficient: CGFloat       =   300.0 / 667
         
+        static let dropDownCellHeight: CGFloat                  =   23.0
         
         // FIXME: - DELETE AFTER TEST
         static let isUserGuest: Bool                            =   false
@@ -39,6 +40,18 @@ struct Config {
         
         static let ubuntuLightVeryLightGray12Alpha30            =   [   NSFontAttributeName             :   Fonts.ubuntuLight12!,
                                                                         NSForegroundColorAttributeName  :   Colors.veryLightGrayAlpha30!,
+                                                                        NSKernAttributeName             :   0.0,
+                                                                        NSUnderlineStyleAttributeName   :   NSUnderlineStyle.styleNone.rawValue
+                                                                    ] as [String : Any]
+        
+        static let ubuntuLightDarkCyan12                        =   [   NSFontAttributeName             :   Fonts.ubuntuLight12!,
+                                                                        NSForegroundColorAttributeName  :   Colors.darkCyan!,
+                                                                        NSKernAttributeName             :   0.0,
+                                                                        NSUnderlineStyleAttributeName   :   NSUnderlineStyle.styleNone.rawValue
+                                                                    ] as [String : Any]
+        
+        static let ubuntuLightDarkCyan12Alpha30                 =   [   NSFontAttributeName             :   Fonts.ubuntuLight12!,
+                                                                        NSForegroundColorAttributeName  :   Colors.darkCyanAlpha30!,
                                                                         NSKernAttributeName             :   0.0,
                                                                         NSUnderlineStyleAttributeName   :   NSUnderlineStyle.styleNone.rawValue
                                                                     ] as [String : Any]
@@ -100,6 +113,7 @@ struct Config {
         static let veryDarkDesaturatedBlue24                    =   UIColor(hexString: "#24323f")
         static let veryDarkDesaturatedBlue2f                    =   UIColor(hexString: "#2f3c49")
         
+        static let darkCyanAlpha30                              =   UIColor(hexString: "#009395", withAlpha: 0.3)
         static let lightGrayAlpha20                             =   UIColor(hexString: "#cacaca", withAlpha: 0.2)
         static let veryLightGrayAlpha30                         =   UIColor(hexString: "#dedede", withAlpha: 0.3)
         static let veryLightOrangeAlpha60                       =   UIColor(hexString: "#ffd76c", withAlpha: 0.6)

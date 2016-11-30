@@ -33,9 +33,9 @@ class CategoriesShowViewController: BaseViewController, CategoriesShowViewContro
     @IBOutlet weak var copyrightLabel: CustomLabel!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var cityView: UIView!
-    @IBOutlet var dropDownContainer: UIView!
 
-    @IBOutlet weak var cityButton: CustomButton!
+    @IBOutlet weak var cityButton: DropDownButton!
+    
     
     // MARK: - Class Initialization
     override func awakeFromNib() {
@@ -55,8 +55,8 @@ class CategoriesShowViewController: BaseViewController, CategoriesShowViewContro
         }
         
         // Delegates
-        collectionView.delegate = self
-        collectionView.dataSource = self
+//        collectionView.delegate = self
+//        collectionView.dataSource = self
         
         // Config topBarView
         smallTopBarView.type = "ParentSearch"
@@ -89,24 +89,16 @@ class CategoriesShowViewController: BaseViewController, CategoriesShowViewContro
         
         smallTopBarView.setNeedsDisplay()
         smallTopBarView.circleView.setNeedsDisplay()
+        collectionView!.collectionViewLayout.invalidateLayout()
     }
     
     
     // MARK: - Actions
-    @IBAction func handlerCityButtonTap(_ sender: CustomButton) {
+    @IBAction func handlerCityButtonTap(_ sender: DropDownButton) {
         print(object: "\(type(of: self)): \(#function) run.")
         
-        dropDownContainer.frame = CGRect.init(x: 8, y: sender.bounds.minY + 18, width: cityButton.bounds.width, height: 103)
-        dropDownContainer.alpha = 0
-        cityView.addSubview(dropDownContainer)
-        cityView.sendSubview(toBack: dropDownContainer)
-        
-        UIView.animate(withDuration: 0.5, animations: { () -> Void in
-            var containerFrame = self.dropDownContainer.frame
-            containerFrame = CGRect.init(x: 8, y: self.cityButton.frame.maxY + 2, width: containerFrame.size.width, height: containerFrame.size.height)
-            self.dropDownContainer.frame = containerFrame
-            self.dropDownContainer.alpha = 1
-        }, completion: nil)
+        (sender.isDropDownListShow) ? sender.hideList(fromView: view) : sender.showList(inView: view)        
+        (sender.dropDownTableVC.tableView as! CustomTableView).setScrollIndicatorColor(color: Config.Colors.veryLightOrange!)
     }
     
     
@@ -115,7 +107,7 @@ class CategoriesShowViewController: BaseViewController, CategoriesShowViewContro
         print(object: "\(type(of: self)): \(#function) run. New size = \(size)")
         
         setupScene(withSize: size)
-    }
+    }    
 }
 
 
@@ -145,6 +137,10 @@ extension CategoriesShowViewController: UICollectionViewDataSource {
 extension CategoriesShowViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print(object: "\(type(of: self)): \(#function) run.")
+        
+        if (cityButton.isDropDownListShow) {
+            cityButton.hideList(fromView: view)
+        }
         
         collectionView.deselectItem(at: indexPath, animated: true)
     }

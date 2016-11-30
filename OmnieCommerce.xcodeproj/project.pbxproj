@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2AED68836D19B23C3805FA4F /* Pods_OmnieCommerce.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7BBCD9A2BBB6D643C1B64E4 /* Pods_OmnieCommerce.framework */; };
+		B11CCAF21DEEEBB200AA7942 /* DropDownTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11CCAF11DEEEBB200AA7942 /* DropDownTableViewController.swift */; };
 		B11E074E1DE032D90052AFC5 /* DottedBorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11E074D1DE032D90052AFC5 /* DottedBorderView.swift */; };
 		B1228FB21DD47C9F00A90FBB /* MenuViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1228FB11DD47C9F00A90FBB /* MenuViewCell.swift */; };
 		B1228FB51DD4856A00A90FBB /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1228FB41DD4856A00A90FBB /* MenuItem.swift */; };
@@ -132,6 +133,9 @@
 		B1BF927E1DD6516C00BECBBB /* UBUNTU-M.TTF in Resources */ = {isa = PBXBuildFile; fileRef = B1BF92651DD650F400BECBBB /* UBUNTU-M.TTF */; };
 		B1BF927F1DD6516C00BECBBB /* UBUNTU-MI.TTF in Resources */ = {isa = PBXBuildFile; fileRef = B1BF92661DD650F400BECBBB /* UBUNTU-MI.TTF */; };
 		B1BF92801DD6516C00BECBBB /* UBUNTU-R.TTF in Resources */ = {isa = PBXBuildFile; fileRef = B1BF92671DD650F400BECBBB /* UBUNTU-R.TTF */; };
+		B1C13D871DEF2743002B494A /* DropDownButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C13D861DEF2743002B494A /* DropDownButton.swift */; };
+		B1C13D8D1DEF3385002B494A /* DropDown.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1C13D8C1DEF3385002B494A /* DropDown.storyboard */; };
+		B1C13D8F1DEF5736002B494A /* DropDownTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C13D8E1DEF5736002B494A /* DropDownTableViewCell.swift */; };
 		B1C6F35D1DD9C718004695C2 /* MenuItemsList.plist in Resources */ = {isa = PBXBuildFile; fileRef = B1C6F35C1DD9C718004695C2 /* MenuItemsList.plist */; };
 		B1CBAB921DE446E700A8BCA2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1CBAB911DE446E700A8BCA2 /* Assets.xcassets */; };
 		B1CF54641DDAE78200E98049 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CF54631DDAE78200E98049 /* CustomButton.swift */; };
@@ -207,6 +211,7 @@
 /* Begin PBXFileReference section */
 		6AA4A159468D8EA48A132ED8 /* Pods-OmnieCommerce.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OmnieCommerce.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OmnieCommerce/Pods-OmnieCommerce.debug.xcconfig"; sourceTree = "<group>"; };
 		A7BBCD9A2BBB6D643C1B64E4 /* Pods_OmnieCommerce.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OmnieCommerce.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B11CCAF11DEEEBB200AA7942 /* DropDownTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DropDownTableViewController.swift; sourceTree = "<group>"; };
 		B11E074D1DE032D90052AFC5 /* DottedBorderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DottedBorderView.swift; sourceTree = "<group>"; };
 		B1228FB11DD47C9F00A90FBB /* MenuViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewCell.swift; sourceTree = "<group>"; };
 		B1228FB41DD4856A00A90FBB /* MenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
@@ -336,6 +341,9 @@
 		B1BF92651DD650F400BECBBB /* UBUNTU-M.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "UBUNTU-M.TTF"; sourceTree = "<group>"; };
 		B1BF92661DD650F400BECBBB /* UBUNTU-MI.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "UBUNTU-MI.TTF"; sourceTree = "<group>"; };
 		B1BF92671DD650F400BECBBB /* UBUNTU-R.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "UBUNTU-R.TTF"; sourceTree = "<group>"; };
+		B1C13D861DEF2743002B494A /* DropDownButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DropDownButton.swift; sourceTree = "<group>"; };
+		B1C13D8C1DEF3385002B494A /* DropDown.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DropDown.storyboard; sourceTree = "<group>"; };
+		B1C13D8E1DEF5736002B494A /* DropDownTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DropDownTableViewCell.swift; sourceTree = "<group>"; };
 		B1C6F35C1DD9C718004695C2 /* MenuItemsList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = MenuItemsList.plist; sourceTree = "<group>"; };
 		B1CBAB911DE446E700A8BCA2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B1CF54631DDAE78200E98049 /* CustomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
@@ -438,6 +446,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		B11CCAF01DEEEB7D00AA7942 /* UITableViewController */ = {
+			isa = PBXGroup;
+			children = (
+				B11CCAF11DEEEBB200AA7942 /* DropDownTableViewController.swift */,
+			);
+			path = UITableViewController;
+			sourceTree = "<group>";
+		};
 		B1228FAA1DD44C7A00A90FBB /* UIViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -514,6 +530,7 @@
 				B14E976B1DD8B8CB001E1DE2 /* SignInShow.storyboard */,
 				B1739D411DE363C00029BCCA /* SignUpShow.storyboard */,
 				B122F1BE1DD3575E0018A701 /* SlideMenuShow.storyboard */,
+				B1C13D8C1DEF3385002B494A /* DropDown.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -636,6 +653,7 @@
 				B1228FBB1DD4BDE600A90FBB /* UILabels */,
 				B122F23F1DD371830018A701 /* UINavigationControllers */,
 				B122F23A1DD36F420018A701 /* UITableViewCells */,
+				B11CCAF01DEEEB7D00AA7942 /* UITableViewController */,
 				B122F2381DD36F120018A701 /* UITextFields */,
 				B1228FB61DD497FC00A90FBB /* UIViewControllers */,
 				B1228FAA1DD44C7A00A90FBB /* UIViews */,
@@ -655,6 +673,7 @@
 			isa = PBXGroup;
 			children = (
 				B1CF54631DDAE78200E98049 /* CustomButton.swift */,
+				B1C13D861DEF2743002B494A /* DropDownButton.swift */,
 			);
 			path = UIButtons;
 			sourceTree = "<group>";
@@ -662,6 +681,7 @@
 		B122F23A1DD36F420018A701 /* UITableViewCells */ = {
 			isa = PBXGroup;
 			children = (
+				B1C13D8E1DEF5736002B494A /* DropDownTableViewCell.swift */,
 				B1228FB11DD47C9F00A90FBB /* MenuViewCell.swift */,
 			);
 			path = UITableViewCells;
@@ -1009,6 +1029,7 @@
 				B1BF92731DD6516C00BECBBB /* helveticaneuecyr-roman.otf in Resources */,
 				B1BF92741DD6516C00BECBBB /* helveticaneuecyr-thin.otf in Resources */,
 				B1BF92751DD6516C00BECBBB /* helveticaneuecyr-thinitalic.otf in Resources */,
+				B1C13D8D1DEF3385002B494A /* DropDown.storyboard in Resources */,
 				B18A45C61DEC21BA003EBD2F /* SmallTopBarView.xib in Resources */,
 				B1BF92761DD6516C00BECBBB /* helveticaneuecyr-ultralight.otf in Resources */,
 				B1CF54EC1DDB57C300E98049 /* OmnieCardsShow.storyboard in Resources */,
@@ -1155,6 +1176,7 @@
 				B1CF54DD1DDB51BE00E98049 /* SettingsShowViewController.swift in Sources */,
 				B18A45CC1DEC3918003EBD2F /* SmallCirleView.swift in Sources */,
 				B1CF54841DDB50F100E98049 /* BusinessCardsShowConfigurator.swift in Sources */,
+				B11CCAF21DEEEBB200AA7942 /* DropDownTableViewController.swift in Sources */,
 				B14E97641DD8B05E001E1DE2 /* ForgotPasswordShowConfigurator.swift in Sources */,
 				B1CF54881DDB50F100E98049 /* BusinessCardsShowRouter.swift in Sources */,
 				B122F2221DD35CC80018A701 /* SlideMenuShowConfigurator.swift in Sources */,
@@ -1172,6 +1194,7 @@
 				B1CF54AF1DDB516E00E98049 /* OmnieCardsShowInteractor.swift in Sources */,
 				B122F2151DD35C2C0018A701 /* NewsShowModels.swift in Sources */,
 				B1CF547A1DDB50D900E98049 /* AboutShowRouter.swift in Sources */,
+				B1C13D8F1DEF5736002B494A /* DropDownTableViewCell.swift in Sources */,
 				B14E974C1DD8B042001E1DE2 /* SignInShowRouter.swift in Sources */,
 				B14E97651DD8B05E001E1DE2 /* ForgotPasswordShowInteractor.swift in Sources */,
 				B1CF54961DDB512000E98049 /* DiscountCardsShowRouter.swift in Sources */,
@@ -1235,6 +1258,7 @@
 				B14E974B1DD8B042001E1DE2 /* SignInShowPresenter.swift in Sources */,
 				B1CF54941DDB512000E98049 /* DiscountCardsShowModels.swift in Sources */,
 				B14E975A1DD8B052001E1DE2 /* SignUpShowRouter.swift in Sources */,
+				B1C13D871DEF2743002B494A /* DropDownButton.swift in Sources */,
 				B122F2181DD35C2C0018A701 /* NewsShowViewController.swift in Sources */,
 				B17323CC1DED995C003A8D3E /* Category.swift in Sources */,
 				B122F1F81DD35BC70018A701 /* FavoriteShowInteractor.swift in Sources */,
@@ -1361,7 +1385,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6AA4A159468D8EA48A132ED8 /* Pods-OmnieCommerce.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 2DS2B364WY;
@@ -1382,7 +1406,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = ED913E9D2C7028252CE0B73A /* Pods-OmnieCommerce.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 2DS2B364WY;

@@ -145,9 +145,7 @@
                                     </tableViewCell>
                                 </prototypes>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="mark">
-                                        <real key="value" value="1"/>
-                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="tableCellStyle" value="Menu"/>
                                 </userDefinedRuntimeAttributes>
                             </tableView>
                         </subviews>
