@@ -25,8 +25,11 @@ class NewsShowViewController: BaseViewController, NewsShowViewControllerInput {
     var output: NewsShowViewControllerOutput!
     var router: NewsShowRouter!
     
+    var dataSource = Array<News>()
+    
     @IBOutlet weak var smallTopBarView: SmallTopBarView!
     @IBOutlet weak var copyrightLabel: CustomLabel!
+    @IBOutlet weak var tableView: CustomTableView!
 
     
     // MARK: - Class Initialization
@@ -41,11 +44,23 @@ class NewsShowViewController: BaseViewController, NewsShowViewControllerInput {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Initialization
+        for _ in 0 ..< 25 {
+            dataSource.append(News(title: "Сауна Акваторія", logoPathURL: "https://omniesoft.ua/", activeDate: Date.init(), description: "Вже давно відомо, що читабельний зміст буде заважати зосередитись людині, яка оцінює... композицію сторінки. Сенс використання Lorem Ipsum полягає в тому, що цей текст має більш-менш нормальне розподілення літер на відміну від, наприклад, \"Тут іде текст. Тут іде текст.\" Це робить текст схожим на оповідний. Багато програм верстування та веб-дизайну використовують Lorem Ipsum як зразок і пошук за терміном \"lorem ipsum\" відкриє багато веб-сайтів, які знаходяться ще в зародковому стані. Різні версії Lorem Ipsum з'явились за минулі роки, деякі випадково, деякі було створено зумисно (зокрема, жартівливі)."))
+        }
+
         // Config topBarView
         smallTopBarView.type = "ParentSearch"
         topBarViewStyle = .Small
         setup(topBarView: smallTopBarView)
 
+        // Register the Nib header/footer section views
+        tableView.register(UINib(nibName: "BaseTableViewCell", bundle: nil), forCellReuseIdentifier: "DataCell")
+
+        // Delegates
+        tableView.dataSource = self
+        tableView.delegate = self
+        
         doSomethingOnLoad()
     }
     
@@ -80,5 +95,43 @@ class NewsShowViewController: BaseViewController, NewsShowViewControllerInput {
         print(object: "\(type(of: self)): \(#function) run. New size = \(size)")
         
         setupScene(withSize: size)
+    }
+}
+
+
+// MARK: - UITableViewDataSource
+extension NewsShowViewController: UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        self.tableView.setScrollIndicatorColor(color: Config.Colors.veryLightOrange!)
+
+        return dataSource.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "DataCell", for: indexPath) as! BaseTableViewCell
+        let news = dataSource[indexPath.row] 
+        
+        // Config cell
+        cell.setup(withItem: news)
+        
+        return cell
+    }
+}
+
+
+// MARK: - 
+extension NewsShowViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(object: "\(type(of: self)): \(#function) run.")
+        
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 95.0
     }
 }

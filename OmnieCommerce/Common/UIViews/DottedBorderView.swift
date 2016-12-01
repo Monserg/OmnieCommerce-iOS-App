@@ -19,40 +19,6 @@ enum ViewStyle: String {
     // MARK: - Properties
     @IBInspectable var borderWidth: String = "1.5"
     @IBInspectable var viewStyle: String?
-//        {
-//        didSet { setupWithStyleNamed(viewStyle) }
-//        //        get { return nil }
-//    }
-//    
-//    func setupWithStyleNamed(_ named: String?) {
-//        if let styleName = named, let viewStyle = ViewStyle(rawValue: styleName) {
-//            setupWithStyle(viewStyle)
-//        }
-//    }
-//    
-//    func setupWithStyle(_ viewStyle: ViewStyle) {
-//        switch viewStyle {
-//        case .BottomDottedLine:
-//            cornerRadius = 0.0
-//            borderWidth = 1.5
-//            borderColor = (Config.Constants.isAppThemesLight) ? UIColor.black : Config.Colors.lightGrayAlfa20
-//            
-//        case .BottomDottedLineColor:
-//            cornerRadius = 0.0
-//            borderWidth = 3
-//            borderColor = (Config.Constants.isAppThemesLight) ? UIColor.black : Config.Colors.veryLightOrangeAlfa60
-//            
-//        case .AroundDottedRectangle:
-//            cornerRadius = 10.0
-//            borderWidth = 1.5
-//            borderColor = (Config.Constants.isAppThemesLight) ? UIColor.black : Config.Colors.lightGrayAlfa20
-//            
-//        case .AroundDottedRectangleColor:
-//            cornerRadius = 10.0
-//            borderWidth = 1.5
-//            borderColor = (Config.Constants.isAppThemesLight) ? UIColor.black : Config.Colors.veryLightOrangeAlfa60
-//        }
-//    }
     
     
     // MARK: - Class Initialization
