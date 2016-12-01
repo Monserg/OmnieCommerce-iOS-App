@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AlamofireImage
 
 enum CellStyle: String {
     case News       =   "News"
@@ -21,49 +22,13 @@ enum CellStyle: String {
 @IBDesignable class BaseTableViewCell: UITableViewCell {
     // MARK: - Properties
     @IBOutlet weak var borderDottedView: DottedBorderView!
-    @IBOutlet weak var logoImageView: UIImageView!
+    @IBOutlet weak var logoImageView: CustomImageView!
     @IBOutlet weak var nameLabel: CustomLabel!
     @IBOutlet weak var dateLabel: CustomLabel!
     @IBOutlet weak var describeLabel: CustomLabel!
     
     @IBInspectable var cellStyle: String = ""
-        //{
-//        didSet {
-//            guard !cellStyle.isEmpty else {
-//                return
-//            }
-//            
-//            let style = CellStyle.init(rawValue: cellStyle)!
-//            
-//            switch style {
-//            case .News:
-//                backgroundColor = Config.Colors.veryDarkDesaturatedBlue24
-////                borderDottedView.viewStyle = ViewStyle.AroundDottedRectangleColor.rawValue
-//                nameLabel.labelStyle = "MenuItem"
-//                dateLabel.labelStyle = "Date"
-//                describeLabel.labelStyle = "Describe"
-//                
-//            case .Order:
-//                break
-//                
-//            case .Profile:
-//                break
-//                
-//            case .Service:
-//                break
-//                
-//            case .Handbook:
-//                break
-//                
-//            case .Favourite:
-//                break
-//                
-//            default:
-//                break
-//            }
-//        }
-//    }
-    
+
     
     // MARK: - Class Functions
     override func awakeFromNib() {
@@ -90,7 +55,9 @@ enum CellStyle: String {
             describeLabel.numberOfLines = 2
             describeLabel.text = news.description
             describeLabel.clipsToBounds = false
-                        
+            
+            logoImageView.af_setImage(withURL: URL(string: news.logoStringURL ?? "https://omniesoft.ua/")!, placeholderImage: UIImage.init(named: "image-no-photo"), filter: AspectScaledToFillSizeWithRoundedCornersFilter(size: logoImageView.frame.size, radius: logoImageView.frame.size.width / 2))
+            
         default:
             break
         }

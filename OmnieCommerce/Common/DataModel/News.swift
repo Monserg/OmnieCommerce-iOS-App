@@ -11,7 +11,7 @@ import Foundation
 struct News {
     // MARK: - Properties
     let title: String
-    let logoPathURL: String
+    let logoStringURL: String?
     let activeDate: Date
     let description: String
 }
