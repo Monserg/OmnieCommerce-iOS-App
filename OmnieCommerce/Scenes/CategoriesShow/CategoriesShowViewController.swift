@@ -55,8 +55,8 @@ class CategoriesShowViewController: BaseViewController, CategoriesShowViewContro
         }
         
         // Delegates
-//        collectionView.delegate = self
-//        collectionView.dataSource = self
+        collectionView.delegate = self
+        collectionView.dataSource = self
         
         // Config topBarView
         smallTopBarView.type = "ParentSearch"
@@ -89,6 +89,7 @@ class CategoriesShowViewController: BaseViewController, CategoriesShowViewContro
         
         smallTopBarView.setNeedsDisplay()
         smallTopBarView.circleView.setNeedsDisplay()
+        cityButton.setNeedsDisplay()
         collectionView!.collectionViewLayout.invalidateLayout()
     }
     
@@ -99,6 +100,13 @@ class CategoriesShowViewController: BaseViewController, CategoriesShowViewContro
         
         (sender.isDropDownListShow) ? sender.hideList(fromView: view) : sender.showList(inView: view)        
         (sender.dropDownTableVC.tableView as! CustomTableView).setScrollIndicatorColor(color: Config.Colors.veryLightOrange!)
+        
+        // Handler DropDownList selection
+        sender.dropDownTableVC.completionHandler = ({ selectedValue in
+            sender.changeTitle(newValue: selectedValue)
+            
+            sender.hideList(fromView: self.view)
+        })
     }
     
     
@@ -107,7 +115,11 @@ class CategoriesShowViewController: BaseViewController, CategoriesShowViewContro
         print(object: "\(type(of: self)): \(#function) run. New size = \(size)")
         
         setupScene(withSize: size)
-    }    
+        
+        if (cityButton.isDropDownListShow) {
+            cityButton.hideList(fromView: view)
+        }
+    }
 }
 
 

@@ -50,7 +50,17 @@ enum DropDownList: String {
             self.dropDownTableVC.view.frame = viewFrame
             self.dropDownTableVC.view.alpha = 0
             self.isDropDownListShow = false
-//            self.dropDownTableVC.view.removeFromSuperview()
-        }, completion: nil)
+        }, completion: { success in
+            guard success else {
+                return
+            }
+            
+            self.dropDownTableVC.tableView.removeFromSuperview()
+        })
+    }
+    
+    func changeTitle(newValue title: String) {
+        setAttributedTitle(NSAttributedString(string: title, attributes: Config.Fonts.ubuntuLightVeryLightGray12), for: .normal)
+        setAttributedTitle(NSAttributedString(string: title, attributes: Config.Fonts.ubuntuLightVeryLightGray12Alpha30), for: .highlighted)
     }
 }

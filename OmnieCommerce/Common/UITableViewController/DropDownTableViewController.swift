@@ -12,7 +12,7 @@ class DropDownTableViewController: UITableViewController {
     // MARK: - Properties
     var dataSource = Array<String>()
     var sourceType: DropDownList?
-//    var completionHandler: (_ value: String) -> ()?
+    var completionHandler: ((_ value: String) -> ())?
     
     
     // MARK: - Class Functions
@@ -83,7 +83,6 @@ extension DropDownTableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-//        completionHandler(dataSource[indexPath.row])
-        
+        completionHandler!(dataSource[indexPath.row])        
     }
 }
