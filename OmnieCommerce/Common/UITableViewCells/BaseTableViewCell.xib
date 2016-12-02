@@ -19,10 +19,10 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XLs-NS-f4d" userLabel="Border Dotted View">
-                        <rect key="frame" x="50" y="5" width="435" height="86"/>
+                        <rect key="frame" x="50" y="5" width="435" height="85"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="13g-08-x1W" customClass="DottedBorderView" customModule="OmnieCommerce" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="435" height="87.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="435" height="87"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="borderWidth" value="1.5"/>

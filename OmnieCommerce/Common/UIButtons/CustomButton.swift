@@ -30,7 +30,6 @@ import UIKit
         print(object: "\(type(of: self)): \(#function) run. Button rect = \(rect)")
 
         clipsToBounds = true
-        imageEdgeInsets = UIEdgeInsetsMake(3, UIScreen.main.bounds.width - 30 - borderWidth, 0, 0)
         
         if (designStyle == "Social") {
             let circleX = UIApplication.shared.statusBarOrientation.isPortrait ? Double(UIScreen.main.bounds.width / 2) : Double(UIScreen.main.bounds.width * Config.Constants.bigTopBarViewWidthCoefficient - Config.Constants.lineViewThickness) - Config.Constants.lineViewSocialButtonDistance - Double(Config.Constants.lineViewThickness / 2) - Config.Constants.fillViewBigRadiusLandscape
@@ -60,6 +59,8 @@ import UIKit
             } else {
                 center = CGPoint.init(x: circleX + Config.Constants.fillViewBigRadiusLandscape * cos((M_PI * buttonDegree) / 180), y: circleY - Config.Constants.fillViewBigRadiusLandscape * sin((M_PI * buttonDegree) / 180))
             }
+        } else if (designStyle == "DropDownList") {
+            imageEdgeInsets = UIEdgeInsetsMake(3, UIScreen.main.bounds.width - 30 - borderWidth, 0, 0)
         }
     }
 }
