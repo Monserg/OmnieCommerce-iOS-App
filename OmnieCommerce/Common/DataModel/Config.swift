@@ -27,55 +27,55 @@ struct Config {
         static let dropDownCellHeight: CGFloat                  =   23.0
         
         // FIXME: - DELETE AFTER TEST
-        static let isUserGuest: Bool                            =   false
+        static let isUserGuest: Bool                            =   true
         static let isAppThemesLight                             =   false
     }
     
     struct Fonts {
         static let ubuntuLightVeryLightGray12                   =   [   NSFontAttributeName             :   Fonts.ubuntuLight12!,
-                                                                        NSForegroundColorAttributeName  :   Colors.veryLightGray!,
+                                                                        NSForegroundColorAttributeName  :   UIColor.veryLightGray,
                                                                         NSKernAttributeName             :   0.0,
                                                                         NSUnderlineStyleAttributeName   :   NSUnderlineStyle.styleNone.rawValue
                                                                     ] as [String : Any]
         
         static let ubuntuLightVeryLightGray12Alpha30            =   [   NSFontAttributeName             :   Fonts.ubuntuLight12!,
-                                                                        NSForegroundColorAttributeName  :   Colors.veryLightGrayAlpha30!,
+                                                                        NSForegroundColorAttributeName  :   UIColor.veryLightGrayAlpha30,
                                                                         NSKernAttributeName             :   0.0,
                                                                         NSUnderlineStyleAttributeName   :   NSUnderlineStyle.styleNone.rawValue
                                                                     ] as [String : Any]
         
         static let ubuntuLightDarkCyan12                        =   [   NSFontAttributeName             :   Fonts.ubuntuLight12!,
-                                                                        NSForegroundColorAttributeName  :   Colors.darkCyan!,
+                                                                        NSForegroundColorAttributeName  :   UIColor.darkCyan,
                                                                         NSKernAttributeName             :   0.0,
                                                                         NSUnderlineStyleAttributeName   :   NSUnderlineStyle.styleNone.rawValue
                                                                     ] as [String : Any]
         
         static let ubuntuLightDarkCyan12Alpha30                 =   [   NSFontAttributeName             :   Fonts.ubuntuLight12!,
-                                                                        NSForegroundColorAttributeName  :   Colors.darkCyanAlpha30!,
+                                                                        NSForegroundColorAttributeName  :   UIColor.darkCyanAlpha30,
                                                                         NSKernAttributeName             :   0.0,
                                                                         NSUnderlineStyleAttributeName   :   NSUnderlineStyle.styleNone.rawValue
                                                                     ] as [String : Any]
         
         static let ubuntuLightSoftOrangeUnderline12             =   [   NSFontAttributeName             :   Fonts.ubuntuLight12!,
-                                                                        NSForegroundColorAttributeName  :   Colors.softOrange!,
+                                                                        NSForegroundColorAttributeName  :   UIColor.softOrange,
                                                                         NSKernAttributeName             :   0.0,
                                                                         NSUnderlineStyleAttributeName   :   NSUnderlineStyle.styleSingle.rawValue
                                                                     ] as [String : Any]
         
         static let ubuntuLightVeryLightGrayUnderline12          =   [   NSFontAttributeName             :   Fonts.ubuntuLight12!,
-                                                                        NSForegroundColorAttributeName  :   Colors.veryLightGray!,
+                                                                        NSForegroundColorAttributeName  :   UIColor.veryLightGray,
                                                                         NSKernAttributeName             :   0.0,
                                                                         NSUnderlineStyleAttributeName   :   NSUnderlineStyle.styleSingle.rawValue
                                                                     ] as [String : Any]
         
         static let ubuntuRegularVeryLightOrangeUnderline12      =   [   NSFontAttributeName             :   Fonts.ubuntuLight12!,
-                                                                        NSForegroundColorAttributeName  :   Colors.veryLightOrange!,
+                                                                        NSForegroundColorAttributeName  :   UIColor.veryLightOrange,
                                                                         NSKernAttributeName             :   0.0,
                                                                         NSUnderlineStyleAttributeName   :   NSUnderlineStyle.styleSingle.rawValue
                                                                     ] as [String : Any]
         
         static let helveticaNeueCyrRoman16Kern486               =   [   NSFontAttributeName             :   Fonts.helveticaNeueCyrRoman16!,
-                                                                        NSForegroundColorAttributeName  :   Colors.veryLightGray!,
+                                                                        NSForegroundColorAttributeName  :   UIColor.veryLightGray,
                                                                         NSKernAttributeName             :   4.86,
                                                                         NSUnderlineStyleAttributeName   :   NSUnderlineStyle.styleNone.rawValue
                                                                     ] as [String : Any]
@@ -96,29 +96,5 @@ struct Config {
         static let helveticaNeueCyrThin51                       =   UIFont(name: "helveticaNeueCyr-Thin", size: 51.0)
         static let helveticaNeueCyrRoman16                      =   UIFont(name: "helveticaNeueCyr-Roman", size: 16.0)
         
-    }
-    
-    struct Colors {
-        static let darkCyan                                     =   UIColor(hexString: "#009395")
-        static let softOrange                                   =   UIColor(hexString: "#d9ba68")
-        static let grayishBlue                                  =   UIColor(hexString: "#d5d5d6")
-        static let moderateRed                                  =   UIColor(hexString: "#c73b3c")
-        static let veryDarkGray                                 =   UIColor(hexString: "#333333")
-        static let veryDarkCyan                                 =   UIColor(hexString: "#18676f")
-        static let veryLightGray                                =   UIColor(hexString: "#dedede")
-        static let veryLightOrange                              =   UIColor(hexString: "#ffd76c")
-        static let lightGrayishCyan                             =   UIColor(hexString: "#cce8e8")
-        static let veryDarkGrayishBlue38                        =   UIColor(hexString: "#38444e")
-        static let veryDarkGrayishBlue53                        =   UIColor(hexString: "#535e68")
-        static let veryDarkDesaturatedBlue20                    =   UIColor(hexString: "#203c48")
-        static let veryDarkDesaturatedBlue24                    =   UIColor(hexString: "#24323f")
-        static let veryDarkDesaturatedBlue2f                    =   UIColor(hexString: "#2f3c49")
-        
-        static let darkCyanAlpha30                              =   UIColor(hexString: "#009395", withAlpha: 0.3)
-        static let lightGrayAlpha20                             =   UIColor(hexString: "#cacaca", withAlpha: 0.2)
-        static let veryLightGrayAlpha30                         =   UIColor(hexString: "#dedede", withAlpha: 0.3)
-        static let veryLightOrangeAlpha60                       =   UIColor(hexString: "#ffd76c", withAlpha: 0.6)
-        static let veryDarkDesaturatedBlue25Alpha1              =   UIColor(hexString: "#253340", withAlpha: 1.0)
-        static let veryDarkDesaturatedBlue25Alpha94             =   UIColor(hexString: "#253340", withAlpha: 0.94)
-    }
+    }    
 }

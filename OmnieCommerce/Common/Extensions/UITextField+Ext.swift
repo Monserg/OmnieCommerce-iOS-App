@@ -35,18 +35,18 @@ extension UITextField {
 
         switch textFieldStyle {
         case .grayishBlue:
-            self.attributedPlaceholder = NSAttributedString(string: (self.placeholder?.localized())!, attributes: [NSFontAttributeName :  Config.Fonts.ubuntuLightItalic16!, NSForegroundColorAttributeName : Config.Colors.grayishBlue!, NSKernAttributeName : 0.0, NSParagraphStyleAttributeName : paragraphStyle])
+            self.attributedPlaceholder = NSAttributedString(string: (self.placeholder?.localized())!, attributes: [NSFontAttributeName :  Config.Fonts.ubuntuLightItalic16!, NSForegroundColorAttributeName : UIColor.grayishBlue, NSKernAttributeName : 0.0, NSParagraphStyleAttributeName : paragraphStyle])
             
             self.font = Config.Fonts.ubuntuLightItalic16
-            self.textColor = Config.Colors.grayishBlue
-            self.tintColor = Config.Colors.grayishBlue
+            self.textColor = UIColor.grayishBlue
+            self.tintColor = UIColor.grayishBlue
             
         case .darkCyan:
-            attributedPlaceholder = NSAttributedString(string: (placeholder?.localized())!, attributes: [NSFontAttributeName :  Config.Fonts.ubuntuLightItalic16!, NSForegroundColorAttributeName : Config.Colors.darkCyan!, NSKernAttributeName : 0.0, NSParagraphStyleAttributeName : paragraphStyle])
+            attributedPlaceholder = NSAttributedString(string: (placeholder?.localized())!, attributes: [NSFontAttributeName :  Config.Fonts.ubuntuLightItalic16!, NSForegroundColorAttributeName : UIColor.darkCyan, NSKernAttributeName : 0.0, NSParagraphStyleAttributeName : paragraphStyle])
             
             font = (Config.Constants.isAppThemesLight) ? UIFont.systemFont(ofSize: 12) : Config.Fonts.ubuntuLightItalic16
-            textColor = (Config.Constants.isAppThemesLight) ? UIColor.blue : Config.Colors.darkCyan
-            tintColor = (Config.Constants.isAppThemesLight) ? UIColor.blue : Config.Colors.darkCyan
+            textColor = (Config.Constants.isAppThemesLight) ? UIColor.blue : UIColor.darkCyan
+            tintColor = (Config.Constants.isAppThemesLight) ? UIColor.blue : UIColor.darkCyan
         }
         
         changeClearButtonColor()

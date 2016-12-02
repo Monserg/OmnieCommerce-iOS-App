@@ -27,7 +27,7 @@ class MenuViewCell: UITableViewCell {
     
     // MARK: - Custom Functions
     func setup(menuItem: NSDictionary) {
-        self.backgroundColor = Config.Colors.veryDarkDesaturatedBlue25Alpha1
+        self.backgroundColor = UIColor.veryDarkDesaturatedBlue25Alpha1
         titleLabel.text = (menuItem.object(forKey: "name") as! String).localized()
         segueName = (menuItem.object(forKey: "segue") as! String)
         

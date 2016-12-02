@@ -108,7 +108,7 @@ extension NewsShowViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        self.tableView.setScrollIndicatorColor(color: Config.Colors.veryLightOrange!)
+        self.tableView.setScrollIndicatorColor(color: UIColor.veryLightOrange)
 
         return dataSource.count
     }

@@ -99,7 +99,7 @@ class CategoriesShowViewController: BaseViewController, CategoriesShowViewContro
         print(object: "\(type(of: self)): \(#function) run.")
         
         (sender.isDropDownListShow) ? sender.hideList(fromView: view) : sender.showList(inView: view)        
-        (sender.dropDownTableVC.tableView as! CustomTableView).setScrollIndicatorColor(color: Config.Colors.veryLightOrange!)
+        (sender.dropDownTableVC.tableView as! CustomTableView).setScrollIndicatorColor(color: UIColor.veryLightOrange)
         
         // Handler DropDownList selection
         sender.dropDownTableVC.completionHandler = ({ selectedValue in

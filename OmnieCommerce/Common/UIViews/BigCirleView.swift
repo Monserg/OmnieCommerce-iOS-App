@@ -36,7 +36,7 @@ import UIKit
         let fillViewWidthLandscape: CGFloat     =   CGFloat(lineViewWidthLandscape - Config.Constants.fillViewLineViewDistance)
         
         // Set the circle outerline-colour
-        Config.Colors.darkCyan?.set()
+        UIColor.darkCyan.set()
         
         // Create Fill Circle
         if UIApplication.shared.statusBarOrientation.isPortrait {
@@ -55,7 +55,7 @@ import UIKit
         contextLineView!.setLineWidth(Config.Constants.lineViewThickness)
         
         // Set the circle outerline-colour
-        Config.Colors.veryDarkGrayishBlue38?.set()
+        UIColor.veryDarkGrayishBlue38.set()
 ///        UIColor.white.set()
         
         // Create Line Circle

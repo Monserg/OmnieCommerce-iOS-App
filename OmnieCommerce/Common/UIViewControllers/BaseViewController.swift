@@ -129,7 +129,7 @@ class BaseViewController: UIViewController {
         // TopBarView small height
         else {
             // Set background color
-            self.view.backgroundColor = Config.Colors.veryDarkDesaturatedBlue24
+            self.view.backgroundColor = UIColor.veryDarkDesaturatedBlue24
 
             // Add Slide Menu actions
             if revealViewController() != nil {
