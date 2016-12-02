@@ -35,16 +35,16 @@ extension UITextField {
 
         switch textFieldStyle {
         case .grayishBlue:
-            self.attributedPlaceholder = NSAttributedString(string: (self.placeholder?.localized())!, attributes: [NSFontAttributeName :  Config.Fonts.ubuntuLightItalic16!, NSForegroundColorAttributeName : UIColor.grayishBlue, NSKernAttributeName : 0.0, NSParagraphStyleAttributeName : paragraphStyle])
+            self.attributedPlaceholder = NSAttributedString(string: (self.placeholder?.localized())!, attributes: [NSFontAttributeName :  UIFont.ubuntuLightItalic16, NSForegroundColorAttributeName : UIColor.grayishBlue, NSKernAttributeName : 0.0, NSParagraphStyleAttributeName : paragraphStyle])
             
-            self.font = Config.Fonts.ubuntuLightItalic16
+            self.font = UIFont.ubuntuLightItalic16
             self.textColor = UIColor.grayishBlue
             self.tintColor = UIColor.grayishBlue
             
         case .darkCyan:
-            attributedPlaceholder = NSAttributedString(string: (placeholder?.localized())!, attributes: [NSFontAttributeName :  Config.Fonts.ubuntuLightItalic16!, NSForegroundColorAttributeName : UIColor.darkCyan, NSKernAttributeName : 0.0, NSParagraphStyleAttributeName : paragraphStyle])
+            attributedPlaceholder = NSAttributedString(string: (placeholder?.localized())!, attributes: [NSFontAttributeName :  UIFont.ubuntuLightItalic16, NSForegroundColorAttributeName : UIColor.darkCyan, NSKernAttributeName : 0.0, NSParagraphStyleAttributeName : paragraphStyle])
             
-            font = (Config.Constants.isAppThemesLight) ? UIFont.systemFont(ofSize: 12) : Config.Fonts.ubuntuLightItalic16
+            font = (Config.Constants.isAppThemesLight) ? UIFont.systemFont(ofSize: 12) : UIFont.ubuntuLightItalic16
             textColor = (Config.Constants.isAppThemesLight) ? UIColor.blue : UIColor.darkCyan
             tintColor = (Config.Constants.isAppThemesLight) ? UIColor.blue : UIColor.darkCyan
         }

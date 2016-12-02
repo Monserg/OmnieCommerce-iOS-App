@@ -208,6 +208,7 @@
 		B1CF54EC1DDB57C300E98049 /* OmnieCardsShow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1CF54EB1DDB57C300E98049 /* OmnieCardsShow.storyboard */; };
 		B1CF54EE1DDB588600E98049 /* DiscountCardsShow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1CF54ED1DDB588600E98049 /* DiscountCardsShow.storyboard */; };
 		B1CF54F01DDB5F1A00E98049 /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CF54EF1DDB5F1A00E98049 /* CustomLabel.swift */; };
+		B1DA01B11DF1CB2F00E6DD46 /* UIFont+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DA01B01DF1CB2F00E6DD46 /* UIFont+Ext.swift */; };
 		B1DB3C761DE4205500C0A079 /* UITextField+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DB3C751DE4205500C0A079 /* UITextField+Ext.swift */; };
 		B1E52AB11DDDD0EA00C3B24D /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E52AB01DDDD0EA00C3B24D /* LaunchScreenViewController.swift */; };
 		B1E52AD31DDDDEC600C3B24D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1E52AD21DDDDEC600C3B24D /* Main.storyboard */; };
@@ -421,6 +422,7 @@
 		B1CF54EB1DDB57C300E98049 /* OmnieCardsShow.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = OmnieCardsShow.storyboard; sourceTree = "<group>"; };
 		B1CF54ED1DDB588600E98049 /* DiscountCardsShow.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DiscountCardsShow.storyboard; sourceTree = "<group>"; };
 		B1CF54EF1DDB5F1A00E98049 /* CustomLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
+		B1DA01B01DF1CB2F00E6DD46 /* UIFont+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+Ext.swift"; sourceTree = "<group>"; };
 		B1DB3C751DE4205500C0A079 /* UITextField+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+Ext.swift"; sourceTree = "<group>"; };
 		B1E52AB01DDDD0EA00C3B24D /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewController.swift; sourceTree = "<group>"; };
 		B1E52AD21DDDDEC600C3B24D /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -814,6 +816,7 @@
 				B11B9AD91DF02F5C009A4AA1 /* Date+Ext.swift */,
 				B1739D151DE314C70029BCCA /* UIButton+Ext.swift */,
 				B1739D191DE314DF0029BCCA /* UIColor+Ext.swift */,
+				B1DA01B01DF1CB2F00E6DD46 /* UIFont+Ext.swift */,
 				B1739D171DE314D50029BCCA /* UILabel+Ext.swift */,
 				B1DB3C751DE4205500C0A079 /* UITextField+Ext.swift */,
 				B1739D1B1DE314E80029BCCA /* UIView+Ext.swift */,
@@ -1164,6 +1167,7 @@
 				B1CF54CD1DDB51A500E98049 /* PersonalPageShowPresenter.swift in Sources */,
 				B11B9ADA1DF02F5C009A4AA1 /* Date+Ext.swift in Sources */,
 				B1CF54C11DDB519000E98049 /* OnmieSoftShowViewController.swift in Sources */,
+				B1DA01B11DF1CB2F00E6DD46 /* UIFont+Ext.swift in Sources */,
 				B1CF54B31DDB516E00E98049 /* OmnieCardsShowViewController.swift in Sources */,
 				B1CF54D01DDB51A500E98049 /* PersonalPageShowWorker.swift in Sources */,
 				B1CF54921DDB512000E98049 /* DiscountCardsShowConfigurator.swift in Sources */,

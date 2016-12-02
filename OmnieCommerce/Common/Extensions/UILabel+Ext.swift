@@ -39,44 +39,44 @@ extension UILabel {
         
         switch labelStyle {
         case .Error:
-            font = (Config.Constants.isAppThemesLight) ? UIFont.systemFont(ofSize: 12) : Config.Fonts.ubuntuLightItalic12
+            font = (Config.Constants.isAppThemesLight) ? UIFont.systemFont(ofSize: 12) : UIFont.ubuntuLightItalic12
             textColor = (Config.Constants.isAppThemesLight) ? UIColor.white : UIColor.moderateRed
             
         case .Title:
-            font = (Config.Constants.isAppThemesLight) ? UIFont.systemFont(ofSize: 12) : Config.Fonts.helveticaNeueCyrLight32
+            font = (Config.Constants.isAppThemesLight) ? UIFont.systemFont(ofSize: 12) : UIFont.helveticaNeueCyrLight32
             textColor = (Config.Constants.isAppThemesLight) ? UIColor.white : UIColor.veryLightGray
             
         case .Copyright:
-            font = (Config.Constants.isAppThemesLight) ? UIFont.systemFont(ofSize: 12) : Config.Fonts.ubuntuLight9
+            font = (Config.Constants.isAppThemesLight) ? UIFont.systemFont(ofSize: 12) : UIFont.ubuntuLight9
             textColor = (Config.Constants.isAppThemesLight) ? UIColor.white : UIColor.darkCyan
             text = "\u{00A9} Omniesoft, 2016"
             
         case .MenuItem:
-            font = (Config.Constants.isAppThemesLight) ? UIFont.systemFont(ofSize: 12) : Config.Fonts.ubuntuLight16
+            font = (Config.Constants.isAppThemesLight) ? UIFont.systemFont(ofSize: 12) : UIFont.ubuntuLight16
             textColor = (Config.Constants.isAppThemesLight) ? UIColor.white : UIColor.veryLightGray
             
         case .ForgotPassword:
-            font = (Config.Constants.isAppThemesLight) ? UIFont.systemFont(ofSize: 12) : Config.Fonts.helveticaNeueCyrThin33
+            font = (Config.Constants.isAppThemesLight) ? UIFont.systemFont(ofSize: 12) : UIFont.helveticaNeueCyrThin33
             textColor = (Config.Constants.isAppThemesLight) ? UIColor.white : UIColor.veryLightGray
             
         case .Congratulations:
-            font = (Config.Constants.isAppThemesLight) ? UIFont.systemFont(ofSize: 12) : Config.Fonts.helveticaNeueCyrThin47
+            font = (Config.Constants.isAppThemesLight) ? UIFont.systemFont(ofSize: 12) : UIFont.helveticaNeueCyrThin47
             textColor = (Config.Constants.isAppThemesLight) ? UIColor.white : UIColor.veryLightGray
             
         case .CategoryName:
-            font = (Config.Constants.isAppThemesLight) ? UIFont.systemFont(ofSize: 12) : Config.Fonts.ubuntuRegular16
+            font = (Config.Constants.isAppThemesLight) ? UIFont.systemFont(ofSize: 12) : UIFont.ubuntuRegular16
             textColor = (Config.Constants.isAppThemesLight) ? UIColor.white : UIColor.veryDarkGray
 
         case .Date:
-            font = (Config.Constants.isAppThemesLight) ? UIFont.systemFont(ofSize: 12) : Config.Fonts.ubuntuLight9
+            font = (Config.Constants.isAppThemesLight) ? UIFont.systemFont(ofSize: 12) : UIFont.ubuntuLight9
             textColor = (Config.Constants.isAppThemesLight) ? UIColor.white : UIColor.veryDarkGrayishBlue53
 
         case .Describe:
-            font = (Config.Constants.isAppThemesLight) ? UIFont.systemFont(ofSize: 12) : Config.Fonts.ubuntuLightItalic12
+            font = (Config.Constants.isAppThemesLight) ? UIFont.systemFont(ofSize: 12) : UIFont.ubuntuLightItalic12
             textColor = (Config.Constants.isAppThemesLight) ? UIColor.white : UIColor.lightGrayishCyan
             
         default:
-            font = (Config.Constants.isAppThemesLight) ? UIFont.systemFont(ofSize: 12) : Config.Fonts.ubuntuLight12
+            font = (Config.Constants.isAppThemesLight) ? UIFont.systemFont(ofSize: 12) : UIFont.ubuntuLight12
             textColor = (Config.Constants.isAppThemesLight) ? UIColor.white : UIColor.veryLightGray
         }
         

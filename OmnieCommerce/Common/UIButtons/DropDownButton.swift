@@ -60,7 +60,7 @@ enum DropDownList: String {
     }
     
     func changeTitle(newValue title: String) {
-        setAttributedTitle(NSAttributedString(string: title, attributes: Config.Fonts.ubuntuLightVeryLightGray12), for: .normal)
-        setAttributedTitle(NSAttributedString(string: title, attributes: Config.Fonts.ubuntuLightVeryLightGray12Alpha30), for: .highlighted)
+        setAttributedTitle(NSAttributedString(string: title, attributes: UIFont.ubuntuLightVeryLightGray12), for: .normal)
+        setAttributedTitle(NSAttributedString(string: title, attributes: UIFont.ubuntuLightVeryLightGray12Alpha30), for: .highlighted)
     }
 }
