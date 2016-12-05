@@ -27,7 +27,7 @@ class FavoriteShowViewController: BaseViewController, FavoriteShowViewController
     
     @IBOutlet weak var smallTopBarView: SmallTopBarView!
     @IBOutlet weak var copyrightLabel: CustomLabel!
-    @IBOutlet weak var topBarViewHeightPortraitConstraint: NSLayoutConstraint!
+    @IBOutlet weak var segmentedControlView: SegmentedControlView!
     
     
     // MARK: - Class Initialization
@@ -48,6 +48,8 @@ class FavoriteShowViewController: BaseViewController, FavoriteShowViewController
         setup(topBarView: smallTopBarView)
 
         doSomethingOnLoad()
+        
+        setupSegmentedControlView()
     }
     
 
@@ -75,6 +77,15 @@ class FavoriteShowViewController: BaseViewController, FavoriteShowViewController
         smallTopBarView.circleView.setNeedsDisplay()
     }
     
+    func setupSegmentedControlView() {
+        segmentedControlView.backgroundColor = UIColor.veryDarkDesaturatedBlue24
+        
+        segmentedControlView.actionButtonHandlerCompletion = { sender in
+            self.print(object: "\(type(of: self)): \(#function) run. Sender tag = \(sender.tag)")
+            
+        }
+    }
+
     
     // MARK: - Transition
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {

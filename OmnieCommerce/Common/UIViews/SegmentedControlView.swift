@@ -64,7 +64,6 @@ import Localize_Swift
     override func draw(_ rect: CGRect) {
         print(object: "\(type(of: self)): \(#function) run.")
         
-        backgroundColor = UIColor.veryDarkDesaturatedBlue24
     }
 
 
@@ -73,6 +72,7 @@ import Localize_Swift
         UINib(nibName: String(describing: SegmentedControlView.self), bundle: Bundle(for: SegmentedControlView.self)).instantiate(withOwner: self, options: nil)
         addSubview(view)
         view.frame = frame
+        view.backgroundColor = UIColor.veryDarkDesaturatedBlue24
         
         print(object: "\(type(of: self)): \(#function) run. Initialization view.frame = \(view.frame)")
     }
