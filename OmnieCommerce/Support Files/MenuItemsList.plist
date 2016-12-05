@@ -11,6 +11,10 @@
 			<string>icon-menu-orders-normal.png</string>
 			<key>segue</key>
 			<string>OrdersShowSegue</string>
+			<key>isColor</key>
+			<false/>
+			<key>hasNewEvent</key>
+			<true/>
 		</dict>
 		<dict>
 			<key>name</key>
@@ -19,6 +23,10 @@
 			<string>icon-menu-messages-normal.png</string>
 			<key>segue</key>
 			<string>MessagesShowSegue</string>
+			<key>isColor</key>
+			<false/>
+			<key>hasNewEvent</key>
+			<false/>
 		</dict>
 		<dict>
 			<key>name</key>
@@ -27,6 +35,10 @@
 			<string>icon-menu-favourite-normal.png</string>
 			<key>segue</key>
 			<string>FavoriteShowSegue</string>
+			<key>isColor</key>
+			<false/>
+			<key>hasNewEvent</key>
+			<false/>
 		</dict>
 		<dict>
 			<key>name</key>
@@ -35,6 +47,10 @@
 			<string>icon-menu-categories-normal.png</string>
 			<key>segue</key>
 			<string>CategoriesShowSegue</string>
+			<key>isColor</key>
+			<false/>
+			<key>hasNewEvent</key>
+			<false/>
 		</dict>
 		<dict>
 			<key>name</key>
@@ -43,6 +59,10 @@
 			<string>icon-menu-news-normal.png</string>
 			<key>segue</key>
 			<string>NewsShowSegue</string>
+			<key>isColor</key>
+			<false/>
+			<key>hasNewEvent</key>
+			<true/>
 		</dict>
 	</array>
 	<key>Section 1</key>
@@ -54,6 +74,10 @@
 			<string>icon-menu-discount-cards-normal.png</string>
 			<key>segue</key>
 			<string>DiscountCardsShowSegue</string>
+			<key>isColor</key>
+			<false/>
+			<key>hasNewEvent</key>
+			<false/>
 		</dict>
 		<dict>
 			<key>name</key>
@@ -62,6 +86,10 @@
 			<string>icon-menu-omnie-cards-normal.png</string>
 			<key>segue</key>
 			<string>OmnieCardsShowSegue</string>
+			<key>isColor</key>
+			<false/>
+			<key>hasNewEvent</key>
+			<false/>
 		</dict>
 		<dict>
 			<key>name</key>
@@ -70,6 +98,10 @@
 			<string>icon-menu-business-cards-normal.png</string>
 			<key>segue</key>
 			<string>BusinessCardsShowSegue</string>
+			<key>isColor</key>
+			<false/>
+			<key>hasNewEvent</key>
+			<false/>
 		</dict>
 		<dict>
 			<key>name</key>
@@ -78,6 +110,10 @@
 			<string>icon-menu-handbook-normal.png</string>
 			<key>segue</key>
 			<string>HandbookShowSegue</string>
+			<key>isColor</key>
+			<false/>
+			<key>hasNewEvent</key>
+			<false/>
 		</dict>
 	</array>
 	<key>Section 2</key>
@@ -89,14 +125,22 @@
 			<string>icon-menu-personal-page-normal.png</string>
 			<key>segue</key>
 			<string>PersonalPageShowSegue</string>
+			<key>isColor</key>
+			<false/>
+			<key>hasNewEvent</key>
+			<false/>
 		</dict>
 		<dict>
 			<key>name</key>
 			<string>Settings</string>
 			<key>icon</key>
-			<string>icon-menusettings-normal.png</string>
+			<string>icon-menu-settings-normal.png</string>
 			<key>segue</key>
 			<string>SettingsShowSegue</string>
+			<key>isColor</key>
+			<false/>
+			<key>hasNewEvent</key>
+			<false/>
 		</dict>
 		<dict>
 			<key>name</key>
@@ -105,17 +149,25 @@
 			<string>icon-menu-about-normal.png</string>
 			<key>segue</key>
 			<string>AboutShowSegue</string>
+			<key>isColor</key>
+			<false/>
+			<key>hasNewEvent</key>
+			<false/>
 		</dict>
 	</array>
 	<key>Section 3</key>
 	<array>
 		<dict>
 			<key>name</key>
-			<string>OnmieSoft</string>
+			<string>OmnieSoft</string>
 			<key>icon</key>
-			<string>icon-menu-onmie-soft-normal.png</string>
+			<string>icon-menu-omnie-soft-normal.png</string>
 			<key>segue</key>
-			<string>OnmieSoftShowSegue</string>
+			<string>OmnieSoftShowSegue</string>
+			<key>isColor</key>
+			<true/>
+			<key>hasNewEvent</key>
+			<false/>
 		</dict>
 	</array>
 	<key>Section 4</key>
@@ -127,6 +179,10 @@
 			<string>icon-menu-logout-normal.png</string>
 			<key>segue</key>
 			<string>LogOutShowSegue</string>
+			<key>isColor</key>
+			<false/>
+			<key>hasNewEvent</key>
+			<false/>
 		</dict>
 	</array>
 </dict>

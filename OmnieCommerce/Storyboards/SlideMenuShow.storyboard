@@ -101,16 +101,16 @@
                                             <rect key="frame" x="0.0" y="0.0" width="296" height="76"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image-no-photo" translatesAutoresizingMaskIntoConstraints="NO" id="K6d-kZ-LK3" userLabel="Menu Icon Image View">
-                                                    <rect key="frame" x="20" y="28" width="20" height="20"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image-no-photo" translatesAutoresizingMaskIntoConstraints="NO" id="K6d-kZ-LK3" userLabel="Menu Icon Image View">
+                                                    <rect key="frame" x="20" y="21" width="34" height="34"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="20" id="Mf0-cs-Weg"/>
-                                                        <constraint firstAttribute="width" constant="20" id="XjT-Te-td2"/>
+                                                        <constraint firstAttribute="height" constant="34" id="Mf0-cs-Weg"/>
+                                                        <constraint firstAttribute="width" constant="34" id="XjT-Te-td2"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J7d-7z-vYN" userLabel="Menu Title Label" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                                                    <rect key="frame" x="60" y="29.5" width="176" height="18"/>
+                                                    <rect key="frame" x="74" y="30" width="148" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -118,28 +118,37 @@
                                                         <userDefinedRuntimeAttribute type="string" keyPath="labelStyle" value="MenuItem"/>
                                                     </userDefinedRuntimeAttributes>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ujP-xh-nUq" userLabel="Menu Accessory Image View">
-                                                    <rect key="frame" x="256" y="28" width="20" height="20"/>
-                                                    <color key="backgroundColor" red="1" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iRw-xO-2iC" userLabel="New Event Button" customClass="CustomButton" customModule="OmnieCommerce" customModuleProvider="target">
+                                                    <rect key="frame" x="242" y="21" width="34" height="34"/>
+                                                    <color key="backgroundColor" red="1" green="0.84313725490196079" blue="0.42352941176470588" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="20" id="VGO-kA-rCD"/>
-                                                        <constraint firstAttribute="height" constant="20" id="emd-cm-DuY"/>
+                                                        <constraint firstAttribute="width" constant="34" id="lca-PE-YYY"/>
+                                                        <constraint firstAttribute="height" constant="34" id="uHx-zw-JNf"/>
                                                     </constraints>
-                                                </imageView>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                            <real key="value" value="17"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                                    </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="handlerNewEventButtonTap:" destination="73d-ES-P2q" eventType="touchUpInside" id="AjS-Wf-4Kd"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="iRw-xO-2iC" secondAttribute="trailing" constant="20" id="Lcp-ST-wjd"/>
                                                 <constraint firstItem="K6d-kZ-LK3" firstAttribute="leading" secondItem="jiu-Jx-Ka4" secondAttribute="leading" constant="20" id="RPV-sY-j5w"/>
-                                                <constraint firstItem="ujP-xh-nUq" firstAttribute="leading" secondItem="J7d-7z-vYN" secondAttribute="trailing" constant="20" id="WQp-uU-amr"/>
+                                                <constraint firstItem="iRw-xO-2iC" firstAttribute="centerY" secondItem="jiu-Jx-Ka4" secondAttribute="centerY" id="dl8-UZ-qLA"/>
                                                 <constraint firstItem="K6d-kZ-LK3" firstAttribute="centerY" secondItem="jiu-Jx-Ka4" secondAttribute="centerY" id="gFQ-80-d2q"/>
                                                 <constraint firstItem="J7d-7z-vYN" firstAttribute="leading" secondItem="K6d-kZ-LK3" secondAttribute="trailing" constant="20" id="h3Q-nH-OCY"/>
                                                 <constraint firstItem="J7d-7z-vYN" firstAttribute="centerY" secondItem="jiu-Jx-Ka4" secondAttribute="centerY" id="n2i-hp-vUV"/>
-                                                <constraint firstItem="ujP-xh-nUq" firstAttribute="centerY" secondItem="jiu-Jx-Ka4" secondAttribute="centerY" id="oYC-5C-NLR"/>
-                                                <constraint firstAttribute="trailing" secondItem="ujP-xh-nUq" secondAttribute="trailing" constant="20" id="tOM-em-x9r"/>
+                                                <constraint firstItem="iRw-xO-2iC" firstAttribute="leading" secondItem="J7d-7z-vYN" secondAttribute="trailing" constant="20" id="xUj-GZ-u5X"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="accessoryImageView" destination="ujP-xh-nUq" id="Ya2-7e-PrH"/>
                                             <outlet property="iconImageView" destination="K6d-kZ-LK3" id="bDD-aH-fNR"/>
+                                            <outlet property="newEventButton" destination="iRw-xO-2iC" id="hnS-hM-FHI"/>
                                             <outlet property="titleLabel" destination="J7d-7z-vYN" id="Xlv-qY-lIf"/>
                                         </connections>
                                     </tableViewCell>
@@ -272,7 +281,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="image-no-photo" width="66" height="60"/>
+        <image name="image-no-photo" width="24" height="21"/>
         <image name="image-ocean" width="200" height="100"/>
     </resources>
 </document>

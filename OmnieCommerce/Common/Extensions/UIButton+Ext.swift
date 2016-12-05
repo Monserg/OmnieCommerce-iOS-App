@@ -15,6 +15,7 @@ enum ButtonStyle: String {
     case Underline = "Underline"
     case UnderlineColor = "UnderlineColor"
     case DropDownList = "DropDownList"
+    case MenuEvent = "MenuEvent"
 }
 
 
@@ -81,6 +82,16 @@ extension UIButton {
             
         case .DropDownList:
             backgroundColor = (Config.Constants.isAppThemesLight) ? UIColor.white : UIColor.veryDarkDesaturatedBlue24
+            setAttributedTitle(NSAttributedString(string: (titleLabel?.text)!, attributes: UIFont.ubuntuLightVeryLightGray12), for: .normal)
+            setAttributedTitle(NSAttributedString(string: (titleLabel?.text)!, attributes: UIFont.ubuntuLightVeryLightGray12Alpha30), for: .highlighted)
+            borderColor = UIColor.darkCyan
+            borderWidth = 1.0
+            cornerRadius = 5.0
+            titleEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 0)
+            imageEdgeInsets = UIEdgeInsetsMake(3, frame.width - 18 - borderWidth, 0, 0)
+
+        case .MenuEvent:
+            backgroundColor = (Config.Constants.isAppThemesLight) ? UIColor.white : UIColor.veryLightOrange
             setAttributedTitle(NSAttributedString(string: (titleLabel?.text)!, attributes: UIFont.ubuntuLightVeryLightGray12), for: .normal)
             setAttributedTitle(NSAttributedString(string: (titleLabel?.text)!, attributes: UIFont.ubuntuLightVeryLightGray12Alpha30), for: .highlighted)
             borderColor = UIColor.darkCyan

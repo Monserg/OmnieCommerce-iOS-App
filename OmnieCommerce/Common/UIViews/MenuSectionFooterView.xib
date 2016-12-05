@@ -17,7 +17,7 @@
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Ir-G4-bcy" userLabel="Background View">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="30"/>
-                    <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="0.12156862745098039" green="0.1764705882352941" blue="0.22352941176470587" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C1Y-aK-YGP" userLabel="Top View">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="29"/>
