@@ -27,6 +27,7 @@ class PersonalPageShowViewController: BaseViewController, PersonalPageShowViewCo
     
     @IBOutlet weak var smallTopBarView: SmallTopBarView!
     @IBOutlet weak var copyrightLabel: CustomLabel!
+    @IBOutlet weak var segmentedControlView: SegmentedControlView!
 
     
     // MARK: - Class Initialization
@@ -47,6 +48,8 @@ class PersonalPageShowViewController: BaseViewController, PersonalPageShowViewCo
         setup(topBarView: smallTopBarView)
         
         doSomethingOnLoad()
+        
+        setupSegmentedControlView()
     }
     
 
@@ -74,6 +77,13 @@ class PersonalPageShowViewController: BaseViewController, PersonalPageShowViewCo
         smallTopBarView.circleView.setNeedsDisplay()
     }
     
+    func setupSegmentedControlView() {
+        segmentedControlView.actionButtonHandlerCompletion = { sender in
+            self.print(object: "\(type(of: self)): \(#function) run. Sender tag = \(sender.tag)")
+            
+        }
+    }
+
     
     // MARK: - Transition
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {

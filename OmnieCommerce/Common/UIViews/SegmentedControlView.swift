@@ -11,6 +11,7 @@ import Localize_Swift
 
 enum SegmentedControlViewStyle: String {
     case News = "News"
+    case PersonalPage = "PersonalPage"
 }
 
 @IBDesignable class SegmentedControlView: UIView {
@@ -18,6 +19,8 @@ enum SegmentedControlViewStyle: String {
     typealias CompletionVoid = ((_ sender: UIButton) -> ())
     
     var actionButtonHandlerCompletion: CompletionVoid?
+    var leftTitle = String()
+    var rightTitle = String()
     
     @IBInspectable var segmentedControlViewStyle: String = "" {
         didSet {
@@ -25,15 +28,19 @@ enum SegmentedControlViewStyle: String {
             
             switch style {
             case .News:
-                leftActionbutton.setAttributedTitle(NSAttributedString(string: "Subscription".localized(), attributes: UIFont.ubuntuLightVeryLightGray16), for: .highlighted)
-                leftActionbutton.setAttributedTitle(NSAttributedString(string: "Subscription".localized(), attributes: UIFont.ubuntuLightVeryLightOrange16), for: .normal)
+                leftTitle = "Subscription".localized()
+                rightTitle = "Hot News".localized()
 
-                rightActionButton.setAttributedTitle(NSAttributedString(string: "Hot News".localized(), attributes: UIFont.ubuntuLightVeryLightGray16), for: .normal)
-                rightActionButton.setAttributedTitle(NSAttributedString(string: "Hot News".localized(), attributes: UIFont.ubuntuLightVeryLightOrange16), for: .highlighted)
+            case .PersonalPage:
+                leftTitle = "Personal Data".localized()
+                rightTitle = "My Templates".localized()
             }
+            
+            leftActionbutton.setAttributedTitle(NSAttributedString(string: leftTitle, attributes: UIFont.ubuntuLightVeryLightOrange16), for: .normal)
+            rightActionButton.setAttributedTitle(NSAttributedString(string: rightTitle, attributes: UIFont.ubuntuLightVeryLightGray16), for: .normal)
         }
     }
-    
+
     @IBOutlet var view: UIView!
     @IBOutlet weak var selectedView: UIView!
     @IBOutlet weak var leftActionbutton: UIButton!
@@ -78,18 +85,12 @@ enum SegmentedControlViewStyle: String {
         
         switch sender.tag {
         case 0:
-            leftActionbutton.setAttributedTitle(NSAttributedString(string: "Subscription".localized(), attributes: UIFont.ubuntuLightVeryLightGray16), for: .highlighted)
-            leftActionbutton.setAttributedTitle(NSAttributedString(string: "Subscription".localized(), attributes: UIFont.ubuntuLightVeryLightOrange16), for: .normal)
-            
-            rightActionButton.setAttributedTitle(NSAttributedString(string: "Hot News".localized(), attributes: UIFont.ubuntuLightVeryLightGray16), for: .normal)
-            rightActionButton.setAttributedTitle(NSAttributedString(string: "Hot News".localized(), attributes: UIFont.ubuntuLightVeryLightOrange16), for: .highlighted)
+            leftActionbutton.setAttributedTitle(NSAttributedString(string: leftTitle, attributes: UIFont.ubuntuLightVeryLightOrange16), for: .normal)
+            rightActionButton.setAttributedTitle(NSAttributedString(string: rightTitle, attributes: UIFont.ubuntuLightVeryLightGray16), for: .normal)
             
         case 1:
-            leftActionbutton.setAttributedTitle(NSAttributedString(string: "Subscription".localized(), attributes: UIFont.ubuntuLightVeryLightGray16), for: .normal)
-            leftActionbutton.setAttributedTitle(NSAttributedString(string: "Subscription".localized(), attributes: UIFont.ubuntuLightVeryLightOrange16), for: .highlighted)
-            
-            rightActionButton.setAttributedTitle(NSAttributedString(string: "Hot News".localized(), attributes: UIFont.ubuntuLightVeryLightGray16), for: .highlighted)
-            rightActionButton.setAttributedTitle(NSAttributedString(string: "Hot News".localized(), attributes: UIFont.ubuntuLightVeryLightOrange16), for: .normal)
+            leftActionbutton.setAttributedTitle(NSAttributedString(string: leftTitle, attributes: UIFont.ubuntuLightVeryLightGray16), for: .normal)
+            rightActionButton.setAttributedTitle(NSAttributedString(string: rightTitle, attributes: UIFont.ubuntuLightVeryLightOrange16), for: .normal)
             
         default:
             break
