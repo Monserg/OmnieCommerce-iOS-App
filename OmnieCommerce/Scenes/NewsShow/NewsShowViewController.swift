@@ -30,6 +30,7 @@ class NewsShowViewController: BaseViewController, NewsShowViewControllerInput {
     @IBOutlet weak var smallTopBarView: SmallTopBarView!
     @IBOutlet weak var copyrightLabel: CustomLabel!
     @IBOutlet weak var tableView: CustomTableView!
+    @IBOutlet weak var segmentedControlView: SegmentedControlView!
 
     
     // MARK: - Class Initialization
@@ -50,7 +51,7 @@ class NewsShowViewController: BaseViewController, NewsShowViewControllerInput {
             
             dataSource.append(News(title: "Сауна Акваторія", logoStringURL: pathString, activeDate: Date.init(), description: "Вже давно відомо, що читабельний зміст буде заважати зосередитись людині, яка оцінює... композицію сторінки. Сенс використання Lorem Ipsum полягає в тому, що цей текст має більш-менш нормальне розподілення літер на відміну від, наприклад, \"Тут іде текст. Тут іде текст.\" Це робить текст схожим на оповідний. Багато програм верстування та веб-дизайну використовують Lorem Ipsum як зразок і пошук за терміном \"lorem ipsum\" відкриє багато веб-сайтів, які знаходяться ще в зародковому стані. Різні версії Lorem Ipsum з'явились за минулі роки, деякі випадково, деякі було створено зумисно (зокрема, жартівливі)."))
         }
-
+        
         // Config topBarView
         smallTopBarView.type = "ParentSearch"
         topBarViewStyle = .Small
@@ -64,6 +65,8 @@ class NewsShowViewController: BaseViewController, NewsShowViewControllerInput {
         tableView.delegate = self
         
         doSomethingOnLoad()
+        
+        setupSegmentedControlView()
     }
     
 
@@ -89,7 +92,19 @@ class NewsShowViewController: BaseViewController, NewsShowViewControllerInput {
         
         smallTopBarView.setNeedsDisplay()
         smallTopBarView.circleView.setNeedsDisplay()
+        segmentedControlView.setNeedsDisplay()
     }
+    
+    func setupSegmentedControlView() {
+        segmentedControlView.actionButtonHandlerCompletion = { sender in
+            self.print(object: "\(type(of: self)): \(#function) run. Sender tag = \(sender.tag)")
+            
+        }
+    }
+    
+    
+    // MARK: - Actions
+    
     
     
     // MARK: - Transition
@@ -125,7 +140,7 @@ extension NewsShowViewController: UITableViewDataSource {
 }
 
 
-// MARK: - 
+// MARK: - UITableViewDelegate
 extension NewsShowViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(object: "\(type(of: self)): \(#function) run.")

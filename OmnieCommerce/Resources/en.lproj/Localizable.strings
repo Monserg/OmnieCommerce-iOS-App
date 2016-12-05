@@ -55,3 +55,8 @@
 "Password"              =   "Password";
 "Email"                 =   "Email";
 "Phone or Email"        =   "Phone or Email";
+
+
+// Segmented Control Titles
+"Subscription"          =   "Subscription";
+"Hot News"              =   "Hot News";

@@ -55,3 +55,8 @@
 "Password"              =   "Пароль";
 "Email"                 =   "Email";
 "Phone or Email"        =   "Телефон або Email";
+
+
+// Segmented Control Titles
+"Subscription"          =   "Підписка";
+"Hot News"              =   "Гарячі новини";

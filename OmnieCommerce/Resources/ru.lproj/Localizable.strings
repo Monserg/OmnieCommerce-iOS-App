@@ -55,3 +55,8 @@
 "Password"              =   "Пароль";
 "Email"                 =   "Email";
 "Phone or Email"        =   "Телефон или Email";
+
+
+// Segmented Control Titles
+"Subscription"          =   "Подписка";
+"Hot News"              =   "Горячие новости";

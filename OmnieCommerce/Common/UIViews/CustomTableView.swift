@@ -31,7 +31,7 @@ enum TableCellStyle: String {
                 self.backgroundColor = UIColor.veryDarkDesaturatedBlue24
 
             default:
-                self.backgroundColor = UIColor.veryDarkDesaturatedBlue25Alpha1
+                self.backgroundColor = UIColor.veryDarkDesaturatedBlue24
             }
         }
     }
