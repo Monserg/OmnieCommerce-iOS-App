@@ -22,6 +22,14 @@ enum DropDownList: String {
     var isDropDownListShow = false
     
     
+    // MARK: - Class Functions
+    override func draw(_ rect: CGRect) {
+        print(object: "\(type(of: self)): \(#function) run.")
+        
+        imageEdgeInsets = UIEdgeInsetsMake(3, UIScreen.main.bounds.width - 30 - borderWidth, 0, 0)
+    }
+
+    
     // MARK: - Custom Functions
     func showList(inView view: UIView) {
         // Create DropDownListView from Nib-file

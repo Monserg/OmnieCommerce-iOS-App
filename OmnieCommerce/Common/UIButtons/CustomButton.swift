@@ -59,8 +59,6 @@ import UIKit
             } else {
                 center = CGPoint.init(x: circleX + Config.Constants.fillViewBigRadiusLandscape * cos((M_PI * buttonDegree) / 180), y: circleY - Config.Constants.fillViewBigRadiusLandscape * sin((M_PI * buttonDegree) / 180))
             }
-        } else if (designStyle == "DropDownList") {
-            imageEdgeInsets = UIEdgeInsetsMake(3, UIScreen.main.bounds.width - 30 - borderWidth, 0, 0)
         }
     }
 }
