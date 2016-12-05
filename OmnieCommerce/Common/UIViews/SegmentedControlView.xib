@@ -12,7 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SegmentedControlView" customModule="OmnieCommerce" customModuleProvider="target">
             <connections>
-                <outlet property="leftActionbutton" destination="Q7z-KT-8TK" id="7HL-Nq-zbX"/>
+                <outlet property="leftActionButton" destination="Q7z-KT-8TK" id="x4O-pH-uaA"/>
                 <outlet property="rightActionButton" destination="Oew-p9-ddP" id="jyv-mX-l7O"/>
                 <outlet property="selectedView" destination="T10-6F-Z0I" id="ktD-kC-cuV"/>
                 <outlet property="view" destination="iN0-l3-epB" id="KFk-Be-zwq"/>

@@ -16,10 +16,12 @@ import Localize_Swift
     var actionButtonHandlerCompletion: CompletionVoid?
     var leftTitle = String()
     var rightTitle = String()
+    var selectedButton = UIButton()
     
     @IBInspectable var segmentedControlViewStyle: String = "" {
         didSet {
             let viewStyle = Config.ViewStyle(rawValue: segmentedControlViewStyle)!
+            selectedButton = leftActionButton
             
             switch viewStyle {
             case .News:
@@ -35,14 +37,14 @@ import Localize_Swift
                 rightTitle = "Services".localized()
             }
             
-            leftActionbutton.setAttributedTitle(NSAttributedString(string: leftTitle, attributes: UIFont.ubuntuLightVeryLightOrange16), for: .normal)
+            leftActionButton.setAttributedTitle(NSAttributedString(string: leftTitle, attributes: UIFont.ubuntuLightVeryLightOrange16), for: .normal)
             rightActionButton.setAttributedTitle(NSAttributedString(string: rightTitle, attributes: UIFont.ubuntuLightVeryLightGray16), for: .normal)
         }
     }
 
     @IBOutlet var view: UIView!
     @IBOutlet weak var selectedView: UIView!
-    @IBOutlet weak var leftActionbutton: UIButton!
+    @IBOutlet weak var leftActionButton: UIButton!
     @IBOutlet weak var rightActionButton: UIButton!
     
     
@@ -64,6 +66,9 @@ import Localize_Swift
     override func draw(_ rect: CGRect) {
         print(object: "\(type(of: self)): \(#function) run.")
         
+        if (selectedButton.tag == 1) {
+            self.selectedView.frame = CGRect.init(origin: CGPoint.init(x: selectedButton.frame.minX + 8, y: selectedButton.frame.maxY), size: self.selectedView.bounds.size)
+        }
     }
 
 
@@ -84,11 +89,11 @@ import Localize_Swift
         
         switch sender.tag {
         case 0:
-            leftActionbutton.setAttributedTitle(NSAttributedString(string: leftTitle, attributes: UIFont.ubuntuLightVeryLightOrange16), for: .normal)
+            leftActionButton.setAttributedTitle(NSAttributedString(string: leftTitle, attributes: UIFont.ubuntuLightVeryLightOrange16), for: .normal)
             rightActionButton.setAttributedTitle(NSAttributedString(string: rightTitle, attributes: UIFont.ubuntuLightVeryLightGray16), for: .normal)
             
         case 1:
-            leftActionbutton.setAttributedTitle(NSAttributedString(string: leftTitle, attributes: UIFont.ubuntuLightVeryLightGray16), for: .normal)
+            leftActionButton.setAttributedTitle(NSAttributedString(string: leftTitle, attributes: UIFont.ubuntuLightVeryLightGray16), for: .normal)
             rightActionButton.setAttributedTitle(NSAttributedString(string: rightTitle, attributes: UIFont.ubuntuLightVeryLightOrange16), for: .normal)
             
         default:
@@ -99,6 +104,8 @@ import Localize_Swift
             self.selectedView.frame = CGRect.init(origin: CGPoint.init(x: sender.frame.minX + 8, y: sender.frame.maxY), size: self.selectedView.bounds.size)
         }, completion: { success in
             if (success) {
+                self.selectedButton = sender
+
                 self.actionButtonHandlerCompletion!(sender)
             }
         })
