@@ -51,7 +51,7 @@
                                     </connections>
                                 </button>
                             </subviews>
-                            <color key="backgroundColor" red="0.14117647058823529" green="0.19607843137254902" blue="0.24705882352941178" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         </stackView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T10-6F-Z0I" userLabel="Selected View">
                             <rect key="frame" x="8" y="70" width="255" height="1"/>
@@ -61,7 +61,7 @@
                             </constraints>
                         </view>
                     </subviews>
-                    <color key="backgroundColor" red="0.14117647058823529" green="0.19607843137254902" blue="0.24705882352941178" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstItem="T10-6F-Z0I" firstAttribute="leading" secondItem="D9Z-ac-N9t" secondAttribute="leading" constant="8" id="1aZ-r1-aOC"/>
                         <constraint firstItem="T10-6F-Z0I" firstAttribute="top" secondItem="Xdx-Q9-yeo" secondAttribute="bottom" id="3qR-Db-myD"/>
@@ -73,7 +73,7 @@
                     </constraints>
                 </view>
             </subviews>
-            <color key="backgroundColor" red="0.14117647058823529" green="0.19607843137254902" blue="0.24705882352941178" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="D9Z-ac-N9t" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="7Vk-au-DQu"/>
                 <constraint firstAttribute="bottom" secondItem="D9Z-ac-N9t" secondAttribute="bottom" id="7dz-if-eVf"/>
