@@ -60,5 +60,7 @@
 // Segmented Control Titles
 "Subscription"          =   "Підписка";
 "Hot News"              =   "Гарячі новини";
-"Personal Data"         =   "Персональні дані";
+"Personal Data"         =   "Особисті дані";
 "My Templates"          =   "Мої шаблони";
+"Organizations"         =   "Організації";
+"Services"              =   "Послуги";

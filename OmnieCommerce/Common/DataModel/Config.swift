@@ -30,4 +30,11 @@ struct Config {
         static let isUserGuest: Bool                            =   false
         static let isAppThemesLight                             =   false
     }
+    
+    enum ViewStyle: String {
+        case News = "News"
+        case PersonalPage = "PersonalPage"
+        case Favourite = "Favourite"
+    
+    }
 }

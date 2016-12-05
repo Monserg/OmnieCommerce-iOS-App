@@ -9,11 +9,6 @@
 import UIKit
 import Localize_Swift
 
-enum SegmentedControlViewStyle: String {
-    case News = "News"
-    case PersonalPage = "PersonalPage"
-}
-
 @IBDesignable class SegmentedControlView: UIView {
     // MARK: - Properties
     typealias CompletionVoid = ((_ sender: UIButton) -> ())
@@ -24,9 +19,9 @@ enum SegmentedControlViewStyle: String {
     
     @IBInspectable var segmentedControlViewStyle: String = "" {
         didSet {
-            let style = SegmentedControlViewStyle(rawValue: segmentedControlViewStyle)!
+            let viewStyle = Config.ViewStyle(rawValue: segmentedControlViewStyle)!
             
-            switch style {
+            switch viewStyle {
             case .News:
                 leftTitle = "Subscription".localized()
                 rightTitle = "Hot News".localized()
@@ -34,6 +29,10 @@ enum SegmentedControlViewStyle: String {
             case .PersonalPage:
                 leftTitle = "Personal Data".localized()
                 rightTitle = "My Templates".localized()
+            
+            case .Favourite:
+                leftTitle = "Organizations".localized()
+                rightTitle = "Services".localized()
             }
             
             leftActionbutton.setAttributedTitle(NSAttributedString(string: leftTitle, attributes: UIFont.ubuntuLightVeryLightOrange16), for: .normal)

@@ -8,8 +8,7 @@
 
 import UIKit
 
-@IBDesignable
-class BigTopBarView: UIView {
+@IBDesignable class BigTopBarView: UIView {
     // MARK: - Properties
     @IBOutlet var view: UIView!
     @IBOutlet weak var circleView: BigCirleView!
