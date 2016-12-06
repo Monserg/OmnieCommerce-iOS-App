@@ -58,7 +58,7 @@ class NewsShowViewController: BaseViewController, NewsShowViewControllerInput {
         setup(topBarView: smallTopBarView)
 
         // Register the Nib header/footer section views
-        tableView.register(UINib(nibName: "BaseTableViewCell", bundle: nil), forCellReuseIdentifier: "DataCell")
+        tableView.register(UINib(nibName: "NewsTableViewCell", bundle: nil), forCellReuseIdentifier: "NewsCell")
 
         // Delegates
         tableView.dataSource = self
@@ -129,7 +129,7 @@ extension NewsShowViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "DataCell", for: indexPath) as! BaseTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "NewsCell", for: indexPath) as! BaseTableViewCell
         let news = dataSource[indexPath.row] 
         
         // Config cell

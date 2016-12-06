@@ -26,6 +26,5 @@ import UIKit
     override func draw(_ rect: CGRect) {
         self.contentView.backgroundColor = UIColor.veryDarkDesaturatedBlue24
         self.nameLabel.backgroundColor = UIColor.veryDarkDesaturatedBlue24
-
     }
 }

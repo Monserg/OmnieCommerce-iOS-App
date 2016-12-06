@@ -45,8 +45,6 @@ enum CellStyle: String {
     
     // MARK: - Custom Functions
     func setup(withItem item: Any) {
-//        backgroundColor = UIColor.veryDarkDesaturatedBlue24
-        
         switch item {
         case is News:
             let news = item as! News
