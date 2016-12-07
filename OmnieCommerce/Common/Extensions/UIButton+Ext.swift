@@ -57,10 +57,12 @@ extension UIButton {
             (Config.Constants.isAppThemesLight) ? setAttributedTitle(NSAttributedString.init(string: (titleLabel?.text?.localized())!, attributes: UIFont.ubuntuLightVeryLightGrayUnderline12), for: .normal) : setAttributedTitle(NSAttributedString.init(string: (titleLabel?.text?.localized())!, attributes: UIFont.ubuntuRegularVeryDarkGray16), for: .normal)
             (Config.Constants.isAppThemesLight) ? setAttributedTitle(NSAttributedString.init(string: (titleLabel?.text?.localized())!, attributes: UIFont.ubuntuLightVeryLightGrayUnderline12), for: .highlighted) : setAttributedTitle(NSAttributedString.init(string: (titleLabel?.text?.localized())!, attributes: UIFont.ubuntuRegularVeryDarkGray16), for: .highlighted)
 
+            titleLabel?.sizeToFit()
+
             if (imageView?.image != nil) {
-                titleEdgeInsets = UIEdgeInsetsMake(0, -8, 0, 0)
-                imageEdgeInsets = UIEdgeInsetsMake(3, bounds.width - 19 - borderWidth, 0, 0)
+                imageEdgeInsets = UIEdgeInsetsMake(3, (titleLabel?.frame.maxX)! + 5, 0, 0)
             }
+            
         case .Border:
             backgroundColor = UIColor.clear
             tintColor = (Config.Constants.isAppThemesLight) ? UIColor.black : UIColor.veryLightGray

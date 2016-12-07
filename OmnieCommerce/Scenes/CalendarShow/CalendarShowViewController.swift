@@ -27,6 +27,11 @@ class CalendarShowViewController: BaseViewController, CalendarShowViewController
     
     @IBOutlet weak var segmentedControlView: SegmentedControlView!
     @IBOutlet weak var bottomDottedBorderView: DottedBorderView!
+    @IBOutlet weak var confirmButton: CustomButton!
+    
+    @IBOutlet weak var dateLabel: CustomLabel!
+    @IBOutlet weak var fromTimeLabel: CustomLabel!
+    @IBOutlet weak var toTimeLabel: CustomLabel!
 
     
     // MARK: - Class Initialization
@@ -71,6 +76,7 @@ class CalendarShowViewController: BaseViewController, CalendarShowViewController
         
         bottomDottedBorderView.setNeedsDisplay()
         segmentedControlView.setNeedsDisplay()
+        confirmButton.setupWithStyle(.Fill)
     }
 
     func setupSegmentedControlView() {

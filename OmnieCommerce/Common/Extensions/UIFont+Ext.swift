@@ -321,6 +321,24 @@ extension UIFont {
         }
     }
     
+    open class var ubuntuLightItalicVeryDarkGrayishBlue5312: [String : Any] {
+        set {
+            self.ubuntuLightItalicVeryDarkGrayishBlue5312   =   [   NSFontAttributeName             :   UIFont.ubuntuLightItalic12,
+                                                                    NSForegroundColorAttributeName  :   UIColor.veryDarkGrayishBlue53,
+                                                                    NSKernAttributeName             :   0.0,
+                                                                    NSUnderlineStyleAttributeName   :   NSUnderlineStyle.styleNone.rawValue
+                                                                ] as [String : Any]!
+        }
+        
+        get {
+            return  [   NSFontAttributeName             :   UIFont.ubuntuLightItalic12,
+                        NSForegroundColorAttributeName  :   UIColor.veryDarkGrayishBlue53,
+                        NSKernAttributeName             :   0.0,
+                        NSUnderlineStyleAttributeName   :   NSUnderlineStyle.styleNone.rawValue
+                ] as [String : Any]!
+        }
+    }
+    
     open class var ubuntuRegularVeryLightOrangeUnderline12: [String : Any] {
         set {
             self.ubuntuRegularVeryLightOrangeUnderline12    =   [   NSFontAttributeName             :   UIFont.ubuntuRegular12,

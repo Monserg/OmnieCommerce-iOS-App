@@ -95,17 +95,101 @@
                                                             </view>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Z9P-FS-lTV">
                                                                 <rect key="frame" x="0.0" y="0.0" width="125" height="36"/>
+                                                                <subviews>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="07.12.2016" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rfs-OC-dPl" userLabel="Date Label" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="125" height="17"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="height" constant="27" id="uWA-g8-01W">
+                                                                                <variation key="heightClass=regular-widthClass=compact" constant="17"/>
+                                                                            </constraint>
+                                                                        </constraints>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                        <nil key="textColor"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="string" keyPath="labelStyle" value="MenuItem"/>
+                                                                        </userDefinedRuntimeAttributes>
+                                                                    </label>
+                                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="J8k-Cb-px5">
+                                                                        <rect key="frame" x="0.0" y="20" width="125" height="16"/>
+                                                                        <subviews>
+                                                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="qPK-mV-VzX">
+                                                                                <rect key="frame" x="0.0" y="0.0" width="65" height="16"/>
+                                                                                <subviews>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="From" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PvP-62-nTe" userLabel="From Label" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
+                                                                                        <rect key="frame" x="0.0" y="0.0" width="25" height="16"/>
+                                                                                        <constraints>
+                                                                                            <constraint firstAttribute="width" constant="25" id="h6X-XI-sml"/>
+                                                                                        </constraints>
+                                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                                        <nil key="textColor"/>
+                                                                                        <nil key="highlightedColor"/>
+                                                                                        <userDefinedRuntimeAttributes>
+                                                                                            <userDefinedRuntimeAttribute type="string" keyPath="labelStyle" value="FromTo"/>
+                                                                                        </userDefinedRuntimeAttributes>
+                                                                                    </label>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rjk-Dh-lke" userLabel="From Time Label" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
+                                                                                        <rect key="frame" x="29" y="0.0" width="36" height="16"/>
+                                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                                        <nil key="textColor"/>
+                                                                                        <nil key="highlightedColor"/>
+                                                                                        <userDefinedRuntimeAttributes>
+                                                                                            <userDefinedRuntimeAttribute type="string" keyPath="labelStyle" value="MenuItem"/>
+                                                                                        </userDefinedRuntimeAttributes>
+                                                                                    </label>
+                                                                                </subviews>
+                                                                                <constraints>
+                                                                                    <constraint firstItem="rjk-Dh-lke" firstAttribute="height" secondItem="PvP-62-nTe" secondAttribute="height" id="E51-Ez-mEL"/>
+                                                                                </constraints>
+                                                                                <variation key="heightClass=regular-widthClass=compact" spacing="4"/>
+                                                                            </stackView>
+                                                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="ISp-bE-LQz">
+                                                                                <rect key="frame" x="73" y="0.0" width="52" height="16"/>
+                                                                                <subviews>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cvd-Dc-wqb" userLabel="To Label" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
+                                                                                        <rect key="frame" x="0.0" y="0.0" width="15" height="16"/>
+                                                                                        <constraints>
+                                                                                            <constraint firstAttribute="width" constant="25" id="csz-Dg-2bf">
+                                                                                                <variation key="heightClass=regular-widthClass=compact" constant="15"/>
+                                                                                            </constraint>
+                                                                                        </constraints>
+                                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                                        <nil key="textColor"/>
+                                                                                        <nil key="highlightedColor"/>
+                                                                                        <userDefinedRuntimeAttributes>
+                                                                                            <userDefinedRuntimeAttribute type="string" keyPath="labelStyle" value="FromTo"/>
+                                                                                        </userDefinedRuntimeAttributes>
+                                                                                    </label>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="13:35" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OhZ-x6-ONU" userLabel="To Time Label" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
+                                                                                        <rect key="frame" x="19" y="0.0" width="33" height="16"/>
+                                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                                        <nil key="textColor"/>
+                                                                                        <nil key="highlightedColor"/>
+                                                                                        <userDefinedRuntimeAttributes>
+                                                                                            <userDefinedRuntimeAttribute type="string" keyPath="labelStyle" value="MenuItem"/>
+                                                                                        </userDefinedRuntimeAttributes>
+                                                                                    </label>
+                                                                                </subviews>
+                                                                                <constraints>
+                                                                                    <constraint firstItem="OhZ-x6-ONU" firstAttribute="height" secondItem="cvd-Dc-wqb" secondAttribute="height" id="YLD-7S-AWZ"/>
+                                                                                </constraints>
+                                                                                <variation key="heightClass=regular-widthClass=compact" spacing="4"/>
+                                                                            </stackView>
+                                                                        </subviews>
+                                                                        <variation key="heightClass=regular-widthClass=compact" axis="horizontal" spacing="8"/>
+                                                                    </stackView>
+                                                                </subviews>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="125" id="5Zx-b8-C00"/>
-                                                                    <constraint firstAttribute="height" constant="80" id="gGV-PD-D4e"/>
+                                                                    <constraint firstAttribute="height" constant="81" id="gGV-PD-D4e"/>
                                                                 </constraints>
                                                                 <variation key="default">
                                                                     <mask key="constraints">
                                                                         <exclude reference="5Zx-b8-C00"/>
                                                                     </mask>
                                                                 </variation>
-                                                                <variation key="heightClass=regular-widthClass=compact">
+                                                                <variation key="heightClass=regular-widthClass=compact" spacing="3">
                                                                     <mask key="constraints">
                                                                         <include reference="5Zx-b8-C00"/>
                                                                         <exclude reference="gGV-PD-D4e"/>
@@ -116,7 +200,7 @@
                                                                 <rect key="frame" x="125" y="0.0" width="20" height="36"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="height" constant="50" id="Juo-Hy-d0f"/>
+                                                                    <constraint firstAttribute="height" constant="42" id="Juo-Hy-d0f"/>
                                                                     <constraint firstAttribute="width" constant="20" id="LAi-tS-92R"/>
                                                                 </constraints>
                                                                 <variation key="default">
@@ -278,7 +362,7 @@
                                                 <variation key="heightClass=compact-widthClass=regular" constant="12"/>
                                             </constraint>
                                             <constraint firstItem="DzE-if-37G" firstAttribute="leading" secondItem="abG-cI-8OH" secondAttribute="leading" constant="4" id="Ei8-sQ-Xej"/>
-                                            <constraint firstAttribute="width" constant="165" id="Yk1-xj-LlP"/>
+                                            <constraint firstAttribute="width" constant="185" id="Yk1-xj-LlP"/>
                                             <constraint firstAttribute="bottom" secondItem="DzE-if-37G" secondAttribute="bottom" id="fET-wu-D1k"/>
                                             <constraint firstAttribute="trailing" secondItem="DzE-if-37G" secondAttribute="trailing" constant="4" id="fdg-yA-rsS">
                                                 <variation key="heightClass=compact-widthClass=compact" constant="20"/>
@@ -345,7 +429,11 @@
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
                         <outlet property="bottomDottedBorderView" destination="DzE-if-37G" id="s9R-8O-85A"/>
+                        <outlet property="confirmButton" destination="p0Y-B5-nW5" id="xv0-Un-aHP"/>
+                        <outlet property="dateLabel" destination="Rfs-OC-dPl" id="BM4-Rq-xP6"/>
+                        <outlet property="fromTimeLabel" destination="rjk-Dh-lke" id="I3Y-5R-oWB"/>
                         <outlet property="segmentedControlView" destination="EDl-jJ-gKO" id="NYA-RR-61M"/>
+                        <outlet property="toTimeLabel" destination="OhZ-x6-ONU" id="2pp-K1-YIw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KgU-Ew-ER7" userLabel="First Responder" sceneMemberID="firstResponder"/>
