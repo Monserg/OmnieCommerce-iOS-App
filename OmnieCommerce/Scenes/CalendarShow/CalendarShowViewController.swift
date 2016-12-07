@@ -26,6 +26,7 @@ class CalendarShowViewController: BaseViewController, CalendarShowViewController
     var router: CalendarShowRouter!
     
     @IBOutlet weak var segmentedControlView: SegmentedControlView!
+    @IBOutlet weak var bottomDottedBorderView: DottedBorderView!
 
     
     // MARK: - Class Initialization
@@ -40,7 +41,8 @@ class CalendarShowViewController: BaseViewController, CalendarShowViewController
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupScene()
+        view.backgroundColor = UIColor.veryDarkDesaturatedBlue24
+        setupScene(withSize: view.frame.size)
         setupSegmentedControlView()
         
         doSomethingOnLoad()
@@ -64,16 +66,25 @@ class CalendarShowViewController: BaseViewController, CalendarShowViewController
         // nameTextField.text = viewModel.name
     }
     
-    func setupScene() {
-        print(object: "\(type(of: self)): \(#function) run.")
+    func setupScene(withSize size: CGSize) {
+        print(object: "\(type(of: self)): \(#function) run. Screen view size = \(size)")
         
-        view.backgroundColor = UIColor.veryDarkDesaturatedBlue24
+        bottomDottedBorderView.setNeedsDisplay()
+        segmentedControlView.setNeedsDisplay()
     }
-    
+
     func setupSegmentedControlView() {
         segmentedControlView.actionButtonHandlerCompletion = { sender in
             self.print(object: "\(type(of: self)): \(#function) run. Sender tag = \(sender.tag)")
             
         }
+    }
+    
+    
+    // MARK: - Transition
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        print(object: "\(type(of: self)): \(#function) run. New size = \(size)")
+        
+        setupScene(withSize: size)
     }
 }

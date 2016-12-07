@@ -70,7 +70,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="abG-cI-8OH" userLabel="Bottom Dotted View">
                                         <rect key="frame" x="0.0" y="619" width="414" height="75"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DzE-if-37G" customClass="DottedBorderView" customModule="OmnieCommerce" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DzE-if-37G" userLabel="Content Dotted View" customClass="DottedBorderView" customModule="OmnieCommerce" customModuleProvider="target">
                                                 <rect key="frame" x="4" y="0.0" width="406" height="75"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <userDefinedRuntimeAttributes>
@@ -85,20 +85,35 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="75" id="1cQ-q9-jlE"/>
-                                            <constraint firstItem="DzE-if-37G" firstAttribute="top" secondItem="abG-cI-8OH" secondAttribute="top" id="9M9-gO-paT"/>
+                                            <constraint firstItem="DzE-if-37G" firstAttribute="top" secondItem="abG-cI-8OH" secondAttribute="top" id="9M9-gO-paT">
+                                                <variation key="heightClass=compact-widthClass=compact" constant="18"/>
+                                                <variation key="heightClass=compact-widthClass=regular" constant="18"/>
+                                            </constraint>
                                             <constraint firstItem="DzE-if-37G" firstAttribute="leading" secondItem="abG-cI-8OH" secondAttribute="leading" constant="4" id="Ei8-sQ-Xej"/>
                                             <constraint firstAttribute="width" constant="135" id="Yk1-xj-LlP"/>
-                                            <constraint firstAttribute="bottom" secondItem="DzE-if-37G" secondAttribute="bottom" id="fET-wu-D1k"/>
-                                            <constraint firstAttribute="trailing" secondItem="DzE-if-37G" secondAttribute="trailing" constant="4" id="fdg-yA-rsS"/>
+                                            <constraint firstAttribute="bottom" secondItem="DzE-if-37G" secondAttribute="bottom" id="fET-wu-D1k">
+                                                <variation key="heightClass=compact-widthClass=compact" constant="18"/>
+                                                <variation key="heightClass=compact-widthClass=regular" constant="18"/>
+                                            </constraint>
+                                            <constraint firstAttribute="trailing" secondItem="DzE-if-37G" secondAttribute="trailing" constant="4" id="fdg-yA-rsS">
+                                                <variation key="heightClass=compact-widthClass=compact" constant="20"/>
+                                                <variation key="heightClass=compact-widthClass=regular" constant="20"/>
+                                            </constraint>
+                                            <constraint firstItem="DzE-if-37G" firstAttribute="leading" secondItem="abG-cI-8OH" secondAttribute="leading" constant="4" id="xJW-qo-D7i">
+                                                <variation key="heightClass=compact-widthClass=compact" constant="0.0"/>
+                                                <variation key="heightClass=compact-widthClass=regular" constant="0.0"/>
+                                            </constraint>
                                         </constraints>
                                         <variation key="heightClass=compact-widthClass=compact">
                                             <mask key="constraints">
                                                 <exclude reference="1cQ-q9-jlE"/>
+                                                <exclude reference="Ei8-sQ-Xej"/>
                                             </mask>
                                         </variation>
                                         <variation key="heightClass=compact-widthClass=regular">
                                             <mask key="constraints">
                                                 <exclude reference="1cQ-q9-jlE"/>
+                                                <exclude reference="Ei8-sQ-Xej"/>
                                             </mask>
                                         </variation>
                                         <variation key="heightClass=regular-widthClass=compact">
@@ -120,7 +135,7 @@
                                 <variation key="heightClass=compact-widthClass=regular" axis="horizontal"/>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1J9-cZ-tAK" userLabel="Copyright Label" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                                <rect key="frame" x="168.66666666666663" y="716" width="77.333333333333343" height="11"/>
+                                <rect key="frame" x="186.33333333333337" y="716" width="41.666666666666657" height="11"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="11" id="cMs-gb-Ekm"/>
                                 </constraints>
@@ -144,6 +159,7 @@
                     </view>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
+                        <outlet property="bottomDottedBorderView" destination="DzE-if-37G" id="s9R-8O-85A"/>
                         <outlet property="segmentedControlView" destination="EDl-jJ-gKO" id="NYA-RR-61M"/>
                     </connections>
                 </viewController>
