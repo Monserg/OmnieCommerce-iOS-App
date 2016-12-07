@@ -25,6 +25,7 @@
 		B122DF671DF7F957003823AD /* CalendarShowRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B122DF601DF7F957003823AD /* CalendarShowRouter.swift */; };
 		B122DF681DF7F957003823AD /* CalendarShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B122DF611DF7F957003823AD /* CalendarShowViewController.swift */; };
 		B122DF691DF7F957003823AD /* CalendarShowWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B122DF621DF7F957003823AD /* CalendarShowWorker.swift */; };
+		B122DF6B1DF804CD003823AD /* SegmentedControlViewLandscape.xib in Resources */ = {isa = PBXBuildFile; fileRef = B122DF6A1DF804CD003823AD /* SegmentedControlViewLandscape.xib */; };
 		B122F1BF1DD3575E0018A701 /* SlideMenuShow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B122F1BE1DD3575E0018A701 /* SlideMenuShow.storyboard */; };
 		B122F1DB1DD35B760018A701 /* OrdersShowConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B122F1D41DD35B760018A701 /* OrdersShowConfigurator.swift */; };
 		B122F1DC1DD35B760018A701 /* OrdersShowInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B122F1D51DD35B760018A701 /* OrdersShowInteractor.swift */; };
@@ -245,6 +246,7 @@
 		B122DF601DF7F957003823AD /* CalendarShowRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarShowRouter.swift; sourceTree = "<group>"; };
 		B122DF611DF7F957003823AD /* CalendarShowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarShowViewController.swift; sourceTree = "<group>"; };
 		B122DF621DF7F957003823AD /* CalendarShowWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarShowWorker.swift; sourceTree = "<group>"; };
+		B122DF6A1DF804CD003823AD /* SegmentedControlViewLandscape.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SegmentedControlViewLandscape.xib; sourceTree = "<group>"; };
 		B122F1BE1DD3575E0018A701 /* SlideMenuShow.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SlideMenuShow.storyboard; sourceTree = "<group>"; };
 		B122F1D41DD35B760018A701 /* OrdersShowConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrdersShowConfigurator.swift; sourceTree = "<group>"; };
 		B122F1D51DD35B760018A701 /* OrdersShowInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrdersShowInteractor.swift; sourceTree = "<group>"; };
@@ -504,6 +506,7 @@
 				B15291561DDE3FEF00BBA1E0 /* MenuSectionHeaderView.xib */,
 				B1F7EDB71DF54878003B36AD /* SegmentedControlView.swift */,
 				B1F7EDB91DF54886003B36AD /* SegmentedControlView.xib */,
+				B122DF6A1DF804CD003823AD /* SegmentedControlViewLandscape.xib */,
 				B18A45CB1DEC3918003EBD2F /* SmallCirleView.swift */,
 				B18A45C71DEC23B2003EBD2F /* SmallTopBarView.swift */,
 				B18A45C51DEC21BA003EBD2F /* SmallTopBarView.xib */,
@@ -1100,6 +1103,7 @@
 				B14D894D1DF6C87800AF3AED /* NewsTableViewCell.xib in Resources */,
 				B1BF92741DD6516C00BECBBB /* helveticaneuecyr-thin.otf in Resources */,
 				B1BF92751DD6516C00BECBBB /* helveticaneuecyr-thinitalic.otf in Resources */,
+				B122DF6B1DF804CD003823AD /* SegmentedControlViewLandscape.xib in Resources */,
 				B1C13D8D1DEF3385002B494A /* DropDown.storyboard in Resources */,
 				B18A45C61DEC21BA003EBD2F /* SmallTopBarView.xib in Resources */,
 				B1BF92761DD6516C00BECBBB /* helveticaneuecyr-ultralight.otf in Resources */,

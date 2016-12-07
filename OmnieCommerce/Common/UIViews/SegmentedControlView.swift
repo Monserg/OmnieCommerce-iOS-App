@@ -78,7 +78,12 @@ import Localize_Swift
 
     // MARK: - Custom Functions
     func setupView() {
-        UINib(nibName: String(describing: SegmentedControlView.self), bundle: Bundle(for: SegmentedControlView.self)).instantiate(withOwner: self, options: nil)
+        if (self.tag == 1) {
+            UINib(nibName: "SegmentedControlViewLandscape", bundle: Bundle(for: SegmentedControlView.self)).instantiate(withOwner: self, options: nil)
+        } else {
+            UINib(nibName: String(describing: SegmentedControlView.self), bundle: Bundle(for: SegmentedControlView.self)).instantiate(withOwner: self, options: nil)
+        }
+        
         addSubview(view)
         view.frame = frame
         view.backgroundColor = UIColor.veryDarkDesaturatedBlue24
