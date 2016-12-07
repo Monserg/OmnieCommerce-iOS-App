@@ -25,7 +25,9 @@ class CalendarShowViewController: BaseViewController, CalendarShowViewController
     var output: CalendarShowViewControllerOutput!
     var router: CalendarShowRouter!
     
+    @IBOutlet weak var segmentedControlView: SegmentedControlView!
 
+    
     // MARK: - Class Initialization
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -39,6 +41,7 @@ class CalendarShowViewController: BaseViewController, CalendarShowViewController
         super.viewDidLoad()
         
         setupScene()
+        setupSegmentedControlView()
         
         doSomethingOnLoad()
     }
@@ -65,5 +68,12 @@ class CalendarShowViewController: BaseViewController, CalendarShowViewController
         print(object: "\(type(of: self)): \(#function) run.")
         
         view.backgroundColor = UIColor.veryDarkDesaturatedBlue24
+    }
+    
+    func setupSegmentedControlView() {
+        segmentedControlView.actionButtonHandlerCompletion = { sender in
+            self.print(object: "\(type(of: self)): \(#function) run. Sender tag = \(sender.tag)")
+            
+        }
     }
 }

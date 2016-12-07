@@ -28,6 +28,10 @@ import Localize_Swift
                 leftTitle = "Subscription".localized()
                 rightTitle = "Hot News".localized()
 
+            case .Calendar:
+                leftTitle = "Calendar".localized()
+                rightTitle = "Schedule".localized()
+
             case .PersonalPage:
                 leftTitle = "Personal Data".localized()
                 rightTitle = "My Templates".localized()

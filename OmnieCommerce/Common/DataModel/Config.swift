@@ -33,8 +33,8 @@ struct Config {
     
     enum ViewStyle: String {
         case News = "News"
-        case PersonalPage = "PersonalPage"
+        case Calendar = "Calendar"
         case Favourite = "Favourite"
-    
+        case PersonalPage = "PersonalPage"
     }
 }
