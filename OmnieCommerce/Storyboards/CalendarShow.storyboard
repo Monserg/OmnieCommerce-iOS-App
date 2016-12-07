@@ -32,6 +32,18 @@
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="string" keyPath="segmentedControlViewStyle" value="Calendar"/>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="0.0"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                                        <size key="value" width="0.0" height="0.0"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                                        <real key="value" value="0.0"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                                        <real key="value" value="0.0"/>
+                                                    </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                         </subviews>
@@ -66,6 +78,20 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4c1-2X-Ri9">
                                         <rect key="frame" x="0.0" y="70" width="375" height="479"/>
                                         <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                                <size key="value" width="0.0" height="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="abG-cI-8OH" userLabel="Bottom Dotted View">
                                         <rect key="frame" x="0.0" y="549" width="375" height="76"/>
@@ -108,6 +134,18 @@
                                                                         <nil key="highlightedColor"/>
                                                                         <userDefinedRuntimeAttributes>
                                                                             <userDefinedRuntimeAttribute type="string" keyPath="labelStyle" value="MenuItem"/>
+                                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                                <real key="value" value="0.0"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                            <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                                                                <size key="value" width="0.0" height="0.0"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                                                                <real key="value" value="0.0"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                                                                <real key="value" value="0.0"/>
+                                                                            </userDefinedRuntimeAttribute>
                                                                         </userDefinedRuntimeAttributes>
                                                                     </label>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="J8k-Cb-px5">
@@ -126,6 +164,18 @@
                                                                                         <nil key="highlightedColor"/>
                                                                                         <userDefinedRuntimeAttributes>
                                                                                             <userDefinedRuntimeAttribute type="string" keyPath="labelStyle" value="FromTo"/>
+                                                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                                                <real key="value" value="0.0"/>
+                                                                                            </userDefinedRuntimeAttribute>
+                                                                                            <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                                                                                <size key="value" width="0.0" height="0.0"/>
+                                                                                            </userDefinedRuntimeAttribute>
+                                                                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                                                                                <real key="value" value="0.0"/>
+                                                                                            </userDefinedRuntimeAttribute>
+                                                                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                                                                                <real key="value" value="0.0"/>
+                                                                                            </userDefinedRuntimeAttribute>
                                                                                         </userDefinedRuntimeAttributes>
                                                                                     </label>
                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rjk-Dh-lke" userLabel="From Time Label" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
@@ -135,6 +185,18 @@
                                                                                         <nil key="highlightedColor"/>
                                                                                         <userDefinedRuntimeAttributes>
                                                                                             <userDefinedRuntimeAttribute type="string" keyPath="labelStyle" value="MenuItem"/>
+                                                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                                                <real key="value" value="0.0"/>
+                                                                                            </userDefinedRuntimeAttribute>
+                                                                                            <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                                                                                <size key="value" width="0.0" height="0.0"/>
+                                                                                            </userDefinedRuntimeAttribute>
+                                                                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                                                                                <real key="value" value="0.0"/>
+                                                                                            </userDefinedRuntimeAttribute>
+                                                                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                                                                                <real key="value" value="0.0"/>
+                                                                                            </userDefinedRuntimeAttribute>
                                                                                         </userDefinedRuntimeAttributes>
                                                                                     </label>
                                                                                 </subviews>
@@ -158,6 +220,18 @@
                                                                                         <nil key="highlightedColor"/>
                                                                                         <userDefinedRuntimeAttributes>
                                                                                             <userDefinedRuntimeAttribute type="string" keyPath="labelStyle" value="FromTo"/>
+                                                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                                                <real key="value" value="0.0"/>
+                                                                                            </userDefinedRuntimeAttribute>
+                                                                                            <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                                                                                <size key="value" width="0.0" height="0.0"/>
+                                                                                            </userDefinedRuntimeAttribute>
+                                                                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                                                                                <real key="value" value="0.0"/>
+                                                                                            </userDefinedRuntimeAttribute>
+                                                                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                                                                                <real key="value" value="0.0"/>
+                                                                                            </userDefinedRuntimeAttribute>
                                                                                         </userDefinedRuntimeAttributes>
                                                                                     </label>
                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="13:35" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OhZ-x6-ONU" userLabel="To Time Label" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
@@ -167,6 +241,18 @@
                                                                                         <nil key="highlightedColor"/>
                                                                                         <userDefinedRuntimeAttributes>
                                                                                             <userDefinedRuntimeAttribute type="string" keyPath="labelStyle" value="MenuItem"/>
+                                                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                                                <real key="value" value="0.0"/>
+                                                                                            </userDefinedRuntimeAttribute>
+                                                                                            <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                                                                                <size key="value" width="0.0" height="0.0"/>
+                                                                                            </userDefinedRuntimeAttribute>
+                                                                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                                                                                <real key="value" value="0.0"/>
+                                                                                            </userDefinedRuntimeAttribute>
+                                                                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                                                                                <real key="value" value="0.0"/>
+                                                                                            </userDefinedRuntimeAttribute>
                                                                                         </userDefinedRuntimeAttributes>
                                                                                     </label>
                                                                                 </subviews>
@@ -240,6 +326,15 @@
                                                                                 <real key="value" value="0.0"/>
                                                                             </userDefinedRuntimeAttribute>
                                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                                                            <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                                                                <size key="value" width="0.0" height="0.0"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                                                                <real key="value" value="0.0"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                                                                <real key="value" value="0.0"/>
+                                                                            </userDefinedRuntimeAttribute>
                                                                         </userDefinedRuntimeAttributes>
                                                                         <connections>
                                                                             <action selector="handlerConfirmButtonTap:" destination="wgF-Hw-axL" eventType="touchUpInside" id="2zg-dQ-EdT"/>
@@ -257,6 +352,18 @@
                                                                                 <real key="value" value="18"/>
                                                                             </userDefinedRuntimeAttribute>
                                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                                <real key="value" value="1"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                            <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                                                                <size key="value" width="0.0" height="0.0"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                                                                <real key="value" value="0.0"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                                                                <real key="value" value="0.0"/>
+                                                                            </userDefinedRuntimeAttribute>
                                                                         </userDefinedRuntimeAttributes>
                                                                         <variation key="default">
                                                                             <mask key="constraints">
@@ -404,7 +511,7 @@
                                 <variation key="heightClass=compact-widthClass=regular" axis="horizontal"/>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1J9-cZ-tAK" userLabel="Copyright Label" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                                <rect key="frame" x="149" y="647" width="77.5" height="11"/>
+                                <rect key="frame" x="149.5" y="647" width="77.5" height="11"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="11" id="cMs-gb-Ekm"/>
                                 </constraints>
@@ -413,6 +520,18 @@
                                 <nil key="highlightedColor"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="labelStyle" value="Copyright"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                        <size key="value" width="0.0" height="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </label>
                         </subviews>
