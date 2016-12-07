@@ -73,6 +73,10 @@ import Localize_Swift
         if (selectedButton.tag == 1) {
             self.selectedView.frame = CGRect.init(origin: CGPoint.init(x: selectedButton.frame.minX + 8, y: selectedButton.frame.maxY), size: self.selectedView.bounds.size)
         }
+        
+        self.leftActionButton.setVerticalTitleStyle()
+        self.rightActionButton.setVerticalTitleStyle()
+
     }
 
 
@@ -98,12 +102,12 @@ import Localize_Swift
         
         switch sender.tag {
         case 0:
-            leftActionButton.setAttributedTitle(NSAttributedString(string: leftTitle, attributes: UIFont.ubuntuLightVeryLightOrange16), for: .normal)
-            rightActionButton.setAttributedTitle(NSAttributedString(string: rightTitle, attributes: UIFont.ubuntuLightVeryLightGray16), for: .normal)
+            leftActionButton.setAttributedTitleWithoutAnimation(title: NSAttributedString(string: leftTitle, attributes: UIFont.ubuntuLightVeryLightOrange16))
+            rightActionButton.setAttributedTitleWithoutAnimation(title: NSAttributedString(string: rightTitle, attributes: UIFont.ubuntuLightVeryLightGray16))
             
         case 1:
-            leftActionButton.setAttributedTitle(NSAttributedString(string: leftTitle, attributes: UIFont.ubuntuLightVeryLightGray16), for: .normal)
-            rightActionButton.setAttributedTitle(NSAttributedString(string: rightTitle, attributes: UIFont.ubuntuLightVeryLightOrange16), for: .normal)
+            leftActionButton.setAttributedTitleWithoutAnimation(title: NSAttributedString(string: leftTitle, attributes: UIFont.ubuntuLightVeryLightGray16))
+            rightActionButton.setAttributedTitleWithoutAnimation(title: NSAttributedString(string: rightTitle, attributes: UIFont.ubuntuLightVeryLightOrange16))
             
         default:
             break
@@ -115,13 +119,8 @@ import Localize_Swift
             } else {
                 if (UIApplication.shared.statusBarOrientation.isPortrait) {
                     self.selectedView.frame = CGRect.init(origin: CGPoint.init(x: sender.frame.minX + 8, y: sender.frame.maxY), size: self.selectedView.bounds.size)
-                    
-                    
                 } else {
                     self.selectedView.frame = CGRect.init(origin: CGPoint.init(x: sender.frame.maxX, y: sender.frame.minY + 8), size: self.selectedView.bounds.size)
-                    
-                    self.leftActionButton.setVerticalTitleStyle()
-                    self.rightActionButton.setVerticalTitleStyle()
                 }
             }
         }, completion: { success in
