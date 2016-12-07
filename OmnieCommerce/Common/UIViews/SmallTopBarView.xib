@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina5_5" orientation="landscape">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SmallTopBarView" customModule="OmnieCommerce" customModuleProvider="target">
+            <connections>
+                <outlet property="actionButton" destination="1UU-5B-Xhy" id="iLH-61-EKE"/>
+                <outlet property="circleView" destination="kst-NW-aRW" id="bf6-OY-a7q"/>
+                <outlet property="dottesStackView" destination="ef5-nQ-6Bi" id="9FI-vq-4U6"/>
+                <outlet property="searchButton" destination="FNP-4w-rop" id="obE-VI-N2j"/>
+                <outlet property="titleLabel" destination="HQM-9u-rBz" id="usx-1b-NgG"/>
+                <outlet property="view" destination="iN0-l3-epB" id="pfh-W6-wIu"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="113"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kst-NW-aRW" customClass="SmallCirleView" customModule="OmnieCommerce" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="113"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OTQ-6X-f87" userLabel="Nav Bar View">
+                    <rect key="frame" x="0.0" y="6" width="414" height="44"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1UU-5B-Xhy" userLabel="Action Button">
+                            <rect key="frame" x="4" y="0.0" width="44" height="44"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="44" id="Xwo-Xr-1cS"/>
+                                <constraint firstAttribute="width" constant="44" id="ghG-DN-Ugw"/>
+                            </constraints>
+                            <state key="normal" image="icon-menu-normal"/>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Orders" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HQM-9u-rBz" userLabel="Title Label" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
+                            <rect key="frame" x="56" y="7.6666666666666643" width="306" height="29"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="labelStyle" value="Title"/>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                        </label>
+                        <stackView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="ef5-nQ-6Bi">
+                            <rect key="frame" x="189" y="40.666666666666664" width="36" height="4"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x6s-gG-iKi" userLabel="Dot 1 View" customClass="DotView" customModule="OmnieCommerce" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="4" height="4"/>
+                                    <color key="backgroundColor" red="0.094117647058823528" green="0.40392156862745099" blue="0.43529411764705883" alpha="1" colorSpace="calibratedRGB"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <real key="value" value="2"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                    </userDefinedRuntimeAttributes>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gSf-X9-Kmh" userLabel="Dot 2 View" customClass="DotView" customModule="OmnieCommerce" customModuleProvider="target">
+                                    <rect key="frame" x="8" y="0.0" width="4" height="4"/>
+                                    <color key="backgroundColor" red="0.094117647058823528" green="0.40392156862745099" blue="0.43529411764705883" alpha="1" colorSpace="calibratedRGB"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <real key="value" value="2"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PQ3-ha-kPn" userLabel="Dot 3 View" customClass="DotView" customModule="OmnieCommerce" customModuleProvider="target">
+                                    <rect key="frame" x="16" y="0.0" width="4" height="4"/>
+                                    <color key="backgroundColor" red="0.094117647058823528" green="0.40392156862745099" blue="0.43529411764705883" alpha="1" colorSpace="calibratedRGB"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <real key="value" value="2"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O0V-Oh-fq0" userLabel="Dot 4 View" customClass="DotView" customModule="OmnieCommerce" customModuleProvider="target">
+                                    <rect key="frame" x="24" y="0.0" width="4" height="4"/>
+                                    <color key="backgroundColor" red="0.094117647058823528" green="0.40392156862745099" blue="0.43529411764705883" alpha="1" colorSpace="calibratedRGB"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <real key="value" value="2"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="49P-4y-TJQ" userLabel="Dot 5 View" customClass="DotView" customModule="OmnieCommerce" customModuleProvider="target">
+                                    <rect key="frame" x="32" y="0.0" width="4" height="4"/>
+                                    <color key="backgroundColor" red="0.094117647058823528" green="0.40392156862745099" blue="0.43529411764705883" alpha="1" colorSpace="calibratedRGB"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <real key="value" value="2"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </view>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="36" id="5zv-DE-sIo"/>
+                                <constraint firstAttribute="height" constant="4" id="I5X-Sh-2dA"/>
+                            </constraints>
+                        </stackView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FNP-4w-rop" userLabel="Search Button">
+                            <rect key="frame" x="366" y="0.0" width="44" height="44"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="44" id="0BH-te-VPP"/>
+                                <constraint firstAttribute="height" constant="44" id="sUQ-rI-yYL"/>
+                            </constraints>
+                            <state key="normal" image="icon-search-normal"/>
+                            <connections>
+                                <action selector="handlerSearchButtonTap:" destination="-1" eventType="touchUpInside" id="XUl-Se-hMV"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="1UU-5B-Xhy" firstAttribute="leading" secondItem="OTQ-6X-f87" secondAttribute="leading" constant="4" id="8cd-N0-2Qg"/>
+                        <constraint firstItem="FNP-4w-rop" firstAttribute="leading" secondItem="HQM-9u-rBz" secondAttribute="trailing" constant="4" id="Cz6-PU-kg7"/>
+                        <constraint firstAttribute="height" constant="44" id="Tad-pS-19t"/>
+                        <constraint firstItem="ef5-nQ-6Bi" firstAttribute="centerX" secondItem="OTQ-6X-f87" secondAttribute="centerX" id="Z8g-np-luF"/>
+                        <constraint firstItem="1UU-5B-Xhy" firstAttribute="centerY" secondItem="OTQ-6X-f87" secondAttribute="centerY" id="ri0-Kd-0cx"/>
+                        <constraint firstAttribute="trailing" secondItem="FNP-4w-rop" secondAttribute="trailing" constant="4" id="sxe-82-sZm"/>
+                        <constraint firstItem="ef5-nQ-6Bi" firstAttribute="top" secondItem="HQM-9u-rBz" secondAttribute="bottom" constant="4" id="usi-nX-d5e"/>
+                        <constraint firstItem="FNP-4w-rop" firstAttribute="centerY" secondItem="1UU-5B-Xhy" secondAttribute="centerY" id="vNZ-UE-GNj"/>
+                        <constraint firstItem="HQM-9u-rBz" firstAttribute="centerY" secondItem="1UU-5B-Xhy" secondAttribute="centerY" id="vTT-s3-Kml"/>
+                        <constraint firstItem="HQM-9u-rBz" firstAttribute="leading" secondItem="1UU-5B-Xhy" secondAttribute="trailing" constant="8" id="wwB-z0-z3C"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="OTQ-6X-f87" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="6mV-QR-90x">
+                    <variation key="heightClass=compact-widthClass=compact" constant="4"/>
+                    <variation key="heightClass=compact-widthClass=regular" constant="6"/>
+                </constraint>
+                <constraint firstItem="kst-NW-aRW" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="7EP-Gt-d46"/>
+                <constraint firstAttribute="bottom" secondItem="kst-NW-aRW" secondAttribute="bottom" id="D1h-yh-nYp"/>
+                <constraint firstAttribute="trailing" secondItem="kst-NW-aRW" secondAttribute="trailing" id="G4A-at-nGm"/>
+                <constraint firstAttribute="trailing" secondItem="OTQ-6X-f87" secondAttribute="trailing" id="Nwj-qa-tGD"/>
+                <constraint firstItem="kst-NW-aRW" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="SE9-mf-Ttm"/>
+                <constraint firstItem="OTQ-6X-f87" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="cnc-W6-Kgo"/>
+                <constraint firstItem="OTQ-6X-f87" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="czJ-d7-Bf8"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="33" y="-539.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="icon-menu-normal" width="23" height="14"/>
+        <image name="icon-search-normal" width="16" height="16"/>
+    </resources>
+</document>

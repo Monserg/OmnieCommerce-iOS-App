@@ -1,0 +1,72 @@
+/* 
+  Localizable.strings
+  OmnieCommerce
+
+  Created by msm72 on 09.11.16.
+  Copyright © 2016 Omniesoft. All rights reserved.
+*/
+
+// Menu Items
+"Orders"                =   "Мои заказы";
+"Messages"              =   "Сообщения";
+"Favourite"             =   "Избранное";
+"Categories"            =   "Категории";
+"News"                  =   "Новости";
+"DiscountCards"         =   "Карточки";
+"OmnieCards"            =   "Omnie Cards";
+"BusinessCards"         =   "Визитница";
+"Handbook"              =   "Справочник";
+"PersonalPage"          =   "Мой кабинет";
+"Settings"              =   "Настройки";
+"About"                 =   "Справка";
+"OnmieSoft"             =   "OnmieSoft";
+"LogOut"                =   "Выйти";
+
+
+// Labels
+"Congratulations"       =   "Поздравляем!";
+"Not yet registered?"   =   "Ещё не зарегистрированы?";
+"Forgot Password"       =   "Забыли пароль";
+"Phone or email error"  =   "* неправильный номер или Email";
+"Email error"           =   "* неправильный Email";
+"Auto Service"          =   "Автосервис";
+"Health"                =   "Здоровье";
+"Beauty"                =   "Красота";
+"Training"              =   "Обучение";
+"Restaurants"           =   "Рестораны";
+"Tourism"               =   "Туризм";
+"Sport"                 =   "Спорт";
+"From"                  =   "с";
+"To"                    =   "до";
+
+
+// Buttons
+"Register"              =   "Регистрироваться";
+"Forgot password?"      =   "Забыли пароль?";
+"Sign In"               =   "Войти";
+"Sign Up"               =   "Зарегистрироваться";
+"Check In"              =   "Регистрация";
+"Forgot Password?"      =   "Забыли пароль?";
+"Cancel"                =   "Отменить";
+"Send"                  =   "Отправить";
+"City"                  =   "Город";
+"Confirm"               =   "Подтвердить";
+
+
+// TextField Placeholders
+"Name"                  =   "Имя";
+"Password"              =   "Пароль";
+"Email"                 =   "Email";
+"Phone or Email"        =   "Телефон или Email";
+
+
+// Segmented Control Titles
+"Subscription"          =   "Подписка";
+"Hot News"              =   "Горячие новости";
+"Personal Data"         =   "Личные данные";
+"My Templates"          =   "Мои шаблоны";
+"Organizations"         =   "Организации";
+"Services"              =   "Услуги";
+"Calendar"              =   "Календарь";
+"Schedule"              =   "График";
+

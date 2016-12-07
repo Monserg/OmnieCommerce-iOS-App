@@ -1,0 +1,71 @@
+/* 
+  Localizable.strings
+  OmnieCommerce
+
+  Created by msm72 on 09.11.16.
+  Copyright © 2016 Omniesoft. All rights reserved.
+*/
+
+// Menu Items
+"Orders"                =   "Мої замовлення";
+"Messages"              =   "Повідомлення";
+"Favourite"             =   "Улюблене";
+"Categories"            =   "Категорії";
+"News"                  =   "Новини";
+"DiscountCards"         =   "Картки";
+"OmnieCards"            =   "Omnie Cards";
+"BusinessCards"         =   "Візитниця";
+"Handbook"              =   "Довідник";
+"PersonalPage"          =   "Мій кабінет";
+"Settings"              =   "Налаштування";
+"About"                 =   "Справка";
+"OnmieSoft"             =   "OnmieSoft";
+"LogOut"                =   "Вийти";
+
+
+// Labels
+"Congratulations"       =   "Вітаємо!";
+"Not yet registered?"   =   "Ще не зареєстровані?";
+"Forgot Password"       =   "Забули пароль";
+"Phone or email error"  =   "* невірний номер або Email";
+"Email error"           =   "* невірний Email";
+"Auto Service"          =   "Автосервіс";
+"Health"                =   "Здоров'я";
+"Beauty"                =   "Краса";
+"Training"              =   "Навчання";
+"Restaurants"           =   "Ресторани";
+"Tourism"               =   "Туризм";
+"Sport"                 =   "Спорт";
+"From"                  =   "з";
+"To"                    =   "до";
+
+
+// Buttons
+"Register"              =   "Зареєструватись";
+"Forgot password?"      =   "Забули пароль?";
+"Sign In"               =   "Зайти";
+"Sign Up"               =   "Зареєструватись";
+"Check In"              =   "Реєстрація";
+"Forgot Password?"      =   "Забули пароль?";
+"Cancel"                =   "Відмінити";
+"Send"                  =   "Відправити";
+"City"                  =   "Місто";
+"Confirm"               =   "Підтвердити";
+
+
+// TextField Placeholders
+"Name"                  =   "Ім'я";
+"Password"              =   "Пароль";
+"Email"                 =   "Email";
+"Phone or Email"        =   "Телефон або Email";
+
+
+// Segmented Control Titles
+"Subscription"          =   "Підписка";
+"Hot News"              =   "Гарячі новини";
+"Personal Data"         =   "Особисті дані";
+"My Templates"          =   "Мої шаблони";
+"Organizations"         =   "Організації";
+"Services"              =   "Послуги";
+"Calendar"              =   "Календар";
+"Schedule"              =   "Графік";

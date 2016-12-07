@@ -4,6 +4,31 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Alamofire.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>AlamofireImage.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Cosmos.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Device.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Localize-Swift.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-OmnieCommerce.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -17,12 +42,37 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>1383F2E6421EC483F8D20072F50DFBD3</key>
+		<key>2F0FE1E2A5B1EF15139E10A40F05CE94</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>24B30CB2AFA42B2FAED81ED4FDE60C44</key>
+		<key>51D2E012FB6E7D5680EAD23B655B5281</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>5E90024CA4621EC0A8B8C777C958214A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>88E9EC28B8B46C3631E6B242B50F4442</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8B9818E36A982C19A254205CCCEAB2A2</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9EFE4C70245EE2857D336B8B9FA4E825</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FC00A2B118650C6C90D34FB24F60280D</key>
 		<dict>
 			<key>primary</key>
 			<true/>

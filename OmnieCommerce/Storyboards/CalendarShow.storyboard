@@ -1,0 +1,567 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Calendar Show View Controller-->
+        <scene sceneID="Xuf-JI-QXz">
+            <objects>
+                <viewController storyboardIdentifier="CalendarShowVC" id="wgF-Hw-axL" customClass="CalendarShowViewController" customModule="OmnieCommerce" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="XD5-r3-z3A"/>
+                        <viewControllerLayoutGuide type="bottom" id="PuB-Zg-iNe"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="acP-Da-gjJ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uOe-xj-v67">
+                                <rect key="frame" x="0.0" y="20" width="375" height="625"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ypz-Pw-w3Z" userLabel="Segmented Control View">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
+                                        <subviews>
+                                            <view tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EDl-jJ-gKO" userLabel="Content View" customClass="SegmentedControlView" customModule="OmnieCommerce" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="55"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="segmentedControlViewStyle" value="Calendar"/>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="0.0"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                                        <size key="value" width="0.0" height="0.0"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                                        <real key="value" value="0.0"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                                        <real key="value" value="0.0"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="70" id="8Ms-5m-lOf"/>
+                                            <constraint firstAttribute="trailing" secondItem="EDl-jJ-gKO" secondAttribute="trailing" id="EMS-8z-j2G"/>
+                                            <constraint firstItem="EDl-jJ-gKO" firstAttribute="top" secondItem="Ypz-Pw-w3Z" secondAttribute="top" id="JYS-2U-Snk"/>
+                                            <constraint firstAttribute="width" constant="70" id="gZ6-I8-t1X"/>
+                                            <constraint firstItem="EDl-jJ-gKO" firstAttribute="leading" secondItem="Ypz-Pw-w3Z" secondAttribute="leading" id="qSg-6e-5Rv"/>
+                                            <constraint firstAttribute="bottom" secondItem="EDl-jJ-gKO" secondAttribute="bottom" constant="15" id="tbb-Sj-ZPQ">
+                                                <variation key="heightClass=compact-widthClass=compact" constant="0.0"/>
+                                                <variation key="heightClass=compact-widthClass=regular" constant="0.0"/>
+                                            </constraint>
+                                        </constraints>
+                                        <variation key="heightClass=compact-widthClass=compact">
+                                            <mask key="constraints">
+                                                <exclude reference="8Ms-5m-lOf"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="heightClass=compact-widthClass=regular">
+                                            <mask key="constraints">
+                                                <exclude reference="8Ms-5m-lOf"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="heightClass=regular-widthClass=compact">
+                                            <mask key="constraints">
+                                                <exclude reference="gZ6-I8-t1X"/>
+                                            </mask>
+                                        </variation>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4c1-2X-Ri9">
+                                        <rect key="frame" x="0.0" y="70" width="375" height="479"/>
+                                        <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                                <size key="value" width="0.0" height="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="abG-cI-8OH" userLabel="Bottom Dotted View">
+                                        <rect key="frame" x="0.0" y="549" width="375" height="76"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DzE-if-37G" userLabel="Content Dotted View" customClass="DottedBorderView" customModule="OmnieCommerce" customModuleProvider="target">
+                                                <rect key="frame" x="4" y="0.0" width="367" height="76"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Cei-qp-lia">
+                                                        <rect key="frame" x="10" y="20" width="347" height="36"/>
+                                                        <subviews>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ad7-3f-t2d" userLabel="Top View">
+                                                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="36"/>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" id="eCG-gD-Jda"/>
+                                                                </constraints>
+                                                                <variation key="default">
+                                                                    <mask key="constraints">
+                                                                        <exclude reference="eCG-gD-Jda"/>
+                                                                    </mask>
+                                                                </variation>
+                                                                <variation key="heightClass=regular-widthClass=compact">
+                                                                    <mask key="constraints">
+                                                                        <include reference="eCG-gD-Jda"/>
+                                                                    </mask>
+                                                                </variation>
+                                                            </view>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Z9P-FS-lTV">
+                                                                <rect key="frame" x="0.0" y="0.0" width="125" height="36"/>
+                                                                <subviews>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="07.12.2016" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rfs-OC-dPl" userLabel="Date Label" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="125" height="17"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="height" constant="27" id="uWA-g8-01W">
+                                                                                <variation key="heightClass=regular-widthClass=compact" constant="17"/>
+                                                                            </constraint>
+                                                                        </constraints>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                        <nil key="textColor"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="string" keyPath="labelStyle" value="MenuItem"/>
+                                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                                <real key="value" value="0.0"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                            <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                                                                <size key="value" width="0.0" height="0.0"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                                                                <real key="value" value="0.0"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                                                                <real key="value" value="0.0"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                        </userDefinedRuntimeAttributes>
+                                                                    </label>
+                                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="J8k-Cb-px5">
+                                                                        <rect key="frame" x="0.0" y="20" width="125" height="16"/>
+                                                                        <subviews>
+                                                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="qPK-mV-VzX">
+                                                                                <rect key="frame" x="0.0" y="0.0" width="63.5" height="16"/>
+                                                                                <subviews>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="From" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PvP-62-nTe" userLabel="From Label" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
+                                                                                        <rect key="frame" x="0.0" y="0.0" width="25" height="16"/>
+                                                                                        <constraints>
+                                                                                            <constraint firstAttribute="width" constant="25" id="h6X-XI-sml"/>
+                                                                                        </constraints>
+                                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                                        <nil key="textColor"/>
+                                                                                        <nil key="highlightedColor"/>
+                                                                                        <userDefinedRuntimeAttributes>
+                                                                                            <userDefinedRuntimeAttribute type="string" keyPath="labelStyle" value="FromTo"/>
+                                                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                                                <real key="value" value="0.0"/>
+                                                                                            </userDefinedRuntimeAttribute>
+                                                                                            <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                                                                                <size key="value" width="0.0" height="0.0"/>
+                                                                                            </userDefinedRuntimeAttribute>
+                                                                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                                                                                <real key="value" value="0.0"/>
+                                                                                            </userDefinedRuntimeAttribute>
+                                                                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                                                                                <real key="value" value="0.0"/>
+                                                                                            </userDefinedRuntimeAttribute>
+                                                                                        </userDefinedRuntimeAttributes>
+                                                                                    </label>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rjk-Dh-lke" userLabel="From Time Label" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
+                                                                                        <rect key="frame" x="29" y="0.0" width="34.5" height="16"/>
+                                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                                        <nil key="textColor"/>
+                                                                                        <nil key="highlightedColor"/>
+                                                                                        <userDefinedRuntimeAttributes>
+                                                                                            <userDefinedRuntimeAttribute type="string" keyPath="labelStyle" value="MenuItem"/>
+                                                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                                                <real key="value" value="0.0"/>
+                                                                                            </userDefinedRuntimeAttribute>
+                                                                                            <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                                                                                <size key="value" width="0.0" height="0.0"/>
+                                                                                            </userDefinedRuntimeAttribute>
+                                                                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                                                                                <real key="value" value="0.0"/>
+                                                                                            </userDefinedRuntimeAttribute>
+                                                                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                                                                                <real key="value" value="0.0"/>
+                                                                                            </userDefinedRuntimeAttribute>
+                                                                                        </userDefinedRuntimeAttributes>
+                                                                                    </label>
+                                                                                </subviews>
+                                                                                <constraints>
+                                                                                    <constraint firstItem="rjk-Dh-lke" firstAttribute="height" secondItem="PvP-62-nTe" secondAttribute="height" id="E51-Ez-mEL"/>
+                                                                                </constraints>
+                                                                                <variation key="heightClass=regular-widthClass=compact" spacing="4"/>
+                                                                            </stackView>
+                                                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="ISp-bE-LQz">
+                                                                                <rect key="frame" x="71.5" y="0.0" width="53.5" height="16"/>
+                                                                                <subviews>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cvd-Dc-wqb" userLabel="To Label" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
+                                                                                        <rect key="frame" x="0.0" y="0.0" width="15" height="16"/>
+                                                                                        <constraints>
+                                                                                            <constraint firstAttribute="width" constant="25" id="csz-Dg-2bf">
+                                                                                                <variation key="heightClass=regular-widthClass=compact" constant="15"/>
+                                                                                            </constraint>
+                                                                                        </constraints>
+                                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                                        <nil key="textColor"/>
+                                                                                        <nil key="highlightedColor"/>
+                                                                                        <userDefinedRuntimeAttributes>
+                                                                                            <userDefinedRuntimeAttribute type="string" keyPath="labelStyle" value="FromTo"/>
+                                                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                                                <real key="value" value="0.0"/>
+                                                                                            </userDefinedRuntimeAttribute>
+                                                                                            <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                                                                                <size key="value" width="0.0" height="0.0"/>
+                                                                                            </userDefinedRuntimeAttribute>
+                                                                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                                                                                <real key="value" value="0.0"/>
+                                                                                            </userDefinedRuntimeAttribute>
+                                                                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                                                                                <real key="value" value="0.0"/>
+                                                                                            </userDefinedRuntimeAttribute>
+                                                                                        </userDefinedRuntimeAttributes>
+                                                                                    </label>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="13:35" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OhZ-x6-ONU" userLabel="To Time Label" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
+                                                                                        <rect key="frame" x="19" y="0.0" width="34.5" height="16"/>
+                                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                                        <nil key="textColor"/>
+                                                                                        <nil key="highlightedColor"/>
+                                                                                        <userDefinedRuntimeAttributes>
+                                                                                            <userDefinedRuntimeAttribute type="string" keyPath="labelStyle" value="MenuItem"/>
+                                                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                                                <real key="value" value="0.0"/>
+                                                                                            </userDefinedRuntimeAttribute>
+                                                                                            <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                                                                                <size key="value" width="0.0" height="0.0"/>
+                                                                                            </userDefinedRuntimeAttribute>
+                                                                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                                                                                <real key="value" value="0.0"/>
+                                                                                            </userDefinedRuntimeAttribute>
+                                                                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                                                                                <real key="value" value="0.0"/>
+                                                                                            </userDefinedRuntimeAttribute>
+                                                                                        </userDefinedRuntimeAttributes>
+                                                                                    </label>
+                                                                                </subviews>
+                                                                                <constraints>
+                                                                                    <constraint firstItem="OhZ-x6-ONU" firstAttribute="height" secondItem="cvd-Dc-wqb" secondAttribute="height" id="YLD-7S-AWZ"/>
+                                                                                </constraints>
+                                                                                <variation key="heightClass=regular-widthClass=compact" spacing="4"/>
+                                                                            </stackView>
+                                                                        </subviews>
+                                                                        <variation key="heightClass=regular-widthClass=compact" axis="horizontal" spacing="8"/>
+                                                                    </stackView>
+                                                                </subviews>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="125" id="5Zx-b8-C00"/>
+                                                                    <constraint firstAttribute="height" constant="81" id="gGV-PD-D4e"/>
+                                                                </constraints>
+                                                                <variation key="default">
+                                                                    <mask key="constraints">
+                                                                        <exclude reference="5Zx-b8-C00"/>
+                                                                    </mask>
+                                                                </variation>
+                                                                <variation key="heightClass=regular-widthClass=compact" spacing="3">
+                                                                    <mask key="constraints">
+                                                                        <include reference="5Zx-b8-C00"/>
+                                                                        <exclude reference="gGV-PD-D4e"/>
+                                                                    </mask>
+                                                                </variation>
+                                                            </stackView>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Ml-to-0S1" userLabel="Middle View">
+                                                                <rect key="frame" x="125" y="0.0" width="20" height="36"/>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="42" id="Juo-Hy-d0f"/>
+                                                                    <constraint firstAttribute="width" constant="20" id="LAi-tS-92R"/>
+                                                                </constraints>
+                                                                <variation key="default">
+                                                                    <mask key="constraints">
+                                                                        <exclude reference="Juo-Hy-d0f"/>
+                                                                        <exclude reference="LAi-tS-92R"/>
+                                                                    </mask>
+                                                                </variation>
+                                                                <variation key="heightClass=compact-widthClass=compact">
+                                                                    <mask key="constraints">
+                                                                        <include reference="Juo-Hy-d0f"/>
+                                                                    </mask>
+                                                                </variation>
+                                                                <variation key="heightClass=compact-widthClass=regular">
+                                                                    <mask key="constraints">
+                                                                        <include reference="Juo-Hy-d0f"/>
+                                                                    </mask>
+                                                                </variation>
+                                                                <variation key="heightClass=regular-widthClass=compact">
+                                                                    <mask key="constraints">
+                                                                        <include reference="LAi-tS-92R"/>
+                                                                    </mask>
+                                                                </variation>
+                                                            </view>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="uOU-iv-l2D">
+                                                                <rect key="frame" x="145" y="0.0" width="194" height="36"/>
+                                                                <subviews>
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p0Y-B5-nW5" userLabel="Confirm Button" customClass="CustomButton" customModule="OmnieCommerce" customModuleProvider="target">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="150" height="36"/>
+                                                                        <state key="normal" title="Confirm" image="icon-confirm-normal"/>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="string" keyPath="buttonStyle" value="Fill"/>
+                                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                                <real key="value" value="18"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                                <real key="value" value="0.0"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                                                            <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                                                                <size key="value" width="0.0" height="0.0"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                                                                <real key="value" value="0.0"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                                                                <real key="value" value="0.0"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                        </userDefinedRuntimeAttributes>
+                                                                        <connections>
+                                                                            <action selector="handlerConfirmButtonTap:" destination="wgF-Hw-axL" eventType="touchUpInside" id="2zg-dQ-EdT"/>
+                                                                        </connections>
+                                                                    </button>
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WuZ-ep-v0H" userLabel="Cancel Button" customClass="CustomButton" customModule="OmnieCommerce" customModuleProvider="target">
+                                                                        <rect key="frame" x="158" y="0.0" width="36" height="36"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="width" constant="36" id="SmF-w6-8ia"/>
+                                                                        </constraints>
+                                                                        <state key="normal" image="icon-cancel-normal"/>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="string" keyPath="buttonStyle" value="Border"/>
+                                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                                <real key="value" value="18"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                                <real key="value" value="1"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                            <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                                                                <size key="value" width="0.0" height="0.0"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                                                                <real key="value" value="0.0"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                                                                <real key="value" value="0.0"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                        </userDefinedRuntimeAttributes>
+                                                                        <variation key="default">
+                                                                            <mask key="constraints">
+                                                                                <exclude reference="SmF-w6-8ia"/>
+                                                                            </mask>
+                                                                        </variation>
+                                                                        <variation key="heightClass=regular-widthClass=compact">
+                                                                            <mask key="constraints">
+                                                                                <include reference="SmF-w6-8ia"/>
+                                                                            </mask>
+                                                                        </variation>
+                                                                        <connections>
+                                                                            <action selector="handlerCancelButtonTap:" destination="wgF-Hw-axL" eventType="touchUpInside" id="3Rb-TJ-Fl8"/>
+                                                                        </connections>
+                                                                    </button>
+                                                                </subviews>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="58.5" id="mxa-IK-uQs">
+                                                                        <variation key="heightClass=compact-widthClass=compact" constant="84"/>
+                                                                        <variation key="heightClass=compact-widthClass=regular" constant="84"/>
+                                                                    </constraint>
+                                                                </constraints>
+                                                                <variation key="heightClass=compact-widthClass=compact" distribution="fillEqually" spacing="12"/>
+                                                                <variation key="heightClass=compact-widthClass=regular" distribution="fillEqually" spacing="12"/>
+                                                                <variation key="heightClass=regular-widthClass=compact" axis="horizontal" spacing="8">
+                                                                    <mask key="constraints">
+                                                                        <exclude reference="mxa-IK-uQs"/>
+                                                                    </mask>
+                                                                </variation>
+                                                            </stackView>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2fP-Af-pOZ" userLabel="Bottom View">
+                                                                <rect key="frame" x="339" y="0.0" width="8" height="36"/>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="30" id="2VY-jd-VmS"/>
+                                                                    <constraint firstAttribute="width" constant="8" id="y8j-Rt-D6Y"/>
+                                                                </constraints>
+                                                                <variation key="default">
+                                                                    <mask key="constraints">
+                                                                        <exclude reference="2VY-jd-VmS"/>
+                                                                        <exclude reference="y8j-Rt-D6Y"/>
+                                                                    </mask>
+                                                                </variation>
+                                                                <variation key="heightClass=compact-widthClass=compact">
+                                                                    <mask key="constraints">
+                                                                        <include reference="2VY-jd-VmS"/>
+                                                                    </mask>
+                                                                </variation>
+                                                                <variation key="heightClass=compact-widthClass=regular">
+                                                                    <mask key="constraints">
+                                                                        <include reference="2VY-jd-VmS"/>
+                                                                    </mask>
+                                                                </variation>
+                                                                <variation key="heightClass=regular-widthClass=compact">
+                                                                    <mask key="constraints">
+                                                                        <include reference="y8j-Rt-D6Y"/>
+                                                                    </mask>
+                                                                </variation>
+                                                            </view>
+                                                        </subviews>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        <variation key="heightClass=regular-widthClass=compact" axis="horizontal"/>
+                                                    </stackView>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstItem="Cei-qp-lia" firstAttribute="top" secondItem="DzE-if-37G" secondAttribute="top" id="AgJ-im-HXC">
+                                                        <variation key="heightClass=compact-widthClass=compact" constant="22"/>
+                                                        <variation key="heightClass=compact-widthClass=regular" constant="22"/>
+                                                        <variation key="heightClass=regular-widthClass=compact" constant="20"/>
+                                                    </constraint>
+                                                    <constraint firstAttribute="bottom" secondItem="Cei-qp-lia" secondAttribute="bottom" id="fDG-dg-dIP">
+                                                        <variation key="heightClass=compact-widthClass=compact" constant="2"/>
+                                                        <variation key="heightClass=compact-widthClass=regular" constant="2"/>
+                                                        <variation key="heightClass=regular-widthClass=compact" constant="20"/>
+                                                    </constraint>
+                                                    <constraint firstItem="Cei-qp-lia" firstAttribute="leading" secondItem="DzE-if-37G" secondAttribute="leading" id="hSp-2Y-5Hs">
+                                                        <variation key="heightClass=compact-widthClass=compact" constant="10"/>
+                                                        <variation key="heightClass=compact-widthClass=regular" constant="10"/>
+                                                        <variation key="heightClass=regular-widthClass=compact" constant="10"/>
+                                                    </constraint>
+                                                    <constraint firstAttribute="trailing" secondItem="Cei-qp-lia" secondAttribute="trailing" id="z6E-po-QTR">
+                                                        <variation key="heightClass=compact-widthClass=compact" constant="10"/>
+                                                        <variation key="heightClass=compact-widthClass=regular" constant="10"/>
+                                                        <variation key="heightClass=regular-widthClass=compact" constant="10"/>
+                                                    </constraint>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="viewStyle" value="AroundDottedRectangle"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="borderWidth" value="1.5"/>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="76" id="1cQ-q9-jlE"/>
+                                            <constraint firstItem="DzE-if-37G" firstAttribute="top" secondItem="abG-cI-8OH" secondAttribute="top" id="9M9-gO-paT">
+                                                <variation key="heightClass=compact-widthClass=compact" constant="12"/>
+                                                <variation key="heightClass=compact-widthClass=regular" constant="12"/>
+                                            </constraint>
+                                            <constraint firstItem="DzE-if-37G" firstAttribute="leading" secondItem="abG-cI-8OH" secondAttribute="leading" constant="4" id="Ei8-sQ-Xej"/>
+                                            <constraint firstAttribute="width" constant="185" id="Yk1-xj-LlP"/>
+                                            <constraint firstAttribute="bottom" secondItem="DzE-if-37G" secondAttribute="bottom" id="fET-wu-D1k"/>
+                                            <constraint firstAttribute="trailing" secondItem="DzE-if-37G" secondAttribute="trailing" constant="4" id="fdg-yA-rsS">
+                                                <variation key="heightClass=compact-widthClass=compact" constant="20"/>
+                                                <variation key="heightClass=compact-widthClass=regular" constant="20"/>
+                                            </constraint>
+                                            <constraint firstItem="DzE-if-37G" firstAttribute="leading" secondItem="abG-cI-8OH" secondAttribute="leading" constant="4" id="xJW-qo-D7i">
+                                                <variation key="heightClass=compact-widthClass=compact" constant="0.0"/>
+                                                <variation key="heightClass=compact-widthClass=regular" constant="0.0"/>
+                                            </constraint>
+                                        </constraints>
+                                        <variation key="heightClass=compact-widthClass=compact">
+                                            <mask key="constraints">
+                                                <exclude reference="1cQ-q9-jlE"/>
+                                                <exclude reference="Ei8-sQ-Xej"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="heightClass=compact-widthClass=regular">
+                                            <mask key="constraints">
+                                                <exclude reference="1cQ-q9-jlE"/>
+                                                <exclude reference="Ei8-sQ-Xej"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="heightClass=regular-widthClass=compact">
+                                            <mask key="constraints">
+                                                <exclude reference="Yk1-xj-LlP"/>
+                                            </mask>
+                                        </variation>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="abG-cI-8OH" secondAttribute="trailing" constant="20" id="Utx-Xw-Vdw"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Utx-Xw-Vdw"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=compact-widthClass=compact" axis="horizontal"/>
+                                <variation key="heightClass=compact-widthClass=regular" axis="horizontal"/>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1J9-cZ-tAK" userLabel="Copyright Label" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
+                                <rect key="frame" x="166.5" y="647" width="42" height="11"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="11" id="cMs-gb-Ekm"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="labelStyle" value="Copyright"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                        <size key="value" width="0.0" height="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="uOe-xj-v67" firstAttribute="top" secondItem="XD5-r3-z3A" secondAttribute="bottom" id="ABl-Gk-Zyn"/>
+                            <constraint firstAttribute="trailing" secondItem="uOe-xj-v67" secondAttribute="trailing" id="Yhq-nN-ZhM"/>
+                            <constraint firstItem="1J9-cZ-tAK" firstAttribute="top" secondItem="uOe-xj-v67" secondAttribute="bottom" constant="2" id="dDN-cx-VKf"/>
+                            <constraint firstItem="uOe-xj-v67" firstAttribute="leading" secondItem="acP-Da-gjJ" secondAttribute="leading" id="t2q-gD-vlI"/>
+                            <constraint firstAttribute="bottom" secondItem="1J9-cZ-tAK" secondAttribute="bottom" constant="9" id="tXM-pl-Ru5"/>
+                            <constraint firstItem="1J9-cZ-tAK" firstAttribute="centerX" secondItem="acP-Da-gjJ" secondAttribute="centerX" id="wOR-Rs-6Cq"/>
+                        </constraints>
+                    </view>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <connections>
+                        <outlet property="bottomDottedBorderView" destination="DzE-if-37G" id="s9R-8O-85A"/>
+                        <outlet property="confirmButton" destination="p0Y-B5-nW5" id="xv0-Un-aHP"/>
+                        <outlet property="dateLabel" destination="Rfs-OC-dPl" id="BM4-Rq-xP6"/>
+                        <outlet property="fromTimeLabel" destination="rjk-Dh-lke" id="I3Y-5R-oWB"/>
+                        <outlet property="segmentedControlView" destination="EDl-jJ-gKO" id="NYA-RR-61M"/>
+                        <outlet property="toTimeLabel" destination="OhZ-x6-ONU" id="2pp-K1-YIw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KgU-Ew-ER7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="33.333333333333336" y="69.293478260869577"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="icon-cancel-normal" width="12" height="12"/>
+        <image name="icon-confirm-normal" width="10" height="6"/>
+    </resources>
+</document>

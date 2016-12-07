@@ -1,0 +1,71 @@
+/* 
+  Localizable.strings
+  OmnieCommerce
+
+  Created by msm72 on 09.11.16.
+  Copyright © 2016 Omniesoft. All rights reserved.
+*/
+
+// Menu Items
+"Orders"                =   "My Orders";
+"Messages"              =   "Messages";
+"Favourite"             =   "Favourite";
+"Categories"            =   "Categories";
+"News"                  =   "News";
+"DiscountCards"         =   "Discount Cards";
+"OmnieCards"            =   "Omnie Cards";
+"BusinessCards"         =   "Business Cards";
+"Handbook"              =   "Handbook";
+"PersonalPage"          =   "Personal Page";
+"Settings"              =   "Settings";
+"About"                 =   "About";
+"OnmieSoft"             =   "OnmieSoft";
+"LogOut"                =   "Log Out";
+
+
+// Labels
+"Congratulations"       =   "Congratulations!";
+"Not yet registered?"   =   "Not yet registered?";
+"Forgot Password"       =   "Forgot Password";
+"Phone or email error"  =   "* wrong Phone number or Email";
+"Email error"           =   "* wrong Email";
+"Auto Service"          =   "Auto Service";
+"Health"                =   "Health";
+"Beauty"                =   "Beauty";
+"Training"              =   "Training";
+"Restaurants"           =   "Restaurants";
+"Tourism"               =   "Tourism";
+"Sport"                 =   "Sport";
+"From"                  =   "from";
+"To"                    =   "to";
+
+
+// Buttons
+"Register"              =   "Register";
+"Forgot password?"      =   "Forgot password?";
+"Sign In"               =   "Login";
+"Sign Up"               =   "Sign Up";
+"Check In"              =   "Check In";
+"Forgot Password?"      =   "Forgot Password?";
+"Cancel"                =   "Cancel";
+"Send"                  =   "Send";
+"City"                  =   "City";
+"Confirm"               =   "Confirm";
+
+
+// TextField Placeholders
+"Name"                  =   "Name";
+"Password"              =   "Password";
+"Email"                 =   "Email";
+"Phone or Email"        =   "Phone or Email";
+
+
+// Segmented Control Titles
+"Subscription"          =   "Subscription";
+"Hot News"              =   "Hot News";
+"Personal Data"         =   "Personal Data";
+"My Templates"          =   "My Templates";
+"Organizations"         =   "Organizations";
+"Services"              =   "Services";
+"Calendar"              =   "Calendar";
+"Schedule"              =   "Schedule";

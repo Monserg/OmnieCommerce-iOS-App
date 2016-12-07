@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Handbook Show View Controller-->
+        <scene sceneID="gk8-Fk-8jl">
+            <objects>
+                <viewController storyboardIdentifier="HandbookShowVC" id="GlX-f2-5KY" customClass="HandbookShowViewController" customModule="OmnieCommerce" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="FOO-64-AhZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="6XG-4v-L70"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ueb-xh-5L2">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QIO-EA-wXe" customClass="SmallTopBarView" customModule="OmnieCommerce" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="95"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="95" id="Q3Y-BW-Xxf">
+                                        <variation key="heightClass=compact-widthClass=compact" constant="80"/>
+                                        <variation key="heightClass=compact-widthClass=regular" constant="80"/>
+                                    </constraint>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="titleText" value="Handbook"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="type" value="ParentSearch"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0jm-qd-ave" userLabel="Copyright Label" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
+                                <rect key="frame" x="8" y="647.5" width="359" height="10.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="labelStyle" value="Copyright"/>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="QIO-EA-wXe" firstAttribute="leading" secondItem="Ueb-xh-5L2" secondAttribute="leading" id="4tA-e0-QW4"/>
+                            <constraint firstItem="QIO-EA-wXe" firstAttribute="top" secondItem="Ueb-xh-5L2" secondAttribute="top" id="R7e-Fb-qKN">
+                                <variation key="heightClass=compact-widthClass=compact" constant="0.0"/>
+                                <variation key="heightClass=compact-widthClass=regular" constant="0.0"/>
+                            </constraint>
+                            <constraint firstAttribute="trailing" secondItem="0jm-qd-ave" secondAttribute="trailing" constant="8" id="bes-ze-Nvg"/>
+                            <constraint firstAttribute="bottom" secondItem="0jm-qd-ave" secondAttribute="bottom" constant="9" id="hmh-SC-0Ma"/>
+                            <constraint firstItem="0jm-qd-ave" firstAttribute="leading" secondItem="Ueb-xh-5L2" secondAttribute="leading" constant="8" id="jOa-Zo-Oud"/>
+                            <constraint firstAttribute="trailing" secondItem="QIO-EA-wXe" secondAttribute="trailing" id="zYa-WF-StA"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="pdq-Tq-NOG"/>
+                    <connections>
+                        <outlet property="copyrightLabel" destination="0jm-qd-ave" id="cDl-2a-Ob0"/>
+                        <outlet property="smallTopBarView" destination="QIO-EA-wXe" id="evt-Av-CPX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Agf-AF-wsv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1308" y="257.72113943028489"/>
+        </scene>
+        <!--Base Navigation Controller-->
+        <scene sceneID="43t-GI-oQk">
+            <objects>
+                <navigationController storyboardIdentifier="HandbookShowNC" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="K9f-E5-BIX" customClass="BaseNavigationController" customModule="OmnieCommerce" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="pHS-Rq-tb8">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="GlX-f2-5KY" kind="relationship" relationship="rootViewController" id="o0f-Wh-IKA"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Abi-RV-nkl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="368.80000000000001" y="257.72113943028489"/>
+        </scene>
+    </scenes>
+</document>

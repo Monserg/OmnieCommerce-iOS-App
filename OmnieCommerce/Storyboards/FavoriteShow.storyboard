@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Favorite Show View Controller-->
+        <scene sceneID="eBJ-eB-wHn">
+            <objects>
+                <viewController storyboardIdentifier="FavoriteShowVC" id="cl3-2v-9ef" customClass="FavoriteShowViewController" customModule="OmnieCommerce" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2k6-Z8-E0D"/>
+                        <viewControllerLayoutGuide type="bottom" id="nCN-Xg-drg"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="cZ9-jX-hvf">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dRx-wv-CTN" customClass="SmallTopBarView" customModule="OmnieCommerce" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="95"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="95" id="hp5-ZO-1rG">
+                                        <variation key="heightClass=compact-widthClass=compact" constant="80"/>
+                                        <variation key="heightClass=compact-widthClass=regular" constant="80"/>
+                                    </constraint>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="titleText" value="Favourite"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="type" value="ParentSearch"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ljg-Jm-5Z6" userLabel="Segmented Control View">
+                                <rect key="frame" x="0.0" y="95" width="375" height="50"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TPf-Os-Fwe" userLabel="Content View" customClass="SegmentedControlView" customModule="OmnieCommerce" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="35"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="segmentedControlViewStyle" value="Favourite"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Dyf-Sr-vT6"/>
+                                    <constraint firstItem="TPf-Os-Fwe" firstAttribute="top" secondItem="ljg-Jm-5Z6" secondAttribute="top" id="Ih8-EH-rJY"/>
+                                    <constraint firstAttribute="trailing" secondItem="TPf-Os-Fwe" secondAttribute="trailing" id="VKd-Rg-QBK"/>
+                                    <constraint firstAttribute="bottom" secondItem="TPf-Os-Fwe" secondAttribute="bottom" constant="15" id="Xg0-Ea-kGh"/>
+                                    <constraint firstItem="TPf-Os-Fwe" firstAttribute="leading" secondItem="ljg-Jm-5Z6" secondAttribute="leading" id="yb9-Jc-4ti"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="InX-pw-crm" userLabel="Copyright Label" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
+                                <rect key="frame" x="8" y="647" width="359" height="10.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="labelStyle" value="Copyright"/>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="dRx-wv-CTN" secondAttribute="trailing" id="A7D-Vq-oLZ"/>
+                            <constraint firstAttribute="bottom" secondItem="InX-pw-crm" secondAttribute="bottom" constant="9" id="J0f-6n-8wc"/>
+                            <constraint firstAttribute="trailing" secondItem="InX-pw-crm" secondAttribute="trailing" constant="8" id="O5k-cl-ZSE"/>
+                            <constraint firstItem="InX-pw-crm" firstAttribute="leading" secondItem="cZ9-jX-hvf" secondAttribute="leading" constant="8" id="XzX-8h-NBq"/>
+                            <constraint firstItem="ljg-Jm-5Z6" firstAttribute="leading" secondItem="cZ9-jX-hvf" secondAttribute="leading" id="b8e-s5-5tN"/>
+                            <constraint firstItem="dRx-wv-CTN" firstAttribute="top" secondItem="cZ9-jX-hvf" secondAttribute="top" id="dQu-i2-0Su"/>
+                            <constraint firstAttribute="trailing" secondItem="ljg-Jm-5Z6" secondAttribute="trailing" id="kh6-1X-elz"/>
+                            <constraint firstItem="ljg-Jm-5Z6" firstAttribute="top" secondItem="dRx-wv-CTN" secondAttribute="bottom" id="mOI-Hh-Qke"/>
+                            <constraint firstItem="dRx-wv-CTN" firstAttribute="leading" secondItem="cZ9-jX-hvf" secondAttribute="leading" id="wa0-gb-FfS"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Nv2-Z9-lWC"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <outlet property="copyrightLabel" destination="InX-pw-crm" id="XMI-9D-rO2"/>
+                        <outlet property="segmentedControlView" destination="TPf-Os-Fwe" id="hqq-O8-t3L"/>
+                        <outlet property="smallTopBarView" destination="dRx-wv-CTN" id="Wf1-tY-yWU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fDu-SB-jh3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1312.8" y="184.85757121439281"/>
+        </scene>
+        <!--Base Navigation Controller-->
+        <scene sceneID="8nW-UV-dYv">
+            <objects>
+                <navigationController storyboardIdentifier="FavoriteShowNC" automaticallyAdjustsScrollViewInsets="NO" id="vcg-jx-izI" customClass="BaseNavigationController" customModule="OmnieCommerce" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ZDq-oz-Jag">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="cl3-2v-9ef" kind="relationship" relationship="rootViewController" id="kzl-iA-Pxm"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RK6-Zy-UpM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="373.60000000000002" y="184.85757121439281"/>
+        </scene>
+    </scenes>
+</document>

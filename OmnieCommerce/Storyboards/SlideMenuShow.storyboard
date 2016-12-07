@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="gIQ-8y-x5g">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Reveal View Controller-->
+        <scene sceneID="hXg-yC-HdR">
+            <objects>
+                <viewController storyboardIdentifier="RevealVC" id="gIQ-8y-x5g" customClass="SWRevealViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="b6i-jv-JKj"/>
+                        <viewControllerLayoutGuide type="bottom" id="jAI-iK-idv"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="5FB-dE-5hN">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <segue destination="gGK-Bx-yUm" kind="custom" identifier="sw_rear" customClass="SWRevealViewControllerSegueSetController" id="nVf-QF-Z5U"/>
+                        <segue destination="2Jf-9d-l6S" kind="custom" identifier="sw_front" customClass="SWRevealViewControllerSegueSetController" id="piB-Mo-rc4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Mzq-Em-94m" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="50" y="156"/>
+        </scene>
+        <!--OrdersShowNC-->
+        <scene sceneID="0t9-J7-Sdm">
+            <objects>
+                <viewControllerPlaceholder storyboardName="OrdersShow" referencedIdentifier="OrdersShowNC" id="2Jf-9d-l6S" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pv5-lC-8Nj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="758" y="-68"/>
+        </scene>
+        <!--Slide Menu Show View Controller-->
+        <scene sceneID="udQ-Rs-dBx">
+            <objects>
+                <viewController storyboardIdentifier="SlideMenuShowVC" id="gGK-Bx-yUm" customClass="SlideMenuShowViewController" customModule="OmnieCommerce" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="6iE-gr-udO"/>
+                        <viewControllerLayoutGuide type="bottom" id="xha-dY-dTj"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="EVF-jT-32L">
+                        <rect key="frame" x="0.0" y="0.0" width="296" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="top" translatesAutoresizingMaskIntoConstraints="NO" id="DAM-QF-nkQ" userLabel="Advertising View">
+                                <rect key="frame" x="0.0" y="0.0" width="296" height="130"/>
+                                <subviews>
+                                    <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cQZ-ze-6Pb" userLabel="Action Button">
+                                        <rect key="frame" x="0.0" y="0.0" width="296" height="130"/>
+                                        <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" image="image-ocean"/>
+                                        <connections>
+                                            <action selector="handlerAdvertisingViewTap:" destination="gGK-Bx-yUm" eventType="touchUpInside" id="xQK-p4-rp1"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FNI-Ac-F4o" userLabel="Text Button">
+                                        <rect key="frame" x="0.0" y="101" width="296" height="29"/>
+                                        <color key="backgroundColor" red="0.14509803921568626" green="0.20000000000000001" blue="0.25098039215686274" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="29" id="VWH-mP-nU1"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="handlerAdvertisingViewTap:" destination="gGK-Bx-yUm" eventType="touchUpInside" id="3l0-1Z-vlt"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="296" id="4fF-91-1YA"/>
+                                    <constraint firstItem="cQZ-ze-6Pb" firstAttribute="leading" secondItem="DAM-QF-nkQ" secondAttribute="leading" id="69I-vW-OU1"/>
+                                    <constraint firstAttribute="bottom" secondItem="FNI-Ac-F4o" secondAttribute="bottom" id="70q-mL-rl9"/>
+                                    <constraint firstAttribute="trailing" secondItem="FNI-Ac-F4o" secondAttribute="trailing" id="NYZ-db-3IV"/>
+                                    <constraint firstAttribute="trailing" secondItem="cQZ-ze-6Pb" secondAttribute="trailing" id="Tei-oy-F8V"/>
+                                    <constraint firstItem="cQZ-ze-6Pb" firstAttribute="top" secondItem="DAM-QF-nkQ" secondAttribute="top" id="Xqo-rU-xKV"/>
+                                    <constraint firstAttribute="height" constant="130" id="n0F-9l-w7v"/>
+                                    <constraint firstAttribute="bottom" secondItem="cQZ-ze-6Pb" secondAttribute="bottom" id="nx5-Nj-Zcy"/>
+                                    <constraint firstItem="FNI-Ac-F4o" firstAttribute="leading" secondItem="DAM-QF-nkQ" secondAttribute="leading" id="whZ-n2-08T"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WZG-sg-g6U" customClass="CustomTableView" customModule="OmnieCommerce" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="130" width="296" height="537"/>
+                                <color key="backgroundColor" red="0.19215686274509802" green="0.25882352941176467" blue="0.30980392156862746" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="296" id="8vi-aG-FMX"/>
+                                </constraints>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MenuCell" rowHeight="76" id="73d-ES-P2q" customClass="MenuViewCell" customModule="OmnieCommerce" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="296" height="76"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="73d-ES-P2q" id="jiu-Jx-Ka4">
+                                            <rect key="frame" x="0.0" y="0.0" width="296" height="76"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image-no-photo" translatesAutoresizingMaskIntoConstraints="NO" id="K6d-kZ-LK3" userLabel="Menu Icon Image View">
+                                                    <rect key="frame" x="20" y="21" width="34" height="34"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="34" id="Mf0-cs-Weg"/>
+                                                        <constraint firstAttribute="width" constant="34" id="XjT-Te-td2"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J7d-7z-vYN" userLabel="Menu Title Label" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
+                                                    <rect key="frame" x="74" y="29.5" width="148" height="18"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="labelStyle" value="MenuItem"/>
+                                                    </userDefinedRuntimeAttributes>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iRw-xO-2iC" userLabel="New Event Button" customClass="CustomButton" customModule="OmnieCommerce" customModuleProvider="target">
+                                                    <rect key="frame" x="242" y="21" width="34" height="34"/>
+                                                    <color key="backgroundColor" red="1" green="0.84313725490196079" blue="0.42352941176470588" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="34" id="lca-PE-YYY"/>
+                                                        <constraint firstAttribute="height" constant="34" id="uHx-zw-JNf"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                            <real key="value" value="17"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                                    </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="handlerNewEventButtonTap:" destination="73d-ES-P2q" eventType="touchUpInside" id="AjS-Wf-4Kd"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="iRw-xO-2iC" secondAttribute="trailing" constant="20" id="Lcp-ST-wjd"/>
+                                                <constraint firstItem="K6d-kZ-LK3" firstAttribute="leading" secondItem="jiu-Jx-Ka4" secondAttribute="leading" constant="20" id="RPV-sY-j5w"/>
+                                                <constraint firstItem="iRw-xO-2iC" firstAttribute="centerY" secondItem="jiu-Jx-Ka4" secondAttribute="centerY" id="dl8-UZ-qLA"/>
+                                                <constraint firstItem="K6d-kZ-LK3" firstAttribute="centerY" secondItem="jiu-Jx-Ka4" secondAttribute="centerY" id="gFQ-80-d2q"/>
+                                                <constraint firstItem="J7d-7z-vYN" firstAttribute="leading" secondItem="K6d-kZ-LK3" secondAttribute="trailing" constant="20" id="h3Q-nH-OCY"/>
+                                                <constraint firstItem="J7d-7z-vYN" firstAttribute="centerY" secondItem="jiu-Jx-Ka4" secondAttribute="centerY" id="n2i-hp-vUV"/>
+                                                <constraint firstItem="iRw-xO-2iC" firstAttribute="leading" secondItem="J7d-7z-vYN" secondAttribute="trailing" constant="20" id="xUj-GZ-u5X"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="iconImageView" destination="K6d-kZ-LK3" id="bDD-aH-fNR"/>
+                                            <outlet property="newEventButton" destination="iRw-xO-2iC" id="hnS-hM-FHI"/>
+                                            <outlet property="titleLabel" destination="J7d-7z-vYN" id="Xlv-qY-lIf"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="tableCellStyle" value="Menu"/>
+                                </userDefinedRuntimeAttributes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.14509803921568626" green="0.20000000000000001" blue="0.25098039215686274" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="DAM-QF-nkQ" firstAttribute="top" secondItem="EVF-jT-32L" secondAttribute="top" id="IWV-5L-VTl"/>
+                            <constraint firstItem="WZG-sg-g6U" firstAttribute="leading" secondItem="EVF-jT-32L" secondAttribute="leading" id="Kei-9N-pqE"/>
+                            <constraint firstItem="DAM-QF-nkQ" firstAttribute="leading" secondItem="EVF-jT-32L" secondAttribute="leading" id="MP3-o9-Izl"/>
+                            <constraint firstItem="xha-dY-dTj" firstAttribute="top" secondItem="WZG-sg-g6U" secondAttribute="bottom" id="N5k-zB-lS3"/>
+                            <constraint firstItem="WZG-sg-g6U" firstAttribute="top" secondItem="DAM-QF-nkQ" secondAttribute="bottom" id="cxa-EY-4eK"/>
+                        </constraints>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="296" height="667"/>
+                    <connections>
+                        <outlet property="advertisingView" destination="DAM-QF-nkQ" id="FrO-cC-OOS"/>
+                        <outlet property="tableView" destination="WZG-sg-g6U" id="xn8-B7-vcE"/>
+                        <outlet property="textButton" destination="FNI-Ac-F4o" id="ZLe-fx-baG"/>
+                        <segue destination="QZX-hd-D6z" kind="custom" identifier="MessagesShowSegue" customClass="SWRevealViewControllerSeguePushController" id="sA9-Oo-rBh"/>
+                        <segue destination="Wvw-lA-bT0" kind="custom" identifier="FavoriteShowSegue" customClass="SWRevealViewControllerSeguePushController" id="Y06-6q-snD"/>
+                        <segue destination="Bws-sL-lkw" kind="custom" identifier="CategoriesShowSegue" customClass="SWRevealViewControllerSeguePushController" id="Tnv-O9-0c6"/>
+                        <segue destination="ovb-vd-9O9" kind="custom" identifier="NewsShowSegue" customClass="SWRevealViewControllerSeguePushController" id="PWn-d2-a8a"/>
+                        <segue destination="uvA-NJ-6M8" kind="custom" identifier="AboutShowSegue" customClass="SWRevealViewControllerSeguePushController" id="35Z-GX-pT3"/>
+                        <segue destination="gAS-u1-4jd" kind="custom" identifier="SettingsShowSegue" customClass="SWRevealViewControllerSeguePushController" id="53p-XD-3DR"/>
+                        <segue destination="hww-9z-hjK" kind="custom" identifier="PersonalPageShowSegue" customClass="SWRevealViewControllerSeguePushController" id="utH-IV-ynA"/>
+                        <segue destination="du9-Ix-Be2" kind="custom" identifier="HandbookShowSegue" customClass="SWRevealViewControllerSeguePushController" id="l6q-Wx-O3m"/>
+                        <segue destination="lKi-KB-3wQ" kind="custom" identifier="BusinessCardsShowSegue" customClass="SWRevealViewControllerSeguePushController" id="aPE-Ri-irh"/>
+                        <segue destination="kPz-0K-xqZ" kind="custom" identifier="OmnieCardsShowSegue" customClass="SWRevealViewControllerSeguePushController" id="4XM-Xk-fiG"/>
+                        <segue destination="xrX-NC-Xxi" kind="custom" identifier="DiscountCardsShowSegue" customClass="SWRevealViewControllerSeguePushController" id="Rnh-Rl-VUP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lPB-Mb-8R7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1266" y="155"/>
+        </scene>
+        <!--MessagesShowNC-->
+        <scene sceneID="OuL-Ca-OVY">
+            <objects>
+                <viewControllerPlaceholder storyboardName="MessagesShow" referencedIdentifier="MessagesShowNC" id="QZX-hd-D6z" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zMh-77-Y5J" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2066" y="-323"/>
+        </scene>
+        <!--FavoriteShowNC-->
+        <scene sceneID="Ta1-8J-grG">
+            <objects>
+                <viewControllerPlaceholder storyboardName="FavoriteShow" referencedIdentifier="FavoriteShowNC" id="Wvw-lA-bT0" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="edq-aR-ahx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2057" y="-266"/>
+        </scene>
+        <!--CategoriesShowNC-->
+        <scene sceneID="cEn-J3-UV5">
+            <objects>
+                <viewControllerPlaceholder storyboardName="CategoriesShow" referencedIdentifier="CategoriesShowNC" id="Bws-sL-lkw" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sfk-7m-hif" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2070" y="-204"/>
+        </scene>
+        <!--NewsShowNC-->
+        <scene sceneID="vYu-jR-xBm">
+            <objects>
+                <viewControllerPlaceholder storyboardName="NewsShow" referencedIdentifier="NewsShowNC" id="ovb-vd-9O9" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HVe-TN-n4a" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2044" y="-148"/>
+        </scene>
+        <!--AboutShowNC-->
+        <scene sceneID="AOh-bc-wbF">
+            <objects>
+                <viewControllerPlaceholder storyboardName="AboutShow" referencedIdentifier="AboutShowNC" id="uvA-NJ-6M8" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Gbu-s3-yQt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2046" y="387"/>
+        </scene>
+        <!--SettingsShowNC-->
+        <scene sceneID="6Xt-KP-aAc">
+            <objects>
+                <viewControllerPlaceholder storyboardName="SettingsShow" referencedIdentifier="SettingsShowNC" id="gAS-u1-4jd" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="C4S-DH-tGP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2058" y="327"/>
+        </scene>
+        <!--PersonalPageShowNC-->
+        <scene sceneID="sQd-4U-5yW">
+            <objects>
+                <viewControllerPlaceholder storyboardName="PersonalPageShow" referencedIdentifier="PersonalPageShowNC" id="hww-9z-hjK" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3fW-X3-cE5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2083" y="268"/>
+        </scene>
+        <!--HandbookShowNC-->
+        <scene sceneID="JWG-nN-PKY">
+            <objects>
+                <viewControllerPlaceholder storyboardName="HandbookShow" referencedIdentifier="HandbookShowNC" id="du9-Ix-Be2" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lkB-3h-aj6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2066" y="154"/>
+        </scene>
+        <!--OmnieCardsShowNC-->
+        <scene sceneID="Vtk-97-LEs">
+            <objects>
+                <viewControllerPlaceholder storyboardName="OmnieCardsShow" referencedIdentifier="OmnieCardsShowNC" id="kPz-0K-xqZ" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8aM-qI-TTG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2077" y="30"/>
+        </scene>
+        <!--DiscountCardsShowNC-->
+        <scene sceneID="H1V-1F-3f4">
+            <objects>
+                <viewControllerPlaceholder storyboardName="DiscountCardsShow" referencedIdentifier="DiscountCardsShowNC" id="xrX-NC-Xxi" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lle-s2-UPm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2089" y="-30"/>
+        </scene>
+        <!--BusinessCardsShowNC-->
+        <scene sceneID="ybA-9Z-Sai">
+            <objects>
+                <viewControllerPlaceholder storyboardName="BusinessCardsShow" referencedIdentifier="BusinessCardsShowNC" id="lKi-KB-3wQ" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QRA-wk-0Yg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2090" y="91"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="image-no-photo" width="24" height="21"/>
+        <image name="image-ocean" width="200" height="100"/>
+    </resources>
+</document>

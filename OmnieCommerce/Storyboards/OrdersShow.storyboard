@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina5_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Orders-->
+        <scene sceneID="qXN-Rq-qym">
+            <objects>
+                <viewController storyboardIdentifier="OrdersShowVC" id="EDW-bL-Rz6" customClass="OrdersShowViewController" customModule="OmnieCommerce" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="3ad-7T-bZr"/>
+                        <viewControllerLayoutGuide type="bottom" id="DTO-wG-tQo"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="oKk-pR-n0g">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" restorationIdentifier="TopBarView" translatesAutoresizingMaskIntoConstraints="NO" id="0nN-5h-FmO" userLabel="Small Top Bar View" customClass="SmallTopBarView" customModule="OmnieCommerce" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="95"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="95" id="SaL-Vb-gSo">
+                                        <variation key="heightClass=compact-widthClass=compact" constant="80"/>
+                                        <variation key="heightClass=compact-widthClass=regular" constant="80"/>
+                                    </constraint>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="titleText" value="Orders"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="type" value="ParentSearch"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EBq-Ba-TWn" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
+                                <rect key="frame" x="8" y="716.66666666666652" width="398" height="10.333333333333371"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="labelStyle" value="Copyright"/>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oHb-zG-5fk">
+                                <rect key="frame" x="332" y="134" width="62" height="30"/>
+                                <state key="normal" title="Calendar"/>
+                                <connections>
+                                    <segue destination="seO-We-1VM" kind="show" identifier="CalendarShowSegue" id="TNv-N8-vZZ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="oHb-zG-5fk" secondAttribute="trailing" constant="20" id="0VD-4c-pUW"/>
+                            <constraint firstAttribute="trailing" secondItem="0nN-5h-FmO" secondAttribute="trailing" id="3D8-nk-ofk"/>
+                            <constraint firstAttribute="trailing" secondItem="EBq-Ba-TWn" secondAttribute="trailing" constant="8" id="8x8-8v-8nr"/>
+                            <constraint firstAttribute="bottom" secondItem="EBq-Ba-TWn" secondAttribute="bottom" constant="9" id="9rE-uP-SSh"/>
+                            <constraint firstItem="oHb-zG-5fk" firstAttribute="top" secondItem="0nN-5h-FmO" secondAttribute="bottom" constant="39" id="Bmp-0w-evD"/>
+                            <constraint firstItem="EBq-Ba-TWn" firstAttribute="centerX" secondItem="oKk-pR-n0g" secondAttribute="centerX" id="Bo8-FN-hGj"/>
+                            <constraint firstItem="0nN-5h-FmO" firstAttribute="leading" secondItem="oKk-pR-n0g" secondAttribute="leading" id="CjR-yb-X9A"/>
+                            <constraint firstItem="0nN-5h-FmO" firstAttribute="top" secondItem="oKk-pR-n0g" secondAttribute="top" id="PKg-An-nEH">
+                                <variation key="heightClass=compact-widthClass=compact" constant="0.0"/>
+                                <variation key="heightClass=compact-widthClass=regular" constant="0.0"/>
+                            </constraint>
+                            <constraint firstItem="EBq-Ba-TWn" firstAttribute="leading" secondItem="oKk-pR-n0g" secondAttribute="leading" constant="8" id="mjY-xP-tWi"/>
+                        </constraints>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <navigationItem key="navigationItem" title="Orders" id="5Gb-Un-bfT"/>
+                    <connections>
+                        <outlet property="copyrightLabel" destination="EBq-Ba-TWn" id="9Op-AH-kSN"/>
+                        <outlet property="smallTopBarView" destination="0nN-5h-FmO" id="Xmu-1G-Ez6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x1J-23-oc8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="HQT-Hn-Xxa" customClass="CosmosView" customModule="Cosmos">
+                    <rect key="frame" x="0.0" y="0.0" width="412" height="128"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="rating">
+                            <real key="value" value="3"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="string" keyPath="text" value="asdasdas"/>
+                        <userDefinedRuntimeAttribute type="number" keyPath="totalStars">
+                            <integer key="value" value="5"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="starSize">
+                            <real key="value" value="50"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="emptyBorderColor">
+                            <color key="value" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="emptyBorderWidth">
+                            <real key="value" value="1"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="filledBorderColor">
+                            <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="filledBorderWidth">
+                            <real key="value" value="2"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="starMargin">
+                            <real key="value" value="10"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="fillMode">
+                            <integer key="value" value="14"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="textSize">
+                            <real key="value" value="23"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="textMargin">
+                            <real key="value" value="17"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+            </objects>
+            <point key="canvasLocation" x="1622" y="148"/>
+        </scene>
+        <!--CalendarShowVC-->
+        <scene sceneID="XE4-EO-mMt">
+            <objects>
+                <viewControllerPlaceholder storyboardName="CalendarShow" referencedIdentifier="CalendarShowVC" id="seO-We-1VM" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7AS-RO-pqL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2309" y="148"/>
+        </scene>
+        <!--Base Navigation Controller-->
+        <scene sceneID="yqS-Bc-pCM">
+            <objects>
+                <navigationController storyboardIdentifier="OrdersShowNC" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="g2I-y5-hYL" customClass="BaseNavigationController" customModule="OmnieCommerce" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="RsX-5O-ea1">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="EDW-bL-Rz6" kind="relationship" relationship="rootViewController" id="k8Z-su-WoD"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Zbx-xR-Fvn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="604" y="147.97601199400302"/>
+        </scene>
+    </scenes>
+</document>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina3_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Settings Show View Controller-->
+        <scene sceneID="b0Z-KK-AQn">
+            <objects>
+                <viewController storyboardIdentifier="SettingsShowVC" id="lF2-kt-29c" customClass="SettingsShowViewController" customModule="OmnieCommerce" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="sir-hC-sk3"/>
+                        <viewControllerLayoutGuide type="bottom" id="rz1-p5-mBM"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="YdI-eJ-QVc">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zS9-gZ-teb" customClass="SmallTopBarView" customModule="OmnieCommerce" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="95"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="95" id="bvK-ka-Y2g">
+                                        <variation key="heightClass=compact-widthClass=compact" constant="80"/>
+                                        <variation key="heightClass=compact-widthClass=regular" constant="80"/>
+                                    </constraint>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="titleText" value="Settings"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="type" value="ParentSearch"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ou2-ut-ywD" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
+                                <rect key="frame" x="8" y="460.5" width="304" height="10.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="labelStyle" value="Copyright"/>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Ou2-ut-ywD" firstAttribute="leading" secondItem="YdI-eJ-QVc" secondAttribute="leading" constant="8" id="47a-VO-dT8"/>
+                            <constraint firstAttribute="trailing" secondItem="Ou2-ut-ywD" secondAttribute="trailing" constant="8" id="4y4-EE-C8W"/>
+                            <constraint firstItem="zS9-gZ-teb" firstAttribute="top" secondItem="YdI-eJ-QVc" secondAttribute="top" id="Ep8-G2-tjh">
+                                <variation key="heightClass=compact-widthClass=compact" constant="0.0"/>
+                                <variation key="heightClass=compact-widthClass=regular" constant="0.0"/>
+                            </constraint>
+                            <constraint firstAttribute="bottom" secondItem="Ou2-ut-ywD" secondAttribute="bottom" constant="9" id="O4I-Oc-KzN"/>
+                            <constraint firstItem="zS9-gZ-teb" firstAttribute="leading" secondItem="YdI-eJ-QVc" secondAttribute="leading" id="S3T-BJ-8Q5"/>
+                            <constraint firstAttribute="trailing" secondItem="zS9-gZ-teb" secondAttribute="trailing" id="ndQ-mK-hZ6"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="bWc-GJ-DAt"/>
+                    <connections>
+                        <outlet property="copyrightLabel" destination="Ou2-ut-ywD" id="wbQ-iO-geg"/>
+                        <outlet property="smallTopBarView" destination="zS9-gZ-teb" id="0l3-7Y-hgQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wwl-qi-06k" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1060" y="118"/>
+        </scene>
+        <!--Base Navigation Controller-->
+        <scene sceneID="16W-V8-KOV">
+            <objects>
+                <navigationController storyboardIdentifier="SettingsShowNC" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="rY0-cV-Dzy" customClass="BaseNavigationController" customModule="OmnieCommerce" customModuleProvider="target" sceneMemberID="viewController">
+                    <string key="restorationIdentifier" base64-UTF8="YES">
+CQ
+</string>
+                    <toolbarItems/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="K1C-FM-eAU">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="lF2-kt-29c" kind="relationship" relationship="rootViewController" id="Wbu-My-O2J"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ELU-2w-ggT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="196" y="118.29085457271366"/>
+        </scene>
+    </scenes>
+</document>
