@@ -118,9 +118,10 @@ import Localize_Swift
                     
                     
                 } else {
-                    self.selectedView.frame =  CGRect.init(origin: CGPoint.init(x: sender.frame.maxX, y: sender.frame.minY + 8), size: self.selectedView.bounds.size)
+                    self.selectedView.frame = CGRect.init(origin: CGPoint.init(x: sender.frame.maxX, y: sender.frame.minY + 8), size: self.selectedView.bounds.size)
                     
-                    
+                    self.leftActionButton.setVerticalTitleStyle()
+                    self.rightActionButton.setVerticalTitleStyle()
                 }
             }
         }, completion: { success in

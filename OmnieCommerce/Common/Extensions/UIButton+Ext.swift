@@ -101,4 +101,12 @@ extension UIButton {
             imageEdgeInsets = UIEdgeInsetsMake(3, frame.width - 18 - borderWidth, 0, 0)
         }
     }
+    
+    func setVerticalTitleStyle() {
+        setTitle(String().verticalStyle(string: (titleLabel?.text)!), for: .normal)
+        contentEdgeInsets = UIEdgeInsetsMake(0, 20, 0, 20)
+        titleLabel?.numberOfLines = 0
+        titleLabel?.sizeToFit()
+        titleLabel?.textAlignment = .center
+    }
 }
