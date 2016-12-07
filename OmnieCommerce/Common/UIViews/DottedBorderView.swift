@@ -39,7 +39,7 @@ enum ViewStyle: String {
         
         if (viewStyle?.contains("Rectangle"))! {
             // Create line path around frame as rectangle
-            dottedLinePath.append(UIBezierPath(roundedRect: CGRect(x: self.frame.minX + lineWidth, y: self.frame.minY + lineWidth, width: self.frame.width - 2 * lineWidth, height: self.frame.height - 2 * lineWidth), cornerRadius: cornerRadius))
+            dottedLinePath.append(UIBezierPath(roundedRect: CGRect(x: self.frame.minX, y: self.frame.minY + lineWidth, width: self.frame.width - 2 * self.frame.minX, height: self.frame.maxY - 2 * lineWidth), cornerRadius: cornerRadius))
         } else {
             // Create line path around frame as single line
             dottedLinePath.move(to: CGPoint.init(x: self.frame.minX + lineWidth, y: self.frame.maxY - lineWidth))
