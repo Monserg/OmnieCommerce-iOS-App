@@ -48,6 +48,7 @@
 "Cancel"                =   "Отменить";
 "Send"                  =   "Отправить";
 "City"                  =   "Город";
+"Confirm"               =   "Подтвердить";
 
 
 // TextField Placeholders

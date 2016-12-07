@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina5_5" orientation="portrait">
+    <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -18,17 +18,17 @@
                         <viewControllerLayoutGuide type="bottom" id="PuB-Zg-iNe"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="acP-Da-gjJ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uOe-xj-v67">
-                                <rect key="frame" x="0.0" y="20" width="414" height="694"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="625"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ypz-Pw-w3Z" userLabel="Segmented Control View">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
                                         <subviews>
                                             <view tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EDl-jJ-gKO" userLabel="Content View" customClass="SegmentedControlView" customModule="OmnieCommerce" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="55"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="55"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="string" keyPath="segmentedControlViewStyle" value="Calendar"/>
@@ -64,15 +64,194 @@
                                         </variation>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4c1-2X-Ri9">
-                                        <rect key="frame" x="0.0" y="70" width="414" height="549"/>
+                                        <rect key="frame" x="0.0" y="70" width="375" height="479"/>
                                         <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="abG-cI-8OH" userLabel="Bottom Dotted View">
-                                        <rect key="frame" x="0.0" y="619" width="414" height="75"/>
+                                        <rect key="frame" x="0.0" y="549" width="375" height="76"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DzE-if-37G" userLabel="Content Dotted View" customClass="DottedBorderView" customModule="OmnieCommerce" customModuleProvider="target">
-                                                <rect key="frame" x="4" y="0.0" width="406" height="75"/>
+                                                <rect key="frame" x="4" y="0.0" width="367" height="76"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Cei-qp-lia">
+                                                        <rect key="frame" x="10" y="20" width="347" height="36"/>
+                                                        <subviews>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ad7-3f-t2d" userLabel="Top View">
+                                                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="36"/>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" id="eCG-gD-Jda"/>
+                                                                </constraints>
+                                                                <variation key="default">
+                                                                    <mask key="constraints">
+                                                                        <exclude reference="eCG-gD-Jda"/>
+                                                                    </mask>
+                                                                </variation>
+                                                                <variation key="heightClass=regular-widthClass=compact">
+                                                                    <mask key="constraints">
+                                                                        <include reference="eCG-gD-Jda"/>
+                                                                    </mask>
+                                                                </variation>
+                                                            </view>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Z9P-FS-lTV">
+                                                                <rect key="frame" x="0.0" y="0.0" width="125" height="36"/>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="125" id="5Zx-b8-C00"/>
+                                                                    <constraint firstAttribute="height" constant="80" id="gGV-PD-D4e"/>
+                                                                </constraints>
+                                                                <variation key="default">
+                                                                    <mask key="constraints">
+                                                                        <exclude reference="5Zx-b8-C00"/>
+                                                                    </mask>
+                                                                </variation>
+                                                                <variation key="heightClass=regular-widthClass=compact">
+                                                                    <mask key="constraints">
+                                                                        <include reference="5Zx-b8-C00"/>
+                                                                        <exclude reference="gGV-PD-D4e"/>
+                                                                    </mask>
+                                                                </variation>
+                                                            </stackView>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Ml-to-0S1" userLabel="Middle View">
+                                                                <rect key="frame" x="125" y="0.0" width="20" height="36"/>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="50" id="Juo-Hy-d0f"/>
+                                                                    <constraint firstAttribute="width" constant="20" id="LAi-tS-92R"/>
+                                                                </constraints>
+                                                                <variation key="default">
+                                                                    <mask key="constraints">
+                                                                        <exclude reference="Juo-Hy-d0f"/>
+                                                                        <exclude reference="LAi-tS-92R"/>
+                                                                    </mask>
+                                                                </variation>
+                                                                <variation key="heightClass=compact-widthClass=compact">
+                                                                    <mask key="constraints">
+                                                                        <include reference="Juo-Hy-d0f"/>
+                                                                    </mask>
+                                                                </variation>
+                                                                <variation key="heightClass=compact-widthClass=regular">
+                                                                    <mask key="constraints">
+                                                                        <include reference="Juo-Hy-d0f"/>
+                                                                    </mask>
+                                                                </variation>
+                                                                <variation key="heightClass=regular-widthClass=compact">
+                                                                    <mask key="constraints">
+                                                                        <include reference="LAi-tS-92R"/>
+                                                                    </mask>
+                                                                </variation>
+                                                            </view>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="uOU-iv-l2D">
+                                                                <rect key="frame" x="145" y="0.0" width="194" height="36"/>
+                                                                <subviews>
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p0Y-B5-nW5" userLabel="Confirm Button" customClass="CustomButton" customModule="OmnieCommerce" customModuleProvider="target">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="150" height="36"/>
+                                                                        <state key="normal" title="Confirm"/>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="string" keyPath="buttonStyle" value="Fill"/>
+                                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                                <real key="value" value="18"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                                                        </userDefinedRuntimeAttributes>
+                                                                    </button>
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WuZ-ep-v0H" userLabel="Cancel Button" customClass="CustomButton" customModule="OmnieCommerce" customModuleProvider="target">
+                                                                        <rect key="frame" x="158" y="0.0" width="36" height="36"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="width" constant="36" id="SmF-w6-8ia"/>
+                                                                        </constraints>
+                                                                        <state key="normal" image="icon-cancel-normal"/>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="string" keyPath="buttonStyle" value="Border"/>
+                                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                                <real key="value" value="18"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                                                        </userDefinedRuntimeAttributes>
+                                                                        <variation key="default">
+                                                                            <mask key="constraints">
+                                                                                <exclude reference="SmF-w6-8ia"/>
+                                                                            </mask>
+                                                                        </variation>
+                                                                        <variation key="heightClass=regular-widthClass=compact">
+                                                                            <mask key="constraints">
+                                                                                <include reference="SmF-w6-8ia"/>
+                                                                            </mask>
+                                                                        </variation>
+                                                                    </button>
+                                                                </subviews>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="58.5" id="mxa-IK-uQs">
+                                                                        <variation key="heightClass=compact-widthClass=compact" constant="84"/>
+                                                                        <variation key="heightClass=compact-widthClass=regular" constant="84"/>
+                                                                    </constraint>
+                                                                </constraints>
+                                                                <variation key="heightClass=compact-widthClass=compact" distribution="fillEqually" spacing="12"/>
+                                                                <variation key="heightClass=compact-widthClass=regular" distribution="fillEqually" spacing="12"/>
+                                                                <variation key="heightClass=regular-widthClass=compact" axis="horizontal" spacing="8">
+                                                                    <mask key="constraints">
+                                                                        <exclude reference="mxa-IK-uQs"/>
+                                                                    </mask>
+                                                                </variation>
+                                                            </stackView>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2fP-Af-pOZ" userLabel="Bottom View">
+                                                                <rect key="frame" x="339" y="0.0" width="8" height="36"/>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="30" id="2VY-jd-VmS"/>
+                                                                    <constraint firstAttribute="width" constant="8" id="y8j-Rt-D6Y"/>
+                                                                </constraints>
+                                                                <variation key="default">
+                                                                    <mask key="constraints">
+                                                                        <exclude reference="2VY-jd-VmS"/>
+                                                                        <exclude reference="y8j-Rt-D6Y"/>
+                                                                    </mask>
+                                                                </variation>
+                                                                <variation key="heightClass=compact-widthClass=compact">
+                                                                    <mask key="constraints">
+                                                                        <include reference="2VY-jd-VmS"/>
+                                                                    </mask>
+                                                                </variation>
+                                                                <variation key="heightClass=compact-widthClass=regular">
+                                                                    <mask key="constraints">
+                                                                        <include reference="2VY-jd-VmS"/>
+                                                                    </mask>
+                                                                </variation>
+                                                                <variation key="heightClass=regular-widthClass=compact">
+                                                                    <mask key="constraints">
+                                                                        <include reference="y8j-Rt-D6Y"/>
+                                                                    </mask>
+                                                                </variation>
+                                                            </view>
+                                                        </subviews>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        <variation key="heightClass=regular-widthClass=compact" axis="horizontal"/>
+                                                    </stackView>
+                                                </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstItem="Cei-qp-lia" firstAttribute="top" secondItem="DzE-if-37G" secondAttribute="top" id="AgJ-im-HXC">
+                                                        <variation key="heightClass=compact-widthClass=compact" constant="22"/>
+                                                        <variation key="heightClass=compact-widthClass=regular" constant="22"/>
+                                                        <variation key="heightClass=regular-widthClass=compact" constant="20"/>
+                                                    </constraint>
+                                                    <constraint firstAttribute="bottom" secondItem="Cei-qp-lia" secondAttribute="bottom" id="fDG-dg-dIP">
+                                                        <variation key="heightClass=compact-widthClass=compact" constant="2"/>
+                                                        <variation key="heightClass=compact-widthClass=regular" constant="2"/>
+                                                        <variation key="heightClass=regular-widthClass=compact" constant="20"/>
+                                                    </constraint>
+                                                    <constraint firstItem="Cei-qp-lia" firstAttribute="leading" secondItem="DzE-if-37G" secondAttribute="leading" id="hSp-2Y-5Hs">
+                                                        <variation key="heightClass=compact-widthClass=compact" constant="10"/>
+                                                        <variation key="heightClass=compact-widthClass=regular" constant="10"/>
+                                                        <variation key="heightClass=regular-widthClass=compact" constant="10"/>
+                                                    </constraint>
+                                                    <constraint firstAttribute="trailing" secondItem="Cei-qp-lia" secondAttribute="trailing" id="z6E-po-QTR">
+                                                        <variation key="heightClass=compact-widthClass=compact" constant="10"/>
+                                                        <variation key="heightClass=compact-widthClass=regular" constant="10"/>
+                                                        <variation key="heightClass=regular-widthClass=compact" constant="10"/>
+                                                    </constraint>
+                                                </constraints>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="string" keyPath="viewStyle" value="AroundDottedRectangle"/>
                                                     <userDefinedRuntimeAttribute type="string" keyPath="borderWidth" value="1.5"/>
@@ -84,17 +263,14 @@
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="75" id="1cQ-q9-jlE"/>
+                                            <constraint firstAttribute="height" constant="76" id="1cQ-q9-jlE"/>
                                             <constraint firstItem="DzE-if-37G" firstAttribute="top" secondItem="abG-cI-8OH" secondAttribute="top" id="9M9-gO-paT">
-                                                <variation key="heightClass=compact-widthClass=compact" constant="18"/>
-                                                <variation key="heightClass=compact-widthClass=regular" constant="18"/>
+                                                <variation key="heightClass=compact-widthClass=compact" constant="12"/>
+                                                <variation key="heightClass=compact-widthClass=regular" constant="12"/>
                                             </constraint>
                                             <constraint firstItem="DzE-if-37G" firstAttribute="leading" secondItem="abG-cI-8OH" secondAttribute="leading" constant="4" id="Ei8-sQ-Xej"/>
-                                            <constraint firstAttribute="width" constant="135" id="Yk1-xj-LlP"/>
-                                            <constraint firstAttribute="bottom" secondItem="DzE-if-37G" secondAttribute="bottom" id="fET-wu-D1k">
-                                                <variation key="heightClass=compact-widthClass=compact" constant="18"/>
-                                                <variation key="heightClass=compact-widthClass=regular" constant="18"/>
-                                            </constraint>
+                                            <constraint firstAttribute="width" constant="165" id="Yk1-xj-LlP"/>
+                                            <constraint firstAttribute="bottom" secondItem="DzE-if-37G" secondAttribute="bottom" id="fET-wu-D1k"/>
                                             <constraint firstAttribute="trailing" secondItem="DzE-if-37G" secondAttribute="trailing" constant="4" id="fdg-yA-rsS">
                                                 <variation key="heightClass=compact-widthClass=compact" constant="20"/>
                                                 <variation key="heightClass=compact-widthClass=regular" constant="20"/>
@@ -135,7 +311,7 @@
                                 <variation key="heightClass=compact-widthClass=regular" axis="horizontal"/>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1J9-cZ-tAK" userLabel="Copyright Label" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                                <rect key="frame" x="186.33333333333337" y="716" width="41.666666666666657" height="11"/>
+                                <rect key="frame" x="149" y="647" width="77.5" height="11"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="11" id="cMs-gb-Ekm"/>
                                 </constraints>
@@ -165,7 +341,10 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KgU-Ew-ER7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="34" y="70"/>
+            <point key="canvasLocation" x="33.333333333333336" y="69.293478260869577"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="icon-cancel-normal" width="12" height="12"/>
+    </resources>
 </document>
