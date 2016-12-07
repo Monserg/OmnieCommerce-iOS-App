@@ -9,10 +9,29 @@
 import UIKit
 
 extension Date {
-    func stringFromDate(date: Date) -> String {
+    func convertToDateString() -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd.MM.yyyy"
         
-        return dateFormatter.string(from: date)
+        return dateFormatter.string(from: self)
+    }
+    
+    func convertToTimeString() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "HH:mm"
+        
+        return dateFormatter.string(from: self)
+    }
+    
+    func isActiveToday() -> Bool {
+        // MARK: - Properties
+        var isToday = false
+        let today = NSDate()
+        
+        if (today.compare(self) == .orderedSame) {
+            isToday = true
+        }
+
+        return isToday
     }
 }

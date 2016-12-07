@@ -149,6 +149,6 @@ extension NewsShowViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 95.0
+        return 96.0
     }
 }

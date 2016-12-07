@@ -18,7 +18,9 @@ enum LabelStyle: String {
     case Congratulations = "Congratulations"
     case CategoryName = "CategoryName"
     case Date = "Date"
+    case DateItalic = "DateItalic"
     case Describe = "Describe"
+    case Message = "Message"
 }
 
 
@@ -71,8 +73,16 @@ extension UILabel {
             font = (Config.Constants.isAppThemesLight) ? UIFont.systemFont(ofSize: 12) : UIFont.ubuntuLight9
             textColor = (Config.Constants.isAppThemesLight) ? UIColor.white : UIColor.veryDarkGrayishBlue53
 
+        case .DateItalic:
+            font = (Config.Constants.isAppThemesLight) ? UIFont.systemFont(ofSize: 9) : UIFont.ubuntuLightItalic9
+            textColor = (Config.Constants.isAppThemesLight) ? UIColor.white : UIColor.veryDarkGrayishBlue53
+
         case .Describe:
             font = (Config.Constants.isAppThemesLight) ? UIFont.systemFont(ofSize: 12) : UIFont.ubuntuLightItalic12
+            textColor = (Config.Constants.isAppThemesLight) ? UIColor.white : UIColor.lightGrayishCyan
+            
+        case .Message:
+            font = (Config.Constants.isAppThemesLight) ? UIFont.systemFont(ofSize: 9) : UIFont.ubuntuLightItalic9
             textColor = (Config.Constants.isAppThemesLight) ? UIColor.white : UIColor.lightGrayishCyan
             
         default:

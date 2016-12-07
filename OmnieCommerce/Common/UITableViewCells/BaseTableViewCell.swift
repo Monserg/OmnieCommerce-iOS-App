@@ -22,10 +22,14 @@ enum CellStyle: String {
 @IBDesignable class BaseTableViewCell: UITableViewCell {
     // MARK: - Properties
     @IBOutlet weak var borderDottedView: DottedBorderView!
-    @IBOutlet weak var logoImageView: CustomImageView!
+    
     @IBOutlet weak var nameLabel: CustomLabel!
     @IBOutlet weak var dateLabel: CustomLabel!
     @IBOutlet weak var describeLabel: CustomLabel!
+    @IBOutlet weak var messageLabel: CustomLabel!
+
+    @IBOutlet weak var logoImageView: CustomImageView!
+    @IBOutlet weak var userAvatarImageView: CustomImageView!
     
     @IBInspectable var cellStyle: String = ""
 
@@ -49,12 +53,28 @@ enum CellStyle: String {
         case is News:
             let news = item as! News
             nameLabel.text = news.title
-            dateLabel.text = news.activeDate.stringFromDate(date: news.activeDate)
+            dateLabel.text = news.activeDate.convertToDateString()
             describeLabel.numberOfLines = 2
             describeLabel.text = news.description
             describeLabel.clipsToBounds = false
             
             logoImageView.af_setImage(withURL: URL(string: news.logoStringURL ?? "https://omniesoft.ua/")!, placeholderImage: UIImage.init(named: "image-no-photo"), filter: AspectScaledToFillSizeWithRoundedCornersFilter(size: logoImageView.frame.size, radius: logoImageView.frame.size.width / 2))
+
+        case is Message:
+            let message = item as! Message
+            nameLabel.text = message.title
+            messageLabel.text = message.text
+            dateLabel.text = (message.activeDate.isActiveToday()) ? message.activeDate.convertToTimeString(): message.activeDate.convertToDateString()
+            
+            logoImageView.af_setImage(withURL: URL(string: message.logoStringURL ?? "https://omniesoft.ua/")!, placeholderImage: UIImage.init(named: "image-no-photo"), filter: AspectScaledToFillSizeWithRoundedCornersFilter(size: logoImageView.frame.size, radius: logoImageView.frame.size.width / 2))
+
+            if (message.isOwn) {
+                userAvatarImageView.isHidden = false
+                
+                userAvatarImageView.af_setImage(withURL: URL(string: message.userAvatarStringURL ?? "https://omniesoft.ua/")!, placeholderImage: UIImage.init(named: "image-no-user"), filter: AspectScaledToFillSizeWithRoundedCornersFilter(size: userAvatarImageView.frame.size, radius: userAvatarImageView.frame.size.width / 2))
+            } else {
+                userAvatarImageView.isHidden = true
+            }
             
         default:
             break

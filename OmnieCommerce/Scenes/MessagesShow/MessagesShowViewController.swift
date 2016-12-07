@@ -25,8 +25,11 @@ class MessagesShowViewController: BaseViewController, MessagesShowViewController
     var output: MessagesShowViewControllerOutput!
     var router: MessagesShowRouter!
     
+    var dataSource = Array<Message>()
+
     @IBOutlet weak var smallTopBarView: SmallTopBarView!
     @IBOutlet weak var copyrightLabel: CustomLabel!
+    @IBOutlet weak var tableView: CustomTableView!
 
     
     // MARK: - Class Initialization
@@ -41,11 +44,28 @@ class MessagesShowViewController: BaseViewController, MessagesShowViewController
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Initialization
+        for _ in 0 ..< 25 {
+            let pathString = (arc4random_uniform(2) == 1) ? "http://www.nyhabitat.com/blog/wp-content/uploads/2013/08/fifth-avenue-shopping-manhattan-nyc-new-york.jpg" : nil
+            
+            let isOwn = (arc4random_uniform(2) == 1) ? true : false
+            let avatar = (isOwn) ? "http://pngimg.com/upload/small/face_PNG11761.png" : "http://pngimg.com/upload/face_PNG5660.png"
+            
+            dataSource.append(Message(title: "Акваторія", logoStringURL: pathString, activeDate: Date.init(), text: "Вже давно відомо, що читабельний людині...", isOwn: isOwn, userAvatarStringURL: avatar))
+        }
+
         // Config topBarView
         smallTopBarView.type = "ParentSearch"
         topBarViewStyle = .Small
         setup(topBarView: smallTopBarView)
         
+        // Register the Nib header/footer section views
+        tableView.register(UINib(nibName: "MessageTableViewCell", bundle: nil), forCellReuseIdentifier: "MessageCell")
+        
+        // Delegates
+        tableView.dataSource = self
+        tableView.delegate = self
+
         doSomethingOnLoad()
     }
     
@@ -84,5 +104,43 @@ class MessagesShowViewController: BaseViewController, MessagesShowViewController
         print(object: "\(type(of: self)): \(#function) run. New size = \(size)")
         
         setupScene(withSize: size)
+    }
+}
+
+
+// MARK: - UITableViewDataSource
+extension MessagesShowViewController: UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        self.tableView.setScrollIndicatorColor(color: UIColor.veryLightOrange)
+        
+        return dataSource.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MessageCell", for: indexPath) as! BaseTableViewCell
+        let message = dataSource[indexPath.row]
+        
+        // Config cell
+        cell.setup(withItem: message)
+        
+        return cell
+    }
+}
+
+
+// MARK: - UITableViewDelegate
+extension MessagesShowViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(object: "\(type(of: self)): \(#function) run.")
+        
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 96.0
     }
 }

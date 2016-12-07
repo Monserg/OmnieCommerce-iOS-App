@@ -39,6 +39,16 @@ extension UIFont {
         }
     }
     
+    open class var ubuntuLightItalic9: UIFont {
+        set {
+            self.ubuntuLightItalic9 = UIFont(name: "Ubuntu-LightItalic", size: 9.0)!
+        }
+        
+        get {
+            return UIFont(name: "Ubuntu-LightItalic", size: 9.0)!
+        }
+    }
+    
     open class var ubuntuLightItalic10: UIFont {
         set {
             self.ubuntuLightItalic10 = UIFont(name: "Ubuntu-LightItalic", size: 10.0)!
