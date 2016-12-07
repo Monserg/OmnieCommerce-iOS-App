@@ -17,6 +17,16 @@
 		B1228FB21DD47C9F00A90FBB /* MenuViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1228FB11DD47C9F00A90FBB /* MenuViewCell.swift */; };
 		B1228FB51DD4856A00A90FBB /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1228FB41DD4856A00A90FBB /* MenuItem.swift */; };
 		B1228FBA1DD49ED400A90FBB /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1228FB91DD49ED400A90FBB /* BaseViewController.swift */; };
+		B122DF5A1DF7F901003823AD /* CalendarShow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B122DF591DF7F901003823AD /* CalendarShow.storyboard */; };
+		B122DF631DF7F957003823AD /* CalendarShowConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B122DF5C1DF7F957003823AD /* CalendarShowConfigurator.swift */; };
+		B122DF641DF7F957003823AD /* CalendarShowInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B122DF5D1DF7F957003823AD /* CalendarShowInteractor.swift */; };
+		B122DF651DF7F957003823AD /* CalendarShowModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B122DF5E1DF7F957003823AD /* CalendarShowModels.swift */; };
+		B122DF661DF7F957003823AD /* CalendarShowPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B122DF5F1DF7F957003823AD /* CalendarShowPresenter.swift */; };
+		B122DF671DF7F957003823AD /* CalendarShowRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B122DF601DF7F957003823AD /* CalendarShowRouter.swift */; };
+		B122DF681DF7F957003823AD /* CalendarShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B122DF611DF7F957003823AD /* CalendarShowViewController.swift */; };
+		B122DF691DF7F957003823AD /* CalendarShowWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B122DF621DF7F957003823AD /* CalendarShowWorker.swift */; };
+		B122DF6B1DF804CD003823AD /* SegmentedControlViewLandscape.xib in Resources */ = {isa = PBXBuildFile; fileRef = B122DF6A1DF804CD003823AD /* SegmentedControlViewLandscape.xib */; };
+		B122DF6D1DF80FC1003823AD /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B122DF6C1DF80FC1003823AD /* String+Ext.swift */; };
 		B122F1BF1DD3575E0018A701 /* SlideMenuShow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B122F1BE1DD3575E0018A701 /* SlideMenuShow.storyboard */; };
 		B122F1DB1DD35B760018A701 /* OrdersShowConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B122F1D41DD35B760018A701 /* OrdersShowConfigurator.swift */; };
 		B122F1DC1DD35B760018A701 /* OrdersShowInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B122F1D51DD35B760018A701 /* OrdersShowInteractor.swift */; };
@@ -229,6 +239,16 @@
 		B1228FB11DD47C9F00A90FBB /* MenuViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewCell.swift; sourceTree = "<group>"; };
 		B1228FB41DD4856A00A90FBB /* MenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
 		B1228FB91DD49ED400A90FBB /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		B122DF591DF7F901003823AD /* CalendarShow.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CalendarShow.storyboard; sourceTree = "<group>"; };
+		B122DF5C1DF7F957003823AD /* CalendarShowConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarShowConfigurator.swift; sourceTree = "<group>"; };
+		B122DF5D1DF7F957003823AD /* CalendarShowInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarShowInteractor.swift; sourceTree = "<group>"; };
+		B122DF5E1DF7F957003823AD /* CalendarShowModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarShowModels.swift; sourceTree = "<group>"; };
+		B122DF5F1DF7F957003823AD /* CalendarShowPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarShowPresenter.swift; sourceTree = "<group>"; };
+		B122DF601DF7F957003823AD /* CalendarShowRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarShowRouter.swift; sourceTree = "<group>"; };
+		B122DF611DF7F957003823AD /* CalendarShowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarShowViewController.swift; sourceTree = "<group>"; };
+		B122DF621DF7F957003823AD /* CalendarShowWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarShowWorker.swift; sourceTree = "<group>"; };
+		B122DF6A1DF804CD003823AD /* SegmentedControlViewLandscape.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SegmentedControlViewLandscape.xib; sourceTree = "<group>"; };
+		B122DF6C1DF80FC1003823AD /* String+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
 		B122F1BE1DD3575E0018A701 /* SlideMenuShow.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SlideMenuShow.storyboard; sourceTree = "<group>"; };
 		B122F1D41DD35B760018A701 /* OrdersShowConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrdersShowConfigurator.swift; sourceTree = "<group>"; };
 		B122F1D51DD35B760018A701 /* OrdersShowInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrdersShowInteractor.swift; sourceTree = "<group>"; };
@@ -488,6 +508,7 @@
 				B15291561DDE3FEF00BBA1E0 /* MenuSectionHeaderView.xib */,
 				B1F7EDB71DF54878003B36AD /* SegmentedControlView.swift */,
 				B1F7EDB91DF54886003B36AD /* SegmentedControlView.xib */,
+				B122DF6A1DF804CD003823AD /* SegmentedControlViewLandscape.xib */,
 				B18A45CB1DEC3918003EBD2F /* SmallCirleView.swift */,
 				B18A45C71DEC23B2003EBD2F /* SmallTopBarView.swift */,
 				B18A45C51DEC21BA003EBD2F /* SmallTopBarView.xib */,
@@ -533,13 +554,29 @@
 			path = UILabels;
 			sourceTree = "<group>";
 		};
+		B122DF5B1DF7F919003823AD /* CalendarShow */ = {
+			isa = PBXGroup;
+			children = (
+				B122DF5C1DF7F957003823AD /* CalendarShowConfigurator.swift */,
+				B122DF5D1DF7F957003823AD /* CalendarShowInteractor.swift */,
+				B122DF5E1DF7F957003823AD /* CalendarShowModels.swift */,
+				B122DF5F1DF7F957003823AD /* CalendarShowPresenter.swift */,
+				B122DF601DF7F957003823AD /* CalendarShowRouter.swift */,
+				B122DF611DF7F957003823AD /* CalendarShowViewController.swift */,
+				B122DF621DF7F957003823AD /* CalendarShowWorker.swift */,
+			);
+			path = CalendarShow;
+			sourceTree = "<group>";
+		};
 		B122F1BD1DD357270018A701 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
 				B1CF54E11DDB529300E98049 /* AboutShow.storyboard */,
 				B1CF54E91DDB56BD00E98049 /* BusinessCardsShow.storyboard */,
+				B122DF591DF7F901003823AD /* CalendarShow.storyboard */,
 				B122F22F1DD35EE10018A701 /* CategoriesShow.storyboard */,
 				B1CF54ED1DDB588600E98049 /* DiscountCardsShow.storyboard */,
+				B1C13D8C1DEF3385002B494A /* DropDown.storyboard */,
 				B122F22D1DD35ECC0018A701 /* FavoriteShow.storyboard */,
 				B1739D431DE363FD0029BCCA /* ForgotPasswordShow.storyboard */,
 				B1CF54E71DDB55E300E98049 /* HandbookShow.storyboard */,
@@ -553,7 +590,6 @@
 				B14E976B1DD8B8CB001E1DE2 /* SignInShow.storyboard */,
 				B1739D411DE363C00029BCCA /* SignUpShow.storyboard */,
 				B122F1BE1DD3575E0018A701 /* SlideMenuShow.storyboard */,
-				B1C13D8C1DEF3385002B494A /* DropDown.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -563,6 +599,7 @@
 			children = (
 				B1CF54681DDB503200E98049 /* AboutShow */,
 				B1CF546C1DDB507900E98049 /* BusinessCardsShow */,
+				B122DF5B1DF7F919003823AD /* CalendarShow */,
 				B122F1D01DD35B1C0018A701 /* CategoriesShow */,
 				B1CF546E1DDB50AB00E98049 /* DiscountCardsShow */,
 				B122F1D11DD35B270018A701 /* FavoriteShow */,
@@ -817,6 +854,7 @@
 			isa = PBXGroup;
 			children = (
 				B11B9AD91DF02F5C009A4AA1 /* Date+Ext.swift */,
+				B122DF6C1DF80FC1003823AD /* String+Ext.swift */,
 				B1739D151DE314C70029BCCA /* UIButton+Ext.swift */,
 				B1739D191DE314DF0029BCCA /* UIColor+Ext.swift */,
 				B1DA01B01DF1CB2F00E6DD46 /* UIFont+Ext.swift */,
@@ -1068,6 +1106,7 @@
 				B14D894D1DF6C87800AF3AED /* NewsTableViewCell.xib in Resources */,
 				B1BF92741DD6516C00BECBBB /* helveticaneuecyr-thin.otf in Resources */,
 				B1BF92751DD6516C00BECBBB /* helveticaneuecyr-thinitalic.otf in Resources */,
+				B122DF6B1DF804CD003823AD /* SegmentedControlViewLandscape.xib in Resources */,
 				B1C13D8D1DEF3385002B494A /* DropDown.storyboard in Resources */,
 				B18A45C61DEC21BA003EBD2F /* SmallTopBarView.xib in Resources */,
 				B1BF92761DD6516C00BECBBB /* helveticaneuecyr-ultralight.otf in Resources */,
@@ -1093,6 +1132,7 @@
 				B1739D441DE363FD0029BCCA /* ForgotPasswordShow.storyboard in Resources */,
 				B1CF54E61DDB552300E98049 /* PersonalPageShow.storyboard in Resources */,
 				B122F2481DD393330018A701 /* Localizable.strings in Resources */,
+				B122DF5A1DF7F901003823AD /* CalendarShow.storyboard in Resources */,
 				B1CF54EE1DDB588600E98049 /* DiscountCardsShow.storyboard in Resources */,
 				B1CF54E41DDB543300E98049 /* SettingsShow.storyboard in Resources */,
 				B14D894F1DF6C92100AF3AED /* MessageTableViewCell.xib in Resources */,
@@ -1187,6 +1227,7 @@
 				B1CF54D01DDB51A500E98049 /* PersonalPageShowWorker.swift in Sources */,
 				B1CF54921DDB512000E98049 /* DiscountCardsShowConfigurator.swift in Sources */,
 				B1CF54871DDB50F100E98049 /* BusinessCardsShowPresenter.swift in Sources */,
+				B122DF651DF7F957003823AD /* CalendarShowModels.swift in Sources */,
 				B1CF54771DDB50D900E98049 /* AboutShowInteractor.swift in Sources */,
 				B16E96731DE717E400147CEF /* BigCirleView.swift in Sources */,
 				B1CF54951DDB512000E98049 /* DiscountCardsShowPresenter.swift in Sources */,
@@ -1210,6 +1251,7 @@
 				B122F1E11DD35B760018A701 /* OrdersShowWorker.swift in Sources */,
 				B122F2191DD35C2C0018A701 /* NewsShowWorker.swift in Sources */,
 				B1CF54641DDAE78200E98049 /* CustomButton.swift in Sources */,
+				B122DF691DF7F957003823AD /* CalendarShowWorker.swift in Sources */,
 				B122F1ED1DD35BA70018A701 /* MessagesShowRouter.swift in Sources */,
 				B14E97491DD8B042001E1DE2 /* SignInShowInteractor.swift in Sources */,
 				B15FD40A1DD1DD8C00782324 /* AppDelegate.swift in Sources */,
@@ -1219,8 +1261,10 @@
 				B122F2161DD35C2C0018A701 /* NewsShowPresenter.swift in Sources */,
 				B1CF54A51DDB515000E98049 /* HandbookShowViewController.swift in Sources */,
 				B122F20B1DD35BEB0018A701 /* CategoriesShowWorker.swift in Sources */,
+				B122DF641DF7F957003823AD /* CalendarShowInteractor.swift in Sources */,
 				B1CF54DD1DDB51BE00E98049 /* SettingsShowViewController.swift in Sources */,
 				B18A45CC1DEC3918003EBD2F /* SmallCirleView.swift in Sources */,
+				B122DF6D1DF80FC1003823AD /* String+Ext.swift in Sources */,
 				B1CF54841DDB50F100E98049 /* BusinessCardsShowConfigurator.swift in Sources */,
 				B11CCAF21DEEEBB200AA7942 /* DropDownTableViewController.swift in Sources */,
 				B14E97641DD8B05E001E1DE2 /* ForgotPasswordShowConfigurator.swift in Sources */,
@@ -1229,6 +1273,7 @@
 				B14E974A1DD8B042001E1DE2 /* SignInShowModels.swift in Sources */,
 				B122F1E01DD35B760018A701 /* OrdersShowViewController.swift in Sources */,
 				B1CF54A01DDB515000E98049 /* HandbookShowConfigurator.swift in Sources */,
+				B122DF661DF7F957003823AD /* CalendarShowPresenter.swift in Sources */,
 				B1CF54981DDB512000E98049 /* DiscountCardsShowWorker.swift in Sources */,
 				B122F1FD1DD35BC70018A701 /* FavoriteShowWorker.swift in Sources */,
 				B14E974D1DD8B042001E1DE2 /* SignInShowViewController.swift in Sources */,
@@ -1264,6 +1309,7 @@
 				B1228FB21DD47C9F00A90FBB /* MenuViewCell.swift in Sources */,
 				B122F1EA1DD35BA70018A701 /* MessagesShowInteractor.swift in Sources */,
 				B1CF54DB1DDB51BE00E98049 /* SettingsShowPresenter.swift in Sources */,
+				B122DF631DF7F957003823AD /* CalendarShowConfigurator.swift in Sources */,
 				B14E97481DD8B042001E1DE2 /* SignInShowConfigurator.swift in Sources */,
 				B18A45C81DEC23B2003EBD2F /* SmallTopBarView.swift in Sources */,
 				B122F2141DD35C2C0018A701 /* NewsShowInteractor.swift in Sources */,
@@ -1275,6 +1321,7 @@
 				B122F1E91DD35BA70018A701 /* MessagesShowConfigurator.swift in Sources */,
 				B1BF92441DD5FC8000BECBBB /* Config.swift in Sources */,
 				B122F2231DD35CC80018A701 /* SlideMenuShowInteractor.swift in Sources */,
+				B122DF681DF7F957003823AD /* CalendarShowViewController.swift in Sources */,
 				B11E074E1DE032D90052AFC5 /* DottedBorderView.swift in Sources */,
 				B122F1EE1DD35BA70018A701 /* MessagesShowViewController.swift in Sources */,
 				B1CF54891DDB50F100E98049 /* BusinessCardsShowViewController.swift in Sources */,
@@ -1296,6 +1343,7 @@
 				B1CF54BE1DDB519000E98049 /* OnmieSoftShowModels.swift in Sources */,
 				B1CF54DC1DDB51BE00E98049 /* SettingsShowRouter.swift in Sources */,
 				B122F2411DD371B30018A701 /* BaseNavigationController.swift in Sources */,
+				B122DF671DF7F957003823AD /* CalendarShowRouter.swift in Sources */,
 				B1E52AB11DDDD0EA00C3B24D /* LaunchScreenViewController.swift in Sources */,
 				B12AC2301DDF3BDB00FA0924 /* CustomTextField.swift in Sources */,
 				B122F1DC1DD35B760018A701 /* OrdersShowInteractor.swift in Sources */,

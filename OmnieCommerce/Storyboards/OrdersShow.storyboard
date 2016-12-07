@@ -44,12 +44,21 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="labelStyle" value="Copyright"/>
                                 </userDefinedRuntimeAttributes>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oHb-zG-5fk">
+                                <rect key="frame" x="332" y="134" width="62" height="30"/>
+                                <state key="normal" title="Calendar"/>
+                                <connections>
+                                    <segue destination="seO-We-1VM" kind="show" identifier="CalendarShowSegue" id="TNv-N8-vZZ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="oHb-zG-5fk" secondAttribute="trailing" constant="20" id="0VD-4c-pUW"/>
                             <constraint firstAttribute="trailing" secondItem="0nN-5h-FmO" secondAttribute="trailing" id="3D8-nk-ofk"/>
                             <constraint firstAttribute="trailing" secondItem="EBq-Ba-TWn" secondAttribute="trailing" constant="8" id="8x8-8v-8nr"/>
                             <constraint firstAttribute="bottom" secondItem="EBq-Ba-TWn" secondAttribute="bottom" constant="9" id="9rE-uP-SSh"/>
+                            <constraint firstItem="oHb-zG-5fk" firstAttribute="top" secondItem="0nN-5h-FmO" secondAttribute="bottom" constant="39" id="Bmp-0w-evD"/>
                             <constraint firstItem="EBq-Ba-TWn" firstAttribute="centerX" secondItem="oKk-pR-n0g" secondAttribute="centerX" id="Bo8-FN-hGj"/>
                             <constraint firstItem="0nN-5h-FmO" firstAttribute="leading" secondItem="oKk-pR-n0g" secondAttribute="leading" id="CjR-yb-X9A"/>
                             <constraint firstItem="0nN-5h-FmO" firstAttribute="top" secondItem="oKk-pR-n0g" secondAttribute="top" id="PKg-An-nEH">
@@ -110,6 +119,14 @@
                 </view>
             </objects>
             <point key="canvasLocation" x="1622" y="148"/>
+        </scene>
+        <!--CalendarShowVC-->
+        <scene sceneID="XE4-EO-mMt">
+            <objects>
+                <viewControllerPlaceholder storyboardName="CalendarShow" referencedIdentifier="CalendarShowVC" id="seO-We-1VM" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7AS-RO-pqL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2309" y="148"/>
         </scene>
         <!--Base Navigation Controller-->
         <scene sceneID="yqS-Bc-pCM">

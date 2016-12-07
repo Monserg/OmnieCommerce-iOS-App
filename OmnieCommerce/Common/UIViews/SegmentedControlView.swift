@@ -28,6 +28,10 @@ import Localize_Swift
                 leftTitle = "Subscription".localized()
                 rightTitle = "Hot News".localized()
 
+            case .Calendar:
+                leftTitle = "Calendar".localized()
+                rightTitle = "Schedule".localized()
+
             case .PersonalPage:
                 leftTitle = "Personal Data".localized()
                 rightTitle = "My Templates".localized()
@@ -69,12 +73,21 @@ import Localize_Swift
         if (selectedButton.tag == 1) {
             self.selectedView.frame = CGRect.init(origin: CGPoint.init(x: selectedButton.frame.minX + 8, y: selectedButton.frame.maxY), size: self.selectedView.bounds.size)
         }
+        
+        self.leftActionButton.setVerticalTitleStyle()
+        self.rightActionButton.setVerticalTitleStyle()
+
     }
 
 
     // MARK: - Custom Functions
     func setupView() {
-        UINib(nibName: String(describing: SegmentedControlView.self), bundle: Bundle(for: SegmentedControlView.self)).instantiate(withOwner: self, options: nil)
+        if (self.tag == 1) {
+            UINib(nibName: "SegmentedControlViewLandscape", bundle: Bundle(for: SegmentedControlView.self)).instantiate(withOwner: self, options: nil)
+        } else {
+            UINib(nibName: String(describing: SegmentedControlView.self), bundle: Bundle(for: SegmentedControlView.self)).instantiate(withOwner: self, options: nil)
+        }
+        
         addSubview(view)
         view.frame = frame
         view.backgroundColor = UIColor.veryDarkDesaturatedBlue24
@@ -89,19 +102,27 @@ import Localize_Swift
         
         switch sender.tag {
         case 0:
-            leftActionButton.setAttributedTitle(NSAttributedString(string: leftTitle, attributes: UIFont.ubuntuLightVeryLightOrange16), for: .normal)
-            rightActionButton.setAttributedTitle(NSAttributedString(string: rightTitle, attributes: UIFont.ubuntuLightVeryLightGray16), for: .normal)
+            leftActionButton.setAttributedTitleWithoutAnimation(title: NSAttributedString(string: leftTitle, attributes: UIFont.ubuntuLightVeryLightOrange16))
+            rightActionButton.setAttributedTitleWithoutAnimation(title: NSAttributedString(string: rightTitle, attributes: UIFont.ubuntuLightVeryLightGray16))
             
         case 1:
-            leftActionButton.setAttributedTitle(NSAttributedString(string: leftTitle, attributes: UIFont.ubuntuLightVeryLightGray16), for: .normal)
-            rightActionButton.setAttributedTitle(NSAttributedString(string: rightTitle, attributes: UIFont.ubuntuLightVeryLightOrange16), for: .normal)
+            leftActionButton.setAttributedTitleWithoutAnimation(title: NSAttributedString(string: leftTitle, attributes: UIFont.ubuntuLightVeryLightGray16))
+            rightActionButton.setAttributedTitleWithoutAnimation(title: NSAttributedString(string: rightTitle, attributes: UIFont.ubuntuLightVeryLightOrange16))
             
         default:
             break
         }
         
         UIView.animate(withDuration: 0.3, animations: {
-            self.selectedView.frame = CGRect.init(origin: CGPoint.init(x: sender.frame.minX + 8, y: sender.frame.maxY), size: self.selectedView.bounds.size)
+            if (self.tag == 0) {
+                self.selectedView.frame = CGRect.init(origin: CGPoint.init(x: sender.frame.minX + 8, y: sender.frame.maxY), size: self.selectedView.bounds.size)
+            } else {
+                if (UIApplication.shared.statusBarOrientation.isPortrait) {
+                    self.selectedView.frame = CGRect.init(origin: CGPoint.init(x: sender.frame.minX + 8, y: sender.frame.maxY), size: self.selectedView.bounds.size)
+                } else {
+                    self.selectedView.frame = CGRect.init(origin: CGPoint.init(x: sender.frame.maxX, y: sender.frame.minY + 8), size: self.selectedView.bounds.size)
+                }
+            }
         }, completion: { success in
             if (success) {
                 self.selectedButton = sender

@@ -101,4 +101,19 @@ extension UIButton {
             imageEdgeInsets = UIEdgeInsetsMake(3, frame.width - 18 - borderWidth, 0, 0)
         }
     }
+    
+    func setVerticalTitleStyle() {
+        setTitle(String().verticalStyle(string: (titleLabel?.text)!), for: .normal)
+        contentEdgeInsets = UIEdgeInsetsMake(0, 22, 0, 21)
+        titleLabel?.numberOfLines = 0
+//        titleLabel?.sizeToFit()
+        titleLabel?.textAlignment = .center
+    }
+    
+    func setAttributedTitleWithoutAnimation(title: NSAttributedString) {
+        UIView.setAnimationsEnabled(false)
+        setAttributedTitle(title, for: .normal)
+        layoutIfNeeded()
+        UIView.setAnimationsEnabled(true)
+    }
 }
