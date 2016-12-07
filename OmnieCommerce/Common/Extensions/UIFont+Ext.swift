@@ -339,6 +339,24 @@ extension UIFont {
         }
     }
     
+    open class var ubuntuRegularVeryDarkGray16: [String : Any] {
+        set {
+            self.ubuntuRegularVeryDarkGray16                =   [   NSFontAttributeName             :   UIFont.ubuntuRegular16,
+                                                                    NSForegroundColorAttributeName  :   UIColor.veryDarkGray,
+                                                                    NSKernAttributeName             :   0.0,
+                                                                    NSUnderlineStyleAttributeName   :   NSUnderlineStyle.styleNone.rawValue
+                                                                ] as [String : Any]!
+        }
+        
+        get {
+            return  [   NSFontAttributeName             :   UIFont.ubuntuRegular16,
+                        NSForegroundColorAttributeName  :   UIColor.veryDarkGray,
+                        NSKernAttributeName             :   0.0,
+                        NSUnderlineStyleAttributeName   :   NSUnderlineStyle.styleNone.rawValue
+                    ] as [String : Any]!
+        }
+    }
+    
     open class var helveticaNeueCyrRoman16Kern486: [String : Any] {
         set {
             self.helveticaNeueCyrRoman16Kern486             =   [   NSFontAttributeName             :   UIFont.helveticaNeueCyrRoman16,

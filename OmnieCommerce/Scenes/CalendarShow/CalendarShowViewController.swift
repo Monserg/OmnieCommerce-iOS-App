@@ -81,6 +81,20 @@ class CalendarShowViewController: BaseViewController, CalendarShowViewController
     }
     
     
+    // MARK: - Actions
+    @IBAction func handlerConfirmButtonTap(_ sender: CustomButton) {
+        print(object: "\(type(of: self)): \(#function) run.")
+        
+        
+    }
+    
+    @IBAction func handlerCancelButtonTap(_ sender: CustomButton) {
+        print(object: "\(type(of: self)): \(#function) run.")
+        
+        
+    }
+    
+    
     // MARK: - Transition
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         print(object: "\(type(of: self)): \(#function) run. New size = \(size)")
