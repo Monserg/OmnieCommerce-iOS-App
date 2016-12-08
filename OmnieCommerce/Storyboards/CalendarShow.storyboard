@@ -87,11 +87,12 @@
                                                         <subviews>
                                                             <button opaque="NO" contentMode="redraw" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bv1-Lo-deK" userLabel="Previous Button">
                                                                 <rect key="frame" x="0.0" y="5.3333333333333286" width="30" height="30"/>
-                                                                <color key="backgroundColor" red="1" green="0.84313725490000002" blue="0.42352941179999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="30" id="4l7-SI-CNf"/>
                                                                     <constraint firstAttribute="height" constant="30" id="EUa-MC-Y6j"/>
                                                                 </constraints>
+                                                                <state key="normal" image="icon-previous-item-normal"/>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
                                                                 </userDefinedRuntimeAttributes>
@@ -110,7 +111,8 @@
                                                             </label>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Le-zT-Rh5" userLabel="Next Button">
                                                                 <rect key="frame" x="314" y="5.3333333333333286" width="30" height="30"/>
-                                                                <color key="backgroundColor" red="1" green="0.84313725490000002" blue="0.42352941179999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                                <state key="normal" image="icon-next-item-normal"/>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
                                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -727,5 +729,7 @@
     <resources>
         <image name="icon-cancel-normal" width="12" height="12"/>
         <image name="icon-confirm-normal" width="10" height="6"/>
+        <image name="icon-next-item-normal" width="6" height="10"/>
+        <image name="icon-previous-item-normal" width="6" height="10"/>
     </resources>
 </document>

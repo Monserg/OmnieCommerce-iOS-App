@@ -28,6 +28,7 @@ class CalendarShowViewController: BaseViewController, CalendarShowViewController
     
     var calendarVC: CalendarViewController?
     var schedulerVC: SchedulerViewController?
+    var selectedDate = Date()
     
     private var activeViewController: UIViewController? {
         didSet {
@@ -106,8 +107,14 @@ class CalendarShowViewController: BaseViewController, CalendarShowViewController
         bottomDottedBorderView.setNeedsDisplay()
         segmentedControlView.setNeedsDisplay()
         confirmButton.setupWithStyle(.Fill)
+        
+        setupTitleLabel(withDate: selectedDate)
     }
 
+    func setupTitleLabel(withDate date: Date) {
+        titleLabel.text = date.convertToString(withStyle: (activeViewController == calendarVC) ? .MonthYear : .WeekdayMonthYear)
+    }
+    
     func setupSegmentedControlView() {
         segmentedControlView.actionButtonHandlerCompletion = { sender in
             self.print(object: "\(type(of: self)): \(#function) run. Sender tag = \(sender.tag)")
@@ -119,6 +126,8 @@ class CalendarShowViewController: BaseViewController, CalendarShowViewController
             default:
                 self.activeViewController = self.calendarVC
             }
+            
+            self.setupTitleLabel(withDate: self.selectedDate)
         }
     }
     

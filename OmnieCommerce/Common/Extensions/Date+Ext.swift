@@ -8,6 +8,13 @@
 
 import UIKit
 
+enum StringDateStyle: String {
+    case Date = "Date"
+    case Time = "Time"
+    case MonthYear = "MonthYear"
+    case WeekdayMonthYear = "WeekdayMonthYear"
+}
+
 extension Date {
     func convertToDateString() -> String {
         let dateFormatter = DateFormatter()
@@ -21,6 +28,29 @@ extension Date {
         dateFormatter.dateFormat = "HH:mm"
         
         return dateFormatter.string(from: self)
+    }
+    
+    func convertToString(withStyle dateStyle: StringDateStyle) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = NSLocale.current
+        
+        switch dateStyle {
+        case .Date:
+            dateFormatter.dateFormat = "dd.MM.yyyy"
+            
+        case .Time:
+            dateFormatter.dateFormat = "HH:mm"
+            
+        case .MonthYear:
+            let components = Calendar.current.dateComponents([.weekday, .month, .day, .year], from: self)
+            let monthsNames = Calendar.current.standaloneMonthSymbols
+            dateFormatter.dateFormat = "\(monthsNames[components.month! - 1]) \(components.year!)"
+
+        case .WeekdayMonthYear:
+            dateFormatter.dateFormat = "EEEE dd MMMM YYYY"
+        }
+        
+        return dateFormatter.string(from: self).capitalized
     }
     
     func isActiveToday() -> Bool {
