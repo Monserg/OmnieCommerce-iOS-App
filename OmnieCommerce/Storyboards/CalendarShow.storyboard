@@ -89,7 +89,7 @@
                                                                 </connections>
                                                             </button>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dvl-eV-eFW" userLabel="Title Label" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                                                                <rect key="frame" x="30" y="11.666666666666671" width="276" height="18"/>
+                                                                <rect key="frame" x="30" y="11" width="276" height="18"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -596,7 +596,7 @@
                                 <variation key="heightClass=compact-widthClass=regular" axis="horizontal"/>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1J9-cZ-tAK" userLabel="Copyright Label" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                                <rect key="frame" x="168.33333333333334" y="716" width="77.333333333333314" height="11"/>
+                                <rect key="frame" x="168.66666666666663" y="716" width="77.333333333333343" height="11"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="11" id="cMs-gb-Ekm"/>
                                 </constraints>
@@ -647,14 +647,16 @@
                         <viewControllerLayoutGuide type="bottom" id="qdX-zN-eio"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="5Jk-DC-YaV">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="400" height="400"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="400" height="400"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NRr-wi-eiR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="925" y="396"/>
+            <point key="canvasLocation" x="774" y="299"/>
         </scene>
         <!--Calendar View Controller-->
         <scene sceneID="0kz-6b-Aom">
@@ -665,14 +667,45 @@
                         <viewControllerLayoutGuide type="bottom" id="ADI-SC-fFB"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="XPu-Tw-Sx8">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="400" height="400"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1gU-P7-Ksa" userLabel="Menu View" customClass="CVCalendarMenuView" customModule="CVCalendar">
+                                <rect key="frame" x="0.0" y="0.0" width="400" height="35"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="HI7-fF-qfX"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D5b-jX-eYg" userLabel="Calendar View" customClass="CVCalendarView" customModule="CVCalendar">
+                                <rect key="frame" x="0.0" y="35" width="400" height="365"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="D5b-jX-eYg" firstAttribute="top" secondItem="1gU-P7-Ksa" secondAttribute="bottom" id="7on-Yu-OhD"/>
+                            <constraint firstItem="D5b-jX-eYg" firstAttribute="leading" secondItem="XPu-Tw-Sx8" secondAttribute="leading" id="IqN-Ut-Uzh"/>
+                            <constraint firstAttribute="trailing" secondItem="1gU-P7-Ksa" secondAttribute="trailing" id="UiP-r6-anI"/>
+                            <constraint firstItem="1gU-P7-Ksa" firstAttribute="top" secondItem="esm-07-pOK" secondAttribute="bottom" id="ZNf-TN-0gh"/>
+                            <constraint firstAttribute="trailing" secondItem="D5b-jX-eYg" secondAttribute="trailing" id="kCL-4D-gsH"/>
+                            <constraint firstItem="ADI-SC-fFB" firstAttribute="top" secondItem="D5b-jX-eYg" secondAttribute="bottom" id="m4F-80-gTa"/>
+                            <constraint firstItem="1gU-P7-Ksa" firstAttribute="leading" secondItem="XPu-Tw-Sx8" secondAttribute="leading" id="rau-Dz-gnk"/>
+                        </constraints>
                     </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="400" height="400"/>
+                    <connections>
+                        <outlet property="calendarView" destination="D5b-jX-eYg" id="MLq-8g-889"/>
+                        <outlet property="menuView" destination="1gU-P7-Ksa" id="lPG-nK-9dD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bx1-FO-GqF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="926" y="-369"/>
+            <point key="canvasLocation" x="773.91304347826087" y="-134.5108695652174"/>
         </scene>
     </scenes>
     <resources>

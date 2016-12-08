@@ -14,6 +14,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>CVCalendar.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Cosmos.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -42,22 +47,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>1383F2E6421EC483F8D20072F50DFBD3</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>24B30CB2AFA42B2FAED81ED4FDE60C44</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>2F0FE1E2A5B1EF15139E10A40F05CE94</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>51D2E012FB6E7D5680EAD23B655B5281</key>
+		<key>3736A8E05C12DA1FEB65F8478CCAAD41</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -67,17 +62,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>845E38438F59800A62A068F4820906BC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>88E9EC28B8B46C3631E6B242B50F4442</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8B9818E36A982C19A254205CCCEAB2A2</key>
+		<key>9EFE4C70245EE2857D336B8B9FA4E825</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9EFE4C70245EE2857D336B8B9FA4E825</key>
+		<key>E2EF0A874A01FFC4D77FBAEED4802A12</key>
 		<dict>
 			<key>primary</key>
 			<true/>
