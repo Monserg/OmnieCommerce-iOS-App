@@ -31,6 +31,7 @@ class CalendarShowViewController: BaseViewController, CalendarShowViewController
     @IBOutlet weak var confirmButton: CustomButton!
     @IBOutlet weak var containerView: UIView!
     
+    @IBOutlet weak var titleLabel: CustomLabel!
     @IBOutlet weak var dateLabel: CustomLabel!
     @IBOutlet weak var fromTimeLabel: CustomLabel!
     @IBOutlet weak var toTimeLabel: CustomLabel!
@@ -121,6 +122,15 @@ class CalendarShowViewController: BaseViewController, CalendarShowViewController
     @IBAction func handlerCancelButtonTap(_ sender: CustomButton) {
         print(object: "\(type(of: self)): \(#function) run.")
         
+    }
+    
+    @IBAction func handlerPreviuosButtonTap(_ sender: UIButton) {
+        print(object: "\(type(of: self)): \(#function) run.")
+        
+    }
+    
+    @IBAction func handlerNextButtonTap(_ sender: UIButton) {
+        print(object: "\(type(of: self)): \(#function) run.")
         
     }
     
@@ -130,6 +140,5 @@ class CalendarShowViewController: BaseViewController, CalendarShowViewController
         print(object: "\(type(of: self)): \(#function) run. New size = \(size)")
         
         setupScene(withSize: size)
-//        setupContainerView(withSize: size)
     }
 }

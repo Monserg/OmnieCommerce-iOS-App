@@ -87,13 +87,17 @@
                                                         <subviews>
                                                             <button opaque="NO" contentMode="redraw" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bv1-Lo-deK" userLabel="Previous Button">
                                                                 <rect key="frame" x="0.0" y="2.6666666666666661" width="30" height="30"/>
+                                                                <color key="backgroundColor" red="1" green="0.84313725490000002" blue="0.42352941179999998" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="30" id="4l7-SI-CNf"/>
                                                                     <constraint firstAttribute="height" constant="30" id="EUa-MC-Y6j"/>
                                                                 </constraints>
+                                                                <connections>
+                                                                    <action selector="handlerPreviuosButtonTap:" destination="wgF-Hw-axL" eventType="touchUpInside" id="wgS-0M-s5F"/>
+                                                                </connections>
                                                             </button>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dvl-eV-eFW" userLabel="Title Label" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                                                                <rect key="frame" x="30" y="8.3333333333333339" width="373" height="20.333333333333329"/>
+                                                                <rect key="frame" x="30" y="7.3333333333333339" width="373" height="20.333333333333329"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -103,6 +107,10 @@
                                                             </label>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Le-zT-Rh5" userLabel="Next Button">
                                                                 <rect key="frame" x="411" y="2.6666666666666661" width="30" height="30"/>
+                                                                <color key="backgroundColor" red="1" green="0.84313725490000002" blue="0.42352941179999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <connections>
+                                                                    <action selector="handlerNextButtonTap:" destination="wgF-Hw-axL" eventType="touchUpInside" id="fTl-n1-Iwp"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -653,6 +661,7 @@
                         <outlet property="dateLabel" destination="Rfs-OC-dPl" id="BM4-Rq-xP6"/>
                         <outlet property="fromTimeLabel" destination="rjk-Dh-lke" id="I3Y-5R-oWB"/>
                         <outlet property="segmentedControlView" destination="EDl-jJ-gKO" id="NYA-RR-61M"/>
+                        <outlet property="titleLabel" destination="dvl-eV-eFW" id="L4C-di-s3H"/>
                         <outlet property="toTimeLabel" destination="OhZ-x6-ONU" id="2pp-K1-YIw"/>
                     </connections>
                 </viewController>
