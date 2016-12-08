@@ -33,18 +33,6 @@
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="string" keyPath="segmentedControlViewStyle" value="Calendar"/>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <real key="value" value="0.0"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
-                                                        <size key="value" width="0.0" height="0.0"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
-                                                        <real key="value" value="0.0"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
-                                                        <real key="value" value="0.0"/>
-                                                    </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                         </subviews>
@@ -86,7 +74,7 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="344" height="40"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="redraw" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bv1-Lo-deK" userLabel="Previous Button">
-                                                                <rect key="frame" x="0.0" y="5.3333333333333286" width="30" height="30"/>
+                                                                <rect key="frame" x="0.0" y="5" width="30" height="30"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="30" id="4l7-SI-CNf"/>
@@ -101,7 +89,7 @@
                                                                 </connections>
                                                             </button>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dvl-eV-eFW" userLabel="Title Label" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                                                                <rect key="frame" x="30" y="10" width="276" height="20.333333333333329"/>
+                                                                <rect key="frame" x="30" y="11.666666666666671" width="276" height="18"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -110,7 +98,7 @@
                                                                 </userDefinedRuntimeAttributes>
                                                             </label>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Le-zT-Rh5" userLabel="Next Button">
-                                                                <rect key="frame" x="314" y="5.3333333333333286" width="30" height="30"/>
+                                                                <rect key="frame" x="314" y="5" width="30" height="30"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                 <state key="normal" image="icon-next-item-normal"/>
                                                                 <userDefinedRuntimeAttributes>
@@ -198,7 +186,9 @@
                                                 <variation key="heightClass=compact-widthClass=regular" constant="20"/>
                                                 <variation key="heightClass=regular-widthClass=compact" constant="35"/>
                                             </constraint>
-                                            <constraint firstItem="eoN-em-Unx" firstAttribute="top" secondItem="4c1-2X-Ri9" secondAttribute="top" id="bey-4w-1Wv"/>
+                                            <constraint firstItem="eoN-em-Unx" firstAttribute="top" secondItem="4c1-2X-Ri9" secondAttribute="top" id="bey-4w-1Wv">
+                                                <variation key="heightClass=compact-widthClass=regular" constant="0.0"/>
+                                            </constraint>
                                             <constraint firstAttribute="bottom" secondItem="eoN-em-Unx" secondAttribute="bottom" id="vU8-0i-YJE"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
@@ -274,11 +264,11 @@
                                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="J8k-Cb-px5">
                                                                         <rect key="frame" x="0.0" y="20" width="125" height="16"/>
                                                                         <subviews>
-                                                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="qPK-mV-VzX">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="63.333333333333329" height="16"/>
+                                                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="qPK-mV-VzX">
+                                                                                <rect key="frame" x="0.0" y="0.0" width="65.333333333333329" height="16"/>
                                                                                 <subviews>
                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="From" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PvP-62-nTe" userLabel="From Label" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                                                                                        <rect key="frame" x="0.0" y="0.0" width="25" height="16"/>
+                                                                                        <rect key="frame" x="0.0" y="0.0" width="24.666666666666664" height="16"/>
                                                                                         <constraints>
                                                                                             <constraint firstAttribute="width" constant="25" id="h6X-XI-sml"/>
                                                                                         </constraints>
@@ -300,9 +290,14 @@
                                                                                                 <real key="value" value="0.0"/>
                                                                                             </userDefinedRuntimeAttribute>
                                                                                         </userDefinedRuntimeAttributes>
+                                                                                        <variation key="heightClass=regular-widthClass=compact">
+                                                                                            <mask key="constraints">
+                                                                                                <exclude reference="h6X-XI-sml"/>
+                                                                                            </mask>
+                                                                                        </variation>
                                                                                     </label>
                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rjk-Dh-lke" userLabel="From Time Label" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                                                                                        <rect key="frame" x="29" y="0.0" width="34.333333333333329" height="16"/>
+                                                                                        <rect key="frame" x="28.666666666666668" y="0.0" width="36.666666666666657" height="16"/>
                                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                         <nil key="textColor"/>
                                                                                         <nil key="highlightedColor"/>
@@ -328,11 +323,11 @@
                                                                                 </constraints>
                                                                                 <variation key="heightClass=regular-widthClass=compact" spacing="4"/>
                                                                             </stackView>
-                                                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="ISp-bE-LQz">
-                                                                                <rect key="frame" x="71.333333333333314" y="0.0" width="53.666666666666671" height="16"/>
+                                                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="ISp-bE-LQz">
+                                                                                <rect key="frame" x="73.333333333333314" y="0.0" width="51.666666666666671" height="16"/>
                                                                                 <subviews>
                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cvd-Dc-wqb" userLabel="To Label" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                                                                                        <rect key="frame" x="0.0" y="0.0" width="15" height="16"/>
+                                                                                        <rect key="frame" x="0.0" y="0.0" width="11.333333333333343" height="16"/>
                                                                                         <constraints>
                                                                                             <constraint firstAttribute="width" constant="25" id="csz-Dg-2bf">
                                                                                                 <variation key="heightClass=regular-widthClass=compact" constant="15"/>
@@ -343,22 +338,15 @@
                                                                                         <nil key="highlightedColor"/>
                                                                                         <userDefinedRuntimeAttributes>
                                                                                             <userDefinedRuntimeAttribute type="string" keyPath="labelStyle" value="FromTo"/>
-                                                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                                                <real key="value" value="0.0"/>
-                                                                                            </userDefinedRuntimeAttribute>
-                                                                                            <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
-                                                                                                <size key="value" width="0.0" height="0.0"/>
-                                                                                            </userDefinedRuntimeAttribute>
-                                                                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
-                                                                                                <real key="value" value="0.0"/>
-                                                                                            </userDefinedRuntimeAttribute>
-                                                                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
-                                                                                                <real key="value" value="0.0"/>
-                                                                                            </userDefinedRuntimeAttribute>
                                                                                         </userDefinedRuntimeAttributes>
+                                                                                        <variation key="heightClass=regular-widthClass=compact">
+                                                                                            <mask key="constraints">
+                                                                                                <exclude reference="csz-Dg-2bf"/>
+                                                                                            </mask>
+                                                                                        </variation>
                                                                                     </label>
                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="13:35" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OhZ-x6-ONU" userLabel="To Time Label" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                                                                                        <rect key="frame" x="19" y="0.0" width="34.666666666666671" height="16"/>
+                                                                                        <rect key="frame" x="15.333333333333343" y="0.0" width="36.333333333333329" height="16"/>
                                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                         <nil key="textColor"/>
                                                                                         <nil key="highlightedColor"/>
@@ -442,22 +430,7 @@
                                                                         <state key="normal" title="Confirm" image="icon-confirm-normal"/>
                                                                         <userDefinedRuntimeAttributes>
                                                                             <userDefinedRuntimeAttribute type="string" keyPath="buttonStyle" value="Fill"/>
-                                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                                <real key="value" value="18"/>
-                                                                            </userDefinedRuntimeAttribute>
-                                                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                                                <real key="value" value="0.0"/>
-                                                                            </userDefinedRuntimeAttribute>
                                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
-                                                                            <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
-                                                                                <size key="value" width="0.0" height="0.0"/>
-                                                                            </userDefinedRuntimeAttribute>
-                                                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
-                                                                                <real key="value" value="0.0"/>
-                                                                            </userDefinedRuntimeAttribute>
-                                                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
-                                                                                <real key="value" value="0.0"/>
-                                                                            </userDefinedRuntimeAttribute>
                                                                         </userDefinedRuntimeAttributes>
                                                                         <connections>
                                                                             <action selector="handlerConfirmButtonTap:" destination="wgF-Hw-axL" eventType="touchUpInside" id="2zg-dQ-EdT"/>
@@ -471,21 +444,9 @@
                                                                         <state key="normal" image="icon-cancel-normal"/>
                                                                         <userDefinedRuntimeAttributes>
                                                                             <userDefinedRuntimeAttribute type="string" keyPath="buttonStyle" value="Border"/>
-                                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                                <real key="value" value="18"/>
-                                                                            </userDefinedRuntimeAttribute>
                                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
                                                                             <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                                                                                 <real key="value" value="1"/>
-                                                                            </userDefinedRuntimeAttribute>
-                                                                            <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
-                                                                                <size key="value" width="0.0" height="0.0"/>
-                                                                            </userDefinedRuntimeAttribute>
-                                                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
-                                                                                <real key="value" value="0.0"/>
-                                                                            </userDefinedRuntimeAttribute>
-                                                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
-                                                                                <real key="value" value="0.0"/>
                                                                             </userDefinedRuntimeAttribute>
                                                                         </userDefinedRuntimeAttributes>
                                                                         <variation key="default">
@@ -588,8 +549,8 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="76" id="1cQ-q9-jlE"/>
                                             <constraint firstItem="DzE-if-37G" firstAttribute="top" secondItem="abG-cI-8OH" secondAttribute="top" id="9M9-gO-paT">
-                                                <variation key="heightClass=compact-widthClass=compact" constant="12"/>
-                                                <variation key="heightClass=compact-widthClass=regular" constant="12"/>
+                                                <variation key="heightClass=compact-widthClass=compact" constant="6"/>
+                                                <variation key="heightClass=compact-widthClass=regular" constant="6"/>
                                             </constraint>
                                             <constraint firstItem="DzE-if-37G" firstAttribute="leading" secondItem="abG-cI-8OH" secondAttribute="leading" constant="4" id="Ei8-sQ-Xej"/>
                                             <constraint firstAttribute="width" constant="185" id="Yk1-xj-LlP"/>
@@ -635,7 +596,7 @@
                                 <variation key="heightClass=compact-widthClass=regular" axis="horizontal"/>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1J9-cZ-tAK" userLabel="Copyright Label" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                                <rect key="frame" x="186.33333333333337" y="716" width="41.666666666666657" height="11"/>
+                                <rect key="frame" x="168.33333333333334" y="716" width="77.333333333333314" height="11"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="11" id="cMs-gb-Ekm"/>
                                 </constraints>
@@ -644,18 +605,6 @@
                                 <nil key="highlightedColor"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="labelStyle" value="Copyright"/>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="0.0"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
-                                        <size key="value" width="0.0" height="0.0"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
-                                        <real key="value" value="0.0"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
-                                        <real key="value" value="0.0"/>
-                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </label>
                         </subviews>
