@@ -10,6 +10,7 @@
 //
 
 import UIKit
+import Device
 
 // MARK: - Input & Output protocols
 protocol CalendarShowViewControllerInput {
@@ -28,11 +29,17 @@ class CalendarShowViewController: BaseViewController, CalendarShowViewController
     @IBOutlet weak var segmentedControlView: SegmentedControlView!
     @IBOutlet weak var bottomDottedBorderView: DottedBorderView!
     @IBOutlet weak var confirmButton: CustomButton!
+    @IBOutlet weak var containerView: UIView!
     
     @IBOutlet weak var dateLabel: CustomLabel!
     @IBOutlet weak var fromTimeLabel: CustomLabel!
     @IBOutlet weak var toTimeLabel: CustomLabel!
 
+    @IBOutlet weak var containerAspectRatio: NSLayoutConstraint!
+    @IBOutlet weak var containerAspectRatio4S: NSLayoutConstraint!
+    @IBOutlet weak var containerLeadingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var containerTrailingConstraint: NSLayoutConstraint!
+    
     
     // MARK: - Class Initialization
     override func awakeFromNib() {
@@ -49,11 +56,18 @@ class CalendarShowViewController: BaseViewController, CalendarShowViewController
         view.backgroundColor = UIColor.veryDarkDesaturatedBlue24
         setupScene(withSize: view.frame.size)
         setupSegmentedControlView()
+        setupContainerView(withSize: view.frame.size)
         
         doSomethingOnLoad()
     }
     
-
+    override func viewDidLayoutSubviews() {
+        print(object: "\(type(of: self)): \(#function) run.")
+        
+        setupContainerView(withSize: view.frame.size)
+    }
+    
+    
     // MARK: - Custom Functions
     func doSomethingOnLoad() {
         print(object: "\(type(of: self)): \(#function) run.")
@@ -86,11 +100,21 @@ class CalendarShowViewController: BaseViewController, CalendarShowViewController
         }
     }
     
+    func setupContainerView(withSize size: CGSize) {
+        if (Device.size() == .screen3_5Inch && size.width > size.height) {
+            containerLeadingConstraint.constant = 0
+            containerTrailingConstraint.constant = 10
+            containerAspectRatio.isActive = false
+            containerAspectRatio4S.isActive = true
+            
+            containerView.layoutIfNeeded()
+        }
+    }
+    
     
     // MARK: - Actions
     @IBAction func handlerConfirmButtonTap(_ sender: CustomButton) {
         print(object: "\(type(of: self)): \(#function) run.")
-        
         
     }
     
@@ -106,5 +130,6 @@ class CalendarShowViewController: BaseViewController, CalendarShowViewController
         print(object: "\(type(of: self)): \(#function) run. New size = \(size)")
         
         setupScene(withSize: size)
+//        setupContainerView(withSize: size)
     }
 }
