@@ -16,20 +16,6 @@ enum StringDateStyle: String {
 }
 
 extension Date {
-    func convertToDateString() -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd.MM.yyyy"
-        
-        return dateFormatter.string(from: self)
-    }
-    
-    func convertToTimeString() -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "HH:mm"
-        
-        return dateFormatter.string(from: self)
-    }
-    
     func convertToString(withStyle dateStyle: StringDateStyle) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.locale = NSLocale.current
