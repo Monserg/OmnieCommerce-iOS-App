@@ -26,6 +26,16 @@ class CalendarShowViewController: BaseViewController, CalendarShowViewController
     var output: CalendarShowViewControllerOutput!
     var router: CalendarShowRouter!
     
+    var calendarVC: CalendarViewController?
+    var schedulerVC: SchedulerViewController?
+    
+    private var activeViewController: UIViewController? {
+        didSet {
+            removeInactiveViewController(inactiveViewController: oldValue)
+            updateActiveViewController()
+        }
+    }
+
     @IBOutlet weak var segmentedControlView: SegmentedControlView!
     @IBOutlet weak var bottomDottedBorderView: DottedBorderView!
     @IBOutlet weak var confirmButton: CustomButton!
@@ -54,6 +64,10 @@ class CalendarShowViewController: BaseViewController, CalendarShowViewController
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        calendarVC = UIStoryboard(name: "CalendarShow", bundle: nil).instantiateViewController(withIdentifier: "CalendarVC") as? CalendarViewController
+        schedulerVC = UIStoryboard(name: "CalendarShow", bundle: nil).instantiateViewController(withIdentifier: "SchedulerVC") as? SchedulerViewController
+        
+        activeViewController = calendarVC
         view.backgroundColor = UIColor.veryDarkDesaturatedBlue24
         setupScene(withSize: view.frame.size)
         setupSegmentedControlView()
@@ -98,6 +112,13 @@ class CalendarShowViewController: BaseViewController, CalendarShowViewController
         segmentedControlView.actionButtonHandlerCompletion = { sender in
             self.print(object: "\(type(of: self)): \(#function) run. Sender tag = \(sender.tag)")
             
+            switch sender.tag {
+            case 1:
+                self.activeViewController = self.schedulerVC
+
+            default:
+                self.activeViewController = self.calendarVC
+            }
         }
     }
     
@@ -109,6 +130,24 @@ class CalendarShowViewController: BaseViewController, CalendarShowViewController
             containerAspectRatio4S.isActive = true
             
             containerView.layoutIfNeeded()
+        }
+    }
+    
+    private func removeInactiveViewController(inactiveViewController: UIViewController?) {
+        if let inactiveVC = inactiveViewController {
+            inactiveVC.willMove(toParentViewController: nil)
+            inactiveVC.view.removeFromSuperview()
+            inactiveVC.removeFromParentViewController()
+        }
+    }
+    
+    private func updateActiveViewController() {
+        if let activeVC = activeViewController {
+            addChildViewController(activeVC)
+            activeVC.view.frame = containerView.bounds
+            containerView.addSubview(activeVC.view)
+            activeVC.didMove(toParentViewController: self)
+            activeVC.didMove(toParentViewController: self)
         }
     }
     
