@@ -11,10 +11,12 @@ import CVCalendar
 
 class CalendarViewController: BaseViewController {
     // MARK: - Properties
-    typealias CompletionVoid = ((_ newDate: Date) -> ())
+    typealias HandlerChangeCurrentMonthCompletion = ((_ newDate: Date) -> ())
+    typealias HandlerSelectNewDateCompletion = ((_ newDate: Date) -> ())
 
     var selectedDay: DayView!
-    var changeMonthHandlerCompletion: CompletionVoid?
+    var handlerChangeCurrentMonthCompletion: HandlerChangeCurrentMonthCompletion?
+    var handlerSelectNewDateCompletion: HandlerSelectNewDateCompletion?
 
     @IBOutlet weak var calendarView: CVCalendarView!
     
@@ -75,6 +77,9 @@ extension CalendarViewController: CVCalendarViewDelegate {
     
     func didSelectDayView(_ dayView: CVCalendarDayView, animationDidFinish: Bool) {
         selectedDay = dayView
+        let dateComponents = DateComponents(calendar: Calendar.current, timeZone: TimeZone.current, year: selectedDay.date.year, month: selectedDay.date.month, day: selectedDay.date.day)
+
+        handlerSelectNewDateCompletion!((Calendar.current.date(from: dateComponents)?.globalTime())!)
     }
     
     // Current day view
@@ -171,13 +176,13 @@ extension CalendarViewController: CVCalendarViewDelegate {
     func didShowNextMonthView(_ date: Foundation.Date) {
         print(object: "\(type(of: self)): \(#function) run. Date = \(date)")
      
-        changeMonthHandlerCompletion!(date.globalTime())
+        handlerChangeCurrentMonthCompletion!(date.globalTime())
     }
     
     func didShowPreviousMonthView(_ date: Foundation.Date) {
         print(object: "\(type(of: self)): \(#function) run. Date = \(date)")
         
-        changeMonthHandlerCompletion!(date.globalTime())
+        handlerChangeCurrentMonthCompletion!(date.globalTime())
     }
     
     // Change current month by tap
@@ -185,7 +190,7 @@ extension CalendarViewController: CVCalendarViewDelegate {
         print(object: "\(type(of: self)): \(#function) run.")
      
         let dateComponents = DateComponents(calendar: Calendar.current, timeZone: TimeZone.current, year: selectedDay.date.year, month: selectedDay.date.month, day: selectedDay.date.day)
-        changeMonthHandlerCompletion!((Calendar.current.date(from: dateComponents)?.globalTime())!)
+        handlerChangeCurrentMonthCompletion!((Calendar.current.date(from: dateComponents)?.globalTime())!)
         
         return true
     }

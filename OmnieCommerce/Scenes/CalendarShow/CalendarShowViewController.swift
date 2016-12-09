@@ -37,9 +37,16 @@ class CalendarShowViewController: BaseViewController, CalendarShowViewController
             updateActiveViewController()
             
             if (activeViewController == calendarVC) {
-                calendarVC!.changeMonthHandlerCompletion = { newDate in
+                // Handler for change current month
+                calendarVC!.handlerChangeCurrentMonthCompletion = { newDate in
                     self.calculatedDate = newDate
                     self.setupTitleLabel(withDate: self.calculatedDate)
+                }
+                
+                // Handler for select new date
+                calendarVC!.handlerSelectNewDateCompletion = { newDate in
+                    self.selectedDate = newDate
+                    self.setupDateLabel(withDate: self.selectedDate)
                 }
             }
         }
@@ -121,6 +128,10 @@ class CalendarShowViewController: BaseViewController, CalendarShowViewController
 
     func setupTitleLabel(withDate date: Date) {
         titleLabel.text = date.convertToString(withStyle: (activeViewController == calendarVC) ? .MonthYear : .WeekdayMonthYear)
+    }
+    
+    func setupDateLabel(withDate date: Date) {
+        dateLabel.text = date.convertToString(withStyle: .Date)
     }
     
     func setupSegmentedControlView() {
