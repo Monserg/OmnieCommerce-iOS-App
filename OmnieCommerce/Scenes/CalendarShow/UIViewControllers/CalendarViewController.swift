@@ -10,30 +10,18 @@ import UIKit
 import CVCalendar
 
 class CalendarViewController: BaseViewController {
-    struct Color {
-        static let selectedText = UIColor.white
-        static let text = UIColor.black
-        static let textDisabled = UIColor.gray
-        static let selectionBackground = UIColor(red: 0.2, green: 0.2, blue: 1.0, alpha: 1.0)
-        static let sundayText = UIColor(red: 1.0, green: 0.2, blue: 0.2, alpha: 1.0)
-        static let sundayTextDisabled = UIColor(red: 1.0, green: 0.6, blue: 0.6, alpha: 1.0)
-        static let sundaySelectionBackground = sundayText
-    }
-
-    
     // MARK: - Properties
     var selectedDay: DayView!
 
-    @IBOutlet weak var menuView: CVCalendarMenuView!
     @IBOutlet weak var calendarView: CVCalendarView!
     
     
+    // MARK: - Class Functions
     override func viewDidLayoutSubviews() {
         print(object: "\(type(of: self)): \(#function) run.")
         super.viewDidLayoutSubviews()
         
         calendarView.commitCalendarViewUpdate()
-        menuView.commitMenuViewUpdate()
     }
 
     override func viewWillLayoutSubviews() {
@@ -42,14 +30,9 @@ class CalendarViewController: BaseViewController {
         
     }
     
-    // MARK: - Class Functions
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Delegates
-        menuView.delegate = self
-        calendarView.delegate = self
-        calendarView.calendarAppearanceDelegate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -61,36 +44,34 @@ class CalendarViewController: BaseViewController {
 
 // MARK: - CVCalendarViewDelegate
 extension CalendarViewController: CVCalendarViewDelegate {
+    // Required
     func presentationMode() -> CalendarMode {
         return .monthView
     }
     
-    func shouldShowWeekdaysOut() -> Bool {
-        return true
+    func firstWeekday() -> Weekday {
+        return .monday
     }
 
+    // Optional
     func shouldAnimateResizing() -> Bool {
         return true // Default value is true
-    }
-
-    private func shouldSelectDayView(dayView: DayView) -> Bool {
-        return true
     }
     
     func shouldAutoSelectDayOnMonthChange() -> Bool {
         return false
     }
     
-    func didSelectDayView(_ dayView: CVCalendarDayView, animationDidFinish: Bool) {
-        selectedDay = dayView
+    func shouldShowWeekdaysOut() -> Bool {
+        return true
     }
-    
-    func shouldSelectRange() -> Bool {
+
+    private func shouldSelectDayView(dayView: DayView) -> Bool {
         return true
     }
     
-    func didSelectRange(from startDayView: DayView, to endDayView: DayView) {
-        print(object: "RANGE SELECTED: \(startDayView.date.commonDescription) to \(endDayView.date.commonDescription)")
+    func didSelectDayView(_ dayView: CVCalendarDayView, animationDidFinish: Bool) {
+        selectedDay = dayView
     }
     
     func preliminaryView(viewOnDayView dayView: DayView) -> UIView {
@@ -99,7 +80,7 @@ extension CalendarViewController: CVCalendarViewDelegate {
         
         return circleView
     }
-
+    
     func preliminaryView(shouldDisplayOnDayView dayView: DayView) -> Bool {
         if (dayView.isCurrentDay) {
             return true
@@ -107,33 +88,8 @@ extension CalendarViewController: CVCalendarViewDelegate {
         
         return false
     }
-    
-    func disableScrollingBeforeDate() -> Date {
-        return Date()
-    }
-    
-    func maxSelectableRange() -> Int {
-        return 1
-    }
-    
-    func earliestSelectableDate() -> Date {
-        return Date()
-    }
-    
-    func latestSelectableDate() -> Date {
-        var dayComponents = DateComponents()
-        dayComponents.day = 70
-        let calendar = Calendar(identifier: .gregorian)
-        
-        if let lastDate = calendar.date(byAdding: dayComponents, to: Date()) {
-            return lastDate
-        } else {
-            return Date()
-        }
-    }
-    
+
     func supplementaryView(viewOnDayView dayView: DayView) -> UIView {
-        
         dayView.setNeedsLayout()
         dayView.layoutIfNeeded()
         
@@ -173,76 +129,190 @@ extension CalendarViewController: CVCalendarViewDelegate {
         return newView
     }
 
+    func shouldSelectRange() -> Bool {
+        return false
+    }
+    
+    func didSelectRange(from startDayView: DayView, to endDayView: DayView) {
+        print(object: "RANGE SELECTED: \(startDayView.date.commonDescription) to \(endDayView.date.commonDescription)")
+    }
+    
+    func disableScrollingBeforeDate() -> Date {
+        return Date()
+    }
+    
+    func maxSelectableRange() -> Int {
+        return 1
+    }
+    
+    func earliestSelectableDate() -> Date {
+        return Date()
+    }
+    
+    func latestSelectableDate() -> Date {
+        var dayComponents = DateComponents()
+        dayComponents.day = 70
+        let calendar = Calendar(identifier: .gregorian)
+        
+        if let lastDate = calendar.date(byAdding: dayComponents, to: Date()) {
+            return lastDate
+        } else {
+            return Date()
+        }
+    }
 }
 
 
 // MARK: - CVCalendarViewAppearanceDelegate
 extension CalendarViewController: CVCalendarViewAppearanceDelegate {
-    func dayLabelWeekdayDisabledColor() -> UIColor {
-        return UIColor.yellow
-    }
-    
-    func dayLabelPresentWeekdayInitallyBold() -> Bool {
-        return false
+    // Rendering options
+    func spaceBetweenWeekViews() -> CGFloat {
+        return 1
     }
     
     func spaceBetweenDayViews() -> CGFloat {
-        return 10
+        return 1
+    }
+
+    // Font options
+    func dayLabelFont(by weekDay: Weekday, status: CVStatus, present: CVPresent) -> UIFont {
+        return (Config.Constants.isAppThemesLight) ? UIFont.systemFont(ofSize: 14) : UIFont.ubuntuLight16
     }
     
-    func dayLabelFont(by weekDay: Weekday, status: CVStatus, present: CVPresent) -> UIFont { return UIFont.systemFont(ofSize: 14) }
+    func dayLabelWeekdayFont() -> UIFont {
+        return (Config.Constants.isAppThemesLight) ? UIFont.systemFont(ofSize: 14) : UIFont.ubuntuLight16
+    }
+
+    func dayLabelPresentWeekdayFont() -> UIFont {
+        return (Config.Constants.isAppThemesLight) ? UIFont.systemFont(ofSize: 14) : UIFont.ubuntuLight16
+    }
     
+    func dayLabelPresentWeekdayHighlightedFont() -> UIFont {
+        return (Config.Constants.isAppThemesLight) ? UIFont.systemFont(ofSize: 14) : UIFont.ubuntuLight16
+    }
+    
+    func dayLabelPresentWeekdaySelectedFont() -> UIFont {
+        return (Config.Constants.isAppThemesLight) ? UIFont.systemFont(ofSize: 14) : UIFont.ubuntuLight16
+    }
+    
+    func dayLabelWeekdayHighlightedFont() -> UIFont {
+        return (Config.Constants.isAppThemesLight) ? UIFont.systemFont(ofSize: 14) : UIFont.ubuntuLight16
+    }
+    
+    func dayLabelWeekdaySelectedFont() -> UIFont {
+        return (Config.Constants.isAppThemesLight) ? UIFont.systemFont(ofSize: 14) : UIFont.ubuntuLight16
+    }
+    
+    // Text color
     func dayLabelColor(by weekDay: Weekday, status: CVStatus, present: CVPresent) -> UIColor? {
         switch (weekDay, status, present) {
-        case (_, .selected, _), (_, .highlighted, _): return Color.selectedText
-        case (.sunday, .in, _): return Color.sundayText
-        case (.sunday, _, _): return Color.sundayTextDisabled
-        case (_, .in, _): return Color.text
-        default: return Color.textDisabled
+        case (_, .selected, _), (_, .highlighted, _):
+            return (Config.Constants.isAppThemesLight) ? UIColor.veryLightGray : UIColor.veryLightGray
+        
+        case (.sunday, .in, _):
+            return (Config.Constants.isAppThemesLight) ? UIColor.veryLightGray : UIColor.veryLightGray
+        
+        case (.sunday, _, _):
+            return (Config.Constants.isAppThemesLight) ? UIColor.veryLightGray : UIColor.veryDarkGrayishBlue53
+        
+        case (_, .in, _):
+            return (Config.Constants.isAppThemesLight) ? UIColor.veryLightGray : UIColor.veryLightGray
+        
+        default:
+            return (Config.Constants.isAppThemesLight) ? UIColor.veryDarkGrayishBlue53 : UIColor.veryDarkGrayishBlue53
         }
     }
-    
-    func dayLabelBackgroundColor(by weekDay: Weekday, status: CVStatus, present: CVPresent) -> UIColor? {
-        switch (weekDay, status, present) {
-        case (.sunday, .selected, _), (.sunday, .highlighted, _): return Color.sundaySelectionBackground
-        case (_, .selected, _), (_, .highlighted, _): return Color.selectionBackground
-        default: return nil
-        }
-    }
-}
 
-
-// MARK: - CVCalendarMenuViewDelegate
-extension CalendarViewController: CVCalendarMenuViewDelegate {
-    func firstWeekday() -> Weekday {
-        return .monday
+    func dayLabelWeekdayInTextColor() -> UIColor {
+        return (Config.Constants.isAppThemesLight) ? UIColor.veryLightGray : UIColor.veryLightGray
     }
     
-    func dayOfWeekTextColor(by weekday: Weekday) -> UIColor {
-        return weekday == .sunday ? UIColor.red : UIColor.veryLightGray
+    func dayLabelWeekdayOutTextColor() -> UIColor {
+        return (Config.Constants.isAppThemesLight) ? UIColor.veryDarkGrayishBlue53 : UIColor.veryDarkGrayishBlue53
     }
     
-    func dayOfWeekTextColor() -> UIColor {
-        return UIColor.darkCyan
-    }
-    
-    func dayOfWeekBackGroundColor() -> UIColor {
-        return UIColor.blue
-    }
-
-    func dayOfWeekBackGroundColor(by weekday: Weekday) -> UIColor {
+    func dayLabelWeekdayDisabledColor() -> UIColor {
         return UIColor.clear
     }
-    
-    func dayOfWeekTextUppercase() -> Bool {
-        return false
+
+    func dayLabelWeekdayHighlightedTextColor() -> UIColor {
+        return (Config.Constants.isAppThemesLight) ? UIColor.veryLightGray : UIColor.veryLightGray
     }
     
-    func dayOfWeekFont() -> UIFont {
-        return UIFont.ubuntuLight16
+    func dayLabelWeekdaySelectedTextColor() -> UIColor {
+        return (Config.Constants.isAppThemesLight) ? UIColor.veryLightGray : UIColor.veryLightGray
     }
     
-    func weekdaySymbolType() -> WeekdaySymbolType {
-        return .short
+    func dayLabelPresentWeekdayTextColor() -> UIColor {
+        return (Config.Constants.isAppThemesLight) ? UIColor.veryLightGray : UIColor.veryLightGray
+    }
+    
+    func dayLabelPresentWeekdayHighlightedTextColor() -> UIColor {
+        return (Config.Constants.isAppThemesLight) ? UIColor.veryLightGray : UIColor.veryLightGray
+    }
+    
+    func dayLabelPresentWeekdaySelectedTextColor() -> UIColor {
+        return (Config.Constants.isAppThemesLight) ? UIColor.veryLightGray : UIColor.veryLightGray
+    }
+
+    // Text size
+    func dayLabelSize(by weekDay: Weekday, status: CVStatus, present: CVPresent) -> CGFloat {
+        return 16
+    }
+
+    func dayLabelWeekdayTextSize() -> CGFloat {
+        return 16
+    }
+
+    func dayLabelWeekdayHighlightedTextSize() -> CGFloat {
+        return 16
+    }
+    
+    func dayLabelWeekdaySelectedTextSize() -> CGFloat {
+        return 16
+    }
+    
+    func dayLabelPresentWeekdayTextSize() -> CGFloat {
+        return 16
+    }
+    
+    func dayLabelPresentWeekdayHighlightedTextSize() -> CGFloat {
+        return 16
+    }
+    
+    func dayLabelPresentWeekdaySelectedTextSize() -> CGFloat {
+        return 16
+    }
+
+    // Background Color & Alpha
+    func dayLabelBackgroundColor(by weekDay: Weekday, status: CVStatus, present: CVPresent) -> UIColor? {
+        switch (weekDay, status, present) {
+        case (.sunday, .selected, _), (.sunday, .highlighted, _):
+            return (Config.Constants.isAppThemesLight) ? UIColor.black : UIColor.darkCyan
+        
+        case (_, .selected, _), (_, .highlighted, _):
+            return (Config.Constants.isAppThemesLight) ? UIColor.black : UIColor.darkCyan
+        
+        default:
+            return nil
+        }
+    }
+    
+    // Selected state background & alpha
+    func dayLabelWeekdaySelectedBackgroundColor() -> UIColor {
+        return (Config.Constants.isAppThemesLight) ? UIColor.blue : UIColor.darkCyan
+    }
+    
+    func dayLabelWeekdaySelectedBackgroundAlpha() -> CGFloat {
+        return 1
+    }
+    
+    func dayLabelPresentWeekdaySelectedBackgroundColor() -> UIColor {
+        return (Config.Constants.isAppThemesLight) ? UIColor.blue : UIColor.darkCyan
+    }
+    
+    func dayLabelPresentWeekdaySelectedBackgroundAlpha() -> CGFloat {
+        return 1
     }
 }
+
