@@ -74,13 +74,16 @@ extension CalendarViewController: CVCalendarViewDelegate {
         selectedDay = dayView
     }
     
+    // Current day view
     func preliminaryView(viewOnDayView dayView: DayView) -> UIView {
         let circleView = CVAuxiliaryView(dayView: dayView, rect: dayView.frame, shape: CVShape.circle)
-        circleView.borderColor = (Config.Constants.isAppThemesLight) ? UIColor.green : UIColor.darkCyan
+        circleView.fillColor = UIColor.clear
+        circleView.strokeColor = (Config.Constants.isAppThemesLight) ? UIColor.green : UIColor.darkCyan
         
         return circleView
     }
     
+    // Show / hide current day
     func preliminaryView(shouldDisplayOnDayView dayView: DayView) -> Bool {
         if (dayView.isCurrentDay) {
             return true
