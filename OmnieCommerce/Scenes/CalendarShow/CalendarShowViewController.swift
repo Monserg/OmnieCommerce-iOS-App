@@ -29,6 +29,7 @@ class CalendarShowViewController: BaseViewController, CalendarShowViewController
     var calendarVC: CalendarViewController?
     var schedulerVC: SchedulerViewController?
     var selectedDate = Date()
+    var calculatedDate = Date()
     
     private var activeViewController: UIViewController? {
         didSet {
@@ -175,11 +176,21 @@ class CalendarShowViewController: BaseViewController, CalendarShowViewController
     @IBAction func handlerPreviuosButtonTap(_ sender: UIButton) {
         print(object: "\(type(of: self)): \(#function) run.")
         
+        if (activeViewController == calendarVC) {
+            calendarVC?.calendarView.loadPreviousView()
+            calculatedDate = Date.init(timeInterval: -31 * 24 * 60 * 60, since: calculatedDate)
+            setupTitleLabel(withDate: calculatedDate)
+        }
     }
     
     @IBAction func handlerNextButtonTap(_ sender: UIButton) {
         print(object: "\(type(of: self)): \(#function) run.")
         
+        if (activeViewController == calendarVC) {
+            calendarVC?.calendarView.loadNextView()
+            calculatedDate = Date.init(timeInterval: 31 * 24 * 60 * 60, since: calculatedDate)
+            setupTitleLabel(withDate: calculatedDate)
+        }
     }
     
     

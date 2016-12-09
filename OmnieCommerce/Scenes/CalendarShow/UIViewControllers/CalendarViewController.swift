@@ -163,6 +163,16 @@ extension CalendarViewController: CVCalendarViewDelegate {
             return Date()
         }
     }
+    
+    func didShowNextMonthView(_ date: Foundation.Date) {
+        print(object: "\(type(of: self)): \(#function) run. Date = \(date)")
+        
+    }
+    
+    func didShowPreviousMonthView(_ date: Foundation.Date) {
+        print(object: "\(type(of: self)): \(#function) run. Date = \(date)")
+        
+    }
 }
 
 
