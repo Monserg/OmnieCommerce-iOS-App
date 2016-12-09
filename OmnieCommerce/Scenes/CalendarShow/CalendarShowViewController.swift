@@ -109,7 +109,7 @@ class CalendarShowViewController: BaseViewController, CalendarShowViewController
         segmentedControlView.setNeedsDisplay()
         confirmButton.setupWithStyle(.Fill)
         
-        setupTitleLabel(withDate: selectedDate)
+        setupTitleLabel(withDate: calculatedDate)
     }
 
     func setupTitleLabel(withDate date: Date) {
@@ -128,7 +128,7 @@ class CalendarShowViewController: BaseViewController, CalendarShowViewController
                 self.activeViewController = self.calendarVC
             }
             
-            self.setupTitleLabel(withDate: self.selectedDate)
+            self.setupTitleLabel(withDate: self.calculatedDate)
         }
     }
     
