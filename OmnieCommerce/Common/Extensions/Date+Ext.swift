@@ -50,4 +50,39 @@ extension Date {
 
         return isToday
     }
+    
+    func globalTime() -> Date {
+        let timeZone = TimeZone.current
+        let seconds = TimeInterval(timeZone.secondsFromGMT(for: self))
+        
+        return Date(timeInterval: seconds, since: self)
+    }
+    
+    func previousMonth() -> Date {
+        var dateComponents = Calendar.current.dateComponents([.weekday, .month, .day, .year], from: self)
+        
+        if dateComponents.month == 0 {
+            dateComponents.month = 11
+            dateComponents.year! -= 1
+        } else {
+            dateComponents.month! -= 1
+        }
+        
+        return Calendar.current.date(from: dateComponents)!
+    }
+
+    func nextMonth() -> Date {
+        var dateComponents = Calendar.current.dateComponents([.weekday, .month, .day, .year], from: self)
+        
+        if dateComponents.month == 11 {
+            dateComponents.month = 0
+            dateComponents.year! += 1
+        } else {
+            dateComponents.month! += 1
+        }
+        
+        return Calendar.current.date(from: dateComponents)!
+    }
 }
+
+

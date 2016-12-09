@@ -35,6 +35,13 @@ class CalendarShowViewController: BaseViewController, CalendarShowViewController
         didSet {
             removeInactiveViewController(inactiveViewController: oldValue)
             updateActiveViewController()
+            
+            if (activeViewController == calendarVC) {
+                calendarVC!.changeMonthHandlerCompletion = { newDate in
+                    self.calculatedDate = newDate
+                    self.setupTitleLabel(withDate: self.calculatedDate)
+                }
+            }
         }
     }
 
@@ -143,7 +150,7 @@ class CalendarShowViewController: BaseViewController, CalendarShowViewController
         }
     }
     
-    private func removeInactiveViewController(inactiveViewController: UIViewController?) {
+    func removeInactiveViewController(inactiveViewController: UIViewController?) {
         if let inactiveVC = inactiveViewController {
             inactiveVC.willMove(toParentViewController: nil)
             inactiveVC.view.removeFromSuperview()
@@ -151,7 +158,7 @@ class CalendarShowViewController: BaseViewController, CalendarShowViewController
         }
     }
     
-    private func updateActiveViewController() {
+    func updateActiveViewController() {
         if let activeVC = activeViewController {
             addChildViewController(activeVC)
             activeVC.view.frame = containerView.bounds
@@ -178,8 +185,8 @@ class CalendarShowViewController: BaseViewController, CalendarShowViewController
         
         if (activeViewController == calendarVC) {
             calendarVC?.calendarView.loadPreviousView()
-            calculatedDate = Date.init(timeInterval: -31 * 24 * 60 * 60, since: calculatedDate)
-            setupTitleLabel(withDate: calculatedDate)
+            calculatedDate = calculatedDate.previousMonth()
+            setupTitleLabel(withDate: calculatedDate.globalTime())
         }
     }
     
@@ -188,8 +195,8 @@ class CalendarShowViewController: BaseViewController, CalendarShowViewController
         
         if (activeViewController == calendarVC) {
             calendarVC?.calendarView.loadNextView()
-            calculatedDate = Date.init(timeInterval: 31 * 24 * 60 * 60, since: calculatedDate)
-            setupTitleLabel(withDate: calculatedDate)
+            calculatedDate = calculatedDate.nextMonth()
+            setupTitleLabel(withDate: calculatedDate.globalTime())
         }
     }
     

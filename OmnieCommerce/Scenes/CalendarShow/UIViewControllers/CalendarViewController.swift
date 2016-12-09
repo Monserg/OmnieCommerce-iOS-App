@@ -11,7 +11,10 @@ import CVCalendar
 
 class CalendarViewController: BaseViewController {
     // MARK: - Properties
+    typealias CompletionVoid = ((_ newDate: Date) -> ())
+
     var selectedDay: DayView!
+    var changeMonthHandlerCompletion: CompletionVoid?
 
     @IBOutlet weak var calendarView: CVCalendarView!
     
@@ -164,14 +167,27 @@ extension CalendarViewController: CVCalendarViewDelegate {
         }
     }
     
+    // Change current month by switch gesture
     func didShowNextMonthView(_ date: Foundation.Date) {
         print(object: "\(type(of: self)): \(#function) run. Date = \(date)")
-        
+     
+        changeMonthHandlerCompletion!(date.globalTime())
     }
     
     func didShowPreviousMonthView(_ date: Foundation.Date) {
         print(object: "\(type(of: self)): \(#function) run. Date = \(date)")
         
+        changeMonthHandlerCompletion!(date.globalTime())
+    }
+    
+    // Change current month by tap
+    func shouldScrollOnOutDayViewSelection() -> Bool {
+        print(object: "\(type(of: self)): \(#function) run.")
+     
+        let dateComponents = DateComponents(calendar: Calendar.current, timeZone: TimeZone.current, year: selectedDay.date.year, month: selectedDay.date.month, day: selectedDay.date.day)
+        changeMonthHandlerCompletion!((Calendar.current.date(from: dateComponents)?.globalTime())!)
+        
+        return true
     }
 }
 
