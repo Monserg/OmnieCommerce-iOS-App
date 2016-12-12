@@ -35,6 +35,15 @@ class CalendarShowViewController: BaseViewController, CalendarShowViewController
             removeInactiveViewController(inactiveViewController: oldValue)
             updateActiveViewController()
         }
+        
+        willSet {
+            if (newValue == calendarVC) {
+                calendarVC?.handlerSelectNewDateCompletion = { newDate in
+                    self.dateStackView.isHidden = false
+                    self.setupDateLabel(withDate: newDate)
+                }
+            }
+        }
     }
     
     @IBOutlet weak var segmentedControlView: SegmentedControlView!
@@ -45,6 +54,7 @@ class CalendarShowViewController: BaseViewController, CalendarShowViewController
     @IBOutlet weak var dateLabel: CustomLabel!
     @IBOutlet weak var fromTimeLabel: CustomLabel!
     @IBOutlet weak var toTimeLabel: CustomLabel!
+    @IBOutlet weak var dateStackView: UIView!
     
     @IBOutlet weak var containerLeadingConstraint: NSLayoutConstraint!
     @IBOutlet weak var containerTrailingConstraint: NSLayoutConstraint!
@@ -67,6 +77,8 @@ class CalendarShowViewController: BaseViewController, CalendarShowViewController
         
         activeViewController = calendarVC
         view.backgroundColor = UIColor.veryDarkDesaturatedBlue24
+        dateStackView.isHidden = true
+        
         setupScene(withSize: view.frame.size)
         setupSegmentedControlView()
         setupContainerView(withSize: view.frame.size)

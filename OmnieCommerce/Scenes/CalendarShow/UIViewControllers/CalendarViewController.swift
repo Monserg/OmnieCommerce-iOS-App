@@ -11,14 +11,12 @@ import JTAppleCalendar
 
 class CalendarViewController: UIViewController {
     // MARK: - Properties
-//    typealias HandlerChangeCurrentMonthCompletion = ((_ newDate: Date) -> ())
-//    typealias HandlerSelectNewDateCompletion = ((_ newDate: Date) -> ())
-//    
-//    var handlerChangeCurrentMonthCompletion: HandlerChangeCurrentMonthCompletion?
-//    var handlerSelectNewDateCompletion: HandlerSelectNewDateCompletion?
-//    
+    typealias HandlerSelectNewDateCompletion = ((_ newDate: Date) -> ())
+
+    var handlerSelectNewDateCompletion: HandlerSelectNewDateCompletion?
+
     let firstDayOfWeek: DaysOfWeek = .monday
-    var selectedDate = Date()
+    var selectedDate: Date?
     var calculatedDate = Date()
     
     @IBOutlet weak var calendarView: JTAppleCalendarView!
@@ -48,6 +46,7 @@ class CalendarViewController: UIViewController {
         // Setup cells insets
         calendarView.cellInset = CGPoint(x: 10, y: 5)
         setupCalendarView()
+        setupSelectedDate()
         
         // Add Calendar scrolling
         calendarView.scrollingMode = .stopAtEachCalendarFrameWidth
@@ -91,6 +90,16 @@ class CalendarViewController: UIViewController {
         titleLabel.text = date.convertToString(withStyle: .MonthYear)
     }
     
+    func setupSelectedDate() {
+        selectedDate = (arc4random_uniform(2) == 1) ? Calendar.current.date(byAdding: .day, value: 5, to: Date())! : nil
+        
+        guard selectedDate != nil else {
+            return
+        }
+        
+        calendarView.selectDates([selectedDate!], triggerSelectionDelegate: false)
+        handlerSelectNewDateCompletion!(selectedDate!)
+    }
     
     // MARK: - Actions
     @IBAction func handlerPreviuosButtonTap(_ sender: UIButton) {
@@ -113,13 +122,6 @@ class CalendarViewController: UIViewController {
                 self.setupTitleLabel(withDate: self.calculatedDate.globalTime())
             }
         }
-    }
-    
-    // MARK: - Transition
-    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        print("\(#file): \(#function) run in [line \(#line)]")
-        
-        calendarView.setNeedsDisplay()
     }
 }
 
@@ -179,6 +181,8 @@ extension CalendarViewController: JTAppleCalendarViewDelegate {
                 }
             }
         }
+        
+        handlerSelectNewDateCompletion!(date)
     }
     
     func calendar(_ calendar: JTAppleCalendarView, didDeselectDate date: Date, cell: JTAppleDayCellView?, cellState: CellState) {
