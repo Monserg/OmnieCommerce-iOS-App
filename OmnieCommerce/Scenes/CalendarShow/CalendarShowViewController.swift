@@ -103,6 +103,7 @@ class CalendarShowViewController: BaseViewController, CalendarShowViewController
         
         bottomDottedBorderView.setNeedsDisplay()
         segmentedControlView.setNeedsDisplay()
+        containerView.setNeedsDisplay()
         confirmButton.setupWithStyle(.Fill)
     }
     

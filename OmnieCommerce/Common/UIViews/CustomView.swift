@@ -33,4 +33,9 @@ import UIKit
             }
         }
     }
+    
+    
+    // MARK: - Class Functions
+    override func draw(_ rect: CGRect) {
+    }
 }

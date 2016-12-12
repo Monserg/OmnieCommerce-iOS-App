@@ -28,14 +28,13 @@ class CalendarViewController: UIViewController {
     
     // MARK: - Class Functions
     override func viewDidLayoutSubviews() {
-        print("\(#function) run in [line \(#line)]")
+        print("\(#file): \(#function) run in [line \(#line)]")
         
         super.viewDidLayoutSubviews()
-        
     }
     
     override func viewDidLoad() {
-        print("\(#function) run in [line \(#line)]")
+        print("\(#file): \(#function) run in [line \(#line)]")
         
         super.viewDidLoad()
         
@@ -63,7 +62,7 @@ class CalendarViewController: UIViewController {
     
     // MARK: - Custom Functions
     func setupCalendarView() {
-        print("\(#function) run in [line \(#line)]")
+        print("\(#file): \(#function) run in [line \(#line)]")
         
         // Set weekday symbols
         let dateFormatter = DateFormatter()
@@ -95,7 +94,7 @@ class CalendarViewController: UIViewController {
     
     // MARK: - Actions
     @IBAction func handlerPreviuosButtonTap(_ sender: UIButton) {
-        print("\(#function) run in [line \(#line)]")
+        print("\(#file): \(#function) run in [line \(#line)]")
         
         calendarView.scrollToSegment(.previous) {
             self.calendarView.visibleDates { (visibleDates: DateSegmentInfo) in
@@ -106,7 +105,7 @@ class CalendarViewController: UIViewController {
     }
     
     @IBAction func handlerNextButtonTap(_ sender: UIButton) {
-        print("\(#function) run in [line \(#line)]")
+        print("\(#file): \(#function) run in [line \(#line)]")
         
         self.calendarView.scrollToSegment(.next) {
             self.calendarView.visibleDates { (visibleDates: DateSegmentInfo) in
@@ -115,13 +114,20 @@ class CalendarViewController: UIViewController {
             }
         }
     }
+    
+    // MARK: - Transition
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        print("\(#file): \(#function) run in [line \(#line)]")
+        
+        calendarView.setNeedsDisplay()
+    }
 }
 
 
 // MARK: - JTAppleCalendarViewDataSource
 extension CalendarViewController: JTAppleCalendarViewDataSource {
     func configureCalendar(_ calendar: JTAppleCalendarView) -> ConfigurationParameters {
-        print("\(#function) run in [line \(#line)]")
+        print("\(#file): \(#function) run in [line \(#line)]")
         
         let startDate = Calendar.current.date(byAdding: .month, value: -12, to: Date(), wrappingComponents: false)!
         let endDate = Calendar.current.date(byAdding: .month, value: 12, to: Date(), wrappingComponents: false)!

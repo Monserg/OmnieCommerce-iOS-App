@@ -27,6 +27,11 @@ class CalendarDayCellView: JTAppleDayCellView {
         
         currentDayView.isHidden = (dateFormatter.string(from: Date()) == dateFormatter.string(from: date)) ? false : true
         backgroundColor = (Config.Constants.isAppThemesLight) ? UIColor.green : UIColor.veryDarkDesaturatedBlue24
+        
+        if (!currentDayView.isHidden) {
+            layoutIfNeeded()
+            currentDayView.layer.cornerRadius = currentDayView.bounds.height / 2
+        }
     }
     
     func setTextColor(forState state: CellState) {
@@ -46,11 +51,12 @@ class CalendarDayCellView: JTAppleDayCellView {
     func setSelection(forState state: CellState) {        
         switch state.isSelected {
         case true:
+            layoutIfNeeded()
             selectedView.layer.cornerRadius = selectedView.bounds.height / 2
             selectedView.isHidden = false
 
         default:
             selectedView.isHidden = true
         }
-    }
+    }    
 }
