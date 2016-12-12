@@ -11,6 +11,7 @@
 
 import UIKit
 import Device
+import JTAppleCalendar
 
 // MARK: - Input & Output protocols
 protocol CalendarShowViewControllerInput {
@@ -28,42 +29,23 @@ class CalendarShowViewController: BaseViewController, CalendarShowViewController
     
     var calendarVC: CalendarViewController?
     var schedulerVC: SchedulerViewController?
-    var selectedDate = Date()
-    var calculatedDate = Date()
     
     private var activeViewController: UIViewController? {
         didSet {
             removeInactiveViewController(inactiveViewController: oldValue)
             updateActiveViewController()
-            
-            if (activeViewController == calendarVC) {
-                // Handler for change current month
-                calendarVC!.handlerChangeCurrentMonthCompletion = { newDate in
-                    self.calculatedDate = newDate
-                    self.setupTitleLabel(withDate: self.calculatedDate)
-                }
-                
-                // Handler for select new date
-                calendarVC!.handlerSelectNewDateCompletion = { newDate in
-                    self.selectedDate = newDate
-                    self.setupDateLabel(withDate: self.selectedDate)
-                }
-            }
         }
     }
-
+    
     @IBOutlet weak var segmentedControlView: SegmentedControlView!
     @IBOutlet weak var bottomDottedBorderView: DottedBorderView!
     @IBOutlet weak var confirmButton: CustomButton!
     @IBOutlet weak var containerView: UIView!
     
-    @IBOutlet weak var titleLabel: CustomLabel!
     @IBOutlet weak var dateLabel: CustomLabel!
     @IBOutlet weak var fromTimeLabel: CustomLabel!
     @IBOutlet weak var toTimeLabel: CustomLabel!
-
-    @IBOutlet weak var containerAspectRatio: NSLayoutConstraint!
-    @IBOutlet weak var containerAspectRatio4S: NSLayoutConstraint!
+    
     @IBOutlet weak var containerLeadingConstraint: NSLayoutConstraint!
     @IBOutlet weak var containerTrailingConstraint: NSLayoutConstraint!
     
@@ -75,7 +57,7 @@ class CalendarShowViewController: BaseViewController, CalendarShowViewController
         CalendarShowConfigurator.sharedInstance.configure(viewController: self)
     }
     
-
+    
     // MARK: - Class Functions
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -122,12 +104,6 @@ class CalendarShowViewController: BaseViewController, CalendarShowViewController
         bottomDottedBorderView.setNeedsDisplay()
         segmentedControlView.setNeedsDisplay()
         confirmButton.setupWithStyle(.Fill)
-        
-        setupTitleLabel(withDate: calculatedDate)
-    }
-
-    func setupTitleLabel(withDate date: Date) {
-        titleLabel.text = date.convertToString(withStyle: (activeViewController == calendarVC) ? .MonthYear : .WeekdayMonthYear)
     }
     
     func setupDateLabel(withDate date: Date) {
@@ -141,12 +117,10 @@ class CalendarShowViewController: BaseViewController, CalendarShowViewController
             switch sender.tag {
             case 1:
                 self.activeViewController = self.schedulerVC
-
+                
             default:
                 self.activeViewController = self.calendarVC
             }
-            
-            self.setupTitleLabel(withDate: self.calculatedDate)
         }
     }
     
@@ -154,8 +128,6 @@ class CalendarShowViewController: BaseViewController, CalendarShowViewController
         if (Device.size() == .screen3_5Inch && size.width > size.height) {
             containerLeadingConstraint.constant = 0
             containerTrailingConstraint.constant = 10
-            containerAspectRatio.isActive = false
-            containerAspectRatio4S.isActive = true
             
             containerView.layoutIfNeeded()
         }
@@ -183,32 +155,10 @@ class CalendarShowViewController: BaseViewController, CalendarShowViewController
     // MARK: - Actions
     @IBAction func handlerConfirmButtonTap(_ sender: CustomButton) {
         print(object: "\(type(of: self)): \(#function) run.")
-        
     }
     
     @IBAction func handlerCancelButtonTap(_ sender: CustomButton) {
         print(object: "\(type(of: self)): \(#function) run.")
-        
-    }
-    
-    @IBAction func handlerPreviuosButtonTap(_ sender: UIButton) {
-        print(object: "\(type(of: self)): \(#function) run.")
-        
-        if (activeViewController == calendarVC) {
-            calendarVC?.calendarView.loadPreviousView()
-            calculatedDate = calculatedDate.previousMonth()
-            setupTitleLabel(withDate: calculatedDate.globalTime())
-        }
-    }
-    
-    @IBAction func handlerNextButtonTap(_ sender: UIButton) {
-        print(object: "\(type(of: self)): \(#function) run.")
-        
-        if (activeViewController == calendarVC) {
-            calendarVC?.calendarView.loadNextView()
-            calculatedDate = calculatedDate.nextMonth()
-            setupTitleLabel(withDate: calculatedDate.globalTime())
-        }
     }
     
     

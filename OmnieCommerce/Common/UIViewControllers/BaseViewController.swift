@@ -24,7 +24,7 @@ class BaseViewController: UIViewController {
     
     // MARK: - Class Initialization
     override func awakeFromNib() {
-        print(object: "\(type(of: self)): \(#function) run.")
+        print(object: "\(type(of: self)): \(#function) run in [line \(#line)]")
         
         super.awakeFromNib()
     }
@@ -32,7 +32,7 @@ class BaseViewController: UIViewController {
     
     // MARK: - Class Functions
     override func viewDidLoad() {
-        print(object: "\(type(of: self)): \(#function) run. View size = \(view.bounds.size)")
+        print(object: "\(type(of: self)): \(#function) run in [line \(#line)]. View size = \(view.bounds.size)")
         
         super.viewDidLoad()
         
@@ -42,31 +42,31 @@ class BaseViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        print(object: "\(type(of: self)): \(#function) run.")
+        print(object: "\(type(of: self)): \(#function) run in [line \(#line)]")
 
         super.viewWillAppear(true)
     }
 
     override func viewDidAppear(_ animated: Bool) {
-        print(object: "\(type(of: self)): \(#function) run.")
+        print(object: "\(type(of: self)): \(#function) run in [line \(#line)]")
         
         super.viewDidAppear(true)
     }
 
     override func didReceiveMemoryWarning() {
-        print(object: "\(type(of: self)): \(#function) run.")
+        print(object: "\(type(of: self)): \(#function) run in [line \(#line)]")
         
         super.didReceiveMemoryWarning()
     }
     
     deinit {
-        print(object: "\(type(of: self)): \(#function) run.")
+        print(object: "\(type(of: self)): \(#function) run in [line \(#line)]")
     }
 
     
     // MARK: - Actions
     func handleKeyboardAction(notification: Notification) {
-        print(object: "\(type(of: self)): \(#function) run.")
+        print(object: "\(type(of: self)): \(#function) run in [line \(#line)]")
         
         let userInfo = notification.userInfo!
         
@@ -117,7 +117,7 @@ class BaseViewController: UIViewController {
     
     // MARK: - Custom Functions
     func setup(topBarView: UIView) {
-        print(object: "\(type(of: self)): \(#function) run.")
+        print(object: "\(type(of: self)): \(#function) run in [line \(#line)]")
 
         // TopBarView big height
         if (topBarViewStyle == .Big) {
@@ -174,7 +174,7 @@ class BaseViewController: UIViewController {
 // MARK: - UIScrollViewDelegate
 extension BaseViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        print(object: "\(type(of: self)): \(#function) run. UIScrollView.contentOffset.y = \(scrollView.contentOffset.y)")
+        print(object: "\(type(of: self)): \(#function) run in [line \(#line)]. UIScrollView.contentOffset.y = \(scrollView.contentOffset.y)")
     }
 }
 
@@ -182,7 +182,7 @@ extension BaseViewController: UIScrollViewDelegate {
 // MARK: - UIGestureRecognizerDelegate
 extension BaseViewController: UIGestureRecognizerDelegate {
     func handleTap(gestureRecognizer: UIGestureRecognizer) {
-        print(object: "\(type(of: self)): \(#function) run.")
+        print(object: "\(type(of: self)): \(#function) run in [line \(#line)]")
         
         view.endEditing(true)
     }
@@ -210,7 +210,7 @@ extension BaseViewController: UITextFieldDelegate {
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        print(object: "\(type(of: self)): \(#function) run.")
+        print(object: "\(type(of: self)): \(#function) run in [line \(#line)]")
         
         (textField as! CustomTextField).attributedPlaceholderString = textField.attributedPlaceholder
         textField.placeholder = nil
@@ -218,13 +218,13 @@ extension BaseViewController: UITextFieldDelegate {
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        print(object: "\(type(of: self)): \(#function) run.")
+        print(object: "\(type(of: self)): \(#function) run in [line \(#line)]")
         
         textField.attributedPlaceholder = (textField as! CustomTextField).attributedPlaceholderString
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        print(object: "\(type(of: self)): \(#function) run. Owner = \(self)")
+        print(object: "\(type(of: self)): \(#function) run in [line \(#line)]")
         
         if (NSStringFromClass(type(of: self)).hasSuffix("SignInShowViewController")) {
             let signInShowVC = self as! SignInShowViewController

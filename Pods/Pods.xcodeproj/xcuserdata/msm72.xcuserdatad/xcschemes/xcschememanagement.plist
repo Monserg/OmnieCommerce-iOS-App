@@ -14,17 +14,17 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>CVCalendar.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Cosmos.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
 		<key>Device.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>JTAppleCalendar.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -47,12 +47,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>2F0FE1E2A5B1EF15139E10A40F05CE94</key>
+		<key>2EAB6C2AAFD4FF8213BF3859015794C8</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3736A8E05C12DA1FEB65F8478CCAAD41</key>
+		<key>2F0FE1E2A5B1EF15139E10A40F05CE94</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -62,7 +62,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>845E38438F59800A62A068F4820906BC</key>
+		<key>74C1474756886BC59663373D48B91014</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -72,12 +72,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9EFE4C70245EE2857D336B8B9FA4E825</key>
+		<key>9B22756F1BC69AB282A6C7FFC7EB05C3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E2EF0A874A01FFC4D77FBAEED4802A12</key>
+		<key>9EFE4C70245EE2857D336B8B9FA4E825</key>
 		<dict>
 			<key>primary</key>
 			<true/>

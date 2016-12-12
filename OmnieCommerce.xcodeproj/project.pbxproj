@@ -78,6 +78,9 @@
 		B122F2411DD371B30018A701 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B122F2401DD371B30018A701 /* BaseNavigationController.swift */; };
 		B122F2481DD393330018A701 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B122F24A1DD393330018A701 /* Localizable.strings */; };
 		B12AC2301DDF3BDB00FA0924 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12AC22F1DDF3BDB00FA0924 /* CustomTextField.swift */; };
+		B14107C41DFEA73900F79CF9 /* CalendarDayCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14107C21DFEA73900F79CF9 /* CalendarDayCellView.swift */; };
+		B14107C51DFEA73900F79CF9 /* CalendarDayCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B14107C31DFEA73900F79CF9 /* CalendarDayCellView.xib */; };
+		B14107C71DFEB1D700F79CF9 /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14107C61DFEB1D700F79CF9 /* CustomView.swift */; };
 		B14D894D1DF6C87800AF3AED /* NewsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B14D894C1DF6C87800AF3AED /* NewsTableViewCell.xib */; };
 		B14D894F1DF6C92100AF3AED /* MessageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B14D894E1DF6C92100AF3AED /* MessageTableViewCell.xib */; };
 		B14D89511DF6CFF800AF3AED /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14D89501DF6CFF800AF3AED /* Message.swift */; };
@@ -305,6 +308,9 @@
 		B122F24C1DD393350018A701 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B122F24D1DD393360018A701 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B12AC22F1DDF3BDB00FA0924 /* CustomTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		B14107C21DFEA73900F79CF9 /* CalendarDayCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarDayCellView.swift; sourceTree = "<group>"; };
+		B14107C31DFEA73900F79CF9 /* CalendarDayCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CalendarDayCellView.xib; sourceTree = "<group>"; };
+		B14107C61DFEB1D700F79CF9 /* CustomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
 		B14D894C1DF6C87800AF3AED /* NewsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsTableViewCell.xib; sourceTree = "<group>"; };
 		B14D894E1DF6C92100AF3AED /* MessageTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageTableViewCell.xib; sourceTree = "<group>"; };
 		B14D89501DF6CFF800AF3AED /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
@@ -504,6 +510,7 @@
 				B16E966E1DE6C94000147CEF /* BigTopBarView.swift */,
 				B16E96701DE6C94D00147CEF /* BigTopBarView.xib */,
 				B152915E1DDEB8B500BBA1E0 /* CustomTableView.swift */,
+				B14107C61DFEB1D700F79CF9 /* CustomView.swift */,
 				B11E074D1DE032D90052AFC5 /* DottedBorderView.swift */,
 				B18A45C91DEC282B003EBD2F /* DotView.swift */,
 				B152915A1DDE44A200BBA1E0 /* MenuSectionFooterView.swift */,
@@ -748,6 +755,8 @@
 			isa = PBXGroup;
 			children = (
 				B11B9AD51DF00CC5009A4AA1 /* BaseTableViewCell.swift */,
+				B14107C21DFEA73900F79CF9 /* CalendarDayCellView.swift */,
+				B14107C31DFEA73900F79CF9 /* CalendarDayCellView.xib */,
 				B1C13D8E1DEF5736002B494A /* DropDownTableViewCell.swift */,
 				B1228FB11DD47C9F00A90FBB /* MenuViewCell.swift */,
 				B14D894E1DF6C92100AF3AED /* MessageTableViewCell.xib */,
@@ -1109,6 +1118,7 @@
 				B1BF926B1DD6516C00BECBBB /* helveticaneuecyr-bolditalic.otf in Resources */,
 				B1BF926C1DD6516C00BECBBB /* helveticaneuecyr-heavy.otf in Resources */,
 				B1BF926D1DD6516C00BECBBB /* helveticaneuecyr-heavyitalic.otf in Resources */,
+				B14107C51DFEA73900F79CF9 /* CalendarDayCellView.xib in Resources */,
 				B1BF926E1DD6516C00BECBBB /* helveticaneuecyr-italic.otf in Resources */,
 				B1BF926F1DD6516C00BECBBB /* helveticaneuecyr-light.otf in Resources */,
 				B152915D1DDE44B700BBA1E0 /* MenuSectionFooterView.xib in Resources */,
@@ -1242,6 +1252,7 @@
 				B1CF54921DDB512000E98049 /* DiscountCardsShowConfigurator.swift in Sources */,
 				B1CF54871DDB50F100E98049 /* BusinessCardsShowPresenter.swift in Sources */,
 				B122DF651DF7F957003823AD /* CalendarShowModels.swift in Sources */,
+				B14107C71DFEB1D700F79CF9 /* CustomView.swift in Sources */,
 				B1CF54771DDB50D900E98049 /* AboutShowInteractor.swift in Sources */,
 				B16E96731DE717E400147CEF /* BigCirleView.swift in Sources */,
 				B1CF54951DDB512000E98049 /* DiscountCardsShowPresenter.swift in Sources */,
@@ -1318,6 +1329,7 @@
 				B1CF54A11DDB515000E98049 /* HandbookShowInteractor.swift in Sources */,
 				B17323CA1DED84FF003A8D3E /* CustomCollectionViewCell.swift in Sources */,
 				B1CF54CF1DDB51A500E98049 /* PersonalPageShowViewController.swift in Sources */,
+				B14107C41DFEA73900F79CF9 /* CalendarDayCellView.swift in Sources */,
 				B1228FBA1DD49ED400A90FBB /* BaseViewController.swift in Sources */,
 				B122F2271DD35CC80018A701 /* SlideMenuShowViewController.swift in Sources */,
 				B1CF54851DDB50F100E98049 /* BusinessCardsShowInteractor.swift in Sources */,

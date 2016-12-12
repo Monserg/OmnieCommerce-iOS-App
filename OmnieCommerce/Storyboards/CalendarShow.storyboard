@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina5_5" orientation="portrait">
+    <device id="retina5_5" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -19,17 +19,17 @@
                         <viewControllerLayoutGuide type="bottom" id="PuB-Zg-iNe"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="acP-Da-gjJ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uOe-xj-v67">
-                                <rect key="frame" x="0.0" y="20" width="414" height="694"/>
+                                <rect key="frame" x="0.0" y="20" width="736" height="372"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ypz-Pw-w3Z" userLabel="Segmented Control View">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="70" height="372"/>
                                         <subviews>
                                             <view tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EDl-jJ-gKO" userLabel="Content View" customClass="SegmentedControlView" customModule="OmnieCommerce" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="55"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="70" height="372"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="string" keyPath="segmentedControlViewStyle" value="Calendar"/>
@@ -65,117 +65,22 @@
                                         </variation>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4c1-2X-Ri9" userLabel="Views">
-                                        <rect key="frame" x="0.0" y="70" width="414" height="548"/>
+                                        <rect key="frame" x="70" y="0.0" width="481" height="372"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="eoN-em-Unx">
-                                                <rect key="frame" x="35" y="0.0" width="344" height="548"/>
+                                                <rect key="frame" x="20" y="0.0" width="441" height="347"/>
                                                 <subviews>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BRa-MD-9c1" userLabel="Top View">
-                                                        <rect key="frame" x="0.0" y="0.0" width="344" height="40"/>
-                                                        <subviews>
-                                                            <button opaque="NO" contentMode="redraw" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bv1-Lo-deK" userLabel="Previous Button">
-                                                                <rect key="frame" x="0.0" y="5" width="30" height="30"/>
-                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="width" constant="30" id="4l7-SI-CNf"/>
-                                                                    <constraint firstAttribute="height" constant="30" id="EUa-MC-Y6j"/>
-                                                                </constraints>
-                                                                <state key="normal" image="icon-previous-item-normal"/>
-                                                                <userDefinedRuntimeAttributes>
-                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
-                                                                </userDefinedRuntimeAttributes>
-                                                                <connections>
-                                                                    <action selector="handlerPreviuosButtonTap:" destination="wgF-Hw-axL" eventType="touchUpInside" id="wgS-0M-s5F"/>
-                                                                </connections>
-                                                            </button>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dvl-eV-eFW" userLabel="Title Label" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                                                                <rect key="frame" x="30" y="11.333333333333329" width="276" height="18"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                <nil key="textColor"/>
-                                                                <nil key="highlightedColor"/>
-                                                                <userDefinedRuntimeAttributes>
-                                                                    <userDefinedRuntimeAttribute type="string" keyPath="labelStyle" value="MenuItem"/>
-                                                                </userDefinedRuntimeAttributes>
-                                                            </label>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Le-zT-Rh5" userLabel="Next Button">
-                                                                <rect key="frame" x="314" y="5" width="30" height="30"/>
-                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                                <state key="normal" image="icon-next-item-normal"/>
-                                                                <userDefinedRuntimeAttributes>
-                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
-                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                        <real key="value" value="0.0"/>
-                                                                    </userDefinedRuntimeAttribute>
-                                                                    <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
-                                                                        <size key="value" width="0.0" height="0.0"/>
-                                                                    </userDefinedRuntimeAttribute>
-                                                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
-                                                                        <real key="value" value="0.0"/>
-                                                                    </userDefinedRuntimeAttribute>
-                                                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
-                                                                        <real key="value" value="0.0"/>
-                                                                    </userDefinedRuntimeAttribute>
-                                                                </userDefinedRuntimeAttributes>
-                                                                <connections>
-                                                                    <action selector="handlerNextButtonTap:" destination="wgF-Hw-axL" eventType="touchUpInside" id="fTl-n1-Iwp"/>
-                                                                </connections>
-                                                            </button>
-                                                        </subviews>
-                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                        <constraints>
-                                                            <constraint firstItem="7Le-zT-Rh5" firstAttribute="height" secondItem="bv1-Lo-deK" secondAttribute="height" id="6bb-Kq-Mv1"/>
-                                                            <constraint firstItem="dvl-eV-eFW" firstAttribute="leading" secondItem="bv1-Lo-deK" secondAttribute="trailing" id="8tE-Sv-van"/>
-                                                            <constraint firstItem="7Le-zT-Rh5" firstAttribute="centerY" secondItem="BRa-MD-9c1" secondAttribute="centerY" id="DL9-AV-eL1"/>
-                                                            <constraint firstItem="dvl-eV-eFW" firstAttribute="centerY" secondItem="BRa-MD-9c1" secondAttribute="centerY" id="Gqs-tk-fyM"/>
-                                                            <constraint firstAttribute="trailing" secondItem="7Le-zT-Rh5" secondAttribute="trailing" id="Lcr-wV-iv5"/>
-                                                            <constraint firstItem="bv1-Lo-deK" firstAttribute="centerY" secondItem="BRa-MD-9c1" secondAttribute="centerY" id="fPx-Vx-jEp"/>
-                                                            <constraint firstItem="bv1-Lo-deK" firstAttribute="leading" secondItem="BRa-MD-9c1" secondAttribute="leading" id="kH3-Go-wba"/>
-                                                            <constraint firstItem="7Le-zT-Rh5" firstAttribute="leading" secondItem="dvl-eV-eFW" secondAttribute="trailing" constant="8" id="nBz-vv-fV2"/>
-                                                            <constraint firstItem="7Le-zT-Rh5" firstAttribute="width" secondItem="bv1-Lo-deK" secondAttribute="width" id="vOH-m7-2Ns"/>
-                                                            <constraint firstAttribute="height" constant="40" id="zPE-kR-5rl">
-                                                                <variation key="heightClass=compact-widthClass=regular" constant="35"/>
-                                                            </constraint>
-                                                        </constraints>
-                                                    </view>
                                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J5w-YA-SAz">
-                                                        <rect key="frame" x="0.0" y="40" width="344" height="344"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="441" height="347"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" secondItem="J5w-YA-SAz" secondAttribute="height" multiplier="1:1" id="ZVO-da-MbY"/>
-                                                            <constraint firstAttribute="width" secondItem="J5w-YA-SAz" secondAttribute="height" multiplier="662:492" id="uUd-63-0Wk"/>
-                                                        </constraints>
-                                                        <variation key="default">
-                                                            <mask key="constraints">
-                                                                <exclude reference="ZVO-da-MbY"/>
-                                                                <exclude reference="uUd-63-0Wk"/>
-                                                            </mask>
-                                                        </variation>
-                                                        <variation key="heightClass=compact-widthClass=compact">
-                                                            <mask key="constraints">
-                                                                <include reference="uUd-63-0Wk"/>
-                                                            </mask>
-                                                        </variation>
-                                                        <variation key="heightClass=compact-widthClass=regular">
-                                                            <mask key="constraints">
-                                                                <include reference="uUd-63-0Wk"/>
-                                                            </mask>
-                                                        </variation>
-                                                        <variation key="heightClass=regular-widthClass=compact">
-                                                            <mask key="constraints">
-                                                                <include reference="ZVO-da-MbY"/>
-                                                            </mask>
-                                                        </variation>
                                                     </containerView>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7g1-gm-U4F" userLabel="Bottom View">
-                                                        <rect key="frame" x="0.0" y="384" width="344" height="164"/>
-                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                    </view>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             </stackView>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="eoN-em-Unx" secondAttribute="bottom" constant="25" id="86F-RL-DZd"/>
                                             <constraint firstAttribute="trailing" secondItem="eoN-em-Unx" secondAttribute="trailing" constant="25" id="F8c-K9-jzZ">
                                                 <variation key="heightClass=compact-widthClass=compact" constant="20"/>
                                                 <variation key="heightClass=compact-widthClass=regular" constant="20"/>
@@ -189,7 +94,6 @@
                                             <constraint firstItem="eoN-em-Unx" firstAttribute="top" secondItem="4c1-2X-Ri9" secondAttribute="top" id="bey-4w-1Wv">
                                                 <variation key="heightClass=compact-widthClass=regular" constant="0.0"/>
                                             </constraint>
-                                            <constraint firstAttribute="bottom" secondItem="eoN-em-Unx" secondAttribute="bottom" id="vU8-0i-YJE"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -207,16 +111,16 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="abG-cI-8OH" userLabel="Bottom Dotted View">
-                                        <rect key="frame" x="0.0" y="618" width="414" height="76"/>
+                                        <rect key="frame" x="551" y="0.0" width="185" height="372"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DzE-if-37G" userLabel="Content Dotted View" customClass="DottedBorderView" customModule="OmnieCommerce" customModuleProvider="target">
-                                                <rect key="frame" x="4" y="0.0" width="406" height="76"/>
+                                                <rect key="frame" x="0.0" y="6" width="165" height="366"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Cei-qp-lia">
-                                                        <rect key="frame" x="10" y="20" width="386" height="36"/>
+                                                        <rect key="frame" x="10" y="22" width="145" height="342"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ad7-3f-t2d" userLabel="Top View">
-                                                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="36"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="145" height="105"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" id="eCG-gD-Jda"/>
@@ -233,10 +137,10 @@
                                                                 </variation>
                                                             </view>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Z9P-FS-lTV">
-                                                                <rect key="frame" x="0.0" y="0.0" width="125" height="36"/>
+                                                                <rect key="frame" x="0.0" y="105" width="145" height="81"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="07.12.2016" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rfs-OC-dPl" userLabel="Date Label" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="125" height="17"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="145" height="27"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="27" id="uWA-g8-01W">
                                                                                 <variation key="heightClass=regular-widthClass=compact" constant="17"/>
@@ -262,13 +166,13 @@
                                                                         </userDefinedRuntimeAttributes>
                                                                     </label>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="J8k-Cb-px5">
-                                                                        <rect key="frame" x="0.0" y="20" width="125" height="16"/>
+                                                                        <rect key="frame" x="0.0" y="27" width="145" height="54"/>
                                                                         <subviews>
                                                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="qPK-mV-VzX">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="65.333333333333329" height="16"/>
+                                                                                <rect key="frame" x="0.0" y="0.0" width="145" height="27"/>
                                                                                 <subviews>
                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="From" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PvP-62-nTe" userLabel="From Label" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                                                                                        <rect key="frame" x="0.0" y="0.0" width="24.666666666666664" height="16"/>
+                                                                                        <rect key="frame" x="0.0" y="0.0" width="24.666666666666629" height="27"/>
                                                                                         <constraints>
                                                                                             <constraint firstAttribute="width" constant="25" id="h6X-XI-sml"/>
                                                                                         </constraints>
@@ -297,7 +201,7 @@
                                                                                         </variation>
                                                                                     </label>
                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rjk-Dh-lke" userLabel="From Time Label" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                                                                                        <rect key="frame" x="28.666666666666668" y="0.0" width="36.666666666666657" height="16"/>
+                                                                                        <rect key="frame" x="54.666666666666629" y="0.0" width="90.333333333333371" height="27"/>
                                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                         <nil key="textColor"/>
                                                                                         <nil key="highlightedColor"/>
@@ -324,10 +228,10 @@
                                                                                 <variation key="heightClass=regular-widthClass=compact" spacing="4"/>
                                                                             </stackView>
                                                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="ISp-bE-LQz">
-                                                                                <rect key="frame" x="73.333333333333314" y="0.0" width="51.666666666666671" height="16"/>
+                                                                                <rect key="frame" x="0.0" y="27" width="145" height="27"/>
                                                                                 <subviews>
                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cvd-Dc-wqb" userLabel="To Label" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                                                                                        <rect key="frame" x="0.0" y="0.0" width="11.333333333333343" height="16"/>
+                                                                                        <rect key="frame" x="0.0" y="0.0" width="25" height="27"/>
                                                                                         <constraints>
                                                                                             <constraint firstAttribute="width" constant="25" id="csz-Dg-2bf">
                                                                                                 <variation key="heightClass=regular-widthClass=compact" constant="15"/>
@@ -346,7 +250,7 @@
                                                                                         </variation>
                                                                                     </label>
                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="13:35" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OhZ-x6-ONU" userLabel="To Time Label" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                                                                                        <rect key="frame" x="15.333333333333343" y="0.0" width="36.333333333333329" height="16"/>
+                                                                                        <rect key="frame" x="55" y="0.0" width="90" height="27"/>
                                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                         <nil key="textColor"/>
                                                                                         <nil key="highlightedColor"/>
@@ -394,7 +298,7 @@
                                                                 </variation>
                                                             </stackView>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Ml-to-0S1" userLabel="Middle View">
-                                                                <rect key="frame" x="125" y="0.0" width="20" height="36"/>
+                                                                <rect key="frame" x="0.0" y="186" width="145" height="42"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="42" id="Juo-Hy-d0f"/>
@@ -423,10 +327,10 @@
                                                                 </variation>
                                                             </view>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="uOU-iv-l2D">
-                                                                <rect key="frame" x="145" y="0.0" width="233" height="36"/>
+                                                                <rect key="frame" x="0.0" y="228" width="145" height="84"/>
                                                                 <subviews>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p0Y-B5-nW5" userLabel="Confirm Button" customClass="CustomButton" customModule="OmnieCommerce" customModuleProvider="target">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="189" height="36"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="145" height="36"/>
                                                                         <state key="normal" title="Confirm" image="icon-confirm-normal"/>
                                                                         <userDefinedRuntimeAttributes>
                                                                             <userDefinedRuntimeAttribute type="string" keyPath="buttonStyle" value="Fill"/>
@@ -437,7 +341,7 @@
                                                                         </connections>
                                                                     </button>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WuZ-ep-v0H" userLabel="Cancel Button" customClass="CustomButton" customModule="OmnieCommerce" customModuleProvider="target">
-                                                                        <rect key="frame" x="197" y="0.0" width="36" height="36"/>
+                                                                        <rect key="frame" x="0.0" y="48" width="145" height="36"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" constant="36" id="SmF-w6-8ia"/>
                                                                         </constraints>
@@ -480,7 +384,7 @@
                                                                 </variation>
                                                             </stackView>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2fP-Af-pOZ" userLabel="Bottom View">
-                                                                <rect key="frame" x="378" y="0.0" width="8" height="36"/>
+                                                                <rect key="frame" x="0.0" y="312" width="145" height="30"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="30" id="2VY-jd-VmS"/>
@@ -596,7 +500,7 @@
                                 <variation key="heightClass=compact-widthClass=regular" axis="horizontal"/>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1J9-cZ-tAK" userLabel="Copyright Label" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                                <rect key="frame" x="169" y="716" width="77.333333333333343" height="11"/>
+                                <rect key="frame" x="329.33333333333331" y="394" width="77.333333333333371" height="11"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="11" id="cMs-gb-Ekm"/>
                                 </constraints>
@@ -622,15 +526,12 @@
                     <connections>
                         <outlet property="bottomDottedBorderView" destination="DzE-if-37G" id="s9R-8O-85A"/>
                         <outlet property="confirmButton" destination="p0Y-B5-nW5" id="xv0-Un-aHP"/>
-                        <outlet property="containerAspectRatio" destination="uUd-63-0Wk" id="uZX-33-eMn"/>
-                        <outlet property="containerAspectRatio4S" destination="ZVO-da-MbY" id="BUu-Qh-nBM"/>
                         <outlet property="containerLeadingConstraint" destination="SHS-uE-sdm" id="tOB-xR-rpY"/>
                         <outlet property="containerTrailingConstraint" destination="F8c-K9-jzZ" id="6YV-kX-in4"/>
                         <outlet property="containerView" destination="J5w-YA-SAz" id="sZR-WR-JWm"/>
                         <outlet property="dateLabel" destination="Rfs-OC-dPl" id="BM4-Rq-xP6"/>
                         <outlet property="fromTimeLabel" destination="rjk-Dh-lke" id="I3Y-5R-oWB"/>
                         <outlet property="segmentedControlView" destination="EDl-jJ-gKO" id="NYA-RR-61M"/>
-                        <outlet property="titleLabel" destination="dvl-eV-eFW" id="L4C-di-s3H"/>
                         <outlet property="toTimeLabel" destination="OhZ-x6-ONU" id="2pp-K1-YIw"/>
                     </connections>
                 </viewController>
@@ -658,7 +559,7 @@
             </objects>
             <point key="canvasLocation" x="774" y="299"/>
         </scene>
-        <!--Calendar Appearance Delegate-->
+        <!--Calendar View Controller-->
         <scene sceneID="0kz-6b-Aom">
             <objects>
                 <viewController storyboardIdentifier="CalendarVC" modalTransitionStyle="crossDissolve" id="IaX-mQ-Dr0" customClass="CalendarViewController" customModule="OmnieCommerce" customModuleProvider="target" sceneMemberID="viewController">
@@ -667,38 +568,185 @@
                         <viewControllerLayoutGuide type="bottom" id="ADI-SC-fFB"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="XPu-Tw-Sx8">
-                        <rect key="frame" x="0.0" y="0.0" width="400" height="400"/>
+                        <rect key="frame" x="0.0" y="0.0" width="400" height="500"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D5b-jX-eYg" userLabel="Calendar View" customClass="CVCalendarView" customModule="CVCalendar">
-                                <rect key="frame" x="0.0" y="0.0" width="400" height="400"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <connections>
-                                    <outlet property="calendarAppearanceDelegate" destination="IaX-mQ-Dr0" id="qtE-7q-im9"/>
-                                    <outlet property="calendarDelegate" destination="IaX-mQ-Dr0" id="m6r-ab-z7Y"/>
-                                </connections>
-                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="oV2-dR-ovt">
+                                <rect key="frame" x="0.0" y="10" width="400" height="490"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PbY-0I-Esy" userLabel="Top View">
+                                        <rect key="frame" x="0.0" y="0.0" width="400" height="54"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="redraw" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LdK-CM-flN" userLabel="Previous Button">
+                                                <rect key="frame" x="8" y="5.6666666666666643" width="44" height="44"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="liH-DG-d65"/>
+                                                    <constraint firstAttribute="width" constant="44" id="wZh-LA-clC"/>
+                                                </constraints>
+                                                <state key="normal" image="icon-previous-item-normal"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="handlerPreviuosButtonTap:" destination="IaX-mQ-Dr0" eventType="touchUpInside" id="9Jt-FH-rE9"/>
+                                                </connections>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PKQ-bX-EEm" userLabel="Title Label" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
+                                                <rect key="frame" x="60" y="18" width="280" height="18"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="labelStyle" value="MenuItem"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qWq-0T-X2H" userLabel="Next Button">
+                                                <rect key="frame" x="348" y="5.6666666666666643" width="44" height="44"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <state key="normal" image="icon-next-item-normal"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="0.0"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                                        <size key="value" width="0.0" height="0.0"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                                        <real key="value" value="0.0"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                                        <real key="value" value="0.0"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="handlerNextButtonTap:" destination="IaX-mQ-Dr0" eventType="touchUpInside" id="FX1-Sx-DA4"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="PKQ-bX-EEm" firstAttribute="leading" secondItem="LdK-CM-flN" secondAttribute="trailing" constant="8" id="8fg-cr-yIw"/>
+                                            <constraint firstItem="LdK-CM-flN" firstAttribute="leading" secondItem="PbY-0I-Esy" secondAttribute="leading" constant="8" id="CB5-Es-hGV"/>
+                                            <constraint firstItem="LdK-CM-flN" firstAttribute="centerY" secondItem="PbY-0I-Esy" secondAttribute="centerY" id="CFT-Bt-b48"/>
+                                            <constraint firstItem="qWq-0T-X2H" firstAttribute="width" secondItem="LdK-CM-flN" secondAttribute="width" id="H9j-B3-kOo"/>
+                                            <constraint firstItem="PKQ-bX-EEm" firstAttribute="centerY" secondItem="PbY-0I-Esy" secondAttribute="centerY" id="TDc-kl-Yyz"/>
+                                            <constraint firstItem="qWq-0T-X2H" firstAttribute="centerY" secondItem="PbY-0I-Esy" secondAttribute="centerY" id="dcy-1i-HSS"/>
+                                            <constraint firstAttribute="trailing" secondItem="qWq-0T-X2H" secondAttribute="trailing" constant="8" id="ow0-Hq-tPD"/>
+                                            <constraint firstItem="qWq-0T-X2H" firstAttribute="height" secondItem="LdK-CM-flN" secondAttribute="height" id="rsl-lR-UmV"/>
+                                            <constraint firstItem="qWq-0T-X2H" firstAttribute="leading" secondItem="PKQ-bX-EEm" secondAttribute="trailing" constant="8" id="u9r-YG-BtS"/>
+                                        </constraints>
+                                    </view>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="fze-RR-4gj" userLabel="Weekdays Stack View">
+                                        <rect key="frame" x="0.0" y="53.999999999999993" width="400" height="34.333333333333321"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4db-zd-FBF" userLabel="Label 0" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="57" height="34.333333333333329"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="labelStyle" value="CalendarWeekday"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sDn-Zs-BdZ" userLabel="Label 1" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
+                                                <rect key="frame" x="56.999999999999993" y="0.0" width="57.333333333333321" height="34.333333333333329"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="labelStyle" value="CalendarWeekday"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Kz-O7-U9x" userLabel="Label 2" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
+                                                <rect key="frame" x="114.33333333333334" y="0.0" width="57.000000000000028" height="34.333333333333329"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="labelStyle" value="CalendarWeekday"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cq8-ky-0dg" userLabel="Label 3" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
+                                                <rect key="frame" x="171.33333333333334" y="0.0" width="57.333333333333314" height="34.333333333333329"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="labelStyle" value="CalendarWeekday"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1t3-hw-DgF" userLabel="Label 4" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
+                                                <rect key="frame" x="228.66666666666669" y="0.0" width="57.000000000000057" height="34.333333333333329"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="labelStyle" value="CalendarWeekday"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uDq-42-NkQ" userLabel="Label 5" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
+                                                <rect key="frame" x="285.66666666666674" y="0.0" width="57.333333333333314" height="34.333333333333329"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="labelStyle" value="CalendarWeekday"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jhf-Wi-d7B" userLabel="Label 6" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
+                                                <rect key="frame" x="343" y="0.0" width="57" height="34.333333333333329"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="labelStyle" value="CalendarWeekday"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </stackView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D5b-jX-eYg" userLabel="Calendar View" customClass="JTAppleCalendarView" customModule="JTAppleCalendar">
+                                        <rect key="frame" x="0.0" y="88.333333333333343" width="400" height="401.66666666666663"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="PbY-0I-Esy" firstAttribute="top" secondItem="oV2-dR-ovt" secondAttribute="top" id="OEw-GG-Ol3"/>
+                                    <constraint firstItem="fze-RR-4gj" firstAttribute="height" secondItem="oV2-dR-ovt" secondAttribute="height" multiplier="0.07" id="PDm-Qf-tJg"/>
+                                    <constraint firstItem="PbY-0I-Esy" firstAttribute="height" secondItem="oV2-dR-ovt" secondAttribute="height" multiplier="0.11" id="mmG-kT-5mF"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="D5b-jX-eYg" firstAttribute="leading" secondItem="XPu-Tw-Sx8" secondAttribute="leading" id="IqN-Ut-Uzh"/>
-                            <constraint firstAttribute="trailing" secondItem="D5b-jX-eYg" secondAttribute="trailing" id="kCL-4D-gsH"/>
-                            <constraint firstItem="ADI-SC-fFB" firstAttribute="top" secondItem="D5b-jX-eYg" secondAttribute="bottom" id="m4F-80-gTa"/>
-                            <constraint firstItem="D5b-jX-eYg" firstAttribute="top" secondItem="XPu-Tw-Sx8" secondAttribute="top" id="vuI-Of-Iux"/>
+                            <constraint firstItem="oV2-dR-ovt" firstAttribute="top" secondItem="esm-07-pOK" secondAttribute="bottom" constant="10" id="Hf1-pv-me7"/>
+                            <constraint firstItem="oV2-dR-ovt" firstAttribute="leading" secondItem="XPu-Tw-Sx8" secondAttribute="leading" id="Kaf-11-Ar1"/>
+                            <constraint firstAttribute="trailing" secondItem="oV2-dR-ovt" secondAttribute="trailing" id="VYm-u9-hT6"/>
+                            <constraint firstAttribute="bottom" secondItem="oV2-dR-ovt" secondAttribute="bottom" id="zqp-1Y-xk2"/>
                         </constraints>
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="400" height="400"/>
+                    <size key="freeformSize" width="400" height="500"/>
                     <connections>
-                        <outlet property="calendarView" destination="D5b-jX-eYg" id="MLq-8g-889"/>
+                        <outlet property="calendarView" destination="D5b-jX-eYg" id="zNf-qV-obM"/>
+                        <outlet property="titleLabel" destination="PKQ-bX-EEm" id="350-FJ-WkT"/>
+                        <outletCollection property="weekdayLabelsCollection" destination="4db-zd-FBF" collectionClass="NSMutableArray" id="clo-CY-QFX"/>
+                        <outletCollection property="weekdayLabelsCollection" destination="sDn-Zs-BdZ" collectionClass="NSMutableArray" id="4p1-M3-N2n"/>
+                        <outletCollection property="weekdayLabelsCollection" destination="0Kz-O7-U9x" collectionClass="NSMutableArray" id="AEs-cF-9py"/>
+                        <outletCollection property="weekdayLabelsCollection" destination="cq8-ky-0dg" collectionClass="NSMutableArray" id="vVy-Q2-29y"/>
+                        <outletCollection property="weekdayLabelsCollection" destination="1t3-hw-DgF" collectionClass="NSMutableArray" id="xaR-WG-t4s"/>
+                        <outletCollection property="weekdayLabelsCollection" destination="uDq-42-NkQ" collectionClass="NSMutableArray" id="HS1-JX-iB2"/>
+                        <outletCollection property="weekdayLabelsCollection" destination="jhf-Wi-d7B" collectionClass="NSMutableArray" id="pb3-U6-ss0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bx1-FO-GqF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="773.91304347826087" y="-134.5108695652174"/>
+            <point key="canvasLocation" x="774" y="-132"/>
         </scene>
     </scenes>
     <resources>

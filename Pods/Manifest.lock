@@ -3,16 +3,16 @@ PODS:
   - AlamofireImage (3.2.0):
     - Alamofire (~> 4.1)
   - Cosmos (7.0.0)
-  - CVCalendar (1.4.1)
   - Device (2.0.0)
+  - JTAppleCalendar (6.0.5)
   - Localize-Swift (1.7.1)
   - SWRevealViewController (2.3.0)
 
 DEPENDENCIES:
   - AlamofireImage (~> 3.2)
   - Cosmos (~> 7.0)
-  - CVCalendar (~> 1.4)
   - Device (~> 2.0.0)
+  - JTAppleCalendar (~> 6.0)
   - Localize-Swift (~> 1.6)
   - SWRevealViewController (~> 2.3)
 
@@ -20,11 +20,11 @@ SPEC CHECKSUMS:
   Alamofire: aa2e09d871c9160ac53c90e83c68064a94e3dfbe
   AlamofireImage: 157ed682cc81d3b9db4fb90c1f12180ac552d93b
   Cosmos: 2c8299147138758f6ebbb247cf1aeed77998bdf9
-  CVCalendar: 61912eb5dc39c3bcfe22a731147a559a696fbc15
   Device: d18c6b7f5c38f3be11dd05c4f24a091bb7061b36
+  JTAppleCalendar: 7ea3f3e66fcbbb62978a01a58e3a3ae88fdad7cc
   Localize-Swift: 6cabc1087c0e910e77bfa87c2ed3f65c80c0b2df
   SWRevealViewController: 6d3fd97f70112fd7cef9de14df4260eacce4c63a
 
-PODFILE CHECKSUM: 2ff045f4f2c4d212fe3bbe98b8838ee3434864a0
+PODFILE CHECKSUM: aba69a64b613217db67b0390b13446ab1e9afc2b
 
 COCOAPODS: 1.2.0.beta.1
