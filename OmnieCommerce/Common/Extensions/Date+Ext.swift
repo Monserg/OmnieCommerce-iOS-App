@@ -30,7 +30,7 @@ extension Date {
         case .MonthYear:
             let components = Calendar.current.dateComponents([.weekday, .month, .day, .year], from: self)
             let monthsNames = Calendar.current.standaloneMonthSymbols
-            dateFormatter.dateFormat = "\(monthsNames[components.month! - 1]) \(components.year!)"
+            return "\(monthsNames[components.month! - 1]) \(components.year!)".capitalized
 
         case .WeekdayMonthYear:
             dateFormatter.dateFormat = "EEEE dd MMMM YYYY"

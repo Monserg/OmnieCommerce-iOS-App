@@ -81,7 +81,6 @@ class CalendarViewController: UIViewController {
         _ = weekdayLabelsCollection.map ({
             $0.text = (weekdaySymbols[weekdayLabelsCollection.index(of: $0)!])
             
-            // FIXME: - Add support first symbol upperCase
             $0.attributedText = NSAttributedString(string: $0.text!.uppercaseFirst, attributes: UIFont.ubuntuLightDarkCyan16)
         })
     }
