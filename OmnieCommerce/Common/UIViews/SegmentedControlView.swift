@@ -71,7 +71,11 @@ import Localize_Swift
         print(object: "\(type(of: self)): \(#function) run.")
         
         if (selectedButton.tag == 1) {
-            self.selectedView.frame = CGRect.init(origin: CGPoint.init(x: selectedButton.frame.minX + 8, y: selectedButton.frame.maxY), size: self.selectedView.bounds.size)
+            if (UIApplication.shared.statusBarOrientation.isPortrait) {
+                self.selectedView.frame = CGRect.init(origin: CGPoint.init(x: selectedButton.frame.minX + 8, y: selectedButton.frame.maxY), size: self.selectedView.bounds.size)
+            } else {
+                self.selectedView.frame = CGRect.init(origin: CGPoint.init(x: selectedButton.frame.maxX, y: selectedButton.frame.minY + 8), size: self.selectedView.bounds.size)
+            }
         }
         
         self.leftActionButton.setVerticalTitleStyle()

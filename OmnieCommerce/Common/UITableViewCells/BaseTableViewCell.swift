@@ -53,7 +53,7 @@ enum CellStyle: String {
         case is News:
             let news = item as! News
             nameLabel.text = news.title
-            dateLabel.text = news.activeDate.convertToDateString()
+            dateLabel.text = news.activeDate.convertToString(withStyle: .Date)
             describeLabel.numberOfLines = 2
             describeLabel.text = news.description
             describeLabel.clipsToBounds = false
@@ -64,7 +64,7 @@ enum CellStyle: String {
             let message = item as! Message
             nameLabel.text = message.title
             messageLabel.text = message.text
-            dateLabel.text = (message.activeDate.isActiveToday()) ? message.activeDate.convertToTimeString(): message.activeDate.convertToDateString()
+            dateLabel.text = message.activeDate.convertToString(withStyle: (message.activeDate.isActiveToday()) ? .Time : .Date)
             
             logoImageView.af_setImage(withURL: URL(string: message.logoStringURL ?? "https://omniesoft.ua/")!, placeholderImage: UIImage.init(named: "image-no-photo"), filter: AspectScaledToFillSizeWithRoundedCornersFilter(size: logoImageView.frame.size, radius: logoImageView.frame.size.width / 2))
 

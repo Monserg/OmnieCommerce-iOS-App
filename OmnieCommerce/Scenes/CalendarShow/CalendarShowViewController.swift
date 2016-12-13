@@ -10,6 +10,8 @@
 //
 
 import UIKit
+import Device
+import JTAppleCalendar
 
 // MARK: - Input & Output protocols
 protocol CalendarShowViewControllerInput {
@@ -25,14 +27,38 @@ class CalendarShowViewController: BaseViewController, CalendarShowViewController
     var output: CalendarShowViewControllerOutput!
     var router: CalendarShowRouter!
     
+    var calendarVC: CalendarViewController?
+    var schedulerVC: SchedulerViewController?
+    
+    private var activeViewController: UIViewController? {
+        didSet {
+            removeInactiveViewController(inactiveViewController: oldValue)
+            updateActiveViewController()
+        }
+        
+        willSet {
+            if (newValue == calendarVC) {
+                calendarVC?.handlerSelectNewDateCompletion = { newDate in
+                    self.dateStackView.isHidden = false
+                    self.setupDateLabel(withDate: newDate)
+                }
+            }
+        }
+    }
+    
     @IBOutlet weak var segmentedControlView: SegmentedControlView!
     @IBOutlet weak var bottomDottedBorderView: DottedBorderView!
     @IBOutlet weak var confirmButton: CustomButton!
+    @IBOutlet weak var containerView: UIView!
     
     @IBOutlet weak var dateLabel: CustomLabel!
     @IBOutlet weak var fromTimeLabel: CustomLabel!
     @IBOutlet weak var toTimeLabel: CustomLabel!
-
+    @IBOutlet weak var dateStackView: UIView!
+    
+    @IBOutlet weak var containerLeadingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var containerTrailingConstraint: NSLayoutConstraint!
+    
     
     // MARK: - Class Initialization
     override func awakeFromNib() {
@@ -41,19 +67,32 @@ class CalendarShowViewController: BaseViewController, CalendarShowViewController
         CalendarShowConfigurator.sharedInstance.configure(viewController: self)
     }
     
-
+    
     // MARK: - Class Functions
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        calendarVC = UIStoryboard(name: "CalendarShow", bundle: nil).instantiateViewController(withIdentifier: "CalendarVC") as? CalendarViewController
+        schedulerVC = UIStoryboard(name: "CalendarShow", bundle: nil).instantiateViewController(withIdentifier: "SchedulerVC") as? SchedulerViewController
+        
+        activeViewController = calendarVC
         view.backgroundColor = UIColor.veryDarkDesaturatedBlue24
+        dateStackView.isHidden = true
+        
         setupScene(withSize: view.frame.size)
         setupSegmentedControlView()
+        setupContainerView(withSize: view.frame.size)
         
         doSomethingOnLoad()
     }
     
-
+    override func viewDidLayoutSubviews() {
+        print(object: "\(type(of: self)): \(#function) run.")
+        
+        setupContainerView(withSize: view.frame.size)
+    }
+    
+    
     // MARK: - Custom Functions
     func doSomethingOnLoad() {
         print(object: "\(type(of: self)): \(#function) run.")
@@ -76,13 +115,52 @@ class CalendarShowViewController: BaseViewController, CalendarShowViewController
         
         bottomDottedBorderView.setNeedsDisplay()
         segmentedControlView.setNeedsDisplay()
+        containerView.setNeedsDisplay()
         confirmButton.setupWithStyle(.Fill)
     }
-
+    
+    func setupDateLabel(withDate date: Date) {
+        dateLabel.text = date.convertToString(withStyle: .Date)
+    }
+    
     func setupSegmentedControlView() {
         segmentedControlView.actionButtonHandlerCompletion = { sender in
             self.print(object: "\(type(of: self)): \(#function) run. Sender tag = \(sender.tag)")
             
+            switch sender.tag {
+            case 1:
+                self.activeViewController = self.schedulerVC
+                
+            default:
+                self.activeViewController = self.calendarVC
+            }
+        }
+    }
+    
+    func setupContainerView(withSize size: CGSize) {
+        if (Device.size() == .screen3_5Inch && size.width > size.height) {
+            containerLeadingConstraint.constant = 0
+            containerTrailingConstraint.constant = 10
+            
+            containerView.layoutIfNeeded()
+        }
+    }
+    
+    func removeInactiveViewController(inactiveViewController: UIViewController?) {
+        if let inactiveVC = inactiveViewController {
+            inactiveVC.willMove(toParentViewController: nil)
+            inactiveVC.view.removeFromSuperview()
+            inactiveVC.removeFromParentViewController()
+        }
+    }
+    
+    func updateActiveViewController() {
+        if let activeVC = activeViewController {
+            addChildViewController(activeVC)
+            activeVC.view.frame = containerView.bounds
+            containerView.addSubview(activeVC.view)
+            activeVC.didMove(toParentViewController: self)
+            activeVC.didMove(toParentViewController: self)
         }
     }
     
@@ -90,14 +168,10 @@ class CalendarShowViewController: BaseViewController, CalendarShowViewController
     // MARK: - Actions
     @IBAction func handlerConfirmButtonTap(_ sender: CustomButton) {
         print(object: "\(type(of: self)): \(#function) run.")
-        
-        
     }
     
     @IBAction func handlerCancelButtonTap(_ sender: CustomButton) {
         print(object: "\(type(of: self)): \(#function) run.")
-        
-        
     }
     
     

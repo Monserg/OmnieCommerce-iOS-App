@@ -171,6 +171,16 @@ extension UIColor {
         }
     }
     
+    open class var veryDarkGrayishBlue56: UIColor {
+        set {
+            self.veryDarkGrayishBlue56 = UIColor(hexString: "#56606a")!
+        }
+        
+        get {
+            return UIColor(hexString: "#56606a")!
+        }
+    }
+    
     open class var veryDarkDesaturatedBlue20: UIColor {
         set {
             self.veryDarkDesaturatedBlue20 = UIColor(hexString: "#203c48")!

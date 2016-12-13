@@ -24,6 +24,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>JTAppleCalendar.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Localize-Swift.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -42,12 +47,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>1383F2E6421EC483F8D20072F50DFBD3</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>24B30CB2AFA42B2FAED81ED4FDE60C44</key>
+		<key>2EAB6C2AAFD4FF8213BF3859015794C8</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -57,12 +57,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>51D2E012FB6E7D5680EAD23B655B5281</key>
+		<key>5E90024CA4621EC0A8B8C777C958214A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5E90024CA4621EC0A8B8C777C958214A</key>
+		<key>74C1474756886BC59663373D48B91014</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -72,7 +72,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8B9818E36A982C19A254205CCCEAB2A2</key>
+		<key>9B22756F1BC69AB282A6C7FFC7EB05C3</key>
 		<dict>
 			<key>primary</key>
 			<true/>

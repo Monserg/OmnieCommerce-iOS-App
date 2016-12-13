@@ -8,19 +8,35 @@
 
 import UIKit
 
+enum StringDateStyle: String {
+    case Date = "Date"
+    case Time = "Time"
+    case MonthYear = "MonthYear"
+    case WeekdayMonthYear = "WeekdayMonthYear"
+}
+
 extension Date {
-    func convertToDateString() -> String {
+    func convertToString(withStyle dateStyle: StringDateStyle) -> String {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd.MM.yyyy"
+        dateFormatter.locale = NSLocale.current
         
-        return dateFormatter.string(from: self)
-    }
-    
-    func convertToTimeString() -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "HH:mm"
+        switch dateStyle {
+        case .Date:
+            dateFormatter.dateFormat = "dd.MM.yyyy"
+            
+        case .Time:
+            dateFormatter.dateFormat = "HH:mm"
+            
+        case .MonthYear:
+            let components = Calendar.current.dateComponents([.weekday, .month, .day, .year], from: self)
+            let monthsNames = Calendar.current.standaloneMonthSymbols
+            dateFormatter.dateFormat = "\(monthsNames[components.month! - 1]) \(components.year!)"
+
+        case .WeekdayMonthYear:
+            dateFormatter.dateFormat = "EEEE dd MMMM YYYY"
+        }
         
-        return dateFormatter.string(from: self)
+        return dateFormatter.string(from: self).capitalized
     }
     
     func isActiveToday() -> Bool {
@@ -34,4 +50,39 @@ extension Date {
 
         return isToday
     }
+    
+    func globalTime() -> Date {
+        let timeZone = TimeZone.current
+        let seconds = TimeInterval(timeZone.secondsFromGMT(for: self))
+        
+        return Date(timeInterval: seconds, since: self)
+    }
+    
+    func previousMonth() -> Date {
+        var dateComponents = Calendar.current.dateComponents([.weekday, .month, .day, .year], from: self)
+        
+        if dateComponents.month == 0 {
+            dateComponents.month = 11
+            dateComponents.year! -= 1
+        } else {
+            dateComponents.month! -= 1
+        }
+        
+        return Calendar.current.date(from: dateComponents)!
+    }
+
+    func nextMonth() -> Date {
+        var dateComponents = Calendar.current.dateComponents([.weekday, .month, .day, .year], from: self)
+        
+        if dateComponents.month == 11 {
+            dateComponents.month = 0
+            dateComponents.year! += 1
+        } else {
+            dateComponents.month! += 1
+        }
+        
+        return Calendar.current.date(from: dateComponents)!
+    }
 }
+
+

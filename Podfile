@@ -10,5 +10,6 @@ target 'OmnieCommerce' do
     pod 'Device', '~> 2.0.0'
     pod 'Cosmos', '~> 7.0'
     pod 'AlamofireImage', '~> 3.2'
-    
+    pod 'JTAppleCalendar', '~> 6.0'
+
 end
