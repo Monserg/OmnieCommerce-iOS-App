@@ -91,7 +91,7 @@ class CalendarViewController: UIViewController {
     }
     
     func setupSelectedDate() {
-        selectedDate = (arc4random_uniform(2) == 1) ? Calendar.current.date(byAdding: .day, value: 5, to: Date())! : nil
+        selectedDate = (arc4random_uniform(2) == 1) ? Calendar.current.date(byAdding: .day, value: 5, to: Date())! : Date()
         
         guard selectedDate != nil else {
             return

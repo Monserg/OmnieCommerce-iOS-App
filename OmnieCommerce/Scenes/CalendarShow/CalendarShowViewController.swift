@@ -32,6 +32,7 @@ class CalendarShowViewController: BaseViewController, CalendarShowViewController
     
     private var activeViewController: UIViewController? {
         didSet {
+            dateStackView.isHidden = true
             removeInactiveViewController(inactiveViewController: oldValue)
             updateActiveViewController()
         }
@@ -77,7 +78,6 @@ class CalendarShowViewController: BaseViewController, CalendarShowViewController
         
         activeViewController = calendarVC
         view.backgroundColor = UIColor.veryDarkDesaturatedBlue24
-        dateStackView.isHidden = true
         
         setupScene(withSize: view.frame.size)
         setupSegmentedControlView()
