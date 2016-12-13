@@ -15,7 +15,7 @@ class CalendarViewController: UIViewController {
 
     var handlerSelectNewDateCompletion: HandlerSelectNewDateCompletion?
 
-    let firstDayOfWeek: DaysOfWeek = .monday
+    let firstDayOfWeek: DaysOfWeek = .saturday
     var selectedDate: Date?
     var calculatedDate = Date()
     
