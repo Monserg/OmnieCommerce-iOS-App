@@ -28,7 +28,8 @@ class CalendarShowViewController: BaseViewController, CalendarShowViewController
     var router: CalendarShowRouter!
     
     var calendarVC: CalendarViewController?
-    var schedulerVC: SchedulerViewController?
+    var schedulerPageVC: SchedulerPageViewController?
+//    var schedulerVC: SchedulerViewController?
     
     private var activeViewController: UIViewController? {
         didSet {
@@ -74,8 +75,8 @@ class CalendarShowViewController: BaseViewController, CalendarShowViewController
         super.viewDidLoad()
         
         calendarVC = UIStoryboard(name: "CalendarShow", bundle: nil).instantiateViewController(withIdentifier: "CalendarVC") as? CalendarViewController
-        schedulerVC = UIStoryboard(name: "CalendarShow", bundle: nil).instantiateViewController(withIdentifier: "SchedulerVC") as? SchedulerViewController
-        
+        schedulerPageVC = UIStoryboard(name: "CalendarShow", bundle: nil).instantiateViewController(withIdentifier: "SchedulerPageVC") as? SchedulerPageViewController
+//        schedulerVC = UIStoryboard(name: "CalendarShow", bundle: nil).instantiateViewController(withIdentifier: "SchedulerVC") as? SchedulerViewController
         activeViewController = calendarVC
         view.backgroundColor = UIColor.veryDarkDesaturatedBlue24
         
@@ -129,8 +130,8 @@ class CalendarShowViewController: BaseViewController, CalendarShowViewController
             
             switch sender.tag {
             case 1:
-                self.activeViewController = self.schedulerVC
-                
+                self.activeViewController = self.schedulerPageVC
+
             default:
                 self.activeViewController = self.calendarVC
             }
@@ -174,6 +175,18 @@ class CalendarShowViewController: BaseViewController, CalendarShowViewController
         print(object: "\(type(of: self)): \(#function) run.")
     }
     
+//    @IBAction func handlerPreviousButtonPrepareForUnwind(_ segue: UIStoryboardSegue) {
+//        print(object: "\(type(of: self)): \(#function) run.")
+//        
+//        schedulerVC?.changeSelectedDate(to: .Previuos)
+//    }
+//    
+//    @IBAction func handlerNextButtonPrepareForUnwind(_ segue: UIStoryboardSegue) {
+//        print(object: "\(type(of: self)): \(#function) run.")
+//        
+//        schedulerVC?.changeSelectedDate(to: .Next)
+//    }
+
     
     // MARK: - Transition
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {

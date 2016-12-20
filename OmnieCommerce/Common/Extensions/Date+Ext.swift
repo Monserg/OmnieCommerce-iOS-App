@@ -71,6 +71,10 @@ extension Date {
         return Calendar.current.date(from: dateComponents)!
     }
 
+    func previousDate() -> Date {
+        return self.addingTimeInterval(TimeInterval.init(-24 * 60 * 60))
+    }
+
     func nextMonth() -> Date {
         var dateComponents = Calendar.current.dateComponents([.weekday, .month, .day, .year], from: self)
         
@@ -82,6 +86,10 @@ extension Date {
         }
         
         return Calendar.current.date(from: dateComponents)!
+    }
+
+    func nextDate() -> Date {
+        return self.addingTimeInterval(TimeInterval.init(24 * 60 * 60))
     }
 }
 

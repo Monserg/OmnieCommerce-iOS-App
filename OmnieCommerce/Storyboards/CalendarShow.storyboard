@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -172,10 +172,10 @@
                                                                                 <rect key="frame" x="0.0" y="20" width="125" height="16"/>
                                                                                 <subviews>
                                                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="qPK-mV-VzX">
-                                                                                        <rect key="frame" x="0.0" y="0.0" width="67.333333333333329" height="16"/>
+                                                                                        <rect key="frame" x="0.0" y="0.0" width="65.333333333333329" height="16"/>
                                                                                         <subviews>
                                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="From" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PvP-62-nTe" userLabel="From Label" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                                                                                                <rect key="frame" x="0.0" y="0.0" width="30.666666666666664" height="16"/>
+                                                                                                <rect key="frame" x="0.0" y="0.0" width="24.666666666666664" height="16"/>
                                                                                                 <constraints>
                                                                                                     <constraint firstAttribute="width" constant="25" id="h6X-XI-sml"/>
                                                                                                 </constraints>
@@ -204,7 +204,7 @@
                                                                                                 </variation>
                                                                                             </label>
                                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rjk-Dh-lke" userLabel="From Time Label" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                                                                                                <rect key="frame" x="34.666666666666671" y="0.0" width="32.666666666666671" height="16"/>
+                                                                                                <rect key="frame" x="28.666666666666668" y="0.0" width="36.666666666666657" height="16"/>
                                                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                                 <nil key="textColor"/>
                                                                                                 <nil key="highlightedColor"/>
@@ -231,10 +231,10 @@
                                                                                         <variation key="heightClass=regular-widthClass=compact" spacing="4"/>
                                                                                     </stackView>
                                                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="ISp-bE-LQz">
-                                                                                        <rect key="frame" x="75.333333333333314" y="0.0" width="49.666666666666671" height="16"/>
+                                                                                        <rect key="frame" x="73.333333333333314" y="0.0" width="51.666666666666671" height="16"/>
                                                                                         <subviews>
                                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cvd-Dc-wqb" userLabel="To Label" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                                                                                                <rect key="frame" x="0.0" y="0.0" width="14.333333333333343" height="16"/>
+                                                                                                <rect key="frame" x="0.0" y="0.0" width="11.333333333333343" height="16"/>
                                                                                                 <constraints>
                                                                                                     <constraint firstAttribute="width" constant="25" id="csz-Dg-2bf">
                                                                                                         <variation key="heightClass=regular-widthClass=compact" constant="15"/>
@@ -253,7 +253,7 @@
                                                                                                 </variation>
                                                                                             </label>
                                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="13:35" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OhZ-x6-ONU" userLabel="To Time Label" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                                                                                                <rect key="frame" x="18.333333333333343" y="0.0" width="31.333333333333329" height="16"/>
+                                                                                                <rect key="frame" x="15.333333333333343" y="0.0" width="36.333333333333329" height="16"/>
                                                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                                 <nil key="textColor"/>
                                                                                                 <nil key="highlightedColor"/>
@@ -511,7 +511,7 @@
                                 <variation key="heightClass=compact-widthClass=regular" axis="horizontal"/>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1J9-cZ-tAK" userLabel="Copyright Label" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                                <rect key="frame" x="186.66666666666666" y="716" width="41.666666666666686" height="11"/>
+                                <rect key="frame" x="168.66666666666663" y="716" width="77.333333333333343" height="11"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="11" id="cMs-gb-Ekm"/>
                                 </constraints>
@@ -551,6 +551,20 @@
             </objects>
             <point key="canvasLocation" x="33.333333333333336" y="69.293478260869577"/>
         </scene>
+        <!--Scheduler Page View Controller-->
+        <scene sceneID="f4q-tI-vc2">
+            <objects>
+                <pageViewController storyboardIdentifier="SchedulerPageVC" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="TF8-Dk-Ljl" customClass="SchedulerPageViewController" customModule="OmnieCommerce" customModuleProvider="target" sceneMemberID="viewController">
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="400" height="400"/>
+                </pageViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YcC-Zq-Q45" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="774" y="333"/>
+        </scene>
         <!--Scheduler View Controller-->
         <scene sceneID="rdy-Gc-6Qs">
             <objects>
@@ -562,14 +576,110 @@
                     <view key="view" contentMode="scaleToFill" id="5Jk-DC-YaV">
                         <rect key="frame" x="0.0" y="0.0" width="400" height="400"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="pwG-uo-Jpg">
+                                <rect key="frame" x="0.0" y="10" width="400" height="390"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qxH-rz-ElY" userLabel="Top View">
+                                        <rect key="frame" x="0.0" y="0.0" width="400" height="43"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="redraw" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7r6-BZ-hE2" userLabel="Previous Button">
+                                                <rect key="frame" x="8" y="-0.3333333333333357" width="44" height="44"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="44" id="GXE-Q3-yka"/>
+                                                    <constraint firstAttribute="height" constant="44" id="JDb-8B-Ydv"/>
+                                                </constraints>
+                                                <state key="normal" image="icon-previous-item-normal"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <segue destination="10G-xx-dp9" kind="unwind" unwindAction="handlerPreviousButtonForUnwind:" id="ffb-gB-EIH"/>
+                                                </connections>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gdI-Fi-79x" userLabel="Title Label" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
+                                                <rect key="frame" x="60" y="21.666666666666668" width="280" height="0.0"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="labelStyle" value="MenuItem"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SuR-Tg-tkk" userLabel="Next Button">
+                                                <rect key="frame" x="348" y="-0.3333333333333357" width="44" height="44"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <state key="normal" image="icon-next-item-normal"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="0.0"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                                        <size key="value" width="0.0" height="0.0"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                                        <real key="value" value="0.0"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                                        <real key="value" value="0.0"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <segue destination="10G-xx-dp9" kind="unwind" unwindAction="handlerNextButtonForUnwind:" id="9VC-wx-Mgf"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="SuR-Tg-tkk" firstAttribute="centerY" secondItem="qxH-rz-ElY" secondAttribute="centerY" id="01r-5v-jN5"/>
+                                            <constraint firstItem="SuR-Tg-tkk" firstAttribute="height" secondItem="7r6-BZ-hE2" secondAttribute="height" id="A62-gI-E79"/>
+                                            <constraint firstItem="gdI-Fi-79x" firstAttribute="centerY" secondItem="qxH-rz-ElY" secondAttribute="centerY" id="PYJ-d4-YV5"/>
+                                            <constraint firstItem="7r6-BZ-hE2" firstAttribute="centerY" secondItem="qxH-rz-ElY" secondAttribute="centerY" id="RTU-mk-YaS"/>
+                                            <constraint firstItem="7r6-BZ-hE2" firstAttribute="leading" secondItem="qxH-rz-ElY" secondAttribute="leading" constant="8" id="VKv-Y0-f3d"/>
+                                            <constraint firstItem="gdI-Fi-79x" firstAttribute="leading" secondItem="7r6-BZ-hE2" secondAttribute="trailing" constant="8" id="kwc-CZ-TMg"/>
+                                            <constraint firstItem="SuR-Tg-tkk" firstAttribute="width" secondItem="7r6-BZ-hE2" secondAttribute="width" id="l2r-2o-fot"/>
+                                            <constraint firstItem="SuR-Tg-tkk" firstAttribute="leading" secondItem="gdI-Fi-79x" secondAttribute="trailing" constant="8" id="qD5-IO-doc"/>
+                                            <constraint firstAttribute="trailing" secondItem="SuR-Tg-tkk" secondAttribute="trailing" constant="8" id="qzc-r3-big"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hhq-eI-13W" userLabel="Scheduler View">
+                                        <rect key="frame" x="0.0" y="43" width="400" height="347"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="qxH-rz-ElY" firstAttribute="height" secondItem="pwG-uo-Jpg" secondAttribute="height" multiplier="0.11" id="TeZ-Ge-8Ac"/>
+                                    <constraint firstItem="qxH-rz-ElY" firstAttribute="top" secondItem="pwG-uo-Jpg" secondAttribute="top" id="pes-kc-c1r"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="pwG-uo-Jpg" secondAttribute="trailing" id="bfb-f4-l3r"/>
+                            <constraint firstItem="pwG-uo-Jpg" firstAttribute="leading" secondItem="5Jk-DC-YaV" secondAttribute="leading" id="oSo-eR-g6u"/>
+                            <constraint firstItem="pwG-uo-Jpg" firstAttribute="top" secondItem="qje-Ol-JQD" secondAttribute="bottom" constant="10" id="r0x-y5-zLc"/>
+                            <constraint firstAttribute="bottom" secondItem="pwG-uo-Jpg" secondAttribute="bottom" id="rnq-ZN-Ul8"/>
+                        </constraints>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <navigationItem key="navigationItem" id="BtP-cG-Vml"/>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="400" height="400"/>
+                    <connections>
+                        <outlet property="schedulerView" destination="Hhq-eI-13W" id="gtL-V0-9El"/>
+                        <outlet property="timeTitleLabel" destination="gdI-Fi-79x" id="p1V-md-0bG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NRr-wi-eiR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="10G-xx-dp9" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="774" y="299"/>
+            <point key="canvasLocation" x="1525" y="333"/>
         </scene>
         <!--Calendar View Controller-->
         <scene sceneID="0kz-6b-Aom">
