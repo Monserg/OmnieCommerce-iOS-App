@@ -29,11 +29,10 @@ class CalendarShowViewController: BaseViewController, CalendarShowViewController
     
     var calendarVC: CalendarViewController?
     var schedulerPageVC: SchedulerPageViewController?
-//    var schedulerVC: SchedulerViewController?
     
     private var activeViewController: UIViewController? {
         didSet {
-            dateStackView.isHidden = true
+//            dateContentStackView.isHidden = true
             removeInactiveViewController(inactiveViewController: oldValue)
             updateActiveViewController()
         }
@@ -41,9 +40,11 @@ class CalendarShowViewController: BaseViewController, CalendarShowViewController
         willSet {
             if (newValue == calendarVC) {
                 calendarVC?.handlerSelectNewDateCompletion = { newDate in
-                    self.dateStackView.isHidden = false
-                    self.setupDateLabel(withDate: newDate)
+//                    self.dateContentStackView.isHidden = false
+//                    self.setupDateLabel(withDate: newDate)
                 }
+            } else {
+                
             }
         }
     }
@@ -56,7 +57,8 @@ class CalendarShowViewController: BaseViewController, CalendarShowViewController
     @IBOutlet weak var dateLabel: CustomLabel!
     @IBOutlet weak var fromTimeLabel: CustomLabel!
     @IBOutlet weak var toTimeLabel: CustomLabel!
-    @IBOutlet weak var dateStackView: UIView!
+//    @IBOutlet weak var dateContentStackView: UIView!
+    @IBOutlet weak var dateStackView: UIStackView!
     
     @IBOutlet weak var containerLeadingConstraint: NSLayoutConstraint!
     @IBOutlet weak var containerTrailingConstraint: NSLayoutConstraint!
@@ -114,10 +116,10 @@ class CalendarShowViewController: BaseViewController, CalendarShowViewController
     func setupScene(withSize size: CGSize) {
         print(object: "\(type(of: self)): \(#function) run. Screen view size = \(size)")
         
-        bottomDottedBorderView.setNeedsDisplay()
+//        bottomDottedBorderView.setNeedsDisplay()
         segmentedControlView.setNeedsDisplay()
         containerView.setNeedsDisplay()
-        confirmButton.setupWithStyle(.Fill)
+//        confirmButton.setupWithStyle(.Fill)
     }
     
     func setupDateLabel(withDate date: Date) {
@@ -130,10 +132,28 @@ class CalendarShowViewController: BaseViewController, CalendarShowViewController
             
             switch sender.tag {
             case 1:
-                self.activeViewController = self.schedulerPageVC
+                UIView.animate(withDuration: 0.3, animations: {
+                    self.activeViewController!.view.alpha = 0
+                }, completion: { success in
+                    if (success) {
+                        UIView.animate(withDuration: 0.3, animations: {
+                            self.activeViewController = self.schedulerPageVC
+                            self.activeViewController!.view.alpha = 1
+                        })
+                    }
+                })
 
             default:
-                self.activeViewController = self.calendarVC
+                UIView.animate(withDuration: 0.3, animations: {
+                    self.activeViewController!.view.alpha = 0
+                }, completion: { success in
+                    if (success) {
+                        UIView.animate(withDuration: 0.3, animations: {
+                            self.activeViewController = self.calendarVC
+                            self.activeViewController!.view.alpha = 1
+                        })
+                    }
+                })
             }
         }
     }

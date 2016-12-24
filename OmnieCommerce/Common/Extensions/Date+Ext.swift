@@ -33,7 +33,7 @@ extension Date {
             return "\(monthsNames[components.month! - 1]) \(components.year!)".capitalized
 
         case .WeekdayMonthYear:
-            dateFormatter.dateFormat = "EEEE dd MMMM YYYY"
+            dateFormatter.dateFormat = "EEEE dd MMMM yyyy"
         }
         
         return dateFormatter.string(from: self).capitalized

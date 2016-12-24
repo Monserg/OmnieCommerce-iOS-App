@@ -70,17 +70,14 @@ import Localize_Swift
     override func draw(_ rect: CGRect) {
         print(object: "\(type(of: self)): \(#function) run.")
         
-        if (selectedButton.tag == 1) {
-            if (UIApplication.shared.statusBarOrientation.isPortrait) {
-                self.selectedView.frame = CGRect.init(origin: CGPoint.init(x: selectedButton.frame.minX + 8, y: selectedButton.frame.maxY), size: self.selectedView.bounds.size)
-            } else {
-                self.selectedView.frame = CGRect.init(origin: CGPoint.init(x: selectedButton.frame.maxX, y: selectedButton.frame.minY + 8), size: self.selectedView.bounds.size)
-            }
+        if (UIApplication.shared.statusBarOrientation.isPortrait) {
+            self.selectedView.frame = CGRect.init(origin: CGPoint.init(x: selectedButton.frame.minX + 0, y: selectedButton.frame.maxY), size: CGSize.init(width: selectedButton.frame.width, height: 1))
+        } else {
+            self.selectedView.frame = CGRect.init(origin: CGPoint.init(x: selectedButton.frame.maxX, y: selectedButton.frame.minY + 0), size: CGSize.init(width: 1, height: selectedButton.frame.height))
         }
         
         self.leftActionButton.setVerticalTitleStyle()
         self.rightActionButton.setVerticalTitleStyle()
-
     }
 
 
@@ -93,7 +90,7 @@ import Localize_Swift
         }
         
         addSubview(view)
-        view.frame = frame
+        view.frame = CGRect.init(origin: CGPoint.zero, size: frame.size)
         view.backgroundColor = UIColor.veryDarkDesaturatedBlue24
         
         print(object: "\(type(of: self)): \(#function) run. Initialization view.frame = \(view.frame)")
@@ -119,12 +116,12 @@ import Localize_Swift
         
         UIView.animate(withDuration: 0.3, animations: {
             if (self.tag == 0) {
-                self.selectedView.frame = CGRect.init(origin: CGPoint.init(x: sender.frame.minX + 8, y: sender.frame.maxY), size: self.selectedView.bounds.size)
+                self.selectedView.frame = CGRect.init(origin: CGPoint.init(x: sender.frame.minX + 0, y: sender.frame.maxY), size: self.selectedView.bounds.size)
             } else {
                 if (UIApplication.shared.statusBarOrientation.isPortrait) {
-                    self.selectedView.frame = CGRect.init(origin: CGPoint.init(x: sender.frame.minX + 8, y: sender.frame.maxY), size: self.selectedView.bounds.size)
+                    self.selectedView.frame = CGRect.init(origin: CGPoint.init(x: sender.frame.minX + 0, y: sender.frame.maxY), size: self.selectedView.bounds.size)
                 } else {
-                    self.selectedView.frame = CGRect.init(origin: CGPoint.init(x: sender.frame.maxX, y: sender.frame.minY + 8), size: self.selectedView.bounds.size)
+                    self.selectedView.frame = CGRect.init(origin: CGPoint.init(x: sender.frame.maxX, y: sender.frame.minY + 0), size: self.selectedView.bounds.size)
                 }
             }
         }, completion: { success in
