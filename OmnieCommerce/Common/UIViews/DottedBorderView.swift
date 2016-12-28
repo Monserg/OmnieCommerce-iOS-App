@@ -15,7 +15,8 @@ enum ViewStyle: String {
     case AroundDottedRectangleColor = "AroundDottedRectangleColor"
 }
 
-@IBDesignable class DottedBorderView: UIView {
+@IBDesignable 
+class DottedBorderView: UIView {
     // MARK: - Properties
     @IBInspectable var borderWidth: String = "1.5"
     @IBInspectable var viewStyle: String?

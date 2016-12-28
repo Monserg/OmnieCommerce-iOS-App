@@ -32,7 +32,6 @@ class CalendarShowViewController: BaseViewController, CalendarShowViewController
     
     private var activeViewController: UIViewController? {
         didSet {
-//            dateContentStackView.isHidden = true
             removeInactiveViewController(inactiveViewController: oldValue)
             updateActiveViewController()
         }
@@ -40,12 +39,10 @@ class CalendarShowViewController: BaseViewController, CalendarShowViewController
         willSet {
             if (newValue == calendarVC) {
                 calendarVC?.handlerSelectNewDateCompletion = { newDate in
-//                    self.dateContentStackView.isHidden = false
-//                    self.setupDateLabel(withDate: newDate)
                 }
-            } else {
-                
             }
+            
+            redrawContainerViews()
         }
     }
     
@@ -57,7 +54,6 @@ class CalendarShowViewController: BaseViewController, CalendarShowViewController
     @IBOutlet weak var dateLabel: CustomLabel!
     @IBOutlet weak var fromTimeLabel: CustomLabel!
     @IBOutlet weak var toTimeLabel: CustomLabel!
-//    @IBOutlet weak var dateContentStackView: UIView!
     @IBOutlet weak var dateStackView: UIStackView!
     
     @IBOutlet weak var containerLeadingConstraint: NSLayoutConstraint!
@@ -78,7 +74,6 @@ class CalendarShowViewController: BaseViewController, CalendarShowViewController
         
         calendarVC = UIStoryboard(name: "CalendarShow", bundle: nil).instantiateViewController(withIdentifier: "CalendarVC") as? CalendarViewController
         schedulerPageVC = UIStoryboard(name: "CalendarShow", bundle: nil).instantiateViewController(withIdentifier: "SchedulerPageVC") as? SchedulerPageViewController
-//        schedulerVC = UIStoryboard(name: "CalendarShow", bundle: nil).instantiateViewController(withIdentifier: "SchedulerVC") as? SchedulerViewController
         activeViewController = calendarVC
         view.backgroundColor = UIColor.veryDarkDesaturatedBlue24
         
@@ -116,7 +111,6 @@ class CalendarShowViewController: BaseViewController, CalendarShowViewController
     func setupScene(withSize size: CGSize) {
         print(object: "\(type(of: self)): \(#function) run. Screen view size = \(size)")
         
-//        bottomDottedBorderView.setNeedsDisplay()
         segmentedControlView.setNeedsDisplay()
         containerView.setNeedsDisplay()
 //        confirmButton.setupWithStyle(.Fill)
@@ -185,6 +179,14 @@ class CalendarShowViewController: BaseViewController, CalendarShowViewController
         }
     }
     
+    func redrawContainerViews() {
+        if (activeViewController == calendarVC) {
+            calendarVC?.redraw()
+        } else {
+            schedulerPageVC?.schedulerVC.redraw()
+        }
+    }
+    
     
     // MARK: - Actions
     @IBAction func handlerConfirmButtonTap(_ sender: CustomButton) {
@@ -195,23 +197,12 @@ class CalendarShowViewController: BaseViewController, CalendarShowViewController
         print(object: "\(type(of: self)): \(#function) run.")
     }
     
-//    @IBAction func handlerPreviousButtonPrepareForUnwind(_ segue: UIStoryboardSegue) {
-//        print(object: "\(type(of: self)): \(#function) run.")
-//        
-//        schedulerVC?.changeSelectedDate(to: .Previuos)
-//    }
-//    
-//    @IBAction func handlerNextButtonPrepareForUnwind(_ segue: UIStoryboardSegue) {
-//        print(object: "\(type(of: self)): \(#function) run.")
-//        
-//        schedulerVC?.changeSelectedDate(to: .Next)
-//    }
-
     
     // MARK: - Transition
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         print(object: "\(type(of: self)): \(#function) run. New size = \(size)")
         
         setupScene(withSize: size)
+        redrawContainerViews()
     }
 }

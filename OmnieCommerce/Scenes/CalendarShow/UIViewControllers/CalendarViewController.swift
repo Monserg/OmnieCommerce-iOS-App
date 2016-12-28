@@ -22,6 +22,7 @@ class CalendarViewController: UIViewController {
     @IBOutlet weak var calendarView: JTAppleCalendarView!
     @IBOutlet weak var titleLabel: CustomLabel!
     @IBOutlet var weekdayLabelsCollection: [CustomLabel]!
+    @IBOutlet weak var bottomDottedBorderView: DottedBorderView!
     
     
     // MARK: - Class Functions
@@ -96,9 +97,20 @@ class CalendarViewController: UIViewController {
             return
         }
         
+        setupTitleLabel(withDate: selectedDate!)
         calendarView.selectDates([selectedDate!], triggerSelectionDelegate: false)
         handlerSelectNewDateCompletion!(selectedDate!)
     }
+    
+    func redraw() {
+        guard bottomDottedBorderView != nil else {
+            return
+        }
+        
+        bottomDottedBorderView.setNeedsDisplay()
+    }
+
+    
     
     // MARK: - Actions
     @IBAction func handlerPreviuosButtonTap(_ sender: UIButton) {

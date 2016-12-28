@@ -64,4 +64,7 @@ class SchedulerViewController: UIViewController {
         selectedDate = (direction == .Previuos) ? selectedDate.previousDate() : selectedDate.nextDate()
         setupTitleLabel(withDate: selectedDate)
     }
+    
+    func redraw() {
+    }
 }
