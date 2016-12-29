@@ -23,7 +23,11 @@ class CalendarViewController: UIViewController {
     @IBOutlet weak var titleLabel: CustomLabel!
     @IBOutlet var weekdayLabelsCollection: [CustomLabel]!
     @IBOutlet weak var bottomDottedBorderView: DottedBorderView!
-    
+    @IBOutlet weak var dateLabel: CustomLabel!
+    @IBOutlet weak var fromTimeLabel: CustomLabel!
+    @IBOutlet weak var toTimeLabel: CustomLabel!
+    @IBOutlet weak var confirmButton: CustomButton!
+
     
     // MARK: - Class Functions
     override func viewDidLayoutSubviews() {
@@ -48,6 +52,8 @@ class CalendarViewController: UIViewController {
         calendarView.cellInset = CGPoint(x: 10, y: 5)
         setupCalendarView()
         setupSelectedDate()
+        setupTitleLabel(withDate: selectedDate ?? Date())
+        showSelectedDate(withDate: selectedDate ?? Date())
         
         // Add Calendar scrolling
         calendarView.scrollingMode = .stopAtEachCalendarFrameWidth
@@ -108,8 +114,12 @@ class CalendarViewController: UIViewController {
         }
         
         bottomDottedBorderView.setNeedsDisplay()
+        confirmButton.setupWithStyle(.Fill)
     }
 
+    func showSelectedDate(withDate date: Date) {
+        dateLabel.text = date.convertToString(withStyle: .Date)
+    }
     
     
     // MARK: - Actions
@@ -133,6 +143,14 @@ class CalendarViewController: UIViewController {
                 self.setupTitleLabel(withDate: self.calculatedDate.globalTime())
             }
         }
+    }
+    
+    @IBAction func handlerConfirmButtonTap(_ sender: CustomButton) {
+        print("\(type(of: self)): \(#function) run.")
+    }
+    
+    @IBAction func handlerCancelButtonTap(_ sender: CustomButton) {
+        print("\(type(of: self)): \(#function) run.")
     }
 }
 
@@ -192,6 +210,9 @@ extension CalendarViewController: JTAppleCalendarViewDelegate {
                 }
             }
         }
+        
+        selectedDate = date
+        showSelectedDate(withDate: selectedDate!)
         
         handlerSelectNewDateCompletion!(date)
     }

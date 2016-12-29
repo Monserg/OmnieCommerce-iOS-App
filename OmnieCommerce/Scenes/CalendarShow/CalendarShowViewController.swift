@@ -48,7 +48,6 @@ class CalendarShowViewController: BaseViewController, CalendarShowViewController
     
     @IBOutlet weak var segmentedControlView: SegmentedControlView!
     @IBOutlet weak var bottomDottedBorderView: DottedBorderView!
-    @IBOutlet weak var confirmButton: CustomButton!
     @IBOutlet weak var containerView: UIView!
     
     @IBOutlet weak var dateLabel: CustomLabel!
@@ -113,7 +112,6 @@ class CalendarShowViewController: BaseViewController, CalendarShowViewController
         
         segmentedControlView.setNeedsDisplay()
         containerView.setNeedsDisplay()
-//        confirmButton.setupWithStyle(.Fill)
     }
     
     func setupDateLabel(withDate date: Date) {
@@ -185,16 +183,6 @@ class CalendarShowViewController: BaseViewController, CalendarShowViewController
         } else {
             schedulerPageVC?.schedulerVC.redraw()
         }
-    }
-    
-    
-    // MARK: - Actions
-    @IBAction func handlerConfirmButtonTap(_ sender: CustomButton) {
-        print(object: "\(type(of: self)): \(#function) run.")
-    }
-    
-    @IBAction func handlerCancelButtonTap(_ sender: CustomButton) {
-        print(object: "\(type(of: self)): \(#function) run.")
     }
     
     
