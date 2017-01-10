@@ -112,6 +112,7 @@
 		B152915D1DDE44B700BBA1E0 /* MenuSectionFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B152915C1DDE44B700BBA1E0 /* MenuSectionFooterView.xib */; };
 		B152915F1DDEB8B500BBA1E0 /* CustomTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B152915E1DDEB8B500BBA1E0 /* CustomTableView.swift */; };
 		B15FD40A1DD1DD8C00782324 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15FD4091DD1DD8C00782324 /* AppDelegate.swift */; };
+		B167ECF61E24E4E800197510 /* VKDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B167ECF51E24E4E800197510 /* VKDelegate.swift */; };
 		B16E966F1DE6C94000147CEF /* BigTopBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16E966E1DE6C94000147CEF /* BigTopBarView.swift */; };
 		B16E96711DE6C94D00147CEF /* BigTopBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B16E96701DE6C94D00147CEF /* BigTopBarView.xib */; };
 		B16E96731DE717E400147CEF /* BigCirleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16E96721DE717E400147CEF /* BigCirleView.swift */; };
@@ -344,6 +345,7 @@
 		B15FD4061DD1DD8C00782324 /* OmnieCommerce.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OmnieCommerce.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B15FD4091DD1DD8C00782324 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B15FD4151DD1DD8C00782324 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Info.plist; sourceTree = "<group>"; };
+		B167ECF51E24E4E800197510 /* VKDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VKDelegate.swift; sourceTree = "<group>"; };
 		B16E966E1DE6C94000147CEF /* BigTopBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BigTopBarView.swift; sourceTree = "<group>"; };
 		B16E96701DE6C94D00147CEF /* BigTopBarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BigTopBarView.xib; sourceTree = "<group>"; };
 		B16E96721DE717E400147CEF /* BigCirleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BigCirleView.swift; sourceTree = "<group>"; };
@@ -539,6 +541,7 @@
 		B1228FB31DD4853E00A90FBB /* DataModel */ = {
 			isa = PBXGroup;
 			children = (
+				B167ECF41E24E48000197510 /* SocialNetwork */,
 				B17323CB1DED995C003A8D3E /* Category.swift */,
 				B1BF92431DD5FC8000BECBBB /* Config.swift */,
 				B1228FB41DD4856A00A90FBB /* MenuItem.swift */,
@@ -854,6 +857,14 @@
 				B1228FAB1DD44CD700A90FBB /* Support Files */,
 			);
 			path = OmnieCommerce;
+			sourceTree = "<group>";
+		};
+		B167ECF41E24E48000197510 /* SocialNetwork */ = {
+			isa = PBXGroup;
+			children = (
+				B167ECF51E24E4E800197510 /* VKDelegate.swift */,
+			);
+			path = SocialNetwork;
 			sourceTree = "<group>";
 		};
 		B17323C81DED8430003A8D3E /* UICollectionViewCell */ = {
@@ -1388,6 +1399,7 @@
 				B122F1F81DD35BC70018A701 /* FavoriteShowInteractor.swift in Sources */,
 				B14E976A1DD8B05E001E1DE2 /* ForgotPasswordShowWorker.swift in Sources */,
 				B1CF54DE1DDB51BE00E98049 /* SettingsShowWorker.swift in Sources */,
+				B167ECF61E24E4E800197510 /* VKDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

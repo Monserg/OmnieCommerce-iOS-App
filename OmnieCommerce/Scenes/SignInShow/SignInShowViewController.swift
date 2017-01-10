@@ -10,6 +10,7 @@
 //
 
 import UIKit
+import SwiftyVK
 
 // MARK: - Input & Output protocols
 protocol SignInShowViewControllerInput {
@@ -103,6 +104,7 @@ class SignInShowViewController: BaseViewController, SignInShowViewControllerInpu
     @IBAction func handlerVkontakteButtonTap(_ sender: CustomButton) {
         print(object: "\(type(of: self)): \(#function) run.")
         
+        VK.logIn()
     }
     
     @IBAction func handlerGoogleButtonTap(_ sender: CustomButton) {
