@@ -10,6 +10,7 @@
 //
 
 import UIKit
+import SwiftyVK
 
 // MARK: - Input & Output protocols
 protocol ForgotPasswordShowViewControllerInput {
@@ -108,6 +109,11 @@ class ForgotPasswordShowViewController: BaseViewController, ForgotPasswordShowVi
     @IBAction func handlerVkontakteButtonTap(_ sender: CustomButton) {
         print(object: "\(type(of: self)): \(#function) run.")
         
+        if (VK.state == .authorized) {
+            VK.logOut()
+        }
+        
+        VK.logIn()
     }
     
     @IBAction func handlerGoogleButtonTap(_ sender: CustomButton) {

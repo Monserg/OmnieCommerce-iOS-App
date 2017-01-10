@@ -36,10 +36,14 @@ class SocialVK: VKDelegate {
     }
     
     func vkDidAuthorizeWith(parameters: Dictionary<String, String>) {
-        print(#function)
+        print(#function, "parameters = \(parameters)")
         
         if (VK.state == .authorized) {
-            NotificationCenter.default.post(name: Notification.Name(rawValue: "TestVkDidAuthorize"), object: nil)
+            // TODO: - SAVE PARAMETERS TO COREDATA
+            
+            Config.Constants.isUserGuest = false
+            AppCoordinator.init().startApp()
+//            NotificationCenter.default.post(name: Notification.Name(rawValue: "TestVkDidAuthorize"), object: nil)
         }
     }
     

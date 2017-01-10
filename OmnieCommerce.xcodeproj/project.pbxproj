@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4B80CBB54BC2985E0EDC5A94 /* Pods_OmnieCommerce.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9EA988F3F694011D76FF246 /* Pods_OmnieCommerce.framework */; };
 		B1005A3D1E24F49800B01B84 /* SocialVK.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1005A3C1E24F49800B01B84 /* SocialVK.swift */; };
+		B1005A401E2520DB00B01B84 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1005A3F1E2520DB00B01B84 /* AppCoordinator.swift */; };
 		B11B9AD61DF00CC5009A4AA1 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11B9AD51DF00CC5009A4AA1 /* BaseTableViewCell.swift */; };
 		B11B9AD81DF02BAB009A4AA1 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11B9AD71DF02BAB009A4AA1 /* News.swift */; };
 		B11B9ADA1DF02F5C009A4AA1 /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11B9AD91DF02F5C009A4AA1 /* Date+Ext.swift */; };
@@ -237,6 +238,7 @@
 /* Begin PBXFileReference section */
 		796E69C2BE10D1D43C710949 /* Pods-OmnieCommerce.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OmnieCommerce.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OmnieCommerce/Pods-OmnieCommerce.debug.xcconfig"; sourceTree = "<group>"; };
 		B1005A3C1E24F49800B01B84 /* SocialVK.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialVK.swift; sourceTree = "<group>"; };
+		B1005A3F1E2520DB00B01B84 /* AppCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppCoordinator.swift; path = ../UIViewControllers/AppCoordinator.swift; sourceTree = "<group>"; };
 		B11B9AD51DF00CC5009A4AA1 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
 		B11B9AD71DF02BAB009A4AA1 /* News.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
 		B11B9AD91DF02F5C009A4AA1 /* Date+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
@@ -541,12 +543,13 @@
 		B1228FB31DD4853E00A90FBB /* DataModel */ = {
 			isa = PBXGroup;
 			children = (
-				B167ECF41E24E48000197510 /* SocialNetwork */,
+				B1005A3F1E2520DB00B01B84 /* AppCoordinator.swift */,
 				B17323CB1DED995C003A8D3E /* Category.swift */,
 				B1BF92431DD5FC8000BECBBB /* Config.swift */,
 				B1228FB41DD4856A00A90FBB /* MenuItem.swift */,
-				B11B9AD71DF02BAB009A4AA1 /* News.swift */,
 				B14D89501DF6CFF800AF3AED /* Message.swift */,
+				B11B9AD71DF02BAB009A4AA1 /* News.swift */,
+				B167ECF41E24E48000197510 /* SocialNetwork */,
 			);
 			path = DataModel;
 			sourceTree = "<group>";
@@ -1247,6 +1250,7 @@
 				B122F2261DD35CC80018A701 /* SlideMenuShowRouter.swift in Sources */,
 				B1228FB51DD4856A00A90FBB /* MenuItem.swift in Sources */,
 				B122F1DB1DD35B760018A701 /* OrdersShowConfigurator.swift in Sources */,
+				B1005A401E2520DB00B01B84 /* AppCoordinator.swift in Sources */,
 				B14E97691DD8B05E001E1DE2 /* ForgotPasswordShowViewController.swift in Sources */,
 				B1CF54B01DDB516E00E98049 /* OmnieCardsShowModels.swift in Sources */,
 				B1CF54971DDB512000E98049 /* DiscountCardsShowViewController.swift in Sources */,

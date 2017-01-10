@@ -11,6 +11,8 @@ import SWRevealViewController
 
 class LaunchScreenViewController: BaseViewController {
     // MARK: - Properties
+    let appCoordinator = AppCoordinator()
+    
     @IBOutlet weak var backgroundImageView: UIImageView!
     @IBOutlet weak var blackoutView: UIView!
     @IBOutlet weak var copyrightLabel: CustomLabel!
@@ -32,7 +34,7 @@ class LaunchScreenViewController: BaseViewController {
 
     // MARK: - Custom Functions
     func setup() {
-        let window = UIApplication.shared.windows[0]
+//        let window = UIApplication.shared.windows[0]
         let isUserGuest = Config.Constants.isUserGuest
         
         if (isUserGuest) {
@@ -40,27 +42,29 @@ class LaunchScreenViewController: BaseViewController {
             blackoutView.isHidden = false
             blackoutView.backgroundColor = UIColor.veryDarkDesaturatedBlue25Alpha94
             
-            // Initial VC
-            let signInShowStoryboard = UIStoryboard(name: "SignInShow", bundle: nil)
-            let initialNC = signInShowStoryboard.instantiateViewController(withIdentifier: "SignInShowNC") as! BaseNavigationController
-            
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
-                window.rootViewController = initialNC
-                window.makeKeyAndVisible()
-            }
+//            // Initial VC
+//            let signInShowStoryboard = UIStoryboard(name: "SignInShow", bundle: nil)
+//            let initialNC = signInShowStoryboard.instantiateViewController(withIdentifier: "SignInShowNC") as! BaseNavigationController
+//            
+//            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
+//                window.rootViewController = initialNC
+//                window.makeKeyAndVisible()
+//            }
         } else {
             backgroundImageView.isHidden = true
             backgroundImageView.backgroundColor = UIColor.clear
             blackoutView.backgroundColor = UIColor.veryDarkDesaturatedBlue25Alpha94
             
-            // Initial VC
-            let ordersShowStoryboard = UIStoryboard(name: "SlideMenuShow", bundle: nil)
-            let initialVC = ordersShowStoryboard.instantiateViewController(withIdentifier: "RevealVC") as! SWRevealViewController
-
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
-                window.rootViewController = initialVC
-                window.makeKeyAndVisible()
-            }
+//            // Initial VC
+//            let ordersShowStoryboard = UIStoryboard(name: "SlideMenuShow", bundle: nil)
+//            let initialVC = ordersShowStoryboard.instantiateViewController(withIdentifier: "RevealVC") as! SWRevealViewController
+//
+//            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
+//                window.rootViewController = initialVC
+//                window.makeKeyAndVisible()
+//            }
         }
-    }
+        
+        appCoordinator.startApp()
+    }    
 }
