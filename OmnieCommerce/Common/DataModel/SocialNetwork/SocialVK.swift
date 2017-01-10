@@ -1,5 +1,5 @@
 //
-//  VKDelegate.swift
+//  SocialVK.swift
 //  OmnieCommerce
 //
 //  Created by msm72 on 10.01.17.
@@ -9,7 +9,7 @@
 import Foundation
 import SwiftyVK
 
-class VKDelegate: VKDelegate {
+class SocialVK: VKDelegate {
     // MARK: - Properties
     let appID = "5815487"
     let scope: Set<VK.Scope> = [.messages, .offline, .friends, .wall, .photos, .audio, .video, .docs, .market, .email]
@@ -25,6 +25,10 @@ class VKDelegate: VKDelegate {
     
     
     // MARK: - Class Functions
+    func vkWillPresentView() -> UIViewController {
+        return UIApplication.shared.delegate!.window!!.rootViewController!
+    }
+
     func vkWillAuthorize() -> Set<VK.Scope> {
         print(#function)
         

@@ -13,11 +13,12 @@ import SwiftyVK
 class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: - Properties
     var window: UIWindow?
+    var vkDelegateReference : VKDelegate?
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // VK
-        let vkDelegateReference = VKDelegate()
+        vkDelegateReference = SocialVK()
         
         return true
     }
