@@ -104,6 +104,10 @@ class SignInShowViewController: BaseViewController, SignInShowViewControllerInpu
     @IBAction func handlerVkontakteButtonTap(_ sender: CustomButton) {
         print(object: "\(type(of: self)): \(#function) run.")
         
+        if (VK.state == .authorized) {
+            VK.logOut()
+        }
+        
         VK.logIn()
     }
     

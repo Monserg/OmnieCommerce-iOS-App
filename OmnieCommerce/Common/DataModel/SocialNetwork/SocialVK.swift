@@ -38,7 +38,9 @@ class SocialVK: VKDelegate {
     func vkDidAuthorizeWith(parameters: Dictionary<String, String>) {
         print(#function)
         
-        NotificationCenter.default.post(name: Notification.Name(rawValue: "TestVkDidAuthorize"), object: nil)
+        if (VK.state == .authorized) {
+            NotificationCenter.default.post(name: Notification.Name(rawValue: "TestVkDidAuthorize"), object: nil)
+        }
     }
     
     func vkAutorizationFailedWith(error: AuthError) {
