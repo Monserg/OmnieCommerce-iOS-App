@@ -38,20 +38,17 @@ class SocialVK: VKDelegate {
     func vkDidAuthorizeWith(parameters: Dictionary<String, String>) {
         print(#function, "parameters = \(parameters)")
         
-        if (VK.state == .authorized) {
+        if (VK.state == .authorized && Config.Constants.isUserGuest) {
             // TODO: - SAVE PARAMETERS TO COREDATA
             
             Config.Constants.isUserGuest = false
             AppCoordinator.init().startApp()
-//            NotificationCenter.default.post(name: Notification.Name(rawValue: "TestVkDidAuthorize"), object: nil)
         }
     }
     
     func vkAutorizationFailedWith(error: AuthError) {
         print(#function)
         print("Autorization failed with error: \n\(error)")
-        
-        NotificationCenter.default.post(name: Notification.Name(rawValue: "TestVkDidNotAuthorize"), object: nil)
     }
     
     func vkDidUnauthorize() {

@@ -13,12 +13,15 @@ import SwiftyVK
 class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: - Properties
     var window: UIWindow?
-    var vkDelegateReference : VKDelegate?
+    var socialVKDelegate: VKDelegate?
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // VK
-        vkDelegateReference = SocialVK()
+        if (Config.Constants.isUserGuest) {
+            VK.logOut()
+            socialVKDelegate = SocialVK()
+        }
         
         return true
     }

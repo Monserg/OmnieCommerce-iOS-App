@@ -10,6 +10,7 @@
 //
 
 import UIKit
+import SwiftyVK
 
 // MARK: - Input & Output protocols
 protocol SlideMenuShowViewControllerInput {
@@ -135,15 +136,18 @@ extension SlideMenuShowViewController: UITableViewDelegate {
             if indexPath.section == 4 {
                 self.revealViewController().revealToggle(animated: true)
                 
-                let window = UIApplication.shared.windows[0]
-                let signInShowStoryboard = UIStoryboard(name: "SignInShow", bundle: nil)
-                let initialNC = signInShowStoryboard.instantiateViewController(withIdentifier: "SignInShowNC") as! BaseNavigationController
-                window.rootViewController = initialNC
+                VK.logOut()
+                Config.Constants.isUserGuest = true
+                AppCoordinator.init().startApp()
                 
-                self.present(initialNC, animated: true, completion: {
-                    _ = self.navigationController?.popToRootViewController(animated: true)
-                    //                self.revealViewController().dismiss(animated: true, completion: nil)
-                })
+//                let window = UIApplication.shared.windows[0]
+//                let signInShowStoryboard = UIStoryboard(name: "SignInShow", bundle: nil)
+//                let initialNC = signInShowStoryboard.instantiateViewController(withIdentifier: "SignInShowNC") as! BaseNavigationController
+//                window.rootViewController = initialNC
+//                
+//                self.present(initialNC, animated: true, completion: {
+//                    _ = self.navigationController?.popToRootViewController(animated: true)
+//                })
             } else {
                 self.performSegue(withIdentifier: cell.segueName, sender: self)
             }

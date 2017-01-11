@@ -22,6 +22,11 @@ class LaunchScreenViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        
         // Config Launch Screen
         setup()
     }
@@ -65,6 +70,8 @@ class LaunchScreenViewController: BaseViewController {
 //            }
         }
         
-        appCoordinator.startApp()
+        let snapshot: UIView = (view.snapshotView(afterScreenUpdates: true))!
+
+        appCoordinator.startApp1(snapshot: snapshot)
     }    
 }
