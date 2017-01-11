@@ -11,31 +11,16 @@ import SWRevealViewController
 
 class AppCoordinator {
     // MARK: - Class Functions
-    func startApp() {
+    func startLaunchScreen() {
         let window = UIApplication.shared.windows[0]
-        let isUserGuest = Config.Constants.isUserGuest
+        window.backgroundColor = UIColor.yellow
+        let storyboardName = UIStoryboard(name: "Main", bundle: nil)
+        let launchScreenVC = storyboardName.instantiateViewController(withIdentifier: "LaunchScreenVC") as! LaunchScreenViewController
         
-        // Initial VC
-        if (isUserGuest) {
-            let signInShowStoryboard = UIStoryboard(name: "SignInShow", bundle: nil)
-            let initialNC = signInShowStoryboard.instantiateViewController(withIdentifier: "SignInShowNC") as! BaseNavigationController
-            
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
-                window.rootViewController = initialNC
-                window.makeKeyAndVisible()
-            }
-        } else {
-            let ordersShowStoryboard = UIStoryboard(name: "SlideMenuShow", bundle: nil)
-            let initialVC = ordersShowStoryboard.instantiateViewController(withIdentifier: "RevealVC") as! SWRevealViewController
-            
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
-                window.rootViewController = initialVC
-                window.makeKeyAndVisible()
-            }
-        }
+        window.rootViewController = launchScreenVC
     }
     
-    func startApp1(snapshot: UIView) {
+    func startApp(snapshot: UIView) {
         let window = UIApplication.shared.windows[0]
         let isUserGuest = Config.Constants.isUserGuest
         let initialVC: UIViewController!

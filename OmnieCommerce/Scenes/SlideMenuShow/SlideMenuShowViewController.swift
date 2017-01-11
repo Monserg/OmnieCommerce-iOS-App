@@ -138,16 +138,15 @@ extension SlideMenuShowViewController: UITableViewDelegate {
                 
                 VK.logOut()
                 Config.Constants.isUserGuest = true
-                AppCoordinator.init().startApp()
+                UIApplication.shared.delegate!.window!!.addSubview(UIImageView(image: UIImage(named: "image-background-portrait")))
                 
-//                let window = UIApplication.shared.windows[0]
-//                let signInShowStoryboard = UIStoryboard(name: "SignInShow", bundle: nil)
-//                let initialNC = signInShowStoryboard.instantiateViewController(withIdentifier: "SignInShowNC") as! BaseNavigationController
-//                window.rootViewController = initialNC
-//                
-//                self.present(initialNC, animated: true, completion: {
-//                    _ = self.navigationController?.popToRootViewController(animated: true)
-//                })
+                UIView.transition(with: self.revealViewController().view, duration: 1.0, options: [.transitionFlipFromRight, .showHideTransitionViews], animations: {
+                    self.revealViewController().view.isHidden = true
+                }, completion: { (finished) in
+                    if (finished) {
+                        AppCoordinator.init().startLaunchScreen()
+                    }
+                })
             } else {
                 self.performSegue(withIdentifier: cell.segueName, sender: self)
             }

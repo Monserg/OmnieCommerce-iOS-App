@@ -42,7 +42,7 @@ class SocialVK: VKDelegate {
             // TODO: - SAVE PARAMETERS TO COREDATA
             
             Config.Constants.isUserGuest = false
-            AppCoordinator.init().startApp()
+            AppCoordinator.init().startLaunchScreen()
         }
     }
     
