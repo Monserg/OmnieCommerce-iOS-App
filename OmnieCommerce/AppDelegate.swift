@@ -15,13 +15,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var socialVKDelegate: VKDelegate?
 
-
+    
+    // MARK: - Class Functions
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // VK
-        if (Config.Constants.isUserGuest) {
-            VK.logOut()
-            socialVKDelegate = SocialVK()
-        }
+        socialVKDelegate = SocialVK()
+
+        // Initialization
+        setup()
         
         return true
     }
@@ -49,11 +50,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     
+    // MARK: - Custom Functions
+    func setup() {
+        if (Config.Constants.isUserGuest) {
+            let lanchScreenView = LaunchScreenView()
+            window?.addSubview(lanchScreenView.view)
+        } else {
+            window?.backgroundColor = UIColor.veryDarkDesaturatedBlue25Alpha94
+        }
+    }
+    
+    
     // MARK: - VKDelegate
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
         let app = options[.sourceApplication] as? String
         VK.process(url: url, sourceApplication: app)
-     
+        
         return true
     }
 }

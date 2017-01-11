@@ -25,6 +25,8 @@ class SignInShowViewController: BaseViewController, SignInShowViewControllerInpu
     // MARK: - Properties
     var output: SignInShowViewControllerOutput!
     var router: SignInShowRouter!
+    let socialVK = SocialVK()
+//    let viewTransitionDelegate = TransitionDelegate()
     
     @IBOutlet var bigTopBarView: BigTopBarView!
     @IBOutlet weak var scrollView: UIScrollView!
@@ -65,8 +67,17 @@ class SignInShowViewController: BaseViewController, SignInShowViewControllerInpu
         setup(topBarView: bigTopBarView)
         
         doSomethingOnLoad()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(test), name: Notification.Name(rawValue: "TestVkDidAuthorize"), object: nil)
     }
     
+    func test(notification: Notification) {
+        socialVK.didTransitionFrom(currentView: self.view!, withCompletionHandler: { _ in
+            //loginComplitionHandler!(parameters)
+            (UIApplication.shared.delegate as! AppDelegate).setup()
+            AppScenesCoordinator.init().startLaunchScreen()
+        })
+    }
     
     // MARK: - Custom Functions
     func doSomethingOnLoad() {
@@ -109,6 +120,13 @@ class SignInShowViewController: BaseViewController, SignInShowViewControllerInpu
         }
         
         VK.logIn()
+        
+        // VK complition handler
+        socialVK.loginComplitionHandler = { dictionary in
+            self.socialVK.didTransitionFrom(currentView: self.view!, withCompletionHandler: { success in
+            //print("\(success)")
+            })
+        }
     }
     
     @IBAction func handlerGoogleButtonTap(_ sender: CustomButton) {

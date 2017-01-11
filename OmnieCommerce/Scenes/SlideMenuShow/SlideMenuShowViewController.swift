@@ -25,7 +25,10 @@ class SlideMenuShowViewController: UIViewController, SlideMenuShowViewController
     // MARK: - Properties
     var output: SlideMenuShowViewControllerOutput!
     var router: SlideMenuShowRouter!
-    
+    let socialVK = SocialVK()
+
+//    let viewTransitionDelegate = TransitionDelegate()
+
     var menuItemsList = NSDictionary()
     
     @IBOutlet weak var tableView: UITableView!
@@ -136,16 +139,15 @@ extension SlideMenuShowViewController: UITableViewDelegate {
             if indexPath.section == 4 {
                 self.revealViewController().revealToggle(animated: true)
                 
-                VK.logOut()
-                Config.Constants.isUserGuest = true
-                UIApplication.shared.delegate!.window!!.addSubview(UIImageView(image: UIImage(named: "image-background-portrait")))
-                
-                UIView.transition(with: self.revealViewController().view, duration: 1.0, options: [.transitionFlipFromRight, .showHideTransitionViews], animations: {
-                    self.revealViewController().view.isHidden = true
-                }, completion: { (finished) in
-                    if (finished) {
-                        AppCoordinator.init().startLaunchScreen()
-                    }
+                //VK.logOut()
+
+                //let socialVKDelegate = (UIApplication.shared.delegate as! AppDelegate).socialVKDelegate as! SocialVK
+                socialVK.didTransitionFrom(currentView: self.revealViewController().view, withCompletionHandler: { _ in
+                    VK.logOut()
+                    Config.Constants.isUserGuest = true
+                    (UIApplication.shared.delegate as! AppDelegate).setup()
+                    AppScenesCoordinator.init().startLaunchScreen()
+
                 })
             } else {
                 self.performSegue(withIdentifier: cell.segueName, sender: self)

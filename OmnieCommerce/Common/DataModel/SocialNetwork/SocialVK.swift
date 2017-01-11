@@ -6,13 +6,20 @@
 //  Copyright © 2017 Omniesoft. All rights reserved.
 //
 
-import Foundation
+import UIKit
 import SwiftyVK
+
+typealias LoginComplitionHandler = (Dictionary<String, String>) -> ()
+typealias ComplitionHandler = (Bool) -> ()
 
 class SocialVK: VKDelegate {
     // MARK: - Properties
     let appID = "5815487"
     let scope: Set<VK.Scope> = [.messages, .offline, .friends, .wall, .photos, .audio, .video, .docs, .market, .email]
+    var loginComplitionHandler: LoginComplitionHandler?
+    var rootVC: UIViewController?
+    
+//    var complitionHandler: ComplitionHandler?
     
     
     // MARK: - Class Initialization
@@ -26,7 +33,9 @@ class SocialVK: VKDelegate {
     
     // MARK: - Class Functions
     func vkWillPresentView() -> UIViewController {
-        return UIApplication.shared.delegate!.window!!.rootViewController!
+        rootVC = (UIApplication.shared.delegate!.window!!.rootViewController as! BaseNavigationController).viewControllers.last!
+        
+        return rootVC!
     }
 
     func vkWillAuthorize() -> Set<VK.Scope> {
@@ -38,11 +47,20 @@ class SocialVK: VKDelegate {
     func vkDidAuthorizeWith(parameters: Dictionary<String, String>) {
         print(#function, "parameters = \(parameters)")
         
+        guard rootVC != nil else {
+            return
+        }
+
         if (VK.state == .authorized && Config.Constants.isUserGuest) {
             // TODO: - SAVE PARAMETERS TO COREDATA
             
             Config.Constants.isUserGuest = false
-            AppCoordinator.init().startLaunchScreen()
+            
+            didTransitionFrom(currentView: rootVC!.view, withCompletionHandler: { (success) in
+                //            loginComplitionHandler!(parameters)
+                (UIApplication.shared.delegate as! AppDelegate).setup()
+                AppScenesCoordinator.init().startLaunchScreen()
+            })
         }
     }
     
@@ -53,11 +71,27 @@ class SocialVK: VKDelegate {
     
     func vkDidUnauthorize() {
         print(#function)
+
+        // TODO: - SAVE PARAMETERS TO COREDATA
+        
+        Config.Constants.isUserGuest = true
+        (UIApplication.shared.delegate as! AppDelegate).setup()
+        AppScenesCoordinator.init().startLaunchScreen()
     }
     
     func vkShouldUseTokenPath() -> String? {
         print(#function)
         
         return nil
+    }
+    
+    
+    // MARK: - Custom Functions
+    func didTransitionFrom(currentView: UIView, withCompletionHandler completionHandler: @escaping ComplitionHandler) {
+        UIView.transition(with: currentView, duration: 1.0, options: [.transitionFlipFromRight, .showHideTransitionViews], animations: {
+            currentView.isHidden = true
+        }, completion: { _ in
+            completionHandler(true)
+        })
     }
 }
