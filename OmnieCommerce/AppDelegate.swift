@@ -68,4 +68,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         return true
     }
+    
+    func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
+        VK.process(url: url, sourceApplication: sourceApplication)
+      
+        return true
+    }
 }
