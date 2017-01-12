@@ -69,3 +69,7 @@
 "Services"              =   "Послуги";
 "Calendar"              =   "Календар";
 "Schedule"              =   "Графік";
+
+
+// Errors
+"Google services error" =   "Помилка при налаштуванні служби Google:";

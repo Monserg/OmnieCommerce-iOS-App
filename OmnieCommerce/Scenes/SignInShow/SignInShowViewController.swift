@@ -26,7 +26,6 @@ class SignInShowViewController: BaseViewController, SignInShowViewControllerInpu
     var output: SignInShowViewControllerOutput!
     var router: SignInShowRouter!
     let socialVK = SocialVK()
-//    let viewTransitionDelegate = TransitionDelegate()
     
     @IBOutlet var bigTopBarView: BigTopBarView!
     @IBOutlet weak var scrollView: UIScrollView!
@@ -36,6 +35,7 @@ class SignInShowViewController: BaseViewController, SignInShowViewControllerInpu
     @IBOutlet weak var vkontakteButton: CustomButton!
     @IBOutlet weak var googleButton: CustomButton!
     @IBOutlet weak var facebookButton: CustomButton!
+    @IBOutlet weak var signInButton: GIDSignInButton!
     
     
     // MARK: - Class Initialization
@@ -68,16 +68,10 @@ class SignInShowViewController: BaseViewController, SignInShowViewControllerInpu
         
         doSomethingOnLoad()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(test), name: Notification.Name(rawValue: "TestVkDidAuthorize"), object: nil)
+        // Google Delegate
+        GIDSignIn.sharedInstance().uiDelegate = self
     }
     
-    func test(notification: Notification) {
-        socialVK.didTransitionFrom(currentView: self.view!, withCompletionHandler: { _ in
-            //loginComplitionHandler!(parameters)
-            (UIApplication.shared.delegate as! AppDelegate).setup()
-            AppScenesCoordinator.init().startLaunchScreen()
-        })
-    }
     
     // MARK: - Custom Functions
     func doSomethingOnLoad() {
@@ -139,11 +133,39 @@ class SignInShowViewController: BaseViewController, SignInShowViewControllerInpu
         
     }
 
+    @IBAction func didTapSignOut(sender: AnyObject) {
+        GIDSignIn.sharedInstance().signOut()
+    }
+    
     
     // MARK: - Transition
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         print(object: "\(type(of: self)): \(#function) run. New size = \(size)")
         
         setupScene(withSize: size)
+    }
+}
+
+
+// MARK: - GIDSignInUIDelegate
+extension SignInShowViewController: GIDSignInUIDelegate {
+    // Stop the UIActivityIndicatorView animation that was started when the user
+    // pressed the Sign In button
+    private func signInWillDispatch(signIn: GIDSignIn!, error: NSError!) {
+        print(object: "#function")
+    }
+    
+    // Present a view that prompts the user to sign in with Google
+    private func signIn(signIn: GIDSignIn!, presentViewController viewController: UIViewController!) {
+        print(object: "#function")
+
+        self.present(viewController, animated: true, completion: nil)
+    }
+    
+    // Dismiss the "Sign in with Google" view
+    private func signIn(signIn: GIDSignIn!, dismissViewController viewController: UIViewController!) {
+        print(object: "#function")
+
+        self.dismiss(animated: true, completion: nil)
     }
 }

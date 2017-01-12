@@ -133,6 +133,10 @@
 		B18A45CA1DEC282B003EBD2F /* DotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18A45C91DEC282B003EBD2F /* DotView.swift */; };
 		B18A45CC1DEC3918003EBD2F /* SmallCirleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18A45CB1DEC3918003EBD2F /* SmallCirleView.swift */; };
 		B1900D881E2772B100F2F082 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B1900D871E2772B100F2F082 /* GoogleService-Info.plist */; };
+		B1900D8A1E277F1900F2F082 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1900D891E277F1900F2F082 /* StoreKit.framework */; };
+		B1900D8C1E277F2800F2F082 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1900D8B1E277F2800F2F082 /* AddressBook.framework */; };
+		B1900D8E1E277F3300F2F082 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1900D8D1E277F3300F2F082 /* SystemConfiguration.framework */; };
+		B1900DC11E27D07200F2F082 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = B1900DC01E27D07200F2F082 /* libz.tbd */; };
 		B19DF2841DF94DCD000AFC92 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19DF2831DF94DCD000AFC92 /* CalendarViewController.swift */; };
 		B19DF2861DF94DED000AFC92 /* SchedulerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19DF2851DF94DED000AFC92 /* SchedulerViewController.swift */; };
 		B1BF92441DD5FC8000BECBBB /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1BF92431DD5FC8000BECBBB /* Config.swift */; };
@@ -370,6 +374,11 @@
 		B18A45C91DEC282B003EBD2F /* DotView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DotView.swift; sourceTree = "<group>"; };
 		B18A45CB1DEC3918003EBD2F /* SmallCirleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmallCirleView.swift; sourceTree = "<group>"; };
 		B1900D871E2772B100F2F082 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		B1900D891E277F1900F2F082 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		B1900D8B1E277F2800F2F082 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		B1900D8D1E277F3300F2F082 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		B1900D9F1E27883400F2F082 /* OmnieCommerce-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "OmnieCommerce-Bridging-Header.h"; sourceTree = "<group>"; };
+		B1900DC01E27D07200F2F082 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		B19DF2831DF94DCD000AFC92 /* CalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		B19DF2851DF94DED000AFC92 /* SchedulerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchedulerViewController.swift; sourceTree = "<group>"; };
 		B1BF92431DD5FC8000BECBBB /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
@@ -482,6 +491,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1900DC11E27D07200F2F082 /* libz.tbd in Frameworks */,
+				B1900D8E1E277F3300F2F082 /* SystemConfiguration.framework in Frameworks */,
+				B1900D8C1E277F2800F2F082 /* AddressBook.framework in Frameworks */,
+				B1900D8A1E277F1900F2F082 /* StoreKit.framework in Frameworks */,
 				4B80CBB54BC2985E0EDC5A94 /* Pods_OmnieCommerce.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -492,6 +505,10 @@
 		A4A33B8C6849A99639A17A3F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B1900DC01E27D07200F2F082 /* libz.tbd */,
+				B1900D8D1E277F3300F2F082 /* SystemConfiguration.framework */,
+				B1900D8B1E277F2800F2F082 /* AddressBook.framework */,
+				B1900D891E277F1900F2F082 /* StoreKit.framework */,
 				B9EA988F3F694011D76FF246 /* Pods_OmnieCommerce.framework */,
 			);
 			name = Frameworks;
@@ -543,6 +560,7 @@
 				B15FD4151DD1DD8C00782324 /* Info.plist */,
 				B1C6F35C1DD9C718004695C2 /* MenuItemsList.plist */,
 				B1900D871E2772B100F2F082 /* GoogleService-Info.plist */,
+				B1900D9F1E27883400F2F082 /* OmnieCommerce-Bridging-Header.h */,
 			);
 			path = "Support Files";
 			sourceTree = "<group>";
@@ -1140,7 +1158,7 @@
 					B15FD4051DD1DD8C00782324 = {
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = 2DS2B364WY;
-						LastSwiftMigration = 0810;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -1589,7 +1607,7 @@
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\"";
 				PRODUCT_BUNDLE_IDENTIFIER = ua.com.omniesoft.OmnieCommerce;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "OmnieCommerce/Support Files/OmnieCommerce-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1609,7 +1627,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ua.com.omniesoft.OmnieCommerce;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "OmnieCommerce/Support Files/OmnieCommerce-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

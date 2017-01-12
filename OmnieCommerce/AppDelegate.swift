@@ -18,7 +18,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     // MARK: - Class Functions
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // VK
+        // Google initialize sign-in
+        var configureError: NSError?
+        GGLContext.sharedInstance().configureWithError(&configureError)
+        let message = String(format: "%@ %@", "Google services error".localized(), configureError ?? "")
+        assert(configureError == nil, message)
+        
+        GIDSignIn.sharedInstance().delegate = self
+        
+        // VK initialize sign-in
         socialVKDelegate = SocialVK()
 
         // Initialization
@@ -68,10 +76,47 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         return true
     }
-//    
-//    func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
-//        VK.process(url: url, sourceApplication: sourceApplication)
-//      
-//        return true
-//    }
+    
+    // MARK: - Google SDK
+    func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
+        return GIDSignIn.sharedInstance().handle(url as URL!, sourceApplication: sourceApplication, annotation: annotation)
+    }
+
+    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject?) -> Bool {
+        _ = [UIApplicationOpenURLOptionsKey.sourceApplication.rawValue: sourceApplication as AnyObject, UIApplicationOpenURLOptionsKey.annotation.rawValue: annotation!]
+        
+        return GIDSignIn.sharedInstance().handle(url as URL!, sourceApplication: sourceApplication, annotation: annotation)
+    }
+}
+
+
+// MARK: - GIDSignInDelegate
+extension AppDelegate: GIDSignInDelegate {
+    public func signIn(signIn: GIDSignIn!, didSignInForUser user: GIDGoogleUser!, withError error: NSError!) {
+        if (error == nil) {
+            // Perform any operations on signed in user here.
+            let userId = user.userID                  // For client-side use only!
+            let idToken = user.authentication.idToken // Safe to send to the server
+            let fullName = user.profile.name
+            let givenName = user.profile.givenName
+            let familyName = user.profile.familyName
+            let email = user.profile.email
+            
+            // ...
+            print(userId as Any)
+            print(idToken as Any)
+            print(fullName as Any)
+            print(givenName  as Any)
+            print(familyName as Any)
+            print(email as Any)
+        } else {
+            print("\(error.localizedDescription)")
+        }
+    }
+    
+    func sign(_ signIn: GIDSignIn!, didSignInFor user:GIDGoogleUser!, withError error: Error!) {
+        print("user disconnected")
+        // Perform any operations when the user disconnects from app here.
+        // ...
+    }    
 }

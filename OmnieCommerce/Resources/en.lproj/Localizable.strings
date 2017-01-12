@@ -69,3 +69,7 @@
 "Services"              =   "Services";
 "Calendar"              =   "Calendar";
 "Schedule"              =   "Schedule";
+
+
+// Errors
+"Google services error" =   "Error configuring Google services:";
