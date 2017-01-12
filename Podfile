@@ -12,5 +12,6 @@ target 'OmnieCommerce' do
     pod 'AlamofireImage', '~> 3.2'
     pod 'JTAppleCalendar', '~> 6.0'
     pod 'SwiftyVK', '~> 2.0'
+    pod 'Google/SignIn'
     
 end

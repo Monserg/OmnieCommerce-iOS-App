@@ -82,9 +82,6 @@
 		B127BDE91E262E98007AEAF2 /* AppScenesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B127BDE81E262E98007AEAF2 /* AppScenesCoordinator.swift */; };
 		B127BDEC1E262FD3007AEAF2 /* LaunchScreenView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B127BDEB1E262FD3007AEAF2 /* LaunchScreenView.xib */; };
 		B127BDEE1E262FE7007AEAF2 /* LaunchScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B127BDED1E262FE7007AEAF2 /* LaunchScreenView.swift */; };
-		B127BDF11E268462007AEAF2 /* TransitionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B127BDF01E268462007AEAF2 /* TransitionDelegate.swift */; };
-		B127BDF31E2684CE007AEAF2 /* TransitionPresentationAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B127BDF21E2684CE007AEAF2 /* TransitionPresentationAnimator.swift */; };
-		B127BDF51E2685E5007AEAF2 /* TransitionDismissalAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B127BDF41E2685E5007AEAF2 /* TransitionDismissalAnimator.swift */; };
 		B12AC2301DDF3BDB00FA0924 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12AC22F1DDF3BDB00FA0924 /* CustomTextField.swift */; };
 		B14107C41DFEA73900F79CF9 /* CalendarDayCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14107C21DFEA73900F79CF9 /* CalendarDayCellView.swift */; };
 		B14107C51DFEA73900F79CF9 /* CalendarDayCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B14107C31DFEA73900F79CF9 /* CalendarDayCellView.xib */; };
@@ -135,6 +132,7 @@
 		B18A45C81DEC23B2003EBD2F /* SmallTopBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18A45C71DEC23B2003EBD2F /* SmallTopBarView.swift */; };
 		B18A45CA1DEC282B003EBD2F /* DotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18A45C91DEC282B003EBD2F /* DotView.swift */; };
 		B18A45CC1DEC3918003EBD2F /* SmallCirleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18A45CB1DEC3918003EBD2F /* SmallCirleView.swift */; };
+		B1900D881E2772B100F2F082 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B1900D871E2772B100F2F082 /* GoogleService-Info.plist */; };
 		B19DF2841DF94DCD000AFC92 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19DF2831DF94DCD000AFC92 /* CalendarViewController.swift */; };
 		B19DF2861DF94DED000AFC92 /* SchedulerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19DF2851DF94DED000AFC92 /* SchedulerViewController.swift */; };
 		B1BF92441DD5FC8000BECBBB /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1BF92431DD5FC8000BECBBB /* Config.swift */; };
@@ -319,9 +317,6 @@
 		B127BDE81E262E98007AEAF2 /* AppScenesCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppScenesCoordinator.swift; sourceTree = "<group>"; };
 		B127BDEB1E262FD3007AEAF2 /* LaunchScreenView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreenView.xib; sourceTree = "<group>"; };
 		B127BDED1E262FE7007AEAF2 /* LaunchScreenView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchScreenView.swift; sourceTree = "<group>"; };
-		B127BDF01E268462007AEAF2 /* TransitionDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionDelegate.swift; sourceTree = "<group>"; };
-		B127BDF21E2684CE007AEAF2 /* TransitionPresentationAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionPresentationAnimator.swift; sourceTree = "<group>"; };
-		B127BDF41E2685E5007AEAF2 /* TransitionDismissalAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionDismissalAnimator.swift; sourceTree = "<group>"; };
 		B12AC22F1DDF3BDB00FA0924 /* CustomTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		B14107C21DFEA73900F79CF9 /* CalendarDayCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarDayCellView.swift; sourceTree = "<group>"; };
 		B14107C31DFEA73900F79CF9 /* CalendarDayCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CalendarDayCellView.xib; sourceTree = "<group>"; };
@@ -374,6 +369,7 @@
 		B18A45C71DEC23B2003EBD2F /* SmallTopBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmallTopBarView.swift; sourceTree = "<group>"; };
 		B18A45C91DEC282B003EBD2F /* DotView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DotView.swift; sourceTree = "<group>"; };
 		B18A45CB1DEC3918003EBD2F /* SmallCirleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmallCirleView.swift; sourceTree = "<group>"; };
+		B1900D871E2772B100F2F082 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B19DF2831DF94DCD000AFC92 /* CalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		B19DF2851DF94DED000AFC92 /* SchedulerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchedulerViewController.swift; sourceTree = "<group>"; };
 		B1BF92431DD5FC8000BECBBB /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
@@ -546,6 +542,7 @@
 			children = (
 				B15FD4151DD1DD8C00782324 /* Info.plist */,
 				B1C6F35C1DD9C718004695C2 /* MenuItemsList.plist */,
+				B1900D871E2772B100F2F082 /* GoogleService-Info.plist */,
 			);
 			path = "Support Files";
 			sourceTree = "<group>";
@@ -744,7 +741,6 @@
 				B11CCAF01DEEEB7D00AA7942 /* UITableViewController */,
 				B122F2381DD36F120018A701 /* UITextFields */,
 				B1228FB61DD497FC00A90FBB /* UIViewControllers */,
-				B127BDEF1E268435007AEAF2 /* UIViewControllerTransitioningDelegate */,
 				B1228FAA1DD44C7A00A90FBB /* UIViews */,
 			);
 			path = Common;
@@ -840,16 +836,6 @@
 				B127BDEB1E262FD3007AEAF2 /* LaunchScreenView.xib */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		B127BDEF1E268435007AEAF2 /* UIViewControllerTransitioningDelegate */ = {
-			isa = PBXGroup;
-			children = (
-				B127BDF01E268462007AEAF2 /* TransitionDelegate.swift */,
-				B127BDF21E2684CE007AEAF2 /* TransitionPresentationAnimator.swift */,
-				B127BDF41E2685E5007AEAF2 /* TransitionDismissalAnimator.swift */,
-			);
-			path = UIViewControllerTransitioningDelegate;
 			sourceTree = "<group>";
 		};
 		B14E973E1DD8AFCF001E1DE2 /* SignInShow */ = {
@@ -1217,6 +1203,7 @@
 				B1BF92781DD6516C00BECBBB /* UBUNTU-B.TTF in Resources */,
 				B1BF92791DD6516C00BECBBB /* UBUNTU-BI.TTF in Resources */,
 				B1CF54EA1DDB56BD00E98049 /* BusinessCardsShow.storyboard in Resources */,
+				B1900D881E2772B100F2F082 /* GoogleService-Info.plist in Resources */,
 				B1CF54E21DDB529300E98049 /* AboutShow.storyboard in Resources */,
 				B1BF927A1DD6516C00BECBBB /* UBUNTU-C.TTF in Resources */,
 				B1E52AD31DDDDEC600C3B24D /* Main.storyboard in Resources */,
@@ -1308,7 +1295,6 @@
 				B1CF547B1DDB50D900E98049 /* AboutShowViewController.swift in Sources */,
 				B1F7EDB81DF54878003B36AD /* SegmentedControlView.swift in Sources */,
 				B122F2051DD35BEB0018A701 /* CategoriesShowConfigurator.swift in Sources */,
-				B127BDF11E268462007AEAF2 /* TransitionDelegate.swift in Sources */,
 				B1CF54B41DDB516E00E98049 /* OmnieCardsShowWorker.swift in Sources */,
 				B122F2091DD35BEB0018A701 /* CategoriesShowRouter.swift in Sources */,
 				B122F1EB1DD35BA70018A701 /* MessagesShowModels.swift in Sources */,
@@ -1413,7 +1399,6 @@
 				B14107C41DFEA73900F79CF9 /* CalendarDayCellView.swift in Sources */,
 				B1228FBA1DD49ED400A90FBB /* BaseViewController.swift in Sources */,
 				B122F2271DD35CC80018A701 /* SlideMenuShowViewController.swift in Sources */,
-				B127BDF51E2685E5007AEAF2 /* TransitionDismissalAnimator.swift in Sources */,
 				B1CF54851DDB50F100E98049 /* BusinessCardsShowInteractor.swift in Sources */,
 				B1228FB21DD47C9F00A90FBB /* MenuViewCell.swift in Sources */,
 				B122F1EA1DD35BA70018A701 /* MessagesShowInteractor.swift in Sources */,
@@ -1449,7 +1434,6 @@
 				B122F2131DD35C2C0018A701 /* NewsShowConfigurator.swift in Sources */,
 				B1CF54761DDB50D900E98049 /* AboutShowConfigurator.swift in Sources */,
 				B122F1FA1DD35BC70018A701 /* FavoriteShowPresenter.swift in Sources */,
-				B127BDF31E2684CE007AEAF2 /* TransitionPresentationAnimator.swift in Sources */,
 				B1CF54BE1DDB519000E98049 /* OnmieSoftShowModels.swift in Sources */,
 				B1CF54DC1DDB51BE00E98049 /* SettingsShowRouter.swift in Sources */,
 				B122F2411DD371B30018A701 /* BaseNavigationController.swift in Sources */,

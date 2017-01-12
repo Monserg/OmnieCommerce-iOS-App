@@ -15,7 +15,8 @@ class AppScenesCoordinator {
         let window = (UIApplication.shared.windows.count == 0) ? UIWindow(frame: UIScreen.main.bounds) : UIApplication.shared.windows[0]
         let storyboardName = UIStoryboard(name: "Main", bundle: nil)
         let launchScreenVC = storyboardName.instantiateViewController(withIdentifier: "LaunchScreenVC") as! LaunchScreenViewController
-        
+//        (UIApplication.shared.delegate as! AppDelegate).setup()
+
         window.rootViewController = launchScreenVC
         window.makeKeyAndVisible()
     }

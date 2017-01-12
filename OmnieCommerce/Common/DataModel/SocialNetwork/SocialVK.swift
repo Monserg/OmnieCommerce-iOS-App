@@ -19,8 +19,6 @@ class SocialVK: VKDelegate {
     var loginComplitionHandler: LoginComplitionHandler?
     var rootVC: UIViewController?
     
-//    var complitionHandler: ComplitionHandler?
-    
     
     // MARK: - Class Initialization
     init() {
@@ -57,7 +55,6 @@ class SocialVK: VKDelegate {
             Config.Constants.isUserGuest = false
             
             didTransitionFrom(currentView: rootVC!.view, withCompletionHandler: { (success) in
-                //            loginComplitionHandler!(parameters)
                 (UIApplication.shared.delegate as! AppDelegate).setup()
                 AppScenesCoordinator.init().startLaunchScreen()
             })

@@ -139,17 +139,19 @@ extension SlideMenuShowViewController: UITableViewDelegate {
             if indexPath.section == 4 {
                 self.revealViewController().revealToggle(animated: true)
                 
-                //VK.logOut()
-
-                //let socialVKDelegate = (UIApplication.shared.delegate as! AppDelegate).socialVKDelegate as! SocialVK
                 socialVK.didTransitionFrom(currentView: self.revealViewController().view, withCompletionHandler: { _ in
                     VK.logOut()
                     Config.Constants.isUserGuest = true
                     (UIApplication.shared.delegate as! AppDelegate).setup()
                     AppScenesCoordinator.init().startLaunchScreen()
-
                 })
             } else {
+                guard cell.segueName != "OmnieSoftShowSegue" else {
+                    tableView.deselectRow(at: indexPath, animated: true)
+
+                    return
+                }
+                
                 self.performSegue(withIdentifier: cell.segueName, sender: self)
             }
         }
