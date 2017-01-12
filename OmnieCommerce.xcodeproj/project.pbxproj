@@ -137,6 +137,7 @@
 		B1900D8C1E277F2800F2F082 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1900D8B1E277F2800F2F082 /* AddressBook.framework */; };
 		B1900D8E1E277F3300F2F082 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1900D8D1E277F3300F2F082 /* SystemConfiguration.framework */; };
 		B1900DC11E27D07200F2F082 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = B1900DC01E27D07200F2F082 /* libz.tbd */; };
+		B1900DC31E27DFF600F2F082 /* SocialGoogle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1900DC21E27DFF600F2F082 /* SocialGoogle.swift */; };
 		B19DF2841DF94DCD000AFC92 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19DF2831DF94DCD000AFC92 /* CalendarViewController.swift */; };
 		B19DF2861DF94DED000AFC92 /* SchedulerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19DF2851DF94DED000AFC92 /* SchedulerViewController.swift */; };
 		B1BF92441DD5FC8000BECBBB /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1BF92431DD5FC8000BECBBB /* Config.swift */; };
@@ -379,6 +380,7 @@
 		B1900D8D1E277F3300F2F082 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		B1900D9F1E27883400F2F082 /* OmnieCommerce-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "OmnieCommerce-Bridging-Header.h"; sourceTree = "<group>"; };
 		B1900DC01E27D07200F2F082 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		B1900DC21E27DFF600F2F082 /* SocialGoogle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialGoogle.swift; sourceTree = "<group>"; };
 		B19DF2831DF94DCD000AFC92 /* CalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		B19DF2851DF94DED000AFC92 /* SchedulerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchedulerViewController.swift; sourceTree = "<group>"; };
 		B1BF92431DD5FC8000BECBBB /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
@@ -933,6 +935,7 @@
 			isa = PBXGroup;
 			children = (
 				B1005A3C1E24F49800B01B84 /* SocialVK.swift */,
+				B1900DC21E27DFF600F2F082 /* SocialGoogle.swift */,
 			);
 			path = SocialNetwork;
 			sourceTree = "<group>";
@@ -1454,6 +1457,7 @@
 				B122F1FA1DD35BC70018A701 /* FavoriteShowPresenter.swift in Sources */,
 				B1CF54BE1DDB519000E98049 /* OnmieSoftShowModels.swift in Sources */,
 				B1CF54DC1DDB51BE00E98049 /* SettingsShowRouter.swift in Sources */,
+				B1900DC31E27DFF600F2F082 /* SocialGoogle.swift in Sources */,
 				B122F2411DD371B30018A701 /* BaseNavigationController.swift in Sources */,
 				B122DF671DF7F957003823AD /* CalendarShowRouter.swift in Sources */,
 				B12AC2301DDF3BDB00FA0924 /* CustomTextField.swift in Sources */,

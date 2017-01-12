@@ -26,6 +26,7 @@ class SignInShowViewController: BaseViewController, SignInShowViewControllerInpu
     var output: SignInShowViewControllerOutput!
     var router: SignInShowRouter!
     let socialVK = SocialVK()
+    var socialGoogle: SocialGoogle!
     
     @IBOutlet var bigTopBarView: BigTopBarView!
     @IBOutlet weak var scrollView: UIScrollView!
@@ -69,6 +70,8 @@ class SignInShowViewController: BaseViewController, SignInShowViewControllerInpu
         doSomethingOnLoad()
         
         // Google Delegate
+        socialGoogle = SocialGoogle.init(withRootViewController: self)
+        GIDSignIn.sharedInstance().delegate = socialGoogle
         GIDSignIn.sharedInstance().uiDelegate = self
     }
     
@@ -126,15 +129,12 @@ class SignInShowViewController: BaseViewController, SignInShowViewControllerInpu
     @IBAction func handlerGoogleButtonTap(_ sender: CustomButton) {
         print(object: "\(type(of: self)): \(#function) run.")
         
+        GIDSignIn.sharedInstance().signIn()
     }
     
     @IBAction func handlerFacebookButtonTap(_ sender: CustomButton) {
         print(object: "\(type(of: self)): \(#function) run.")
         
-    }
-
-    @IBAction func didTapSignOut(sender: AnyObject) {
-        GIDSignIn.sharedInstance().signOut()
     }
     
     
