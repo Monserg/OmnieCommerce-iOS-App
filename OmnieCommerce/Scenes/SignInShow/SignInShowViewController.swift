@@ -127,8 +127,6 @@ class SignInShowViewController: BaseViewController, SignInShowViewControllerInpu
     }
     
     @IBAction func handlerGoogleButtonTap(_ sender: CustomButton) {
-        print(object: "\(type(of: self)): \(#function) run.")
-        
         GIDSignIn.sharedInstance().signIn()
     }
     

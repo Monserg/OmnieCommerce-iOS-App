@@ -18,6 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     // MARK: - Class Functions
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        GIDSignIn.sharedInstance().clientID = "1053942437372-g7fke485gbgb84no81rhu8cr6pj3o8gp.apps.googleusercontent.com"
+
         // VK initialize sign-in
         socialVKDelegate = SocialVK()
 
@@ -63,20 +65,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     // MARK: - VKDelegate
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
-        let app = options[.sourceApplication] as? String
-        VK.process(url: url, sourceApplication: app)
+        if (url.absoluteString.hasPrefix("vk")) {
+            let app = options[.sourceApplication] as? String
+            VK.process(url: url, sourceApplication: app)
+            
+            return true
+        } else if (url.absoluteString.contains("com.googleusercontent.apps")) {
+            return GIDSignIn.sharedInstance().handle(url, sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as! String, annotation: options[UIApplicationOpenURLOptionsKey.annotation])
+        }
         
-        return true
-    }
-    
-    // MARK: - Google SDK
-    func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
-        return GIDSignIn.sharedInstance().handle(url as URL!, sourceApplication: sourceApplication, annotation: annotation)
-    }
-
-    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject?) -> Bool {
-        _ = [UIApplicationOpenURLOptionsKey.sourceApplication.rawValue: sourceApplication as AnyObject, UIApplicationOpenURLOptionsKey.annotation.rawValue: annotation!]
-        
-        return GIDSignIn.sharedInstance().handle(url as URL!, sourceApplication: sourceApplication, annotation: annotation)
-    }
+        return false
+    }    
 }

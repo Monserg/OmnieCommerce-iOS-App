@@ -141,6 +141,8 @@ extension SlideMenuShowViewController: UITableViewDelegate {
                 
                 socialVK.didTransitionFrom(currentView: self.revealViewController().view, withCompletionHandler: { _ in
                     VK.logOut()
+                    GIDSignIn.sharedInstance().signOut()
+                    
                     Config.Constants.isUserGuest = true
                     (UIApplication.shared.delegate as! AppDelegate).setup()
                     AppScenesCoordinator.init().startLaunchScreen()
