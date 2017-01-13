@@ -45,6 +45,8 @@ class BaseViewController: UIViewController {
         print(object: "\(type(of: self)): \(#function) run in [line \(#line)]")
 
         super.viewWillAppear(true)
+        
+        UIApplication.shared.statusBarStyle = .lightContent
     }
 
     override func viewDidAppear(_ animated: Bool) {

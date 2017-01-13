@@ -128,6 +128,7 @@ class SignInShowViewController: BaseViewController, SignInShowViewControllerInpu
     
     @IBAction func handlerGoogleButtonTap(_ sender: CustomButton) {
         GIDSignIn.sharedInstance().signIn()
+        UIApplication.shared.statusBarStyle = .default
     }
     
     @IBAction func handlerFacebookButtonTap(_ sender: CustomButton) {
