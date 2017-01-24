@@ -23,6 +23,7 @@ enum LabelStyle: String {
     case Message = "Message"
     case FromTo = "FromTo"
     case CalendarWeekday = "CalendarWeekday"
+    case BarCodeTitle = "BarCodeTitle"
 }
 
 
@@ -93,6 +94,9 @@ extension UILabel {
         case .CalendarWeekday:
             attributedText = (Config.Constants.isAppThemesLight) ? NSAttributedString(string: text!, attributes: UIFont.ubuntuLightItalicVeryDarkGrayishBlue5312) : NSAttributedString(string: text!, attributes: UIFont.ubuntuLightDarkCyan16)
             
+        case .BarCodeTitle:
+            attributedText = (Config.Constants.isAppThemesLight) ? NSAttributedString(string: text!, attributes: UIFont.ubuntuLightItalicVeryDarkGrayishBlue5312) : NSAttributedString(string: text!, attributes: UIFont.ubuntuLightVeryLightGray16)
+
         default:
             font = (Config.Constants.isAppThemesLight) ? UIFont.systemFont(ofSize: 12) : UIFont.ubuntuLight12
             textColor = (Config.Constants.isAppThemesLight) ? UIColor.white : UIColor.veryLightGray

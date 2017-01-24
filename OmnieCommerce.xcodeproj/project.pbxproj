@@ -159,6 +159,8 @@
 		B1C13D8D1DEF3385002B494A /* DropDown.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1C13D8C1DEF3385002B494A /* DropDown.storyboard */; };
 		B1C13D8F1DEF5736002B494A /* DropDownTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C13D8E1DEF5736002B494A /* DropDownTableViewCell.swift */; };
 		B1C6F35D1DD9C718004695C2 /* MenuItemsList.plist in Resources */ = {isa = PBXBuildFile; fileRef = B1C6F35C1DD9C718004695C2 /* MenuItemsList.plist */; };
+		B1C94BBE1E37823C00122933 /* BarCodeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1C94BBD1E37823C00122933 /* BarCodeView.xib */; };
+		B1C94BC21E37825E00122933 /* BarCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C94BC11E37825E00122933 /* BarCodeView.swift */; };
 		B1CBAB921DE446E700A8BCA2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1CBAB911DE446E700A8BCA2 /* Assets.xcassets */; };
 		B1CF54641DDAE78200E98049 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CF54631DDAE78200E98049 /* CustomButton.swift */; };
 		B1CF54761DDB50D900E98049 /* AboutShowConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CF546F1DDB50D900E98049 /* AboutShowConfigurator.swift */; };
@@ -391,6 +393,8 @@
 		B1C13D8C1DEF3385002B494A /* DropDown.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DropDown.storyboard; sourceTree = "<group>"; };
 		B1C13D8E1DEF5736002B494A /* DropDownTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DropDownTableViewCell.swift; sourceTree = "<group>"; };
 		B1C6F35C1DD9C718004695C2 /* MenuItemsList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = MenuItemsList.plist; sourceTree = "<group>"; };
+		B1C94BBD1E37823C00122933 /* BarCodeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BarCodeView.xib; sourceTree = "<group>"; };
+		B1C94BC11E37825E00122933 /* BarCodeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarCodeView.swift; sourceTree = "<group>"; };
 		B1CBAB911DE446E700A8BCA2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B1CF54631DDAE78200E98049 /* CustomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		B1CF546F1DDB50D900E98049 /* AboutShowConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutShowConfigurator.swift; sourceTree = "<group>"; };
@@ -920,6 +924,29 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		B1C94BBA1E37820400122933 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B1C94BBB1E37821100122933 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B1C94BC11E37825E00122933 /* BarCodeView.swift */,
+				B1C94BBD1E37823C00122933 /* BarCodeView.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B1C94BBC1E37821B00122933 /* View Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "View Model";
+			sourceTree = "<group>";
+		};
 		B1CF54671DDB501900E98049 /* OnmieSoftShow */ = {
 			isa = PBXGroup;
 			children = (
@@ -1007,6 +1034,9 @@
 		B1CF546D1DDB508A00E98049 /* OmnieCardsShow */ = {
 			isa = PBXGroup;
 			children = (
+				B1C94BBC1E37821B00122933 /* View Model */,
+				B1C94BBB1E37821100122933 /* View */,
+				B1C94BBA1E37820400122933 /* Model */,
 				B1CF54A71DDB516E00E98049 /* OmnieCardsShowConfigurator.swift */,
 				B1CF54A81DDB516E00E98049 /* OmnieCardsShowInteractor.swift */,
 				B1CF54A91DDB516E00E98049 /* OmnieCardsShowModels.swift */,
@@ -1136,6 +1166,7 @@
 				B1BF92761DD6516C00BECBBB /* helveticaneuecyr-ultralight.otf in Resources */,
 				B1CF54EC1DDB57C300E98049 /* OmnieCardsShow.storyboard in Resources */,
 				B1BF92771DD6516C00BECBBB /* helveticaneuecyr-ultralightitalic.otf in Resources */,
+				B1C94BBE1E37823C00122933 /* BarCodeView.xib in Resources */,
 				B1BF92781DD6516C00BECBBB /* UBUNTU-B.TTF in Resources */,
 				B1BF92791DD6516C00BECBBB /* UBUNTU-BI.TTF in Resources */,
 				B1CF54EA1DDB56BD00E98049 /* BusinessCardsShow.storyboard in Resources */,
@@ -1252,6 +1283,7 @@
 				B1CF54921DDB512000E98049 /* DiscountCardsShowConfigurator.swift in Sources */,
 				B1CF54871DDB50F100E98049 /* BusinessCardsShowPresenter.swift in Sources */,
 				B122DF651DF7F957003823AD /* CalendarShowModels.swift in Sources */,
+				B1C94BC21E37825E00122933 /* BarCodeView.swift in Sources */,
 				B14107C71DFEB1D700F79CF9 /* CustomView.swift in Sources */,
 				B1CF54771DDB50D900E98049 /* AboutShowInteractor.swift in Sources */,
 				B16E96731DE717E400147CEF /* BigCirleView.swift in Sources */,

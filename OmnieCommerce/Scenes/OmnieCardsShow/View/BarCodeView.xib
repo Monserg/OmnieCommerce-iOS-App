@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BarCodeView" customModule="OmnieCommerce" customModuleProvider="target">
+            <connections>
+                <outlet property="imageView" destination="BYE-b4-PvP" id="tWK-vt-kJW"/>
+                <outlet property="titleLabel" destination="WVx-Ya-9PG" id="obE-T7-8Au"/>
+                <outlet property="view" destination="iN0-l3-epB" id="t0Z-Sq-hc4"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="Hv5-PG-aPg">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jh2-KJ-1lp">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="605"/>
+                            <subviews>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BYE-b4-PvP" userLabel="BarCode Image View">
+                                    <rect key="frame" x="18" y="18" width="339" height="569"/>
+                                    <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </imageView>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="BYE-b4-PvP" firstAttribute="top" secondItem="jh2-KJ-1lp" secondAttribute="top" constant="18" id="Sa1-oH-NBT"/>
+                                <constraint firstAttribute="bottom" secondItem="BYE-b4-PvP" secondAttribute="bottom" constant="18" id="arT-H5-DCl"/>
+                                <constraint firstAttribute="trailing" secondItem="BYE-b4-PvP" secondAttribute="trailing" constant="18" id="hZg-pY-LLD"/>
+                                <constraint firstItem="BYE-b4-PvP" firstAttribute="leading" secondItem="jh2-KJ-1lp" secondAttribute="leading" constant="18" id="m6Z-KD-O9W"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="8"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WVx-Ya-9PG" userLabel="BarCode Label" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="645" width="375" height="22"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="22" id="aZ3-hy-4q2"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="labelStyle" value="BarCodeTitle"/>
+                            </userDefinedRuntimeAttributes>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="8"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <variation key="heightClass=regular-widthClass=compact" spacing="40"/>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="Hv5-PG-aPg" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="82Y-c9-1cD"/>
+                <constraint firstItem="Hv5-PG-aPg" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="K1r-il-eo0"/>
+                <constraint firstAttribute="trailing" secondItem="Hv5-PG-aPg" secondAttribute="trailing" id="dLd-Qx-bNq"/>
+                <constraint firstAttribute="bottom" secondItem="Hv5-PG-aPg" secondAttribute="bottom" id="jkq-S5-buP"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <point key="canvasLocation" x="33.5" y="53.5"/>
+        </view>
+    </objects>
+</document>
