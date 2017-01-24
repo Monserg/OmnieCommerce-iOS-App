@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -19,11 +19,11 @@
                         <viewControllerLayoutGuide type="bottom" id="AtF-s6-9gj"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="mMd-Q2-vub">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qfb-kj-Smx" customClass="SmallTopBarView" customModule="OmnieCommerce" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="95"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="95"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="95" id="JFk-Qy-qES">
@@ -37,18 +37,29 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="L4c-x8-h4e">
-                                <rect key="frame" x="87" y="133" width="201" height="385"/>
+                                <rect key="frame" x="96" y="133" width="222" height="424.66666666666663"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YTf-Zx-Owu">
-                                        <rect key="frame" x="0.0" y="0.0" width="201" height="125"/>
-                                        <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YTf-Zx-Owu" userLabel="Logo View">
+                                        <rect key="frame" x="0.0" y="0.0" width="222" height="138"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image-logo-vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ISY-4L-k1Q">
+                                                <rect key="frame" x="0.0" y="0.0" width="222" height="138"/>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="ISY-4L-k1Q" secondAttribute="bottom" id="56R-5L-Hzk"/>
+                                            <constraint firstItem="ISY-4L-k1Q" firstAttribute="top" secondItem="YTf-Zx-Owu" secondAttribute="top" id="5k8-g1-Gb0"/>
+                                            <constraint firstItem="ISY-4L-k1Q" firstAttribute="leading" secondItem="YTf-Zx-Owu" secondAttribute="leading" id="Hza-S1-zfF"/>
+                                            <constraint firstAttribute="trailing" secondItem="ISY-4L-k1Q" secondAttribute="trailing" id="yZW-QY-MKb"/>
+                                        </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Ie-A8-ZDO">
-                                        <rect key="frame" x="0.0" y="125" width="201" height="69"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <rect key="frame" x="0.0" y="138" width="222" height="77"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CNT-2c-7Aq">
-                                        <rect key="frame" x="0.0" y="194" width="201" height="191"/>
+                                        <rect key="frame" x="0.0" y="215" width="222" height="209.66666666666663"/>
                                         <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     </view>
                                 </subviews>
@@ -59,7 +70,7 @@
                                 </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Z8-aZ-gEE" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                                <rect key="frame" x="8" y="647.5" width="359" height="10.5"/>
+                                <rect key="frame" x="8" y="716.66666666666652" width="398" height="10.333333333333371"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -116,4 +127,7 @@
             <point key="canvasLocation" x="232.80000000000001" y="106.59670164917542"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="image-logo-vertical" width="151" height="86"/>
+    </resources>
 </document>
