@@ -142,9 +142,11 @@ extension SlideMenuShowViewController: UITableViewDelegate {
                 socialVK.didTransitionFrom(currentView: self.revealViewController().view, withCompletionHandler: { _ in
                     VK.logOut()
                     GIDSignIn.sharedInstance().signOut()
-                    
+                    let loginManager: FBSDKLoginManager = FBSDKLoginManager()
+                    loginManager.logOut()
+
                     Config.Constants.isUserGuest = true
-                    (UIApplication.shared.delegate as! AppDelegate).setup()
+                    (UIApplication.shared.delegate as! AppDelegate).changeBackgroundView()
                     AppScenesCoordinator.init().startLaunchScreen()
                 })
             } else {

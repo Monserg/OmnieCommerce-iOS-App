@@ -55,7 +55,7 @@ extension SocialGoogle: GIDSignInDelegate {
             Config.Constants.isUserGuest = false
 
             didTransitionFrom(currentView: rootVC!.view, withCompletionHandler: { (success) in
-                (UIApplication.shared.delegate as! AppDelegate).setup()
+//                (UIApplication.shared.delegate as! AppDelegate).changeBackgroundView()
                 AppScenesCoordinator.init().startLaunchScreen()
             })
 

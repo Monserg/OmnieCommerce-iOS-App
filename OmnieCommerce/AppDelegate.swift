@@ -18,6 +18,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     // MARK: - Class Functions
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        // Facebook initialize
+        FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+        
+        // Google initialize
         GIDSignIn.sharedInstance().clientID = "1053942437372-g7fke485gbgb84no81rhu8cr6pj3o8gp.apps.googleusercontent.com"
 
         // VK initialize sign-in
@@ -49,17 +53,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+        let loginManager: FBSDKLoginManager = FBSDKLoginManager()
+        loginManager.logOut()
     }
     
     
     // MARK: - Custom Functions
     func setup() {
-        if (Config.Constants.isUserGuest) {
-            let lanchScreenView = LaunchScreenView.init(frame: window!.frame)
-            window?.addSubview(lanchScreenView.view)
-        } else {
-            window?.backgroundColor = UIColor.veryDarkDesaturatedBlue25Alpha94
-        }
+        window?.backgroundColor = UIColor.veryDarkDesaturatedBlue25Alpha94
+        let lanchScreenView = LaunchScreenView.init(frame: window!.frame)
+        window?.addSubview(lanchScreenView.view)
+    }
+    
+    func changeBackgroundView() {
+        let isUserGuest = Config.Constants.isUserGuest
+        
+        _ = window?.subviews.map{ $0.isHidden = (isUserGuest) ? false : true }
     }
     
     
@@ -72,8 +81,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             return true
         } else if (url.absoluteString.contains("com.googleusercontent.apps")) {
             return GIDSignIn.sharedInstance().handle(url, sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as! String, annotation: options[UIApplicationOpenURLOptionsKey.annotation])
+        } else {
+            return FBSDKApplicationDelegate.sharedInstance().application(app, open: url, sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as! String, annotation: options[UIApplicationOpenURLOptionsKey.annotation])
         }
-        
-        return false
-    }    
+    }
 }

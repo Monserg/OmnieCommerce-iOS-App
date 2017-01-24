@@ -55,7 +55,6 @@ class SocialVK: VKDelegate {
             Config.Constants.isUserGuest = false
             
             didTransitionFrom(currentView: rootVC!.view, withCompletionHandler: { (success) in
-                (UIApplication.shared.delegate as! AppDelegate).setup()
                 AppScenesCoordinator.init().startLaunchScreen()
             })
         }
@@ -72,7 +71,7 @@ class SocialVK: VKDelegate {
         // TODO: - SAVE PARAMETERS TO COREDATA
         
         Config.Constants.isUserGuest = true
-        (UIApplication.shared.delegate as! AppDelegate).setup()
+        (UIApplication.shared.delegate as! AppDelegate).changeBackgroundView()
         AppScenesCoordinator.init().startLaunchScreen()
     }
     

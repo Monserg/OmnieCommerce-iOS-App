@@ -27,7 +27,8 @@ class SignInShowViewController: BaseViewController, SignInShowViewControllerInpu
     var router: SignInShowRouter!
     let socialVK = SocialVK()
     var socialGoogle: SocialGoogle!
-    
+    var loginManager: FBSDKLoginManager!
+
     @IBOutlet var bigTopBarView: BigTopBarView!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var nameTextField: CustomTextField!
@@ -73,6 +74,10 @@ class SignInShowViewController: BaseViewController, SignInShowViewControllerInpu
         socialGoogle = SocialGoogle.init(withRootViewController: self)
         GIDSignIn.sharedInstance().delegate = socialGoogle
         GIDSignIn.sharedInstance().uiDelegate = self
+        
+        // Facebook
+        loginManager = FBSDKLoginManager()
+
     }
     
     
@@ -134,6 +139,19 @@ class SignInShowViewController: BaseViewController, SignInShowViewControllerInpu
     @IBAction func handlerFacebookButtonTap(_ sender: CustomButton) {
         print(object: "\(type(of: self)): \(#function) run.")
         
+        loginManager.logIn(withReadPermissions: ["public_profile", "email"], from: self) { (result, error) in
+            guard result?.token != nil else {
+                return
+            }
+            
+            let fbToken = result!.token.tokenString
+            let fbUserID = result!.token.userID
+            
+//            let fbUserEmail = result!.token.
+//            let strFirstName: String = (result.objectForKey("first_name") as? String)!
+//            let strLastName: String = (result.objectForKey("last_name") as? String)!
+//            let strPictureURL: String = (result.objectForKey("picture")?.objectForKey("data")?.objectForKey("url") as? String)!
+        }
     }
     
     

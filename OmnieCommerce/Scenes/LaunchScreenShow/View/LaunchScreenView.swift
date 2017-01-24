@@ -36,7 +36,7 @@ class LaunchScreenView: UIView {
         addSubview(view)
         view.frame = frame
         backgroundImageView.isHidden = (isUserGuest) ? false : true
-
+        
         print(object: "\(type(of: self)): \(#function) run. Initialization view.frame = \(view.frame)")
     }
 }

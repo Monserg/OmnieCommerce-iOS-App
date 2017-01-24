@@ -27,7 +27,12 @@ struct Config {
         static let dropDownCellHeight: CGFloat                  =   23.0
         
         // FIXME: - DELETE AFTER TEST
-        static var isUserGuest: Bool                            =   true
+        static var isUserGuest: Bool                            =   true {
+            didSet {
+                (UIApplication.shared.delegate as! AppDelegate).changeBackgroundView()
+            }
+        }
+        
         static let isAppThemesLight                             =   false
     }
     
