@@ -69,3 +69,25 @@
 "Services"              =   "Services";
 "Calendar"              =   "Calendar";
 "Schedule"              =   "Schedule";
+
+
+// Titles
+"Man"                   =   "Man";
+"Female"                =   "Female";
+"Birthday"              =   "Birthday";
+"Family status"         =   "Family status";
+"Not married"           =   "Not married";
+"Married"               =   "Married";
+"Children"              =   "Have children";
+"Children No"           =   "No children";
+"Children Yes"          =   "Do you have children";
+"Pet"                   =   "The presence of a pet";
+"Pet No"                =   "Pet No";
+"Pet Yes"               =   "Pet has";
+
+
+// Alert actions
+"Photo"                 =   "Photo";
+"Photo upload"          =   "Upload a new photo";
+"Photo make"            =   "Make a photo";
+"Photo delete"          =   "Delete a photo";

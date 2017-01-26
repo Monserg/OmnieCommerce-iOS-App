@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		4B80CBB54BC2985E0EDC5A94 /* Pods_OmnieCommerce.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9EA988F3F694011D76FF246 /* Pods_OmnieCommerce.framework */; };
+		B10871521E379A4800374DD5 /* OmnieCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10871511E379A4800374DD5 /* OmnieCard.swift */; };
+		B10871541E379A9A00374DD5 /* OmnieCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10871531E379A9A00374DD5 /* OmnieCardViewModel.swift */; };
 		B11B9AD61DF00CC5009A4AA1 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11B9AD51DF00CC5009A4AA1 /* BaseTableViewCell.swift */; };
 		B11B9AD81DF02BAB009A4AA1 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11B9AD71DF02BAB009A4AA1 /* News.swift */; };
 		B11B9ADA1DF02F5C009A4AA1 /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11B9AD91DF02F5C009A4AA1 /* Date+Ext.swift */; };
@@ -237,6 +239,8 @@
 
 /* Begin PBXFileReference section */
 		796E69C2BE10D1D43C710949 /* Pods-OmnieCommerce.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OmnieCommerce.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OmnieCommerce/Pods-OmnieCommerce.debug.xcconfig"; sourceTree = "<group>"; };
+		B10871511E379A4800374DD5 /* OmnieCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OmnieCard.swift; sourceTree = "<group>"; };
+		B10871531E379A9A00374DD5 /* OmnieCardViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OmnieCardViewModel.swift; sourceTree = "<group>"; };
 		B11B9AD51DF00CC5009A4AA1 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
 		B11B9AD71DF02BAB009A4AA1 /* News.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
 		B11B9AD91DF02F5C009A4AA1 /* Date+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
@@ -491,6 +495,13 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		B10871551E37A7F300374DD5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		B11B9ADB1DF0537A009A4AA1 /* UIImageView */ = {
 			isa = PBXGroup;
 			children = (
@@ -708,6 +719,7 @@
 		B122F21A1DD35CA60018A701 /* SlideMenuShow */ = {
 			isa = PBXGroup;
 			children = (
+				B10871551E37A7F300374DD5 /* View */,
 				B122F21B1DD35CC80018A701 /* SlideMenuShowConfigurator.swift */,
 				B122F21C1DD35CC80018A701 /* SlideMenuShowInteractor.swift */,
 				B122F21D1DD35CC80018A701 /* SlideMenuShowModels.swift */,
@@ -927,6 +939,7 @@
 		B1C94BBA1E37820400122933 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B10871511E379A4800374DD5 /* OmnieCard.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -943,6 +956,7 @@
 		B1C94BBC1E37821B00122933 /* View Model */ = {
 			isa = PBXGroup;
 			children = (
+				B10871531E379A9A00374DD5 /* OmnieCardViewModel.swift */,
 			);
 			path = "View Model";
 			sourceTree = "<group>";
@@ -1034,9 +1048,9 @@
 		B1CF546D1DDB508A00E98049 /* OmnieCardsShow */ = {
 			isa = PBXGroup;
 			children = (
+				B1C94BBA1E37820400122933 /* Model */,
 				B1C94BBC1E37821B00122933 /* View Model */,
 				B1C94BBB1E37821100122933 /* View */,
-				B1C94BBA1E37820400122933 /* Model */,
 				B1CF54A71DDB516E00E98049 /* OmnieCardsShowConfigurator.swift */,
 				B1CF54A81DDB516E00E98049 /* OmnieCardsShowInteractor.swift */,
 				B1CF54A91DDB516E00E98049 /* OmnieCardsShowModels.swift */,
@@ -1283,6 +1297,7 @@
 				B1CF54921DDB512000E98049 /* DiscountCardsShowConfigurator.swift in Sources */,
 				B1CF54871DDB50F100E98049 /* BusinessCardsShowPresenter.swift in Sources */,
 				B122DF651DF7F957003823AD /* CalendarShowModels.swift in Sources */,
+				B10871541E379A9A00374DD5 /* OmnieCardViewModel.swift in Sources */,
 				B1C94BC21E37825E00122933 /* BarCodeView.swift in Sources */,
 				B14107C71DFEB1D700F79CF9 /* CustomView.swift in Sources */,
 				B1CF54771DDB50D900E98049 /* AboutShowInteractor.swift in Sources */,
@@ -1411,6 +1426,7 @@
 				B14E97581DD8B052001E1DE2 /* SignUpShowModels.swift in Sources */,
 				B14E974B1DD8B042001E1DE2 /* SignInShowPresenter.swift in Sources */,
 				B1CF54941DDB512000E98049 /* DiscountCardsShowModels.swift in Sources */,
+				B10871521E379A4800374DD5 /* OmnieCard.swift in Sources */,
 				B14E975A1DD8B052001E1DE2 /* SignUpShowRouter.swift in Sources */,
 				B19DF2841DF94DCD000AFC92 /* CalendarViewController.swift in Sources */,
 				B11B9ADD1DF053BA009A4AA1 /* CustomImageView.swift in Sources */,

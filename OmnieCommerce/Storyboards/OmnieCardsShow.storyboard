@@ -190,7 +190,7 @@
                                 </variation>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Z8-aZ-gEE" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                                <rect key="frame" x="8" y="637.5" width="359" height="20.5"/>
+                                <rect key="frame" x="8" y="647.5" width="359" height="10.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -249,6 +249,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="RA6-Rp-ipT"/>
                     <connections>
+                        <outlet property="barcodeView" destination="pn8-T5-0ou" id="wBR-ah-10n"/>
                         <outlet property="copyrightLabel" destination="1Z8-aZ-gEE" id="FCT-bA-Rks"/>
                         <outlet property="smallTopBarView" destination="Qfb-kj-Smx" id="L0R-cV-1H1"/>
                     </connections>
@@ -264,7 +265,7 @@
                     <toolbarItems/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ZYn-Je-r4m">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="ZYn-Je-r4m">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

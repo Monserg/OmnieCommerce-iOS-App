@@ -107,7 +107,7 @@ extension SlideMenuShowViewController: UITableViewDataSource {
         let sectionDictionary = sectionArray[indexPath.row] as! NSDictionary
         
         cell.setup(menuItem: sectionDictionary)
-        
+                    
         cell.newEventButtonHandlerCompletion = { sender in
             if (sender.tag == 0) {
                 let ordersNC = UIStoryboard(name: "OrdersShow", bundle: nil).instantiateViewController(withIdentifier: "OrdersShowNC") as! BaseNavigationController

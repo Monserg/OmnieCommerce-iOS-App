@@ -37,6 +37,10 @@ class MenuViewCell: UITableViewCell {
         
         titleLabel.textColor = (menuItem.object(forKey: "isColor") as! Bool) ? UIColor.veryLightOrange : UIColor.veryLightGray
         
+        if ((menuItem.object(forKey: "name") as! String).hasPrefix("OmnieCards")) {
+            titleLabel.textColor = UIColor.lightGrayishCyan
+        }
+        
         if (menuItem.object(forKey: "hasNewEvent") as! Bool) {
             newEventButton.isHidden = false
             
@@ -44,6 +48,12 @@ class MenuViewCell: UITableViewCell {
         } else {
             newEventButton.isHidden = true
         }
+        
+        // Set selected color for Slide menu
+        let selectedView = UIView.init(frame: self.frame)
+        selectedView.backgroundColor = UIColor.veryDarkGrayishBlue38
+        
+        self.selectedBackgroundView = selectedView
     }
     
     func setupEvent(forMenuItem: NSDictionary) {

@@ -69,3 +69,25 @@
 "Services"              =   "Послуги";
 "Calendar"              =   "Календар";
 "Schedule"              =   "Графік";
+
+
+// Titles
+"Man"                   =   "Чоловік";
+"Female"                =   "Жінка";
+"Birthday"              =   "Дата народження";
+"Family status"         =   "Сімейний стан";
+"Not married"           =   "Не одружений";
+"Married"               =   "Одружений";
+"Children"              =   "Наявність дітей";
+"Children No"           =   "Немає дітей";
+"Children Yes"          =   "Є діти";
+"Pet"                   =   "Наявність домашньої тварини";
+"Pet No"                =   "Немає домашньої тварини";
+"Pet Yes"               =   "Є домашня тварина";
+
+
+// Alert actions
+"Photo"                 =   "Фотографія";
+"Photo upload"          =   "Загрузити нове фото";
+"Photo make"            =   "Зробити фото";
+"Photo delete"          =   "Удалити фото";
