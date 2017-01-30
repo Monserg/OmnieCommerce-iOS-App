@@ -117,6 +117,8 @@
 		B1597AC71E3F12BF00123CB5 /* PersonalTemplatesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1597AC51E3F12BF00123CB5 /* PersonalTemplatesViewController.swift */; };
 		B1597ACA1E3F161900123CB5 /* AvatarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1597AC91E3F161900123CB5 /* AvatarTableViewCell.swift */; };
 		B1597ACC1E3F162100123CB5 /* AvatarTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1597ACB1E3F162100123CB5 /* AvatarTableViewCell.xib */; };
+		B1597AD01E3F42B600123CB5 /* AvatarActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1597ACF1E3F42B600123CB5 /* AvatarActionView.swift */; };
+		B1597AD21E3F42BD00123CB5 /* AvatarActionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1597AD11E3F42BD00123CB5 /* AvatarActionView.xib */; };
 		B15FD40A1DD1DD8C00782324 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15FD4091DD1DD8C00782324 /* AppDelegate.swift */; };
 		B16E966F1DE6C94000147CEF /* BigTopBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16E966E1DE6C94000147CEF /* BigTopBarView.swift */; };
 		B16E96711DE6C94D00147CEF /* BigTopBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B16E96701DE6C94D00147CEF /* BigTopBarView.xib */; };
@@ -355,6 +357,8 @@
 		B1597AC51E3F12BF00123CB5 /* PersonalTemplatesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalTemplatesViewController.swift; sourceTree = "<group>"; };
 		B1597AC91E3F161900123CB5 /* AvatarTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvatarTableViewCell.swift; sourceTree = "<group>"; };
 		B1597ACB1E3F162100123CB5 /* AvatarTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AvatarTableViewCell.xib; sourceTree = "<group>"; };
+		B1597ACF1E3F42B600123CB5 /* AvatarActionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvatarActionView.swift; sourceTree = "<group>"; };
+		B1597AD11E3F42BD00123CB5 /* AvatarActionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AvatarActionView.xib; sourceTree = "<group>"; };
 		B15FD4061DD1DD8C00782324 /* OmnieCommerce.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OmnieCommerce.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B15FD4091DD1DD8C00782324 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B15FD4151DD1DD8C00782324 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Info.plist; sourceTree = "<group>"; };
@@ -861,6 +865,8 @@
 		B1597AC81E3F15D700123CB5 /* UIView */ = {
 			isa = PBXGroup;
 			children = (
+				B1597ACF1E3F42B600123CB5 /* AvatarActionView.swift */,
+				B1597AD11E3F42BD00123CB5 /* AvatarActionView.xib */,
 				B1597AC91E3F161900123CB5 /* AvatarTableViewCell.swift */,
 				B1597ACB1E3F162100123CB5 /* AvatarTableViewCell.xib */,
 			);
@@ -1220,6 +1226,7 @@
 				B1F7EDBA1DF54886003B36AD /* SegmentedControlView.xib in Resources */,
 				B1BF927C1DD6516C00BECBBB /* UBUNTU-L.TTF in Resources */,
 				B1BF927D1DD6516C00BECBBB /* UBUNTU-LI.TTF in Resources */,
+				B1597AD21E3F42BD00123CB5 /* AvatarActionView.xib in Resources */,
 				B1BF927E1DD6516C00BECBBB /* UBUNTU-M.TTF in Resources */,
 				B1BF927F1DD6516C00BECBBB /* UBUNTU-MI.TTF in Resources */,
 				B1BF92801DD6516C00BECBBB /* UBUNTU-R.TTF in Resources */,
@@ -1372,6 +1379,7 @@
 				B14E97641DD8B05E001E1DE2 /* ForgotPasswordShowConfigurator.swift in Sources */,
 				B1CF54881DDB50F100E98049 /* BusinessCardsShowRouter.swift in Sources */,
 				B122F2221DD35CC80018A701 /* SlideMenuShowConfigurator.swift in Sources */,
+				B1597AD01E3F42B600123CB5 /* AvatarActionView.swift in Sources */,
 				B14E974A1DD8B042001E1DE2 /* SignInShowModels.swift in Sources */,
 				B122F1E01DD35B760018A701 /* OrdersShowViewController.swift in Sources */,
 				B1CF54A01DDB515000E98049 /* HandbookShowConfigurator.swift in Sources */,

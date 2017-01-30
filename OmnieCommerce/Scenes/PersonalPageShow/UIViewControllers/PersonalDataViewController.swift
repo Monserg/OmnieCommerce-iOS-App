@@ -10,6 +10,8 @@ import UIKit
 
 class PersonalDataViewController: UIViewController {
     // MARK: - Properties
+    var actionView: AvatarActionView?
+    
     @IBOutlet weak var tableView: UITableView!
     
 
@@ -69,17 +71,37 @@ extension PersonalDataViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell = UITableViewCell()
-
         switch indexPath.section {
+        // AvatarTableViewCell
         case 0:
-            cell = PersonalPageShow.Cell.Avatar().setup(tableView: tableView)
-
-        default:
+            let cell: AvatarTableViewCell = PersonalPageShow.Cell.Avatar().setup(tableView: tableView)
+            
+            // Hnadler tap on Avatar photo
+            cell.handlerAvatarTapCompletion = { cellAvatar in
+                // Create & show action view
+                let avatarActionView = AvatarActionView.init(frame: CGRect.init(origin: CGPoint.zero, size: UIScreen.main.bounds.size))
+                avatarActionView.alpha = 0                
+                (UIApplication.shared.delegate as! AppDelegate).window!.addSubview(avatarActionView)
+                
+                UIView.animate(withDuration: 0.7, delay: 0, options: .curveEaseInOut, animations: {
+                    avatarActionView.alpha = 1
+                }, completion: { (success) in
+                    // Handler tap on cancel button in AvatarActionView
+                    avatarActionView.handlerCancelButtonTapComplition = { _ in
+                        UIView.animate(withDuration: 0.7, animations: {
+                            avatarActionView.alpha = 0
+                        }, completion: { (success) in
+                            avatarActionView.removeFromSuperview()
+                        })
+                    }
+                })
+            }
+            
             return cell
+            
+        default:
+            return UITableViewCell()
         }
-        
-        return cell
     }
 }
 

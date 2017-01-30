@@ -8,8 +8,12 @@
 
 import UIKit
 
+typealias HandlerAvatarTapCompletion = ((_ sender: AvatarTableViewCell) -> ())
+
 class AvatarTableViewCell: UITableViewCell {
     // MARK: - Properties
+    var handlerAvatarTapCompletion: HandlerAvatarTapCompletion?
+
 //    weak var viewModel: CityCellViewModel! {
 //        didSet {
 //            self.actionButton..text = viewModel.timeString
@@ -23,6 +27,6 @@ class AvatarTableViewCell: UITableViewCell {
     
     // MARK: - Actions
     @IBAction func handlerActionButtonTap(_ sender: CustomButton) {
-        print(object: #function)
+        handlerAvatarTapCompletion!(self)
     }
 }
