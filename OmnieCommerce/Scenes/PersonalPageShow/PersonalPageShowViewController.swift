@@ -58,8 +58,14 @@ class PersonalPageShowViewController: BaseViewController, PersonalPageShowViewCo
         topBarViewStyle = .Small
         setup(topBarView: smallTopBarView)
         
-        doSomethingOnLoad()
+        personalDataVC = UIStoryboard(name: "PersonalPageShow", bundle: nil).instantiateViewController(withIdentifier: "PersonalDataVC") as? PersonalDataViewController
+        personalTemplatesVC = UIStoryboard(name: "PersonalPageShow", bundle: nil).instantiateViewController(withIdentifier: "PersonalTemplatesVC") as? PersonalTemplatesViewController
         
+        activeViewController = personalDataVC
+        view.backgroundColor = UIColor.veryDarkDesaturatedBlue24
+
+        doSomethingOnLoad()
+
         setupSegmentedControlView()
     }
     

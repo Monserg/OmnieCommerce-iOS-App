@@ -28,6 +28,11 @@ class PersonalDataViewController: UIViewController {
     
     // MARK: - Custom Functions
     func didSetupTableView() {
+        tableView.register(UINib(nibName: PersonalPageShow.Cell.Avatar().cellIdentifier, bundle: nil), forCellReuseIdentifier: PersonalPageShow.Cell.Avatar().cellIdentifier)
+        
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 86
+        
         tableView.delegate = self
         tableView.dataSource = self
     }
@@ -37,22 +42,44 @@ class PersonalDataViewController: UIViewController {
 // MARK: - UITableViewDataSource
 extension PersonalDataViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 0
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
     
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        switch section {
+        // Avatar
+        case 0:
+            return 1
+
+        // Info
+        case 1:
+            return 5
+
+        // Gender & Birthday & Password & Buttons
+        case 2, 3, 5, 6:
+            return 1
+
+        // Expanded
+        case 4:
+            return 3
+
+        default:
+            return 0
+        }
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cellIdentifier = "Cell"
-        var cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) //as UITableViewCell
-        
-        if cell == nil {
-            cell = UINib(nibName: cellIdentifier, bundle: nil).instantiate(withOwner: nil, options: nil).first as! UITableViewCell?
+        var cell = UITableViewCell()
+
+        switch indexPath.section {
+        case 0:
+            cell = PersonalPageShow.Cell.Avatar().setup(tableView: tableView)
+
+        default:
+            return cell
         }
         
-        return cell!
+        return cell
     }
 }
 
@@ -60,7 +87,13 @@ extension PersonalDataViewController: UITableViewDataSource {
 // MARK: - UITableViewDelegate
 extension PersonalDataViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 44.0
+        switch indexPath.section {
+        case 0:
+            return 86.0
+        
+        default:
+            return 200.0
+        }
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {

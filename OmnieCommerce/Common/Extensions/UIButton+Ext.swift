@@ -16,6 +16,7 @@ enum ButtonStyle: String {
     case UnderlineColor = "UnderlineColor"
     case DropDownList = "DropDownList"
     case MenuEvent = "MenuEvent"
+    case Circular = "Circular"
 }
 
 
@@ -106,6 +107,12 @@ extension UIButton {
             cornerRadius = 5.0
             titleEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 0)
             imageEdgeInsets = UIEdgeInsetsMake(3, frame.width - 18 - borderWidth, 0, 0)
+        
+        case .Circular:
+            tintColor = UIColor.clear
+            borderColor = UIColor.clear
+            borderWidth = 0
+            cornerRadius = frame.size.height / 2        
         }
     }
     

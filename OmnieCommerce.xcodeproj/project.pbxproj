@@ -115,6 +115,8 @@
 		B152915F1DDEB8B500BBA1E0 /* CustomTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B152915E1DDEB8B500BBA1E0 /* CustomTableView.swift */; };
 		B1597AC61E3F12BF00123CB5 /* PersonalDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1597AC41E3F12BF00123CB5 /* PersonalDataViewController.swift */; };
 		B1597AC71E3F12BF00123CB5 /* PersonalTemplatesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1597AC51E3F12BF00123CB5 /* PersonalTemplatesViewController.swift */; };
+		B1597ACA1E3F161900123CB5 /* AvatarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1597AC91E3F161900123CB5 /* AvatarTableViewCell.swift */; };
+		B1597ACC1E3F162100123CB5 /* AvatarTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1597ACB1E3F162100123CB5 /* AvatarTableViewCell.xib */; };
 		B15FD40A1DD1DD8C00782324 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15FD4091DD1DD8C00782324 /* AppDelegate.swift */; };
 		B16E966F1DE6C94000147CEF /* BigTopBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16E966E1DE6C94000147CEF /* BigTopBarView.swift */; };
 		B16E96711DE6C94D00147CEF /* BigTopBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B16E96701DE6C94D00147CEF /* BigTopBarView.xib */; };
@@ -351,6 +353,8 @@
 		B152915E1DDEB8B500BBA1E0 /* CustomTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableView.swift; sourceTree = "<group>"; };
 		B1597AC41E3F12BF00123CB5 /* PersonalDataViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalDataViewController.swift; sourceTree = "<group>"; };
 		B1597AC51E3F12BF00123CB5 /* PersonalTemplatesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalTemplatesViewController.swift; sourceTree = "<group>"; };
+		B1597AC91E3F161900123CB5 /* AvatarTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvatarTableViewCell.swift; sourceTree = "<group>"; };
+		B1597ACB1E3F162100123CB5 /* AvatarTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AvatarTableViewCell.xib; sourceTree = "<group>"; };
 		B15FD4061DD1DD8C00782324 /* OmnieCommerce.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OmnieCommerce.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B15FD4091DD1DD8C00782324 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B15FD4151DD1DD8C00782324 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Info.plist; sourceTree = "<group>"; };
@@ -854,6 +858,15 @@
 			path = UIViewControllers;
 			sourceTree = "<group>";
 		};
+		B1597AC81E3F15D700123CB5 /* UIView */ = {
+			isa = PBXGroup;
+			children = (
+				B1597AC91E3F161900123CB5 /* AvatarTableViewCell.swift */,
+				B1597ACB1E3F162100123CB5 /* AvatarTableViewCell.xib */,
+			);
+			path = UIView;
+			sourceTree = "<group>";
+		};
 		B15FD3FD1DD1DD8C00782324 = {
 			isa = PBXGroup;
 			children = (
@@ -1019,6 +1032,7 @@
 		B1CF546A1DDB505800E98049 /* PersonalPageShow */ = {
 			isa = PBXGroup;
 			children = (
+				B1597AC81E3F15D700123CB5 /* UIView */,
 				B1597ABF1E3F0AAD00123CB5 /* UIViewControllers */,
 				B1CF54C31DDB51A500E98049 /* PersonalPageShowConfigurator.swift */,
 				B1CF54C41DDB51A500E98049 /* PersonalPageShowInteractor.swift */,
@@ -1179,6 +1193,7 @@
 				B14107C51DFEA73900F79CF9 /* CalendarDayCellView.xib in Resources */,
 				B1BF926E1DD6516C00BECBBB /* helveticaneuecyr-italic.otf in Resources */,
 				B1BF926F1DD6516C00BECBBB /* helveticaneuecyr-light.otf in Resources */,
+				B1597ACC1E3F162100123CB5 /* AvatarTableViewCell.xib in Resources */,
 				B152915D1DDE44B700BBA1E0 /* MenuSectionFooterView.xib in Resources */,
 				B1BF92701DD6516C00BECBBB /* helveticaneuecyr-lightitalic.otf in Resources */,
 				B1BF92711DD6516C00BECBBB /* helveticaneuecyr-medium.otf in Resources */,
@@ -1370,6 +1385,7 @@
 				B19DF2861DF94DED000AFC92 /* SchedulerViewController.swift in Sources */,
 				B1CF54CE1DDB51A500E98049 /* PersonalPageShowRouter.swift in Sources */,
 				B18A45CA1DEC282B003EBD2F /* DotView.swift in Sources */,
+				B1597ACA1E3F161900123CB5 /* AvatarTableViewCell.swift in Sources */,
 				B1CF54AF1DDB516E00E98049 /* OmnieCardsShowInteractor.swift in Sources */,
 				B122F2151DD35C2C0018A701 /* NewsShowModels.swift in Sources */,
 				B14D89511DF6CFF800AF3AED /* Message.swift in Sources */,

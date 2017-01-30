@@ -23,4 +23,14 @@ struct PersonalPageShow {
         struct ViewModel {
         }
     }
+
+    struct Cell {
+        struct Avatar {
+            let cellIdentifier: String = String(describing: AvatarTableViewCell.self)
+            
+            func setup(tableView: UITableView) -> AvatarTableViewCell {
+                return tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as! AvatarTableViewCell
+            }
+        }
+    }
 }

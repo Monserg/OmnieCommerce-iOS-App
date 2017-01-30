@@ -8,8 +8,6 @@
 
 import UIKit
 
-
-
 extension UIView {
     // MARK: - Properties
     @IBInspectable var cornerRadius: CGFloat {
