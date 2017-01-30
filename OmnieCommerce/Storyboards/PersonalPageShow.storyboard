@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -55,6 +55,9 @@
                                     <constraint firstAttribute="height" constant="50" id="d7q-lb-z7a"/>
                                 </constraints>
                             </view>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aKH-YG-AUK">
+                                <rect key="frame" x="0.0" y="145" width="375" height="493"/>
+                            </containerView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ASc-N1-FS2" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
                                 <rect key="frame" x="8" y="647" width="359" height="10.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -69,6 +72,8 @@
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="08z-zS-Fzg" secondAttribute="trailing" id="8B0-PH-C6O"/>
                             <constraint firstItem="C6T-NV-zxA" firstAttribute="leading" secondItem="WeC-xT-hwP" secondAttribute="leading" id="9Yw-86-iID"/>
+                            <constraint firstItem="aKH-YG-AUK" firstAttribute="leading" secondItem="WeC-xT-hwP" secondAttribute="leading" id="BZ5-ZN-yuG"/>
+                            <constraint firstItem="aKH-YG-AUK" firstAttribute="top" secondItem="C6T-NV-zxA" secondAttribute="bottom" id="Chm-FE-b1c"/>
                             <constraint firstItem="ASc-N1-FS2" firstAttribute="leading" secondItem="WeC-xT-hwP" secondAttribute="leading" constant="8" id="L1B-DT-fEK"/>
                             <constraint firstAttribute="trailing" secondItem="C6T-NV-zxA" secondAttribute="trailing" id="LnA-QL-iBU"/>
                             <constraint firstItem="08z-zS-Fzg" firstAttribute="leading" secondItem="WeC-xT-hwP" secondAttribute="leading" id="NVt-r3-ud2"/>
@@ -77,12 +82,15 @@
                                 <variation key="heightClass=compact-widthClass=regular" constant="0.0"/>
                             </constraint>
                             <constraint firstAttribute="trailing" secondItem="ASc-N1-FS2" secondAttribute="trailing" constant="8" id="Twb-8R-nxq"/>
+                            <constraint firstItem="ASc-N1-FS2" firstAttribute="top" secondItem="aKH-YG-AUK" secondAttribute="bottom" constant="9" id="V5B-If-ngj"/>
                             <constraint firstItem="C6T-NV-zxA" firstAttribute="top" secondItem="08z-zS-Fzg" secondAttribute="bottom" id="XGD-PV-ATX"/>
                             <constraint firstAttribute="bottom" secondItem="ASc-N1-FS2" secondAttribute="bottom" constant="9" id="imL-6g-csA"/>
+                            <constraint firstAttribute="trailing" secondItem="aKH-YG-AUK" secondAttribute="trailing" id="tJi-Xf-D2U"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="HKj-PK-W47"/>
                     <connections>
+                        <outlet property="containerView" destination="aKH-YG-AUK" id="JIK-fo-eVJ"/>
                         <outlet property="copyrightLabel" destination="ASc-N1-FS2" id="Z9Q-9I-Pv1"/>
                         <outlet property="segmentedControlView" destination="AJk-0S-k6N" id="hAD-b3-gvO"/>
                         <outlet property="smallTopBarView" destination="08z-zS-Fzg" id="wbC-t6-RHH"/>
@@ -92,13 +100,65 @@
             </objects>
             <point key="canvasLocation" x="1356" y="183.95802098950526"/>
         </scene>
+        <!--Personal Data View Controller-->
+        <scene sceneID="VnL-Oy-V0r">
+            <objects>
+                <viewController storyboardIdentifier="PersonalDataVC" id="u2e-8n-dCv" customClass="PersonalDataViewController" customModule="OmnieCommerce" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="rw9-eO-7OH"/>
+                        <viewControllerLayoutGuide type="bottom" id="GdQ-73-RdB"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="G9m-Iz-XbO">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fmF-t9-9RW">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="fmF-t9-9RW" secondAttribute="bottom" id="05e-d5-97e"/>
+                            <constraint firstAttribute="trailing" secondItem="fmF-t9-9RW" secondAttribute="trailing" id="7p4-2a-uYo"/>
+                            <constraint firstItem="fmF-t9-9RW" firstAttribute="leading" secondItem="G9m-Iz-XbO" secondAttribute="leading" id="9NN-Ia-zwB"/>
+                            <constraint firstItem="fmF-t9-9RW" firstAttribute="top" secondItem="G9m-Iz-XbO" secondAttribute="top" id="iRG-LX-NHR"/>
+                        </constraints>
+                    </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <connections>
+                        <outlet property="tableView" destination="fmF-t9-9RW" id="PwT-Db-Jh5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tT2-pu-ECl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2158" y="184"/>
+        </scene>
+        <!--Personal Templates View Controller-->
+        <scene sceneID="Cxn-tU-8GS">
+            <objects>
+                <viewController storyboardIdentifier="PersonalTemplatesVC" id="QYa-PL-EXY" customClass="PersonalTemplatesViewController" customModule="OmnieCommerce" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Ur7-YW-tiU"/>
+                        <viewControllerLayoutGuide type="bottom" id="aMi-Wd-BPW"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="O1B-vT-ch7">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VAh-R3-itP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2977" y="184"/>
+        </scene>
         <!--Base Navigation Controller-->
         <scene sceneID="68z-bj-IVW">
             <objects>
                 <navigationController storyboardIdentifier="PersonalPageShowNC" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="5ua-Ud-9pH" customClass="BaseNavigationController" customModule="OmnieCommerce" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="rDE-36-aLe">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="rDE-36-aLe">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -109,7 +169,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kcq-Vv-VnZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="416.80000000000001" y="183.95802098950526"/>
+            <point key="canvasLocation" x="553" y="184"/>
         </scene>
     </scenes>
 </document>

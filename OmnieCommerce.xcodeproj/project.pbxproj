@@ -113,6 +113,8 @@
 		B152915B1DDE44A200BBA1E0 /* MenuSectionFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B152915A1DDE44A200BBA1E0 /* MenuSectionFooterView.swift */; };
 		B152915D1DDE44B700BBA1E0 /* MenuSectionFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B152915C1DDE44B700BBA1E0 /* MenuSectionFooterView.xib */; };
 		B152915F1DDEB8B500BBA1E0 /* CustomTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B152915E1DDEB8B500BBA1E0 /* CustomTableView.swift */; };
+		B1597AC61E3F12BF00123CB5 /* PersonalDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1597AC41E3F12BF00123CB5 /* PersonalDataViewController.swift */; };
+		B1597AC71E3F12BF00123CB5 /* PersonalTemplatesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1597AC51E3F12BF00123CB5 /* PersonalTemplatesViewController.swift */; };
 		B15FD40A1DD1DD8C00782324 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15FD4091DD1DD8C00782324 /* AppDelegate.swift */; };
 		B16E966F1DE6C94000147CEF /* BigTopBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16E966E1DE6C94000147CEF /* BigTopBarView.swift */; };
 		B16E96711DE6C94D00147CEF /* BigTopBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B16E96701DE6C94D00147CEF /* BigTopBarView.xib */; };
@@ -347,6 +349,8 @@
 		B152915A1DDE44A200BBA1E0 /* MenuSectionFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuSectionFooterView.swift; sourceTree = "<group>"; };
 		B152915C1DDE44B700BBA1E0 /* MenuSectionFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuSectionFooterView.xib; sourceTree = "<group>"; };
 		B152915E1DDEB8B500BBA1E0 /* CustomTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableView.swift; sourceTree = "<group>"; };
+		B1597AC41E3F12BF00123CB5 /* PersonalDataViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalDataViewController.swift; sourceTree = "<group>"; };
+		B1597AC51E3F12BF00123CB5 /* PersonalTemplatesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalTemplatesViewController.swift; sourceTree = "<group>"; };
 		B15FD4061DD1DD8C00782324 /* OmnieCommerce.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OmnieCommerce.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B15FD4091DD1DD8C00782324 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B15FD4151DD1DD8C00782324 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Info.plist; sourceTree = "<group>"; };
@@ -841,6 +845,15 @@
 			path = ForgotPasswordShow;
 			sourceTree = "<group>";
 		};
+		B1597ABF1E3F0AAD00123CB5 /* UIViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				B1597AC41E3F12BF00123CB5 /* PersonalDataViewController.swift */,
+				B1597AC51E3F12BF00123CB5 /* PersonalTemplatesViewController.swift */,
+			);
+			path = UIViewControllers;
+			sourceTree = "<group>";
+		};
 		B15FD3FD1DD1DD8C00782324 = {
 			isa = PBXGroup;
 			children = (
@@ -1006,6 +1019,7 @@
 		B1CF546A1DDB505800E98049 /* PersonalPageShow */ = {
 			isa = PBXGroup;
 			children = (
+				B1597ABF1E3F0AAD00123CB5 /* UIViewControllers */,
 				B1CF54C31DDB51A500E98049 /* PersonalPageShowConfigurator.swift */,
 				B1CF54C41DDB51A500E98049 /* PersonalPageShowInteractor.swift */,
 				B1CF54C51DDB51A500E98049 /* PersonalPageShowModels.swift */,
@@ -1322,6 +1336,7 @@
 				B1CF548A1DDB50F100E98049 /* BusinessCardsShowWorker.swift in Sources */,
 				B122F1E11DD35B760018A701 /* OrdersShowWorker.swift in Sources */,
 				B122F2191DD35C2C0018A701 /* NewsShowWorker.swift in Sources */,
+				B1597AC61E3F12BF00123CB5 /* PersonalDataViewController.swift in Sources */,
 				B1CF54641DDAE78200E98049 /* CustomButton.swift in Sources */,
 				B122DF691DF7F957003823AD /* CalendarShowWorker.swift in Sources */,
 				B122F1ED1DD35BA70018A701 /* MessagesShowRouter.swift in Sources */,
@@ -1375,6 +1390,7 @@
 				B14E975B1DD8B052001E1DE2 /* SignUpShowViewController.swift in Sources */,
 				B1CF54A11DDB515000E98049 /* HandbookShowInteractor.swift in Sources */,
 				B17323CA1DED84FF003A8D3E /* CustomCollectionViewCell.swift in Sources */,
+				B1597AC71E3F12BF00123CB5 /* PersonalTemplatesViewController.swift in Sources */,
 				B1CF54CF1DDB51A500E98049 /* PersonalPageShowViewController.swift in Sources */,
 				B14107C41DFEA73900F79CF9 /* CalendarDayCellView.swift in Sources */,
 				B1228FBA1DD49ED400A90FBB /* BaseViewController.swift in Sources */,
