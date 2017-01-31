@@ -55,6 +55,7 @@
 
 // TextField Placeholders
 "Name"                  =   "Name";
+"Surname"               =   "Surname";
 "Password"              =   "Password";
 "Email"                 =   "Email";
 "Phone or Email"        =   "Phone or Email";

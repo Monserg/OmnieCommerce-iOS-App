@@ -41,6 +41,8 @@
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 <constraints>
+                    <constraint firstItem="X5G-rm-moK" firstAttribute="centerX" secondItem="QEf-At-hlx" secondAttribute="centerX" id="Nwm-Aa-Fi5"/>
+                    <constraint firstItem="X5G-rm-moK" firstAttribute="top" secondItem="QEf-At-hlx" secondAttribute="top" id="Vma-Xa-NZu"/>
                     <constraint firstItem="X5G-rm-moK" firstAttribute="centerY" secondItem="QEf-At-hlx" secondAttribute="centerY" id="YPH-vW-lLT"/>
                     <constraint firstItem="X5G-rm-moK" firstAttribute="centerX" secondItem="QEf-At-hlx" secondAttribute="centerX" id="Ycc-Xy-Jbz"/>
                 </constraints>

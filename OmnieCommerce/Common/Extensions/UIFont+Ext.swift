@@ -9,9 +9,9 @@
 import UIKit
 
 extension UIFont {
-    open class var ubuntuLight9: UIFont {
+    open class var ubuntuLight09: UIFont {
         set {
-            self.ubuntuLight9 = UIFont(name: "Ubuntu-Light", size: 9.0)!
+            self.ubuntuLight09 = UIFont(name: "Ubuntu-Light", size: 9.0)!
         }
         
         get {
@@ -39,9 +39,9 @@ extension UIFont {
         }
     }
     
-    open class var ubuntuLightItalic9: UIFont {
+    open class var ubuntuLightItalic09: UIFont {
         set {
-            self.ubuntuLightItalic9 = UIFont(name: "Ubuntu-LightItalic", size: 9.0)!
+            self.ubuntuLightItalic09 = UIFont(name: "Ubuntu-LightItalic", size: 9.0)!
         }
         
         get {

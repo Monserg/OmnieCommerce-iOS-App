@@ -53,7 +53,7 @@ extension UILabel {
             textColor = (Config.Constants.isAppThemesLight) ? UIColor.white : UIColor.veryLightGray
             
         case .Copyright:
-            font = (Config.Constants.isAppThemesLight) ? UIFont.systemFont(ofSize: 12) : UIFont.ubuntuLight9
+            font = (Config.Constants.isAppThemesLight) ? UIFont.systemFont(ofSize: 12) : UIFont.ubuntuLight09
             textColor = (Config.Constants.isAppThemesLight) ? UIColor.white : UIColor.darkCyan
             text = "\u{00A9} Omniesoft, 2016"
             
@@ -74,11 +74,11 @@ extension UILabel {
             textColor = (Config.Constants.isAppThemesLight) ? UIColor.white : UIColor.veryDarkGray
 
         case .Date:
-            font = (Config.Constants.isAppThemesLight) ? UIFont.systemFont(ofSize: 12) : UIFont.ubuntuLight9
+            font = (Config.Constants.isAppThemesLight) ? UIFont.systemFont(ofSize: 12) : UIFont.ubuntuLight09
             textColor = (Config.Constants.isAppThemesLight) ? UIColor.white : UIColor.veryDarkGrayishBlue53
 
         case .DateItalic:
-            font = (Config.Constants.isAppThemesLight) ? UIFont.systemFont(ofSize: 9) : UIFont.ubuntuLightItalic9
+            font = (Config.Constants.isAppThemesLight) ? UIFont.systemFont(ofSize: 9) : UIFont.ubuntuLightItalic09
             textColor = (Config.Constants.isAppThemesLight) ? UIColor.white : UIColor.veryDarkGrayishBlue53
 
         case .Describe:
@@ -86,7 +86,7 @@ extension UILabel {
             textColor = (Config.Constants.isAppThemesLight) ? UIColor.white : UIColor.lightGrayishCyan
             
         case .Message:
-            font = (Config.Constants.isAppThemesLight) ? UIFont.systemFont(ofSize: 9) : UIFont.ubuntuLightItalic9
+            font = (Config.Constants.isAppThemesLight) ? UIFont.systemFont(ofSize: 9) : UIFont.ubuntuLightItalic09
             textColor = (Config.Constants.isAppThemesLight) ? UIColor.white : UIColor.lightGrayishCyan
             
         case .FromTo:

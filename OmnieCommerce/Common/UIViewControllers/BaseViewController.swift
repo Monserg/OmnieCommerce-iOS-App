@@ -77,13 +77,13 @@ class BaseViewController: UIViewController {
             if (NSStringFromClass(type(of: self)).hasSuffix("ForgotPasswordShowViewController")) {
                 let forgotPasswordShowVC = self as! ForgotPasswordShowViewController
 
-                if (!forgotPasswordShowVC.phoneEmailTextField.isValidEmail(forgotPasswordShowVC.phoneEmailTextField.text!) && !(forgotPasswordShowVC.phoneEmailTextField.text?.isEmpty)!) {
+                if (!forgotPasswordShowVC.phoneEmailTextField.validateEmailPhone(forgotPasswordShowVC.phoneEmailTextField.text!) && !(forgotPasswordShowVC.phoneEmailTextField.text?.isEmpty)!) {
                     forgotPasswordShowVC.phoneEmailErrorLabel.isHidden = false
                 }
             } else if (NSStringFromClass(type(of: self)).hasSuffix("SignUpShowViewController")) {
                 let signUpShowVC = self as! SignUpShowViewController
                 
-                if (!signUpShowVC.emailTextField.isValidEmail(signUpShowVC.emailTextField.text!) && !(signUpShowVC.emailTextField.text?.isEmpty)!) {
+                if (!signUpShowVC.emailTextField.validateEmailPhone(signUpShowVC.emailTextField.text!) && !(signUpShowVC.emailTextField.text?.isEmpty)!) {
                     signUpShowVC.emailErrorLabel.isHidden = false
                 }
             }
@@ -243,7 +243,7 @@ extension BaseViewController: UITextFieldDelegate {
             if textField == signUpShowVC.nameTextField {
                 signUpShowVC.emailTextField.becomeFirstResponder()
             } else if textField == signUpShowVC.emailTextField {
-                if (textField.isValidEmail(textField.text!)) {
+                if (textField.validateEmailPhone(textField.text!)) {
                     signUpShowVC.emailErrorLabel.isHidden = true
                     signUpShowVC.passwordTextField.becomeFirstResponder()
                 } else {
@@ -260,7 +260,7 @@ extension BaseViewController: UITextFieldDelegate {
         else if (NSStringFromClass(type(of: self)).hasSuffix("ForgotPasswordShowViewController")) {
             let forgotPasswordShowVC = self as! ForgotPasswordShowViewController
             
-            if (textField.isValidEmail(textField.text!)) {
+            if (textField.validateEmailPhone(textField.text!)) {
                 forgotPasswordShowVC.phoneEmailErrorLabel.isHidden = true
                 textField.resignFirstResponder()
                 

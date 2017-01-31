@@ -19,25 +19,25 @@ import UIKit
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        UINib(nibName: String(describing: BigTopBarView.self), bundle: Bundle(for: BigTopBarView.self)).instantiate(withOwner: self, options: nil)
-        addSubview(view)
-        view.frame = frame
-
-        print(object: "\(type(of: self)): \(#function) run. Initialization view.frame = \(view.frame)")
+        createFromXIB()
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
+        createFromXIB()
+    }
+    
+    
+    // MARK: - Class Functions
+    func createFromXIB() {
         UINib(nibName: String(describing: BigTopBarView.self), bundle: Bundle(for: BigTopBarView.self)).instantiate(withOwner: self, options: nil)
         addSubview(view)
         view.frame = frame
         
         print(object: "\(type(of: self)): \(#function) run. Initialization view.frame = \(view.frame)")
     }
-    
-    
-    // MARK: - Class Functions
+
     override func draw(_ rect: CGRect) {
         print(object: "\(type(of: self)): \(#function) run. Rect = \(rect)")
         

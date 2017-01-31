@@ -55,6 +55,7 @@
 
 // TextField Placeholders
 "Name"                  =   "Имя";
+"Surname"               =   "Фамилия";
 "Password"              =   "Пароль";
 "Email"                 =   "Email";
 "Phone or Email"        =   "Телефон или Email";

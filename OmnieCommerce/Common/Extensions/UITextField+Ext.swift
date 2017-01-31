@@ -8,45 +8,78 @@
 
 import UIKit
 
-enum TextFieldStyle: String {
-    case darkCyan = "DarkCyan"
-    case grayishBlue = "GrayishBlue"
+//enum TextFieldStyle: String {
+//    case darkCyan = "DarkCyan"
+//    case grayishBlue = "GrayishBlue"
+//}
+//
+enum FieldType: String {
+    case None           =   "None"
+    case Name           =   "Name"
+    case Password       =   "Password"
+    case Phone          =   "Phone"
+    case Email          =   "Email"
+    case PhoneEmail     =   "PhoneEmail"
 }
-
 
 extension UITextField {
     // MARK: - Properties
-    @IBInspectable var textFieldStyle: String? {
-        set { setupWithStyleNamed(newValue) }
+    @IBInspectable var fieldType: String? {
+        set { setupWithTypeNamed(newValue) }
         get { return nil }
     }
 
     
     // MARK: - Custom Functions
-    func setupWithStyleNamed(_ named: String?) {
-        if let styleName = named, let textFieldStyle = TextFieldStyle(rawValue: styleName) {
-            setupWithStyle(textFieldStyle)
+    func setupWithTypeNamed(_ named: String?) {
+        if let typeName = named, let fieldType = FieldType(rawValue: typeName) {
+            setupWithType(fieldType)
         }
     }
     
-    func setupWithStyle(_ textFieldStyle: TextFieldStyle) {
+    func setupWithType(_ fieldType: FieldType) {
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.firstLineHeadIndent = 0
 
-        switch textFieldStyle {
-        case .grayishBlue:
-            self.attributedPlaceholder = NSAttributedString(string: (self.placeholder?.localized())!, attributes: [NSFontAttributeName :  UIFont.ubuntuLightItalic16, NSForegroundColorAttributeName : UIColor.grayishBlue, NSKernAttributeName : 0.0, NSParagraphStyleAttributeName : paragraphStyle])
+        // Text design: Ubuntu-Light, 12 or 16, #dedede
+        font = (Config.Constants.isAppThemesLight) ? UIFont.systemFont(ofSize: 12) : ((font?.pointSize == 12) ? UIFont.ubuntuLight12 : UIFont.ubuntuLight16)
+        textColor = (Config.Constants.isAppThemesLight) ? UIColor.blue : UIColor.veryLightGray
+        tintColor = (Config.Constants.isAppThemesLight) ? UIColor.blue : UIColor.veryLightGray
+        keyboardAppearance = (Config.Constants.isAppThemesLight) ? .dark : .light
+
+        // Placeholder design
+        attributedPlaceholder = NSAttributedString(string: (placeholder?.localized())!, attributes: [NSFontAttributeName:  (font?.pointSize == 12) ? UIFont.ubuntuLightItalic12 : UIFont.ubuntuLightItalic16, NSForegroundColorAttributeName: UIColor.darkCyan, NSKernAttributeName: 0.0, NSParagraphStyleAttributeName: paragraphStyle])
+        
+        
+        // Keyboards & any other settings
+        switch fieldType {
+        // Name
+        case .Name:
+            print(object: #function)
+
             
-            self.font = UIFont.ubuntuLightItalic16
-            self.textColor = UIColor.grayishBlue
-            self.tintColor = UIColor.grayishBlue
+        // Password
+        case .Password:
+            print(object: #function)
             
-        case .darkCyan:
-            attributedPlaceholder = NSAttributedString(string: (placeholder?.localized())!, attributes: [NSFontAttributeName :  UIFont.ubuntuLightItalic16, NSForegroundColorAttributeName : UIColor.darkCyan, NSKernAttributeName : 0.0, NSParagraphStyleAttributeName : paragraphStyle])
             
-            font = (Config.Constants.isAppThemesLight) ? UIFont.systemFont(ofSize: 12) : UIFont.ubuntuLightItalic16
-            textColor = (Config.Constants.isAppThemesLight) ? UIColor.blue : UIColor.darkCyan
-            tintColor = (Config.Constants.isAppThemesLight) ? UIColor.blue : UIColor.darkCyan
+        // Phone
+        case .Phone:
+            print(object: #function)
+            
+            
+        // Email
+        case .Email:
+            print(object: #function)
+            
+            
+        // PhoneEmail:
+        case .PhoneEmail:
+            print(object: #function)
+            
+            
+        default:
+            break
         }
         
         changeClearButtonColor()
@@ -66,12 +99,21 @@ extension UITextField {
         }
     }
     
-    func isValidEmail(_ email: String) -> Bool {
+    func validateEmailPhone(_ value: String) -> Bool {
+        // Validate Email
         let emailRegEx = "^(?:(?:(?:(?: )*(?:(?:(?:\\t| )*\\r\\n)?(?:\\t| )+))+(?: )*)|(?: )+)?(?:(?:(?:[-A-Za-z0-9!#$%&’*+/=?^_'{|}~]+(?:\\.[-A-Za-z0-9!#$%&’*+/=?^_'{|}~]+)*)|(?:\"(?:(?:(?:(?: )*(?:(?:[!#-Z^-~]|\\[|\\])|(?:\\\\(?:\\t|[ -~]))))+(?: )*)|(?: )+)\"))(?:@)(?:(?:(?:[A-Za-z0-9](?:[-A-Za-z0-9]{0,61}[A-Za-z0-9])?)(?:\\.[A-Za-z0-9](?:[-A-Za-z0-9]{0,61}[A-Za-z0-9])?)*)|(?:\\[(?:(?:(?:(?:(?:[0-9]|(?:[1-9][0-9])|(?:1[0-9][0-9])|(?:2[0-4][0-9])|(?:25[0-5]))\\.){3}(?:[0-9]|(?:[1-9][0-9])|(?:1[0-9][0-9])|(?:2[0-4][0-9])|(?:25[0-5]))))|(?:(?:(?: )*[!-Z^-~])*(?: )*)|(?:[Vv][0-9A-Fa-f]+\\.[-A-Za-z0-9._~!$&'()*+,;=:]+))\\])))(?:(?:(?:(?: )*(?:(?:(?:\\t| )*\\r\\n)?(?:\\t| )+))+(?: )*)|(?: )+)?$"
         let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
-        let result = emailTest.evaluate(with: email)
+        let resultEmail = emailTest.evaluate(with: value)
         
-        return result
+        // Validate Phone number
+        let charcterSet  = NSCharacterSet(charactersIn: "+0123456789").inverted
+        let inputString = value.components(separatedBy: charcterSet)
+        let filtered = inputString.joined(separator: "")
+        let resultPhone = value == filtered
+
+        print(object: "resultEmail = \(resultEmail) and resultPhone = \(resultPhone)")
+        
+        return resultEmail || resultPhone
     }
 }
 
