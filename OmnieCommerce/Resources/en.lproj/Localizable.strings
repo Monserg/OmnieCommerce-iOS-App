@@ -28,6 +28,7 @@
 "Not yet registered?"   =   "Not yet registered?";
 "Forgot Password"       =   "Forgot Password";
 "Phone or email error"  =   "* wrong Phone number or Email";
+"Phone error"           =   "* wrong Phone number";
 "Email error"           =   "* wrong Email";
 "Auto Service"          =   "Auto Service";
 "Health"                =   "Health";
@@ -58,6 +59,7 @@
 "Surname"               =   "Surname";
 "Password"              =   "Password";
 "Email"                 =   "Email";
+"Phone"                 =   "Phone";
 "Phone or Email"        =   "Phone or Email";
 
 

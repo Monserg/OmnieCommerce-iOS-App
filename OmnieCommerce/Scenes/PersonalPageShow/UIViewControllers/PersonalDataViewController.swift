@@ -17,7 +17,9 @@ class PersonalDataViewController: UIViewController {
     @IBOutlet weak var nameTextField: CustomTextField!
     @IBOutlet weak var surnameTextField: CustomTextField!
     @IBOutlet weak var emailTextField: CustomTextField!
-    
+    @IBOutlet weak var emailErrorLabel: CustomLabel!
+    @IBOutlet weak var phoneTextField: CustomTextField!
+    @IBOutlet weak var phoneErrorLabel: CustomLabel!
 
     // MARK: - Class Functions
     override func viewDidLoad() {

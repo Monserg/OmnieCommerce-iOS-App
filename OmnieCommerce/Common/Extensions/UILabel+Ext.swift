@@ -45,7 +45,7 @@ extension UILabel {
         
         switch labelStyle {
         case .Error:
-            font = (Config.Constants.isAppThemesLight) ? UIFont.systemFont(ofSize: 12) : UIFont.ubuntuLightItalic12
+            font = (Config.Constants.isAppThemesLight) ? UIFont.systemFont(ofSize: 12) : ((font!.pointSize == 12) ? UIFont.ubuntuLightItalic12 : UIFont.ubuntuLightItalic10)
             textColor = (Config.Constants.isAppThemesLight) ? UIColor.white : UIColor.moderateRed
             
         case .Title:

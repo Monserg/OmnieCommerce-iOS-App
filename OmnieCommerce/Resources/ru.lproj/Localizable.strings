@@ -28,6 +28,7 @@
 "Not yet registered?"   =   "Ещё не зарегистрированы?";
 "Forgot Password"       =   "Забыли пароль";
 "Phone or email error"  =   "* неправильный номер или Email";
+"Phone error"           =   "* неправильный номер";
 "Email error"           =   "* неправильный Email";
 "Auto Service"          =   "Автосервис";
 "Health"                =   "Здоровье";
@@ -58,6 +59,7 @@
 "Surname"               =   "Фамилия";
 "Password"              =   "Пароль";
 "Email"                 =   "Email";
+"Phone"                 =   "Телефон";
 "Phone or Email"        =   "Телефон или Email";
 
 
