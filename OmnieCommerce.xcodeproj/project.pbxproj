@@ -119,6 +119,7 @@
 		B1597ACC1E3F162100123CB5 /* AvatarTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1597ACB1E3F162100123CB5 /* AvatarTableViewCell.xib */; };
 		B1597AD01E3F42B600123CB5 /* AvatarActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1597ACF1E3F42B600123CB5 /* AvatarActionView.swift */; };
 		B1597AD21E3F42BD00123CB5 /* AvatarActionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1597AD11E3F42BD00123CB5 /* AvatarActionView.xib */; };
+		B1597AD41E3FA91400123CB5 /* EllipseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1597AD31E3FA91400123CB5 /* EllipseView.swift */; };
 		B15FD40A1DD1DD8C00782324 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15FD4091DD1DD8C00782324 /* AppDelegate.swift */; };
 		B16E966F1DE6C94000147CEF /* BigTopBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16E966E1DE6C94000147CEF /* BigTopBarView.swift */; };
 		B16E96711DE6C94D00147CEF /* BigTopBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B16E96701DE6C94D00147CEF /* BigTopBarView.xib */; };
@@ -359,6 +360,7 @@
 		B1597ACB1E3F162100123CB5 /* AvatarTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AvatarTableViewCell.xib; sourceTree = "<group>"; };
 		B1597ACF1E3F42B600123CB5 /* AvatarActionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvatarActionView.swift; sourceTree = "<group>"; };
 		B1597AD11E3F42BD00123CB5 /* AvatarActionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AvatarActionView.xib; sourceTree = "<group>"; };
+		B1597AD31E3FA91400123CB5 /* EllipseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EllipseView.swift; sourceTree = "<group>"; };
 		B15FD4061DD1DD8C00782324 /* OmnieCommerce.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OmnieCommerce.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B15FD4091DD1DD8C00782324 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B15FD4151DD1DD8C00782324 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Info.plist; sourceTree = "<group>"; };
@@ -548,6 +550,7 @@
 				B1F7EDB91DF54886003B36AD /* SegmentedControlView.xib */,
 				B122DF6A1DF804CD003823AD /* SegmentedControlViewLandscape.xib */,
 				B18A45CB1DEC3918003EBD2F /* SmallCirleView.swift */,
+				B1597AD31E3FA91400123CB5 /* EllipseView.swift */,
 				B18A45C71DEC23B2003EBD2F /* SmallTopBarView.swift */,
 				B18A45C51DEC21BA003EBD2F /* SmallTopBarView.xib */,
 			);
@@ -1330,6 +1333,7 @@
 				B1DA01B11DF1CB2F00E6DD46 /* UIFont+Ext.swift in Sources */,
 				B1CF54B31DDB516E00E98049 /* OmnieCardsShowViewController.swift in Sources */,
 				B1CF54D01DDB51A500E98049 /* PersonalPageShowWorker.swift in Sources */,
+				B1597AD41E3FA91400123CB5 /* EllipseView.swift in Sources */,
 				B1CF54921DDB512000E98049 /* DiscountCardsShowConfigurator.swift in Sources */,
 				B1CF54871DDB50F100E98049 /* BusinessCardsShowPresenter.swift in Sources */,
 				B122DF651DF7F957003823AD /* CalendarShowModels.swift in Sources */,

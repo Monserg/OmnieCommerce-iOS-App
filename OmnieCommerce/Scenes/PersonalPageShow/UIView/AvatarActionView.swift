@@ -8,13 +8,21 @@
 
 import UIKit
 
-typealias HandlerCancelButtonTapComplition = (() -> ())
+enum ActionType: Int {
+    case PhotoMake = 0
+    case PhotoUpload
+    case PhotoDelete
+    case Cancel
+}
+
+typealias HandlerDismissViewComplition = ((_ actionType: ActionType) -> ())
 
 class AvatarActionView: UIView {
     // MARK: - Properties
-    var handlerCancelButtonTapComplition: HandlerCancelButtonTapComplition?
+    var handlerDismissViewComplition: HandlerDismissViewComplition?
     
     @IBOutlet var view: UIView!
+    @IBOutlet weak var cancelButton: UIButton!
     
     
     // MARK: - Class Initialization
@@ -43,16 +51,18 @@ class AvatarActionView: UIView {
     
     // MARK: - Actions
     @IBAction func handlerPhotoUploadButtonTap(_ sender: CustomButton) {
+        handlerDismissViewComplition!(.PhotoUpload)
     }
     
     @IBAction func handlerPhotoMakeButtonTap(_ sender: CustomButton) {
+        handlerDismissViewComplition!(.PhotoMake)
     }
     
-    
     @IBAction func handlerPhotoDeleteButtonTap(_ sender: CustomButton) {
+        handlerDismissViewComplition!(.PhotoDelete)
     }
     
     @IBAction func handlerCancelButtonTap(_ sender: UIButton) {
-        handlerCancelButtonTapComplition!()
+        handlerDismissViewComplition!(.Cancel)
     }
 }

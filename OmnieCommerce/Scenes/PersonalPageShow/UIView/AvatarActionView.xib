@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AvatarActionView">
             <connections>
+                <outlet property="cancelButton" destination="5d2-SK-bQu" id="hBS-W2-wv0"/>
                 <outlet property="view" destination="iN0-l3-epB" id="ejE-4b-RN8"/>
             </connections>
         </placeholder>
@@ -23,7 +24,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tR4-s1-ZQY" userLabel="Blackout View">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BNY-Sx-2r0" userLabel="Action View">
+                        <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BNY-Sx-2r0" userLabel="Action View">
                             <rect key="frame" x="36" y="258" width="303" height="151"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5d2-SK-bQu" userLabel="Cancel Button">
@@ -47,7 +48,7 @@
                                     </userDefinedRuntimeAttributes>
                                 </label>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sys-bT-jlw" customClass="CustomButton" customModule="OmnieCommerce" customModuleProvider="target">
-                                    <rect key="frame" x="135" y="52.5" width="73" height="25.5"/>
+                                    <rect key="frame" x="135" y="52" width="73" height="25.5"/>
                                     <state key="normal" title="Photo upload"/>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="string" keyPath="buttonStyle" value="ActionViewOrangeButton"/>
@@ -57,7 +58,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nMe-Yh-hVS" customClass="CustomButton" customModule="OmnieCommerce" customModuleProvider="target">
-                                    <rect key="frame" x="135" y="81.5" width="65" height="25.5"/>
+                                    <rect key="frame" x="135" y="81" width="65" height="25.5"/>
                                     <state key="normal" title="Photo make"/>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="string" keyPath="buttonStyle" value="ActionViewOrangeButton"/>
@@ -67,7 +68,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QEw-l9-xXg" customClass="CustomButton" customModule="OmnieCommerce" customModuleProvider="target">
-                                    <rect key="frame" x="135" y="109.5" width="70" height="25.5"/>
+                                    <rect key="frame" x="135" y="109" width="70" height="25.5"/>
                                     <state key="normal" title="Photo delete"/>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="string" keyPath="buttonStyle" value="ActionViewOrangeButton"/>
@@ -76,10 +77,59 @@
                                         <action selector="handlerPhotoDeleteButtonTap:" destination="-1" eventType="touchUpInside" id="Onk-ZJ-bnt"/>
                                     </connections>
                                 </button>
+                                <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bNa-Zv-PZD" userLabel="Left View">
+                                    <rect key="frame" x="0.0" y="0.0" width="103" height="151"/>
+                                    <subviews>
+                                        <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o5e-Qr-d9C" customClass="EllipseView" customModule="OmnieCommerce" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="0.0" width="103" height="151"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                    <integer key="value" value="8"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="fillWidth">
+                                                    <real key="value" value="90"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="lineWidth">
+                                                    <real key="value" value="103"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="radius">
+                                                    <real key="value" value="230"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </view>
+                                        <imageView userInteractionEnabled="NO" alpha="0.20000000000000001" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image-photo-half" translatesAutoresizingMaskIntoConstraints="NO" id="0ub-Vg-9qW">
+                                            <rect key="frame" x="0.0" y="20" width="61" height="110"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="110" id="kOX-x7-BpO"/>
+                                            </constraints>
+                                        </imageView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstItem="o5e-Qr-d9C" firstAttribute="leading" secondItem="bNa-Zv-PZD" secondAttribute="leading" id="18w-VE-DVW"/>
+                                        <constraint firstAttribute="width" constant="103" id="4Ln-zu-Idn"/>
+                                        <constraint firstItem="0ub-Vg-9qW" firstAttribute="centerY" secondItem="bNa-Zv-PZD" secondAttribute="centerY" id="BNb-q5-o1o"/>
+                                        <constraint firstAttribute="bottom" secondItem="o5e-Qr-d9C" secondAttribute="bottom" id="BVN-jE-BQN"/>
+                                        <constraint firstItem="0ub-Vg-9qW" firstAttribute="leading" secondItem="bNa-Zv-PZD" secondAttribute="leading" id="mvR-1o-pct"/>
+                                        <constraint firstAttribute="trailing" secondItem="0ub-Vg-9qW" secondAttribute="trailing" constant="42" id="qa5-U3-SNt"/>
+                                        <constraint firstItem="o5e-Qr-d9C" firstAttribute="top" secondItem="bNa-Zv-PZD" secondAttribute="top" id="t7t-Dw-Fgx"/>
+                                        <constraint firstAttribute="trailing" secondItem="o5e-Qr-d9C" secondAttribute="trailing" id="tlC-bG-ac4"/>
+                                    </constraints>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <real key="value" value="20"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </view>
                             </subviews>
-                            <color key="backgroundColor" red="0.60000002384185791" green="0.40000000596046448" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="backgroundColor" red="0.14117647058823529" green="0.19607843137254902" blue="0.24705882352941178" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstItem="uOV-vc-fgR" firstAttribute="leading" secondItem="BNY-Sx-2r0" secondAttribute="leading" constant="135" id="19C-fm-czc"/>
+                                <constraint firstItem="bNa-Zv-PZD" firstAttribute="leading" secondItem="BNY-Sx-2r0" secondAttribute="leading" id="9dc-lI-wzb"/>
+                                <constraint firstItem="bNa-Zv-PZD" firstAttribute="top" secondItem="BNY-Sx-2r0" secondAttribute="top" id="BdQ-g7-7lT"/>
                                 <constraint firstAttribute="trailing" secondItem="5d2-SK-bQu" secondAttribute="trailing" constant="5" id="DVv-1l-U5u"/>
                                 <constraint firstItem="5d2-SK-bQu" firstAttribute="top" secondItem="BNY-Sx-2r0" secondAttribute="top" constant="5" id="K2Y-QG-EyZ"/>
                                 <constraint firstItem="Sys-bT-jlw" firstAttribute="leading" secondItem="uOV-vc-fgR" secondAttribute="leading" id="Tn0-k6-enW"/>
@@ -87,19 +137,20 @@
                                 <constraint firstItem="QEw-l9-xXg" firstAttribute="leading" secondItem="uOV-vc-fgR" secondAttribute="leading" id="ds9-QO-F1G"/>
                                 <constraint firstItem="QEw-l9-xXg" firstAttribute="top" secondItem="nMe-Yh-hVS" secondAttribute="bottom" constant="3" id="f86-Qj-Gxm"/>
                                 <constraint firstAttribute="width" constant="303" id="fGr-0X-naT"/>
+                                <constraint firstAttribute="bottom" secondItem="bNa-Zv-PZD" secondAttribute="bottom" id="gde-2d-COa"/>
                                 <constraint firstItem="nMe-Yh-hVS" firstAttribute="top" secondItem="Sys-bT-jlw" secondAttribute="bottom" constant="3" id="kcm-Mn-aHz"/>
                                 <constraint firstItem="Sys-bT-jlw" firstAttribute="top" secondItem="uOV-vc-fgR" secondAttribute="bottom" constant="8" id="ojk-jX-dKZ"/>
                                 <constraint firstItem="uOV-vc-fgR" firstAttribute="top" secondItem="BNY-Sx-2r0" secondAttribute="top" constant="25" id="vb6-Gx-ECc"/>
                                 <constraint firstAttribute="height" constant="151" id="wC2-kk-SEf"/>
                             </constraints>
                             <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                    <integer key="value" value="8"/>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="8"/>
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
                         </view>
                     </subviews>
-                    <color key="backgroundColor" red="0.1450980392" green="0.20000000000000001" blue="0.25098039220000001" alpha="0.93999999999999995" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="0.10588235294117647" green="0.14117647058823529" blue="0.1764705882352941" alpha="0.93999999999999995" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstItem="BNY-Sx-2r0" firstAttribute="centerX" secondItem="tR4-s1-ZQY" secondAttribute="centerX" id="5fy-c5-0Ot"/>
                         <constraint firstItem="BNY-Sx-2r0" firstAttribute="centerY" secondItem="tR4-s1-ZQY" secondAttribute="centerY" id="uaH-Ap-4nj"/>
@@ -118,5 +169,6 @@
     </objects>
     <resources>
         <image name="icon-cancel-gold-normal" width="12" height="12"/>
+        <image name="image-photo-half" width="62" height="114"/>
     </resources>
 </document>

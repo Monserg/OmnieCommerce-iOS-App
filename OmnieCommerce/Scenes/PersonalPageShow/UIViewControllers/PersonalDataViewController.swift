@@ -11,6 +11,7 @@ import UIKit
 class PersonalDataViewController: UIViewController {
     // MARK: - Properties
     var actionView: AvatarActionView?
+    var cellAvatar: AvatarTableViewCell?
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -75,8 +76,9 @@ extension PersonalDataViewController: UITableViewDataSource {
         // AvatarTableViewCell
         case 0:
             let cell: AvatarTableViewCell = PersonalPageShow.Cell.Avatar().setup(tableView: tableView)
+            cellAvatar = cell
             
-            // Hnadler tap on Avatar photo
+            // Handler Avatar photo tap
             cell.handlerAvatarTapCompletion = { cellAvatar in
                 // Create & show action view
                 let avatarActionView = AvatarActionView.init(frame: CGRect.init(origin: CGPoint.zero, size: UIScreen.main.bounds.size))
@@ -86,12 +88,43 @@ extension PersonalDataViewController: UITableViewDataSource {
                 UIView.animate(withDuration: 0.7, delay: 0, options: .curveEaseInOut, animations: {
                     avatarActionView.alpha = 1
                 }, completion: { (success) in
-                    // Handler tap on cancel button in AvatarActionView
-                    avatarActionView.handlerCancelButtonTapComplition = { _ in
+                    // Handler action buttons from AvatarActionView
+                    avatarActionView.handlerDismissViewComplition = { actionType in
                         UIView.animate(withDuration: 0.7, animations: {
                             avatarActionView.alpha = 0
                         }, completion: { (success) in
                             avatarActionView.removeFromSuperview()
+                            
+                            switch actionType {
+                            // Handler Photo Make button tap
+                            case .PhotoMake:
+                                if UIImagePickerController.isSourceTypeAvailable(.camera) {
+                                    let imagePicker = UIImagePickerController()
+                                    imagePicker.sourceType = UIImagePickerControllerSourceType.camera
+                                    imagePicker.allowsEditing = false
+                                    imagePicker.delegate = self
+                                    
+                                    self.present(imagePicker, animated: true, completion: nil)
+                                }
+                                
+                            // Handler Photo Upload button tap
+                            case .PhotoUpload:
+                                if (UIImagePickerController.isSourceTypeAvailable(.photoLibrary)) {
+                                    let imagePicker = UIImagePickerController()
+                                    imagePicker.sourceType = UIImagePickerControllerSourceType.photoLibrary
+                                    imagePicker.allowsEditing = true
+                                    imagePicker.delegate = self
+                                    
+                                    self.present(imagePicker, animated: true, completion: nil)
+                                }
+                                
+                            // Handler Photo Delete button tap
+                            case .PhotoDelete:
+                                print("delete ok")
+                                
+                            default:
+                                break
+                            }
                         })
                     }
                 })
@@ -128,5 +161,28 @@ extension PersonalDataViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         
+    }
+}
+
+
+// MARK: - 
+extension PersonalDataViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
+        UIApplication.shared.statusBarStyle = .lightContent
+        UINavigationBar.appearance().barTintColor = UIColor.darkCyan
+        UINavigationBar.appearance().tintColor = UIColor.veryLightGray
+        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.veryLightGray]
+        UINavigationBar.appearance().isTranslucent = false
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        let chosenImage = info[UIImagePickerControllerOriginalImage] as! UIImage
+        cellAvatar!.actionButton.setImage(chosenImage, for: .normal)
+        
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
     }
 }

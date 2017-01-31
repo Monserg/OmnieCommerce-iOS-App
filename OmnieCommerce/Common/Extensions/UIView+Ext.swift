@@ -11,7 +11,7 @@ import UIKit
 extension UIView {
     // MARK: - Properties
     @IBInspectable var cornerRadius: CGFloat {
-        set { layer.cornerRadius = newValue  }
+        set { layer.cornerRadius = newValue }
         get { return layer.cornerRadius }
     }
     
@@ -44,8 +44,8 @@ extension UIView {
         set { clipsToBounds = newValue }
         get { return clipsToBounds }
     }
-    
-    
+        
+
     // MARK: - Custom Functions
     func releasePrint(object: Any) {
         Swift.print(object)
@@ -55,6 +55,10 @@ extension UIView {
         #if DEBUG
             Swift.print(object)
         #endif
+    }
+    
+    func degreeToRadian(degreeValue: Double) -> CGFloat {
+        return CGFloat(degreeValue * M_PI / 180.0)
     }
 }
 

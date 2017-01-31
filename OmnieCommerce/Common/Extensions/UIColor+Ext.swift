@@ -231,6 +231,16 @@ extension UIColor {
         }
     }
     
+    open class var darkCyanAlpha70: UIColor {
+        set {
+            self.darkCyanAlpha70 = UIColor(hexString: "#009395", withAlpha: 0.7)!
+        }
+        
+        get {
+            return UIColor(hexString: "#009395", withAlpha: 0.7)!
+        }
+    }
+    
     open class var lightGrayAlpha20: UIColor {
         set {
             self.lightGrayAlpha20 = UIColor(hexString: "#cacaca", withAlpha: 0.2)!
