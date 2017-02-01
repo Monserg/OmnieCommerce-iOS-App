@@ -11,7 +11,7 @@ import UIKit
 
 struct OmnieCard {
     // MARK: - Properties
-    let barcodeID = "My name is Denis" //"4606453749072"
+    let barcodeID = "4606453749072"
     
     
     // MARK: - Custom Functions

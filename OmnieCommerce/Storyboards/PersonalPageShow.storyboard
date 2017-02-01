@@ -58,10 +58,10 @@
                                 </constraints>
                             </view>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aKH-YG-AUK">
-                                <rect key="frame" x="0.0" y="145" width="375" height="493.5"/>
+                                <rect key="frame" x="0.0" y="145" width="375" height="483.5"/>
                             </containerView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ASc-N1-FS2" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                                <rect key="frame" x="8" y="647.5" width="359" height="10.5"/>
+                                <rect key="frame" x="8" y="637.5" width="359" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -246,7 +246,7 @@
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email error" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sfu-l4-f38" userLabel="Email error" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                                                <rect key="frame" x="8" y="218" width="47.5" height="15"/>
+                                                <rect key="frame" x="8" y="218" width="52.5" height="15"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="15" id="0Pq-JZ-pkm"/>
                                                 </constraints>
@@ -295,7 +295,7 @@
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone error" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DWe-Zx-HA2" userLabel="Phone error" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                                                <rect key="frame" x="8" y="262" width="50.5" height="15"/>
+                                                <rect key="frame" x="8" y="262" width="57" height="15"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="15" id="7W1-Xt-PZ3"/>
                                                 </constraints>
@@ -405,7 +405,7 @@
                 <navigationController storyboardIdentifier="PersonalPageShowNC" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="5ua-Ud-9pH" customClass="BaseNavigationController" customModule="OmnieCommerce" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="rDE-36-aLe">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="rDE-36-aLe">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
