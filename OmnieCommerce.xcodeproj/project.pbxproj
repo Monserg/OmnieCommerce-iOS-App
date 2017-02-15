@@ -147,6 +147,14 @@
 		B177E54B1E54AC7F004F1390 /* EnterCodeShowRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B177E5441E54AC7F004F1390 /* EnterCodeShowRouter.swift */; };
 		B177E54C1E54AC7F004F1390 /* EnterCodeShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B177E5451E54AC7F004F1390 /* EnterCodeShowViewController.swift */; };
 		B177E54D1E54AC7F004F1390 /* EnterCodeShowWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B177E5461E54AC7F004F1390 /* EnterCodeShowWorker.swift */; };
+		B177E5561E54B739004F1390 /* RepetitionPasswordShowConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B177E54F1E54B739004F1390 /* RepetitionPasswordShowConfigurator.swift */; };
+		B177E5571E54B739004F1390 /* RepetitionPasswordShowInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B177E5501E54B739004F1390 /* RepetitionPasswordShowInteractor.swift */; };
+		B177E5581E54B739004F1390 /* RepetitionPasswordShowModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B177E5511E54B739004F1390 /* RepetitionPasswordShowModels.swift */; };
+		B177E5591E54B739004F1390 /* RepetitionPasswordShowPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B177E5521E54B739004F1390 /* RepetitionPasswordShowPresenter.swift */; };
+		B177E55A1E54B739004F1390 /* RepetitionPasswordShowRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B177E5531E54B739004F1390 /* RepetitionPasswordShowRouter.swift */; };
+		B177E55B1E54B739004F1390 /* RepetitionPasswordShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B177E5541E54B739004F1390 /* RepetitionPasswordShowViewController.swift */; };
+		B177E55C1E54B739004F1390 /* RepetitionPasswordShowWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B177E5551E54B739004F1390 /* RepetitionPasswordShowWorker.swift */; };
+		B177E55E1E54B8F6004F1390 /* PasswordStrengthLevelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B177E55D1E54B8F6004F1390 /* PasswordStrengthLevelView.swift */; };
 		B18A45C61DEC21BA003EBD2F /* SmallTopBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B18A45C51DEC21BA003EBD2F /* SmallTopBarView.xib */; };
 		B18A45C81DEC23B2003EBD2F /* SmallTopBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18A45C71DEC23B2003EBD2F /* SmallTopBarView.swift */; };
 		B18A45CA1DEC282B003EBD2F /* DotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18A45C91DEC282B003EBD2F /* DotView.swift */; };
@@ -405,6 +413,14 @@
 		B177E5441E54AC7F004F1390 /* EnterCodeShowRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnterCodeShowRouter.swift; sourceTree = "<group>"; };
 		B177E5451E54AC7F004F1390 /* EnterCodeShowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnterCodeShowViewController.swift; sourceTree = "<group>"; };
 		B177E5461E54AC7F004F1390 /* EnterCodeShowWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnterCodeShowWorker.swift; sourceTree = "<group>"; };
+		B177E54F1E54B739004F1390 /* RepetitionPasswordShowConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepetitionPasswordShowConfigurator.swift; sourceTree = "<group>"; };
+		B177E5501E54B739004F1390 /* RepetitionPasswordShowInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepetitionPasswordShowInteractor.swift; sourceTree = "<group>"; };
+		B177E5511E54B739004F1390 /* RepetitionPasswordShowModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepetitionPasswordShowModels.swift; sourceTree = "<group>"; };
+		B177E5521E54B739004F1390 /* RepetitionPasswordShowPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepetitionPasswordShowPresenter.swift; sourceTree = "<group>"; };
+		B177E5531E54B739004F1390 /* RepetitionPasswordShowRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepetitionPasswordShowRouter.swift; sourceTree = "<group>"; };
+		B177E5541E54B739004F1390 /* RepetitionPasswordShowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepetitionPasswordShowViewController.swift; sourceTree = "<group>"; };
+		B177E5551E54B739004F1390 /* RepetitionPasswordShowWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepetitionPasswordShowWorker.swift; sourceTree = "<group>"; };
+		B177E55D1E54B8F6004F1390 /* PasswordStrengthLevelView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordStrengthLevelView.swift; sourceTree = "<group>"; };
 		B18A45C51DEC21BA003EBD2F /* SmallTopBarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SmallTopBarView.xib; sourceTree = "<group>"; };
 		B18A45C71DEC23B2003EBD2F /* SmallTopBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmallTopBarView.swift; sourceTree = "<group>"; };
 		B18A45C91DEC282B003EBD2F /* DotView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DotView.swift; sourceTree = "<group>"; };
@@ -578,6 +594,7 @@
 				B152915C1DDE44B700BBA1E0 /* MenuSectionFooterView.xib */,
 				B15291581DDE3FFA00BBA1E0 /* MenuSectionHeaderView.swift */,
 				B15291561DDE3FEF00BBA1E0 /* MenuSectionHeaderView.xib */,
+				B177E55D1E54B8F6004F1390 /* PasswordStrengthLevelView.swift */,
 				B1F7EDB71DF54878003B36AD /* SegmentedControlView.swift */,
 				B1F7EDB91DF54886003B36AD /* SegmentedControlView.xib */,
 				B122DF6A1DF804CD003823AD /* SegmentedControlViewLandscape.xib */,
@@ -670,12 +687,12 @@
 		B122F1C01DD35A110018A701 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				B177E53F1E54AC5A004F1390 /* EnterCodeShow */,
 				B1CF54681DDB503200E98049 /* AboutShow */,
 				B1CF546C1DDB507900E98049 /* BusinessCardsShow */,
 				B122DF5B1DF7F919003823AD /* CalendarShow */,
 				B122F1D01DD35B1C0018A701 /* CategoriesShow */,
 				B1CF546E1DDB50AB00E98049 /* DiscountCardsShow */,
+				B177E53F1E54AC5A004F1390 /* EnterCodeShow */,
 				B122F1D11DD35B270018A701 /* FavoriteShow */,
 				B14E97401DD8B016001E1DE2 /* ForgotPasswordShow */,
 				B1CF546B1DDB506A00E98049 /* HandbookShow */,
@@ -685,6 +702,7 @@
 				B1CF54671DDB501900E98049 /* OnmieSoftShow */,
 				B122F1D31DD35B3B0018A701 /* OrdersShow */,
 				B1CF546A1DDB505800E98049 /* PersonalPageShow */,
+				B177E54E1E54B709004F1390 /* RepetitionPasswordShow */,
 				B1CF54691DDB504600E98049 /* SettingsShow */,
 				B177E52C1E5475C5004F1390 /* SignInContainerShow */,
 				B14E973E1DD8AFCF001E1DE2 /* SignInShow */,
@@ -989,6 +1007,20 @@
 				B177E5461E54AC7F004F1390 /* EnterCodeShowWorker.swift */,
 			);
 			path = EnterCodeShow;
+			sourceTree = "<group>";
+		};
+		B177E54E1E54B709004F1390 /* RepetitionPasswordShow */ = {
+			isa = PBXGroup;
+			children = (
+				B177E54F1E54B739004F1390 /* RepetitionPasswordShowConfigurator.swift */,
+				B177E5501E54B739004F1390 /* RepetitionPasswordShowInteractor.swift */,
+				B177E5511E54B739004F1390 /* RepetitionPasswordShowModels.swift */,
+				B177E5521E54B739004F1390 /* RepetitionPasswordShowPresenter.swift */,
+				B177E5531E54B739004F1390 /* RepetitionPasswordShowRouter.swift */,
+				B177E5541E54B739004F1390 /* RepetitionPasswordShowViewController.swift */,
+				B177E5551E54B739004F1390 /* RepetitionPasswordShowWorker.swift */,
+			);
+			path = RepetitionPasswordShow;
 			sourceTree = "<group>";
 		};
 		B19DF2821DF94D94000AFC92 /* UIViewControllers */ = {
@@ -1372,6 +1404,7 @@
 				B152915B1DDE44A200BBA1E0 /* MenuSectionFooterView.swift in Sources */,
 				B1739D161DE314C70029BCCA /* UIButton+Ext.swift in Sources */,
 				B122F2171DD35C2C0018A701 /* NewsShowRouter.swift in Sources */,
+				B177E55A1E54B739004F1390 /* RepetitionPasswordShowRouter.swift in Sources */,
 				B1CF547B1DDB50D900E98049 /* AboutShowViewController.swift in Sources */,
 				B1F7EDB81DF54878003B36AD /* SegmentedControlView.swift in Sources */,
 				B122F2051DD35BEB0018A701 /* CategoriesShowConfigurator.swift in Sources */,
@@ -1394,6 +1427,7 @@
 				B177E5381E5475EC004F1390 /* SignInContainerShowRouter.swift in Sources */,
 				B11B9ADA1DF02F5C009A4AA1 /* Date+Ext.swift in Sources */,
 				B1CF54C11DDB519000E98049 /* OnmieSoftShowViewController.swift in Sources */,
+				B177E55E1E54B8F6004F1390 /* PasswordStrengthLevelView.swift in Sources */,
 				B1DA01B11DF1CB2F00E6DD46 /* UIFont+Ext.swift in Sources */,
 				B1CF54B31DDB516E00E98049 /* OmnieCardsShowViewController.swift in Sources */,
 				B1CF54D01DDB51A500E98049 /* PersonalPageShowWorker.swift in Sources */,
@@ -1450,6 +1484,7 @@
 				B14E97641DD8B05E001E1DE2 /* ForgotPasswordShowConfigurator.swift in Sources */,
 				B1CF54881DDB50F100E98049 /* BusinessCardsShowRouter.swift in Sources */,
 				B122F2221DD35CC80018A701 /* SlideMenuShowConfigurator.swift in Sources */,
+				B177E5581E54B739004F1390 /* RepetitionPasswordShowModels.swift in Sources */,
 				B1597AD01E3F42B600123CB5 /* AvatarActionView.swift in Sources */,
 				B14E974A1DD8B042001E1DE2 /* SignInShowModels.swift in Sources */,
 				B122F1E01DD35B760018A701 /* OrdersShowViewController.swift in Sources */,
@@ -1460,7 +1495,9 @@
 				B14E974D1DD8B042001E1DE2 /* SignInShowViewController.swift in Sources */,
 				B1CF54A21DDB515000E98049 /* HandbookShowModels.swift in Sources */,
 				B122F2081DD35BEB0018A701 /* CategoriesShowPresenter.swift in Sources */,
+				B177E5591E54B739004F1390 /* RepetitionPasswordShowPresenter.swift in Sources */,
 				B122F20A1DD35BEB0018A701 /* CategoriesShowViewController.swift in Sources */,
+				B177E55C1E54B739004F1390 /* RepetitionPasswordShowWorker.swift in Sources */,
 				B19DF2861DF94DED000AFC92 /* SchedulerViewController.swift in Sources */,
 				B1CF54CE1DDB51A500E98049 /* PersonalPageShowRouter.swift in Sources */,
 				B18A45CA1DEC282B003EBD2F /* DotView.swift in Sources */,
@@ -1470,6 +1507,7 @@
 				B14D89511DF6CFF800AF3AED /* Message.swift in Sources */,
 				B1CF547A1DDB50D900E98049 /* AboutShowRouter.swift in Sources */,
 				B1C13D8F1DEF5736002B494A /* DropDownTableViewCell.swift in Sources */,
+				B177E55B1E54B739004F1390 /* RepetitionPasswordShowViewController.swift in Sources */,
 				B177E5371E5475EC004F1390 /* SignInContainerShowPresenter.swift in Sources */,
 				B14E974C1DD8B042001E1DE2 /* SignInShowRouter.swift in Sources */,
 				B14E97651DD8B05E001E1DE2 /* ForgotPasswordShowInteractor.swift in Sources */,
@@ -1508,6 +1546,7 @@
 				B177E5481E54AC7F004F1390 /* EnterCodeShowInteractor.swift in Sources */,
 				B122F1FC1DD35BC70018A701 /* FavoriteShowViewController.swift in Sources */,
 				B1CF54BD1DDB519000E98049 /* OnmieSoftShowInteractor.swift in Sources */,
+				B177E5561E54B739004F1390 /* RepetitionPasswordShowConfigurator.swift in Sources */,
 				B122F1E91DD35BA70018A701 /* MessagesShowConfigurator.swift in Sources */,
 				B1BF92441DD5FC8000BECBBB /* Config.swift in Sources */,
 				B122F2231DD35CC80018A701 /* SlideMenuShowInteractor.swift in Sources */,
@@ -1544,6 +1583,7 @@
 				B14E97581DD8B052001E1DE2 /* SignUpShowModels.swift in Sources */,
 				B14E974B1DD8B042001E1DE2 /* SignInShowPresenter.swift in Sources */,
 				B1CF54941DDB512000E98049 /* DiscountCardsShowModels.swift in Sources */,
+				B177E5571E54B739004F1390 /* RepetitionPasswordShowInteractor.swift in Sources */,
 				B10871521E379A4800374DD5 /* OmnieCard.swift in Sources */,
 				B14E975A1DD8B052001E1DE2 /* SignUpShowRouter.swift in Sources */,
 				B19DF2841DF94DCD000AFC92 /* CalendarViewController.swift in Sources */,

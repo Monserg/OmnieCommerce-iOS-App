@@ -94,6 +94,7 @@ extension SignInContainerShowViewController: SignInContainerShowViewControllerIn
             return
         }
         
-        handlerSendButtonCompletion!()
+        Config.Constants.isUserGuest = false
+        handlerSendButtonCompletion!()        
     }
 }

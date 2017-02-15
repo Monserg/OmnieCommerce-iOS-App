@@ -38,6 +38,8 @@ class SignInShowRouter: SignInShowRouterInput {
         // SignInContainerShowVC: SignIn button handler
         viewController.signInContainerShowVC?.handlerSendButtonCompletion = { _ in
             print("UUUUURRRRRAAAAAAAAAAA!!!!!!!")
+            
+            self.navigateAuthorizedUser(duringStartApp: false)
         }
         
         // SignInContainerShowVC: Register button handler
@@ -65,19 +67,20 @@ class SignInShowRouter: SignInShowRouterInput {
                 // EnterCodeShowVC: Send button handler
                 self.viewController.enterCodeShowViewController?.handlerSendButtonCompletion = { _ in
                     // Create RepetitionPasswordShow scene
-//                    self.viewController.repetitionPasswordShowViewController = UIStoryboard(name: "SignInShow", bundle: nil).instantiateViewController(withIdentifier: "RepetitionPasswordShowVC") as? RepetitionPasswordShowViewController
-//                    
-//                    // RepetitionPasswordShowVC: handler Send button
-//                    self.viewController.repetitionPasswordShowViewController?.handlerSendButtonCompletion = { _ in
-//                        print("OOOOOOOOKKKKKKKKK!!!!!!!")
-//                    }
-//                    
-//                    // RepetitionPasswordShowVC: handler Cancel button
-//                    self.viewController.repetitionPasswordShowViewController?.handlerCancelButtonCompletion = { _ in
-//                        self.viewController.activeViewController = self.viewController.enterCodeShowViewController
-//                    }
-//                    
-//                    self.viewController.activeViewController = self.viewController.repetitionPasswordShowViewController
+                    self.viewController.repetitionPasswordShowViewController = UIStoryboard(name: "SignInShow", bundle: nil).instantiateViewController(withIdentifier: "RepetitionPasswordShowVC") as? RepetitionPasswordShowViewController
+                    
+                    // RepetitionPasswordShowVC: handler Send button
+                    self.viewController.repetitionPasswordShowViewController?.handlerSendButtonCompletion = { _ in
+                        print("OOOOOOOOKKKKKKKKK!!!!!!!")
+                        self.navigateAuthorizedUser(duringStartApp: false)
+                    }
+                    
+                    // RepetitionPasswordShowVC: handler Cancel button
+                    self.viewController.repetitionPasswordShowViewController?.handlerCancelButtonCompletion = { _ in
+                        self.viewController.activeViewController = self.viewController.enterCodeShowViewController
+                    }
+                    
+                    self.viewController.activeViewController = self.viewController.repetitionPasswordShowViewController
                 }
                 
                 // EnterCodeShowVC: Cancel button handler

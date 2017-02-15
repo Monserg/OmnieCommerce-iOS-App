@@ -63,7 +63,7 @@ class LaunchScreenViewController: BaseViewController {
 //            
 //            // Initial VC
 //            let ordersShowStoryboard = UIStoryboard(name: "SlideMenuShow", bundle: nil)
-//            let initialVC = ordersShowStoryboard.instantiateViewController(withIdentifier: "RevealVC") as! SWRevealViewController
+//            let initialVC = ordersShowStoryboard.instantiateViewController(withIdentifier: "SWRevealVC") as! SWRevealViewController
 //
 //            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
 //                window.rootViewController = initialVC

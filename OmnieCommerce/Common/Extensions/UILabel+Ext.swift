@@ -62,6 +62,7 @@ extension UILabel {
         case .MenuItem:
             font = (Config.Constants.isAppThemesDark) ? UIFont.systemFont(ofSize: 12) : UIFont.ubuntuLight16
             textColor = (Config.Constants.isAppThemesDark) ? UIColor.white : UIColor.veryLightGray
+            textAlignment = .left
             
         case .CategoryName:
             font = (Config.Constants.isAppThemesDark) ? UIFont.systemFont(ofSize: 12) : UIFont.ubuntuRegular16

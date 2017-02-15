@@ -12,7 +12,7 @@
         <!--Reveal View Controller-->
         <scene sceneID="hXg-yC-HdR">
             <objects>
-                <viewController storyboardIdentifier="RevealVC" id="gIQ-8y-x5g" customClass="SWRevealViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SWRevealVC" id="gIQ-8y-x5g" customClass="SWRevealViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="b6i-jv-JKj"/>
                         <viewControllerLayoutGuide type="bottom" id="jAI-iK-idv"/>

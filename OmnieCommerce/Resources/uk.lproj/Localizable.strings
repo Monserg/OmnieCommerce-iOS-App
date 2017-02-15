@@ -41,6 +41,7 @@
 "To"                    =   "до";
 "Enter code"            =   "Введіть код";
 "Invalid code"          =   "* Невірний код. Спробуйте ще раз";
+"New password"          =   "Новий пароль";
 
 
 // Buttons
@@ -57,6 +58,7 @@
 "Send"                  =   "Відправити";
 "Send again"            =   "Відправити ще раз";
 "Submit"                =   "Підтвердити";
+"Enter"                 =   "Зайти";
 
 
 // TextField Placeholders
@@ -67,6 +69,7 @@
 "Phone"                 =   "Телефон";
 "Phone or Email"        =   "Телефон або Email";
 "Enter Code"            =   "Введіть код з повідомлення";
+"Repeat password"       =   "Повторити пароль";
 
 
 // Segmented Control Titles

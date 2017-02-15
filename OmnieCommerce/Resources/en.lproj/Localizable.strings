@@ -41,6 +41,7 @@
 "To"                    =   "to";
 "Enter code"            =   "Enter code";
 "Invalid code"          =   "* Invalid code. Please try again";
+"New password"          =   "New Password";
 
 
 // Buttons
@@ -57,6 +58,7 @@
 "Send"                  =   "Send";
 "Send again"            =   "Send Again";
 "Submit"                =   "Submit";
+"Enter"                 =   "Enter";
 
 
 // TextField Placeholders
@@ -67,6 +69,7 @@
 "Phone"                 =   "Phone";
 "Phone or Email"        =   "Phone or Email";
 "Enter Code"            =   "Enter Code";
+"Repeat password"       =   "Repeat Password";
 
 
 // Segmented Control Titles
