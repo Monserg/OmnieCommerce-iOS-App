@@ -132,6 +132,13 @@
 		B1739D1C1DE314E80029BCCA /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1739D1B1DE314E80029BCCA /* UIView+Ext.swift */; };
 		B1739D421DE363C00029BCCA /* SignUpShow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1739D411DE363C00029BCCA /* SignUpShow.storyboard */; };
 		B1739D441DE363FD0029BCCA /* ForgotPasswordShow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1739D431DE363FD0029BCCA /* ForgotPasswordShow.storyboard */; };
+		B177E5341E5475EC004F1390 /* SignInContainerShowConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B177E52D1E5475EC004F1390 /* SignInContainerShowConfigurator.swift */; };
+		B177E5351E5475EC004F1390 /* SignInContainerShowInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B177E52E1E5475EC004F1390 /* SignInContainerShowInteractor.swift */; };
+		B177E5361E5475EC004F1390 /* SignInContainerShowModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B177E52F1E5475EC004F1390 /* SignInContainerShowModels.swift */; };
+		B177E5371E5475EC004F1390 /* SignInContainerShowPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B177E5301E5475EC004F1390 /* SignInContainerShowPresenter.swift */; };
+		B177E5381E5475EC004F1390 /* SignInContainerShowRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B177E5311E5475EC004F1390 /* SignInContainerShowRouter.swift */; };
+		B177E5391E5475EC004F1390 /* SignInContainerShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B177E5321E5475EC004F1390 /* SignInContainerShowViewController.swift */; };
+		B177E53A1E5475EC004F1390 /* SignInContainerShowWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B177E5331E5475EC004F1390 /* SignInContainerShowWorker.swift */; };
 		B18A45C61DEC21BA003EBD2F /* SmallTopBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B18A45C51DEC21BA003EBD2F /* SmallTopBarView.xib */; };
 		B18A45C81DEC23B2003EBD2F /* SmallTopBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18A45C71DEC23B2003EBD2F /* SmallTopBarView.swift */; };
 		B18A45CA1DEC282B003EBD2F /* DotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18A45C91DEC282B003EBD2F /* DotView.swift */; };
@@ -374,6 +381,14 @@
 		B1739D1B1DE314E80029BCCA /* UIView+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 		B1739D411DE363C00029BCCA /* SignUpShow.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SignUpShow.storyboard; sourceTree = "<group>"; };
 		B1739D431DE363FD0029BCCA /* ForgotPasswordShow.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ForgotPasswordShow.storyboard; sourceTree = "<group>"; };
+		B177E52B1E546DD9004F1390 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		B177E52D1E5475EC004F1390 /* SignInContainerShowConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInContainerShowConfigurator.swift; sourceTree = "<group>"; };
+		B177E52E1E5475EC004F1390 /* SignInContainerShowInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInContainerShowInteractor.swift; sourceTree = "<group>"; };
+		B177E52F1E5475EC004F1390 /* SignInContainerShowModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInContainerShowModels.swift; sourceTree = "<group>"; };
+		B177E5301E5475EC004F1390 /* SignInContainerShowPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInContainerShowPresenter.swift; sourceTree = "<group>"; };
+		B177E5311E5475EC004F1390 /* SignInContainerShowRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInContainerShowRouter.swift; sourceTree = "<group>"; };
+		B177E5321E5475EC004F1390 /* SignInContainerShowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInContainerShowViewController.swift; sourceTree = "<group>"; };
+		B177E5331E5475EC004F1390 /* SignInContainerShowWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInContainerShowWorker.swift; sourceTree = "<group>"; };
 		B18A45C51DEC21BA003EBD2F /* SmallTopBarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SmallTopBarView.xib; sourceTree = "<group>"; };
 		B18A45C71DEC23B2003EBD2F /* SmallTopBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmallTopBarView.swift; sourceTree = "<group>"; };
 		B18A45C91DEC282B003EBD2F /* DotView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DotView.swift; sourceTree = "<group>"; };
@@ -653,6 +668,7 @@
 				B122F1D31DD35B3B0018A701 /* OrdersShow */,
 				B1CF546A1DDB505800E98049 /* PersonalPageShow */,
 				B1CF54691DDB504600E98049 /* SettingsShow */,
+				B177E52C1E5475C5004F1390 /* SignInContainerShow */,
 				B14E973E1DD8AFCF001E1DE2 /* SignInShow */,
 				B14E973F1DD8AFDC001E1DE2 /* SignUpShow */,
 				B122F21A1DD35CA60018A701 /* SlideMenuShow */,
@@ -927,6 +943,20 @@
 				B1739D1B1DE314E80029BCCA /* UIView+Ext.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		B177E52C1E5475C5004F1390 /* SignInContainerShow */ = {
+			isa = PBXGroup;
+			children = (
+				B177E52D1E5475EC004F1390 /* SignInContainerShowConfigurator.swift */,
+				B177E52E1E5475EC004F1390 /* SignInContainerShowInteractor.swift */,
+				B177E52F1E5475EC004F1390 /* SignInContainerShowModels.swift */,
+				B177E5301E5475EC004F1390 /* SignInContainerShowPresenter.swift */,
+				B177E5311E5475EC004F1390 /* SignInContainerShowRouter.swift */,
+				B177E5321E5475EC004F1390 /* SignInContainerShowViewController.swift */,
+				B177E5331E5475EC004F1390 /* SignInContainerShowWorker.swift */,
+			);
+			path = SignInContainerShow;
 			sourceTree = "<group>";
 		};
 		B19DF2821DF94D94000AFC92 /* UIViewControllers */ = {
@@ -1327,6 +1357,7 @@
 				B122F2281DD35CC80018A701 /* SlideMenuShowWorker.swift in Sources */,
 				B122F2071DD35BEB0018A701 /* CategoriesShowModels.swift in Sources */,
 				B1CF54CD1DDB51A500E98049 /* PersonalPageShowPresenter.swift in Sources */,
+				B177E5381E5475EC004F1390 /* SignInContainerShowRouter.swift in Sources */,
 				B11B9ADA1DF02F5C009A4AA1 /* Date+Ext.swift in Sources */,
 				B1CF54C11DDB519000E98049 /* OnmieSoftShowViewController.swift in Sources */,
 				B1DA01B11DF1CB2F00E6DD46 /* UIFont+Ext.swift in Sources */,
@@ -1334,6 +1365,7 @@
 				B1CF54D01DDB51A500E98049 /* PersonalPageShowWorker.swift in Sources */,
 				B1597AD41E3FA91400123CB5 /* EllipseView.swift in Sources */,
 				B1CF54921DDB512000E98049 /* DiscountCardsShowConfigurator.swift in Sources */,
+				B177E5391E5475EC004F1390 /* SignInContainerShowViewController.swift in Sources */,
 				B1CF54871DDB50F100E98049 /* BusinessCardsShowPresenter.swift in Sources */,
 				B122DF651DF7F957003823AD /* CalendarShowModels.swift in Sources */,
 				B10871541E379A9A00374DD5 /* OmnieCardViewModel.swift in Sources */,
@@ -1402,6 +1434,7 @@
 				B14D89511DF6CFF800AF3AED /* Message.swift in Sources */,
 				B1CF547A1DDB50D900E98049 /* AboutShowRouter.swift in Sources */,
 				B1C13D8F1DEF5736002B494A /* DropDownTableViewCell.swift in Sources */,
+				B177E5371E5475EC004F1390 /* SignInContainerShowPresenter.swift in Sources */,
 				B14E974C1DD8B042001E1DE2 /* SignInShowRouter.swift in Sources */,
 				B14E97651DD8B05E001E1DE2 /* ForgotPasswordShowInteractor.swift in Sources */,
 				B1CF54961DDB512000E98049 /* DiscountCardsShowRouter.swift in Sources */,
@@ -1418,8 +1451,10 @@
 				B1CF54A11DDB515000E98049 /* HandbookShowInteractor.swift in Sources */,
 				B17323CA1DED84FF003A8D3E /* CustomCollectionViewCell.swift in Sources */,
 				B1597AC71E3F12BF00123CB5 /* PersonalTemplatesViewController.swift in Sources */,
+				B177E5361E5475EC004F1390 /* SignInContainerShowModels.swift in Sources */,
 				B1CF54CF1DDB51A500E98049 /* PersonalPageShowViewController.swift in Sources */,
 				B14107C41DFEA73900F79CF9 /* CalendarDayCellView.swift in Sources */,
+				B177E5351E5475EC004F1390 /* SignInContainerShowInteractor.swift in Sources */,
 				B1228FBA1DD49ED400A90FBB /* BaseViewController.swift in Sources */,
 				B122F2271DD35CC80018A701 /* SlideMenuShowViewController.swift in Sources */,
 				B1CF54851DDB50F100E98049 /* BusinessCardsShowInteractor.swift in Sources */,
@@ -1447,6 +1482,7 @@
 				B1CF54DA1DDB51BE00E98049 /* SettingsShowModels.swift in Sources */,
 				B1CF54791DDB50D900E98049 /* AboutShowPresenter.swift in Sources */,
 				B122F1F71DD35BC70018A701 /* FavoriteShowConfigurator.swift in Sources */,
+				B177E53A1E5475EC004F1390 /* SignInContainerShowWorker.swift in Sources */,
 				B122F2061DD35BEB0018A701 /* CategoriesShowInteractor.swift in Sources */,
 				B1CF54931DDB512000E98049 /* DiscountCardsShowInteractor.swift in Sources */,
 				B1CF54C01DDB519000E98049 /* OnmieSoftShowRouter.swift in Sources */,
@@ -1463,6 +1499,7 @@
 				B122DF671DF7F957003823AD /* CalendarShowRouter.swift in Sources */,
 				B1E52AB11DDDD0EA00C3B24D /* LaunchScreenViewController.swift in Sources */,
 				B12AC2301DDF3BDB00FA0924 /* CustomTextField.swift in Sources */,
+				B177E5341E5475EC004F1390 /* SignInContainerShowConfigurator.swift in Sources */,
 				B122F1DC1DD35B760018A701 /* OrdersShowInteractor.swift in Sources */,
 				B14E97681DD8B05E001E1DE2 /* ForgotPasswordShowRouter.swift in Sources */,
 				B1CF54B11DDB516E00E98049 /* OmnieCardsShowPresenter.swift in Sources */,
@@ -1491,6 +1528,7 @@
 				B122F2491DD393330018A701 /* Base */,
 				B122F24C1DD393350018A701 /* ru */,
 				B122F24D1DD393360018A701 /* uk */,
+				B177E52B1E546DD9004F1390 /* en */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";

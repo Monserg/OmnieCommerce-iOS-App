@@ -41,12 +41,12 @@ class SignInShowConfigurator {
         router.viewController = viewController
         
         let presenter = SignInShowPresenter()
-        presenter.output = viewController
+        presenter.viewController = viewController
         
         let interactor = SignInShowInteractor()
-        interactor.output = presenter
+        interactor.presenter = presenter
         
-        viewController.output = interactor
+        viewController.interactor = interactor
         viewController.router = router
     }
 }

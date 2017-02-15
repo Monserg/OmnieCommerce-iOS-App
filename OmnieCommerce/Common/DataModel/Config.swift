@@ -11,6 +11,23 @@
 
 import UIKit
 
+enum ThemeDesign: String {
+    case LightForUser   =   "LightForUser"
+    case LightForGuest  =   "LightForGuest"
+    case DarkForUser    =   "DarkForUser"
+    case DarkForGuest   =   "DarkForGuest"
+}
+
+typealias HandlerSendButtonCompletion               =   (() -> ())
+typealias HandlerRegisterButtonCompletion           =   (() -> ())
+typealias HandlerForgotPasswordButtonCompletion     =   (() -> ())
+typealias HandlerCancelButtonCompletion             =   (() -> ())
+typealias HandlerNavBarLeftButtonCompletion         =   (() -> ())
+typealias HandlerImagePickerControllerCompletion    =   ((_ originalImage: UIImage) -> ())
+
+typealias ResponseAPI                               =   (success: Bool, error: String?)
+
+
 struct Config {
     struct Constants {
         static let fillViewSmallRadiusPortrait: Double          =   1531.0
@@ -27,7 +44,7 @@ struct Config {
         static let dropDownCellHeight: CGFloat                  =   23.0
         
         // FIXME: - DELETE AFTER TEST
-        static let isUserGuest: Bool                            =   false
+        static var isUserGuest: Bool                            =   true
         static let isAppThemesLight                             =   false
     }
     

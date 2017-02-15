@@ -13,27 +13,56 @@ import UIKit
 
 // MARK: - Input & Output protocols
 protocol SignInShowViewControllerInput {
-    func displaySomething(viewModel: SignInShow.Something.ViewModel)
+    func displaySomething(viewModel: SignInShowModels.User.ViewModel)
 }
 
+// MARK: - Output protocols for Interactor component VIP-cicle
 protocol SignInShowViewControllerOutput {
-    func doSomething(request: SignInShow.Something.Request)
+    func didUserSignIn(requestModel: SignInShowModels.User.RequestModel)
 }
 
-class SignInShowViewController: BaseViewController, SignInShowViewControllerInput {
+enum AnimationDirection {
+    case FromLeftToRight
+    case FromRightToLeft
+}
+
+class SignInShowViewController: BaseViewController {
     // MARK: - Properties
-    var output: SignInShowViewControllerOutput!
+    var interactor: SignInShowViewControllerOutput!
     var router: SignInShowRouter!
     
-    @IBOutlet var bigTopBarView: BigTopBarView!
-    @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var nameTextField: CustomTextField!
-    @IBOutlet weak var passwordTextField: CustomTextField!
+    var animationDirection: AnimationDirection?
 
+    @IBOutlet weak var containerView: UIView!
+    
+    @IBOutlet var bigTopBarView: BigTopBarView!
+
+    // Social network buttons
     @IBOutlet weak var vkontakteButton: CustomButton!
     @IBOutlet weak var googleButton: CustomButton!
     @IBOutlet weak var facebookButton: CustomButton!
     
+    
+    // Container childVC
+    var signUpShowVC: SignUpShowViewController?
+    var signInContainerShowVC: SignInContainerShowViewController?
+    var forgotPasswordShowVC: ForgotPasswordShowViewController?
+//    var enterCodeShowViewController: EnterCodeShowViewController?
+//    var repetitionPasswordShowViewController: RepetitionPasswordShowViewController?
+    
+    var activeViewController: BaseViewController? {
+        didSet {
+            guard oldValue != nil else {
+                router.updateActiveViewController()
+                
+                return
+            }
+            
+            animationDirection = ((oldValue?.view.tag)! < (activeViewController?.view.tag)!) ? .FromRightToLeft : .FromLeftToRight
+            router.removeInactiveViewController(inactiveViewController: oldValue)
+        }
+    }
+
     
     // MARK: - Class Initialization
     override func awakeFromNib() {
@@ -47,14 +76,8 @@ class SignInShowViewController: BaseViewController, SignInShowViewControllerInpu
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Delegates
-        scrollView.delegate = self
-        nameTextField.delegate = self
-        passwordTextField.delegate = self
-        
         // Config controls
         topBarViewStyle = .Big
-        scrollViewBase = scrollView
 
         // Set buttons type
         vkontakteButton.designStyle = "Social"
@@ -63,25 +86,17 @@ class SignInShowViewController: BaseViewController, SignInShowViewControllerInpu
         
         setup(topBarView: bigTopBarView)
         
-        doSomethingOnLoad()
+        doInitialSetupOnLoad()
     }
     
     
     // MARK: - Custom Functions
-    func doSomethingOnLoad() {
-        print(object: "\(type(of: self)): \(#function) run.")
-
-        // NOTE: Ask the Interactor to do some work
-        let request = SignInShow.Something.Request()
-        output.doSomething(request: request)
-    }
-    
-    // Display logic
-    func displaySomething(viewModel: SignInShow.Something.ViewModel) {
-        print(object: "\(type(of: self)): \(#function) run.")
-
-        // NOTE: Display the result from the Presenter
-        // nameTextField.text = viewModel.name
+    func doInitialSetupOnLoad() {
+        // Hide navigation bar
+        hideNavigationBar()
+        
+        // Apply Container childVC
+        (Config.Constants.isUserGuest) ? router.navigateBetweenContainerSubviews() : router.navigateAuthorizedUser(duringStartApp: true)
     }
     
     func setupScene(withSize size: CGSize) {
@@ -111,8 +126,8 @@ class SignInShowViewController: BaseViewController, SignInShowViewControllerInpu
     }
     
     @IBAction func handlerFacebookButtonTap(_ sender: CustomButton) {
-        print(object: "\(type(of: self)): \(#function) run.")
-        
+        Config.Constants.isUserGuest = false
+        self.router.navigateAuthorizedUser(duringStartApp: false)
     }
     
     
@@ -121,5 +136,14 @@ class SignInShowViewController: BaseViewController, SignInShowViewControllerInpu
         print(object: "\(type(of: self)): \(#function) run. New size = \(size)")
         
         setupScene(withSize: size)
+    }
+}
+
+
+// MARK: - SignInShowViewControllerInput
+extension SignInShowViewController: SignInShowViewControllerInput {
+    func displaySomething(viewModel: SignInShowModels.User.ViewModel) {
+        // NOTE: Display the result from the Presenter
+        // nameTextField.text = viewModel.name
     }
 }

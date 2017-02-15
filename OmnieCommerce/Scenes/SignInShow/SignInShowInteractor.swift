@@ -13,27 +13,28 @@ import UIKit
 
 // MARK: - Input & Output protocols
 protocol SignInShowInteractorInput {
-    func doSomething(request: SignInShow.Something.Request)
+    func didUserSignIn(requestModel: SignInShowModels.User.RequestModel)
 }
 
+// MARK: - Output protocols for Presenter component VIP-cicle
 protocol SignInShowInteractorOutput {
-    func presentSomething(response: SignInShow.Something.Response)
+    func presentSomething(responseModel: SignInShowModels.User.ResponseModel)
 }
 
 class SignInShowInteractor: SignInShowInteractorInput {
     // MARK: - Properties
-    var output: SignInShowInteractorOutput!
+    var presenter: SignInShowInteractorOutput!
     var worker: SignInShowWorker!
     
     
     // MARK: - Custom Functions. Business logic
-    func doSomething(request: SignInShow.Something.Request) {
+    func didUserSignIn(requestModel: SignInShowModels.User.RequestModel) {
         // NOTE: Create some Worker to do the work
         worker = SignInShowWorker()
-        worker.doSomeWork()
+        let result = worker.doSomeWork()
         
         // NOTE: Pass the result to the Presenter
-        let response = SignInShow.Something.Response()
-        output.presentSomething(response: response)
+        let responseModel = SignInShowModels.User.ResponseModel(result: result)
+        presenter.presentSomething(responseModel: responseModel)
     }
 }

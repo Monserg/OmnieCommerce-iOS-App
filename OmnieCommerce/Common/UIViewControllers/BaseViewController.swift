@@ -20,7 +20,17 @@ class BaseViewController: UIViewController {
     var selectedRange: CGRect?
     var topBarViewStyle = TopBarViewStyle.Big
     var scrollViewBase = UIScrollView()
-        
+    var blackOutView: UIView?
+    var haveMenuItem = false
+    
+    var textFieldsArray = [CustomTextField]() {
+        willSet {
+            for textField in newValue {
+                textField.delegate = self
+            }
+        }
+    }
+
     
     // MARK: - Class Initialization
     override func awakeFromNib() {
@@ -35,6 +45,9 @@ class BaseViewController: UIViewController {
         print(object: "\(type(of: self)): \(#function) run in [line \(#line)]. View size = \(view.bounds.size)")
         
         super.viewDidLoad()
+        
+        // Setup App background color theme
+//        view.applyBackgroundTheme()
         
         // Add Observers
         NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardAction), name: .UIKeyboardWillHide, object: nil)
@@ -116,6 +129,19 @@ class BaseViewController: UIViewController {
     
     
     // MARK: - Custom Functions
+    func hideNavigationBar() {
+        navigationController?.isNavigationBarHidden = true
+    }
+
+    func showAlertView(withTitle title: String, andMessage message: String) {
+        let alertViewController = UIAlertController.init(title: title, message: message, preferredStyle: .alert)
+        
+        let alertViewControllerAction = UIAlertAction.init(title: "Ok".localized(), style: .default, handler: nil)
+        
+        alertViewController.addAction(alertViewControllerAction)
+        present(alertViewController, animated: true, completion: nil)
+    }
+    
     func setup(topBarView: UIView) {
         print(object: "\(type(of: self)): \(#function) run in [line \(#line)]")
 
@@ -225,7 +251,7 @@ extension BaseViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         print(object: "\(type(of: self)): \(#function) run in [line \(#line)]")
-        
+        /*
         if (NSStringFromClass(type(of: self)).hasSuffix("SignInShowViewController")) {
             let signInShowVC = self as! SignInShowViewController
             
@@ -271,7 +297,7 @@ extension BaseViewController: UITextFieldDelegate {
                 return false
             }
         }
-
+*/
         return true
     }
 }
