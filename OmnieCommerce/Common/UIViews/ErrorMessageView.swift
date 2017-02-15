@@ -9,14 +9,12 @@
 import UIKit
 
 class ErrorMessageView: UIView {
-    // MARK: - Properties
-
-    
     // MARK: - Custom Functions
     func didShow(_ value: Bool, withConstraint constraint: NSLayoutConstraint) {
         UIView.animate(withDuration: 1.3, animations: {
             constraint.constant = (value) ? 0 : -self.frame.height
-            
+            self.isHidden = (value) ? false : true
+                
             self.layoutIfNeeded()
         })
     }

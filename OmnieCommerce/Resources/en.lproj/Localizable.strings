@@ -39,6 +39,8 @@
 "Sport"                 =   "Sport";
 "From"                  =   "from";
 "To"                    =   "to";
+"Enter code"            =   "Enter code";
+"Invalid code"          =   "* Invalid code. Please try again";
 
 
 // Buttons
@@ -52,6 +54,9 @@
 "Send"                  =   "Send";
 "City"                  =   "City";
 "Confirm"               =   "Confirm";
+"Send"                  =   "Send";
+"Send again"            =   "Send Again";
+"Submit"                =   "Submit";
 
 
 // TextField Placeholders
@@ -61,6 +66,7 @@
 "Email"                 =   "Email";
 "Phone"                 =   "Phone";
 "Phone or Email"        =   "Phone or Email";
+"Enter Code"            =   "Enter Code";
 
 
 // Segmented Control Titles

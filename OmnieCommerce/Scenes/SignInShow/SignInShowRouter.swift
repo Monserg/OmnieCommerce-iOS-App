@@ -60,11 +60,11 @@ class SignInShowRouter: SignInShowRouterInput {
             // ForgotPasswordShowVC: Send button handler
             self.viewController.forgotPasswordShowVC?.handlerSendButtonCompletion = { _ in
                 // Create EnterCodeShowViewController
-//                self.viewController.enterCodeShowViewController = UIStoryboard(name: "SignInShow", bundle: nil).instantiateViewController(withIdentifier: "EnterCodeShowVC") as? EnterCodeShowViewController
+                self.viewController.enterCodeShowViewController = UIStoryboard(name: "SignInShow", bundle: nil).instantiateViewController(withIdentifier: "EnterCodeShowVC") as? EnterCodeShowViewController
                 
-//                // EnterCodeShowVC: Send button handler
-//                self.viewController.enterCodeShowViewController?.handlerSendButtonCompletion = { _ in
-//                    // Create RepetitionPasswordShow scene
+                // EnterCodeShowVC: Send button handler
+                self.viewController.enterCodeShowViewController?.handlerSendButtonCompletion = { _ in
+                    // Create RepetitionPasswordShow scene
 //                    self.viewController.repetitionPasswordShowViewController = UIStoryboard(name: "SignInShow", bundle: nil).instantiateViewController(withIdentifier: "RepetitionPasswordShowVC") as? RepetitionPasswordShowViewController
 //                    
 //                    // RepetitionPasswordShowVC: handler Send button
@@ -78,14 +78,14 @@ class SignInShowRouter: SignInShowRouterInput {
 //                    }
 //                    
 //                    self.viewController.activeViewController = self.viewController.repetitionPasswordShowViewController
-//                }
-//                
-//                // EnterCodeShowVC: Cancel button handler
-//                self.viewController.enterCodeShowViewController?.handlerCancelButtonCompletion = { _ in
-//                    self.viewController.activeViewController = self.viewController.forgotPasswordShowVC
-//                }
-//                
-//                self.viewController.activeViewController = self.viewController.enterCodeShowViewController
+                }
+                
+                // EnterCodeShowVC: Cancel button handler
+                self.viewController.enterCodeShowViewController?.handlerCancelButtonCompletion = { _ in
+                    self.viewController.activeViewController = self.viewController.forgotPasswordShowVC
+                }
+                
+                self.viewController.activeViewController = self.viewController.enterCodeShowViewController
             }
             
             // ForgotPasswordShowVC: Cancel button handler

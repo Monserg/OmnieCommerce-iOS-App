@@ -39,6 +39,8 @@
 "Sport"                 =   "Спорт";
 "From"                  =   "с";
 "To"                    =   "до";
+"Enter code"            =   "Введите код";
+"Invalid code"          =   "* Ошибочный код. Попытайтесь ще раз";
 
 
 // Buttons
@@ -52,6 +54,9 @@
 "Send"                  =   "Отправить";
 "City"                  =   "Город";
 "Confirm"               =   "Подтвердить";
+"Send"                  =   "Отправить";
+"Send again"            =   "Отправить ещё раз";
+"Submit"                =   "Подтвердить";
 
 
 // TextField Placeholders
@@ -61,6 +66,7 @@
 "Email"                 =   "Email";
 "Phone"                 =   "Телефон";
 "Phone or Email"        =   "Телефон или Email";
+"Enter Code"            =   "Введите код из сообщения";
 
 
 // Segmented Control Titles

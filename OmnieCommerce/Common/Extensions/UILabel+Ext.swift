@@ -14,8 +14,6 @@ enum LabelStyle: String {
     case Title = "Title"
     case Copyright = "Copyright"
     case MenuItem = "MenuItem"
-    case ForgotPassword = "ForgotPassword"
-    case Congratulations = "Congratulations"
     case CategoryName = "CategoryName"
     case Date = "Date"
     case DateItalic = "DateItalic"
@@ -23,8 +21,10 @@ enum LabelStyle: String {
     case Message = "Message"
     case FromTo = "FromTo"
     case CalendarWeekday = "CalendarWeekday"
-    case BarCodeTitle = "BarCodeTitle"
-    case ActionViewTitle = "ActionViewTitle"
+    case BarCodeTitle                                   =   "BarCodeTitle"
+    case ActionViewTitle                                =   "ActionViewTitle"
+    case UbuntuLightItalic12VerySoftRed                 =   "UbuntuLightItalic12VerySoftRed"
+    case HelveticaNeueCyrThin47VeryLightGray            =   "HelveticaNeueCyrThin47VeryLightGray"
 }
 
 
@@ -42,11 +42,13 @@ extension UILabel {
     
     func setupWithStyle(_ labelStyle: LabelStyle) {
         text = text?.localized()
+        textAlignment       =   .center
         
         switch labelStyle {
         case .Error:
             font = (Config.Constants.isAppThemesDark) ? UIFont.systemFont(ofSize: 12) : ((font!.pointSize == 12) ? UIFont.ubuntuLightItalic12 : UIFont.ubuntuLightItalic10)
             textColor = (Config.Constants.isAppThemesDark) ? UIColor.white : UIColor.moderateRed
+            textAlignment = .left
             
         case .Title:
             font = (Config.Constants.isAppThemesDark) ? UIFont.systemFont(ofSize: 12) : UIFont.helveticaNeueCyrLight32
@@ -59,14 +61,6 @@ extension UILabel {
             
         case .MenuItem:
             font = (Config.Constants.isAppThemesDark) ? UIFont.systemFont(ofSize: 12) : UIFont.ubuntuLight16
-            textColor = (Config.Constants.isAppThemesDark) ? UIColor.white : UIColor.veryLightGray
-            
-        case .ForgotPassword:
-            font = (Config.Constants.isAppThemesDark) ? UIFont.systemFont(ofSize: 12) : UIFont.helveticaNeueCyrThin33
-            textColor = (Config.Constants.isAppThemesDark) ? UIColor.white : UIColor.veryLightGray
-            
-        case .Congratulations:
-            font = (Config.Constants.isAppThemesDark) ? UIFont.systemFont(ofSize: 12) : UIFont.helveticaNeueCyrThin47
             textColor = (Config.Constants.isAppThemesDark) ? UIColor.white : UIColor.veryLightGray
             
         case .CategoryName:
@@ -100,6 +94,15 @@ extension UILabel {
 
         case .ActionViewTitle:
             attributedText = (Config.Constants.isAppThemesDark) ? NSAttributedString(string: text!, attributes: UIFont.ubuntuLightItalicVeryDarkGrayishBlue5312) : NSAttributedString(string: text!, attributes: UIFont.helveticaNeueCyrLightVeryLightGray21)
+
+        case .UbuntuLightItalic12VerySoftRed:
+            font            =   UIFont.ubuntuLightItalic12
+            textColor       =   UIColor(hexString: (Config.Constants.isAppThemesDark) ? "#dc8181" : "#8b0000", withAlpha: 1.0)
+            textAlignment   =   .left
+
+        case .HelveticaNeueCyrThin47VeryLightGray:
+            font            =   UIFont.helveticaNeueCyrThin47
+            textColor       =   UIColor(hexString: (Config.Constants.isAppThemesDark) ? "#dedede" : "#dedede", withAlpha: 1.0)
 
         default:
             font = (Config.Constants.isAppThemesDark) ? UIFont.systemFont(ofSize: 12) : UIFont.ubuntuLight12

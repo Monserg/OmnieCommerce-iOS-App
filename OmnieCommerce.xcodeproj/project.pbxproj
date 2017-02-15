@@ -140,6 +140,13 @@
 		B177E53A1E5475EC004F1390 /* SignInContainerShowWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B177E5331E5475EC004F1390 /* SignInContainerShowWorker.swift */; };
 		B177E53C1E5489A2004F1390 /* ErrorMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B177E53B1E5489A2004F1390 /* ErrorMessageView.swift */; };
 		B177E53E1E548A95004F1390 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B177E53D1E548A95004F1390 /* CustomTextField.swift */; };
+		B177E5471E54AC7F004F1390 /* EnterCodeShowConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B177E5401E54AC7F004F1390 /* EnterCodeShowConfigurator.swift */; };
+		B177E5481E54AC7F004F1390 /* EnterCodeShowInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B177E5411E54AC7F004F1390 /* EnterCodeShowInteractor.swift */; };
+		B177E5491E54AC7F004F1390 /* EnterCodeShowModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B177E5421E54AC7F004F1390 /* EnterCodeShowModels.swift */; };
+		B177E54A1E54AC7F004F1390 /* EnterCodeShowPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B177E5431E54AC7F004F1390 /* EnterCodeShowPresenter.swift */; };
+		B177E54B1E54AC7F004F1390 /* EnterCodeShowRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B177E5441E54AC7F004F1390 /* EnterCodeShowRouter.swift */; };
+		B177E54C1E54AC7F004F1390 /* EnterCodeShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B177E5451E54AC7F004F1390 /* EnterCodeShowViewController.swift */; };
+		B177E54D1E54AC7F004F1390 /* EnterCodeShowWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B177E5461E54AC7F004F1390 /* EnterCodeShowWorker.swift */; };
 		B18A45C61DEC21BA003EBD2F /* SmallTopBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B18A45C51DEC21BA003EBD2F /* SmallTopBarView.xib */; };
 		B18A45C81DEC23B2003EBD2F /* SmallTopBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18A45C71DEC23B2003EBD2F /* SmallTopBarView.swift */; };
 		B18A45CA1DEC282B003EBD2F /* DotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18A45C91DEC282B003EBD2F /* DotView.swift */; };
@@ -391,6 +398,13 @@
 		B177E5331E5475EC004F1390 /* SignInContainerShowWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInContainerShowWorker.swift; sourceTree = "<group>"; };
 		B177E53B1E5489A2004F1390 /* ErrorMessageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorMessageView.swift; sourceTree = "<group>"; };
 		B177E53D1E548A95004F1390 /* CustomTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		B177E5401E54AC7F004F1390 /* EnterCodeShowConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnterCodeShowConfigurator.swift; sourceTree = "<group>"; };
+		B177E5411E54AC7F004F1390 /* EnterCodeShowInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnterCodeShowInteractor.swift; sourceTree = "<group>"; };
+		B177E5421E54AC7F004F1390 /* EnterCodeShowModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnterCodeShowModels.swift; sourceTree = "<group>"; };
+		B177E5431E54AC7F004F1390 /* EnterCodeShowPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnterCodeShowPresenter.swift; sourceTree = "<group>"; };
+		B177E5441E54AC7F004F1390 /* EnterCodeShowRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnterCodeShowRouter.swift; sourceTree = "<group>"; };
+		B177E5451E54AC7F004F1390 /* EnterCodeShowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnterCodeShowViewController.swift; sourceTree = "<group>"; };
+		B177E5461E54AC7F004F1390 /* EnterCodeShowWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnterCodeShowWorker.swift; sourceTree = "<group>"; };
 		B18A45C51DEC21BA003EBD2F /* SmallTopBarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SmallTopBarView.xib; sourceTree = "<group>"; };
 		B18A45C71DEC23B2003EBD2F /* SmallTopBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmallTopBarView.swift; sourceTree = "<group>"; };
 		B18A45C91DEC282B003EBD2F /* DotView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DotView.swift; sourceTree = "<group>"; };
@@ -656,6 +670,7 @@
 		B122F1C01DD35A110018A701 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				B177E53F1E54AC5A004F1390 /* EnterCodeShow */,
 				B1CF54681DDB503200E98049 /* AboutShow */,
 				B1CF546C1DDB507900E98049 /* BusinessCardsShow */,
 				B122DF5B1DF7F919003823AD /* CalendarShow */,
@@ -960,6 +975,20 @@
 				B177E5331E5475EC004F1390 /* SignInContainerShowWorker.swift */,
 			);
 			path = SignInContainerShow;
+			sourceTree = "<group>";
+		};
+		B177E53F1E54AC5A004F1390 /* EnterCodeShow */ = {
+			isa = PBXGroup;
+			children = (
+				B177E5401E54AC7F004F1390 /* EnterCodeShowConfigurator.swift */,
+				B177E5411E54AC7F004F1390 /* EnterCodeShowInteractor.swift */,
+				B177E5421E54AC7F004F1390 /* EnterCodeShowModels.swift */,
+				B177E5431E54AC7F004F1390 /* EnterCodeShowPresenter.swift */,
+				B177E5441E54AC7F004F1390 /* EnterCodeShowRouter.swift */,
+				B177E5451E54AC7F004F1390 /* EnterCodeShowViewController.swift */,
+				B177E5461E54AC7F004F1390 /* EnterCodeShowWorker.swift */,
+			);
+			path = EnterCodeShow;
 			sourceTree = "<group>";
 		};
 		B19DF2821DF94D94000AFC92 /* UIViewControllers */ = {
@@ -1346,12 +1375,14 @@
 				B1CF547B1DDB50D900E98049 /* AboutShowViewController.swift in Sources */,
 				B1F7EDB81DF54878003B36AD /* SegmentedControlView.swift in Sources */,
 				B122F2051DD35BEB0018A701 /* CategoriesShowConfigurator.swift in Sources */,
+				B177E54A1E54AC7F004F1390 /* EnterCodeShowPresenter.swift in Sources */,
 				B1CF54B41DDB516E00E98049 /* OmnieCardsShowWorker.swift in Sources */,
 				B122F2091DD35BEB0018A701 /* CategoriesShowRouter.swift in Sources */,
 				B122F1EB1DD35BA70018A701 /* MessagesShowModels.swift in Sources */,
 				B122F2261DD35CC80018A701 /* SlideMenuShowRouter.swift in Sources */,
 				B1228FB51DD4856A00A90FBB /* MenuItem.swift in Sources */,
 				B122F1DB1DD35B760018A701 /* OrdersShowConfigurator.swift in Sources */,
+				B177E5471E54AC7F004F1390 /* EnterCodeShowConfigurator.swift in Sources */,
 				B14E97691DD8B05E001E1DE2 /* ForgotPasswordShowViewController.swift in Sources */,
 				B1CF54B01DDB516E00E98049 /* OmnieCardsShowModels.swift in Sources */,
 				B1CF54971DDB512000E98049 /* DiscountCardsShowViewController.swift in Sources */,
@@ -1376,6 +1407,7 @@
 				B14107C71DFEB1D700F79CF9 /* CustomView.swift in Sources */,
 				B1CF54771DDB50D900E98049 /* AboutShowInteractor.swift in Sources */,
 				B16E96731DE717E400147CEF /* BigCirleView.swift in Sources */,
+				B177E5491E54AC7F004F1390 /* EnterCodeShowModels.swift in Sources */,
 				B1CF54951DDB512000E98049 /* DiscountCardsShowPresenter.swift in Sources */,
 				B1CF54861DDB50F100E98049 /* BusinessCardsShowModels.swift in Sources */,
 				B1739D181DE314D50029BCCA /* UILabel+Ext.swift in Sources */,
@@ -1411,6 +1443,7 @@
 				B122DF641DF7F957003823AD /* CalendarShowInteractor.swift in Sources */,
 				B1CF54DD1DDB51BE00E98049 /* SettingsShowViewController.swift in Sources */,
 				B18A45CC1DEC3918003EBD2F /* SmallCirleView.swift in Sources */,
+				B177E54C1E54AC7F004F1390 /* EnterCodeShowViewController.swift in Sources */,
 				B122DF6D1DF80FC1003823AD /* String+Ext.swift in Sources */,
 				B1CF54841DDB50F100E98049 /* BusinessCardsShowConfigurator.swift in Sources */,
 				B11CCAF21DEEEBB200AA7942 /* DropDownTableViewController.swift in Sources */,
@@ -1472,6 +1505,7 @@
 				B1CF54AE1DDB516E00E98049 /* OmnieCardsShowConfigurator.swift in Sources */,
 				B1CF54BF1DDB519000E98049 /* OnmieSoftShowPresenter.swift in Sources */,
 				B14E97571DD8B052001E1DE2 /* SignUpShowInteractor.swift in Sources */,
+				B177E5481E54AC7F004F1390 /* EnterCodeShowInteractor.swift in Sources */,
 				B122F1FC1DD35BC70018A701 /* FavoriteShowViewController.swift in Sources */,
 				B1CF54BD1DDB519000E98049 /* OnmieSoftShowInteractor.swift in Sources */,
 				B122F1E91DD35BA70018A701 /* MessagesShowConfigurator.swift in Sources */,
@@ -1504,6 +1538,7 @@
 				B1E52AB11DDDD0EA00C3B24D /* LaunchScreenViewController.swift in Sources */,
 				B177E5341E5475EC004F1390 /* SignInContainerShowConfigurator.swift in Sources */,
 				B122F1DC1DD35B760018A701 /* OrdersShowInteractor.swift in Sources */,
+				B177E54B1E54AC7F004F1390 /* EnterCodeShowRouter.swift in Sources */,
 				B14E97681DD8B05E001E1DE2 /* ForgotPasswordShowRouter.swift in Sources */,
 				B1CF54B11DDB516E00E98049 /* OmnieCardsShowPresenter.swift in Sources */,
 				B14E97581DD8B052001E1DE2 /* SignUpShowModels.swift in Sources */,
@@ -1517,6 +1552,7 @@
 				B122F2181DD35C2C0018A701 /* NewsShowViewController.swift in Sources */,
 				B17323CC1DED995C003A8D3E /* Category.swift in Sources */,
 				B177E53E1E548A95004F1390 /* CustomTextField.swift in Sources */,
+				B177E54D1E54AC7F004F1390 /* EnterCodeShowWorker.swift in Sources */,
 				B122F1F81DD35BC70018A701 /* FavoriteShowInteractor.swift in Sources */,
 				B14E976A1DD8B05E001E1DE2 /* ForgotPasswordShowWorker.swift in Sources */,
 				B1CF54DE1DDB51BE00E98049 /* SettingsShowWorker.swift in Sources */,
