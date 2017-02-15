@@ -1,10 +1,10 @@
-/* 
-  Localizable.strings
-  OmnieCommerce
-
-  Created by msm72 on 09.11.16.
-  Copyright © 2016 Omniesoft. All rights reserved.
-*/
+/*
+ Localizable.strings
+ OmnieCommerce
+ 
+ Created by msm72 on 09.11.16.
+ Copyright © 2016 Omniesoft. All rights reserved.
+ */
 
 // Menu Items
 "Orders"                =   "My Orders";
@@ -28,6 +28,7 @@
 "Not yet registered?"   =   "Not yet registered?";
 "Forgot Password"       =   "Forgot Password";
 "Phone or email error"  =   "* wrong Phone number or Email";
+"Phone error"           =   "* wrong Phone number";
 "Email error"           =   "* wrong Email";
 "Auto Service"          =   "Auto Service";
 "Health"                =   "Health";
@@ -55,8 +56,10 @@
 
 // TextField Placeholders
 "Name"                  =   "Name";
+"Surname"               =   "Surname";
 "Password"              =   "Password";
 "Email"                 =   "Email";
+"Phone"                 =   "Phone";
 "Phone or Email"        =   "Phone or Email";
 
 
@@ -69,6 +72,28 @@
 "Services"              =   "Services";
 "Calendar"              =   "Calendar";
 "Schedule"              =   "Schedule";
+
+
+// Titles
+"Man"                   =   "Man";
+"Female"                =   "Female";
+"Birthday"              =   "Birthday";
+"Family status"         =   "Family status";
+"Not married"           =   "Not married";
+"Married"               =   "Married";
+"Children"              =   "Have children";
+"Children No"           =   "No children";
+"Children Yes"          =   "Do you have children";
+"Pet"                   =   "The presence of a pet";
+"Pet No"                =   "Pet No";
+"Pet Yes"               =   "Pet has";
+
+
+// Alert actions
+"Photo"                 =   "Photo";
+"Photo upload"          =   "Upload a new photo";
+"Photo make"            =   "Make a photo";
+"Photo delete"          =   "Delete a photo";
 
 
 // Errors
