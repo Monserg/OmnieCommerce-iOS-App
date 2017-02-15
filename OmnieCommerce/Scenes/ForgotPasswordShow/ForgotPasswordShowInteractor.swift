@@ -11,18 +11,19 @@
 
 import UIKit
 
-// MARK: - Input & Output protocols
+// MARK: - Input protocols for current Interactor component VIP-cicle
 protocol ForgotPasswordShowInteractorInput {
     func doSomething(request: ForgotPasswordShow.Something.Request)
 }
 
+// MARK: - Output protocols for Presenter component VIP-cicle
 protocol ForgotPasswordShowInteractorOutput {
     func presentSomething(response: ForgotPasswordShow.Something.Response)
 }
 
 class ForgotPasswordShowInteractor: ForgotPasswordShowInteractorInput {
     // MARK: - Properties
-    var output: ForgotPasswordShowInteractorOutput!
+    var presenter: ForgotPasswordShowInteractorOutput!
     var worker: ForgotPasswordShowWorker!
     
     
@@ -34,6 +35,6 @@ class ForgotPasswordShowInteractor: ForgotPasswordShowInteractorInput {
         
         // NOTE: Pass the result to the Presenter
         let response = ForgotPasswordShow.Something.Response()
-        output.presentSomething(response: response)
+        presenter.presentSomething(response: response)
     }
 }

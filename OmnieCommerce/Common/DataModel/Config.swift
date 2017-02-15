@@ -45,7 +45,8 @@ struct Config {
         
         // FIXME: - DELETE AFTER TEST
         static var isUserGuest: Bool                            =   true
-        static let isAppThemesLight                             =   false
+        static let isAppThemesDark                              =   false
+        static let errorMessageViewHeight: CGFloat              =   14
     }
     
     enum ViewStyle: String {

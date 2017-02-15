@@ -24,27 +24,17 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>GTMOAuth2.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>GTMSessionFetcher.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>GoogleToolboxForMac.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>JTAppleCalendar.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
 		<key>Localize-Swift.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Navajo-Swift.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -59,25 +49,10 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>SwiftyVK.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0C66F6967D4E61782C1D0678F53F37A0</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>107A9565F9DF88517DFD3E28C05B2B96</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>2EAB6C2AAFD4FF8213BF3859015794C8</key>
+		<key>015AAC4618F33550E8C400890E3DCF90</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -87,22 +62,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>4FBF532C5CBB7E3816A5F16EAF0DECDA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>5E90024CA4621EC0A8B8C777C958214A</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>681BE6E3D02A43F9BA63777AC435C8FD</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>74C1474756886BC59663373D48B91014</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>7BFED138000064C5466DAA0080FC7BDB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -122,12 +87,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>AF9BF70B3A2A405C7198414C89DA261F</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>B1C4AAFAF49036C7007633DAA3C806AD</key>
+		<key>A81FD5590965814D0CE75CFC3FFF5F66</key>
 		<dict>
 			<key>primary</key>
 			<true/>

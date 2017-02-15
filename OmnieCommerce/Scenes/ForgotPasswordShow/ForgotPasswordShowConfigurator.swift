@@ -39,12 +39,12 @@ class ForgotPasswordShowConfigurator {
         router.viewController = viewController
         
         let presenter = ForgotPasswordShowPresenter()
-        presenter.output = viewController
+        presenter.viewController = viewController
         
         let interactor = ForgotPasswordShowInteractor()
-        interactor.output = presenter
+        interactor.presenter = presenter
         
-        viewController.output = interactor
+        viewController.interactor = interactor
         viewController.router = router
     }
 }

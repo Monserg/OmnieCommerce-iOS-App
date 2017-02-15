@@ -79,7 +79,6 @@
 		B122F2321DD35EF10018A701 /* NewsShow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B122F2311DD35EF10018A701 /* NewsShow.storyboard */; };
 		B122F2411DD371B30018A701 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B122F2401DD371B30018A701 /* BaseNavigationController.swift */; };
 		B122F2481DD393330018A701 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B122F24A1DD393330018A701 /* Localizable.strings */; };
-		B12AC2301DDF3BDB00FA0924 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12AC22F1DDF3BDB00FA0924 /* CustomTextField.swift */; };
 		B14107C41DFEA73900F79CF9 /* CalendarDayCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14107C21DFEA73900F79CF9 /* CalendarDayCellView.swift */; };
 		B14107C51DFEA73900F79CF9 /* CalendarDayCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B14107C31DFEA73900F79CF9 /* CalendarDayCellView.xib */; };
 		B14107C71DFEB1D700F79CF9 /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14107C61DFEB1D700F79CF9 /* CustomView.swift */; };
@@ -139,6 +138,8 @@
 		B177E5381E5475EC004F1390 /* SignInContainerShowRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B177E5311E5475EC004F1390 /* SignInContainerShowRouter.swift */; };
 		B177E5391E5475EC004F1390 /* SignInContainerShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B177E5321E5475EC004F1390 /* SignInContainerShowViewController.swift */; };
 		B177E53A1E5475EC004F1390 /* SignInContainerShowWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B177E5331E5475EC004F1390 /* SignInContainerShowWorker.swift */; };
+		B177E53C1E5489A2004F1390 /* ErrorMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B177E53B1E5489A2004F1390 /* ErrorMessageView.swift */; };
+		B177E53E1E548A95004F1390 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B177E53D1E548A95004F1390 /* CustomTextField.swift */; };
 		B18A45C61DEC21BA003EBD2F /* SmallTopBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B18A45C51DEC21BA003EBD2F /* SmallTopBarView.xib */; };
 		B18A45C81DEC23B2003EBD2F /* SmallTopBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18A45C71DEC23B2003EBD2F /* SmallTopBarView.swift */; };
 		B18A45CA1DEC282B003EBD2F /* DotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18A45C91DEC282B003EBD2F /* DotView.swift */; };
@@ -326,7 +327,6 @@
 		B122F2491DD393330018A701 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B122F24C1DD393350018A701 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B122F24D1DD393360018A701 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Localizable.strings; sourceTree = "<group>"; };
-		B12AC22F1DDF3BDB00FA0924 /* CustomTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		B14107C21DFEA73900F79CF9 /* CalendarDayCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarDayCellView.swift; sourceTree = "<group>"; };
 		B14107C31DFEA73900F79CF9 /* CalendarDayCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CalendarDayCellView.xib; sourceTree = "<group>"; };
 		B14107C61DFEB1D700F79CF9 /* CustomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
@@ -389,6 +389,8 @@
 		B177E5311E5475EC004F1390 /* SignInContainerShowRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInContainerShowRouter.swift; sourceTree = "<group>"; };
 		B177E5321E5475EC004F1390 /* SignInContainerShowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInContainerShowViewController.swift; sourceTree = "<group>"; };
 		B177E5331E5475EC004F1390 /* SignInContainerShowWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInContainerShowWorker.swift; sourceTree = "<group>"; };
+		B177E53B1E5489A2004F1390 /* ErrorMessageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorMessageView.swift; sourceTree = "<group>"; };
+		B177E53D1E548A95004F1390 /* CustomTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		B18A45C51DEC21BA003EBD2F /* SmallTopBarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SmallTopBarView.xib; sourceTree = "<group>"; };
 		B18A45C71DEC23B2003EBD2F /* SmallTopBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmallTopBarView.swift; sourceTree = "<group>"; };
 		B18A45C91DEC282B003EBD2F /* DotView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DotView.swift; sourceTree = "<group>"; };
@@ -556,6 +558,8 @@
 				B14107C61DFEB1D700F79CF9 /* CustomView.swift */,
 				B11E074D1DE032D90052AFC5 /* DottedBorderView.swift */,
 				B18A45C91DEC282B003EBD2F /* DotView.swift */,
+				B1597AD31E3FA91400123CB5 /* EllipseView.swift */,
+				B177E53B1E5489A2004F1390 /* ErrorMessageView.swift */,
 				B152915A1DDE44A200BBA1E0 /* MenuSectionFooterView.swift */,
 				B152915C1DDE44B700BBA1E0 /* MenuSectionFooterView.xib */,
 				B15291581DDE3FFA00BBA1E0 /* MenuSectionHeaderView.swift */,
@@ -564,7 +568,6 @@
 				B1F7EDB91DF54886003B36AD /* SegmentedControlView.xib */,
 				B122DF6A1DF804CD003823AD /* SegmentedControlViewLandscape.xib */,
 				B18A45CB1DEC3918003EBD2F /* SmallCirleView.swift */,
-				B1597AD31E3FA91400123CB5 /* EllipseView.swift */,
 				B18A45C71DEC23B2003EBD2F /* SmallTopBarView.swift */,
 				B18A45C51DEC21BA003EBD2F /* SmallTopBarView.xib */,
 			);
@@ -783,7 +786,7 @@
 		B122F2381DD36F120018A701 /* UITextFields */ = {
 			isa = PBXGroup;
 			children = (
-				B12AC22F1DDF3BDB00FA0924 /* CustomTextField.swift */,
+				B177E53D1E548A95004F1390 /* CustomTextField.swift */,
 			);
 			path = UITextFields;
 			sourceTree = "<group>";
@@ -1463,6 +1466,7 @@
 				B1CF54DB1DDB51BE00E98049 /* SettingsShowPresenter.swift in Sources */,
 				B122DF631DF7F957003823AD /* CalendarShowConfigurator.swift in Sources */,
 				B14E97481DD8B042001E1DE2 /* SignInShowConfigurator.swift in Sources */,
+				B177E53C1E5489A2004F1390 /* ErrorMessageView.swift in Sources */,
 				B18A45C81DEC23B2003EBD2F /* SmallTopBarView.swift in Sources */,
 				B122F2141DD35C2C0018A701 /* NewsShowInteractor.swift in Sources */,
 				B1CF54AE1DDB516E00E98049 /* OmnieCardsShowConfigurator.swift in Sources */,
@@ -1498,7 +1502,6 @@
 				B122F2411DD371B30018A701 /* BaseNavigationController.swift in Sources */,
 				B122DF671DF7F957003823AD /* CalendarShowRouter.swift in Sources */,
 				B1E52AB11DDDD0EA00C3B24D /* LaunchScreenViewController.swift in Sources */,
-				B12AC2301DDF3BDB00FA0924 /* CustomTextField.swift in Sources */,
 				B177E5341E5475EC004F1390 /* SignInContainerShowConfigurator.swift in Sources */,
 				B122F1DC1DD35B760018A701 /* OrdersShowInteractor.swift in Sources */,
 				B14E97681DD8B05E001E1DE2 /* ForgotPasswordShowRouter.swift in Sources */,
@@ -1513,6 +1516,7 @@
 				B1C13D871DEF2743002B494A /* DropDownButton.swift in Sources */,
 				B122F2181DD35C2C0018A701 /* NewsShowViewController.swift in Sources */,
 				B17323CC1DED995C003A8D3E /* Category.swift in Sources */,
+				B177E53E1E548A95004F1390 /* CustomTextField.swift in Sources */,
 				B122F1F81DD35BC70018A701 /* FavoriteShowInteractor.swift in Sources */,
 				B14E976A1DD8B05E001E1DE2 /* ForgotPasswordShowWorker.swift in Sources */,
 				B1CF54DE1DDB51BE00E98049 /* SettingsShowWorker.swift in Sources */,

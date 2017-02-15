@@ -11,24 +11,25 @@
 
 import UIKit
 
-// MARK: - Input & Output protocols
+// MARK: - Input protocols for current Presenter component VIP-cicle
 protocol ForgotPasswordShowPresenterInput {
     func presentSomething(response: ForgotPasswordShow.Something.Response)
 }
 
+// MARK: - Output protocols for ViewController component VIP-cicle
 protocol ForgotPasswordShowPresenterOutput: class {
     func displaySomething(viewModel: ForgotPasswordShow.Something.ViewModel)
 }
 
 class ForgotPasswordShowPresenter: ForgotPasswordShowPresenterInput {
     // MARK: - Properties
-    weak var output: ForgotPasswordShowPresenterOutput!
+    weak var viewController: ForgotPasswordShowPresenterOutput!
     
     
     // MARK: - Custom Functions. Presentation logic
     func presentSomething(response: ForgotPasswordShow.Something.Response) {
         // NOTE: Format the response from the Interactor and pass the result back to the View Controller
         let viewModel = ForgotPasswordShow.Something.ViewModel()
-        output.displaySomething(viewModel: viewModel)
+        viewController.displaySomething(viewModel: viewModel)
     }
 }

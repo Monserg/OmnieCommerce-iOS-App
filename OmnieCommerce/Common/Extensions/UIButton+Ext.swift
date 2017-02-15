@@ -44,20 +44,20 @@ extension UIButton {
 
         switch buttonStyle {
         case .Social:
-            backgroundColor = (Config.Constants.isAppThemesLight) ? UIColor.white : UIColor.softOrange
+            backgroundColor = (Config.Constants.isAppThemesDark) ? UIColor.white : UIColor.softOrange
             tintColor = UIColor.clear
             borderColor = UIColor.clear
             borderWidth = 0
             cornerRadius = frame.size.height / 2
 
         case .Fill:
-            backgroundColor = (Config.Constants.isAppThemesLight) ? UIColor.white : UIColor.veryLightOrange
+            backgroundColor = (Config.Constants.isAppThemesDark) ? UIColor.white : UIColor.veryLightOrange
             setAttributedTitle(NSAttributedString.init(string: (titleLabel?.text?.localized())!, attributes: UIFont.ubuntuRegularVeryDarkGray16), for: .normal)
             borderColor = UIColor.clear
             borderWidth = 0
             cornerRadius = frame.size.height / 2
-            (Config.Constants.isAppThemesLight) ? setAttributedTitle(NSAttributedString.init(string: (titleLabel?.text?.localized())!, attributes: UIFont.ubuntuLightVeryLightGrayUnderline12), for: .normal) : setAttributedTitle(NSAttributedString.init(string: (titleLabel?.text?.localized())!, attributes: UIFont.ubuntuRegularVeryDarkGray16), for: .normal)
-            (Config.Constants.isAppThemesLight) ? setAttributedTitle(NSAttributedString.init(string: (titleLabel?.text?.localized())!, attributes: UIFont.ubuntuLightVeryLightGrayUnderline12), for: .highlighted) : setAttributedTitle(NSAttributedString.init(string: (titleLabel?.text?.localized())!, attributes: UIFont.ubuntuRegularVeryDarkGray16), for: .highlighted)
+            (Config.Constants.isAppThemesDark) ? setAttributedTitle(NSAttributedString.init(string: (titleLabel?.text?.localized())!, attributes: UIFont.ubuntuLightVeryLightGrayUnderline12), for: .normal) : setAttributedTitle(NSAttributedString.init(string: (titleLabel?.text?.localized())!, attributes: UIFont.ubuntuRegularVeryDarkGray16), for: .normal)
+            (Config.Constants.isAppThemesDark) ? setAttributedTitle(NSAttributedString.init(string: (titleLabel?.text?.localized())!, attributes: UIFont.ubuntuLightVeryLightGrayUnderline12), for: .highlighted) : setAttributedTitle(NSAttributedString.init(string: (titleLabel?.text?.localized())!, attributes: UIFont.ubuntuRegularVeryDarkGray16), for: .highlighted)
 
             titleLabel?.sizeToFit()
 
@@ -67,9 +67,9 @@ extension UIButton {
             
         case .Border:
             backgroundColor = UIColor.clear
-            tintColor = (Config.Constants.isAppThemesLight) ? UIColor.black : UIColor.veryLightGray
-            titleLabel?.font = (Config.Constants.isAppThemesLight) ? UIFont.systemFont(ofSize: 12) : UIFont.ubuntuRegular16
-            borderColor = (Config.Constants.isAppThemesLight) ? UIColor.black : UIColor.veryLightOrange
+            tintColor = (Config.Constants.isAppThemesDark) ? UIColor.black : UIColor.veryLightGray
+            titleLabel?.font = (Config.Constants.isAppThemesDark) ? UIFont.systemFont(ofSize: 12) : UIFont.ubuntuRegular16
+            borderColor = (Config.Constants.isAppThemesDark) ? UIColor.black : UIColor.veryLightOrange
             borderWidth = 1
             cornerRadius = frame.size.height / 2
             
@@ -78,19 +78,19 @@ extension UIButton {
             borderColor = UIColor.clear
             borderWidth = 0
             cornerRadius = 0
-            (Config.Constants.isAppThemesLight) ? setAttributedTitle(NSAttributedString.init(string: (titleLabel?.text?.localized())!, attributes: UIFont.ubuntuLightVeryLightGrayUnderline12), for: .normal) : setAttributedTitle(NSAttributedString.init(string: (titleLabel?.text?.localized())!, attributes: UIFont.ubuntuLightVeryLightGrayUnderline12), for: .normal)
-            (Config.Constants.isAppThemesLight) ? setAttributedTitle(NSAttributedString.init(string: (titleLabel?.text?.localized())!, attributes: UIFont.ubuntuLightVeryLightGrayUnderline12), for: .highlighted) : setAttributedTitle(NSAttributedString.init(string: (titleLabel?.text?.localized())!, attributes: UIFont.ubuntuLightVeryLightGrayUnderline12), for: .highlighted)
+            (Config.Constants.isAppThemesDark) ? setAttributedTitle(NSAttributedString.init(string: (titleLabel?.text?.localized())!, attributes: UIFont.ubuntuLightVeryLightGrayUnderline12), for: .normal) : setAttributedTitle(NSAttributedString.init(string: (titleLabel?.text?.localized())!, attributes: UIFont.ubuntuLightVeryLightGrayUnderline12), for: .normal)
+            (Config.Constants.isAppThemesDark) ? setAttributedTitle(NSAttributedString.init(string: (titleLabel?.text?.localized())!, attributes: UIFont.ubuntuLightVeryLightGrayUnderline12), for: .highlighted) : setAttributedTitle(NSAttributedString.init(string: (titleLabel?.text?.localized())!, attributes: UIFont.ubuntuLightVeryLightGrayUnderline12), for: .highlighted)
 
         case .UnderlineColor:
             backgroundColor = UIColor.clear
             borderColor = UIColor.clear
             borderWidth = 0
             cornerRadius = 0
-            (Config.Constants.isAppThemesLight) ? setAttributedTitle(NSAttributedString.init(string: (titleLabel?.text?.localized())!, attributes: UIFont.ubuntuLightSoftOrangeUnderline12), for: .normal) : setAttributedTitle(NSAttributedString.init(string: (titleLabel?.text?.localized())!, attributes: UIFont.ubuntuLightSoftOrangeUnderline12), for: .normal)
-            (Config.Constants.isAppThemesLight) ? setAttributedTitle(NSAttributedString.init(string: (titleLabel?.text?.localized())!, attributes: UIFont.ubuntuLightSoftOrangeUnderline12), for: .highlighted) : setAttributedTitle(NSAttributedString.init(string: (titleLabel?.text?.localized())!, attributes: UIFont.ubuntuLightSoftOrangeUnderline12), for: .highlighted)
+            (Config.Constants.isAppThemesDark) ? setAttributedTitle(NSAttributedString.init(string: (titleLabel?.text?.localized())!, attributes: UIFont.ubuntuLightSoftOrangeUnderline12), for: .normal) : setAttributedTitle(NSAttributedString.init(string: (titleLabel?.text?.localized())!, attributes: UIFont.ubuntuLightSoftOrangeUnderline12), for: .normal)
+            (Config.Constants.isAppThemesDark) ? setAttributedTitle(NSAttributedString.init(string: (titleLabel?.text?.localized())!, attributes: UIFont.ubuntuLightSoftOrangeUnderline12), for: .highlighted) : setAttributedTitle(NSAttributedString.init(string: (titleLabel?.text?.localized())!, attributes: UIFont.ubuntuLightSoftOrangeUnderline12), for: .highlighted)
             
         case .DropDownList:
-            backgroundColor = (Config.Constants.isAppThemesLight) ? UIColor.white : UIColor.veryDarkDesaturatedBlue24
+            backgroundColor = (Config.Constants.isAppThemesDark) ? UIColor.white : UIColor.veryDarkDesaturatedBlue24
             setAttributedTitle(NSAttributedString(string: (titleLabel?.text)!, attributes: UIFont.ubuntuLightVeryLightGray12), for: .normal)
             setAttributedTitle(NSAttributedString(string: (titleLabel?.text)!, attributes: UIFont.ubuntuLightVeryLightGray12Alpha30), for: .highlighted)
             borderColor = UIColor.darkCyan
@@ -100,7 +100,7 @@ extension UIButton {
             imageEdgeInsets = UIEdgeInsetsMake(3, frame.width - 18 - borderWidth, 0, 0)
 
         case .MenuEvent:
-            backgroundColor = (Config.Constants.isAppThemesLight) ? UIColor.white : UIColor.veryLightOrange
+            backgroundColor = (Config.Constants.isAppThemesDark) ? UIColor.white : UIColor.veryLightOrange
             setAttributedTitle(NSAttributedString(string: (titleLabel?.text)!, attributes: UIFont.ubuntuLightVeryLightGray12), for: .normal)
             setAttributedTitle(NSAttributedString(string: (titleLabel?.text)!, attributes: UIFont.ubuntuLightVeryLightGray12Alpha30), for: .highlighted)
             borderColor = UIColor.darkCyan
@@ -116,7 +116,7 @@ extension UIButton {
             cornerRadius = frame.size.height / 2        
 
         case .ActionViewOrangeButton:
-            backgroundColor = (Config.Constants.isAppThemesLight) ? UIColor.white : UIColor.clear
+            backgroundColor = (Config.Constants.isAppThemesDark) ? UIColor.white : UIColor.clear
             setAttributedTitle(NSAttributedString(string: (titleLabel?.text)!, attributes: UIFont.ubuntuLightVeryLightOrange12), for: .normal)
             setAttributedTitle(NSAttributedString(string: (titleLabel?.text)!, attributes: UIFont.ubuntuLightVeryLightOrange12Alpha30), for: .highlighted)
         }

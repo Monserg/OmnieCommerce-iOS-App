@@ -11,30 +11,31 @@
 
 import UIKit
 
-// MARK: - Input & Output protocols
+// MARK: - Input protocols for current ViewController component VIP-cicle
 protocol ForgotPasswordShowViewControllerInput {
     func displaySomething(viewModel: ForgotPasswordShow.Something.ViewModel)
 }
 
+// MARK: - Output protocols for Interactor component VIP-cicle
 protocol ForgotPasswordShowViewControllerOutput {
     func doSomething(request: ForgotPasswordShow.Something.Request)
 }
 
-class ForgotPasswordShowViewController: BaseViewController, ForgotPasswordShowViewControllerInput {
+class ForgotPasswordShowViewController: BaseViewController {
     // MARK: - Properties
-    var output: ForgotPasswordShowViewControllerOutput!
+    var interactor: ForgotPasswordShowViewControllerOutput!
     var router: ForgotPasswordShowRouter!
     
-    @IBOutlet var bigTopBarView: BigTopBarView!
-    @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var phoneEmailTextField: CustomTextField!
-    @IBOutlet weak var phoneEmailErrorLabel: CustomLabel!
+    var handlerSendButtonCompletion: HandlerSendButtonCompletion?
+    var handlerCancelButtonCompletion: HandlerCancelButtonCompletion?
 
-    @IBOutlet weak var vkontakteButton: CustomButton!
-    @IBOutlet weak var googleButton: CustomButton!
-    @IBOutlet weak var facebookButton: CustomButton!
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet var textFieldsCollection: [CustomTextField]!
+    @IBOutlet weak var phoneEmailErrorMessageView: ErrorMessageView!
     
-    
+    @IBOutlet weak var phoneEmailErrorMessageHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var phoneEmailErrorMessageViewTopConstraint: NSLayoutConstraint!
+
     // MARK: - Class Initialization
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -47,84 +48,85 @@ class ForgotPasswordShowViewController: BaseViewController, ForgotPasswordShowVi
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Delegates
-        scrollView.delegate = self
-        phoneEmailTextField.delegate = self
-        
-        // Config controls
-        topBarViewStyle = .Big
-        scrollViewBase = scrollView
-        phoneEmailErrorLabel.isHidden = true
-        
-        // Set buttons type
-        vkontakteButton.designStyle = "Social"
-        googleButton.designStyle = "Social"
-        facebookButton.designStyle = "Social"
-        
-        setup(topBarView: bigTopBarView)
+        doInitialSetupOnLoad()
     }
     
     
     // MARK: - Custom Functions
-    func doSomethingOnLoad() {
-        print(object: "\(type(of: self)): \(#function) run.")
-
-        // NOTE: Ask the Interactor to do some work
-        let request = ForgotPasswordShow.Something.Request()
-        output.doSomething(request: request)
-    }
-    
-    // Display logic
-    func displaySomething(viewModel: ForgotPasswordShow.Something.ViewModel) {
-        print(object: "\(type(of: self)): \(#function) run.")
-
-        // NOTE: Display the result from the Presenter
-        // nameTextField.text = viewModel.name
-    }
-    
-    func setupScene(withSize size: CGSize) {
-        print(object: "\(type(of: self)): \(#function) run. Screen view size = \(size)")
+    func doInitialSetupOnLoad() {
+        // UITextFields
+        textFieldsArray = textFieldsCollection
         
-        bigTopBarView.setNeedsDisplay()
-        bigTopBarView.circleView.setNeedsDisplay()
-        vkontakteButton.setNeedsDisplay()
-        googleButton.setNeedsDisplay()
-        facebookButton.setNeedsDisplay()
+        // Apply keyboard handler
+        scrollViewBase = scrollView
+        
+        // Hide email error message view
+        phoneEmailErrorMessageHeightConstraint.constant = Config.Constants.errorMessageViewHeight
+        phoneEmailErrorMessageViewTopConstraint.constant = -Config.Constants.errorMessageViewHeight
     }
     
     
     // MARK: - Actions
-    @IBAction func handleSendButtonTap(_ sender: CustomButton) {
-        print(object: "\(type(of: self)): \(#function) run.")
+    @IBAction func handlerSendButtonTap(_ sender: CustomButton) {
+        let textField = textFieldsCollection.last!
         
+        if (!textField.checkEmailValidation(textField.text!)) {
+            phoneEmailErrorMessageView.didShow(true, withConstraint: phoneEmailErrorMessageViewTopConstraint)
+            
+            handlerSendButtonCompletion!()
+        } else {
+            phoneEmailErrorMessageView.didShow(false, withConstraint: phoneEmailErrorMessageViewTopConstraint)
+        }
     }
     
-    @IBAction func handleCancelButtonTap(_ sender: CustomButton) {
-        print(object: "\(type(of: self)): \(#function) run.")
-        
-        _ = navigationController?.popToRootViewController(animated: true)
+    @IBAction func handlerCancelButtonTap(_ sender: CustomButton) {
+        handlerCancelButtonCompletion!()
+    }
+}
+
+
+// MARK: - ForgotPasswordShowViewControllerInput
+extension ForgotPasswordShowViewController: ForgotPasswordShowViewControllerInput {
+    func displaySomething(viewModel: ForgotPasswordShow.Something.ViewModel) {
+        // NOTE: Display the result from the Presenter
+        // nameTextField.text = viewModel.name
+    }
+}
+
+
+// MARK: - UITextFieldDelegate
+extension ForgotPasswordShowViewController {
+    override func textFieldDidEndEditing(_ textField: UITextField) {
+        if (!(textField as! CustomTextField).checkEmailValidation(textField.text!)) {
+            phoneEmailErrorMessageView.didShow(true, withConstraint: phoneEmailErrorMessageViewTopConstraint)
+        } else {
+            phoneEmailErrorMessageView.didShow(false, withConstraint: phoneEmailErrorMessageViewTopConstraint)
+        }
     }
     
-    @IBAction func handlerVkontakteButtonTap(_ sender: CustomButton) {
-        print(object: "\(type(of: self)): \(#function) run.")
+    override func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        phoneEmailErrorMessageView.didShow(false, withConstraint: phoneEmailErrorMessageViewTopConstraint)
         
+        return true
     }
     
-    @IBAction func handlerGoogleButtonTap(_ sender: CustomButton) {
-        print(object: "\(type(of: self)): \(#function) run.")
+    override func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if (!(textField as! CustomTextField).checkPhoneEmailValidation(textField.text!)) {
+            phoneEmailErrorMessageView.didShow(true, withConstraint: phoneEmailErrorMessageViewTopConstraint)
+            
+            return false
+        } else {
+            phoneEmailErrorMessageView.didShow(false, withConstraint: phoneEmailErrorMessageViewTopConstraint)
+            
+            textField.resignFirstResponder()
+        }
         
+        return true
     }
     
-    @IBAction func handlerFacebookButtonTap(_ sender: CustomButton) {
-        print(object: "\(type(of: self)): \(#function) run.")
+    func textFieldShouldClear(_ textField: UITextField) -> Bool {
+        phoneEmailErrorMessageView.didShow(false, withConstraint: phoneEmailErrorMessageViewTopConstraint)
         
-    }
-    
-    
-    // MARK: - Transition
-    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        print(object: "\(type(of: self)): \(#function) run. New size = \(size)")
-        
-        setupScene(withSize: size)
+        return true
     }
 }

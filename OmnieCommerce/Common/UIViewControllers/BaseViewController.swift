@@ -90,9 +90,9 @@ class BaseViewController: UIViewController {
             if (NSStringFromClass(type(of: self)).hasSuffix("ForgotPasswordShowViewController")) {
                 let forgotPasswordShowVC = self as! ForgotPasswordShowViewController
 
-                if (!forgotPasswordShowVC.phoneEmailTextField.validateEmailPhone(forgotPasswordShowVC.phoneEmailTextField.text!) && !(forgotPasswordShowVC.phoneEmailTextField.text?.isEmpty)!) {
-                    forgotPasswordShowVC.phoneEmailErrorLabel.isHidden = false
-                }
+//                if (!forgotPasswordShowVC.phoneEmailTextField.validateEmailPhone(forgotPasswordShowVC.phoneEmailTextField.text!) && !(forgotPasswordShowVC.phoneEmailTextField.text?.isEmpty)!) {
+//                    forgotPasswordShowVC.phoneEmailErrorLabel.isHidden = false
+//                }
             } else if (NSStringFromClass(type(of: self)).hasSuffix("SignUpShowViewController")) {
                 let signUpShowVC = self as! SignUpShowViewController
                 
@@ -218,19 +218,19 @@ extension BaseViewController: UIGestureRecognizerDelegate {
 // MARK: - UITextFieldDelegate
 extension BaseViewController: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        if (NSStringFromClass(type(of: self)).hasSuffix("ForgotPasswordShowViewController")) {
-            let forgotPasswordShowVC = self as! ForgotPasswordShowViewController
-            
-            if (!forgotPasswordShowVC.phoneEmailErrorLabel.isHidden) {
-                forgotPasswordShowVC.phoneEmailErrorLabel.isHidden = true
-            }
-        } else if (NSStringFromClass(type(of: self)).hasSuffix("SignUpShowViewController")) {
-            let signUpShowVC = self as! SignUpShowViewController
-            
-            if (!signUpShowVC.emailErrorLabel.isHidden) {
-                signUpShowVC.emailErrorLabel.isHidden = true
-            }
-        }
+//        if (NSStringFromClass(type(of: self)).hasSuffix("ForgotPasswordShowViewController")) {
+//            let forgotPasswordShowVC = self as! ForgotPasswordShowViewController
+//            
+//            if (!forgotPasswordShowVC.phoneEmailErrorLabel.isHidden) {
+//                forgotPasswordShowVC.phoneEmailErrorLabel.isHidden = true
+//            }
+//        } else if (NSStringFromClass(type(of: self)).hasSuffix("SignUpShowViewController")) {
+//            let signUpShowVC = self as! SignUpShowViewController
+//            
+//            if (!signUpShowVC.emailErrorLabel.isHidden) {
+//                signUpShowVC.emailErrorLabel.isHidden = true
+//            }
+//        }
         
         return true
     }
