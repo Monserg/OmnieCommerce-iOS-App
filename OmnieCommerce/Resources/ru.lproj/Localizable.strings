@@ -28,6 +28,7 @@
 "Not yet registered?"   =   "Ещё не зарегистрированы?";
 "Forgot Password"       =   "Забыли пароль";
 "Phone or email error"  =   "* неправильный номер или Email";
+"Phone error"           =   "* неправильный номер";
 "Email error"           =   "* неправильный Email";
 "Auto Service"          =   "Автосервис";
 "Health"                =   "Здоровье";
@@ -55,8 +56,10 @@
 
 // TextField Placeholders
 "Name"                  =   "Имя";
+"Surname"               =   "Фамилия";
 "Password"              =   "Пароль";
 "Email"                 =   "Email";
+"Phone"                 =   "Телефон";
 "Phone or Email"        =   "Телефон или Email";
 
 
@@ -70,3 +73,24 @@
 "Calendar"              =   "Календарь";
 "Schedule"              =   "График";
 
+
+// Titles
+"Man"                   =   "Мужчина";
+"Female"                =   "Женщина";
+"Birthday"              =   "Дата рождения";
+"Family status"         =   "Семейное положение";
+"Not married"           =   "Холост";
+"Married"               =   "Женат";
+"Children"              =   "Наличие детей";
+"Children No"           =   "Детей нет";
+"Children Yes"          =   "Дети есть";
+"Pet"                   =   "Наличие домашнего животного";
+"Pet No"                =   "Домашнего животного нет";
+"Pet Yes"               =   "Домашнее животное есть";
+
+
+// Alert actions
+"Photo"                 =   "Фотография";
+"Photo upload"          =   "Загрузить новое фото";
+"Photo make"            =   "Сделать фото";
+"Photo delete"          =   "Удалить фото";

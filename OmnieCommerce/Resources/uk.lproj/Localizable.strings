@@ -28,6 +28,7 @@
 "Not yet registered?"   =   "Ще не зареєстровані?";
 "Forgot Password"       =   "Забули пароль";
 "Phone or email error"  =   "* невірний номер або Email";
+"Phone error"           =   "* невірний номер";
 "Email error"           =   "* невірний Email";
 "Auto Service"          =   "Автосервіс";
 "Health"                =   "Здоров'я";
@@ -55,8 +56,10 @@
 
 // TextField Placeholders
 "Name"                  =   "Ім'я";
+"Surname"               =   "Прізвище";
 "Password"              =   "Пароль";
 "Email"                 =   "Email";
+"Phone"                 =   "Телефон";
 "Phone or Email"        =   "Телефон або Email";
 
 
@@ -69,3 +72,25 @@
 "Services"              =   "Послуги";
 "Calendar"              =   "Календар";
 "Schedule"              =   "Графік";
+
+
+// Titles
+"Man"                   =   "Чоловік";
+"Female"                =   "Жінка";
+"Birthday"              =   "Дата народження";
+"Family status"         =   "Сімейний стан";
+"Not married"           =   "Не одружений";
+"Married"               =   "Одружений";
+"Children"              =   "Наявність дітей";
+"Children No"           =   "Немає дітей";
+"Children Yes"          =   "Є діти";
+"Pet"                   =   "Наявність домашньої тварини";
+"Pet No"                =   "Немає домашньої тварини";
+"Pet Yes"               =   "Є домашня тварина";
+
+
+// Alert actions
+"Photo"                 =   "Фотографія";
+"Photo upload"          =   "Загрузити нове фото";
+"Photo make"            =   "Зробити фото";
+"Photo delete"          =   "Удалити фото";

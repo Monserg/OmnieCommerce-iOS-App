@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -55,8 +57,11 @@
                                     <constraint firstAttribute="height" constant="50" id="d7q-lb-z7a"/>
                                 </constraints>
                             </view>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aKH-YG-AUK">
+                                <rect key="frame" x="0.0" y="145" width="375" height="483.5"/>
+                            </containerView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ASc-N1-FS2" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                                <rect key="frame" x="8" y="647" width="359" height="10.5"/>
+                                <rect key="frame" x="8" y="637.5" width="359" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -69,6 +74,8 @@
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="08z-zS-Fzg" secondAttribute="trailing" id="8B0-PH-C6O"/>
                             <constraint firstItem="C6T-NV-zxA" firstAttribute="leading" secondItem="WeC-xT-hwP" secondAttribute="leading" id="9Yw-86-iID"/>
+                            <constraint firstItem="aKH-YG-AUK" firstAttribute="leading" secondItem="WeC-xT-hwP" secondAttribute="leading" id="BZ5-ZN-yuG"/>
+                            <constraint firstItem="aKH-YG-AUK" firstAttribute="top" secondItem="C6T-NV-zxA" secondAttribute="bottom" id="Chm-FE-b1c"/>
                             <constraint firstItem="ASc-N1-FS2" firstAttribute="leading" secondItem="WeC-xT-hwP" secondAttribute="leading" constant="8" id="L1B-DT-fEK"/>
                             <constraint firstAttribute="trailing" secondItem="C6T-NV-zxA" secondAttribute="trailing" id="LnA-QL-iBU"/>
                             <constraint firstItem="08z-zS-Fzg" firstAttribute="leading" secondItem="WeC-xT-hwP" secondAttribute="leading" id="NVt-r3-ud2"/>
@@ -77,12 +84,15 @@
                                 <variation key="heightClass=compact-widthClass=regular" constant="0.0"/>
                             </constraint>
                             <constraint firstAttribute="trailing" secondItem="ASc-N1-FS2" secondAttribute="trailing" constant="8" id="Twb-8R-nxq"/>
+                            <constraint firstItem="ASc-N1-FS2" firstAttribute="top" secondItem="aKH-YG-AUK" secondAttribute="bottom" constant="9" id="V5B-If-ngj"/>
                             <constraint firstItem="C6T-NV-zxA" firstAttribute="top" secondItem="08z-zS-Fzg" secondAttribute="bottom" id="XGD-PV-ATX"/>
                             <constraint firstAttribute="bottom" secondItem="ASc-N1-FS2" secondAttribute="bottom" constant="9" id="imL-6g-csA"/>
+                            <constraint firstAttribute="trailing" secondItem="aKH-YG-AUK" secondAttribute="trailing" id="tJi-Xf-D2U"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="HKj-PK-W47"/>
                     <connections>
+                        <outlet property="containerView" destination="aKH-YG-AUK" id="JIK-fo-eVJ"/>
                         <outlet property="copyrightLabel" destination="ASc-N1-FS2" id="Z9Q-9I-Pv1"/>
                         <outlet property="segmentedControlView" destination="AJk-0S-k6N" id="hAD-b3-gvO"/>
                         <outlet property="smallTopBarView" destination="08z-zS-Fzg" id="wbC-t6-RHH"/>
@@ -91,6 +101,303 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gf8-eD-6Bd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1356" y="183.95802098950526"/>
+        </scene>
+        <!--Personal Data View Controller-->
+        <scene sceneID="VnL-Oy-V0r">
+            <objects>
+                <viewController storyboardIdentifier="PersonalDataVC" id="u2e-8n-dCv" customClass="PersonalDataViewController" customModule="OmnieCommerce" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="rw9-eO-7OH"/>
+                        <viewControllerLayoutGuide type="bottom" id="GdQ-73-RdB"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="G9m-Iz-XbO">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="owi-GB-eKN">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6it-xN-F4P" userLabel="Content View">
+                                        <rect key="frame" x="62" y="0.0" width="250" height="400"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hJW-6z-xG1" userLabel="Avatar Button" customClass="CustomButton" customModule="OmnieCommerce" customModuleProvider="target">
+                                                <rect key="frame" x="82" y="0.0" width="86" height="86"/>
+                                                <color key="backgroundColor" red="0.1529411765" green="0.2156862745" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="hJW-6z-xG1" secondAttribute="height" multiplier="1:1" id="CLE-2T-5v8"/>
+                                                    <constraint firstAttribute="height" constant="86" id="WIq-el-uG5"/>
+                                                </constraints>
+                                                <state key="normal" image="image-no-user"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="buttonStyle" value="Circular"/>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="43"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="handlerAvatarButtonTap:" destination="u2e-8n-dCv" eventType="touchUpInside" id="FYT-4g-87Z"/>
+                                                </connections>
+                                            </button>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RDI-0d-7cs" userLabel="Name View">
+                                                <rect key="frame" x="0.0" y="103" width="250" height="27"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ipw-SO-rCK" customClass="DottedBorderView" customModule="OmnieCommerce" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="240" height="27"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="viewStyle" value="BottomDottedLine"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </view>
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Oxg-2U-MPi" userLabel="Name Text Field" customClass="CustomTextField" customModule="OmnieCommerce" customModuleProvider="target">
+                                                        <rect key="frame" x="8" y="5" width="240" height="20"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="20" id="Ck1-6V-RuK"/>
+                                                        </constraints>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no" keyboardType="alphabet" keyboardAppearance="alert" returnKeyType="next"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="fieldType" value="Name"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </textField>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="ipw-SO-rCK" secondAttribute="trailing" constant="10" id="CX1-dl-QWP"/>
+                                                    <constraint firstItem="Oxg-2U-MPi" firstAttribute="top" secondItem="RDI-0d-7cs" secondAttribute="top" constant="5" id="CYU-gp-ECo"/>
+                                                    <constraint firstItem="ipw-SO-rCK" firstAttribute="leading" secondItem="RDI-0d-7cs" secondAttribute="leading" id="Otl-3R-p6R"/>
+                                                    <constraint firstAttribute="trailing" secondItem="Oxg-2U-MPi" secondAttribute="trailing" constant="2" id="UJd-dq-aeu"/>
+                                                    <constraint firstAttribute="bottom" secondItem="ipw-SO-rCK" secondAttribute="bottom" id="eF2-ij-ptT"/>
+                                                    <constraint firstAttribute="height" constant="27" id="pc3-N8-Bo5"/>
+                                                    <constraint firstItem="Oxg-2U-MPi" firstAttribute="leading" secondItem="RDI-0d-7cs" secondAttribute="leading" constant="8" id="rUP-FM-MCM"/>
+                                                    <constraint firstItem="ipw-SO-rCK" firstAttribute="top" secondItem="RDI-0d-7cs" secondAttribute="top" id="rtK-gk-jhG"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DLx-Oo-SHI" userLabel="Surname View">
+                                                <rect key="frame" x="0.0" y="147" width="250" height="27"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MLk-Kn-dji" customClass="DottedBorderView" customModule="OmnieCommerce" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="240" height="27"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="viewStyle" value="BottomDottedLine"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </view>
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Surname" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="RGd-TM-d8G" userLabel="Surname Text Field" customClass="CustomTextField" customModule="OmnieCommerce" customModuleProvider="target">
+                                                        <rect key="frame" x="8" y="5" width="240" height="20"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="20" id="TOg-gB-ntt"/>
+                                                        </constraints>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" keyboardType="alphabet" keyboardAppearance="alert" returnKeyType="next"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="fieldType" value="Name"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </textField>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstItem="RGd-TM-d8G" firstAttribute="leading" secondItem="DLx-Oo-SHI" secondAttribute="leading" constant="8" id="21R-j6-U1y"/>
+                                                    <constraint firstAttribute="bottom" secondItem="MLk-Kn-dji" secondAttribute="bottom" id="8Z3-1m-ero"/>
+                                                    <constraint firstAttribute="trailing" secondItem="MLk-Kn-dji" secondAttribute="trailing" constant="10" id="9NG-2W-I4W"/>
+                                                    <constraint firstAttribute="trailing" secondItem="RGd-TM-d8G" secondAttribute="trailing" constant="2" id="Ita-jD-xST"/>
+                                                    <constraint firstAttribute="height" constant="27" id="dLD-OP-WET"/>
+                                                    <constraint firstItem="MLk-Kn-dji" firstAttribute="leading" secondItem="DLx-Oo-SHI" secondAttribute="leading" id="fi6-1M-PUd"/>
+                                                    <constraint firstItem="MLk-Kn-dji" firstAttribute="top" secondItem="DLx-Oo-SHI" secondAttribute="top" id="qil-q9-FdL"/>
+                                                    <constraint firstItem="RGd-TM-d8G" firstAttribute="top" secondItem="DLx-Oo-SHI" secondAttribute="top" constant="5" id="ySf-W5-dGD"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gd8-Kc-AWY" userLabel="Email View">
+                                                <rect key="frame" x="0.0" y="191" width="250" height="27"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cn7-Qa-gag" userLabel="Dotted Line View" customClass="DottedBorderView" customModule="OmnieCommerce" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="240" height="27"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="viewStyle" value="BottomDottedLine"/>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="borderWidth" value="1.5"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </view>
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ZB5-My-J3O" userLabel="Email Text Field" customClass="CustomTextField" customModule="OmnieCommerce" customModuleProvider="target">
+                                                        <rect key="frame" x="8" y="5" width="240" height="20"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="20" id="dHk-Sf-AzN"/>
+                                                        </constraints>
+                                                        <nil key="textColor"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" returnKeyType="next"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="fieldType" value="Email"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </textField>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="ZB5-My-J3O" secondAttribute="trailing" constant="2" id="GxF-GZ-2Ft"/>
+                                                    <constraint firstAttribute="height" constant="27" id="HAr-ZN-v4u"/>
+                                                    <constraint firstItem="cn7-Qa-gag" firstAttribute="top" secondItem="gd8-Kc-AWY" secondAttribute="top" id="fZc-Qj-gR2"/>
+                                                    <constraint firstAttribute="trailing" secondItem="cn7-Qa-gag" secondAttribute="trailing" constant="10" id="mmm-5F-CJd"/>
+                                                    <constraint firstItem="cn7-Qa-gag" firstAttribute="leading" secondItem="gd8-Kc-AWY" secondAttribute="leading" id="r1i-RM-Al2"/>
+                                                    <constraint firstItem="ZB5-My-J3O" firstAttribute="leading" secondItem="gd8-Kc-AWY" secondAttribute="leading" constant="8" id="vMe-14-oJX"/>
+                                                    <constraint firstAttribute="bottom" secondItem="cn7-Qa-gag" secondAttribute="bottom" id="vZ6-nA-Ma9"/>
+                                                    <constraint firstItem="ZB5-My-J3O" firstAttribute="top" secondItem="gd8-Kc-AWY" secondAttribute="top" constant="5" id="zrT-Cg-ebT"/>
+                                                </constraints>
+                                            </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email error" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sfu-l4-f38" userLabel="Email error" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
+                                                <rect key="frame" x="8" y="218" width="52.5" height="15"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="15" id="0Pq-JZ-pkm"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="labelStyle" value="Error"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bBH-cU-d1l" userLabel="Phone View">
+                                                <rect key="frame" x="0.0" y="235" width="250" height="27"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BcG-71-ACT" customClass="DottedBorderView" customModule="OmnieCommerce" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="240" height="27"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="borderWidth" value="1.5"/>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="viewStyle" value="BottomDottedLine"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </view>
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Phone" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="5H9-Gg-K8p" userLabel="Phone Text Field" customClass="CustomTextField" customModule="OmnieCommerce" customModuleProvider="target">
+                                                        <rect key="frame" x="8" y="5" width="240" height="20"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="20" id="adi-ng-yIn"/>
+                                                        </constraints>
+                                                        <nil key="textColor"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numbersAndPunctuation"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="fieldType" value="PhoneEmail"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </textField>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="27" id="3jo-Uj-3QB"/>
+                                                    <constraint firstItem="5H9-Gg-K8p" firstAttribute="leading" secondItem="bBH-cU-d1l" secondAttribute="leading" constant="8" id="B0m-jg-ifP"/>
+                                                    <constraint firstAttribute="bottom" secondItem="BcG-71-ACT" secondAttribute="bottom" id="B77-Lf-57i"/>
+                                                    <constraint firstItem="BcG-71-ACT" firstAttribute="top" secondItem="bBH-cU-d1l" secondAttribute="top" id="BMH-7Z-2k7"/>
+                                                    <constraint firstItem="BcG-71-ACT" firstAttribute="leading" secondItem="bBH-cU-d1l" secondAttribute="leading" id="F5e-ra-NMO"/>
+                                                    <constraint firstAttribute="trailing" secondItem="BcG-71-ACT" secondAttribute="trailing" constant="10" id="MHq-zI-jGt"/>
+                                                    <constraint firstItem="5H9-Gg-K8p" firstAttribute="top" secondItem="bBH-cU-d1l" secondAttribute="top" constant="5" id="ava-b9-cCe"/>
+                                                    <constraint firstAttribute="trailing" secondItem="5H9-Gg-K8p" secondAttribute="trailing" constant="2" id="wAz-Iw-LD7"/>
+                                                </constraints>
+                                            </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone error" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DWe-Zx-HA2" userLabel="Phone error" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
+                                                <rect key="frame" x="8" y="262" width="57" height="15"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="15" id="7W1-Xt-PZ3"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="labelStyle" value="Error"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="Sfu-l4-f38" firstAttribute="top" secondItem="gd8-Kc-AWY" secondAttribute="bottom" id="0Wy-Ye-K9V"/>
+                                            <constraint firstItem="DLx-Oo-SHI" firstAttribute="centerX" secondItem="6it-xN-F4P" secondAttribute="centerX" id="2B5-5N-Ab6"/>
+                                            <constraint firstAttribute="trailing" secondItem="RDI-0d-7cs" secondAttribute="trailing" id="42Q-Qb-mzb"/>
+                                            <constraint firstItem="hJW-6z-xG1" firstAttribute="top" secondItem="6it-xN-F4P" secondAttribute="top" id="5BB-bd-mRs"/>
+                                            <constraint firstItem="DWe-Zx-HA2" firstAttribute="top" secondItem="bBH-cU-d1l" secondAttribute="bottom" id="5n3-8k-ra2"/>
+                                            <constraint firstItem="gd8-Kc-AWY" firstAttribute="top" secondItem="DLx-Oo-SHI" secondAttribute="bottom" constant="17" id="DFD-tF-fmp"/>
+                                            <constraint firstItem="RDI-0d-7cs" firstAttribute="leading" secondItem="6it-xN-F4P" secondAttribute="leading" id="Fio-PG-j9g"/>
+                                            <constraint firstItem="DLx-Oo-SHI" firstAttribute="leading" secondItem="6it-xN-F4P" secondAttribute="leading" id="HYm-8L-1wO"/>
+                                            <constraint firstItem="gd8-Kc-AWY" firstAttribute="leading" secondItem="6it-xN-F4P" secondAttribute="leading" id="Ll2-jD-GHl"/>
+                                            <constraint firstItem="RDI-0d-7cs" firstAttribute="centerX" secondItem="6it-xN-F4P" secondAttribute="centerX" id="QW1-MB-pnb"/>
+                                            <constraint firstAttribute="trailing" secondItem="gd8-Kc-AWY" secondAttribute="trailing" id="QY2-Qd-ucQ"/>
+                                            <constraint firstItem="DWe-Zx-HA2" firstAttribute="leading" secondItem="6it-xN-F4P" secondAttribute="leading" constant="8" id="RU2-Uw-DKa"/>
+                                            <constraint firstAttribute="height" constant="400" id="Rtf-gO-T2H"/>
+                                            <constraint firstItem="DLx-Oo-SHI" firstAttribute="top" secondItem="RDI-0d-7cs" secondAttribute="bottom" constant="17" id="XC5-3L-Bao"/>
+                                            <constraint firstItem="bBH-cU-d1l" firstAttribute="centerX" secondItem="6it-xN-F4P" secondAttribute="centerX" id="XJy-31-3vY"/>
+                                            <constraint firstItem="hJW-6z-xG1" firstAttribute="centerX" secondItem="6it-xN-F4P" secondAttribute="centerX" id="XSh-vx-v4u"/>
+                                            <constraint firstAttribute="trailing" secondItem="DLx-Oo-SHI" secondAttribute="trailing" id="aaW-PC-Ikm"/>
+                                            <constraint firstItem="Sfu-l4-f38" firstAttribute="leading" secondItem="6it-xN-F4P" secondAttribute="leading" constant="8" id="bXw-y8-JP1"/>
+                                            <constraint firstItem="bBH-cU-d1l" firstAttribute="leading" secondItem="6it-xN-F4P" secondAttribute="leading" id="cyn-TC-559"/>
+                                            <constraint firstItem="bBH-cU-d1l" firstAttribute="top" secondItem="Sfu-l4-f38" secondAttribute="bottom" constant="2" id="gcv-BR-aPf"/>
+                                            <constraint firstItem="RDI-0d-7cs" firstAttribute="top" secondItem="hJW-6z-xG1" secondAttribute="bottom" constant="17" id="hPm-Vt-pgP"/>
+                                            <constraint firstAttribute="trailing" secondItem="bBH-cU-d1l" secondAttribute="trailing" id="kZd-X1-ItR"/>
+                                            <constraint firstItem="gd8-Kc-AWY" firstAttribute="centerX" secondItem="6it-xN-F4P" secondAttribute="centerX" id="nrn-Lq-MgA"/>
+                                        </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="Clz-8m-NEr" appends="YES" id="sRd-6v-ZNU"/>
+                                        </connections>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="6it-xN-F4P" firstAttribute="centerX" secondItem="owi-GB-eKN" secondAttribute="centerX" id="KmA-62-pwU"/>
+                                    <constraint firstAttribute="bottom" secondItem="6it-xN-F4P" secondAttribute="bottom" constant="267" id="Mhy-mf-piD"/>
+                                    <constraint firstItem="6it-xN-F4P" firstAttribute="top" secondItem="owi-GB-eKN" secondAttribute="top" id="VXu-s1-wwv"/>
+                                    <constraint firstAttribute="trailing" secondItem="6it-xN-F4P" secondAttribute="trailing" constant="63" id="hWw-rv-mHW"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="Clz-8m-NEr" appends="YES" id="di3-fC-loc"/>
+                                </connections>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="owi-GB-eKN" firstAttribute="top" secondItem="G9m-Iz-XbO" secondAttribute="top" id="DJo-ue-N8m"/>
+                            <constraint firstItem="owi-GB-eKN" firstAttribute="leading" secondItem="G9m-Iz-XbO" secondAttribute="leading" id="EWZ-aF-Bqw"/>
+                            <constraint firstAttribute="trailing" secondItem="owi-GB-eKN" secondAttribute="trailing" id="e4T-qz-fVW"/>
+                            <constraint firstAttribute="bottom" secondItem="owi-GB-eKN" secondAttribute="bottom" id="kcS-0b-bmi"/>
+                            <constraint firstItem="6it-xN-F4P" firstAttribute="width" secondItem="G9m-Iz-XbO" secondAttribute="width" multiplier="250:375" id="wUj-7H-w1M"/>
+                        </constraints>
+                    </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <connections>
+                        <outlet property="avatarButton" destination="hJW-6z-xG1" id="Mdc-x2-O2v"/>
+                        <outlet property="emailErrorLabel" destination="Sfu-l4-f38" id="Uiy-is-WE3"/>
+                        <outlet property="emailTextField" destination="ZB5-My-J3O" id="yeg-z4-lYA"/>
+                        <outlet property="nameTextField" destination="Oxg-2U-MPi" id="ILG-j9-YD2"/>
+                        <outlet property="phoneErrorLabel" destination="DWe-Zx-HA2" id="9Ce-in-XK2"/>
+                        <outlet property="phoneTextField" destination="5H9-Gg-K8p" id="QuU-Nr-Myg"/>
+                        <outlet property="scrollView" destination="owi-GB-eKN" id="7CY-L6-mDP"/>
+                        <outlet property="surnameTextField" destination="RGd-TM-d8G" id="Yr0-o0-ZTt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tT2-pu-ECl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="Clz-8m-NEr">
+                    <connections>
+                        <action selector="handlerTapGestureRecognizer:" destination="u2e-8n-dCv" id="CBw-bb-aLA"/>
+                        <outlet property="delegate" destination="u2e-8n-dCv" id="SNY-5K-lPt"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="2158" y="184"/>
+        </scene>
+        <!--Personal Templates View Controller-->
+        <scene sceneID="Cxn-tU-8GS">
+            <objects>
+                <viewController storyboardIdentifier="PersonalTemplatesVC" id="QYa-PL-EXY" customClass="PersonalTemplatesViewController" customModule="OmnieCommerce" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Ur7-YW-tiU"/>
+                        <viewControllerLayoutGuide type="bottom" id="aMi-Wd-BPW"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="O1B-vT-ch7">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VAh-R3-itP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2977" y="184"/>
         </scene>
         <!--Base Navigation Controller-->
         <scene sceneID="68z-bj-IVW">
@@ -109,7 +416,10 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kcq-Vv-VnZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="416.80000000000001" y="183.95802098950526"/>
+            <point key="canvasLocation" x="553" y="184"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="image-no-user" width="37" height="33"/>
+    </resources>
 </document>

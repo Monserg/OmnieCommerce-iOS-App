@@ -24,10 +24,21 @@ class PersonalPageShowViewController: BaseViewController, PersonalPageShowViewCo
     // MARK: - Properties
     var output: PersonalPageShowViewControllerOutput!
     var router: PersonalPageShowRouter!
+
+    var personalDataVC: PersonalDataViewController?
+    var personalTemplatesVC: PersonalTemplatesViewController?
+
+    private var activeViewController: UIViewController? {
+        didSet {
+            removeInactiveViewController(inactiveViewController: oldValue)
+            updateActiveViewController()
+        }
+    }
     
     @IBOutlet weak var smallTopBarView: SmallTopBarView!
     @IBOutlet weak var copyrightLabel: CustomLabel!
     @IBOutlet weak var segmentedControlView: SegmentedControlView!
+    @IBOutlet weak var containerView: UIView!
 
     
     // MARK: - Class Initialization
@@ -47,8 +58,14 @@ class PersonalPageShowViewController: BaseViewController, PersonalPageShowViewCo
         topBarViewStyle = .Small
         setup(topBarView: smallTopBarView)
         
-        doSomethingOnLoad()
+        personalDataVC = UIStoryboard(name: "PersonalPageShow", bundle: nil).instantiateViewController(withIdentifier: "PersonalDataVC") as? PersonalDataViewController
+        personalTemplatesVC = UIStoryboard(name: "PersonalPageShow", bundle: nil).instantiateViewController(withIdentifier: "PersonalTemplatesVC") as? PersonalTemplatesViewController
         
+        activeViewController = personalDataVC
+        view.backgroundColor = UIColor.veryDarkDesaturatedBlue24
+
+        doSomethingOnLoad()
+
         setupSegmentedControlView()
     }
     
@@ -61,6 +78,21 @@ class PersonalPageShowViewController: BaseViewController, PersonalPageShowViewCo
         let request = PersonalPageShow.Something.Request()
         output.doSomething(request: request)
     }
+    
+    func setupSegmentedControlView() {
+        segmentedControlView.actionButtonHandlerCompletion = { sender in
+            self.print(object: "\(type(of: self)): \(#function) run. Sender tag = \(sender.tag)")
+            
+            switch sender.tag {
+            case 1:
+                self.activeViewController = self.personalTemplatesVC
+                
+            default:
+                self.activeViewController = self.personalDataVC
+            }
+        }
+    }
+
     
     // Display logic
     func displaySomething(viewModel: PersonalPageShow.Something.ViewModel) {
@@ -77,10 +109,23 @@ class PersonalPageShowViewController: BaseViewController, PersonalPageShowViewCo
         smallTopBarView.circleView.setNeedsDisplay()
     }
     
-    func setupSegmentedControlView() {
-        segmentedControlView.actionButtonHandlerCompletion = { sender in
-            self.print(object: "\(type(of: self)): \(#function) run. Sender tag = \(sender.tag)")
-            
+    
+    // MARK: - UIContainerView
+    func removeInactiveViewController(inactiveViewController: UIViewController?) {
+        if let inactiveVC = inactiveViewController {
+            inactiveVC.willMove(toParentViewController: nil)
+            inactiveVC.view.removeFromSuperview()
+            inactiveVC.removeFromParentViewController()
+        }
+    }
+    
+    func updateActiveViewController() {
+        if let activeVC = activeViewController {
+            addChildViewController(activeVC)
+            activeVC.view.frame = containerView.bounds
+            containerView.addSubview(activeVC.view)
+            activeVC.didMove(toParentViewController: self)
+            activeVC.didMove(toParentViewController: self)
         }
     }
 

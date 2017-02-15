@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AvatarTableViewCell" rowHeight="86" id="nGl-hE-7Uz" customClass="AvatarTableViewCell" customModule="OmnieCommerce" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="86"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nGl-hE-7Uz" id="QEf-At-hlx">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="85"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X5G-rm-moK" userLabel="Avatar Button" customClass="CustomButton" customModule="OmnieCommerce" customModuleProvider="target">
+                        <rect key="frame" x="144" y="0.0" width="86" height="86"/>
+                        <color key="backgroundColor" red="0.15294117647058825" green="0.21568627450980393" blue="0.27058823529411763" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="86" id="KlV-aQ-Y0d"/>
+                            <constraint firstAttribute="width" secondItem="X5G-rm-moK" secondAttribute="height" multiplier="1:1" id="p2t-lN-4dI"/>
+                        </constraints>
+                        <state key="normal" image="image-no-user"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="string" keyPath="buttonStyle" value="Circular"/>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="43"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                        <connections>
+                            <action selector="handlerActionButtonTap:" destination="nGl-hE-7Uz" eventType="touchUpInside" id="GGA-XX-OLS"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                <constraints>
+                    <constraint firstItem="X5G-rm-moK" firstAttribute="centerX" secondItem="QEf-At-hlx" secondAttribute="centerX" id="Nwm-Aa-Fi5"/>
+                    <constraint firstItem="X5G-rm-moK" firstAttribute="top" secondItem="QEf-At-hlx" secondAttribute="top" id="Vma-Xa-NZu"/>
+                    <constraint firstItem="X5G-rm-moK" firstAttribute="centerY" secondItem="QEf-At-hlx" secondAttribute="centerY" id="YPH-vW-lLT"/>
+                    <constraint firstItem="X5G-rm-moK" firstAttribute="centerX" secondItem="QEf-At-hlx" secondAttribute="centerX" id="Ycc-Xy-Jbz"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <connections>
+                <outlet property="actionButton" destination="X5G-rm-moK" id="XA7-wF-UyT"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="image-no-user" width="37" height="33"/>
+    </resources>
+</document>

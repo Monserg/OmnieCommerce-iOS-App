@@ -24,9 +24,11 @@ class OmnieCardsShowViewController: BaseViewController, OmnieCardsShowViewContro
     // MARK: - Properties
     var output: OmnieCardsShowViewControllerOutput!
     var router: OmnieCardsShowRouter!
+    let barcodeViewModel = OmnieCardViewModel()
     
     @IBOutlet weak var smallTopBarView: SmallTopBarView!
     @IBOutlet weak var copyrightLabel: CustomLabel!
+    @IBOutlet weak var barcodeView: BarCodeView!
 
     
     // MARK: - Class Initialization
@@ -44,11 +46,18 @@ class OmnieCardsShowViewController: BaseViewController, OmnieCardsShowViewContro
         // Config topBarView
         smallTopBarView.type = "ParentSearch"
         topBarViewStyle = .Small
+        smallTopBarView.searchButton.isHidden = true
         setup(topBarView: smallTopBarView)
 
         doSomethingOnLoad()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
+        barcodeView.titleLabel.text = barcodeViewModel.getBarCodeID()
+        barcodeView.imageView.image = barcodeViewModel.createBarCode()
+    }
 
     // MARK: - Custom Functions
     func doSomethingOnLoad() {

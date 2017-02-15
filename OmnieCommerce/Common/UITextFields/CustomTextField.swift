@@ -22,6 +22,16 @@ import Localize_Swift
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
-        keyboardAppearance = (Config.Constants.isAppThemesLight) ? .dark : .light
-    }    
+    }
+    
+    
+    // MARK: - Custom Functions
+    func setup() {
+//        guard fieldType != "None" else {
+//            return
+//        }
+        
+        // Setup design
+
+    }
 }

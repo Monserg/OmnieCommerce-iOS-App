@@ -23,6 +23,8 @@ enum LabelStyle: String {
     case Message = "Message"
     case FromTo = "FromTo"
     case CalendarWeekday = "CalendarWeekday"
+    case BarCodeTitle = "BarCodeTitle"
+    case ActionViewTitle = "ActionViewTitle"
 }
 
 
@@ -43,7 +45,7 @@ extension UILabel {
         
         switch labelStyle {
         case .Error:
-            font = (Config.Constants.isAppThemesLight) ? UIFont.systemFont(ofSize: 12) : UIFont.ubuntuLightItalic12
+            font = (Config.Constants.isAppThemesLight) ? UIFont.systemFont(ofSize: 12) : ((font!.pointSize == 12) ? UIFont.ubuntuLightItalic12 : UIFont.ubuntuLightItalic10)
             textColor = (Config.Constants.isAppThemesLight) ? UIColor.white : UIColor.moderateRed
             
         case .Title:
@@ -51,7 +53,7 @@ extension UILabel {
             textColor = (Config.Constants.isAppThemesLight) ? UIColor.white : UIColor.veryLightGray
             
         case .Copyright:
-            font = (Config.Constants.isAppThemesLight) ? UIFont.systemFont(ofSize: 12) : UIFont.ubuntuLight9
+            font = (Config.Constants.isAppThemesLight) ? UIFont.systemFont(ofSize: 12) : UIFont.ubuntuLight09
             textColor = (Config.Constants.isAppThemesLight) ? UIColor.white : UIColor.darkCyan
             text = "\u{00A9} Omniesoft, 2016"
             
@@ -72,11 +74,11 @@ extension UILabel {
             textColor = (Config.Constants.isAppThemesLight) ? UIColor.white : UIColor.veryDarkGray
 
         case .Date:
-            font = (Config.Constants.isAppThemesLight) ? UIFont.systemFont(ofSize: 12) : UIFont.ubuntuLight9
+            font = (Config.Constants.isAppThemesLight) ? UIFont.systemFont(ofSize: 12) : UIFont.ubuntuLight09
             textColor = (Config.Constants.isAppThemesLight) ? UIColor.white : UIColor.veryDarkGrayishBlue53
 
         case .DateItalic:
-            font = (Config.Constants.isAppThemesLight) ? UIFont.systemFont(ofSize: 9) : UIFont.ubuntuLightItalic9
+            font = (Config.Constants.isAppThemesLight) ? UIFont.systemFont(ofSize: 9) : UIFont.ubuntuLightItalic09
             textColor = (Config.Constants.isAppThemesLight) ? UIColor.white : UIColor.veryDarkGrayishBlue53
 
         case .Describe:
@@ -84,7 +86,7 @@ extension UILabel {
             textColor = (Config.Constants.isAppThemesLight) ? UIColor.white : UIColor.lightGrayishCyan
             
         case .Message:
-            font = (Config.Constants.isAppThemesLight) ? UIFont.systemFont(ofSize: 9) : UIFont.ubuntuLightItalic9
+            font = (Config.Constants.isAppThemesLight) ? UIFont.systemFont(ofSize: 9) : UIFont.ubuntuLightItalic09
             textColor = (Config.Constants.isAppThemesLight) ? UIColor.white : UIColor.lightGrayishCyan
             
         case .FromTo:
@@ -93,6 +95,12 @@ extension UILabel {
         case .CalendarWeekday:
             attributedText = (Config.Constants.isAppThemesLight) ? NSAttributedString(string: text!, attributes: UIFont.ubuntuLightItalicVeryDarkGrayishBlue5312) : NSAttributedString(string: text!, attributes: UIFont.ubuntuLightDarkCyan16)
             
+        case .BarCodeTitle:
+            attributedText = (Config.Constants.isAppThemesLight) ? NSAttributedString(string: text!, attributes: UIFont.ubuntuLightItalicVeryDarkGrayishBlue5312) : NSAttributedString(string: text!, attributes: UIFont.ubuntuLightVeryLightGray16)
+
+        case .ActionViewTitle:
+            attributedText = (Config.Constants.isAppThemesLight) ? NSAttributedString(string: text!, attributes: UIFont.ubuntuLightItalicVeryDarkGrayishBlue5312) : NSAttributedString(string: text!, attributes: UIFont.helveticaNeueCyrLightVeryLightGray21)
+
         default:
             font = (Config.Constants.isAppThemesLight) ? UIFont.systemFont(ofSize: 12) : UIFont.ubuntuLight12
             textColor = (Config.Constants.isAppThemesLight) ? UIColor.white : UIColor.veryLightGray

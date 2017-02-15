@@ -16,6 +16,8 @@ enum ButtonStyle: String {
     case UnderlineColor = "UnderlineColor"
     case DropDownList = "DropDownList"
     case MenuEvent = "MenuEvent"
+    case Circular = "Circular"
+    case ActionViewOrangeButton = "ActionViewOrangeButton"
 }
 
 
@@ -106,6 +108,17 @@ extension UIButton {
             cornerRadius = 5.0
             titleEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 0)
             imageEdgeInsets = UIEdgeInsetsMake(3, frame.width - 18 - borderWidth, 0, 0)
+        
+        case .Circular:
+            tintColor = UIColor.clear
+            borderColor = UIColor.clear
+            borderWidth = 0
+            cornerRadius = frame.size.height / 2        
+
+        case .ActionViewOrangeButton:
+            backgroundColor = (Config.Constants.isAppThemesLight) ? UIColor.white : UIColor.clear
+            setAttributedTitle(NSAttributedString(string: (titleLabel?.text)!, attributes: UIFont.ubuntuLightVeryLightOrange12), for: .normal)
+            setAttributedTitle(NSAttributedString(string: (titleLabel?.text)!, attributes: UIFont.ubuntuLightVeryLightOrange12Alpha30), for: .highlighted)
         }
     }
     

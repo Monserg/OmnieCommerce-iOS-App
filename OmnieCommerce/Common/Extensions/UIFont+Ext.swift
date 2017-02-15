@@ -9,9 +9,9 @@
 import UIKit
 
 extension UIFont {
-    open class var ubuntuLight9: UIFont {
+    open class var ubuntuLight09: UIFont {
         set {
-            self.ubuntuLight9 = UIFont(name: "Ubuntu-Light", size: 9.0)!
+            self.ubuntuLight09 = UIFont(name: "Ubuntu-Light", size: 9.0)!
         }
         
         get {
@@ -39,9 +39,9 @@ extension UIFont {
         }
     }
     
-    open class var ubuntuLightItalic9: UIFont {
+    open class var ubuntuLightItalic09: UIFont {
         set {
-            self.ubuntuLightItalic9 = UIFont(name: "Ubuntu-LightItalic", size: 9.0)!
+            self.ubuntuLightItalic09 = UIFont(name: "Ubuntu-LightItalic", size: 9.0)!
         }
         
         get {
@@ -96,6 +96,16 @@ extension UIFont {
         
         get {
             return UIFont(name: "Ubuntu-Regular", size: 16.0)!
+        }
+    }
+    
+    open class var helveticaNeueCyrLight21: UIFont {
+        set {
+            self.helveticaNeueCyrLight21 = UIFont(name: "helveticaNeueCyr-Light", size: 21.0)!
+        }
+        
+        get {
+            return UIFont(name: "helveticaNeueCyr-Light", size: 21.0)!
         }
     }
     
@@ -156,6 +166,24 @@ extension UIFont {
         
         get {
             return UIFont(name: "helveticaNeueCyr-Roman", size: 16.0)!
+        }
+    }
+    
+    open class var helveticaNeueCyrLightVeryLightGray21: [String : Any] {
+        set {
+            self.helveticaNeueCyrLightVeryLightGray21       =   [   NSFontAttributeName             :   UIFont.helveticaNeueCyrLight21,
+                                                                    NSForegroundColorAttributeName  :   UIColor.veryLightGray,
+                                                                    NSKernAttributeName             :   0.0,
+                                                                    NSUnderlineStyleAttributeName   :   NSUnderlineStyle.styleNone.rawValue
+                                                                ] as [String : Any]!
+        }
+        
+        get {
+            return  [   NSFontAttributeName             :   UIFont.helveticaNeueCyrLight21,
+                        NSForegroundColorAttributeName  :   UIColor.veryLightGray,
+                        NSKernAttributeName             :   0.0,
+                        NSUnderlineStyleAttributeName   :   NSUnderlineStyle.styleNone.rawValue
+                    ] as [String : Any]!
         }
     }
     
@@ -285,6 +313,42 @@ extension UIFont {
         }
     }
     
+    open class var ubuntuLightVeryLightOrange12: [String : Any] {
+        set {
+            self.ubuntuLightVeryLightOrange12               =   [   NSFontAttributeName             :   UIFont.ubuntuLight12,
+                                                                    NSForegroundColorAttributeName  :   UIColor.veryLightOrange,
+                                                                    NSKernAttributeName             :   0.0,
+                                                                    NSUnderlineStyleAttributeName   :   NSUnderlineStyle.styleNone.rawValue
+                                                                ] as [String : Any]!
+        }
+        
+        get {
+            return  [   NSFontAttributeName             :   UIFont.ubuntuLight12,
+                        NSForegroundColorAttributeName  :   UIColor.veryLightOrange,
+                        NSKernAttributeName             :   0.0,
+                        NSUnderlineStyleAttributeName   :   NSUnderlineStyle.styleNone.rawValue
+                    ] as [String : Any]!
+        }
+    }
+    
+    open class var ubuntuLightVeryLightOrange12Alpha30: [String : Any] {
+        set {
+            self.ubuntuLightVeryLightOrange12               =   [   NSFontAttributeName             :   UIFont.ubuntuLight12,
+                                                                    NSForegroundColorAttributeName  :   UIColor.veryLightOrangeAlpha30,
+                                                                    NSKernAttributeName             :   0.0,
+                                                                    NSUnderlineStyleAttributeName   :   NSUnderlineStyle.styleNone.rawValue
+                                                                ] as [String : Any]!
+        }
+        
+        get {
+            return  [   NSFontAttributeName             :   UIFont.ubuntuLight12,
+                        NSForegroundColorAttributeName  :   UIColor.veryLightOrangeAlpha30,
+                        NSKernAttributeName             :   0.0,
+                        NSUnderlineStyleAttributeName   :   NSUnderlineStyle.styleNone.rawValue
+                ] as [String : Any]!
+        }
+    }
+    
     open class var ubuntuLightVeryLightOrange16: [String : Any] {
         set {
             self.ubuntuLightVeryLightOrange16               =   [   NSFontAttributeName             :   UIFont.ubuntuLight16,
@@ -299,7 +363,7 @@ extension UIFont {
                         NSForegroundColorAttributeName  :   UIColor.veryLightOrange,
                         NSKernAttributeName             :   0.0,
                         NSUnderlineStyleAttributeName   :   NSUnderlineStyle.styleNone.rawValue
-                                                                ] as [String : Any]!
+                    ] as [String : Any]!
         }
     }
     
