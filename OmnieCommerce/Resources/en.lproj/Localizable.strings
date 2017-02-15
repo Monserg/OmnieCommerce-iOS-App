@@ -94,3 +94,8 @@
 "Photo upload"          =   "Upload a new photo";
 "Photo make"            =   "Make a photo";
 "Photo delete"          =   "Delete a photo";
+
+
+// Errors
+"Google services error" =   "Error configuring Google services:";
+

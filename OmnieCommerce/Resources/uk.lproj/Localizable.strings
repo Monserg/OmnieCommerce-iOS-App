@@ -94,3 +94,8 @@
 "Photo upload"          =   "Загрузити нове фото";
 "Photo make"            =   "Зробити фото";
 "Photo delete"          =   "Удалити фото";
+
+
+// Errors
+"Google services error" =   "Помилка налаштування служб Google:";
+
