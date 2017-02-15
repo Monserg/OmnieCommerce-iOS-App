@@ -126,7 +126,6 @@ class SignInShowViewController: BaseViewController, SignInShowViewControllerInpu
         // VK complition handler
         socialVK.loginComplitionHandler = { dictionary in
             self.socialVK.didTransitionFrom(currentView: self.view!, withCompletionHandler: { success in
-            //print("\(success)")
             })
         }
     }
