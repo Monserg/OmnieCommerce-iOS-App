@@ -21,8 +21,8 @@ protocol NameTextField {
     
     
     // MARK: - Class Initialization
-    init() {
-        super.init(frame: CGRect.init(origin: CGPoint.zero, size: CGSize.init()))
+    func ddd() {
+//        super.init(frame: CGRect.init(origin: CGPoint.zero, size: CGSize.init()))
         
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.firstLineHeadIndent = 0
@@ -39,7 +39,11 @@ protocol NameTextField {
     }
     
     required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: aDecoder)
+        
+        ddd()
+        
+//        fatalError("init(coder:) has not been implemented")
     }
     
     
