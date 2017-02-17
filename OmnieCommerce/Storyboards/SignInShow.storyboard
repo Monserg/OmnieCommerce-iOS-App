@@ -22,11 +22,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="3FF2B8A4-F200-4124-B535-2843AD4D39CC" translatesAutoresizingMaskIntoConstraints="NO" id="38x-X2-VbJ" userLabel="Background Image View">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="D5D6AE05-489F-4581-878B-1C0F92C956AE" translatesAutoresizingMaskIntoConstraints="NO" id="38x-X2-VbJ" userLabel="Background Image View">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" red="0.1450980392" green="0.20000000000000001" blue="0.25098039220000001" alpha="0.93999999999999995" colorSpace="calibratedRGB"/>
                                 <variation key="heightClass=compact-widthClass=compact" image="image-background-landscape"/>
-                                <variation key="heightClass=compact-widthClass=regular" image="13C870AB-ADD7-4F2A-A7BA-8F605457D7C7"/>
+                                <variation key="heightClass=compact-widthClass=regular" image="FCF919BF-1A70-4042-B9A1-4BD704CF7034"/>
                                 <variation key="heightClass=regular-widthClass=compact" image="image-background-portrait"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aC8-Sv-85m" userLabel="Blackout View">
@@ -170,7 +170,7 @@
                 <navigationController storyboardIdentifier="SignInShowNC" automaticallyAdjustsScrollViewInsets="NO" modalTransitionStyle="crossDissolve" navigationBarHidden="YES" id="HnD-Xp-HUn" customClass="BaseNavigationController" customModule="OmnieCommerce" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="hMj-in-c4l">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="hMj-in-c4l">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -205,7 +205,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="172"/>
                                                 <subviews>
                                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Congratulations" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fPe-Lp-eXj" userLabel="Congratulations Label" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="118.5" width="375" height="20.5"/>
+                                                        <rect key="frame" x="0.0" y="118" width="375" height="20.5"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -266,11 +266,59 @@
                                                     </mask>
                                                 </variation>
                                             </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hOs-M3-Qh4" userLabel="Password View">
+                                                <rect key="frame" x="0.0" y="239" width="375" height="67"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="paU-un-fEh" customClass="DottedBorderView" customModule="OmnieCommerce" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="375" height="67"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="viewStyle" value="BottomDottedLine"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </view>
+                                                    <textField opaque="NO" clipsSubviews="YES" tag="99" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="NMh-v3-IWx" userLabel="Password Text Field" customClass="CustomTextField" customModule="OmnieCommerce" customModuleProvider="target">
+                                                        <rect key="frame" x="8" y="41" width="375" height="19"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        <nil key="textColor"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="alphabet" keyboardAppearance="alert" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="fieldType" value="Password"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </textField>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="bottom" secondItem="paU-un-fEh" secondAttribute="bottom" id="67i-Yh-mlt"/>
+                                                    <constraint firstItem="paU-un-fEh" firstAttribute="top" secondItem="hOs-M3-Qh4" secondAttribute="top" id="A4Q-0m-90D"/>
+                                                    <constraint firstItem="NMh-v3-IWx" firstAttribute="leading" secondItem="hOs-M3-Qh4" secondAttribute="leading" constant="8" id="SYP-eQ-Apx"/>
+                                                    <constraint firstAttribute="trailing" secondItem="paU-un-fEh" secondAttribute="trailing" id="T01-jm-xKg"/>
+                                                    <constraint firstItem="NMh-v3-IWx" firstAttribute="centerY" secondItem="hOs-M3-Qh4" secondAttribute="centerY" multiplier="1.5" id="adc-od-q08"/>
+                                                    <constraint firstAttribute="trailing" secondItem="NMh-v3-IWx" secondAttribute="trailing" constant="-8" id="eM6-D1-DHT"/>
+                                                    <constraint firstItem="NMh-v3-IWx" firstAttribute="centerY" secondItem="hOs-M3-Qh4" secondAttribute="centerY" multiplier="1.3" id="q5T-oN-juO"/>
+                                                    <constraint firstItem="paU-un-fEh" firstAttribute="leading" secondItem="hOs-M3-Qh4" secondAttribute="leading" id="zdq-sU-MXI"/>
+                                                </constraints>
+                                                <variation key="default">
+                                                    <mask key="constraints">
+                                                        <exclude reference="adc-od-q08"/>
+                                                    </mask>
+                                                </variation>
+                                                <variation key="heightClass=regular-widthClass=compact">
+                                                    <mask key="constraints">
+                                                        <include reference="adc-od-q08"/>
+                                                        <exclude reference="q5T-oN-juO"/>
+                                                    </mask>
+                                                </variation>
+                                            </view>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="hOs-M3-Qh4" secondAttribute="trailing" id="5Bo-2j-5j4"/>
+                                            <constraint firstItem="hOs-M3-Qh4" firstAttribute="top" secondItem="gRH-kk-uhj" secondAttribute="bottom" id="Mme-N6-Ctk"/>
                                             <constraint firstItem="3TT-ZF-aSm" firstAttribute="top" secondItem="wjf-iw-0VH" secondAttribute="top" id="PJV-VX-3d1"/>
+                                            <constraint firstItem="hOs-M3-Qh4" firstAttribute="height" secondItem="gRH-kk-uhj" secondAttribute="height" id="Pi5-Ib-gyV"/>
                                             <constraint firstItem="3TT-ZF-aSm" firstAttribute="leading" secondItem="wjf-iw-0VH" secondAttribute="leading" id="RNu-q6-FCA"/>
+                                            <constraint firstItem="hOs-M3-Qh4" firstAttribute="leading" secondItem="wjf-iw-0VH" secondAttribute="leading" id="eYS-uA-kPG"/>
                                             <constraint firstAttribute="trailing" secondItem="gRH-kk-uhj" secondAttribute="trailing" id="gQG-6H-g6J"/>
                                             <constraint firstAttribute="trailing" secondItem="3TT-ZF-aSm" secondAttribute="trailing" id="grj-MY-WxN"/>
                                             <constraint firstItem="gRH-kk-uhj" firstAttribute="leading" secondItem="wjf-iw-0VH" secondAttribute="leading" id="qc6-XY-SLC"/>
@@ -298,7 +346,7 @@
                             <constraint firstItem="EFy-Q6-Rj5" firstAttribute="leading" secondItem="gIj-ot-oou" secondAttribute="leading" id="kef-Ka-fsC"/>
                             <constraint firstItem="wjf-iw-0VH" firstAttribute="height" secondItem="gIj-ot-oou" secondAttribute="height" id="pmK-kJ-pNO"/>
                             <constraint firstItem="gRH-kk-uhj" firstAttribute="height" secondItem="gIj-ot-oou" secondAttribute="height" multiplier="43:375" id="voO-xa-JDA"/>
-                            <constraint firstItem="3TT-ZF-aSm" firstAttribute="height" secondItem="gIj-ot-oou" secondAttribute="height" multiplier="105:375" id="wXh-ew-wMC"/>
+                            <constraint firstItem="3TT-ZF-aSm" firstAttribute="height" secondItem="gIj-ot-oou" secondAttribute="height" multiplier="135:375" id="wXh-ew-wMC"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -320,32 +368,10 @@
                     <connections>
                         <outlet property="scrollView" destination="EFy-Q6-Rj5" id="4hK-eh-OLd"/>
                         <outletCollection property="textFieldsCollection" destination="r8j-gj-Bgr" collectionClass="NSMutableArray" id="aEc-S0-08L"/>
+                        <outletCollection property="textFieldsCollection" destination="NMh-v3-IWx" collectionClass="NSMutableArray" id="k4r-1U-ILE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HJy-vu-AbD" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <view contentMode="scaleToFill" id="hOs-M3-Qh4" userLabel="Password View">
-                    <rect key="frame" x="0.0" y="0.0" width="240" height="33"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="paU-un-fEh" customClass="DottedBorderView" customModule="OmnieCommerce" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="0.0" width="240" height="33"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="string" keyPath="viewStyle" value="BottomDottedLine"/>
-                            </userDefinedRuntimeAttributes>
-                        </view>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="NMh-v3-IWx" userLabel="Password Text Field">
-                            <rect key="frame" x="8" y="5" width="232" height="20"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            <nil key="textColor"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="alphabet" keyboardAppearance="alert" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
-                        </textField>
-                    </subviews>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="kqz-9A-SA6" userLabel="Sign In Button" customClass="CustomButton" customModule="OmnieCommerce" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="0.0" width="240" height="36"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -386,7 +412,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="13C870AB-ADD7-4F2A-A7BA-8F605457D7C7" width="667" height="375">
+        <image name="D5D6AE05-489F-4581-878B-1C0F92C956AE" width="667" height="375">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -17115,7 +17141,7 @@ AA9OQAAPTkgAD05LAA9OUAAPTl8AD05jAA9OagAPTnIAD05/AA9OhAAPToYAD06IAA9OjQAPTpUAD06Y
 AA9OnQAPTqUAD06oAA9OugAPTr0AD07CAAAAAAAABAEAAAAAAAAAQQAAAAAAAAAAAAAAAAAPTsQ
 </mutableData>
         </image>
-        <image name="3FF2B8A4-F200-4124-B535-2843AD4D39CC" width="667" height="375">
+        <image name="FCF919BF-1A70-4042-B9A1-4BD704CF7034" width="667" height="375">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
