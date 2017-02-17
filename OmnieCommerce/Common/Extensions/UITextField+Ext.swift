@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+/*
 enum FieldType: String {
     case None           =   "None"
     case Name           =   "Name"
@@ -111,4 +111,4 @@ extension UITextField {
         return resultEmail || resultPhone
     }
 }
-
+*/

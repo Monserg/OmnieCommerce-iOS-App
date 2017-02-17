@@ -26,20 +26,21 @@ class SignInContainerShowViewController: BaseViewController {
     var interactor: SignInContainerShowViewControllerOutput!
     var router: SignInContainerShowRouter!
     
+    var textFieldManager: TextFieldManager! {
+        didSet {
+            // Delegates
+            for textField in textFieldsCollection {
+                textField.delegate = textFieldManager
+            }
+        }
+    }
+    
     var handlerSendButtonCompletion: HandlerSendButtonCompletion?
     var handlerRegisterButtonCompletion: HandlerRegisterButtonCompletion?
     var handlerForgotPasswordButtonCompletion: HandlerForgotPasswordButtonCompletion?
 
     @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet var textFieldsCollection: [CustomTextField]! {
-        willSet {
-            // Delegates
-            for textField in newValue {
-                textField.delegate = TextFieldManager()
-            }
-        }
-    }
-
+    @IBOutlet var textFieldsCollection: [CustomTextField]!
     
     // MARK: - Class initialization
     override func awakeFromNib() {
@@ -61,6 +62,9 @@ class SignInContainerShowViewController: BaseViewController {
     func doInitialSetupOnLoad() {
         // Apply keyboard handler
         scrollViewBase = scrollView
+        
+        // Create TextFieldManager
+        textFieldManager = TextFieldManager(withTextFields: textFieldsCollection)
     }
     
     
@@ -99,6 +103,9 @@ extension SignInContainerShowViewController: SignInContainerShowViewControllerIn
         }
         
         Config.Constants.isUserGuest = false
-        handlerSendButtonCompletion!()        
+        handlerSendButtonCompletion!()
+        
+        // Clear all text fields
+        _ = textFieldsCollection.map{ $0.text = nil }
     }
 }

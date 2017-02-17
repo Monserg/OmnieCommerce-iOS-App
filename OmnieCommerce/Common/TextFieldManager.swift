@@ -10,7 +10,29 @@ import UIKit
 
 class TextFieldManager: NSObject {
     // MARK: - Properties
+    var textFieldsArray: [CustomTextField]!
     var selectedRange: CGRect?
+    
+    
+    // MARK: - Class Initialization
+    init(withTextFields array: [CustomTextField]) {
+        super.init()
+        
+        self.textFieldsArray = array
+    }
+    
+    
+    // MARK: - Custom Functions
+    func didLoadNextTextField(afterCurrent textField: CustomTextField) {
+        if (textField.tag == 99) {
+            textField.resignFirstResponder()
+        } else {
+            let currentIndex = textFieldsArray.index(of: textField)!
+            let nextIndex = textFieldsArray.index(after: currentIndex)
+            
+            textFieldsArray[nextIndex].becomeFirstResponder()
+        }
+    }
 }
 
 
@@ -38,7 +60,16 @@ extension TextFieldManager: UITextFieldDelegate {
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        print(#function)
+        switch (textField as! CustomTextField).style! {
+        case .Name, .Password:
+            self.didLoadNextTextField(afterCurrent: textField as! CustomTextField)
+                    
+        default:
+            break
+        }
+        
+        
+        
         return true
     }
 }

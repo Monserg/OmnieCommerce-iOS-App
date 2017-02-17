@@ -40,7 +40,7 @@ class SignUpShowViewController: BaseViewController {
         willSet {
             // Delegates
             for textField in newValue {
-                textField.delegate = TextFieldManager()
+                textField.delegate = TextFieldManager(withTextFields: textFieldsCollection)
             }
         }
     }
