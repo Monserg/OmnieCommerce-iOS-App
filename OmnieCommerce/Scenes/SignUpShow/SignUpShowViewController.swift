@@ -28,6 +28,15 @@ class SignUpShowViewController: BaseViewController {
     var interactor: SignUpShowViewControllerOutput!
     var router: SignUpShowRouter!
     
+    var textFieldManager: TextFieldManager! {
+        didSet {
+            // Delegates
+            for textField in textFieldsCollection {
+                textField.delegate = textFieldManager
+            }
+        }
+    }
+    
     var handlerRegisterButtonCompletion: HandlerRegisterButtonCompletion?
     var handlerCancelButtonCompletion: HandlerCancelButtonCompletion?
     var passwordStrengthLevel: PasswordStrengthLevel = .None
@@ -36,15 +45,7 @@ class SignUpShowViewController: BaseViewController {
     @IBOutlet weak var passwordStrengthView: PasswordStrengthLevelView!
     @IBOutlet weak var emailErrorMessageView: ErrorMessageView!
 
-    @IBOutlet var textFieldsCollection: [CustomTextField]! {
-        willSet {
-            // Delegates
-            for textField in newValue {
-                textField.delegate = TextFieldManager(withTextFields: textFieldsCollection)
-            }
-        }
-    }
-
+    @IBOutlet var textFieldsCollection: [CustomTextField]!
     @IBOutlet weak var emailErrorMessageViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var emailErrorMessageViewTopConstraint: NSLayoutConstraint!
 
@@ -73,6 +74,9 @@ class SignUpShowViewController: BaseViewController {
         // Apply keyboard handler
         scrollViewBase = scrollView
         
+        // Create TextFieldManager
+        textFieldManager = TextFieldManager(withTextFields: textFieldsCollection)
+
         // Hide email error message view
         emailErrorMessageViewHeightConstraint.constant = Config.Constants.errorMessageViewHeight
         emailErrorMessageViewTopConstraint.constant = -Config.Constants.errorMessageViewHeight
@@ -125,5 +129,8 @@ extension SignUpShowViewController: SignUpShowViewControllerInput {
         Config.Constants.isUserGuest = false
         
         handlerRegisterButtonCompletion!()
+        
+        // Clear all text fields
+        _ = textFieldsCollection.map{ $0.text = nil }
     }
 }

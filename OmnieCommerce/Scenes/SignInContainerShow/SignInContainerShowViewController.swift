@@ -42,6 +42,7 @@ class SignInContainerShowViewController: BaseViewController {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet var textFieldsCollection: [CustomTextField]!
     
+    
     // MARK: - Class initialization
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -103,6 +104,7 @@ extension SignInContainerShowViewController: SignInContainerShowViewControllerIn
         }
         
         Config.Constants.isUserGuest = false
+        
         handlerSendButtonCompletion!()
         
         // Clear all text fields
