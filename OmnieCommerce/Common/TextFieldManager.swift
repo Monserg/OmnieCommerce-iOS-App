@@ -11,7 +11,7 @@ import UIKit
 class TextFieldManager: NSObject {
     // MARK: - Properties
     var textFieldsArray: [CustomTextField]!
-    var selectedRange: CGRect?
+    weak var currentVC: BaseViewController!
     
     
     // MARK: - Class Initialization
@@ -39,7 +39,8 @@ class TextFieldManager: NSObject {
 // MARK: - UITextFieldDelegate
 extension TextFieldManager: UITextFieldDelegate {
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        print(#function)
+        currentVC?.selectedRange = textField.convert(textField.frame, to: currentVC?.view)
+
         return true
     }
     
@@ -55,7 +56,6 @@ extension TextFieldManager: UITextFieldDelegate {
     
     
     func textFieldShouldClear(_ textField: UITextField) -> Bool {
-        print(#function)
         return true
     }
     
@@ -63,12 +63,17 @@ extension TextFieldManager: UITextFieldDelegate {
         switch (textField as! CustomTextField).style! {
         case .Name, .Password:
             self.didLoadNextTextField(afterCurrent: textField as! CustomTextField)
-                    
+            
+        case .Email:
+            if (textField as! CustomTextField).checkEmailValidation(textField.text!) {
+                self.didLoadNextTextField(afterCurrent: textField as! CustomTextField)
+            } else {
+                // TODO: SHOW ERROR MESSAGE VIEW
+            }
+            
         default:
             break
         }
-        
-        
         
         return true
     }

@@ -50,14 +50,14 @@ extension UIButton {
             tintColor = UIColor.clear
             borderColor = UIColor.clear
             borderWidth = 0
-            cornerRadius = frame.size.height / 2
+//            cornerRadius = frame.size.height / 2
 
         case .Fill:
             backgroundColor = (Config.Constants.isAppThemesDark) ? UIColor.white : UIColor.veryLightOrange
             setAttributedTitle(NSAttributedString.init(string: (titleLabel?.text?.localized())!, attributes: UIFont.ubuntuRegularVeryDarkGray16), for: .normal)
             borderColor = UIColor.clear
             borderWidth = 0
-            cornerRadius = frame.size.height / 2
+//            cornerRadius = frame.size.height / 2
             (Config.Constants.isAppThemesDark) ? setAttributedTitle(NSAttributedString.init(string: (titleLabel?.text?.localized())!, attributes: UIFont.ubuntuLightVeryLightGrayUnderline12), for: .normal) : setAttributedTitle(NSAttributedString.init(string: (titleLabel?.text?.localized())!, attributes: UIFont.ubuntuRegularVeryDarkGray16), for: .normal)
             (Config.Constants.isAppThemesDark) ? setAttributedTitle(NSAttributedString.init(string: (titleLabel?.text?.localized())!, attributes: UIFont.ubuntuLightVeryLightGrayUnderline12), for: .highlighted) : setAttributedTitle(NSAttributedString.init(string: (titleLabel?.text?.localized())!, attributes: UIFont.ubuntuRegularVeryDarkGray16), for: .highlighted)
 
@@ -73,7 +73,7 @@ extension UIButton {
             titleLabel?.font = (Config.Constants.isAppThemesDark) ? UIFont.systemFont(ofSize: 12) : UIFont.ubuntuRegular16
             borderColor = (Config.Constants.isAppThemesDark) ? UIColor.black : UIColor.veryLightOrange
             borderWidth = 1
-            cornerRadius = frame.size.height / 2
+//            cornerRadius = frame.size.height / 2
             
         case .Underline:
             backgroundColor = UIColor.clear
@@ -115,7 +115,7 @@ extension UIButton {
             tintColor = UIColor.clear
             borderColor = UIColor.clear
             borderWidth = 0
-            cornerRadius = frame.size.height / 2        
+//            cornerRadius = frame.size.height / 2        
 
         case .ActionViewOrangeButton:
             backgroundColor = (Config.Constants.isAppThemesDark) ? UIColor.white : UIColor.clear

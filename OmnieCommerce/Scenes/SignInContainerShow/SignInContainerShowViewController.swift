@@ -47,6 +47,8 @@ class SignInContainerShowViewController: BaseViewController {
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        self.view.layoutIfNeeded()
+
         SignInContainerShowConfigurator.sharedInstance.configure(viewController: self)
     }
     
@@ -66,6 +68,7 @@ class SignInContainerShowViewController: BaseViewController {
         
         // Create TextFieldManager
         textFieldManager = TextFieldManager(withTextFields: textFieldsCollection)
+        textFieldManager.currentVC = self
     }
     
     

@@ -24,7 +24,7 @@ enum FieldType: String {
     var style: FieldType!
     var attributedPlaceholderString: NSAttributedString!
     private var validator = NJOPasswordValidator.standardValidator
-    
+        
     @IBInspectable var fieldType: String? {
         set { setupWithTypeNamed(newValue) }
         get { return nil }

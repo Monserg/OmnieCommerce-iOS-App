@@ -54,6 +54,8 @@ class SignUpShowViewController: BaseViewController {
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        self.view.layoutIfNeeded()
+
         SignUpShowConfigurator.sharedInstance.configure(viewController: self)
     }
     
@@ -76,6 +78,7 @@ class SignUpShowViewController: BaseViewController {
         
         // Create TextFieldManager
         textFieldManager = TextFieldManager(withTextFields: textFieldsCollection)
+        textFieldManager.currentVC = self
 
         // Hide email error message view
         emailErrorMessageViewHeightConstraint.constant = Config.Constants.errorMessageViewHeight

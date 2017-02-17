@@ -60,5 +60,8 @@ import UIKit
                 center = CGPoint.init(x: circleX + Config.Constants.fillViewBigRadiusLandscape * cos((M_PI * buttonDegree) / 180), y: circleY - Config.Constants.fillViewBigRadiusLandscape * sin((M_PI * buttonDegree) / 180))
             }
         }
+        
+        layoutIfNeeded()
+        layer.cornerRadius = frame.height / 2
     }
 }
