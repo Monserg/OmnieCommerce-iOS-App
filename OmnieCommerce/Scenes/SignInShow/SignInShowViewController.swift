@@ -96,7 +96,7 @@ class SignInShowViewController: BaseViewController {
         hideNavigationBar()
         
         // Apply Container childVC
-        (Config.Constants.isUserGuest) ? router.navigateBetweenContainerSubviews() : router.navigateAuthorizedUser(duringStartApp: true)
+//        (Config.Constants.isUserGuest) ? router.navigateBetweenContainerSubviews() : router.navigateAuthorizedUser(duringStartApp: true)
     }
     
     func setupScene(withSize size: CGSize) {
