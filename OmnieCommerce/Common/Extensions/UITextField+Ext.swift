@@ -20,7 +20,7 @@ extension UITextField {
         set { setupWithStyleNamed(newValue) }
         get { return nil }
     }
-
+    
     
     // MARK: - Custom Functions
     func setupWithStyleNamed(_ named: String?) {

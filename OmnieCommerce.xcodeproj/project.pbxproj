@@ -83,6 +83,7 @@
 		B127BDEC1E262FD3007AEAF2 /* LaunchScreenView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B127BDEB1E262FD3007AEAF2 /* LaunchScreenView.xib */; };
 		B127BDEE1E262FE7007AEAF2 /* LaunchScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B127BDED1E262FE7007AEAF2 /* LaunchScreenView.swift */; };
 		B12AC2301DDF3BDB00FA0924 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12AC22F1DDF3BDB00FA0924 /* CustomTextField.swift */; };
+		B12FE6411E572D6A00A4FBA4 /* TextFieldManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12FE6401E572D6A00A4FBA4 /* TextFieldManager.swift */; };
 		B14107C41DFEA73900F79CF9 /* CalendarDayCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14107C21DFEA73900F79CF9 /* CalendarDayCellView.swift */; };
 		B14107C51DFEA73900F79CF9 /* CalendarDayCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B14107C31DFEA73900F79CF9 /* CalendarDayCellView.xib */; };
 		B14107C71DFEB1D700F79CF9 /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14107C61DFEB1D700F79CF9 /* CustomView.swift */; };
@@ -327,6 +328,7 @@
 		B127BDEB1E262FD3007AEAF2 /* LaunchScreenView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreenView.xib; sourceTree = "<group>"; };
 		B127BDED1E262FE7007AEAF2 /* LaunchScreenView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchScreenView.swift; sourceTree = "<group>"; };
 		B12AC22F1DDF3BDB00FA0924 /* CustomTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		B12FE6401E572D6A00A4FBA4 /* TextFieldManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldManager.swift; sourceTree = "<group>"; };
 		B14107C21DFEA73900F79CF9 /* CalendarDayCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarDayCellView.swift; sourceTree = "<group>"; };
 		B14107C31DFEA73900F79CF9 /* CalendarDayCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CalendarDayCellView.xib; sourceTree = "<group>"; };
 		B14107C61DFEB1D700F79CF9 /* CustomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
@@ -768,6 +770,7 @@
 			children = (
 				B1228FB31DD4853E00A90FBB /* DataModel */,
 				B1739D141DE3145F0029BCCA /* Extensions */,
+				B12FE63F1E572D4300A4FBA4 /* Managers */,
 				B122F2391DD36F220018A701 /* UIButtons */,
 				B17323C81DED8430003A8D3E /* UICollectionViewCell */,
 				B11B9ADB1DF0537A009A4AA1 /* UIImageView */,
@@ -872,6 +875,14 @@
 				B127BDEB1E262FD3007AEAF2 /* LaunchScreenView.xib */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		B12FE63F1E572D4300A4FBA4 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				B12FE6401E572D6A00A4FBA4 /* TextFieldManager.swift */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 		B14E973E1DD8AFCF001E1DE2 /* SignInShow */ = {
@@ -1428,6 +1439,7 @@
 				B14E975C1DD8B052001E1DE2 /* SignUpShowWorker.swift in Sources */,
 				B1CF54D81DDB51BE00E98049 /* SettingsShowConfigurator.swift in Sources */,
 				B122F1EC1DD35BA70018A701 /* MessagesShowPresenter.swift in Sources */,
+				B12FE6411E572D6A00A4FBA4 /* TextFieldManager.swift in Sources */,
 				B122F1DE1DD35B760018A701 /* OrdersShowPresenter.swift in Sources */,
 				B14E975B1DD8B052001E1DE2 /* SignUpShowViewController.swift in Sources */,
 				B1CF54A11DDB515000E98049 /* HandbookShowInteractor.swift in Sources */,
