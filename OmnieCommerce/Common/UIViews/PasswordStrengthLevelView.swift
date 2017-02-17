@@ -8,6 +8,13 @@
 
 import UIKit
 
+enum PasswordStrengthLevel {
+    case Weak
+    case Reasonable
+    case Strong
+    case None
+}
+
 class PasswordStrengthLevelView: UIView {
     // MARK: - Properties
     let lineWidth: CGFloat = 1.0

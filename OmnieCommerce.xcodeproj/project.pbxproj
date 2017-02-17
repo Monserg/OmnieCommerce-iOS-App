@@ -79,6 +79,8 @@
 		B122F2321DD35EF10018A701 /* NewsShow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B122F2311DD35EF10018A701 /* NewsShow.storyboard */; };
 		B122F2411DD371B30018A701 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B122F2401DD371B30018A701 /* BaseNavigationController.swift */; };
 		B122F2481DD393330018A701 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B122F24A1DD393330018A701 /* Localizable.strings */; };
+		B12FE6441E57323400A4FBA4 /* TextFieldManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12FE6431E57323400A4FBA4 /* TextFieldManager.swift */; };
+		B12FE6461E57327D00A4FBA4 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12FE6451E57327D00A4FBA4 /* CustomTextField.swift */; };
 		B14107C41DFEA73900F79CF9 /* CalendarDayCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14107C21DFEA73900F79CF9 /* CalendarDayCellView.swift */; };
 		B14107C51DFEA73900F79CF9 /* CalendarDayCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B14107C31DFEA73900F79CF9 /* CalendarDayCellView.xib */; };
 		B14107C71DFEB1D700F79CF9 /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14107C61DFEB1D700F79CF9 /* CustomView.swift */; };
@@ -139,7 +141,6 @@
 		B177E5391E5475EC004F1390 /* SignInContainerShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B177E5321E5475EC004F1390 /* SignInContainerShowViewController.swift */; };
 		B177E53A1E5475EC004F1390 /* SignInContainerShowWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B177E5331E5475EC004F1390 /* SignInContainerShowWorker.swift */; };
 		B177E53C1E5489A2004F1390 /* ErrorMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B177E53B1E5489A2004F1390 /* ErrorMessageView.swift */; };
-		B177E53E1E548A95004F1390 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B177E53D1E548A95004F1390 /* CustomTextField.swift */; };
 		B177E5471E54AC7F004F1390 /* EnterCodeShowConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B177E5401E54AC7F004F1390 /* EnterCodeShowConfigurator.swift */; };
 		B177E5481E54AC7F004F1390 /* EnterCodeShowInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B177E5411E54AC7F004F1390 /* EnterCodeShowInteractor.swift */; };
 		B177E5491E54AC7F004F1390 /* EnterCodeShowModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B177E5421E54AC7F004F1390 /* EnterCodeShowModels.swift */; };
@@ -342,6 +343,8 @@
 		B122F2491DD393330018A701 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B122F24C1DD393350018A701 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B122F24D1DD393360018A701 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Localizable.strings; sourceTree = "<group>"; };
+		B12FE6431E57323400A4FBA4 /* TextFieldManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldManager.swift; sourceTree = "<group>"; };
+		B12FE6451E57327D00A4FBA4 /* CustomTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		B14107C21DFEA73900F79CF9 /* CalendarDayCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarDayCellView.swift; sourceTree = "<group>"; };
 		B14107C31DFEA73900F79CF9 /* CalendarDayCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CalendarDayCellView.xib; sourceTree = "<group>"; };
 		B14107C61DFEB1D700F79CF9 /* CustomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
@@ -405,7 +408,6 @@
 		B177E5321E5475EC004F1390 /* SignInContainerShowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInContainerShowViewController.swift; sourceTree = "<group>"; };
 		B177E5331E5475EC004F1390 /* SignInContainerShowWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInContainerShowWorker.swift; sourceTree = "<group>"; };
 		B177E53B1E5489A2004F1390 /* ErrorMessageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorMessageView.swift; sourceTree = "<group>"; };
-		B177E53D1E548A95004F1390 /* CustomTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		B177E5401E54AC7F004F1390 /* EnterCodeShowConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnterCodeShowConfigurator.swift; sourceTree = "<group>"; };
 		B177E5411E54AC7F004F1390 /* EnterCodeShowInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnterCodeShowInteractor.swift; sourceTree = "<group>"; };
 		B177E5421E54AC7F004F1390 /* EnterCodeShowModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnterCodeShowModels.swift; sourceTree = "<group>"; };
@@ -802,6 +804,7 @@
 			children = (
 				B1228FB31DD4853E00A90FBB /* DataModel */,
 				B1739D141DE3145F0029BCCA /* Extensions */,
+				B12FE6421E57321500A4FBA4 /* Managers */,
 				B122F2391DD36F220018A701 /* UIButtons */,
 				B17323C81DED8430003A8D3E /* UICollectionViewCell */,
 				B11B9ADB1DF0537A009A4AA1 /* UIImageView */,
@@ -819,7 +822,7 @@
 		B122F2381DD36F120018A701 /* UITextFields */ = {
 			isa = PBXGroup;
 			children = (
-				B177E53D1E548A95004F1390 /* CustomTextField.swift */,
+				B12FE6451E57327D00A4FBA4 /* CustomTextField.swift */,
 			);
 			path = UITextFields;
 			sourceTree = "<group>";
@@ -863,6 +866,14 @@
 				B122F24A1DD393330018A701 /* Localizable.strings */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		B12FE6421E57321500A4FBA4 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				B12FE6431E57323400A4FBA4 /* TextFieldManager.swift */,
+			);
+			name = Managers;
 			sourceTree = "<group>";
 		};
 		B14E973E1DD8AFCF001E1DE2 /* SignInShow */ = {
@@ -1427,6 +1438,7 @@
 				B177E5381E5475EC004F1390 /* SignInContainerShowRouter.swift in Sources */,
 				B11B9ADA1DF02F5C009A4AA1 /* Date+Ext.swift in Sources */,
 				B1CF54C11DDB519000E98049 /* OnmieSoftShowViewController.swift in Sources */,
+				B12FE6441E57323400A4FBA4 /* TextFieldManager.swift in Sources */,
 				B177E55E1E54B8F6004F1390 /* PasswordStrengthLevelView.swift in Sources */,
 				B1DA01B11DF1CB2F00E6DD46 /* UIFont+Ext.swift in Sources */,
 				B1CF54B31DDB516E00E98049 /* OmnieCardsShowViewController.swift in Sources */,
@@ -1568,6 +1580,7 @@
 				B122F2241DD35CC80018A701 /* SlideMenuShowModels.swift in Sources */,
 				B1CF54CB1DDB51A500E98049 /* PersonalPageShowInteractor.swift in Sources */,
 				B122F2131DD35C2C0018A701 /* NewsShowConfigurator.swift in Sources */,
+				B12FE6461E57327D00A4FBA4 /* CustomTextField.swift in Sources */,
 				B1CF54761DDB50D900E98049 /* AboutShowConfigurator.swift in Sources */,
 				B122F1FA1DD35BC70018A701 /* FavoriteShowPresenter.swift in Sources */,
 				B1CF54BE1DDB519000E98049 /* OnmieSoftShowModels.swift in Sources */,
@@ -1591,7 +1604,6 @@
 				B1C13D871DEF2743002B494A /* DropDownButton.swift in Sources */,
 				B122F2181DD35C2C0018A701 /* NewsShowViewController.swift in Sources */,
 				B17323CC1DED995C003A8D3E /* Category.swift in Sources */,
-				B177E53E1E548A95004F1390 /* CustomTextField.swift in Sources */,
 				B177E54D1E54AC7F004F1390 /* EnterCodeShowWorker.swift in Sources */,
 				B122F1F81DD35BC70018A701 /* FavoriteShowInteractor.swift in Sources */,
 				B14E976A1DD8B05E001E1DE2 /* ForgotPasswordShowWorker.swift in Sources */,

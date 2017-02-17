@@ -1,112 +1,49 @@
 //
 //  CustomTextField.swift
-//  OmnieCommerceAdmin
+//  OmnieCommerce
 //
-//  Created by msm72 on 03.02.17.
-//  Copyright © 2017 Omniesoft. All rights reserved.
+//  Created by msm72 on 18.11.16.
+//  Copyright © 2016 Omniesoft. All rights reserved.
 //
 
 import UIKit
 import Navajo_Swift
+import Localize_Swift
 
-enum FieldStyle: String {
-    case Name           =   "Name"
-    case Code           =   "Code"
-    case Email          =   "Email"
-    case Phone          =   "Phone"
-    case Search         =   "Search"
-    case Address        =   "Address"
-    case Password       =   "Password"
-    case PhoneEmail     =   "PhoneEmail"
-}
-
-enum PasswordStrengthLevel {
-    case Weak
-    case Reasonable
-    case Strong
-    case None
+protocol NameTextField {
+    func didApplyStyle()
 }
 
 @IBDesignable class CustomTextField: UITextField {
     // MARK: - Properties
     var attributedPlaceholderString: NSAttributedString!
     private var validator = NJOPasswordValidator.standardValidator
-    var fieldDesign: FieldStyle?
-
-    @IBInspectable var fieldStyle: String? {
-        set {
-            if let styleName = newValue {
-                self.fieldDesign = FieldStyle(rawValue: styleName)
-                
-                setupWithStyle()
-            }
-        }
+    
+    
+    // MARK: - Class Initialization
+    init() {
+        super.init(frame: CGRect.init(origin: CGPoint.zero, size: CGSize.init()))
         
-        get { return nil }
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.firstLineHeadIndent = 0
+
+        self.attributedPlaceholder = NSAttributedString(string: (self.placeholder?.localized())!, attributes: [NSFontAttributeName:  UIFont.ubuntuLightItalic16, NSForegroundColorAttributeName: UIColor.darkCyan, NSKernAttributeName: 0.0, NSParagraphStyleAttributeName: paragraphStyle])
+        
+        self.font = (self.font?.pointSize == 12) ? UIFont.ubuntuLightItalic12 : UIFont.ubuntuLightItalic16
+        self.textColor = UIColor.init(hexString: "#dedede", withAlpha: 1.0)
+        self.tintColor = UIColor.init(hexString: "#dedede", withAlpha: 1.0)
+        self.textAlignment = .left
+        
+        // Delegate
+        self.delegate = TextFieldManager()
     }
     
-
-    // MARK: - Class Functions
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        
-        // Set clear button image
-        for subview in subviews {
-            if (subview.isKind(of: UIButton.self)) {
-                let button = subview as! UIButton
-                button.setImage(button.image(for: .normal)?.withRenderingMode(.alwaysTemplate), for: .normal)
-                button.tintColor = UIColor.init(hexString: (Config.Constants.isAppThemesDark) ? "#5e6969" : (Config.Constants.isUserGuest) ? "#9ec9c6" : "#a6a6a6", withAlpha: 1)                
-            }
-        }
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     
     // MARK: - Custom Functions
-    // tag = 99: self is last with Return keyboard button
-    private func setupWithStyle() {
-        let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.firstLineHeadIndent  =   0
-        
-        autocapitalizationType              =   .sentences
-        autocorrectionType                  =   .no
-        spellCheckingType                   =   .no
-        keyboardType                        =   .default
-        keyboardAppearance                  =   (Config.Constants.isAppThemesDark) ? .light : .dark
-        enablesReturnKeyAutomatically       =   true
-        returnKeyType                       =   (tag == 99) ? .default : .next
-        isSecureTextEntry                   =   false
-        clearButtonMode                     =   .whileEditing
-        font                                =   UIFont.ubuntuLight12
-        textColor                           =   (Config.Constants.isAppThemesDark) ? (UIColor(hexString: "#dedede", withAlpha: 1.0)) : (UIColor(hexString: (Config.Constants.isUserGuest) ? "#dedede" : "#333333", withAlpha: 1.0))
-        tintColor                           =   (Config.Constants.isAppThemesDark) ? (UIColor(hexString: "#dedede", withAlpha: 1.0)) : (UIColor(hexString: (Config.Constants.isUserGuest) ? "#dedede" : "#333333", withAlpha: 1.0))
-
-        // Placeholder design
-        attributedPlaceholder = NSAttributedString(string: (placeholder?.localized())!, attributes: [NSFontAttributeName: UIFont.ubuntuLightItalic12, NSForegroundColorAttributeName: (Config.Constants.isAppThemesDark) ? (UIColor(hexString: "#5e6969", withAlpha: 1.0))! : (UIColor(hexString: (Config.Constants.isUserGuest) ? "#9ec9c6" : "#a6a6a6", withAlpha: 1.0))!, NSKernAttributeName: 0.0, NSParagraphStyleAttributeName: paragraphStyle])
-
-        // Set differences
-        switch self.fieldDesign! {
-        case .Email, .PhoneEmail:
-            autocapitalizationType          =   .none
-            keyboardType                    =   .emailAddress
-            
-        case .Password:
-            autocapitalizationType          =   .none
-            isSecureTextEntry               =   true
-            
-        case .Code, .Phone:
-            autocapitalizationType          =   .none
-            keyboardType                    =   .numbersAndPunctuation
-            
-        case .Search:
-            autocapitalizationType          =   .none
-            returnKeyType                   =   .search
-            
-        // Name, Address
-        default:
-            break
-        }
-    }
-    
     func checkPasswordStrength(_ password: String) -> PasswordStrengthLevel {
         let strengthLevelString = Navajo.localizedString(for: Navajo.strength(of: password))
         var strengthLevel: PasswordStrengthLevel!
@@ -160,7 +97,7 @@ enum PasswordStrengthLevel {
         
         return resultPhone
     }
-
+    
     func checkEmailValidation(_ email: String) -> Bool {
         // Validate Email
         guard !(email.isEmpty) else {
@@ -175,8 +112,16 @@ enum PasswordStrengthLevel {
         
         return resultEmail
     }
-
+    
     func checkPhoneEmailValidation(_ text: String) -> Bool {
         return checkPhoneValidation(text) || checkEmailValidation(text)
+    }
+}
+
+
+// MARK: - NameTextField protocol
+extension CustomTextField: NameTextField {
+    func didApplyStyle() {
+        keyboardType = .default
     }
 }
