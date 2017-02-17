@@ -8,11 +8,6 @@
 
 import UIKit
 
-//enum TextFieldStyle: String {
-//    case darkCyan = "DarkCyan"
-//    case grayishBlue = "GrayishBlue"
-//}
-//
 enum FieldType: String {
     case None           =   "None"
     case Name           =   "Name"

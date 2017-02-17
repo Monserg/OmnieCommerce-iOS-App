@@ -22,10 +22,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1B6FB5D3-536A-447C-80F6-F18D3D1C2FEA" translatesAutoresizingMaskIntoConstraints="NO" id="dVl-ed-LxC" userLabel="Background Image View">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="775DBD4B-ED4B-4087-89FB-CD14705C70DD" translatesAutoresizingMaskIntoConstraints="NO" id="dVl-ed-LxC" userLabel="Background Image View">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <variation key="heightClass=compact-widthClass=compact" image="image-background-landscape"/>
-                                <variation key="heightClass=compact-widthClass=regular" image="C6B1173E-0234-42D7-B55C-F2B4A2F5B799"/>
+                                <variation key="heightClass=compact-widthClass=regular" image="B54970B9-AA20-442E-B028-AF52B1CAF46D"/>
                                 <variation key="heightClass=regular-widthClass=compact" image="image-background-portrait"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4C9-jk-Jmd" userLabel="Blackout View">
@@ -340,7 +340,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="1B6FB5D3-536A-447C-80F6-F18D3D1C2FEA" width="736" height="414">
+        <image name="775DBD4B-ED4B-4087-89FB-CD14705C70DD" width="736" height="414">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -20708,7 +20708,7 @@ ABKjJwASoywAEqM7ABKjPwASo0YAEqNOABKjWwASo2AAEqNiABKjZAASo2kAEqNxABKjdAASo3kAEqOB
 ABKjhAASo5YAEqOZABKjngAAAAAAAAQBAAAAAAAAAEEAAAAAAAAAAAAAAAAAEqOgA
 </mutableData>
         </image>
-        <image name="C6B1173E-0234-42D7-B55C-F2B4A2F5B799" width="667" height="375">
+        <image name="B54970B9-AA20-442E-B028-AF52B1CAF46D" width="667" height="375">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw

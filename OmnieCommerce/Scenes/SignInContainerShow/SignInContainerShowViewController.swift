@@ -31,7 +31,14 @@ class SignInContainerShowViewController: BaseViewController {
     var handlerForgotPasswordButtonCompletion: HandlerForgotPasswordButtonCompletion?
 
     @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet var textFieldsCollection: [CustomTextField]!
+    @IBOutlet var textFieldsCollection: [CustomTextField]! {
+        willSet {
+            // Delegates
+            for textField in newValue {
+                textField.delegate = TextFieldManager()
+            }
+        }
+    }
 
     
     // MARK: - Class initialization
@@ -52,9 +59,6 @@ class SignInContainerShowViewController: BaseViewController {
 
     // MARK: - Custom Functions
     func doInitialSetupOnLoad() {
-        // Delegates
-        textFieldsArray = textFieldsCollection
-        
         // Apply keyboard handler
         scrollViewBase = scrollView
     }

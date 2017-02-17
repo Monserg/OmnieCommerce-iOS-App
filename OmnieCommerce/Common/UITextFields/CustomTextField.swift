@@ -21,29 +21,18 @@ protocol NameTextField {
     
     
     // MARK: - Class Initialization
-    func ddd() {
-//        super.init(frame: CGRect.init(origin: CGPoint.zero, size: CGSize.init()))
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
         
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.firstLineHeadIndent = 0
-
+        
         self.attributedPlaceholder = NSAttributedString(string: (self.placeholder?.localized())!, attributes: [NSFontAttributeName:  UIFont.ubuntuLightItalic16, NSForegroundColorAttributeName: UIColor.darkCyan, NSKernAttributeName: 0.0, NSParagraphStyleAttributeName: paragraphStyle])
         
         self.font = (self.font?.pointSize == 12) ? UIFont.ubuntuLightItalic12 : UIFont.ubuntuLightItalic16
         self.textColor = UIColor.init(hexString: "#dedede", withAlpha: 1.0)
         self.tintColor = UIColor.init(hexString: "#dedede", withAlpha: 1.0)
-        self.textAlignment = .left
-        
-        // Delegate
-        self.delegate = TextFieldManager()
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        
-        ddd()
-        
-//        fatalError("init(coder:) has not been implemented")
+        self.textAlignment = .left        
     }
     
     

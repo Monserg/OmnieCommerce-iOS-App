@@ -26,7 +26,7 @@ class BaseViewController: UIViewController {
     var textFieldsArray = [CustomTextField]() {
         willSet {
             for textField in newValue {
-                textField.delegate = self
+                textField.delegate = TextFieldManager()
             }
         }
     }

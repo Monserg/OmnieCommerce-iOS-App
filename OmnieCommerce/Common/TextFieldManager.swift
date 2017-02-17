@@ -8,12 +8,14 @@
 
 import UIKit
 
-class TextFieldManager: UIViewController, UITextFieldDelegate {
+class TextFieldManager: NSObject {
     // MARK: - Properties
     var selectedRange: CGRect?
+}
 
-    
-    // MARK: - Class Functions
+
+// MARK: - UITextFieldDelegate
+extension TextFieldManager: UITextFieldDelegate {
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         print(#function)
         return true
