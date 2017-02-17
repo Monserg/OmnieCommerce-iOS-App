@@ -131,7 +131,6 @@
 		B1739D181DE314D50029BCCA /* UILabel+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1739D171DE314D50029BCCA /* UILabel+Ext.swift */; };
 		B1739D1A1DE314DF0029BCCA /* UIColor+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1739D191DE314DF0029BCCA /* UIColor+Ext.swift */; };
 		B1739D1C1DE314E80029BCCA /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1739D1B1DE314E80029BCCA /* UIView+Ext.swift */; };
-		B1739D421DE363C00029BCCA /* SignUpShow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1739D411DE363C00029BCCA /* SignUpShow.storyboard */; };
 		B1739D441DE363FD0029BCCA /* ForgotPasswordShow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1739D431DE363FD0029BCCA /* ForgotPasswordShow.storyboard */; };
 		B177E5341E5475EC004F1390 /* SignInContainerShowConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B177E52D1E5475EC004F1390 /* SignInContainerShowConfigurator.swift */; };
 		B177E5351E5475EC004F1390 /* SignInContainerShowInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B177E52E1E5475EC004F1390 /* SignInContainerShowInteractor.swift */; };
@@ -397,7 +396,6 @@
 		B1739D171DE314D50029BCCA /* UILabel+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+Ext.swift"; sourceTree = "<group>"; };
 		B1739D191DE314DF0029BCCA /* UIColor+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Ext.swift"; sourceTree = "<group>"; };
 		B1739D1B1DE314E80029BCCA /* UIView+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
-		B1739D411DE363C00029BCCA /* SignUpShow.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SignUpShow.storyboard; sourceTree = "<group>"; };
 		B1739D431DE363FD0029BCCA /* ForgotPasswordShow.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ForgotPasswordShow.storyboard; sourceTree = "<group>"; };
 		B177E52B1E546DD9004F1390 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B177E52D1E5475EC004F1390 /* SignInContainerShowConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInContainerShowConfigurator.swift; sourceTree = "<group>"; };
@@ -680,7 +678,6 @@
 				B1CF54E51DDB552300E98049 /* PersonalPageShow.storyboard */,
 				B1CF54E31DDB543300E98049 /* SettingsShow.storyboard */,
 				B14E976B1DD8B8CB001E1DE2 /* SignInShow.storyboard */,
-				B1739D411DE363C00029BCCA /* SignUpShow.storyboard */,
 				B122F1BE1DD3575E0018A701 /* SlideMenuShow.storyboard */,
 			);
 			path = Storyboards;
@@ -1311,7 +1308,6 @@
 				B1BF92701DD6516C00BECBBB /* helveticaneuecyr-lightitalic.otf in Resources */,
 				B1BF92711DD6516C00BECBBB /* helveticaneuecyr-medium.otf in Resources */,
 				B1BF92721DD6516C00BECBBB /* helveticaneuecyr-mediumitaicl.otf in Resources */,
-				B1739D421DE363C00029BCCA /* SignUpShow.storyboard in Resources */,
 				B1BF92731DD6516C00BECBBB /* helveticaneuecyr-roman.otf in Resources */,
 				B14D894D1DF6C87800AF3AED /* NewsTableViewCell.xib in Resources */,
 				B1BF92741DD6516C00BECBBB /* helveticaneuecyr-thin.otf in Resources */,

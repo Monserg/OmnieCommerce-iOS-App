@@ -11,24 +11,34 @@
 
 import UIKit
 
-// MARK: - Input & Output protocols
+// MARK: - Input protocols for current Presenter component VIP-cicle
 protocol SignUpShowPresenterInput {
-    func presentSomething(response: SignUpShow.Something.Response)
+    func didPrepareShowPasswordTextFieldResult(fromResponseModel responseModel: SignUpShowModels.PasswordTextField.ResponseModel)
+    func didPrepareShowRegisterUserResult(fromResponseModel responseModel: SignUpShowModels.User.ResponseModel)
 }
 
+// MARK: - Output protocols for ViewController component VIP-cicle
 protocol SignUpShowPresenterOutput: class {
-    func displaySomething(viewModel: SignUpShow.Something.ViewModel)
+    func didShowPasswordTextFieldCheckResult(fromViewModel viewModel: SignUpShowModels.PasswordTextField.ViewModel)
+    func didShowShowRegisterUserResult(fromViewModel viewModel: SignUpShowModels.User.ViewModel)
 }
 
 class SignUpShowPresenter: SignUpShowPresenterInput {
     // MARK: - Properties
-    weak var output: SignUpShowPresenterOutput!
+    weak var viewController: SignUpShowPresenterOutput!
     
     
     // MARK: - Custom Functions. Presentation logic
-    func presentSomething(response: SignUpShow.Something.Response) {
-        // NOTE: Format the response from the Interactor and pass the result back to the View Controller
-        let viewModel = SignUpShow.Something.ViewModel()
-        output.displaySomething(viewModel: viewModel)
+    func didPrepareShowPasswordTextFieldResult(fromResponseModel responseModel: SignUpShowModels.PasswordTextField.ResponseModel) {
+        let viewModel = SignUpShowModels.PasswordTextField.ViewModel(strengthLevel: responseModel.strengthLevel, isValid: responseModel.isValid)
+        
+        viewController.didShowPasswordTextFieldCheckResult(fromViewModel: viewModel)
+    }
+    
+    func didPrepareShowRegisterUserResult(fromResponseModel responseModel: SignUpShowModels.User.ResponseModel) {
+        let viewModel = SignUpShowModels.User.ViewModel(result: responseModel.result)
+        
+        viewController.didShowShowRegisterUserResult(fromViewModel: viewModel)
+        
     }
 }

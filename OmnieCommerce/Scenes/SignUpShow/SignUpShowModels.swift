@@ -12,15 +12,38 @@
 import UIKit
 
 // MARK: - Data models
-struct SignUpShow {
-    struct Something {
-        struct Request {
+struct SignUpShowModels {
+    // Password
+    struct PasswordTextField {
+        struct RequestModel {
+            let password: String
         }
         
-        struct Response {
+        struct ResponseModel {
+            let strengthLevel: PasswordStrengthLevel
+            let isValid: Bool
         }
         
         struct ViewModel {
+            let strengthLevel: PasswordStrengthLevel
+            let isValid: Bool
+        }
+    }
+    
+    // User
+    struct User {
+        struct RequestModel {
+            let name: String
+            let email: String
+            let password: String
+        }
+        
+        struct ResponseModel {
+            let result: ResponseAPI
+        }
+        
+        struct ViewModel {
+            let result: ResponseAPI
         }
     }
 }

@@ -47,9 +47,9 @@ class SignInShowRouter: SignInShowRouterInput {
             self.viewController.signUpShowVC = UIStoryboard(name: "SignInShow", bundle: nil).instantiateViewController(withIdentifier: "SignUpShowVC") as? SignUpShowViewController
             
             // SignUpShowVC: Cancel button handler
-//            self.viewController.signUpShowVC?.handlerCancelButtonCompletion = { _ in
-//                self.viewController.activeViewController = self.viewController.signInContainerShowVC
-//            }
+            self.viewController.signUpShowVC?.handlerCancelButtonCompletion = { _ in
+                self.viewController.activeViewController = self.viewController.signInContainerShowVC
+            }
             
             self.viewController.activeViewController = self.viewController.signUpShowVC
         }

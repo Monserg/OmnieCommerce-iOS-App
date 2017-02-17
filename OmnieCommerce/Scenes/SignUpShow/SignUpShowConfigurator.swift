@@ -39,12 +39,12 @@ class SignUpShowConfigurator {
         router.viewController = viewController
         
         let presenter = SignUpShowPresenter()
-        presenter.output = viewController
+        presenter.viewController = viewController
         
         let interactor = SignUpShowInteractor()
-        interactor.output = presenter
+        interactor.presenter = presenter
         
-        viewController.output = interactor
+        viewController.interactor = interactor
         viewController.router = router
     }
 }

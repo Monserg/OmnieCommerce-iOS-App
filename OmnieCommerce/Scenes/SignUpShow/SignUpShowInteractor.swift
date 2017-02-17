@@ -11,29 +11,40 @@
 
 import UIKit
 
-// MARK: - Input & Output protocols
+// MARK: - Input protocols for current Interactor component VIP-cicle
 protocol SignUpShowInteractorInput {
-    func doSomething(request: SignUpShow.Something.Request)
+    func didValidatePasswordTextFieldStrength(fromRequestModel requestModel: SignUpShowModels.PasswordTextField.RequestModel)
+    func didRegisterUser(fromRequestModel requestModel: SignUpShowModels.User.RequestModel)
 }
 
+// MARK: - Output protocols for Presenter component VIP-cicle
 protocol SignUpShowInteractorOutput {
-    func presentSomething(response: SignUpShow.Something.Response)
+    func didPrepareShowPasswordTextFieldResult(fromResponseModel responseModel: SignUpShowModels.PasswordTextField.ResponseModel)
+    func didPrepareShowRegisterUserResult(fromResponseModel responseModel: SignUpShowModels.User.ResponseModel)
 }
 
 class SignUpShowInteractor: SignUpShowInteractorInput {
     // MARK: - Properties
-    var output: SignUpShowInteractorOutput!
+    var presenter: SignUpShowInteractorOutput!
     var worker: SignUpShowWorker!
     
     
     // MARK: - Custom Functions. Business logic
-    func doSomething(request: SignUpShow.Something.Request) {
-        // NOTE: Create some Worker to do the work
+    func didValidatePasswordTextFieldStrength(fromRequestModel: SignUpShowModels.PasswordTextField.RequestModel) {
+        // Check password strength & validation
         worker = SignUpShowWorker()
-        worker.doSomeWork()
+        //        let passwordStrengthResult = worker.checkPasswordStrength(requestModel.password)
+        //        let responseModel = SignUpShowModels.PasswordTextField.Response(strengthLevel: passwordStrengthResult.strengthLevel!, isValid: passwordStrengthResult.isValid!)
+        //
+        //        presenter.preparePasswordTextFieldResultForShowFrom(responseModel: responseModel)
+    }
+    
+    func didRegisterUser(fromRequestModel requestModel: SignUpShowModels.User.RequestModel) {
+        worker = SignUpShowWorker()
+        let result = worker.didApplyREST()
         
         // NOTE: Pass the result to the Presenter
-        let response = SignUpShow.Something.Response()
-        output.presentSomething(response: response)
+        let responseModel = SignUpShowModels.User.ResponseModel(result: result)
+        presenter.didPrepareShowRegisterUserResult(fromResponseModel: responseModel)
     }
 }

@@ -12,8 +12,9 @@
 import UIKit
 
 class SignUpShowWorker {
-    // MARK: - Custom Functions. Business Logic
-    func doSomeWork() {
+    func didApplyREST() -> ResponseAPI {
         // NOTE: Do the work
+        
+        return (true, nil)
     }
 }

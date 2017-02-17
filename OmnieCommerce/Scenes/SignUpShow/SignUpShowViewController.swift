@@ -11,30 +11,42 @@
 
 import UIKit
 
-// MARK: - Input & Output protocols
+// MARK: - Input protocols for current ViewController component VIP-cicle
 protocol SignUpShowViewControllerInput {
-    func displaySomething(viewModel: SignUpShow.Something.ViewModel)
+    func didShowPasswordTextFieldCheckResult(fromViewModel viewModel: SignUpShowModels.PasswordTextField.ViewModel)
+    func didShowShowRegisterUserResult(fromViewModel viewModel: SignUpShowModels.User.ViewModel)
 }
 
+// MARK: - Output protocols for Interactor component VIP-cicle
 protocol SignUpShowViewControllerOutput {
-    func doSomething(request: SignUpShow.Something.Request)
+    func didValidatePasswordTextFieldStrength(fromRequestModel requestModel: SignUpShowModels.PasswordTextField.RequestModel)
+    func didRegisterUser(fromRequestModel requestModel: SignUpShowModels.User.RequestModel)
 }
 
-class SignUpShowViewController: BaseViewController, SignUpShowViewControllerInput {
+class SignUpShowViewController: BaseViewController {
     // MARK: - Properties
-    var output: SignUpShowViewControllerOutput!
+    var interactor: SignUpShowViewControllerOutput!
     var router: SignUpShowRouter!
     
-    @IBOutlet var bigTopBarView: BigTopBarView!
-    @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var nameTextField: CustomTextField!
-    @IBOutlet weak var emailTextField: CustomTextField!
-    @IBOutlet weak var passwordTextField: CustomTextField!
-    @IBOutlet weak var emailErrorLabel: CustomLabel!
+    var handlerRegisterButtonCompletion: HandlerRegisterButtonCompletion?
+    var handlerCancelButtonCompletion: HandlerCancelButtonCompletion?
+    var passwordStrengthLevel: PasswordStrengthLevel = .None
 
-    @IBOutlet weak var vkontakteButton: CustomButton!
-    @IBOutlet weak var googleButton: CustomButton!
-    @IBOutlet weak var facebookButton: CustomButton!
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var passwordStrengthView: PasswordStrengthLevelView!
+    @IBOutlet weak var emailErrorMessageView: ErrorMessageView!
+
+    @IBOutlet var textFieldsCollection: [CustomTextField]! {
+        willSet {
+            // Delegates
+            for textField in newValue {
+                textField.delegate = TextFieldManager()
+            }
+        }
+    }
+
+    @IBOutlet weak var emailErrorMessageViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var emailErrorMessageViewTopConstraint: NSLayoutConstraint!
 
     
     // MARK: - Class Initialization
@@ -49,86 +61,69 @@ class SignUpShowViewController: BaseViewController, SignUpShowViewControllerInpu
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Delegates
-        scrollView.delegate = self
-        nameTextField.delegate = self
-        emailTextField.delegate = self
-        passwordTextField.delegate = self
-        
         // Config controls
-        topBarViewStyle = .Big
         scrollViewBase = scrollView
-        emailErrorLabel.isHidden = true
         
-        // Set buttons type
-        vkontakteButton.designStyle = "Social"
-        googleButton.designStyle = "Social"
-        facebookButton.designStyle = "Social"
-        
-        setup(topBarView: bigTopBarView)
+        doInitialSetupOnLoad()
     }
     
     
     // MARK: - Custom Functions
-    func doSomethingOnLoad() {
-        print(object: "\(type(of: self)): \(#function) run.")
+    func doInitialSetupOnLoad() {
+        // Apply keyboard handler
+        scrollViewBase = scrollView
         
-        // NOTE: Ask the Interactor to do some work
-        let request = SignUpShow.Something.Request()
-        output.doSomething(request: request)
+        // Hide email error message view
+        emailErrorMessageViewHeightConstraint.constant = Config.Constants.errorMessageViewHeight
+        emailErrorMessageViewTopConstraint.constant = -Config.Constants.errorMessageViewHeight
+        emailErrorMessageView.isHidden = true
     }
-    
-    // Display logic
-    func displaySomething(viewModel: SignUpShow.Something.ViewModel) {
-        print(object: "\(type(of: self)): \(#function) run.")
         
-        // NOTE: Display the result from the Presenter
-        // nameTextField.text = viewModel.name
-    }
-    
-    func setupScene(withSize size: CGSize) {
-        print(object: "\(type(of: self)): \(#function) run. Screen view size = \(size)")
-        
-        bigTopBarView.setNeedsDisplay()
-        bigTopBarView.circleView.setNeedsDisplay()
-        vkontakteButton.setNeedsDisplay()
-        googleButton.setNeedsDisplay()
-        facebookButton.setNeedsDisplay()
-    }
-    
     
     // MARK: - Actions
-    @IBAction func handlerSignUpButtonTap(_ sender: CustomButton) {
-        print(object: "\(type(of: self)): \(#function) run.")
+    @IBAction func handlerRegisterButtonTap(_ sender: CustomButton) {
+        let name = textFieldsCollection.first?.text
+        let email = textFieldsCollection[1].text
+        let password = textFieldsCollection.last?.text
         
+        guard !((name?.isEmpty)!), !((password?.isEmpty)!), !((email?.isEmpty)!) else {
+            // TODO: - ADD ALERT
+            showAlertView(withTitle: "Info".localized(), andMessage: "All fields can be...".localized())
+            
+            return
+        }
+        
+        if (textFieldsCollection[1].checkEmailValidation(email!)) {
+            let requestModel = SignUpShowModels.User.RequestModel(name: name!, email: email!, password: password!)
+            interactor.didRegisterUser(fromRequestModel: requestModel)
+        } else {
+            emailErrorMessageView.didShow(true, withConstraint: emailErrorMessageViewTopConstraint)
+        }
     }
     
     @IBAction func handlerCancelButtonTap(_ sender: CustomButton) {
-        print(object: "\(type(of: self)): \(#function) run.")
-        
-        _ = navigationController?.popToRootViewController(animated: true)
+        handlerCancelButtonCompletion!()
+    }
+}
+
+
+// MARK: - SignUpShowViewControllerInput
+extension SignUpShowViewController: SignUpShowViewControllerInput {
+    func didShowPasswordTextFieldCheckResult(fromViewModel: SignUpShowModels.PasswordTextField.ViewModel) {
+        //        passwordCheckResult?.strengthLevel = viewModel.strengthLevel
+        //        passwordCheckResult?.isValid = viewModel.isValid
+        //        passwordStrengthView.passwordStrengthLevel = viewModel.strengthLevel
     }
     
-    @IBAction func handlerVkontakteButtonTap(_ sender: CustomButton) {
-        print(object: "\(type(of: self)): \(#function) run.")
+    func didShowShowRegisterUserResult(fromViewModel viewModel: SignUpShowModels.User.ViewModel) {
+        guard viewModel.result.error == nil else {
+            self.showAlertView(withTitle: "Error".localized(), andMessage: (viewModel.result.error?.description)!)
+            
+            return
+        }
         
-    }
-    
-    @IBAction func handlerGoogleButtonTap(_ sender: CustomButton) {
-        print(object: "\(type(of: self)): \(#function) run.")
+        Config.Constants.isUserGuest = false
         
-    }
-    
-    @IBAction func handlerFacebookButtonTap(_ sender: CustomButton) {
-        print(object: "\(type(of: self)): \(#function) run.")
-        
-    }
-    
-    
-    // MARK: - Transition
-    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        print(object: "\(type(of: self)): \(#function) run. New size = \(size)")
-        
-        setupScene(withSize: size)
+        handlerRegisterButtonCompletion!()
     }
 }
