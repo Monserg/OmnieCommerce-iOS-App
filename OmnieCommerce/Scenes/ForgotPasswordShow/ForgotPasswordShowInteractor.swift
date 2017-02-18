@@ -13,12 +13,12 @@ import UIKit
 
 // MARK: - Input protocols for current Interactor component VIP-cicle
 protocol ForgotPasswordShowInteractorInput {
-    func doSomething(request: ForgotPasswordShow.Something.Request)
+    func didLoadCode(fromRequestModel requestModel: ForgotPasswordShowModels.Code.RequestModel)
 }
 
 // MARK: - Output protocols for Presenter component VIP-cicle
 protocol ForgotPasswordShowInteractorOutput {
-    func presentSomething(response: ForgotPasswordShow.Something.Response)
+    func didPreparePassCode(fromResponseModel responseModel: ForgotPasswordShowModels.Code.ResponseModel)
 }
 
 class ForgotPasswordShowInteractor: ForgotPasswordShowInteractorInput {
@@ -28,13 +28,11 @@ class ForgotPasswordShowInteractor: ForgotPasswordShowInteractorInput {
     
     
     // MARK: - Custom Functions. Business logic
-    func doSomething(request: ForgotPasswordShow.Something.Request) {
-        // NOTE: Create some Worker to do the work
+    func didLoadCode(fromRequestModel requestModel: ForgotPasswordShowModels.Code.RequestModel) {
         worker = ForgotPasswordShowWorker()
-        worker.doSomeWork()
+        let code = worker.didReceiveCode(withRequestModel: requestModel)
         
-        // NOTE: Pass the result to the Presenter
-        let response = ForgotPasswordShow.Something.Response()
-        presenter.presentSomething(response: response)
+        let responseModel = ForgotPasswordShowModels.Code.ResponseModel(code: code)
+        presenter.didPreparePassCode(fromResponseModel: responseModel)
     }
 }

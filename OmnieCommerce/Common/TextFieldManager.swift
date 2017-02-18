@@ -49,7 +49,7 @@ class TextFieldManager: NSObject {
         
         for textField in textFieldsArray {
             switch textField.style! {
-            case .Email:
+            case .Email, .PhoneEmail:
                 let result = textField.checkEmailValidation(textField.text!)
                 
                 (result) ? (currentVC as! EmailErrorMessageView).didHide((currentVC as! EmailErrorMessageView).emailErrorMessageView, withConstraint: (currentVC as! EmailErrorMessageView).emailErrorMessageViewTopConstraint) : (currentVC as! EmailErrorMessageView).didShow((currentVC as! EmailErrorMessageView).emailErrorMessageView, withConstraint: (currentVC as! EmailErrorMessageView).emailErrorMessageViewTopConstraint)
@@ -62,7 +62,7 @@ class TextFieldManager: NSObject {
                 (result) ? (currentVC as! PasswordErrorMessageView).didHide((currentVC as! PasswordErrorMessageView).passwordErrorMessageView, withConstraint: (currentVC as! PasswordErrorMessageView).passwordErrorMessageViewTopConstraint) : (currentVC as! PasswordErrorMessageView).didShow((currentVC as! PasswordErrorMessageView).passwordErrorMessageView, withConstraint: (currentVC as! PasswordErrorMessageView).passwordErrorMessageViewTopConstraint)
                 
                 results.append(result)
-                
+                                
             default:
                 break
             }

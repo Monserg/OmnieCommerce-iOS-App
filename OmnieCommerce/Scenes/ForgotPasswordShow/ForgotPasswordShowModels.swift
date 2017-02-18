@@ -12,15 +12,18 @@
 import UIKit
 
 // MARK: - Data models
-struct ForgotPasswordShow {
-    struct Something {
-        struct Request {
+struct ForgotPasswordShowModels {
+    struct Code {
+        struct RequestModel {
+            let data: (phone: String?, email: String?)
         }
         
-        struct Response {
+        struct ResponseModel {
+            let code: String
         }
         
         struct ViewModel {
+            let code: String
         }
     }
 }

@@ -980,6 +980,7 @@
 			isa = PBXGroup;
 			children = (
 				B11B9AD91DF02F5C009A4AA1 /* Date+Ext.swift */,
+				B14CD9191E57C058005F8BF6 /* Protocols.swift */,
 				B122DF6C1DF80FC1003823AD /* String+Ext.swift */,
 				B1739D151DE314C70029BCCA /* UIButton+Ext.swift */,
 				B1739D191DE314DF0029BCCA /* UIColor+Ext.swift */,
@@ -987,7 +988,6 @@
 				B1739D171DE314D50029BCCA /* UILabel+Ext.swift */,
 				B1DB3C751DE4205500C0A079 /* UITextField+Ext.swift */,
 				B1739D1B1DE314E80029BCCA /* UIView+Ext.swift */,
-				B14CD9191E57C058005F8BF6 /* Protocols.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";

@@ -13,15 +13,15 @@ import UIKit
 
 // MARK: - Input protocols for current ViewController component VIP-cicle
 protocol ForgotPasswordShowViewControllerInput {
-    func displaySomething(viewModel: ForgotPasswordShow.Something.ViewModel)
+    func didPassCode(fromViewModel viewModel: ForgotPasswordShowModels.Code.ViewModel)
 }
 
 // MARK: - Output protocols for Interactor component VIP-cicle
 protocol ForgotPasswordShowViewControllerOutput {
-    func doSomething(request: ForgotPasswordShow.Something.Request)
+    func didLoadCode(fromRequestModel requestModel: ForgotPasswordShowModels.Code.RequestModel)
 }
 
-class ForgotPasswordShowViewController: BaseViewController {
+class ForgotPasswordShowViewController: BaseViewController, EmailErrorMessageView {
     // MARK: - Properties
     var interactor: ForgotPasswordShowViewControllerOutput!
     var router: ForgotPasswordShowRouter!
@@ -29,17 +29,30 @@ class ForgotPasswordShowViewController: BaseViewController {
     var handlerSendButtonCompletion: HandlerSendButtonCompletion?
     var handlerCancelButtonCompletion: HandlerCancelButtonCompletion?
 
-    @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet var textFieldsCollection: [CustomTextField]!
-    @IBOutlet weak var phoneEmailErrorMessageView: UIView!
-    
-    @IBOutlet weak var phoneEmailErrorMessageHeightConstraint: NSLayoutConstraint!
-    @IBOutlet weak var phoneEmailErrorMessageViewTopConstraint: NSLayoutConstraint!
+    var textFieldManager: TextFieldManager! {
+        didSet {
+            // Delegates
+            for textField in textFieldsCollection {
+                textField.delegate = textFieldManager
+            }
+        }
+    }
 
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var emailErrorMessageView: UIView!
+
+    @IBOutlet var textFieldsCollection: [CustomTextField]!
+
+    @IBOutlet weak var emailErrorMessageViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var emailErrorMessageViewTopConstraint: NSLayoutConstraint!
+
+    
     // MARK: - Class Initialization
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        self.view.layoutIfNeeded()
+
         ForgotPasswordShowConfigurator.sharedInstance.configure(viewController: self)
     }
     
@@ -54,21 +67,29 @@ class ForgotPasswordShowViewController: BaseViewController {
     
     // MARK: - Custom Functions
     func doInitialSetupOnLoad() {
-        // UITextFields
-        textFieldsArray = textFieldsCollection
-        
         // Apply keyboard handler
         scrollViewBase = scrollView
         
+        // Create TextFieldManager
+        textFieldManager = TextFieldManager(withTextFields: textFieldsCollection)
+        textFieldManager.currentVC = self
+        
         // Hide email error message view
-        phoneEmailErrorMessageHeightConstraint.constant = Config.Constants.errorMessageViewHeight
-        phoneEmailErrorMessageViewTopConstraint.constant = -Config.Constants.errorMessageViewHeight
-        phoneEmailErrorMessageView.isHidden = true
+        emailErrorMessageViewHeightConstraint.constant = Config.Constants.errorMessageViewHeight
+        didHide(emailErrorMessageView, withConstraint: emailErrorMessageViewTopConstraint)
     }
     
     
     // MARK: - Actions
     @IBAction func handlerSendButtonTap(_ sender: CustomButton) {
+        if (textFieldManager.checkTextFieldCollection()) {
+            let data: (phone: String?, email: String?) = (textFieldsCollection.first!.isPhone!) ? (phone: textFieldsCollection.first!.text!, email: nil) : (phone: nil, email: textFieldsCollection.first!.text!)
+            
+            let requestModel = ForgotPasswordShowModels.Code.RequestModel(data: data)
+            interactor.didLoadCode(fromRequestModel: requestModel)
+        }
+
+        
         let textField = textFieldsCollection.last!
         
         if (textField.checkPhoneEmailValidation(textField.text!)) {
@@ -88,46 +109,8 @@ class ForgotPasswordShowViewController: BaseViewController {
 
 // MARK: - ForgotPasswordShowViewControllerInput
 extension ForgotPasswordShowViewController: ForgotPasswordShowViewControllerInput {
-    func displaySomething(viewModel: ForgotPasswordShow.Something.ViewModel) {
-        // NOTE: Display the result from the Presenter
-        // nameTextField.text = viewModel.name
-    }
-}
-
-
-// MARK: - UITextFieldDelegate
-extension ForgotPasswordShowViewController {
-    override func textFieldDidEndEditing(_ textField: UITextField) {
-        if (!(textField as! CustomTextField).checkPhoneEmailValidation(textField.text!)) {
-//            phoneEmailErrorMessageView.didShow(true, withConstraint: phoneEmailErrorMessageViewTopConstraint)
-        } else {
-//            phoneEmailErrorMessageView.didShow(false, withConstraint: phoneEmailErrorMessageViewTopConstraint)
-        }
-    }
-    
-    override func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-//        phoneEmailErrorMessageView.didShow(false, withConstraint: phoneEmailErrorMessageViewTopConstraint)
-        
-        return true
-    }
-    
-    override func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if (!(textField as! CustomTextField).checkPhoneEmailValidation(textField.text!)) {
-//            phoneEmailErrorMessageView.didShow(true, withConstraint: phoneEmailErrorMessageViewTopConstraint)
-            
-            return false
-        } else {
-//            phoneEmailErrorMessageView.didShow(false, withConstraint: phoneEmailErrorMessageViewTopConstraint)
-            
-            textField.resignFirstResponder()
-        }
-        
-        return true
-    }
-    
-    func textFieldShouldClear(_ textField: UITextField) -> Bool {
-//        phoneEmailErrorMessageView.didShow(false, withConstraint: phoneEmailErrorMessageViewTopConstraint)
-        
-        return true
+    func didPassCode(fromViewModel viewModel: ForgotPasswordShowModels.Code.ViewModel) {
+        // TODO: PASS CODE TO ENTER CODE SCENE
+        print(object: viewModel.code)
     }
 }

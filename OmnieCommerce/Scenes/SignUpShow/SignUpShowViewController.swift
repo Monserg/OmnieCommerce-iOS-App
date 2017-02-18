@@ -68,9 +68,6 @@ class SignUpShowViewController: BaseViewController, EmailErrorMessageView, Passw
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Config controls
-        scrollViewBase = scrollView
-        
         doInitialSetupOnLoad()
     }
     

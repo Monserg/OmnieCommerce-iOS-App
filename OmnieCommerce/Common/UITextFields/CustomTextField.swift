@@ -25,6 +25,7 @@ enum FieldType: String {
     var style: FieldType!
     var attributedPlaceholderString: NSAttributedString!
     private var validator = NJOPasswordValidator.standardValidator
+    var isPhone: Bool?
         
     @IBInspectable var fieldType: String? {
         set { setupWithTypeNamed(newValue) }
@@ -169,6 +170,8 @@ enum FieldType: String {
         let filtered = inputString.joined(separator: "")
         let resultPhone = phone == filtered
         
+        isPhone = resultPhone
+        
         print(object: "resultPhone = \(resultPhone)")
         
         return resultPhone
@@ -183,6 +186,10 @@ enum FieldType: String {
         let emailRegEx = "^(?:(?:(?:(?: )*(?:(?:(?:\\t| )*\\r\\n)?(?:\\t| )+))+(?: )*)|(?: )+)?(?:(?:(?:[-A-Za-z0-9!#$%&’*+/=?^_'{|}~]+(?:\\.[-A-Za-z0-9!#$%&’*+/=?^_'{|}~]+)*)|(?:\"(?:(?:(?:(?: )*(?:(?:[!#-Z^-~]|\\[|\\])|(?:\\\\(?:\\t|[ -~]))))+(?: )*)|(?: )+)\"))(?:@)(?:(?:(?:[A-Za-z0-9](?:[-A-Za-z0-9]{0,61}[A-Za-z0-9])?)(?:\\.[A-Za-z0-9](?:[-A-Za-z0-9]{0,61}[A-Za-z0-9])?)*)|(?:\\[(?:(?:(?:(?:(?:[0-9]|(?:[1-9][0-9])|(?:1[0-9][0-9])|(?:2[0-4][0-9])|(?:25[0-5]))\\.){3}(?:[0-9]|(?:[1-9][0-9])|(?:1[0-9][0-9])|(?:2[0-4][0-9])|(?:25[0-5]))))|(?:(?:(?: )*[!-Z^-~])*(?: )*)|(?:[Vv][0-9A-Fa-f]+\\.[-A-Za-z0-9._~!$&'()*+,;=:]+))\\])))(?:(?:(?:(?: )*(?:(?:(?:\\t| )*\\r\\n)?(?:\\t| )+))+(?: )*)|(?: )+)?$"
         let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
         let resultEmail = emailTest.evaluate(with: email)
+        
+        if (resultEmail) {
+            isPhone = false
+        }
         
         print(object: "resultEmail = \(resultEmail)")
         

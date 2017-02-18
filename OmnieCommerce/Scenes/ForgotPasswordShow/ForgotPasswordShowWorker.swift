@@ -13,7 +13,7 @@ import UIKit
 
 class ForgotPasswordShowWorker {
     // MARK: - Custom Functions. Business Logic
-    func doSomeWork() {
-        // NOTE: Do the work
+    func didReceiveCode(withRequestModel requestModel: ForgotPasswordShowModels.Code.RequestModel) -> String {
+        return "3456"
     }
 }

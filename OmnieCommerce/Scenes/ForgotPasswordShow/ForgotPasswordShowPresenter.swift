@@ -13,12 +13,12 @@ import UIKit
 
 // MARK: - Input protocols for current Presenter component VIP-cicle
 protocol ForgotPasswordShowPresenterInput {
-    func presentSomething(response: ForgotPasswordShow.Something.Response)
+    func didPreparePassCode(fromResponseModel responseModel: ForgotPasswordShowModels.Code.ResponseModel)
 }
 
 // MARK: - Output protocols for ViewController component VIP-cicle
 protocol ForgotPasswordShowPresenterOutput: class {
-    func displaySomething(viewModel: ForgotPasswordShow.Something.ViewModel)
+    func didPassCode(fromViewModel viewModel: ForgotPasswordShowModels.Code.ViewModel)
 }
 
 class ForgotPasswordShowPresenter: ForgotPasswordShowPresenterInput {
@@ -27,9 +27,9 @@ class ForgotPasswordShowPresenter: ForgotPasswordShowPresenterInput {
     
     
     // MARK: - Custom Functions. Presentation logic
-    func presentSomething(response: ForgotPasswordShow.Something.Response) {
+    func didPreparePassCode(fromResponseModel responseModel: ForgotPasswordShowModels.Code.ResponseModel) {
         // NOTE: Format the response from the Interactor and pass the result back to the View Controller
-        let viewModel = ForgotPasswordShow.Something.ViewModel()
-        viewController.displaySomething(viewModel: viewModel)
+        let viewModel = ForgotPasswordShowModels.Code.ViewModel(code: responseModel.code)
+        viewController.didPassCode(fromViewModel: viewModel)
     }
 }
