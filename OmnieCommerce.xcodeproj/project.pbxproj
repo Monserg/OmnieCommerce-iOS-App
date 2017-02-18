@@ -132,7 +132,6 @@
 		B1739D181DE314D50029BCCA /* UILabel+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1739D171DE314D50029BCCA /* UILabel+Ext.swift */; };
 		B1739D1A1DE314DF0029BCCA /* UIColor+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1739D191DE314DF0029BCCA /* UIColor+Ext.swift */; };
 		B1739D1C1DE314E80029BCCA /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1739D1B1DE314E80029BCCA /* UIView+Ext.swift */; };
-		B1739D441DE363FD0029BCCA /* ForgotPasswordShow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1739D431DE363FD0029BCCA /* ForgotPasswordShow.storyboard */; };
 		B177E5341E5475EC004F1390 /* SignInContainerShowConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B177E52D1E5475EC004F1390 /* SignInContainerShowConfigurator.swift */; };
 		B177E5351E5475EC004F1390 /* SignInContainerShowInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B177E52E1E5475EC004F1390 /* SignInContainerShowInteractor.swift */; };
 		B177E5361E5475EC004F1390 /* SignInContainerShowModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B177E52F1E5475EC004F1390 /* SignInContainerShowModels.swift */; };
@@ -398,7 +397,6 @@
 		B1739D171DE314D50029BCCA /* UILabel+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+Ext.swift"; sourceTree = "<group>"; };
 		B1739D191DE314DF0029BCCA /* UIColor+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Ext.swift"; sourceTree = "<group>"; };
 		B1739D1B1DE314E80029BCCA /* UIView+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
-		B1739D431DE363FD0029BCCA /* ForgotPasswordShow.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ForgotPasswordShow.storyboard; sourceTree = "<group>"; };
 		B177E52B1E546DD9004F1390 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B177E52D1E5475EC004F1390 /* SignInContainerShowConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInContainerShowConfigurator.swift; sourceTree = "<group>"; };
 		B177E52E1E5475EC004F1390 /* SignInContainerShowInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInContainerShowInteractor.swift; sourceTree = "<group>"; };
@@ -670,7 +668,6 @@
 				B1CF54ED1DDB588600E98049 /* DiscountCardsShow.storyboard */,
 				B1C13D8C1DEF3385002B494A /* DropDown.storyboard */,
 				B122F22D1DD35ECC0018A701 /* FavoriteShow.storyboard */,
-				B1739D431DE363FD0029BCCA /* ForgotPasswordShow.storyboard */,
 				B1CF54E71DDB55E300E98049 /* HandbookShow.storyboard */,
 				B1E52AD21DDDDEC600C3B24D /* Main.storyboard */,
 				B122F22B1DD35E550018A701 /* MessagesShow.storyboard */,
@@ -1340,7 +1337,6 @@
 				B122F2301DD35EE10018A701 /* CategoriesShow.storyboard in Resources */,
 				B122F22A1DD35D6F0018A701 /* OrdersShow.storyboard in Resources */,
 				B122F22C1DD35E550018A701 /* MessagesShow.storyboard in Resources */,
-				B1739D441DE363FD0029BCCA /* ForgotPasswordShow.storyboard in Resources */,
 				B1CF54E61DDB552300E98049 /* PersonalPageShow.storyboard in Resources */,
 				B122F2481DD393330018A701 /* Localizable.strings in Resources */,
 				B122DF5A1DF7F901003823AD /* CalendarShow.storyboard in Resources */,

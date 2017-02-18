@@ -11,13 +11,4 @@
 
 import UIKit
 
-class EnterCodeShowWorker {
-    // MARK: - Custom Functions. Business Logic
-    func checkCodes(_ enterCode: String, andInputCode inputCode: String) -> Bool {
-        return enterCode == inputCode
-    }
-    
-    func getEnterCode() -> String {
-        return "3456"
-    }
-}
+class EnterCodeShowWorker {}

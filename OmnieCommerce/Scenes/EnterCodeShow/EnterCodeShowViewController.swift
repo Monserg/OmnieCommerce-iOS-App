@@ -12,16 +12,12 @@
 import UIKit
 
 // MARK: - Input protocols for current ViewController component VIP-cicle
-protocol EnterCodeShowViewControllerInput {
-    func returnValidationResult(viewModel: EnterCodeShowModels.Code.ViewModel)
-}
+protocol EnterCodeShowViewControllerInput {}
 
 // MARK: - Output protocols for Interactor component VIP-cicle
-protocol EnterCodeShowViewControllerOutput {
-    func validateInputCodeFrom(requestModel: EnterCodeShowModels.Code.RequestModel)
-}
+protocol EnterCodeShowViewControllerOutput {}
 
-class EnterCodeShowViewController: BaseViewController {
+class EnterCodeShowViewController: BaseViewController, CodeErrorMessageView {
     // MARK: - Properties
     var interactor: EnterCodeShowViewControllerOutput!
     var router: EnterCodeShowRouter!
@@ -32,10 +28,20 @@ class EnterCodeShowViewController: BaseViewController {
     var handlerSendButtonCompletion: HandlerSendButtonCompletion?
     var handlerCancelButtonCompletion: HandlerCancelButtonCompletion?
     
+    var textFieldManager: TextFieldManager! {
+        didSet {
+            // Delegates
+            for textField in textFieldsCollection {
+                textField.delegate = textFieldManager
+            }
+        }
+    }
+    
+
     @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet var textFieldsCollection: [CustomTextField]!
     @IBOutlet weak var codeErrorMessageView: UIView!
-    @IBOutlet weak var sendButton: CustomButton!
+    
+    @IBOutlet var textFieldsCollection: [CustomTextField]!
     
     @IBOutlet weak var codeErrorMessageViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var codeErrorMessageViewTopConstraint: NSLayoutConstraint!
@@ -45,6 +51,8 @@ class EnterCodeShowViewController: BaseViewController {
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        self.view.layoutIfNeeded()
+
         EnterCodeShowConfigurator.sharedInstance.configure(viewController: self)
     }
     
@@ -59,16 +67,16 @@ class EnterCodeShowViewController: BaseViewController {
 
     // MARK: - Custom Functions
     func doInitialSetupOnLoad() {
-        // UITextFields
-        textFieldsArray = textFieldsCollection
-        
         // Apply keyboard handler
         scrollViewBase = scrollView
         
+        // Create TextFieldManager
+        textFieldManager = TextFieldManager(withTextFields: textFieldsCollection)
+        textFieldManager.currentVC = self
+        
         // Hide email error message view
         codeErrorMessageViewHeightConstraint.constant = Config.Constants.errorMessageViewHeight
-        codeErrorMessageViewTopConstraint.constant = -Config.Constants.errorMessageViewHeight
-        codeErrorMessageView.isHidden = true
+        didHide(codeErrorMessageView, withConstraint: codeErrorMessageViewTopConstraint)
     }
     
     
@@ -78,76 +86,20 @@ class EnterCodeShowViewController: BaseViewController {
             return
         }
         
-        let requestModel = EnterCodeShowModels.Code.RequestModel(inputCode: text)
-        interactor.validateInputCodeFrom(requestModel: requestModel)
+        if (text == enteredCode) {
+            handlerSendButtonCompletion!()
+        } else {
+            didShow(codeErrorMessageView, withConstraint: codeErrorMessageViewTopConstraint)
+        }
     }
     
     @IBAction func handlerCancelButtonTap(_ sender: CustomButton) {
         handlerCancelButtonCompletion!()
     }
     
-    @IBAction func handlerSendAgainButtonTap(_ sender: CustomButton) {
-//        let requestModel = EnterCodeShowModels.Renew.RequestModel(email: <#T##String#>)
-//        interactor.validateInputCodeFrom(requestModel: requestModel)
-        
-    }
-    
-    
-    // MARK: - Gesture
-    @IBAction func handlerTapGestureRecognizer(_ sender: UITapGestureRecognizer) {
-        view.endEditing(true)
-    }
+    @IBAction func handlerSendAgainButtonTap(_ sender: CustomButton) {}
 }
 
 
 // MARK: - ForgotPasswordShowViewControllerInput
-extension EnterCodeShowViewController: EnterCodeShowViewControllerInput {
-    func returnValidationResult(viewModel: EnterCodeShowModels.Code.ViewModel) {
-        // Handler returned result from Presenter
-        isInputCodeValid = viewModel.isValueValid
-        
-        if (isInputCodeValid) {
-            handlerSendButtonCompletion!()
-        } else {
-//            codeErrorMessageView.didShow(true, withConstraint: codeErrorMessageViewTopConstraint)
-        }
-    }
-}
-
-
-// MARK: - UITextFieldDelegate
-extension EnterCodeShowViewController {
-    override func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-//        codeErrorMessageView.didShow(false, withConstraint: codeErrorMessageViewTopConstraint)
-        
-        if (string.isEmpty) {
-            return true
-        }
-        
-        guard Int(string) != nil || ((textField.text?.isEmpty)! && string == "+") else {
-            return false
-        }
-        
-        if ((textField.text! + string).characters.count <= 4) {
-            return true
-        } else {
-            return false
-        }
-    }
-    
-    override func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        handlerSendButtonTap(sendButton)
-        
-        if (isInputCodeValid) {
-            textField.resignFirstResponder()
-        }
-        
-        return isInputCodeValid
-    }
-    
-    func textFieldShouldClear(_ textField: UITextField) -> Bool {
-//        codeErrorMessageView.didShow(false, withConstraint: codeErrorMessageViewTopConstraint)
-        
-        return true
-    }
-}
+extension EnterCodeShowViewController: EnterCodeShowViewControllerInput {}

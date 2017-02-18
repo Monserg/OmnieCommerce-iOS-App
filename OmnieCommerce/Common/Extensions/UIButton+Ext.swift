@@ -19,7 +19,6 @@ enum ButtonStyle: String {
     case Circular = "Circular"
     case ActionViewOrangeButton                         =   "ActionViewOrangeButton"
     case TitleUbuntuLight12UndirlineVeryLightGray       =   "TitleUbuntuLight12UndirlineVeryLightGray"
-
 }
 
 

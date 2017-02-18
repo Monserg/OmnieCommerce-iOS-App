@@ -33,6 +33,13 @@ protocol PasswordStrengthView {
     var passwordStrengthView: PasswordStrengthLevelView! { get }
 }
 
+protocol CodeErrorMessageView: ErrorMessageViewAnimation {
+    // MARK: - Properties
+    var codeErrorMessageView: UIView! { get }
+    var codeErrorMessageViewHeightConstraint: NSLayoutConstraint! { get set }
+    var codeErrorMessageViewTopConstraint: NSLayoutConstraint! { get set }
+}
+
 extension ErrorMessageViewAnimation {
     func didShow(_ view: UIView, withConstraint constraint: NSLayoutConstraint) {
         UIView.animate(withDuration: 0.1, animations: {

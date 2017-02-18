@@ -69,7 +69,14 @@ class TextFieldManager: NSObject {
                 (result) ? (currentVC as! PasswordErrorMessageView).didHide((currentVC as! PasswordErrorMessageView).passwordErrorMessageView, withConstraint: (currentVC as! PasswordErrorMessageView).passwordErrorMessageViewTopConstraint) : (currentVC as! PasswordErrorMessageView).didShow((currentVC as! PasswordErrorMessageView).passwordErrorMessageView, withConstraint: (currentVC as! PasswordErrorMessageView).passwordErrorMessageViewTopConstraint)
                 
                 results.append(result)
-                                
+                
+            case .Code:
+                let result = textField.text == (currentVC as! EnterCodeShowViewController).enteredCode
+
+                (result) ? (currentVC as! EnterCodeShowViewController).didHide((currentVC as! EnterCodeShowViewController).codeErrorMessageView, withConstraint: (currentVC as! EnterCodeShowViewController).codeErrorMessageViewTopConstraint) : (currentVC as! EnterCodeShowViewController).didShow((currentVC as! EnterCodeShowViewController).codeErrorMessageView, withConstraint: (currentVC as! EnterCodeShowViewController).codeErrorMessageViewTopConstraint)
+                
+                results.append(result)
+
             default:
                 break
             }
@@ -91,6 +98,9 @@ extension TextFieldManager: UITextFieldDelegate {
             
         case .PasswordStrength:
             (currentVC as! PasswordErrorMessageView).didHide((currentVC as! PasswordErrorMessageView).passwordErrorMessageView, withConstraint: (currentVC as! PasswordErrorMessageView).passwordErrorMessageViewTopConstraint)
+            
+        case .Code:
+            (currentVC as! EnterCodeShowViewController).didHide((currentVC as! EnterCodeShowViewController).codeErrorMessageView, withConstraint: (currentVC as! EnterCodeShowViewController).codeErrorMessageViewTopConstraint)
             
         default:
             break
@@ -116,6 +126,11 @@ extension TextFieldManager: UITextFieldDelegate {
                 (currentVC as! PasswordErrorMessageView).didShow((currentVC as! PasswordErrorMessageView).passwordErrorMessageView, withConstraint: (currentVC as! PasswordErrorMessageView).passwordErrorMessageViewTopConstraint)
             }
             
+        case .Code:
+            if (textField.text != (currentVC as! EnterCodeShowViewController).enteredCode) {
+                (currentVC as! EnterCodeShowViewController).didShow((currentVC as! EnterCodeShowViewController).codeErrorMessageView, withConstraint: (currentVC as! EnterCodeShowViewController).codeErrorMessageViewTopConstraint)
+            }
+            
         default:
             break
         }
@@ -135,6 +150,22 @@ extension TextFieldManager: UITextFieldDelegate {
             
             (currentVC as! PasswordStrengthView).passwordStrengthView.setNeedsDisplay()
 
+        case .Code:
+            (currentVC as! EnterCodeShowViewController).didHide((currentVC as! EnterCodeShowViewController).codeErrorMessageView, withConstraint: (currentVC as! EnterCodeShowViewController).codeErrorMessageViewTopConstraint)
+
+            if (string.isEmpty) {
+                return true
+            }
+            
+            guard Int(string) != nil || ((textField.text?.isEmpty)! && string == "+") else {
+                return false
+            }
+            
+            if ((textField.text! + string).characters.count <= 4) {
+                return true
+            } else {
+                return false
+            }
             
         default:
             break
@@ -154,6 +185,9 @@ extension TextFieldManager: UITextFieldDelegate {
             
             (currentVC as! PasswordStrengthView).passwordStrengthView.passwordStrengthLevel = .None
             (currentVC as! PasswordStrengthView).passwordStrengthView.setNeedsDisplay()
+
+        case .Code:
+            (currentVC as! EnterCodeShowViewController).didHide((currentVC as! EnterCodeShowViewController).codeErrorMessageView, withConstraint: (currentVC as! EnterCodeShowViewController).codeErrorMessageViewTopConstraint)
 
         default:
             break
@@ -189,6 +223,19 @@ extension TextFieldManager: UITextFieldDelegate {
                 return false
             }
 
+        case .Code:
+            if (textField.text == (currentVC as! EnterCodeShowViewController).enteredCode) {
+                (currentVC as! EnterCodeShowViewController).didHide((currentVC as! EnterCodeShowViewController).codeErrorMessageView, withConstraint: (currentVC as! EnterCodeShowViewController).codeErrorMessageViewTopConstraint)
+                
+                textField.resignFirstResponder()
+                
+                return true
+            } else {
+                (currentVC as! EnterCodeShowViewController).didShow((currentVC as! EnterCodeShowViewController).codeErrorMessageView, withConstraint: (currentVC as! EnterCodeShowViewController).codeErrorMessageViewTopConstraint)
+
+                return false
+            }
+            
         default:
             self.didLoadNextTextField(afterCurrent: textField as! CustomTextField)
         }

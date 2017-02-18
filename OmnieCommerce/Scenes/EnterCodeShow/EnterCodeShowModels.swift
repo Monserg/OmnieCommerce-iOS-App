@@ -13,20 +13,6 @@ import UIKit
 
 // MARK: - Data models
 struct EnterCodeShowModels {
-    struct Code {
-        struct RequestModel {
-            let inputCode: String
-        }
-        
-        struct ResponseModel {
-            let isValueValid: Bool
-        }
-        
-        struct ViewModel {
-            let isValueValid: Bool
-        }
-    }
-    
     struct Renew {
         struct RequestModel {
             let email: String

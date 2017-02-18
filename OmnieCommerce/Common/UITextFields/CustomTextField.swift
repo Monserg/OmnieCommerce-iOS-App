@@ -18,6 +18,7 @@ enum FieldType: String {
     case Phone              =   "Phone"
     case Email              =   "Email"
     case PhoneEmail         =   "PhoneEmail"
+    case Code               =   "Code"
 }
 
 @IBDesignable class CustomTextField: UITextField {
@@ -93,10 +94,13 @@ enum FieldType: String {
             print(object: #function)
             
             
-        // PhoneEmail:
+        // PhoneEmail
         case .PhoneEmail:
             print(object: #function)
-            
+
+        // Code
+        case .Code:
+            print(object: #function)
             
         default:
             break

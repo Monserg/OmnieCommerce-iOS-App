@@ -13,12 +13,12 @@ import UIKit
 
 // MARK: - Input protocols for current Presenter component VIP-cicle
 protocol EnterCodeShowPresenterInput {
-    func prepareValidationResultForShowFrom(responseModel: EnterCodeShowModels.Code.ResponseModel)
+//    func didPrepareReturnValidationResult(fromResponseModel responseModel: EnterCodeShowModels.Code.ResponseModel)
 }
 
 // MARK: - Output protocols for ViewController component VIP-cicle
 protocol EnterCodeShowPresenterOutput: class {
-    func returnValidationResult(viewModel: EnterCodeShowModels.Code.ViewModel)
+//    func didReturnValidationResult(fromViewModel viewModel: EnterCodeShowModels.Code.ViewModel)
 }
 
 class EnterCodeShowPresenter: EnterCodeShowPresenterInput {
@@ -27,10 +27,12 @@ class EnterCodeShowPresenter: EnterCodeShowPresenterInput {
     
     
     // MARK: - Custom Functions. Presentation logic
-    func prepareValidationResultForShowFrom(responseModel: EnterCodeShowModels.Code.ResponseModel) {
+    /*
+    func didPrepareReturnValidationResult(fromResponseModel responseModel: EnterCodeShowModels.Code.ResponseModel) {
         // NOTE: Format the response from the Interactor and pass the result back to the View Controller
         let viewModel = EnterCodeShowModels.Code.ViewModel(isValueValid: responseModel.isValueValid)
         
-        viewController.returnValidationResult(viewModel: viewModel)
+        viewController.didReturnValidationResult(fromViewModel: viewModel)
     }
+    */
 }
