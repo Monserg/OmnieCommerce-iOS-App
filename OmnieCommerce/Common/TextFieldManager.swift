@@ -49,8 +49,15 @@ class TextFieldManager: NSObject {
         
         for textField in textFieldsArray {
             switch textField.style! {
-            case .Email, .PhoneEmail:
+            case .Email:
                 let result = textField.checkEmailValidation(textField.text!)
+                
+                (result) ? (currentVC as! EmailErrorMessageView).didHide((currentVC as! EmailErrorMessageView).emailErrorMessageView, withConstraint: (currentVC as! EmailErrorMessageView).emailErrorMessageViewTopConstraint) : (currentVC as! EmailErrorMessageView).didShow((currentVC as! EmailErrorMessageView).emailErrorMessageView, withConstraint: (currentVC as! EmailErrorMessageView).emailErrorMessageViewTopConstraint)
+                
+                results.append(result)
+                
+            case .PhoneEmail:
+                let result = textField.checkPhoneEmailValidation(textField.text!)
                 
                 (result) ? (currentVC as! EmailErrorMessageView).didHide((currentVC as! EmailErrorMessageView).emailErrorMessageView, withConstraint: (currentVC as! EmailErrorMessageView).emailErrorMessageViewTopConstraint) : (currentVC as! EmailErrorMessageView).didShow((currentVC as! EmailErrorMessageView).emailErrorMessageView, withConstraint: (currentVC as! EmailErrorMessageView).emailErrorMessageViewTopConstraint)
                 
@@ -79,7 +86,7 @@ extension TextFieldManager: UITextFieldDelegate {
         currentVC?.selectedRange = textField.convert(textField.frame, to: currentVC?.view)
 
         switch (textField as! CustomTextField).style! {
-        case .Email:
+        case .Email, .PhoneEmail:
             (currentVC as! EmailErrorMessageView).didHide((currentVC as! EmailErrorMessageView).emailErrorMessageView, withConstraint: (currentVC as! EmailErrorMessageView).emailErrorMessageViewTopConstraint)
             
         case .PasswordStrength:
@@ -99,6 +106,11 @@ extension TextFieldManager: UITextFieldDelegate {
                 (currentVC as! EmailErrorMessageView).didShow((currentVC as! EmailErrorMessageView).emailErrorMessageView, withConstraint: (currentVC as! EmailErrorMessageView).emailErrorMessageViewTopConstraint)
             }
             
+        case .PhoneEmail:
+            if !(textField as! CustomTextField).checkPhoneEmailValidation(textField.text!) {
+                (currentVC as! EmailErrorMessageView).didShow((currentVC as! EmailErrorMessageView).emailErrorMessageView, withConstraint: (currentVC as! EmailErrorMessageView).emailErrorMessageViewTopConstraint)
+            }
+            
         case .PasswordStrength:
             if !((textField as! CustomTextField).checkPasswordValidation(textField.text!)) {
                 (currentVC as! PasswordErrorMessageView).didShow((currentVC as! PasswordErrorMessageView).passwordErrorMessageView, withConstraint: (currentVC as! PasswordErrorMessageView).passwordErrorMessageViewTopConstraint)
@@ -113,7 +125,7 @@ extension TextFieldManager: UITextFieldDelegate {
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         switch (textField as! CustomTextField).style! {
-        case .Email:
+        case .Email, .PhoneEmail:
             (currentVC as! EmailErrorMessageView).didHide((currentVC as! EmailErrorMessageView).emailErrorMessageView, withConstraint: (currentVC as! EmailErrorMessageView).emailErrorMessageViewTopConstraint)
             
         case .PasswordStrength:
@@ -134,7 +146,7 @@ extension TextFieldManager: UITextFieldDelegate {
     
     func textFieldShouldClear(_ textField: UITextField) -> Bool {
         switch (textField as! CustomTextField).style! {
-        case .Email:
+        case .Email, .PhoneEmail:
             (currentVC as! EmailErrorMessageView).didHide((currentVC as! EmailErrorMessageView).emailErrorMessageView, withConstraint: (currentVC as! EmailErrorMessageView).emailErrorMessageViewTopConstraint)
 
         case .PasswordStrength:
@@ -154,6 +166,13 @@ extension TextFieldManager: UITextFieldDelegate {
         switch (textField as! CustomTextField).style! {
         case .Email:
             if (textField as! CustomTextField).checkEmailValidation(textField.text!) {
+                self.didLoadNextTextField(afterCurrent: textField as! CustomTextField)
+            } else {
+                (currentVC as! EmailErrorMessageView).didShow((currentVC as! EmailErrorMessageView).emailErrorMessageView, withConstraint: (currentVC as! EmailErrorMessageView).emailErrorMessageViewTopConstraint)
+            }
+            
+        case .PhoneEmail:
+            if (textField as! CustomTextField).checkPhoneEmailValidation(textField.text!) {
                 self.didLoadNextTextField(afterCurrent: textField as! CustomTextField)
             } else {
                 (currentVC as! EmailErrorMessageView).didShow((currentVC as! EmailErrorMessageView).emailErrorMessageView, withConstraint: (currentVC as! EmailErrorMessageView).emailErrorMessageViewTopConstraint)

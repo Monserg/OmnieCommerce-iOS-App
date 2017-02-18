@@ -64,9 +64,11 @@ class SignInShowRouter: SignInShowRouterInput {
             self.viewController.forgotPasswordShowVC = UIStoryboard(name: "SignInShow", bundle: nil).instantiateViewController(withIdentifier: "ForgotPasswordShowVC") as? ForgotPasswordShowViewController
             
             // ForgotPasswordShowVC: Send button handler
-            self.viewController.forgotPasswordShowVC?.handlerSendButtonCompletion = { _ in
+            self.viewController.forgotPasswordShowVC?.handlerPassDataCompletion = { code in
                 // Create EnterCodeShowViewController
                 self.viewController.enterCodeShowViewController = UIStoryboard(name: "SignInShow", bundle: nil).instantiateViewController(withIdentifier: "EnterCodeShowVC") as? EnterCodeShowViewController
+                
+                self.viewController.enterCodeShowViewController?.enteredCode = code as! String
                 
                 // EnterCodeShowVC: Send button handler
                 self.viewController.enterCodeShowViewController?.handlerSendButtonCompletion = { _ in

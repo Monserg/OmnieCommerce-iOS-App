@@ -24,6 +24,7 @@ typealias HandlerForgotPasswordButtonCompletion     =   (() -> ())
 typealias HandlerCancelButtonCompletion             =   (() -> ())
 typealias HandlerNavBarLeftButtonCompletion         =   (() -> ())
 typealias HandlerImagePickerControllerCompletion    =   ((_ originalImage: UIImage) -> ())
+typealias HandlerPassDataCompletion                 =   ((_ data: Any) -> ())
 
 typealias ResponseAPI                               =   (success: Bool, error: String?)
 

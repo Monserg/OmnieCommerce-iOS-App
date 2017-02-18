@@ -26,6 +26,7 @@ class EnterCodeShowViewController: BaseViewController {
     var interactor: EnterCodeShowViewControllerOutput!
     var router: EnterCodeShowRouter!
     
+    var enteredCode: String!
     var isInputCodeValid = false
     
     var handlerSendButtonCompletion: HandlerSendButtonCompletion?

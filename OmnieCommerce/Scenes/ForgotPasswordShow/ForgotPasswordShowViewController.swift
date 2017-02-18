@@ -26,7 +26,7 @@ class ForgotPasswordShowViewController: BaseViewController, EmailErrorMessageVie
     var interactor: ForgotPasswordShowViewControllerOutput!
     var router: ForgotPasswordShowRouter!
     
-    var handlerSendButtonCompletion: HandlerSendButtonCompletion?
+    var handlerPassDataCompletion: HandlerPassDataCompletion?
     var handlerCancelButtonCompletion: HandlerCancelButtonCompletion?
 
     var textFieldManager: TextFieldManager! {
@@ -87,17 +87,8 @@ class ForgotPasswordShowViewController: BaseViewController, EmailErrorMessageVie
             
             let requestModel = ForgotPasswordShowModels.Code.RequestModel(data: data)
             interactor.didLoadCode(fromRequestModel: requestModel)
-        }
-
-        
-        let textField = textFieldsCollection.last!
-        
-        if (textField.checkPhoneEmailValidation(textField.text!)) {
-//            phoneEmailErrorMessageView.didShow(false, withConstraint: phoneEmailErrorMessageViewTopConstraint)
-            
-            handlerSendButtonCompletion!()
         } else {
-//            phoneEmailErrorMessageView.didShow(true, withConstraint: phoneEmailErrorMessageViewTopConstraint)
+            didShow(emailErrorMessageView, withConstraint: emailErrorMessageViewTopConstraint)
         }
     }
     
@@ -112,5 +103,7 @@ extension ForgotPasswordShowViewController: ForgotPasswordShowViewControllerInpu
     func didPassCode(fromViewModel viewModel: ForgotPasswordShowModels.Code.ViewModel) {
         // TODO: PASS CODE TO ENTER CODE SCENE
         print(object: viewModel.code)
+        
+        handlerPassDataCompletion!(viewModel.code)
     }
 }
