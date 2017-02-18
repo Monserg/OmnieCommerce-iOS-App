@@ -11,12 +11,13 @@ import Navajo_Swift
 import Localize_Swift
 
 enum FieldType: String {
-    case None           =   "None"
-    case Name           =   "Name"
-    case Password       =   "Password"
-    case Phone          =   "Phone"
-    case Email          =   "Email"
-    case PhoneEmail     =   "PhoneEmail"
+    case None               =   "None"
+    case Name               =   "Name"
+    case Password           =   "Password"
+    case PasswordStrength   =   "PasswordStrength"
+    case Phone              =   "Phone"
+    case Email              =   "Email"
+    case PhoneEmail         =   "PhoneEmail"
 }
 
 @IBDesignable class CustomTextField: UITextField {
@@ -77,7 +78,7 @@ enum FieldType: String {
             
             
         // Password
-        case .Password:
+        case .Password, .PasswordStrength:
             print(object: #function)
             
             

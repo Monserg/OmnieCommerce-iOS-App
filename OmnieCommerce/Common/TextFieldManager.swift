@@ -33,6 +33,43 @@ class TextFieldManager: NSObject {
             textFieldsArray[nextIndex].becomeFirstResponder()
         }
     }
+    
+    func checkTextFieldCollection() -> Bool {
+        // Check empty fields
+        let emptyFields = textFieldsArray.filter({ $0.text?.isEmpty == true })
+        
+        guard emptyFields.count == 0 else {
+            // TODO: - ADD ALERT
+            currentVC.showAlertView(withTitle: "Info".localized(), andMessage: "All fields can be...".localized())
+            
+            return false
+        }
+
+        var results = [Bool]()
+        
+        for textField in textFieldsArray {
+            switch textField.style! {
+            case .Email:
+                let result = textField.checkEmailValidation(textField.text!)
+                
+                (result) ? (currentVC as! EmailErrorMessageView).didHide((currentVC as! EmailErrorMessageView).emailErrorMessageView, withConstraint: (currentVC as! EmailErrorMessageView).emailErrorMessageViewTopConstraint) : (currentVC as! EmailErrorMessageView).didShow((currentVC as! EmailErrorMessageView).emailErrorMessageView, withConstraint: (currentVC as! EmailErrorMessageView).emailErrorMessageViewTopConstraint)
+                
+                results.append(result)
+                
+            case .PasswordStrength:
+                let result = textField.checkPasswordValidation(textField.text!)
+                
+                (result) ? (currentVC as! PasswordErrorMessageView).didHide((currentVC as! PasswordErrorMessageView).passwordErrorMessageView, withConstraint: (currentVC as! PasswordErrorMessageView).passwordErrorMessageViewTopConstraint) : (currentVC as! PasswordErrorMessageView).didShow((currentVC as! PasswordErrorMessageView).passwordErrorMessageView, withConstraint: (currentVC as! PasswordErrorMessageView).passwordErrorMessageViewTopConstraint)
+                
+                results.append(result)
+                
+            default:
+                break
+            }
+        }
+        
+        return results.reduce(true) { $0 && $1 }
+    }
 }
 
 
@@ -41,38 +78,100 @@ extension TextFieldManager: UITextFieldDelegate {
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         currentVC?.selectedRange = textField.convert(textField.frame, to: currentVC?.view)
 
+        switch (textField as! CustomTextField).style! {
+        case .Email:
+            (currentVC as! EmailErrorMessageView).didHide((currentVC as! EmailErrorMessageView).emailErrorMessageView, withConstraint: (currentVC as! EmailErrorMessageView).emailErrorMessageViewTopConstraint)
+            
+        case .PasswordStrength:
+            (currentVC as! PasswordErrorMessageView).didHide((currentVC as! PasswordErrorMessageView).passwordErrorMessageView, withConstraint: (currentVC as! PasswordErrorMessageView).passwordErrorMessageViewTopConstraint)
+            
+        default:
+            break
+        }
+
         return true
     }
     
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
-        print(#function)
+        switch (textField as! CustomTextField).style! {
+        case .Email:
+            if !(textField as! CustomTextField).checkEmailValidation(textField.text!) {
+                (currentVC as! EmailErrorMessageView).didShow((currentVC as! EmailErrorMessageView).emailErrorMessageView, withConstraint: (currentVC as! EmailErrorMessageView).emailErrorMessageViewTopConstraint)
+            }
+            
+        case .PasswordStrength:
+            if !((textField as! CustomTextField).checkPasswordValidation(textField.text!)) {
+                (currentVC as! PasswordErrorMessageView).didShow((currentVC as! PasswordErrorMessageView).passwordErrorMessageView, withConstraint: (currentVC as! PasswordErrorMessageView).passwordErrorMessageViewTopConstraint)
+            }
+            
+        default:
+            break
+        }
+
         return true
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        print(#function)
+        switch (textField as! CustomTextField).style! {
+        case .Email:
+            (currentVC as! EmailErrorMessageView).didHide((currentVC as! EmailErrorMessageView).emailErrorMessageView, withConstraint: (currentVC as! EmailErrorMessageView).emailErrorMessageViewTopConstraint)
+            
+        case .PasswordStrength:
+            (currentVC as! PasswordErrorMessageView).didHide((currentVC as! PasswordErrorMessageView).passwordErrorMessageView, withConstraint: (currentVC as! PasswordErrorMessageView).passwordErrorMessageViewTopConstraint)
+            
+            (currentVC as! PasswordStrengthView).passwordStrengthView.passwordStrengthLevel = (string.isEmpty && textField.text?.characters.count == 1) ? .None : (textField as! CustomTextField).checkPasswordStrength(textField.text! + string)
+            
+            (currentVC as! PasswordStrengthView).passwordStrengthView.setNeedsDisplay()
+
+            
+        default:
+            break
+        }
+
         return true
     }
     
     
     func textFieldShouldClear(_ textField: UITextField) -> Bool {
+        switch (textField as! CustomTextField).style! {
+        case .Email:
+            (currentVC as! EmailErrorMessageView).didHide((currentVC as! EmailErrorMessageView).emailErrorMessageView, withConstraint: (currentVC as! EmailErrorMessageView).emailErrorMessageViewTopConstraint)
+
+        case .PasswordStrength:
+            (currentVC as! PasswordErrorMessageView).didHide((currentVC as! PasswordErrorMessageView).passwordErrorMessageView, withConstraint: (currentVC as! PasswordErrorMessageView).passwordErrorMessageViewTopConstraint)
+            
+            (currentVC as! PasswordStrengthView).passwordStrengthView.passwordStrengthLevel = .None
+            (currentVC as! PasswordStrengthView).passwordStrengthView.setNeedsDisplay()
+
+        default:
+            break
+        }
+        
         return true
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         switch (textField as! CustomTextField).style! {
-        case .Name, .Password:
-            self.didLoadNextTextField(afterCurrent: textField as! CustomTextField)
-            
         case .Email:
             if (textField as! CustomTextField).checkEmailValidation(textField.text!) {
                 self.didLoadNextTextField(afterCurrent: textField as! CustomTextField)
             } else {
-                // TODO: SHOW ERROR MESSAGE VIEW
+                (currentVC as! EmailErrorMessageView).didShow((currentVC as! EmailErrorMessageView).emailErrorMessageView, withConstraint: (currentVC as! EmailErrorMessageView).emailErrorMessageViewTopConstraint)
             }
             
+        case .PasswordStrength:
+            if ((textField as! CustomTextField).checkPasswordValidation(textField.text!)) {
+                self.didLoadNextTextField(afterCurrent: textField as! CustomTextField)
+                
+                return true
+            } else {
+                (currentVC as! PasswordErrorMessageView).didShow((currentVC as! PasswordErrorMessageView).passwordErrorMessageView, withConstraint: (currentVC as! PasswordErrorMessageView).passwordErrorMessageViewTopConstraint)
+                
+                return false
+            }
+
         default:
-            break
+            self.didLoadNextTextField(afterCurrent: textField as! CustomTextField)
         }
         
         return true

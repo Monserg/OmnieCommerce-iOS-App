@@ -22,11 +22,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="6638A455-B510-4FF2-B6F3-1532A65CB66C" translatesAutoresizingMaskIntoConstraints="NO" id="38x-X2-VbJ" userLabel="Background Image View">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="0117CCF0-9C4D-4E76-ABEA-E344BCE5BFEB" translatesAutoresizingMaskIntoConstraints="NO" id="38x-X2-VbJ" userLabel="Background Image View">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" red="0.1450980392" green="0.20000000000000001" blue="0.25098039220000001" alpha="0.93999999999999995" colorSpace="calibratedRGB"/>
                                 <variation key="heightClass=compact-widthClass=compact" image="image-background-landscape"/>
-                                <variation key="heightClass=compact-widthClass=regular" image="581EB4BC-2811-4D31-A2B7-E01673BE9C86"/>
+                                <variation key="heightClass=compact-widthClass=regular" image="57A360D9-DE51-4559-8E56-6751DFFF5805"/>
                                 <variation key="heightClass=regular-widthClass=compact" image="image-background-portrait"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aC8-Sv-85m" userLabel="Blackout View">
@@ -571,7 +571,6 @@
                                                     <constraint firstItem="cly-Zw-Fux" firstAttribute="leading" secondItem="Lmb-hb-X9Q" secondAttribute="leading" constant="8" id="C6a-Ka-Ylo"/>
                                                     <constraint firstItem="cly-Zw-Fux" firstAttribute="centerY" secondItem="Lmb-hb-X9Q" secondAttribute="centerY" multiplier="1.3" id="Mtg-R5-k66"/>
                                                     <constraint firstAttribute="trailing" secondItem="cly-Zw-Fux" secondAttribute="trailing" constant="-8" id="SHB-g2-7MQ"/>
-                                                    <constraint firstAttribute="height" constant="33" id="kwc-a6-N80"/>
                                                     <constraint firstItem="tng-W0-6gQ" firstAttribute="top" secondItem="Lmb-hb-X9Q" secondAttribute="top" id="m46-QL-Y7Y"/>
                                                 </constraints>
                                                 <variation key="default">
@@ -586,10 +585,10 @@
                                                     </mask>
                                                 </variation>
                                             </view>
-                                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jus-tu-WDN" userLabel="Error Email View" customClass="ErrorMessageView" customModule="OmnieCommerce" customModuleProvider="target">
+                                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jus-tu-WDN" userLabel="Email Error View">
                                                 <rect key="frame" x="0.0" y="306" width="375" height="14"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email error" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eAh-mw-riI" userLabel="Error Message Label" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email error" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eAh-mw-riI" userLabel="Email Error Message Label" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
                                                         <rect key="frame" x="8" y="0.0" width="367" height="15"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -626,7 +625,7 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="alphabet" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
                                                         <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="string" keyPath="fieldType" value="Password"/>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="fieldType" value="PasswordStrength"/>
                                                         </userDefinedRuntimeAttributes>
                                                     </textField>
                                                 </subviews>
@@ -660,8 +659,30 @@
                                                     <constraint firstAttribute="height" constant="4" id="lDH-tL-bBi"/>
                                                 </constraints>
                                             </view>
+                                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZlK-Os-zjN" userLabel="Password Error View">
+                                                <rect key="frame" x="0.0" y="391" width="375" height="14"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password min lenght error" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d8v-G9-1KU" userLabel="Password Error Message Label" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
+                                                        <rect key="frame" x="8" y="0.0" width="367" height="15"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="labelStyle" value="Error"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstItem="d8v-G9-1KU" firstAttribute="leading" secondItem="ZlK-Os-zjN" secondAttribute="leading" constant="8" id="JrN-Wx-bUA"/>
+                                                    <constraint firstItem="d8v-G9-1KU" firstAttribute="top" secondItem="ZlK-Os-zjN" secondAttribute="top" id="d1o-yZ-rTC"/>
+                                                    <constraint firstAttribute="trailing" secondItem="d8v-G9-1KU" secondAttribute="trailing" id="tSX-Ww-fgR"/>
+                                                    <constraint firstAttribute="height" constant="14" id="uwZ-uR-Eox"/>
+                                                </constraints>
+                                            </view>
                                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FoU-Cq-Saz" userLabel="Action View">
-                                                <rect key="frame" x="0.0" y="391" width="375" height="190"/>
+                                                <rect key="frame" x="0.0" y="405" width="375" height="190"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a95-Am-xjg" userLabel="Sign Up Button" customClass="CustomButton" customModule="OmnieCommerce" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="48" width="375" height="56"/>
@@ -700,14 +721,16 @@
                                         <constraints>
                                             <constraint firstItem="DsY-8c-nkS" firstAttribute="top" secondItem="ZPf-pU-A1K" secondAttribute="top" id="0sT-b0-aoU"/>
                                             <constraint firstItem="Lmb-hb-X9Q" firstAttribute="leading" secondItem="ZPf-pU-A1K" secondAttribute="leading" id="26i-UC-Fje"/>
-                                            <constraint firstAttribute="bottom" relation="lessThanOrEqual" secondItem="FoU-Cq-Saz" secondAttribute="bottom" constant="500" id="2Jl-Z1-DxU"/>
                                             <constraint firstItem="jus-tu-WDN" firstAttribute="leading" secondItem="ZPf-pU-A1K" secondAttribute="leading" id="4y0-Q4-tvx"/>
                                             <constraint firstItem="5yy-T8-E3O" firstAttribute="top" secondItem="DsY-8c-nkS" secondAttribute="bottom" id="6ZT-go-fN3"/>
                                             <constraint firstItem="jus-tu-WDN" firstAttribute="top" secondItem="Lmb-hb-X9Q" secondAttribute="bottom" id="7Bm-is-O4Y"/>
+                                            <constraint firstItem="ZlK-Os-zjN" firstAttribute="top" secondItem="eRq-24-5id" secondAttribute="bottom" id="H7u-ZF-ZIg"/>
+                                            <constraint firstItem="FoU-Cq-Saz" firstAttribute="top" secondItem="ZlK-Os-zjN" secondAttribute="bottom" id="Hg4-30-8q0"/>
+                                            <constraint firstAttribute="bottom" secondItem="FoU-Cq-Saz" secondAttribute="bottom" priority="999" id="Hkb-jd-1uQ"/>
                                             <constraint firstItem="eRq-24-5id" firstAttribute="top" secondItem="lHH-c3-k5v" secondAttribute="bottom" id="JN6-U1-Rpt"/>
                                             <constraint firstItem="FoU-Cq-Saz" firstAttribute="leading" secondItem="ZPf-pU-A1K" secondAttribute="leading" id="KaR-WA-kyp"/>
+                                            <constraint firstItem="ZlK-Os-zjN" firstAttribute="leading" secondItem="ZPf-pU-A1K" secondAttribute="leading" id="MHy-Z1-JWq"/>
                                             <constraint firstAttribute="trailing" secondItem="DsY-8c-nkS" secondAttribute="trailing" id="Nwb-o7-k30"/>
-                                            <constraint firstItem="FoU-Cq-Saz" firstAttribute="top" secondItem="eRq-24-5id" secondAttribute="bottom" id="OpW-4w-4rs"/>
                                             <constraint firstAttribute="trailing" secondItem="eRq-24-5id" secondAttribute="trailing" id="Qbr-sQ-G6l"/>
                                             <constraint firstItem="Lmb-hb-X9Q" firstAttribute="height" secondItem="5yy-T8-E3O" secondAttribute="height" id="Tuq-gU-tz7"/>
                                             <constraint firstItem="eRq-24-5id" firstAttribute="leading" secondItem="ZPf-pU-A1K" secondAttribute="leading" id="W9s-Sl-Yex"/>
@@ -716,6 +739,7 @@
                                             <constraint firstItem="lHH-c3-k5v" firstAttribute="leading" secondItem="ZPf-pU-A1K" secondAttribute="leading" id="ipC-sX-wr9"/>
                                             <constraint firstItem="lHH-c3-k5v" firstAttribute="height" secondItem="5yy-T8-E3O" secondAttribute="height" id="kOb-mG-iM7"/>
                                             <constraint firstItem="lHH-c3-k5v" firstAttribute="top" secondItem="jus-tu-WDN" secondAttribute="bottom" id="myO-WL-TBR"/>
+                                            <constraint firstAttribute="trailing" secondItem="ZlK-Os-zjN" secondAttribute="trailing" id="n0G-wE-fYW"/>
                                             <constraint firstItem="5yy-T8-E3O" firstAttribute="leading" secondItem="ZPf-pU-A1K" secondAttribute="leading" id="pDW-jR-NRa"/>
                                             <constraint firstAttribute="trailing" secondItem="lHH-c3-k5v" secondAttribute="trailing" id="rcx-GA-idw"/>
                                             <constraint firstAttribute="trailing" secondItem="5yy-T8-E3O" secondAttribute="trailing" id="uOE-dc-VRA"/>
@@ -775,8 +799,11 @@
                     <nil key="simulatedStatusBarMetrics"/>
                     <connections>
                         <outlet property="emailErrorMessageView" destination="jus-tu-WDN" id="QyX-dg-yiv"/>
-                        <outlet property="emailErrorMessageViewHeightConstraint" destination="XaE-mo-LvL" id="d7f-cl-3Qa"/>
-                        <outlet property="emailErrorMessageViewTopConstraint" destination="7Bm-is-O4Y" id="74z-EW-83P"/>
+                        <outlet property="emailErrorMessageViewHeightConstraint" destination="XaE-mo-LvL" id="YN3-VP-LOA"/>
+                        <outlet property="emailErrorMessageViewTopConstraint" destination="7Bm-is-O4Y" id="y6o-zM-cuY"/>
+                        <outlet property="passwordErrorMessageView" destination="ZlK-Os-zjN" id="YkI-NT-5gL"/>
+                        <outlet property="passwordErrorMessageViewHeightConstraint" destination="uwZ-uR-Eox" id="RAX-aW-9D3"/>
+                        <outlet property="passwordErrorMessageViewTopConstraint" destination="H7u-ZF-ZIg" id="W0j-I6-5uH"/>
                         <outlet property="passwordStrengthView" destination="eRq-24-5id" id="YiD-M6-zwJ"/>
                         <outlet property="scrollView" destination="8Ek-Ce-Lb8" id="RjS-85-gSp"/>
                         <outletCollection property="textFieldsCollection" destination="UUa-qc-LRO" collectionClass="NSMutableArray" id="KtN-Qa-lNi"/>
@@ -786,11 +813,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q0n-CG-uu8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="924" y="767"/>
+            <point key="canvasLocation" x="924" y="766.86656671664173"/>
         </scene>
     </scenes>
     <resources>
-        <image name="581EB4BC-2811-4D31-A2B7-E01673BE9C86" width="667" height="375">
+        <image name="0117CCF0-9C4D-4E76-ABEA-E344BCE5BFEB" width="667" height="375">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -17519,7 +17546,7 @@ AA9OQAAPTkgAD05LAA9OUAAPTl8AD05jAA9OagAPTnIAD05/AA9OhAAPToYAD06IAA9OjQAPTpUAD06Y
 AA9OnQAPTqUAD06oAA9OugAPTr0AD07CAAAAAAAABAEAAAAAAAAAQQAAAAAAAAAAAAAAAAAPTsQ
 </mutableData>
         </image>
-        <image name="6638A455-B510-4FF2-B6F3-1532A65CB66C" width="667" height="375">
+        <image name="57A360D9-DE51-4559-8E56-6751DFFF5805" width="667" height="375">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw

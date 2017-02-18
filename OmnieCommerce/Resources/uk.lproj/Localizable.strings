@@ -106,4 +106,5 @@
 
 
 // Errors
-"Google services error" =   "Помилка налаштування служб Google:";
+"Google services error"         =   "Помилка налаштування служб Google:";
+"Password min lenght error"     =   "Password must be of minimum 6 characters length";

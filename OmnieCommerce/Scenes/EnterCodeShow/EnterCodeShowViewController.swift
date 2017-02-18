@@ -33,7 +33,7 @@ class EnterCodeShowViewController: BaseViewController {
     
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet var textFieldsCollection: [CustomTextField]!
-    @IBOutlet weak var codeErrorMessageView: ErrorMessageView!
+    @IBOutlet weak var codeErrorMessageView: UIView!
     @IBOutlet weak var sendButton: CustomButton!
     
     @IBOutlet weak var codeErrorMessageViewHeightConstraint: NSLayoutConstraint!
@@ -108,7 +108,7 @@ extension EnterCodeShowViewController: EnterCodeShowViewControllerInput {
         if (isInputCodeValid) {
             handlerSendButtonCompletion!()
         } else {
-            codeErrorMessageView.didShow(true, withConstraint: codeErrorMessageViewTopConstraint)
+//            codeErrorMessageView.didShow(true, withConstraint: codeErrorMessageViewTopConstraint)
         }
     }
 }
@@ -117,7 +117,7 @@ extension EnterCodeShowViewController: EnterCodeShowViewControllerInput {
 // MARK: - UITextFieldDelegate
 extension EnterCodeShowViewController {
     override func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        codeErrorMessageView.didShow(false, withConstraint: codeErrorMessageViewTopConstraint)
+//        codeErrorMessageView.didShow(false, withConstraint: codeErrorMessageViewTopConstraint)
         
         if (string.isEmpty) {
             return true
@@ -145,7 +145,7 @@ extension EnterCodeShowViewController {
     }
     
     func textFieldShouldClear(_ textField: UITextField) -> Bool {
-        codeErrorMessageView.didShow(false, withConstraint: codeErrorMessageViewTopConstraint)
+//        codeErrorMessageView.didShow(false, withConstraint: codeErrorMessageViewTopConstraint)
         
         return true
     }

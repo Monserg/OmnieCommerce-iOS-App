@@ -23,7 +23,7 @@ protocol SignUpShowViewControllerOutput {
     func didRegisterUser(fromRequestModel requestModel: SignUpShowModels.User.RequestModel)
 }
 
-class SignUpShowViewController: BaseViewController {
+class SignUpShowViewController: BaseViewController, EmailErrorMessageView, PasswordErrorMessageView, PasswordStrengthView {
     // MARK: - Properties
     var interactor: SignUpShowViewControllerOutput!
     var router: SignUpShowRouter!
@@ -42,12 +42,16 @@ class SignUpShowViewController: BaseViewController {
     var passwordStrengthLevel: PasswordStrengthLevel = .None
 
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var emailErrorMessageView: UIView!
+    @IBOutlet weak var passwordErrorMessageView: UIView!
     @IBOutlet weak var passwordStrengthView: PasswordStrengthLevelView!
-    @IBOutlet weak var emailErrorMessageView: ErrorMessageView!
 
     @IBOutlet var textFieldsCollection: [CustomTextField]!
-    @IBOutlet weak var emailErrorMessageViewHeightConstraint: NSLayoutConstraint!
+
     @IBOutlet weak var emailErrorMessageViewTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var emailErrorMessageViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var passwordErrorMessageViewTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var passwordErrorMessageViewHeightConstraint: NSLayoutConstraint!
 
     
     // MARK: - Class Initialization
@@ -82,29 +86,17 @@ class SignUpShowViewController: BaseViewController {
 
         // Hide email error message view
         emailErrorMessageViewHeightConstraint.constant = Config.Constants.errorMessageViewHeight
-        emailErrorMessageViewTopConstraint.constant = -Config.Constants.errorMessageViewHeight
-        emailErrorMessageView.isHidden = true
+        didHide(emailErrorMessageView, withConstraint: emailErrorMessageViewTopConstraint)
+        didHide(passwordErrorMessageView, withConstraint: passwordErrorMessageViewTopConstraint)
+        passwordStrengthView.passwordStrengthLevel = .None
     }
         
     
     // MARK: - Actions
     @IBAction func handlerRegisterButtonTap(_ sender: CustomButton) {
-        let name = textFieldsCollection.first?.text
-        let email = textFieldsCollection[1].text
-        let password = textFieldsCollection.last?.text
-        
-        guard !((name?.isEmpty)!), !((password?.isEmpty)!), !((email?.isEmpty)!) else {
-            // TODO: - ADD ALERT
-            showAlertView(withTitle: "Info".localized(), andMessage: "All fields can be...".localized())
-            
-            return
-        }
-        
-        if (textFieldsCollection[1].checkEmailValidation(email!)) {
-            let requestModel = SignUpShowModels.User.RequestModel(name: name!, email: email!, password: password!)
+        if (textFieldManager.checkTextFieldCollection()) {
+            let requestModel = SignUpShowModels.User.RequestModel(name: textFieldsCollection.first!.text!, email: textFieldsCollection[1].text!, password: textFieldsCollection.last!.text!)
             interactor.didRegisterUser(fromRequestModel: requestModel)
-        } else {
-            emailErrorMessageView.didShow(true, withConstraint: emailErrorMessageViewTopConstraint)
         }
     }
     

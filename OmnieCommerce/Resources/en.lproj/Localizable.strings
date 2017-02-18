@@ -7,103 +7,104 @@
 */
 
 // Menu Items
-"Orders"                =   "My Orders";
-"Messages"              =   "Messages";
-"Favourite"             =   "Favourite";
-"Categories"            =   "Categories";
-"News"                  =   "News";
-"DiscountCards"         =   "Discount Cards";
-"OmnieCards"            =   "Omnie Cards";
-"BusinessCards"         =   "Business Cards";
-"Handbook"              =   "Handbook";
-"PersonalPage"          =   "Personal Page";
-"Settings"              =   "Settings";
-"About"                 =   "About";
-"OnmieSoft"             =   "OnmieSoft";
-"LogOut"                =   "Log Out";
+"Orders"                        =   "My Orders";
+"Messages"                      =   "Messages";
+"Favourite"                     =   "Favourite";
+"Categories"                    =   "Categories";
+"News"                          =   "News";
+"DiscountCards"                 =   "Discount Cards";
+"OmnieCards"                    =   "Omnie Cards";
+"BusinessCards"                 =   "Business Cards";
+"Handbook"                      =   "Handbook";
+"PersonalPage"                  =   "Personal Page";
+"Settings"                      =   "Settings";
+"About"                         =   "About";
+"OnmieSoft"                     =   "OnmieSoft";
+"LogOut"                        =   "Log Out";
 
 
 // Labels
-"Congratulations"       =   "Congratulations!";
-"Not yet registered?"   =   "Not yet registered?";
-"Forgot Password"       =   "Forgot Password";
-"Phone or email error"  =   "* wrong Phone number or Email";
-"Phone error"           =   "* wrong Phone number";
-"Email error"           =   "* wrong Email";
-"Auto Service"          =   "Auto Service";
-"Health"                =   "Health";
-"Beauty"                =   "Beauty";
-"Training"              =   "Training";
-"Restaurants"           =   "Restaurants";
-"Tourism"               =   "Tourism";
-"Sport"                 =   "Sport";
-"From"                  =   "from";
-"To"                    =   "to";
-"Enter code"            =   "Enter code";
-"Invalid code"          =   "* Invalid code. Please try again";
-"New password"          =   "New Password";
+"Congratulations"               =   "Congratulations!";
+"Not yet registered?"           =   "Not yet registered?";
+"Forgot Password"               =   "Forgot Password";
+"Phone or email error"          =   "* wrong Phone number or Email";
+"Phone error"                   =   "* wrong Phone number";
+"Email error"                   =   "* wrong Email";
+"Auto Service"                  =   "Auto Service";
+"Health"                        =   "Health";
+"Beauty"                        =   "Beauty";
+"Training"                      =   "Training";
+"Restaurants"                   =   "Restaurants";
+"Tourism"                       =   "Tourism";
+"Sport"                         =   "Sport";
+"From"                          =   "from";
+"To"                            =   "to";
+"Enter code"                    =   "Enter code";
+"Invalid code"                  =   "* Invalid code. Please try again";
+"New password"                  =   "New Password";
 
 
 // Buttons
-"Register"              =   "Register";
-"Forgot password?"      =   "Forgot password?";
-"Sign In"               =   "Login";
-"Sign Up"               =   "Sign Up";
-"Check In"              =   "Check In";
-"Forgot Password?"      =   "Forgot Password?";
-"Cancel"                =   "Cancel";
-"Send"                  =   "Send";
-"City"                  =   "City";
-"Confirm"               =   "Confirm";
-"Send"                  =   "Send";
-"Send again"            =   "Send Again";
-"Submit"                =   "Submit";
-"Enter"                 =   "Enter";
+"Register"                      =   "Register";
+"Forgot password?"              =   "Forgot password?";
+"Sign In"                       =   "Login";
+"Sign Up"                       =   "Sign Up";
+"Check In"                      =   "Check In";
+"Forgot Password?"              =   "Forgot Password?";
+"Cancel"                        =   "Cancel";
+"Send"                          =   "Send";
+"City"                          =   "City";
+"Confirm"                       =   "Confirm";
+"Send"                          =   "Send";
+"Send again"                    =   "Send Again";
+"Submit"                        =   "Submit";
+"Enter"                         =   "Enter";
 
 
 // TextField Placeholders
-"Name"                  =   "Name";
-"Surname"               =   "Surname";
-"Password"              =   "Password";
-"Email"                 =   "Email";
-"Phone"                 =   "Phone";
-"Phone or Email"        =   "Phone or Email";
-"Enter Code"            =   "Enter Code";
-"Repeat password"       =   "Repeat Password";
+"Name"                          =   "Name";
+"Surname"                       =   "Surname";
+"Password"                      =   "Password";
+"Email"                         =   "Email";
+"Phone"                         =   "Phone";
+"Phone or Email"                =   "Phone or Email";
+"Enter Code"                    =   "Enter Code";
+"Repeat password"               =   "Repeat Password";
 
 
 // Segmented Control Titles
-"Subscription"          =   "Subscription";
-"Hot News"              =   "Hot News";
-"Personal Data"         =   "Personal Data";
-"My Templates"          =   "My Templates";
-"Organizations"         =   "Organizations";
-"Services"              =   "Services";
-"Calendar"              =   "Calendar";
-"Schedule"              =   "Schedule";
+"Subscription"                  =   "Subscription";
+"Hot News"                      =   "Hot News";
+"Personal Data"                 =   "Personal Data";
+"My Templates"                  =   "My Templates";
+"Organizations"                 =   "Organizations";
+"Services"                      =   "Services";
+"Calendar"                      =   "Calendar";
+"Schedule"                      =   "Schedule";
 
 
 // Titles
-"Man"                   =   "Man";
-"Female"                =   "Female";
-"Birthday"              =   "Birthday";
-"Family status"         =   "Family status";
-"Not married"           =   "Not married";
-"Married"               =   "Married";
-"Children"              =   "Have children";
-"Children No"           =   "No children";
-"Children Yes"          =   "Do you have children";
-"Pet"                   =   "The presence of a pet";
-"Pet No"                =   "Pet No";
-"Pet Yes"               =   "Pet has";
+"Man"                           =   "Man";
+"Female"                        =   "Female";
+"Birthday"                      =   "Birthday";
+"Family status"                 =   "Family status";
+"Not married"                   =   "Not married";
+"Married"                       =   "Married";
+"Children"                      =   "Have children";
+"Children No"                   =   "No children";
+"Children Yes"                  =   "Do you have children";
+"Pet"                           =   "The presence of a pet";
+"Pet No"                        =   "Pet No";
+"Pet Yes"                       =   "Pet has";
 
 
 // Alert actions
-"Photo"                 =   "Photo";
-"Photo upload"          =   "Upload a new photo";
-"Photo make"            =   "Make a photo";
-"Photo delete"          =   "Delete a photo";
+"Photo"                         =   "Photo";
+"Photo upload"                  =   "Upload a new photo";
+"Photo make"                    =   "Make a photo";
+"Photo delete"                  =   "Delete a photo";
 
 
 // Errors
-"Google services error" =   "Error configuring Google services:";
+"Google services error"         =   "Error configuring Google services:";
+"Password min lenght error"     =   "Password must be of minimum 6 characters length";

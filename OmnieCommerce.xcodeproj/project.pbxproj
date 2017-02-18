@@ -84,6 +84,7 @@
 		B14107C41DFEA73900F79CF9 /* CalendarDayCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14107C21DFEA73900F79CF9 /* CalendarDayCellView.swift */; };
 		B14107C51DFEA73900F79CF9 /* CalendarDayCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B14107C31DFEA73900F79CF9 /* CalendarDayCellView.xib */; };
 		B14107C71DFEB1D700F79CF9 /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14107C61DFEB1D700F79CF9 /* CustomView.swift */; };
+		B14CD91A1E57C058005F8BF6 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14CD9191E57C058005F8BF6 /* Protocols.swift */; };
 		B14D894D1DF6C87800AF3AED /* NewsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B14D894C1DF6C87800AF3AED /* NewsTableViewCell.xib */; };
 		B14D894F1DF6C92100AF3AED /* MessageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B14D894E1DF6C92100AF3AED /* MessageTableViewCell.xib */; };
 		B14D89511DF6CFF800AF3AED /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14D89501DF6CFF800AF3AED /* Message.swift */; };
@@ -347,6 +348,7 @@
 		B14107C21DFEA73900F79CF9 /* CalendarDayCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarDayCellView.swift; sourceTree = "<group>"; };
 		B14107C31DFEA73900F79CF9 /* CalendarDayCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CalendarDayCellView.xib; sourceTree = "<group>"; };
 		B14107C61DFEB1D700F79CF9 /* CustomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
+		B14CD9191E57C058005F8BF6 /* Protocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		B14D894C1DF6C87800AF3AED /* NewsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsTableViewCell.xib; sourceTree = "<group>"; };
 		B14D894E1DF6C92100AF3AED /* MessageTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageTableViewCell.xib; sourceTree = "<group>"; };
 		B14D89501DF6CFF800AF3AED /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
@@ -985,6 +987,7 @@
 				B1739D171DE314D50029BCCA /* UILabel+Ext.swift */,
 				B1DB3C751DE4205500C0A079 /* UITextField+Ext.swift */,
 				B1739D1B1DE314E80029BCCA /* UIView+Ext.swift */,
+				B14CD9191E57C058005F8BF6 /* Protocols.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1460,6 +1463,7 @@
 				B1739D1C1DE314E80029BCCA /* UIView+Ext.swift in Sources */,
 				B1CF54A41DDB515000E98049 /* HandbookShowRouter.swift in Sources */,
 				B1CF54A31DDB515000E98049 /* HandbookShowPresenter.swift in Sources */,
+				B14CD91A1E57C058005F8BF6 /* Protocols.swift in Sources */,
 				B14E97591DD8B052001E1DE2 /* SignUpShowPresenter.swift in Sources */,
 				B1CF54781DDB50D900E98049 /* AboutShowModels.swift in Sources */,
 				B14E97561DD8B052001E1DE2 /* SignUpShowConfigurator.swift in Sources */,

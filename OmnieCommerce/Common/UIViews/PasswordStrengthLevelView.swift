@@ -15,7 +15,7 @@ enum PasswordStrengthLevel {
     case None
 }
 
-class PasswordStrengthLevelView: UIView {
+class PasswordStrengthLevelView: UIView, ErrorMessageViewAnimation {
     // MARK: - Properties
     let lineWidth: CGFloat = 1.0
     var passwordStrengthLevel: PasswordStrengthLevel = .None

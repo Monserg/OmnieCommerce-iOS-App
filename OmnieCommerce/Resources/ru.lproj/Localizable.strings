@@ -99,11 +99,12 @@
 
 
 // Alert actions
-"Photo"                 =   "Фотография";
-"Photo upload"          =   "Загрузить новое фото";
-"Photo make"            =   "Сделать фото";
-"Photo delete"          =   "Удалить фото";
+"Photo"                         =   "Фотография";
+"Photo upload"                  =   "Загрузить новое фото";
+"Photo make"                    =   "Сделать фото";
+"Photo delete"                  =   "Удалить фото";
 
 
 // Errors
-"Google services error" =   "Ошибка настройки служб Google:";
+"Google services error"         =   "Ошибка настройки служб Google:";
+"Password min lenght error"     =   "Password must be of minimum 6 characters length";

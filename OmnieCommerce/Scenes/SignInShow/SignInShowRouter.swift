@@ -37,14 +37,18 @@ class SignInShowRouter: SignInShowRouterInput {
         
         // SignInContainerShowVC: SignIn button handler
         viewController.signInContainerShowVC?.handlerSendButtonCompletion = { _ in
-            print("UUUUURRRRRAAAAAAAAAAA!!!!!!!")
-            
             self.navigateAuthorizedUser(duringStartApp: false)
         }
         
         // SignInContainerShowVC: Register button handler
         viewController.signInContainerShowVC?.handlerRegisterButtonCompletion = { _ in
             self.viewController.signUpShowVC = UIStoryboard(name: "SignInShow", bundle: nil).instantiateViewController(withIdentifier: "SignUpShowVC") as? SignUpShowViewController
+            
+            // SignUpShowVC: Register button handler
+            self.viewController.signUpShowVC?.handlerRegisterButtonCompletion = { _ in
+                self.navigateAuthorizedUser(duringStartApp: false)
+                self.viewController.activeViewController = self.viewController.signInContainerShowVC
+            }
             
             // SignUpShowVC: Cancel button handler
             self.viewController.signUpShowVC?.handlerCancelButtonCompletion = { _ in
@@ -71,7 +75,6 @@ class SignInShowRouter: SignInShowRouterInput {
                     
                     // RepetitionPasswordShowVC: handler Send button
                     self.viewController.repetitionPasswordShowViewController?.handlerSendButtonCompletion = { _ in
-                        print("OOOOOOOOKKKKKKKKK!!!!!!!")
                         self.navigateAuthorizedUser(duringStartApp: false)
                     }
                     
