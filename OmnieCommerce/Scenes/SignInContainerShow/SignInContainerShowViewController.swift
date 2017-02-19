@@ -80,6 +80,10 @@ class SignInContainerShowViewController: BaseViewController, PasswordErrorMessag
         didHide(passwordErrorMessageView, withConstraint: passwordErrorMessageViewTopConstraint)
     }
     
+    func didCleanTextFields() {
+        _ = textFieldsCollection.map{ $0.text = nil }
+    }
+    
     
     // MARK: - Actions
     @IBAction func handlerRegisterButtonTap(_ sender: CustomButton) {
@@ -120,6 +124,6 @@ extension SignInContainerShowViewController: SignInContainerShowViewControllerIn
         handlerSendButtonCompletion!()
         
         // Clear all text fields
-        _ = textFieldsCollection.map{ $0.text = nil }
+        self.didCleanTextFields()
     }
 }

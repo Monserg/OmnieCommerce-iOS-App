@@ -20,7 +20,6 @@ protocol SignInShowRouterInput {
 class SignInShowRouter: SignInShowRouterInput {
     // MARK: - Properties
     weak var viewController: SignInShowViewController!
-//    var containerStackViewPositionX: CGFloat?
 
     
     // MARK: - Custom Functions. Navigation
@@ -46,6 +45,7 @@ class SignInShowRouter: SignInShowRouterInput {
             
             // SignUpShowVC: Register button handler
             self.viewController.signUpShowVC?.handlerRegisterButtonCompletion = { _ in
+                self.viewController.signInContainerShowVC?.didCleanTextFields()
                 self.navigateAuthorizedUser(duringStartApp: false)
                 self.viewController.activeViewController = self.viewController.signInContainerShowVC
             }
@@ -77,6 +77,7 @@ class SignInShowRouter: SignInShowRouterInput {
                     
                     // RepetitionPasswordShowVC: handler Send button
                     self.viewController.repetitionPasswordShowViewController?.handlerSendButtonCompletion = { _ in
+                        self.viewController.signInContainerShowVC?.didCleanTextFields()
                         self.navigateAuthorizedUser(duringStartApp: false)
                         self.viewController.activeViewController = self.viewController.signInContainerShowVC
                     }
@@ -116,13 +117,14 @@ class SignInShowRouter: SignInShowRouterInput {
     }
     
     func didActiveViewControllerLoad() {
+        self.viewController.signInContainerShowVC?.didCleanTextFields()
         self.viewController.activeViewController = self.viewController.signInContainerShowVC
         
         // Show social buttons view
         UIView.animate(withDuration: 0.3) {
-            self.viewController.vkontakteButton.isHidden = false
-            self.viewController.googleButton.isHidden = false
-            self.viewController.facebookButton.isHidden = false
+            self.viewController.vkontakteButton.isHidden    =   false
+            self.viewController.googleButton.isHidden       =   false
+            self.viewController.facebookButton.isHidden     =   false
         }
     }
     
