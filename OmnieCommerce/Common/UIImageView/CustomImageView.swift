@@ -18,11 +18,21 @@ import AlamofireImage
         }
     }
     
+
+    // MARK: - Class Initialization
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        
+        print(object: "\(type(of: self)): \(#function) run. Button frame = \(self.frame)")
+    }
+
     
     // MARK: - Class Functions
-    override func draw(_ rect: CGRect) {
-
-    }
+    override func draw(_ rect: CGRect) {}
     
     
     // MARK: - Custom Functions

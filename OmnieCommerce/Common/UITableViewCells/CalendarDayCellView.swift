@@ -15,6 +15,19 @@ class CalendarDayCellView: JTAppleDayCellView {
     @IBOutlet var selectedView: CustomView!
     @IBOutlet weak var currentDayView: CustomView!
     
+    
+    // MARK: - Class Initialization
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        
+        print(object: "\(type(of: self)): \(#function) run. Button frame = \(self.frame)")
+    }
+
+    
     // MARK: - Class Functions
     func setupBeforeDisplay(forDate date: Date, witState state: CellState) {
         dayLabel.text = state.text

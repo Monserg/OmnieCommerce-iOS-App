@@ -63,10 +63,17 @@ class TextFieldManager: NSObject {
                 
                 results.append(result)
                 
-            case .PasswordStrength:
+            case .Password:
                 let result = textField.checkPasswordValidation(textField.text!)
                 
                 (result) ? (currentVC as! PasswordErrorMessageView).didHide((currentVC as! PasswordErrorMessageView).passwordErrorMessageView, withConstraint: (currentVC as! PasswordErrorMessageView).passwordErrorMessageViewTopConstraint) : (currentVC as! PasswordErrorMessageView).didShow((currentVC as! PasswordErrorMessageView).passwordErrorMessageView, withConstraint: (currentVC as! PasswordErrorMessageView).passwordErrorMessageViewTopConstraint)
+                
+                results.append(result)
+                
+            case .PasswordStrength:
+                let result = textField.checkPasswordValidation(textField.text!)
+                
+                (result) ? (currentVC as! PasswordStrengthErrorMessageView).didHide((currentVC as! PasswordStrengthErrorMessageView).passwordStrengthErrorMessageView, withConstraint: (currentVC as! PasswordStrengthErrorMessageView).passwordStrengthErrorMessageViewTopConstraint) : (currentVC as! PasswordStrengthErrorMessageView).didShow((currentVC as! PasswordStrengthErrorMessageView).passwordStrengthErrorMessageView, withConstraint: (currentVC as! PasswordStrengthErrorMessageView).passwordStrengthErrorMessageViewTopConstraint)
                 
                 results.append(result)
                 
@@ -96,8 +103,11 @@ extension TextFieldManager: UITextFieldDelegate {
         case .Email, .PhoneEmail:
             (currentVC as! EmailErrorMessageView).didHide((currentVC as! EmailErrorMessageView).emailErrorMessageView, withConstraint: (currentVC as! EmailErrorMessageView).emailErrorMessageViewTopConstraint)
             
-        case .PasswordStrength:
+        case .Password:
             (currentVC as! PasswordErrorMessageView).didHide((currentVC as! PasswordErrorMessageView).passwordErrorMessageView, withConstraint: (currentVC as! PasswordErrorMessageView).passwordErrorMessageViewTopConstraint)
+            
+        case .PasswordStrength:
+            (currentVC as! PasswordStrengthErrorMessageView).didHide((currentVC as! PasswordStrengthErrorMessageView).passwordStrengthErrorMessageView, withConstraint: (currentVC as! PasswordStrengthErrorMessageView).passwordStrengthErrorMessageViewTopConstraint)
             
         case .Code:
             (currentVC as! EnterCodeShowViewController).didHide((currentVC as! EnterCodeShowViewController).codeErrorMessageView, withConstraint: (currentVC as! EnterCodeShowViewController).codeErrorMessageViewTopConstraint)
@@ -121,9 +131,14 @@ extension TextFieldManager: UITextFieldDelegate {
                 (currentVC as! EmailErrorMessageView).didShow((currentVC as! EmailErrorMessageView).emailErrorMessageView, withConstraint: (currentVC as! EmailErrorMessageView).emailErrorMessageViewTopConstraint)
             }
             
-        case .PasswordStrength:
+        case .Password:
             if !((textField as! CustomTextField).checkPasswordValidation(textField.text!)) {
                 (currentVC as! PasswordErrorMessageView).didShow((currentVC as! PasswordErrorMessageView).passwordErrorMessageView, withConstraint: (currentVC as! PasswordErrorMessageView).passwordErrorMessageViewTopConstraint)
+            }
+            
+        case .PasswordStrength:
+            if !((textField as! CustomTextField).checkPasswordValidation(textField.text!)) {
+                (currentVC as! PasswordStrengthErrorMessageView).didShow((currentVC as! PasswordStrengthErrorMessageView).passwordStrengthErrorMessageView, withConstraint: (currentVC as! PasswordStrengthErrorMessageView).passwordStrengthErrorMessageViewTopConstraint)
             }
             
         case .Code:
@@ -143,8 +158,11 @@ extension TextFieldManager: UITextFieldDelegate {
         case .Email, .PhoneEmail:
             (currentVC as! EmailErrorMessageView).didHide((currentVC as! EmailErrorMessageView).emailErrorMessageView, withConstraint: (currentVC as! EmailErrorMessageView).emailErrorMessageViewTopConstraint)
             
-        case .PasswordStrength:
+        case .Password:
             (currentVC as! PasswordErrorMessageView).didHide((currentVC as! PasswordErrorMessageView).passwordErrorMessageView, withConstraint: (currentVC as! PasswordErrorMessageView).passwordErrorMessageViewTopConstraint)
+            
+        case .PasswordStrength:
+            (currentVC as! PasswordStrengthErrorMessageView).didHide((currentVC as! PasswordStrengthErrorMessageView).passwordStrengthErrorMessageView, withConstraint: (currentVC as! PasswordStrengthErrorMessageView).passwordStrengthErrorMessageViewTopConstraint)
             
             (currentVC as! PasswordStrengthView).passwordStrengthView.passwordStrengthLevel = (string.isEmpty && textField.text?.characters.count == 1) ? .None : (textField as! CustomTextField).checkPasswordStrength(textField.text! + string)
             
@@ -180,12 +198,15 @@ extension TextFieldManager: UITextFieldDelegate {
         case .Email, .PhoneEmail:
             (currentVC as! EmailErrorMessageView).didHide((currentVC as! EmailErrorMessageView).emailErrorMessageView, withConstraint: (currentVC as! EmailErrorMessageView).emailErrorMessageViewTopConstraint)
 
-        case .PasswordStrength:
+        case .Password:
             (currentVC as! PasswordErrorMessageView).didHide((currentVC as! PasswordErrorMessageView).passwordErrorMessageView, withConstraint: (currentVC as! PasswordErrorMessageView).passwordErrorMessageViewTopConstraint)
+
+        case .PasswordStrength:
+            (currentVC as! PasswordStrengthErrorMessageView).didHide((currentVC as! PasswordStrengthErrorMessageView).passwordStrengthErrorMessageView, withConstraint: (currentVC as! PasswordStrengthErrorMessageView).passwordStrengthErrorMessageViewTopConstraint)
             
             (currentVC as! PasswordStrengthView).passwordStrengthView.passwordStrengthLevel = .None
             (currentVC as! PasswordStrengthView).passwordStrengthView.setNeedsDisplay()
-
+            
         case .Code:
             (currentVC as! EnterCodeShowViewController).didHide((currentVC as! EnterCodeShowViewController).codeErrorMessageView, withConstraint: (currentVC as! EnterCodeShowViewController).codeErrorMessageViewTopConstraint)
 
@@ -212,7 +233,7 @@ extension TextFieldManager: UITextFieldDelegate {
                 (currentVC as! EmailErrorMessageView).didShow((currentVC as! EmailErrorMessageView).emailErrorMessageView, withConstraint: (currentVC as! EmailErrorMessageView).emailErrorMessageViewTopConstraint)
             }
             
-        case .PasswordStrength:
+        case .Password:
             if ((textField as! CustomTextField).checkPasswordValidation(textField.text!)) {
                 self.didLoadNextTextField(afterCurrent: textField as! CustomTextField)
                 
@@ -223,6 +244,17 @@ extension TextFieldManager: UITextFieldDelegate {
                 return false
             }
 
+        case .PasswordStrength:
+            if ((textField as! CustomTextField).checkPasswordValidation(textField.text!)) {
+                self.didLoadNextTextField(afterCurrent: textField as! CustomTextField)
+                
+                return true
+            } else {
+                (currentVC as! PasswordStrengthErrorMessageView).didShow((currentVC as! PasswordStrengthErrorMessageView).passwordStrengthErrorMessageView, withConstraint: (currentVC as! PasswordStrengthErrorMessageView).passwordStrengthErrorMessageViewTopConstraint)
+                
+                return false
+            }
+            
         case .Code:
             if (textField.text == (currentVC as! EnterCodeShowViewController).enteredCode) {
                 (currentVC as! EnterCodeShowViewController).didHide((currentVC as! EnterCodeShowViewController).codeErrorMessageView, withConstraint: (currentVC as! EnterCodeShowViewController).codeErrorMessageViewTopConstraint)

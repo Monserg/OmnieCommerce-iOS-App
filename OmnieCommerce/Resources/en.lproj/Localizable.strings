@@ -107,4 +107,4 @@
 
 // Errors
 "Google services error"         =   "Error configuring Google services:";
-"Password min lenght error"     =   "Password must be of minimum 6 characters length";
+"Password min lenght error"     =   "* Password must be of minimum 6 characters length";

@@ -21,7 +21,7 @@ protocol SignInContainerShowViewControllerOutput {
     func didUserSignIn(requestModel: SignInContainerShowModels.User.RequestModel)
 }
 
-class SignInContainerShowViewController: BaseViewController {
+class SignInContainerShowViewController: BaseViewController, PasswordErrorMessageView {
     // MARK: - Properties
     var interactor: SignInContainerShowViewControllerOutput!
     var router: SignInContainerShowRouter!
@@ -41,6 +41,11 @@ class SignInContainerShowViewController: BaseViewController {
 
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet var textFieldsCollection: [CustomTextField]!
+    
+    // Protocol PasswordErrorMessageView
+    @IBOutlet weak var passwordErrorMessageView: UIView!
+    @IBOutlet weak var passwordErrorMessageViewTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var passwordErrorMessageViewHeightConstraint: NSLayoutConstraint!
     
     
     // MARK: - Class initialization
@@ -69,6 +74,10 @@ class SignInContainerShowViewController: BaseViewController {
         // Create TextFieldManager
         textFieldManager = TextFieldManager(withTextFields: textFieldsCollection)
         textFieldManager.currentVC = self
+        
+        // Hide email error message view
+        passwordErrorMessageViewHeightConstraint.constant = Config.Constants.errorMessageViewHeight
+        didHide(passwordErrorMessageView, withConstraint: passwordErrorMessageViewTopConstraint)
     }
     
     

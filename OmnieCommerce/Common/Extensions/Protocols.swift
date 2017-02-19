@@ -17,27 +17,33 @@ protocol ErrorMessageViewAnimation {
 protocol EmailErrorMessageView: ErrorMessageViewAnimation {
     // MARK: - Properties
     var emailErrorMessageView: UIView! { get }
-    var emailErrorMessageViewHeightConstraint: NSLayoutConstraint! { get set }
     var emailErrorMessageViewTopConstraint: NSLayoutConstraint! { get set }
+    var emailErrorMessageViewHeightConstraint: NSLayoutConstraint! { get set }
 }
 
 protocol PasswordErrorMessageView: ErrorMessageViewAnimation {
     // MARK: - Properties
     var passwordErrorMessageView: UIView! { get }
-    var passwordErrorMessageViewHeightConstraint: NSLayoutConstraint! { get set }
     var passwordErrorMessageViewTopConstraint: NSLayoutConstraint! { get set }
+    var passwordErrorMessageViewHeightConstraint: NSLayoutConstraint! { get set }
 }
 
 protocol PasswordStrengthView {
-    // MARK: - Properties
     var passwordStrengthView: PasswordStrengthLevelView! { get }
+}
+
+protocol PasswordStrengthErrorMessageView: ErrorMessageViewAnimation {
+    // MARK: - Properties
+    var passwordStrengthErrorMessageView: UIView! { get }
+    var passwordStrengthErrorMessageViewTopConstraint: NSLayoutConstraint! { get set }
+    var passwordStrengthErrorMessageViewHeightConstraint: NSLayoutConstraint! { get set }
 }
 
 protocol CodeErrorMessageView: ErrorMessageViewAnimation {
     // MARK: - Properties
     var codeErrorMessageView: UIView! { get }
-    var codeErrorMessageViewHeightConstraint: NSLayoutConstraint! { get set }
     var codeErrorMessageViewTopConstraint: NSLayoutConstraint! { get set }
+    var codeErrorMessageViewHeightConstraint: NSLayoutConstraint! { get set }
 }
 
 extension ErrorMessageViewAnimation {

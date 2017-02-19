@@ -23,7 +23,7 @@ protocol SignUpShowViewControllerOutput {
     func didRegisterUser(fromRequestModel requestModel: SignUpShowModels.User.RequestModel)
 }
 
-class SignUpShowViewController: BaseViewController, EmailErrorMessageView, PasswordErrorMessageView, PasswordStrengthView {
+class SignUpShowViewController: BaseViewController, EmailErrorMessageView, PasswordStrengthView, PasswordStrengthErrorMessageView {
     // MARK: - Properties
     var interactor: SignUpShowViewControllerOutput!
     var router: SignUpShowRouter!
@@ -43,15 +43,15 @@ class SignUpShowViewController: BaseViewController, EmailErrorMessageView, Passw
 
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var emailErrorMessageView: UIView!
-    @IBOutlet weak var passwordErrorMessageView: UIView!
+    @IBOutlet weak var passwordStrengthErrorMessageView: UIView!
     @IBOutlet weak var passwordStrengthView: PasswordStrengthLevelView!
 
     @IBOutlet var textFieldsCollection: [CustomTextField]!
 
     @IBOutlet weak var emailErrorMessageViewTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var emailErrorMessageViewHeightConstraint: NSLayoutConstraint!
-    @IBOutlet weak var passwordErrorMessageViewTopConstraint: NSLayoutConstraint!
-    @IBOutlet weak var passwordErrorMessageViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var passwordStrengthErrorMessageViewTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var passwordStrengthErrorMessageViewHeightConstraint: NSLayoutConstraint!
 
     
     // MARK: - Class Initialization
@@ -84,7 +84,7 @@ class SignUpShowViewController: BaseViewController, EmailErrorMessageView, Passw
         // Hide email error message view
         emailErrorMessageViewHeightConstraint.constant = Config.Constants.errorMessageViewHeight
         didHide(emailErrorMessageView, withConstraint: emailErrorMessageViewTopConstraint)
-        didHide(passwordErrorMessageView, withConstraint: passwordErrorMessageViewTopConstraint)
+        didHide(passwordStrengthErrorMessageView, withConstraint: passwordStrengthErrorMessageViewTopConstraint)
         passwordStrengthView.passwordStrengthLevel = .None
     }
         

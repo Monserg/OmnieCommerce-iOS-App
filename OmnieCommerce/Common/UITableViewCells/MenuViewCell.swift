@@ -20,6 +20,12 @@ class MenuViewCell: UITableViewCell {
     var newEventButtonHandlerCompletion: CompletionVoid?
     
     
+    // MARK: - Class Initialization
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+
+    
     // MARK: - Class Functions
     override func awakeFromNib() {
         super.awakeFromNib()

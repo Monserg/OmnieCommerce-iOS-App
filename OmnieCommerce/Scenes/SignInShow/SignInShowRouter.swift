@@ -78,6 +78,7 @@ class SignInShowRouter: SignInShowRouterInput {
                     // RepetitionPasswordShowVC: handler Send button
                     self.viewController.repetitionPasswordShowViewController?.handlerSendButtonCompletion = { _ in
                         self.navigateAuthorizedUser(duringStartApp: false)
+                        self.viewController.activeViewController = self.viewController.signInContainerShowVC
                     }
                     
                     // RepetitionPasswordShowVC: handler Cancel button

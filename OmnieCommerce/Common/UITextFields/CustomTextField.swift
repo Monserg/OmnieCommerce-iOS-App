@@ -35,6 +35,10 @@ enum FieldType: String {
     
     
     // MARK: - Class Initialization
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+    }
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
@@ -62,11 +66,21 @@ enum FieldType: String {
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.firstLineHeadIndent = 0
         
+        autocapitalizationType              =   .none
+        autocorrectionType                  =   .no
+        spellCheckingType                   =   .no
+        keyboardType                        =   .default
+        keyboardAppearance                  =   (Config.Constants.isAppThemesDark) ? .dark : .light // : .dark
+        enablesReturnKeyAutomatically       =   true
+        returnKeyType                       =   (tag == 99) ? .default : .next
+        isSecureTextEntry                   =   false
+        clearButtonMode                     =   .whileEditing
+        textAlignment                       =   .left
+        
         // Text design: Ubuntu-Light, 12 or 16, #dedede
         font = (Config.Constants.isAppThemesDark) ? UIFont.systemFont(ofSize: 12) : ((font?.pointSize == 12) ? UIFont.ubuntuLight12 : UIFont.ubuntuLight16)
         textColor = (Config.Constants.isAppThemesDark) ? UIColor.blue : UIColor.veryLightGray
         tintColor = (Config.Constants.isAppThemesDark) ? UIColor.blue : UIColor.veryLightGray
-        keyboardAppearance = (Config.Constants.isAppThemesDark) ? .dark : .light
         
         // Placeholder design
         attributedPlaceholder = NSAttributedString(string: (placeholder?.localized())!, attributes: [NSFontAttributeName:  (font?.pointSize == 12) ? UIFont.ubuntuLightItalic12 : UIFont.ubuntuLightItalic16, NSForegroundColorAttributeName: UIColor.darkCyan, NSKernAttributeName: 0.0, NSParagraphStyleAttributeName: paragraphStyle])
@@ -76,32 +90,21 @@ enum FieldType: String {
         switch fieldType {
         // Name
         case .Name:
-            print(object: #function)
-            
+            autocapitalizationType          =   .words
             
         // Password
         case .Password, .PasswordStrength:
-            print(object: #function)
-            
+            enablesReturnKeyAutomatically   =   true
+            isSecureTextEntry               =   true
             
         // Phone
-        case .Phone:
-            print(object: #function)
-            
+        case .Phone, .Code:
+            keyboardType                    =   .numbersAndPunctuation
             
         // Email
-        case .Email:
-            print(object: #function)
-            
-            
-        // PhoneEmail
-        case .PhoneEmail:
-            print(object: #function)
+        case .Email, .PhoneEmail:
+            keyboardType                    =   .emailAddress
 
-        // Code
-        case .Code:
-            print(object: #function)
-            
         default:
             break
         }

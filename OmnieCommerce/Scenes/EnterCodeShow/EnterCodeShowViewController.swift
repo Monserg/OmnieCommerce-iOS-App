@@ -36,7 +36,6 @@ class EnterCodeShowViewController: BaseViewController, CodeErrorMessageView {
             }
         }
     }
-    
 
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var codeErrorMessageView: UIView!

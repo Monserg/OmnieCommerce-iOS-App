@@ -95,7 +95,7 @@ class BaseViewController: UIViewController {
 
         guard (selectedRange != nil && (keyboardViewEndFrame.contains((selectedRange?.origin)!))) else {
             DispatchQueue.main.async {
-                UIView.animate(withDuration: 1.5, delay: 0, options: .curveEaseOut, animations: {
+                UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseOut, animations: {
                     self.scrollViewBase.contentOffset.y = 0
                 }, completion: nil)
             }

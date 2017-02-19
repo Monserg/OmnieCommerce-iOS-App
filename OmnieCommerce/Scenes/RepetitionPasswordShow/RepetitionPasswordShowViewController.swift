@@ -21,26 +21,44 @@ protocol RepetitionPasswordShowViewControllerOutput {
     func doSomething(requestModel: RepetitionPasswordShowModels.Something.RequestModel)
 }
 
-class RepetitionPasswordShowViewController: BaseViewController {
+class RepetitionPasswordShowViewController: BaseViewController, PasswordStrengthView, PasswordStrengthErrorMessageView, PasswordErrorMessageView {
     // MARK: - Properties
     var interactor: RepetitionPasswordShowViewControllerOutput!
     var router: RepetitionPasswordShowRouter!
+    
     var handlerSendButtonCompletion: HandlerSendButtonCompletion?
     var handlerCancelButtonCompletion: HandlerCancelButtonCompletion?
     
+    var textFieldManager: TextFieldManager! {
+        didSet {
+            // Delegates
+            for textField in textFieldsCollection {
+                textField.delegate = textFieldManager
+            }
+        }
+    }
+
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet var textFieldsCollection: [CustomTextField]!
+
+    // Protocol PasswordStrengthView, PasswordStrengthErrorMessageView
     @IBOutlet weak var passwordStrengthView: PasswordStrengthLevelView!
-    @IBOutlet weak var repeatPasswordErrorMessageView: UIView!
-   
-    @IBOutlet weak var repeatPasswordErrorMessageViewHeightConstraint: NSLayoutConstraint!
-    @IBOutlet weak var repeatPasswordErrorMessageViewTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var passwordStrengthErrorMessageView: UIView!
+    @IBOutlet weak var passwordStrengthErrorMessageViewTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var passwordStrengthErrorMessageViewHeightConstraint: NSLayoutConstraint!
+
+    // Protocol PasswordErrorMessageView
+    @IBOutlet weak var passwordErrorMessageView: UIView!
+    @IBOutlet weak var passwordErrorMessageViewTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var passwordErrorMessageViewHeightConstraint: NSLayoutConstraint!
 
     
     // MARK: - Class initialization
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        self.view.layoutIfNeeded()
+
         RepetitionPasswordShowConfigurator.sharedInstance.configure(viewController: self)
     }
     
@@ -55,16 +73,18 @@ class RepetitionPasswordShowViewController: BaseViewController {
 
     // MARK: - Custom Functions
     func doInitialSetupOnLoad() {
-        // UITextFields
-        textFieldsArray = textFieldsCollection
-        
         // Apply keyboard handler
         scrollViewBase = scrollView
         
+        // Create TextFieldManager
+        textFieldManager = TextFieldManager(withTextFields: textFieldsCollection)
+        textFieldManager.currentVC = self
+        
         // Hide email error message view
-        repeatPasswordErrorMessageViewHeightConstraint.constant = Config.Constants.errorMessageViewHeight
-        repeatPasswordErrorMessageViewTopConstraint.constant = -Config.Constants.errorMessageViewHeight
-        repeatPasswordErrorMessageView.isHidden = true
+        passwordErrorMessageViewHeightConstraint.constant = Config.Constants.errorMessageViewHeight
+        didHide(passwordErrorMessageView, withConstraint: passwordErrorMessageViewTopConstraint)
+        didHide(passwordStrengthErrorMessageView, withConstraint: passwordStrengthErrorMessageViewTopConstraint)
+        passwordStrengthView.passwordStrengthLevel = .None
     }
     
     
@@ -75,7 +95,7 @@ class RepetitionPasswordShowViewController: BaseViewController {
             
             handlerSendButtonCompletion!()
         } else {
-//            repeatPasswordErrorMessageView.didShow(true, withConstraint: repeatPasswordErrorMessageViewTopConstraint)
+            didShow(passwordErrorMessageView, withConstraint: passwordErrorMessageViewTopConstraint)
         }
     }
     
@@ -90,47 +110,5 @@ extension RepetitionPasswordShowViewController: RepetitionPasswordShowViewContro
     func displaySomething(viewModel: RepetitionPasswordShowModels.Something.ViewModel) {
         // NOTE: Display the result from the Presenter
         // nameTextField.text = viewModel.name
-    }
-}
-
-
-// MARK: - UITextFieldDelegate
-extension RepetitionPasswordShowViewController {
-    override func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-//        repeatPasswordErrorMessageView.didShow(false, withConstraint: repeatPasswordErrorMessageViewTopConstraint)
-
-        if (textField.tag != 99) {
-            passwordStrengthView.passwordStrengthLevel = (string.isEmpty && textField.text?.characters.count == 1) ? .None : (textField as! CustomTextField).checkPasswordStrength(textField.text! + string)
-            passwordStrengthView.setNeedsDisplay()
-        }
-
-        return true
-    }
-    
-    override func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if (textField.tag == 99) {
-            if (textFieldsCollection.first?.text == textFieldsCollection.last?.text) {
-                textField.resignFirstResponder()
-                
-                return true
-            } else {
-//                repeatPasswordErrorMessageView.didShow(true, withConstraint: repeatPasswordErrorMessageViewTopConstraint)
-                
-                return false
-            }
-        } else {
-            let indexCurrent = textFieldsArray.index(of: textField as! CustomTextField)!
-            let indexNext = textFieldsArray.index(after: indexCurrent)
-            
-            textFieldsArray[indexNext].becomeFirstResponder()
-        }
-        
-        return true
-    }
-    
-    func textFieldShouldClear(_ textField: UITextField) -> Bool {
-//        repeatPasswordErrorMessageView.didShow(false, withConstraint: repeatPasswordErrorMessageViewTopConstraint)
-        
-        return true
     }
 }
