@@ -7,95 +7,95 @@
 */
 
 // Menu Items
-"Orders"                =   "Мои заказы";
-"Messages"              =   "Сообщения";
-"Favourite"             =   "Избранное";
-"Categories"            =   "Категории";
-"News"                  =   "Новости";
-"DiscountCards"         =   "Карточки";
-"OmnieCards"            =   "Omnie Cards";
-"BusinessCards"         =   "Визитница";
-"Handbook"              =   "Справочник";
-"PersonalPage"          =   "Мой кабинет";
-"Settings"              =   "Настройки";
-"About"                 =   "Справка";
-"OnmieSoft"             =   "OnmieSoft";
-"LogOut"                =   "Выйти";
+"Orders"                        =   "Мои заказы";
+"Messages"                      =   "Сообщения";
+"Favourite"                     =   "Избранное";
+"Categories"                    =   "Категории";
+"News"                          =   "Новости";
+"DiscountCards"                 =   "Карточки";
+"OmnieCards"                    =   "Omnie Cards";
+"BusinessCards"                 =   "Визитница";
+"Handbook"                      =   "Справочник";
+"PersonalPage"                  =   "Мой кабинет";
+"Settings"                      =   "Настройки";
+"About"                         =   "Справка";
+"OnmieSoft"                     =   "OnmieSoft";
+"LogOut"                        =   "Выйти";
 
 
 // Labels
-"Congratulations"       =   "Поздравляем!";
-"Not yet registered?"   =   "Ещё не зарегистрированы?";
-"Forgot Password"       =   "Забыли пароль";
-"Phone or email error"  =   "* неправильный номер или Email";
-"Phone error"           =   "* неправильный номер";
-"Email error"           =   "* неправильный Email";
-"Auto Service"          =   "Автосервис";
-"Health"                =   "Здоровье";
-"Beauty"                =   "Красота";
-"Training"              =   "Обучение";
-"Restaurants"           =   "Рестораны";
-"Tourism"               =   "Туризм";
-"Sport"                 =   "Спорт";
-"From"                  =   "с";
-"To"                    =   "до";
-"Enter code"            =   "Введите код";
-"Invalid code"          =   "* Ошибочный код. Попытайтесь ще раз";
-"New password"          =   "Новый пароль";
+"Congratulations"               =   "Поздравляем!";
+"Not yet registered?"           =   "Ещё не зарегистрированы?";
+"Forgot Password"               =   "Забыли пароль";
+"Phone or email error"          =   "* неправильный номер или Email";
+"Phone error"                   =   "* неправильный номер";
+"Email error"                   =   "* неправильный Email";
+"Auto Service"                  =   "Автосервис";
+"Health"                        =   "Здоровье";
+"Beauty"                        =   "Красота";
+"Training"                      =   "Обучение";
+"Restaurants"                   =   "Рестораны";
+"Tourism"                       =   "Туризм";
+"Sport"                         =   "Спорт";
+"From"                          =   "с";
+"To"                            =   "до";
+"Enter code"                    =   "Введите код";
+"Invalid code"                  =   "* Ошибочный код. Попытайтесь ще раз";
+"New password"                  =   "Новый пароль";
 
 
 // Buttons
-"Register"              =   "Регистрироваться";
-"Forgot password?"      =   "Забыли пароль?";
-"Sign In"               =   "Войти";
-"Sign Up"               =   "Зарегистрироваться";
-"Check In"              =   "Регистрация";
-"Forgot Password?"      =   "Забыли пароль?";
-"Cancel"                =   "Отменить";
-"Send"                  =   "Отправить";
-"City"                  =   "Город";
-"Confirm"               =   "Подтвердить";
-"Send"                  =   "Отправить";
-"Send again"            =   "Отправить ещё раз";
-"Submit"                =   "Подтвердить";
-"Enter"                 =   "Войти";
+"Register"                      =   "Регистрироваться";
+"Forgot password?"              =   "Забыли пароль?";
+"Sign In"                       =   "Войти";
+"Sign Up"                       =   "Зарегистрироваться";
+"Check In"                      =   "Регистрация";
+"Forgot Password?"              =   "Забыли пароль?";
+"Cancel"                        =   "Отменить";
+"Send"                          =   "Отправить";
+"City"                          =   "Город";
+"Confirm"                       =   "Подтвердить";
+"Send"                          =   "Отправить";
+"Send again"                    =   "Отправить ещё раз";
+"Submit"                        =   "Подтвердить";
+"Enter"                         =   "Войти";
 
 
 // TextField Placeholders
-"Name"                  =   "Имя";
-"Surname"               =   "Фамилия";
-"Password"              =   "Пароль";
-"Email"                 =   "Email";
-"Phone"                 =   "Телефон";
-"Phone or Email"        =   "Телефон или Email";
-"Enter Code"            =   "Введите код из сообщения";
-"Repeat password"       =   "Повторить пароль";
+"Name"                          =   "Имя";
+"Surname"                       =   "Фамилия";
+"Password"                      =   "Пароль";
+"Email"                         =   "Email";
+"Phone"                         =   "Телефон";
+"Phone or Email"                =   "Телефон или Email";
+"Enter Code"                    =   "Введите код из сообщения";
+"Repeat password"               =   "Повторить пароль";
 
 
 // Segmented Control Titles
-"Subscription"          =   "Подписка";
-"Hot News"              =   "Горячие новости";
-"Personal Data"         =   "Личные данные";
-"My Templates"          =   "Мои шаблоны";
-"Organizations"         =   "Организации";
-"Services"              =   "Услуги";
-"Calendar"              =   "Календарь";
-"Schedule"              =   "График";
+"Subscription"                  =   "Подписка";
+"Hot News"                      =   "Горячие новости";
+"Personal Data"                 =   "Личные данные";
+"My Templates"                  =   "Мои шаблоны";
+"Organizations"                 =   "Организации";
+"Services"                      =   "Услуги";
+"Calendar"                      =   "Календарь";
+"Schedule"                      =   "График";
 
 
 // Titles
-"Man"                   =   "Мужчина";
-"Female"                =   "Женщина";
-"Birthday"              =   "Дата рождения";
-"Family status"         =   "Семейное положение";
-"Not married"           =   "Холост";
-"Married"               =   "Женат";
-"Children"              =   "Наличие детей";
-"Children No"           =   "Детей нет";
-"Children Yes"          =   "Дети есть";
-"Pet"                   =   "Наличие домашнего животного";
-"Pet No"                =   "Домашнего животного нет";
-"Pet Yes"               =   "Домашнее животное есть";
+"Man"                           =   "Мужчина";
+"Female"                        =   "Женщина";
+"Birthday"                      =   "Дата рождения";
+"Family status"                 =   "Семейное положение";
+"Not married"                   =   "Холост";
+"Married"                       =   "Женат";
+"Children"                      =   "Наличие детей";
+"Children No"                   =   "Детей нет";
+"Children Yes"                  =   "Дети есть";
+"Pet"                           =   "Наличие домашнего животного";
+"Pet No"                        =   "Домашнего животного нет";
+"Pet Yes"                       =   "Домашнее животное есть";
 
 
 // Alert actions
@@ -108,3 +108,5 @@
 // Errors
 "Google services error"         =   "Ошибка настройки служб Google:";
 "Password min lenght error"     =   "* Длина пароля должна быть не менее 6 символов";
+"CoreData saved error"          =   "Ошибка при создании или загрузке локальных данных";
+"CoreData init error"           =   "Не удалось прочитать локальные данные";

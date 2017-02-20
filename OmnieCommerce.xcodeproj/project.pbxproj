@@ -10,6 +10,8 @@
 		4B80CBB54BC2985E0EDC5A94 /* Pods_OmnieCommerce.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9EA988F3F694011D76FF246 /* Pods_OmnieCommerce.framework */; };
 		B10871521E379A4800374DD5 /* OmnieCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10871511E379A4800374DD5 /* OmnieCard.swift */; };
 		B10871541E379A9A00374DD5 /* OmnieCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10871531E379A9A00374DD5 /* OmnieCardViewModel.swift */; };
+		B10874691E5B07A6004A4FB6 /* OmnieCommerceUser.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B10874671E5B07A6004A4FB6 /* OmnieCommerceUser.xcdatamodeld */; };
+		B108746C1E5B07D3004A4FB6 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B108746B1E5B07D3004A4FB6 /* CoreDataManager.swift */; };
 		B11B9AD61DF00CC5009A4AA1 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11B9AD51DF00CC5009A4AA1 /* BaseTableViewCell.swift */; };
 		B11B9AD81DF02BAB009A4AA1 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11B9AD71DF02BAB009A4AA1 /* News.swift */; };
 		B11B9ADA1DF02F5C009A4AA1 /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11B9AD91DF02F5C009A4AA1 /* Date+Ext.swift */; };
@@ -270,6 +272,8 @@
 		796E69C2BE10D1D43C710949 /* Pods-OmnieCommerce.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OmnieCommerce.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OmnieCommerce/Pods-OmnieCommerce.debug.xcconfig"; sourceTree = "<group>"; };
 		B10871511E379A4800374DD5 /* OmnieCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OmnieCard.swift; sourceTree = "<group>"; };
 		B10871531E379A9A00374DD5 /* OmnieCardViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OmnieCardViewModel.swift; sourceTree = "<group>"; };
+		B10874681E5B07A6004A4FB6 /* OmnieCommerceUser.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = OmnieCommerceUser.xcdatamodel; sourceTree = "<group>"; };
+		B108746B1E5B07D3004A4FB6 /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		B11B9AD51DF00CC5009A4AA1 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
 		B11B9AD71DF02BAB009A4AA1 /* News.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
 		B11B9AD91DF02F5C009A4AA1 /* Date+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
@@ -560,6 +564,23 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		B10874661E5B077D004A4FB6 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				B108746A1E5B07B2004A4FB6 /* Models */,
+				B10874671E5B07A6004A4FB6 /* OmnieCommerceUser.xcdatamodeld */,
+				B108746B1E5B07D3004A4FB6 /* CoreDataManager.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		B108746A1E5B07B2004A4FB6 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		B11B9ADB1DF0537A009A4AA1 /* UIImageView */ = {
 			isa = PBXGroup;
 			children = (
@@ -796,6 +817,7 @@
 		B122F2331DD36DF70018A701 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				B10874661E5B077D004A4FB6 /* CoreData */,
 				B1228FB31DD4853E00A90FBB /* DataModel */,
 				B1739D141DE3145F0029BCCA /* Extensions */,
 				B12FE6421E57321500A4FBA4 /* Managers */,
@@ -1457,6 +1479,7 @@
 				B1CF54A31DDB515000E98049 /* HandbookShowPresenter.swift in Sources */,
 				B14CD91A1E57C058005F8BF6 /* Protocols.swift in Sources */,
 				B14E97591DD8B052001E1DE2 /* SignUpShowPresenter.swift in Sources */,
+				B10874691E5B07A6004A4FB6 /* OmnieCommerceUser.xcdatamodeld in Sources */,
 				B1CF54781DDB50D900E98049 /* AboutShowModels.swift in Sources */,
 				B14E97561DD8B052001E1DE2 /* SignUpShowConfigurator.swift in Sources */,
 				B14E97671DD8B05E001E1DE2 /* ForgotPasswordShowPresenter.swift in Sources */,
@@ -1502,6 +1525,7 @@
 				B177E5591E54B739004F1390 /* RepetitionPasswordShowPresenter.swift in Sources */,
 				B122F20A1DD35BEB0018A701 /* CategoriesShowViewController.swift in Sources */,
 				B177E55C1E54B739004F1390 /* RepetitionPasswordShowWorker.swift in Sources */,
+				B108746C1E5B07D3004A4FB6 /* CoreDataManager.swift in Sources */,
 				B19DF2861DF94DED000AFC92 /* SchedulerViewController.swift in Sources */,
 				B1CF54CE1DDB51A500E98049 /* PersonalPageShowRouter.swift in Sources */,
 				B18A45CA1DEC282B003EBD2F /* DotView.swift in Sources */,
@@ -1781,6 +1805,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		B10874671E5B07A6004A4FB6 /* OmnieCommerceUser.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				B10874681E5B07A6004A4FB6 /* OmnieCommerceUser.xcdatamodel */,
+			);
+			currentVersion = B10874681E5B07A6004A4FB6 /* OmnieCommerceUser.xcdatamodel */;
+			path = OmnieCommerceUser.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = B15FD3FE1DD1DD8C00782324 /* Project object */;
 }

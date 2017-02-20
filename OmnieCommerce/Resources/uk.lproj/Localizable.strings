@@ -7,104 +7,106 @@
 */
 
 // Menu Items
-"Orders"                =   "Мої замовлення";
-"Messages"              =   "Повідомлення";
-"Favourite"             =   "Улюблене";
-"Categories"            =   "Категорії";
-"News"                  =   "Новини";
-"DiscountCards"         =   "Картки";
-"OmnieCards"            =   "Omnie Cards";
-"BusinessCards"         =   "Візитниця";
-"Handbook"              =   "Довідник";
-"PersonalPage"          =   "Мій кабінет";
-"Settings"              =   "Налаштування";
-"About"                 =   "Справка";
-"OnmieSoft"             =   "OnmieSoft";
-"LogOut"                =   "Вийти";
+"Orders"                        =   "Мої замовлення";
+"Messages"                      =   "Повідомлення";
+"Favourite"                     =   "Улюблене";
+"Categories"                    =   "Категорії";
+"News"                          =   "Новини";
+"DiscountCards"                 =   "Картки";
+"OmnieCards"                    =   "Omnie Cards";
+"BusinessCards"                 =   "Візитниця";
+"Handbook"                      =   "Довідник";
+"PersonalPage"                  =   "Мій кабінет";
+"Settings"                      =   "Налаштування";
+"About"                         =   "Справка";
+"OnmieSoft"                     =   "OnmieSoft";
+"LogOut"                        =   "Вийти";
 
 
 // Labels
-"Congratulations"       =   "Вітаємо!";
-"Not yet registered?"   =   "Ще не зареєстровані?";
-"Forgot Password"       =   "Забули пароль";
-"Phone or email error"  =   "* невірний номер або Email";
-"Phone error"           =   "* невірний номер";
-"Email error"           =   "* невірний Email";
-"Auto Service"          =   "Автосервіс";
-"Health"                =   "Здоров'я";
-"Beauty"                =   "Краса";
-"Training"              =   "Навчання";
-"Restaurants"           =   "Ресторани";
-"Tourism"               =   "Туризм";
-"Sport"                 =   "Спорт";
-"From"                  =   "з";
-"To"                    =   "до";
-"Enter code"            =   "Введіть код";
-"Invalid code"          =   "* Невірний код. Спробуйте ще раз";
-"New password"          =   "Новий пароль";
+"Congratulations"               =   "Вітаємо!";
+"Not yet registered?"           =   "Ще не зареєстровані?";
+"Forgot Password"               =   "Забули пароль";
+"Phone or email error"          =   "* невірний номер або Email";
+"Phone error"                   =   "* невірний номер";
+"Email error"                   =   "* невірний Email";
+"Auto Service"                  =   "Автосервіс";
+"Health"                        =   "Здоров'я";
+"Beauty"                        =   "Краса";
+"Training"                      =   "Навчання";
+"Restaurants"                   =   "Ресторани";
+"Tourism"                       =   "Туризм";
+"Sport"                         =   "Спорт";
+"From"                          =   "з";
+"To"                            =   "до";
+"Enter code"                    =   "Введіть код";
+"Invalid code"                  =   "* Невірний код. Спробуйте ще раз";
+"New password"                  =   "Новий пароль";
 
 
 // Buttons
-"Register"              =   "Зареєструватись";
-"Forgot password?"      =   "Забули пароль?";
-"Sign In"               =   "Зайти";
-"Sign Up"               =   "Зареєструватись";
-"Check In"              =   "Реєстрація";
-"Forgot Password?"      =   "Забули пароль?";
-"Cancel"                =   "Відмінити";
-"Send"                  =   "Відправити";
-"City"                  =   "Місто";
-"Confirm"               =   "Підтвердити";
-"Send"                  =   "Відправити";
-"Send again"            =   "Відправити ще раз";
-"Submit"                =   "Підтвердити";
-"Enter"                 =   "Зайти";
+"Register"                      =   "Зареєструватись";
+"Forgot password?"              =   "Забули пароль?";
+"Sign In"                       =   "Зайти";
+"Sign Up"                       =   "Зареєструватись";
+"Check In"                      =   "Реєстрація";
+"Forgot Password?"              =   "Забули пароль?";
+"Cancel"                        =   "Відмінити";
+"Send"                          =   "Відправити";
+"City"                          =   "Місто";
+"Confirm"                       =   "Підтвердити";
+"Send"                          =   "Відправити";
+"Send again"                    =   "Відправити ще раз";
+"Submit"                        =   "Підтвердити";
+"Enter"                         =   "Зайти";
 
 
 // TextField Placeholders
-"Name"                  =   "Ім'я";
-"Surname"               =   "Прізвище";
-"Password"              =   "Пароль";
-"Email"                 =   "Email";
-"Phone"                 =   "Телефон";
-"Phone or Email"        =   "Телефон або Email";
-"Enter Code"            =   "Введіть код з повідомлення";
-"Repeat password"       =   "Повторити пароль";
+"Name"                          =   "Ім'я";
+"Surname"                       =   "Прізвище";
+"Password"                      =   "Пароль";
+"Email"                         =   "Email";
+"Phone"                         =   "Телефон";
+"Phone or Email"                =   "Телефон або Email";
+"Enter Code"                    =   "Введіть код з повідомлення";
+"Repeat password"               =   "Повторити пароль";
 
 
 // Segmented Control Titles
-"Subscription"          =   "Підписка";
-"Hot News"              =   "Гарячі новини";
-"Personal Data"         =   "Особисті дані";
-"My Templates"          =   "Мої шаблони";
-"Organizations"         =   "Організації";
-"Services"              =   "Послуги";
-"Calendar"              =   "Календар";
-"Schedule"              =   "Графік";
+"Subscription"                  =   "Підписка";
+"Hot News"                      =   "Гарячі новини";
+"Personal Data"                 =   "Особисті дані";
+"My Templates"                  =   "Мої шаблони";
+"Organizations"                 =   "Організації";
+"Services"                      =   "Послуги";
+"Calendar"                      =   "Календар";
+"Schedule"                      =   "Графік";
 
 
 // Titles
-"Man"                   =   "Чоловік";
-"Female"                =   "Жінка";
-"Birthday"              =   "Дата народження";
-"Family status"         =   "Сімейний стан";
-"Not married"           =   "Не одружений";
-"Married"               =   "Одружений";
-"Children"              =   "Наявність дітей";
-"Children No"           =   "Немає дітей";
-"Children Yes"          =   "Є діти";
-"Pet"                   =   "Наявність домашньої тварини";
-"Pet No"                =   "Немає домашньої тварини";
-"Pet Yes"               =   "Є домашня тварина";
+"Man"                           =   "Чоловік";
+"Female"                        =   "Жінка";
+"Birthday"                      =   "Дата народження";
+"Family status"                 =   "Сімейний стан";
+"Not married"                   =   "Не одружений";
+"Married"                       =   "Одружений";
+"Children"                      =   "Наявність дітей";
+"Children No"                   =   "Немає дітей";
+"Children Yes"                  =   "Є діти";
+"Pet"                           =   "Наявність домашньої тварини";
+"Pet No"                        =   "Немає домашньої тварини";
+"Pet Yes"                       =   "Є домашня тварина";
 
 
 // Alert actions
-"Photo"                 =   "Фотографія";
-"Photo upload"          =   "Загрузити нове фото";
-"Photo make"            =   "Зробити фото";
-"Photo delete"          =   "Удалити фото";
+"Photo"                         =   "Фотографія";
+"Photo upload"                  =   "Загрузити нове фото";
+"Photo make"                    =   "Зробити фото";
+"Photo delete"                  =   "Удалити фото";
 
 
 // Errors
 "Google services error"         =   "Помилка налаштування служб Google:";
 "Password min lenght error"     =   "* Довжина паролю повинна бути не менше 6 символів";
+"CoreData saved error"          =   "Помилка при створенні або завантаженні локальних даних";
+"CoreData init error"           =   "Не вдалося прочитати локальні дані";

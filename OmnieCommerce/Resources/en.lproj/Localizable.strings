@@ -108,3 +108,5 @@
 // Errors
 "Google services error"         =   "Error configuring Google services:";
 "Password min lenght error"     =   "* Password must be of minimum 6 characters length";
+"CoreData saved error"          =   "There was an error creating or loading the application's saved data";
+"CoreData init error"           =   "Failed to initialize the application's saved data";
