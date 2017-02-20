@@ -119,7 +119,7 @@ extension SignInContainerShowViewController: SignInContainerShowViewControllerIn
             return
         }
         
-        Config.Constants.isUserGuest = false
+        CoreDataManager.instance.didUpdateAppUser(state: true)
         
         handlerSendButtonCompletion!()
         

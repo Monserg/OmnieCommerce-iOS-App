@@ -118,7 +118,7 @@ extension SignUpShowViewController: SignUpShowViewControllerInput {
             return
         }
         
-        Config.Constants.isUserGuest = false
+        CoreDataManager.instance.didUpdateAppUser(state: true)
         
         handlerRegisterButtonCompletion!()
         

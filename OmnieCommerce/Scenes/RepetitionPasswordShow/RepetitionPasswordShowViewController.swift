@@ -91,7 +91,7 @@ class RepetitionPasswordShowViewController: BaseViewController, PasswordStrength
     // MARK: - Actions
     @IBAction func handlerSendButtonTap(_ sender: CustomButton) {
         if (textFieldsCollection.first?.text == textFieldsCollection.last?.text) {
-            Config.Constants.isUserGuest = false
+            CoreDataManager.instance.didUpdateAppUser(state: true)
             
             handlerSendButtonCompletion!()
         } else {

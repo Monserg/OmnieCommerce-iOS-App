@@ -11,10 +11,12 @@ import Foundation
 
 class CoreDataManager {
     // MARK: - Properties. CoreDate Stack
+    var appUser: AppUser!
+
     lazy var applicationDocumentsDirectory: URL = {
         let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         
-        return urls[urls.count-1]
+        return urls[urls.count - 1]
     }()
     
     lazy var managedObjectModel: NSManagedObjectModel = {
@@ -56,7 +58,7 @@ class CoreDataManager {
     // MARK: - Class Initialization. Singleton
     static let instance = CoreDataManager()
     
-    fileprivate init() {}
+    private init() {}
     
     
     // MARK: - Class Functions
@@ -74,7 +76,7 @@ class CoreDataManager {
         return fetchedResultsController
     }
 
-    func saveContext () {
+    func didSaveContext() {
         if managedObjectContext.hasChanges {
             do {
                 try managedObjectContext.save()
@@ -85,5 +87,26 @@ class CoreDataManager {
                 abort()
             }
         }
+    }
+    
+    func didUpdateAppUser(state: Bool) {
+        appUser.isAuthorized = state
+        
+        didSaveContext()
+    }
+    
+    // Get Entity by name
+    func didLoadEntity(byName name: String) -> NSManagedObject {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: name)
+        
+        do {
+            let results = try CoreDataManager.instance.managedObjectContext.fetch(fetchRequest)
+            
+            return results.first as! NSManagedObject
+        } catch {
+            print(error)
+        }
+    
+        return NSManagedObject()
     }
 }

@@ -96,7 +96,7 @@ class SignInShowViewController: BaseViewController {
         hideNavigationBar()
         
         // Apply Container childVC
-        (Config.Constants.isUserGuest) ? router.navigateBetweenContainerSubviews() : router.navigateAuthorizedUser(duringStartApp: true)
+        (CoreDataManager.instance.appUser.isAuthorized) ? router.navigateAuthorizedUser(duringStartApp: true) : router.navigateBetweenContainerSubviews()
     }
     
     func setupScene(withSize size: CGSize) {
@@ -126,7 +126,7 @@ class SignInShowViewController: BaseViewController {
     }
     
     @IBAction func handlerFacebookButtonTap(_ sender: CustomButton) {
-        Config.Constants.isUserGuest = false
+        CoreDataManager.instance.didUpdateAppUser(state: true)
         self.router.navigateAuthorizedUser(duringStartApp: false)
     }
     

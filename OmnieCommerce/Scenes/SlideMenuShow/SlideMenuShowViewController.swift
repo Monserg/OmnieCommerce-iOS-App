@@ -98,7 +98,7 @@ extension SlideMenuShowViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let sectionArray = menuItemsList.object(forKey: "Section \(section)") as! NSArray
         
-        return (Config.Constants.isUserGuest) ? (sectionArray.count - 1) : sectionArray.count
+        return (CoreDataManager.instance.appUser.isAuthorized) ? sectionArray.count : (sectionArray.count - 1)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -133,22 +133,9 @@ extension SlideMenuShowViewController: UITableViewDelegate {
         } else {
             // Menu section 4 (Logout)
             if indexPath.section == 4 {
-//                self.revealViewController().revealToggle(animated: true)
-                Config.Constants.isUserGuest = true
+                CoreDataManager.instance.didUpdateAppUser(state: false)
                 
                 dismiss(animated: true, completion: nil)
-
-                /*
-                let window = UIApplication.shared.windows[0]
-                let signInShowStoryboard = UIStoryboard(name: "SignInShow", bundle: nil)
-                let initialNC = signInShowStoryboard.instantiateViewController(withIdentifier: "SignInShowNC") as! BaseNavigationController
-                window.rootViewController = initialNC
-                
-                self.present(initialNC, animated: true, completion: {
-                    _ = self.navigationController?.popToRootViewController(animated: true)
-                    //                self.revealViewController().dismiss(animated: true, completion: nil)
-                })
-                 */
             } else {
                 self.performSegue(withIdentifier: cell.segueName, sender: self)
             }
