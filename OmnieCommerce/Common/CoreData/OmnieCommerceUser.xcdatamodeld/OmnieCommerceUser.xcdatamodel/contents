@@ -5,11 +5,11 @@
     </entity>
     <entity name="AppUser" representedClassName="AppUser" syncable="YES" codeGenerationType="class">
         <attribute name="isAuthorized" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
-        <compoundIndexes>
-            <compoundIndex>
-                <index value="isAuthorized"/>
-            </compoundIndex>
-        </compoundIndexes>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="isAuthorized"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
     </entity>
     <elements>
         <element name="AppUser" positionX="-63" positionY="-18" width="128" height="60"/>

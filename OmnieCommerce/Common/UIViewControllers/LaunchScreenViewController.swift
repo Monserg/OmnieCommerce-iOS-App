@@ -36,7 +36,7 @@ class LaunchScreenViewController: BaseViewController {
         let window = UIApplication.shared.windows[0]
         
         // Create CoreData instance
-        let appUser = CoreDataManager.instance.didLoadEntity(byName: "AppUser") as! AppUser
+        let appUser = CoreDataManager.instance.didLoadEntity(byName: "AppUser") as? AppUser ?? AppUser()
         CoreDataManager.instance.appUser = appUser
         
         if (appUser.isAuthorized) {

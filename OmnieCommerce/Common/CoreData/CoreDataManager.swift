@@ -96,17 +96,21 @@ class CoreDataManager {
     }
     
     // Get Entity by name
-    func didLoadEntity(byName name: String) -> NSManagedObject {
+    func didLoadEntity(byName name: String) -> NSManagedObject? {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: name)
         
         do {
             let results = try CoreDataManager.instance.managedObjectContext.fetch(fetchRequest)
             
-            return results.first as! NSManagedObject
+//            if (name == "AppUser") {
+//                appUser = (results.count > 0) ? results.first as! AppUser : nil
+//            }
+            
+            return (results.count == 0) ? nil : results.first as? NSManagedObject
         } catch {
             print(error)
+            
+            return nil
         }
-    
-        return NSManagedObject()
     }
 }
