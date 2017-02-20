@@ -27,7 +27,13 @@ class SignInShowRouter: SignInShowRouterInput {
         let revealVC = UIStoryboard(name: "SlideMenuShow", bundle: nil).instantiateViewController(withIdentifier: "SWRevealVC") as! SWRevealViewController
         revealVC.modalTransitionStyle = (duringStartApp) ? .crossDissolve : .flipHorizontal
         
-        self.viewController.present(revealVC, animated: !duringStartApp, completion: nil)
+        self.viewController.present(revealVC, animated: !duringStartApp, completion: {
+            if (duringStartApp) {
+                self.navigateBetweenContainerSubviews()
+            }
+        })
+
+//        self.viewController.present(revealVC, animated: !duringStartApp, completion: nil)
     }
 
     func navigateBetweenContainerSubviews() {

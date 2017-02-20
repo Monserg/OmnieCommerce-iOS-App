@@ -11,8 +11,5 @@ import CoreData
 
 @objc(AppUser)
 public class AppUser: NSManagedObject {
-    // MARK: - Class Initialization
-    convenience init() {
-        self.init(entity: CoreDataManager.instance.entityForName("AppUser"), insertInto: CoreDataManager.instance.managedObjectContext)
-    }
+
 }

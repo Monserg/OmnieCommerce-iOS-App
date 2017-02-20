@@ -12,11 +12,11 @@
 		B10871541E379A9A00374DD5 /* OmnieCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10871531E379A9A00374DD5 /* OmnieCardViewModel.swift */; };
 		B10874691E5B07A6004A4FB6 /* OmnieCommerceUser.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B10874671E5B07A6004A4FB6 /* OmnieCommerceUser.xcdatamodeld */; };
 		B108746C1E5B07D3004A4FB6 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B108746B1E5B07D3004A4FB6 /* CoreDataManager.swift */; };
-		B108747D1E5B0DC9004A4FB6 /* AppUser+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10874791E5B0DC9004A4FB6 /* AppUser+CoreDataClass.swift */; };
-		B108747E1E5B0DC9004A4FB6 /* AppUser+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B108747A1E5B0DC9004A4FB6 /* AppUser+CoreDataProperties.swift */; };
 		B108747F1E5B0DC9004A4FB6 /* AppSettings+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B108747B1E5B0DC9004A4FB6 /* AppSettings+CoreDataClass.swift */; };
 		B10874801E5B0DC9004A4FB6 /* AppSettings+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B108747C1E5B0DC9004A4FB6 /* AppSettings+CoreDataProperties.swift */; };
 		B10874821E5B1822004A4FB6 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B10874811E5B1822004A4FB6 /* CoreData.framework */; };
+		B10874A61E5B3D7E004A4FB6 /* AppUser+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10874A41E5B3D7E004A4FB6 /* AppUser+CoreDataClass.swift */; };
+		B10874A71E5B3D7E004A4FB6 /* AppUser+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10874A51E5B3D7E004A4FB6 /* AppUser+CoreDataProperties.swift */; };
 		B11B9AD61DF00CC5009A4AA1 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11B9AD51DF00CC5009A4AA1 /* BaseTableViewCell.swift */; };
 		B11B9AD81DF02BAB009A4AA1 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11B9AD71DF02BAB009A4AA1 /* News.swift */; };
 		B11B9ADA1DF02F5C009A4AA1 /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11B9AD91DF02F5C009A4AA1 /* Date+Ext.swift */; };
@@ -279,11 +279,11 @@
 		B10871531E379A9A00374DD5 /* OmnieCardViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OmnieCardViewModel.swift; sourceTree = "<group>"; };
 		B10874681E5B07A6004A4FB6 /* OmnieCommerceUser.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = OmnieCommerceUser.xcdatamodel; sourceTree = "<group>"; };
 		B108746B1E5B07D3004A4FB6 /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
-		B10874791E5B0DC9004A4FB6 /* AppUser+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AppUser+CoreDataClass.swift"; sourceTree = "<group>"; };
-		B108747A1E5B0DC9004A4FB6 /* AppUser+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AppUser+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		B108747B1E5B0DC9004A4FB6 /* AppSettings+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AppSettings+CoreDataClass.swift"; sourceTree = "<group>"; };
 		B108747C1E5B0DC9004A4FB6 /* AppSettings+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AppSettings+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		B10874811E5B1822004A4FB6 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		B10874A41E5B3D7E004A4FB6 /* AppUser+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AppUser+CoreDataClass.swift"; sourceTree = "<group>"; };
+		B10874A51E5B3D7E004A4FB6 /* AppUser+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AppUser+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		B11B9AD51DF00CC5009A4AA1 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
 		B11B9AD71DF02BAB009A4AA1 /* News.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
 		B11B9AD91DF02F5C009A4AA1 /* Date+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
@@ -589,8 +589,8 @@
 		B108746A1E5B07B2004A4FB6 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				B10874791E5B0DC9004A4FB6 /* AppUser+CoreDataClass.swift */,
-				B108747A1E5B0DC9004A4FB6 /* AppUser+CoreDataProperties.swift */,
+				B10874A41E5B3D7E004A4FB6 /* AppUser+CoreDataClass.swift */,
+				B10874A51E5B3D7E004A4FB6 /* AppUser+CoreDataProperties.swift */,
 				B108747B1E5B0DC9004A4FB6 /* AppSettings+CoreDataClass.swift */,
 				B108747C1E5B0DC9004A4FB6 /* AppSettings+CoreDataProperties.swift */,
 			);
@@ -1538,6 +1538,7 @@
 				B122F1FD1DD35BC70018A701 /* FavoriteShowWorker.swift in Sources */,
 				B14E974D1DD8B042001E1DE2 /* SignInShowViewController.swift in Sources */,
 				B1CF54A21DDB515000E98049 /* HandbookShowModels.swift in Sources */,
+				B10874A71E5B3D7E004A4FB6 /* AppUser+CoreDataProperties.swift in Sources */,
 				B122F2081DD35BEB0018A701 /* CategoriesShowPresenter.swift in Sources */,
 				B177E5591E54B739004F1390 /* RepetitionPasswordShowPresenter.swift in Sources */,
 				B122F20A1DD35BEB0018A701 /* CategoriesShowViewController.swift in Sources */,
@@ -1599,7 +1600,6 @@
 				B122DF681DF7F957003823AD /* CalendarShowViewController.swift in Sources */,
 				B11E074E1DE032D90052AFC5 /* DottedBorderView.swift in Sources */,
 				B122F1EE1DD35BA70018A701 /* MessagesShowViewController.swift in Sources */,
-				B108747E1E5B0DC9004A4FB6 /* AppUser+CoreDataProperties.swift in Sources */,
 				B1CF54891DDB50F100E98049 /* BusinessCardsShowViewController.swift in Sources */,
 				B1CF54D91DDB51BE00E98049 /* SettingsShowInteractor.swift in Sources */,
 				B1CF547C1DDB50D900E98049 /* AboutShowWorker.swift in Sources */,
@@ -1610,6 +1610,7 @@
 				B122F2061DD35BEB0018A701 /* CategoriesShowInteractor.swift in Sources */,
 				B1CF54931DDB512000E98049 /* DiscountCardsShowInteractor.swift in Sources */,
 				B1CF54C01DDB519000E98049 /* OnmieSoftShowRouter.swift in Sources */,
+				B10874A61E5B3D7E004A4FB6 /* AppUser+CoreDataClass.swift in Sources */,
 				B1CF54BC1DDB519000E98049 /* OnmieSoftShowConfigurator.swift in Sources */,
 				B122F1EF1DD35BA70018A701 /* MessagesShowWorker.swift in Sources */,
 				B122F2241DD35CC80018A701 /* SlideMenuShowModels.swift in Sources */,
@@ -1640,7 +1641,6 @@
 				B122F2181DD35C2C0018A701 /* NewsShowViewController.swift in Sources */,
 				B17323CC1DED995C003A8D3E /* Category.swift in Sources */,
 				B177E54D1E54AC7F004F1390 /* EnterCodeShowWorker.swift in Sources */,
-				B108747D1E5B0DC9004A4FB6 /* AppUser+CoreDataClass.swift in Sources */,
 				B122F1F81DD35BC70018A701 /* FavoriteShowInteractor.swift in Sources */,
 				B14E976A1DD8B05E001E1DE2 /* ForgotPasswordShowWorker.swift in Sources */,
 				B1CF54DE1DDB51BE00E98049 /* SettingsShowWorker.swift in Sources */,

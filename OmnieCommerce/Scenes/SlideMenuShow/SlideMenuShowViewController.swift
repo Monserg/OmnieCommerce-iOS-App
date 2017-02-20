@@ -134,7 +134,8 @@ extension SlideMenuShowViewController: UITableViewDelegate {
             // Menu section 4 (Logout)
             if indexPath.section == 4 {
                 CoreDataManager.instance.didUpdateAppUser(state: false)
-                
+                revealViewController().modalTransitionStyle = .flipHorizontal
+
                 dismiss(animated: true, completion: nil)
             } else {
                 self.performSegue(withIdentifier: cell.segueName, sender: self)

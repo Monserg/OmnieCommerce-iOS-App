@@ -11,7 +11,7 @@ import CoreData
 
 
 extension AppUser {
-    // MARK: - Properties
+
     @nonobjc public class func fetchRequest() -> NSFetchRequest<AppUser> {
         return NSFetchRequest<AppUser>(entityName: "AppUser");
     }
