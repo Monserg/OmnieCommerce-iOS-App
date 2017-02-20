@@ -20,6 +20,17 @@ class PasswordStrengthLevelView: UIView, ErrorMessageViewAnimation {
     let lineWidth: CGFloat = 1.0
     var passwordStrengthLevel: PasswordStrengthLevel = .None
     var isVisible: Bool = true
+
+    
+    // MARK: - Class Initialization
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        
+    }
     
     
     // MARK: - Class Functions
@@ -33,7 +44,7 @@ class PasswordStrengthLevelView: UIView, ErrorMessageViewAnimation {
                 
                 weakLevelLinePath.move(to: CGPoint.init(x: bounds.minX, y: bounds.maxY))
                 weakLevelLinePath.addLine(to: CGPoint.init(x: bounds.maxX / 3, y: bounds.maxY))
-                let weakLevelLinePathColor = UIColor(hexString: (Config.Constants.isAppThemesDark) ? "#ae5454" : "#ae5454", withAlpha: 1.0)!
+                let weakLevelLinePathColor = UIColor(hexString: (isAppThemeDark) ? "#ae5454" : "#ae5454", withAlpha: 1.0)!
                 weakLevelLinePathColor.setStroke()
                 weakLevelLinePath.stroke()
                 
@@ -43,7 +54,7 @@ class PasswordStrengthLevelView: UIView, ErrorMessageViewAnimation {
                 
                 weakBackgroundLinePath.move(to: CGPoint.init(x: bounds.maxX / 3, y: bounds.maxY))
                 weakBackgroundLinePath.addLine(to: CGPoint.init(x: bounds.maxX, y: bounds.maxY))
-                let weakBackgroundLinePathColor = UIColor(hexString: (Config.Constants.isAppThemesDark) ? "#5e6969" : "#5e6969", withAlpha: 1.0)!
+                let weakBackgroundLinePathColor = UIColor(hexString: (isAppThemeDark) ? "#5e6969" : "#5e6969", withAlpha: 1.0)!
                 weakBackgroundLinePathColor.setStroke()
                 weakBackgroundLinePath.stroke()
                 
@@ -54,7 +65,7 @@ class PasswordStrengthLevelView: UIView, ErrorMessageViewAnimation {
                 
                 reasonableLevelLinePath.move(to: CGPoint.init(x: bounds.minX, y: bounds.maxY))
                 reasonableLevelLinePath.addLine(to: CGPoint.init(x: bounds.maxX / 3 * 2, y: bounds.maxY))
-                let reasonableLevelLinePathColor = UIColor(hexString: (Config.Constants.isAppThemesDark) ? "#d7b278" : "#d7b278", withAlpha: 1.0)!
+                let reasonableLevelLinePathColor = UIColor(hexString: (isAppThemeDark) ? "#d7b278" : "#d7b278", withAlpha: 1.0)!
                 reasonableLevelLinePathColor.setStroke()
                 reasonableLevelLinePath.stroke()
                 
@@ -64,7 +75,7 @@ class PasswordStrengthLevelView: UIView, ErrorMessageViewAnimation {
                 
                 weakBackgroundLinePath.move(to: CGPoint.init(x: bounds.maxX / 3 * 2, y: bounds.maxY))
                 weakBackgroundLinePath.addLine(to: CGPoint.init(x: bounds.maxX, y: bounds.maxY))
-                let weakBackgroundLinePathColor = UIColor(hexString: (Config.Constants.isAppThemesDark) ? "#5e6969" : "#5e6969", withAlpha: 1.0)!
+                let weakBackgroundLinePathColor = UIColor(hexString: (isAppThemeDark) ? "#5e6969" : "#5e6969", withAlpha: 1.0)!
                 weakBackgroundLinePathColor.setStroke()
                 weakBackgroundLinePath.stroke()
                 
@@ -75,7 +86,7 @@ class PasswordStrengthLevelView: UIView, ErrorMessageViewAnimation {
                 
                 strongLevelLinePath.move(to: CGPoint.init(x: bounds.minX, y: bounds.maxY))
                 strongLevelLinePath.addLine(to: CGPoint.init(x: bounds.maxX, y: bounds.maxY))
-                let strongLevelLinePathColor = UIColor(hexString: (Config.Constants.isAppThemesDark) ? "#3f916d" : "#3f916d", withAlpha: 1.0)!
+                let strongLevelLinePathColor = UIColor(hexString: (isAppThemeDark) ? "#3f916d" : "#3f916d", withAlpha: 1.0)!
                 strongLevelLinePathColor.setStroke()
                 strongLevelLinePath.stroke()
                 

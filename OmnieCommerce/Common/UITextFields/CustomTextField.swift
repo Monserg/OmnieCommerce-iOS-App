@@ -70,7 +70,7 @@ enum FieldType: String {
         autocorrectionType                  =   .no
         spellCheckingType                   =   .no
         keyboardType                        =   .default
-        keyboardAppearance                  =   (Config.Constants.isAppThemesDark) ? .dark : .light // : .dark
+        keyboardAppearance                  =   (isAppThemeDark) ? .dark : .light
         enablesReturnKeyAutomatically       =   true
         returnKeyType                       =   (tag == 99) ? .default : .next
         isSecureTextEntry                   =   false
@@ -78,9 +78,9 @@ enum FieldType: String {
         textAlignment                       =   .left
         
         // Text design: Ubuntu-Light, 12 or 16, #dedede
-        font = (Config.Constants.isAppThemesDark) ? UIFont.systemFont(ofSize: 12) : ((font?.pointSize == 12) ? UIFont.ubuntuLight12 : UIFont.ubuntuLight16)
-        textColor = (Config.Constants.isAppThemesDark) ? UIColor.blue : UIColor.veryLightGray
-        tintColor = (Config.Constants.isAppThemesDark) ? UIColor.blue : UIColor.veryLightGray
+        font = (isAppThemeDark) ? UIFont.systemFont(ofSize: 12) : ((font?.pointSize == 12) ? UIFont.ubuntuLight12 : UIFont.ubuntuLight16)
+        textColor = (isAppThemeDark) ? UIColor.blue : UIColor.veryLightGray
+        tintColor = (isAppThemeDark) ? UIColor.blue : UIColor.veryLightGray
         
         // Placeholder design
         attributedPlaceholder = NSAttributedString(string: (placeholder?.localized())!, attributes: [NSFontAttributeName:  (font?.pointSize == 12) ? UIFont.ubuntuLightItalic12 : UIFont.ubuntuLightItalic16, NSForegroundColorAttributeName: UIColor.darkCyan, NSKernAttributeName: 0.0, NSParagraphStyleAttributeName: paragraphStyle])

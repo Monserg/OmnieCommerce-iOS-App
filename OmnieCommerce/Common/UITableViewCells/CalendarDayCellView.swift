@@ -23,8 +23,6 @@ class CalendarDayCellView: JTAppleDayCellView {
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        
-        print(object: "\(type(of: self)): \(#function) run. Button frame = \(self.frame)")
     }
 
     
@@ -39,7 +37,7 @@ class CalendarDayCellView: JTAppleDayCellView {
         dateFormatter.dateFormat = "dd.MM.yyyy"
         
         currentDayView.isHidden = (dateFormatter.string(from: Date()) == dateFormatter.string(from: date)) ? false : true
-        backgroundColor = (Config.Constants.isAppThemesDark) ? UIColor.green : UIColor.veryDarkDesaturatedBlue24
+        backgroundColor = (isAppThemeDark) ? UIColor.green : UIColor.veryDarkDesaturatedBlue24
         
         if (!currentDayView.isHidden) {
             layoutIfNeeded()
@@ -50,13 +48,13 @@ class CalendarDayCellView: JTAppleDayCellView {
     func setTextColor(forState state: CellState) {
         switch state.isSelected {
         case true:
-            dayLabel.textColor = (Config.Constants.isAppThemesDark) ? UIColor.black : UIColor.veryLightGray
+            dayLabel.textColor = (isAppThemeDark) ? UIColor.black : UIColor.veryLightGray
 
         default:
             if (state.dateBelongsTo == .thisMonth) {
-                dayLabel.textColor = (Config.Constants.isAppThemesDark) ? UIColor.red : UIColor.veryLightGray
+                dayLabel.textColor = (isAppThemeDark) ? UIColor.red : UIColor.veryLightGray
             } else {
-                dayLabel.textColor = (Config.Constants.isAppThemesDark) ? UIColor.blue : UIColor.veryDarkGrayishBlue56
+                dayLabel.textColor = (isAppThemeDark) ? UIColor.blue : UIColor.veryDarkGrayishBlue56
             }
         }
     }

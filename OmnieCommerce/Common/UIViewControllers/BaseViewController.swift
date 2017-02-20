@@ -22,6 +22,7 @@ class BaseViewController: UIViewController {
     var blackOutView: UIView?
     var haveMenuItem = false
     
+    
     var scrollViewBase = UIScrollView() {
         didSet {
             self.scrollViewBase.delegate = self

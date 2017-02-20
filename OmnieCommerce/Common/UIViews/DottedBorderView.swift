@@ -51,9 +51,9 @@ enum ViewStyle: String {
         dottedLinePath.lineCapStyle = .round
         
         if (viewStyle?.hasSuffix("Color"))! {
-            (Config.Constants.isAppThemesDark) ? UIColor.black.set() : UIColor.veryLightOrangeAlpha60.set()
+            (isAppThemeDark) ? UIColor.black.set() : UIColor.veryLightOrangeAlpha60.set()
         } else {
-            (Config.Constants.isAppThemesDark) ? UIColor.black.set() : UIColor.lightGrayAlpha20.set()
+            (isAppThemeDark) ? UIColor.black.set() : UIColor.lightGrayAlpha20.set()
         }
         
         dottedLinePath.stroke()

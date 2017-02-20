@@ -32,8 +32,6 @@ class SignInShowRouter: SignInShowRouterInput {
                 self.navigateBetweenContainerSubviews()
             }
         })
-
-//        self.viewController.present(revealVC, animated: !duringStartApp, completion: nil)
     }
 
     func navigateBetweenContainerSubviews() {

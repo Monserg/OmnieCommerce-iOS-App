@@ -18,6 +18,13 @@ class LaunchScreenViewController: BaseViewController {
     
     
     // MARK: - Class Functions
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        let appSettings = CoreDataManager.instance.didLoadEntity(byName: "AppSettings") as? AppSettings ?? AppSettings()
+        CoreDataManager.instance.appSettings = appSettings
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 

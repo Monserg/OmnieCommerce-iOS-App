@@ -46,68 +46,68 @@ extension UILabel {
         
         switch labelStyle {
         case .Error:
-            font = (Config.Constants.isAppThemesDark) ? UIFont.systemFont(ofSize: 12) : ((font!.pointSize == 12) ? UIFont.ubuntuLightItalic12 : UIFont.ubuntuLightItalic10)
-            textColor = (Config.Constants.isAppThemesDark) ? UIColor.white : UIColor.moderateRed
-            textAlignment = .left
+            font            =   (isAppThemeDark) ? UIFont.systemFont(ofSize: 12) : ((font!.pointSize == 12) ? UIFont.ubuntuLightItalic12 : UIFont.ubuntuLightItalic10)
+            textColor       =   (isAppThemeDark) ? UIColor.white : UIColor.moderateRed
+            textAlignment   =   .left
             
         case .Title:
-            font = (Config.Constants.isAppThemesDark) ? UIFont.systemFont(ofSize: 12) : UIFont.helveticaNeueCyrLight32
-            textColor = (Config.Constants.isAppThemesDark) ? UIColor.white : UIColor.veryLightGray
+            font            =   (isAppThemeDark) ? UIFont.systemFont(ofSize: 12) : UIFont.helveticaNeueCyrLight32
+            textColor       =   (isAppThemeDark) ? UIColor.white : UIColor.veryLightGray
             
         case .Copyright:
-            font = (Config.Constants.isAppThemesDark) ? UIFont.systemFont(ofSize: 12) : UIFont.ubuntuLight09
-            textColor = (Config.Constants.isAppThemesDark) ? UIColor.white : UIColor.darkCyan
-            text = "\u{00A9} Omniesoft, 2016"
+            font            =   (isAppThemeDark) ? UIFont.systemFont(ofSize: 12) : UIFont.ubuntuLight09
+            textColor       =   (isAppThemeDark) ? UIColor.white : UIColor.darkCyan
+            text            =   "\u{00A9} Omniesoft, 2016"
             
         case .MenuItem:
-            font = (Config.Constants.isAppThemesDark) ? UIFont.systemFont(ofSize: 12) : UIFont.ubuntuLight16
-            textColor = (Config.Constants.isAppThemesDark) ? UIColor.white : UIColor.veryLightGray
-            textAlignment = .left
+            font            =   (isAppThemeDark) ? UIFont.systemFont(ofSize: 12) : UIFont.ubuntuLight16
+            textColor       =   (isAppThemeDark) ? UIColor.white : UIColor.veryLightGray
+            textAlignment   =   .left
             
         case .CategoryName:
-            font = (Config.Constants.isAppThemesDark) ? UIFont.systemFont(ofSize: 12) : UIFont.ubuntuRegular16
-            textColor = (Config.Constants.isAppThemesDark) ? UIColor.white : UIColor.veryDarkGray
+            font            =   (isAppThemeDark) ? UIFont.systemFont(ofSize: 12) : UIFont.ubuntuRegular16
+            textColor       =   (isAppThemeDark) ? UIColor.white : UIColor.veryDarkGray
 
         case .Date:
-            font = (Config.Constants.isAppThemesDark) ? UIFont.systemFont(ofSize: 12) : UIFont.ubuntuLight09
-            textColor = (Config.Constants.isAppThemesDark) ? UIColor.white : UIColor.veryDarkGrayishBlue53
+            font            =   (isAppThemeDark) ? UIFont.systemFont(ofSize: 12) : UIFont.ubuntuLight09
+            textColor       =   (isAppThemeDark) ? UIColor.white : UIColor.veryDarkGrayishBlue53
 
         case .DateItalic:
-            font = (Config.Constants.isAppThemesDark) ? UIFont.systemFont(ofSize: 9) : UIFont.ubuntuLightItalic09
-            textColor = (Config.Constants.isAppThemesDark) ? UIColor.white : UIColor.veryDarkGrayishBlue53
+            font            =   (isAppThemeDark) ? UIFont.systemFont(ofSize: 9) : UIFont.ubuntuLightItalic09
+            textColor       =   (isAppThemeDark) ? UIColor.white : UIColor.veryDarkGrayishBlue53
 
         case .Describe:
-            font = (Config.Constants.isAppThemesDark) ? UIFont.systemFont(ofSize: 12) : UIFont.ubuntuLightItalic12
-            textColor = (Config.Constants.isAppThemesDark) ? UIColor.white : UIColor.lightGrayishCyan
+            font            =   (isAppThemeDark) ? UIFont.systemFont(ofSize: 12) : UIFont.ubuntuLightItalic12
+            textColor       =   (isAppThemeDark) ? UIColor.white : UIColor.lightGrayishCyan
             
         case .Message:
-            font = (Config.Constants.isAppThemesDark) ? UIFont.systemFont(ofSize: 9) : UIFont.ubuntuLightItalic09
-            textColor = (Config.Constants.isAppThemesDark) ? UIColor.white : UIColor.lightGrayishCyan
+            font            =   (isAppThemeDark) ? UIFont.systemFont(ofSize: 9) : UIFont.ubuntuLightItalic09
+            textColor       =   (isAppThemeDark) ? UIColor.white : UIColor.lightGrayishCyan
             
         case .FromTo:
-            attributedText = (Config.Constants.isAppThemesDark) ? NSAttributedString(string: text!, attributes: UIFont.ubuntuLightItalicVeryDarkGrayishBlue5312) : NSAttributedString(string: text!, attributes: UIFont.ubuntuLightItalicVeryDarkGrayishBlue5312)
+            attributedText  =   (isAppThemeDark) ? NSAttributedString(string: text!, attributes: UIFont.ubuntuLightItalicVeryDarkGrayishBlue5312) : NSAttributedString(string: text!, attributes: UIFont.ubuntuLightItalicVeryDarkGrayishBlue5312)
             
         case .CalendarWeekday:
-            attributedText = (Config.Constants.isAppThemesDark) ? NSAttributedString(string: text!, attributes: UIFont.ubuntuLightItalicVeryDarkGrayishBlue5312) : NSAttributedString(string: text!, attributes: UIFont.ubuntuLightDarkCyan16)
+            attributedText  =   (isAppThemeDark) ? NSAttributedString(string: text!, attributes: UIFont.ubuntuLightItalicVeryDarkGrayishBlue5312) : NSAttributedString(string: text!, attributes: UIFont.ubuntuLightDarkCyan16)
             
         case .BarCodeTitle:
-            attributedText = (Config.Constants.isAppThemesDark) ? NSAttributedString(string: text!, attributes: UIFont.ubuntuLightItalicVeryDarkGrayishBlue5312) : NSAttributedString(string: text!, attributes: UIFont.ubuntuLightVeryLightGray16)
+            attributedText  =   (isAppThemeDark) ? NSAttributedString(string: text!, attributes: UIFont.ubuntuLightItalicVeryDarkGrayishBlue5312) : NSAttributedString(string: text!, attributes: UIFont.ubuntuLightVeryLightGray16)
 
         case .ActionViewTitle:
-            attributedText = (Config.Constants.isAppThemesDark) ? NSAttributedString(string: text!, attributes: UIFont.ubuntuLightItalicVeryDarkGrayishBlue5312) : NSAttributedString(string: text!, attributes: UIFont.helveticaNeueCyrLightVeryLightGray21)
+            attributedText  =   (isAppThemeDark) ? NSAttributedString(string: text!, attributes: UIFont.ubuntuLightItalicVeryDarkGrayishBlue5312) : NSAttributedString(string: text!, attributes: UIFont.helveticaNeueCyrLightVeryLightGray21)
 
         case .UbuntuLightItalic12VerySoftRed:
             font            =   UIFont.ubuntuLightItalic12
-            textColor       =   UIColor(hexString: (Config.Constants.isAppThemesDark) ? "#dc8181" : "#8b0000", withAlpha: 1.0)
+            textColor       =   UIColor(hexString: (isAppThemeDark) ? "#dc8181" : "#8b0000", withAlpha: 1.0)
             textAlignment   =   .left
 
         case .HelveticaNeueCyrThin47VeryLightGray:
             font            =   UIFont.helveticaNeueCyrThin47
-            textColor       =   UIColor(hexString: (Config.Constants.isAppThemesDark) ? "#dedede" : "#dedede", withAlpha: 1.0)
+            textColor       =   UIColor(hexString: (isAppThemeDark) ? "#dedede" : "#dedede", withAlpha: 1.0)
 
         default:
-            font = (Config.Constants.isAppThemesDark) ? UIFont.systemFont(ofSize: 12) : UIFont.ubuntuLight12
-            textColor = (Config.Constants.isAppThemesDark) ? UIColor.white : UIColor.veryLightGray
+            font            =   (isAppThemeDark) ? UIFont.systemFont(ofSize: 12) : UIFont.ubuntuLight12
+            textColor       =   (isAppThemeDark) ? UIColor.white : UIColor.veryLightGray
         }
         
         self.adjustsFontSizeToFitWidth = true

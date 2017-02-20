@@ -45,8 +45,7 @@ struct Config {
         static let dropDownCellHeight: CGFloat                  =   23.0
         
         // FIXME: - DELETE AFTER TEST
-//        static var isUserGuest: Bool                            =   true
-        static let isAppThemesDark                              =   false
+//        static let isAppThemesDark                              =   false
         static let errorMessageViewHeight: CGFloat              =   14
     }
     
