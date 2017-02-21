@@ -610,13 +610,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		B10871551E37A7F300374DD5 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		B10874661E5B077D004A4FB6 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
@@ -861,7 +854,6 @@
 		B122F21A1DD35CA60018A701 /* SlideMenuShow */ = {
 			isa = PBXGroup;
 			children = (
-				B10871551E37A7F300374DD5 /* View */,
 				B122F21B1DD35CC80018A701 /* SlideMenuShowConfigurator.swift */,
 				B122F21C1DD35CC80018A701 /* SlideMenuShowInteractor.swift */,
 				B122F21D1DD35CC80018A701 /* SlideMenuShowModels.swift */,

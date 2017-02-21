@@ -24,6 +24,7 @@ enum LabelStyle: String {
     case BarCodeTitle                                   =   "BarCodeTitle"
     case ActionViewTitle                                =   "ActionViewTitle"
     case UbuntuLightItalic12VerySoftRed                 =   "UbuntuLightItalic12VerySoftRed"
+    case UbuntuLight16VeryLightGray                     =   "UbuntuLight16VeryLightGray"
     case HelveticaNeueCyrThin47VeryLightGray            =   "HelveticaNeueCyrThin47VeryLightGray"
 }
 
@@ -99,6 +100,11 @@ extension UILabel {
         case .UbuntuLightItalic12VerySoftRed:
             font            =   UIFont.ubuntuLightItalic12
             textColor       =   UIColor(hexString: (isAppThemeDark) ? "#dc8181" : "#8b0000", withAlpha: 1.0)
+            textAlignment   =   .left
+
+        case .UbuntuLight16VeryLightGray:
+            font            =   UIFont.ubuntuLight16
+            textColor       =   UIColor(hexString: (isAppThemeDark) ? "#dedede" : "#dedede", withAlpha: 1.0)
             textAlignment   =   .left
 
         case .HelveticaNeueCyrThin47VeryLightGray:
