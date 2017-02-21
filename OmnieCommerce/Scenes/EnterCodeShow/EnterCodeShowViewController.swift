@@ -86,6 +86,12 @@ class EnterCodeShowViewController: BaseViewController, CodeErrorMessageView {
         }
         
         if (text == enteredCode) {
+            guard isNetworkAvailable else {
+                alertViewDidShow(withTitle: "Not Reachable".localized(), andMessage: "Disconnected from Network".localized())
+                
+                return
+            }
+
             handlerSendButtonCompletion!()
         } else {
             didShow(codeErrorMessageView, withConstraint: codeErrorMessageViewTopConstraint)
@@ -93,10 +99,22 @@ class EnterCodeShowViewController: BaseViewController, CodeErrorMessageView {
     }
     
     @IBAction func handlerCancelButtonTap(_ sender: CustomButton) {
+        guard isNetworkAvailable else {
+            alertViewDidShow(withTitle: "Not Reachable".localized(), andMessage: "Disconnected from Network".localized())
+            
+            return
+        }
+
         handlerCancelButtonCompletion!()
     }
     
-    @IBAction func handlerSendAgainButtonTap(_ sender: CustomButton) {}
+    @IBAction func handlerSendAgainButtonTap(_ sender: CustomButton) {
+        guard isNetworkAvailable else {
+            alertViewDidShow(withTitle: "Not Reachable".localized(), andMessage: "Disconnected from Network".localized())
+            
+            return
+        }
+    }
 }
 
 

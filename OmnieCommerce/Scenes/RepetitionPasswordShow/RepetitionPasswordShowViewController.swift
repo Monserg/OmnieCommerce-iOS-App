@@ -93,6 +93,12 @@ class RepetitionPasswordShowViewController: BaseViewController, PasswordStrength
         if (textFieldsCollection.first?.text == textFieldsCollection.last?.text) {
             CoreDataManager.instance.didUpdateAppUser(state: true)
             
+            guard isNetworkAvailable else {
+                alertViewDidShow(withTitle: "Not Reachable".localized(), andMessage: "Disconnected from Network".localized())
+                
+                return
+            }
+            
             handlerSendButtonCompletion!()
         } else {
             didShow(passwordErrorMessageView, withConstraint: passwordErrorMessageViewTopConstraint)
@@ -100,6 +106,12 @@ class RepetitionPasswordShowViewController: BaseViewController, PasswordStrength
     }
     
     @IBAction func handlerCancelButtonTap(_ sender: CustomButton) {
+        guard isNetworkAvailable else {
+            alertViewDidShow(withTitle: "Not Reachable".localized(), andMessage: "Disconnected from Network".localized())
+            
+            return
+        }
+        
         handlerCancelButtonCompletion!()
     }
 }

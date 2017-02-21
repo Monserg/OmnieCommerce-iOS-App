@@ -112,6 +112,6 @@
 "CoreData init error"           =   "Не вдалося прочитати локальні дані";
 "Reachable"                     =   "Підключення";
 "Not Reachable"                 =   "Відключення";
-"Connected to Network"          =   "Встановлено зв'язок з Інтернетом";
-"Disconnected from Network"     =   "Втрачено зв'язок з Інтернетом. \nПеревірте налаштування мережі";
+"Connected to Network"          =   "Зв'язок з Інтернетом встановлено";
+"Disconnected from Network"     =   "Зв'язок з Інтернетом відсутній. \nПеревірте налаштування мережі";
 

@@ -92,12 +92,24 @@ class SignUpShowViewController: BaseViewController, EmailErrorMessageView, Passw
     // MARK: - Actions
     @IBAction func handlerRegisterButtonTap(_ sender: CustomButton) {
         if (textFieldManager.checkTextFieldCollection()) {
+            guard isNetworkAvailable else {
+                alertViewDidShow(withTitle: "Not Reachable".localized(), andMessage: "Disconnected from Network".localized())
+                
+                return
+            }
+            
             let requestModel = SignUpShowModels.User.RequestModel(name: textFieldsCollection.first!.text!, email: textFieldsCollection[1].text!, password: textFieldsCollection.last!.text!)
             interactor.didRegisterUser(fromRequestModel: requestModel)
         }
     }
     
     @IBAction func handlerCancelButtonTap(_ sender: CustomButton) {
+        guard isNetworkAvailable else {
+            alertViewDidShow(withTitle: "Not Reachable".localized(), andMessage: "Disconnected from Network".localized())
+            
+            return
+        }
+        
         handlerCancelButtonCompletion!()
     }
 }

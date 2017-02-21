@@ -27,7 +27,7 @@ class BaseViewController: UIViewController {
     
     // Network monitoring
     var previousNetworkReachabilityStatus: AFNetworkReachabilityStatus = .unknown
-    var isNetworkAvailable = true
+    var isNetworkAvailable = false
     
     var scrollViewBase = UIScrollView() {
         didSet {
@@ -49,6 +49,8 @@ class BaseViewController: UIViewController {
         print(object: "\(type(of: self)): \(#function) run in [line \(#line)]")
         
         super.awakeFromNib()
+        
+        self.isNetworkAvailable = true
     }
 
     
@@ -61,16 +63,6 @@ class BaseViewController: UIViewController {
         // Add Observers
         NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardAction), name: .UIKeyboardWillHide, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardAction), name: .UIKeyboardWillChangeFrame, object: nil)
-        
-        NotificationCenter.default.addObserver(forName: NetworkReachabilityChanged, object: nil, queue: nil, using: { notification in
-            if let userInfo = notification.userInfo {
-                if  let messageTitle    =   userInfo["summary"] as? String,
-                    let reachableOrNot  =   userInfo["reachableOrNot"] as? String {
-                    
-                    self.alertViewDidShow(withTitle: reachableOrNot, andMessage: messageTitle)
-                }
-            }
-        })
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -306,7 +298,6 @@ extension BaseViewController {
         AFNetworkReachabilityManager.shared().startMonitoring()
         
         AFNetworkReachabilityManager.shared().setReachabilityStatusChange { status in
-            let reachabilityStatus          =   AFStringFromNetworkReachabilityStatus(status)
             var reachableOrNot              =   ""
             var networkSummary              =   ""
             
@@ -326,15 +317,18 @@ extension BaseViewController {
             
             // Any class which has observer for this notification will be able to report loss of network connection successfully
             if ((self.previousNetworkReachabilityStatus != .unknown && status != self.previousNetworkReachabilityStatus) || status == .notReachable) {
-                NotificationCenter.default.post(name: NetworkReachabilityChanged, object: nil, userInfo: [
-                    "reachabilityStatus": reachabilityStatus,
-                    "reachableOrNot": reachableOrNot,
-                    "summary": networkSummary,
-                    "reachableStatus": self.isNetworkAvailable
-                    ])
+                self.alertViewDidShow(withTitle: reachableOrNot, andMessage: networkSummary)
             }
             
             self.previousNetworkReachabilityStatus = status
+        }
+    }
+    
+    func didCheckNetworkConnection() {
+        guard isNetworkAvailable else {
+            alertViewDidShow(withTitle: "Not Reachable".localized(), andMessage: "Disconnected from Network".localized())
+            
+            return
         }
     }
 }

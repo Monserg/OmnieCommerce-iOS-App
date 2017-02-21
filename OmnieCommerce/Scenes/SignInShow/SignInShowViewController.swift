@@ -118,14 +118,30 @@ class SignInShowViewController: BaseViewController {
     @IBAction func handlerVkontakteButtonTap(_ sender: CustomButton) {
         print(object: "\(type(of: self)): \(#function) run.")
         
+        guard isNetworkAvailable else {
+            alertViewDidShow(withTitle: "Not Reachable".localized(), andMessage: "Disconnected from Network".localized())
+            
+            return
+        }
     }
     
     @IBAction func handlerGoogleButtonTap(_ sender: CustomButton) {
         print(object: "\(type(of: self)): \(#function) run.")
         
+        guard isNetworkAvailable else {
+            alertViewDidShow(withTitle: "Not Reachable".localized(), andMessage: "Disconnected from Network".localized())
+            
+            return
+        }
     }
     
     @IBAction func handlerFacebookButtonTap(_ sender: CustomButton) {
+        guard isNetworkAvailable else {
+            alertViewDidShow(withTitle: "Not Reachable".localized(), andMessage: "Disconnected from Network".localized())
+            
+            return
+        }
+        
         CoreDataManager.instance.didUpdateAppUser(state: true)
         self.router.navigateAuthorizedUser(duringStartApp: false)
     }
@@ -143,6 +159,12 @@ class SignInShowViewController: BaseViewController {
 // MARK: - SignInShowViewControllerInput
 extension SignInShowViewController: SignInShowViewControllerInput {
     func displaySomething(viewModel: SignInShowModels.User.ViewModel) {
+        guard isNetworkAvailable else {
+            alertViewDidShow(withTitle: "Not Reachable".localized(), andMessage: "Disconnected from Network".localized())
+            
+            return
+        }
+        
         // NOTE: Display the result from the Presenter
         // nameTextField.text = viewModel.name
     }

@@ -87,10 +87,22 @@ class SignInContainerShowViewController: BaseViewController, PasswordErrorMessag
     
     // MARK: - Actions
     @IBAction func handlerRegisterButtonTap(_ sender: CustomButton) {
+        guard isNetworkAvailable else {
+            alertViewDidShow(withTitle: "Not Reachable".localized(), andMessage: "Disconnected from Network".localized())
+            
+            return
+        }
+        
         handlerRegisterButtonCompletion!()
     }
     
     @IBAction func handlerForgotPasswordButtonTap(_ sender: CustomButton) {
+        guard isNetworkAvailable else {
+            alertViewDidShow(withTitle: "Not Reachable".localized(), andMessage: "Disconnected from Network".localized())
+            
+            return
+        }
+
         handlerForgotPasswordButtonCompletion!()
     }
     
@@ -102,6 +114,12 @@ class SignInContainerShowViewController: BaseViewController, PasswordErrorMessag
             return
         }
         
+        guard isNetworkAvailable else {
+            alertViewDidShow(withTitle: "Not Reachable".localized(), andMessage: "Disconnected from Network".localized())
+            
+            return
+        }
+
         let requestModel = SignInContainerShowModels.User.RequestModel(name: name, password: password)
         interactor.didUserSignIn(requestModel: requestModel)
     }

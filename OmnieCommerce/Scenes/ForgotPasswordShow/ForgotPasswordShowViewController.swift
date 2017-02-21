@@ -83,6 +83,12 @@ class ForgotPasswordShowViewController: BaseViewController, EmailErrorMessageVie
     // MARK: - Actions
     @IBAction func handlerSendButtonTap(_ sender: CustomButton) {
         if (textFieldManager.checkTextFieldCollection()) {
+            guard isNetworkAvailable else {
+                alertViewDidShow(withTitle: "Not Reachable".localized(), andMessage: "Disconnected from Network".localized())
+                
+                return
+            }
+
             let data: (phone: String?, email: String?) = (textFieldsCollection.first!.isPhone!) ? (phone: textFieldsCollection.first!.text!, email: nil) : (phone: nil, email: textFieldsCollection.first!.text!)
             
             let requestModel = ForgotPasswordShowModels.Code.RequestModel(data: data)
@@ -93,6 +99,12 @@ class ForgotPasswordShowViewController: BaseViewController, EmailErrorMessageVie
     }
     
     @IBAction func handlerCancelButtonTap(_ sender: CustomButton) {
+        guard isNetworkAvailable else {
+            alertViewDidShow(withTitle: "Not Reachable".localized(), andMessage: "Disconnected from Network".localized())
+            
+            return
+        }
+
         handlerCancelButtonCompletion!()
     }
 }
@@ -104,6 +116,12 @@ extension ForgotPasswordShowViewController: ForgotPasswordShowViewControllerInpu
         // TODO: PASS CODE TO ENTER CODE SCENE
         print(object: viewModel.code)
         
+        guard isNetworkAvailable else {
+            alertViewDidShow(withTitle: "Not Reachable".localized(), andMessage: "Disconnected from Network".localized())
+            
+            return
+        }
+
         handlerPassDataCompletion!(viewModel.code)
     }
 }
