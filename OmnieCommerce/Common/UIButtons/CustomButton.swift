@@ -42,11 +42,11 @@ import UIKit
             
             switch self.tag {
             // Google
-            case 2:
+            case 1:
                 buttonDegree = (UIApplication.shared.statusBarOrientation.isPortrait) ? 282.6 + ratio : 340.1 + ratio
                 
             // Facebook
-            case 3:
+            case 2:
                 buttonDegree = (UIApplication.shared.statusBarOrientation.isPortrait) ? 290.1 + ratio : 331.1 + ratio
                 
             // VKontakte

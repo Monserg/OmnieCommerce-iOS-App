@@ -13,5 +13,7 @@ target 'OmnieCommerce' do
     pod 'JTAppleCalendar', '~> 6.0'
     pod 'Navajo-Swift', '~> 1.0'
     pod 'AFNetworking', '~> 3.1'
-    
+    pod 'SwiftyVK', '~> 2.0'
+    pod 'Google/SignIn'
+
 end

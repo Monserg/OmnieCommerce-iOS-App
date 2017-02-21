@@ -29,6 +29,21 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>GTMOAuth2.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>GTMSessionFetcher.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>GoogleToolboxForMac.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>JTAppleCalendar.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -54,10 +69,25 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>SwiftyVK.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>015AAC4618F33550E8C400890E3DCF90</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>0FAE084E0ABAAF2A36D0CFB98FE99892</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>107A9565F9DF88517DFD3E28C05B2B96</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -67,7 +97,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>5B619C6004203B600A8E42A9E2BFE732</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>5E90024CA4621EC0A8B8C777C958214A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>681BE6E3D02A43F9BA63777AC435C8FD</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -82,17 +122,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9D8163F6634EF2E8280195E2B234A099</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>9EFE4C70245EE2857D336B8B9FA4E825</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C14924CE4FD6B54C30711696E7CA2F92</key>
+		<key>A2EC0D40C10C0E2BC6D1EAF05A2D1FA2</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B1C4AAFAF49036C7007633DAA3C806AD</key>
 		<dict>
 			<key>primary</key>
 			<true/>

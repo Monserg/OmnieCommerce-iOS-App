@@ -92,6 +92,17 @@
 		B14107C51DFEA73900F79CF9 /* CalendarDayCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B14107C31DFEA73900F79CF9 /* CalendarDayCellView.xib */; };
 		B14107C71DFEB1D700F79CF9 /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14107C61DFEB1D700F79CF9 /* CustomView.swift */; };
 		B14CD91A1E57C058005F8BF6 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14CD9191E57C058005F8BF6 /* Protocols.swift */; };
+		B14D1D601E5CB60600D33435 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B14D1D5E1E5CB60600D33435 /* GoogleService-Info.plist */; };
+		B14D1D671E5CB6D500D33435 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B14D1D611E5CB6D500D33435 /* Bolts.framework */; };
+		B14D1D681E5CB6D500D33435 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B14D1D621E5CB6D500D33435 /* FBSDKCoreKit.framework */; };
+		B14D1D691E5CB6D500D33435 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B14D1D631E5CB6D500D33435 /* FBSDKLoginKit.framework */; };
+		B14D1D6A1E5CB6D500D33435 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B14D1D641E5CB6D500D33435 /* FBSDKShareKit.framework */; };
+		B14D1D6B1E5CB6D500D33435 /* GoogleSignIn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B14D1D651E5CB6D500D33435 /* GoogleSignIn.framework */; };
+		B14D1D6C1E5CB6D500D33435 /* GoogleSignInDependencies.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B14D1D661E5CB6D500D33435 /* GoogleSignInDependencies.framework */; };
+		B14D1D6E1E5CB6FA00D33435 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B14D1D6D1E5CB6FA00D33435 /* SystemConfiguration.framework */; };
+		B14D1D701E5CB70D00D33435 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B14D1D6F1E5CB70D00D33435 /* AddressBook.framework */; };
+		B14D1D721E5CB79200D33435 /* SwiftyVK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B14D1D711E5CB79200D33435 /* SwiftyVK.framework */; };
+		B14D1D741E5CB8B000D33435 /* SocialNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14D1D731E5CB8B000D33435 /* SocialNetworkManager.swift */; };
 		B14D894D1DF6C87800AF3AED /* NewsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B14D894C1DF6C87800AF3AED /* NewsTableViewCell.xib */; };
 		B14D894F1DF6C92100AF3AED /* MessageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B14D894E1DF6C92100AF3AED /* MessageTableViewCell.xib */; };
 		B14D89511DF6CFF800AF3AED /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14D89501DF6CFF800AF3AED /* Message.swift */; };
@@ -361,6 +372,18 @@
 		B14107C31DFEA73900F79CF9 /* CalendarDayCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CalendarDayCellView.xib; sourceTree = "<group>"; };
 		B14107C61DFEB1D700F79CF9 /* CustomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
 		B14CD9191E57C058005F8BF6 /* Protocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
+		B14D1D5E1E5CB60600D33435 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		B14D1D5F1E5CB60600D33435 /* OmnieCommerce-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "OmnieCommerce-Bridging-Header.h"; sourceTree = "<group>"; };
+		B14D1D611E5CB6D500D33435 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		B14D1D621E5CB6D500D33435 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		B14D1D631E5CB6D500D33435 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		B14D1D641E5CB6D500D33435 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
+		B14D1D651E5CB6D500D33435 /* GoogleSignIn.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleSignIn.framework; sourceTree = "<group>"; };
+		B14D1D661E5CB6D500D33435 /* GoogleSignInDependencies.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleSignInDependencies.framework; sourceTree = "<group>"; };
+		B14D1D6D1E5CB6FA00D33435 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		B14D1D6F1E5CB70D00D33435 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		B14D1D711E5CB79200D33435 /* SwiftyVK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SwiftyVK.framework; sourceTree = "<group>"; };
+		B14D1D731E5CB8B000D33435 /* SocialNetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialNetworkManager.swift; sourceTree = "<group>"; };
 		B14D894C1DF6C87800AF3AED /* NewsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsTableViewCell.xib; sourceTree = "<group>"; };
 		B14D894E1DF6C92100AF3AED /* MessageTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageTableViewCell.xib; sourceTree = "<group>"; };
 		B14D89501DF6CFF800AF3AED /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
@@ -552,6 +575,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B14D1D701E5CB70D00D33435 /* AddressBook.framework in Frameworks */,
+				B14D1D6E1E5CB6FA00D33435 /* SystemConfiguration.framework in Frameworks */,
+				B14D1D6B1E5CB6D500D33435 /* GoogleSignIn.framework in Frameworks */,
+				B14D1D721E5CB79200D33435 /* SwiftyVK.framework in Frameworks */,
+				B14D1D671E5CB6D500D33435 /* Bolts.framework in Frameworks */,
+				B14D1D6C1E5CB6D500D33435 /* GoogleSignInDependencies.framework in Frameworks */,
+				B14D1D681E5CB6D500D33435 /* FBSDKCoreKit.framework in Frameworks */,
+				B14D1D6A1E5CB6D500D33435 /* FBSDKShareKit.framework in Frameworks */,
+				B14D1D691E5CB6D500D33435 /* FBSDKLoginKit.framework in Frameworks */,
 				B10874821E5B1822004A4FB6 /* CoreData.framework in Frameworks */,
 				4B80CBB54BC2985E0EDC5A94 /* Pods_OmnieCommerce.framework in Frameworks */,
 			);
@@ -563,8 +595,17 @@
 		A4A33B8C6849A99639A17A3F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B14D1D6F1E5CB70D00D33435 /* AddressBook.framework */,
+				B14D1D611E5CB6D500D33435 /* Bolts.framework */,
 				B10874811E5B1822004A4FB6 /* CoreData.framework */,
+				B14D1D621E5CB6D500D33435 /* FBSDKCoreKit.framework */,
+				B14D1D631E5CB6D500D33435 /* FBSDKLoginKit.framework */,
+				B14D1D641E5CB6D500D33435 /* FBSDKShareKit.framework */,
+				B14D1D651E5CB6D500D33435 /* GoogleSignIn.framework */,
+				B14D1D661E5CB6D500D33435 /* GoogleSignInDependencies.framework */,
 				B9EA988F3F694011D76FF246 /* Pods_OmnieCommerce.framework */,
+				B14D1D711E5CB79200D33435 /* SwiftyVK.framework */,
+				B14D1D6D1E5CB6FA00D33435 /* SystemConfiguration.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -643,8 +684,10 @@
 		B1228FAB1DD44CD700A90FBB /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
+				B14D1D5E1E5CB60600D33435 /* GoogleService-Info.plist */,
 				B15FD4151DD1DD8C00782324 /* Info.plist */,
 				B1C6F35C1DD9C718004695C2 /* MenuItemsList.plist */,
+				B14D1D5F1E5CB60600D33435 /* OmnieCommerce-Bridging-Header.h */,
 			);
 			path = "Support Files";
 			sourceTree = "<group>";
@@ -903,6 +946,7 @@
 		B12FE6421E57321500A4FBA4 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				B14D1D731E5CB8B000D33435 /* SocialNetworkManager.swift */,
 				B12FE6431E57323400A4FBA4 /* TextFieldManager.swift */,
 			);
 			name = Managers;
@@ -1357,6 +1401,7 @@
 				B1BF92781DD6516C00BECBBB /* UBUNTU-B.TTF in Resources */,
 				B1BF92791DD6516C00BECBBB /* UBUNTU-BI.TTF in Resources */,
 				B1CF54EA1DDB56BD00E98049 /* BusinessCardsShow.storyboard in Resources */,
+				B14D1D601E5CB60600D33435 /* GoogleService-Info.plist in Resources */,
 				B1CF54E21DDB529300E98049 /* AboutShow.storyboard in Resources */,
 				B1BF927A1DD6516C00BECBBB /* UBUNTU-C.TTF in Resources */,
 				B1E52AD31DDDDEC600C3B24D /* Main.storyboard in Resources */,
@@ -1548,6 +1593,7 @@
 				B1CF54CE1DDB51A500E98049 /* PersonalPageShowRouter.swift in Sources */,
 				B18A45CA1DEC282B003EBD2F /* DotView.swift in Sources */,
 				B1597ACA1E3F161900123CB5 /* AvatarTableViewCell.swift in Sources */,
+				B14D1D741E5CB8B000D33435 /* SocialNetworkManager.swift in Sources */,
 				B1CF54AF1DDB516E00E98049 /* OmnieCardsShowInteractor.swift in Sources */,
 				B122F2151DD35C2C0018A701 /* NewsShowModels.swift in Sources */,
 				B14D89511DF6CFF800AF3AED /* Message.swift in Sources */,
@@ -1771,6 +1817,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 2DS2B364WY;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
 				INFOPLIST_FILE = OmnieCommerce/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1792,6 +1842,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 2DS2B364WY;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
 				INFOPLIST_FILE = OmnieCommerce/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
