@@ -128,7 +128,7 @@ class SignInShowViewController: BaseViewController {
         }
         
         // Set status bar color
-        UIApplication.shared.statusBarStyle = .default
+        UIApplication.shared.statusBarStyle = (sender.tag == 0) ? .lightContent : .default
         
         // Only for Google
         if (sender.tag == 1) {
