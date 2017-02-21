@@ -113,7 +113,7 @@ extension SignUpShowViewController: SignUpShowViewControllerInput {
     
     func didShowShowRegisterUserResult(fromViewModel viewModel: SignUpShowModels.User.ViewModel) {
         guard viewModel.result.error == nil else {
-            self.showAlertView(withTitle: "Error".localized(), andMessage: (viewModel.result.error?.description)!)
+            alertViewDidShow(withTitle: "Error".localized(), andMessage: (viewModel.result.error?.description)!)
             
             return
         }

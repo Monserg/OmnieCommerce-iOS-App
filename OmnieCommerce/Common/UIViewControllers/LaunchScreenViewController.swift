@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 import SWRevealViewController
 
-class LaunchScreenViewController: BaseViewController {
+class LaunchScreenViewController: UIViewController {
     // MARK: - Properties
     @IBOutlet weak var backgroundImageView: UIImageView!
     @IBOutlet weak var blackoutView: UIView!

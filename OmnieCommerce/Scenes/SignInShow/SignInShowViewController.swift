@@ -93,7 +93,7 @@ class SignInShowViewController: BaseViewController {
     // MARK: - Custom Functions
     func doInitialSetupOnLoad() {
         // Hide navigation bar
-        hideNavigationBar()
+        navigationBarDidHide()
         
         // Apply Container childVC
         (CoreDataManager.instance.appUser.isAuthorized) ? router.navigateAuthorizedUser(duringStartApp: true) : router.navigateBetweenContainerSubviews()

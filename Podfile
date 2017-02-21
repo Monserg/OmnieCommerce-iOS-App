@@ -12,5 +12,6 @@ target 'OmnieCommerce' do
     pod 'AlamofireImage', '~> 3.2'
     pod 'JTAppleCalendar', '~> 6.0'
     pod 'Navajo-Swift', '~> 1.0'
-
+    pod 'AFNetworking', '~> 3.1'
+    
 end

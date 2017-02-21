@@ -1,4 +1,19 @@
 PODS:
+  - AFNetworking (3.1.0):
+    - AFNetworking/NSURLSession (= 3.1.0)
+    - AFNetworking/Reachability (= 3.1.0)
+    - AFNetworking/Security (= 3.1.0)
+    - AFNetworking/Serialization (= 3.1.0)
+    - AFNetworking/UIKit (= 3.1.0)
+  - AFNetworking/NSURLSession (3.1.0):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (3.1.0)
+  - AFNetworking/Security (3.1.0)
+  - AFNetworking/Serialization (3.1.0)
+  - AFNetworking/UIKit (3.1.0):
+    - AFNetworking/NSURLSession
   - Alamofire (4.2.0)
   - AlamofireImage (3.2.0):
     - Alamofire (~> 4.1)
@@ -10,6 +25,7 @@ PODS:
   - SWRevealViewController (2.3.0)
 
 DEPENDENCIES:
+  - AFNetworking (~> 3.1)
   - AlamofireImage (~> 3.2)
   - Cosmos (~> 7.0)
   - Device (~> 2.0.0)
@@ -19,6 +35,7 @@ DEPENDENCIES:
   - SWRevealViewController (~> 2.3)
 
 SPEC CHECKSUMS:
+  AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   Alamofire: aa2e09d871c9160ac53c90e83c68064a94e3dfbe
   AlamofireImage: 157ed682cc81d3b9db4fb90c1f12180ac552d93b
   Cosmos: 2c8299147138758f6ebbb247cf1aeed77998bdf9
@@ -28,6 +45,6 @@ SPEC CHECKSUMS:
   Navajo-Swift: b5ccdf31f5b21e4944a418c5dfe891c8e571f7c7
   SWRevealViewController: 6d3fd97f70112fd7cef9de14df4260eacce4c63a
 
-PODFILE CHECKSUM: 61b53ea142dfdfd15f1534df9b53b1144b3afa4f
+PODFILE CHECKSUM: fc084573c7281f702957717fd7c032ace0f4e8d3
 
 COCOAPODS: 1.2.0.beta.1

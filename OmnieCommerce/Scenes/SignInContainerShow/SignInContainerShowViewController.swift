@@ -97,8 +97,7 @@ class SignInContainerShowViewController: BaseViewController, PasswordErrorMessag
     @IBAction func handlerSignInButtonTap(_ sender: CustomButton) {
         // NOTE: Ask the Interactor to do some work
         guard let name = textFieldsCollection.first?.text, let password = textFieldsCollection.last?.text, !(name.isEmpty), !(password.isEmpty) else {
-            // TODO: - ADD ALERT
-            showAlertView(withTitle: "Info".localized(), andMessage: "All fields can be...".localized())
+            alertViewDidShow(withTitle: "Info".localized(), andMessage: "All fields can be...".localized())
             
             return
         }
@@ -113,8 +112,7 @@ class SignInContainerShowViewController: BaseViewController, PasswordErrorMessag
 extension SignInContainerShowViewController: SignInContainerShowViewControllerInput {
     func displaySomething(viewModel: SignInContainerShowModels.User.ViewModel) {
         guard viewModel.result.error == nil else {
-            // TODO: - ADD ALERT
-            showAlertView(withTitle: "Error".localized(), andMessage: "This user not register...".localized())
+            alertViewDidShow(withTitle: "Error".localized(), andMessage: "This user not register...".localized())
             
             return
         }

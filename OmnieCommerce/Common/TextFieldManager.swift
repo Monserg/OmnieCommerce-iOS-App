@@ -39,8 +39,7 @@ class TextFieldManager: NSObject {
         let emptyFields = textFieldsArray.filter({ $0.text?.isEmpty == true })
         
         guard emptyFields.count == 0 else {
-            // TODO: - ADD ALERT
-            currentVC.showAlertView(withTitle: "Info".localized(), andMessage: "All fields can be...".localized())
+            currentVC.alertViewDidShow(withTitle: "Info".localized(), andMessage: "All fields can be...".localized())
             
             return false
         }

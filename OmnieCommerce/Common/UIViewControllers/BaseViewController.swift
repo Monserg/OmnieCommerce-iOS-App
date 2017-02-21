@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import AFNetworking
 import Localize_Swift
 import SWRevealViewController
+
+let NetworkReachabilityChanged = NSNotification.Name("NetworkReachabilityChanged")
 
 enum TopBarViewStyle {
     case Big
@@ -22,6 +25,9 @@ class BaseViewController: UIViewController {
     var blackOutView: UIView?
     var haveMenuItem = false
     
+    // Network monitoring
+    var previousNetworkReachabilityStatus: AFNetworkReachabilityStatus = .unknown
+    var isNetworkAvailable = true
     
     var scrollViewBase = UIScrollView() {
         didSet {
@@ -52,18 +58,28 @@ class BaseViewController: UIViewController {
         
         super.viewDidLoad()
         
-        // Setup App background color theme
-//        view.applyBackgroundTheme()
-        
         // Add Observers
         NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardAction), name: .UIKeyboardWillHide, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardAction), name: .UIKeyboardWillChangeFrame, object: nil)
+        
+        NotificationCenter.default.addObserver(forName: NetworkReachabilityChanged, object: nil, queue: nil, using: { notification in
+            if let userInfo = notification.userInfo {
+                if  let messageTitle    =   userInfo["summary"] as? String,
+                    let reachableOrNot  =   userInfo["reachableOrNot"] as? String {
+                    
+                    self.alertViewDidShow(withTitle: reachableOrNot, andMessage: messageTitle)
+                }
+            }
+        })
     }
     
     override func viewWillAppear(_ animated: Bool) {
         print(object: "\(type(of: self)): \(#function) run in [line \(#line)]")
 
         super.viewWillAppear(true)
+        
+        // Start network monitoring
+        didStartMonitoringNetwork()
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -109,19 +125,10 @@ class BaseViewController: UIViewController {
     
     
     // MARK: - Custom Functions
-    func hideNavigationBar() {
+    func navigationBarDidHide() {
         navigationController?.isNavigationBarHidden = true
     }
 
-    func showAlertView(withTitle title: String, andMessage message: String) {
-        let alertViewController = UIAlertController.init(title: title, message: message, preferredStyle: .alert)
-        
-        let alertViewControllerAction = UIAlertAction.init(title: "Ok".localized(), style: .default, handler: nil)
-        
-        alertViewController.addAction(alertViewControllerAction)
-        present(alertViewController, animated: true, completion: nil)
-    }
-    
     func setup(topBarView: UIView) {
         print(object: "\(type(of: self)): \(#function) run in [line \(#line)]")
 
@@ -161,6 +168,15 @@ class BaseViewController: UIViewController {
                 view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
             }
         }
+    }
+    
+    func alertViewDidShow(withTitle title: String, andMessage message: String) {
+        let alertViewController = UIAlertController.init(title: title, message: message, preferredStyle: .alert)
+        
+        let alertViewControllerAction = UIAlertAction.init(title: "Ok".localized(), style: .default, handler: nil)
+        
+        alertViewController.addAction(alertViewControllerAction)
+        present(alertViewController, animated: true, completion: nil)
     }
     
     
@@ -279,5 +295,46 @@ extension BaseViewController: UITextFieldDelegate {
         }
 */
         return true
+    }
+}
+
+
+// MARK: - Network monitoring
+extension BaseViewController {
+    // MARK: - Custom Functions
+    func didStartMonitoringNetwork() {
+        AFNetworkReachabilityManager.shared().startMonitoring()
+        
+        AFNetworkReachabilityManager.shared().setReachabilityStatusChange { status in
+            let reachabilityStatus          =   AFStringFromNetworkReachabilityStatus(status)
+            var reachableOrNot              =   ""
+            var networkSummary              =   ""
+            
+            switch (status) {
+            case .reachableViaWWAN, .reachableViaWiFi:
+                // Reachable.
+                reachableOrNot              =   "Reachable".localized()
+                networkSummary              =   "Connected to Network".localized()
+                self.isNetworkAvailable     =   true
+            
+            default:
+                // Not reachable.
+                reachableOrNot              =   "Not Reachable".localized()
+                networkSummary              =   "Disconnected from Network".localized()
+                self.isNetworkAvailable     =   false
+            }
+            
+            // Any class which has observer for this notification will be able to report loss of network connection successfully
+            if ((self.previousNetworkReachabilityStatus != .unknown && status != self.previousNetworkReachabilityStatus) || status == .notReachable) {
+                NotificationCenter.default.post(name: NetworkReachabilityChanged, object: nil, userInfo: [
+                    "reachabilityStatus": reachabilityStatus,
+                    "reachableOrNot": reachableOrNot,
+                    "summary": networkSummary,
+                    "reachableStatus": self.isNetworkAvailable
+                    ])
+            }
+            
+            self.previousNetworkReachabilityStatus = status
+        }
     }
 }
