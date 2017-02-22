@@ -10,46 +10,18 @@ import UIKit
 
 class DropDownTableViewController: UITableViewController {
     // MARK: - Properties
-    var dataSource = Array<String>()
-    var sourceType: DropDownList?
-    var completionHandler: ((_ value: String) -> ())?
+    var dataSource = Array<DropDownFilterList>()
+    var sourceType: DropDownList!
+    var completionHandler: ((_ value: DropDownFilterList) -> ())?
     
     
     // MARK: - Class Functions
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Config
-        getDataSource()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-    }
-    
-    
-    // MARK: - Custom Functions
-    func getDataSource() {
-        switch sourceType! {
-        case .City:
-            dataSource = ["Lviv", "Kyiv", "Kharkiv", "Uzgorod", "Vinnitsa", "Khmelnytskyi", "Zhitomir", "Poltava"]
-
-        case .Service:
-            dataSource = ["сауны", "салоны красоты", "фитнесс залы", "бассейны"]
-
-        case .Rating:
-            dataSource = ["1", "2", "3", "4", "5"]
-        }
-        
-        tableView.reloadData()
-    }
-    
-    
-    // MARK: - Navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if (segue.identifier == "123") {
-            
-        }
     }
 }
 
@@ -67,7 +39,16 @@ extension DropDownTableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DropDownCell", for: indexPath) as! DropDownTableViewCell
 
-        cell.nameLabel?.text = dataSource[indexPath.row]
+        switch sourceType! {
+        case .City:
+            cell.didSetup(withCity: dataSource[indexPath.row] as! City)
+        
+        case .Service:
+            cell.didSetup(withCity: dataSource[indexPath.row] as! City)
+
+        case .Rating:
+            cell.didSetup(withCity: dataSource[indexPath.row] as! City)
+        }
         
         return cell
     }

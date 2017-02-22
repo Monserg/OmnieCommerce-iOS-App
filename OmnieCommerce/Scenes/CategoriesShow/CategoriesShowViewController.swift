@@ -13,12 +13,14 @@ import UIKit
 
 // MARK: - Input protocols for current ViewController component VIP-cicle
 protocol CategoriesShowViewControllerInput {
-    func dataSourceDidShow(fromViewModel viewModel: CategoriesShowModels.Data.ViewModel)
+    func categoriesDidShow(fromViewModel viewModel: CategoriesShowModels.Categories.ViewModel)
+    func citiesDidShow(fromViewModel viewModel: CategoriesShowModels.Cities.ViewModel)
 }
 
 // MARK: - Output protocols for Interactor component VIP-cicle
 protocol CategoriesShowViewControllerOutput {
-    func dataSourceDidLoad(withRequestModel requestModel: CategoriesShowModels.Data.RequestModel)
+    func categoriesDidLoad(withRequestModel requestModel: CategoriesShowModels.Categories.RequestModel)
+    func citiesDidLoad(withRequestModel requestModel: CategoriesShowModels.Cities.RequestModel)
 }
 
 class CategoriesShowViewController: BaseViewController {
@@ -26,7 +28,7 @@ class CategoriesShowViewController: BaseViewController {
     var interactor: CategoriesShowViewControllerOutput!
     var router: CategoriesShowRouter!
     
-    var dataSource = Array<Category>()
+    var categories = Array<Category>()
     
     @IBOutlet weak var smallTopBarView: SmallTopBarView!
     @IBOutlet weak var copyrightLabel: CustomLabel!
@@ -69,8 +71,11 @@ class CategoriesShowViewController: BaseViewController {
         print(object: "\(type(of: self)): \(#function) run.")
         
         // Get dataSource
-        let requestModel = CategoriesShowModels.Data.RequestModel()
-        interactor.dataSourceDidLoad(withRequestModel: requestModel)
+        let categoriesRequestModel = CategoriesShowModels.Categories.RequestModel()
+        interactor.categoriesDidLoad(withRequestModel: categoriesRequestModel)
+        
+        let citiesRequestModel = CategoriesShowModels.Cities.RequestModel(listType: .City)
+        interactor.citiesDidLoad(withRequestModel: citiesRequestModel)
     }
     
     func setupScene(withSize size: CGSize) {
@@ -79,7 +84,6 @@ class CategoriesShowViewController: BaseViewController {
         smallTopBarView.setNeedsDisplay()
         smallTopBarView.circleView.setNeedsDisplay()
         cityButton.setNeedsDisplay()
-        //collectionView!.collectionViewLayout.invalidateLayout()
     }
     
     
@@ -91,8 +95,8 @@ class CategoriesShowViewController: BaseViewController {
         (sender.dropDownTableVC.tableView as! CustomTableView).setScrollIndicatorColor(color: UIColor.veryLightOrange)
         
         // Handler DropDownList selection
-        sender.dropDownTableVC.completionHandler = ({ selectedValue in
-            sender.changeTitle(newValue: selectedValue)
+        sender.dropDownTableVC.completionHandler = ({ selectedObject in
+            sender.changeTitle(newValue: selectedObject.name)
             
             sender.hideList(fromView: self.view)
         })
@@ -114,10 +118,14 @@ class CategoriesShowViewController: BaseViewController {
 
 // MARK: - CategoriesShowViewControllerInput
 extension CategoriesShowViewController: CategoriesShowViewControllerInput {
-    func dataSourceDidShow(fromViewModel viewModel: CategoriesShowModels.Data.ViewModel) {
-        self.dataSource = viewModel.dataSource
+    func categoriesDidShow(fromViewModel viewModel: CategoriesShowModels.Categories.ViewModel) {
+        self.categories = viewModel.list
         
         self.collectionView.reloadData()
+    }
+    
+    func citiesDidShow(fromViewModel viewModel: CategoriesShowModels.Cities.ViewModel) {
+        cityButton.dataSource = viewModel.list
     }
 }
 
@@ -129,13 +137,13 @@ extension CategoriesShowViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return dataSource.count
+        return categories.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategoryCell", for: indexPath) as! CustomCollectionViewCell
         
-        cell.didSetup(withCategory: dataSource[indexPath.row])
+        cell.didSetup(withCategory: categories[indexPath.row])
         
         return cell
     }

@@ -13,8 +13,8 @@ import UIKit
 
 class CategoriesShowWorker {
     // MARK: - Custom Functions. Business Logic
-    func dataSourceDidLoad() -> Array<Category> {
-        var dataSource = [Category]()
+    func categoriesDidLoad() -> Array<Category> {
+        var dataSource = Array<Category>()
         
         let names = [ "Auto Service", "Health", "Beauty", "Training", "Restaurants", "Tourism", "Sport" ]
         let images = [ "image-auto-service-normal", "image-health-normal", "image-beauty-normal", "image-training-normal", "image-restaurants-normal", "image-tourism-normal", "image-sport-normal" ]
@@ -23,6 +23,18 @@ class CategoriesShowWorker {
             dataSource.append(Category.init(names[i], images[i]))
         }
 
+        return dataSource
+    }
+    
+    func citiesDidLoad() -> Array<City> {
+        var dataSource = Array<City>()
+        
+        let names = ["Lviv", "Kyiv", "Kharkiv", "Uzgorod", "Vinnitsa", "Khmelnytskyi", "Zhitomir", "Poltava"]
+        
+        for i in 0 ..< names.count {
+            dataSource.append(City(name: names[i], codeID: i))
+        }
+        
         return dataSource
     }
 }

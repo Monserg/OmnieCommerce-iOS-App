@@ -46,6 +46,11 @@ protocol CodeErrorMessageView: ErrorMessageViewAnimation {
     var codeErrorMessageViewHeightConstraint: NSLayoutConstraint! { get set }
 }
 
+protocol DropDownFilterList {
+    // MARK: - Properties
+    var name: String { get set }
+}
+
 
 extension ErrorMessageViewAnimation {
     func didShow(_ view: UIView, withConstraint constraint: NSLayoutConstraint) {

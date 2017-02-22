@@ -94,6 +94,7 @@
 		B149A7BA1E5D8DD3009BF8C7 /* AnimatedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B149A7B91E5D8DD3009BF8C7 /* AnimatedButton.swift */; };
 		B149A7BC1E5D8E24009BF8C7 /* AnimatedButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = B149A7BB1E5D8E24009BF8C7 /* AnimatedButton.xib */; };
 		B149A7BF1E5DD5AD009BF8C7 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = B149A7BE1E5DD5AD009BF8C7 /* Category.swift */; };
+		B149A7C11E5DEE20009BF8C7 /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = B149A7C01E5DEE20009BF8C7 /* City.swift */; };
 		B14CD91A1E57C058005F8BF6 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14CD9191E57C058005F8BF6 /* Protocols.swift */; };
 		B14D1D601E5CB60600D33435 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B14D1D5E1E5CB60600D33435 /* GoogleService-Info.plist */; };
 		B14D1D671E5CB6D500D33435 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B14D1D611E5CB6D500D33435 /* Bolts.framework */; };
@@ -376,6 +377,7 @@
 		B149A7B91E5D8DD3009BF8C7 /* AnimatedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimatedButton.swift; sourceTree = "<group>"; };
 		B149A7BB1E5D8E24009BF8C7 /* AnimatedButton.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AnimatedButton.xib; sourceTree = "<group>"; };
 		B149A7BE1E5DD5AD009BF8C7 /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		B149A7C01E5DEE20009BF8C7 /* City.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
 		B14CD9191E57C058005F8BF6 /* Protocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		B14D1D5E1E5CB60600D33435 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B14D1D5F1E5CB60600D33435 /* OmnieCommerce-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "OmnieCommerce-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -692,10 +694,11 @@
 		B1228FB31DD4853E00A90FBB /* DataModel */ = {
 			isa = PBXGroup;
 			children = (
+				B149A7C01E5DEE20009BF8C7 /* City.swift */,
 				B1BF92431DD5FC8000BECBBB /* Config.swift */,
 				B1228FB41DD4856A00A90FBB /* MenuItem.swift */,
-				B11B9AD71DF02BAB009A4AA1 /* News.swift */,
 				B14D89501DF6CFF800AF3AED /* Message.swift */,
+				B11B9AD71DF02BAB009A4AA1 /* News.swift */,
 			);
 			path = DataModel;
 			sourceTree = "<group>";
@@ -1697,6 +1700,7 @@
 				B177E54D1E54AC7F004F1390 /* EnterCodeShowWorker.swift in Sources */,
 				B122F1F81DD35BC70018A701 /* FavoriteShowInteractor.swift in Sources */,
 				B14E976A1DD8B05E001E1DE2 /* ForgotPasswordShowWorker.swift in Sources */,
+				B149A7C11E5DEE20009BF8C7 /* City.swift in Sources */,
 				B1CF54DE1DDB51BE00E98049 /* SettingsShowWorker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

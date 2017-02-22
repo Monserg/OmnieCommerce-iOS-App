@@ -13,7 +13,21 @@ import UIKit
 
 // MARK: - Data models
 struct CategoriesShowModels {
-    struct Data {
+    struct Cities {
+        struct RequestModel {
+            let listType: DropDownList
+        }
+        
+        struct ResponseModel {
+            let result: Array<City>
+        }
+        
+        struct ViewModel {
+            let list: Array<City>
+        }
+    }
+
+    struct Categories {
         struct RequestModel {
         }
         
@@ -22,7 +36,7 @@ struct CategoriesShowModels {
         }
         
         struct ViewModel {
-            let dataSource: Array<Category>
+            let list: Array<Category>
         }
     }
 }

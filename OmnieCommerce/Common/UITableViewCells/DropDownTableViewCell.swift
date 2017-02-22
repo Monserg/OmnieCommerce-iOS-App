@@ -24,7 +24,19 @@ import UIKit
     }
     
     override func draw(_ rect: CGRect) {
-        self.contentView.backgroundColor = UIColor.veryDarkDesaturatedBlue24
-        self.nameLabel.backgroundColor = UIColor.veryDarkDesaturatedBlue24
+        self.contentView.backgroundColor    =   UIColor.veryDarkDesaturatedBlue24
+        self.nameLabel.backgroundColor      =   UIColor.veryDarkDesaturatedBlue24
+    }
+    
+    
+    // MARK: - Custom Functions
+    func didSetup(withCity city: City) {
+        self.nameLabel.text             =   city.name
+        
+        // Set selected color
+        let selectedView                =   UIView.init(frame: self.frame)
+        selectedView.backgroundColor    =   UIColor.init(hexString: "#38444e", withAlpha: 0.3)
+        
+        self.selectedBackgroundView     =   selectedView
     }
 }

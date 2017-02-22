@@ -13,12 +13,14 @@ import UIKit
 
 // MARK: - Input protocols for current Interactor component VIP-cicle
 protocol CategoriesShowInteractorInput {
-    func dataSourceDidLoad(withRequestModel requestModel: CategoriesShowModels.Data.RequestModel)
+    func categoriesDidLoad(withRequestModel requestModel: CategoriesShowModels.Categories.RequestModel)
+    func citiesDidLoad(withRequestModel requestModel: CategoriesShowModels.Cities.RequestModel)
 }
 
 // MARK: - Output protocols for Presenter component VIP-cicle
 protocol CategoriesShowInteractorOutput {
-    func dataSourceDidPrepareShow(fromResponseModel responseModel: CategoriesShowModels.Data.ResponseModel)
+    func categoriesDidPrepareShow(fromResponseModel responseModel: CategoriesShowModels.Categories.ResponseModel)
+    func citiesDidPrepareShow(fromResponseModel responseModel: CategoriesShowModels.Cities.ResponseModel)
 }
 
 class CategoriesShowInteractor: CategoriesShowInteractorInput {
@@ -28,13 +30,21 @@ class CategoriesShowInteractor: CategoriesShowInteractorInput {
     
     
     // MARK: - Custom Functions. Business logic
-    func dataSourceDidLoad(withRequestModel requestModel: CategoriesShowModels.Data.RequestModel) {
+    func categoriesDidLoad(withRequestModel requestModel: CategoriesShowModels.Categories.RequestModel) {
         // NOTE: Create some Worker to do the work
         worker = CategoriesShowWorker()
-        let result = worker.dataSourceDidLoad()
+        let result = worker.categoriesDidLoad()
         
         // NOTE: Pass the result to the Presenter
-        let responseModel = CategoriesShowModels.Data.ResponseModel(result: result)
-        presenter.dataSourceDidPrepareShow(fromResponseModel: responseModel)
+        let responseModel = CategoriesShowModels.Categories.ResponseModel(result: result)
+        presenter.categoriesDidPrepareShow(fromResponseModel: responseModel)
+    }
+    
+    func citiesDidLoad(withRequestModel requestModel: CategoriesShowModels.Cities.RequestModel) {
+        worker = CategoriesShowWorker()
+        let result = worker.citiesDidLoad()
+
+        let citiesResponseModel = CategoriesShowModels.Cities.ResponseModel(result: result)
+        presenter.citiesDidPrepareShow(fromResponseModel: citiesResponseModel)
     }
 }

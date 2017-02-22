@@ -49,7 +49,7 @@
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oTC-Vw-t0Y" userLabel="City View">
                                 <rect key="frame" x="0.0" y="95" width="375" height="71"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b7l-X1-Tog" userLabel="City Button" customClass="DropDownButton" customModule="OmnieCommerce" customModuleProvider="target">
+                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b7l-X1-Tog" userLabel="City Button" customClass="DropDownButton" customModule="OmnieCommerce" customModuleProvider="target">
                                         <rect key="frame" x="8" y="18" width="359" height="33"/>
                                         <color key="backgroundColor" red="0.14117647058823529" green="0.19607843137254902" blue="0.24705882352941178" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" title="City" image="icon-drop-down-accessory-normal"/>

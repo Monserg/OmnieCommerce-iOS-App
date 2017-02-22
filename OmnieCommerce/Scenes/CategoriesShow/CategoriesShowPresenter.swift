@@ -13,12 +13,14 @@ import UIKit
 
 // MARK: - Input protocols for current Presenter component VIP-cicle
 protocol CategoriesShowPresenterInput {
-    func dataSourceDidPrepareShow(fromResponseModel responseModel: CategoriesShowModels.Data.ResponseModel)
+    func categoriesDidPrepareShow(fromResponseModel responseModel: CategoriesShowModels.Categories.ResponseModel)
+    func citiesDidPrepareShow(fromResponseModel responseModel: CategoriesShowModels.Cities.ResponseModel)
 }
 
 // MARK: - Output protocols for ViewController component VIP-cicle
 protocol CategoriesShowPresenterOutput: class {
-    func dataSourceDidShow(fromViewModel viewModel: CategoriesShowModels.Data.ViewModel)
+    func categoriesDidShow(fromViewModel viewModel: CategoriesShowModels.Categories.ViewModel)
+    func citiesDidShow(fromViewModel viewModel: CategoriesShowModels.Cities.ViewModel)
 }
 
 class CategoriesShowPresenter: CategoriesShowPresenterInput {
@@ -27,9 +29,13 @@ class CategoriesShowPresenter: CategoriesShowPresenterInput {
     
     
     // MARK: - Custom Functions. Presentation logic
-    func dataSourceDidPrepareShow(fromResponseModel responseModel: CategoriesShowModels.Data.ResponseModel) {
-        // NOTE: Format the response from the Interactor and pass the result back to the View Controller
-        let viewModel = CategoriesShowModels.Data.ViewModel(dataSource: responseModel.result)
-        viewController.dataSourceDidShow(fromViewModel: viewModel)
+    func categoriesDidPrepareShow(fromResponseModel responseModel: CategoriesShowModels.Categories.ResponseModel) {
+        let viewModel = CategoriesShowModels.Categories.ViewModel(list: responseModel.result)
+        viewController.categoriesDidShow(fromViewModel: viewModel)
+    }
+
+    func citiesDidPrepareShow(fromResponseModel responseModel: CategoriesShowModels.Cities.ResponseModel) {
+        let viewModel = CategoriesShowModels.Cities.ViewModel(list: responseModel.result)
+        viewController.citiesDidShow(fromViewModel: viewModel)
     }
 }
