@@ -42,6 +42,9 @@
 "Enter code"                    =   "Enter code";
 "Invalid code"                  =   "* Invalid code. Please try again";
 "New password"                  =   "New Password";
+"Organization message"          =   "Message to the organization";
+"Organization price list"       =   "Prices organization";
+"Organization add card"         =   "Add business card organization";
 
 
 // Buttons

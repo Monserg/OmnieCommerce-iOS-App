@@ -28,7 +28,7 @@ typealias HandlerPassDataCompletion                 =   ((_ data: Any) -> ())
 
 typealias ResponseAPI                               =   (success: Bool, error: String?)
 
-var isAppThemeDark                                  =   true
+var isAppThemeDark                                  =   false
 
 struct Config {
     struct Constants {

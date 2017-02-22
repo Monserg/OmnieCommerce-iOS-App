@@ -42,6 +42,9 @@
 "Enter code"                    =   "Введите код";
 "Invalid code"                  =   "* Ошибочный код. Попытайтесь ще раз";
 "New password"                  =   "Новый пароль";
+"Organization message"          =   "Сообщение для организации";
+"Organization price list"       =   "Прайс организации";
+"Organization add card"         =   "Добавить визитку организации";
 
 
 // Buttons

@@ -11,6 +11,7 @@ import UIKit
 @IBDesignable class CustomButton: UIButton {
     // MARK: - Properties
     var designStyle: String?
+    var isButtonsTreeShow = false
     
     
     // MARK: - Class Initialization
@@ -63,5 +64,28 @@ import UIKit
         
         layoutIfNeeded()
         layer.cornerRadius = frame.height / 2
+    }
+    
+    
+    // MARK: - Custom Functions
+    func didShowButtonsTree() {
+        // Button animation
+        UIView.animate(withDuration: 0.5, animations: {
+            self.transform = CGAffineTransform(rotationAngle: CGFloat(M_PI * 45.0 * ((self.isButtonsTreeShow) ? 0 : 1)) / 180)
+        }, completion: { success in
+            // Create Business Card button
+            let businessCardButton = UIButton(frame: CGRect(x: 0, y: 0, width: 35, height: 35))
+            businessCardButton.center = self.center
+            businessCardButton.backgroundColor = UIColor.red // veryLightOrange
+            businessCardButton.addTarget(self, action: #selector(self.handlerButtonFromTreeTap), for: .touchUpInside)
+            
+            self.addSubview(businessCardButton)
+            
+            self.isButtonsTreeShow = !self.isButtonsTreeShow
+        })
+    }
+    
+    func handlerButtonFromTreeTap(_ sender: UIButton) {
+        print(object: "asdasdasdas")
     }
 }

@@ -116,7 +116,7 @@ class CalendarShowViewController: BaseViewController, CalendarShowViewController
         bottomDottedBorderView.setNeedsDisplay()
         segmentedControlView.setNeedsDisplay()
         containerView.setNeedsDisplay()
-        confirmButton.setupWithStyle(.Fill)
+        confirmButton.setupWithStyle(.VeryLightOrangeFill)
     }
     
     func setupDateLabel(withDate date: Date) {

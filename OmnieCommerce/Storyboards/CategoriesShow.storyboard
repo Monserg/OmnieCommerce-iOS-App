@@ -176,6 +176,22 @@
                                     <constraint firstItem="cu8-DP-jNG" firstAttribute="leading" secondItem="xJ0-Pa-l1A" secondAttribute="leading" id="u45-GM-nBZ"/>
                                 </constraints>
                             </scrollView>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gOY-2J-2yo" userLabel="Add Button" customClass="CustomButton" customModule="OmnieCommerce" customModuleProvider="target">
+                                <rect key="frame" x="303" y="575.5" width="57" height="57"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="57" id="3zu-7y-Hej"/>
+                                    <constraint firstAttribute="width" constant="57" id="tTI-An-pHk"/>
+                                </constraints>
+                                <state key="normal" image="icon-add-white-normal"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="buttonStyle" value="SoftOrangeFill"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="handlerAddButtonTap:" destination="9s1-kT-Mzo" eventType="touchUpInside" id="yD1-US-4VO"/>
+                                </connections>
+                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3d9-Qt-0Tr" userLabel="Copyright Label" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
                                 <rect key="frame" x="8" y="647.5" width="359" height="10.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -195,12 +211,14 @@
                             </constraint>
                             <constraint firstAttribute="trailing" secondItem="Fg2-g7-Pmf" secondAttribute="trailing" id="6ia-VD-qjQ"/>
                             <constraint firstAttribute="bottom" secondItem="3d9-Qt-0Tr" secondAttribute="bottom" constant="9" id="BFR-aI-yAf"/>
+                            <constraint firstAttribute="trailing" secondItem="gOY-2J-2yo" secondAttribute="trailing" constant="15" id="DR6-aD-dgv"/>
                             <constraint firstItem="3d9-Qt-0Tr" firstAttribute="top" secondItem="xJ0-Pa-l1A" secondAttribute="bottom" constant="9" id="ERh-fs-xUb"/>
                             <constraint firstItem="3d9-Qt-0Tr" firstAttribute="centerX" secondItem="tP1-Vk-hMS" secondAttribute="centerX" id="Gzt-F7-6yk"/>
                             <constraint firstAttribute="trailing" secondItem="xJ0-Pa-l1A" secondAttribute="trailing" id="TQK-fL-iEv"/>
                             <constraint firstAttribute="trailing" secondItem="3d9-Qt-0Tr" secondAttribute="trailing" constant="8" id="Tdg-4A-3Gn"/>
                             <constraint firstItem="Fg2-g7-Pmf" firstAttribute="leading" secondItem="tP1-Vk-hMS" secondAttribute="leading" id="YA4-sD-5WW"/>
                             <constraint firstItem="xJ0-Pa-l1A" firstAttribute="leading" secondItem="tP1-Vk-hMS" secondAttribute="leading" id="dQI-Zr-E6w"/>
+                            <constraint firstItem="3d9-Qt-0Tr" firstAttribute="top" secondItem="gOY-2J-2yo" secondAttribute="bottom" constant="15" id="jD6-Yc-fv6"/>
                             <constraint firstItem="xJ0-Pa-l1A" firstAttribute="top" secondItem="Fg2-g7-Pmf" secondAttribute="bottom" id="u6z-1c-Tch"/>
                         </constraints>
                     </view>
@@ -208,6 +226,7 @@
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="addButton" destination="gOY-2J-2yo" id="Wee-GT-mmJ"/>
                         <outlet property="cityButton" destination="b7l-X1-Tog" id="9RM-0c-KEc"/>
                         <outlet property="cityView" destination="oTC-Vw-t0Y" id="64U-N3-qX5"/>
                         <outlet property="collectionView" destination="YeW-Nj-fIe" id="1gN-Ft-XR8"/>
@@ -221,6 +240,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="icon-add-white-normal" width="21" height="21"/>
         <image name="icon-drop-down-accessory-normal" width="7" height="5"/>
         <image name="image-tourism-normal" width="40" height="40"/>
     </resources>

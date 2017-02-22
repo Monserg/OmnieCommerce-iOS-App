@@ -33,6 +33,7 @@ class CategoriesShowViewController: BaseViewController, CategoriesShowViewContro
     @IBOutlet weak var copyrightLabel: CustomLabel!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var cityView: UIView!
+    @IBOutlet weak var addButton: CustomButton!
 
     @IBOutlet weak var cityButton: DropDownButton!
     
@@ -109,6 +110,10 @@ class CategoriesShowViewController: BaseViewController, CategoriesShowViewContro
         })
     }
     
+    @IBAction func handlerAddButtonTap(_ sender: CustomButton) {
+        self.addButton.didShowButtonsTree()
+    }
+
     
     // MARK: - Transition
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {

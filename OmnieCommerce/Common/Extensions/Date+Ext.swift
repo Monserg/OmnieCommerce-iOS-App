@@ -83,6 +83,15 @@ extension Date {
         
         return Calendar.current.date(from: dateComponents)!
     }
+    
+    func isLeapYear() -> Bool {
+        let calendar    =   NSCalendar.current
+        let components  =   calendar.dateComponents([.year], from: self)
+        let year        =   components.year!
+        let isLeapYear  =   ((year % 4 == 0) && (year % 100 != 0) || (year % 400 == 0))
+        
+        return isLeapYear
+    }
 }
 
 
