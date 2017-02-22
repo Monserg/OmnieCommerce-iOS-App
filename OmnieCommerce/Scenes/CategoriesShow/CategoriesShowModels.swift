@@ -12,15 +12,17 @@
 import UIKit
 
 // MARK: - Data models
-struct CategoriesShow {
-    struct Something {
-        struct Request {
+struct CategoriesShowModels {
+    struct Data {
+        struct RequestModel {
         }
         
-        struct Response {
+        struct ResponseModel {
+            let result: Array<Category>
         }
         
         struct ViewModel {
+            let dataSource: Array<Category>
         }
     }
 }

@@ -35,16 +35,16 @@ class CategoriesShowConfigurator {
 
     // MARK: - Custom Functions
     func configure(viewController: CategoriesShowViewController) {
-        let router = CategoriesShowRouter()
-        router.viewController = viewController
+        let router                  =   CategoriesShowRouter()
+        router.viewController       =   viewController
         
-        let presenter = CategoriesShowPresenter()
-        presenter.output = viewController
+        let presenter               =   CategoriesShowPresenter()
+        presenter.viewController    =   viewController
         
-        let interactor = CategoriesShowInteractor()
-        interactor.output = presenter
+        let interactor              =   CategoriesShowInteractor()
+        interactor.presenter        =   presenter
         
-        viewController.output = interactor
-        viewController.router = router
+        viewController.interactor   =   interactor
+        viewController.router       =   router
     }
 }

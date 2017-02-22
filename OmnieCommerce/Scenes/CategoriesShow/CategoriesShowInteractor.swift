@@ -11,29 +11,30 @@
 
 import UIKit
 
-// MARK: - Input & Output protocols
+// MARK: - Input protocols for current Interactor component VIP-cicle
 protocol CategoriesShowInteractorInput {
-    func doSomething(request: CategoriesShow.Something.Request)
+    func dataSourceDidLoad(withRequestModel requestModel: CategoriesShowModels.Data.RequestModel)
 }
 
+// MARK: - Output protocols for Presenter component VIP-cicle
 protocol CategoriesShowInteractorOutput {
-    func presentSomething(response: CategoriesShow.Something.Response)
+    func dataSourceDidPrepareShow(fromResponseModel responseModel: CategoriesShowModels.Data.ResponseModel)
 }
 
 class CategoriesShowInteractor: CategoriesShowInteractorInput {
     // MARK: - Properties
-    var output: CategoriesShowInteractorOutput!
+    var presenter: CategoriesShowInteractorOutput!
     var worker: CategoriesShowWorker!
     
     
     // MARK: - Custom Functions. Business logic
-    func doSomething(request: CategoriesShow.Something.Request) {
+    func dataSourceDidLoad(withRequestModel requestModel: CategoriesShowModels.Data.RequestModel) {
         // NOTE: Create some Worker to do the work
         worker = CategoriesShowWorker()
-        worker.doSomeWork()
+        let result = worker.dataSourceDidLoad()
         
         // NOTE: Pass the result to the Presenter
-        let response = CategoriesShow.Something.Response()
-        output.presentSomething(response: response)
+        let responseModel = CategoriesShowModels.Data.ResponseModel(result: result)
+        presenter.dataSourceDidPrepareShow(fromResponseModel: responseModel)
     }
 }

@@ -13,7 +13,16 @@ import UIKit
 
 class CategoriesShowWorker {
     // MARK: - Custom Functions. Business Logic
-    func doSomeWork() {
-        // NOTE: Do the work
+    func dataSourceDidLoad() -> Array<Category> {
+        var dataSource = [Category]()
+        
+        let names = [ "Auto Service", "Health", "Beauty", "Training", "Restaurants", "Tourism", "Sport" ]
+        let images = [ "image-auto-service-normal", "image-health-normal", "image-beauty-normal", "image-training-normal", "image-restaurants-normal", "image-tourism-normal", "image-sport-normal" ]
+        
+        for i in 0 ..< names.count {
+            dataSource.append(Category.init(names[i], images[i]))
+        }
+
+        return dataSource
     }
 }

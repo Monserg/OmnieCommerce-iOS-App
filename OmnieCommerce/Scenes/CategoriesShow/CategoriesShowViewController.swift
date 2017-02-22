@@ -11,32 +11,38 @@
 
 import UIKit
 
-// MARK: - Input & Output protocols
+// MARK: - Input protocols for current ViewController component VIP-cicle
 protocol CategoriesShowViewControllerInput {
-    func displaySomething(viewModel: CategoriesShow.Something.ViewModel)
+    func dataSourceDidShow(fromViewModel viewModel: CategoriesShowModels.Data.ViewModel)
 }
 
+// MARK: - Output protocols for Interactor component VIP-cicle
 protocol CategoriesShowViewControllerOutput {
-    func doSomething(request: CategoriesShow.Something.Request)
+    func dataSourceDidLoad(withRequestModel requestModel: CategoriesShowModels.Data.RequestModel)
 }
 
-class CategoriesShowViewController: BaseViewController, CategoriesShowViewControllerInput {
+class CategoriesShowViewController: BaseViewController {
     // MARK: - Properties
-    var output: CategoriesShowViewControllerOutput!
+    var interactor: CategoriesShowViewControllerOutput!
     var router: CategoriesShowRouter!
     
-    var names = [ "Auto Service", "Health", "Beauty", "Training", "Restaurants", "Tourism", "Sport" ]
-    var images = [ "image-auto-service-normal", "image-health-normal", "image-beauty-normal", "image-training-normal", "image-restaurants-normal", "image-tourism-normal", "image-sport-normal" ]
     var dataSource = Array<Category>()
     
     @IBOutlet weak var smallTopBarView: SmallTopBarView!
     @IBOutlet weak var copyrightLabel: CustomLabel!
-    @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var cityView: UIView!
     @IBOutlet weak var addButton: CustomButton!
 
     @IBOutlet weak var cityButton: DropDownButton!
     
+    @IBOutlet weak var collectionView: UICollectionView! {
+        didSet {
+            // Delegates
+            collectionView.delegate = self
+            collectionView.dataSource = self
+        }
+    }
+
     
     // MARK: - Class Initialization
     override func awakeFromNib() {
@@ -50,18 +56,9 @@ class CategoriesShowViewController: BaseViewController, CategoriesShowViewContro
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Initialization
-        for i in 0 ..< names.count {
-            dataSource.append(Category.init(names[i], images[i]))
-        }
-        
-        // Delegates
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        
         // Config topBarView
-        smallTopBarView.type = "ParentSearch"
-        topBarViewStyle = .Small
+        smallTopBarView.type    =   "ParentSearch"
+        topBarViewStyle         =   .Small
         setup(topBarView: smallTopBarView)
 
         doSomethingOnLoad()
@@ -72,17 +69,9 @@ class CategoriesShowViewController: BaseViewController, CategoriesShowViewContro
     func doSomethingOnLoad() {
         print(object: "\(type(of: self)): \(#function) run.")
         
-        // NOTE: Ask the Interactor to do some work
-        let request = CategoriesShow.Something.Request()
-        output.doSomething(request: request)
-    }
-    
-    // Display logic
-    func displaySomething(viewModel: CategoriesShow.Something.ViewModel) {
-        print(object: "\(type(of: self)): \(#function) run.")
-        
-        // NOTE: Display the result from the Presenter
-        // nameTextField.text = viewModel.name
+        // Get dataSource
+        let requestModel = CategoriesShowModels.Data.RequestModel()
+        interactor.dataSourceDidLoad(withRequestModel: requestModel)
     }
     
     func setupScene(withSize size: CGSize) {
@@ -110,10 +99,6 @@ class CategoriesShowViewController: BaseViewController, CategoriesShowViewContro
         })
     }
     
-    @IBAction func handlerAddButtonTap(_ sender: CustomButton) {
-        self.addButton.didShowButtonsTree()
-    }
-
     
     // MARK: - Transition
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -124,6 +109,16 @@ class CategoriesShowViewController: BaseViewController, CategoriesShowViewContro
         if (cityButton.isDropDownListShow) {
             cityButton.hideList(fromView: view)
         }
+    }
+}
+
+
+// MARK: - CategoriesShowViewControllerInput
+extension CategoriesShowViewController: CategoriesShowViewControllerInput {
+    func dataSourceDidShow(fromViewModel viewModel: CategoriesShowModels.Data.ViewModel) {
+        self.dataSource = viewModel.dataSource
+        
+        self.collectionView.reloadData()
     }
 }
 

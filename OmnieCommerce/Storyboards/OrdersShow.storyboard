@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -52,75 +51,21 @@
                                     <segue destination="seO-We-1VM" kind="show" identifier="CalendarShowSegue" id="TNv-N8-vZZ"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lzw-Ds-e41">
-                                <rect key="frame" x="202" y="592" width="50" height="50"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WOL-3O-b2k">
-                                        <rect key="frame" x="4" y="14" width="42" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="Gjp-M1-ikD"/>
-                                    <constraint firstAttribute="width" constant="50" id="pO0-3J-5CL"/>
-                                </constraints>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TR0-BA-kc9">
-                                <rect key="frame" x="182" y="572" width="90" height="90"/>
-                                <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="90" id="WQM-vc-K0h"/>
-                                    <constraint firstAttribute="height" constant="90" id="ZLb-0h-aSY"/>
-                                </constraints>
-                            </view>
-                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9TE-Qq-Tc1" userLabel="Add View">
-                                <rect key="frame" x="174" y="564" width="107" height="107"/>
-                                <subviews>
-                                    <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CTn-Rq-nbK" userLabel="Add Button" customClass="CustomButton" customModule="OmnieCommerce" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="107" height="107"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <state key="normal" image="icon-add-white-normal"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="buttonStyle" value="SoftOrangeFill"/>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
-                                        </userDefinedRuntimeAttributes>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="107" id="7tu-x6-NCt"/>
-                                    <constraint firstItem="CTn-Rq-nbK" firstAttribute="top" secondItem="9TE-Qq-Tc1" secondAttribute="top" id="8sA-ek-pZl"/>
-                                    <constraint firstAttribute="trailing" secondItem="CTn-Rq-nbK" secondAttribute="trailing" id="92F-xN-xcC"/>
-                                    <constraint firstItem="CTn-Rq-nbK" firstAttribute="leading" secondItem="9TE-Qq-Tc1" secondAttribute="leading" id="M3K-Lb-g6f"/>
-                                    <constraint firstAttribute="width" constant="107" id="QIm-iD-TbM"/>
-                                    <constraint firstAttribute="bottom" secondItem="CTn-Rq-nbK" secondAttribute="bottom" id="Twz-hW-tO1"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="oHb-zG-5fk" secondAttribute="trailing" constant="20" id="0VD-4c-pUW"/>
                             <constraint firstAttribute="trailing" secondItem="0nN-5h-FmO" secondAttribute="trailing" id="3D8-nk-ofk"/>
-                            <constraint firstItem="EBq-Ba-TWn" firstAttribute="top" secondItem="9TE-Qq-Tc1" secondAttribute="bottom" constant="45" id="8Cx-WL-90s"/>
                             <constraint firstAttribute="trailing" secondItem="EBq-Ba-TWn" secondAttribute="trailing" constant="8" id="8x8-8v-8nr"/>
                             <constraint firstAttribute="bottom" secondItem="EBq-Ba-TWn" secondAttribute="bottom" constant="9" id="9rE-uP-SSh"/>
                             <constraint firstItem="oHb-zG-5fk" firstAttribute="top" secondItem="0nN-5h-FmO" secondAttribute="bottom" constant="39" id="Bmp-0w-evD"/>
                             <constraint firstItem="EBq-Ba-TWn" firstAttribute="centerX" secondItem="oKk-pR-n0g" secondAttribute="centerX" id="Bo8-FN-hGj"/>
                             <constraint firstItem="0nN-5h-FmO" firstAttribute="leading" secondItem="oKk-pR-n0g" secondAttribute="leading" id="CjR-yb-X9A"/>
-                            <constraint firstItem="TR0-BA-kc9" firstAttribute="centerY" secondItem="9TE-Qq-Tc1" secondAttribute="centerY" id="KMC-BA-h2y"/>
                             <constraint firstItem="0nN-5h-FmO" firstAttribute="top" secondItem="oKk-pR-n0g" secondAttribute="top" id="PKg-An-nEH">
                                 <variation key="heightClass=compact-widthClass=compact" constant="0.0"/>
                                 <variation key="heightClass=compact-widthClass=regular" constant="0.0"/>
                             </constraint>
-                            <constraint firstAttribute="trailingMargin" secondItem="9TE-Qq-Tc1" secondAttribute="trailing" constant="113" id="SRc-oQ-uEQ"/>
-                            <constraint firstItem="Lzw-Ds-e41" firstAttribute="centerX" secondItem="TR0-BA-kc9" secondAttribute="centerX" id="WkL-Iu-2LB"/>
-                            <constraint firstItem="TR0-BA-kc9" firstAttribute="centerX" secondItem="9TE-Qq-Tc1" secondAttribute="centerX" id="XBG-8t-AjM"/>
                             <constraint firstItem="EBq-Ba-TWn" firstAttribute="leading" secondItem="oKk-pR-n0g" secondAttribute="leading" constant="8" id="mjY-xP-tWi"/>
-                            <constraint firstItem="Lzw-Ds-e41" firstAttribute="centerY" secondItem="TR0-BA-kc9" secondAttribute="centerY" id="qlK-q0-IAI"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
@@ -203,7 +148,4 @@
             <point key="canvasLocation" x="604" y="147.97601199400302"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="icon-add-white-normal" width="21" height="21"/>
-    </resources>
 </document>
