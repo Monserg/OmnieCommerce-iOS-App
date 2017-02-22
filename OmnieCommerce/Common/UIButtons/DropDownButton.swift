@@ -37,12 +37,12 @@ enum DropDownList: String {
     override func draw(_ rect: CGRect) {
         print(object: "\(type(of: self)): \(#function) run.")
         
-        imageEdgeInsets = UIEdgeInsetsMake(3, UIScreen.main.bounds.width - 30 - borderWidth, 0, 0)
+        imageEdgeInsets = UIEdgeInsetsMake(3, bounds.width - 16 - borderWidth, 0, 0)
     }
 
     
     // MARK: - Custom Functions
-    func showList(inView view: UIView) {
+    func itemsListDidShow(inView view: UIView) {
         // Create DropDownListView from Nib-file
         let senderFrame                     =   self.convert(self.frame, to: view)
         dropDownTableVC                     =   UIStoryboard(name: "DropDown", bundle: nil).instantiateViewController(withIdentifier: "DropDownTableVC") as! DropDownTableViewController
@@ -63,14 +63,12 @@ enum DropDownList: String {
         }, completion: nil)
     }
     
-    func hideList(fromView view: UIView) {
+    func itemsListDidHide(inView view: UIView) {
+        
         UIView.animate(withDuration: 0.5, animations: { () -> Void in
-            let senderFrame                 =   self.convert(self.frame, to: view)
-            var viewFrame                   =   self.dropDownTableVC.view.frame
-            viewFrame                       =   CGRect.init(x: 8, y: senderFrame.minY, width: senderFrame.size.width, height: viewFrame.size.height)
-            self.dropDownTableVC.view.frame =   viewFrame
-            self.dropDownTableVC.view.alpha =   0
-            self.isDropDownListShow         =   false
+            self.dropDownTableVC.view.transform     =   CGAffineTransform(translationX: 0, y: -30)
+            self.dropDownTableVC.view.alpha         =   0
+            self.isDropDownListShow                 =   false
         }, completion: { success in
             guard success else {
                 return

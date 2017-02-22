@@ -91,14 +91,14 @@ class CategoriesShowViewController: BaseViewController {
     @IBAction func handlerCityButtonTap(_ sender: DropDownButton) {
         print(object: "\(type(of: self)): \(#function) run.")
         
-        (sender.isDropDownListShow) ? sender.hideList(fromView: view) : sender.showList(inView: view)        
+        (sender.isDropDownListShow) ? sender.itemsListDidHide(inView: view) : sender.itemsListDidShow(inView: view)
         (sender.dropDownTableVC.tableView as! CustomTableView).setScrollIndicatorColor(color: UIColor.veryLightOrange)
         
         // Handler DropDownList selection
         sender.dropDownTableVC.completionHandler = ({ selectedObject in
             sender.changeTitle(newValue: selectedObject.name)
             
-            sender.hideList(fromView: self.view)
+            sender.itemsListDidHide(inView: self.view)
         })
     }
     
@@ -110,7 +110,7 @@ class CategoriesShowViewController: BaseViewController {
         setupScene(withSize: size)
         
         if (cityButton.isDropDownListShow) {
-            cityButton.hideList(fromView: view)
+            cityButton.itemsListDidHide(inView: view)
         }
     }
 }
@@ -156,7 +156,7 @@ extension CategoriesShowViewController: UICollectionViewDelegate {
         print(object: "\(type(of: self)): \(#function) run.")
         
         if (cityButton.isDropDownListShow) {
-            cityButton.hideList(fromView: view)
+            cityButton.itemsListDidHide(inView: view)
         }
         
         collectionView.deselectItem(at: indexPath, animated: true)
