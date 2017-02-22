@@ -44,19 +44,19 @@ enum DropDownList: String {
     // MARK: - Custom Functions
     func itemsListDidShow(inView view: UIView) {
         // Create DropDownListView from Nib-file
-        let senderFrame                     =   self.convert(self.frame, to: view)
-        dropDownTableVC                     =   UIStoryboard(name: "DropDown", bundle: nil).instantiateViewController(withIdentifier: "DropDownTableVC") as! DropDownTableViewController
+        let senderFrame                             =   self.convert(self.frame, to: view)
+        dropDownTableVC                             =   UIStoryboard(name: "DropDown", bundle: nil).instantiateViewController(withIdentifier: "DropDownTableVC") as! DropDownTableViewController
      
-        dropDownTableVC.sourceType          =   DropDownList.init(rawValue: dropDownList!)
-        dropDownTableVC.dataSource          =   self.dataSource
-        dropDownTableVC.tableView.frame     =   CGRect.init(x: self.frame.minX, y: senderFrame.minY, width: senderFrame.width, height: Config.Constants.dropDownCellHeight * 5)
-        dropDownTableVC.tableView.alpha     =   0
+        dropDownTableVC.sourceType                  =   DropDownList.init(rawValue: dropDownList!)
+        dropDownTableVC.dataSource                  =   self.dataSource
+        dropDownTableVC.tableView.frame             =   CGRect.init(x: self.frame.minX, y: senderFrame.minY, width: senderFrame.width, height: Config.Constants.dropDownCellHeight * 5)
+        dropDownTableVC.tableView.alpha             =   0
         
         view.addSubview(dropDownTableVC.tableView)
         
         UIView.animate(withDuration: 0.5, animations: { () -> Void in
-            var viewFrame                   =   self.dropDownTableVC.tableView.frame
-            viewFrame                       =   CGRect.init(x: self.frame.minX, y: senderFrame.maxY - self.frame.minY + 2, width: senderFrame.size.width, height: viewFrame.size.height)
+            var viewFrame                           =   self.dropDownTableVC.tableView.frame
+            viewFrame                               =   CGRect.init(x: self.frame.minX, y: senderFrame.maxY - self.frame.minY + 2, width: senderFrame.size.width, height: viewFrame.size.height)
             self.dropDownTableVC.tableView.frame    =   viewFrame
             self.dropDownTableVC.tableView.alpha    =   1
             self.isDropDownListShow                 =   true

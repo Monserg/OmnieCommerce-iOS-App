@@ -70,6 +70,9 @@ class CategoriesShowViewController: BaseViewController {
     func initialSetupDidLoad() {
         print(object: "\(type(of: self)): \(#function) run.")
         
+        // Hide Search button
+        smallTopBarView.searchButton.isHidden = true
+        
         // Get dataSource
         let categoriesRequestModel = CategoriesShowModels.Categories.RequestModel()
         interactor.categoriesDidLoad(withRequestModel: categoriesRequestModel)
