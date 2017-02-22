@@ -80,7 +80,7 @@ class CategoriesShowViewController: BaseViewController {
         smallTopBarView.setNeedsDisplay()
         smallTopBarView.circleView.setNeedsDisplay()
         cityButton.setNeedsDisplay()
-        collectionView!.collectionViewLayout.invalidateLayout()
+        //collectionView!.collectionViewLayout.invalidateLayout()
     }
     
     
@@ -135,10 +135,8 @@ extension CategoriesShowViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategoryCell", for: indexPath) as! CustomCollectionViewCell
-        let category = dataSource[indexPath.row] as Category
         
-        cell.imageView.image = UIImage.init(named: category.icon)
-        cell.name.text = category.title
+        cell.didSetup(withCategory: dataSource[indexPath.row])
         
         return cell
     }

@@ -13,7 +13,6 @@ enum LabelStyle: String {
     case Error = "Error"
     case Copyright = "Copyright"
     case MenuItem = "MenuItem"
-    case CategoryName = "CategoryName"
     case Date = "Date"
     case DateItalic = "DateItalic"
     case Describe = "Describe"
@@ -22,6 +21,7 @@ enum LabelStyle: String {
     case CalendarWeekday = "CalendarWeekday"
     case BarCodeTitle                                   =   "BarCodeTitle"
     case ActionViewTitle                                =   "ActionViewTitle"
+    case UbuntuRegular16VeryDarkGray                    =   "UbuntuRegular16VeryDarkGray"
     case UbuntuLightItalic12VerySoftRed                 =   "UbuntuLightItalic12VerySoftRed"
     case UbuntuLight12VeryLightGray                     =   "UbuntuLight12VeryLightGray"
     case UbuntuLight16VeryLightGray                     =   "UbuntuLight16VeryLightGray"
@@ -62,10 +62,6 @@ extension UILabel {
             textColor       =   (isAppThemeDark) ? UIColor.white : UIColor.veryLightGray
             textAlignment   =   .left
             
-        case .CategoryName:
-            font            =   (isAppThemeDark) ? UIFont.systemFont(ofSize: 12) : UIFont.ubuntuRegular16
-            textColor       =   (isAppThemeDark) ? UIColor.white : UIColor.veryDarkGray
-
         case .Date:
             font            =   (isAppThemeDark) ? UIFont.systemFont(ofSize: 12) : UIFont.ubuntuLight09
             textColor       =   (isAppThemeDark) ? UIColor.white : UIColor.veryDarkGrayishBlue53
@@ -94,6 +90,10 @@ extension UILabel {
         case .ActionViewTitle:
             attributedText  =   (isAppThemeDark) ? NSAttributedString(string: text!, attributes: UIFont.ubuntuLightItalicVeryDarkGrayishBlue5312) : NSAttributedString(string: text!, attributes: UIFont.helveticaNeueCyrLightVeryLightGray21)
 
+        case .UbuntuRegular16VeryDarkGray:
+            font            =   (isAppThemeDark) ? UIFont.systemFont(ofSize: 12) : UIFont.ubuntuRegular16
+            textColor       =   (isAppThemeDark) ? UIColor.white : UIColor.veryDarkGray
+            
         case .UbuntuLightItalic12VerySoftRed:
             font            =   UIFont.ubuntuLightItalic12
             textColor       =   UIColor(hexString: (isAppThemeDark) ? "#dc8181" : "#8b0000", withAlpha: 1.0)

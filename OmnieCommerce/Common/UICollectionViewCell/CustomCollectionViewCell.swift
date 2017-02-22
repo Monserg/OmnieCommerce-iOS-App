@@ -14,7 +14,6 @@ import UIKit
     @IBOutlet weak var name: CustomLabel!
     
     
-
     // MARK: - Class Initialization
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -22,13 +21,23 @@ import UIKit
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        
-        print(object: "\(type(of: self)): \(#function) run. Button frame = \(self.frame)")
     }
     
     
     // MARK: - Class Functions
     override func draw(_ rect: CGRect) {
-        print(object: "\(type(of: self)): \(#function) run. Button rect = \(rect)")
+    }
+    
+    
+    // MARK: - Custom Functions
+    func didSetup(withCategory category: Category) {
+        self.imageView.image            =   UIImage.init(named: category.icon)
+        self.name.text                  =   category.title
+        
+        // Set selected color
+        let selectedView                =   UIView.init(frame: self.frame)
+        selectedView.backgroundColor    =   UIColor.init(hexString: "#38444e", withAlpha: 0.3)
+        
+        self.selectedBackgroundView     =   selectedView
     }
 }
