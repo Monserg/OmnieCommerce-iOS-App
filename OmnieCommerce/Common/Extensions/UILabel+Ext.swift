@@ -24,6 +24,7 @@ enum LabelStyle: String {
     case BarCodeTitle                                   =   "BarCodeTitle"
     case ActionViewTitle                                =   "ActionViewTitle"
     case UbuntuLightItalic12VerySoftRed                 =   "UbuntuLightItalic12VerySoftRed"
+    case UbuntuLight12VeryLightGray                     =   "UbuntuLight12VeryLightGray"
     case UbuntuLight16VeryLightGray                     =   "UbuntuLight16VeryLightGray"
     case HelveticaNeueCyrThin47VeryLightGray            =   "HelveticaNeueCyrThin47VeryLightGray"
 }
@@ -42,7 +43,7 @@ extension UILabel {
     }
     
     func setupWithStyle(_ labelStyle: LabelStyle) {
-        text = text?.localized()
+        text                =   text?.localized()
         textAlignment       =   .center
         
         switch labelStyle {
@@ -102,11 +103,16 @@ extension UILabel {
             textColor       =   UIColor(hexString: (isAppThemeDark) ? "#dc8181" : "#8b0000", withAlpha: 1.0)
             textAlignment   =   .left
 
+        case .UbuntuLight12VeryLightGray:
+            font            =   UIFont.ubuntuLight12
+            textColor       =   UIColor(hexString: (isAppThemeDark) ? "#dedede" : "#dedede", withAlpha: 1.0)
+            textAlignment   =   .left
+
         case .UbuntuLight16VeryLightGray:
             font            =   UIFont.ubuntuLight16
             textColor       =   UIColor(hexString: (isAppThemeDark) ? "#dedede" : "#dedede", withAlpha: 1.0)
             textAlignment   =   .left
-
+            
         case .HelveticaNeueCyrThin47VeryLightGray:
             font            =   UIFont.helveticaNeueCyrThin47
             textColor       =   UIColor(hexString: (isAppThemeDark) ? "#dedede" : "#dedede", withAlpha: 1.0)

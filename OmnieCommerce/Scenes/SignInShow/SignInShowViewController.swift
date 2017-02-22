@@ -81,6 +81,10 @@ class SignInShowViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if (CoreDataManager.instance.appUser.isAuthorized) {
+            self.view.isHidden = true
+        }
+        
         // Config controls
         topBarViewStyle = .Big
 

@@ -33,10 +33,10 @@ enum ViewStyle: String {
     
     // MARK: - Class Functions
     override func draw(_ rect: CGRect) {
-        let dottes: [CGFloat] = [0.0, 4.0]
-        let dottedLinePath = UIBezierPath()
-        let lineWidth = CGFloat((borderWidth as NSString).floatValue)
-        
+        let dottes: [CGFloat]   =   [0.0, 4.0]
+        let dottedLinePath      =   UIBezierPath()
+        let lineWidth           =   CGFloat((borderWidth as NSString).floatValue)
+
         if (viewStyle?.contains("Rectangle"))! {
             // Create line path around frame as rectangle
             dottedLinePath.append(UIBezierPath(roundedRect: CGRect(x: self.frame.minX + lineWidth, y: self.frame.minY + lineWidth, width: self.frame.width - 2 * (self.frame.minX + lineWidth), height: self.frame.height - 2 * (self.frame.minY + lineWidth)), cornerRadius: cornerRadius))

@@ -28,6 +28,7 @@ typealias HandlerPassDataCompletion                 =   ((_ data: Any) -> ())
 
 typealias ResponseAPI                               =   (success: Bool, error: String?)
 
+var isAppThemeDark                                  =   true
 
 struct Config {
     struct Constants {
@@ -45,7 +46,6 @@ struct Config {
         static let dropDownCellHeight: CGFloat                  =   23.0
         
         // FIXME: - DELETE AFTER TEST
-//        static let isAppThemesDark                              =   false
         static let errorMessageViewHeight: CGFloat              =   14
     }
     

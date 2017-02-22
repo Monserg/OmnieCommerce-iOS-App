@@ -52,7 +52,7 @@ class BaseViewController: UIViewController {
         
         self.isNetworkAvailable = true
     }
-
+    
     
     // MARK: - Class Functions
     override func viewDidLoad() {

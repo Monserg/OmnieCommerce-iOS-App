@@ -62,7 +62,7 @@ enum FieldType: String {
     }
     
     func setupWithType(_ fieldType: FieldType) {
-        self.style = fieldType
+        self.style                          =   fieldType
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.firstLineHeadIndent = 0
         

@@ -30,6 +30,7 @@ class SignInShowRouter: SignInShowRouterInput {
         self.viewController.present(revealVC, animated: !duringStartApp, completion: {
             if (duringStartApp) {
                 self.navigateBetweenContainerSubviews()
+                self.viewController.view.isHidden = false
             }
         })
     }

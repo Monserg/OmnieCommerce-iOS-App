@@ -10,10 +10,6 @@ import UIKit
 
 extension UIView {
     // MARK: - Properties
-    var isAppThemeDark: Bool {
-        get { return CoreDataManager.instance.appSettings.isThemeDark }
-    }
-
     @IBInspectable var cornerRadius: CGFloat {
         set { layer.cornerRadius = newValue }
         get { return layer.cornerRadius }
