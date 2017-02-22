@@ -46,12 +46,12 @@ class BusinessCardsShowViewController: BaseViewController, BusinessCardsShowView
         topBarViewStyle = .Small
         setup(topBarView: smallTopBarView)
         
-        doSomethingOnLoad()
+        initialSetupDidLoad()
     }
     
 
     // MARK: - Custom Functions
-    func doSomethingOnLoad() {
+    func initialSetupDidLoad() {
         print(object: "\(type(of: self)): \(#function) run.")
         
         // NOTE: Ask the Interactor to do some work

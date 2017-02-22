@@ -31,7 +31,6 @@ class CategoriesShowViewController: BaseViewController {
     @IBOutlet weak var smallTopBarView: SmallTopBarView!
     @IBOutlet weak var copyrightLabel: CustomLabel!
     @IBOutlet weak var cityView: UIView!
-    @IBOutlet weak var addButton: CustomButton!
 
     @IBOutlet weak var cityButton: DropDownButton!
     
@@ -61,12 +60,12 @@ class CategoriesShowViewController: BaseViewController {
         topBarViewStyle         =   .Small
         setup(topBarView: smallTopBarView)
 
-        doSomethingOnLoad()
+        initialSetupDidLoad()
     }
     
 
     // MARK: - Custom Functions
-    func doSomethingOnLoad() {
+    func initialSetupDidLoad() {
         print(object: "\(type(of: self)): \(#function) run.")
         
         // Get dataSource

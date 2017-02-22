@@ -62,12 +62,12 @@ class SignInContainerShowViewController: BaseViewController, PasswordErrorMessag
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        doInitialSetupOnLoad()
+        initialSetupDidLoad()
     }
     
 
     // MARK: - Custom Functions
-    func doInitialSetupOnLoad() {
+    func initialSetupDidLoad() {
         // Apply keyboard handler
         scrollViewBase = scrollView
         

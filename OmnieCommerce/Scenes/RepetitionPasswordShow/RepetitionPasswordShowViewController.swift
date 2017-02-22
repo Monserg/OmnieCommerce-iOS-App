@@ -67,12 +67,12 @@ class RepetitionPasswordShowViewController: BaseViewController, PasswordStrength
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        doInitialSetupOnLoad()
+        initialSetupDidLoad()
     }
     
 
     // MARK: - Custom Functions
-    func doInitialSetupOnLoad() {
+    func initialSetupDidLoad() {
         // Apply keyboard handler
         scrollViewBase = scrollView
         
