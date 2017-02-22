@@ -11,7 +11,6 @@ import UIKit
 enum LabelStyle: String {
     case Standard = "Standard"
     case Error = "Error"
-    case Title = "Title"
     case Copyright = "Copyright"
     case MenuItem = "MenuItem"
     case CategoryName = "CategoryName"
@@ -27,6 +26,7 @@ enum LabelStyle: String {
     case UbuntuLight12VeryLightGray                     =   "UbuntuLight12VeryLightGray"
     case UbuntuLight16VeryLightGray                     =   "UbuntuLight16VeryLightGray"
     case HelveticaNeueCyrThin47VeryLightGray            =   "HelveticaNeueCyrThin47VeryLightGray"
+    case HelveticaNeueCyrLight32VeryLightGray           =   "HelveticaNeueCyrLight32VeryLightGray"
 }
 
 
@@ -51,10 +51,6 @@ extension UILabel {
             font            =   (isAppThemeDark) ? UIFont.systemFont(ofSize: 12) : ((font!.pointSize == 12) ? UIFont.ubuntuLightItalic12 : UIFont.ubuntuLightItalic10)
             textColor       =   (isAppThemeDark) ? UIColor.white : UIColor.moderateRed
             textAlignment   =   .left
-            
-        case .Title:
-            font            =   (isAppThemeDark) ? UIFont.systemFont(ofSize: 12) : UIFont.helveticaNeueCyrLight32
-            textColor       =   (isAppThemeDark) ? UIColor.white : UIColor.veryLightGray
             
         case .Copyright:
             font            =   (isAppThemeDark) ? UIFont.systemFont(ofSize: 12) : UIFont.ubuntuLight09
@@ -117,6 +113,10 @@ extension UILabel {
             font            =   UIFont.helveticaNeueCyrThin47
             textColor       =   UIColor(hexString: (isAppThemeDark) ? "#dedede" : "#dedede", withAlpha: 1.0)
 
+        case .HelveticaNeueCyrLight32VeryLightGray:
+            font            =   (isAppThemeDark) ? UIFont.systemFont(ofSize: 12) : UIFont.helveticaNeueCyrLight32
+            textColor       =   (isAppThemeDark) ? UIColor.white : UIColor.veryLightGray
+            
         default:
             font            =   (isAppThemeDark) ? UIFont.systemFont(ofSize: 12) : UIFont.ubuntuLight12
             textColor       =   (isAppThemeDark) ? UIColor.white : UIColor.veryLightGray
