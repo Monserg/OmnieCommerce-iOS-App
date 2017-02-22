@@ -17,7 +17,7 @@ class Category: NSObject {
     
     // MARK: - Class Initialization
     init(_ title: String, _ icon: String) {
-        self.title  =   title.localized()
+        self.title  =   title
         self.icon   =   icon
         
         super.init()

@@ -118,3 +118,14 @@
 "Connected to Network"          =   "Соединение с Интернетом установлено";
 "Disconnected from Network"     =   "Соединение с Интернетом отсутствует. \nПроверьте настройки сети";
 
+
+// Cities
+"Lviv"                          =   "Львов";
+"Kyiv"                          =   "Киев";
+"Kharkiv"                       =   "Харьков";
+"Uzgorod"                       =   "Ужгород";
+"Vinnitsa"                      =   "Винница";
+"Khmelnytskyi"                  =   "Хмельницкий";
+"Zhitomir"                      =   "Житомир";
+"Poltava"                       =   "Полтава";
+

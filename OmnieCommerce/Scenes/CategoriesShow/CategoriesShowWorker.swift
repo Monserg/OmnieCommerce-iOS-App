@@ -20,7 +20,7 @@ class CategoriesShowWorker {
         let images = [ "image-auto-service-normal", "image-health-normal", "image-beauty-normal", "image-training-normal", "image-restaurants-normal", "image-tourism-normal", "image-sport-normal" ]
         
         for i in 0 ..< names.count {
-            dataSource.append(Category.init(names[i], images[i]))
+            dataSource.append(Category.init(names[i].localized(), images[i]))
         }
 
         return dataSource
@@ -32,7 +32,7 @@ class CategoriesShowWorker {
         let names = ["Lviv", "Kyiv", "Kharkiv", "Uzgorod", "Vinnitsa", "Khmelnytskyi", "Zhitomir", "Poltava"]
         
         for i in 0 ..< names.count {
-            dataSource.append(City(name: names[i], codeID: i))
+            dataSource.append(City(name: names[i].localized(), codeID: i))
         }
         
         return dataSource

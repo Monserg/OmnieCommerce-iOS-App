@@ -118,3 +118,13 @@
 "Connected to Network"          =   "Connected to Network";
 "Disconnected from Network"     =   "Disconnected from Network";
 
+
+// Cities
+"Lviv"                          =   "Lviv";
+"Kyiv"                          =   "Kyiv";
+"Kharkiv"                       =   "Kharkiv";
+"Uzgorod"                       =   "Uzgorod";
+"Vinnitsa"                      =   "Vinnitsa";
+"Khmelnytskyi"                  =   "Khmelnytskyi";
+"Zhitomir"                      =   "Zhitomir";
+"Poltava"                       =   "Poltava";
