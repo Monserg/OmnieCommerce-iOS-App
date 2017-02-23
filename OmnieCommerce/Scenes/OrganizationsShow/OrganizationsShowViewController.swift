@@ -29,6 +29,8 @@ class OrganizationsShowViewController: BaseViewController {
     var category: Category!
     
     @IBOutlet weak var smallTopBarView: SmallTopBarView!
+    @IBOutlet weak var categoriesFilterButton: DropDownButton!
+    @IBOutlet weak var organizationsFilterButton: DropDownButton!
 
     
     // MARK: - Class initialization
@@ -64,6 +66,14 @@ class OrganizationsShowViewController: BaseViewController {
         // NOTE: Ask the Interactor to do some work
         let requestModel = OrganizationsShowModels.Something.RequestModel()
         interactor.doSomething(requestModel: requestModel)
+    }
+    
+    
+    // MARK: - Transition
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        
+        categoriesFilterButton.setNeedsDisplay()
+        organizationsFilterButton.setNeedsDisplay()
     }
 }
 
