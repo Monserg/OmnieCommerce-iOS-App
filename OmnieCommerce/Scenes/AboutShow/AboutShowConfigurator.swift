@@ -36,15 +36,15 @@ class AboutShowConfigurator {
     // MARK: - Custom Functions
     func configure(viewController: AboutShowViewController) {
         let router = AboutShowRouter()
-        router.viewController = viewController
+        router.viewController       =   viewController
         
-        let presenter = AboutShowPresenter()
-        presenter.output = viewController
+        let presenter               =   AboutShowPresenter()
+        presenter.output            =   viewController
         
-        let interactor = AboutShowInteractor()
-        interactor.output = presenter
+        let interactor              =   AboutShowInteractor()
+        interactor.output           =   presenter
         
-        viewController.output = interactor
-        viewController.router = router
+        viewController.interactor   =   interactor
+        viewController.router       =   router
     }
 }

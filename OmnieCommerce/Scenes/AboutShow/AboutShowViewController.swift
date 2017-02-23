@@ -11,18 +11,19 @@
 
 import UIKit
 
-// MARK: - Input & Output protocols
+// MARK: - Input protocols for current ViewController component VIP-cicle
 protocol AboutShowViewControllerInput {
     func displaySomething(viewModel: AboutShow.Something.ViewModel)
 }
 
+// MARK: - Output protocols for Interactor component VIP-cicle
 protocol AboutShowViewControllerOutput {
     func doSomething(request: AboutShow.Something.Request)
 }
 
-class AboutShowViewController: BaseViewController, AboutShowViewControllerInput {
+class AboutShowViewController: BaseViewController {
     // MARK: - Properties
-    var output: AboutShowViewControllerOutput!
+    var interactor: AboutShowViewControllerOutput!
     var router: AboutShowRouter!
     
     @IBOutlet weak var smallTopBarView: SmallTopBarView!
@@ -46,25 +47,17 @@ class AboutShowViewController: BaseViewController, AboutShowViewControllerInput 
         topBarViewStyle = .Small
         setup(topBarView: smallTopBarView)
         
-        initialSetupDidLoad()
+        viewSettingsDidLoad()
     }
     
 
     // MARK: - Custom Functions
-    func initialSetupDidLoad() {
+    func viewSettingsDidLoad() {
         print(object: "\(type(of: self)): \(#function) run.")
         
         // NOTE: Ask the Interactor to do some work
         let request = AboutShow.Something.Request()
-        output.doSomething(request: request)
-    }
-    
-    // Display logic
-    func displaySomething(viewModel: AboutShow.Something.ViewModel) {
-        print(object: "\(type(of: self)): \(#function) run.")
-        
-        // NOTE: Display the result from the Presenter
-        // nameTextField.text = viewModel.name
+        interactor.doSomething(request: request)
     }
     
     func setupScene(withSize size: CGSize) {
@@ -80,5 +73,12 @@ class AboutShowViewController: BaseViewController, AboutShowViewControllerInput 
         print(object: "\(type(of: self)): \(#function) run. New size = \(size)")
         
         setupScene(withSize: size)
+    }
+}
+
+
+// MARK: - AboutShowViewControllerInput
+extension AboutShowViewController: AboutShowViewControllerInput {
+    func displaySomething(viewModel: AboutShow.Something.ViewModel) {
     }
 }

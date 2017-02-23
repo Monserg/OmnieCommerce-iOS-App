@@ -34,9 +34,9 @@ class OrganizationsMapShowInteractor: OrganizationsMapShowInteractorInput {
         requestModel.locationManager.startCoreLocation(withOrganizations: requestModel.organizations)
 
         requestModel.locationManager.handlerLocationCompletion = { placemarks in
-            let responseModel = OrganizationsMapShowModels.Locations.ResponseModel(placemarks: placemarks)
-
-            self.presenter.didPrepareToShowLocations(fromResponseModel: responseModel)
+//            let responseModel = OrganizationsMapShowModels.Locations.ResponseModel(placemarks: placemarks)
+//
+//            self.presenter.didPrepareToShowLocations(fromResponseModel: responseModel)
         }
     }
     

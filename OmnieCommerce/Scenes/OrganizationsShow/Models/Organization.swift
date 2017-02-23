@@ -15,6 +15,8 @@ struct Organization {
     let codeID: Int!
     let name: String!
     let location: CLLocationCoordinate2D!
+    var addressCity: String?
+    var addressStreet: String?
     var logoURL: String?
     var rating: Int         =   0
     var isFavorite: Bool    =   false

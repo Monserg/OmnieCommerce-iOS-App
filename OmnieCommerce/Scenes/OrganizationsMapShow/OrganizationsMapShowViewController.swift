@@ -60,7 +60,7 @@ class OrganizationsMapShowViewController: BaseViewController {
         topBarViewStyle         =   .Small
         setup(topBarView: smallTopBarView)
 
-        initialSetupDidLoad()
+        viewSettingsDidLoad()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -73,7 +73,7 @@ class OrganizationsMapShowViewController: BaseViewController {
 
 
     // MARK: - Custom Functions
-    func initialSetupDidLoad() {
+    func viewSettingsDidLoad() {
         // Handler Back button tap
         smallTopBarView.handlerSendButtonCompletion = { _ in
             _ = self.navigationController?.popViewController(animated: true)
@@ -127,8 +127,8 @@ class OrganizationsMapShowViewController: BaseViewController {
 // MARK: - OrganizationsMapShowViewControllerInput
 extension OrganizationsMapShowViewController: OrganizationsMapShowViewControllerInput {
     func didShowLocations(fromViewModel viewModel: OrganizationsMapShowModels.Locations.ViewModel) {
-//        self.pointAnnotation.didUpdate(fromViewModel: viewModel.resultLocation!)
-//        didAddAnnotation(placemark: viewModel.resultLocation?.placemark)
+//        self.pointAnnotation.didUpdate(fromViewModel: viewModel.locations!)
+//        didAddAnnotation(placemark: viewModel.locations?.placemark)
     }
     
     func didDismissViewController(fromViewModel viewModel: OrganizationsMapShowModels.Locations.ViewModel) {

@@ -49,7 +49,7 @@ class OmnieCardsShowViewController: BaseViewController, OmnieCardsShowViewContro
         smallTopBarView.searchButton.isHidden = true
         setup(topBarView: smallTopBarView)
 
-        initialSetupDidLoad()
+        viewSettingsDidLoad()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -60,7 +60,7 @@ class OmnieCardsShowViewController: BaseViewController, OmnieCardsShowViewContro
     }
 
     // MARK: - Custom Functions
-    func initialSetupDidLoad() {
+    func viewSettingsDidLoad() {
         print(object: "\(type(of: self)): \(#function) run.")
         
         // NOTE: Ask the Interactor to do some work

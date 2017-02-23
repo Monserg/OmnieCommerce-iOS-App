@@ -60,12 +60,12 @@ class EnterCodeShowViewController: BaseViewController, CodeErrorMessageView {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        initialSetupDidLoad()
+        viewSettingsDidLoad()
     }
     
 
     // MARK: - Custom Functions
-    func initialSetupDidLoad() {
+    func viewSettingsDidLoad() {
         // Apply keyboard handler
         scrollViewBase = scrollView
         
@@ -118,5 +118,5 @@ class EnterCodeShowViewController: BaseViewController, CodeErrorMessageView {
 }
 
 
-// MARK: - ForgotPasswordShowViewControllerInput
+// MARK: - EnterCodeShowViewControllerInput
 extension EnterCodeShowViewController: EnterCodeShowViewControllerInput {}

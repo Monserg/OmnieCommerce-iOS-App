@@ -13,14 +13,17 @@ import UIKit
 
 // MARK: - Data models
 struct OrganizationsShowModels {
-    struct Something {
+    struct Organizations {
         struct RequestModel {
+            
         }
         
         struct ResponseModel {
+            let result: [Organization]
         }
         
         struct ViewModel {
+            let organizations: [Organization]
         }
     }
 }

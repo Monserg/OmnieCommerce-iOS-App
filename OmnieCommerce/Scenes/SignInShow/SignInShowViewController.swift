@@ -95,12 +95,12 @@ class SignInShowViewController: BaseViewController {
         
         setup(topBarView: bigTopBarView)
         
-        initialSetupDidLoad()
+        viewSettingsDidLoad()
     }
     
     
     // MARK: - Custom Functions
-    func initialSetupDidLoad() {
+    func viewSettingsDidLoad() {
         // Hide navigation bar
         navigationBarDidHide()
         

@@ -61,12 +61,12 @@ class ForgotPasswordShowViewController: BaseViewController, EmailErrorMessageVie
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        initialSetupDidLoad()
+        viewSettingsDidLoad()
     }
     
     
     // MARK: - Custom Functions
-    func initialSetupDidLoad() {
+    func viewSettingsDidLoad() {
         // Apply keyboard handler
         scrollViewBase = scrollView
         

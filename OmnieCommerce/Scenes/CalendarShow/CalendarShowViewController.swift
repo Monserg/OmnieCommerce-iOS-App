@@ -83,7 +83,7 @@ class CalendarShowViewController: BaseViewController, CalendarShowViewController
         setupSegmentedControlView()
         setupContainerView(withSize: view.frame.size)
         
-        initialSetupDidLoad()
+        viewSettingsDidLoad()
     }
     
     override func viewDidLayoutSubviews() {
@@ -94,7 +94,7 @@ class CalendarShowViewController: BaseViewController, CalendarShowViewController
     
     
     // MARK: - Custom Functions
-    func initialSetupDidLoad() {
+    func viewSettingsDidLoad() {
         print(object: "\(type(of: self)): \(#function) run.")
         
         // NOTE: Ask the Interactor to do some work

@@ -30,7 +30,7 @@ class OrganizationsMapShowPresenter: OrganizationsMapShowPresenterInput {
     
     // MARK: - Custom Functions. Presentation logic
     func didPrepareToShowLocations(fromResponseModel responseModel: OrganizationsMapShowModels.Locations.ResponseModel) {
-        var locations = [ResultLocation]()
+        var locations = [LocationData]()
         
         for placemark in responseModel.placemarks! {
             var placeString = String()
@@ -39,18 +39,18 @@ class OrganizationsMapShowPresenter: OrganizationsMapShowPresenterInput {
                 placeString = lines.joined(separator: ", ")
             }
             
-            let resultLocation = ResultLocation(placemark, placemark.location?.coordinate, placeString)
+            let locationData = LocationData(placemark, placemark.location?.coordinate, placeString)
             
-            locations.append(resultLocation)
+            locations.append(locationData)
         }
         
 
-        let viewModel = OrganizationsMapShowModels.Locations.ViewModel(resultLocations: locations)
+        let viewModel = OrganizationsMapShowModels.Locations.ViewModel(locations: locations)
         viewController.didShowLocations(fromViewModel: viewModel)
     }
     
     func didPrepareToDismissViewController(fromResponseModel responseModel: OrganizationsMapShowModels.Locations.ResponseModel) {
-        let viewModel = OrganizationsMapShowModels.Locations.ViewModel(resultLocations: nil)
+        let viewModel = OrganizationsMapShowModels.Locations.ViewModel(locations: nil)
         viewController.didDismissViewController(fromViewModel: viewModel)
     }
 }

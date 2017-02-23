@@ -26,11 +26,11 @@ typealias HandlerCancelButtonCompletion             =   (() -> ())
 typealias HandlerNavBarLeftButtonCompletion         =   (() -> ())
 typealias HandlerImagePickerControllerCompletion    =   ((_ originalImage: UIImage) -> ())
 typealias HandlerPassDataCompletion                 =   ((_ data: Any) -> ())
-typealias HandlerLocationCompletion                 =   ((_ placemarks: [CLPlacemark]) -> ())
+typealias HandlerLocationCompletion                 =   ((_ organizations: [Organization]) -> ())
 
 typealias ResponseAPI                               =   (success: Bool, error: String?)
-typealias ResultLocation                            =   (placemark: CLPlacemark?, coordinate: CLLocationCoordinate2D?, address: String?)
-typealias SearchLocation                            =   (coordinates: CLLocationCoordinate2D?, address: String?)
+typealias LocationData                              =   (placemark: CLPlacemark?, coordinate: CLLocationCoordinate2D?, address: String?)
+typealias OrganizationData                          =   (name: String, rating: Int, isFavorite: Bool, city: String, street: String, logo: UIImage, location: CLLocationCoordinate2D)
 
 var isAppThemeDark                                  =   false
 

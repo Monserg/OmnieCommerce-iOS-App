@@ -62,12 +62,12 @@ class CategoriesShowViewController: BaseViewController {
         topBarViewStyle         =   .Small
         setup(topBarView: smallTopBarView)
 
-        initialSetupDidLoad()
+        viewSettingsDidLoad()
     }
     
 
     // MARK: - Custom Functions
-    func initialSetupDidLoad() {
+    func viewSettingsDidLoad() {
         print(object: "\(type(of: self)): \(#function) run.")
         
         // Hide Search button

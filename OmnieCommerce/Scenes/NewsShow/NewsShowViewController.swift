@@ -64,14 +64,14 @@ class NewsShowViewController: BaseViewController, NewsShowViewControllerInput {
         tableView.dataSource = self
         tableView.delegate = self
         
-        initialSetupDidLoad()
+        viewSettingsDidLoad()
         
         setupSegmentedControlView()
     }
     
 
     // MARK: - Custom Functions
-    func initialSetupDidLoad() {
+    func viewSettingsDidLoad() {
         print(object: "\(type(of: self)): \(#function) run.")
         
         // NOTE: Ask the Interactor to do some work

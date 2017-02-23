@@ -16,7 +16,7 @@ class PointAnnotation: MKPointAnnotation {
     
     
     // MARK: - Custom Functions
-    func didUpdate(fromViewModel viewModel: ResultLocation) {
+    func didUpdate(fromViewModel viewModel: LocationData) {
         subtitle            =   viewModel.address
         coordinate          =   viewModel.coordinate ?? CLLocationCoordinate2D.init()
     }

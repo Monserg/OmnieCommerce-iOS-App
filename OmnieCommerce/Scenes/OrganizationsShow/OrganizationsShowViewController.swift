@@ -13,12 +13,12 @@ import UIKit
 
 // MARK: - Input protocols for current ViewController component VIP-cicle
 protocol OrganizationsShowViewControllerInput {
-    func displaySomething(viewModel: OrganizationsShowModels.Something.ViewModel)
+    func organizationsDidShow(fromViewModel viewModel: OrganizationsShowModels.Organizations.ViewModel)
 }
 
 // MARK: - Output protocols for Interactor component VIP-cicle
 protocol OrganizationsShowViewControllerOutput {
-    func doSomething(requestModel: OrganizationsShowModels.Something.RequestModel)
+    func organizationsDidLoad(withRequestModel requestModel: OrganizationsShowModels.Organizations.RequestModel)
 }
 
 class OrganizationsShowViewController: BaseViewController {
@@ -50,12 +50,12 @@ class OrganizationsShowViewController: BaseViewController {
         topBarViewStyle         =   .Small
         setup(topBarView: smallTopBarView)
 
-        initialSetupDidLoad()
+        viewSettingsDidLoad()
     }
     
     
     // MARK: - Custom Functions
-    func initialSetupDidLoad() {
+    func viewSettingsDidLoad() {
         // Set scene title
         smallTopBarView.titleLabel.text = category.title
         
@@ -64,9 +64,9 @@ class OrganizationsShowViewController: BaseViewController {
             _ = self.navigationController?.popViewController(animated: true)
         }
         
-        // NOTE: Ask the Interactor to do some work
-        let requestModel = OrganizationsShowModels.Something.RequestModel()
-        interactor.doSomething(requestModel: requestModel)
+        // Load organizations
+        let requestModel = OrganizationsShowModels.Organizations.RequestModel()
+        interactor.organizationsDidLoad(withRequestModel: requestModel)
     }
     
     
@@ -85,10 +85,10 @@ class OrganizationsShowViewController: BaseViewController {
 }
 
 
-// MARK: - ForgotPasswordShowViewControllerInput
+// MARK: - OrganizationsShowViewControllerInput
 extension OrganizationsShowViewController: OrganizationsShowViewControllerInput {
-    func displaySomething(viewModel: OrganizationsShowModels.Something.ViewModel) {
-        // NOTE: Display the result from the Presenter
-        // nameTextField.text = viewModel.name
+    func organizationsDidShow(fromViewModel viewModel: OrganizationsShowModels.Organizations.ViewModel) {
+        print(object: viewModel.organizations.description)
+        
     }
 }

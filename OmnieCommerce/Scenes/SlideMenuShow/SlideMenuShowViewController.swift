@@ -55,7 +55,7 @@ class SlideMenuShowViewController: UIViewController, SlideMenuShowViewController
         tableView.register(UINib(nibName: "MenuSectionHeaderView", bundle: nil), forHeaderFooterViewReuseIdentifier: "MenuSectionHeaderView")
         tableView.register(UINib(nibName: "MenuSectionFooterView", bundle: nil), forHeaderFooterViewReuseIdentifier: "MenuSectionFooterView")
         
-        initialSetupDidLoad()
+        viewSettingsDidLoad()
         
         // FIXME: - REMOVE TO WORKER
         getMenuItemsFromPropertyList()
@@ -68,7 +68,7 @@ class SlideMenuShowViewController: UIViewController, SlideMenuShowViewController
     
     
     // MARK: - Custom Functions
-    func initialSetupDidLoad() {
+    func viewSettingsDidLoad() {
         // NOTE: Ask the Interactor to do some work
         let request = SlideMenuShow.Something.Request()
         output.doSomething(request: request)

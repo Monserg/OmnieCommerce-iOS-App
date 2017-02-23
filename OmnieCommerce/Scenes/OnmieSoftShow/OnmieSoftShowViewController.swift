@@ -38,12 +38,12 @@ class OnmieSoftShowViewController: UIViewController, OnmieSoftShowViewController
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        initialSetupDidLoad()
+        viewSettingsDidLoad()
     }
     
 
     // MARK: - Custom Functions
-    func initialSetupDidLoad() {
+    func viewSettingsDidLoad() {
         // NOTE: Ask the Interactor to do some work
         let request = OnmieSoftShow.Something.Request()
         output.doSomething(request: request)

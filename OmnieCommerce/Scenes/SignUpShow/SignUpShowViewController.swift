@@ -68,12 +68,12 @@ class SignUpShowViewController: BaseViewController, EmailErrorMessageView, Passw
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        initialSetupDidLoad()
+        viewSettingsDidLoad()
     }
     
     
     // MARK: - Custom Functions
-    func initialSetupDidLoad() {
+    func viewSettingsDidLoad() {
         // Apply keyboard handler
         scrollViewBase = scrollView
         

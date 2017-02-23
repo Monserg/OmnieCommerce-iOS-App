@@ -25,7 +25,7 @@ struct OrganizationsMapShowModels {
         }
         
         struct ViewModel {
-            let resultLocations: [ResultLocation]?
+            let locations: [LocationData]?
         }
     }
 }

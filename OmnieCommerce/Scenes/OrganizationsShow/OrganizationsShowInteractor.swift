@@ -13,12 +13,12 @@ import UIKit
 
 // MARK: - Input protocols for current Interactor component VIP-cicle
 protocol OrganizationsShowInteractorInput {
-    func doSomething(requestModel: OrganizationsShowModels.Something.RequestModel)
+    func organizationsDidLoad(withRequestModel requestModel: OrganizationsShowModels.Organizations.RequestModel)
 }
 
 // MARK: - Output protocols for Presenter component VIP-cicle
 protocol OrganizationsShowInteractorOutput {
-    func presentSomething(responseModel: OrganizationsShowModels.Something.ResponseModel)
+    func organizationsDidPrepareShow(fromResponseModel responseModel: OrganizationsShowModels.Organizations.ResponseModel)
 }
 
 class OrganizationsShowInteractor: OrganizationsShowInteractorInput {
@@ -28,13 +28,17 @@ class OrganizationsShowInteractor: OrganizationsShowInteractorInput {
     
     
     // MARK: - Custom Functions. Business logic
-    func doSomething(requestModel: OrganizationsShowModels.Something.RequestModel) {
+    func organizationsDidLoad(withRequestModel requestModel: OrganizationsShowModels.Organizations.RequestModel) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        
         // NOTE: Create some Worker to do the work
         worker = OrganizationsShowWorker()
-        worker.doSomeWork()
+        worker.organizationsDidLoad()
         
-        // NOTE: Pass the result to the Presenter
-        let responseModel = OrganizationsShowModels.Something.ResponseModel()
-        presenter.presentSomething(responseModel: responseModel)
+        worker.handlerLocationCompletion = { organizations in
+            // NOTE: Pass the result to the Presenter
+            let responseModel = OrganizationsShowModels.Organizations.ResponseModel(result: organizations)
+            self.presenter.organizationsDidPrepareShow(fromResponseModel: responseModel)
+        }
     }
 }

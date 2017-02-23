@@ -47,14 +47,14 @@ class FavoriteShowViewController: BaseViewController, FavoriteShowViewController
         topBarViewStyle = .Small
         setup(topBarView: smallTopBarView)
 
-        initialSetupDidLoad()
+        viewSettingsDidLoad()
         
         setupSegmentedControlView()
     }
     
 
     // MARK: - Custom Functions
-    func initialSetupDidLoad() {
+    func viewSettingsDidLoad() {
         print(object: "\(type(of: self)): \(#function) run.")
         
         // NOTE: Ask the Interactor to do some work

@@ -64,14 +64,14 @@ class PersonalPageShowViewController: BaseViewController, PersonalPageShowViewCo
         activeViewController = personalDataVC
         view.backgroundColor = UIColor.veryDarkDesaturatedBlue24
 
-        initialSetupDidLoad()
+        viewSettingsDidLoad()
 
         setupSegmentedControlView()
     }
     
 
     // MARK: - Custom Functions
-    func initialSetupDidLoad() {
+    func viewSettingsDidLoad() {
         print(object: "\(type(of: self)): \(#function) run.")
         
         // NOTE: Ask the Interactor to do some work

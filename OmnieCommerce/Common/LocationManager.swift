@@ -46,31 +46,43 @@ class LocationManager: BaseViewController {
         locationManager?.stopUpdatingLocation()
         locationManager = nil
     }
-}
-
-
-// MARK: - CLLocationManagerDelegate
-extension LocationManager: CLLocationManagerDelegate {
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        var organizationsPlacemarks = [CLPlacemark]()
+    
+    func organizationsDidModify() {
+        var items = [Organization]()
         
         // Geocoding organizations locations
         for organization in organizations {
             let location = CLLocation.init(latitude: organization.location.latitude, longitude: organization.location.longitude)
-
+            var item = organization
+            
             CLGeocoder().reverseGeocodeLocation(location) { placemarks, error in
                 guard placemarks != nil else {
                     return
                 }
                 
-                let placemark = placemarks![0]
+                let placemark       =   placemarks![0]
+                item.addressCity    =   placemark.locality
                 
-                organizationsPlacemarks.append(placemark)
+                let street          =   placemark.thoroughfare ?? ""
+                let house           =   placemark.subThoroughfare ?? ""
+                item.addressStreet  =   "\(street), \(house)"
+
+                items.append(item)
+                
+                if (items.count == self.organizations.count) {
+                    self.stopCoreLocation()
+                    
+                    self.handlerLocationCompletion!(items)
+                }
             }
         }
-
-        self.handlerLocationCompletion!(organizationsPlacemarks)
     }
+}
+
+
+// MARK: - CLLocationManagerDelegate
+extension LocationManager: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {}
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         alertViewDidShow(withTitle: "Error".localized(), andMessage: error.localizedDescription)
