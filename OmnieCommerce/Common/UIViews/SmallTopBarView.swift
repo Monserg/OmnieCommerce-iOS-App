@@ -9,10 +9,10 @@
 import UIKit
 
 enum ViewType: String {
-    case Child = "Child"
-    case Parent = "Parent"
-    case ChildSearch = "ChildSearch"
-    case ParentSearch = "ParentSearch"
+    case Child          =   "Child"
+    case Parent         =   "Parent"
+    case ChildSearch    =   "ChildSearch"
+    case ParentSearch   =   "ParentSearch"
 }
 
 @IBDesignable class SmallTopBarView: UIView {
@@ -41,21 +41,13 @@ enum ViewType: String {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        UINib(nibName: String(describing: SmallTopBarView.self), bundle: Bundle(for: SmallTopBarView.self)).instantiate(withOwner: self, options: nil)
-        addSubview(view)
-        view.frame = frame
-        
-        print(object: "\(type(of: self)): \(#function) run. Initialization view.frame = \(view.frame)")
+        createFromXIB()
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        
-        UINib(nibName: String(describing: SmallTopBarView.self), bundle: Bundle(for: SmallTopBarView.self)).instantiate(withOwner: self, options: nil)
-        addSubview(view)
-        view.frame = frame
-        
-        print(object: "\(type(of: self)): \(#function) run. Initialization view.frame = \(view.frame)")
+
+        createFromXIB()
     }
     
     
@@ -68,17 +60,22 @@ enum ViewType: String {
     // MARK: - Actions
     @IBAction func handlerSearchButtonTap(_ sender: UIButton) {
         print(object: "\(type(of: self)): \(#function) run.")
-        
     }
 
     
     // MARK: - Custom Functions
+    func createFromXIB() {
+        UINib(nibName: String(describing: SmallTopBarView.self), bundle: Bundle(for: SmallTopBarView.self)).instantiate(withOwner: self, options: nil)
+        addSubview(view)
+        view.frame = frame
+    }
+    
     func setup() {
-        searchButton.isHidden = true
-        actionButton.isHidden = false
-        titleLabel.clipsToBounds = true
-        dottesStackView.isHidden = false
-        titleLabel.text = titleText?.localized() ?? "Label"
+        searchButton.isHidden       =   true
+        actionButton.isHidden       =   false
+        titleLabel.clipsToBounds    =   true
+        dottesStackView.isHidden    =   false
+        titleLabel.text             =   titleText?.localized() ?? "Label"
         actionButton.setImage(UIImage.init(named: "icon-menu-normal"), for: .normal)
         
         switch ViewType(rawValue: type ?? "Parent")! {
@@ -86,10 +83,10 @@ enum ViewType: String {
             actionButton.setImage(UIImage.init(named: "icon-back-normal"), for: .normal)
             
         case .ChildSearch:
-            searchButton.isHidden = false
+            searchButton.isHidden   =   false
             
         case .ParentSearch:
-            searchButton.isHidden = false
+            searchButton.isHidden   =   false
             
         case .Parent:
             actionButton.setImage(UIImage.init(named: "icon-menu-normal"), for: .normal)
