@@ -21,12 +21,14 @@ protocol OrganizationsMapShowViewControllerOutput {
     func doSomething(requestModel: OrganizationsMapShowModels.Something.RequestModel)
 }
 
-class OrganizationsMapShowViewController: UIViewController {
+class OrganizationsMapShowViewController: BaseViewController {
     // MARK: - Properties
     var interactor: OrganizationsMapShowViewControllerOutput!
     var router: OrganizationsMapShowRouter!
     
     var organizations = Array<Organization>()
+
+    @IBOutlet weak var smallTopBarView: SmallTopBarView!
     
 
     // MARK: - Class initialization
@@ -41,12 +43,21 @@ class OrganizationsMapShowViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        smallTopBarView.type    =   "ChildSearch"
+        topBarViewStyle         =   .Small
+        setup(topBarView: smallTopBarView)
+
         initialSetupDidLoad()
     }
     
 
     // MARK: - Custom Functions
     func initialSetupDidLoad() {
+        // Handler Back button tap
+        smallTopBarView.handlerSendButtonCompletion = { _ in
+            _ = self.navigationController?.popViewController(animated: true)
+        }
+
         // NOTE: Ask the Interactor to do some work
         let requestModel = OrganizationsMapShowModels.Something.RequestModel()
         interactor.doSomething(requestModel: requestModel)

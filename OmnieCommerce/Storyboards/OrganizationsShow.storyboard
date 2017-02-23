@@ -71,7 +71,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DUL-OJ-fqc" userLabel="Map Button" customClass="CustomButton" customModule="OmnieCommerce" customModuleProvider="target">
-                                <rect key="frame" x="302" y="571.5" width="57" height="57"/>
+                                <rect key="frame" x="302" y="581.5" width="57" height="57"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="DUL-OJ-fqc" secondAttribute="height" multiplier="1:1" id="Bnu-Kk-IZ8"/>
@@ -85,7 +85,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3d9-Qt-0Tr" userLabel="Copyright Label" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                                <rect key="frame" x="8" y="637.5" width="359" height="20.5"/>
+                                <rect key="frame" x="8" y="647.5" width="359" height="10.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>

@@ -141,26 +141,31 @@ class BaseViewController: UIViewController {
 
             // Add Slide Menu actions
             if revealViewController() != nil {
-                (topBarView as! SmallTopBarView).actionButton.addTarget(revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), for: .touchUpInside)
-                
-                // Sidebar is width 296
-                revealViewController().rearViewRevealWidth = 296
-                
-                revealViewController().rearViewRevealDisplacement = 198
-                
-                revealViewController().rearViewRevealOverdraw = 0
-                
-                // Faster slide animation
-                revealViewController().toggleAnimationDuration = 0.3
-                
-                // Simply ease out. No Spring animation.
-                revealViewController().toggleAnimationType = .easeOut
-                
-                // More shadow
-                revealViewController().frontViewShadowRadius = 5
-                revealViewController().frontViewShadowColor = UIColor.white
-
-                view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+                if (ViewType(rawValue: (topBarView as! SmallTopBarView).type!) == .Parent ||
+                    ViewType(rawValue: (topBarView as! SmallTopBarView).type!) == .ParentSearch) {
+                    (topBarView as! SmallTopBarView).actionButton.addTarget(revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), for: .touchUpInside)
+                    
+                    // Sidebar is width 296
+                    revealViewController().rearViewRevealWidth = 296
+                    
+                    revealViewController().rearViewRevealDisplacement = 198
+                    
+                    revealViewController().rearViewRevealOverdraw = 0
+                    
+                    // Faster slide animation
+                    revealViewController().toggleAnimationDuration = 0.3
+                    
+                    // Simply ease out. No Spring animation.
+                    revealViewController().toggleAnimationType = .easeOut
+                    
+                    // More shadow
+                    revealViewController().frontViewShadowRadius = 5
+                    revealViewController().frontViewShadowColor = UIColor.white
+                    
+                    view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+                } else {
+                    view.removeGestureRecognizer(self.revealViewController().panGestureRecognizer())
+                }
             }
         }
     }
