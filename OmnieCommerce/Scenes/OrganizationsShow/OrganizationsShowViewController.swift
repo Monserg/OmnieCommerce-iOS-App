@@ -25,8 +25,12 @@ class OrganizationsShowViewController: BaseViewController {
     // MARK: - Properties
     var interactor: OrganizationsShowViewControllerOutput!
     var router: OrganizationsShowRouter!
-    
 
+    var category: Category!
+    
+    @IBOutlet weak var smallTopBarView: SmallTopBarView!
+
+    
     // MARK: - Class initialization
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -39,12 +43,20 @@ class OrganizationsShowViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        doInitialSetupOnLoad()
+        initialSetupDidLoad()
     }
     
-
+    
     // MARK: - Custom Functions
-    func doInitialSetupOnLoad() {
+    func initialSetupDidLoad() {
+        // Set scene title
+        smallTopBarView.titleLabel.text = category.title
+        
+        // Handler Back button tap
+        smallTopBarView.handlerSendButtonCompletion = { _ in
+            _ = self.navigationController?.popViewController(animated: true)
+        }
+        
         // NOTE: Ask the Interactor to do some work
         let requestModel = OrganizationsShowModels.Something.RequestModel()
         interactor.doSomething(requestModel: requestModel)

@@ -162,6 +162,9 @@ extension CategoriesShowViewController: UICollectionViewDelegate {
             cityButton.itemsListDidHide(inView: view)
         }
         
+        // Transition to OrganizationsShow scene with pass data
+        router.navigateToOrganizationsShowScen(withCategory: categories[indexPath.row])
+        
         collectionView.deselectItem(at: indexPath, animated: true)
     }
 }

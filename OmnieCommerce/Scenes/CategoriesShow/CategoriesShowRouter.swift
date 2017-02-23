@@ -13,7 +13,7 @@ import UIKit
 
 // MARK: - Input & Output protocols
 protocol CategoriesShowRouterInput {
-    func navigateToSomewhere()
+    func navigateToOrganizationsShowScen(withCategory category: Category)
 }
 
 class CategoriesShowRouter: CategoriesShowRouterInput {
@@ -22,6 +22,14 @@ class CategoriesShowRouter: CategoriesShowRouterInput {
     
     
     // MARK: - Custom Functions. Navigation
+    func navigateToOrganizationsShowScen(withCategory category: Category) {
+        let storyboard = UIStoryboard(name: "OrganizationsShow", bundle: nil)
+        let organizationsShowVC = storyboard.instantiateViewController(withIdentifier: "OrganizationsShowVC") as! OrganizationsShowViewController
+        organizationsShowVC.category = category
+
+        viewController.navigationController?.pushViewController(organizationsShowVC, animated: true)
+    }
+    
     func navigateToSomewhere() {
         // NOTE: Teach the router how to navigate to another scene. Some examples follow:
         // 1. Trigger a storyboard segue

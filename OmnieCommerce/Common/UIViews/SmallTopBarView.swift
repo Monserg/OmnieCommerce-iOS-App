@@ -17,6 +17,8 @@ enum ViewType: String {
 
 @IBDesignable class SmallTopBarView: UIView {
     // MARK: - Properties
+    var handlerSendButtonCompletion: HandlerSendButtonCompletion?
+    
     @IBOutlet var view: UIView!
     @IBOutlet weak var circleView: SmallCirleView!
     @IBOutlet weak var titleLabel: CustomLabel!
@@ -68,9 +70,11 @@ enum ViewType: String {
         UINib(nibName: String(describing: SmallTopBarView.self), bundle: Bundle(for: SmallTopBarView.self)).instantiate(withOwner: self, options: nil)
         addSubview(view)
         view.frame = frame
+        
+        setup()
     }
     
-    func setup() {
+    private func setup() {
         searchButton.isHidden       =   true
         actionButton.isHidden       =   false
         titleLabel.clipsToBounds    =   true
@@ -80,10 +84,14 @@ enum ViewType: String {
         
         switch ViewType(rawValue: type ?? "Parent")! {
         case .Child:
-            actionButton.setImage(UIImage.init(named: "icon-back-normal"), for: .normal)
+            actionButton.setImage(UIImage.init(named: "icon-previous-item-normal"), for: .normal)
             
         case .ChildSearch:
             searchButton.isHidden   =   false
+
+            actionButton.setImage(UIImage.init(named: "icon-previous-item-normal"), for: .normal)
+            actionButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: -16, bottom: 0, right: 0)
+            actionButton.addTarget(self, action: #selector(handlerLeftActionButtonTap), for: .touchUpInside)
             
         case .ParentSearch:
             searchButton.isHidden   =   false
@@ -91,5 +99,11 @@ enum ViewType: String {
         case .Parent:
             actionButton.setImage(UIImage.init(named: "icon-menu-normal"), for: .normal)
         }
+    }
+    
+    
+    // MARK: - Actions
+    func handlerLeftActionButtonTap(_ sender: UIButton) {
+        handlerSendButtonCompletion!()
     }
 }
