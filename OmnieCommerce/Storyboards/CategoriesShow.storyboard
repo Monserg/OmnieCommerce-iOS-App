@@ -14,7 +14,7 @@
         <scene sceneID="rjz-Lj-cwH">
             <objects>
                 <navigationController storyboardIdentifier="CategoriesShowNC" navigationBarHidden="YES" id="24b-G7-hfs" customClass="BaseNavigationController" customModule="OmnieCommerce" customModuleProvider="target" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="PI4-fx-hmq">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="PI4-fx-hmq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -38,16 +38,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fg2-g7-Pmf" customClass="SmallTopBarView" customModule="OmnieCommerce" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="95"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="titleText" value="Categories"/>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="type" value="ParentSearch"/>
-                                </userDefinedRuntimeAttributes>
-                            </view>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oTC-Vw-t0Y" userLabel="City View">
-                                <rect key="frame" x="0.0" y="95" width="375" height="71"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="71"/>
                                 <subviews>
                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b7l-X1-Tog" userLabel="City Button" customClass="DropDownButton" customModule="OmnieCommerce" customModuleProvider="target">
                                         <rect key="frame" x="8" y="18" width="359" height="33"/>
@@ -78,8 +70,16 @@
                                     </constraint>
                                 </constraints>
                             </view>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fg2-g7-Pmf" customClass="SmallTopBarView" customModule="OmnieCommerce" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="95"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="titleText" value="Categories"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="type" value="ParentSearch"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="YeW-Nj-fIe">
-                                <rect key="frame" x="8" y="166" width="359" height="472.5"/>
+                                <rect key="frame" x="8" y="115" width="359" height="524"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="16" minimumInteritemSpacing="16" id="LnN-ln-h1C">
                                     <size key="itemSize" width="170" height="102"/>
@@ -167,18 +167,18 @@
                                 <variation key="heightClass=compact-widthClass=regular" constant="60"/>
                             </constraint>
                             <constraint firstAttribute="trailing" secondItem="3d9-Qt-0Tr" secondAttribute="trailing" constant="8" id="Tdg-4A-3Gn"/>
-                            <constraint firstItem="oTC-Vw-t0Y" firstAttribute="top" secondItem="Fg2-g7-Pmf" secondAttribute="bottom" id="VGJ-mZ-Bw4"/>
                             <constraint firstItem="Fg2-g7-Pmf" firstAttribute="leading" secondItem="tP1-Vk-hMS" secondAttribute="leading" id="YA4-sD-5WW"/>
                             <constraint firstItem="Fg2-g7-Pmf" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="95:667" id="ZbF-Ja-PwO"/>
                             <constraint firstItem="oTC-Vw-t0Y" firstAttribute="leading" secondItem="tP1-Vk-hMS" secondAttribute="leading" id="eUa-Tf-Snr"/>
                             <constraint firstItem="Fg2-g7-Pmf" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="80:375" id="hb0-zV-YBD"/>
-                            <constraint firstItem="YeW-Nj-fIe" firstAttribute="top" secondItem="oTC-Vw-t0Y" secondAttribute="bottom" id="k3h-ts-4Aa"/>
                             <constraint firstItem="oTC-Vw-t0Y" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="71:375" id="kGG-HA-dfI"/>
+                            <constraint firstItem="YeW-Nj-fIe" firstAttribute="top" secondItem="Fg2-g7-Pmf" secondAttribute="bottom" constant="20" id="lX9-iK-N4S"/>
                             <constraint firstItem="b7l-X1-Tog" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="33:375" id="pS1-w0-I7b"/>
                             <constraint firstAttribute="trailing" secondItem="YeW-Nj-fIe" secondAttribute="trailing" constant="8" id="uA1-9t-Umm">
                                 <variation key="heightClass=compact-widthClass=compact" constant="50"/>
                                 <variation key="heightClass=compact-widthClass=regular" constant="60"/>
                             </constraint>
+                            <constraint firstItem="oTC-Vw-t0Y" firstAttribute="top" secondItem="tP1-Vk-hMS" secondAttribute="top" id="xP2-AO-v95"/>
                             <constraint firstAttribute="trailing" secondItem="oTC-Vw-t0Y" secondAttribute="trailing" id="y90-5N-I3l"/>
                         </constraints>
                         <variation key="default">
