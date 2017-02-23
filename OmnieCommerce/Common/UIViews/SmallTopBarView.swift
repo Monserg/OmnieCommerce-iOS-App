@@ -84,12 +84,12 @@ enum ViewType: String {
         
         switch ViewType(rawValue: type ?? "Parent")! {
         case .Child:
-            actionButton.setImage(UIImage.init(named: "icon-previous-item-normal"), for: .normal)
+            actionButton.setImage(UIImage.init(named: "icon-back-bar-button-normal"), for: .normal)
             
         case .ChildSearch:
             searchButton.isHidden   =   false
 
-            actionButton.setImage(UIImage.init(named: "icon-previous-item-normal"), for: .normal)
+            actionButton.setImage(UIImage.init(named: "icon-back-bar-button-normal"), for: .normal)
             actionButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: -16, bottom: 0, right: 0)
             actionButton.addTarget(self, action: #selector(handlerLeftActionButtonTap), for: .touchUpInside)
             
