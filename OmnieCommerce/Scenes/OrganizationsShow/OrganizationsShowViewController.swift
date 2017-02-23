@@ -27,7 +27,8 @@ class OrganizationsShowViewController: BaseViewController {
     var router: OrganizationsShowRouter!
 
     var category: Category!
-    
+    var organizations = Array<Organization>()
+
     @IBOutlet weak var smallTopBarView: SmallTopBarView!
     @IBOutlet weak var categoriesFilterButton: DropDownButton!
     @IBOutlet weak var organizationsFilterButton: DropDownButton!
@@ -66,6 +67,12 @@ class OrganizationsShowViewController: BaseViewController {
         // NOTE: Ask the Interactor to do some work
         let requestModel = OrganizationsShowModels.Something.RequestModel()
         interactor.doSomething(requestModel: requestModel)
+    }
+    
+    
+    // MARK: - Actions
+    @IBAction func handlerMapButtonTap(_ sender: CustomButton) {
+        router.navigateToOrganizationsMapShowScene(withOrganizations: organizations)
     }
     
     

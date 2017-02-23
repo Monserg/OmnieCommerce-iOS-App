@@ -163,7 +163,7 @@ extension CategoriesShowViewController: UICollectionViewDelegate {
         }
         
         // Transition to OrganizationsShow scene with pass data
-        router.navigateToOrganizationsShowScen(withCategory: categories[indexPath.row])
+        router.navigateToOrganizationsShowScene(withCategory: categories[indexPath.row])
         
         collectionView.deselectItem(at: indexPath, animated: true)
     }

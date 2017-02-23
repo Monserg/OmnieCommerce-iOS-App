@@ -13,7 +13,7 @@ import UIKit
 
 // MARK: - Input & Output protocols
 protocol OrganizationsShowRouterInput {
-    func navigateToSomewhere()
+    func navigateToOrganizationsMapShowScene(withOrganizations organizations: Array<Organization>)
 }
 
 class OrganizationsShowRouter: OrganizationsShowRouterInput {
@@ -22,6 +22,14 @@ class OrganizationsShowRouter: OrganizationsShowRouterInput {
     
     
     // MARK: - Custom Functions. Navigation
+    func navigateToOrganizationsMapShowScene(withOrganizations organizations: Array<Organization>) {
+        let storyboard = UIStoryboard(name: "OrganizationsMapShow", bundle: nil)
+        let organizationsMapShowVC = storyboard.instantiateViewController(withIdentifier: "OrganizationsMapShowVC") as! OrganizationsMapShowViewController
+        organizationsMapShowVC.organizations = viewController.organizations
+        
+        viewController.navigationController?.pushViewController(organizationsMapShowVC, animated: true)
+    }
+
     func navigateToSomewhere() {
         // NOTE: Teach the router how to navigate to another scene. Some examples follow:
         // 1. Trigger a storyboard segue

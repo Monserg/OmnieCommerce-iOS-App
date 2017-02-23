@@ -293,6 +293,15 @@
 		B1FFF7051E5ECDF900A075D8 /* OrganizationsShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FFF6FE1E5ECDF900A075D8 /* OrganizationsShowViewController.swift */; };
 		B1FFF7061E5ECDF900A075D8 /* OrganizationsShowWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FFF6FF1E5ECDF900A075D8 /* OrganizationsShowWorker.swift */; };
 		B1FFF7081E5ECE4800A075D8 /* OrganizationsShow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1FFF7071E5ECE4800A075D8 /* OrganizationsShow.storyboard */; };
+		B1FFF7111E5F017A00A075D8 /* OrganizationsMapShowConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FFF70A1E5F017A00A075D8 /* OrganizationsMapShowConfigurator.swift */; };
+		B1FFF7121E5F017A00A075D8 /* OrganizationsMapShowInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FFF70B1E5F017A00A075D8 /* OrganizationsMapShowInteractor.swift */; };
+		B1FFF7131E5F017A00A075D8 /* OrganizationsMapShowModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FFF70C1E5F017A00A075D8 /* OrganizationsMapShowModels.swift */; };
+		B1FFF7141E5F017A00A075D8 /* OrganizationsMapShowPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FFF70D1E5F017A00A075D8 /* OrganizationsMapShowPresenter.swift */; };
+		B1FFF7151E5F017A00A075D8 /* OrganizationsMapShowRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FFF70E1E5F017A00A075D8 /* OrganizationsMapShowRouter.swift */; };
+		B1FFF7161E5F017A00A075D8 /* OrganizationsMapShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FFF70F1E5F017A00A075D8 /* OrganizationsMapShowViewController.swift */; };
+		B1FFF7171E5F017A00A075D8 /* OrganizationsMapShowWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FFF7101E5F017A00A075D8 /* OrganizationsMapShowWorker.swift */; };
+		B1FFF7191E5F01A000A075D8 /* OrganizationsMapShow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1FFF7181E5F01A000A075D8 /* OrganizationsMapShow.storyboard */; };
+		B1FFF71F1E5F038400A075D8 /* Organization.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FFF71E1E5F038400A075D8 /* Organization.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -588,6 +597,15 @@
 		B1FFF6FE1E5ECDF900A075D8 /* OrganizationsShowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrganizationsShowViewController.swift; sourceTree = "<group>"; };
 		B1FFF6FF1E5ECDF900A075D8 /* OrganizationsShowWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrganizationsShowWorker.swift; sourceTree = "<group>"; };
 		B1FFF7071E5ECE4800A075D8 /* OrganizationsShow.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = OrganizationsShow.storyboard; sourceTree = "<group>"; };
+		B1FFF70A1E5F017A00A075D8 /* OrganizationsMapShowConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrganizationsMapShowConfigurator.swift; sourceTree = "<group>"; };
+		B1FFF70B1E5F017A00A075D8 /* OrganizationsMapShowInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrganizationsMapShowInteractor.swift; sourceTree = "<group>"; };
+		B1FFF70C1E5F017A00A075D8 /* OrganizationsMapShowModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrganizationsMapShowModels.swift; sourceTree = "<group>"; };
+		B1FFF70D1E5F017A00A075D8 /* OrganizationsMapShowPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrganizationsMapShowPresenter.swift; sourceTree = "<group>"; };
+		B1FFF70E1E5F017A00A075D8 /* OrganizationsMapShowRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrganizationsMapShowRouter.swift; sourceTree = "<group>"; };
+		B1FFF70F1E5F017A00A075D8 /* OrganizationsMapShowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrganizationsMapShowViewController.swift; sourceTree = "<group>"; };
+		B1FFF7101E5F017A00A075D8 /* OrganizationsMapShowWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrganizationsMapShowWorker.swift; sourceTree = "<group>"; };
+		B1FFF7181E5F01A000A075D8 /* OrganizationsMapShow.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = OrganizationsMapShow.storyboard; sourceTree = "<group>"; };
+		B1FFF71E1E5F038400A075D8 /* Organization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Organization.swift; sourceTree = "<group>"; };
 		B9EA988F3F694011D76FF246 /* Pods_OmnieCommerce.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OmnieCommerce.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3D9AA23A5D2AE846C8F1070 /* Pods-OmnieCommerce.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OmnieCommerce.release.xcconfig"; path = "Pods/Target Support Files/Pods-OmnieCommerce/Pods-OmnieCommerce.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -767,6 +785,7 @@
 				B122F2311DD35EF10018A701 /* NewsShow.storyboard */,
 				B1CF54EB1DDB57C300E98049 /* OmnieCardsShow.storyboard */,
 				B122F2291DD35D6F0018A701 /* OrdersShow.storyboard */,
+				B1FFF7181E5F01A000A075D8 /* OrganizationsMapShow.storyboard */,
 				B1FFF7071E5ECE4800A075D8 /* OrganizationsShow.storyboard */,
 				B1CF54E51DDB552300E98049 /* PersonalPageShow.storyboard */,
 				B1CF54E31DDB543300E98049 /* SettingsShow.storyboard */,
@@ -793,6 +812,7 @@
 				B1CF546D1DDB508A00E98049 /* OmnieCardsShow */,
 				B1CF54671DDB501900E98049 /* OnmieSoftShow */,
 				B122F1D31DD35B3B0018A701 /* OrdersShow */,
+				B1FFF7091E5F015D00A075D8 /* OrganizationsMapShow */,
 				B1FFF6F81E5ECDCF00A075D8 /* OrganizationsShow */,
 				B1CF546A1DDB505800E98049 /* PersonalPageShow */,
 				B177E54E1E54B709004F1390 /* RepetitionPasswordShow */,
@@ -1323,6 +1343,7 @@
 		B1FFF6F81E5ECDCF00A075D8 /* OrganizationsShow */ = {
 			isa = PBXGroup;
 			children = (
+				B1FFF71D1E5F037100A075D8 /* Models */,
 				B1FFF6F91E5ECDF900A075D8 /* OrganizationsShowConfigurator.swift */,
 				B1FFF6FA1E5ECDF900A075D8 /* OrganizationsShowInteractor.swift */,
 				B1FFF6FB1E5ECDF900A075D8 /* OrganizationsShowModels.swift */,
@@ -1332,6 +1353,28 @@
 				B1FFF6FF1E5ECDF900A075D8 /* OrganizationsShowWorker.swift */,
 			);
 			path = OrganizationsShow;
+			sourceTree = "<group>";
+		};
+		B1FFF7091E5F015D00A075D8 /* OrganizationsMapShow */ = {
+			isa = PBXGroup;
+			children = (
+				B1FFF70A1E5F017A00A075D8 /* OrganizationsMapShowConfigurator.swift */,
+				B1FFF70B1E5F017A00A075D8 /* OrganizationsMapShowInteractor.swift */,
+				B1FFF70C1E5F017A00A075D8 /* OrganizationsMapShowModels.swift */,
+				B1FFF70D1E5F017A00A075D8 /* OrganizationsMapShowPresenter.swift */,
+				B1FFF70E1E5F017A00A075D8 /* OrganizationsMapShowRouter.swift */,
+				B1FFF70F1E5F017A00A075D8 /* OrganizationsMapShowViewController.swift */,
+				B1FFF7101E5F017A00A075D8 /* OrganizationsMapShowWorker.swift */,
+			);
+			path = OrganizationsMapShow;
+			sourceTree = "<group>";
+		};
+		B1FFF71D1E5F037100A075D8 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B1FFF71E1E5F038400A075D8 /* Organization.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		B278301A3F7276C20AA620C6 /* Pods */ = {
@@ -1436,6 +1479,7 @@
 				B1C13D8D1DEF3385002B494A /* DropDown.storyboard in Resources */,
 				B18A45C61DEC21BA003EBD2F /* SmallTopBarView.xib in Resources */,
 				B1BF92761DD6516C00BECBBB /* helveticaneuecyr-ultralight.otf in Resources */,
+				B1FFF7191E5F01A000A075D8 /* OrganizationsMapShow.storyboard in Resources */,
 				B1CF54EC1DDB57C300E98049 /* OmnieCardsShow.storyboard in Resources */,
 				B1FFF7081E5ECE4800A075D8 /* OrganizationsShow.storyboard in Resources */,
 				B1BF92771DD6516C00BECBBB /* helveticaneuecyr-ultralightitalic.otf in Resources */,
@@ -1553,6 +1597,7 @@
 				B1CF54971DDB512000E98049 /* DiscountCardsShowViewController.swift in Sources */,
 				B15291591DDE3FFA00BBA1E0 /* MenuSectionHeaderView.swift in Sources */,
 				B11B9AD81DF02BAB009A4AA1 /* News.swift in Sources */,
+				B1FFF7151E5F017A00A075D8 /* OrganizationsMapShowRouter.swift in Sources */,
 				B122F2281DD35CC80018A701 /* SlideMenuShowWorker.swift in Sources */,
 				B122F2071DD35BEB0018A701 /* CategoriesShowModels.swift in Sources */,
 				B1CF54CD1DDB51A500E98049 /* PersonalPageShowPresenter.swift in Sources */,
@@ -1570,6 +1615,7 @@
 				B1CF54871DDB50F100E98049 /* BusinessCardsShowPresenter.swift in Sources */,
 				B122DF651DF7F957003823AD /* CalendarShowModels.swift in Sources */,
 				B10871541E379A9A00374DD5 /* OmnieCardViewModel.swift in Sources */,
+				B1FFF7111E5F017A00A075D8 /* OrganizationsMapShowConfigurator.swift in Sources */,
 				B1C94BC21E37825E00122933 /* BarCodeView.swift in Sources */,
 				B14107C71DFEB1D700F79CF9 /* CustomView.swift in Sources */,
 				B1CF54771DDB50D900E98049 /* AboutShowInteractor.swift in Sources */,
@@ -1585,6 +1631,7 @@
 				B1739D1C1DE314E80029BCCA /* UIView+Ext.swift in Sources */,
 				B1CF54A41DDB515000E98049 /* HandbookShowRouter.swift in Sources */,
 				B1CF54A31DDB515000E98049 /* HandbookShowPresenter.swift in Sources */,
+				B1FFF7161E5F017A00A075D8 /* OrganizationsMapShowViewController.swift in Sources */,
 				B14CD91A1E57C058005F8BF6 /* Protocols.swift in Sources */,
 				B14E97591DD8B052001E1DE2 /* SignUpShowPresenter.swift in Sources */,
 				B10874691E5B07A6004A4FB6 /* OmnieCommerceUser.xcdatamodeld in Sources */,
@@ -1597,11 +1644,13 @@
 				B1CF548A1DDB50F100E98049 /* BusinessCardsShowWorker.swift in Sources */,
 				B122F1E11DD35B760018A701 /* OrdersShowWorker.swift in Sources */,
 				B1FFF7061E5ECDF900A075D8 /* OrganizationsShowWorker.swift in Sources */,
+				B1FFF71F1E5F038400A075D8 /* Organization.swift in Sources */,
 				B122F2191DD35C2C0018A701 /* NewsShowWorker.swift in Sources */,
 				B1597AC61E3F12BF00123CB5 /* PersonalDataViewController.swift in Sources */,
 				B1CF54641DDAE78200E98049 /* CustomButton.swift in Sources */,
 				B122DF691DF7F957003823AD /* CalendarShowWorker.swift in Sources */,
 				B122F1ED1DD35BA70018A701 /* MessagesShowRouter.swift in Sources */,
+				B1FFF7131E5F017A00A075D8 /* OrganizationsMapShowModels.swift in Sources */,
 				B14E97491DD8B042001E1DE2 /* SignInShowInteractor.swift in Sources */,
 				B15FD40A1DD1DD8C00782324 /* AppDelegate.swift in Sources */,
 				B1CF54B21DDB516E00E98049 /* OmnieCardsShowRouter.swift in Sources */,
@@ -1615,6 +1664,7 @@
 				B1CF54DD1DDB51BE00E98049 /* SettingsShowViewController.swift in Sources */,
 				B18A45CC1DEC3918003EBD2F /* SmallCirleView.swift in Sources */,
 				B177E54C1E54AC7F004F1390 /* EnterCodeShowViewController.swift in Sources */,
+				B1FFF7141E5F017A00A075D8 /* OrganizationsMapShowPresenter.swift in Sources */,
 				B122DF6D1DF80FC1003823AD /* String+Ext.swift in Sources */,
 				B1CF54841DDB50F100E98049 /* BusinessCardsShowConfigurator.swift in Sources */,
 				B11CCAF21DEEEBB200AA7942 /* DropDownTableViewController.swift in Sources */,
@@ -1663,8 +1713,10 @@
 				B14E975C1DD8B052001E1DE2 /* SignUpShowWorker.swift in Sources */,
 				B1CF54D81DDB51BE00E98049 /* SettingsShowConfigurator.swift in Sources */,
 				B122F1EC1DD35BA70018A701 /* MessagesShowPresenter.swift in Sources */,
+				B1FFF7121E5F017A00A075D8 /* OrganizationsMapShowInteractor.swift in Sources */,
 				B122F1DE1DD35B760018A701 /* OrdersShowPresenter.swift in Sources */,
 				B14E975B1DD8B052001E1DE2 /* SignUpShowViewController.swift in Sources */,
+				B1FFF7171E5F017A00A075D8 /* OrganizationsMapShowWorker.swift in Sources */,
 				B1CF54A11DDB515000E98049 /* HandbookShowInteractor.swift in Sources */,
 				B17323CA1DED84FF003A8D3E /* CustomCollectionViewCell.swift in Sources */,
 				B1597AC71E3F12BF00123CB5 /* PersonalTemplatesViewController.swift in Sources */,

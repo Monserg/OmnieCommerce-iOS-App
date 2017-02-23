@@ -101,6 +101,7 @@
 "Pet"                           =   "The presence of a pet";
 "Pet No"                        =   "Pet No";
 "Pet Yes"                       =   "Pet has";
+"Map"                           =   "Map";
 
 
 // Alert actions

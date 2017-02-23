@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -69,6 +70,20 @@
                                     <constraint firstItem="OVx-4o-DGA" firstAttribute="centerY" secondItem="oTC-Vw-t0Y" secondAttribute="centerY" id="zGB-ta-txr"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DUL-OJ-fqc" userLabel="Map Button" customClass="CustomButton" customModule="OmnieCommerce" customModuleProvider="target">
+                                <rect key="frame" x="302" y="571.5" width="57" height="57"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="DUL-OJ-fqc" secondAttribute="height" multiplier="1:1" id="Bnu-Kk-IZ8"/>
+                                </constraints>
+                                <state key="normal" image="icon-map-white-normal"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="buttonStyle" value="SoftOrangeFill"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="handlerMapButtonTap:" destination="9s1-kT-Mzo" eventType="touchUpInside" id="M39-B2-QO6"/>
+                                </connections>
+                            </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3d9-Qt-0Tr" userLabel="Copyright Label" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
                                 <rect key="frame" x="8" y="637.5" width="359" height="20.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -96,17 +111,22 @@
                             <constraint firstAttribute="trailing" secondItem="3d9-Qt-0Tr" secondAttribute="trailing" constant="8" id="Tdg-4A-3Gn"/>
                             <constraint firstItem="Fg2-g7-Pmf" firstAttribute="leading" secondItem="tP1-Vk-hMS" secondAttribute="leading" id="YA4-sD-5WW"/>
                             <constraint firstItem="Fg2-g7-Pmf" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="95:667" id="ZbF-Ja-PwO"/>
+                            <constraint firstItem="DUL-OJ-fqc" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="57:375" id="aMg-7v-cUa"/>
                             <constraint firstItem="oTC-Vw-t0Y" firstAttribute="leading" secondItem="tP1-Vk-hMS" secondAttribute="leading" constant="8" id="eUa-Tf-Snr"/>
+                            <constraint firstAttribute="trailing" secondItem="DUL-OJ-fqc" secondAttribute="trailing" constant="16" id="gmg-3L-gs3"/>
                             <constraint firstItem="Fg2-g7-Pmf" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="80:375" id="hb0-zV-YBD"/>
                             <constraint firstItem="oTC-Vw-t0Y" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="71:375" id="kGG-HA-dfI"/>
                             <constraint firstItem="b7l-X1-Tog" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="33:375" id="pS1-w0-I7b"/>
                             <constraint firstAttribute="trailing" secondItem="oTC-Vw-t0Y" secondAttribute="trailing" constant="8" id="y90-5N-I3l"/>
+                            <constraint firstItem="DUL-OJ-fqc" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="57:667" id="yMZ-uX-sWo"/>
+                            <constraint firstItem="3d9-Qt-0Tr" firstAttribute="top" secondItem="DUL-OJ-fqc" secondAttribute="bottom" constant="9" id="zAe-Br-sfq"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="ZbF-Ja-PwO"/>
                                 <exclude reference="LZ1-Pa-7zL"/>
                                 <exclude reference="S9S-g5-gng"/>
+                                <exclude reference="yMZ-uX-sWo"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -117,6 +137,8 @@
                                 <exclude reference="kGG-HA-dfI"/>
                                 <include reference="S9S-g5-gng"/>
                                 <exclude reference="pS1-w0-I7b"/>
+                                <exclude reference="aMg-7v-cUa"/>
+                                <include reference="yMZ-uX-sWo"/>
                             </mask>
                         </variation>
                     </view>
@@ -136,5 +158,6 @@
     </scenes>
     <resources>
         <image name="icon-drop-down-accessory-normal" width="7" height="5"/>
+        <image name="icon-map-white-normal" width="27" height="25"/>
     </resources>
 </document>
