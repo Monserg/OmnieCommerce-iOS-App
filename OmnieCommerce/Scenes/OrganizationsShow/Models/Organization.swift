@@ -8,13 +8,13 @@
 //
 
 import Foundation
+import CoreLocation
 
 struct Organization {
     // MARK: - Properties
     let codeID: Int!
     let name: String!
-    let addressCity: String!
-    let addressStreet: String!
+    let location: CLLocationCoordinate2D!
     var logoURL: String?
     var rating: Int         =   0
     var isFavorite: Bool    =   false

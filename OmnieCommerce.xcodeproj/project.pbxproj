@@ -302,6 +302,13 @@
 		B1FFF7171E5F017A00A075D8 /* OrganizationsMapShowWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FFF7101E5F017A00A075D8 /* OrganizationsMapShowWorker.swift */; };
 		B1FFF7191E5F01A000A075D8 /* OrganizationsMapShow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1FFF7181E5F01A000A075D8 /* OrganizationsMapShow.storyboard */; };
 		B1FFF71F1E5F038400A075D8 /* Organization.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FFF71E1E5F038400A075D8 /* Organization.swift */; };
+		B1FFF7211E5F0D7E00A075D8 /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1FFF7201E5F0D7E00A075D8 /* SafariServices.framework */; };
+		B1FFF7231E5F0D8D00A075D8 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1FFF7221E5F0D8D00A075D8 /* StoreKit.framework */; };
+		B1FFF7251E5F0DA100A075D8 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1FFF7241E5F0DA100A075D8 /* MapKit.framework */; };
+		B1FFF7271E5F0DAE00A075D8 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1FFF7261E5F0DAE00A075D8 /* CoreLocation.framework */; };
+		B1FFF72A1E5F0DFB00A075D8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B1FFF72C1E5F0DFB00A075D8 /* InfoPlist.strings */; };
+		B1FFF7311E5F0F0F00A075D8 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FFF7301E5F0F0F00A075D8 /* LocationManager.swift */; };
+		B1FFF7341E5F0F9E00A075D8 /* PointAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FFF7331E5F0F9E00A075D8 /* PointAnnotation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -606,6 +613,16 @@
 		B1FFF7101E5F017A00A075D8 /* OrganizationsMapShowWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrganizationsMapShowWorker.swift; sourceTree = "<group>"; };
 		B1FFF7181E5F01A000A075D8 /* OrganizationsMapShow.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = OrganizationsMapShow.storyboard; sourceTree = "<group>"; };
 		B1FFF71E1E5F038400A075D8 /* Organization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Organization.swift; sourceTree = "<group>"; };
+		B1FFF7201E5F0D7E00A075D8 /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
+		B1FFF7221E5F0D8D00A075D8 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		B1FFF7241E5F0DA100A075D8 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		B1FFF7261E5F0DAE00A075D8 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		B1FFF72B1E5F0DFB00A075D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		B1FFF72D1E5F0DFD00A075D8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		B1FFF72E1E5F0DFE00A075D8 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		B1FFF72F1E5F0DFF00A075D8 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		B1FFF7301E5F0F0F00A075D8 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		B1FFF7331E5F0F9E00A075D8 /* PointAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PointAnnotation.swift; sourceTree = "<group>"; };
 		B9EA988F3F694011D76FF246 /* Pods_OmnieCommerce.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OmnieCommerce.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3D9AA23A5D2AE846C8F1070 /* Pods-OmnieCommerce.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OmnieCommerce.release.xcconfig"; path = "Pods/Target Support Files/Pods-OmnieCommerce/Pods-OmnieCommerce.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -615,6 +632,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1FFF7271E5F0DAE00A075D8 /* CoreLocation.framework in Frameworks */,
+				B1FFF7251E5F0DA100A075D8 /* MapKit.framework in Frameworks */,
+				B1FFF7231E5F0D8D00A075D8 /* StoreKit.framework in Frameworks */,
+				B1FFF7211E5F0D7E00A075D8 /* SafariServices.framework in Frameworks */,
 				B14D1D701E5CB70D00D33435 /* AddressBook.framework in Frameworks */,
 				B14D1D6E1E5CB6FA00D33435 /* SystemConfiguration.framework in Frameworks */,
 				B14D1D6B1E5CB6D500D33435 /* GoogleSignIn.framework in Frameworks */,
@@ -635,6 +656,10 @@
 		A4A33B8C6849A99639A17A3F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B1FFF7261E5F0DAE00A075D8 /* CoreLocation.framework */,
+				B1FFF7241E5F0DA100A075D8 /* MapKit.framework */,
+				B1FFF7221E5F0D8D00A075D8 /* StoreKit.framework */,
+				B1FFF7201E5F0D7E00A075D8 /* SafariServices.framework */,
 				B14D1D6F1E5CB70D00D33435 /* AddressBook.framework */,
 				B14D1D611E5CB6D500D33435 /* Bolts.framework */,
 				B10874811E5B1822004A4FB6 /* CoreData.framework */,
@@ -978,6 +1003,7 @@
 				B1CBAB911DE446E700A8BCA2 /* Assets.xcassets */,
 				B1BF924E1DD6508A00BECBBB /* Fonts */,
 				B122F24A1DD393330018A701 /* Localizable.strings */,
+				B1FFF72C1E5F0DFB00A075D8 /* InfoPlist.strings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -985,6 +1011,7 @@
 		B12FE6421E57321500A4FBA4 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				B1FFF7301E5F0F0F00A075D8 /* LocationManager.swift */,
 				B14D1D731E5CB8B000D33435 /* SocialNetworkManager.swift */,
 				B12FE6431E57323400A4FBA4 /* TextFieldManager.swift */,
 			);
@@ -1358,6 +1385,7 @@
 		B1FFF7091E5F015D00A075D8 /* OrganizationsMapShow */ = {
 			isa = PBXGroup;
 			children = (
+				B1FFF7321E5F0F8B00A075D8 /* Models */,
 				B1FFF70A1E5F017A00A075D8 /* OrganizationsMapShowConfigurator.swift */,
 				B1FFF70B1E5F017A00A075D8 /* OrganizationsMapShowInteractor.swift */,
 				B1FFF70C1E5F017A00A075D8 /* OrganizationsMapShowModels.swift */,
@@ -1373,6 +1401,14 @@
 			isa = PBXGroup;
 			children = (
 				B1FFF71E1E5F038400A075D8 /* Organization.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B1FFF7321E5F0F8B00A075D8 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B1FFF7331E5F0F9E00A075D8 /* PointAnnotation.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1453,6 +1489,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B1BF92681DD6516C00BECBBB /* helveticaneuecyr-black.otf in Resources */,
+				B1FFF72A1E5F0DFB00A075D8 /* InfoPlist.strings in Resources */,
 				B14E976C1DD8B8CB001E1DE2 /* SignInShow.storyboard in Resources */,
 				B16E96711DE6C94D00147CEF /* BigTopBarView.xib in Resources */,
 				B1C6F35D1DD9C718004695C2 /* MenuItemsList.plist in Resources */,
@@ -1635,6 +1672,7 @@
 				B14CD91A1E57C058005F8BF6 /* Protocols.swift in Sources */,
 				B14E97591DD8B052001E1DE2 /* SignUpShowPresenter.swift in Sources */,
 				B10874691E5B07A6004A4FB6 /* OmnieCommerceUser.xcdatamodeld in Sources */,
+				B1FFF7341E5F0F9E00A075D8 /* PointAnnotation.swift in Sources */,
 				B1CF54781DDB50D900E98049 /* AboutShowModels.swift in Sources */,
 				B14E97561DD8B052001E1DE2 /* SignUpShowConfigurator.swift in Sources */,
 				B14E97671DD8B05E001E1DE2 /* ForgotPasswordShowPresenter.swift in Sources */,
@@ -1735,6 +1773,7 @@
 				B177E53C1E5489A2004F1390 /* ErrorMessageView.swift in Sources */,
 				B18A45C81DEC23B2003EBD2F /* SmallTopBarView.swift in Sources */,
 				B1FFF7001E5ECDF900A075D8 /* OrganizationsShowConfigurator.swift in Sources */,
+				B1FFF7311E5F0F0F00A075D8 /* LocationManager.swift in Sources */,
 				B122F2141DD35C2C0018A701 /* NewsShowInteractor.swift in Sources */,
 				B1CF54AE1DDB516E00E98049 /* OmnieCardsShowConfigurator.swift in Sources */,
 				B1CF54BF1DDB519000E98049 /* OnmieSoftShowPresenter.swift in Sources */,
@@ -1809,6 +1848,17 @@
 				B177E52B1E546DD9004F1390 /* en */,
 			);
 			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		B1FFF72C1E5F0DFB00A075D8 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B1FFF72B1E5F0DFB00A075D8 /* Base */,
+				B1FFF72D1E5F0DFD00A075D8 /* en */,
+				B1FFF72E1E5F0DFE00A075D8 /* ru */,
+				B1FFF72F1E5F0DFF00A075D8 /* uk */,
+			);
+			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

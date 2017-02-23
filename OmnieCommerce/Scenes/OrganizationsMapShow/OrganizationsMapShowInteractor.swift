@@ -13,12 +13,14 @@ import UIKit
 
 // MARK: - Input protocols for current Interactor component VIP-cicle
 protocol OrganizationsMapShowInteractorInput {
-    func doSomething(requestModel: OrganizationsMapShowModels.Something.RequestModel)
+    func didLoadLocations(withRequestModel requestModel: OrganizationsMapShowModels.Locations.RequestModel)
+    func didStopUpdateLocations(withRequestModel requestModel: OrganizationsMapShowModels.Locations.RequestModel)
 }
 
 // MARK: - Output protocols for Presenter component VIP-cicle
 protocol OrganizationsMapShowInteractorOutput {
-    func presentSomething(responseModel: OrganizationsMapShowModels.Something.ResponseModel)
+    func didPrepareToShowLocations(fromResponseModel responseModel: OrganizationsMapShowModels.Locations.ResponseModel)
+    func didPrepareToDismissViewController(fromResponseModel responseModel: OrganizationsMapShowModels.Locations.ResponseModel)
 }
 
 class OrganizationsMapShowInteractor: OrganizationsMapShowInteractorInput {
@@ -28,13 +30,21 @@ class OrganizationsMapShowInteractor: OrganizationsMapShowInteractorInput {
     
     
     // MARK: - Custom Functions. Business logic
-    func doSomething(requestModel: OrganizationsMapShowModels.Something.RequestModel) {
-        // NOTE: Create some Worker to do the work
+    func didLoadLocations(withRequestModel requestModel: OrganizationsMapShowModels.Locations.RequestModel) {
+        requestModel.locationManager.startCoreLocation(withOrganizations: requestModel.organizations)
+
+        requestModel.locationManager.handlerLocationCompletion = { placemarks in
+            let responseModel = OrganizationsMapShowModels.Locations.ResponseModel(placemarks: placemarks)
+
+            self.presenter.didPrepareToShowLocations(fromResponseModel: responseModel)
+        }
+    }
+    
+    func didStopUpdateLocations(withRequestModel requestModel: OrganizationsMapShowModels.Locations.RequestModel) {
         worker = OrganizationsMapShowWorker()
-        worker.doSomeWork()
+        requestModel.locationManager.stopCoreLocation()
         
-        // NOTE: Pass the result to the Presenter
-        let responseModel = OrganizationsMapShowModels.Something.ResponseModel()
-        presenter.presentSomething(responseModel: responseModel)
+        let responseModel = OrganizationsMapShowModels.Locations.ResponseModel(placemarks: nil)
+        presenter.didPrepareToDismissViewController(fromResponseModel: responseModel)
     }
 }

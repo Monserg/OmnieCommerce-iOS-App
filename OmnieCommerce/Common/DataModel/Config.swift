@@ -10,6 +10,7 @@
 //
 
 import UIKit
+import MapKit
 
 enum ThemeDesign: String {
     case LightForUser   =   "LightForUser"
@@ -25,8 +26,11 @@ typealias HandlerCancelButtonCompletion             =   (() -> ())
 typealias HandlerNavBarLeftButtonCompletion         =   (() -> ())
 typealias HandlerImagePickerControllerCompletion    =   ((_ originalImage: UIImage) -> ())
 typealias HandlerPassDataCompletion                 =   ((_ data: Any) -> ())
+typealias HandlerLocationCompletion                 =   ((_ placemarks: [CLPlacemark]) -> ())
 
 typealias ResponseAPI                               =   (success: Bool, error: String?)
+typealias ResultLocation                            =   (placemark: CLPlacemark?, coordinate: CLLocationCoordinate2D?, address: String?)
+typealias SearchLocation                            =   (coordinates: CLLocationCoordinate2D?, address: String?)
 
 var isAppThemeDark                                  =   false
 

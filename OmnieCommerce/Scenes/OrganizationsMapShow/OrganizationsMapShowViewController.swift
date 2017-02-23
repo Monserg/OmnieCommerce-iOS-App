@@ -10,15 +10,17 @@
 //
 
 import UIKit
+import MapKit
 
 // MARK: - Input protocols for current ViewController component VIP-cicle
 protocol OrganizationsMapShowViewControllerInput {
-    func displaySomething(viewModel: OrganizationsMapShowModels.Something.ViewModel)
+    func didShowLocations(fromViewModel viewModel: OrganizationsMapShowModels.Locations.ViewModel)
 }
 
 // MARK: - Output protocols for Interactor component VIP-cicle
 protocol OrganizationsMapShowViewControllerOutput {
-    func doSomething(requestModel: OrganizationsMapShowModels.Something.RequestModel)
+    func didLoadLocations(withRequestModel requestModel: OrganizationsMapShowModels.Locations.RequestModel)
+    func didStopUpdateLocations(withRequestModel requestModel: OrganizationsMapShowModels.Locations.RequestModel)
 }
 
 class OrganizationsMapShowViewController: BaseViewController {
@@ -28,7 +30,18 @@ class OrganizationsMapShowViewController: BaseViewController {
     
     var organizations = Array<Organization>()
 
+    private let locationManager = LocationManager()
+    var pinAnnotationView: MKPinAnnotationView!
+
     @IBOutlet weak var smallTopBarView: SmallTopBarView!
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
+
+    @IBOutlet weak var mapView: MKMapView! {
+        didSet {
+            // Delegates
+            mapView.delegate = self
+        }
+    }
     
 
     // MARK: - Class initialization
@@ -50,6 +63,14 @@ class OrganizationsMapShowViewController: BaseViewController {
         initialSetupDidLoad()
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        // Stop GeoLocation manager
+        let locationsRequestModel = OrganizationsMapShowModels.Locations.RequestModel(locationManager: locationManager, organizations: organizations)
+        interactor.didStopUpdateLocations(withRequestModel: locationsRequestModel)
+        
+        super.viewDidDisappear(true)
+    }
+
 
     // MARK: - Custom Functions
     func initialSetupDidLoad() {
@@ -58,17 +79,105 @@ class OrganizationsMapShowViewController: BaseViewController {
             _ = self.navigationController?.popViewController(animated: true)
         }
 
-        // NOTE: Ask the Interactor to do some work
-        let requestModel = OrganizationsMapShowModels.Something.RequestModel()
-        interactor.doSomething(requestModel: requestModel)
+        // Customize map view
+        mapView.showsScale      =   false
+        mapView.showsCompass    =   true
+        
+        // Start GeoLocation manager with current user position
+        didStartGeocoding()
     }
+    
+    // Geocoding
+    func didStartGeocoding() {
+        spinner.startAnimating()
+        
+        let requestModel = OrganizationsMapShowModels.Locations.RequestModel(locationManager: locationManager, organizations: organizations)
+        interactor.didLoadLocations(withRequestModel: requestModel)
+    }
+    
+    // Centering map
+    func didShowLocationOnMapViewCenter(coordinate: CLLocationCoordinate2D?) {
+        guard let regionCoordinate = coordinate else {
+            return
+        }
+        
+        mapView.setRegion(MKCoordinateRegionMake(regionCoordinate, MKCoordinateSpanMake(0.003, 0.003)), animated: true)
+    }
+    
+    func didAddAnnotation(placemark: CLPlacemark?) {
+        guard placemark != nil else {
+            return
+        }
+        
+        mapView.addAnnotations(mapView.selectedAnnotations)
+        
+//        mapView.showAnnotations([pointAnnotation], animated: true)
+//        mapView.selectAnnotation(pointAnnotation, animated: true)
+//        didShowLocationOnMapViewCenter(coordinate: placemark?.location?.coordinate)
+//        
+//        if (pointAnnotation.isRegionChange) {
+//            spinner.stopAnimating()
+//            pointAnnotation.isRegionChange = false
+//        }
+    }
+
 }
 
 
-// MARK: - ForgotPasswordShowViewControllerInput
+// MARK: - OrganizationsMapShowViewControllerInput
 extension OrganizationsMapShowViewController: OrganizationsMapShowViewControllerInput {
-    func displaySomething(viewModel: OrganizationsMapShowModels.Something.ViewModel) {
-        // NOTE: Display the result from the Presenter
-        // nameTextField.text = viewModel.name
+    func didShowLocations(fromViewModel viewModel: OrganizationsMapShowModels.Locations.ViewModel) {
+//        self.pointAnnotation.didUpdate(fromViewModel: viewModel.resultLocation!)
+//        didAddAnnotation(placemark: viewModel.resultLocation?.placemark)
+    }
+    
+    func didDismissViewController(fromViewModel viewModel: OrganizationsMapShowModels.Locations.ViewModel) {
+        mapView.showsUserLocation = false
     }
 }
+
+
+// MARK: - MKMapViewDelegate
+extension OrganizationsMapShowViewController: MKMapViewDelegate {
+    func mapViewDidFinishRenderingMap(_ mapView: MKMapView, fullyRendered: Bool) {
+        if (fullyRendered) {
+            spinner.stopAnimating()
+        }
+    }
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        let identifier = "pin" //"CustomPin"
+        pinAnnotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) as? MKPinAnnotationView
+        
+        if (pinAnnotationView != nil) {
+            pinAnnotationView?.annotation   =   annotation
+        } else {
+            pinAnnotationView               =   MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+            pinAnnotationView.pinTintColor  =   UIColor.init(hexString: "#009395", withAlpha: 1.0)
+        }
+        
+        pinAnnotationView?.canShowCallout   =   false
+        pinAnnotationView?.isDraggable      =   true
+        
+        // Add organization image
+        let leftIconView = UIImageView(frame: CGRect.init(x: 0, y: 0, width: 44, height: 33))
+        
+//        guard let avatar = pointAnnotation.image else {
+//            leftIconView.image = UIImage(named: "icon-empty-organization-normal")
+//            leftIconView.backgroundColor = UIColor.veryLightGray
+//            pinAnnotationView?.leftCalloutAccessoryView = leftIconView
+//            
+//            return pinAnnotationView
+//        }
+        
+//        leftIconView.image = avatar
+        pinAnnotationView?.leftCalloutAccessoryView = leftIconView
+        
+        return pinAnnotationView
+    }
+    
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        view.canShowCallout = true
+    }
+}
+

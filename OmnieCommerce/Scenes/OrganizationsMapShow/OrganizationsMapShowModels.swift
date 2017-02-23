@@ -10,17 +10,22 @@
 //
 
 import UIKit
+import MapKit
 
 // MARK: - Data models
 struct OrganizationsMapShowModels {
-    struct Something {
+    struct Locations {
         struct RequestModel {
+            let locationManager: LocationManager
+            let organizations: [Organization]
         }
         
         struct ResponseModel {
+            let placemarks: [CLPlacemark]?
         }
         
         struct ViewModel {
+            let resultLocations: [ResultLocation]?
         }
     }
 }

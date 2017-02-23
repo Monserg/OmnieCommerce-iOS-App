@@ -120,6 +120,10 @@
 "Not Reachable"                 =   "Отключение";
 "Connected to Network"          =   "Соединение с Интернетом установлено";
 "Disconnected from Network"     =   "Соединение с Интернетом отсутствует. \nПроверьте настройки сети";
+"Info"                          =   "Инфо";
+"Error"                         =   "Ошибка";
+"Location authorization error"  =   "Пожалуйста, перейдите в Настройки и включите службу геолокации";
+"Camera is not available"       =   "Отсутствует доступ к камере";
 
 
 // Cities
