@@ -31,36 +31,46 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oTC-Vw-t0Y" userLabel="Filters View">
-                                <rect key="frame" x="0.0" y="95" width="375" height="71"/>
+                                <rect key="frame" x="8" y="95" width="359" height="71"/>
                                 <subviews>
-                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b7l-X1-Tog" userLabel="City Button" customClass="DropDownButton" customModule="OmnieCommerce" customModuleProvider="target">
-                                        <rect key="frame" x="8" y="18" width="359" height="33"/>
+                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b7l-X1-Tog" userLabel="Params Sort Button" customClass="DropDownButton" customModule="OmnieCommerce" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="19" width="172" height="33"/>
                                         <color key="backgroundColor" red="0.14117647058823529" green="0.19607843137254902" blue="0.24705882352941178" alpha="1" colorSpace="calibratedRGB"/>
-                                        <state key="normal" title="City" image="icon-drop-down-accessory-normal"/>
+                                        <state key="normal" title="By all categories" image="icon-drop-down-accessory-normal"/>
                                         <state key="highlighted">
                                             <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="string" keyPath="buttonStyle" value="DropDownList"/>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="dropDownList" value="City"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="dropDownList" value="Categories"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OVx-4o-DGA" userLabel="Type Sort Button" customClass="DropDownButton" customModule="OmnieCommerce" customModuleProvider="target">
+                                        <rect key="frame" x="187" y="19" width="172" height="33"/>
+                                        <color key="backgroundColor" red="0.14117647059999999" green="0.1960784314" blue="0.2470588235" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="By organizations" image="icon-drop-down-accessory-normal"/>
+                                        <state key="highlighted">
+                                            <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="buttonStyle" value="DropDownList"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="dropDownList" value="Organizations"/>
                                         </userDefinedRuntimeAttributes>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="b7l-X1-Tog" secondAttribute="trailing" constant="8" id="Nsi-WO-b4N">
-                                        <variation key="heightClass=compact-widthClass=compact" constant="50"/>
-                                        <variation key="heightClass=compact-widthClass=regular" constant="60"/>
-                                    </constraint>
-                                    <constraint firstItem="b7l-X1-Tog" firstAttribute="top" secondItem="oTC-Vw-t0Y" secondAttribute="top" constant="18" id="pAe-Xx-cZe"/>
-                                    <constraint firstItem="b7l-X1-Tog" firstAttribute="leading" secondItem="oTC-Vw-t0Y" secondAttribute="leading" constant="8" id="uRs-0B-0FU">
-                                        <variation key="heightClass=compact-widthClass=compact" constant="50"/>
-                                        <variation key="heightClass=compact-widthClass=regular" constant="60"/>
-                                    </constraint>
+                                    <constraint firstItem="OVx-4o-DGA" firstAttribute="height" secondItem="b7l-X1-Tog" secondAttribute="height" id="OTv-pV-DtP"/>
+                                    <constraint firstAttribute="trailing" secondItem="OVx-4o-DGA" secondAttribute="trailing" id="Xrs-ia-qk3"/>
+                                    <constraint firstItem="b7l-X1-Tog" firstAttribute="centerY" secondItem="oTC-Vw-t0Y" secondAttribute="centerY" id="cCQ-d8-fGw"/>
+                                    <constraint firstItem="OVx-4o-DGA" firstAttribute="width" secondItem="b7l-X1-Tog" secondAttribute="width" id="hug-AL-neX"/>
+                                    <constraint firstItem="OVx-4o-DGA" firstAttribute="leading" secondItem="b7l-X1-Tog" secondAttribute="trailing" constant="15" id="pAR-zv-oID"/>
+                                    <constraint firstItem="b7l-X1-Tog" firstAttribute="leading" secondItem="oTC-Vw-t0Y" secondAttribute="leading" id="uRs-0B-0FU"/>
+                                    <constraint firstItem="OVx-4o-DGA" firstAttribute="centerY" secondItem="oTC-Vw-t0Y" secondAttribute="centerY" id="zGB-ta-txr"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3d9-Qt-0Tr" userLabel="Copyright Label" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                                <rect key="frame" x="8" y="647" width="359" height="10.5"/>
+                                <rect key="frame" x="8" y="637.5" width="359" height="20.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -86,11 +96,11 @@
                             <constraint firstAttribute="trailing" secondItem="3d9-Qt-0Tr" secondAttribute="trailing" constant="8" id="Tdg-4A-3Gn"/>
                             <constraint firstItem="Fg2-g7-Pmf" firstAttribute="leading" secondItem="tP1-Vk-hMS" secondAttribute="leading" id="YA4-sD-5WW"/>
                             <constraint firstItem="Fg2-g7-Pmf" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="95:667" id="ZbF-Ja-PwO"/>
-                            <constraint firstItem="oTC-Vw-t0Y" firstAttribute="leading" secondItem="tP1-Vk-hMS" secondAttribute="leading" id="eUa-Tf-Snr"/>
+                            <constraint firstItem="oTC-Vw-t0Y" firstAttribute="leading" secondItem="tP1-Vk-hMS" secondAttribute="leading" constant="8" id="eUa-Tf-Snr"/>
                             <constraint firstItem="Fg2-g7-Pmf" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="80:375" id="hb0-zV-YBD"/>
                             <constraint firstItem="oTC-Vw-t0Y" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="71:375" id="kGG-HA-dfI"/>
                             <constraint firstItem="b7l-X1-Tog" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="33:375" id="pS1-w0-I7b"/>
-                            <constraint firstAttribute="trailing" secondItem="oTC-Vw-t0Y" secondAttribute="trailing" id="y90-5N-I3l"/>
+                            <constraint firstAttribute="trailing" secondItem="oTC-Vw-t0Y" secondAttribute="trailing" constant="8" id="y90-5N-I3l"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">

@@ -43,10 +43,10 @@ extension DropDownTableViewController {
         case .City:
             cell.didSetup(withCity: dataSource[indexPath.row] as! City)
         
-        case .Service:
+        case .Categories:
             cell.didSetup(withCity: dataSource[indexPath.row] as! City)
 
-        case .Rating:
+        case .Organizations:
             cell.didSetup(withCity: dataSource[indexPath.row] as! City)
         }
         

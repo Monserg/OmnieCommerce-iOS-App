@@ -43,6 +43,10 @@ class OrganizationsShowViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        smallTopBarView.type    =   "ChildSearch"
+        topBarViewStyle         =   .Small
+        setup(topBarView: smallTopBarView)
+
         initialSetupDidLoad()
     }
     

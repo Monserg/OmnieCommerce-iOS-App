@@ -17,7 +17,7 @@
                         <viewControllerLayoutGuide type="top" id="3ad-7T-bZr"/>
                         <viewControllerLayoutGuide type="bottom" id="DTO-wG-tQo"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="oKk-pR-n0g">
+                    <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="oKk-pR-n0g">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -134,7 +134,7 @@
                 <navigationController storyboardIdentifier="OrdersShowNC" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="g2I-y5-hYL" customClass="BaseNavigationController" customModule="OmnieCommerce" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="RsX-5O-ea1">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="RsX-5O-ea1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

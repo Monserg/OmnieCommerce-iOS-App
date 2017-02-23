@@ -62,6 +62,8 @@
 "Send again"                    =   "Отправить ещё раз";
 "Submit"                        =   "Подтвердить";
 "Enter"                         =   "Войти";
+"By organizations"              =   "По организациям";
+"By all categories"             =   "Все";
 
 
 // TextField Placeholders

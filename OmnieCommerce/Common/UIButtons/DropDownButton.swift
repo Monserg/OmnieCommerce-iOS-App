@@ -9,9 +9,9 @@
 import UIKit
 
 enum DropDownList: String {
-    case City       =   "City"
-    case Service    =   "Service"
-    case Rating     =   "Rating"
+    case City               =   "City"
+    case Categories         =   "Categories"
+    case Organizations      =   "Organizations"
 }
 
 @IBDesignable class DropDownButton: CustomButton {
