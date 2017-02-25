@@ -14,9 +14,9 @@ import MapKit
 
 class OrganizationsMapShowWorker {
     // MARK: - Properties
-    var regionRect  =   MKMapRectNull //MKMapRect.init(origin: MKMapPoint.init(x: 0, y: 0), size: MKMapSize.init(width: 0, height: 0))
+    var regionRect  =   MKMapRectNull
     var points      =   [PointAnnotation]()
-    let delta       =   1.0
+    let delta       =   10000.0
 
     
     // MARK: - Custom Functions. Business Logic

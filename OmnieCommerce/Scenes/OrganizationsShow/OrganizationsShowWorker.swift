@@ -18,7 +18,7 @@ class OrganizationsShowWorker {
     var organizations: [Organization]!
     var handlerLocationCompletion: HandlerLocationCompletion?
 
-    let coordinates = [CLLocationCoordinate2D.init(latitude: 49.389818,             longitude: 27.051351000000068),
+    let coordinates = [CLLocationCoordinate2D.init(latitude: 49.439393,             longitude: 26.998901299999943),
                        CLLocationCoordinate2D.init(latitude: 49.422623999124916,    longitude: 26.988609731197357),
                        CLLocationCoordinate2D.init(latitude: 49.424262252764265,    longitude: 27.001497745513916),
                        CLLocationCoordinate2D.init(latitude: 49.383993177221136,    longitude: 27.056922912597656),

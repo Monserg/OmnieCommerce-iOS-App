@@ -9,6 +9,7 @@
 import UIKit
 import MapKit
 import CoreLocation
+import Contacts
 
 class LocationManager: BaseViewController {
     // MARK: - Properties
@@ -37,7 +38,8 @@ class LocationManager: BaseViewController {
         locationManager!.requestWhenInUseAuthorization()
         
         if CLLocationManager.locationServicesEnabled() {
-            locationManager!.desiredAccuracy = kCLLocationAccuracyHundredMeters
+            locationManager!.desiredAccuracy    =   kCLLocationAccuracyBest
+            locationManager!.distanceFilter     =   10.0
             locationManager!.requestLocation()
         }
     }
@@ -52,21 +54,36 @@ class LocationManager: BaseViewController {
         
         // Geocoding organizations locations
         for organization in organizations {
-            let location = CLLocation.init(latitude: organization.location.latitude, longitude: organization.location.longitude)
-            var item = organization
+            let location    =   CLLocation.init(latitude: organization.location.latitude, longitude: organization.location.longitude)
+            var item        =   organization
+            
+            self.print(object: "organization: \(organization.name) before: \(location)")
+
             
             CLGeocoder().reverseGeocodeLocation(location) { placemarks, error in
                 guard placemarks != nil else {
                     return
                 }
                 
-                let placemark       =   placemarks![0]
-                item.addressCity    =   placemark.locality
-                
-                let street          =   placemark.thoroughfare ?? ""
-                let house           =   placemark.subThoroughfare ?? ""
-                item.addressStreet  =   "\(street), \(house)"
+                let placemark               =   placemarks![0]
+                self.print(object: "organization: \(organization.name) after: \(location) placemark: \(placemark)")
 
+                if (item.name == "Organization 0") {
+                    self.print(object: placemark)
+                }
+                
+                item.addressCity            =   placemark.locality
+                let street                  =   placemark.thoroughfare ?? ""
+                let house                   =   placemark.subThoroughfare ?? ""
+                
+                if (!street.isEmpty) {
+                    if (house.isEmpty) {
+                        item.addressStreet  =   "\(street)"
+                    } else {
+                        item.addressStreet  =   "\(street), \(house)"
+                    }
+                }
+                
                 items.append(item)
                 
                 if (items.count == self.organizations.count) {
@@ -82,7 +99,9 @@ class LocationManager: BaseViewController {
 
 // MARK: - CLLocationManagerDelegate
 extension LocationManager: CLLocationManagerDelegate {
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {}
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
+    }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         alertViewDidShow(withTitle: "Error".localized(), andMessage: error.localizedDescription)

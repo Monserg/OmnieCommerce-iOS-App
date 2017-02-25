@@ -34,7 +34,7 @@ class OrganizationsMapShowViewController: BaseViewController {
     @IBOutlet weak var smallTopBarView: SmallTopBarView!
     @IBOutlet weak var spinner: UIActivityIndicatorView!
 
-    @IBOutlet weak var mapView: MKMapView! {
+    @IBOutlet weak var mapView: MapView! {
         didSet {
             // Delegates
             mapView.delegate = self
@@ -76,7 +76,7 @@ class OrganizationsMapShowViewController: BaseViewController {
         }
 
         // Customize map view
-        mapView.showsScale      =   false
+        mapView.showsScale      =   true
         mapView.showsCompass    =   true
         
         // Load point annotations
@@ -88,9 +88,14 @@ class OrganizationsMapShowViewController: BaseViewController {
         mapView.addAnnotations(pointAnnotations)
         mapView.showAnnotations(pointAnnotations, animated: true)
 
-        regionRect              =   mapView.mapRectThatFits(regionRect, edgePadding: UIEdgeInsetsMake(50, 50, 50, 50))
+        regionRect              =   mapView.mapRectThatFits(regionRect, edgePadding: UIEdgeInsetsMake(20, 50, 20, 50))
 
         mapView.setVisibleMapRect(regionRect, animated: true)
+    }
+    
+    // MARK: - Transition
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        mapView.setNeedsDisplay()
     }
 }
 
@@ -133,15 +138,15 @@ extension OrganizationsMapShowViewController: MKMapViewDelegate {
         let leftIconView = UIImageView(frame: CGRect.init(x: 0, y: 0, width: 44, height: 33))
         
         guard let avatar                                    =   (annotation as! PointAnnotation).image else {
-            leftIconView.image                              =   UIImage(named: "icon-empty-organization-normal")
+            leftIconView.image                              =   UIImage(named: "image-no-organization")
             leftIconView.backgroundColor                    =   UIColor.veryLightGray
             pinAnnotationView?.leftCalloutAccessoryView     =   leftIconView
             
             return pinAnnotationView
         }
         
-        leftIconView.image = avatar
-        pinAnnotationView!.leftCalloutAccessoryView = leftIconView
+        leftIconView.image                                  =   avatar
+        pinAnnotationView!.leftCalloutAccessoryView         =   leftIconView
         
         return pinAnnotationView
     }

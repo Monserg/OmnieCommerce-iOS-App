@@ -280,6 +280,7 @@
 		B1CF54EC1DDB57C300E98049 /* OmnieCardsShow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1CF54EB1DDB57C300E98049 /* OmnieCardsShow.storyboard */; };
 		B1CF54EE1DDB588600E98049 /* DiscountCardsShow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1CF54ED1DDB588600E98049 /* DiscountCardsShow.storyboard */; };
 		B1CF54F01DDB5F1A00E98049 /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CF54EF1DDB5F1A00E98049 /* CustomLabel.swift */; };
+		B1D56BE71E6167AE008BCE54 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D56BE61E6167AE008BCE54 /* MapView.swift */; };
 		B1DA01B11DF1CB2F00E6DD46 /* UIFont+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DA01B01DF1CB2F00E6DD46 /* UIFont+Ext.swift */; };
 		B1E52AB11DDDD0EA00C3B24D /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E52AB01DDDD0EA00C3B24D /* LaunchScreenViewController.swift */; };
 		B1E52AD31DDDDEC600C3B24D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1E52AD21DDDDEC600C3B24D /* Main.storyboard */; };
@@ -591,6 +592,7 @@
 		B1CF54EB1DDB57C300E98049 /* OmnieCardsShow.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = OmnieCardsShow.storyboard; sourceTree = "<group>"; };
 		B1CF54ED1DDB588600E98049 /* DiscountCardsShow.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DiscountCardsShow.storyboard; sourceTree = "<group>"; };
 		B1CF54EF1DDB5F1A00E98049 /* CustomLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
+		B1D56BE61E6167AE008BCE54 /* MapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		B1DA01B01DF1CB2F00E6DD46 /* UIFont+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+Ext.swift"; sourceTree = "<group>"; };
 		B1E52AB01DDDD0EA00C3B24D /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewController.swift; sourceTree = "<group>"; };
 		B1E52AD21DDDDEC600C3B24D /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -1367,6 +1369,14 @@
 			path = DiscountCardsShow;
 			sourceTree = "<group>";
 		};
+		B1D56BE51E616773008BCE54 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B1D56BE61E6167AE008BCE54 /* MapView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		B1FFF6F81E5ECDCF00A075D8 /* OrganizationsShow */ = {
 			isa = PBXGroup;
 			children = (
@@ -1386,6 +1396,7 @@
 			isa = PBXGroup;
 			children = (
 				B1FFF7321E5F0F8B00A075D8 /* Models */,
+				B1D56BE51E616773008BCE54 /* Views */,
 				B1FFF70A1E5F017A00A075D8 /* OrganizationsMapShowConfigurator.swift */,
 				B1FFF70B1E5F017A00A075D8 /* OrganizationsMapShowInteractor.swift */,
 				B1FFF70C1E5F017A00A075D8 /* OrganizationsMapShowModels.swift */,
@@ -1679,6 +1690,7 @@
 				B122F1DF1DD35B760018A701 /* OrdersShowRouter.swift in Sources */,
 				B1CF54CA1DDB51A500E98049 /* PersonalPageShowConfigurator.swift in Sources */,
 				B152915F1DDEB8B500BBA1E0 /* CustomTableView.swift in Sources */,
+				B1D56BE71E6167AE008BCE54 /* MapView.swift in Sources */,
 				B1CF548A1DDB50F100E98049 /* BusinessCardsShowWorker.swift in Sources */,
 				B122F1E11DD35B760018A701 /* OrdersShowWorker.swift in Sources */,
 				B1FFF7061E5ECDF900A075D8 /* OrganizationsShowWorker.swift in Sources */,
