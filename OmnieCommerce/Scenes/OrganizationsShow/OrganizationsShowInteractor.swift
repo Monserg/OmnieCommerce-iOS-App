@@ -18,7 +18,7 @@ protocol OrganizationsShowInteractorInput {
 
 // MARK: - Output protocols for Presenter component VIP-cicle
 protocol OrganizationsShowInteractorOutput {
-    func organizationsDidPrepareShow(fromResponseModel responseModel: OrganizationsShowModels.Organizations.ResponseModel)
+    func organizationsDidPrepareToShow(fromResponseModel responseModel: OrganizationsShowModels.Organizations.ResponseModel)
 }
 
 class OrganizationsShowInteractor: OrganizationsShowInteractorInput {
@@ -38,7 +38,7 @@ class OrganizationsShowInteractor: OrganizationsShowInteractorInput {
         worker.handlerLocationCompletion = { organizations in
             // NOTE: Pass the result to the Presenter
             let responseModel = OrganizationsShowModels.Organizations.ResponseModel(result: organizations)
-            self.presenter.organizationsDidPrepareShow(fromResponseModel: responseModel)
+            self.presenter.organizationsDidPrepareToShow(fromResponseModel: responseModel)
         }
     }
 }

@@ -147,6 +147,7 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="categoriesFilterButton" destination="b7l-X1-Tog" id="1F3-yL-dYY"/>
+                        <outlet property="mapButton" destination="DUL-OJ-fqc" id="MQV-5o-6tm"/>
                         <outlet property="organizationsFilterButton" destination="OVx-4o-DGA" id="mGJ-fc-E5R"/>
                         <outlet property="smallTopBarView" destination="Fg2-g7-Pmf" id="62H-Fl-ZBP"/>
                     </connections>

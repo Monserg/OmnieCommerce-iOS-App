@@ -10,10 +10,24 @@
 //
 
 import UIKit
+import MapKit
 
 class OrganizationsMapShowWorker {
+    // MARK: - Properties
+    var regionRect  =   MKMapRectNull //MKMapRect.init(origin: MKMapPoint.init(x: 0, y: 0), size: MKMapSize.init(width: 0, height: 0))
+    var points      =   [PointAnnotation]()
+    let delta       =   1.0
+
+    
     // MARK: - Custom Functions. Business Logic
-    func doSomeWork() {
-        // NOTE: Do the work
+    func pointAnnotationsDidLoad(fromOrganizations organizations: [Organization]) {
+        for organization in organizations {
+            let point           =   PointAnnotation.init(fromOrganization: organization)
+            let pointCenter     =   MKMapPointForCoordinate(point.coordinate)
+            let pointRect       =   MKMapRectMake(pointCenter.x - delta, pointCenter.y - delta, delta * 2, delta * 2)
+            
+            regionRect          =   MKMapRectUnion(regionRect, pointRect)
+            points.append(point)
+        }
     }
 }

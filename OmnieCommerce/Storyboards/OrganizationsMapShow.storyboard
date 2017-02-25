@@ -44,7 +44,7 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="labelStyle" value="Copyright"/>
                                 </userDefinedRuntimeAttributes>
                             </label>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="0ff-i1-cWe">
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="0ff-i1-cWe">
                                 <rect key="frame" x="169" y="315" width="37" height="37"/>
                                 <color key="color" red="0.0" green="0.57647058823529407" blue="0.58431372549019611" alpha="1" colorSpace="calibratedRGB"/>
                             </activityIndicatorView>
@@ -88,7 +88,7 @@
                     <connections>
                         <outlet property="mapView" destination="MdL-Lr-kmn" id="GOA-3v-hb6"/>
                         <outlet property="smallTopBarView" destination="Fg2-g7-Pmf" id="Ydp-aQ-WF5"/>
-                        <outlet property="spinner" destination="0ff-i1-cWe" id="EfL-Nb-Qh1"/>
+                        <outlet property="spinner" destination="0ff-i1-cWe" id="2WT-Yh-UXF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Otj-fC-KTJ" userLabel="First Responder" sceneMemberID="firstResponder"/>

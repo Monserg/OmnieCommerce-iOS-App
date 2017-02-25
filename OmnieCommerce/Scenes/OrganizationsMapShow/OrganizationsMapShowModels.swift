@@ -14,18 +14,19 @@ import MapKit
 
 // MARK: - Data models
 struct OrganizationsMapShowModels {
-    struct Locations {
+    struct PointAnnotations {
         struct RequestModel {
-            let locationManager: LocationManager
             let organizations: [Organization]
         }
         
         struct ResponseModel {
-            let placemarks: [CLPlacemark]?
+            let result: [PointAnnotation]
+            let regionRect: MKMapRect
         }
         
         struct ViewModel {
-            let locations: [LocationData]?
+            let pointAnnotations: [PointAnnotation]
+            let regionRect: MKMapRect
         }
     }
 }

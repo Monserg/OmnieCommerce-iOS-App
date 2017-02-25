@@ -32,6 +32,7 @@ class OrganizationsShowViewController: BaseViewController {
     @IBOutlet weak var smallTopBarView: SmallTopBarView!
     @IBOutlet weak var categoriesFilterButton: DropDownButton!
     @IBOutlet weak var organizationsFilterButton: DropDownButton!
+    @IBOutlet weak var mapButton: CustomButton!
 
     
     // MARK: - Class initialization
@@ -58,6 +59,8 @@ class OrganizationsShowViewController: BaseViewController {
     func viewSettingsDidLoad() {
         // Set scene title
         smallTopBarView.titleLabel.text = category.title
+        
+        mapButton.isUserInteractionEnabled  =   false
         
         // Handler Back button tap
         smallTopBarView.handlerSendButtonCompletion = { _ in
@@ -88,7 +91,7 @@ class OrganizationsShowViewController: BaseViewController {
 // MARK: - OrganizationsShowViewControllerInput
 extension OrganizationsShowViewController: OrganizationsShowViewControllerInput {
     func organizationsDidShow(fromViewModel viewModel: OrganizationsShowModels.Organizations.ViewModel) {
-        print(object: viewModel.organizations.description)
-        
+        self.organizations                          =   viewModel.organizations
+        self.mapButton.isUserInteractionEnabled     =   true
     }
 }

@@ -14,13 +14,12 @@ import MapKit
 
 // MARK: - Input protocols for current ViewController component VIP-cicle
 protocol OrganizationsMapShowViewControllerInput {
-    func didShowLocations(fromViewModel viewModel: OrganizationsMapShowModels.Locations.ViewModel)
+    func pointAnnotationsDidShow(fromViewModel viewModel: OrganizationsMapShowModels.PointAnnotations.ViewModel)
 }
 
 // MARK: - Output protocols for Interactor component VIP-cicle
 protocol OrganizationsMapShowViewControllerOutput {
-    func didLoadLocations(withRequestModel requestModel: OrganizationsMapShowModels.Locations.RequestModel)
-    func didStopUpdateLocations(withRequestModel requestModel: OrganizationsMapShowModels.Locations.RequestModel)
+    func pointAnnotationsDidLoad(withRequestModel requestModel: OrganizationsMapShowModels.PointAnnotations.RequestModel)
 }
 
 class OrganizationsMapShowViewController: BaseViewController {
@@ -28,10 +27,9 @@ class OrganizationsMapShowViewController: BaseViewController {
     var interactor: OrganizationsMapShowViewControllerOutput!
     var router: OrganizationsMapShowRouter!
     
-    var organizations = Array<Organization>()
-
-    private let locationManager = LocationManager()
-    var pinAnnotationView: MKPinAnnotationView!
+    var organizations               =   [Organization]()
+    var pointAnnotations            =   [PointAnnotation]()
+    var regionRect                  =   MKMapRect()
 
     @IBOutlet weak var smallTopBarView: SmallTopBarView!
     @IBOutlet weak var spinner: UIActivityIndicatorView!
@@ -56,6 +54,8 @@ class OrganizationsMapShowViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        spinner.startAnimating()
+        
         smallTopBarView.type    =   "ChildSearch"
         topBarViewStyle         =   .Small
         setup(topBarView: smallTopBarView)
@@ -64,10 +64,6 @@ class OrganizationsMapShowViewController: BaseViewController {
     }
     
     override func viewDidDisappear(_ animated: Bool) {
-        // Stop GeoLocation manager
-        let locationsRequestModel = OrganizationsMapShowModels.Locations.RequestModel(locationManager: locationManager, organizations: organizations)
-        interactor.didStopUpdateLocations(withRequestModel: locationsRequestModel)
-        
         super.viewDidDisappear(true)
     }
 
@@ -83,56 +79,29 @@ class OrganizationsMapShowViewController: BaseViewController {
         mapView.showsScale      =   false
         mapView.showsCompass    =   true
         
-        // Start GeoLocation manager with current user position
-        didStartGeocoding()
+        // Load point annotations
+        let requestModel = OrganizationsMapShowModels.PointAnnotations.RequestModel(organizations: organizations)
+        interactor.pointAnnotationsDidLoad(withRequestModel: requestModel)
     }
     
-    // Geocoding
-    func didStartGeocoding() {
-        spinner.startAnimating()
-        
-        let requestModel = OrganizationsMapShowModels.Locations.RequestModel(locationManager: locationManager, organizations: organizations)
-        interactor.didLoadLocations(withRequestModel: requestModel)
-    }
-    
-    // Centering map
-    func didShowLocationOnMapViewCenter(coordinate: CLLocationCoordinate2D?) {
-        guard let regionCoordinate = coordinate else {
-            return
-        }
-        
-        mapView.setRegion(MKCoordinateRegionMake(regionCoordinate, MKCoordinateSpanMake(0.003, 0.003)), animated: true)
-    }
-    
-    func didAddAnnotation(placemark: CLPlacemark?) {
-        guard placemark != nil else {
-            return
-        }
-        
-        mapView.addAnnotations(mapView.selectedAnnotations)
-        
-//        mapView.showAnnotations([pointAnnotation], animated: true)
-//        mapView.selectAnnotation(pointAnnotation, animated: true)
-//        didShowLocationOnMapViewCenter(coordinate: placemark?.location?.coordinate)
-//        
-//        if (pointAnnotation.isRegionChange) {
-//            spinner.stopAnimating()
-//            pointAnnotation.isRegionChange = false
-//        }
-    }
+    func mapViewDidAddPointAnnotations() {
+        mapView.addAnnotations(pointAnnotations)
+        mapView.showAnnotations(pointAnnotations, animated: true)
 
+        regionRect              =   mapView.mapRectThatFits(regionRect, edgePadding: UIEdgeInsetsMake(50, 50, 50, 50))
+
+        mapView.setVisibleMapRect(regionRect, animated: true)
+    }
 }
 
 
 // MARK: - OrganizationsMapShowViewControllerInput
 extension OrganizationsMapShowViewController: OrganizationsMapShowViewControllerInput {
-    func didShowLocations(fromViewModel viewModel: OrganizationsMapShowModels.Locations.ViewModel) {
-//        self.pointAnnotation.didUpdate(fromViewModel: viewModel.locations!)
-//        didAddAnnotation(placemark: viewModel.locations?.placemark)
-    }
-    
-    func didDismissViewController(fromViewModel viewModel: OrganizationsMapShowModels.Locations.ViewModel) {
-        mapView.showsUserLocation = false
+    func pointAnnotationsDidShow(fromViewModel viewModel: OrganizationsMapShowModels.PointAnnotations.ViewModel) {
+        self.pointAnnotations   =   viewModel.pointAnnotations
+        self.regionRect         =   viewModel.regionRect
+        
+        self.mapViewDidAddPointAnnotations()
     }
 }
 
@@ -141,37 +110,38 @@ extension OrganizationsMapShowViewController: OrganizationsMapShowViewController
 extension OrganizationsMapShowViewController: MKMapViewDelegate {
     func mapViewDidFinishRenderingMap(_ mapView: MKMapView, fullyRendered: Bool) {
         if (fullyRendered) {
+            UIApplication.shared.isNetworkActivityIndicatorVisible = false
             spinner.stopAnimating()
         }
     }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        let identifier = "pin" //"CustomPin"
-        pinAnnotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) as? MKPinAnnotationView
+        let pinIdentifier                   =   "Pin"
+        var pinAnnotationView               =   mapView.dequeueReusableAnnotationView(withIdentifier: pinIdentifier) as? MKPinAnnotationView
         
         if (pinAnnotationView != nil) {
-            pinAnnotationView?.annotation   =   annotation
+            pinAnnotationView!.annotation   =   annotation
         } else {
-            pinAnnotationView               =   MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-            pinAnnotationView.pinTintColor  =   UIColor.init(hexString: "#009395", withAlpha: 1.0)
+            pinAnnotationView               =   MKPinAnnotationView(annotation: annotation, reuseIdentifier: pinIdentifier)
+            pinAnnotationView!.pinTintColor =   UIColor.init(hexString: "#009395", withAlpha: 1.0)
         }
         
-        pinAnnotationView?.canShowCallout   =   false
-        pinAnnotationView?.isDraggable      =   true
+        pinAnnotationView!.canShowCallout   =   false
+        pinAnnotationView!.isDraggable      =   true
         
         // Add organization image
         let leftIconView = UIImageView(frame: CGRect.init(x: 0, y: 0, width: 44, height: 33))
         
-//        guard let avatar = pointAnnotation.image else {
-//            leftIconView.image = UIImage(named: "icon-empty-organization-normal")
-//            leftIconView.backgroundColor = UIColor.veryLightGray
-//            pinAnnotationView?.leftCalloutAccessoryView = leftIconView
-//            
-//            return pinAnnotationView
-//        }
+        guard let avatar                                    =   (annotation as! PointAnnotation).image else {
+            leftIconView.image                              =   UIImage(named: "icon-empty-organization-normal")
+            leftIconView.backgroundColor                    =   UIColor.veryLightGray
+            pinAnnotationView?.leftCalloutAccessoryView     =   leftIconView
+            
+            return pinAnnotationView
+        }
         
-//        leftIconView.image = avatar
-        pinAnnotationView?.leftCalloutAccessoryView = leftIconView
+        leftIconView.image = avatar
+        pinAnnotationView!.leftCalloutAccessoryView = leftIconView
         
         return pinAnnotationView
     }

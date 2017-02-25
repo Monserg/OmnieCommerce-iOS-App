@@ -13,14 +13,12 @@ import UIKit
 
 // MARK: - Input protocols for current Interactor component VIP-cicle
 protocol OrganizationsMapShowInteractorInput {
-    func didLoadLocations(withRequestModel requestModel: OrganizationsMapShowModels.Locations.RequestModel)
-    func didStopUpdateLocations(withRequestModel requestModel: OrganizationsMapShowModels.Locations.RequestModel)
+    func pointAnnotationsDidLoad(withRequestModel requestModel: OrganizationsMapShowModels.PointAnnotations.RequestModel)
 }
 
 // MARK: - Output protocols for Presenter component VIP-cicle
 protocol OrganizationsMapShowInteractorOutput {
-    func didPrepareToShowLocations(fromResponseModel responseModel: OrganizationsMapShowModels.Locations.ResponseModel)
-    func didPrepareToDismissViewController(fromResponseModel responseModel: OrganizationsMapShowModels.Locations.ResponseModel)
+    func pointAnnotationsDidPrepareToShow(fromResponseModel responseModel: OrganizationsMapShowModels.PointAnnotations.ResponseModel)
 }
 
 class OrganizationsMapShowInteractor: OrganizationsMapShowInteractorInput {
@@ -30,21 +28,17 @@ class OrganizationsMapShowInteractor: OrganizationsMapShowInteractorInput {
     
     
     // MARK: - Custom Functions. Business logic
-    func didLoadLocations(withRequestModel requestModel: OrganizationsMapShowModels.Locations.RequestModel) {
-        requestModel.locationManager.startCoreLocation(withOrganizations: requestModel.organizations)
+    func pointAnnotationsDidLoad(withRequestModel requestModel: OrganizationsMapShowModels.PointAnnotations.RequestModel) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
 
-        requestModel.locationManager.handlerLocationCompletion = { placemarks in
-//            let responseModel = OrganizationsMapShowModels.Locations.ResponseModel(placemarks: placemarks)
-//
-//            self.presenter.didPrepareToShowLocations(fromResponseModel: responseModel)
-        }
-    }
-    
-    func didStopUpdateLocations(withRequestModel requestModel: OrganizationsMapShowModels.Locations.RequestModel) {
+        // NOTE: Create some Worker to do the work
         worker = OrganizationsMapShowWorker()
-        requestModel.locationManager.stopCoreLocation()
+        worker.pointAnnotationsDidLoad(fromOrganizations: requestModel.organizations)
+
+        let regionRect          =   worker.regionRect
+        let pointAnnotations    =   worker.points
         
-        let responseModel = OrganizationsMapShowModels.Locations.ResponseModel(placemarks: nil)
-        presenter.didPrepareToDismissViewController(fromResponseModel: responseModel)
+        let responseModel       =   OrganizationsMapShowModels.PointAnnotations.ResponseModel(result: pointAnnotations, regionRect: regionRect)
+        presenter.pointAnnotationsDidPrepareToShow(fromResponseModel: responseModel)
     }
 }

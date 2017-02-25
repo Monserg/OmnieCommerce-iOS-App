@@ -13,14 +13,12 @@ import UIKit
 
 // MARK: - Input protocols for current Presenter component VIP-cicle
 protocol OrganizationsMapShowPresenterInput {
-    func didPrepareToShowLocations(fromResponseModel responseModel: OrganizationsMapShowModels.Locations.ResponseModel)
-    func didPrepareToDismissViewController(fromResponseModel responseModel: OrganizationsMapShowModels.Locations.ResponseModel)
+    func pointAnnotationsDidPrepareToShow(fromResponseModel responseModel: OrganizationsMapShowModels.PointAnnotations.ResponseModel)
 }
 
 // MARK: - Output protocols for ViewController component VIP-cicle
 protocol OrganizationsMapShowPresenterOutput: class {
-    func didShowLocations(fromViewModel viewModel: OrganizationsMapShowModels.Locations.ViewModel)
-    func didDismissViewController(fromViewModel viewModel: OrganizationsMapShowModels.Locations.ViewModel)
+    func pointAnnotationsDidShow(fromViewModel viewModel: OrganizationsMapShowModels.PointAnnotations.ViewModel)
 }
 
 class OrganizationsMapShowPresenter: OrganizationsMapShowPresenterInput {
@@ -29,28 +27,9 @@ class OrganizationsMapShowPresenter: OrganizationsMapShowPresenterInput {
     
     
     // MARK: - Custom Functions. Presentation logic
-    func didPrepareToShowLocations(fromResponseModel responseModel: OrganizationsMapShowModels.Locations.ResponseModel) {
-        var locations = [LocationData]()
+    func pointAnnotationsDidPrepareToShow(fromResponseModel responseModel: OrganizationsMapShowModels.PointAnnotations.ResponseModel) {
+        let viewModel = OrganizationsMapShowModels.PointAnnotations.ViewModel(pointAnnotations: responseModel.result, regionRect: responseModel.regionRect)
         
-        for placemark in responseModel.placemarks! {
-            var placeString = String()
-            
-            if let lines: Array<String> = placemark.addressDictionary?["FormattedAddressLines"] as? Array<String> {
-                placeString = lines.joined(separator: ", ")
-            }
-            
-            let locationData = LocationData(placemark, placemark.location?.coordinate, placeString)
-            
-            locations.append(locationData)
-        }
-        
-
-        let viewModel = OrganizationsMapShowModels.Locations.ViewModel(locations: locations)
-        viewController.didShowLocations(fromViewModel: viewModel)
-    }
-    
-    func didPrepareToDismissViewController(fromResponseModel responseModel: OrganizationsMapShowModels.Locations.ResponseModel) {
-        let viewModel = OrganizationsMapShowModels.Locations.ViewModel(locations: nil)
-        viewController.didDismissViewController(fromViewModel: viewModel)
+        viewController.pointAnnotationsDidShow(fromViewModel: viewModel)
     }
 }
