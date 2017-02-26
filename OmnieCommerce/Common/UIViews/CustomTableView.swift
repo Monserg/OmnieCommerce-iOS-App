@@ -25,13 +25,13 @@ enum TableCellStyle: String {
         didSet {
             switch TableCellStyle.init(rawValue: tableCellStyle!)! {
             case .Menu:
-                self.backgroundColor = UIColor.veryDarkDesaturatedBlue25Alpha1
+                self.backgroundColor    =   UIColor.veryDarkDesaturatedBlue25Alpha1
                 
             case .DropDown:
-                self.backgroundColor = UIColor.veryDarkDesaturatedBlue24
+                self.backgroundColor    =   UIColor.veryDarkDesaturatedBlue24
 
             default:
-                self.backgroundColor = UIColor.veryDarkDesaturatedBlue24
+                self.backgroundColor    =   UIColor.veryDarkDesaturatedBlue24
             }
         }
     }

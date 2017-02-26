@@ -38,7 +38,14 @@ class OrganizationsShowWorker {
         organizations = [Organization]()
 
         for (index, location) in coordinates.enumerated() {
-            let organization = Organization(codeID: index, name: "Organization \(index)", location: location, addressCity: nil, addressStreet: nil, logoURL: "http://vignette2.wikia.nocookie.net/logopedia/images/2/25/BMW_logo.png/revision/latest?cb=20150410110027", rating: Int(arc4random_uniform(6)), isFavorite: (Int(arc4random_uniform(2)) == 1) ? true : false)
+            let organization = Organization(codeID: index,
+                                            name: "Organization \(index)",
+                                            location: location,
+                                            addressCity: nil,
+                                            addressStreet: nil,
+                                            logoURL: (Int(arc4random_uniform(2)) == 1) ? "http://vignette2.wikia.nocookie.net/logopedia/images/2/25/BMW_logo.png/revision/latest?cb=20150410110027" : nil,
+                                            rating: Double(arc4random_uniform(6)),
+                                            isFavorite: (Int(arc4random_uniform(2)) == 1) ? true : false)
             
             organizations.append(organization)
         }

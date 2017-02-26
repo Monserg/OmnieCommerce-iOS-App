@@ -125,7 +125,7 @@ extension MessagesShowViewController: UITableViewDataSource {
         let message = dataSource[indexPath.row]
         
         // Config cell
-        cell.setup(withItem: message)
+        cell.setup(withItem: message, andIndexPath: indexPath)
         
         return cell
     }

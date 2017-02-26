@@ -23,9 +23,8 @@ enum CellStyle: String {
 
 @IBDesignable class BaseTableViewCell: UITableViewCell {
     // MARK: - Properties
-    var isCellFavorite  =   false
+    var isFavorite      =   false
     var handlerFavoriteButtonCompletion: HandlerSendButtonCompletion?
-    var item: Any!
     
     @IBOutlet weak var borderDottedView: DottedBorderView!
     
@@ -40,6 +39,7 @@ enum CellStyle: String {
     @IBOutlet weak var userAvatarImageView: CustomImageView!
 
     @IBOutlet weak var ratingView: CosmosView!
+    @IBOutlet weak var dottedBorderView: DottedBorderView!
    
     @IBOutlet weak var favoriteButton: UIButton!
     
@@ -60,9 +60,7 @@ enum CellStyle: String {
     
     
     // MARK: - Custom Functions
-    func setup(withItem item: Any) {
-        self.item                               =   item
-
+    func setup(withItem item: Any, andIndexPath indexPath: IndexPath) {
         switch item {
         case is News:
             let news                            =   item as! News
@@ -75,6 +73,8 @@ enum CellStyle: String {
             logoImageView.af_setImage(withURL: URL(string: news.logoStringURL ?? "https://omniesoft.ua/")!,
                                       placeholderImage: UIImage.init(named: "image-no-photo"),
                                       filter: AspectScaledToFillSizeWithRoundedCornersFilter(size: logoImageView.frame.size, radius: logoImageView.frame.size.width / 2))
+            
+            dottedBorderView.style              =   .AroundDottedRectangle
 
         case is Message:
             let message                         =   item as! Message
@@ -86,6 +86,8 @@ enum CellStyle: String {
                                       placeholderImage: UIImage.init(named: "image-no-photo"),
                                       filter: AspectScaledToFillSizeWithRoundedCornersFilter(size: logoImageView.frame.size, radius: logoImageView.frame.size.width / 2))
 
+            dottedBorderView.style              =   (indexPath.row <= 1) ? .AroundDottedRectangleColor : .AroundDottedRectangle
+
             if (message.isOwn) {
                 userAvatarImageView.isHidden    =  false
                 
@@ -96,6 +98,22 @@ enum CellStyle: String {
                 userAvatarImageView.isHidden    =  true
             }
             
+        case is Organization:
+            let organization                    =   item as! Organization
+            nameLabel.text                      =   organization.name
+            cityLabel.text                      =   organization.addressCity
+            streetLabel.text                    =   organization.addressStreet
+            ratingView.rating                   =   organization.rating
+            isFavorite                          =   organization.isFavorite
+            
+            favoriteButton.setImage((isFavorite) ? UIImage(named: "image-favorite-star-selected") : UIImage(named: "image-favorite-star-normal"), for: .normal)
+
+            logoImageView.af_setImage(withURL: URL(string: organization.logoURL ?? "https://omniesoft.ua/")!,
+                                      placeholderImage: UIImage.init(named: "image-no-organization"),
+                                      filter: AspectScaledToFillSizeWithRoundedCornersFilter(size: logoImageView.frame.size, radius: logoImageView.frame.size.width / 2))
+            
+            dottedBorderView.style              =   .AroundDottedRectangle
+            
         default:
             break
         }
@@ -104,9 +122,9 @@ enum CellStyle: String {
     
     // MARK: - Actions
     @IBAction func handlerFavoriteButtonTap(_ sender: UIButton) {
-        isCellFavorite  =   !isCellFavorite
+        isFavorite = !isFavorite
         
-        favoriteButton.setImage((isCellFavorite) ? UIImage(named: "image-favorite-star-selected") : UIImage(named: "image-favorite-star-normal"), for: .normal)
+        favoriteButton.setImage((isFavorite) ? UIImage(named: "image-favorite-star-selected") : UIImage(named: "image-favorite-star-normal"), for: .normal)
         
         handlerFavoriteButtonCompletion!()
     }

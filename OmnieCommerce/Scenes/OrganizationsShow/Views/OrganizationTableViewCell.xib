@@ -57,7 +57,7 @@
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="rating">
-                                                        <real key="value" value="4"/>
+                                                        <real key="value" value="2"/>
                                                     </userDefinedRuntimeAttribute>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="totalStars">
                                                         <integer key="value" value="5"/>
@@ -92,7 +92,7 @@
                                                         <real key="value" value="1"/>
                                                     </userDefinedRuntimeAttribute>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="fillMode">
-                                                        <integer key="value" value="0"/>
+                                                        <integer key="value" value="2"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
@@ -206,6 +206,7 @@
             <connections>
                 <outlet property="borderDottedView" destination="XLs-NS-f4d" id="Ahj-Hp-XjR"/>
                 <outlet property="cityLabel" destination="hKe-9x-Ysk" id="WrW-fx-cX3"/>
+                <outlet property="dottedBorderView" destination="13g-08-x1W" id="RHC-9w-2UJ"/>
                 <outlet property="favoriteButton" destination="JBf-39-eQd" id="RNm-6h-7mh"/>
                 <outlet property="logoImageView" destination="Ryx-ei-hEh" id="YQk-mH-tbN"/>
                 <outlet property="nameLabel" destination="hod-EF-PIW" id="E7f-Tn-uUF"/>

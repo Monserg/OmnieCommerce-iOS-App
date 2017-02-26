@@ -150,6 +150,7 @@
                 <outlet property="borderDottedView" destination="XLs-NS-f4d" id="Ahj-Hp-XjR"/>
                 <outlet property="dateLabel" destination="hKe-9x-Ysk" id="A60-fd-hej"/>
                 <outlet property="describeLabel" destination="JFd-zO-ezc" id="jRP-eQ-Xvo"/>
+                <outlet property="dottedBorderView" destination="13g-08-x1W" id="edk-70-ej3"/>
                 <outlet property="logoImageView" destination="Ryx-ei-hEh" id="YQk-mH-tbN"/>
                 <outlet property="nameLabel" destination="hod-EF-PIW" id="E7f-Tn-uUF"/>
             </connections>

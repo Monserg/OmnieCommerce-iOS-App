@@ -178,6 +178,7 @@
             <connections>
                 <outlet property="borderDottedView" destination="XLs-NS-f4d" id="Ahj-Hp-XjR"/>
                 <outlet property="dateLabel" destination="7ki-do-DQa" id="oIo-Au-Yc3"/>
+                <outlet property="dottedBorderView" destination="13g-08-x1W" id="nsF-qq-gdL"/>
                 <outlet property="logoImageView" destination="Ryx-ei-hEh" id="YQk-mH-tbN"/>
                 <outlet property="messageLabel" destination="Y87-Ea-daM" id="CLV-1f-OvU"/>
                 <outlet property="nameLabel" destination="O6m-H5-UcB" id="U8N-py-CQa"/>

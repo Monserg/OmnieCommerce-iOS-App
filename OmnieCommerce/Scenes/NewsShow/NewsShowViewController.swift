@@ -25,7 +25,7 @@ class NewsShowViewController: BaseViewController, NewsShowViewControllerInput {
     var output: NewsShowViewControllerOutput!
     var router: NewsShowRouter!
     
-    var dataSource = Array<News>()
+    var dataSource = [News]()
     
     @IBOutlet weak var smallTopBarView: SmallTopBarView!
     @IBOutlet weak var copyrightLabel: CustomLabel!
@@ -133,7 +133,7 @@ extension NewsShowViewController: UITableViewDataSource {
         let news = dataSource[indexPath.row] 
         
         // Config cell
-        cell.setup(withItem: news)
+        cell.setup(withItem: news, andIndexPath: indexPath)
         
         return cell
     }

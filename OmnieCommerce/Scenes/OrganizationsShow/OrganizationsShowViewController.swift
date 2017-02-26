@@ -33,10 +33,22 @@ class OrganizationsShowViewController: BaseViewController {
     var category: Category!
     var organizations = [Organization]()
 
+    
     @IBOutlet weak var smallTopBarView: SmallTopBarView!
     @IBOutlet weak var categoriesButton: DropDownButton!
     @IBOutlet weak var servicesButton: DropDownButton!
     @IBOutlet weak var mapButton: CustomButton!
+
+    @IBOutlet weak var tableView: CustomTableView! {
+        didSet {
+            // Register the Nib header/footer section views
+            tableView.register(UINib(nibName: "OrganizationTableViewCell", bundle: nil), forCellReuseIdentifier: "OrganizationCell")
+            
+            // Delegates
+            tableView.dataSource    =   self
+            tableView.delegate      =   self
+        }
+    }
 
     
     // MARK: - Class initialization
@@ -125,5 +137,43 @@ extension OrganizationsShowViewController: OrganizationsShowViewControllerInput 
     func organizationsDidShow(fromViewModel viewModel: OrganizationsShowModels.Organizations.ViewModel) {
         self.organizations                          =   viewModel.organizations
         self.mapButton.isUserInteractionEnabled     =   true
+        
+        self.tableView.reloadData()
+    }
+}
+
+
+// MARK: - UITableViewDataSource
+extension OrganizationsShowViewController: UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        self.tableView.setScrollIndicatorColor(color: UIColor.veryLightOrange)
+        
+        return organizations.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell            =   tableView.dequeueReusableCell(withIdentifier: "OrganizationCell", for: indexPath) as! BaseTableViewCell
+        let organization    =   organizations[indexPath.row]
+        
+        // Config cell
+        cell.setup(withItem: organization, andIndexPath: indexPath)
+
+        return cell
+    }
+}
+
+
+// MARK: - UITableViewDelegate
+extension OrganizationsShowViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 96.0
     }
 }

@@ -18,6 +18,6 @@ struct Organization {
     var addressCity: String?
     var addressStreet: String?
     var logoURL: String?
-    var rating: Int         =   0
+    var rating              =   0.0
     var isFavorite: Bool    =   false
 }
