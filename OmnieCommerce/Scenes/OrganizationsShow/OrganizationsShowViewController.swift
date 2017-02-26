@@ -166,6 +166,12 @@ extension OrganizationsShowViewController: UITableViewDataSource {
         // Config cell
         cell.setup(withItem: organization, andIndexPath: indexPath)
 
+        // Handler Favorite button tap
+        cell.handlerFavoriteButtonCompletion        =   { _ in
+            // TODO: ADD API TO ADD/REMOVE ORGANIZATION TO/FROM FAVORITE LIST
+            self.print(object: "favorite button tapped")
+        }
+        
         return cell
     }
 }

@@ -52,7 +52,7 @@
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="alX-gG-16F" userLabel="Rating View">
                                         <rect key="frame" x="0.0" y="28" width="374" height="12"/>
                                         <subviews>
-                                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EDk-B3-zhQ" userLabel="Cosmoc View" customClass="CosmosView" customModule="Cosmos">
+                                            <view clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EDk-B3-zhQ" userLabel="Cosmoc View" customClass="CosmosView" customModule="Cosmos">
                                                 <rect key="frame" x="0.0" y="1" width="54" height="10"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <userDefinedRuntimeAttributes>
