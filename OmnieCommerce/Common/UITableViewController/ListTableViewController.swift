@@ -83,4 +83,14 @@ extension ListTableViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 96.0
     }
+    
+    func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
+        let cell                                        =   tableView.cellForRow(at: indexPath)!
+        cell.contentView.backgroundColor                =   .veryDarkGrayishBlue38
+    }
+    
+    func tableView(_ tableView: UITableView, didUnhighlightRowAt indexPath: IndexPath) {
+        let cell                                        =   tableView.cellForRow(at: indexPath)!
+        cell.contentView.backgroundColor                =   .clear
+    }
 }

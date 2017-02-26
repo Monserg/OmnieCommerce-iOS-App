@@ -118,11 +118,7 @@ enum CellStyle: String {
             break
         }
         
-        // Set selected color for Slide menu
-        let selectedView                        =   UIView.init(frame: self.frame)
-        selectedView.backgroundColor            =   UIColor.veryDarkGrayishBlue38
-        
-        self.selectedBackgroundView             =   selectedView
+        selectionStyle                          =   .none
     }
     
     
