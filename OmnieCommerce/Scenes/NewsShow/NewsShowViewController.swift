@@ -42,6 +42,12 @@ class NewsShowViewController: BaseViewController {
             tableView.delegate              =   tableViewManager
             tableViewManager.tableView      =   tableView
             tableViewManager.sourceType     =   .News
+            
+            // Handler select cell
+            tableViewManager.completionHandler = { organization in
+                // TODO: ADD TRANSITION TO NEWS PROFILE
+                self.print(object: "transition to News profile scene")
+            }
         }
     }
 

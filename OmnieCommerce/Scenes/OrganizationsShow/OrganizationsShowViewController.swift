@@ -49,6 +49,12 @@ class OrganizationsShowViewController: BaseViewController {
             tableView.delegate              =   tableViewManager
             tableViewManager.tableView      =   tableView
             tableViewManager.sourceType     =   .Organization
+            
+            // Handler select cell
+            tableViewManager.completionHandler = { organization in
+                // TODO: ADD TRANSITION TO ORGANIZATION PROFILE
+                self.print(object: "transition to Organization profile scene")
+            }
         }
     }
 

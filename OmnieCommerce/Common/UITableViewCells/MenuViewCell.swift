@@ -40,41 +40,41 @@ class MenuViewCell: UITableViewCell {
     
     // MARK: - Custom Functions
     func setup(menuItem: NSDictionary) {
-        self.backgroundColor = UIColor.veryDarkDesaturatedBlue25Alpha1
-        titleLabel.text = (menuItem.object(forKey: "name") as! String).localized()
-        segueName = (menuItem.object(forKey: "segue") as! String)
-        iconImageView.image = UIImage(named: menuItem.object(forKey: "icon") as! String)
+        self.backgroundColor            =   UIColor.veryDarkDesaturatedBlue25Alpha1
+        titleLabel.text                 =   (menuItem.object(forKey: "name") as! String).localized()
+        segueName                       =   (menuItem.object(forKey: "segue") as! String)
+        iconImageView.image             =   UIImage(named: menuItem.object(forKey: "icon") as! String)
         
-        titleLabel.textColor = (menuItem.object(forKey: "isColor") as! Bool) ? UIColor.veryLightOrange : UIColor.veryLightGray
+        titleLabel.textColor            =   (menuItem.object(forKey: "isColor") as! Bool) ? UIColor.veryLightOrange : UIColor.veryLightGray
         
         if ((menuItem.object(forKey: "name") as! String).hasPrefix("OmnieCards")) {
-            titleLabel.textColor = UIColor.lightGrayishCyan
+            titleLabel.textColor        =   UIColor.lightGrayishCyan
         }
         
         if (menuItem.object(forKey: "hasNewEvent") as! Bool) {
-            newEventButton.isHidden = false
+            newEventButton.isHidden     =   false
             
             setupEvent(forMenuItem: menuItem)
         } else {
-            newEventButton.isHidden = true
+            newEventButton.isHidden     =   true
         }
         
         // Set selected color for Slide menu
-        let selectedView = UIView.init(frame: self.frame)
-        selectedView.backgroundColor = UIColor.veryDarkGrayishBlue38
+        let selectedView                =   UIView.init(frame: self.frame)
+        selectedView.backgroundColor    =   UIColor.veryDarkGrayishBlue38
         
-        self.selectedBackgroundView = selectedView
+        self.selectedBackgroundView     =   selectedView
     }
     
     func setupEvent(forMenuItem: NSDictionary) {
         if (forMenuItem.object(forKey: "segue") as! String).contains("News") {
             // API Get News
             newEventButton.setAttributedTitle(NSAttributedString(string: "23", attributes: UIFont.ubuntuLightVeryDarkGray12), for: .normal)
-            self.tag = 4
+            self.tag                    =   4
         } else {
             // API Get Orders
             newEventButton.setAttributedTitle(NSAttributedString(string: "!", attributes: UIFont.ubuntuLightVeryDarkGray12), for: .normal)
-            self.tag = 0
+            self.tag                    =   0
         }
     }
     

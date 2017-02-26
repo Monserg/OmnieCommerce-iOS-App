@@ -42,6 +42,11 @@ class MessagesShowViewController: BaseViewController {
             tableViewManager.tableView      =   tableView
             tableViewManager.sourceType     =   .Message
 
+            // Handler select cell
+            tableViewManager.completionHandler = { organization in
+                // TODO: ADD TRANSITION TO CHAT
+                self.print(object: "transition to Chat scene")
+            }
         }
     }
 

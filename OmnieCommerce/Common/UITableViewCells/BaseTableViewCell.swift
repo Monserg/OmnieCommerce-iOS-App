@@ -117,6 +117,12 @@ enum CellStyle: String {
         default:
             break
         }
+        
+        // Set selected color for Slide menu
+        let selectedView                        =   UIView.init(frame: self.dottedBorderView.frame)
+        selectedView.backgroundColor            =   UIColor.veryDarkGrayishBlue38
+        
+        self.selectedBackgroundView             =   selectedView
     }
     
     
