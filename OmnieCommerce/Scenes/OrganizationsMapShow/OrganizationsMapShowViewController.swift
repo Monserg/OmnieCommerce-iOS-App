@@ -37,7 +37,11 @@ class OrganizationsMapShowViewController: BaseViewController {
     @IBOutlet weak var mapView: MapView! {
         didSet {
             // Delegates
-            mapView.delegate = self
+            mapView.delegate        =   self
+            
+            // Customize map view
+            mapView.showsScale      =   true
+            mapView.showsCompass    =   true
         }
     }
     
@@ -56,8 +60,8 @@ class OrganizationsMapShowViewController: BaseViewController {
         
         spinner.startAnimating()
         
-        smallTopBarView.type    =   "ChildSearch"
-        topBarViewStyle         =   .Small
+        smallTopBarView.type        =   "ChildSearch"
+        topBarViewStyle             =   .Small
         setup(topBarView: smallTopBarView)
 
         viewSettingsDidLoad()
@@ -74,10 +78,6 @@ class OrganizationsMapShowViewController: BaseViewController {
         smallTopBarView.handlerSendButtonCompletion = { _ in
             _ = self.navigationController?.popViewController(animated: true)
         }
-
-        // Customize map view
-        mapView.showsScale      =   true
-        mapView.showsCompass    =   true
         
         // Load point annotations
         let requestModel = OrganizationsMapShowModels.PointAnnotations.RequestModel(organizations: organizations)
@@ -92,6 +92,7 @@ class OrganizationsMapShowViewController: BaseViewController {
 
         mapView.setVisibleMapRect(regionRect, animated: true)
     }
+    
     
     // MARK: - Transition
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -134,13 +135,17 @@ extension OrganizationsMapShowViewController: MKMapViewDelegate {
         pinAnnotationView!.canShowCallout   =   false
         pinAnnotationView!.isDraggable      =   true
         
+        // Add button
+        let detailButton                                    =   UIButton(type: .detailDisclosure)
+        pinAnnotationView!.rightCalloutAccessoryView        =   detailButton
+        
         // Add organization image
         let leftIconView = UIImageView(frame: CGRect.init(x: 0, y: 0, width: 44, height: 33))
         
         guard let avatar                                    =   (annotation as! PointAnnotation).image else {
             leftIconView.image                              =   UIImage(named: "image-no-organization")
             leftIconView.backgroundColor                    =   UIColor.veryLightGray
-            pinAnnotationView?.leftCalloutAccessoryView     =   leftIconView
+            pinAnnotationView!.leftCalloutAccessoryView     =   leftIconView
             
             return pinAnnotationView
         }
@@ -153,6 +158,17 @@ extension OrganizationsMapShowViewController: MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         view.canShowCallout = true
+    }
+    
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        // Hide the callout view.
+        mapView.deselectAnnotation(view.annotation, animated: true)
+       
+        let annotation                                      =   view.annotation as! PointAnnotation
+        let index                                           =   pointAnnotations.index(of: annotation)!
+        let organization                                    =   organizations[index]
+        
+        router.navigateToOrganizationShowScene(withOrganization: organization)
     }
 }
 

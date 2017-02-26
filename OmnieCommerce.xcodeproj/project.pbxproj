@@ -184,6 +184,14 @@
 		B1B761C31E629C120067339F /* DropDownItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B761C21E629C120067339F /* DropDownItem.swift */; };
 		B1B761CA1E62D0030067339F /* OrganizationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1B761C91E62D0030067339F /* OrganizationTableViewCell.xib */; };
 		B1BEEDE61E63402000F1DE8A /* ListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1BEEDE51E63402000F1DE8A /* ListTableViewController.swift */; };
+		B1BEEDEF1E63687500F1DE8A /* OrganizationShowConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1BEEDE81E63687500F1DE8A /* OrganizationShowConfigurator.swift */; };
+		B1BEEDF01E63687500F1DE8A /* OrganizationShowInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1BEEDE91E63687500F1DE8A /* OrganizationShowInteractor.swift */; };
+		B1BEEDF11E63687500F1DE8A /* OrganizationShowModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1BEEDEA1E63687500F1DE8A /* OrganizationShowModels.swift */; };
+		B1BEEDF21E63687500F1DE8A /* OrganizationShowPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1BEEDEB1E63687500F1DE8A /* OrganizationShowPresenter.swift */; };
+		B1BEEDF31E63687500F1DE8A /* OrganizationShowRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1BEEDEC1E63687500F1DE8A /* OrganizationShowRouter.swift */; };
+		B1BEEDF41E63687500F1DE8A /* OrganizationShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1BEEDED1E63687500F1DE8A /* OrganizationShowViewController.swift */; };
+		B1BEEDF51E63687500F1DE8A /* OrganizationShowWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1BEEDEE1E63687500F1DE8A /* OrganizationShowWorker.swift */; };
+		B1BEEDF71E6368F000F1DE8A /* OrganizationShow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1BEEDF61E6368F000F1DE8A /* OrganizationShow.storyboard */; };
 		B1BF92441DD5FC8000BECBBB /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1BF92431DD5FC8000BECBBB /* Config.swift */; };
 		B1BF92681DD6516C00BECBBB /* helveticaneuecyr-black.otf in Resources */ = {isa = PBXBuildFile; fileRef = B1BF924F1DD650F400BECBBB /* helveticaneuecyr-black.otf */; };
 		B1BF92691DD6516C00BECBBB /* helveticaneuecyr-blackitalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = B1BF92501DD650F400BECBBB /* helveticaneuecyr-blackitalic.otf */; };
@@ -498,6 +506,14 @@
 		B1B761C21E629C120067339F /* DropDownItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DropDownItem.swift; sourceTree = "<group>"; };
 		B1B761C91E62D0030067339F /* OrganizationTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OrganizationTableViewCell.xib; sourceTree = "<group>"; };
 		B1BEEDE51E63402000F1DE8A /* ListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListTableViewController.swift; sourceTree = "<group>"; };
+		B1BEEDE81E63687500F1DE8A /* OrganizationShowConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrganizationShowConfigurator.swift; sourceTree = "<group>"; };
+		B1BEEDE91E63687500F1DE8A /* OrganizationShowInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrganizationShowInteractor.swift; sourceTree = "<group>"; };
+		B1BEEDEA1E63687500F1DE8A /* OrganizationShowModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrganizationShowModels.swift; sourceTree = "<group>"; };
+		B1BEEDEB1E63687500F1DE8A /* OrganizationShowPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrganizationShowPresenter.swift; sourceTree = "<group>"; };
+		B1BEEDEC1E63687500F1DE8A /* OrganizationShowRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrganizationShowRouter.swift; sourceTree = "<group>"; };
+		B1BEEDED1E63687500F1DE8A /* OrganizationShowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrganizationShowViewController.swift; sourceTree = "<group>"; };
+		B1BEEDEE1E63687500F1DE8A /* OrganizationShowWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrganizationShowWorker.swift; sourceTree = "<group>"; };
+		B1BEEDF61E6368F000F1DE8A /* OrganizationShow.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = OrganizationShow.storyboard; sourceTree = "<group>"; };
 		B1BF92431DD5FC8000BECBBB /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		B1BF924F1DD650F400BECBBB /* helveticaneuecyr-black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "helveticaneuecyr-black.otf"; sourceTree = "<group>"; };
 		B1BF92501DD650F400BECBBB /* helveticaneuecyr-blackitalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "helveticaneuecyr-blackitalic.otf"; sourceTree = "<group>"; };
@@ -817,6 +833,7 @@
 				B122F2311DD35EF10018A701 /* NewsShow.storyboard */,
 				B1CF54EB1DDB57C300E98049 /* OmnieCardsShow.storyboard */,
 				B122F2291DD35D6F0018A701 /* OrdersShow.storyboard */,
+				B1BEEDF61E6368F000F1DE8A /* OrganizationShow.storyboard */,
 				B1FFF7181E5F01A000A075D8 /* OrganizationsMapShow.storyboard */,
 				B1FFF7071E5ECE4800A075D8 /* OrganizationsShow.storyboard */,
 				B1CF54E51DDB552300E98049 /* PersonalPageShow.storyboard */,
@@ -844,6 +861,7 @@
 				B1CF546D1DDB508A00E98049 /* OmnieCardsShow */,
 				B1CF54671DDB501900E98049 /* OnmieSoftShow */,
 				B122F1D31DD35B3B0018A701 /* OrdersShow */,
+				B1BEEDE71E63684A00F1DE8A /* OrganizationShow */,
 				B1FFF7091E5F015D00A075D8 /* OrganizationsMapShow */,
 				B1FFF6F81E5ECDCF00A075D8 /* OrganizationsShow */,
 				B1CF546A1DDB505800E98049 /* PersonalPageShow */,
@@ -1208,6 +1226,20 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		B1BEEDE71E63684A00F1DE8A /* OrganizationShow */ = {
+			isa = PBXGroup;
+			children = (
+				B1BEEDE81E63687500F1DE8A /* OrganizationShowConfigurator.swift */,
+				B1BEEDE91E63687500F1DE8A /* OrganizationShowInteractor.swift */,
+				B1BEEDEA1E63687500F1DE8A /* OrganizationShowModels.swift */,
+				B1BEEDEB1E63687500F1DE8A /* OrganizationShowPresenter.swift */,
+				B1BEEDEC1E63687500F1DE8A /* OrganizationShowRouter.swift */,
+				B1BEEDED1E63687500F1DE8A /* OrganizationShowViewController.swift */,
+				B1BEEDEE1E63687500F1DE8A /* OrganizationShowWorker.swift */,
+			);
+			path = OrganizationShow;
+			sourceTree = "<group>";
+		};
 		B1BF924E1DD6508A00BECBBB /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -1553,6 +1585,7 @@
 				B1CF54E21DDB529300E98049 /* AboutShow.storyboard in Resources */,
 				B1BF927A1DD6516C00BECBBB /* UBUNTU-C.TTF in Resources */,
 				B1E52AD31DDDDEC600C3B24D /* Main.storyboard in Resources */,
+				B1BEEDF71E6368F000F1DE8A /* OrganizationShow.storyboard in Resources */,
 				B1BF927B1DD6516C00BECBBB /* UBUNTU-I.TTF in Resources */,
 				B1F7EDBA1DF54886003B36AD /* SegmentedControlView.xib in Resources */,
 				B1BF927C1DD6516C00BECBBB /* UBUNTU-L.TTF in Resources */,
@@ -1635,6 +1668,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B149A7C21E5E153B009BF8C7 /* Category.swift in Sources */,
+				B1BEEDF11E63687500F1DE8A /* OrganizationShowModels.swift in Sources */,
 				B16E966F1DE6C94000147CEF /* BigTopBarView.swift in Sources */,
 				B10874801E5B0DC9004A4FB6 /* AppSettings+CoreDataProperties.swift in Sources */,
 				B122F1F91DD35BC70018A701 /* FavoriteShowModels.swift in Sources */,
@@ -1660,6 +1694,7 @@
 				B1CF54971DDB512000E98049 /* DiscountCardsShowViewController.swift in Sources */,
 				B15291591DDE3FFA00BBA1E0 /* MenuSectionHeaderView.swift in Sources */,
 				B11B9AD81DF02BAB009A4AA1 /* News.swift in Sources */,
+				B1BEEDEF1E63687500F1DE8A /* OrganizationShowConfigurator.swift in Sources */,
 				B1FFF7151E5F017A00A075D8 /* OrganizationsMapShowRouter.swift in Sources */,
 				B122F2281DD35CC80018A701 /* SlideMenuShowWorker.swift in Sources */,
 				B122F2071DD35BEB0018A701 /* CategoriesShowModels.swift in Sources */,
@@ -1668,6 +1703,7 @@
 				B11B9ADA1DF02F5C009A4AA1 /* Date+Ext.swift in Sources */,
 				B1CF54C11DDB519000E98049 /* OnmieSoftShowViewController.swift in Sources */,
 				B12FE6441E57323400A4FBA4 /* TextFieldManager.swift in Sources */,
+				B1BEEDF01E63687500F1DE8A /* OrganizationShowInteractor.swift in Sources */,
 				B177E55E1E54B8F6004F1390 /* PasswordStrengthLevelView.swift in Sources */,
 				B1DA01B11DF1CB2F00E6DD46 /* UIFont+Ext.swift in Sources */,
 				B1CF54B31DDB516E00E98049 /* OmnieCardsShowViewController.swift in Sources */,
@@ -1804,6 +1840,8 @@
 				B122F2141DD35C2C0018A701 /* NewsShowInteractor.swift in Sources */,
 				B1CF54AE1DDB516E00E98049 /* OmnieCardsShowConfigurator.swift in Sources */,
 				B1CF54BF1DDB519000E98049 /* OnmieSoftShowPresenter.swift in Sources */,
+				B1BEEDF51E63687500F1DE8A /* OrganizationShowWorker.swift in Sources */,
+				B1BEEDF41E63687500F1DE8A /* OrganizationShowViewController.swift in Sources */,
 				B14E97571DD8B052001E1DE2 /* SignUpShowInteractor.swift in Sources */,
 				B177E5481E54AC7F004F1390 /* EnterCodeShowInteractor.swift in Sources */,
 				B122F1FC1DD35BC70018A701 /* FavoriteShowViewController.swift in Sources */,
@@ -1842,6 +1880,7 @@
 				B122DF671DF7F957003823AD /* CalendarShowRouter.swift in Sources */,
 				B1B761C31E629C120067339F /* DropDownItem.swift in Sources */,
 				B1E52AB11DDDD0EA00C3B24D /* LaunchScreenViewController.swift in Sources */,
+				B1BEEDF21E63687500F1DE8A /* OrganizationShowPresenter.swift in Sources */,
 				B177E5341E5475EC004F1390 /* SignInContainerShowConfigurator.swift in Sources */,
 				B122F1DC1DD35B760018A701 /* OrdersShowInteractor.swift in Sources */,
 				B177E54B1E54AC7F004F1390 /* EnterCodeShowRouter.swift in Sources */,
@@ -1852,6 +1891,7 @@
 				B1CF54941DDB512000E98049 /* DiscountCardsShowModels.swift in Sources */,
 				B177E5571E54B739004F1390 /* RepetitionPasswordShowInteractor.swift in Sources */,
 				B10871521E379A4800374DD5 /* OmnieCard.swift in Sources */,
+				B1BEEDF31E63687500F1DE8A /* OrganizationShowRouter.swift in Sources */,
 				B14E975A1DD8B052001E1DE2 /* SignUpShowRouter.swift in Sources */,
 				B19DF2841DF94DCD000AFC92 /* CalendarViewController.swift in Sources */,
 				B11B9ADD1DF053BA009A4AA1 /* CustomImageView.swift in Sources */,

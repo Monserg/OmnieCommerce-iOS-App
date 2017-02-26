@@ -31,7 +31,7 @@ class OrganizationsShowViewController: BaseViewController {
     var router: OrganizationsShowRouter!
 
     var category: Category!
-    var tableViewManager            =   ListTableViewController()
+    var tableViewManager                    =   ListTableViewController()
     
     @IBOutlet weak var smallTopBarView: SmallTopBarView!
     @IBOutlet weak var categoriesButton: DropDownButton!
@@ -54,6 +54,8 @@ class OrganizationsShowViewController: BaseViewController {
             tableViewManager.completionHandler = { organization in
                 // TODO: ADD TRANSITION TO ORGANIZATION PROFILE
                 self.print(object: "transition to Organization profile scene")
+                
+                self.router.navigateToOrganizationShowScene(organization as! Organization)
             }
         }
     }
