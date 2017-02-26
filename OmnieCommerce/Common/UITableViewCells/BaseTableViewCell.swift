@@ -86,7 +86,7 @@ enum CellStyle: String {
                                       placeholderImage: UIImage.init(named: "image-no-photo"),
                                       filter: AspectScaledToFillSizeWithRoundedCornersFilter(size: logoImageView.frame.size, radius: logoImageView.frame.size.width / 2))
 
-            dottedBorderView.style              =   (indexPath.row <= 1) ? .AroundDottedRectangleColor : .AroundDottedRectangle
+            dottedBorderView.style              =   .AroundDottedRectangle
 
             if (message.isOwn) {
                 userAvatarImageView.isHidden    =  false
@@ -112,7 +112,7 @@ enum CellStyle: String {
                                       placeholderImage: UIImage.init(named: "image-no-organization"),
                                       filter: AspectScaledToFillSizeWithRoundedCornersFilter(size: logoImageView.frame.size, radius: logoImageView.frame.size.width / 2))
             
-            dottedBorderView.style              =   .AroundDottedRectangle
+            dottedBorderView.style              =   (indexPath.row <= 1) ? .AroundDottedRectangleColor : .AroundDottedRectangle
             
         default:
             break

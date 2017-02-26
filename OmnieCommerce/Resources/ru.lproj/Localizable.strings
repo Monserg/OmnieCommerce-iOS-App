@@ -125,6 +125,9 @@
 "Error"                         =   "Ошибка";
 "Location authorization error"  =   "Пожалуйста, перейдите в Настройки и включите службу геолокации";
 "Camera is not available"       =   "Отсутствует доступ к камере";
+"Organizations list is empty"   =   "Список организаций пуст";
+"Messages list is empty"        =   "Список сообщений пуст";
+"News list is empty"            =   "Список новостей пуст";
 
 
 // Cities

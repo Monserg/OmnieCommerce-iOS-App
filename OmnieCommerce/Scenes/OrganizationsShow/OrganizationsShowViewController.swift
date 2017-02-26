@@ -32,12 +32,12 @@ class OrganizationsShowViewController: BaseViewController {
 
     var category: Category!
     var organizations = [Organization]()
-
     
     @IBOutlet weak var smallTopBarView: SmallTopBarView!
     @IBOutlet weak var categoriesButton: DropDownButton!
     @IBOutlet weak var servicesButton: DropDownButton!
     @IBOutlet weak var mapButton: CustomButton!
+    @IBOutlet weak var dataSourceEmptyView: UIView!
 
     @IBOutlet weak var tableView: CustomTableView! {
         didSet {
@@ -99,7 +99,9 @@ class OrganizationsShowViewController: BaseViewController {
     
     // MARK: - Actions
     @IBAction func handlerMapButtonTap(_ sender: CustomButton) {
-        router.navigateToOrganizationsMapShowScene(withOrganizations: organizations)
+        if (organizations.count > 0) {
+            router.navigateToOrganizationsMapShowScene(withOrganizations: organizations)
+        }
     }
     
     @IBAction func handlerDropDownButtonTap(_ sender: DropDownButton) {
@@ -120,6 +122,7 @@ class OrganizationsShowViewController: BaseViewController {
         
         categoriesButton.setNeedsDisplay()
         servicesButton.setNeedsDisplay()
+        _ = tableView.visibleCells.map{ ($0 as! BaseTableViewCell).dottedBorderView.setNeedsDisplay() }
     }
 }
 
@@ -137,7 +140,8 @@ extension OrganizationsShowViewController: OrganizationsShowViewControllerInput 
     func organizationsDidShow(fromViewModel viewModel: OrganizationsShowModels.Organizations.ViewModel) {
         self.organizations                          =   viewModel.organizations
         self.mapButton.isUserInteractionEnabled     =   true
-        
+        dataSourceEmptyView.isHidden                =   (self.organizations.count == 0) ? false : true
+
         self.tableView.reloadData()
     }
 }

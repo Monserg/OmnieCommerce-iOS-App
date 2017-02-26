@@ -125,6 +125,9 @@
 "Error"                         =   "Error";
 "Location authorization error"  =   "Please go into Settings and give this app authorization to your location";
 "Camera is not available"       =   "Camera is not available";
+"Organizations list is empty"   =   "Organizations list is empty";
+"Messages list is empty"        =   "Messages list is empty";
+"News list is empty"            =   "News list is empty";
 
 
 // Cities

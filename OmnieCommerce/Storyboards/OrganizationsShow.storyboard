@@ -79,6 +79,37 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jrE-FB-0PX" customClass="CustomTableView" customModule="OmnieCommerce" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="166" width="375" height="472.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <view key="tableFooterView" hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" id="Bo0-Y1-yTq">
+                                    <rect key="frame" x="0.0" y="72" width="375" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Organizations list is empty" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TOC-4t-YZX" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
+                                            <rect key="frame" x="116.5" y="26.5" width="141" height="13.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="labelStyle" value="UbuntuLight12VeryLightGray"/>
+                                            </userDefinedRuntimeAttributes>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstItem="TOC-4t-YZX" firstAttribute="centerX" secondItem="Bo0-Y1-yTq" secondAttribute="centerX" id="NFE-zM-i4A"/>
+                                        <constraint firstItem="TOC-4t-YZX" firstAttribute="centerY" secondItem="Bo0-Y1-yTq" secondAttribute="centerY" multiplier="1.5" id="UFT-JG-CXn"/>
+                                    </constraints>
+                                </view>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="OrganizationCell" id="qcW-bE-O8f" customClass="BaseTableViewCell" customModule="OmnieCommerce" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qcW-bE-O8f" id="lyf-1d-bQc">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" red="0.14117647058823529" green="0.19607843137254902" blue="0.24705882352941178" alpha="1" colorSpace="calibratedRGB"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
                                     <userDefinedRuntimeAttribute type="string" keyPath="tableCellStyle" value="Standard"/>
@@ -165,6 +196,7 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="categoriesButton" destination="b7l-X1-Tog" id="zeU-Kt-JAc"/>
+                        <outlet property="dataSourceEmptyView" destination="Bo0-Y1-yTq" id="31y-ix-mdf"/>
                         <outlet property="mapButton" destination="DUL-OJ-fqc" id="MQV-5o-6tm"/>
                         <outlet property="servicesButton" destination="OVx-4o-DGA" id="wBT-8f-RA2"/>
                         <outlet property="smallTopBarView" destination="Fg2-g7-Pmf" id="62H-Fl-ZBP"/>

@@ -20,16 +20,27 @@ protocol MessagesShowViewControllerOutput {
     func doSomething(request: MessagesShow.Something.Request)
 }
 
-class MessagesShowViewController: BaseViewController, MessagesShowViewControllerInput {
+class MessagesShowViewController: BaseViewController {
     // MARK: - Properties
     var output: MessagesShowViewControllerOutput!
     var router: MessagesShowRouter!
     
-    var dataSource = Array<Message>()
+    var messages = [Message]()
 
     @IBOutlet weak var smallTopBarView: SmallTopBarView!
     @IBOutlet weak var copyrightLabel: CustomLabel!
-    @IBOutlet weak var tableView: CustomTableView!
+    @IBOutlet weak var dataSourceEmptyView: UIView!
+
+    @IBOutlet weak var tableView: CustomTableView! {
+        didSet{
+            // Register the Nib header/footer section views
+            tableView.register(UINib(nibName: "MessageTableViewCell", bundle: nil), forCellReuseIdentifier: "MessageCell")
+            
+            // Delegates
+            tableView.dataSource    =   self
+            tableView.delegate      =   self
+        }
+    }
 
     
     // MARK: - Class Initialization
@@ -51,21 +62,14 @@ class MessagesShowViewController: BaseViewController, MessagesShowViewController
             let isOwn = (arc4random_uniform(2) == 1) ? true : false
             let avatar = (isOwn) ? "http://pngimg.com/upload/small/face_PNG11761.png" : "http://pngimg.com/upload/face_PNG5660.png"
             
-            dataSource.append(Message(title: "Акваторія", logoStringURL: pathString, activeDate: Date.init(), text: "Вже давно відомо, що читабельний людині...", isOwn: isOwn, userAvatarStringURL: avatar))
+            messages.append(Message(title: "Акваторія", logoStringURL: pathString, activeDate: Date.init(), text: "Вже давно відомо, що читабельний людині...", isOwn: isOwn, userAvatarStringURL: avatar))
         }
 
         // Config topBarView
-        smallTopBarView.type = "ParentSearch"
-        topBarViewStyle = .Small
+        smallTopBarView.type    =   "ParentSearch"
+        topBarViewStyle         =   .Small
         setup(topBarView: smallTopBarView)
         
-        // Register the Nib header/footer section views
-        tableView.register(UINib(nibName: "MessageTableViewCell", bundle: nil), forCellReuseIdentifier: "MessageCell")
-        
-        // Delegates
-        tableView.dataSource = self
-        tableView.delegate = self
-
         viewSettingsDidLoad()
     }
     
@@ -79,19 +83,12 @@ class MessagesShowViewController: BaseViewController, MessagesShowViewController
         output.doSomething(request: request)
     }
     
-    // Display logic
-    func displaySomething(viewModel: MessagesShow.Something.ViewModel) {
-        print(object: "\(type(of: self)): \(#function) run.")
-        
-        // NOTE: Display the result from the Presenter
-        // nameTextField.text = viewModel.name
-    }
-    
     func setupScene(withSize size: CGSize) {
         print(object: "\(type(of: self)): \(#function) run. Screen view size = \(size)")
         
         smallTopBarView.setNeedsDisplay()
         smallTopBarView.circleView.setNeedsDisplay()
+        _ = tableView.visibleCells.map{ ($0 as! BaseTableViewCell).dottedBorderView.setNeedsDisplay() }
     }
 
     
@@ -108,6 +105,16 @@ class MessagesShowViewController: BaseViewController, MessagesShowViewController
 }
 
 
+// MARK: - MessagesShowViewControllerInput
+extension MessagesShowViewController: MessagesShowViewControllerInput {
+    func displaySomething(viewModel: MessagesShow.Something.ViewModel) {
+        dataSourceEmptyView.isHidden    =   (self.messages.count == 0) ? false : true
+        
+        self.tableView.reloadData()
+    }
+}
+
+
 // MARK: - UITableViewDataSource
 extension MessagesShowViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -117,12 +124,12 @@ extension MessagesShowViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         self.tableView.setScrollIndicatorColor(color: UIColor.veryLightOrange)
         
-        return dataSource.count
+        return messages.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MessageCell", for: indexPath) as! BaseTableViewCell
-        let message = dataSource[indexPath.row]
+        let cell        =   tableView.dequeueReusableCell(withIdentifier: "MessageCell", for: indexPath) as! BaseTableViewCell
+        let message     =   messages[indexPath.row]
         
         // Config cell
         cell.setup(withItem: message, andIndexPath: indexPath)
