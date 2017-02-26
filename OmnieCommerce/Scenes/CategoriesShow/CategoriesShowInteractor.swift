@@ -19,7 +19,7 @@ protocol CategoriesShowInteractorInput {
 
 // MARK: - Output protocols for Presenter component VIP-cicle
 protocol CategoriesShowInteractorOutput {
-    func categoriesDidPrepareShow(fromResponseModel responseModel: CategoriesShowModels.Categories.ResponseModel)
+    func categoriesDidPrepareToShow(fromResponseModel responseModel: CategoriesShowModels.Categories.ResponseModel)
     func citiesDidPrepareShow(fromResponseModel responseModel: CategoriesShowModels.Cities.ResponseModel)
 }
 
@@ -37,7 +37,7 @@ class CategoriesShowInteractor: CategoriesShowInteractorInput {
         
         // NOTE: Pass the result to the Presenter
         let responseModel = CategoriesShowModels.Categories.ResponseModel(result: result)
-        presenter.categoriesDidPrepareShow(fromResponseModel: responseModel)
+        presenter.categoriesDidPrepareToShow(fromResponseModel: responseModel)
     }
     
     func citiesDidLoad(withRequestModel requestModel: CategoriesShowModels.Cities.RequestModel) {

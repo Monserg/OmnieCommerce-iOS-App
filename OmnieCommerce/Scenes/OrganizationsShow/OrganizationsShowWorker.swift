@@ -53,4 +53,16 @@ class OrganizationsShowWorker {
             self.handlerLocationCompletion!(organizations)
         }
     }
+    
+    func categoriesDidLoad() -> [DropDownItem] {
+        var dataSource = [DropDownItem]()
+        
+        let names = ["By services", "By organizations"]
+        
+        for i in 0 ..< names.count {
+            dataSource.append(DropDownItem(name: names[i].localized(), codeID: i))
+        }
+        
+        return dataSource
+    }
 }

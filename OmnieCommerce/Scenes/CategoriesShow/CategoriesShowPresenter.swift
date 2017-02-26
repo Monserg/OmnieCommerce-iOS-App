@@ -13,7 +13,7 @@ import UIKit
 
 // MARK: - Input protocols for current Presenter component VIP-cicle
 protocol CategoriesShowPresenterInput {
-    func categoriesDidPrepareShow(fromResponseModel responseModel: CategoriesShowModels.Categories.ResponseModel)
+    func categoriesDidPrepareToShow(fromResponseModel responseModel: CategoriesShowModels.Categories.ResponseModel)
     func citiesDidPrepareShow(fromResponseModel responseModel: CategoriesShowModels.Cities.ResponseModel)
 }
 
@@ -29,7 +29,7 @@ class CategoriesShowPresenter: CategoriesShowPresenterInput {
     
     
     // MARK: - Custom Functions. Presentation logic
-    func categoriesDidPrepareShow(fromResponseModel responseModel: CategoriesShowModels.Categories.ResponseModel) {
+    func categoriesDidPrepareToShow(fromResponseModel responseModel: CategoriesShowModels.Categories.ResponseModel) {
         let viewModel = CategoriesShowModels.Categories.ViewModel(list: responseModel.result)
         viewController.categoriesDidShow(fromViewModel: viewModel)
     }

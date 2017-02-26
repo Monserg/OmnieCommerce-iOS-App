@@ -18,7 +18,7 @@ enum DropDownList: String {
     // MARK: - Properties
     var dropDownTableVC: DropDownTableViewController!
     var isDropDownListShow = false
-    var dataSource: Array<DropDownFilterList>!
+    var dataSource: [DropDownItem]!
     
     @IBInspectable var dropDownList: String?
 
@@ -64,7 +64,6 @@ enum DropDownList: String {
     }
     
     func itemsListDidHide(inView view: UIView) {
-        
         UIView.animate(withDuration: 0.5, animations: { () -> Void in
             self.dropDownTableVC.view.transform     =   CGAffineTransform(translationX: 0, y: -30)
             self.dropDownTableVC.view.alpha         =   0

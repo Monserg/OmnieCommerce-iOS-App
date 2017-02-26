@@ -26,13 +26,13 @@ class CategoriesShowWorker {
         return dataSource
     }
     
-    func citiesDidLoad() -> Array<City> {
-        var dataSource = Array<City>()
+    func citiesDidLoad() -> [DropDownItem] {
+        var dataSource = [DropDownItem]()
         
         let names = ["Lviv", "Kyiv", "Kharkiv", "Uzgorod", "Vinnitsa", "Khmelnytskyi", "Zhitomir", "Poltava"]
         
         for i in 0 ..< names.count {
-            dataSource.append(City(name: names[i].localized(), codeID: i))
+            dataSource.append(DropDownItem(name: names[i].localized(), codeID: i))
         }
         
         return dataSource

@@ -19,11 +19,11 @@ struct CategoriesShowModels {
         }
         
         struct ResponseModel {
-            let result: Array<City>
+            let result: [DropDownItem]
         }
         
         struct ViewModel {
-            let list: Array<City>
+            let list: [DropDownItem]
         }
     }
 
@@ -32,11 +32,11 @@ struct CategoriesShowModels {
         }
         
         struct ResponseModel {
-            let result: Array<Category>
+            let result: [Category]
         }
         
         struct ViewModel {
-            let list: Array<Category>
+            let list: [Category]
         }
     }
 }

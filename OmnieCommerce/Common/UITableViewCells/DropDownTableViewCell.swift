@@ -30,13 +30,13 @@ import UIKit
     
     
     // MARK: - Custom Functions
-    func didSetup(withCity city: City) {
-        self.nameLabel.text             =   city.name
+    func didSetup(withDropDownItem item: DropDownItem) {
+        self.nameLabel.text                 =   item.name
         
         // Set selected color
-        let selectedView                =   UIView.init(frame: self.frame)
-        selectedView.backgroundColor    =   UIColor.init(hexString: "#38444e", withAlpha: 0.3)
+        let selectedView                    =   UIView.init(frame: self.frame)
+        selectedView.backgroundColor        =   UIColor.init(hexString: "#38444e", withAlpha: 0.3)
         
-        self.selectedBackgroundView     =   selectedView
+        self.selectedBackgroundView         =   selectedView
     }
 }

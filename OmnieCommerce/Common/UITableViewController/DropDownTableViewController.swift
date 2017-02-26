@@ -10,9 +10,9 @@ import UIKit
 
 class DropDownTableViewController: UITableViewController {
     // MARK: - Properties
-    var dataSource = Array<DropDownFilterList>()
+    var dataSource = [DropDownItem]()
     var sourceType: DropDownList!
-    var completionHandler: ((_ value: DropDownFilterList) -> ())?
+    var completionHandler: ((_ value: DropDownItem) -> ())?
     
     
     // MARK: - Class Functions
@@ -39,16 +39,7 @@ extension DropDownTableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DropDownCell", for: indexPath) as! DropDownTableViewCell
 
-        switch sourceType! {
-        case .City:
-            cell.didSetup(withCity: dataSource[indexPath.row] as! City)
-        
-        case .Categories:
-            cell.didSetup(withCity: dataSource[indexPath.row] as! City)
-
-        case .Organizations:
-            cell.didSetup(withCity: dataSource[indexPath.row] as! City)
-        }
+        cell.didSetup(withDropDownItem: dataSource[indexPath.row])
         
         return cell
     }
