@@ -13,14 +13,16 @@ import UIKit
 
 // MARK: - Input protocols for current ViewController component VIP-cicle
 protocol OrganizationsShowViewControllerInput {
-    func organizationsDidShow(fromViewModel viewModel: OrganizationsShowModels.Organizations.ViewModel)
     func servicesDidShow(fromViewModel viewModel: OrganizationsShowModels.DropDownList.ViewModel)
+    func categoriesDidShow(fromViewModel viewModel: OrganizationsShowModels.DropDownList.ViewModel)
+    func organizationsDidShow(fromViewModel viewModel: OrganizationsShowModels.Organizations.ViewModel)
 }
 
 // MARK: - Output protocols for Interactor component VIP-cicle
 protocol OrganizationsShowViewControllerOutput {
-    func organizationsDidLoad(withRequestModel requestModel: OrganizationsShowModels.Organizations.RequestModel)
     func servicesDidLoad(withRequestModel requestModel: OrganizationsShowModels.DropDownList.RequestModel)
+    func categoriesDidLoad(withRequestModel requestModel: OrganizationsShowModels.DropDownList.RequestModel)
+    func organizationsDidLoad(withRequestModel requestModel: OrganizationsShowModels.Organizations.RequestModel)
 }
 
 class OrganizationsShowViewController: BaseViewController {
@@ -76,6 +78,10 @@ class OrganizationsShowViewController: BaseViewController {
         // Load services
         let servicesRequestModel = OrganizationsShowModels.DropDownList.RequestModel()
         interactor.servicesDidLoad(withRequestModel: servicesRequestModel)
+
+        // Load categories
+        let categoriesRequestModel = OrganizationsShowModels.DropDownList.RequestModel()
+        interactor.categoriesDidLoad(withRequestModel: categoriesRequestModel)
     }
     
     
@@ -108,13 +114,16 @@ class OrganizationsShowViewController: BaseViewController {
 
 // MARK: - OrganizationsShowViewControllerInput
 extension OrganizationsShowViewController: OrganizationsShowViewControllerInput {
+    func servicesDidShow(fromViewModel viewModel: OrganizationsShowModels.DropDownList.ViewModel) {
+        servicesButton.dataSource                   =   viewModel.dropDownList
+    }
+    
+    func categoriesDidShow(fromViewModel viewModel: OrganizationsShowModels.DropDownList.ViewModel) {
+        categoriesButton.dataSource                 =   viewModel.dropDownList
+    }
+
     func organizationsDidShow(fromViewModel viewModel: OrganizationsShowModels.Organizations.ViewModel) {
         self.organizations                          =   viewModel.organizations
         self.mapButton.isUserInteractionEnabled     =   true
     }
-    
-    func servicesDidShow(fromViewModel viewModel: OrganizationsShowModels.DropDownList.ViewModel) {
-        servicesButton.dataSource                   =   viewModel.dropDownList
-    }
-
 }
