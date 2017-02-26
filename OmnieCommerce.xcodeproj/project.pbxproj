@@ -183,6 +183,7 @@
 		B19DF2861DF94DED000AFC92 /* SchedulerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19DF2851DF94DED000AFC92 /* SchedulerViewController.swift */; };
 		B1B761C31E629C120067339F /* DropDownItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B761C21E629C120067339F /* DropDownItem.swift */; };
 		B1B761CA1E62D0030067339F /* OrganizationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1B761C91E62D0030067339F /* OrganizationTableViewCell.xib */; };
+		B1BEEDE61E63402000F1DE8A /* ListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1BEEDE51E63402000F1DE8A /* ListTableViewController.swift */; };
 		B1BF92441DD5FC8000BECBBB /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1BF92431DD5FC8000BECBBB /* Config.swift */; };
 		B1BF92681DD6516C00BECBBB /* helveticaneuecyr-black.otf in Resources */ = {isa = PBXBuildFile; fileRef = B1BF924F1DD650F400BECBBB /* helveticaneuecyr-black.otf */; };
 		B1BF92691DD6516C00BECBBB /* helveticaneuecyr-blackitalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = B1BF92501DD650F400BECBBB /* helveticaneuecyr-blackitalic.otf */; };
@@ -496,6 +497,7 @@
 		B19DF2851DF94DED000AFC92 /* SchedulerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchedulerViewController.swift; sourceTree = "<group>"; };
 		B1B761C21E629C120067339F /* DropDownItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DropDownItem.swift; sourceTree = "<group>"; };
 		B1B761C91E62D0030067339F /* OrganizationTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OrganizationTableViewCell.xib; sourceTree = "<group>"; };
+		B1BEEDE51E63402000F1DE8A /* ListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListTableViewController.swift; sourceTree = "<group>"; };
 		B1BF92431DD5FC8000BECBBB /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		B1BF924F1DD650F400BECBBB /* helveticaneuecyr-black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "helveticaneuecyr-black.otf"; sourceTree = "<group>"; };
 		B1BF92501DD650F400BECBBB /* helveticaneuecyr-blackitalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "helveticaneuecyr-blackitalic.otf"; sourceTree = "<group>"; };
@@ -712,6 +714,7 @@
 			isa = PBXGroup;
 			children = (
 				B11CCAF11DEEEBB200AA7942 /* DropDownTableViewController.swift */,
+				B1BEEDE51E63402000F1DE8A /* ListTableViewController.swift */,
 			);
 			path = UITableViewController;
 			sourceTree = "<group>";
@@ -1832,6 +1835,7 @@
 				B1FFF7031E5ECDF900A075D8 /* OrganizationsShowPresenter.swift in Sources */,
 				B1CF54761DDB50D900E98049 /* AboutShowConfigurator.swift in Sources */,
 				B122F1FA1DD35BC70018A701 /* FavoriteShowPresenter.swift in Sources */,
+				B1BEEDE61E63402000F1DE8A /* ListTableViewController.swift in Sources */,
 				B1CF54BE1DDB519000E98049 /* OnmieSoftShowModels.swift in Sources */,
 				B1CF54DC1DDB51BE00E98049 /* SettingsShowRouter.swift in Sources */,
 				B122F2411DD371B30018A701 /* BaseNavigationController.swift in Sources */,

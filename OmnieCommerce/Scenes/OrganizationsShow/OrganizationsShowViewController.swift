@@ -31,7 +31,7 @@ class OrganizationsShowViewController: BaseViewController {
     var router: OrganizationsShowRouter!
 
     var category: Category!
-    var organizations = [Organization]()
+    var tableViewManager            =   ListTableViewController()
     
     @IBOutlet weak var smallTopBarView: SmallTopBarView!
     @IBOutlet weak var categoriesButton: DropDownButton!
@@ -45,8 +45,10 @@ class OrganizationsShowViewController: BaseViewController {
             tableView.register(UINib(nibName: "OrganizationTableViewCell", bundle: nil), forCellReuseIdentifier: "OrganizationCell")
             
             // Delegates
-            tableView.dataSource    =   self
-            tableView.delegate      =   self
+            tableView.dataSource            =   tableViewManager
+            tableView.delegate              =   tableViewManager
+            tableViewManager.tableView      =   tableView
+            tableViewManager.sourceType     =   .Organization
         }
     }
 
@@ -63,8 +65,8 @@ class OrganizationsShowViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        smallTopBarView.type    =   "ChildSearch"
-        topBarViewStyle         =   .Small
+        smallTopBarView.type                =   "ChildSearch"
+        topBarViewStyle                     =   .Small
         setup(topBarView: smallTopBarView)
 
         viewSettingsDidLoad()
@@ -74,7 +76,7 @@ class OrganizationsShowViewController: BaseViewController {
     // MARK: - Custom Functions
     func viewSettingsDidLoad() {
         // Set scene title
-        smallTopBarView.titleLabel.text = category.title
+        smallTopBarView.titleLabel.text     =   category.title
         
         mapButton.isUserInteractionEnabled  =   false
         
@@ -99,8 +101,8 @@ class OrganizationsShowViewController: BaseViewController {
     
     // MARK: - Actions
     @IBAction func handlerMapButtonTap(_ sender: CustomButton) {
-        if (organizations.count > 0) {
-            router.navigateToOrganizationsMapShowScene(withOrganizations: organizations)
+        if (tableViewManager.dataSource.count > 0) {
+            router.navigateToOrganizationsMapShowScene(withOrganizations: (tableViewManager.dataSource as! [Organization]))
         }
     }
     
@@ -119,7 +121,6 @@ class OrganizationsShowViewController: BaseViewController {
     
     // MARK: - Transition
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        
         categoriesButton.setNeedsDisplay()
         servicesButton.setNeedsDisplay()
         _ = tableView.visibleCells.map{ ($0 as! BaseTableViewCell).dottedBorderView.setNeedsDisplay() }
@@ -138,52 +139,10 @@ extension OrganizationsShowViewController: OrganizationsShowViewControllerInput 
     }
 
     func organizationsDidShow(fromViewModel viewModel: OrganizationsShowModels.Organizations.ViewModel) {
-        self.organizations                          =   viewModel.organizations
+        self.tableViewManager.dataSource            =   viewModel.organizations
         self.mapButton.isUserInteractionEnabled     =   true
-        dataSourceEmptyView.isHidden                =   (self.organizations.count == 0) ? false : true
+        dataSourceEmptyView.isHidden                =   (viewModel.organizations.count == 0) ? false : true
 
         self.tableView.reloadData()
-    }
-}
-
-
-// MARK: - UITableViewDataSource
-extension OrganizationsShowViewController: UITableViewDataSource {
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        self.tableView.setScrollIndicatorColor(color: UIColor.veryLightOrange)
-        
-        return organizations.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell            =   tableView.dequeueReusableCell(withIdentifier: "OrganizationCell", for: indexPath) as! BaseTableViewCell
-        let organization    =   organizations[indexPath.row]
-        
-        // Config cell
-        cell.setup(withItem: organization, andIndexPath: indexPath)
-
-        // Handler Favorite button tap
-        cell.handlerFavoriteButtonCompletion        =   { _ in
-            // TODO: ADD API TO ADD/REMOVE ORGANIZATION TO/FROM FAVORITE LIST
-            self.print(object: "favorite button tapped")
-        }
-        
-        return cell
-    }
-}
-
-
-// MARK: - UITableViewDelegate
-extension OrganizationsShowViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 96.0
     }
 }

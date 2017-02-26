@@ -25,7 +25,7 @@ class NewsShowViewController: BaseViewController {
     var output: NewsShowViewControllerOutput!
     var router: NewsShowRouter!
     
-    var news = [News]()
+    var tableViewManager                    =   ListTableViewController()
     
     @IBOutlet weak var smallTopBarView: SmallTopBarView!
     @IBOutlet weak var copyrightLabel: CustomLabel!
@@ -38,8 +38,10 @@ class NewsShowViewController: BaseViewController {
             tableView.register(UINib(nibName: "NewsTableViewCell", bundle: nil), forCellReuseIdentifier: "NewsCell")
             
             // Delegates
-            tableView.dataSource    =   self
-            tableView.delegate      =   self
+            tableView.dataSource            =   tableViewManager
+            tableView.delegate              =   tableViewManager
+            tableViewManager.tableView      =   tableView
+            tableViewManager.sourceType     =   .News
         }
     }
 
@@ -60,7 +62,7 @@ class NewsShowViewController: BaseViewController {
         for _ in 0 ..< 25 {
             let pathString = (arc4random_uniform(2) == 1) ? "http://www.nyhabitat.com/blog/wp-content/uploads/2013/08/fifth-avenue-shopping-manhattan-nyc-new-york.jpg" : nil
             
-            news.append(News(title: "Сауна Акваторія", logoStringURL: pathString, activeDate: Date.init(), description: "Вже давно відомо, що читабельний зміст буде заважати зосередитись людині, яка оцінює... композицію сторінки. Сенс використання Lorem Ipsum полягає в тому, що цей текст має більш-менш нормальне розподілення літер на відміну від, наприклад, \"Тут іде текст. Тут іде текст.\" Це робить текст схожим на оповідний. Багато програм верстування та веб-дизайну використовують Lorem Ipsum як зразок і пошук за терміном \"lorem ipsum\" відкриє багато веб-сайтів, які знаходяться ще в зародковому стані. Різні версії Lorem Ipsum з'явились за минулі роки, деякі випадково, деякі було створено зумисно (зокрема, жартівливі)."))
+            tableViewManager.dataSource.append(News(title: "Сауна Акваторія", logoStringURL: pathString, activeDate: Date.init(), description: "Вже давно відомо, що читабельний зміст буде заважати зосередитись людині, яка оцінює... композицію сторінки. Сенс використання Lorem Ipsum полягає в тому, що цей текст має більш-менш нормальне розподілення літер на відміну від, наприклад, \"Тут іде текст. Тут іде текст.\" Це робить текст схожим на оповідний. Багато програм верстування та веб-дизайну використовують Lorem Ipsum як зразок і пошук за терміном \"lorem ipsum\" відкриє багато веб-сайтів, які знаходяться ще в зародковому стані. Різні версії Lorem Ipsum з'явились за минулі роки, деякі випадково, деякі було створено зумисно (зокрема, жартівливі)."))
         }
         
         // Config topBarView
@@ -116,46 +118,9 @@ class NewsShowViewController: BaseViewController {
 // MARK: - NewsShowViewControllerInput
 extension NewsShowViewController: NewsShowViewControllerInput {
     func displaySomething(viewModel: NewsShow.Something.ViewModel) {
-        dataSourceEmptyView.isHidden    =   (self.news.count == 0) ? false : true
+//        tableViewManager.dataSource     =   viewModel
+//        dataSourceEmptyView.isHidden    =   (self.news.count == 0) ? false : true
         
         self.tableView.reloadData()
-    }
-}
-
-
-// MARK: - UITableViewDataSource
-extension NewsShowViewController: UITableViewDataSource {
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        self.tableView.setScrollIndicatorColor(color: UIColor.veryLightOrange)
-
-        return news.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell    =   tableView.dequeueReusableCell(withIdentifier: "NewsCell", for: indexPath) as! BaseTableViewCell
-        let item    =   news[indexPath.row]
-        
-        // Config cell
-        cell.setup(withItem: item, andIndexPath: indexPath)
-        
-        return cell
-    }
-}
-
-
-// MARK: - UITableViewDelegate
-extension NewsShowViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(object: "\(type(of: self)): \(#function) run.")
-        
-        tableView.deselectRow(at: indexPath, animated: true)
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 96.0
     }
 }
