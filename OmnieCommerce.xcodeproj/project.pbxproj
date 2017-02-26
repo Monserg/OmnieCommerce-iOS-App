@@ -182,6 +182,7 @@
 		B19DF2841DF94DCD000AFC92 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19DF2831DF94DCD000AFC92 /* CalendarViewController.swift */; };
 		B19DF2861DF94DED000AFC92 /* SchedulerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19DF2851DF94DED000AFC92 /* SchedulerViewController.swift */; };
 		B1B761C31E629C120067339F /* DropDownItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B761C21E629C120067339F /* DropDownItem.swift */; };
+		B1B761CA1E62D0030067339F /* OrganizationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1B761C91E62D0030067339F /* OrganizationTableViewCell.xib */; };
 		B1BF92441DD5FC8000BECBBB /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1BF92431DD5FC8000BECBBB /* Config.swift */; };
 		B1BF92681DD6516C00BECBBB /* helveticaneuecyr-black.otf in Resources */ = {isa = PBXBuildFile; fileRef = B1BF924F1DD650F400BECBBB /* helveticaneuecyr-black.otf */; };
 		B1BF92691DD6516C00BECBBB /* helveticaneuecyr-blackitalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = B1BF92501DD650F400BECBBB /* helveticaneuecyr-blackitalic.otf */; };
@@ -494,6 +495,7 @@
 		B19DF2831DF94DCD000AFC92 /* CalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		B19DF2851DF94DED000AFC92 /* SchedulerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchedulerViewController.swift; sourceTree = "<group>"; };
 		B1B761C21E629C120067339F /* DropDownItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DropDownItem.swift; sourceTree = "<group>"; };
+		B1B761C91E62D0030067339F /* OrganizationTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OrganizationTableViewCell.xib; sourceTree = "<group>"; };
 		B1BF92431DD5FC8000BECBBB /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		B1BF924F1DD650F400BECBBB /* helveticaneuecyr-black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "helveticaneuecyr-black.otf"; sourceTree = "<group>"; };
 		B1BF92501DD650F400BECBBB /* helveticaneuecyr-blackitalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "helveticaneuecyr-blackitalic.otf"; sourceTree = "<group>"; };
@@ -1195,6 +1197,14 @@
 			path = UIViewControllers;
 			sourceTree = "<group>";
 		};
+		B1B761C41E62CD960067339F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B1B761C91E62D0030067339F /* OrganizationTableViewCell.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		B1BF924E1DD6508A00BECBBB /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -1381,6 +1391,7 @@
 			isa = PBXGroup;
 			children = (
 				B1FFF71D1E5F037100A075D8 /* Models */,
+				B1B761C41E62CD960067339F /* Views */,
 				B1FFF6F91E5ECDF900A075D8 /* OrganizationsShowConfigurator.swift */,
 				B1FFF6FA1E5ECDF900A075D8 /* OrganizationsShowInteractor.swift */,
 				B1FFF6FB1E5ECDF900A075D8 /* OrganizationsShowModels.swift */,
@@ -1547,6 +1558,7 @@
 				B1BF927E1DD6516C00BECBBB /* UBUNTU-M.TTF in Resources */,
 				B1BF927F1DD6516C00BECBBB /* UBUNTU-MI.TTF in Resources */,
 				B1BF92801DD6516C00BECBBB /* UBUNTU-R.TTF in Resources */,
+				B1B761CA1E62D0030067339F /* OrganizationTableViewCell.xib in Resources */,
 				B122F2321DD35EF10018A701 /* NewsShow.storyboard in Resources */,
 				B122F2301DD35EE10018A701 /* CategoriesShow.storyboard in Resources */,
 				B122F22A1DD35D6F0018A701 /* OrdersShow.storyboard in Resources */,
