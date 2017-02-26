@@ -14,11 +14,13 @@ import UIKit
 // MARK: - Input protocols for current Interactor component VIP-cicle
 protocol OrganizationsShowInteractorInput {
     func organizationsDidLoad(withRequestModel requestModel: OrganizationsShowModels.Organizations.RequestModel)
+    func servicesDidLoad(withRequestModel requestModel: OrganizationsShowModels.DropDownList.RequestModel)
 }
 
 // MARK: - Output protocols for Presenter component VIP-cicle
 protocol OrganizationsShowInteractorOutput {
     func organizationsDidPrepareToShow(fromResponseModel responseModel: OrganizationsShowModels.Organizations.ResponseModel)
+    func servicesDidPrepareToShow(fromResponseModel responseModel: OrganizationsShowModels.DropDownList.ResponseModel)
 }
 
 class OrganizationsShowInteractor: OrganizationsShowInteractorInput {
@@ -41,4 +43,13 @@ class OrganizationsShowInteractor: OrganizationsShowInteractorInput {
             self.presenter.organizationsDidPrepareToShow(fromResponseModel: responseModel)
         }
     }
+    
+    func servicesDidLoad(withRequestModel requestModel: OrganizationsShowModels.DropDownList.RequestModel) {
+        worker          =   OrganizationsShowWorker()
+        let services    =   worker.dropDownListDidLoad(withType: .Services)
+        
+        let servicesResponseModel = OrganizationsShowModels.DropDownList.ResponseModel(result: services)
+        presenter.servicesDidPrepareToShow(fromResponseModel: servicesResponseModel)
+    }
+
 }

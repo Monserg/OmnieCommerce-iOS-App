@@ -15,7 +15,6 @@ import UIKit
 struct OrganizationsShowModels {
     struct Organizations {
         struct RequestModel {
-            
         }
         
         struct ResponseModel {
@@ -24,6 +23,19 @@ struct OrganizationsShowModels {
         
         struct ViewModel {
             let organizations: [Organization]
+        }
+    }
+    
+    struct DropDownList {
+        struct RequestModel {
+        }
+        
+        struct ResponseModel {
+            let result: [DropDownItem]
+        }
+        
+        struct ViewModel {
+            let dropDownList: [DropDownItem]
         }
     }
 }

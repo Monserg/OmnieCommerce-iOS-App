@@ -54,10 +54,20 @@ class OrganizationsShowWorker {
         }
     }
     
-    func categoriesDidLoad() -> [DropDownItem] {
+    func dropDownListDidLoad(withType type: DropDownList) -> [DropDownItem] {
         var dataSource = [DropDownItem]()
+        var names: [String]!
         
-        let names = ["By services", "By organizations"]
+        switch type {
+        case .Services:
+            names = ["By services", "By organizations"]
+
+        case .Categories:
+            names = ["Всі", "Сауни", "Перукарні", "Бані", "Джакузі", "Спа"]
+
+        default:
+            break
+        }
         
         for i in 0 ..< names.count {
             dataSource.append(DropDownItem(name: names[i].localized(), codeID: i))

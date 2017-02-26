@@ -14,11 +14,13 @@ import UIKit
 // MARK: - Input protocols for current ViewController component VIP-cicle
 protocol OrganizationsShowViewControllerInput {
     func organizationsDidShow(fromViewModel viewModel: OrganizationsShowModels.Organizations.ViewModel)
+    func servicesDidShow(fromViewModel viewModel: OrganizationsShowModels.DropDownList.ViewModel)
 }
 
 // MARK: - Output protocols for Interactor component VIP-cicle
 protocol OrganizationsShowViewControllerOutput {
     func organizationsDidLoad(withRequestModel requestModel: OrganizationsShowModels.Organizations.RequestModel)
+    func servicesDidLoad(withRequestModel requestModel: OrganizationsShowModels.DropDownList.RequestModel)
 }
 
 class OrganizationsShowViewController: BaseViewController {
@@ -27,11 +29,11 @@ class OrganizationsShowViewController: BaseViewController {
     var router: OrganizationsShowRouter!
 
     var category: Category!
-    var organizations = Array<Organization>()
+    var organizations = [Organization]()
 
     @IBOutlet weak var smallTopBarView: SmallTopBarView!
-    @IBOutlet weak var categoriesFilterButton: DropDownButton!
-    @IBOutlet weak var organizationsFilterButton: DropDownButton!
+    @IBOutlet weak var categoriesButton: DropDownButton!
+    @IBOutlet weak var servicesButton: DropDownButton!
     @IBOutlet weak var mapButton: CustomButton!
 
     
@@ -68,8 +70,12 @@ class OrganizationsShowViewController: BaseViewController {
         }
         
         // Load organizations
-        let requestModel = OrganizationsShowModels.Organizations.RequestModel()
-        interactor.organizationsDidLoad(withRequestModel: requestModel)
+        let organizationsRequestModel = OrganizationsShowModels.Organizations.RequestModel()
+        interactor.organizationsDidLoad(withRequestModel: organizationsRequestModel)
+        
+        // Load services
+        let servicesRequestModel = OrganizationsShowModels.DropDownList.RequestModel()
+        interactor.servicesDidLoad(withRequestModel: servicesRequestModel)
     }
     
     
@@ -78,12 +84,24 @@ class OrganizationsShowViewController: BaseViewController {
         router.navigateToOrganizationsMapShowScene(withOrganizations: organizations)
     }
     
+    @IBAction func handlerDropDownButtonTap(_ sender: DropDownButton) {
+        (sender.isDropDownListShow) ? sender.itemsListDidHide(inView: view) : sender.itemsListDidShow(inView: view)
+        (sender.dropDownTableVC.tableView as! CustomTableView).setScrollIndicatorColor(color: UIColor.veryLightOrange)
+        
+        // Handler DropDownList selection
+        sender.dropDownTableVC.completionHandler = ({ selectedObject in
+            sender.changeTitle(newValue: selectedObject.name)
+            
+            sender.itemsListDidHide(inView: self.view)
+        })
+    }
+
     
     // MARK: - Transition
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         
-        categoriesFilterButton.setNeedsDisplay()
-        organizationsFilterButton.setNeedsDisplay()
+        categoriesButton.setNeedsDisplay()
+        servicesButton.setNeedsDisplay()
     }
 }
 
@@ -94,4 +112,9 @@ extension OrganizationsShowViewController: OrganizationsShowViewControllerInput 
         self.organizations                          =   viewModel.organizations
         self.mapButton.isUserInteractionEnabled     =   true
     }
+    
+    func servicesDidShow(fromViewModel viewModel: OrganizationsShowModels.DropDownList.ViewModel) {
+        servicesButton.dataSource                   =   viewModel.dropDownList
+    }
+
 }

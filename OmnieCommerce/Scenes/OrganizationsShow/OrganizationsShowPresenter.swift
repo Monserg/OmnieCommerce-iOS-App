@@ -14,11 +14,13 @@ import UIKit
 // MARK: - Input protocols for current Presenter component VIP-cicle
 protocol OrganizationsShowPresenterInput {
     func organizationsDidPrepareToShow(fromResponseModel responseModel: OrganizationsShowModels.Organizations.ResponseModel)
+    func servicesDidPrepareToShow(fromResponseModel responseModel: OrganizationsShowModels.DropDownList.ResponseModel)
 }
 
 // MARK: - Output protocols for ViewController component VIP-cicle
 protocol OrganizationsShowPresenterOutput: class {
     func organizationsDidShow(fromViewModel viewModel: OrganizationsShowModels.Organizations.ViewModel)
+    func servicesDidShow(fromViewModel viewModel: OrganizationsShowModels.DropDownList.ViewModel)
 }
 
 class OrganizationsShowPresenter: OrganizationsShowPresenterInput {
@@ -32,5 +34,10 @@ class OrganizationsShowPresenter: OrganizationsShowPresenterInput {
         viewController.organizationsDidShow(fromViewModel: viewModel)
         
         UIApplication.shared.isNetworkActivityIndicatorVisible = false
+    }
+    
+    func servicesDidPrepareToShow(fromResponseModel responseModel: OrganizationsShowModels.DropDownList.ResponseModel) {
+        let servicesViewModel = OrganizationsShowModels.DropDownList.ViewModel(dropDownList: responseModel.result)
+        viewController.servicesDidShow(fromViewModel: servicesViewModel)
     }
 }
