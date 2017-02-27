@@ -51,13 +51,25 @@ class OrganizationsShowViewController: BaseViewController {
             tableViewManager.sourceType     =   .Organization
             
             smallTopBarView.searchBar.placeholder   =   "Enter Organization name".localized()
-            
+            smallTopBarView.searchBar.delegate      =   tableViewManager
+
             // Handler select cell
             tableViewManager.completionHandler = { organization in
                 // TODO: ADD TRANSITION TO ORGANIZATION PROFILE
                 self.print(object: "transition to Organization profile scene")
                 
                 self.router.navigateToOrganizationShowScene(organization as! Organization)
+            }
+
+            // Handler Search keyboard button tap
+            tableViewManager.handlerSendButtonCompletion    =   { _ in
+                // TODO: - ADD SEARCH API
+                self.smallTopBarView.searchBarDidHide()
+            }
+
+            // Handler Search Bar Cancel button tap
+            tableViewManager.handlerCancelButtonCompletion  =   { _ in
+                self.smallTopBarView.searchBarDidHide()
             }
         }
     }

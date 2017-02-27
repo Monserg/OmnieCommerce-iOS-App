@@ -135,6 +135,7 @@ extension OrganizationsMapShowViewController: MKMapViewDelegate {
         pinAnnotationView!.canShowCallout   =   false
         pinAnnotationView!.isDraggable      =   true
         
+        /*
         // Add button
         let detailButton                                    =   UIButton(type: .detailDisclosure)
         pinAnnotationView!.rightCalloutAccessoryView        =   detailButton
@@ -152,6 +153,7 @@ extension OrganizationsMapShowViewController: MKMapViewDelegate {
         
         leftIconView.image                                  =   avatar
         pinAnnotationView!.leftCalloutAccessoryView         =   leftIconView
+        */
         
         return pinAnnotationView
     }

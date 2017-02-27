@@ -46,6 +46,11 @@ protocol CodeErrorMessageView: ErrorMessageViewAnimation {
     var codeErrorMessageViewHeightConstraint: NSLayoutConstraint! { get set }
 }
 
+protocol SearchObject {
+    // MARK: - Properties
+    var name: String! { get set }
+}
+
 
 extension ErrorMessageViewAnimation {
     func didShow(_ view: UIView, withConstraint constraint: NSLayoutConstraint) {

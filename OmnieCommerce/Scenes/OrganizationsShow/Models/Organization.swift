@@ -10,10 +10,10 @@
 import Foundation
 import CoreLocation
 
-struct Organization {
+struct Organization: SearchObject {
     // MARK: - Properties
     let codeID: Int!
-    let name: String!
+    var name: String!
     let location: CLLocationCoordinate2D!
     var addressCity: String?
     var addressStreet: String?

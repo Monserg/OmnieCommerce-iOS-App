@@ -10,14 +10,22 @@ import UIKit
 
 class ListTableViewController: UIViewController {
     // MARK: - Properties
-    var dataSource = [Any]()
+    var dataSource                  =   [Any]()
+    var dataSourceFiltered          =   [Any]()
+    var isSearchBarActive: Bool     =   false
+
     var sourceType: CellStyle!
     var completionHandler: ((_ value: Any) -> ())?
     var tableView: CustomTableView!
     
+    var handlerSendButtonCompletion: HandlerSendButtonCompletion?
+    var handlerCancelButtonCompletion: HandlerCancelButtonCompletion?
+    
+    
     // MARK: - Class Functions
     override func viewDidLoad() {
         super.viewDidLoad()
+
     }
     
     override func didReceiveMemoryWarning() {
@@ -35,7 +43,7 @@ extension ListTableViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         self.tableView.setScrollIndicatorColor(color: UIColor.veryLightOrange)
         
-        return dataSource.count
+        return (isSearchBarActive) ? dataSourceFiltered.count : dataSource.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -56,13 +64,13 @@ extension ListTableViewController: UITableViewDataSource {
         }
         
         let cell            =   tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! BaseTableViewCell
-        let item            =   dataSource[indexPath.row]
+        let item            =   (isSearchBarActive) ? dataSourceFiltered[indexPath.row] : dataSource[indexPath.row]
         
         // Config cell
         cell.setup(withItem: item, andIndexPath: indexPath)
         
         // Handler Favorite button tap
-        cell.handlerFavoriteButtonCompletion        =   { _ in
+        cell.handlerFavoriteButtonCompletion    =   { _ in
             // TODO: ADD API TO ADD/REMOVE ITEM TO/FROM FAVORITE LIST
             print("favorite button tapped")
         }
@@ -77,7 +85,7 @@ extension ListTableViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        completionHandler!(dataSource[indexPath.row])
+        completionHandler!((isSearchBarActive) ? dataSourceFiltered[indexPath.row] : dataSource[indexPath.row])
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -85,12 +93,47 @@ extension ListTableViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
-        let cell                                        =   tableView.cellForRow(at: indexPath)!
-        cell.contentView.backgroundColor                =   .veryDarkGrayishBlue38
+        let cell                            =   tableView.cellForRow(at: indexPath)!
+        cell.contentView.backgroundColor    =   .veryDarkGrayishBlue38
     }
     
     func tableView(_ tableView: UITableView, didUnhighlightRowAt indexPath: IndexPath) {
-        let cell                                        =   tableView.cellForRow(at: indexPath)!
-        cell.contentView.backgroundColor                =   .clear
+        let cell                            =   tableView.cellForRow(at: indexPath)!
+        cell.contentView.backgroundColor    =   .clear
+    }
+}
+
+
+// MARK: - UISearchBarDelegate
+extension ListTableViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        // TODO: - ADD API TO SEARCH ORGANIZATIONS
+        handlerSendButtonCompletion!()
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        isSearchBarActive   =   false
+        searchBar.text      =   nil
+
+        handlerCancelButtonCompletion!()
+        tableView.reloadData()
+    }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        isSearchBarActive   =   true
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        isSearchBarActive   =   false
+    }
+    
+    func searchBarBookmarkButtonClicked(_ searchBar: UISearchBar) {
+        isSearchBarActive   =   false
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        dataSourceFiltered  =   (searchText.isEmpty) ? dataSource : dataSource.filter{ ($0 as! SearchObject).name.contains(searchBar.text!) }
+        
+        tableView.reloadData()
     }
 }

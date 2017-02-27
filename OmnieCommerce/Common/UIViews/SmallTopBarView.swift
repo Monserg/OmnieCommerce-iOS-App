@@ -25,12 +25,7 @@ enum ViewType: String {
     @IBOutlet weak var actionButton: UIButton!
     @IBOutlet weak var searchButton: UIButton!
     @IBOutlet weak var dottesStackView: UIStackView!
-    
-    @IBOutlet weak var searchBar: UISearchBar! {
-        didSet {
-            searchBar.delegate      =   self
-        }
-    }
+    @IBOutlet weak var searchBar: UISearchBar!
     
     @IBInspectable var titleText: String? {
         didSet {
@@ -137,6 +132,20 @@ enum ViewType: String {
         searchBar.transform                             =   CGAffineTransform(translationX: 800, y: 0)
     }
     
+    func searchBarDidHide() {
+        UIView.animate(withDuration: 0.3, animations: {
+            self.searchBar.alpha                        =   0
+            self.searchBar.transform                    =   CGAffineTransform(translationX: 800, y: 0)
+        }, completion: { success in
+            UIView.animate(withDuration: 0.5, animations: {
+                self.searchButton.alpha                 =   1
+                self.titleLabel.alpha                   =   1
+            })
+            
+            self.searchBar.resignFirstResponder()
+        })
+    }
+    
     
     // MARK: - Actions
     func handlerLeftActionButtonTap(_ sender: UIButton) {
@@ -149,41 +158,11 @@ enum ViewType: String {
             self.titleLabel.alpha                       =   0
         }, completion: { success in
             UIView.animate(withDuration: 0.3, animations: {
-//                self.view.bringSubview(toFront: self.searchBar)
                 self.searchBar.alpha                    =   1
                 self.searchBar.transform                =   CGAffineTransform(translationX: 0, y: 0)
 
                 self.searchBar.becomeFirstResponder()
             })
         })
-    }
-}
-
-
-// MARK: - UISearchBarDelegate
-extension SmallTopBarView: UISearchBarDelegate {
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        searchBar.resignFirstResponder()
-        
-        // TODO: - ADD API TO SEARCH ORGANIZATIONS
-        
-    }
-    
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        UIView.animate(withDuration: 0.3, animations: {
-//            self.view.bringSubview(toFront: self.searchBar)
-            self.searchBar.alpha                        =   0
-            self.searchBar.transform                    =   CGAffineTransform(translationX: 800, y: 0)
-        }, completion: { success in
-            UIView.animate(withDuration: 0.5, animations: {
-                self.searchButton.alpha                 =   1
-                self.titleLabel.alpha                   =   1
-            })
-            
-            searchBar.resignFirstResponder()
-        })
-    }
-    
-    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
     }
 }
