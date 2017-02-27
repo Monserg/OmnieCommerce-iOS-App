@@ -75,30 +75,66 @@ enum ViewType: String {
     }
     
     private func setup() {
-        searchButton.isHidden       =   true
-        actionButton.isHidden       =   false
-        titleLabel.clipsToBounds    =   true
-        dottesStackView.isHidden    =   false
-        titleLabel.text             =   titleText?.localized() ?? "Label"
+        searchButton.alpha                  =   0
+        actionButton.alpha                  =   1
+        titleLabel.clipsToBounds            =   true
+        dottesStackView.alpha               =   1
+        titleLabel.text                     =   titleText?.localized() ?? "Label"
         actionButton.setImage(UIImage.init(named: "icon-menu-normal"), for: .normal)
+        searchBar.barTintColor              =   UIColor.darkCyan
+        searchBar.tintColor                 =   UIColor.veryLightGray
+        searchBar.layer.borderWidth         =   1
+        searchBar.layer.borderColor         =   UIColor.darkCyan.cgColor
+        
+        searchBarDidSetup()
         
         switch ViewType(rawValue: type ?? "Parent")! {
         case .Child:
             actionButton.setImage(UIImage.init(named: "icon-back-bar-button-normal"), for: .normal)
             
         case .ChildSearch:
-            searchButton.isHidden   =   false
+            searchButton.alpha              =   1
 
             actionButton.setImage(UIImage.init(named: "icon-back-bar-button-normal"), for: .normal)
-            actionButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: -16, bottom: 0, right: 0)
+            actionButton.imageEdgeInsets    =   UIEdgeInsets(top: 0, left: -16, bottom: 0, right: 0)
             actionButton.addTarget(self, action: #selector(handlerLeftActionButtonTap), for: .touchUpInside)
             
         case .ParentSearch:
-            searchButton.isHidden   =   false
+            searchButton.alpha              =   1
             
         case .Parent:
             actionButton.setImage(UIImage.init(named: "icon-menu-normal"), for: .normal)
         }
+    }
+    
+    private func searchBarDidSetup() {
+        for subview in self.searchBar.subviews {
+            for innerSubViews in subview.subviews {
+                if let cancelButton = innerSubViews as? UIButton {
+                    cancelButton.setAttributedTitle(NSAttributedString.init(string: cancelButton.titleLabel!.text!,
+                                                                            attributes: UIFont.ubuntuLightVeryLightGray16),
+                                                    for: .normal)
+                }
+                
+                if let textField = innerSubViews as? UITextField {
+                    textField.backgroundColor           =   UIColor.darkCyan
+                    textField.textColor                 =   UIColor.veryLightGray
+                    textField.tintColor                 =   UIColor.veryLightGray
+                    
+                    textField.attributedPlaceholder     =   NSAttributedString.init(string: "Enter search text".localized(),
+                                                                                    attributes: UIFont.ubuntuLightItalicVeryLightGray16)
+                    
+                    if let iconView = textField.leftView as? UIImageView {
+                        iconView.image                  =   iconView.image?.withRenderingMode(.alwaysTemplate)
+                        iconView.tintColor              =   UIColor.veryLightGray
+                    }
+                    
+                    textField.changeClearButtonColor()
+                }
+            }
+        }
+        
+        searchBar.transform                             =   CGAffineTransform(translationX: 800, y: 0)
     }
     
     
@@ -108,15 +144,17 @@ enum ViewType: String {
     }
     
     @IBAction func handlerSearchButtonTap(_ sender: UIButton) {
-        UIView.animate(withDuration: 0.5, animations: { 
-            sender.isHidden                 =   true
-            self.titleLabel.isHidden        =   true
+        UIView.animate(withDuration: 0.5, animations: {
+            sender.alpha                                =   0
+            self.titleLabel.alpha                       =   0
         }, completion: { success in
-            UIView.animate(withDuration: 0.5, animations: {
-                self.view.bringSubview(toFront: self.searchBar)
-                self.searchBar.isHidden     =   false
-            })
+            UIView.animate(withDuration: 0.3, animations: {
+//                self.view.bringSubview(toFront: self.searchBar)
+                self.searchBar.alpha                    =   1
+                self.searchBar.transform                =   CGAffineTransform(translationX: 0, y: 0)
 
+                self.searchBar.becomeFirstResponder()
+            })
         })
     }
 }
@@ -125,20 +163,27 @@ enum ViewType: String {
 // MARK: - UISearchBarDelegate
 extension SmallTopBarView: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        print(object: "search button tap")
+        searchBar.resignFirstResponder()
+        
+        // TODO: - ADD API TO SEARCH ORGANIZATIONS
+        
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        UIView.animate(withDuration: 0.5, animations: {
-            self.view.bringSubview(toFront: self.searchBar)
-            self.searchBar.isHidden             =   true
+        UIView.animate(withDuration: 0.3, animations: {
+//            self.view.bringSubview(toFront: self.searchBar)
+            self.searchBar.alpha                        =   0
+            self.searchBar.transform                    =   CGAffineTransform(translationX: 800, y: 0)
         }, completion: { success in
             UIView.animate(withDuration: 0.5, animations: {
-                self.searchButton.isHidden      =   false
-                self.titleLabel.isHidden        =   false
+                self.searchButton.alpha                 =   1
+                self.titleLabel.alpha                   =   1
             })
             
             searchBar.resignFirstResponder()
         })
+    }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
     }
 }

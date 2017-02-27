@@ -42,6 +42,8 @@ class MessagesShowViewController: BaseViewController {
             tableViewManager.tableView      =   tableView
             tableViewManager.sourceType     =   .Message
 
+            smallTopBarView.searchBar.placeholder   =   "Enter Organization name".localized()
+
             // Handler select cell
             tableViewManager.completionHandler = { organization in
                 // TODO: ADD TRANSITION TO CHAT

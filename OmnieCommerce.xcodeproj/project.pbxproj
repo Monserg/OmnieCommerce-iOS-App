@@ -292,6 +292,7 @@
 		B1CF54F01DDB5F1A00E98049 /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CF54EF1DDB5F1A00E98049 /* CustomLabel.swift */; };
 		B1D56BE71E6167AE008BCE54 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D56BE61E6167AE008BCE54 /* MapView.swift */; };
 		B1DA01B11DF1CB2F00E6DD46 /* UIFont+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DA01B01DF1CB2F00E6DD46 /* UIFont+Ext.swift */; };
+		B1DFAF181E64534C00DC70FA /* UItextField+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DFAF171E64534C00DC70FA /* UItextField+Ext.swift */; };
 		B1E52AB11DDDD0EA00C3B24D /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E52AB01DDDD0EA00C3B24D /* LaunchScreenViewController.swift */; };
 		B1E52AD31DDDDEC600C3B24D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1E52AD21DDDDEC600C3B24D /* Main.storyboard */; };
 		B1F7EDB81DF54878003B36AD /* SegmentedControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F7EDB71DF54878003B36AD /* SegmentedControlView.swift */; };
@@ -614,6 +615,7 @@
 		B1CF54EF1DDB5F1A00E98049 /* CustomLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
 		B1D56BE61E6167AE008BCE54 /* MapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		B1DA01B01DF1CB2F00E6DD46 /* UIFont+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+Ext.swift"; sourceTree = "<group>"; };
+		B1DFAF171E64534C00DC70FA /* UItextField+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UItextField+Ext.swift"; sourceTree = "<group>"; };
 		B1E52AB01DDDD0EA00C3B24D /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewController.swift; sourceTree = "<group>"; };
 		B1E52AD21DDDDEC600C3B24D /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		B1F7EDB71DF54878003B36AD /* SegmentedControlView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentedControlView.swift; sourceTree = "<group>"; };
@@ -1163,6 +1165,7 @@
 				B1DA01B01DF1CB2F00E6DD46 /* UIFont+Ext.swift */,
 				B1739D171DE314D50029BCCA /* UILabel+Ext.swift */,
 				B1739D1B1DE314E80029BCCA /* UIView+Ext.swift */,
+				B1DFAF171E64534C00DC70FA /* UItextField+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1724,6 +1727,7 @@
 				B1CF54861DDB50F100E98049 /* BusinessCardsShowModels.swift in Sources */,
 				B1739D181DE314D50029BCCA /* UILabel+Ext.swift in Sources */,
 				B122F1DD1DD35B760018A701 /* OrdersShowModels.swift in Sources */,
+				B1DFAF181E64534C00DC70FA /* UItextField+Ext.swift in Sources */,
 				B1FFF7021E5ECDF900A075D8 /* OrganizationsShowModels.swift in Sources */,
 				B1CF54CC1DDB51A500E98049 /* PersonalPageShowModels.swift in Sources */,
 				B1739D1A1DE314DF0029BCCA /* UIColor+Ext.swift in Sources */,

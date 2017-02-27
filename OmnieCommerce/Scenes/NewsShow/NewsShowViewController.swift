@@ -43,6 +43,8 @@ class NewsShowViewController: BaseViewController {
             tableViewManager.tableView      =   tableView
             tableViewManager.sourceType     =   .News
             
+            smallTopBarView.searchBar.placeholder   =   "Enter Organization name".localized()
+
             // Handler select cell
             tableViewManager.completionHandler = { organization in
                 // TODO: ADD TRANSITION TO NEWS PROFILE

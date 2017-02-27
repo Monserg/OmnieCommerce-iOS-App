@@ -50,6 +50,8 @@ class OrganizationsShowViewController: BaseViewController {
             tableViewManager.tableView      =   tableView
             tableViewManager.sourceType     =   .Organization
             
+            smallTopBarView.searchBar.placeholder   =   "Enter Organization name".localized()
+            
             // Handler select cell
             tableViewManager.completionHandler = { organization in
                 // TODO: ADD TRANSITION TO ORGANIZATION PROFILE
