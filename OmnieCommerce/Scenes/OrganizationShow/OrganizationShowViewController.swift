@@ -10,6 +10,8 @@
 //
 
 import UIKit
+import Alamofire
+import AlamofireImage
 
 // MARK: - Input protocols for current ViewController component VIP-cicle
 protocol OrganizationShowViewControllerInput {
@@ -27,6 +29,14 @@ class OrganizationShowViewController: BaseViewController {
     var router: OrganizationShowRouter!
     
     var organization: Organization!
+    var headerView: UMParallaxView?
+    
+    @IBOutlet var scrollView: UIScrollView! {
+        didSet {
+            scrollView.delegate     =   self
+            scrollView.setScrollIndicatorColor(UIColor.veryLightOrange)
+        }
+    }
     
     @IBOutlet weak var smallTopBarView: SmallTopBarView!
 
@@ -63,6 +73,51 @@ class OrganizationShowViewController: BaseViewController {
         // Handler Back button tap
         smallTopBarView.handlerSendButtonCompletion = { _ in
             _ = self.navigationController?.popViewController(animated: true)
+        }
+        
+        // Parallax
+        if (organization.headerURL != nil) {
+            headerView                      =   UMParallaxView(height: 150, fixed: true)
+            headerView!.backgroundColor     =   UIColor.clear
+            
+            Alamofire.request(organization.headerURL!).responseImage { response in
+                if let image = response.result.value {
+                    self.headerView!.image  =   image
+                }
+            }
+
+            headerView!.maxHeight           =   150
+            headerView!.minHeight           =   smallTopBarView.bounds.height
+            smallTopBarView.alpha           =   0
+//            smallTopBarView.transform       =   CGAffineTransform(translationX: 0, y: -smallTopBarView.bounds.height)
+            
+            headerView?.attachTo(scrollView)
+            
+            scrollView.contentSize  =   CGSize(width: self.view.frame.width, height: self.view.frame.height + 150)
+        }
+    }
+    
+    
+    // MARK: - UIScrollViewDelegate
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        guard headerView != nil else {
+            return
+        }
+        
+        headerView?.scrollViewDidScroll(scrollView)
+        
+        if (headerView!.frame.height == headerView!.minHeight && smallTopBarView.alpha == 0) {
+            UIView.animate(withDuration: 0.7, animations: {
+                self.smallTopBarView.alpha          =   1
+//                self.smallTopBarView!.transform     =   CGAffineTransform(translationX: 0, y: 0)
+                self.headerView!.alpha              =   0
+            })
+        } else if (headerView!.frame.height != headerView!.minHeight && headerView!.alpha == 0) {
+            UIView.animate(withDuration: 0.7, animations: {
+                self.smallTopBarView.alpha          =   0
+//                self.smallTopBarView!.transform     =   CGAffineTransform(translationX: 0, y: -self.smallTopBarView.bounds.height)
+                self.headerView!.alpha              =   1
+            })
         }
     }
 }

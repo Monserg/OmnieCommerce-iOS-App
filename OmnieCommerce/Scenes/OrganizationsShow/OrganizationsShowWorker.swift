@@ -44,6 +44,7 @@ class OrganizationsShowWorker {
                                             addressCity: nil,
                                             addressStreet: nil,
                                             logoURL: (Int(arc4random_uniform(2)) == 1) ? "http://vignette2.wikia.nocookie.net/logopedia/images/2/25/BMW_logo.png/revision/latest?cb=20150410110027" : nil,
+                                            headerURL: (Int(arc4random_uniform(2)) == 1) ? "http://www.khmelnytskyi-park.com.ua/wp-content/uploads/2016/08/KP6.jpg" : nil,
                                             rating: Double(arc4random_uniform(6)),
                                             isFavorite: (Int(arc4random_uniform(2)) == 1) ? true : false)
             

@@ -15,5 +15,5 @@ target 'OmnieCommerce' do
     pod 'AFNetworking', '~> 3.1'
     pod 'SwiftyVK', '~> 2.0'
     pod 'Google/SignIn'
-
+    
 end

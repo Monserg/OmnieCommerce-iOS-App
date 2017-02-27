@@ -18,6 +18,7 @@ struct Organization: SearchObject {
     var addressCity: String?
     var addressStreet: String?
     var logoURL: String?
+    var headerURL: String?
     var rating              =   0.0
     var isFavorite: Bool    =   false
 }

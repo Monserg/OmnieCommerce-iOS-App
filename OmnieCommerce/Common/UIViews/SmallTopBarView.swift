@@ -18,7 +18,7 @@ enum ViewType: String {
 @IBDesignable class SmallTopBarView: UIView {
     // MARK: - Properties
     var handlerSendButtonCompletion: HandlerSendButtonCompletion?
-    
+
     @IBOutlet var view: UIView!
     @IBOutlet weak var circleView: SmallCirleView!
     @IBOutlet weak var titleLabel: CustomLabel!
