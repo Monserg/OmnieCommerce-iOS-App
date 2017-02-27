@@ -76,6 +76,7 @@
 "Phone or Email"                =   "Телефон или Email";
 "Enter Code"                    =   "Введите код из сообщения";
 "Repeat password"               =   "Повторить пароль";
+"Enter Organization name"       =   "Введите название организации";
 
 
 // Segmented Control Titles

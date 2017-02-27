@@ -14,6 +14,7 @@
                 <outlet property="actionButton" destination="1UU-5B-Xhy" id="iLH-61-EKE"/>
                 <outlet property="circleView" destination="kst-NW-aRW" id="bf6-OY-a7q"/>
                 <outlet property="dottesStackView" destination="ef5-nQ-6Bi" id="9FI-vq-4U6"/>
+                <outlet property="searchBar" destination="NQE-rU-agZ" id="Kxd-PH-gMa"/>
                 <outlet property="searchButton" destination="FNP-4w-rop" id="obE-VI-N2j"/>
                 <outlet property="titleLabel" destination="HQM-9u-rBz" id="usx-1b-NgG"/>
                 <outlet property="view" destination="iN0-l3-epB" id="pfh-W6-wIu"/>
@@ -41,7 +42,7 @@
                             <state key="normal" image="icon-menu-normal"/>
                         </button>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Orders" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HQM-9u-rBz" userLabel="Title Label" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                            <rect key="frame" x="56" y="7.5" width="306" height="29"/>
+                            <rect key="frame" x="56" y="12.5" width="306" height="20.5"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
@@ -52,7 +53,7 @@
                             </userDefinedRuntimeAttributes>
                         </label>
                         <stackView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="ef5-nQ-6Bi">
-                            <rect key="frame" x="189" y="40.5" width="36" height="4"/>
+                            <rect key="frame" x="189" y="37" width="36" height="4"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x6s-gG-iKi" userLabel="Dot 1 View" customClass="DotView" customModule="OmnieCommerce" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="4" height="4"/>
@@ -107,6 +108,16 @@
                                 <constraint firstAttribute="height" constant="4" id="I5X-Sh-2dA"/>
                             </constraints>
                         </stackView>
+                        <searchBar hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="redraw" placeholder="Enter Organization name" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NQE-rU-agZ">
+                            <rect key="frame" x="48" y="0.0" width="366" height="44"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <color key="barTintColor" red="0.0" green="0.57647058823529407" blue="0.58431372549019611" alpha="1" colorSpace="calibratedRGB"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no" returnKeyType="search" enablesReturnKeyAutomatically="YES"/>
+                            <scopeButtonTitles>
+                                <string>Title</string>
+                                <string>Title</string>
+                            </scopeButtonTitles>
+                        </searchBar>
                         <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FNP-4w-rop" userLabel="Search Button">
                             <rect key="frame" x="366" y="0.0" width="44" height="44"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -124,8 +135,11 @@
                     <constraints>
                         <constraint firstItem="1UU-5B-Xhy" firstAttribute="leading" secondItem="OTQ-6X-f87" secondAttribute="leading" constant="4" id="8cd-N0-2Qg"/>
                         <constraint firstItem="FNP-4w-rop" firstAttribute="leading" secondItem="HQM-9u-rBz" secondAttribute="trailing" constant="4" id="Cz6-PU-kg7"/>
+                        <constraint firstAttribute="trailing" secondItem="NQE-rU-agZ" secondAttribute="trailing" id="EIe-lg-3er"/>
+                        <constraint firstItem="NQE-rU-agZ" firstAttribute="centerY" secondItem="OTQ-6X-f87" secondAttribute="centerY" id="TLI-b4-wgM"/>
                         <constraint firstAttribute="height" constant="44" id="Tad-pS-19t"/>
                         <constraint firstItem="ef5-nQ-6Bi" firstAttribute="centerX" secondItem="OTQ-6X-f87" secondAttribute="centerX" id="Z8g-np-luF"/>
+                        <constraint firstItem="NQE-rU-agZ" firstAttribute="leading" secondItem="1UU-5B-Xhy" secondAttribute="trailing" id="ghL-0N-AoT"/>
                         <constraint firstItem="1UU-5B-Xhy" firstAttribute="centerY" secondItem="OTQ-6X-f87" secondAttribute="centerY" id="ri0-Kd-0cx"/>
                         <constraint firstAttribute="trailing" secondItem="FNP-4w-rop" secondAttribute="trailing" constant="4" id="sxe-82-sZm"/>
                         <constraint firstItem="ef5-nQ-6Bi" firstAttribute="top" secondItem="HQM-9u-rBz" secondAttribute="bottom" constant="4" id="usi-nX-d5e"/>

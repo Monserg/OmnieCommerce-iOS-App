@@ -26,6 +26,12 @@ enum ViewType: String {
     @IBOutlet weak var searchButton: UIButton!
     @IBOutlet weak var dottesStackView: UIStackView!
     
+    @IBOutlet weak var searchBar: UISearchBar! {
+        didSet {
+            searchBar.delegate      =   self
+        }
+    }
+    
     @IBInspectable var titleText: String? {
         didSet {
             setup()
@@ -58,12 +64,6 @@ enum ViewType: String {
         print(object: "\(type(of: self)): \(#function) run. Rect = \(rect)")
     }
     
-    
-    // MARK: - Actions
-    @IBAction func handlerSearchButtonTap(_ sender: UIButton) {
-        print(object: "\(type(of: self)): \(#function) run.")
-    }
-
     
     // MARK: - Custom Functions
     func createFromXIB() {
@@ -105,5 +105,40 @@ enum ViewType: String {
     // MARK: - Actions
     func handlerLeftActionButtonTap(_ sender: UIButton) {
         handlerSendButtonCompletion!()
+    }
+    
+    @IBAction func handlerSearchButtonTap(_ sender: UIButton) {
+        UIView.animate(withDuration: 0.5, animations: { 
+            sender.isHidden                 =   true
+            self.titleLabel.isHidden        =   true
+        }, completion: { success in
+            UIView.animate(withDuration: 0.5, animations: {
+                self.view.bringSubview(toFront: self.searchBar)
+                self.searchBar.isHidden     =   false
+            })
+
+        })
+    }
+}
+
+
+// MARK: - UISearchBarDelegate
+extension SmallTopBarView: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        print(object: "search button tap")
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        UIView.animate(withDuration: 0.5, animations: {
+            self.view.bringSubview(toFront: self.searchBar)
+            self.searchBar.isHidden             =   true
+        }, completion: { success in
+            UIView.animate(withDuration: 0.5, animations: {
+                self.searchButton.isHidden      =   false
+                self.titleLabel.isHidden        =   false
+            })
+            
+            searchBar.resignFirstResponder()
+        })
     }
 }
