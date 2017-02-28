@@ -18,8 +18,9 @@ enum ButtonStyle: String {
     case DropDownList = "DropDownList"
     case MenuEvent = "MenuEvent"
     case Circular = "Circular"
-    case ActionViewOrangeButton                         =   "ActionViewOrangeButton"
-    case TitleUbuntuLight12UndirlineVeryLightGray       =   "TitleUbuntuLight12UndirlineVeryLightGray"
+    case ActionViewOrangeButton                             =   "ActionViewOrangeButton"
+    case TitleUbuntuLight12UndirlineVeryLightGray           =   "TitleUbuntuLight12UndirlineVeryLightGray"
+    case TitleUbuntuLightItalic12UndirlineVeryLightOrange   =   "TitleUbuntuLightItalic12UndirlineVeryLightOrange"
 }
 
 
@@ -127,6 +128,10 @@ extension UIButton {
             
         case .TitleUbuntuLight12UndirlineVeryLightGray:
             setAttributedTitle(NSAttributedString(string: (titleLabel?.text?.localized())!, attributes: UIFont.ubuntuLight12UnderlineVeryLightGray), for: .normal)
+            
+        case .TitleUbuntuLightItalic12UndirlineVeryLightOrange:
+            setAttributedTitle(NSAttributedString(string: (titleLabel?.text?.localized())!, attributes: UIFont.ubuntuLightItalic12UnderlineVeryLightOrange), for: .normal)
+            setAttributedTitle(NSAttributedString(string: (titleLabel?.text?.localized())!, attributes: UIFont.ubuntuLightItalic12UnderlineVeryLightOrangeAlpha30), for: .highlighted)
         }
     }
     

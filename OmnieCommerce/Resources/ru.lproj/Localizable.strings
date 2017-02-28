@@ -65,6 +65,9 @@
 "By organizations"              =   "По организациям";
 "By services"                   =   "По услугам";
 "By all categories"             =   "Все";
+"Address"                       =   "Адрес";
+"Phones"                        =   "Телефоны";
+"Schedule"                      =   "График";
 
 
 // TextField Placeholders

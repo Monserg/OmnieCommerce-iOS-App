@@ -38,6 +38,11 @@ class OrganizationShowViewController: BaseViewController {
     }
     
     @IBOutlet weak var smallTopBarView: SmallTopBarView!
+    
+    // Info view
+    @IBOutlet weak var infoView: UIView!
+    @IBOutlet weak var logoImageView: CustomImageView!
+    @IBOutlet weak var nameLabel: CustomLabel!
 
     
     // MARK: - Class initialization
@@ -103,6 +108,22 @@ class OrganizationShowViewController: BaseViewController {
             
             scrollView.contentSize          =   CGSize(width: self.view.frame.width, height: self.view.frame.height + 150)
         }
+        
+        // Initial Info view
+        nameLabel.text                      =   organization.name + " jashdjk hjahdjahs hahd asd asdgag dgahd ghasg hgash dgashjgd ags dgasdaseyqteyqu  i slasldklaskdasklaskdlask"
+        nameLabel.lineBreakMode             =   .byTruncatingTail
+        nameLabel.numberOfLines             =   2
+        nameLabel.adjustsFontSizeToFitWidth =   false
+        
+        
+        if (organization.logoURL != nil) {
+            Alamofire.request(organization.logoURL!).responseImage { response in
+                if let image = response.result.value {
+                    self.logoImageView!.image           =   image
+                    self.logoImageView!.contentMode     =   .scaleAspectFit
+                }
+            }
+        }
     }
     
     
@@ -117,7 +138,7 @@ class OrganizationShowViewController: BaseViewController {
         scrollView.indicatorDidChange(UIColor.veryLightOrange)
         
         guard headerView != nil else {
-            scrollView.scrollIndicatorInsets    =   UIEdgeInsets(top: smallTopBarView.frame.height, left: 0, bottom: 0, right: 0)
+            scrollView.transform                =   CGAffineTransform(translationX: 0, y: smallTopBarView.frame.height - 30)
             
             return
         }
@@ -149,6 +170,15 @@ class OrganizationShowViewController: BaseViewController {
         
         print(object: "top = \(scrollView.contentInset.top)")
         print(object: "height = \(headerView!.frame.height)")
+    }
+    
+    @IBAction func handlerAddressButtonTap(_ sender: CustomButton) {
+    }
+    
+    @IBAction func handlerPhonesButtonTap(_ sender: CustomButton) {
+    }
+    
+    @IBAction func handlerScheduleButtonTap(_ sender: CustomButton) {
     }
 }
 

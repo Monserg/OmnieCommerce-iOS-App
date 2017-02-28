@@ -12,9 +12,15 @@ import AlamofireImage
 
 @IBDesignable class CustomImageView: UIImageView {
     // MARK: - Properties
+    @IBInspectable var isCircle: Bool = false {
+        didSet {
+            layer.cornerRadius  =   (isCircle) ? frame.height / 2 : 0
+        }
+    }
+
     @IBInspectable var borderWidth: CGFloat = 1.0 {
         didSet {
-            layer.borderWidth = borderWidth
+            layer.borderWidth   =   borderWidth
         }
     }
     
