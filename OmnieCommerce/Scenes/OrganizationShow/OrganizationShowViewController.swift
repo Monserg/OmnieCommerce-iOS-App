@@ -34,7 +34,6 @@ class OrganizationShowViewController: BaseViewController {
     @IBOutlet var scrollView: UIScrollView! {
         didSet {
             scrollView.delegate     =   self
-            scrollView.setScrollIndicatorColor(UIColor.veryLightOrange)
         }
     }
     
@@ -102,7 +101,7 @@ class OrganizationShowViewController: BaseViewController {
             
             headerView?.attachTo(scrollView)
             
-            scrollView.contentSize  =   CGSize(width: self.view.frame.width, height: self.view.frame.height + 150)
+            scrollView.contentSize          =   CGSize(width: self.view.frame.width, height: self.view.frame.height + 150)
         }
     }
     
@@ -115,23 +114,41 @@ class OrganizationShowViewController: BaseViewController {
     
     // MARK: - UIScrollViewDelegate
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        scrollView.indicatorDidChange(UIColor.veryLightOrange)
+        
         guard headerView != nil else {
+            scrollView.scrollIndicatorInsets    =   UIEdgeInsets(top: smallTopBarView.frame.height, left: 0, bottom: 0, right: 0)
+            
             return
         }
         
-        headerView?.scrollViewDidScroll(scrollView)
+        headerView!.scrollViewDidScroll(scrollView)
+       
+        print(object: "y = \(scrollView.contentOffset.y)")
+        print(object: "height = \(headerView!.frame.height)")
+
+        if smallTopBarView.frame.height...(headerView!.maxHeight + 20) ~= headerView!.frame.height {
+            scrollView.scrollIndicatorInsets    =   UIEdgeInsets(top: abs(scrollView.contentOffset.y), left: 0, bottom: 0, right: 0)
+        }
         
+        if headerView!.minHeight...smallTopBarView.frame.height ~= headerView!.frame.height {
+            scrollView.scrollIndicatorInsets    =   UIEdgeInsets(top: smallTopBarView.frame.height, left: 0, bottom: 0, right: 0)
+        }
+
         if (headerView!.frame.height == headerView!.minHeight && smallTopBarView.alpha == 0) {
             UIView.animate(withDuration: 0.7, animations: {
-                self.smallTopBarView.alpha  =   1
-                self.headerView!.alpha      =   0
+                self.smallTopBarView.alpha      =   1
+                self.headerView!.alpha          =   0
             })
         } else if (headerView!.frame.height != headerView!.minHeight && headerView!.alpha == 0) {
             UIView.animate(withDuration: 0.7, animations: {
-                self.smallTopBarView.alpha  =   0
-                self.headerView!.alpha      =   1
+                self.smallTopBarView.alpha      =   0
+                self.headerView!.alpha          =   1
             })
         }
+        
+        print(object: "top = \(scrollView.contentInset.top)")
+        print(object: "height = \(headerView!.frame.height)")
     }
 }
 
