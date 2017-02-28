@@ -43,6 +43,7 @@ class OrganizationShowViewController: BaseViewController {
     @IBOutlet weak var infoView: UIView!
     @IBOutlet weak var logoImageView: CustomImageView!
     @IBOutlet weak var nameLabel: CustomLabel!
+    @IBOutlet weak var favoriteButton: CustomButton!
 
     
     // MARK: - Class initialization
@@ -115,7 +116,9 @@ class OrganizationShowViewController: BaseViewController {
         nameLabel.numberOfLines             =   2
         nameLabel.adjustsFontSizeToFitWidth =   false
         
-        
+        favoriteButton.tag                  =   (organization.isFavorite) ? 1 : 0
+        favoriteButton.setImage(UIImage.init(named: (favoriteButton.tag == 0) ? "image-favorite-star-normal" : "image-favorite-star-selected"), for: .normal)
+
         if (organization.logoURL != nil) {
             Alamofire.request(organization.logoURL!).responseImage { response in
                 if let image = response.result.value {
@@ -173,12 +176,21 @@ class OrganizationShowViewController: BaseViewController {
     }
     
     @IBAction func handlerAddressButtonTap(_ sender: CustomButton) {
+        router.navigateToOrganizationsMapShowScene(organization)
     }
     
     @IBAction func handlerPhonesButtonTap(_ sender: CustomButton) {
     }
     
     @IBAction func handlerScheduleButtonTap(_ sender: CustomButton) {
+    }
+    
+    @IBAction func handlerFavoriteButtonTap(_ sender: UIButton) {
+        sender.tag      =   (sender.tag == 0) ? 1 : 0
+        
+        sender.setImage(UIImage.init(named: (sender.tag == 0) ? "image-favorite-star-normal" : "image-favorite-star-selected"), for: .normal)
+        
+        // TODO: - ADD API TO POST FAVORITE STATE & CHANGE ORGANIZATION PROFILE
     }
 }
 

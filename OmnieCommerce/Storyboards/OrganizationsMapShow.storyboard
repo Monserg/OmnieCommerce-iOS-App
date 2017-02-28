@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -34,8 +35,52 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="titleText" value="Map"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="drL-zB-iSh" userLabel="Info View">
+                                <rect key="frame" x="0.0" y="593.5" width="375" height="45"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-address-orange-normal" translatesAutoresizingMaskIntoConstraints="NO" id="VNH-Bn-faD" userLabel="Location Image View">
+                                        <rect key="frame" x="143.5" y="9.5" width="30" height="30"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="VNH-Bn-faD" secondAttribute="height" multiplier="1:1" id="KPK-uC-uVm"/>
+                                        </constraints>
+                                    </imageView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Kvx-Yt-u7p">
+                                        <rect key="frame" x="173.5" y="9.5" width="29" height="27"/>
+                                        <subviews>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="elm-Xv-Uqe" userLabel="City Label" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="29" height="13.5"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="labelStyle" value="UbuntuLight12VeryLightGray"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </label>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1BF-H0-42l" userLabel="Street Label" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="13.5" width="29" height="13.5"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="labelStyle" value="UbuntuLight12VeryLightGray"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.57647058823529407" blue="0.58431372549019611" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="Kvx-Yt-u7p" firstAttribute="centerY" secondItem="drL-zB-iSh" secondAttribute="centerY" id="Bwd-1w-4Dj"/>
+                                    <constraint firstItem="Kvx-Yt-u7p" firstAttribute="centerX" secondItem="drL-zB-iSh" secondAttribute="centerX" id="Fc6-de-Dh3"/>
+                                    <constraint firstItem="Kvx-Yt-u7p" firstAttribute="top" secondItem="VNH-Bn-faD" secondAttribute="top" id="Leb-yH-7pA"/>
+                                    <constraint firstItem="Kvx-Yt-u7p" firstAttribute="leading" secondItem="VNH-Bn-faD" secondAttribute="trailing" id="UI6-JG-Jf8"/>
+                                </constraints>
+                            </view>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3d9-Qt-0Tr" userLabel="Copyright Label" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                                <rect key="frame" x="8" y="647" width="359" height="10.5"/>
+                                <rect key="frame" x="8" y="647.5" width="359" height="10.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -60,25 +105,38 @@
                             <constraint firstAttribute="trailing" secondItem="Fg2-g7-Pmf" secondAttribute="trailing" id="6ia-VD-qjQ"/>
                             <constraint firstAttribute="bottom" secondItem="3d9-Qt-0Tr" secondAttribute="bottom" constant="9" id="BFR-aI-yAf"/>
                             <constraint firstItem="3d9-Qt-0Tr" firstAttribute="centerX" secondItem="tP1-Vk-hMS" secondAttribute="centerX" id="Gzt-F7-6yk"/>
+                            <constraint firstItem="VNH-Bn-faD" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="30:667" id="OXP-89-pbW"/>
+                            <constraint firstItem="VNH-Bn-faD" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="30:375" id="TTL-4D-8Ig"/>
                             <constraint firstAttribute="trailing" secondItem="3d9-Qt-0Tr" secondAttribute="trailing" constant="8" id="Tdg-4A-3Gn"/>
                             <constraint firstItem="0ff-i1-cWe" firstAttribute="centerX" secondItem="tP1-Vk-hMS" secondAttribute="centerX" id="WAX-Sz-LA4"/>
                             <constraint firstItem="Fg2-g7-Pmf" firstAttribute="leading" secondItem="tP1-Vk-hMS" secondAttribute="leading" id="YA4-sD-5WW"/>
                             <constraint firstItem="Fg2-g7-Pmf" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="95:667" id="ZbF-Ja-PwO"/>
+                            <constraint firstItem="3d9-Qt-0Tr" firstAttribute="top" secondItem="drL-zB-iSh" secondAttribute="bottom" constant="9" id="ZqC-CL-dP1"/>
                             <constraint firstAttribute="bottom" secondItem="MdL-Lr-kmn" secondAttribute="bottom" id="bzc-Qx-Sza"/>
                             <constraint firstAttribute="trailing" secondItem="MdL-Lr-kmn" secondAttribute="trailing" id="fTX-Ym-JI7"/>
                             <constraint firstItem="Fg2-g7-Pmf" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="80:375" id="hb0-zV-YBD"/>
+                            <constraint firstAttribute="trailing" secondItem="drL-zB-iSh" secondAttribute="trailing" id="kIb-2p-OQH"/>
+                            <constraint firstItem="drL-zB-iSh" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="45:667" id="nTj-uv-Mkh"/>
                             <constraint firstItem="0ff-i1-cWe" firstAttribute="centerY" secondItem="tP1-Vk-hMS" secondAttribute="centerY" id="qj9-a2-TWW"/>
+                            <constraint firstItem="drL-zB-iSh" firstAttribute="leading" secondItem="tP1-Vk-hMS" secondAttribute="leading" id="vbi-Me-iaU"/>
                             <constraint firstItem="MdL-Lr-kmn" firstAttribute="top" secondItem="Fg2-g7-Pmf" secondAttribute="bottom" constant="-50" id="xqY-nk-vXK"/>
+                            <constraint firstItem="drL-zB-iSh" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="45:375" id="yOF-Cc-iy4"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="ZbF-Ja-PwO"/>
+                                <exclude reference="nTj-uv-Mkh"/>
+                                <exclude reference="OXP-89-pbW"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="constraints">
                                 <include reference="ZbF-Ja-PwO"/>
                                 <exclude reference="hb0-zV-YBD"/>
+                                <include reference="nTj-uv-Mkh"/>
+                                <exclude reference="yOF-Cc-iy4"/>
+                                <include reference="OXP-89-pbW"/>
+                                <exclude reference="TTL-4D-8Ig"/>
                             </mask>
                         </variation>
                     </view>
@@ -86,9 +144,12 @@
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="cityLabel" destination="elm-Xv-Uqe" id="lCr-Db-gtj"/>
+                        <outlet property="infoView" destination="drL-zB-iSh" id="gif-yA-dga"/>
                         <outlet property="mapView" destination="MdL-Lr-kmn" id="GOA-3v-hb6"/>
                         <outlet property="smallTopBarView" destination="Fg2-g7-Pmf" id="Ydp-aQ-WF5"/>
                         <outlet property="spinner" destination="0ff-i1-cWe" id="2WT-Yh-UXF"/>
+                        <outlet property="streetLabel" destination="1BF-H0-42l" id="Ioo-lT-KQG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Otj-fC-KTJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -96,4 +157,7 @@
             <point key="canvasLocation" x="1556" y="-15.742128935532236"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="icon-address-orange-normal" width="6" height="9"/>
+    </resources>
 </document>

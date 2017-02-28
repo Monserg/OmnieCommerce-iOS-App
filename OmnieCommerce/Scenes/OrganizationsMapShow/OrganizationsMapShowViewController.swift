@@ -33,6 +33,11 @@ class OrganizationsMapShowViewController: BaseViewController {
 
     @IBOutlet weak var smallTopBarView: SmallTopBarView!
     @IBOutlet weak var spinner: UIActivityIndicatorView!
+    
+    // Info view
+    @IBOutlet weak var infoView: UIView!
+    @IBOutlet weak var cityLabel: CustomLabel!
+    @IBOutlet weak var streetLabel: CustomLabel!
 
     @IBOutlet weak var mapView: MapView! {
         didSet {
@@ -77,6 +82,14 @@ class OrganizationsMapShowViewController: BaseViewController {
         // Handler Back button tap
         smallTopBarView.handlerSendButtonCompletion = { _ in
             _ = self.navigationController?.popViewController(animated: true)
+        }
+        
+        if (organizations.count == 1) {
+            infoView.isHidden       =   false
+            cityLabel.text          =   organizations.first!.addressCity
+            streetLabel.text        =   organizations.first!.addressStreet
+        } else {
+            infoView.isHidden       =   true
         }
         
         // Load point annotations
