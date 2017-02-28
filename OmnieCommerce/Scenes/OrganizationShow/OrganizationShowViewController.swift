@@ -80,21 +80,36 @@ class OrganizationShowViewController: BaseViewController {
             headerView                      =   UMParallaxView(height: 150, fixed: true)
             headerView!.backgroundColor     =   UIColor.clear
             
+            // Get header image
             Alamofire.request(organization.headerURL!).responseImage { response in
                 if let image = response.result.value {
                     self.headerView!.image  =   image
                 }
             }
 
+            // Add Back button
+            let backButton                  =   UIButton.init(frame: CGRect.init(origin: CGPoint.init(x: 4, y: 20), size: CGSize.init(width: 44, height: 44)))
+            backButton.imageEdgeInsets      =   UIEdgeInsets(top: 0, left: -16, bottom: 0, right: 0)
+            backButton.setImage(UIImage.init(named: "icon-back-bar-button-normal"), for: .normal)
+            backButton.addTarget(self, action: #selector(handlerBackButtonTap), for: .touchUpInside)
+            
+            headerView!.addSubview(backButton)
+            
+            // Settings
             headerView!.maxHeight           =   150
             headerView!.minHeight           =   smallTopBarView.bounds.height
             smallTopBarView.alpha           =   0
-//            smallTopBarView.transform       =   CGAffineTransform(translationX: 0, y: -smallTopBarView.bounds.height)
             
             headerView?.attachTo(scrollView)
             
             scrollView.contentSize  =   CGSize(width: self.view.frame.width, height: self.view.frame.height + 150)
         }
+    }
+    
+    
+    // MARK: - Actions
+    func handlerBackButtonTap(_ sender: UIButton) {
+        _ = self.navigationController?.popViewController(animated: true)
     }
     
     
@@ -108,15 +123,13 @@ class OrganizationShowViewController: BaseViewController {
         
         if (headerView!.frame.height == headerView!.minHeight && smallTopBarView.alpha == 0) {
             UIView.animate(withDuration: 0.7, animations: {
-                self.smallTopBarView.alpha          =   1
-//                self.smallTopBarView!.transform     =   CGAffineTransform(translationX: 0, y: 0)
-                self.headerView!.alpha              =   0
+                self.smallTopBarView.alpha  =   1
+                self.headerView!.alpha      =   0
             })
         } else if (headerView!.frame.height != headerView!.minHeight && headerView!.alpha == 0) {
             UIView.animate(withDuration: 0.7, animations: {
-                self.smallTopBarView.alpha          =   0
-//                self.smallTopBarView!.transform     =   CGAffineTransform(translationX: 0, y: -self.smallTopBarView.bounds.height)
-                self.headerView!.alpha              =   1
+                self.smallTopBarView.alpha  =   0
+                self.headerView!.alpha      =   1
             })
         }
     }
