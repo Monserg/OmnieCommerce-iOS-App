@@ -39,7 +39,7 @@
                                 <rect key="frame" x="0.0" y="593.5" width="375" height="45"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-address-orange-normal" translatesAutoresizingMaskIntoConstraints="NO" id="VNH-Bn-faD" userLabel="Location Image View">
-                                        <rect key="frame" x="143.5" y="9.5" width="30" height="30"/>
+                                        <rect key="frame" x="153.5" y="9.5" width="20" height="20"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="VNH-Bn-faD" secondAttribute="height" multiplier="1:1" id="KPK-uC-uVm"/>
@@ -105,8 +105,8 @@
                             <constraint firstAttribute="trailing" secondItem="Fg2-g7-Pmf" secondAttribute="trailing" id="6ia-VD-qjQ"/>
                             <constraint firstAttribute="bottom" secondItem="3d9-Qt-0Tr" secondAttribute="bottom" constant="9" id="BFR-aI-yAf"/>
                             <constraint firstItem="3d9-Qt-0Tr" firstAttribute="centerX" secondItem="tP1-Vk-hMS" secondAttribute="centerX" id="Gzt-F7-6yk"/>
-                            <constraint firstItem="VNH-Bn-faD" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="30:667" id="OXP-89-pbW"/>
-                            <constraint firstItem="VNH-Bn-faD" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="30:375" id="TTL-4D-8Ig"/>
+                            <constraint firstItem="VNH-Bn-faD" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="20:667" id="OXP-89-pbW"/>
+                            <constraint firstItem="VNH-Bn-faD" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="20:375" id="TTL-4D-8Ig"/>
                             <constraint firstAttribute="trailing" secondItem="3d9-Qt-0Tr" secondAttribute="trailing" constant="8" id="Tdg-4A-3Gn"/>
                             <constraint firstItem="0ff-i1-cWe" firstAttribute="centerX" secondItem="tP1-Vk-hMS" secondAttribute="centerX" id="WAX-Sz-LA4"/>
                             <constraint firstItem="Fg2-g7-Pmf" firstAttribute="leading" secondItem="tP1-Vk-hMS" secondAttribute="leading" id="YA4-sD-5WW"/>

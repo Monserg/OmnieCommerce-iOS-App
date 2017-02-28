@@ -65,7 +65,7 @@ class OrganizationsMapShowViewController: BaseViewController {
         
         spinner.startAnimating()
         
-        smallTopBarView.type        =   "ChildSearch"
+        smallTopBarView.type        =   "Child"
         topBarViewStyle             =   .Small
         setup(topBarView: smallTopBarView)
 
