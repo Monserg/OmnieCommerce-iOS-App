@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PhonesView: UIView {
+class PhonesView: CustomView {
     // MARK: - Properties
     var phones: [String]?
     var isShow: Bool = false
@@ -49,6 +49,16 @@ class PhonesView: UIView {
             }
         }
     }
+    
+    override func didHide() {
+        UIView.animate(withDuration: 0.5, animations: {
+            self.alpha          =   0
+        }, completion: { success in
+            self.removeFromSuperview()
+            
+            self.handlerCancelButtonCompletion!()
+        })
+    }
 
     
     // MARK: - Custom Functions
@@ -73,12 +83,6 @@ class PhonesView: UIView {
     }
     
     @IBAction func handlerCancelButtonTap(_ sender: UIButton) {
-        UIView.animate(withDuration: 0.5, animations: {
-            self.alpha          =   0
-        }, completion: { success in
-            self.removeFromSuperview()
-            
-            self.handlerCancelButtonCompletion!()
-        })
+        self.didHide()
     }
 }

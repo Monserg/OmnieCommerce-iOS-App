@@ -203,11 +203,10 @@ class OrganizationShowViewController: BaseViewController {
             phonesView!.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive  =   true
             phonesView!.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive  =   true
 
-//            phonesView!.transform               =   CGAffineTransform(translationX: 15 * widthRatio, y: view.center.y - phonesView!.frame.height / 2)
-            
-            UIView.animate(withDuration: 0.5, animations: {
-                self.phonesView!.alpha          =   1
-            })
+            phonesView!.didShow()
+//            UIView.animate(withDuration: 0.5, animations: {
+//                self.phonesView!.alpha          =   1
+//            })
             
             // Handler Cancel button tap
             phonesView!.handlerCancelButtonCompletion   =   { _ in
