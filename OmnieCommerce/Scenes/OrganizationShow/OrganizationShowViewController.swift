@@ -122,6 +122,8 @@ class OrganizationShowViewController: BaseViewController {
             backButton!.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 4).isActive           =   true
             backButton!.heightAnchor.constraint(equalToConstant: 44).isActive                           =   true
             backButton!.widthAnchor.constraint(equalToConstant: 44).isActive                            =   true
+            
+            scrollView.scrollIndicatorInsets            =   UIEdgeInsets(top: scrollView.parallaxHeader.view!.frame.maxY, left: 0, bottom: 0, right: 0)
         }
         
         // Initial Info view
@@ -224,9 +226,14 @@ extension OrganizationShowViewController: MXParallaxHeaderDelegate {
         if (0...0.4 ~= parallaxHeader.progress) {
             parallaxHeader.view?.didHide()
             smallTopBarView.didShow()
+            
+//            scrollView.scrollIndicatorInsets    =   UIEdgeInsets(top: smallTopBarView.frame.height, left: 0, bottom: 0, right: 0)
+
         } else {
             parallaxHeader.view?.didShow()
             smallTopBarView.didHide()
+
+//            scrollView.scrollIndicatorInsets    =   UIEdgeInsets(top: scrollView.parallaxHeader.height, left: 0, bottom: 0, right: 0)
         }
         
         //        guard headerView != nil else {
