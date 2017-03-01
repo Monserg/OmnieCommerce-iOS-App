@@ -54,6 +54,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>MXParallaxHeader.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Navajo-Swift.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -82,22 +87,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>0FAE084E0ABAAF2A36D0CFB98FE99892</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>107A9565F9DF88517DFD3E28C05B2B96</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>2F0FE1E2A5B1EF15139E10A40F05CE94</key>
+		<key>1CADB6B5CC06A06AD8A8F9087A6DC3A3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5B619C6004203B600A8E42A9E2BFE732</key>
+		<key>2F0FE1E2A5B1EF15139E10A40F05CE94</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -108,6 +108,11 @@
 			<true/>
 		</dict>
 		<key>681BE6E3D02A43F9BA63777AC435C8FD</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>82EBE58D9EA5705567A5925670C8B771</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -127,7 +132,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A2EC0D40C10C0E2BC6D1EAF05A2D1FA2</key>
+		<key>A3202534A3832266B3D4165B891F10BD</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -138,6 +143,11 @@
 			<true/>
 		</dict>
 		<key>CF671F7E57B92905F1CC91D036D6B4A7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E75E5BAC0FE6E4C6A5E5F95EA6807F8A</key>
 		<dict>
 			<key>primary</key>
 			<true/>

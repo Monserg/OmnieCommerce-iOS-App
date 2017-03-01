@@ -12,6 +12,7 @@
 import UIKit
 import Alamofire
 import AlamofireImage
+import MXParallaxHeader
 
 // MARK: - Input protocols for current ViewController component VIP-cicle
 protocol OrganizationShowViewControllerInput {
@@ -29,15 +30,12 @@ class OrganizationShowViewController: BaseViewController {
     var router: OrganizationShowRouter!
     
     var organization: Organization!
-    var headerView: UMParallaxView?
+    var headerView: UIImageView?
+    var backButton: UIButton?
+    
     var phonesView: PhonesView?
     
-    @IBOutlet var scrollView: UIScrollView! {
-        didSet {
-            scrollView.delegate     =   self
-        }
-    }
-    
+    @IBOutlet var scrollView: MXScrollView!
     @IBOutlet weak var smallTopBarView: SmallTopBarView!
     @IBOutlet weak var blackoutView: CustomView!
     
@@ -46,6 +44,12 @@ class OrganizationShowViewController: BaseViewController {
     @IBOutlet weak var logoImageView: CustomImageView!
     @IBOutlet weak var nameLabel: CustomLabel!
     @IBOutlet weak var favoriteButton: CustomButton!
+    
+    @IBOutlet weak var dottedBorderView: DottedBorderView! {
+        didSet {
+            dottedBorderView.style  =   .BottomDottedLine
+        }
+    }
 
     
     // MARK: - Class initialization
@@ -63,7 +67,7 @@ class OrganizationShowViewController: BaseViewController {
         smallTopBarView.type        =   "Child"
         topBarViewStyle             =   .Small
         setup(topBarView: smallTopBarView)
-        
+
         viewSettingsDidLoad()
     }
     
@@ -84,9 +88,9 @@ class OrganizationShowViewController: BaseViewController {
         
         // Parallax
         if (organization.headerURL != nil) {
-            headerView                      =   UMParallaxView(height: 150, fixed: true)
-            headerView!.backgroundColor     =   UIColor.clear
-            
+            headerView              =   UIImageView.init(frame: CGRect.init(origin: CGPoint.zero, size: CGSize.init(width: view.frame.width, height: 150)))
+            headerView!.contentMode =   .scaleAspectFill
+
             // Get header image
             Alamofire.request(organization.headerURL!).responseImage { response in
                 if let image = response.result.value {
@@ -94,22 +98,30 @@ class OrganizationShowViewController: BaseViewController {
                 }
             }
 
-            // Add Back button
-            let backButton                  =   UIButton.init(frame: CGRect.init(origin: CGPoint.init(x: 4, y: 20), size: CGSize.init(width: 44, height: 44)))
-            backButton.imageEdgeInsets      =   UIEdgeInsets(top: 0, left: -16, bottom: 0, right: 0)
-            backButton.setImage(UIImage.init(named: "icon-back-bar-button-normal"), for: .normal)
-            backButton.addTarget(self, action: #selector(handlerBackButtonTap), for: .touchUpInside)
-            
-            headerView!.addSubview(backButton)
-            
             // Settings
-            headerView!.maxHeight           =   150
-            headerView!.minHeight           =   smallTopBarView.bounds.height
-            smallTopBarView.alpha           =   0
+            scrollView.parallaxHeader.view              =   headerView
+            scrollView.parallaxHeader.height            =   150
+            scrollView.parallaxHeader.mode              =   .fill
+            scrollView.parallaxHeader.minimumHeight     =   smallTopBarView.frame.height
+            scrollView.parallaxHeader.delegate          =   self
+            scrollView.delegate                         =   self
+            scrollView.showsVerticalScrollIndicator     =   true
+            smallTopBarView.alpha                       =   0
+
+            // Add Back button
+            backButton                                  =   UIButton.init(frame: CGRect.init(origin: CGPoint.zero, size: CGSize.zero))
+            backButton!.imageEdgeInsets                 =   UIEdgeInsets(top: 0, left: -16, bottom: 0, right: 0)
+
+            backButton!.setImage(UIImage.init(named: "icon-back-bar-button-normal"), for: .normal)
+            backButton!.addTarget(self, action: #selector(handlerBackButtonTap), for: .touchUpInside)
             
-            headerView?.attachTo(scrollView)
-            
-            scrollView.contentSize          =   CGSize(width: self.view.frame.width, height: self.view.frame.height + 150)
+            view.addSubview(backButton!)
+            backButton!.translatesAutoresizingMaskIntoConstraints                                       =   false
+
+            backButton!.topAnchor.constraint(equalTo: view.topAnchor, constant: (UIApplication.shared.statusBarOrientation.isPortrait) ? 20 : 4).isActive     =   true
+            backButton!.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 4).isActive           =   true
+            backButton!.heightAnchor.constraint(equalToConstant: 44).isActive                           =   true
+            backButton!.widthAnchor.constraint(equalToConstant: 44).isActive                            =   true
         }
         
         // Initial Info view
@@ -132,49 +144,22 @@ class OrganizationShowViewController: BaseViewController {
     }
     
     
+    // MARK: - Transition
+    override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
+        // Portrait
+        if newCollection.containsTraits(in: UITraitCollection(verticalSizeClass: .regular)) {
+            backButton!.topAnchor.constraint(equalTo: view.topAnchor, constant: 20).isActive    =   true
+        } else {
+            backButton!.topAnchor.constraint(equalTo: view.topAnchor, constant: 4).isActive     =   true
+        }
+        
+        dottedBorderView.setNeedsDisplay()
+    }
+
+    
     // MARK: - Actions
     func handlerBackButtonTap(_ sender: UIButton) {
         _ = self.navigationController?.popViewController(animated: true)
-    }
-    
-    
-    // MARK: - UIScrollViewDelegate
-    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        scrollView.indicatorDidChange(UIColor.veryLightOrange)
-        
-        guard headerView != nil else {
-            scrollView.transform                =   CGAffineTransform(translationX: 0, y: smallTopBarView.frame.height - 30)
-            
-            return
-        }
-        
-        headerView!.scrollViewDidScroll(scrollView)
-       
-        print(object: "y = \(scrollView.contentOffset.y)")
-        print(object: "height = \(headerView!.frame.height)")
-
-        if smallTopBarView.frame.height...(headerView!.maxHeight + 20) ~= headerView!.frame.height {
-            scrollView.scrollIndicatorInsets    =   UIEdgeInsets(top: abs(scrollView.contentOffset.y), left: 0, bottom: 0, right: 0)
-        }
-        
-        if headerView!.minHeight...smallTopBarView.frame.height ~= headerView!.frame.height {
-            scrollView.scrollIndicatorInsets    =   UIEdgeInsets(top: smallTopBarView.frame.height, left: 0, bottom: 0, right: 0)
-        }
-
-        if (headerView!.frame.height == headerView!.minHeight && smallTopBarView.alpha == 0) {
-            UIView.animate(withDuration: 0.7, animations: {
-                self.smallTopBarView.alpha      =   1
-                self.headerView!.alpha          =   0
-            })
-        } else if (headerView!.frame.height != headerView!.minHeight && headerView!.alpha == 0) {
-            UIView.animate(withDuration: 0.7, animations: {
-                self.smallTopBarView.alpha      =   0
-                self.headerView!.alpha          =   1
-            })
-        }
-        
-        print(object: "top = \(scrollView.contentInset.top)")
-        print(object: "height = \(headerView!.frame.height)")
     }
     
     @IBAction func handlerAddressButtonTap(_ sender: CustomButton) {
@@ -190,27 +175,13 @@ class OrganizationShowViewController: BaseViewController {
         
         if (organization.phones!.count > 0) {
             blackoutView.didShow()
-            
-            let widthRatio                      =   ((UIApplication.shared.statusBarOrientation.isPortrait) ? 375 : 667) / view.frame.width
-            let heightRatio                     =   ((UIApplication.shared.statusBarOrientation.isPortrait) ? 667 : 375) / view.frame.height
-            phonesView                          =   PhonesView.init(frame: CGRect.init(x: 0, y: 0, width: 345 * widthRatio, height: 185 * heightRatio))
-            phonesView!.phones                  =   organization.phones!
-            phonesView!.alpha                   =   0
-            
-            view.addSubview(phonesView!)
-            phonesView!.translatesAutoresizingMaskIntoConstraints   =   false
-
-            phonesView!.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive  =   true
-            phonesView!.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive  =   true
-
-            phonesView!.didShow()
-//            UIView.animate(withDuration: 0.5, animations: {
-//                self.phonesView!.alpha          =   1
-//            })
+      
+            phonesView          =   PhonesView.init(inView: view)
+            phonesView!.phones  =   organization.phones!
             
             // Handler Cancel button tap
             phonesView!.handlerCancelButtonCompletion   =   { _ in
-                self.phonesView                 =   nil
+                self.phonesView =   nil
                 
                 self.blackoutView.didHide()
             }
@@ -221,21 +192,11 @@ class OrganizationShowViewController: BaseViewController {
     }
     
     @IBAction func handlerFavoriteButtonTap(_ sender: UIButton) {
-        sender.tag      =   (sender.tag == 0) ? 1 : 0
+        sender.tag = (sender.tag == 0) ? 1 : 0
         
         sender.setImage(UIImage.init(named: (sender.tag == 0) ? "image-favorite-star-normal" : "image-favorite-star-selected"), for: .normal)
         
         // TODO: - ADD API TO POST FAVORITE STATE & CHANGE ORGANIZATION PROFILE
-    }
-    
-    
-    // MARK: - Transition
-    override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
-//        guard phonesView != nil else {
-//            return
-//        }
-//        
-//        phonesView!.setNeedsDisplay()
     }
 }
 
@@ -245,5 +206,57 @@ extension OrganizationShowViewController: OrganizationShowViewControllerInput {
     func displaySomething(viewModel: OrganizationShowModels.Something.ViewModel) {
         // NOTE: Display the result from the Presenter
         // nameTextField.text = viewModel.name
+    }
+}
+
+
+// MARK: - MXScrollViewDelegate
+extension OrganizationShowViewController: MXScrollViewDelegate {
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        scrollView.indicatorDidChange(UIColor.veryLightOrange)
+    }
+}
+
+
+// MARK: - MXParallaxHeaderDelegate
+extension OrganizationShowViewController: MXParallaxHeaderDelegate {
+    func parallaxHeaderDidScroll(_ parallaxHeader: MXParallaxHeader) {
+        if (0...0.4 ~= parallaxHeader.progress) {
+            parallaxHeader.view?.didHide()
+            smallTopBarView.didShow()
+        } else {
+            parallaxHeader.view?.didShow()
+            smallTopBarView.didHide()
+        }
+        
+        //        guard headerView != nil else {
+        //            scrollView.transform        =   CGAffineTransform(translationX: 0, y: smallTopBarView.frame.height - 30)
+        //            scrollView.contentInset     =   UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 0)
+        //
+        //            return
+        //        }
+        //
+        //        headerView!.scrollViewDidScroll(scrollView)
+        //
+        //        if smallTopBarView.frame.height...(headerView!.maxHeight + 20) ~= headerView!.frame.height {
+        //            scrollView.scrollIndicatorInsets    =   UIEdgeInsets(top: abs(scrollView.contentOffset.y), left: 0, bottom: 0, right: 0)
+        //        }
+        //
+        ////        if headerView!.minHeight...smallTopBarView.frame.height ~= headerView!.frame.height {
+        ////            scrollView.scrollIndicatorInsets    =   UIEdgeInsets(top: smallTopBarView.frame.height, left: 0, bottom: 0, right: 0)
+        ////        }
+        //
+        //        if (headerView!.frame.height == headerView!.minHeight && smallTopBarView.alpha == 0) {
+        //            UIView.animate(withDuration: 0.7, animations: {
+        //                self.smallTopBarView.alpha      =   1
+        //                self.headerView!.alpha          =   0
+        //            })
+        //        } else if (headerView!.frame.height != headerView!.minHeight && headerView!.alpha == 0) {
+        //            UIView.animate(withDuration: 0.7, animations: {
+        //                self.smallTopBarView.alpha      =   0
+        //                self.headerView!.alpha          =   1
+        //            })
+        //        }
+
     }
 }

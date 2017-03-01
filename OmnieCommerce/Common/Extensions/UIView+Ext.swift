@@ -60,6 +60,18 @@ extension UIView {
     func degreeToRadian(degreeValue: Double) -> CGFloat {
         return CGFloat(degreeValue * M_PI / 180.0)
     }
+    
+    func didShow() {
+        UIView.animate(withDuration: 0.3, animations: {
+            self.alpha  =   1
+        })
+    }
+    
+    func didHide() {
+        UIView.animate(withDuration: 0.3, animations: {
+            self.alpha  =   0
+        })
+    }
 }
 
 

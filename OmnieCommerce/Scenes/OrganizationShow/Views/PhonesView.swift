@@ -20,6 +20,25 @@ class PhonesView: CustomView {
     
 
     // MARK: - Class Initialization
+    init(inView view: UIView) {
+        super.init(frame: view.frame)
+        
+        createFromXIB()
+
+        let widthRatio      =   ((UIApplication.shared.statusBarOrientation.isPortrait) ? 375 : 667) / view.frame.width
+        let heightRatio     =   ((UIApplication.shared.statusBarOrientation.isPortrait) ? 667 : 375) / view.frame.height
+        self.frame          =   CGRect.init(x: 0, y: 0, width: 345 * widthRatio, height: 185 * heightRatio)
+        self.alpha          =   0
+        
+        view.addSubview(self)
+        self.translatesAutoresizingMaskIntoConstraints   =   false
+        
+        self.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive  =   true
+        self.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive  =   true
+        
+        self.didShow()
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
