@@ -180,6 +180,26 @@ class OrganizationShowViewController: BaseViewController {
     }
     
     @IBAction func handlerPhonesButtonTap(_ sender: CustomButton) {
+        guard organization.phones != nil else {
+            alertViewDidShow(withTitle: "Info".localized(), andMessage: "Phones list is empty".localized())
+           
+            return
+        }
+        
+        if (organization.phones!.count > 0) {
+            let widthRatio                      =   375 / view.frame.width
+            let heightRatio                     =   667 / view.frame.height
+            let phonesView                      =   PhonesView.init(frame: CGRect.init(x: 0, y: 0, width: 345 * widthRatio, height: 185 * heightRatio))
+            phonesView.phones                   =   organization.phones!
+            phonesView.alpha                    =   0
+            
+            view.addSubview(phonesView)
+            phonesView.transform                =   CGAffineTransform(translationX: 15 * widthRatio, y: view.center.y - phonesView.frame.height / 2)
+            
+            UIView.animate(withDuration: 0.9, animations: {
+                phonesView.alpha                =   1
+            })
+        }
     }
     
     @IBAction func handlerScheduleButtonTap(_ sender: CustomButton) {

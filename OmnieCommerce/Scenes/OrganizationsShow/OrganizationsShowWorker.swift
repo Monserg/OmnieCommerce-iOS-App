@@ -46,7 +46,8 @@ class OrganizationsShowWorker {
                                             logoURL: (Int(arc4random_uniform(2)) == 1) ? "http://vignette2.wikia.nocookie.net/logopedia/images/2/25/BMW_logo.png/revision/latest?cb=20150410110027" : nil,
                                             headerURL: (Int(arc4random_uniform(2)) == 1) ? "http://www.khmelnytskyi-park.com.ua/wp-content/uploads/2016/08/KP6.jpg" : nil,
                                             rating: Double(arc4random_uniform(6)),
-                                            isFavorite: (Int(arc4random_uniform(2)) == 1) ? true : false)
+                                            isFavorite: (Int(arc4random_uniform(2)) == 1) ? true : false,
+                                            phones: phonesDidCreate())
             
             organizations.append(organization)
         }
@@ -60,6 +61,23 @@ class OrganizationsShowWorker {
             
             self.handlerLocationCompletion!(organizations)
         }
+    }
+    
+    private func phonesDidCreate() -> [String]? {
+        var array: [String]?
+        let count = Int(arc4random_uniform(3))
+        
+        if (count > 0) {
+            array = [String]()
+            
+            for _ in 0..<count {
+                array!.append("+380671780601")
+            }
+            
+            return array!
+        }
+        
+        return array
     }
     
     func dropDownListDidLoad(withType type: DropDownList) -> [DropDownItem] {

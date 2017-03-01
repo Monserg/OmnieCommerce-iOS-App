@@ -18,9 +18,11 @@ enum ButtonStyle: String {
     case DropDownList = "DropDownList"
     case MenuEvent = "MenuEvent"
     case Circular = "Circular"
-    case ActionViewOrangeButton                             =   "ActionViewOrangeButton"
-    case TitleUbuntuLight12UndirlineVeryLightGray           =   "TitleUbuntuLight12UndirlineVeryLightGray"
-    case TitleUbuntuLightItalic12UndirlineVeryLightOrange   =   "TitleUbuntuLightItalic12UndirlineVeryLightOrange"
+    case ActionViewOrangeButton                                 =   "ActionViewOrangeButton"
+    case TitleUbuntuLight12UndirlineVeryLightGray               =   "TitleUbuntuLight12UndirlineVeryLightGray"
+    case TitleUbuntuLightItalic12UndirlineVeryLightOrange       =   "TitleUbuntuLightItalic12UndirlineVeryLightOrange"
+    case TitleUbuntuRegular21SoftOrange                         =   "TitleUbuntuRegular21SoftOrange"
+
 }
 
 
@@ -132,6 +134,10 @@ extension UIButton {
         case .TitleUbuntuLightItalic12UndirlineVeryLightOrange:
             setAttributedTitle(NSAttributedString(string: (titleLabel?.text?.localized())!, attributes: UIFont.ubuntuLightItalic12UnderlineVeryLightOrange), for: .normal)
             setAttributedTitle(NSAttributedString(string: (titleLabel?.text?.localized())!, attributes: UIFont.ubuntuLightItalic12UnderlineVeryLightOrangeAlpha30), for: .highlighted)
+            
+        case .TitleUbuntuRegular21SoftOrange:
+            setAttributedTitle(NSAttributedString(string: (titleLabel?.text?.localized())!, attributes: UIFont.ubuntuRegularSoftOrange21), for: .normal)
+            setAttributedTitle(NSAttributedString(string: (titleLabel?.text?.localized())!, attributes: UIFont.ubuntuRegularSoftOrange21Alpha30), for: .highlighted)
         }
     }
     

@@ -21,4 +21,5 @@ struct Organization: SearchObject {
     var headerURL: String?
     var rating              =   0.0
     var isFavorite: Bool    =   false
+    var phones: [String]?
 }

@@ -99,6 +99,16 @@ extension UIFont {
         }
     }
     
+    open class var ubuntuRegular21: UIFont {
+        set {
+            self.ubuntuRegular16 = UIFont(name: "Ubuntu-Regular", size: 21.0)!
+        }
+        
+        get {
+            return UIFont(name: "Ubuntu-Regular", size: 21.0)!
+        }
+    }
+
     open class var helveticaNeueCyrLight21: UIFont {
         set {
             self.helveticaNeueCyrLight21 = UIFont(name: "helveticaNeueCyr-Light", size: 21.0)!
@@ -475,6 +485,42 @@ extension UIFont {
         }
     }
     
+    open class var ubuntuRegularSoftOrange21: [String : Any] {
+        set {
+            self.ubuntuRegularVeryDarkGray16                =   [   NSFontAttributeName             :   UIFont.ubuntuRegular21,
+                                                                    NSForegroundColorAttributeName  :   UIColor.softOrange,
+                                                                    NSKernAttributeName             :   0.0,
+                                                                    NSUnderlineStyleAttributeName   :   NSUnderlineStyle.styleNone.rawValue
+                                                                ] as [String : Any]!
+        }
+        
+        get {
+            return  [   NSFontAttributeName             :   UIFont.ubuntuRegular21,
+                        NSForegroundColorAttributeName  :   UIColor.softOrange,
+                        NSKernAttributeName             :   0.0,
+                        NSUnderlineStyleAttributeName   :   NSUnderlineStyle.styleNone.rawValue
+                    ] as [String : Any]!
+        }
+    }
+    
+    open class var ubuntuRegularSoftOrange21Alpha30: [String : Any] {
+        set {
+            self.ubuntuRegularVeryDarkGray16                =   [   NSFontAttributeName             :   UIFont.ubuntuRegular21,
+                                                                    NSForegroundColorAttributeName  :   UIColor(hexString: (CoreDataManager.instance.appSettings.isThemeDark) ? "#5e6969" : "#d9ba68", withAlpha: 0.3)!,
+                                                                    NSKernAttributeName             :   0.0,
+                                                                    NSUnderlineStyleAttributeName   :   NSUnderlineStyle.styleNone.rawValue
+                                                                ] as [String : Any]!
+        }
+        
+        get {
+            return  [   NSFontAttributeName             :   UIFont.ubuntuRegular21,
+                        NSForegroundColorAttributeName  :   UIColor(hexString: (CoreDataManager.instance.appSettings.isThemeDark) ? "#5e6969" : "#d9ba68", withAlpha: 0.3)!,
+                        NSKernAttributeName             :   0.0,
+                        NSUnderlineStyleAttributeName   :   NSUnderlineStyle.styleNone.rawValue
+                    ] as [String : Any]!
+        }
+    }
+
     open class var helveticaNeueCyrRoman16Kern486: [String : Any] {
         set {
             self.helveticaNeueCyrRoman16Kern486             =   [   NSFontAttributeName             :   UIFont.helveticaNeueCyrRoman16,

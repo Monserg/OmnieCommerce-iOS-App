@@ -22,11 +22,13 @@ enum LabelStyle: String {
     case BarCodeTitle                                   =   "BarCodeTitle"
     case ActionViewTitle                                =   "ActionViewTitle"
     case UbuntuRegular16VeryDarkGray                    =   "UbuntuRegular16VeryDarkGray"
+    case UbuntuRegular21SoftOrange                      =   "UbuntuRegular21SoftOrange"
     case UbuntuLightItalic12VerySoftRed                 =   "UbuntuLightItalic12VerySoftRed"
     case UbuntuLightItalic12LightGrayishCyan            =   "UbuntuLightItalic12LightGrayishCyan"
     case UbuntuLight12VeryLightGray                     =   "UbuntuLight12VeryLightGray"
     case UbuntuLight16VeryLightGray                     =   "UbuntuLight16VeryLightGray"
     case HelveticaNeueCyrThin47VeryLightGray            =   "HelveticaNeueCyrThin47VeryLightGray"
+    case HelveticaNeueCyrLight21VeryLightGray           =   "HelveticaNeueCyrLight21VeryLightGray"
     case HelveticaNeueCyrLight32VeryLightGray           =   "HelveticaNeueCyrLight32VeryLightGray"
 }
 
@@ -94,7 +96,12 @@ extension UILabel {
         case .UbuntuRegular16VeryDarkGray:
             font            =   (isAppThemeDark) ? UIFont.systemFont(ofSize: 12) : UIFont.ubuntuRegular16
             textColor       =   (isAppThemeDark) ? UIColor.white : UIColor.veryDarkGray
-            
+
+        case .UbuntuRegular21SoftOrange:
+            font            =   (isAppThemeDark) ? UIFont.systemFont(ofSize: 12) : UIFont.ubuntuRegular21
+            textColor       =   (isAppThemeDark) ? UIColor.white : UIColor.softOrange
+            textAlignment   =   .left
+
         case .UbuntuLightItalic12VerySoftRed:
             font            =   UIFont.ubuntuLightItalic12
             textColor       =   UIColor(hexString: (isAppThemeDark) ? "#dc8181" : "#8b0000", withAlpha: 1.0)
@@ -104,7 +111,6 @@ extension UILabel {
             font            =   UIFont.ubuntuLightItalic12
             textColor       =   UIColor(hexString: (isAppThemeDark) ? "#dc8181" : "#cce8e8", withAlpha: 1.0)
             textAlignment   =   .left
-            
             
         case .UbuntuLight12VeryLightGray:
             font            =   UIFont.ubuntuLight12
@@ -119,6 +125,11 @@ extension UILabel {
         case .HelveticaNeueCyrThin47VeryLightGray:
             font            =   UIFont.helveticaNeueCyrThin47
             textColor       =   UIColor(hexString: (isAppThemeDark) ? "#dedede" : "#dedede", withAlpha: 1.0)
+
+        case .HelveticaNeueCyrLight21VeryLightGray:
+            font            =   (isAppThemeDark) ? UIFont.systemFont(ofSize: 12) : UIFont.helveticaNeueCyrLight21
+            textColor       =   (isAppThemeDark) ? UIColor.white : UIColor.veryLightGray
+            textAlignment   =   .left
 
         case .HelveticaNeueCyrLight32VeryLightGray:
             font            =   (isAppThemeDark) ? UIFont.systemFont(ofSize: 12) : UIFont.helveticaNeueCyrLight32

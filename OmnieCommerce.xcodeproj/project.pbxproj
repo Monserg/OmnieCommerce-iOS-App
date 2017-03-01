@@ -136,6 +136,8 @@
 		B152915B1DDE44A200BBA1E0 /* MenuSectionFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B152915A1DDE44A200BBA1E0 /* MenuSectionFooterView.swift */; };
 		B152915D1DDE44B700BBA1E0 /* MenuSectionFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B152915C1DDE44B700BBA1E0 /* MenuSectionFooterView.xib */; };
 		B152915F1DDEB8B500BBA1E0 /* CustomTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B152915E1DDEB8B500BBA1E0 /* CustomTableView.swift */; };
+		B155DE911E65C3F900683384 /* PhonesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B155DE901E65C3F900683384 /* PhonesView.xib */; };
+		B155DE931E65C41500683384 /* PhonesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B155DE921E65C41500683384 /* PhonesView.swift */; };
 		B1597AC61E3F12BF00123CB5 /* PersonalDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1597AC41E3F12BF00123CB5 /* PersonalDataViewController.swift */; };
 		B1597AC71E3F12BF00123CB5 /* PersonalTemplatesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1597AC51E3F12BF00123CB5 /* PersonalTemplatesViewController.swift */; };
 		B1597ACA1E3F161900123CB5 /* AvatarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1597AC91E3F161900123CB5 /* AvatarTableViewCell.swift */; };
@@ -458,6 +460,8 @@
 		B152915A1DDE44A200BBA1E0 /* MenuSectionFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuSectionFooterView.swift; sourceTree = "<group>"; };
 		B152915C1DDE44B700BBA1E0 /* MenuSectionFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuSectionFooterView.xib; sourceTree = "<group>"; };
 		B152915E1DDEB8B500BBA1E0 /* CustomTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableView.swift; sourceTree = "<group>"; };
+		B155DE901E65C3F900683384 /* PhonesView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhonesView.xib; sourceTree = "<group>"; };
+		B155DE921E65C41500683384 /* PhonesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhonesView.swift; sourceTree = "<group>"; };
 		B1597AC41E3F12BF00123CB5 /* PersonalDataViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalDataViewController.swift; sourceTree = "<group>"; };
 		B1597AC51E3F12BF00123CB5 /* PersonalTemplatesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonalTemplatesViewController.swift; sourceTree = "<group>"; };
 		B1597AC91E3F161900123CB5 /* AvatarTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvatarTableViewCell.swift; sourceTree = "<group>"; };
@@ -1102,6 +1106,15 @@
 			path = ForgotPasswordShow;
 			sourceTree = "<group>";
 		};
+		B155DE8F1E65C3DC00683384 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B155DE921E65C41500683384 /* PhonesView.swift */,
+				B155DE901E65C3F900683384 /* PhonesView.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		B1597ABF1E3F0AAD00123CB5 /* UIViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -1240,6 +1253,7 @@
 		B1BEEDE71E63684A00F1DE8A /* OrganizationShow */ = {
 			isa = PBXGroup;
 			children = (
+				B155DE8F1E65C3DC00683384 /* Views */,
 				B1BEEDE81E63687500F1DE8A /* OrganizationShowConfigurator.swift */,
 				B1BEEDE91E63687500F1DE8A /* OrganizationShowInteractor.swift */,
 				B1BEEDEA1E63687500F1DE8A /* OrganizationShowModels.swift */,
@@ -1585,6 +1599,7 @@
 				B18A45C61DEC21BA003EBD2F /* SmallTopBarView.xib in Resources */,
 				B1BF92761DD6516C00BECBBB /* helveticaneuecyr-ultralight.otf in Resources */,
 				B1FFF7191E5F01A000A075D8 /* OrganizationsMapShow.storyboard in Resources */,
+				B155DE911E65C3F900683384 /* PhonesView.xib in Resources */,
 				B1CF54EC1DDB57C300E98049 /* OmnieCardsShow.storyboard in Resources */,
 				B1FFF7081E5ECE4800A075D8 /* OrganizationsShow.storyboard in Resources */,
 				B1BF92771DD6516C00BECBBB /* helveticaneuecyr-ultralightitalic.otf in Resources */,
@@ -1753,6 +1768,7 @@
 				B122F1DF1DD35B760018A701 /* OrdersShowRouter.swift in Sources */,
 				B1CF54CA1DDB51A500E98049 /* PersonalPageShowConfigurator.swift in Sources */,
 				B152915F1DDEB8B500BBA1E0 /* CustomTableView.swift in Sources */,
+				B155DE931E65C41500683384 /* PhonesView.swift in Sources */,
 				B1D56BE71E6167AE008BCE54 /* MapView.swift in Sources */,
 				B1CF548A1DDB50F100E98049 /* BusinessCardsShowWorker.swift in Sources */,
 				B122F1E11DD35B760018A701 /* OrdersShowWorker.swift in Sources */,
@@ -2052,6 +2068,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 2DS2B364WY;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2077,6 +2094,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 2DS2B364WY;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
