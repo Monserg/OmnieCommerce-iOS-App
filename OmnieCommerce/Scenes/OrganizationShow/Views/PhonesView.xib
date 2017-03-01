@@ -34,7 +34,7 @@
                                 <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
                             </userDefinedRuntimeAttributes>
                         </view>
-                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Dma-BI-VSU">
+                        <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Dma-BI-VSU">
                             <rect key="frame" x="135" y="61" width="180" height="99"/>
                             <subviews>
                                 <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="81V-vn-3ls" userLabel="Phone Button 1" customClass="CustomButton" customModule="OmnieCommerce" customModuleProvider="target">
@@ -71,11 +71,15 @@
                                     </connections>
                                 </button>
                             </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         </stackView>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phones" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lll-Rt-Zse" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                            <rect key="frame" x="135" y="20" width="180" height="20.5"/>
+                            <rect key="frame" x="135" y="20" width="180" height="21"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="21" id="1rB-Cl-4Zp"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="21"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                             <userDefinedRuntimeAttributes>
@@ -106,7 +110,7 @@
                         <constraint firstItem="FwR-Eb-Cpz" firstAttribute="top" secondItem="0Id-ez-8qm" secondAttribute="top" id="f1Z-cw-DYg"/>
                         <constraint firstAttribute="trailing" secondItem="Lll-Rt-Zse" secondAttribute="trailing" constant="30" id="gK7-c6-bBt"/>
                         <constraint firstItem="Lll-Rt-Zse" firstAttribute="top" secondItem="0Id-ez-8qm" secondAttribute="top" constant="20" id="kNd-QQ-1gF"/>
-                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Dma-BI-VSU" secondAttribute="bottom" constant="25" id="qMW-ts-OlC"/>
+                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Dma-BI-VSU" secondAttribute="bottom" priority="750" constant="25" id="qMW-ts-OlC"/>
                         <constraint firstItem="Vcg-j5-4XE" firstAttribute="top" secondItem="0Id-ez-8qm" secondAttribute="top" id="u4w-wL-Xoj"/>
                         <constraint firstItem="Dma-BI-VSU" firstAttribute="leading" secondItem="FwR-Eb-Cpz" secondAttribute="trailing" constant="35" id="yVG-uf-MPA"/>
                     </constraints>
@@ -132,7 +136,7 @@
             <userDefinedRuntimeAttributes>
                 <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
             </userDefinedRuntimeAttributes>
-            <point key="canvasLocation" x="26.5" y="53.5"/>
+            <point key="canvasLocation" x="254" y="148"/>
         </view>
     </objects>
     <resources>

@@ -11,6 +11,9 @@ import UIKit
 class PhonesView: UIView {
     // MARK: - Properties
     var phones: [String]?
+    var isShow: Bool = false
+    
+    var handlerCancelButtonCompletion: HandlerCancelButtonCompletion?
     
     @IBOutlet var view: UIView!
     @IBOutlet var phoneButtonsCollection: [CustomButton]!
@@ -70,10 +73,12 @@ class PhonesView: UIView {
     }
     
     @IBAction func handlerCancelButtonTap(_ sender: UIButton) {
-        UIView.animate(withDuration: 0.9, animations: { 
+        UIView.animate(withDuration: 0.5, animations: {
             self.alpha          =   0
         }, completion: { success in
             self.removeFromSuperview()
+            
+            self.handlerCancelButtonCompletion!()
         })
     }
 }

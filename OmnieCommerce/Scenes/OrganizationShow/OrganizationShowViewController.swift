@@ -30,6 +30,7 @@ class OrganizationShowViewController: BaseViewController {
     
     var organization: Organization!
     var headerView: UMParallaxView?
+    var phonesView: PhonesView?
     
     @IBOutlet var scrollView: UIScrollView! {
         didSet {
@@ -38,6 +39,7 @@ class OrganizationShowViewController: BaseViewController {
     }
     
     @IBOutlet weak var smallTopBarView: SmallTopBarView!
+    @IBOutlet weak var blackoutView: CustomView!
     
     // Info view
     @IBOutlet weak var infoView: UIView!
@@ -187,18 +189,32 @@ class OrganizationShowViewController: BaseViewController {
         }
         
         if (organization.phones!.count > 0) {
-            let widthRatio                      =   375 / view.frame.width
-            let heightRatio                     =   667 / view.frame.height
-            let phonesView                      =   PhonesView.init(frame: CGRect.init(x: 0, y: 0, width: 345 * widthRatio, height: 185 * heightRatio))
-            phonesView.phones                   =   organization.phones!
-            phonesView.alpha                    =   0
+            blackoutView.didShow()
             
-            view.addSubview(phonesView)
-            phonesView.transform                =   CGAffineTransform(translationX: 15 * widthRatio, y: view.center.y - phonesView.frame.height / 2)
+            let widthRatio                      =   ((UIApplication.shared.statusBarOrientation.isPortrait) ? 375 : 667) / view.frame.width
+            let heightRatio                     =   ((UIApplication.shared.statusBarOrientation.isPortrait) ? 667 : 375) / view.frame.height
+            phonesView                          =   PhonesView.init(frame: CGRect.init(x: 0, y: 0, width: 345 * widthRatio, height: 185 * heightRatio))
+            phonesView!.phones                  =   organization.phones!
+            phonesView!.alpha                   =   0
             
-            UIView.animate(withDuration: 0.9, animations: {
-                phonesView.alpha                =   1
+            view.addSubview(phonesView!)
+            phonesView!.translatesAutoresizingMaskIntoConstraints   =   false
+
+            phonesView!.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive  =   true
+            phonesView!.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive  =   true
+
+//            phonesView!.transform               =   CGAffineTransform(translationX: 15 * widthRatio, y: view.center.y - phonesView!.frame.height / 2)
+            
+            UIView.animate(withDuration: 0.5, animations: {
+                self.phonesView!.alpha          =   1
             })
+            
+            // Handler Cancel button tap
+            phonesView!.handlerCancelButtonCompletion   =   { _ in
+                self.phonesView                 =   nil
+                
+                self.blackoutView.didHide()
+            }
         }
     }
     
@@ -211,6 +227,16 @@ class OrganizationShowViewController: BaseViewController {
         sender.setImage(UIImage.init(named: (sender.tag == 0) ? "image-favorite-star-normal" : "image-favorite-star-selected"), for: .normal)
         
         // TODO: - ADD API TO POST FAVORITE STATE & CHANGE ORGANIZATION PROFILE
+    }
+    
+    
+    // MARK: - Transition
+    override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
+//        guard phonesView != nil else {
+//            return
+//        }
+//        
+//        phonesView!.setNeedsDisplay()
     }
 }
 

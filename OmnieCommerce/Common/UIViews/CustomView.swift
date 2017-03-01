@@ -38,4 +38,18 @@ import UIKit
     // MARK: - Class Functions
     override func draw(_ rect: CGRect) {
     }
+    
+    
+    // MARK: - Custom Functions
+    func didShow() {
+        UIView.animate(withDuration: 0.3, animations: {
+            self.alpha  =   1
+        })
+    }
+    
+    func didHide() {
+        UIView.animate(withDuration: 0.3, animations: {
+            self.alpha  =   0
+        })
+    }
 }

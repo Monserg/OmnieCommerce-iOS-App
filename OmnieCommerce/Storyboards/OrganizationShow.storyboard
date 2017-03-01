@@ -33,10 +33,10 @@
                                                 <rect key="frame" x="8" y="10" width="359" height="657"/>
                                                 <subviews>
                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F2J-Sj-SOC" userLabel="Info View">
-                                                        <rect key="frame" x="0.0" y="0.0" width="359" height="125"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="359" height="110"/>
                                                         <subviews>
                                                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ebM-Lf-K5Q" customClass="DottedBorderView" customModule="OmnieCommerce" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="0.0" width="359" height="125"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="359" height="110"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="string" keyPath="borderWidth" value="1"/>
@@ -62,7 +62,7 @@
                                                                 </userDefinedRuntimeAttributes>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o4I-uK-Byn" userLabel="Name Label" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                                                                <rect key="frame" x="95" y="15" width="214" height="40"/>
+                                                                <rect key="frame" x="95" y="15" width="214" height="25"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
@@ -73,7 +73,7 @@
                                                                 </userDefinedRuntimeAttributes>
                                                             </label>
                                                             <button opaque="NO" clipsSubviews="YES" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EKb-ci-h91" userLabel="Favorite Button">
-                                                                <rect key="frame" x="331" y="5" width="18" height="18"/>
+                                                                <rect key="frame" x="319" y="5" width="30" height="30"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" secondItem="EKb-ci-h91" secondAttribute="height" multiplier="1:1" id="JXy-fd-B8V"/>
@@ -85,7 +85,7 @@
                                                                 </connections>
                                                             </button>
                                                             <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HjZ-of-5Js" userLabel="Data Stack View">
-                                                                <rect key="frame" x="95" y="70" width="214" height="20"/>
+                                                                <rect key="frame" x="95" y="55" width="214" height="20"/>
                                                                 <subviews>
                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-address-orange-normal" translatesAutoresizingMaskIntoConstraints="NO" id="UhE-97-n5e" userLabel="Address Image View">
                                                                         <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
@@ -180,7 +180,7 @@
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E5n-6w-mcc">
-                                                        <rect key="frame" x="0.0" y="125" width="359" height="532"/>
+                                                        <rect key="frame" x="0.0" y="110" width="359" height="547"/>
                                                         <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     </view>
                                                 </subviews>
@@ -224,6 +224,10 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="labelStyle" value="Copyright"/>
                                 </userDefinedRuntimeAttributes>
                             </label>
+                            <view clipsSubviews="YES" alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3a5-sz-gLH" userLabel="Blackout View" customClass="CustomView" customModule="OmnieCommerce" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" red="0.10196078431372549" green="0.13725490196078433" blue="0.17254901960784313" alpha="0.94999999999999996" colorSpace="calibratedRGB"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -242,14 +246,18 @@
                             <constraint firstItem="F2J-Sj-SOC" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="110:667" priority="750" id="TTV-wR-bZb"/>
                             <constraint firstAttribute="trailing" secondItem="3d9-Qt-0Tr" secondAttribute="trailing" constant="8" id="Tdg-4A-3Gn"/>
                             <constraint firstItem="F2J-Sj-SOC" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="110:375" id="ZGB-O6-CgW"/>
+                            <constraint firstAttribute="trailing" secondItem="3a5-sz-gLH" secondAttribute="trailing" id="bsz-r1-ScI"/>
                             <constraint firstItem="Fg2-g7-Pmf" firstAttribute="top" secondItem="tP1-Vk-hMS" secondAttribute="top" id="d5x-CQ-SAe"/>
                             <constraint firstItem="4G7-UZ-bMP" firstAttribute="top" secondItem="tP1-Vk-hMS" secondAttribute="top" id="dda-Jb-3l1"/>
                             <constraint firstItem="5kB-hm-mY3" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="85:375" id="hLt-S7-dSS"/>
                             <constraint firstItem="EKb-ci-h91" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="30:375" id="qsL-f4-Sr7"/>
                             <constraint firstItem="5kB-hm-mY3" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="85:667" id="slx-hc-ia6"/>
                             <constraint firstItem="3d9-Qt-0Tr" firstAttribute="top" secondItem="4G7-UZ-bMP" secondAttribute="bottom" constant="9" id="tWB-H0-tnk"/>
+                            <constraint firstItem="3a5-sz-gLH" firstAttribute="top" secondItem="tP1-Vk-hMS" secondAttribute="top" id="uPc-cT-W25"/>
                             <constraint firstItem="EKb-ci-h91" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="30:667" id="w5e-3c-B7K"/>
                             <constraint firstAttribute="trailing" secondItem="Fg2-g7-Pmf" secondAttribute="trailing" id="x1k-Kj-01b"/>
+                            <constraint firstAttribute="bottom" secondItem="3a5-sz-gLH" secondAttribute="bottom" id="xzv-z0-X6P"/>
+                            <constraint firstItem="3a5-sz-gLH" firstAttribute="leading" secondItem="tP1-Vk-hMS" secondAttribute="leading" id="zqP-rE-hgd"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -279,6 +287,7 @@
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="blackoutView" destination="3a5-sz-gLH" id="OPO-1G-KQ3"/>
                         <outlet property="favoriteButton" destination="EKb-ci-h91" id="JtL-Yy-SuX"/>
                         <outlet property="infoView" destination="F2J-Sj-SOC" id="tHX-fc-L0E"/>
                         <outlet property="logoImageView" destination="5kB-hm-mY3" id="TBa-UZ-Fqg"/>

@@ -36,20 +36,20 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="drL-zB-iSh" userLabel="Info View">
-                                <rect key="frame" x="0.0" y="593.5" width="375" height="45"/>
+                                <rect key="frame" x="0.0" y="583.5" width="375" height="45"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-address-orange-normal" translatesAutoresizingMaskIntoConstraints="NO" id="VNH-Bn-faD" userLabel="Location Image View">
-                                        <rect key="frame" x="153.5" y="9.5" width="20" height="20"/>
+                                        <rect key="frame" x="147" y="2.5" width="20" height="20"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="VNH-Bn-faD" secondAttribute="height" multiplier="1:1" id="KPK-uC-uVm"/>
                                         </constraints>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Kvx-Yt-u7p">
-                                        <rect key="frame" x="173.5" y="9.5" width="29" height="27"/>
+                                        <rect key="frame" x="167" y="2.5" width="42" height="41"/>
                                         <subviews>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="elm-Xv-Uqe" userLabel="City Label" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="29" height="13.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="42" height="20.5"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
@@ -59,7 +59,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1BF-H0-42l" userLabel="Street Label" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="13.5" width="29" height="13.5"/>
+                                                <rect key="frame" x="0.0" y="20.5" width="42" height="20.5"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
@@ -80,7 +80,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3d9-Qt-0Tr" userLabel="Copyright Label" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                                <rect key="frame" x="8" y="647.5" width="359" height="10.5"/>
+                                <rect key="frame" x="8" y="637.5" width="359" height="20.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
