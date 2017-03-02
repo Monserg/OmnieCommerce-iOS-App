@@ -47,7 +47,8 @@ class OrganizationsShowWorker {
                                             headerURL: (Int(arc4random_uniform(2)) == 1) ? "http://www.khmelnytskyi-park.com.ua/wp-content/uploads/2016/08/KP6.jpg" : nil,
                                             rating: Double(arc4random_uniform(6)),
                                             isFavorite: (Int(arc4random_uniform(2)) == 1) ? true : false,
-                                            phones: phonesDidCreate())
+                                            phones: phonesDidCreate(),
+                                            schedule: scheduleDidCreate())
             
             organizations.append(organization)
         }
@@ -78,6 +79,10 @@ class OrganizationsShowWorker {
         }
         
         return array
+    }
+    
+    private func scheduleDidCreate() -> Schedule {
+        return Schedule(timeWork: "09:00 - 18:00", timeLaunch: "13:00 - 14:00", timeSaturday: "10:00 - 17:00", timeSunday: "Holiday".localized())
     }
     
     func dropDownListDidLoad(withType type: DropDownList) -> [DropDownItem] {

@@ -22,4 +22,5 @@ struct Organization: SearchObject {
     var rating              =   0.0
     var isFavorite: Bool    =   false
     var phones: [String]?
+    var schedule: Schedule!
 }

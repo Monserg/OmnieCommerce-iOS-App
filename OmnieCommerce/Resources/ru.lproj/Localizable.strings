@@ -45,6 +45,12 @@
 "Organization message"          =   "Сообщение для организации";
 "Organization price list"       =   "Прайс организации";
 "Organization add card"         =   "Добавить визитку организации";
+"Work schedule"                 =   "График работы";
+"Lunch break"                   =   "Обеденный\nперерыв";
+"Holiday"                       =   "Выходной";
+"Sat"                           =   "Сб";
+"Sun"                           =   "Вс";
+"Mon-Fri"                       =   "Пн-Пт";
 
 
 // Buttons

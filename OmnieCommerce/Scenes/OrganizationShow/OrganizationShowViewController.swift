@@ -34,6 +34,7 @@ class OrganizationShowViewController: BaseViewController {
     var backButton: UIButton?
     
     var phonesView: PhonesView?
+    var scheduleView: ScheduleView?
     
     @IBOutlet var scrollView: MXScrollView! {
         didSet {
@@ -203,6 +204,17 @@ class OrganizationShowViewController: BaseViewController {
     }
     
     @IBAction func handlerScheduleButtonTap(_ sender: CustomButton) {
+        blackoutView.didShow()
+        
+        scheduleView            =   ScheduleView.init(inView: view)
+        scheduleView!.schedule  =   organization.schedule
+        
+        // Handler Cancel button tap
+        scheduleView!.handlerCancelButtonCompletion     =   { _ in
+            self.scheduleView   =   nil
+            
+            self.blackoutView.didHide()
+        }
     }
     
     @IBAction func handlerFavoriteButtonTap(_ sender: UIButton) {

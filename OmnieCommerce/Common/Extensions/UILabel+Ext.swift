@@ -26,6 +26,7 @@ enum LabelStyle: String {
     case UbuntuLightItalic12VerySoftRed                 =   "UbuntuLightItalic12VerySoftRed"
     case UbuntuLightItalic12LightGrayishCyan            =   "UbuntuLightItalic12LightGrayishCyan"
     case UbuntuLight12VeryLightGray                     =   "UbuntuLight12VeryLightGray"
+    case UbuntuLight12SoftOrange                        =   "UbuntuLight12SoftOrange"
     case UbuntuLight16VeryLightGray                     =   "UbuntuLight16VeryLightGray"
     case HelveticaNeueCyrThin47VeryLightGray            =   "HelveticaNeueCyrThin47VeryLightGray"
     case HelveticaNeueCyrLight21VeryLightGray           =   "HelveticaNeueCyrLight21VeryLightGray"
@@ -117,6 +118,11 @@ extension UILabel {
             textColor       =   UIColor(hexString: (isAppThemeDark) ? "#dedede" : "#dedede", withAlpha: 1.0)
             textAlignment   =   .left
 
+        case .UbuntuLight12SoftOrange:
+            font            =   UIFont.ubuntuLight12
+            textColor       =   UIColor(hexString: (isAppThemeDark) ? "#dedede" : "#f5cf68", withAlpha: 1.0)
+            textAlignment   =   .left
+            
         case .UbuntuLight16VeryLightGray:
             font            =   UIFont.ubuntuLight16
             textColor       =   UIColor(hexString: (isAppThemeDark) ? "#dedede" : "#dedede", withAlpha: 1.0)

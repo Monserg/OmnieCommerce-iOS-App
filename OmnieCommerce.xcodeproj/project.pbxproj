@@ -17,6 +17,8 @@
 		B10874821E5B1822004A4FB6 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B10874811E5B1822004A4FB6 /* CoreData.framework */; };
 		B10874A61E5B3D7E004A4FB6 /* AppUser+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10874A41E5B3D7E004A4FB6 /* AppUser+CoreDataClass.swift */; };
 		B10874A71E5B3D7E004A4FB6 /* AppUser+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10874A51E5B3D7E004A4FB6 /* AppUser+CoreDataProperties.swift */; };
+		B10CF52A1E684B9700811DC1 /* ScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10CF5291E684B9700811DC1 /* ScheduleView.swift */; };
+		B10CF52C1E684BA000811DC1 /* ScheduleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B10CF52B1E684BA000811DC1 /* ScheduleView.xib */; };
 		B11B9AD61DF00CC5009A4AA1 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11B9AD51DF00CC5009A4AA1 /* BaseTableViewCell.swift */; };
 		B11B9AD81DF02BAB009A4AA1 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11B9AD71DF02BAB009A4AA1 /* News.swift */; };
 		B11B9ADA1DF02F5C009A4AA1 /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11B9AD91DF02F5C009A4AA1 /* Date+Ext.swift */; };
@@ -145,6 +147,7 @@
 		B1597AD01E3F42B600123CB5 /* AvatarActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1597ACF1E3F42B600123CB5 /* AvatarActionView.swift */; };
 		B1597AD21E3F42BD00123CB5 /* AvatarActionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1597AD11E3F42BD00123CB5 /* AvatarActionView.xib */; };
 		B1597AD41E3FA91400123CB5 /* EllipseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1597AD31E3FA91400123CB5 /* EllipseView.swift */; };
+		B15ED1F41E68433200039737 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15ED1F31E68433200039737 /* Schedule.swift */; };
 		B15FD40A1DD1DD8C00782324 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15FD4091DD1DD8C00782324 /* AppDelegate.swift */; };
 		B16E966F1DE6C94000147CEF /* BigTopBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16E966E1DE6C94000147CEF /* BigTopBarView.swift */; };
 		B16E96711DE6C94D00147CEF /* BigTopBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B16E96701DE6C94D00147CEF /* BigTopBarView.xib */; };
@@ -338,6 +341,8 @@
 		B10874811E5B1822004A4FB6 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		B10874A41E5B3D7E004A4FB6 /* AppUser+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AppUser+CoreDataClass.swift"; sourceTree = "<group>"; };
 		B10874A51E5B3D7E004A4FB6 /* AppUser+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AppUser+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		B10CF5291E684B9700811DC1 /* ScheduleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleView.swift; sourceTree = "<group>"; };
+		B10CF52B1E684BA000811DC1 /* ScheduleView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScheduleView.xib; sourceTree = "<group>"; };
 		B11B9AD51DF00CC5009A4AA1 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
 		B11B9AD71DF02BAB009A4AA1 /* News.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
 		B11B9AD91DF02F5C009A4AA1 /* Date+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
@@ -469,6 +474,7 @@
 		B1597ACF1E3F42B600123CB5 /* AvatarActionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvatarActionView.swift; sourceTree = "<group>"; };
 		B1597AD11E3F42BD00123CB5 /* AvatarActionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AvatarActionView.xib; sourceTree = "<group>"; };
 		B1597AD31E3FA91400123CB5 /* EllipseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EllipseView.swift; sourceTree = "<group>"; };
+		B15ED1F31E68433200039737 /* Schedule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
 		B15FD4061DD1DD8C00782324 /* OmnieCommerce.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OmnieCommerce.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B15FD4091DD1DD8C00782324 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B15FD4151DD1DD8C00782324 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Info.plist; sourceTree = "<group>"; };
@@ -1111,6 +1117,8 @@
 			children = (
 				B155DE921E65C41500683384 /* PhonesView.swift */,
 				B155DE901E65C3F900683384 /* PhonesView.xib */,
+				B10CF5291E684B9700811DC1 /* ScheduleView.swift */,
+				B10CF52B1E684BA000811DC1 /* ScheduleView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1133,6 +1141,14 @@
 				B1597ACB1E3F162100123CB5 /* AvatarTableViewCell.xib */,
 			);
 			path = UIView;
+			sourceTree = "<group>";
+		};
+		B15ED1F21E68431C00039737 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B15ED1F31E68433200039737 /* Schedule.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		B15FD3FD1DD1DD8C00782324 = {
@@ -1253,6 +1269,7 @@
 		B1BEEDE71E63684A00F1DE8A /* OrganizationShow */ = {
 			isa = PBXGroup;
 			children = (
+				B15ED1F21E68431C00039737 /* Models */,
 				B155DE8F1E65C3DC00683384 /* Views */,
 				B1BEEDE81E63687500F1DE8A /* OrganizationShowConfigurator.swift */,
 				B1BEEDE91E63687500F1DE8A /* OrganizationShowInteractor.swift */,
@@ -1579,6 +1596,7 @@
 				B1BF926A1DD6516C00BECBBB /* helveticaneuecyr-bold.otf in Resources */,
 				B15291571DDE3FEF00BBA1E0 /* MenuSectionHeaderView.xib in Resources */,
 				B1CF54E81DDB55E300E98049 /* HandbookShow.storyboard in Resources */,
+				B10CF52C1E684BA000811DC1 /* ScheduleView.xib in Resources */,
 				B1BF926B1DD6516C00BECBBB /* helveticaneuecyr-bolditalic.otf in Resources */,
 				B1BF926C1DD6516C00BECBBB /* helveticaneuecyr-heavy.otf in Resources */,
 				B1BF926D1DD6516C00BECBBB /* helveticaneuecyr-heavyitalic.otf in Resources */,
@@ -1698,6 +1716,7 @@
 				B16E966F1DE6C94000147CEF /* BigTopBarView.swift in Sources */,
 				B10874801E5B0DC9004A4FB6 /* AppSettings+CoreDataProperties.swift in Sources */,
 				B122F1F91DD35BC70018A701 /* FavoriteShowModels.swift in Sources */,
+				B10CF52A1E684B9700811DC1 /* ScheduleView.swift in Sources */,
 				B122F1FB1DD35BC70018A701 /* FavoriteShowRouter.swift in Sources */,
 				B152915B1DDE44A200BBA1E0 /* MenuSectionFooterView.swift in Sources */,
 				B1FFF7011E5ECDF900A075D8 /* OrganizationsShowInteractor.swift in Sources */,
@@ -1890,6 +1909,7 @@
 				B1CF54791DDB50D900E98049 /* AboutShowPresenter.swift in Sources */,
 				B122F1F71DD35BC70018A701 /* FavoriteShowConfigurator.swift in Sources */,
 				B177E53A1E5475EC004F1390 /* SignInContainerShowWorker.swift in Sources */,
+				B15ED1F41E68433200039737 /* Schedule.swift in Sources */,
 				B122F2061DD35BEB0018A701 /* CategoriesShowInteractor.swift in Sources */,
 				B1CF54931DDB512000E98049 /* DiscountCardsShowInteractor.swift in Sources */,
 				B1CF54C01DDB519000E98049 /* OnmieSoftShowRouter.swift in Sources */,
