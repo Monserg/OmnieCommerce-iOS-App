@@ -14,7 +14,7 @@
         <scene sceneID="rjz-Lj-cwH">
             <objects>
                 <navigationController storyboardIdentifier="CategoriesShowNC" navigationBarHidden="YES" id="24b-G7-hfs" customClass="BaseNavigationController" customModule="OmnieCommerce" customModuleProvider="target" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="PI4-fx-hmq">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="PI4-fx-hmq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -79,7 +79,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="YeW-Nj-fIe">
-                                <rect key="frame" x="8" y="115" width="359" height="524"/>
+                                <rect key="frame" x="8" y="115" width="359" height="514"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="16" minimumInteritemSpacing="16" id="LnN-ln-h1C">
                                     <size key="itemSize" width="170" height="102"/>
@@ -104,7 +104,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zRj-pA-iSn" userLabel="Name Label" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                                                    <rect key="frame" x="8" y="75" width="154" height="18"/>
+                                                    <rect key="frame" x="8" y="75" width="154" height="20.5"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -139,7 +139,7 @@
                                 </cells>
                             </collectionView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3d9-Qt-0Tr" userLabel="Copyright Label" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                                <rect key="frame" x="8" y="647.5" width="359" height="10.5"/>
+                                <rect key="frame" x="8" y="637.5" width="359" height="20.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>

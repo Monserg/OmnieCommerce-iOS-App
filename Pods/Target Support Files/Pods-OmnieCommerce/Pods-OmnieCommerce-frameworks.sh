@@ -101,6 +101,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/Localize-Swift/Localize_Swift.framework"
   install_framework "$BUILT_PRODUCTS_DIR/MXParallaxHeader/MXParallaxHeader.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Navajo-Swift/Navajo_Swift.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/PhoneNumberKit/PhoneNumberKit.framework"
   install_framework "$BUILT_PRODUCTS_DIR/SWRevealViewController/SWRevealViewController.framework"
   install_framework "$BUILT_PRODUCTS_DIR/SwiftyVK/SwiftyVK.framework"
 fi
@@ -117,6 +118,7 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/Localize-Swift/Localize_Swift.framework"
   install_framework "$BUILT_PRODUCTS_DIR/MXParallaxHeader/MXParallaxHeader.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Navajo-Swift/Navajo_Swift.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/PhoneNumberKit/PhoneNumberKit.framework"
   install_framework "$BUILT_PRODUCTS_DIR/SWRevealViewController/SWRevealViewController.framework"
   install_framework "$BUILT_PRODUCTS_DIR/SwiftyVK/SwiftyVK.framework"
 fi

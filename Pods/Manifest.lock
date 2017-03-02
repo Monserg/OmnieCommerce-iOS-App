@@ -66,6 +66,12 @@ PODS:
   - Localize-Swift (1.7.1)
   - MXParallaxHeader (0.6.0)
   - Navajo-Swift (1.0.0)
+  - PhoneNumberKit (1.2.2):
+    - PhoneNumberKit/PhoneNumberKitCore (= 1.2.2)
+    - PhoneNumberKit/UIKit (= 1.2.2)
+  - PhoneNumberKit/PhoneNumberKitCore (1.2.2)
+  - PhoneNumberKit/UIKit (1.2.2):
+    - PhoneNumberKit/PhoneNumberKitCore
   - SwiftyVK (2.0.4)
   - SWRevealViewController (2.3.0)
 
@@ -79,6 +85,7 @@ DEPENDENCIES:
   - Localize-Swift (~> 1.6)
   - MXParallaxHeader (~> 0.6)
   - Navajo-Swift (~> 1.0)
+  - PhoneNumberKit (~> 1.2)
   - SwiftyVK (~> 2.0)
   - SWRevealViewController (~> 2.3)
 
@@ -103,9 +110,10 @@ SPEC CHECKSUMS:
   Localize-Swift: 6cabc1087c0e910e77bfa87c2ed3f65c80c0b2df
   MXParallaxHeader: 2997592b8349baf8557ae0e4346f6b17e141de39
   Navajo-Swift: b5ccdf31f5b21e4944a418c5dfe891c8e571f7c7
+  PhoneNumberKit: ffae8f18fb78c1425c7af973711b0b0fd4f4104f
   SwiftyVK: 02dbf7e5166229d62ddf177cb829cda00523d815
   SWRevealViewController: 6d3fd97f70112fd7cef9de14df4260eacce4c63a
 
-PODFILE CHECKSUM: 01fa52fc2697300bd73772fba8bc686a60dbf922
+PODFILE CHECKSUM: fdf73ec127e57b891743ab2d96f1db8b23bf7d4e
 
 COCOAPODS: 1.2.0.beta.1

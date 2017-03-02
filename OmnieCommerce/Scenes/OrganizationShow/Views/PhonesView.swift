@@ -7,11 +7,13 @@
 //
 
 import UIKit
+import PhoneNumberKit
 
 class PhonesView: CustomView {
     // MARK: - Properties
     var phones: [String]?
-    var isShow: Bool = false
+    var isShow: Bool    =   false
+    let phoneNumberKit  =   PhoneNumberKit()
     
     var handlerCancelButtonCompletion: HandlerCancelButtonCompletion?
     
@@ -25,10 +27,13 @@ class PhonesView: CustomView {
         
         createFromXIB()
 
-        let widthRatio      =   ((UIApplication.shared.statusBarOrientation.isPortrait) ? 375 : 667) / view.frame.width
-        let heightRatio     =   ((UIApplication.shared.statusBarOrientation.isPortrait) ? 667 : 375) / view.frame.height
-        self.frame          =   CGRect.init(x: 0, y: 0, width: 345 * widthRatio, height: 185 * heightRatio)
-        self.alpha          =   0
+        let widthRatio          =   ((UIApplication.shared.statusBarOrientation.isPortrait) ? 375 : 667) / view.frame.width
+        let heightRatio         =   ((UIApplication.shared.statusBarOrientation.isPortrait) ? 667 : 375) / view.frame.height
+        self.frame              =   CGRect.init(x: 0, y: 0, width: 345 * widthRatio, height: 185 * heightRatio)
+        self.alpha              =   0
+        self.backgroundColor    =   UIColor.clear
+        self.layer.cornerRadius =   5
+        self.clipsToBounds      =   true
         
         view.addSubview(self)
         self.translatesAutoresizingMaskIntoConstraints   =   false
@@ -59,10 +64,19 @@ class PhonesView: CustomView {
         }
         
         // Prepare phones stack view
+        var phoneNumbers        =   phoneNumberKit.parse(phones!)
+
+        if let countryCode      =   (Locale.current as NSLocale).object(forKey: .countryCode) as? String {
+            phoneNumbers        =   phoneNumberKit.parse(phones!, withRegion: countryCode,  ignoreType: true)
+        }
+
         for (index, button) in phoneButtonsCollection.enumerated() {
             if (index <= (phones?.count)! - 1) {
-                button.setAttributedTitle(NSAttributedString(string: phones![index], attributes: UIFont.ubuntuRegularSoftOrange21), for: .normal)
-                button.setAttributedTitle(NSAttributedString(string: phones![index], attributes: UIFont.ubuntuRegularSoftOrange21Alpha30), for: .highlighted)
+                // Phone format: +61 2 3661 8300
+                let phoneNumber =   phoneNumberKit.format(phoneNumbers[index], toType: .international)
+
+                button.setAttributedTitle(NSAttributedString(string: phoneNumber, attributes: UIFont.ubuntuRegularSoftOrange21), for: .normal)
+                button.setAttributedTitle(NSAttributedString(string: phoneNumber, attributes: UIFont.ubuntuRegularSoftOrange21Alpha30), for: .highlighted)
             } else {
                 button.alpha    =   0
             }
@@ -84,7 +98,7 @@ class PhonesView: CustomView {
     func createFromXIB() {
         UINib(nibName: String(describing: PhonesView.self), bundle: Bundle(for: PhonesView.self)).instantiate(withOwner: self, options: nil)
         addSubview(view)
-        view.frame = frame
+        view.frame  =   frame
     }
     
     

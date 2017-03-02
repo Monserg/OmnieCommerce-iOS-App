@@ -27,16 +27,16 @@
                                 <rect key="frame" x="0.0" y="-20" width="375" height="648.5"/>
                                 <subviews>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U9J-wo-NbD" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
                                         <subviews>
                                             <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="7hu-c0-ss3" userLabel="Main Stack View">
-                                                <rect key="frame" x="8" y="0.0" width="359" height="667"/>
+                                                <rect key="frame" x="8" y="0.0" width="359" height="1000"/>
                                                 <subviews>
                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F2J-Sj-SOC" userLabel="Info View">
                                                         <rect key="frame" x="0.0" y="0.0" width="359" height="110"/>
                                                         <subviews>
                                                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ebM-Lf-K5Q" customClass="DottedBorderView" customModule="OmnieCommerce" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="0.0" width="359" height="108"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="359" height="110"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="string" keyPath="viewStyle" value="BottomDottedLine"/>
@@ -201,12 +201,22 @@
                                                             <constraint firstItem="EKb-ci-h91" firstAttribute="top" secondItem="F2J-Sj-SOC" secondAttribute="top" constant="5" id="rHu-p0-byk"/>
                                                         </constraints>
                                                     </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E5n-6w-mcc">
-                                                        <rect key="frame" x="0.0" y="110" width="359" height="557"/>
-                                                        <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qNN-cv-qQQ">
+                                                        <rect key="frame" x="0.0" y="110" width="359" height="700"/>
+                                                        <color key="backgroundColor" red="1" green="0.84313725490000002" blue="0.42352941179999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </view>
+                                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E5n-6w-mcc">
+                                                        <rect key="frame" x="0.0" y="810" width="359" height="190"/>
+                                                        <color key="backgroundColor" red="0.0" green="0.57647058819999997" blue="0.58431372550000005" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="190" id="LHG-u1-Bbo"/>
+                                                        </constraints>
                                                     </view>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" priority="750" constant="1000" id="jNX-hK-pqt"/>
+                                                </constraints>
                                             </stackView>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -248,7 +258,7 @@
                             </label>
                             <view clipsSubviews="YES" alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3a5-sz-gLH" userLabel="Blackout View" customClass="CustomView" customModule="OmnieCommerce" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" red="0.10196078431372549" green="0.13725490196078433" blue="0.17254901960784313" alpha="0.94999999999999996" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.10196078431372549" green="0.13725490196078433" blue="0.17254901960784313" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -263,15 +273,16 @@
                             <constraint firstItem="Fg2-g7-Pmf" firstAttribute="leading" secondItem="tP1-Vk-hMS" secondAttribute="leading" id="FK5-9j-qgm"/>
                             <constraint firstItem="3d9-Qt-0Tr" firstAttribute="centerX" secondItem="tP1-Vk-hMS" secondAttribute="centerX" id="Gzt-F7-6yk"/>
                             <constraint firstAttribute="trailing" secondItem="4G7-UZ-bMP" secondAttribute="trailing" id="HrN-ZB-UXi"/>
-                            <constraint firstItem="U9J-wo-NbD" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" id="KfT-zc-GUv"/>
+                            <constraint firstItem="U9J-wo-NbD" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" priority="250" id="KfT-zc-GUv"/>
                             <constraint firstItem="HjZ-of-5Js" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="20:667" id="SAZ-lg-4fR"/>
-                            <constraint firstItem="F2J-Sj-SOC" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="110:667" priority="750" id="TTV-wR-bZb"/>
+                            <constraint firstItem="F2J-Sj-SOC" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="110:667" id="TTV-wR-bZb"/>
                             <constraint firstAttribute="trailing" secondItem="3d9-Qt-0Tr" secondAttribute="trailing" constant="8" id="Tdg-4A-3Gn"/>
                             <constraint firstItem="F2J-Sj-SOC" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="110:375" id="ZGB-O6-CgW"/>
                             <constraint firstAttribute="trailing" secondItem="3a5-sz-gLH" secondAttribute="trailing" id="bsz-r1-ScI"/>
                             <constraint firstItem="Fg2-g7-Pmf" firstAttribute="top" secondItem="tP1-Vk-hMS" secondAttribute="top" id="d5x-CQ-SAe"/>
                             <constraint firstItem="4G7-UZ-bMP" firstAttribute="top" secondItem="tP1-Vk-hMS" secondAttribute="top" constant="-20" id="dda-Jb-3l1"/>
                             <constraint firstItem="5kB-hm-mY3" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="85:375" id="hLt-S7-dSS"/>
+                            <constraint firstItem="qNN-cv-qQQ" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="700:667" id="jVT-rI-af9"/>
                             <constraint firstItem="EKb-ci-h91" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="30:375" id="qsL-f4-Sr7"/>
                             <constraint firstItem="5kB-hm-mY3" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="85:667" id="slx-hc-ia6"/>
                             <constraint firstItem="3d9-Qt-0Tr" firstAttribute="top" secondItem="4G7-UZ-bMP" secondAttribute="bottom" constant="9" id="tWB-H0-tnk"/>
@@ -286,6 +297,7 @@
                                 <exclude reference="4vO-JT-3lO"/>
                                 <exclude reference="TTV-wR-bZb"/>
                                 <exclude reference="slx-hc-ia6"/>
+                                <exclude reference="jVT-rI-af9"/>
                                 <exclude reference="SAZ-lg-4fR"/>
                                 <exclude reference="w5e-3c-B7K"/>
                             </mask>
@@ -298,6 +310,7 @@
                                 <exclude reference="ZGB-O6-CgW"/>
                                 <exclude reference="hLt-S7-dSS"/>
                                 <include reference="slx-hc-ia6"/>
+                                <include reference="jVT-rI-af9"/>
                                 <exclude reference="A5z-2k-miD"/>
                                 <include reference="SAZ-lg-4fR"/>
                                 <exclude reference="qsL-f4-Sr7"/>

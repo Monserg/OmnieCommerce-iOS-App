@@ -64,6 +64,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>PhoneNumberKit.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-OmnieCommerce.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -92,11 +97,6 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>1CADB6B5CC06A06AD8A8F9087A6DC3A3</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>2F0FE1E2A5B1EF15139E10A40F05CE94</key>
 		<dict>
 			<key>primary</key>
@@ -112,12 +112,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>82EBE58D9EA5705567A5925670C8B771</key>
+		<key>88E9EC28B8B46C3631E6B242B50F4442</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>88E9EC28B8B46C3631E6B242B50F4442</key>
+		<key>8C5BD10883BD185426DD737247F56DEC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9172AE044F334C8C5DD557FC8288D100</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -132,12 +137,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A3202534A3832266B3D4165B891F10BD</key>
+		<key>B1C4AAFAF49036C7007633DAA3C806AD</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B1C4AAFAF49036C7007633DAA3C806AD</key>
+		<key>B6FFBB3D029258DEDB792B5A5C19516A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -148,6 +153,11 @@
 			<true/>
 		</dict>
 		<key>E75E5BAC0FE6E4C6A5E5F95EA6807F8A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E965112CDF9006F1AFBC872E1962F74D</key>
 		<dict>
 			<key>primary</key>
 			<true/>

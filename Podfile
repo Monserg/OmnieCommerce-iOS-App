@@ -16,5 +16,6 @@ target 'OmnieCommerce' do
     pod 'SwiftyVK', '~> 2.0'
     pod 'Google/SignIn'
     pod 'MXParallaxHeader', '~> 0.6'
-
+    pod 'PhoneNumberKit', '~> 1.2'
+    
 end

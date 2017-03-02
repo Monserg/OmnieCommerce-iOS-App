@@ -35,7 +35,12 @@ class OrganizationShowViewController: BaseViewController {
     
     var phonesView: PhonesView?
     
-    @IBOutlet var scrollView: MXScrollView!
+    @IBOutlet var scrollView: MXScrollView! {
+        didSet {
+            scrollView.delegate     =   self
+        }
+    }
+    
     @IBOutlet weak var smallTopBarView: SmallTopBarView!
     @IBOutlet weak var blackoutView: CustomView!
     
@@ -104,7 +109,6 @@ class OrganizationShowViewController: BaseViewController {
             scrollView.parallaxHeader.mode              =   .fill
             scrollView.parallaxHeader.minimumHeight     =   smallTopBarView.frame.height
             scrollView.parallaxHeader.delegate          =   self
-            scrollView.delegate                         =   self
             scrollView.showsVerticalScrollIndicator     =   true
             smallTopBarView.alpha                       =   0
 
@@ -116,14 +120,18 @@ class OrganizationShowViewController: BaseViewController {
             backButton!.addTarget(self, action: #selector(handlerBackButtonTap), for: .touchUpInside)
             
             view.addSubview(backButton!)
-            backButton!.translatesAutoresizingMaskIntoConstraints                                       =   false
+            backButton!.translatesAutoresizingMaskIntoConstraints                               =   false
 
             backButton!.topAnchor.constraint(equalTo: view.topAnchor, constant: (UIApplication.shared.statusBarOrientation.isPortrait) ? 20 : 4).isActive     =   true
-            backButton!.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 4).isActive           =   true
-            backButton!.heightAnchor.constraint(equalToConstant: 44).isActive                           =   true
-            backButton!.widthAnchor.constraint(equalToConstant: 44).isActive                            =   true
+            backButton!.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 4).isActive   =   true
+            backButton!.heightAnchor.constraint(equalToConstant: 44).isActive                   =   true
+            backButton!.widthAnchor.constraint(equalToConstant: 44).isActive                    =   true
             
             scrollView.scrollIndicatorInsets            =   UIEdgeInsets(top: scrollView.parallaxHeader.view!.frame.maxY, left: 0, bottom: 0, right: 0)
+        } else {
+            scrollView.transform                        =   CGAffineTransform(translationX: 0, y: smallTopBarView.frame.maxY)
+            scrollView.contentOffset                    =   CGPoint.init(x: 0, y: smallTopBarView.frame.maxY + 70)
+            scrollView.scrollIndicatorInsets            =   UIEdgeInsets(top: smallTopBarView.frame.maxY, left: 0, bottom: 0, right: 0)
         }
         
         // Initial Info view
@@ -148,14 +156,18 @@ class OrganizationShowViewController: BaseViewController {
     
     // MARK: - Transition
     override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
+        dottedBorderView.setNeedsDisplay()
+
+        guard headerView != nil else {
+            return
+        }
+        
         // Portrait
         if newCollection.containsTraits(in: UITraitCollection(verticalSizeClass: .regular)) {
             backButton!.topAnchor.constraint(equalTo: view.topAnchor, constant: 20).isActive    =   true
         } else {
             backButton!.topAnchor.constraint(equalTo: view.topAnchor, constant: 4).isActive     =   true
         }
-        
-        dottedBorderView.setNeedsDisplay()
     }
 
     
