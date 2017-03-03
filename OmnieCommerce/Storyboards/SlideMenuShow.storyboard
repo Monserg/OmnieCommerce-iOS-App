@@ -24,20 +24,11 @@
                     </view>
                     <connections>
                         <segue destination="gGK-Bx-yUm" kind="custom" identifier="sw_rear" customClass="SWRevealViewControllerSegueSetController" id="nVf-QF-Z5U"/>
-                        <segue destination="2Jf-9d-l6S" kind="custom" identifier="sw_front" customClass="SWRevealViewControllerSegueSetController" id="piB-Mo-rc4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mzq-Em-94m" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="50" y="156"/>
-        </scene>
-        <!--OrdersShowNC-->
-        <scene sceneID="0t9-J7-Sdm">
-            <objects>
-                <viewControllerPlaceholder storyboardName="OrdersShow" referencedIdentifier="OrdersShowNC" id="2Jf-9d-l6S" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="pv5-lC-8Nj" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="758" y="-68"/>
         </scene>
         <!--Slide Menu Show View Controller-->
         <scene sceneID="udQ-Rs-dBx">
@@ -87,7 +78,7 @@
                                     <constraint firstItem="FNI-Ac-F4o" firstAttribute="leading" secondItem="DAM-QF-nkQ" secondAttribute="leading" id="whZ-n2-08T"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WZG-sg-g6U" customClass="CustomTableView" customModule="OmnieCommerce" customModuleProvider="target">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WZG-sg-g6U" customClass="CustomTableView" customModule="OmnieCommerce" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="130" width="296" height="537"/>
                                 <color key="backgroundColor" red="0.19215686274509802" green="0.25882352941176467" blue="0.30980392156862746" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -110,7 +101,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J7d-7z-vYN" userLabel="Menu Title Label" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                                                    <rect key="frame" x="74" y="29" width="148" height="18"/>
+                                                    <rect key="frame" x="74" y="28" width="148" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>

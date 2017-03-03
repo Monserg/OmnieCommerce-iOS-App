@@ -24,6 +24,7 @@ class BaseViewController: UIViewController {
     var topBarViewStyle = TopBarViewStyle.Big
     var blackOutView: UIView?
     var haveMenuItem = false
+    var userApp: AppUser?
     
     // Network monitoring
     var previousNetworkReachabilityStatus: AFNetworkReachabilityStatus = .unknown

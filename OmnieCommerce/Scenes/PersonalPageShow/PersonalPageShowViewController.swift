@@ -13,12 +13,12 @@ import UIKit
 
 // MARK: - Input protocols for current ViewController component VIP-cicle
 protocol PersonalPageShowViewControllerInput {
-    func userAppDataDidShow(fromViewModel viewModel: PersonalPageShow.UserApp.ViewModel)
+//    func userAppDataDidShow(fromViewModel viewModel: PersonalPageShowModels.UserApp.ViewModel)
 }
 
 // MARK: - Output protocols for Interactor component VIP-cicle
 protocol PersonalPageShowViewControllerOutput {
-    func userAppDataDidLoad(withRequestModel requestModel: PersonalPageShow.UserApp.RequestModel)
+//    func userAppDataDidLoad(withRequestModel requestModel: PersonalPageShowModels.UserApp.RequestModel)
 }
 
 class PersonalPageShowViewController: BaseViewController {
@@ -84,9 +84,9 @@ class PersonalPageShowViewController: BaseViewController {
         setupSegmentedControlView()
         containerView.autoresizesSubviews   =   true
 
-        // NOTE: Ask the Interactor to do some work
-        let requestModel        =   PersonalPageShow.UserApp.RequestModel()
-        interactor.userAppDataDidLoad(withRequestModel: requestModel)
+//        // NOTE: Ask the Interactor to do some work
+//        let requestModel        =   PersonalPageShowModels.UserApp.RequestModel()
+//        interactor.userAppDataDidLoad(withRequestModel: requestModel)
     }
     
     func setupSegmentedControlView() {
@@ -117,7 +117,7 @@ class PersonalPageShowViewController: BaseViewController {
 
 // MARK: - PersonalPageShowViewControllerInput
 extension PersonalPageShowViewController: PersonalPageShowViewControllerInput {
-    func userAppDataDidShow(fromViewModel viewModel: PersonalPageShow.UserApp.ViewModel) {
+    func userAppDataDidShow(fromViewModel viewModel: PersonalPageShowModels.UserApp.ViewModel) {
         guard isNetworkAvailable else {
             alertViewDidShow(withTitle: "Not Reachable".localized(), andMessage: "Disconnected from Network".localized())
             
@@ -126,7 +126,6 @@ extension PersonalPageShowViewController: PersonalPageShowViewControllerInput {
 
         print(object: "\(type(of: self)): \(#function) run.")
         
-        // NOTE: Display the result from the Presenter
-        // nameTextField.text = viewModel.name
+//        self.activeViewController?.userApp  =   viewModel.userApp
     }
 }

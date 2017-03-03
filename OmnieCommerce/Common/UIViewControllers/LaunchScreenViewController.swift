@@ -40,25 +40,26 @@ class LaunchScreenViewController: UIViewController {
 
     // MARK: - Custom Functions
     func setup() {
-        let window = UIApplication.shared.windows[0]
+        let window      =   UIApplication.shared.windows[0]
         
         // Create CoreData instance
-        let appUser = CoreDataManager.instance.didLoadEntity(byName: "AppUser") as? AppUser ?? AppUser()
-        CoreDataManager.instance.appUser = appUser
+        let appUser     =   CoreDataManager.instance.didLoadEntity(byName: "AppUser") as? AppUser ?? AppUser()
+        appUser.gender  =   0
+        CoreDataManager.instance.appUser    =   appUser
         
         if (appUser.isAuthorized) {
-            backgroundImageView.isHidden = true
-            backgroundImageView.backgroundColor = UIColor.clear
-            blackoutView.backgroundColor = UIColor.veryDarkDesaturatedBlue25Alpha94
+            backgroundImageView.isHidden        =   true
+            backgroundImageView.backgroundColor =   UIColor.clear
+            blackoutView.backgroundColor        =   UIColor.veryDarkDesaturatedBlue25Alpha94
         } else {
-            backgroundImageView.image = (UIApplication.shared.statusBarOrientation.isPortrait) ? UIImage(named: "image-background-portrait") : UIImage(named: "image-background-landscape")
-            blackoutView.isHidden = false
-            blackoutView.backgroundColor = UIColor.veryDarkDesaturatedBlue25Alpha94
+            backgroundImageView.image           =   (UIApplication.shared.statusBarOrientation.isPortrait) ? UIImage(named: "image-background-portrait") : UIImage(named: "image-background-landscape")
+            blackoutView.isHidden               =   false
+            blackoutView.backgroundColor        =   UIColor.veryDarkDesaturatedBlue25Alpha94
         }
         
         // Initial VC
-        let signInShowStoryboard = UIStoryboard(name: "SignInShow", bundle: nil)
-        let initialNC = signInShowStoryboard.instantiateViewController(withIdentifier: "SignInShowNC") as! BaseNavigationController
+        let signInShowStoryboard                =   UIStoryboard(name: "SignInShow", bundle: nil)
+        let initialNC                           =   signInShowStoryboard.instantiateViewController(withIdentifier: "SignInShowNC") as! BaseNavigationController
         
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
             window.rootViewController = initialNC

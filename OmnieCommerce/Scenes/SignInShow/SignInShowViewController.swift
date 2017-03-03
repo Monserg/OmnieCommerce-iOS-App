@@ -105,7 +105,8 @@ class SignInShowViewController: BaseViewController {
         navigationBarDidHide()
         
         // Apply Container childVC
-        (CoreDataManager.instance.appUser.isAuthorized) ? router.navigateAuthorizedUser(duringStartApp: true) : router.navigateBetweenContainerSubviews()
+        (CoreDataManager.instance.appUser.isAuthorized) ?   router.navigateAuthorizedUser(duringStartApp: true) :
+                                                            router.navigateBetweenContainerSubviews()
     }
     
     func setupScene(withSize size: CGSize) {

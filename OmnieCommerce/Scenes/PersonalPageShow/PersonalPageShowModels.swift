@@ -12,25 +12,27 @@
 import UIKit
 
 // MARK: - Data models
-struct PersonalPageShow {
+struct PersonalPageShowModels {
     struct UserApp {
         struct RequestModel {
         }
         
         struct ResponseModel {
+            let userApp: AppUser
         }
         
         struct ViewModel {
+            let userApp: AppUser
         }
     }
 
-    struct Cell {
-        struct Avatar {
-            let cellIdentifier: String = String(describing: AvatarTableViewCell.self)
-            
-            func setup(tableView: UITableView) -> AvatarTableViewCell {
-                return tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as! AvatarTableViewCell
-            }
-        }
-    }
+//    struct Cell {
+//        struct Avatar {
+//            let cellIdentifier: String = String(describing: AvatarTableViewCell.self)
+//            
+//            func setup(tableView: UITableView) -> AvatarTableViewCell {
+//                return tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as! AvatarTableViewCell
+//            }
+//        }
+//    }
 }

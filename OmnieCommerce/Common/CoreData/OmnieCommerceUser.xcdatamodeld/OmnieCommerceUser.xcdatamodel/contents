@@ -4,7 +4,15 @@
         <attribute name="isThemeDark" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
     </entity>
     <entity name="AppUser" representedClassName="AppUser" syncable="YES">
+        <attribute name="birthday" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="codeID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="gender" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="imagePath" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="isAuthorized" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="password" optional="YES" attributeType="String" syncable="YES"/>
         <uniquenessConstraints>
             <uniquenessConstraint>
                 <constraint value="isAuthorized"/>
@@ -13,6 +21,6 @@
     </entity>
     <elements>
         <element name="AppSettings" positionX="-54" positionY="-9" width="128" height="60"/>
-        <element name="AppUser" positionX="-63" positionY="-18" width="128" height="60"/>
+        <element name="AppUser" positionX="-63" positionY="-18" width="128" height="180"/>
     </elements>
 </model>

@@ -13,12 +13,12 @@ import UIKit
 
 // MARK: - Input protocols for current Presenter component VIP-cicle
 protocol PersonalPageShowPresenterInput {
-    func userAppDataDidPrepareToShow(fromResponseModel responseModel: PersonalPageShow.UserApp.ResponseModel)
+    func userAppDataDidPrepareToShow(fromResponseModel responseModel: PersonalPageShowModels.UserApp.ResponseModel)
 }
 
 // MARK: - Output protocols for ViewController component VIP-cicle
 protocol PersonalPageShowPresenterOutput: class {
-    func userAppDataDidShow(fromViewModel viewModel: PersonalPageShow.UserApp.ViewModel)
+    func userAppDataDidShow(fromViewModel viewModel: PersonalPageShowModels.UserApp.ViewModel)
 }
 
 class PersonalPageShowPresenter: PersonalPageShowPresenterInput {
@@ -27,9 +27,9 @@ class PersonalPageShowPresenter: PersonalPageShowPresenterInput {
     
     
     // MARK: - Custom Functions. Presentation logic
-    func userAppDataDidPrepareToShow(fromResponseModel responseModel: PersonalPageShow.UserApp.ResponseModel) {
+    func userAppDataDidPrepareToShow(fromResponseModel responseModel: PersonalPageShowModels.UserApp.ResponseModel) {
         // NOTE: Format the response from the Interactor and pass the result back to the View Controller
-        let viewModel   =   PersonalPageShow.UserApp.ViewModel()
-        viewController.userAppDataDidShow(fromViewModel: viewModel)
+//        let viewModel   =   PersonalPageShowModels.UserApp.ViewModel(userApp: <#T##AppUser#>)
+//        viewController.userAppDataDidShow(fromViewModel: viewModel)
     }
 }

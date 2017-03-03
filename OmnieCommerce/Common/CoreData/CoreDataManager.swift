@@ -44,9 +44,9 @@ class CoreDataManager {
             try coordinator.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: url, options: nil)
         } catch {
             var dict = [String: AnyObject]()
-            dict[NSLocalizedDescriptionKey] = "CoreData init error".localized() as AnyObject?
-            dict[NSLocalizedFailureReasonErrorKey] = failureReason as AnyObject?
-            dict[NSUnderlyingErrorKey] = error as NSError
+            dict[NSLocalizedDescriptionKey]         =   "CoreData init error".localized() as AnyObject?
+            dict[NSLocalizedFailureReasonErrorKey]  =   failureReason as AnyObject?
+            dict[NSUnderlyingErrorKey]              =   error as NSError
             let wrappedError = NSError(domain: "YOUR_ERROR_DOMAIN", code: 9999, userInfo: dict)
             
             NSLog("Unresolved error \(wrappedError), \(wrappedError.userInfo)")
@@ -57,8 +57,8 @@ class CoreDataManager {
     }()
     
     lazy var managedObjectContext: NSManagedObjectContext = {
-        let coordinator = self.persistentStoreCoordinator
-        var managedObjectContext = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
+        let coordinator             =   self.persistentStoreCoordinator
+        var managedObjectContext    =   NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
         managedObjectContext.persistentStoreCoordinator = coordinator
         
         return managedObjectContext

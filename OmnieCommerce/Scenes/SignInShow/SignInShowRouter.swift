@@ -24,8 +24,20 @@ class SignInShowRouter: SignInShowRouterInput {
     
     // MARK: - Custom Functions. Navigation
     func navigateAuthorizedUser(duringStartApp: Bool) {
-        let revealVC = UIStoryboard(name: "SlideMenuShow", bundle: nil).instantiateViewController(withIdentifier: "SWRevealVC") as! SWRevealViewController
-        revealVC.modalTransitionStyle = (duringStartApp) ? .crossDissolve : .flipHorizontal
+        let revealVC                        =   UIStoryboard(name: "SlideMenuShow", bundle: nil).instantiateViewController(withIdentifier: "SWRevealVC") as! SWRevealViewController
+        revealVC.modalTransitionStyle       =   (duringStartApp) ? .crossDissolve : .flipHorizontal
+        
+        // Set FrontViewController
+        if (duringStartApp) {
+            let categoriesNC                =   UIStoryboard(name: "CategoriesShow", bundle: nil).instantiateViewController(withIdentifier: "CategoriesShowNC") as! BaseNavigationController
+            
+            revealVC.setFront(categoriesNC, animated: true)
+                //=   categoriesNC
+        } else {
+            let personalPageNC              =   UIStoryboard(name: "PersonalPageShow", bundle: nil).instantiateViewController(withIdentifier: "PersonalPageShowNC") as! BaseNavigationController
+            
+            revealVC.setFront(personalPageNC, animated: true)
+        }
         
         self.viewController.present(revealVC, animated: !duringStartApp, completion: {
             if (duringStartApp) {
