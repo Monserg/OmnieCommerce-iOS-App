@@ -92,7 +92,7 @@ class BaseViewController: UIViewController {
     deinit {
         print(object: "\(type(of: self)): \(#function) run in [line \(#line)]")
     }
-
+    
     
     // MARK: - Actions
     func handleKeyboardAction(notification: Notification) {

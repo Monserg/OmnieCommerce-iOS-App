@@ -47,7 +47,7 @@ class PersonalPageShowViewController: BaseViewController {
     @IBOutlet weak var smallTopBarView: SmallTopBarView!
     @IBOutlet weak var copyrightLabel: CustomLabel!
     @IBOutlet weak var segmentedControlView: SegmentedControlView!
-    @IBOutlet weak var containerView: UIView!
+    @IBOutlet weak var containerView: CustomView!
 
     
     // MARK: - Class Initialization
@@ -83,6 +83,7 @@ class PersonalPageShowViewController: BaseViewController {
         print(object: "\(type(of: self)): \(#function) run.")
         
         setupSegmentedControlView()
+        containerView.autoresizesSubviews = true
 
         // NOTE: Ask the Interactor to do some work
         let request             =   PersonalPageShow.Something.RequestModel()
@@ -111,7 +112,8 @@ class PersonalPageShowViewController: BaseViewController {
         smallTopBarView.setNeedsDisplay()
         smallTopBarView.circleView.setNeedsDisplay()
         segmentedControlView.setNeedsDisplay()
-
+        
+        
         // Container Child views
 //        containerView.setNeedsDisplay()
 //        personalDataVC?.view.frame          =   CGRect.init(origin: CGPoint.zero, size: containerView.frame.size)

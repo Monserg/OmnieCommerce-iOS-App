@@ -56,8 +56,7 @@ class PersonalPageShowRouter: PersonalPageShowRouterInput {
         if (self.viewController.animationDirection == nil) {
             activeVC.view.frame         =   self.viewController.containerView.bounds
         } else {
-//            activeVC.view.frame = CGRect.init(origin: CGPoint.init(x: ((self.viewController.animationDirection == .FromRightToLeft) ? 0 : -1000), y: 0), size: self.viewController.containerView.bounds.size)
-            
+            activeVC.view.frame.size    =   self.viewController.containerView.frame.size
             activeVC.view.transform     =   CGAffineTransform(translationX: (self.viewController.animationDirection == .FromRightToLeft) ? 1000 : -1000, y: 0)
         }
         

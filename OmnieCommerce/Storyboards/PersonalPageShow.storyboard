@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="landscape">
+    <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -19,11 +19,11 @@
                         <viewControllerLayoutGuide type="bottom" id="9Hf-Hr-JzW"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="WeC-xT-hwP">
-                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="08z-zS-Fzg" customClass="SmallTopBarView" customModule="OmnieCommerce" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="667" height="80"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="104.66666666666667"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="titleText" value="PersonalPage"/>
@@ -31,10 +31,10 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C6T-NV-zxA" userLabel="Segmented Control View">
-                                <rect key="frame" x="0.0" y="80" width="667" height="50"/>
+                                <rect key="frame" x="0.0" y="104.66666666666669" width="414" height="55.333333333333314"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AJk-0S-k6N" userLabel="Content View" customClass="SegmentedControlView" customModule="OmnieCommerce" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="667" height="35"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="40.333333333333329"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="string" keyPath="segmentedControlViewStyle" value="PersonalPage"/>
@@ -47,14 +47,13 @@
                                     <constraint firstItem="AJk-0S-k6N" firstAttribute="leading" secondItem="C6T-NV-zxA" secondAttribute="leading" id="Bp4-ne-Rmd"/>
                                     <constraint firstItem="AJk-0S-k6N" firstAttribute="top" secondItem="C6T-NV-zxA" secondAttribute="top" id="CRq-pb-NeE"/>
                                     <constraint firstAttribute="bottom" secondItem="AJk-0S-k6N" secondAttribute="bottom" constant="15" id="CuP-x7-TqC"/>
-                                    <constraint firstAttribute="height" constant="50" id="d7q-lb-z7a"/>
                                 </constraints>
                             </view>
-                            <containerView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aKH-YG-AUK">
-                                <rect key="frame" x="0.0" y="130" width="667" height="206.5"/>
+                            <containerView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aKH-YG-AUK" customClass="CustomView" customModule="OmnieCommerce" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="160" width="414" height="547.66666666666663"/>
                             </containerView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ASc-N1-FS2" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                                <rect key="frame" x="8" y="345.5" width="651" height="20.5"/>
+                                <rect key="frame" x="8" y="716.66666666666652" width="398" height="10.333333333333371"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -81,18 +80,23 @@
                             <constraint firstAttribute="trailing" secondItem="ASc-N1-FS2" secondAttribute="trailing" constant="8" id="Twb-8R-nxq"/>
                             <constraint firstItem="ASc-N1-FS2" firstAttribute="top" secondItem="aKH-YG-AUK" secondAttribute="bottom" constant="9" id="V5B-If-ngj"/>
                             <constraint firstItem="C6T-NV-zxA" firstAttribute="top" secondItem="08z-zS-Fzg" secondAttribute="bottom" id="XGD-PV-ATX"/>
+                            <constraint firstItem="C6T-NV-zxA" firstAttribute="height" secondItem="WeC-xT-hwP" secondAttribute="height" multiplier="50:667" id="dRD-qY-wlw"/>
                             <constraint firstAttribute="bottom" secondItem="ASc-N1-FS2" secondAttribute="bottom" constant="9" id="imL-6g-csA"/>
+                            <constraint firstItem="C6T-NV-zxA" firstAttribute="height" secondItem="WeC-xT-hwP" secondAttribute="height" multiplier="50:375" id="k3F-JC-qRC"/>
                             <constraint firstAttribute="trailing" secondItem="aKH-YG-AUK" secondAttribute="trailing" id="tJi-Xf-D2U"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="MKg-JS-YOy"/>
+                                <exclude reference="dRD-qY-wlw"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="constraints">
                                 <exclude reference="FHA-cP-8vZ"/>
                                 <include reference="MKg-JS-YOy"/>
+                                <include reference="dRD-qY-wlw"/>
+                                <exclude reference="k3F-JC-qRC"/>
                             </mask>
                         </variation>
                     </view>
@@ -117,9 +121,21 @@
                         <viewControllerLayoutGuide type="bottom" id="GdQ-73-RdB"/>
                     </layoutGuides>
                     <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="G9m-Iz-XbO">
-                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NPM-KA-70j">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="NPM-KA-70j" firstAttribute="top" secondItem="G9m-Iz-XbO" secondAttribute="top" id="12u-h4-5Nj"/>
+                            <constraint firstAttribute="trailing" secondItem="NPM-KA-70j" secondAttribute="trailing" id="5Sg-qE-3cn"/>
+                            <constraint firstAttribute="bottom" secondItem="NPM-KA-70j" secondAttribute="bottom" id="TXC-nZ-syd"/>
+                            <constraint firstItem="NPM-KA-70j" firstAttribute="leading" secondItem="G9m-Iz-XbO" secondAttribute="leading" id="UMc-sx-erU"/>
+                        </constraints>
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
                 </viewController>
@@ -136,7 +152,7 @@
                         <viewControllerLayoutGuide type="bottom" id="aMi-Wd-BPW"/>
                     </layoutGuides>
                     <view key="view" clipsSubviews="YES" tag="1" contentMode="scaleToFill" id="O1B-vT-ch7">
-                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="0.84313725490000002" blue="0.42352941179999998" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -151,7 +167,7 @@
                 <navigationController storyboardIdentifier="PersonalPageShowNC" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="5ua-Ud-9pH" customClass="BaseNavigationController" customModule="OmnieCommerce" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="rDE-36-aLe">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="rDE-36-aLe">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

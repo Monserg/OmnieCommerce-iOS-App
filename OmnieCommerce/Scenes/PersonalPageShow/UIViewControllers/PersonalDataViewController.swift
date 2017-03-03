@@ -12,14 +12,6 @@ class PersonalDataViewController: BaseViewController {
     // MARK: - Properties
     var avatarActionView: AvatarActionView?
     
-    @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var avatarButton: CustomButton!
-    @IBOutlet weak var nameTextField: CustomTextField!
-    @IBOutlet weak var surnameTextField: CustomTextField!
-    @IBOutlet weak var emailTextField: CustomTextField!
-    @IBOutlet weak var emailErrorLabel: CustomLabel!
-    @IBOutlet weak var phoneTextField: CustomTextField!
-    @IBOutlet weak var phoneErrorLabel: CustomLabel!
 
     // MARK: - Class Functions
     override func viewDidLoad() {
@@ -32,13 +24,11 @@ class PersonalDataViewController: BaseViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    
+        
     // MARK: - Custom Functions
     func didSetupView() {
-//        nameTextField.delegate = self
-//        surnameTextField.delegate = self
-//        emailTextField.delegate =
+        self.view.autoresizesSubviews = true
+
     }
     
     
@@ -116,10 +106,10 @@ extension PersonalDataViewController: UIImagePickerControllerDelegate {
 //    }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        let chosenImage = info[UIImagePickerControllerOriginalImage] as! UIImage
-        avatarButton.setImage(chosenImage, for: .normal)
-        
-        dismiss(animated: true, completion: nil)
+//        let chosenImage = info[UIImagePickerControllerOriginalImage] as! UIImage
+//        avatarButton.setImage(chosenImage, for: .normal)
+//        
+//        dismiss(animated: true, completion: nil)
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
