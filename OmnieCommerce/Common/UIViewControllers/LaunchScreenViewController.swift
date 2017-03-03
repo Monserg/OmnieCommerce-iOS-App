@@ -44,7 +44,17 @@ class LaunchScreenViewController: UIViewController {
         
         // Create CoreData instance
         let appUser     =   CoreDataManager.instance.didLoadEntity(byName: "AppUser") as? AppUser ?? AppUser()
-        appUser.gender  =   0
+        
+        // FIXME: - DELETE AFTER CREATE USER
+        appUser.imagePath                   =   "http://stuki-druki.com/aforizms/Jason%20Statham01.jpg"
+        appUser.firstName                   =   "Jason"
+        appUser.lastName                    =   "Statham"
+        appUser.email                       =   "jason.statham@gmail.com"
+        appUser.gender                      =   0
+        appUser.birthday                    =   "26.07.1967".convertToDate() as NSDate?
+        appUser.password                    =   "qwertyqwerty"
+        appUser.codeID                      =   "01"
+        
         CoreDataManager.instance.appUser    =   appUser
         
         if (appUser.isAuthorized) {

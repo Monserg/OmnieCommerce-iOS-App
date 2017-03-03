@@ -32,9 +32,9 @@ class SignInShowRouter: SignInShowRouterInput {
             let categoriesNC                =   UIStoryboard(name: "CategoriesShow", bundle: nil).instantiateViewController(withIdentifier: "CategoriesShowNC") as! BaseNavigationController
             
             revealVC.setFront(categoriesNC, animated: true)
-                //=   categoriesNC
         } else {
             let personalPageNC              =   UIStoryboard(name: "PersonalPageShow", bundle: nil).instantiateViewController(withIdentifier: "PersonalPageShowNC") as! BaseNavigationController
+            (personalPageNC.viewControllers.first as! PersonalPageShowViewController).userApp   =   CoreDataManager.instance.appUser
             
             revealVC.setFront(personalPageNC, animated: true)
         }

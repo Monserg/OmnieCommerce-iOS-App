@@ -13,12 +13,12 @@ import UIKit
 
 // MARK: - Input protocols for current ViewController component VIP-cicle
 protocol SignInContainerShowViewControllerInput {
-    func displaySomething(viewModel: SignInContainerShowModels.User.ViewModel)
+    func userAppDidShow(fromViewModel viewModel: SignInContainerShowModels.User.ViewModel)
 }
 
 // MARK: - Output protocols for Interactor component VIP-cicle
 protocol SignInContainerShowViewControllerOutput {
-    func didUserSignIn(requestModel: SignInContainerShowModels.User.RequestModel)
+    func userAppDidSignIn(withRequestModel requestModel: SignInContainerShowModels.User.RequestModel)
 }
 
 class SignInContainerShowViewController: BaseViewController, PasswordErrorMessageView {
@@ -92,7 +92,7 @@ class SignInContainerShowViewController: BaseViewController, PasswordErrorMessag
             
             return
         }
-        
+                
         handlerRegisterButtonCompletion!()
     }
     
@@ -120,17 +120,29 @@ class SignInContainerShowViewController: BaseViewController, PasswordErrorMessag
             return
         }
 
-        let requestModel = SignInContainerShowModels.User.RequestModel(name: name, password: password)
-        interactor.didUserSignIn(requestModel: requestModel)
+        let requestModel    =   SignInContainerShowModels.User.RequestModel(name: name, password: password)
+        interactor.userAppDidSignIn(withRequestModel: requestModel)
     }
 }
 
 
 // MARK: - SignInContainerShowViewControllerInput
 extension SignInContainerShowViewController: SignInContainerShowViewControllerInput {
-    func displaySomething(viewModel: SignInContainerShowModels.User.ViewModel) {
-        guard viewModel.result.error == nil else {
-            alertViewDidShow(withTitle: "Error".localized(), andMessage: "This user not register...".localized())
+    func userAppDidShow(fromViewModel viewModel: SignInContainerShowModels.User.ViewModel) {
+        guard (viewModel.result.isNameCorrect || viewModel.result.isPasswordCorrect) else {
+            alertViewDidShow(withTitle: "Error".localized(), andMessage: "User not register".localized())
+            
+            return
+        }
+        
+        guard (viewModel.result.isNameCorrect) else {
+            alertViewDidShow(withTitle: "Error".localized(), andMessage: "Incorrect User name".localized())
+            
+            return
+        }
+        
+        guard (viewModel.result.isPasswordCorrect) else {
+            alertViewDidShow(withTitle: "Error".localized(), andMessage: "Incorrect User password".localized())
             
             return
         }

@@ -139,6 +139,9 @@
 "Messages list is empty"        =   "Список повідомлень порожній";
 "News list is empty"            =   "Список новин порожній";
 "Phones list is empty"          =   "Список телефонів порожній";
+"Incorrect User name"           =   "Введіть чинне ім'я користувача";
+"Incorrect User password"       =   "Введіть чинний пароль користувача";
+"User not register"             =   "Користувач не зареєстрований";
 
 
 // Cities

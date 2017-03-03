@@ -29,6 +29,7 @@ typealias HandlerPassDataCompletion                 =   ((_ data: Any) -> ())
 typealias HandlerLocationCompletion                 =   ((_ organizations: [Organization]) -> ())
 
 typealias ResponseAPI                               =   (success: Bool, error: String?)
+typealias NameAndPasswordCheckResult                =   (isNameCorrect: Bool, isPasswordCorrect: Bool)
 typealias LocationData                              =   (placemark: CLPlacemark?, coordinate: CLLocationCoordinate2D?, address: String?)
 typealias OrganizationData                          =   (name: String, rating: Int, isFavorite: Bool, city: String, street: String, logo: UIImage, location: CLLocationCoordinate2D)
 

@@ -31,4 +31,11 @@ extension String {
         
         return String(text)
     }
+    
+    func convertToDate() -> Date {
+        let dateFormatter           =   DateFormatter()
+        dateFormatter.dateFormat    =   "dd.MM.yyyy"
+        
+        return dateFormatter.date(from: self)!
+    }
 }
