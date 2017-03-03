@@ -11,7 +11,7 @@ import Cosmos
 import AlamofireImage
 
 enum CellStyle: String {
-    case News           =   "News"
+    case News           =   "NewsCell"
     case Order          =   "Order"
     case Message        =   "Message"
     case Profile        =   "Profile"

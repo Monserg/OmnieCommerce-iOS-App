@@ -13,12 +13,12 @@ import UIKit
 
 // MARK: - Input protocols for current ViewController component VIP-cicle
 protocol PersonalPageShowViewControllerInput {
-    func displaySomething(viewModel: PersonalPageShow.Something.ViewModel)
+    func userAppDataDidShow(fromViewModel viewModel: PersonalPageShow.UserApp.ViewModel)
 }
 
 // MARK: - Output protocols for Interactor component VIP-cicle
 protocol PersonalPageShowViewControllerOutput {
-    func doSomething(request: PersonalPageShow.Something.RequestModel)
+    func userAppDataDidLoad(withRequestModel requestModel: PersonalPageShow.UserApp.RequestModel)
 }
 
 class PersonalPageShowViewController: BaseViewController {
@@ -72,7 +72,6 @@ class PersonalPageShowViewController: BaseViewController {
         personalTemplatesVC     =   UIStoryboard(name: "PersonalPageShow", bundle: nil).instantiateViewController(withIdentifier: "PersonalTemplatesVC") as? PersonalTemplatesViewController
         
         activeViewController    =   personalDataVC
-//        view.backgroundColor    =   UIColor.veryDarkDesaturatedBlue24
 
         viewSettingsDidLoad()
     }
@@ -83,11 +82,11 @@ class PersonalPageShowViewController: BaseViewController {
         print(object: "\(type(of: self)): \(#function) run.")
         
         setupSegmentedControlView()
-        containerView.autoresizesSubviews = true
+        containerView.autoresizesSubviews   =   true
 
         // NOTE: Ask the Interactor to do some work
-        let request             =   PersonalPageShow.Something.RequestModel()
-        interactor.doSomething(request: request)
+        let requestModel        =   PersonalPageShow.UserApp.RequestModel()
+        interactor.userAppDataDidLoad(withRequestModel: requestModel)
     }
     
     func setupSegmentedControlView() {
@@ -112,19 +111,13 @@ class PersonalPageShowViewController: BaseViewController {
         smallTopBarView.setNeedsDisplay()
         smallTopBarView.circleView.setNeedsDisplay()
         segmentedControlView.setNeedsDisplay()
-        
-        
-        // Container Child views
-//        containerView.setNeedsDisplay()
-//        personalDataVC?.view.frame          =   CGRect.init(origin: CGPoint.zero, size: containerView.frame.size)
-//        personalTemplatesVC?.view.frame     =   CGRect.init(origin: CGPoint.zero, size: containerView.frame.size)
     }
 }
 
 
 // MARK: - PersonalPageShowViewControllerInput
 extension PersonalPageShowViewController: PersonalPageShowViewControllerInput {
-    func displaySomething(viewModel: PersonalPageShow.Something.ViewModel) {
+    func userAppDataDidShow(fromViewModel viewModel: PersonalPageShow.UserApp.ViewModel) {
         guard isNetworkAvailable else {
             alertViewDidShow(withTitle: "Not Reachable".localized(), andMessage: "Disconnected from Network".localized())
             

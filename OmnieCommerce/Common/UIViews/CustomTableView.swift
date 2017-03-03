@@ -9,9 +9,9 @@
 import UIKit
 
 enum TableCellStyle: String {
-    case Menu = "Menu"
-    case DropDown = "DropDown"
-    case Standard = "Standard"
+    case Menu       =   "Menu"
+    case DropDown   =   "DropDown"
+    case Standard   =   "Standard"
 }
 
 @IBDesignable class CustomTableView: UITableView {

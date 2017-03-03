@@ -20,7 +20,6 @@
 		B10CF52A1E684B9700811DC1 /* ScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10CF5291E684B9700811DC1 /* ScheduleView.swift */; };
 		B10CF52C1E684BA000811DC1 /* ScheduleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B10CF52B1E684BA000811DC1 /* ScheduleView.xib */; };
 		B11B9AD61DF00CC5009A4AA1 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11B9AD51DF00CC5009A4AA1 /* BaseTableViewCell.swift */; };
-		B11B9AD81DF02BAB009A4AA1 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11B9AD71DF02BAB009A4AA1 /* News.swift */; };
 		B11B9ADA1DF02F5C009A4AA1 /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11B9AD91DF02F5C009A4AA1 /* Date+Ext.swift */; };
 		B11B9ADD1DF053BA009A4AA1 /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11B9ADC1DF053BA009A4AA1 /* CustomImageView.swift */; };
 		B11CCAF21DEEEBB200AA7942 /* DropDownTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11CCAF11DEEEBB200AA7942 /* DropDownTableViewController.swift */; };
@@ -108,7 +107,6 @@
 		B14D1D701E5CB70D00D33435 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B14D1D6F1E5CB70D00D33435 /* AddressBook.framework */; };
 		B14D1D721E5CB79200D33435 /* SwiftyVK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B14D1D711E5CB79200D33435 /* SwiftyVK.framework */; };
 		B14D1D741E5CB8B000D33435 /* SocialNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14D1D731E5CB8B000D33435 /* SocialNetworkManager.swift */; };
-		B14D894D1DF6C87800AF3AED /* NewsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B14D894C1DF6C87800AF3AED /* NewsTableViewCell.xib */; };
 		B14D894F1DF6C92100AF3AED /* MessageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B14D894E1DF6C92100AF3AED /* MessageTableViewCell.xib */; };
 		B14D89511DF6CFF800AF3AED /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14D89501DF6CFF800AF3AED /* Message.swift */; };
 		B14E97481DD8B042001E1DE2 /* SignInShowConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14E97411DD8B042001E1DE2 /* SignInShowConfigurator.swift */; };
@@ -152,6 +150,9 @@
 		B16E966F1DE6C94000147CEF /* BigTopBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16E966E1DE6C94000147CEF /* BigTopBarView.swift */; };
 		B16E96711DE6C94D00147CEF /* BigTopBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B16E96701DE6C94D00147CEF /* BigTopBarView.xib */; };
 		B16E96731DE717E400147CEF /* BigCirleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16E96721DE717E400147CEF /* BigCirleView.swift */; };
+		B17061A41E69866B00CF9BA9 /* TableViewControllerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17061A31E69866B00CF9BA9 /* TableViewControllerManager.swift */; };
+		B17061A71E699F3900CF9BA9 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17061A61E699F3900CF9BA9 /* News.swift */; };
+		B17061AA1E699F8300CF9BA9 /* NewsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B17061A91E699F8300CF9BA9 /* NewsTableViewCell.xib */; };
 		B17323CA1DED84FF003A8D3E /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17323C91DED84FF003A8D3E /* CustomCollectionViewCell.swift */; };
 		B1739D161DE314C70029BCCA /* UIButton+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1739D151DE314C70029BCCA /* UIButton+Ext.swift */; };
 		B1739D181DE314D50029BCCA /* UILabel+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1739D171DE314D50029BCCA /* UILabel+Ext.swift */; };
@@ -344,7 +345,6 @@
 		B10CF5291E684B9700811DC1 /* ScheduleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleView.swift; sourceTree = "<group>"; };
 		B10CF52B1E684BA000811DC1 /* ScheduleView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScheduleView.xib; sourceTree = "<group>"; };
 		B11B9AD51DF00CC5009A4AA1 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
-		B11B9AD71DF02BAB009A4AA1 /* News.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
 		B11B9AD91DF02F5C009A4AA1 /* Date+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
 		B11B9ADC1DF053BA009A4AA1 /* CustomImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
 		B11CCAF11DEEEBB200AA7942 /* DropDownTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DropDownTableViewController.swift; sourceTree = "<group>"; };
@@ -435,7 +435,6 @@
 		B14D1D6F1E5CB70D00D33435 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		B14D1D711E5CB79200D33435 /* SwiftyVK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SwiftyVK.framework; sourceTree = "<group>"; };
 		B14D1D731E5CB8B000D33435 /* SocialNetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialNetworkManager.swift; sourceTree = "<group>"; };
-		B14D894C1DF6C87800AF3AED /* NewsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsTableViewCell.xib; sourceTree = "<group>"; };
 		B14D894E1DF6C92100AF3AED /* MessageTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageTableViewCell.xib; sourceTree = "<group>"; };
 		B14D89501DF6CFF800AF3AED /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		B14E97411DD8B042001E1DE2 /* SignInShowConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInShowConfigurator.swift; sourceTree = "<group>"; };
@@ -481,6 +480,9 @@
 		B16E966E1DE6C94000147CEF /* BigTopBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BigTopBarView.swift; sourceTree = "<group>"; };
 		B16E96701DE6C94D00147CEF /* BigTopBarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BigTopBarView.xib; sourceTree = "<group>"; };
 		B16E96721DE717E400147CEF /* BigCirleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BigCirleView.swift; sourceTree = "<group>"; };
+		B17061A31E69866B00CF9BA9 /* TableViewControllerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewControllerManager.swift; sourceTree = "<group>"; };
+		B17061A61E699F3900CF9BA9 /* News.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
+		B17061A91E699F8300CF9BA9 /* NewsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsTableViewCell.xib; sourceTree = "<group>"; };
 		B17323C91DED84FF003A8D3E /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
 		B1739D151DE314C70029BCCA /* UIButton+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Ext.swift"; sourceTree = "<group>"; };
 		B1739D171DE314D50029BCCA /* UILabel+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+Ext.swift"; sourceTree = "<group>"; };
@@ -799,7 +801,6 @@
 				B1B761C21E629C120067339F /* DropDownItem.swift */,
 				B1228FB41DD4856A00A90FBB /* MenuItem.swift */,
 				B14D89501DF6CFF800AF3AED /* Message.swift */,
-				B11B9AD71DF02BAB009A4AA1 /* News.swift */,
 			);
 			path = DataModel;
 			sourceTree = "<group>";
@@ -940,6 +941,8 @@
 		B122F1D21DD35B320018A701 /* NewsShow */ = {
 			isa = PBXGroup;
 			children = (
+				B17061A51E699F1900CF9BA9 /* Models */,
+				B17061A81E699F4600CF9BA9 /* Views */,
 				B122F20C1DD35C2C0018A701 /* NewsShowConfigurator.swift */,
 				B122F20D1DD35C2C0018A701 /* NewsShowInteractor.swift */,
 				B122F20E1DD35C2C0018A701 /* NewsShowModels.swift */,
@@ -1028,7 +1031,6 @@
 				B1C13D8E1DEF5736002B494A /* DropDownTableViewCell.swift */,
 				B1228FB11DD47C9F00A90FBB /* MenuViewCell.swift */,
 				B14D894E1DF6C92100AF3AED /* MessageTableViewCell.xib */,
-				B14D894C1DF6C87800AF3AED /* NewsTableViewCell.xib */,
 			);
 			path = UITableViewCells;
 			sourceTree = "<group>";
@@ -1057,6 +1059,7 @@
 			children = (
 				B1FFF7301E5F0F0F00A075D8 /* LocationManager.swift */,
 				B14D1D731E5CB8B000D33435 /* SocialNetworkManager.swift */,
+				B17061A31E69866B00CF9BA9 /* TableViewControllerManager.swift */,
 				B12FE6431E57323400A4FBA4 /* TextFieldManager.swift */,
 			);
 			name = Managers;
@@ -1180,6 +1183,22 @@
 				B1228FAB1DD44CD700A90FBB /* Support Files */,
 			);
 			path = OmnieCommerce;
+			sourceTree = "<group>";
+		};
+		B17061A51E699F1900CF9BA9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B17061A61E699F3900CF9BA9 /* News.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B17061A81E699F4600CF9BA9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B17061A91E699F8300CF9BA9 /* NewsTableViewCell.xib */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		B17323C81DED8430003A8D3E /* UICollectionViewCell */ = {
@@ -1609,7 +1628,6 @@
 				B1BF92711DD6516C00BECBBB /* helveticaneuecyr-medium.otf in Resources */,
 				B1BF92721DD6516C00BECBBB /* helveticaneuecyr-mediumitaicl.otf in Resources */,
 				B1BF92731DD6516C00BECBBB /* helveticaneuecyr-roman.otf in Resources */,
-				B14D894D1DF6C87800AF3AED /* NewsTableViewCell.xib in Resources */,
 				B1BF92741DD6516C00BECBBB /* helveticaneuecyr-thin.otf in Resources */,
 				B1BF92751DD6516C00BECBBB /* helveticaneuecyr-thinitalic.otf in Resources */,
 				B122DF6B1DF804CD003823AD /* SegmentedControlViewLandscape.xib in Resources */,
@@ -1628,6 +1646,7 @@
 				B14D1D601E5CB60600D33435 /* GoogleService-Info.plist in Resources */,
 				B1CF54E21DDB529300E98049 /* AboutShow.storyboard in Resources */,
 				B1BF927A1DD6516C00BECBBB /* UBUNTU-C.TTF in Resources */,
+				B17061AA1E699F8300CF9BA9 /* NewsTableViewCell.xib in Resources */,
 				B1E52AD31DDDDEC600C3B24D /* Main.storyboard in Resources */,
 				B1BEEDF71E6368F000F1DE8A /* OrganizationShow.storyboard in Resources */,
 				B1BF927B1DD6516C00BECBBB /* UBUNTU-I.TTF in Resources */,
@@ -1739,7 +1758,6 @@
 				B1CF54B01DDB516E00E98049 /* OmnieCardsShowModels.swift in Sources */,
 				B1CF54971DDB512000E98049 /* DiscountCardsShowViewController.swift in Sources */,
 				B15291591DDE3FFA00BBA1E0 /* MenuSectionHeaderView.swift in Sources */,
-				B11B9AD81DF02BAB009A4AA1 /* News.swift in Sources */,
 				B1BEEDEF1E63687500F1DE8A /* OrganizationShowConfigurator.swift in Sources */,
 				B1FFF7151E5F017A00A075D8 /* OrganizationsMapShowRouter.swift in Sources */,
 				B122F2281DD35CC80018A701 /* SlideMenuShowWorker.swift in Sources */,
@@ -1780,6 +1798,7 @@
 				B14CD91A1E57C058005F8BF6 /* Protocols.swift in Sources */,
 				B14E97591DD8B052001E1DE2 /* SignUpShowPresenter.swift in Sources */,
 				B10874691E5B07A6004A4FB6 /* OmnieCommerceUser.xcdatamodeld in Sources */,
+				B17061A41E69866B00CF9BA9 /* TableViewControllerManager.swift in Sources */,
 				B1FFF7341E5F0F9E00A075D8 /* PointAnnotation.swift in Sources */,
 				B1CF54781DDB50D900E98049 /* AboutShowModels.swift in Sources */,
 				B14E97561DD8B052001E1DE2 /* SignUpShowConfigurator.swift in Sources */,
@@ -1923,6 +1942,7 @@
 				B1FFF7031E5ECDF900A075D8 /* OrganizationsShowPresenter.swift in Sources */,
 				B1CF54761DDB50D900E98049 /* AboutShowConfigurator.swift in Sources */,
 				B122F1FA1DD35BC70018A701 /* FavoriteShowPresenter.swift in Sources */,
+				B17061A71E699F3900CF9BA9 /* News.swift in Sources */,
 				B1BEEDE61E63402000F1DE8A /* ListTableViewController.swift in Sources */,
 				B1CF54BE1DDB519000E98049 /* OnmieSoftShowModels.swift in Sources */,
 				B1CF54DC1DDB51BE00E98049 /* SettingsShowRouter.swift in Sources */,

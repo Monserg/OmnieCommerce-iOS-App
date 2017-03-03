@@ -13,12 +13,12 @@ import UIKit
 
 // MARK: - Input protocols for current Interactor component VIP-cicle
 protocol PersonalPageShowInteractorInput {
-    func doSomething(request: PersonalPageShow.Something.RequestModel)
+    func userAppDataDidLoad(withRequestModel requestModel: PersonalPageShow.UserApp.RequestModel)
 }
 
 // MARK: - Output protocols for Presenter component VIP-cicle
 protocol PersonalPageShowInteractorOutput {
-    func presentSomething(response: PersonalPageShow.Something.ResponseModel)
+    func userAppDataDidPrepareToShow(fromResponseModel responseModel: PersonalPageShow.UserApp.ResponseModel)
 }
 
 class PersonalPageShowInteractor: PersonalPageShowInteractorInput {
@@ -28,13 +28,13 @@ class PersonalPageShowInteractor: PersonalPageShowInteractorInput {
     
     
     // MARK: - Custom Functions. Business logic
-    func doSomething(request: PersonalPageShow.Something.RequestModel) {
+    func userAppDataDidLoad(withRequestModel requestModel: PersonalPageShow.UserApp.RequestModel) {
         // NOTE: Create some Worker to do the work
-        worker  =   PersonalPageShowWorker()
+        worker              =   PersonalPageShowWorker()
         worker.doSomeWork()
         
         // NOTE: Pass the result to the Presenter
-        let response    =   PersonalPageShow.Something.ResponseModel()
-        presenter.presentSomething(response: response)
+        let responseModel   =   PersonalPageShow.UserApp.ResponseModel()
+        presenter.userAppDataDidPrepareToShow(fromResponseModel: responseModel)
     }
 }

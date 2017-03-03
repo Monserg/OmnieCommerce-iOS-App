@@ -11,29 +11,30 @@
 
 import UIKit
 
-// MARK: - Input & Output protocols
+// MARK: - Input protocols for current Interactor component VIP-cicle
 protocol NewsShowInteractorInput {
-    func doSomething(request: NewsShow.Something.Request)
+    func newsDidLoad(withRequestModel requestModel: NewsShowModels.NewsItems.RequestModel)
 }
 
+// MARK: - Output protocols for Presenter component VIP-cicle
 protocol NewsShowInteractorOutput {
-    func presentSomething(response: NewsShow.Something.Response)
+    func newsDidPrepareToShow(fromResponseModel responseModel: NewsShowModels.NewsItems.ResponseModel)
 }
 
 class NewsShowInteractor: NewsShowInteractorInput {
     // MARK: - Properties
-    var output: NewsShowInteractorOutput!
+    var presenter: NewsShowInteractorOutput!
     var worker: NewsShowWorker!
     
     
     // MARK: - Custom Functions. Business logic
-    func doSomething(request: NewsShow.Something.Request) {
+    func newsDidLoad(withRequestModel requestModel: NewsShowModels.NewsItems.RequestModel) {
         // NOTE: Create some Worker to do the work
-        worker = NewsShowWorker()
-        worker.doSomeWork()
+        worker              =   NewsShowWorker()
+        let items           =   worker.newsDidLoad()
         
         // NOTE: Pass the result to the Presenter
-        let response = NewsShow.Something.Response()
-        output.presentSomething(response: response)
+        let responseModel   =   NewsShowModels.NewsItems.ResponseModel(items: items)
+        presenter.newsDidPrepareToShow(fromResponseModel: responseModel)
     }
 }

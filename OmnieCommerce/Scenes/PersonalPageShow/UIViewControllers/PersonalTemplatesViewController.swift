@@ -16,10 +16,17 @@ class PersonalTemplatesViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        viewSettingsDidLoad()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    
+    // MARK: - Custom Functions
+    func viewSettingsDidLoad() {
+        
     }
 }

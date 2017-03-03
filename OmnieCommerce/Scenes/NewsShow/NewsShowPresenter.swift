@@ -13,22 +13,24 @@ import UIKit
 
 // MARK: - Input & Output protocols
 protocol NewsShowPresenterInput {
-    func presentSomething(response: NewsShow.Something.Response)
+    func newsDidPrepareToShow(fromResponseModel responseModel: NewsShowModels.NewsItems.ResponseModel)
 }
 
 protocol NewsShowPresenterOutput: class {
-    func displaySomething(viewModel: NewsShow.Something.ViewModel)
+    func newsDidShow(fromViewModel viewModel: NewsShowModels.NewsItems.ViewModel)
 }
 
 class NewsShowPresenter: NewsShowPresenterInput {
     // MARK: - Properties
-    weak var output: NewsShowPresenterOutput!
+    weak var viewController: NewsShowPresenterOutput!
     
     
     // MARK: - Custom Functions. Presentation logic
-    func presentSomething(response: NewsShow.Something.Response) {
+    func newsDidPrepareToShow(fromResponseModel responseModel: NewsShowModels.NewsItems.ResponseModel) {
         // NOTE: Format the response from the Interactor and pass the result back to the View Controller
-        let viewModel = NewsShow.Something.ViewModel()
-        output.displaySomething(viewModel: viewModel)
+        let news        =   Array(repeatElement(responseModel.items, count: 1))
+        let viewModel   =   NewsShowModels.NewsItems.ViewModel(news: news)
+        
+        viewController.newsDidShow(fromViewModel: viewModel)
     }
 }

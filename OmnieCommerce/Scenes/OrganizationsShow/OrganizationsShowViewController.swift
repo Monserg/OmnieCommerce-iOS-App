@@ -108,15 +108,15 @@ class OrganizationsShowViewController: BaseViewController {
         }
         
         // Load organizations
-        let organizationsRequestModel = OrganizationsShowModels.Organizations.RequestModel()
+        let organizationsRequestModel       =   OrganizationsShowModels.Organizations.RequestModel()
         interactor.organizationsDidLoad(withRequestModel: organizationsRequestModel)
         
         // Load services
-        let servicesRequestModel = OrganizationsShowModels.DropDownList.RequestModel()
+        let servicesRequestModel            =   OrganizationsShowModels.DropDownList.RequestModel()
         interactor.servicesDidLoad(withRequestModel: servicesRequestModel)
 
         // Load categories
-        let categoriesRequestModel = OrganizationsShowModels.DropDownList.RequestModel()
+        let categoriesRequestModel          =   OrganizationsShowModels.DropDownList.RequestModel()
         interactor.categoriesDidLoad(withRequestModel: categoriesRequestModel)
     }
     

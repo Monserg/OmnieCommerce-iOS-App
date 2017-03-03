@@ -11,21 +11,22 @@
 
 import UIKit
 
-// MARK: - Input & Output protocols
+// MARK: - Input protocols for current ViewController component VIP-cicle
 protocol NewsShowViewControllerInput {
-    func displaySomething(viewModel: NewsShow.Something.ViewModel)
+    func newsDidShow(fromViewModel viewModel: NewsShowModels.NewsItems.ViewModel)
 }
 
+// MARK: - Output protocols for Interactor component VIP-cicle
 protocol NewsShowViewControllerOutput {
-    func doSomething(request: NewsShow.Something.Request)
+    func newsDidLoad(withRequestModel requestModel: NewsShowModels.NewsItems.RequestModel)
 }
 
 class NewsShowViewController: BaseViewController {
     // MARK: - Properties
-    var output: NewsShowViewControllerOutput!
+    var interactor: NewsShowViewControllerOutput!
     var router: NewsShowRouter!
     
-    var tableViewManager                    =   ListTableViewController()
+    var tableViewControllerManager  =   TableViewControllerManager()
     
     @IBOutlet weak var smallTopBarView: SmallTopBarView!
     @IBOutlet weak var copyrightLabel: CustomLabel!
@@ -38,15 +39,15 @@ class NewsShowViewController: BaseViewController {
             tableView.register(UINib(nibName: "NewsTableViewCell", bundle: nil), forCellReuseIdentifier: "NewsCell")
             
             // Delegates
-            tableView.dataSource            =   tableViewManager
-            tableView.delegate              =   tableViewManager
-            tableViewManager.tableView      =   tableView
-            tableViewManager.sourceType     =   .News
+            tableView.dataSource                            =   tableViewControllerManager
+            tableView.delegate                              =   tableViewControllerManager
+            tableViewControllerManager.tableView            =   tableView
+            tableViewControllerManager.sourceType           =   .News
             
-            smallTopBarView.searchBar.placeholder   =   "Enter Organization name".localized()
+            smallTopBarView.searchBar.placeholder           =   "Enter Organization name".localized()
 
             // Handler select cell
-            tableViewManager.completionHandler = { organization in
+            tableViewControllerManager.completionHandler    =   { organization in
                 // TODO: ADD TRANSITION TO NEWS PROFILE
                 self.print(object: "transition to News profile scene")
             }
@@ -65,22 +66,13 @@ class NewsShowViewController: BaseViewController {
     // MARK: - Class Functions
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Initialization
-        for _ in 0 ..< 25 {
-            let pathString = (arc4random_uniform(2) == 1) ? "http://www.nyhabitat.com/blog/wp-content/uploads/2013/08/fifth-avenue-shopping-manhattan-nyc-new-york.jpg" : nil
-            
-            tableViewManager.dataSource.append(News(title: "Сауна Акваторія", logoStringURL: pathString, activeDate: Date.init(), description: "Вже давно відомо, що читабельний зміст буде заважати зосередитись людині, яка оцінює... композицію сторінки. Сенс використання Lorem Ipsum полягає в тому, що цей текст має більш-менш нормальне розподілення літер на відміну від, наприклад, \"Тут іде текст. Тут іде текст.\" Це робить текст схожим на оповідний. Багато програм верстування та веб-дизайну використовують Lorem Ipsum як зразок і пошук за терміном \"lorem ipsum\" відкриє багато веб-сайтів, які знаходяться ще в зародковому стані. Різні версії Lorem Ipsum з'явились за минулі роки, деякі випадково, деякі було створено зумисно (зокрема, жартівливі)."))
-        }
-        
+                
         // Config topBarView
         smallTopBarView.type    =   "ParentSearch"
         topBarViewStyle         =   .Small
         setup(topBarView: smallTopBarView)
         
         viewSettingsDidLoad()
-        
-        setupSegmentedControlView()
     }
     
 
@@ -88,18 +80,11 @@ class NewsShowViewController: BaseViewController {
     func viewSettingsDidLoad() {
         print(object: "\(type(of: self)): \(#function) run.")
         
+        setupSegmentedControlView()
+
         // NOTE: Ask the Interactor to do some work
-        let request = NewsShow.Something.Request()
-        output.doSomething(request: request)
-    }
-    
-    func setupScene(withSize size: CGSize) {
-        print(object: "\(type(of: self)): \(#function) run. Screen view size = \(size)")
-        
-        smallTopBarView.setNeedsDisplay()
-        smallTopBarView.circleView.setNeedsDisplay()
-        segmentedControlView.setNeedsDisplay()
-        _ = tableView.visibleCells.map{ ($0 as! BaseTableViewCell).dottedBorderView.setNeedsDisplay() }
+        let requestModel        =   NewsShowModels.NewsItems.RequestModel()
+        interactor.newsDidLoad(withRequestModel: requestModel)
     }
     
     func setupSegmentedControlView() {
@@ -110,24 +95,30 @@ class NewsShowViewController: BaseViewController {
     }
     
     
-    // MARK: - Actions
-    
-    
-    
     // MARK: - Transition
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         print(object: "\(type(of: self)): \(#function) run. New size = \(size)")
         
-        setupScene(withSize: size)
+        smallTopBarView.setNeedsDisplay()
+        smallTopBarView.circleView.setNeedsDisplay()
+        segmentedControlView.setNeedsDisplay()
+        _ = tableView.visibleCells.map{ ($0 as! BaseTableViewCell).dottedBorderView.setNeedsDisplay() }
     }
 }
 
 
 // MARK: - NewsShowViewControllerInput
 extension NewsShowViewController: NewsShowViewControllerInput {
-    func displaySomething(viewModel: NewsShow.Something.ViewModel) {
-//        tableViewManager.dataSource     =   viewModel
-//        dataSourceEmptyView.isHidden    =   (self.news.count == 0) ? false : true
+    func newsDidShow(fromViewModel viewModel: NewsShowModels.NewsItems.ViewModel) {
+        guard (viewModel.news?.first?.count)! > 0 else {
+            dataSourceEmptyView.isHidden    =   false
+
+            return
+        }
+        
+        self.tableViewControllerManager.sectionsCount   =   viewModel.news!.count
+        self.tableViewControllerManager.dataSource      =   viewModel.news!.first!
+        dataSourceEmptyView.isHidden                    =   true
         
         self.tableView.reloadData()
     }

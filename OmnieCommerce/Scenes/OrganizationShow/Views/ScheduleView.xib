@@ -80,7 +80,7 @@
                             </connections>
                         </button>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mon-Fri" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mmt-sX-LTb" userLabel="Mon-Fri Label" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                            <rect key="frame" x="135" y="61" width="61" height="20.5"/>
+                            <rect key="frame" x="135" y="61" width="41" height="13.5"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
@@ -90,7 +90,7 @@
                             </userDefinedRuntimeAttributes>
                         </label>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sat" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MqG-DO-y7l" userLabel="Sat Label" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                            <rect key="frame" x="135" y="96.5" width="25.5" height="20.5"/>
+                            <rect key="frame" x="135" y="89.5" width="17" height="13.5"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
@@ -100,7 +100,7 @@
                             </userDefinedRuntimeAttributes>
                         </label>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sun" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e9F-hx-KiM" userLabel="Sun Label" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                            <rect key="frame" x="135" y="119" width="30" height="20.5"/>
+                            <rect key="frame" x="135" y="105" width="20" height="13.5"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
@@ -110,7 +110,7 @@
                             </userDefinedRuntimeAttributes>
                         </label>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lunch break" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bC8-nJ-q0y" userLabel="Lunch Break Label" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                            <rect key="frame" x="135" y="154.5" width="50" height="41"/>
+                            <rect key="frame" x="135" y="133.5" width="50" height="27"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="50" id="4sy-Tc-toC"/>
@@ -123,7 +123,7 @@
                             </userDefinedRuntimeAttributes>
                         </label>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="09:00 - 18:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yAE-qP-iQu" userLabel="Monday Value Label" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                            <rect key="frame" x="200" y="61" width="106" height="20.5"/>
+                            <rect key="frame" x="200" y="61" width="69" height="13.5"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
@@ -133,7 +133,7 @@
                             </userDefinedRuntimeAttributes>
                         </label>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10:00 - 17:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="69U-Bt-O7K" userLabel="Saturday Value Label" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                            <rect key="frame" x="200" y="96.5" width="102" height="20.5"/>
+                            <rect key="frame" x="200" y="89.5" width="69" height="13.5"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
@@ -143,7 +143,7 @@
                             </userDefinedRuntimeAttributes>
                         </label>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Holiday" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kog-48-JgT" userLabel="Sunday Value Label" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                            <rect key="frame" x="200" y="119" width="57.5" height="20.5"/>
+                            <rect key="frame" x="200" y="105" width="40" height="13.5"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
@@ -153,7 +153,7 @@
                             </userDefinedRuntimeAttributes>
                         </label>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="13:00 - 14:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6e6-At-YpD" userLabel="Launch Value Label" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                            <rect key="frame" x="200" y="165" width="103" height="20.5"/>
+                            <rect key="frame" x="200" y="140.5" width="69" height="13.5"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>

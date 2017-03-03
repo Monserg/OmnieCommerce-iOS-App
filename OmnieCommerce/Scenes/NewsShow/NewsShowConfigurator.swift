@@ -35,16 +35,16 @@ class NewsShowConfigurator {
 
     // MARK: - Custom Functions
     func configure(viewController: NewsShowViewController) {
-        let router = NewsShowRouter()
-        router.viewController = viewController
+        let router                  =   NewsShowRouter()
+        router.viewController       =   viewController
         
-        let presenter = NewsShowPresenter()
-        presenter.output = viewController
+        let presenter               =   NewsShowPresenter()
+        presenter.viewController    =   viewController
         
-        let interactor = NewsShowInteractor()
-        interactor.output = presenter
+        let interactor              =   NewsShowInteractor()
+        interactor.presenter        =   presenter
         
-        viewController.output = interactor
-        viewController.router = router
+        viewController.interactor   =   interactor
+        viewController.router       =   router
     }
 }

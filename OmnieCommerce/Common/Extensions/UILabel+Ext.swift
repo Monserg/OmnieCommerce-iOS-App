@@ -13,9 +13,7 @@ enum LabelStyle: String {
     case Error = "Error"
     case Copyright = "Copyright"
     case MenuItem = "MenuItem"
-    case Date = "Date"
     case DateItalic = "DateItalic"
-    case Describe = "Describe"
     case Message = "Message"
     case FromTo = "FromTo"
     case CalendarWeekday = "CalendarWeekday"
@@ -26,6 +24,7 @@ enum LabelStyle: String {
     case UbuntuLightItalic12VerySoftRed                 =   "UbuntuLightItalic12VerySoftRed"
     case UbuntuLightItalic12LightGrayishCyan            =   "UbuntuLightItalic12LightGrayishCyan"
     case UbuntuLight12VeryLightGray                     =   "UbuntuLight12VeryLightGray"
+    case UbuntuLight09VeryDarkGrayishBlue53             =   "UbuntuLight09VeryDarkGrayishBlue53"
     case UbuntuLight12SoftOrange                        =   "UbuntuLight12SoftOrange"
     case UbuntuLight16VeryLightGray                     =   "UbuntuLight16VeryLightGray"
     case HelveticaNeueCyrThin47VeryLightGray            =   "HelveticaNeueCyrThin47VeryLightGray"
@@ -66,18 +65,10 @@ extension UILabel {
             textColor       =   (isAppThemeDark) ? UIColor.white : UIColor.veryLightGray
             textAlignment   =   .left
             
-        case .Date:
-            font            =   (isAppThemeDark) ? UIFont.systemFont(ofSize: 12) : UIFont.ubuntuLight09
-            textColor       =   (isAppThemeDark) ? UIColor.white : UIColor.veryDarkGrayishBlue53
-
         case .DateItalic:
             font            =   (isAppThemeDark) ? UIFont.systemFont(ofSize: 9) : UIFont.ubuntuLightItalic09
             textColor       =   (isAppThemeDark) ? UIColor.white : UIColor.veryDarkGrayishBlue53
 
-        case .Describe:
-            font            =   (isAppThemeDark) ? UIFont.systemFont(ofSize: 12) : UIFont.ubuntuLightItalic12
-            textColor       =   (isAppThemeDark) ? UIColor.white : UIColor.lightGrayishCyan
-            
         case .Message:
             font            =   (isAppThemeDark) ? UIFont.systemFont(ofSize: 9) : UIFont.ubuntuLightItalic09
             textColor       =   (isAppThemeDark) ? UIColor.white : UIColor.lightGrayishCyan
@@ -118,6 +109,11 @@ extension UILabel {
             textColor       =   UIColor(hexString: (isAppThemeDark) ? "#dedede" : "#dedede", withAlpha: 1.0)
             textAlignment   =   .left
 
+        case .UbuntuLight09VeryDarkGrayishBlue53:
+            font            =   (isAppThemeDark) ? UIFont.systemFont(ofSize: 12) : UIFont.ubuntuLight09
+            textColor       =   (isAppThemeDark) ? UIColor.white : UIColor.veryDarkGrayishBlue53
+            textAlignment   =   .left
+            
         case .UbuntuLight12SoftOrange:
             font            =   UIFont.ubuntuLight12
             textColor       =   UIColor(hexString: (isAppThemeDark) ? "#dedede" : "#f5cf68", withAlpha: 1.0)

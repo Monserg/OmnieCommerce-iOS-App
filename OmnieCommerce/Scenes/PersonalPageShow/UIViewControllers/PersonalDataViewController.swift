@@ -17,7 +17,7 @@ class PersonalDataViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        didSetupView()
+        viewSettingsDidLoad()
     }
 
     override func didReceiveMemoryWarning() {
@@ -26,9 +26,7 @@ class PersonalDataViewController: BaseViewController {
     }
         
     // MARK: - Custom Functions
-    func didSetupView() {
-        self.view.autoresizesSubviews = true
-
+    func viewSettingsDidLoad() {
     }
     
     

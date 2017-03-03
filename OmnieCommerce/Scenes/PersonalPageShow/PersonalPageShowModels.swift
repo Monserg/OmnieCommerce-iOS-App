@@ -13,7 +13,7 @@ import UIKit
 
 // MARK: - Data models
 struct PersonalPageShow {
-    struct Something {
+    struct UserApp {
         struct RequestModel {
         }
         
