@@ -82,16 +82,16 @@ class SignInShowViewController: BaseViewController {
         super.viewDidLoad()
         
         if (CoreDataManager.instance.appUser.isAuthorized) {
-            self.view.isHidden = true
+            self.view.isHidden  =   true
         }
         
         // Config controls
-        topBarViewStyle = .Big
+        topBarViewStyle         =   .Big
 
         // Set buttons type
-        vkontakteButton.designStyle = "Social"
-        googleButton.designStyle = "Social"
-        facebookButton.designStyle = "Social"
+        vkontakteButton.designStyle     =   "Social"
+        googleButton.designStyle        =   "Social"
+        facebookButton.designStyle      =   "Social"
         
         setup(topBarView: bigTopBarView)
         

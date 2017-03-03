@@ -156,8 +156,6 @@ class SignInShowRouter: SignInShowRouterInput {
             } else {
                 self.addActiveViewController(activeVC)
                 
-//                containerStackViewPositionX = viewController.containerStackView.frame.minX
-                
                 UIView.animate(withDuration: 0.2, animations: {
                     activeVC.view.transform = CGAffineTransform(translationX: (self.viewController.animationDirection == .FromRightToLeft) ? -1000 : 0, y: 0)
                 })

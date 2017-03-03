@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PersonalTemplatesViewController: UIViewController {
+class PersonalTemplatesViewController: BaseViewController {
     // MARK: - Properties
     
     

@@ -26,13 +26,21 @@ class PersonalPageShowViewController: BaseViewController {
     var interactor: PersonalPageShowViewControllerOutput!
     var router: PersonalPageShowRouter!
 
+    // Container childVC
+    var animationDirection: AnimationDirection?
     var personalDataVC: PersonalDataViewController?
     var personalTemplatesVC: PersonalTemplatesViewController?
 
-    private var activeViewController: UIViewController? {
+    var activeViewController: BaseViewController? {
         didSet {
-            removeInactiveViewController(inactiveViewController: oldValue)
-            updateActiveViewController()
+            guard oldValue != nil else {
+                router.updateActiveViewController()
+                
+                return
+            }
+            
+            animationDirection = ((oldValue?.view.tag)! < (activeViewController?.view.tag)!) ? .FromRightToLeft : .FromLeftToRight
+            router.removeInactiveViewController(inactiveViewController: oldValue)
         }
     }
     
@@ -55,15 +63,16 @@ class PersonalPageShowViewController: BaseViewController {
         super.viewDidLoad()
         
         // Config topBarView
-        smallTopBarView.type    =   "ParentSearch"
+        smallTopBarView.type    =   "Parent"
         topBarViewStyle         =   .Small
         setup(topBarView: smallTopBarView)
         
+        // Container Child Views
         personalDataVC          =   UIStoryboard(name: "PersonalPageShow", bundle: nil).instantiateViewController(withIdentifier: "PersonalDataVC") as? PersonalDataViewController
         personalTemplatesVC     =   UIStoryboard(name: "PersonalPageShow", bundle: nil).instantiateViewController(withIdentifier: "PersonalTemplatesVC") as? PersonalTemplatesViewController
         
         activeViewController    =   personalDataVC
-        view.backgroundColor    =   UIColor.veryDarkDesaturatedBlue24
+//        view.backgroundColor    =   UIColor.veryDarkDesaturatedBlue24
 
         viewSettingsDidLoad()
     }
@@ -93,40 +102,20 @@ class PersonalPageShowViewController: BaseViewController {
             }
         }
     }
-
-    func setupScene(withSize size: CGSize) {
-        print(object: "\(type(of: self)): \(#function) run. Screen view size = \(size)")
-        
-        smallTopBarView.setNeedsDisplay()
-        smallTopBarView.circleView.setNeedsDisplay()
-    }
     
-    
-    // MARK: - UIContainerView
-    func removeInactiveViewController(inactiveViewController: UIViewController?) {
-        if let inactiveVC = inactiveViewController {
-            inactiveVC.willMove(toParentViewController: nil)
-            inactiveVC.view.removeFromSuperview()
-            inactiveVC.removeFromParentViewController()
-        }
-    }
-    
-    func updateActiveViewController() {
-        if let activeVC = activeViewController {
-            addChildViewController(activeVC)
-            activeVC.view.frame = containerView.bounds
-            containerView.addSubview(activeVC.view)
-            activeVC.didMove(toParentViewController: self)
-            activeVC.didMove(toParentViewController: self)
-        }
-    }
-
     
     // MARK: - Transition
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         print(object: "\(type(of: self)): \(#function) run. New size = \(size)")
         
-        setupScene(withSize: size)
+        smallTopBarView.setNeedsDisplay()
+        smallTopBarView.circleView.setNeedsDisplay()
+        segmentedControlView.setNeedsDisplay()
+
+        // Container Child views
+//        containerView.setNeedsDisplay()
+//        personalDataVC?.view.frame          =   CGRect.init(origin: CGPoint.zero, size: containerView.frame.size)
+//        personalTemplatesVC?.view.frame     =   CGRect.init(origin: CGPoint.zero, size: containerView.frame.size)
     }
 }
 
@@ -134,6 +123,12 @@ class PersonalPageShowViewController: BaseViewController {
 // MARK: - PersonalPageShowViewControllerInput
 extension PersonalPageShowViewController: PersonalPageShowViewControllerInput {
     func displaySomething(viewModel: PersonalPageShow.Something.ViewModel) {
+        guard isNetworkAvailable else {
+            alertViewDidShow(withTitle: "Not Reachable".localized(), andMessage: "Disconnected from Network".localized())
+            
+            return
+        }
+
         print(object: "\(type(of: self)): \(#function) run.")
         
         // NOTE: Display the result from the Presenter

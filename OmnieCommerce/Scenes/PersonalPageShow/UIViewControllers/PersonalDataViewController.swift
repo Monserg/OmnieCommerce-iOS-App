@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PersonalDataViewController: UIViewController {
+class PersonalDataViewController: BaseViewController {
     // MARK: - Properties
     var avatarActionView: AvatarActionView?
     
@@ -86,7 +86,7 @@ class PersonalDataViewController: UIViewController {
                         
                     // Handler Photo Delete button tap
                     case .PhotoDelete:
-                        print("delete ok")
+                        self.print(object: "delete ok")
                         
                     default:
                         break
@@ -98,21 +98,22 @@ class PersonalDataViewController: UIViewController {
 
 
     // MARK: - GestureRecognizer
-    @IBAction func handlerTapGestureRecognizer(_ sender: UITapGestureRecognizer) {
-        view.endEditing(true)
-    }
+//    @IBAction func handlerTapGestureRecognizer(_ sender: UITapGestureRecognizer) {
+//        view.endEditing(true)
+//    }
 }
 
 
 // MARK: - 
-extension PersonalDataViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
-        UIApplication.shared.statusBarStyle = .lightContent
-        UINavigationBar.appearance().barTintColor = UIColor.darkCyan
-        UINavigationBar.appearance().tintColor = UIColor.veryLightGray
-        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.veryLightGray]
-        UINavigationBar.appearance().isTranslucent = false
-    }
+extension PersonalDataViewController: UIImagePickerControllerDelegate {
+//, UINavigationControllerDelegate {
+//    override func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
+//        UIApplication.shared.statusBarStyle = .lightContent
+//        UINavigationBar.appearance().barTintColor = UIColor.darkCyan
+//        UINavigationBar.appearance().tintColor = UIColor.veryLightGray
+//        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.veryLightGray]
+//        UINavigationBar.appearance().isTranslucent = false
+//    }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         let chosenImage = info[UIImagePickerControllerOriginalImage] as! UIImage
