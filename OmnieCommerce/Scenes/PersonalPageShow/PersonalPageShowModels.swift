@@ -14,10 +14,10 @@ import UIKit
 // MARK: - Data models
 struct PersonalPageShow {
     struct Something {
-        struct Request {
+        struct RequestModel {
         }
         
-        struct Response {
+        struct ResponseModel {
         }
         
         struct ViewModel {

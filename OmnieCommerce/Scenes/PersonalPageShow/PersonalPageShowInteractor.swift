@@ -11,29 +11,30 @@
 
 import UIKit
 
-// MARK: - Input & Output protocols
+// MARK: - Input protocols for current Interactor component VIP-cicle
 protocol PersonalPageShowInteractorInput {
-    func doSomething(request: PersonalPageShow.Something.Request)
+    func doSomething(request: PersonalPageShow.Something.RequestModel)
 }
 
+// MARK: - Output protocols for Presenter component VIP-cicle
 protocol PersonalPageShowInteractorOutput {
-    func presentSomething(response: PersonalPageShow.Something.Response)
+    func presentSomething(response: PersonalPageShow.Something.ResponseModel)
 }
 
 class PersonalPageShowInteractor: PersonalPageShowInteractorInput {
     // MARK: - Properties
-    var output: PersonalPageShowInteractorOutput!
+    var presenter: PersonalPageShowInteractorOutput!
     var worker: PersonalPageShowWorker!
     
     
     // MARK: - Custom Functions. Business logic
-    func doSomething(request: PersonalPageShow.Something.Request) {
+    func doSomething(request: PersonalPageShow.Something.RequestModel) {
         // NOTE: Create some Worker to do the work
-        worker = PersonalPageShowWorker()
+        worker  =   PersonalPageShowWorker()
         worker.doSomeWork()
         
         // NOTE: Pass the result to the Presenter
-        let response = PersonalPageShow.Something.Response()
-        output.presentSomething(response: response)
+        let response    =   PersonalPageShow.Something.ResponseModel()
+        presenter.presentSomething(response: response)
     }
 }

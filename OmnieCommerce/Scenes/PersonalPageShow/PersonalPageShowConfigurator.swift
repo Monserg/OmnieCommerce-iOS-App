@@ -35,16 +35,16 @@ class PersonalPageShowConfigurator {
 
     // MARK: - Custom Functions
     func configure(viewController: PersonalPageShowViewController) {
-        let router = PersonalPageShowRouter()
-        router.viewController = viewController
+        let router                  =   PersonalPageShowRouter()
+        router.viewController       =   viewController
         
-        let presenter = PersonalPageShowPresenter()
-        presenter.output = viewController
+        let presenter               =   PersonalPageShowPresenter()
+        presenter.viewController    =   viewController
         
-        let interactor = PersonalPageShowInteractor()
-        interactor.output = presenter
+        let interactor              =   PersonalPageShowInteractor()
+        interactor.presenter        =   presenter
         
-        viewController.output = interactor
-        viewController.router = router
+        viewController.interactor   =   interactor
+        viewController.router       =   router
     }
 }

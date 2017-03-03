@@ -11,18 +11,19 @@
 
 import UIKit
 
-// MARK: - Input & Output protocols
+// MARK: - Input protocols for current ViewController component VIP-cicle
 protocol PersonalPageShowViewControllerInput {
     func displaySomething(viewModel: PersonalPageShow.Something.ViewModel)
 }
 
+// MARK: - Output protocols for Interactor component VIP-cicle
 protocol PersonalPageShowViewControllerOutput {
-    func doSomething(request: PersonalPageShow.Something.Request)
+    func doSomething(request: PersonalPageShow.Something.RequestModel)
 }
 
-class PersonalPageShowViewController: BaseViewController, PersonalPageShowViewControllerInput {
+class PersonalPageShowViewController: BaseViewController {
     // MARK: - Properties
-    var output: PersonalPageShowViewControllerOutput!
+    var interactor: PersonalPageShowViewControllerOutput!
     var router: PersonalPageShowRouter!
 
     var personalDataVC: PersonalDataViewController?
@@ -54,19 +55,17 @@ class PersonalPageShowViewController: BaseViewController, PersonalPageShowViewCo
         super.viewDidLoad()
         
         // Config topBarView
-        smallTopBarView.type = "ParentSearch"
-        topBarViewStyle = .Small
+        smallTopBarView.type    =   "ParentSearch"
+        topBarViewStyle         =   .Small
         setup(topBarView: smallTopBarView)
         
-        personalDataVC = UIStoryboard(name: "PersonalPageShow", bundle: nil).instantiateViewController(withIdentifier: "PersonalDataVC") as? PersonalDataViewController
-        personalTemplatesVC = UIStoryboard(name: "PersonalPageShow", bundle: nil).instantiateViewController(withIdentifier: "PersonalTemplatesVC") as? PersonalTemplatesViewController
+        personalDataVC          =   UIStoryboard(name: "PersonalPageShow", bundle: nil).instantiateViewController(withIdentifier: "PersonalDataVC") as? PersonalDataViewController
+        personalTemplatesVC     =   UIStoryboard(name: "PersonalPageShow", bundle: nil).instantiateViewController(withIdentifier: "PersonalTemplatesVC") as? PersonalTemplatesViewController
         
-        activeViewController = personalDataVC
-        view.backgroundColor = UIColor.veryDarkDesaturatedBlue24
+        activeViewController    =   personalDataVC
+        view.backgroundColor    =   UIColor.veryDarkDesaturatedBlue24
 
         viewSettingsDidLoad()
-
-        setupSegmentedControlView()
     }
     
 
@@ -74,9 +73,11 @@ class PersonalPageShowViewController: BaseViewController, PersonalPageShowViewCo
     func viewSettingsDidLoad() {
         print(object: "\(type(of: self)): \(#function) run.")
         
+        setupSegmentedControlView()
+
         // NOTE: Ask the Interactor to do some work
-        let request = PersonalPageShow.Something.Request()
-        output.doSomething(request: request)
+        let request             =   PersonalPageShow.Something.RequestModel()
+        interactor.doSomething(request: request)
     }
     
     func setupSegmentedControlView() {
@@ -85,23 +86,14 @@ class PersonalPageShowViewController: BaseViewController, PersonalPageShowViewCo
             
             switch sender.tag {
             case 1:
-                self.activeViewController = self.personalTemplatesVC
+                self.activeViewController   =   self.personalTemplatesVC
                 
             default:
-                self.activeViewController = self.personalDataVC
+                self.activeViewController   =   self.personalDataVC
             }
         }
     }
 
-    
-    // Display logic
-    func displaySomething(viewModel: PersonalPageShow.Something.ViewModel) {
-        print(object: "\(type(of: self)): \(#function) run.")
-        
-        // NOTE: Display the result from the Presenter
-        // nameTextField.text = viewModel.name
-    }
-    
     func setupScene(withSize size: CGSize) {
         print(object: "\(type(of: self)): \(#function) run. Screen view size = \(size)")
         
@@ -135,5 +127,16 @@ class PersonalPageShowViewController: BaseViewController, PersonalPageShowViewCo
         print(object: "\(type(of: self)): \(#function) run. New size = \(size)")
         
         setupScene(withSize: size)
+    }
+}
+
+
+// MARK: - PersonalPageShowViewControllerInput
+extension PersonalPageShowViewController: PersonalPageShowViewControllerInput {
+    func displaySomething(viewModel: PersonalPageShow.Something.ViewModel) {
+        print(object: "\(type(of: self)): \(#function) run.")
+        
+        // NOTE: Display the result from the Presenter
+        // nameTextField.text = viewModel.name
     }
 }
