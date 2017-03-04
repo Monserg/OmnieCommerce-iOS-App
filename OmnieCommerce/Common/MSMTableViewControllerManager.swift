@@ -14,9 +14,10 @@ class MSMTableViewControllerManager: BaseViewController {
     var dataSource                  =   [Any]()
     var dataSourceFiltered          =   [Any]()
     var isSearchBarActive: Bool     =   false
-    
+    var actionButtonsCell: ActionButtonsTableViewCell?
+
 //    var sourceType: CellStyle!
-    var tableView: MSMTableView!
+    var tableView: MSMTableView?
     
     var handlerSearchCompletion: ((_ value: Any) -> ())?
     var handlerSendButtonCompletion: HandlerSendButtonCompletion?
@@ -36,7 +37,7 @@ class MSMTableViewControllerManager: BaseViewController {
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
         print(object: "\(type(of: self)): \(#function) run in [line \(#line)]. UIScrollView.contentOffset.y = \(scrollView.contentOffset.y)")
         
-        self.tableView.setScrollIndicatorColor(color: UIColor.veryLightOrange)
+        self.tableView!.setScrollIndicatorColor(color: UIColor.veryLightOrange)
     }
 }
 
@@ -52,20 +53,38 @@ extension MSMTableViewControllerManager: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cellIdentifier      =   self.tableView.cellIdentifiers![indexPath.row]
-        let cell                =   self.tableView.dequeueReusableCell(withIdentifier: String(cellIdentifier), for: indexPath) as! ConfigureCell
+        let cellIdentifier      =   self.tableView!.cellIdentifiers![indexPath.row].code
+        let cell                =   self.tableView!.dequeueReusableCell(withIdentifier: String(cellIdentifier), for: indexPath) //as! ConfigureCell
         let item                =   (isSearchBarActive) ? dataSourceFiltered[indexPath.row] : dataSource[indexPath.row]
         
         // Config cell
-        cell.setup(withItem: item, andIndexPath: indexPath)
+        (cell as! ConfigureCell).setup(withItem: item, andIndexPath: indexPath)
         
-//        // Handler Favorite button tap
-//        cell.handlerFavoriteButtonCompletion    =   { _ in
-//            // TODO: ADD API TO ADD/REMOVE ITEM TO/FROM FAVORITE LIST
-//            self.print(object: "favorite button tapped")
-//        }
+        switch cell {
+        case cell as ActionButtonsTableViewCell:
+            actionButtonsCell   =   (cell as! ActionButtonsTableViewCell)
+            
+            // Handler Save Button tap
+            actionButtonsCell?.handlerSendButtonCompletion  =   { _ in
+                self.handlerSendButtonCompletion!()
+            }
+
+            // Handler Cancel Button tap
+            actionButtonsCell?.handlerCancelButtonCompletion  =   { _ in
+                self.handlerCancelButtonCompletion!()
+            }
+            
+        default:
+            break
+        }
         
-        return cell as! UITableViewCell
+        //        // Handler Favorite button tap
+        //        cell.handlerFavoriteButtonCompletion    =   { _ in
+        //            // TODO: ADD API TO ADD/REMOVE ITEM TO/FROM FAVORITE LIST
+        //            self.print(object: "favorite button tapped")
+        //        }
+
+        return cell
     }
 }
 
@@ -107,7 +126,7 @@ extension MSMTableViewControllerManager: UISearchBarDelegate {
         searchBar.text      =   nil
         
         handlerCancelButtonCompletion!()
-        tableView.reloadData()
+        tableView!.reloadData()
     }
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
@@ -125,6 +144,6 @@ extension MSMTableViewControllerManager: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         dataSourceFiltered  =   (searchText.isEmpty) ? dataSource : dataSource.filter{ ($0 as! SearchObject).name.contains(searchBar.text!) }
         
-        tableView.reloadData()
+        tableView!.reloadData()
     }
 }

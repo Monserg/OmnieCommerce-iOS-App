@@ -15,6 +15,7 @@ import UIKit
 struct PersonalPageShowModels {
     struct UserApp {
         struct RequestModel {
+            let params: [String: String]
         }
         
         struct ResponseModel {
@@ -25,14 +26,4 @@ struct PersonalPageShowModels {
             let userApp: AppUser
         }
     }
-
-//    struct Cell {
-//        struct Avatar {
-//            let cellIdentifier: String = String(describing: AvatarTableViewCell.self)
-//            
-//            func setup(tableView: UITableView) -> AvatarTableViewCell {
-//                return tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as! AvatarTableViewCell
-//            }
-//        }
-//    }
 }

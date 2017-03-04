@@ -75,5 +75,10 @@ extension ErrorMessageViewAnimation {
             view.isHidden = true
         })
     }
+}
 
+extension ConfigureCell {
+    func setup(withItem item: Any, andIndexPath indexPath: IndexPath) {
+        print("ADD PROTOCOL IMPLEMENTATION!!!")
+    }
 }

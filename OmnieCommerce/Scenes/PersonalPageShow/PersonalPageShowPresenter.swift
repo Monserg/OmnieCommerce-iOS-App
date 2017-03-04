@@ -29,7 +29,7 @@ class PersonalPageShowPresenter: PersonalPageShowPresenterInput {
     // MARK: - Custom Functions. Presentation logic
     func userAppDataDidPrepareToShow(fromResponseModel responseModel: PersonalPageShowModels.UserApp.ResponseModel) {
         // NOTE: Format the response from the Interactor and pass the result back to the View Controller
-//        let viewModel   =   PersonalPageShowModels.UserApp.ViewModel(userApp: <#T##AppUser#>)
-//        viewController.userAppDataDidShow(fromViewModel: viewModel)
+        let viewModel   =   PersonalPageShowModels.UserApp.ViewModel(userApp: responseModel.userApp)
+        viewController.userAppDataDidShow(fromViewModel: viewModel)
     }
 }

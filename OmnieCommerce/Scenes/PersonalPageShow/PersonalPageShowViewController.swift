@@ -13,12 +13,12 @@ import UIKit
 
 // MARK: - Input protocols for current ViewController component VIP-cicle
 protocol PersonalPageShowViewControllerInput {
-//    func userAppDataDidShow(fromViewModel viewModel: PersonalPageShowModels.UserApp.ViewModel)
+    func userAppDataDidShow(fromViewModel viewModel: PersonalPageShowModels.UserApp.ViewModel)
 }
 
 // MARK: - Output protocols for Interactor component VIP-cicle
 protocol PersonalPageShowViewControllerOutput {
-//    func userAppDataDidLoad(withRequestModel requestModel: PersonalPageShowModels.UserApp.RequestModel)
+    func userAppDataDidUpdate(withRequestModel requestModel: PersonalPageShowModels.UserApp.RequestModel)
 }
 
 class PersonalPageShowViewController: BaseViewController {
@@ -69,11 +69,12 @@ class PersonalPageShowViewController: BaseViewController {
         
         // Container Child Views
         personalDataVC          =   UIStoryboard(name: "PersonalPageShow", bundle: nil).instantiateViewController(withIdentifier: "PersonalDataVC") as? PersonalDataViewController
+
         personalTemplatesVC     =   UIStoryboard(name: "PersonalPageShow", bundle: nil).instantiateViewController(withIdentifier: "PersonalTemplatesVC") as? PersonalTemplatesViewController
         
         activeViewController    =   personalDataVC
 
-        viewSettingsDidLoad()
+        viewSettingsDidLoad()        
     }
     
 
@@ -82,11 +83,7 @@ class PersonalPageShowViewController: BaseViewController {
         print(object: "\(type(of: self)): \(#function) run.")
         
         setupSegmentedControlView()
-        containerView.autoresizesSubviews           =   true
-        
-//        // NOTE: Ask the Interactor to do some work
-//        let requestModel        =   PersonalPageShowModels.UserApp.RequestModel()
-//        interactor.userAppDataDidLoad(withRequestModel: requestModel)
+        containerView.autoresizesSubviews   =   true
     }
     
     func setupSegmentedControlView() {
@@ -126,6 +123,8 @@ extension PersonalPageShowViewController: PersonalPageShowViewControllerInput {
 
         print(object: "\(type(of: self)): \(#function) run.")
         
-//        self.activeViewController?.userApp  =   viewModel.userApp
+        self.activeViewController?.userApp  =   viewModel.userApp
+        
+        router.navigateToCategoriesShowScene()
     }
 }

@@ -42,3 +42,9 @@ class ActionButtonsTableViewCell: UITableViewCell {
         handlerCancelButtonCompletion!()
     }
 }
+
+
+// MARK: - ConfigureCell
+extension ActionButtonsTableViewCell: ConfigureCell {
+    
+}

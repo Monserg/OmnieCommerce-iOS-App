@@ -10,26 +10,25 @@ import UIKit
 
 class MSMTableView: UITableView {
     // MARK: - Properties
-    var tableViewControllerManager: MSMTableViewControllerManager!
-
-    // Register cells from Xib
-    var cellIdentifiers: [String]! {
+    var tableViewControllerManager: MSMTableViewControllerManager! {
         didSet {
-            for identifier in cellIdentifiers! {
-                self.register(UINib(nibName: identifier, bundle: nil), forCellReuseIdentifier: identifier)
-            }
+            self.delegate       =   tableViewControllerManager
+            self.dataSource     =   tableViewControllerManager
         }
     }
-
     
-    // MARK: - Class Initialization
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        
-        self.tableViewControllerManager             =   MSMTableViewControllerManager()
-        self.tableViewControllerManager.tableView   =   self
-        self.delegate                               =   tableViewControllerManager
-        self.dataSource                             =   tableViewControllerManager
+    
+    // Register cells from Xib
+    var cellIdentifiers: [(code: String, height: CGFloat)]! {
+        didSet {
+            for identifier in cellIdentifiers! {
+                self.register(UINib(nibName: identifier.code, bundle: nil), forCellReuseIdentifier: identifier.code)
+                
+                self.estimatedRowHeight     =   identifier.height
+                self.rowHeight              =   UITableViewAutomaticDimension
+
+            }
+        }
     }
     
     
