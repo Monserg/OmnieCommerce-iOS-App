@@ -22,4 +22,8 @@ class Category: NSObject {
         
         super.init()
     }
+    
+    deinit {
+        print("\(self.className) deinit")
+    }
 }

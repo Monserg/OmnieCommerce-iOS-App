@@ -32,6 +32,10 @@ class TableViewControllerManager: BaseViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    
+    deinit {
+        print(object: "\(self.className) deinit")
+    }
 }
 
 

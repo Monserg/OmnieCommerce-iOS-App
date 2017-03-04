@@ -15,4 +15,8 @@ public class AppUser: NSManagedObject {
     convenience init() {
         self.init(entity: CoreDataManager.instance.entityForName("AppUser"), insertInto: CoreDataManager.instance.managedObjectContext)
     }
+    
+    deinit {
+        print("\(self.className) deinit")
+    }
 }

@@ -64,7 +64,7 @@ class CategoriesShowViewController: BaseViewController {
 
         viewSettingsDidLoad()
     }
-    
+
 
     // MARK: - Custom Functions
     func viewSettingsDidLoad() {

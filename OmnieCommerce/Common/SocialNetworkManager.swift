@@ -32,6 +32,12 @@ class SocialNetworkManager: UIViewController {
     var handlerSendButtonCompletion: HandlerSendButtonCompletion?
     
     
+    // MARK: - Class Functions
+    deinit {
+        print("\(self.className) deinit")
+    }
+
+    
     // MARK: - Custom Functions
     init(withNetwork rawValue: NetworkType.RawValue) {
         super.init(nibName: nil, bundle: nil)

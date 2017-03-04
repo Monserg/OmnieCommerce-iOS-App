@@ -185,6 +185,7 @@
 		B18A45C81DEC23B2003EBD2F /* SmallTopBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18A45C71DEC23B2003EBD2F /* SmallTopBarView.swift */; };
 		B18A45CA1DEC282B003EBD2F /* DotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18A45C91DEC282B003EBD2F /* DotView.swift */; };
 		B18A45CC1DEC3918003EBD2F /* SmallCirleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18A45CB1DEC3918003EBD2F /* SmallCirleView.swift */; };
+		B19BB6161E6A70710081533C /* NSObject+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19BB6151E6A70710081533C /* NSObject+Ext.swift */; };
 		B19DF2841DF94DCD000AFC92 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19DF2831DF94DCD000AFC92 /* CalendarViewController.swift */; };
 		B19DF2861DF94DED000AFC92 /* SchedulerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19DF2851DF94DED000AFC92 /* SchedulerViewController.swift */; };
 		B19DFABD1E64AF3100599073 /* UMParallaxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19DFABC1E64AF3100599073 /* UMParallaxView.swift */; };
@@ -516,6 +517,7 @@
 		B18A45C71DEC23B2003EBD2F /* SmallTopBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmallTopBarView.swift; sourceTree = "<group>"; };
 		B18A45C91DEC282B003EBD2F /* DotView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DotView.swift; sourceTree = "<group>"; };
 		B18A45CB1DEC3918003EBD2F /* SmallCirleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmallCirleView.swift; sourceTree = "<group>"; };
+		B19BB6151E6A70710081533C /* NSObject+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSObject+Ext.swift"; sourceTree = "<group>"; };
 		B19DF2831DF94DCD000AFC92 /* CalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		B19DF2851DF94DED000AFC92 /* SchedulerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchedulerViewController.swift; sourceTree = "<group>"; };
 		B19DFABA1E64AEF500599073 /* UMParallaxView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UMParallaxView.framework; path = "../../../../../Library/Developer/Xcode/DerivedData/OmnieCommerce-enpckymiymzhiuhdgnbmlxbwmhew/Build/Products/Debug-iphonesimulator/UMParallaxView/UMParallaxView.framework"; sourceTree = "<group>"; };
@@ -1213,6 +1215,7 @@
 			isa = PBXGroup;
 			children = (
 				B11B9AD91DF02F5C009A4AA1 /* Date+Ext.swift */,
+				B19BB6151E6A70710081533C /* NSObject+Ext.swift */,
 				B14CD9191E57C058005F8BF6 /* Protocols.swift */,
 				B122DF6C1DF80FC1003823AD /* String+Ext.swift */,
 				B1739D151DE314C70029BCCA /* UIButton+Ext.swift */,
@@ -1829,6 +1832,7 @@
 				B122F20B1DD35BEB0018A701 /* CategoriesShowWorker.swift in Sources */,
 				B122DF641DF7F957003823AD /* CalendarShowInteractor.swift in Sources */,
 				B1CF54DD1DDB51BE00E98049 /* SettingsShowViewController.swift in Sources */,
+				B19BB6161E6A70710081533C /* NSObject+Ext.swift in Sources */,
 				B18A45CC1DEC3918003EBD2F /* SmallCirleView.swift in Sources */,
 				B177E54C1E54AC7F004F1390 /* EnterCodeShowViewController.swift in Sources */,
 				B1FFF7141E5F017A00A075D8 /* OrganizationsMapShowPresenter.swift in Sources */,

@@ -63,7 +63,7 @@ class EnterCodeShowViewController: BaseViewController, CodeErrorMessageView {
         viewSettingsDidLoad()
     }
     
-
+    
     // MARK: - Custom Functions
     func viewSettingsDidLoad() {
         // Apply keyboard handler

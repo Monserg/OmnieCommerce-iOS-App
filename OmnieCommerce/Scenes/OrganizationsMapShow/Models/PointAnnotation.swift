@@ -29,4 +29,8 @@ class PointAnnotation: MKPointAnnotation {
         
 //        self.image          =   organization.lo
     }
+    
+    deinit {
+        print("\(self.className) deinit")
+    }
 }

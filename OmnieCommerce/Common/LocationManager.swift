@@ -28,6 +28,10 @@ class LocationManager: BaseViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    deinit {
+        print(object: "\(self.className) deinit")
+    }
+    
     
     // MARK: - Custom Functions
     func startCoreLocation(withOrganizations organizations: [Organization]) {

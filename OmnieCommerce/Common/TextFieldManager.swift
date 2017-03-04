@@ -21,6 +21,10 @@ class TextFieldManager: NSObject {
         self.textFieldsArray = array
     }
     
+    deinit {
+        print("\(self.className) deinit")
+    }
+
     
     // MARK: - Custom Functions
     func didLoadNextTextField(afterCurrent textField: CustomTextField) {

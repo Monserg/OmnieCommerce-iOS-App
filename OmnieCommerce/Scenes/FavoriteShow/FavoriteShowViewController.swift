@@ -48,15 +48,15 @@ class FavoriteShowViewController: BaseViewController, FavoriteShowViewController
         setup(topBarView: smallTopBarView)
 
         viewSettingsDidLoad()
-        
-        setupSegmentedControlView()
     }
-    
 
+    
     // MARK: - Custom Functions
     func viewSettingsDidLoad() {
         print(object: "\(type(of: self)): \(#function) run.")
         
+        setupSegmentedControlView()
+
         // NOTE: Ask the Interactor to do some work
         let request = FavoriteShow.Something.Request()
         output.doSomething(request: request)
