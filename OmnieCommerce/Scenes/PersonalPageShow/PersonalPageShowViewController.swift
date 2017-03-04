@@ -82,8 +82,8 @@ class PersonalPageShowViewController: BaseViewController {
         print(object: "\(type(of: self)): \(#function) run.")
         
         setupSegmentedControlView()
-        containerView.autoresizesSubviews   =   true
-
+        containerView.autoresizesSubviews           =   true
+        
 //        // NOTE: Ask the Interactor to do some work
 //        let requestModel        =   PersonalPageShowModels.UserApp.RequestModel()
 //        interactor.userAppDataDidLoad(withRequestModel: requestModel)

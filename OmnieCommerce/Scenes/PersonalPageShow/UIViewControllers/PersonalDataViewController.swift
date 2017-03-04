@@ -10,7 +10,14 @@ import UIKit
 
 class PersonalDataViewController: BaseViewController {
     // MARK: - Properties
-    var avatarActionView: AvatarActionView?
+    @IBOutlet weak var tableView: MSMTableView! {
+        didSet {
+            // TableViewController Manager
+            tableView.cellIdentifiers                               =   ["AvatarTableViewCell"]
+            tableView.tableViewControllerManager.sectionsCount      =   1
+            tableView.tableViewControllerManager.dataSource         =   [CoreDataManager.instance.appUser]
+        }
+    }
     
 
     // MARK: - Class Functions
@@ -83,12 +90,6 @@ class PersonalDataViewController: BaseViewController {
             }
         })
     }
-
-
-    // MARK: - GestureRecognizer
-//    @IBAction func handlerTapGestureRecognizer(_ sender: UITapGestureRecognizer) {
-//        view.endEditing(true)
-//    }
 }
 
 

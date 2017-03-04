@@ -34,7 +34,7 @@ class SocialNetworkManager: UIViewController {
     
     // MARK: - Class Functions
     deinit {
-        print("\(self.className) deinit")
+        print("\(type(of: self)) deinit")
     }
 
     

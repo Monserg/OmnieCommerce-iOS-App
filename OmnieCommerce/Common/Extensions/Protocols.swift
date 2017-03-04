@@ -51,6 +51,10 @@ protocol SearchObject {
     var name: String! { get set }
 }
 
+protocol ConfigureCell {
+    func setup(withItem item: Any, andIndexPath indexPath: IndexPath)
+}
+
 
 extension ErrorMessageViewAnimation {
     func didShow(_ view: UIView, withConstraint constraint: NSLayoutConstraint) {

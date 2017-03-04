@@ -31,6 +31,6 @@ class PointAnnotation: MKPointAnnotation {
     }
     
     deinit {
-        print("\(self.className) deinit")
+        print("\(type(of: self)) deinit")
     }
 }

@@ -9,6 +9,7 @@
 import Foundation
 
 extension String {
+    // MARK: - Properties
     var first: String {
         return String(characters.prefix(1))
     }
@@ -21,6 +22,8 @@ extension String {
         return first.uppercased() + String(characters.dropFirst())
     }
 
+
+    // MARK: - Custom Functions
     func verticalStyle(string: String) -> String {
         var text = [Character]()
         
@@ -37,5 +40,5 @@ extension String {
         dateFormatter.dateFormat    =   "dd.MM.yyyy"
         
         return dateFormatter.date(from: self)!
-    }
+    }    
 }

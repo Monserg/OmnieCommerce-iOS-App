@@ -29,7 +29,7 @@ class LocationManager: BaseViewController {
     }
     
     deinit {
-        print(object: "\(self.className) deinit")
+        print(object: "\(type(of: self)) deinit")
     }
     
     

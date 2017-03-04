@@ -7,26 +7,49 @@
 //
 
 import UIKit
-
-typealias HandlerAvatarTapCompletion = ((_ sender: AvatarTableViewCell) -> ())
+import Alamofire
 
 class AvatarTableViewCell: UITableViewCell {
     // MARK: - Properties
-    var handlerAvatarTapCompletion: HandlerAvatarTapCompletion?
-
-//    weak var viewModel: CityCellViewModel! {
-//        didSet {
-//            self.actionButton..text = viewModel.timeString
-//            self.cityLabel.text = viewModel.cityTitle
-//            self.temperatureLabel.text = viewModel.temperatureString
-//        }
-//    }
+    var handlerSendButtonCompletion: HandlerSendButtonCompletion?
     
     @IBOutlet weak var actionButton: CustomButton!
  
     
+    // MARK: - Class Functions
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+    }
+    
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+    }
+    
+    deinit {
+        print(object: "\(type(of: self)) deinit")
+    }
+
+    
     // MARK: - Actions
     @IBAction func handlerActionButtonTap(_ sender: CustomButton) {
-        handlerAvatarTapCompletion!(self)
+        handlerSendButtonCompletion!()
+    }
+}
+
+
+// MARK: - ConfigureCell
+extension AvatarTableViewCell: ConfigureCell {
+    func setup(withItem item: Any, andIndexPath indexPath: IndexPath) {
+        if let userApp = item as? AppUser {
+            if (userApp.imagePath != nil) {
+                Alamofire.request(userApp.imagePath!).responseImage { response in
+                    if let image = response.result.value {
+                        self.actionButton.setImage(image, for: .normal)
+                        self.actionButton.imageView!.contentMode     =   .scaleAspectFit
+                    }
+                }
+            }
+        }
     }
 }

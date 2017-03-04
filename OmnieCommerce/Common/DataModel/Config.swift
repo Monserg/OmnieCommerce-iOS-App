@@ -27,6 +27,7 @@ typealias HandlerNavBarLeftButtonCompletion         =   (() -> ())
 typealias HandlerImagePickerControllerCompletion    =   ((_ originalImage: UIImage) -> ())
 typealias HandlerPassDataCompletion                 =   ((_ data: Any) -> ())
 typealias HandlerLocationCompletion                 =   ((_ organizations: [Organization]) -> ())
+typealias HandlerAvatarTapCompletion                =   ((_ sender: AvatarTableViewCell) -> ())
 
 typealias ResponseAPI                               =   (success: Bool, error: String?)
 typealias NameAndPasswordCheckResult                =   (isNameCorrect: Bool, isPasswordCorrect: Bool)

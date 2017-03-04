@@ -124,20 +124,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NPM-KA-70j">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Dqw-Ck-2Zz" userLabel="Custom Table View" customClass="MSMTableView" customModule="OmnieCommerce" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                                <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="NPM-KA-70j" firstAttribute="top" secondItem="G9m-Iz-XbO" secondAttribute="top" id="12u-h4-5Nj"/>
-                            <constraint firstAttribute="trailing" secondItem="NPM-KA-70j" secondAttribute="trailing" id="5Sg-qE-3cn"/>
-                            <constraint firstAttribute="bottom" secondItem="NPM-KA-70j" secondAttribute="bottom" id="TXC-nZ-syd"/>
-                            <constraint firstItem="NPM-KA-70j" firstAttribute="leading" secondItem="G9m-Iz-XbO" secondAttribute="leading" id="UMc-sx-erU"/>
+                            <constraint firstItem="Dqw-Ck-2Zz" firstAttribute="top" secondItem="G9m-Iz-XbO" secondAttribute="top" id="Hfo-g8-7Vz"/>
+                            <constraint firstAttribute="bottom" secondItem="Dqw-Ck-2Zz" secondAttribute="bottom" id="T3i-EJ-szn"/>
+                            <constraint firstItem="Dqw-Ck-2Zz" firstAttribute="leading" secondItem="G9m-Iz-XbO" secondAttribute="leading" id="ZaD-l3-AiX"/>
+                            <constraint firstAttribute="trailing" secondItem="Dqw-Ck-2Zz" secondAttribute="trailing" id="dor-bJ-4Hy"/>
                         </constraints>
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
+                    <connections>
+                        <outlet property="tableView" destination="Dqw-Ck-2Zz" id="oiz-Xc-wqI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tT2-pu-ECl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

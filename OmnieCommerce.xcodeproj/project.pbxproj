@@ -185,7 +185,10 @@
 		B18A45C81DEC23B2003EBD2F /* SmallTopBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18A45C71DEC23B2003EBD2F /* SmallTopBarView.swift */; };
 		B18A45CA1DEC282B003EBD2F /* DotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18A45C91DEC282B003EBD2F /* DotView.swift */; };
 		B18A45CC1DEC3918003EBD2F /* SmallCirleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18A45CB1DEC3918003EBD2F /* SmallCirleView.swift */; };
-		B19BB6161E6A70710081533C /* NSObject+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19BB6151E6A70710081533C /* NSObject+Ext.swift */; };
+		B19BB61B1E6A79750081533C /* ActionButtonsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19BB6191E6A79750081533C /* ActionButtonsTableViewCell.swift */; };
+		B19BB61C1E6A79750081533C /* ActionButtonsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B19BB61A1E6A79750081533C /* ActionButtonsTableViewCell.xib */; };
+		B19BB61F1E6ABB690081533C /* MSMTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19BB61E1E6ABB690081533C /* MSMTableView.swift */; };
+		B19BB6211E6ABF560081533C /* MSMTableViewControllerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19BB6201E6ABF560081533C /* MSMTableViewControllerManager.swift */; };
 		B19DF2841DF94DCD000AFC92 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19DF2831DF94DCD000AFC92 /* CalendarViewController.swift */; };
 		B19DF2861DF94DED000AFC92 /* SchedulerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19DF2851DF94DED000AFC92 /* SchedulerViewController.swift */; };
 		B19DFABD1E64AF3100599073 /* UMParallaxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19DFABC1E64AF3100599073 /* UMParallaxView.swift */; };
@@ -517,7 +520,10 @@
 		B18A45C71DEC23B2003EBD2F /* SmallTopBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmallTopBarView.swift; sourceTree = "<group>"; };
 		B18A45C91DEC282B003EBD2F /* DotView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DotView.swift; sourceTree = "<group>"; };
 		B18A45CB1DEC3918003EBD2F /* SmallCirleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmallCirleView.swift; sourceTree = "<group>"; };
-		B19BB6151E6A70710081533C /* NSObject+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSObject+Ext.swift"; sourceTree = "<group>"; };
+		B19BB6191E6A79750081533C /* ActionButtonsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionButtonsTableViewCell.swift; sourceTree = "<group>"; };
+		B19BB61A1E6A79750081533C /* ActionButtonsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActionButtonsTableViewCell.xib; sourceTree = "<group>"; };
+		B19BB61E1E6ABB690081533C /* MSMTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSMTableView.swift; sourceTree = "<group>"; };
+		B19BB6201E6ABF560081533C /* MSMTableViewControllerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSMTableViewControllerManager.swift; sourceTree = "<group>"; };
 		B19DF2831DF94DCD000AFC92 /* CalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		B19DF2851DF94DED000AFC92 /* SchedulerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchedulerViewController.swift; sourceTree = "<group>"; };
 		B19DFABA1E64AEF500599073 /* UMParallaxView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UMParallaxView.framework; path = "../../../../../Library/Developer/Xcode/DerivedData/OmnieCommerce-enpckymiymzhiuhdgnbmlxbwmhew/Build/Products/Debug-iphonesimulator/UMParallaxView/UMParallaxView.framework"; sourceTree = "<group>"; };
@@ -996,6 +1002,7 @@
 				B11B9ADB1DF0537A009A4AA1 /* UIImageView */,
 				B1228FBB1DD4BDE600A90FBB /* UILabels */,
 				B122F23F1DD371830018A701 /* UINavigationControllers */,
+				B19BB61D1E6ABB390081533C /* UITableView */,
 				B122F23A1DD36F420018A701 /* UITableViewCells */,
 				B11CCAF01DEEEB7D00AA7942 /* UITableViewController */,
 				B122F2381DD36F120018A701 /* UITextFields */,
@@ -1062,6 +1069,7 @@
 				B1FFF7301E5F0F0F00A075D8 /* LocationManager.swift */,
 				B14D1D731E5CB8B000D33435 /* SocialNetworkManager.swift */,
 				B17061A31E69866B00CF9BA9 /* TableViewControllerManager.swift */,
+				B19BB6201E6ABF560081533C /* MSMTableViewControllerManager.swift */,
 				B12FE6431E57323400A4FBA4 /* TextFieldManager.swift */,
 			);
 			name = Managers;
@@ -1140,6 +1148,8 @@
 		B1597AC81E3F15D700123CB5 /* UIView */ = {
 			isa = PBXGroup;
 			children = (
+				B19BB6191E6A79750081533C /* ActionButtonsTableViewCell.swift */,
+				B19BB61A1E6A79750081533C /* ActionButtonsTableViewCell.xib */,
 				B1597ACF1E3F42B600123CB5 /* AvatarActionView.swift */,
 				B1597AD11E3F42BD00123CB5 /* AvatarActionView.xib */,
 				B1597AC91E3F161900123CB5 /* AvatarTableViewCell.swift */,
@@ -1215,7 +1225,6 @@
 			isa = PBXGroup;
 			children = (
 				B11B9AD91DF02F5C009A4AA1 /* Date+Ext.swift */,
-				B19BB6151E6A70710081533C /* NSObject+Ext.swift */,
 				B14CD9191E57C058005F8BF6 /* Protocols.swift */,
 				B122DF6C1DF80FC1003823AD /* String+Ext.swift */,
 				B1739D151DE314C70029BCCA /* UIButton+Ext.swift */,
@@ -1269,6 +1278,15 @@
 				B177E5551E54B739004F1390 /* RepetitionPasswordShowWorker.swift */,
 			);
 			path = RepetitionPasswordShow;
+			sourceTree = "<group>";
+		};
+		B19BB61D1E6ABB390081533C /* UITableView */ = {
+			isa = PBXGroup;
+			children = (
+				B19BB61E1E6ABB690081533C /* MSMTableView.swift */,
+			);
+			name = UITableView;
+			path = UITableViewCells/UITableView;
 			sourceTree = "<group>";
 		};
 		B19DF2821DF94D94000AFC92 /* UIViewControllers */ = {
@@ -1643,6 +1661,7 @@
 				B1FFF7081E5ECE4800A075D8 /* OrganizationsShow.storyboard in Resources */,
 				B1BF92771DD6516C00BECBBB /* helveticaneuecyr-ultralightitalic.otf in Resources */,
 				B1C94BBE1E37823C00122933 /* BarCodeView.xib in Resources */,
+				B19BB61C1E6A79750081533C /* ActionButtonsTableViewCell.xib in Resources */,
 				B1BF92781DD6516C00BECBBB /* UBUNTU-B.TTF in Resources */,
 				B1BF92791DD6516C00BECBBB /* UBUNTU-BI.TTF in Resources */,
 				B1CF54EA1DDB56BD00E98049 /* BusinessCardsShow.storyboard in Resources */,
@@ -1739,6 +1758,7 @@
 				B10874801E5B0DC9004A4FB6 /* AppSettings+CoreDataProperties.swift in Sources */,
 				B122F1F91DD35BC70018A701 /* FavoriteShowModels.swift in Sources */,
 				B10CF52A1E684B9700811DC1 /* ScheduleView.swift in Sources */,
+				B19BB6211E6ABF560081533C /* MSMTableViewControllerManager.swift in Sources */,
 				B122F1FB1DD35BC70018A701 /* FavoriteShowRouter.swift in Sources */,
 				B152915B1DDE44A200BBA1E0 /* MenuSectionFooterView.swift in Sources */,
 				B1FFF7011E5ECDF900A075D8 /* OrganizationsShowInteractor.swift in Sources */,
@@ -1803,6 +1823,7 @@
 				B10874691E5B07A6004A4FB6 /* OmnieCommerceUser.xcdatamodeld in Sources */,
 				B17061A41E69866B00CF9BA9 /* TableViewControllerManager.swift in Sources */,
 				B1FFF7341E5F0F9E00A075D8 /* PointAnnotation.swift in Sources */,
+				B19BB61B1E6A79750081533C /* ActionButtonsTableViewCell.swift in Sources */,
 				B1CF54781DDB50D900E98049 /* AboutShowModels.swift in Sources */,
 				B14E97561DD8B052001E1DE2 /* SignUpShowConfigurator.swift in Sources */,
 				B14E97671DD8B05E001E1DE2 /* ForgotPasswordShowPresenter.swift in Sources */,
@@ -1832,7 +1853,6 @@
 				B122F20B1DD35BEB0018A701 /* CategoriesShowWorker.swift in Sources */,
 				B122DF641DF7F957003823AD /* CalendarShowInteractor.swift in Sources */,
 				B1CF54DD1DDB51BE00E98049 /* SettingsShowViewController.swift in Sources */,
-				B19BB6161E6A70710081533C /* NSObject+Ext.swift in Sources */,
 				B18A45CC1DEC3918003EBD2F /* SmallCirleView.swift in Sources */,
 				B177E54C1E54AC7F004F1390 /* EnterCodeShowViewController.swift in Sources */,
 				B1FFF7141E5F017A00A075D8 /* OrganizationsMapShowPresenter.swift in Sources */,
@@ -1857,6 +1877,7 @@
 				B1FFF7041E5ECDF900A075D8 /* OrganizationsShowRouter.swift in Sources */,
 				B122F2081DD35BEB0018A701 /* CategoriesShowPresenter.swift in Sources */,
 				B177E5591E54B739004F1390 /* RepetitionPasswordShowPresenter.swift in Sources */,
+				B19BB61F1E6ABB690081533C /* MSMTableView.swift in Sources */,
 				B122F20A1DD35BEB0018A701 /* CategoriesShowViewController.swift in Sources */,
 				B177E55C1E54B739004F1390 /* RepetitionPasswordShowWorker.swift in Sources */,
 				B108746C1E5B07D3004A4FB6 /* CoreDataManager.swift in Sources */,

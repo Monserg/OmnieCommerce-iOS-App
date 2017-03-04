@@ -24,6 +24,6 @@ class Category: NSObject {
     }
     
     deinit {
-        print("\(self.className) deinit")
+        print("\(type(of: self)) deinit")
     }
 }

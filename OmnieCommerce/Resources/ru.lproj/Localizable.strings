@@ -74,6 +74,7 @@
 "Address"                       =   "Адрес";
 "Phones"                        =   "Телефоны";
 "Schedule"                      =   "График";
+"Save"                          =   "Сохранить";
 
 
 // TextField Placeholders

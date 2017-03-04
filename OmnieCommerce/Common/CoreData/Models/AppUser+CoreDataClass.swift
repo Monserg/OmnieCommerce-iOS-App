@@ -17,6 +17,6 @@ public class AppUser: NSManagedObject {
     }
     
     deinit {
-        print("\(self.className) deinit")
+        print("\(type(of: self)) deinit")
     }
 }
