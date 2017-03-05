@@ -51,6 +51,6 @@ class MSMTableView: UITableView {
             }
         }
         
-        self.flashScrollIndicators()
+//        self.flashScrollIndicators()
     }
 }

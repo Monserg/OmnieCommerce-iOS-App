@@ -16,11 +16,11 @@ import UIKit
         setTitle(titleText, for: .normal)
         setTitle(titleText, for: .highlighted)
 
-//        if (isAppThemeDark) {
-//            backgroundColor =   UIColor.white
-//        } else {
-//            setBackgroundImage(UIImage(named: "image-background-color-very-light-orange-normal.png")?.withRenderingMode(.alwaysOriginal), for: .normal)
-//        }
+        if (isAppThemeDark) {
+            backgroundColor =   UIColor.white
+        } else {
+            setBackgroundImage(UIImage(named: "image-background-color-very-light-orange-normal.png")?.withRenderingMode(.alwaysOriginal), for: .normal)
+        }
         
         borderColor         =   UIColor.clear
         borderWidth         =   0
@@ -36,8 +36,11 @@ import UIKit
         layer.cornerRadius  =   frame.height / 2
         clipsToBounds       =   true
         
-        if (imageView?.image != nil && !titleText.isEmpty) {
-            imageEdgeInsets = UIEdgeInsetsMake(3, (titleLabel?.frame.maxX)! + 5, 0, 0)
+        guard imageView?.image != nil, titleLabel?.text != nil else {
+            return
         }
+        
+        titleEdgeInsets     =   UIEdgeInsetsMake(0, -15, 0, 0)
+        imageEdgeInsets     =   UIEdgeInsetsMake(0, (titleLabel?.frame.maxX)! + 8, 0, 0)
     }
 }

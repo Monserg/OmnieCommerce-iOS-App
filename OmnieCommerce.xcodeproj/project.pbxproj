@@ -29,6 +29,11 @@
 		B1228FBA1DD49ED400A90FBB /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1228FB91DD49ED400A90FBB /* BaseViewController.swift */; };
 		B122A58C1E6BD11300C39B67 /* MSMImagePickerControllerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B122A58B1E6BD11300C39B67 /* MSMImagePickerControllerManager.swift */; };
 		B122A58E1E6BE10F00C39B67 /* FillVeryLightOrangeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B122A58D1E6BE10F00C39B67 /* FillVeryLightOrangeButton.swift */; };
+		B122A5901E6BF23E00C39B67 /* BorderVeryLightOrangeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B122A58F1E6BF23E00C39B67 /* BorderVeryLightOrangeButton.swift */; };
+		B122A5941E6C56E600C39B67 /* MessageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B122A5931E6C56E600C39B67 /* MessageTableViewCell.xib */; };
+		B122A5961E6C56F800C39B67 /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B122A5951E6C56F800C39B67 /* MessageTableViewCell.swift */; };
+		B122A5981E6C728300C39B67 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = B122A5971E6C728300C39B67 /* Message.swift */; };
+		B122A59A1E6C79B900C39B67 /* UbuntuLightVeryLightGrayLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B122A5991E6C79B900C39B67 /* UbuntuLightVeryLightGrayLabel.swift */; };
 		B122DF5A1DF7F901003823AD /* CalendarShow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B122DF591DF7F901003823AD /* CalendarShow.storyboard */; };
 		B122DF631DF7F957003823AD /* CalendarShowConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B122DF5C1DF7F957003823AD /* CalendarShowConfigurator.swift */; };
 		B122DF641DF7F957003823AD /* CalendarShowInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B122DF5D1DF7F957003823AD /* CalendarShowInteractor.swift */; };
@@ -109,8 +114,6 @@
 		B14D1D701E5CB70D00D33435 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B14D1D6F1E5CB70D00D33435 /* AddressBook.framework */; };
 		B14D1D721E5CB79200D33435 /* SwiftyVK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B14D1D711E5CB79200D33435 /* SwiftyVK.framework */; };
 		B14D1D741E5CB8B000D33435 /* SocialNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14D1D731E5CB8B000D33435 /* SocialNetworkManager.swift */; };
-		B14D894F1DF6C92100AF3AED /* MessageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B14D894E1DF6C92100AF3AED /* MessageTableViewCell.xib */; };
-		B14D89511DF6CFF800AF3AED /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14D89501DF6CFF800AF3AED /* Message.swift */; };
 		B14E97481DD8B042001E1DE2 /* SignInShowConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14E97411DD8B042001E1DE2 /* SignInShowConfigurator.swift */; };
 		B14E97491DD8B042001E1DE2 /* SignInShowInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14E97421DD8B042001E1DE2 /* SignInShowInteractor.swift */; };
 		B14E974A1DD8B042001E1DE2 /* SignInShowModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14E97431DD8B042001E1DE2 /* SignInShowModels.swift */; };
@@ -360,6 +363,11 @@
 		B1228FB91DD49ED400A90FBB /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		B122A58B1E6BD11300C39B67 /* MSMImagePickerControllerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSMImagePickerControllerManager.swift; sourceTree = "<group>"; };
 		B122A58D1E6BE10F00C39B67 /* FillVeryLightOrangeButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FillVeryLightOrangeButton.swift; sourceTree = "<group>"; };
+		B122A58F1E6BF23E00C39B67 /* BorderVeryLightOrangeButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BorderVeryLightOrangeButton.swift; sourceTree = "<group>"; };
+		B122A5931E6C56E600C39B67 /* MessageTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageTableViewCell.xib; sourceTree = "<group>"; };
+		B122A5951E6C56F800C39B67 /* MessageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageTableViewCell.swift; sourceTree = "<group>"; };
+		B122A5971E6C728300C39B67 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		B122A5991E6C79B900C39B67 /* UbuntuLightVeryLightGrayLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UbuntuLightVeryLightGrayLabel.swift; sourceTree = "<group>"; };
 		B122DF591DF7F901003823AD /* CalendarShow.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CalendarShow.storyboard; sourceTree = "<group>"; };
 		B122DF5C1DF7F957003823AD /* CalendarShowConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarShowConfigurator.swift; sourceTree = "<group>"; };
 		B122DF5D1DF7F957003823AD /* CalendarShowInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarShowInteractor.swift; sourceTree = "<group>"; };
@@ -443,8 +451,6 @@
 		B14D1D6F1E5CB70D00D33435 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		B14D1D711E5CB79200D33435 /* SwiftyVK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SwiftyVK.framework; sourceTree = "<group>"; };
 		B14D1D731E5CB8B000D33435 /* SocialNetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialNetworkManager.swift; sourceTree = "<group>"; };
-		B14D894E1DF6C92100AF3AED /* MessageTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageTableViewCell.xib; sourceTree = "<group>"; };
-		B14D89501DF6CFF800AF3AED /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		B14E97411DD8B042001E1DE2 /* SignInShowConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInShowConfigurator.swift; sourceTree = "<group>"; };
 		B14E97421DD8B042001E1DE2 /* SignInShowInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInShowInteractor.swift; sourceTree = "<group>"; };
 		B14E97431DD8B042001E1DE2 /* SignInShowModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInShowModels.swift; sourceTree = "<group>"; };
@@ -812,7 +818,6 @@
 				B1BF92431DD5FC8000BECBBB /* Config.swift */,
 				B1B761C21E629C120067339F /* DropDownItem.swift */,
 				B1228FB41DD4856A00A90FBB /* MenuItem.swift */,
-				B14D89501DF6CFF800AF3AED /* Message.swift */,
 			);
 			path = DataModel;
 			sourceTree = "<group>";
@@ -830,8 +835,26 @@
 			isa = PBXGroup;
 			children = (
 				B1CF54EF1DDB5F1A00E98049 /* CustomLabel.swift */,
+				B122A5991E6C79B900C39B67 /* UbuntuLightVeryLightGrayLabel.swift */,
 			);
 			path = UILabels;
+			sourceTree = "<group>";
+		};
+		B122A5911E6C567E00C39B67 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B122A5971E6C728300C39B67 /* Message.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B122A5921E6C56A500C39B67 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B122A5951E6C56F800C39B67 /* MessageTableViewCell.swift */,
+				B122A5931E6C56E600C39B67 /* MessageTableViewCell.xib */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		B122DF5B1DF7F919003823AD /* CalendarShow */ = {
@@ -910,6 +933,8 @@
 		B122F1CF1DD35B060018A701 /* MessagesShow */ = {
 			isa = PBXGroup;
 			children = (
+				B122A5911E6C567E00C39B67 /* Models */,
+				B122A5921E6C56A500C39B67 /* Views */,
 				B122F1E21DD35BA70018A701 /* MessagesShowConfigurator.swift */,
 				B122F1E31DD35BA70018A701 /* MessagesShowInteractor.swift */,
 				B122F1E41DD35BA70018A701 /* MessagesShowModels.swift */,
@@ -1029,6 +1054,7 @@
 			children = (
 				B149A7B91E5D8DD3009BF8C7 /* AnimatedButton.swift */,
 				B149A7BB1E5D8E24009BF8C7 /* AnimatedButton.xib */,
+				B122A58F1E6BF23E00C39B67 /* BorderVeryLightOrangeButton.swift */,
 				B1CF54631DDAE78200E98049 /* CustomButton.swift */,
 				B1C13D861DEF2743002B494A /* DropDownButton.swift */,
 				B122A58D1E6BE10F00C39B67 /* FillVeryLightOrangeButton.swift */,
@@ -1044,7 +1070,6 @@
 				B14107C31DFEA73900F79CF9 /* CalendarDayCellView.xib */,
 				B1C13D8E1DEF5736002B494A /* DropDownTableViewCell.swift */,
 				B1228FB11DD47C9F00A90FBB /* MenuViewCell.swift */,
-				B14D894E1DF6C92100AF3AED /* MessageTableViewCell.xib */,
 			);
 			path = UITableViewCells;
 			sourceTree = "<group>";
@@ -1642,6 +1667,7 @@
 				B1BF926A1DD6516C00BECBBB /* helveticaneuecyr-bold.otf in Resources */,
 				B15291571DDE3FEF00BBA1E0 /* MenuSectionHeaderView.xib in Resources */,
 				B1CF54E81DDB55E300E98049 /* HandbookShow.storyboard in Resources */,
+				B122A5941E6C56E600C39B67 /* MessageTableViewCell.xib in Resources */,
 				B10CF52C1E684BA000811DC1 /* ScheduleView.xib in Resources */,
 				B1BF926B1DD6516C00BECBBB /* helveticaneuecyr-bolditalic.otf in Resources */,
 				B1BF926C1DD6516C00BECBBB /* helveticaneuecyr-heavy.otf in Resources */,
@@ -1695,7 +1721,6 @@
 				B122DF5A1DF7F901003823AD /* CalendarShow.storyboard in Resources */,
 				B1CF54EE1DDB588600E98049 /* DiscountCardsShow.storyboard in Resources */,
 				B1CF54E41DDB543300E98049 /* SettingsShow.storyboard in Resources */,
-				B14D894F1DF6C92100AF3AED /* MessageTableViewCell.xib in Resources */,
 				B122F1BF1DD3575E0018A701 /* SlideMenuShow.storyboard in Resources */,
 				B1CBAB921DE446E700A8BCA2 /* Assets.xcassets in Resources */,
 				B122F22E1DD35ECC0018A701 /* FavoriteShow.storyboard in Resources */,
@@ -1896,7 +1921,6 @@
 				B14D1D741E5CB8B000D33435 /* SocialNetworkManager.swift in Sources */,
 				B1CF54AF1DDB516E00E98049 /* OmnieCardsShowInteractor.swift in Sources */,
 				B122F2151DD35C2C0018A701 /* NewsShowModels.swift in Sources */,
-				B14D89511DF6CFF800AF3AED /* Message.swift in Sources */,
 				B1CF547A1DDB50D900E98049 /* AboutShowRouter.swift in Sources */,
 				B1C13D8F1DEF5736002B494A /* DropDownTableViewCell.swift in Sources */,
 				B177E55B1E54B739004F1390 /* RepetitionPasswordShowViewController.swift in Sources */,
@@ -1915,6 +1939,7 @@
 				B122F1EC1DD35BA70018A701 /* MessagesShowPresenter.swift in Sources */,
 				B1FFF7121E5F017A00A075D8 /* OrganizationsMapShowInteractor.swift in Sources */,
 				B122F1DE1DD35B760018A701 /* OrdersShowPresenter.swift in Sources */,
+				B122A5961E6C56F800C39B67 /* MessageTableViewCell.swift in Sources */,
 				B14E975B1DD8B052001E1DE2 /* SignUpShowViewController.swift in Sources */,
 				B1FFF7171E5F017A00A075D8 /* OrganizationsMapShowWorker.swift in Sources */,
 				B1CF54A11DDB515000E98049 /* HandbookShowInteractor.swift in Sources */,
@@ -1923,6 +1948,7 @@
 				B1597AC71E3F12BF00123CB5 /* PersonalTemplatesViewController.swift in Sources */,
 				B177E5361E5475EC004F1390 /* SignInContainerShowModels.swift in Sources */,
 				B1CF54CF1DDB51A500E98049 /* PersonalPageShowViewController.swift in Sources */,
+				B122A5901E6BF23E00C39B67 /* BorderVeryLightOrangeButton.swift in Sources */,
 				B14107C41DFEA73900F79CF9 /* CalendarDayCellView.swift in Sources */,
 				B177E5351E5475EC004F1390 /* SignInContainerShowInteractor.swift in Sources */,
 				B1228FBA1DD49ED400A90FBB /* BaseViewController.swift in Sources */,
@@ -1994,8 +2020,10 @@
 				B1CF54941DDB512000E98049 /* DiscountCardsShowModels.swift in Sources */,
 				B177E5571E54B739004F1390 /* RepetitionPasswordShowInteractor.swift in Sources */,
 				B10871521E379A4800374DD5 /* OmnieCard.swift in Sources */,
+				B122A5981E6C728300C39B67 /* Message.swift in Sources */,
 				B1BEEDF31E63687500F1DE8A /* OrganizationShowRouter.swift in Sources */,
 				B14E975A1DD8B052001E1DE2 /* SignUpShowRouter.swift in Sources */,
+				B122A59A1E6C79B900C39B67 /* UbuntuLightVeryLightGrayLabel.swift in Sources */,
 				B19DF2841DF94DCD000AFC92 /* CalendarViewController.swift in Sources */,
 				B11B9ADD1DF053BA009A4AA1 /* CustomImageView.swift in Sources */,
 				B1C13D871DEF2743002B494A /* DropDownButton.swift in Sources */,

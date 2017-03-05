@@ -24,7 +24,7 @@
                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ua6-do-HyU" userLabel="Save Button" customClass="FillVeryLightOrangeButton" customModule="OmnieCommerce" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="36"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <state key="normal" title="Save" backgroundImage="image-background-color-very-light-orange-normal"/>
+                                <state key="normal" title="Save" image="icon-confirm-save-normal"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
@@ -32,12 +32,11 @@
                                     <action selector="handlerSaveButtonTap:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Wkp-NA-89z"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pBd-lp-63T" userLabel="Cancel Button" customClass="CustomButton" customModule="OmnieCommerce" customModuleProvider="target">
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pBd-lp-63T" userLabel="Cancel Button" customClass="BorderVeryLightOrangeButton" customModule="OmnieCommerce" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="51" width="375" height="35.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <state key="normal" title="Cancel"/>
+                                <state key="normal" title="Cancel" image="icon-confirm-cancel-white-normal"/>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="buttonStyle" value="Border"/>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
@@ -70,6 +69,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="image-background-color-very-light-orange-normal" width="40" height="40"/>
+        <image name="icon-confirm-cancel-white-normal" width="7" height="7"/>
+        <image name="icon-confirm-save-normal" width="8" height="5"/>
     </resources>
 </document>

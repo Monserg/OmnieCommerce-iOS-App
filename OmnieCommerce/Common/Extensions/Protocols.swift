@@ -55,6 +55,10 @@ protocol ConfigureCell {
     func setup(withItem item: Any, andIndexPath indexPath: IndexPath)
 }
 
+protocol InitCellParameters {
+    var cellIdentifier: String { get set }
+    var cellHeight: CGFloat { get set }
+}
 
 extension ErrorMessageViewAnimation {
     func didShow(_ view: UIView, withConstraint constraint: NSLayoutConstraint) {

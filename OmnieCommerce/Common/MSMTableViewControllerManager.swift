@@ -14,9 +14,7 @@ class MSMTableViewControllerManager: BaseViewController {
     var dataSource                  =   [Any]()
     var dataSourceFiltered          =   [Any]()
     var isSearchBarActive: Bool     =   false
-//    var actionButtonsCell: ActionButtonsTableViewCell?
 
-//    var sourceType: CellStyle!
     var tableView: MSMTableView?
     
     var handlerSearchCompletion: ((_ value: Any) -> ())?
@@ -53,16 +51,19 @@ extension MSMTableViewControllerManager: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cellIdentifier      =   self.tableView!.cellIdentifiers![indexPath.row].code
-        let cell                =   self.tableView!.dequeueReusableCell(withIdentifier: String(cellIdentifier), for: indexPath) //as! ConfigureCell
-        let item                =   (isSearchBarActive) ? dataSourceFiltered[indexPath.row] : dataSource[indexPath.row]
+        let cellIdentifier  =   (dataSource[indexPath.row] as! InitCellParameters).cellIdentifier
+
+        self.tableView!.register(UINib(nibName: cellIdentifier, bundle: nil), forCellReuseIdentifier: cellIdentifier)
+
+        let cell            =   self.tableView!.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
+        let item            =   (isSearchBarActive) ? dataSourceFiltered[indexPath.row] : dataSource[indexPath.row]
         
         // Config cell
         (cell as! ConfigureCell).setup(withItem: item, andIndexPath: indexPath)
         
         switch cell {
         case cell as AvatarTableViewCell:
-            let avatarCell      =   (cell as! AvatarTableViewCell)
+            let avatarCell  =   (cell as! AvatarTableViewCell)
             
             // Handler show UIImagePickerController
             avatarCell.handlerNewViewControllerShowCompletion   =   { imagePicker in
@@ -106,7 +107,7 @@ extension MSMTableViewControllerManager: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        let height  =   self.tableView!.cellIdentifiers![indexPath.row].height
+        let height  =   (self.dataSource[indexPath.row] as! InitCellParameters).cellHeight
         
         if (height == 1) {
             self.tableView!.estimatedRowHeight     =   height

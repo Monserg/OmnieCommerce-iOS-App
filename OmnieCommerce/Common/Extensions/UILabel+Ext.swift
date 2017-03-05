@@ -104,10 +104,10 @@ extension UILabel {
             textColor       =   UIColor(hexString: (isAppThemeDark) ? "#dc8181" : "#cce8e8", withAlpha: 1.0)
             textAlignment   =   .left
             
-        case .UbuntuLight12VeryLightGray:
-            font            =   UIFont.ubuntuLight12
-            textColor       =   UIColor(hexString: (isAppThemeDark) ? "#dedede" : "#dedede", withAlpha: 1.0)
-            textAlignment   =   .left
+//        case .UbuntuLight12VeryLightGray:
+//            font            =   UIFont.ubuntuLight12
+//            textColor       =   UIColor(hexString: (isAppThemeDark) ? "#dedede" : "#dedede", withAlpha: 1.0)
+//            textAlignment   =   .left
 
         case .UbuntuLight09VeryDarkGrayishBlue53:
             font            =   (isAppThemeDark) ? UIFont.systemFont(ofSize: 12) : UIFont.ubuntuLight09
@@ -138,8 +138,9 @@ extension UILabel {
             textColor       =   (isAppThemeDark) ? UIColor.white : UIColor.veryLightGray
             
         default:
-            font            =   (isAppThemeDark) ? UIFont.systemFont(ofSize: 12) : UIFont.ubuntuLight12
-            textColor       =   (isAppThemeDark) ? UIColor.white : UIColor.veryLightGray
+            break
+//            font            =   (isAppThemeDark) ? UIFont.systemFont(ofSize: 12) : UIFont.ubuntuLight12
+//            textColor       =   (isAppThemeDark) ? UIColor.white : UIColor.veryLightGray
         }
         
         self.adjustsFontSizeToFitWidth = true

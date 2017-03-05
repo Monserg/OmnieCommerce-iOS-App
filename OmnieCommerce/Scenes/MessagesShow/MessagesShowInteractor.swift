@@ -11,29 +11,29 @@
 
 import UIKit
 
-// MARK: - Input & Output protocols
+// MARK: - Input protocols for current Interactor component VIP-cicle
 protocol MessagesShowInteractorInput {
-    func doSomething(request: MessagesShow.Something.Request)
+    func messagesDidLoad(withRequestModel requestModel: MessagesShowModels.Messages.RequestModel)
 }
 
+// MARK: - Output protocols for Presenter component VIP-cicle
 protocol MessagesShowInteractorOutput {
-    func presentSomething(response: MessagesShow.Something.Response)
+    func messagesDidPrepareToShow(fromResponseModel responseModel: MessagesShowModels.Messages.ResponseModel)
 }
 
 class MessagesShowInteractor: MessagesShowInteractorInput {
     // MARK: - Properties
-    var output: MessagesShowInteractorOutput!
-    var worker: MessagesShowWorker!
+    var presenter:  MessagesShowInteractorOutput!
+    var worker:     MessagesShowWorker!
     
     
     // MARK: - Custom Functions. Business logic
-    func doSomething(request: MessagesShow.Something.Request) {
-        // NOTE: Create some Worker to do the work
-        worker = MessagesShowWorker()
-        worker.doSomeWork()
+    func messagesDidLoad(withRequestModel requestModel: MessagesShowModels.Messages.RequestModel) {
+        worker      =   MessagesShowWorker()
+        let items   =   worker.messagesDidLoad()
         
         // NOTE: Pass the result to the Presenter
-        let response = MessagesShow.Something.Response()
-        output.presentSomething(response: response)
+        let responseModel   =   MessagesShowModels.Messages.ResponseModel(items: items)
+        presenter.messagesDidPrepareToShow(fromResponseModel: responseModel)
     }
 }

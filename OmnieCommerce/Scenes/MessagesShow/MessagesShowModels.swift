@@ -12,15 +12,17 @@
 import UIKit
 
 // MARK: - Data models
-struct MessagesShow {
-    struct Something {
-        struct Request {
+struct MessagesShowModels {
+    struct Messages {
+        struct RequestModel {
         }
         
-        struct Response {
+        struct ResponseModel {
+            let items: [Message]?
         }
         
         struct ViewModel {
+            let messages: [Message]?
         }
     }
 }

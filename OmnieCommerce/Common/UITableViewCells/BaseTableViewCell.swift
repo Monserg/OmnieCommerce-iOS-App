@@ -76,28 +76,6 @@ enum CellStyle: String {
                                       filter: AspectScaledToFillSizeWithRoundedCornersFilter(size: logoImageView.frame.size, radius: logoImageView.frame.size.width / 2))
             
             dottedBorderView.style              =   .AroundDottedRectangle
-
-        case is Message:
-            let message                         =   item as! Message
-            nameLabel.text                      =   message.title
-            messageLabel.text                   =   message.text
-            dateLabel.text                      =   message.activeDate.convertToString(withStyle: (message.activeDate.isActiveToday()) ? .Time : .Date)
-            
-            logoImageView.af_setImage(withURL: URL(string: message.logoStringURL ?? "https://omniesoft.ua/")!,
-                                      placeholderImage: UIImage.init(named: "image-no-photo"),
-                                      filter: AspectScaledToFillSizeWithRoundedCornersFilter(size: logoImageView.frame.size, radius: logoImageView.frame.size.width / 2))
-
-            dottedBorderView.style              =   .AroundDottedRectangle
-
-            if (message.isOwn) {
-                userAvatarImageView.isHidden    =  false
-                
-                userAvatarImageView.af_setImage(withURL: URL(string: message.userAvatarStringURL ?? "https://omniesoft.ua/")!,
-                                                placeholderImage: UIImage.init(named: "image-no-user"),
-                                                filter: AspectScaledToFillSizeWithRoundedCornersFilter(size: userAvatarImageView.frame.size, radius: userAvatarImageView.frame.size.width / 2))
-            } else {
-                userAvatarImageView.isHidden    =  true
-            }
             
         case is Organization:
             let organization                    =   item as! Organization

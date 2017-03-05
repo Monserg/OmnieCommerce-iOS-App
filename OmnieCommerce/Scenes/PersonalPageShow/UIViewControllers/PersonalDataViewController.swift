@@ -35,7 +35,6 @@ class PersonalDataViewController: BaseViewController {
             tableView.tableViewControllerManager.handlerCancelButtonCompletion     =   { _ in
                 self.handlerCancelButtonCompletion!()
             }
-
         }
     }
     

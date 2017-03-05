@@ -201,6 +201,7 @@ extension UIColor {
         }
     }
     
+    // Main background color
     open class var veryDarkDesaturatedBlue24: UIColor {
         set {
             self.veryDarkDesaturatedBlue24 = UIColor(hexString: "#24323f")!

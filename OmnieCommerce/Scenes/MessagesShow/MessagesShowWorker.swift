@@ -13,7 +13,22 @@ import UIKit
 
 class MessagesShowWorker {
     // MARK: - Custom Functions. Business Logic
-    func doSomeWork() {
-        // NOTE: Do the work
+    func messagesDidLoad() -> [Message]? {
+        guard arc4random_uniform(2) == 1 else {
+            return nil
+        }
+        
+        var items           =   [Message]()
+        
+        for _ in 0 ..< 25 {
+            let pathString  =   (arc4random_uniform(2) == 1) ? "http://www.nyhabitat.com/blog/wp-content/uploads/2013/08/fifth-avenue-shopping-manhattan-nyc-new-york.jpg" : nil
+            
+            let isOwn       =   (arc4random_uniform(2) == 1) ? true : false
+            let avatar      =   (isOwn) ? "http://pngimg.com/upload/small/face_PNG11761.png" : "http://pngimg.com/upload/face_PNG5660.png"
+            
+            items.append(Message(title: "Акваторія", logoStringURL: pathString, activeDate: Date.init(), text: "Вже давно відомо, що читабельний людині...", isOwn: isOwn, userAvatarStringURL: avatar, cellIdentifier: "MessageTableViewCell", cellHeight: 96.0))
+        }
+        
+        return items
     }
 }

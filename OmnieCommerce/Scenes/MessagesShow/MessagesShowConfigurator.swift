@@ -35,16 +35,16 @@ class MessagesShowConfigurator {
 
     // MARK: - Custom Functions
     func configure(viewController: MessagesShowViewController) {
-        let router = MessagesShowRouter()
-        router.viewController = viewController
+        let router                  =   MessagesShowRouter()
+        router.viewController       =   viewController
         
-        let presenter = MessagesShowPresenter()
-        presenter.output = viewController
+        let presenter               =   MessagesShowPresenter()
+        presenter.viewController    =   viewController
         
-        let interactor = MessagesShowInteractor()
-        interactor.output = presenter
+        let interactor              =   MessagesShowInteractor()
+        interactor.presenter        =   presenter
         
-        viewController.output = interactor
-        viewController.router = router
+        viewController.interactor   =   interactor
+        viewController.router       =   router
     }
 }

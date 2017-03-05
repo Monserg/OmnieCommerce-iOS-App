@@ -11,24 +11,24 @@
 
 import UIKit
 
-// MARK: - Input & Output protocols
+// MARK: - Input protocols for current Presenter component VIP-cicle
 protocol MessagesShowPresenterInput {
-    func presentSomething(response: MessagesShow.Something.Response)
+    func messagesDidPrepareToShow(fromResponseModel responseModel: MessagesShowModels.Messages.ResponseModel)
 }
 
+// MARK: - Output protocols for ViewController component VIP-cicle
 protocol MessagesShowPresenterOutput: class {
-    func displaySomething(viewModel: MessagesShow.Something.ViewModel)
+    func messagesDidShow(fromViewModel viewModel: MessagesShowModels.Messages.ViewModel)
 }
 
 class MessagesShowPresenter: MessagesShowPresenterInput {
     // MARK: - Properties
-    weak var output: MessagesShowPresenterOutput!
+    weak var viewController: MessagesShowPresenterOutput!
     
     
     // MARK: - Custom Functions. Presentation logic
-    func presentSomething(response: MessagesShow.Something.Response) {
-        // NOTE: Format the response from the Interactor and pass the result back to the View Controller
-        let viewModel = MessagesShow.Something.ViewModel()
-        output.displaySomething(viewModel: viewModel)
+    func messagesDidPrepareToShow(fromResponseModel responseModel: MessagesShowModels.Messages.ResponseModel) {
+        let viewModel   =   MessagesShowModels.Messages.ViewModel(messages: responseModel.items)
+        viewController.messagesDidShow(fromViewModel: viewModel)
     }
 }

@@ -36,20 +36,21 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="type" value="ParentSearch"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9FH-l3-RG5" customClass="CustomTableView" customModule="OmnieCommerce" customModuleProvider="target">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9FH-l3-RG5" customClass="MSMTableView" customModule="OmnieCommerce" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="95" width="375" height="543.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <view key="tableFooterView" hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" id="zph-fD-SXs">
-                                    <rect key="frame" x="0.0" y="72" width="375" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Messages list is empty" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rUj-dj-GWB" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                                            <rect key="frame" x="128" y="26.5" width="118.5" height="13.5"/>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Messages list is empty" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rUj-dj-GWB" customClass="UbuntuLightVeryLightGrayLabel" customModule="OmnieCommerce" customModuleProvider="target">
+                                            <rect key="frame" x="100.5" y="23" width="173.5" height="20.5"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                             <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="string" keyPath="labelStyle" value="UbuntuLight12VeryLightGray"/>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
                                             </userDefinedRuntimeAttributes>
                                         </label>
                                     </subviews>
@@ -59,22 +60,7 @@
                                         <constraint firstItem="rUj-dj-GWB" firstAttribute="centerY" secondItem="zph-fD-SXs" secondAttribute="centerY" multiplier="1.5" id="Neh-bM-eMx"/>
                                     </constraints>
                                 </view>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MessageCell" id="5Du-1B-W5p" customClass="BaseTableViewCell" customModule="OmnieCommerce" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5Du-1B-W5p" id="hdE-EE-uFU">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="cellStyle" value="Message"/>
-                                        </userDefinedRuntimeAttributes>
-                                    </tableViewCell>
-                                </prototypes>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="tableCellStyle" value="Standard"/>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </tableView>
@@ -124,7 +110,7 @@
             <objects>
                 <navigationController storyboardIdentifier="MessagesShowNC" automaticallyAdjustsScrollViewInsets="NO" id="YAB-jH-ZBO" customClass="BaseNavigationController" customModule="OmnieCommerce" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="gPT-Va-oc5">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="gPT-Va-oc5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

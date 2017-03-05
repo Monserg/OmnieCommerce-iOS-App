@@ -11,44 +11,39 @@
 
 import UIKit
 
-// MARK: - Input & Output protocols
+// MARK: - Input protocols for current ViewController component VIP-cicle
 protocol MessagesShowViewControllerInput {
-    func displaySomething(viewModel: MessagesShow.Something.ViewModel)
+    func messagesDidShow(fromViewModel viewModel: MessagesShowModels.Messages.ViewModel)
 }
 
+// MARK: - Output protocols for Interactor component VIP-cicle
 protocol MessagesShowViewControllerOutput {
-    func doSomething(request: MessagesShow.Something.Request)
+    func messagesDidLoad(withRequestModel requestModel: MessagesShowModels.Messages.RequestModel)
 }
 
 class MessagesShowViewController: BaseViewController {
     // MARK: - Properties
-    var output: MessagesShowViewControllerOutput!
-    var router: MessagesShowRouter!
+    var interactor: MessagesShowViewControllerOutput!
+    var router:     MessagesShowRouter!
     
-    var tableViewManager                    =   ListTableViewController()
-
     @IBOutlet weak var smallTopBarView: SmallTopBarView!
     @IBOutlet weak var copyrightLabel: CustomLabel!
     @IBOutlet weak var dataSourceEmptyView: UIView!
 
-    @IBOutlet weak var tableView: CustomTableView! {
-        didSet{
-            // Register the Nib header/footer section views
-            tableView.register(UINib(nibName: "MessageTableViewCell", bundle: nil), forCellReuseIdentifier: "MessageCell")
-            
-            // Delegates
-            tableView.dataSource            =   tableViewManager
-            tableView.delegate              =   tableViewManager
-            tableViewManager.tableView      =   tableView
-            tableViewManager.sourceType     =   .Message
+    @IBOutlet weak var tableView: MSMTableView! {
+        didSet {
+            smallTopBarView.searchBar.placeholder                   =   "Enter Organization name".localized()
 
-            smallTopBarView.searchBar.placeholder   =   "Enter Organization name".localized()
+            // TableViewController Manager
+            tableView.tableViewControllerManager                    =   MSMTableViewControllerManager()
+            tableView.tableViewControllerManager.tableView          =   self.tableView
+            tableView.tableViewControllerManager.sectionsCount      =   1
 
-            // Handler select cell
-            tableViewManager.completionHandler = { organization in
-                // TODO: ADD TRANSITION TO CHAT
-                self.print(object: "transition to Chat scene")
-            }
+//            // Handler select cell
+//            tableViewManager.completionHandler = { organization in
+//                // TODO: ADD TRANSITION TO CHAT
+//                self.print(object: "transition to Chat scene")
+//            }
         }
     }
 
@@ -65,19 +60,9 @@ class MessagesShowViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Initialization
-        for _ in 0 ..< 25 {
-            let pathString = (arc4random_uniform(2) == 1) ? "http://www.nyhabitat.com/blog/wp-content/uploads/2013/08/fifth-avenue-shopping-manhattan-nyc-new-york.jpg" : nil
-            
-            let isOwn = (arc4random_uniform(2) == 1) ? true : false
-            let avatar = (isOwn) ? "http://pngimg.com/upload/small/face_PNG11761.png" : "http://pngimg.com/upload/face_PNG5660.png"
-            
-            tableViewManager.dataSource.append(Message(title: "Акваторія", logoStringURL: pathString, activeDate: Date.init(), text: "Вже давно відомо, що читабельний людині...", isOwn: isOwn, userAvatarStringURL: avatar))
-        }
-
         // Config topBarView
-        smallTopBarView.type                =   "ParentSearch"
-        topBarViewStyle                     =   .Small
+        smallTopBarView.type    =   "ParentSearch"
+        topBarViewStyle         =   .Small
         setup(topBarView: smallTopBarView)
         
         viewSettingsDidLoad()
@@ -89,37 +74,32 @@ class MessagesShowViewController: BaseViewController {
         print(object: "\(type(of: self)): \(#function) run.")
         
         // NOTE: Ask the Interactor to do some work
-        let request = MessagesShow.Something.Request()
-        output.doSomething(request: request)
+        let requestModel        =   MessagesShowModels.Messages.RequestModel()
+        interactor.messagesDidLoad(withRequestModel: requestModel)
     }
-    
-    func setupScene(withSize size: CGSize) {
-        print(object: "\(type(of: self)): \(#function) run. Screen view size = \(size)")
-        
-        smallTopBarView.setNeedsDisplay()
-        smallTopBarView.circleView.setNeedsDisplay()
-        _ = tableView.visibleCells.map{ ($0 as! BaseTableViewCell).dottedBorderView.setNeedsDisplay() }
-    }
-
-    
-    // MARK: - Actions
-    
     
     
     // MARK: - Transition
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        print(object: "\(type(of: self)): \(#function) run. New size = \(size)")
-        
-        setupScene(withSize: size)
+        smallTopBarView.setNeedsDisplay()
+        smallTopBarView.circleView.setNeedsDisplay()
+
+        _ = tableView.visibleCells.map{ ($0 as! MessageTableViewCell).dottedBorderView.setNeedsDisplay() }
     }
 }
 
 
 // MARK: - MessagesShowViewControllerInput
 extension MessagesShowViewController: MessagesShowViewControllerInput {
-    func displaySomething(viewModel: MessagesShow.Something.ViewModel) {
-//        tableViewManager.dataSource     =   viewModel
-//        dataSourceEmptyView.isHidden    =   (self.messages.count == 0) ? false : true
+    func messagesDidShow(fromViewModel viewModel: MessagesShowModels.Messages.ViewModel) {
+        guard viewModel.messages != nil else {
+            self.dataSourceEmptyView.isHidden               =   false
+
+            return
+        }
+        
+        tableView.tableViewControllerManager.dataSource     =   viewModel.messages!
+        dataSourceEmptyView.isHidden                        =   true
         
         self.tableView.reloadData()
     }
