@@ -20,13 +20,13 @@ class MessagesShowWorker {
         
         var items           =   [Message]()
         
-        for _ in 0 ..< 25 {
+        for index in 0 ..< 25 {
             let pathString  =   (arc4random_uniform(2) == 1) ? "http://www.nyhabitat.com/blog/wp-content/uploads/2013/08/fifth-avenue-shopping-manhattan-nyc-new-york.jpg" : nil
             
             let isOwn       =   (arc4random_uniform(2) == 1) ? true : false
-            let avatar      =   (isOwn) ? "http://pngimg.com/upload/small/face_PNG11761.png" : "http://pngimg.com/upload/face_PNG5660.png"
+            let avatar      =   (isOwn) ? "https://img08.rl0.ru/ee95eaba1d4a852f563dbcb3de9310a5/c1408x1636/img08.rl0.ru/cd011f2bc15d51a1b53a5b03a92defd0/c1408x1636/ilulill.ee/images/girlface.png" : "http://drawdoo.com/wp-content/themes/blogfolio/themify/img.php?src=http://drawdoo.com/wp-content/uploads/tutorials/Celebrities/lesson21/step_20.png&w=665&h=&zc=1&q=60&a=t"
             
-            items.append(Message(title: "Акваторія", logoStringURL: pathString, activeDate: Date.init(), text: "Вже давно відомо, що читабельний людині...", isOwn: isOwn, userAvatarStringURL: avatar, cellIdentifier: "MessageTableViewCell", cellHeight: 96.0))
+            items.append(Message(name: "Акваторія-\(index)", logoStringURL: pathString, activeDate: Date.init(), text: "Вже давно відомо, що читабельний людині...", isOwn: isOwn, userAvatarStringURL: avatar, cellIdentifier: "MessageTableViewCell", cellHeight: 96.0))
         }
         
         return items

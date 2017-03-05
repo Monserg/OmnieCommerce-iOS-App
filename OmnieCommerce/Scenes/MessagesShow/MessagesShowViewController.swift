@@ -39,6 +39,30 @@ class MessagesShowViewController: BaseViewController {
             tableView.tableViewControllerManager.tableView          =   self.tableView
             tableView.tableViewControllerManager.sectionsCount      =   1
 
+            // Search Manager
+            smallTopBarView.searchBar.placeholder                   =   "Enter Organization name".localized()
+            smallTopBarView.searchBar.delegate                      =   tableView.tableViewControllerManager
+
+            // Handler select cell
+            tableView.tableViewControllerManager.handlerSearchCompletion        = { message in
+                // TODO: ADD TRANSITION TO CHAT SCENE
+                self.print(object: "transition to Chat scene")
+                
+//                self.router.navigateToOrganizationShowScene(organization as! Organization)
+            }
+            
+            // Handler Search keyboard button tap
+            tableView.tableViewControllerManager.handlerSendButtonCompletion    =   { _ in
+                // TODO: - ADD SEARCH API
+                self.smallTopBarView.searchBarDidHide()
+            }
+            
+            // Handler Search Bar Cancel button tap
+            tableView.tableViewControllerManager.handlerCancelButtonCompletion  =   { _ in
+                self.smallTopBarView.searchBarDidHide()
+            }
+
+            
 //            // Handler select cell
 //            tableViewManager.completionHandler = { organization in
 //                // TODO: ADD TRANSITION TO CHAT

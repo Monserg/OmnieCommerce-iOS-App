@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -54,18 +55,25 @@
                                                     <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="TcN-oi-ih9">
                                                         <rect key="frame" x="0.0" y="42" width="260.5" height="20"/>
                                                         <subviews>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="d2h-dg-gay" userLabel="User Avatar Image View" customClass="CustomImageView" customModule="OmnieCommerce" customModuleProvider="target">
+                                                            <imageView opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image-no-user" translatesAutoresizingMaskIntoConstraints="NO" id="d2h-dg-gay" userLabel="User Avatar Image View" customClass="CustomImageView" customModule="OmnieCommerce" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
-                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                                <color key="backgroundColor" red="0.15294117647058825" green="0.21568627450980393" blue="0.27058823529411763" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="20" id="4Ty-cC-AtH"/>
-                                                                    <constraint firstAttribute="width" constant="20" id="I7V-nD-vZ6"/>
+                                                                    <constraint firstAttribute="width" secondItem="d2h-dg-gay" secondAttribute="height" multiplier="1:1" id="YnN-6E-2nS"/>
                                                                 </constraints>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                                         <real key="value" value="10"/>
                                                                     </userDefinedRuntimeAttribute>
                                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isCircle" value="YES"/>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                        <real key="value" value="1"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                        <color key="value" red="0.11372549019607843" green="0.16470588235294117" blue="0.21568627450980393" alpha="1" colorSpace="calibratedRGB"/>
+                                                                    </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
                                                             </imageView>
                                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Message Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y87-Ea-daM" userLabel="Message Label" customClass="UbuntuLightItalic09LightGrayishCyanLabel" customModule="OmnieCommerce" customModuleProvider="target">
@@ -148,7 +156,7 @@
                             <constraint firstItem="13g-08-x1W" firstAttribute="top" secondItem="XLs-NS-f4d" secondAttribute="top" id="yH7-bM-zyJ"/>
                         </constraints>
                     </view>
-                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image-no-photo" translatesAutoresizingMaskIntoConstraints="NO" id="Ryx-ei-hEh" userLabel="Logo Image View" customClass="CustomImageView" customModule="OmnieCommerce" customModuleProvider="target">
+                    <imageView opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image-no-photo" translatesAutoresizingMaskIntoConstraints="NO" id="Ryx-ei-hEh" userLabel="Logo Image View" customClass="CustomImageView" customModule="OmnieCommerce" customModuleProvider="target">
                         <rect key="frame" x="8" y="5" width="84" height="84"/>
                         <color key="backgroundColor" red="0.15294117647058825" green="0.21568627450980393" blue="0.27058823529411763" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -166,6 +174,7 @@
                             <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                                 <real key="value" value="1"/>
                             </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="isCircle" value="YES"/>
                         </userDefinedRuntimeAttributes>
                     </imageView>
                 </subviews>
@@ -213,5 +222,6 @@
     </objects>
     <resources>
         <image name="image-no-photo" width="24" height="21"/>
+        <image name="image-no-user" width="37" height="33"/>
     </resources>
 </document>

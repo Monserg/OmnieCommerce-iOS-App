@@ -8,9 +8,9 @@
 
 import UIKit
 
-struct Message: InitCellParameters {
+struct Message: InitCellParameters, SearchObject {
     // MARK: - Properties
-    let title: String
+    var name: String!
     let logoStringURL: String?
     let activeDate: Date
     let text: String

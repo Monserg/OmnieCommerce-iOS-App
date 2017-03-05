@@ -153,7 +153,7 @@
                             <constraint firstItem="13g-08-x1W" firstAttribute="top" secondItem="XLs-NS-f4d" secondAttribute="top" id="yH7-bM-zyJ"/>
                         </constraints>
                     </view>
-                    <imageView opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image-no-organization" highlighted="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ryx-ei-hEh" userLabel="Logo Image View" customClass="CustomImageView" customModule="OmnieCommerce" customModuleProvider="target">
+                    <imageView opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image-no-organization" highlighted="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ryx-ei-hEh" userLabel="Logo Image View" customClass="CustomImageView" customModule="OmnieCommerce" customModuleProvider="target">
                         <rect key="frame" x="8" y="5.5" width="85" height="85"/>
                         <color key="backgroundColor" red="0.15294117647058825" green="0.21568627450980393" blue="0.27058823529411763" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -171,6 +171,7 @@
                             <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                                 <real key="value" value="1"/>
                             </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="isCircle" value="YES"/>
                         </userDefinedRuntimeAttributes>
                     </imageView>
                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JBf-39-eQd" userLabel="Favorite Button">
