@@ -27,6 +27,8 @@
 		B1228FB21DD47C9F00A90FBB /* MenuViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1228FB11DD47C9F00A90FBB /* MenuViewCell.swift */; };
 		B1228FB51DD4856A00A90FBB /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1228FB41DD4856A00A90FBB /* MenuItem.swift */; };
 		B1228FBA1DD49ED400A90FBB /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1228FB91DD49ED400A90FBB /* BaseViewController.swift */; };
+		B122A58C1E6BD11300C39B67 /* MSMImagePickerControllerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B122A58B1E6BD11300C39B67 /* MSMImagePickerControllerManager.swift */; };
+		B122A58E1E6BE10F00C39B67 /* FillVeryLightOrangeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B122A58D1E6BE10F00C39B67 /* FillVeryLightOrangeButton.swift */; };
 		B122DF5A1DF7F901003823AD /* CalendarShow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B122DF591DF7F901003823AD /* CalendarShow.storyboard */; };
 		B122DF631DF7F957003823AD /* CalendarShowConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B122DF5C1DF7F957003823AD /* CalendarShowConfigurator.swift */; };
 		B122DF641DF7F957003823AD /* CalendarShowInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B122DF5D1DF7F957003823AD /* CalendarShowInteractor.swift */; };
@@ -356,6 +358,8 @@
 		B1228FB11DD47C9F00A90FBB /* MenuViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewCell.swift; sourceTree = "<group>"; };
 		B1228FB41DD4856A00A90FBB /* MenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
 		B1228FB91DD49ED400A90FBB /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		B122A58B1E6BD11300C39B67 /* MSMImagePickerControllerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSMImagePickerControllerManager.swift; sourceTree = "<group>"; };
+		B122A58D1E6BE10F00C39B67 /* FillVeryLightOrangeButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FillVeryLightOrangeButton.swift; sourceTree = "<group>"; };
 		B122DF591DF7F901003823AD /* CalendarShow.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CalendarShow.storyboard; sourceTree = "<group>"; };
 		B122DF5C1DF7F957003823AD /* CalendarShowConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarShowConfigurator.swift; sourceTree = "<group>"; };
 		B122DF5D1DF7F957003823AD /* CalendarShowInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarShowInteractor.swift; sourceTree = "<group>"; };
@@ -1027,6 +1031,7 @@
 				B149A7BB1E5D8E24009BF8C7 /* AnimatedButton.xib */,
 				B1CF54631DDAE78200E98049 /* CustomButton.swift */,
 				B1C13D861DEF2743002B494A /* DropDownButton.swift */,
+				B122A58D1E6BE10F00C39B67 /* FillVeryLightOrangeButton.swift */,
 			);
 			path = UIButtons;
 			sourceTree = "<group>";
@@ -1067,9 +1072,10 @@
 			isa = PBXGroup;
 			children = (
 				B1FFF7301E5F0F0F00A075D8 /* LocationManager.swift */,
+				B122A58B1E6BD11300C39B67 /* MSMImagePickerControllerManager.swift */,
+				B19BB6201E6ABF560081533C /* MSMTableViewControllerManager.swift */,
 				B14D1D731E5CB8B000D33435 /* SocialNetworkManager.swift */,
 				B17061A31E69866B00CF9BA9 /* TableViewControllerManager.swift */,
-				B19BB6201E6ABF560081533C /* MSMTableViewControllerManager.swift */,
 				B12FE6431E57323400A4FBA4 /* TextFieldManager.swift */,
 			);
 			name = Managers;
@@ -1793,6 +1799,7 @@
 				B1BEEDF01E63687500F1DE8A /* OrganizationShowInteractor.swift in Sources */,
 				B177E55E1E54B8F6004F1390 /* PasswordStrengthLevelView.swift in Sources */,
 				B1DA01B11DF1CB2F00E6DD46 /* UIFont+Ext.swift in Sources */,
+				B122A58C1E6BD11300C39B67 /* MSMImagePickerControllerManager.swift in Sources */,
 				B1CF54B31DDB516E00E98049 /* OmnieCardsShowViewController.swift in Sources */,
 				B1CF54D01DDB51A500E98049 /* PersonalPageShowWorker.swift in Sources */,
 				B1597AD41E3FA91400123CB5 /* EllipseView.swift in Sources */,
@@ -1880,6 +1887,7 @@
 				B19BB61F1E6ABB690081533C /* MSMTableView.swift in Sources */,
 				B122F20A1DD35BEB0018A701 /* CategoriesShowViewController.swift in Sources */,
 				B177E55C1E54B739004F1390 /* RepetitionPasswordShowWorker.swift in Sources */,
+				B122A58E1E6BE10F00C39B67 /* FillVeryLightOrangeButton.swift in Sources */,
 				B108746C1E5B07D3004A4FB6 /* CoreDataManager.swift in Sources */,
 				B19DF2861DF94DED000AFC92 /* SchedulerViewController.swift in Sources */,
 				B1CF54CE1DDB51A500E98049 /* PersonalPageShowRouter.swift in Sources */,

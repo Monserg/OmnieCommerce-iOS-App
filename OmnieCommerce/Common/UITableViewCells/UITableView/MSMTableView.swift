@@ -24,8 +24,8 @@ class MSMTableView: UITableView {
             for identifier in cellIdentifiers! {
                 self.register(UINib(nibName: identifier.code, bundle: nil), forCellReuseIdentifier: identifier.code)
                 
-                self.estimatedRowHeight     =   identifier.height
-                self.rowHeight              =   UITableViewAutomaticDimension
+//                self.estimatedRowHeight     =   identifier.height
+//                self.rowHeight              =   UITableViewAutomaticDimension
 
             }
         }

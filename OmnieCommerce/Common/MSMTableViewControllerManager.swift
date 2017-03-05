@@ -14,7 +14,7 @@ class MSMTableViewControllerManager: BaseViewController {
     var dataSource                  =   [Any]()
     var dataSourceFiltered          =   [Any]()
     var isSearchBarActive: Bool     =   false
-    var actionButtonsCell: ActionButtonsTableViewCell?
+//    var actionButtonsCell: ActionButtonsTableViewCell?
 
 //    var sourceType: CellStyle!
     var tableView: MSMTableView?
@@ -61,16 +61,24 @@ extension MSMTableViewControllerManager: UITableViewDataSource {
         (cell as! ConfigureCell).setup(withItem: item, andIndexPath: indexPath)
         
         switch cell {
+        case cell as AvatarTableViewCell:
+            let avatarCell      =   (cell as! AvatarTableViewCell)
+            
+            // Handler show UIImagePickerController
+            avatarCell.handlerNewViewControllerShowCompletion   =   { imagePicker in
+                self.present(imagePicker, animated: true, completion: nil)
+            }
+
         case cell as ActionButtonsTableViewCell:
-            actionButtonsCell   =   (cell as! ActionButtonsTableViewCell)
+            let actionButtonsCell   =   (cell as! ActionButtonsTableViewCell)
             
             // Handler Save Button tap
-            actionButtonsCell?.handlerSendButtonCompletion  =   { _ in
+            actionButtonsCell.handlerSendButtonCompletion       =   { _ in
                 self.handlerSendButtonCompletion!()
             }
 
             // Handler Cancel Button tap
-            actionButtonsCell?.handlerCancelButtonCompletion  =   { _ in
+            actionButtonsCell.handlerCancelButtonCompletion     =   { _ in
                 self.handlerCancelButtonCompletion!()
             }
             
@@ -97,9 +105,18 @@ extension MSMTableViewControllerManager: UITableViewDelegate {
         handlerSearchCompletion!((isSearchBarActive) ? dataSourceFiltered[indexPath.row] : dataSource[indexPath.row])
     }
     
-    //    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    //        return 96.0
-    //    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let height  =   self.tableView!.cellIdentifiers![indexPath.row].height
+        
+        if (height == 1) {
+            self.tableView!.estimatedRowHeight     =   height
+            self.tableView!.rowHeight              =   UITableViewAutomaticDimension
+
+            return self.tableView!.rowHeight
+        }
+        
+        return height
+    }
     
     func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
         let cell                            =   tableView.cellForRow(at: indexPath)!
@@ -111,7 +128,6 @@ extension MSMTableViewControllerManager: UITableViewDelegate {
         cell.contentView.backgroundColor    =   .clear
     }
 }
-
 
 
 // MARK: - UISearchBarDelegate

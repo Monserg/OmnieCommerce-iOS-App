@@ -12,7 +12,7 @@ class ActionButtonsTableViewCell: UITableViewCell {
     // MARK: - Properties
     var handlerSendButtonCompletion: HandlerSendButtonCompletion?
     var handlerCancelButtonCompletion: HandlerCancelButtonCompletion?
-    
+        
     
     // MARK: - Class Functions
     override func awakeFromNib() {
@@ -34,7 +34,7 @@ class ActionButtonsTableViewCell: UITableViewCell {
 
     
     // MARK: - Actions
-    @IBAction func handlerSaveButtonTap(_ sender: CustomButton) {
+    @IBAction func handlerSaveButtonTap(_ sender: FillVeryLightOrangeButton) {
         handlerSendButtonCompletion!()
     }
     

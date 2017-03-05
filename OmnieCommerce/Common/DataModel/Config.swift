@@ -29,6 +29,7 @@ typealias HandlerPassDataCompletion                 =   ((_ data: Any) -> ())
 typealias HandlerLocationCompletion                 =   ((_ organizations: [Organization]) -> ())
 typealias HandlerAvatarTapCompletion                =   ((_ sender: AvatarTableViewCell) -> ())
 typealias HandlerSaveButtonCompletion               =   ((_ params: [String: String]) -> ())
+typealias HandlerNewViewControllerShowCompletion    =   ((_ viewController: UIViewController) -> ())
 
 typealias ResponseAPI                               =   (success: Bool, error: String?)
 typealias NameAndPasswordCheckResult                =   (isNameCorrect: Bool, isPasswordCorrect: Bool)

@@ -16,14 +16,14 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="86"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nGl-hE-7Uz" id="QEf-At-hlx">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="85"/>
+                <rect key="frame" x="0.0" y="0.0" width="375" height="85.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X5G-rm-moK" userLabel="Avatar Button" customClass="CustomButton" customModule="OmnieCommerce" customModuleProvider="target">
                         <rect key="frame" x="144" y="0.0" width="86" height="86"/>
                         <color key="backgroundColor" red="0.15294117647058825" green="0.21568627450980393" blue="0.27058823529411763" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="86" id="KlV-aQ-Y0d"/>
+                            <constraint firstAttribute="height" constant="90" id="KlV-aQ-Y0d"/>
                             <constraint firstAttribute="width" secondItem="X5G-rm-moK" secondAttribute="height" multiplier="1:1" id="p2t-lN-4dI"/>
                         </constraints>
                         <state key="normal" image="image-no-user"/>
@@ -34,6 +34,11 @@
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
                         </userDefinedRuntimeAttributes>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="KlV-aQ-Y0d"/>
+                            </mask>
+                        </variation>
                         <connections>
                             <action selector="handlerActionButtonTap:" destination="nGl-hE-7Uz" eventType="touchUpInside" id="GGA-XX-OLS"/>
                         </connections>
@@ -41,6 +46,7 @@
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 <constraints>
+                    <constraint firstAttribute="bottom" secondItem="X5G-rm-moK" secondAttribute="bottom" id="3az-zA-g19"/>
                     <constraint firstItem="X5G-rm-moK" firstAttribute="centerX" secondItem="QEf-At-hlx" secondAttribute="centerX" id="Nwm-Aa-Fi5"/>
                     <constraint firstItem="X5G-rm-moK" firstAttribute="top" secondItem="QEf-At-hlx" secondAttribute="top" id="Vma-Xa-NZu"/>
                     <constraint firstItem="X5G-rm-moK" firstAttribute="centerY" secondItem="QEf-At-hlx" secondAttribute="centerY" id="YPH-vW-lLT"/>
