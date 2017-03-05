@@ -11,9 +11,9 @@ import AlamofireImage
 
 @IBDesignable class MessageTableViewCell: UITableViewCell {
     // MARK: - Properties    
-    @IBOutlet weak var nameLabel: UbuntuLightVeryLightGrayLabel!
-    @IBOutlet weak var dateLabel: CustomLabel!
-    @IBOutlet weak var messageLabel: CustomLabel!
+    @IBOutlet weak var nameLabel: UbuntuLight12VeryLightGrayLabel!
+    @IBOutlet weak var messageLabel: UbuntuLightItalic09LightGrayishCyanLabel!
+    @IBOutlet weak var dateLabel: UbuntuLightItalic09VeryDarkGrayishBlueLabel!
     
     @IBOutlet weak var logoImageView: CustomImageView!
     @IBOutlet weak var userAvatarImageView: CustomImageView!
