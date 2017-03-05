@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina4_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -19,32 +19,19 @@
                         <viewControllerLayoutGuide type="bottom" id="77M-lv-vy3"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8hc-OJ-fkn">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EhI-Ef-LH8" userLabel="Small Top Bar View" customClass="SmallTopBarView" customModule="OmnieCommerce" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="95"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="95" id="Hf0-IM-YvN">
-                                        <variation key="heightClass=compact-widthClass=compact" constant="80"/>
-                                        <variation key="heightClass=compact-widthClass=regular" constant="80"/>
-                                    </constraint>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="titleText" value="Messages"/>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="type" value="ParentSearch"/>
-                                </userDefinedRuntimeAttributes>
-                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9FH-l3-RG5" customClass="MSMTableView" customModule="OmnieCommerce" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="95" width="375" height="543.5"/>
+                                <rect key="frame" x="0.0" y="45" width="667" height="276.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <inset key="scrollIndicatorInsets" minX="0.0" minY="5" maxX="0.0" maxY="0.0"/>
                                 <view key="tableFooterView" hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" id="zph-fD-SXs">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="667" height="44"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Messages list is empty" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rUj-dj-GWB" customClass="UbuntuLight12VeryLightGrayLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                                            <rect key="frame" x="100.5" y="23" width="173.5" height="20.5"/>
+                                            <rect key="frame" x="247" y="23" width="173.5" height="20.5"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -64,8 +51,16 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EhI-Ef-LH8" userLabel="Small Top Bar View" customClass="SmallTopBarView" customModule="OmnieCommerce" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="667" height="80"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="titleText" value="Messages"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="type" value="ParentSearch"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ime-Oq-WN9" userLabel="Copyright Label" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                                <rect key="frame" x="8" y="647.5" width="359" height="10.5"/>
+                                <rect key="frame" x="8" y="355.5" width="651" height="10.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -78,18 +73,33 @@
                         <constraints>
                             <constraint firstItem="EhI-Ef-LH8" firstAttribute="leading" secondItem="8hc-OJ-fkn" secondAttribute="leading" id="2Rz-12-RVZ"/>
                             <constraint firstItem="9FH-l3-RG5" firstAttribute="leading" secondItem="8hc-OJ-fkn" secondAttribute="leading" id="2VO-qx-9hs"/>
-                            <constraint firstItem="Ime-Oq-WN9" firstAttribute="top" secondItem="9FH-l3-RG5" secondAttribute="bottom" constant="9" id="6sf-n6-txe"/>
+                            <constraint firstItem="Ime-Oq-WN9" firstAttribute="top" secondItem="9FH-l3-RG5" secondAttribute="bottom" constant="34" id="6sf-n6-txe"/>
                             <constraint firstAttribute="trailing" secondItem="Ime-Oq-WN9" secondAttribute="trailing" constant="8" id="GI9-BN-KjI"/>
-                            <constraint firstItem="9FH-l3-RG5" firstAttribute="top" secondItem="EhI-Ef-LH8" secondAttribute="bottom" id="Hqc-FF-jb8"/>
+                            <constraint firstItem="9FH-l3-RG5" firstAttribute="top" secondItem="EhI-Ef-LH8" secondAttribute="bottom" constant="-25" id="Hqc-FF-jb8">
+                                <variation key="heightClass=compact-widthClass=compact" constant="-35"/>
+                            </constraint>
                             <constraint firstAttribute="bottom" secondItem="Ime-Oq-WN9" secondAttribute="bottom" constant="9" id="RqU-hS-wpb"/>
                             <constraint firstItem="Ime-Oq-WN9" firstAttribute="leading" secondItem="8hc-OJ-fkn" secondAttribute="leading" constant="8" id="YeQ-wo-S7H"/>
+                            <constraint firstItem="EhI-Ef-LH8" firstAttribute="height" secondItem="8hc-OJ-fkn" secondAttribute="height" multiplier="95:667" id="Zqi-XX-qBb"/>
                             <constraint firstAttribute="trailing" secondItem="9FH-l3-RG5" secondAttribute="trailing" id="fba-Bb-ysS"/>
                             <constraint firstItem="EhI-Ef-LH8" firstAttribute="top" secondItem="8hc-OJ-fkn" secondAttribute="top" id="kfW-EN-SFe">
                                 <variation key="heightClass=compact-widthClass=compact" constant="0.0"/>
                                 <variation key="heightClass=compact-widthClass=regular" constant="0.0"/>
                             </constraint>
+                            <constraint firstItem="EhI-Ef-LH8" firstAttribute="height" secondItem="8hc-OJ-fkn" secondAttribute="height" multiplier="80:375" id="rgc-Jj-MyL"/>
                             <constraint firstAttribute="trailing" secondItem="EhI-Ef-LH8" secondAttribute="trailing" id="rqE-bm-dPq"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Zqi-XX-qBb"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="constraints">
+                                <include reference="Zqi-XX-qBb"/>
+                                <exclude reference="rgc-Jj-MyL"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="Jkl-SG-JVQ"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
@@ -110,7 +120,7 @@
             <objects>
                 <navigationController storyboardIdentifier="MessagesShowNC" automaticallyAdjustsScrollViewInsets="NO" id="YAB-jH-ZBO" customClass="BaseNavigationController" customModule="OmnieCommerce" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="gPT-Va-oc5">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="gPT-Va-oc5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

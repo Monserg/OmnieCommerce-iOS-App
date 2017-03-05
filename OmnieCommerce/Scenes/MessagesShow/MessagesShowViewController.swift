@@ -33,7 +33,9 @@ class MessagesShowViewController: BaseViewController {
     @IBOutlet weak var tableView: MSMTableView! {
         didSet {
             smallTopBarView.searchBar.placeholder                   =   "Enter Organization name".localized()
-
+            tableView.contentInset                                  =   UIEdgeInsetsMake((UIApplication.shared.statusBarOrientation.isPortrait) ? 5 : 45, 0, 0, 0)
+            tableView.scrollIndicatorInsets                         =   UIEdgeInsetsMake((UIApplication.shared.statusBarOrientation.isPortrait) ? 5 : 45, 0, 0, 0)
+            
             // TableViewController Manager
             tableView.tableViewControllerManager                    =   MSMTableViewControllerManager()
             tableView.tableViewControllerManager.tableView          =   self.tableView
@@ -42,7 +44,7 @@ class MessagesShowViewController: BaseViewController {
             // Search Manager
             smallTopBarView.searchBar.placeholder                   =   "Enter Organization name".localized()
             smallTopBarView.searchBar.delegate                      =   tableView.tableViewControllerManager
-
+            
             // Handler select cell
             tableView.tableViewControllerManager.handlerSearchCompletion        = { message in
                 // TODO: ADD TRANSITION TO CHAT SCENE
@@ -107,6 +109,8 @@ class MessagesShowViewController: BaseViewController {
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         smallTopBarView.setNeedsDisplay()
         smallTopBarView.circleView.setNeedsDisplay()
+        tableView.contentInset              =   UIEdgeInsetsMake((size.height > size.width) ? 5 : 65, 0, 0, 0)
+        tableView.scrollIndicatorInsets     =   UIEdgeInsetsMake((size.height > size.width) ? 5 : 65, 0, 0, 0)
 
         _ = tableView.visibleCells.map{ ($0 as! MessageTableViewCell).dottedBorderView.setNeedsDisplay() }
     }
@@ -118,12 +122,14 @@ extension MessagesShowViewController: MessagesShowViewControllerInput {
     func messagesDidShow(fromViewModel viewModel: MessagesShowModels.Messages.ViewModel) {
         guard viewModel.messages != nil else {
             self.dataSourceEmptyView.isHidden               =   false
+            self.tableView.isScrollEnabled                  =   false
 
             return
         }
         
         tableView.tableViewControllerManager.dataSource     =   viewModel.messages!
         dataSourceEmptyView.isHidden                        =   true
+        self.tableView.isScrollEnabled                      =   true
         
         self.tableView.reloadData()
     }
