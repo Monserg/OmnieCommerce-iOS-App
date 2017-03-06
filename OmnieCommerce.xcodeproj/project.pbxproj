@@ -319,6 +319,7 @@
 		B1FBC9271E6D974300D86429 /* UbuntuLightItalicLightGrayishCyanLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FBC9261E6D974300D86429 /* UbuntuLightItalicLightGrayishCyanLabel.swift */; };
 		B1FBC9291E6D9FEB00D86429 /* MSMBlackoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FBC9281E6D9FEB00D86429 /* MSMBlackoutView.swift */; };
 		B1FBC92B1E6DB42B00D86429 /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FBC92A1E6DB42B00D86429 /* NewsTableViewCell.swift */; };
+		B1FBC92D1E6DD86500D86429 /* UbuntuLightDarkCyanLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FBC92C1E6DD86500D86429 /* UbuntuLightDarkCyanLabel.swift */; };
 		B1FFF7001E5ECDF900A075D8 /* OrganizationsShowConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FFF6F91E5ECDF900A075D8 /* OrganizationsShowConfigurator.swift */; };
 		B1FFF7011E5ECDF900A075D8 /* OrganizationsShowInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FFF6FA1E5ECDF900A075D8 /* OrganizationsShowInteractor.swift */; };
 		B1FFF7021E5ECDF900A075D8 /* OrganizationsShowModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FFF6FB1E5ECDF900A075D8 /* OrganizationsShowModels.swift */; };
@@ -666,6 +667,7 @@
 		B1FBC9261E6D974300D86429 /* UbuntuLightItalicLightGrayishCyanLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UbuntuLightItalicLightGrayishCyanLabel.swift; sourceTree = "<group>"; };
 		B1FBC9281E6D9FEB00D86429 /* MSMBlackoutView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSMBlackoutView.swift; sourceTree = "<group>"; };
 		B1FBC92A1E6DB42B00D86429 /* NewsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
+		B1FBC92C1E6DD86500D86429 /* UbuntuLightDarkCyanLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UbuntuLightDarkCyanLabel.swift; sourceTree = "<group>"; };
 		B1FFF6F91E5ECDF900A075D8 /* OrganizationsShowConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrganizationsShowConfigurator.swift; sourceTree = "<group>"; };
 		B1FFF6FA1E5ECDF900A075D8 /* OrganizationsShowInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrganizationsShowInteractor.swift; sourceTree = "<group>"; };
 		B1FFF6FB1E5ECDF900A075D8 /* OrganizationsShowModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrganizationsShowModels.swift; sourceTree = "<group>"; };
@@ -854,6 +856,7 @@
 				B1FBC91E1E6D904700D86429 /* UbuntuLightItalicVeryDarkGrayishBlueLabel.swift */,
 				B1FBC9201E6D923E00D86429 /* UbuntuLightVeryLightGrayLabel.swift */,
 				B1FBC9221E6D940D00D86429 /* UbuntuLightVeryLightOrangeLabel.swift */,
+				B1FBC92C1E6DD86500D86429 /* UbuntuLightDarkCyanLabel.swift */,
 			);
 			path = UILabels;
 			sourceTree = "<group>";
@@ -2032,6 +2035,7 @@
 				B122F1FA1DD35BC70018A701 /* FavoriteShowPresenter.swift in Sources */,
 				B17061A71E699F3900CF9BA9 /* News.swift in Sources */,
 				B1BEEDE61E63402000F1DE8A /* ListTableViewController.swift in Sources */,
+				B1FBC92D1E6DD86500D86429 /* UbuntuLightDarkCyanLabel.swift in Sources */,
 				B1CF54BE1DDB519000E98049 /* OnmieSoftShowModels.swift in Sources */,
 				B1CF54DC1DDB51BE00E98049 /* SettingsShowRouter.swift in Sources */,
 				B122F2411DD371B30018A701 /* BaseNavigationController.swift in Sources */,
