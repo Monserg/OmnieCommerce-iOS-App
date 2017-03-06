@@ -15,26 +15,11 @@ class PersonalDataViewController: BaseViewController {
     var handlerSaveButtonCompletion: HandlerSaveButtonCompletion?
     var handlerCancelButtonCompletion: HandlerCancelButtonCompletion?
     
-    @IBOutlet weak var tableView: MSMTableView! {
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet var radioButtonsCollection: [DLRadioButton]! {
         didSet {
-            // TableViewController Manager
-            tableView.cellIdentifiers                               =   [(code: "AvatarTableViewCell", height: 86.0),
-                                                                         (code: "ActionButtonsTableViewCell", height: 127)]
-            
-            tableView.tableViewControllerManager                    =   MSMTableViewControllerManager()
-            tableView.tableViewControllerManager.tableView          =   self.tableView
-            tableView.tableViewControllerManager.sectionsCount      =   1
-            tableView.tableViewControllerManager.dataSource         =   Array(repeatElement(CoreDataManager.instance.appUser, count: tableView.cellIdentifiers.count))
-            
-            // Handler Save Button tap
-            tableView.tableViewControllerManager.handlerSendButtonCompletion       =   { _ in
-                self.handlerSaveButtonCompletion!(self.parametersForAPI)
-            }
-            
-            // Handler Cancel Button tap
-            tableView.tableViewControllerManager.handlerCancelButtonCompletion     =   { _ in
-                self.handlerCancelButtonCompletion!()
-            }
+            radioButtonsCollection!.first!.isSelected   =   (userApp!.gender == 1) ? false : true
+            radioButtonsCollection!.last!.isSelected    =   (userApp!.gender == 1) ? true : false
         }
     }
     
@@ -53,6 +38,7 @@ class PersonalDataViewController: BaseViewController {
         
     // MARK: - Custom Functions
     func viewSettingsDidLoad() {
+        scrollViewBase  =   self.scrollView
     }
     
     

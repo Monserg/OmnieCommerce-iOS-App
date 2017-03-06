@@ -10,7 +10,12 @@ import Foundation
 import CoreData
 
 @objc(AppUser)
-public class AppUser: NSManagedObject {
+public class AppUser: NSManagedObject, InitCellParameters {
+    // MARK: - Properties
+    var cellIdentifier: String  =   "AppUser"
+    var cellHeight: CGFloat     =   44.0
+    
+    
     // MARK: - Class Initialization
     convenience init() {
         self.init(entity: CoreDataManager.instance.entityForName("AppUser"), insertInto: CoreDataManager.instance.managedObjectContext)

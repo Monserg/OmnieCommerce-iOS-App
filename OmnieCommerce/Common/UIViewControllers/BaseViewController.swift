@@ -198,6 +198,8 @@ class BaseViewController: UIViewController {
 extension BaseViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         print(object: "\(type(of: self)): \(#function) run in [line \(#line)]. UIScrollView.contentOffset.y = \(scrollView.contentOffset.y)")
+        
+        scrollView.indicatorDidChange(UIColor.veryLightOrange)
     }
 }
 

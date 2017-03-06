@@ -16,21 +16,7 @@ class MSMTableView: UITableView {
             self.dataSource     =   tableViewControllerManager
         }
     }
-    
-    
-    // Register cells from Xib
-    var cellIdentifiers: [(code: String, height: CGFloat)]! {
-        didSet {
-            for identifier in cellIdentifiers! {
-                self.register(UINib(nibName: identifier.code, bundle: nil), forCellReuseIdentifier: identifier.code)
-                
-//                self.estimatedRowHeight     =   identifier.height
-//                self.rowHeight              =   UITableViewAutomaticDimension
 
-            }
-        }
-    }
-    
     
     // MARK: - Class Functions
     override func draw(_ rect: CGRect) {

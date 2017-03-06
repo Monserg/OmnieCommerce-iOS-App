@@ -51,21 +51,10 @@ class PersonalPageShowRouter: PersonalPageShowRouterInput {
     }
 
     private func addActiveViewController(_ activeVC: BaseViewController) {
-        self.viewController.addChildViewController(activeVC)
-        
-        if (self.viewController.animationDirection == nil) {
-            activeVC.view.frame         =   self.viewController.containerView.bounds
-        } else {
-            activeVC.view.frame.size    =   self.viewController.containerView.frame.size
-            activeVC.view.transform     =   CGAffineTransform(translationX: (self.viewController.animationDirection == .FromRightToLeft) ? 1000 : -1000, y: 0)
-        }
-        
-        self.viewController.containerView.addSubview(activeVC.view)
-        activeVC.didMove(toParentViewController: self.viewController)
-        
         switch activeVC {
         case activeVC as PersonalDataViewController:
             let personalDataVC          =   activeVC as! PersonalDataViewController
+            personalDataVC.userApp      =   CoreDataManager.instance.appUser
             
             // Handler Save Button tap
             personalDataVC.handlerSaveButtonCompletion      =   { parameters in
@@ -77,13 +66,25 @@ class PersonalPageShowRouter: PersonalPageShowRouterInput {
             personalDataVC.handlerCancelButtonCompletion    =   { _ in
                 self.navigateToCategoriesShowScene()
             }
-
+            
         case activeVC as PersonalTemplatesViewController:
             break
-
+            
         default:
             break
         }
+
+        self.viewController.addChildViewController(activeVC)
+        
+        if (self.viewController.animationDirection == nil) {
+            activeVC.view.frame         =   self.viewController.containerView.bounds
+        } else {
+            activeVC.view.frame.size    =   self.viewController.containerView.frame.size
+            activeVC.view.transform     =   CGAffineTransform(translationX: (self.viewController.animationDirection == .FromRightToLeft) ? 1000 : -1000, y: 0)
+        }
+        
+        self.viewController.containerView.addSubview(activeVC.view)
+        activeVC.didMove(toParentViewController: self.viewController)
     }
 
     
