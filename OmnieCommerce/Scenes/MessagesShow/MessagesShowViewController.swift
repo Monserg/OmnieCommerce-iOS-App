@@ -121,15 +121,15 @@ class MessagesShowViewController: BaseViewController {
 extension MessagesShowViewController: MessagesShowViewControllerInput {
     func messagesDidShow(fromViewModel viewModel: MessagesShowModels.Messages.ViewModel) {
         guard viewModel.messages != nil else {
-            self.dataSourceEmptyView.isHidden               =   false
-            self.tableView.isScrollEnabled                  =   false
+            self.dataSourceEmptyView.isHidden   =   false
+            self.tableView.isScrollEnabled      =   false
 
             return
         }
         
         tableView.tableViewControllerManager.dataSource     =   viewModel.messages!
-        dataSourceEmptyView.isHidden                        =   true
-        self.tableView.isScrollEnabled                      =   true
+        dataSourceEmptyView.isHidden        =   true
+        self.tableView.isScrollEnabled      =   true
         
         self.tableView.reloadData()
     }

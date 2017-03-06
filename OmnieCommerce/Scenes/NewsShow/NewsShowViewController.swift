@@ -26,31 +26,50 @@ class NewsShowViewController: BaseViewController {
     var interactor: NewsShowViewControllerOutput!
     var router: NewsShowRouter!
     
-    var tableViewControllerManager  =   TableViewControllerManager()
-    
     @IBOutlet weak var smallTopBarView: SmallTopBarView!
     @IBOutlet weak var copyrightLabel: CustomLabel!
     @IBOutlet weak var segmentedControlView: SegmentedControlView!
     @IBOutlet weak var dataSourceEmptyView: UIView!
 
-    @IBOutlet weak var tableView: CustomTableView! {
+    @IBOutlet weak var tableView: MSMTableView! {
         didSet {
-            // Register the Nib header/footer section views
-            tableView.register(UINib(nibName: "NewsTableViewCell", bundle: nil), forCellReuseIdentifier: "NewsCell")
+            tableView.contentInset                                  =   UIEdgeInsetsMake((UIApplication.shared.statusBarOrientation.isPortrait) ? 5 : 45, 0, 0, 0)
+            tableView.scrollIndicatorInsets                         =   UIEdgeInsetsMake((UIApplication.shared.statusBarOrientation.isPortrait) ? 5 : 45, 0, 0, 0)
             
-            // Delegates
-            tableView.dataSource                            =   tableViewControllerManager
-            tableView.delegate                              =   tableViewControllerManager
-            tableViewControllerManager.tableView            =   tableView
-            tableViewControllerManager.sourceType           =   .News
+            // TableViewController Manager
+            tableView.tableViewControllerManager                    =   MSMTableViewControllerManager()
+            tableView.tableViewControllerManager.tableView          =   self.tableView
+            tableView.tableViewControllerManager.sectionsCount      =   1
             
-            smallTopBarView.searchBar.placeholder           =   "Enter Organization name".localized()
-
+            // Search Manager
+            smallTopBarView.searchBar.placeholder                   =   "Enter Organization name".localized()
+            smallTopBarView.searchBar.delegate                      =   tableView.tableViewControllerManager
+            
             // Handler select cell
-            tableViewControllerManager.completionHandler    =   { organization in
-                // TODO: ADD TRANSITION TO NEWS PROFILE
-                self.print(object: "transition to News profile scene")
+            tableView.tableViewControllerManager.handlerSearchCompletion        = { news in
+                // TODO: ADD TRANSITION TO CHAT SCENE
+                self.print(object: "transition to Chat scene")
+                
+                //                self.router.navigateToOrganizationShowScene(organization as! Organization)
             }
+            
+            // Handler Search keyboard button tap
+            tableView.tableViewControllerManager.handlerSendButtonCompletion    =   { _ in
+                // TODO: - ADD SEARCH API
+                self.smallTopBarView.searchBarDidHide()
+            }
+            
+            // Handler Search Bar Cancel button tap
+            tableView.tableViewControllerManager.handlerCancelButtonCompletion  =   { _ in
+                self.smallTopBarView.searchBarDidHide()
+            }
+            
+            
+//            // Handler select cell
+//            tableView.tableViewControllerManager.completionHandler    =   { organization in
+//                // TODO: ADD TRANSITION TO NEWS PROFILE
+//                self.print(object: "transition to News profile scene")
+//            }
         }
     }
 
@@ -102,7 +121,11 @@ class NewsShowViewController: BaseViewController {
         smallTopBarView.setNeedsDisplay()
         smallTopBarView.circleView.setNeedsDisplay()
         segmentedControlView.setNeedsDisplay()
-        _ = tableView.visibleCells.map{ ($0 as! BaseTableViewCell).dottedBorderView.setNeedsDisplay() }
+
+        tableView.contentInset              =   UIEdgeInsetsMake((size.height > size.width) ? 5 : 65, 0, 0, 0)
+        tableView.scrollIndicatorInsets     =   UIEdgeInsetsMake((size.height > size.width) ? 5 : 65, 0, 0, 0)
+        
+        _ = tableView.visibleCells.map{ ($0 as! NewsTableViewCell).dottedBorderView.setNeedsDisplay() }
     }
 }
 
@@ -112,14 +135,15 @@ extension NewsShowViewController: NewsShowViewControllerInput {
     func newsDidShow(fromViewModel viewModel: NewsShowModels.NewsItems.ViewModel) {
         guard (viewModel.news?.first?.count)! > 0 else {
             dataSourceEmptyView.isHidden    =   false
+            tableView.isScrollEnabled       =   false
 
             return
         }
         
-        self.tableViewControllerManager.sectionsCount   =   viewModel.news!.count
-        self.tableViewControllerManager.dataSource      =   viewModel.news!.first!
-        dataSourceEmptyView.isHidden                    =   true
-        
+        tableView.tableViewControllerManager.dataSource     =   viewModel.news!.first!
+        dataSourceEmptyView.isHidden        =   true
+        tableView.isScrollEnabled           =   true
+
         self.tableView.reloadData()
     }
 }

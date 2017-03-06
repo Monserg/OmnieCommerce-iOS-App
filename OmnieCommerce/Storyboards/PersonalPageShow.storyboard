@@ -56,10 +56,10 @@
                                 </constraints>
                             </view>
                             <containerView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aKH-YG-AUK" customClass="CustomView" customModule="OmnieCommerce" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="145" width="375" height="493.5"/>
+                                <rect key="frame" x="0.0" y="145" width="375" height="483.5"/>
                             </containerView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ASc-N1-FS2" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                                <rect key="frame" x="8" y="647.5" width="359" height="10.5"/>
+                                <rect key="frame" x="8" y="637.5" width="359" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -67,6 +67,10 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="labelStyle" value="Copyright"/>
                                 </userDefinedRuntimeAttributes>
                             </label>
+                            <view clipsSubviews="YES" alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pWd-HQ-fci" userLabel="Blackout View" customClass="CustomView" customModule="OmnieCommerce" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" red="0.1019607843" green="0.13725490200000001" blue="0.17254901959999999" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -75,7 +79,9 @@
                             <constraint firstItem="aKH-YG-AUK" firstAttribute="leading" secondItem="WeC-xT-hwP" secondAttribute="leading" id="BZ5-ZN-yuG"/>
                             <constraint firstItem="aKH-YG-AUK" firstAttribute="top" secondItem="C6T-NV-zxA" secondAttribute="bottom" id="Chm-FE-b1c"/>
                             <constraint firstItem="08z-zS-Fzg" firstAttribute="height" secondItem="WeC-xT-hwP" secondAttribute="height" multiplier="80:375" id="FHA-cP-8vZ"/>
+                            <constraint firstItem="pWd-HQ-fci" firstAttribute="top" secondItem="WeC-xT-hwP" secondAttribute="top" id="Klv-BG-03L"/>
                             <constraint firstItem="ASc-N1-FS2" firstAttribute="leading" secondItem="WeC-xT-hwP" secondAttribute="leading" constant="8" id="L1B-DT-fEK"/>
+                            <constraint firstItem="pWd-HQ-fci" firstAttribute="leading" secondItem="WeC-xT-hwP" secondAttribute="leading" id="LYI-jC-KJ0"/>
                             <constraint firstAttribute="trailing" secondItem="C6T-NV-zxA" secondAttribute="trailing" id="LnA-QL-iBU"/>
                             <constraint firstItem="08z-zS-Fzg" firstAttribute="height" secondItem="WeC-xT-hwP" secondAttribute="height" multiplier="95:667" id="MKg-JS-YOy"/>
                             <constraint firstItem="08z-zS-Fzg" firstAttribute="leading" secondItem="WeC-xT-hwP" secondAttribute="leading" id="NVt-r3-ud2"/>
@@ -89,6 +95,8 @@
                             <constraint firstItem="C6T-NV-zxA" firstAttribute="height" secondItem="WeC-xT-hwP" secondAttribute="height" multiplier="50:667" id="dRD-qY-wlw"/>
                             <constraint firstAttribute="bottom" secondItem="ASc-N1-FS2" secondAttribute="bottom" constant="9" id="imL-6g-csA"/>
                             <constraint firstItem="C6T-NV-zxA" firstAttribute="height" secondItem="WeC-xT-hwP" secondAttribute="height" multiplier="50:375" id="k3F-JC-qRC"/>
+                            <constraint firstAttribute="bottom" secondItem="pWd-HQ-fci" secondAttribute="bottom" id="l9a-vy-0PI"/>
+                            <constraint firstAttribute="trailing" secondItem="pWd-HQ-fci" secondAttribute="trailing" id="lhe-Nn-0NS"/>
                             <constraint firstAttribute="trailing" secondItem="aKH-YG-AUK" secondAttribute="trailing" id="tJi-Xf-D2U"/>
                         </constraints>
                         <variation key="default">
@@ -108,6 +116,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="HKj-PK-W47"/>
                     <connections>
+                        <outlet property="blackoutView" destination="pWd-HQ-fci" id="xr7-3w-9Kg"/>
                         <outlet property="containerView" destination="aKH-YG-AUK" id="JIK-fo-eVJ"/>
                         <outlet property="copyrightLabel" destination="ASc-N1-FS2" id="Z9Q-9I-Pv1"/>
                         <outlet property="segmentedControlView" destination="AJk-0S-k6N" id="hAD-b3-gvO"/>
@@ -153,6 +162,9 @@
                                                             </userDefinedRuntimeAttribute>
                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="handlerAvatarButtonTap:" destination="u2e-8n-dCv" eventType="touchUpInside" id="PUf-5G-NaX"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -485,6 +497,7 @@
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
                     <connections>
+                        <outlet property="avatarButton" destination="bzF-PZ-36r" id="jIZ-xm-r1j"/>
                         <outlet property="scrollView" destination="hvu-2b-pdi" id="mhN-YX-Ezi"/>
                         <outletCollection property="radioButtonsCollection" destination="Xff-9Q-NHM" collectionClass="NSMutableArray" id="Fve-zI-jdQ"/>
                         <outletCollection property="radioButtonsCollection" destination="MDF-kd-21N" collectionClass="NSMutableArray" id="ELR-of-lcq"/>
@@ -518,7 +531,7 @@
                 <navigationController storyboardIdentifier="PersonalPageShowNC" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="5ua-Ud-9pH" customClass="BaseNavigationController" customModule="OmnieCommerce" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="rDE-36-aLe">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="rDE-36-aLe">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

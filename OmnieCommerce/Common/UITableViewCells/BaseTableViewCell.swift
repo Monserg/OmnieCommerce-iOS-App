@@ -63,20 +63,6 @@ enum CellStyle: String {
     // MARK: - Custom Functions
     func setup(withItem item: Any, andIndexPath indexPath: IndexPath) {
         switch item {
-        case is News:
-            let news                            =   item as! News
-            nameLabel.text                      =   news.title
-            dateLabel.text                      =   news.activeDate.convertToString(withStyle: .Date)
-            describeLabel.numberOfLines         =   2
-            describeLabel.text                  =   news.description
-            describeLabel.clipsToBounds         =   false
-            
-            logoImageView.af_setImage(withURL: URL(string: news.logoStringURL ?? "https://omniesoft.ua/")!,
-                                      placeholderImage: UIImage.init(named: "image-no-photo"),
-                                      filter: AspectScaledToFillSizeWithRoundedCornersFilter(size: logoImageView.frame.size, radius: logoImageView.frame.size.width / 2))
-            
-            dottedBorderView.style              =   .AroundDottedRectangle
-            
         case is Organization:
             let organization                    =   item as! Organization
             nameLabel.text                      =   organization.name

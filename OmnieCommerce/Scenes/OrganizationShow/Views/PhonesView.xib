@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina4_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -92,7 +92,7 @@
                                 <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
                             </userDefinedRuntimeAttributes>
                         </stackView>
-                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phones" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lll-Rt-Zse" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phones" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lll-Rt-Zse" customClass="HelveticaNeueCyrLightVeryLightGrayLabel" customModule="OmnieCommerce" customModuleProvider="target">
                             <rect key="frame" x="135" y="20" width="180" height="21"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
@@ -102,7 +102,6 @@
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                             <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="string" keyPath="labelStyle" value="HelveticaNeueCyrLight21VeryLightGray"/>
                                 <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
                             </userDefinedRuntimeAttributes>
                         </label>

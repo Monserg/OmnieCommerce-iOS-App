@@ -8,10 +8,13 @@
 
 import Foundation
 
-struct News {
+struct News: InitCellParameters, SearchObject {
     // MARK: - Properties
-    let title: String
+    var name: String!
     let logoStringURL: String?
     let activeDate: Date
     let description: String
+    
+    var cellIdentifier: String
+    var cellHeight: CGFloat
 }

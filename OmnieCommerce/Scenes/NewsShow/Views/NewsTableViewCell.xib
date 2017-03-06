@@ -11,18 +11,18 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="NewsTableViewCell" rowHeight="96" id="t8b-kV-lCE" customClass="BaseTableViewCell" customModule="OmnieCommerce" customModuleProvider="target">
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="NewsTableViewCell" rowHeight="96" id="t8b-kV-lCE" customClass="NewsTableViewCell" customModule="OmnieCommerce" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="493" height="96"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="t8b-kV-lCE" id="sMV-OY-u28">
                 <rect key="frame" x="0.0" y="0.0" width="493" height="95.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XLs-NS-f4d" userLabel="Border Dotted View">
+                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XLs-NS-f4d" userLabel="Border Dotted View">
                         <rect key="frame" x="50" y="5" width="435" height="85"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="13g-08-x1W" customClass="DottedBorderView" customModule="OmnieCommerce" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="435" height="87"/>
+                                <rect key="frame" x="0.0" y="0.0" width="435" height="85"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="borderWidth" value="1.5"/>
@@ -30,58 +30,59 @@
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                         <real key="value" value="5"/>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="o1N-GT-z5a">
+                            <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="o1N-GT-z5a">
                                 <rect key="frame" x="52" y="1" width="374" height="77"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yY0-BA-kfh" userLabel="Top View">
+                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yY0-BA-kfh" userLabel="Top View">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="12"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="12" id="D1o-6q-jFC"/>
                                         </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
                                     </view>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hod-EF-PIW" userLabel="Name Label" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hod-EF-PIW" userLabel="Name Label" customClass="UbuntuLightVeryLightGrayLabel" customModule="OmnieCommerce" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="12" width="374" height="18"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="18" id="rtp-TW-iv4"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
+                                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="16"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                         <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="labelStyle" value="UbuntuLight16VeryLightGray"/>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
                                         </userDefinedRuntimeAttributes>
                                     </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hKe-9x-Ysk" userLabel="Date Label" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hKe-9x-Ysk" userLabel="Date Label" customClass="UbuntuLightItalicVeryDarkGrayishBlueLabel" customModule="OmnieCommerce" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="30" width="374" height="14"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="14" id="pTl-gh-xo0"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="9"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                         <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="labelStyle" value="UbuntuLight09VeryDarkGrayishBlue53"/>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
                                         </userDefinedRuntimeAttributes>
                                     </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JFd-zO-ezc" userLabel="Describe Label" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JFd-zO-ezc" userLabel="Describe Label" customClass="UbuntuLightItalicLightGrayishCyanLabel" customModule="OmnieCommerce" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44" width="374" height="33"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="33" id="FeQ-CV-4q4"/>
                                         </constraints>
                                         <string key="text">Describe Label ajhsjdkhashdjk jaskhdjkashdjashdjhasdj jashd jkashd  jashdjashdj kasjhdkjHDLQwwejqhw kjasdjahsdjhasdjha ajhdjadja hahd kajh kH ak kadh ja jjkashdkjashdjash akjhd kjahdkjahdkahDKAHDKAJH</string>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                         <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="labelStyle" value="UbuntuLightItalic12LightGrayishCyan"/>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="NO"/>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
                                         </userDefinedRuntimeAttributes>
                                     </label>
                                 </subviews>
@@ -99,6 +100,9 @@
                                     <constraint firstItem="yY0-BA-kfh" firstAttribute="leading" secondItem="o1N-GT-z5a" secondAttribute="leading" id="r44-YQ-pP2"/>
                                     <constraint firstItem="hod-EF-PIW" firstAttribute="leading" secondItem="o1N-GT-z5a" secondAttribute="leading" id="vpl-t0-ObC"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -107,13 +111,16 @@
                             <constraint firstAttribute="trailing" secondItem="o1N-GT-z5a" secondAttribute="trailing" constant="9" id="GYJ-fc-Pdi"/>
                             <constraint firstItem="o1N-GT-z5a" firstAttribute="top" secondItem="XLs-NS-f4d" secondAttribute="top" constant="1" id="TfC-YV-kMh"/>
                             <constraint firstAttribute="bottom" relation="lessThanOrEqual" secondItem="o1N-GT-z5a" secondAttribute="bottom" constant="18" id="Tik-uP-sFQ"/>
-                            <constraint firstAttribute="bottom" secondItem="13g-08-x1W" secondAttribute="bottom" constant="-2" id="WIy-1s-tyH"/>
+                            <constraint firstAttribute="bottom" secondItem="13g-08-x1W" secondAttribute="bottom" id="WIy-1s-tyH"/>
                             <constraint firstAttribute="trailing" secondItem="13g-08-x1W" secondAttribute="trailing" id="WLO-0e-Sv0"/>
                             <constraint firstItem="o1N-GT-z5a" firstAttribute="leading" secondItem="XLs-NS-f4d" secondAttribute="leading" constant="52" id="Znw-uu-4hj"/>
                             <constraint firstItem="13g-08-x1W" firstAttribute="top" secondItem="XLs-NS-f4d" secondAttribute="top" id="yH7-bM-zyJ"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                        </userDefinedRuntimeAttributes>
                     </view>
-                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image-no-photo" translatesAutoresizingMaskIntoConstraints="NO" id="Ryx-ei-hEh" userLabel="Logo Image View" customClass="CustomImageView" customModule="OmnieCommerce" customModuleProvider="target">
+                    <imageView opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image-no-photo" translatesAutoresizingMaskIntoConstraints="NO" id="Ryx-ei-hEh" userLabel="Logo Image View" customClass="CustomImageView" customModule="OmnieCommerce" customModuleProvider="target">
                         <rect key="frame" x="8" y="5" width="84" height="84"/>
                         <color key="backgroundColor" red="0.15294117647058825" green="0.21568627450980393" blue="0.27058823529411763" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -131,6 +138,7 @@
                             <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                                 <real key="value" value="1"/>
                             </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="isCircle" value="YES"/>
                         </userDefinedRuntimeAttributes>
                     </imageView>
                 </subviews>
@@ -144,15 +152,17 @@
                     <constraint firstItem="Ryx-ei-hEh" firstAttribute="centerY" secondItem="sMV-OY-u28" secondAttribute="centerY" id="rJR-kJ-dSf"/>
                     <constraint firstItem="XLs-NS-f4d" firstAttribute="leading" secondItem="sMV-OY-u28" secondAttribute="leading" constant="50" id="z54-2l-awJ"/>
                 </constraints>
+                <userDefinedRuntimeAttributes>
+                    <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                </userDefinedRuntimeAttributes>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
-                <outlet property="borderDottedView" destination="XLs-NS-f4d" id="Ahj-Hp-XjR"/>
-                <outlet property="dateLabel" destination="hKe-9x-Ysk" id="A60-fd-hej"/>
-                <outlet property="describeLabel" destination="JFd-zO-ezc" id="jRP-eQ-Xvo"/>
-                <outlet property="dottedBorderView" destination="13g-08-x1W" id="edk-70-ej3"/>
-                <outlet property="logoImageView" destination="Ryx-ei-hEh" id="YQk-mH-tbN"/>
-                <outlet property="nameLabel" destination="hod-EF-PIW" id="E7f-Tn-uUF"/>
+                <outlet property="dateLabel" destination="hKe-9x-Ysk" id="E8N-wn-XSj"/>
+                <outlet property="describeLabel" destination="JFd-zO-ezc" id="QvR-4O-quY"/>
+                <outlet property="dottedBorderView" destination="13g-08-x1W" id="koK-Cq-30l"/>
+                <outlet property="logoImageView" destination="Ryx-ei-hEh" id="Obz-KK-vv0"/>
+                <outlet property="nameLabel" destination="hod-EF-PIW" id="ENm-bi-v0w"/>
             </connections>
             <point key="canvasLocation" x="-87" y="60"/>
         </tableViewCell>

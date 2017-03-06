@@ -62,26 +62,26 @@ extension MSMTableViewControllerManager: UITableViewDataSource {
         (cell as! ConfigureCell).setup(withItem: item, andIndexPath: indexPath)
         
         switch cell {
-        case cell as AvatarTableViewCell:
-            let avatarCell  =   (cell as! AvatarTableViewCell)
-            
-            // Handler show UIImagePickerController
-            avatarCell.handlerNewViewControllerShowCompletion   =   { imagePicker in
-                self.present(imagePicker, animated: true, completion: nil)
-            }
-
-        case cell as ActionButtonsTableViewCell:
-            let actionButtonsCell   =   (cell as! ActionButtonsTableViewCell)
-            
-            // Handler Save Button tap
-            actionButtonsCell.handlerSendButtonCompletion       =   { _ in
-                self.handlerSendButtonCompletion!()
-            }
-
-            // Handler Cancel Button tap
-            actionButtonsCell.handlerCancelButtonCompletion     =   { _ in
-                self.handlerCancelButtonCompletion!()
-            }
+//        case cell as AvatarTableViewCell:
+//            let avatarCell  =   (cell as! AvatarTableViewCell)
+//            
+//            // Handler show UIImagePickerController
+//            avatarCell.handlerNewViewControllerShowCompletion   =   { imagePicker in
+//                self.present(imagePicker, animated: true, completion: nil)
+//            }
+//
+//        case cell as ActionButtonsTableViewCell:
+//            let actionButtonsCell   =   (cell as! ActionButtonsTableViewCell)
+//            
+//            // Handler Save Button tap
+//            actionButtonsCell.handlerSendButtonCompletion       =   { _ in
+//                self.handlerSendButtonCompletion!()
+//            }
+//
+//            // Handler Cancel Button tap
+//            actionButtonsCell.handlerCancelButtonCompletion     =   { _ in
+//                self.handlerCancelButtonCompletion!()
+//            }
             
         default:
             break

@@ -30,15 +30,15 @@
                                         <rect key="frame" x="61" y="10" width="373" height="73"/>
                                         <subviews>
                                             <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="boG-et-yry">
-                                                <rect key="frame" x="0.0" y="0.0" width="263.5" height="73"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="264" height="73"/>
                                                 <subviews>
                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2VP-i9-VeR" userLabel="Name View">
-                                                        <rect key="frame" x="0.0" y="0.0" width="263.5" height="25"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="264" height="25"/>
                                                         <subviews>
-                                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O6m-H5-UcB" userLabel="Name Label" customClass="UbuntuLight12VeryLightGrayLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="4.5" width="263.5" height="20.5"/>
+                                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O6m-H5-UcB" userLabel="Name Label" customClass="UbuntuLightVeryLightGrayLabel" customModule="OmnieCommerce" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="10" width="264" height="15"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                                 <userDefinedRuntimeAttributes>
@@ -55,7 +55,7 @@
                                                         </constraints>
                                                     </view>
                                                     <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="TcN-oi-ih9">
-                                                        <rect key="frame" x="0.0" y="37" width="263.5" height="20"/>
+                                                        <rect key="frame" x="0.0" y="37" width="264" height="20"/>
                                                         <subviews>
                                                             <imageView opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image-no-user" translatesAutoresizingMaskIntoConstraints="NO" id="d2h-dg-gay" userLabel="User Avatar Image View" customClass="CustomImageView" customModule="OmnieCommerce" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
@@ -78,10 +78,10 @@
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
                                                             </imageView>
-                                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Message Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y87-Ea-daM" userLabel="Message Label" customClass="UbuntuLightItalic09LightGrayishCyanLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                                                                <rect key="frame" x="28" y="0.0" width="235.5" height="20"/>
+                                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Message Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y87-Ea-daM" userLabel="Message Label" customClass="UbuntuLightItalicLightGrayishCyanLabel" customModule="OmnieCommerce" customModuleProvider="target">
+                                                                <rect key="frame" x="28" y="0.0" width="236" height="20"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="9"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                                 <userDefinedRuntimeAttributes>
@@ -98,7 +98,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </stackView>
                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MwH-kW-xvY" userLabel="Bottom View">
-                                                        <rect key="frame" x="0.0" y="69" width="263.5" height="4"/>
+                                                        <rect key="frame" x="0.0" y="69" width="264" height="4"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     </view>
                                                 </subviews>
@@ -110,15 +110,15 @@
                                                     <constraint firstItem="2VP-i9-VeR" firstAttribute="leading" secondItem="boG-et-yry" secondAttribute="leading" id="mP0-8O-7hC"/>
                                                 </constraints>
                                             </stackView>
-                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ki-do-DQa" userLabel="Date Label" customClass="UbuntuLightItalic09VeryDarkGrayishBlueLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                                                <rect key="frame" x="273.5" y="0.0" width="79" height="73"/>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ki-do-DQa" userLabel="Date Label" customClass="UbuntuLightItalicVeryDarkGrayishBlueLabel" customModule="OmnieCommerce" customModuleProvider="target">
+                                                <rect key="frame" x="274" y="0.0" width="79" height="73"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="9"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Gr-kQ-3PX">
-                                                <rect key="frame" x="362.5" y="0.0" width="10.5" height="73"/>
+                                                <rect key="frame" x="363" y="0.0" width="10" height="73"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             </view>
                                         </subviews>

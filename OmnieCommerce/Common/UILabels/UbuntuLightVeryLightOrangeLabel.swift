@@ -1,14 +1,14 @@
 //
-//  UbuntuLight12VeryLightGrayLabel.swift
+//  UbuntuLightVeryLightOrangeLabel.swift
 //  OmnieCommerce
 //
-//  Created by msm72 on 05.03.17.
+//  Created by msm72 on 06.03.17.
 //  Copyright © 2017 Omniesoft. All rights reserved.
 //
 
 import UIKit
 
-@IBDesignable class UbuntuLight12VeryLightGrayLabel: UILabel {
+@IBDesignable class UbuntuLightVeryLightOrangeLabel: UILabel {
     // MARK: - Class Initialization
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -26,9 +26,9 @@ import UIKit
     // MARK: - Custom Functions
     func didSetup() {
         text            =   text?.localized()
-        font            =   UIFont.ubuntuLight12
-        textColor       =   (isAppThemeDark) ? UIColor.white : UIColor.veryLightGray
-        textAlignment   =   .left
+        font            =   (isAppThemeDark) ? UIFont.systemFont(ofSize: 9) : UIFont(name: "Ubuntu-Light", size: font!.pointSize)!
+        textColor       =   (isAppThemeDark) ? UIColor.white : UIColor.veryLightOrange
+        textAlignment   =   textAlignment
         
         self.adjustsFontSizeToFitWidth  =   true
         clipsToBounds   =   true

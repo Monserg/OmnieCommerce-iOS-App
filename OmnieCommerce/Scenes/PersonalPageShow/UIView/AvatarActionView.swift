@@ -15,54 +15,101 @@ enum ActionType: Int {
     case Cancel
 }
 
-typealias HandlerDismissViewComplition = ((_ actionType: ActionType) -> ())
-
-class AvatarActionView: UIView {
+class AvatarActionView: CustomView {
     // MARK: - Properties
-    var handlerDismissViewComplition: HandlerDismissViewComplition?
+    var handlerViewDismissComplition: HandlerViewDismissComplition?
+    var handlerCancelButtonCompletion: HandlerCancelButtonCompletion?
     
     @IBOutlet var view: UIView!
     @IBOutlet weak var cancelButton: UIButton!
     
     
     // MARK: - Class Initialization
+    init(inView view: UIView) {
+        super.init(frame: view.frame)
+        
+        createFromXIB()
+        
+        let widthRatio          =   ((UIApplication.shared.statusBarOrientation.isPortrait) ? 375 : 667) / view.frame.width
+        let heightRatio         =   ((UIApplication.shared.statusBarOrientation.isPortrait) ? 667 : 375) / view.frame.height
+        self.frame              =   CGRect.init(x: 0, y: 0, width: 345 * widthRatio, height: 185 * heightRatio)
+        self.alpha              =   0
+        self.backgroundColor    =   UIColor.clear
+        self.layer.cornerRadius =   5
+        self.clipsToBounds      =   true
+        
+        view.addSubview(self)
+        self.translatesAutoresizingMaskIntoConstraints   =   false
+        
+        self.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive  =   true
+        self.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive  =   true
+        
+        self.didShow()
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
-    
-        setup()
+        
+        createFromXIB()
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-     
-        setup()
+        
+        createFromXIB()
+    }
+
+    override func didHide() {
+        UIView.animate(withDuration: 0.5, animations: {
+            self.alpha          =   0
+        }, completion: { success in
+            self.removeFromSuperview()
+            
+            self.handlerCancelButtonCompletion!()
+        })
     }
     
     
     // MARK: - Custom Functions
-    func setup() {
+    func createFromXIB() {
         UINib(nibName: String(describing: AvatarActionView.self), bundle: Bundle(for: AvatarActionView.self)).instantiate(withOwner: self, options: nil)
         addSubview(view)
-        view.frame = frame
-        
-        print(object: "\(type(of: self)): \(#function) run. Initialization view.frame = \(view.frame)")
+        view.frame  =   frame
     }
     
     
     // MARK: - Actions
-    @IBAction func handlerPhotoUploadButtonTap(_ sender: CustomButton) {
-        handlerDismissViewComplition!(.PhotoUpload)
+    @IBAction func handlerPhotoUploadButtonTap(_ sender: UbuntuLightVeryLightOrangeButton) {
+//        if (UIImagePickerController.isSourceTypeAvailable(.photoLibrary)) {
+//            let imagePicker             =   UIImagePickerController()
+//            imagePicker.sourceType      =   UIImagePickerControllerSourceType.photoLibrary
+//            imagePicker.allowsEditing   =   true
+//            imagePicker.delegate        =   self
+//            
+//            self.present(imagePicker, animated: true, completion: nil)
+//            
+//            // Handler Successfull result
+//            self.handlerImagePickerControllerCompletion   =   { image in
+//                UIView.animate(withDuration: 0.5, animations: {
+//                    self.avatarButton.setImage(image.af_imageAspectScaled(toFill: self.avatarButton.frame.size), for: .normal)
+//                })
+//            }
+//        }
+
+        
+        
+//        handlerViewDismissComplition!(.PhotoUpload)
     }
     
-    @IBAction func handlerPhotoMakeButtonTap(_ sender: CustomButton) {
-        handlerDismissViewComplition!(.PhotoMake)
+    @IBAction func handlerPhotoMakeButtonTap(_ sender: UbuntuLightVeryLightOrangeButton) {
+        handlerViewDismissComplition!(.PhotoMake)
     }
     
-    @IBAction func handlerPhotoDeleteButtonTap(_ sender: CustomButton) {
-        handlerDismissViewComplition!(.PhotoDelete)
+    @IBAction func handlerPhotoDeleteButtonTap(_ sender: UbuntuLightVeryLightOrangeButton) {
+        handlerViewDismissComplition!(.PhotoDelete)
     }
     
     @IBAction func handlerCancelButtonTap(_ sender: UIButton) {
-        handlerDismissViewComplition!(.Cancel)
+        self.didHide()
     }
 }

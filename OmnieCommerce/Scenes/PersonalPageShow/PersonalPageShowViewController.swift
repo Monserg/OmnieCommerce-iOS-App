@@ -30,6 +30,7 @@ class PersonalPageShowViewController: BaseViewController {
     var animationDirection: AnimationDirection?
     var personalDataVC: PersonalDataViewController?
     var personalTemplatesVC: PersonalTemplatesViewController?
+    weak var avatarActionView: AvatarActionView?
 
     var activeViewController: BaseViewController? {
         didSet {
@@ -48,6 +49,7 @@ class PersonalPageShowViewController: BaseViewController {
     @IBOutlet weak var copyrightLabel: CustomLabel!
     @IBOutlet weak var segmentedControlView: SegmentedControlView!
     @IBOutlet weak var containerView: CustomView!
+    @IBOutlet weak var blackoutView: CustomView!
 
     
     // MARK: - Class Initialization
@@ -69,6 +71,22 @@ class PersonalPageShowViewController: BaseViewController {
         
         // Container Child Views
         personalDataVC          =   UIStoryboard(name: "PersonalPageShow", bundle: nil).instantiateViewController(withIdentifier: "PersonalDataVC") as? PersonalDataViewController
+        
+        // Handler avatar button tap
+        personalDataVC?.handlerPassDataCompletion   =   { sender in
+            //let avatarButton    =   sender as! CustomButton
+            
+            self.blackoutView!.didShow()
+            
+            self.avatarActionView       =   AvatarActionView.init(inView: self.view)
+            
+            // Handler Cancel button tap
+            self.avatarActionView!.handlerCancelButtonCompletion     =   { _ in
+                self.avatarActionView   =   nil
+                
+                self.blackoutView!.didHide()
+            }
+        }
 
         personalTemplatesVC     =   UIStoryboard(name: "PersonalPageShow", bundle: nil).instantiateViewController(withIdentifier: "PersonalTemplatesVC") as? PersonalTemplatesViewController
         

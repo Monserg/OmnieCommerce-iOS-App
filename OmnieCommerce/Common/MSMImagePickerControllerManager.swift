@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MSMImagePickerControllerManager: BaseViewController  {
+class MSMImagePickerControllerManager: UIViewController  {
     // MARK: - Class Functions
     var handlerImagePickerControllerCompletion: HandlerImagePickerControllerCompletion?
     var handlerCancelButtonCompletion: HandlerCancelButtonCompletion?
@@ -30,5 +30,17 @@ extension MSMImagePickerControllerManager: UIImagePickerControllerDelegate {
         dismiss(animated: true, completion: nil)
        
         handlerCancelButtonCompletion!()
+    }
+}
+
+
+// MARK: - UINavigationControllerDelegate
+extension MSMImagePickerControllerManager: UINavigationControllerDelegate {
+    func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
+        UIApplication.shared.statusBarStyle                 =   .lightContent
+        UINavigationBar.appearance().barTintColor           =   UIColor.veryDarkGray
+        UINavigationBar.appearance().tintColor              =   UIColor.veryLightGray
+        UINavigationBar.appearance().titleTextAttributes    =   [NSForegroundColorAttributeName: UIColor.veryLightGray]
+        UINavigationBar.appearance().isTranslucent          =   false
     }
 }

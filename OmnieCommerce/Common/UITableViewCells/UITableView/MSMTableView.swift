@@ -36,7 +36,5 @@ class MSMTableView: UITableView {
                 imageView.image         =   image.withRenderingMode(.alwaysTemplate)
             }
         }
-        
-//        self.flashScrollIndicators()
     }
 }

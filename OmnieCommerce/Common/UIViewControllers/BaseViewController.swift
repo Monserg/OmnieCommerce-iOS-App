@@ -10,6 +10,7 @@ import UIKit
 import AFNetworking
 import Localize_Swift
 import SWRevealViewController
+import AlamofireImage
 
 let NetworkReachabilityChanged = NSNotification.Name("NetworkReachabilityChanged")
 
@@ -43,6 +44,8 @@ class BaseViewController: UIViewController {
             }
         }
     }
+
+    var handlerImagePickerControllerCompletion: HandlerImagePickerControllerCompletion?
 
     
     // MARK: - Class Initialization
@@ -90,6 +93,12 @@ class BaseViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        print(object: "\(type(of: self)): \(#function) run in [line \(#line)]")
+        
+        super.viewDidDisappear(true)
+    }
+    
     deinit {
         print(object: "\(type(of: self)): \(#function) run in [line \(#line)]")
     }
@@ -101,10 +110,10 @@ class BaseViewController: UIViewController {
         
         let userInfo = notification.userInfo!
         
-        let keyboardScreenEndFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
-        let keyboardViewEndFrame = view.convert(keyboardScreenEndFrame, from: view.window)
+        let keyboardScreenEndFrame  =   (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+        let keyboardViewEndFrame    =   view.convert(keyboardScreenEndFrame, from: view.window)
         
-        scrollViewBase.contentInset = (notification.name == .UIKeyboardWillHide) ? UIEdgeInsets.zero : UIEdgeInsets(top: 0, left: 0, bottom: keyboardViewEndFrame.height + 25, right: 0)
+        scrollViewBase.contentInset =   (notification.name == .UIKeyboardWillHide) ? UIEdgeInsets.zero : UIEdgeInsets(top: 0, left: 0, bottom: keyboardViewEndFrame.height + 25, right: 0)
 
         guard (selectedRange != nil && (keyboardViewEndFrame.contains((selectedRange?.origin)!))) else {
             DispatchQueue.main.async {
@@ -225,6 +234,20 @@ extension BaseViewController: UINavigationControllerDelegate {
     }
 }
 
+
+// MARK: - UIImagePickerControllerDelegate
+extension BaseViewController: UIImagePickerControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        let chosenImage     =   info[UIImagePickerControllerOriginalImage] as! UIImage
+        
+        dismiss(animated: true, completion: nil)
+        handlerImagePickerControllerCompletion!(chosenImage)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+    }
+}
 
 
 
