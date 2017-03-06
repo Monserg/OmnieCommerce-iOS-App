@@ -12,12 +12,11 @@ enum ActionType: Int {
     case PhotoMake = 0
     case PhotoUpload
     case PhotoDelete
-    case Cancel
 }
 
 class AvatarActionView: CustomView {
     // MARK: - Properties
-    var handlerViewDismissComplition: HandlerViewDismissComplition?
+    var handlerViewDismissCompletion: HandlerViewDismissCompletion?
     var handlerCancelButtonCompletion: HandlerCancelButtonCompletion?
     
     @IBOutlet var view: UIView!
@@ -61,11 +60,9 @@ class AvatarActionView: CustomView {
 
     override func didHide() {
         UIView.animate(withDuration: 0.5, animations: {
-            self.alpha          =   0
+            self.alpha  =   0
         }, completion: { success in
             self.removeFromSuperview()
-            
-            self.handlerCancelButtonCompletion!()
         })
     }
     
@@ -80,36 +77,22 @@ class AvatarActionView: CustomView {
     
     // MARK: - Actions
     @IBAction func handlerPhotoUploadButtonTap(_ sender: UbuntuLightVeryLightOrangeButton) {
-//        if (UIImagePickerController.isSourceTypeAvailable(.photoLibrary)) {
-//            let imagePicker             =   UIImagePickerController()
-//            imagePicker.sourceType      =   UIImagePickerControllerSourceType.photoLibrary
-//            imagePicker.allowsEditing   =   true
-//            imagePicker.delegate        =   self
-//            
-//            self.present(imagePicker, animated: true, completion: nil)
-//            
-//            // Handler Successfull result
-//            self.handlerImagePickerControllerCompletion   =   { image in
-//                UIView.animate(withDuration: 0.5, animations: {
-//                    self.avatarButton.setImage(image.af_imageAspectScaled(toFill: self.avatarButton.frame.size), for: .normal)
-//                })
-//            }
-//        }
-
-        
-        
-//        handlerViewDismissComplition!(.PhotoUpload)
+        handlerViewDismissCompletion!(.PhotoUpload)
+        didHide()
     }
     
     @IBAction func handlerPhotoMakeButtonTap(_ sender: UbuntuLightVeryLightOrangeButton) {
-        handlerViewDismissComplition!(.PhotoMake)
+        handlerViewDismissCompletion!(.PhotoMake)
+        didHide()
     }
     
     @IBAction func handlerPhotoDeleteButtonTap(_ sender: UbuntuLightVeryLightOrangeButton) {
-        handlerViewDismissComplition!(.PhotoDelete)
+        handlerViewDismissCompletion!(.PhotoDelete)
+        didHide()
     }
     
     @IBAction func handlerCancelButtonTap(_ sender: UIButton) {
-        self.didHide()
+        handlerCancelButtonCompletion!()
+        didHide()
     }
 }

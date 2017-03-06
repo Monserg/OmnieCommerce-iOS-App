@@ -27,7 +27,6 @@
 		B1228FB21DD47C9F00A90FBB /* MenuViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1228FB11DD47C9F00A90FBB /* MenuViewCell.swift */; };
 		B1228FB51DD4856A00A90FBB /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1228FB41DD4856A00A90FBB /* MenuItem.swift */; };
 		B1228FBA1DD49ED400A90FBB /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1228FB91DD49ED400A90FBB /* BaseViewController.swift */; };
-		B122A58C1E6BD11300C39B67 /* MSMImagePickerControllerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B122A58B1E6BD11300C39B67 /* MSMImagePickerControllerManager.swift */; };
 		B122A58E1E6BE10F00C39B67 /* FillVeryLightOrangeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B122A58D1E6BE10F00C39B67 /* FillVeryLightOrangeButton.swift */; };
 		B122A5901E6BF23E00C39B67 /* BorderVeryLightOrangeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B122A58F1E6BF23E00C39B67 /* BorderVeryLightOrangeButton.swift */; };
 		B122A5941E6C56E600C39B67 /* MessageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B122A5931E6C56E600C39B67 /* MessageTableViewCell.xib */; };
@@ -320,6 +319,8 @@
 		B1FBC9291E6D9FEB00D86429 /* MSMBlackoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FBC9281E6D9FEB00D86429 /* MSMBlackoutView.swift */; };
 		B1FBC92B1E6DB42B00D86429 /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FBC92A1E6DB42B00D86429 /* NewsTableViewCell.swift */; };
 		B1FBC92D1E6DD86500D86429 /* UbuntuLightDarkCyanLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FBC92C1E6DD86500D86429 /* UbuntuLightDarkCyanLabel.swift */; };
+		B1FBC92F1E6DEFD300D86429 /* MSMImagePickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FBC92E1E6DEFD300D86429 /* MSMImagePickerController.swift */; };
+		B1FBC9311E6DFC0E00D86429 /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FBC9301E6DFC0E00D86429 /* UIViewController+Ext.swift */; };
 		B1FFF7001E5ECDF900A075D8 /* OrganizationsShowConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FFF6F91E5ECDF900A075D8 /* OrganizationsShowConfigurator.swift */; };
 		B1FFF7011E5ECDF900A075D8 /* OrganizationsShowInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FFF6FA1E5ECDF900A075D8 /* OrganizationsShowInteractor.swift */; };
 		B1FFF7021E5ECDF900A075D8 /* OrganizationsShowModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FFF6FB1E5ECDF900A075D8 /* OrganizationsShowModels.swift */; };
@@ -367,7 +368,6 @@
 		B1228FB11DD47C9F00A90FBB /* MenuViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewCell.swift; sourceTree = "<group>"; };
 		B1228FB41DD4856A00A90FBB /* MenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
 		B1228FB91DD49ED400A90FBB /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
-		B122A58B1E6BD11300C39B67 /* MSMImagePickerControllerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSMImagePickerControllerManager.swift; sourceTree = "<group>"; };
 		B122A58D1E6BE10F00C39B67 /* FillVeryLightOrangeButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FillVeryLightOrangeButton.swift; sourceTree = "<group>"; };
 		B122A58F1E6BF23E00C39B67 /* BorderVeryLightOrangeButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BorderVeryLightOrangeButton.swift; sourceTree = "<group>"; };
 		B122A5931E6C56E600C39B67 /* MessageTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageTableViewCell.xib; sourceTree = "<group>"; };
@@ -668,6 +668,8 @@
 		B1FBC9281E6D9FEB00D86429 /* MSMBlackoutView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSMBlackoutView.swift; sourceTree = "<group>"; };
 		B1FBC92A1E6DB42B00D86429 /* NewsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
 		B1FBC92C1E6DD86500D86429 /* UbuntuLightDarkCyanLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UbuntuLightDarkCyanLabel.swift; sourceTree = "<group>"; };
+		B1FBC92E1E6DEFD300D86429 /* MSMImagePickerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSMImagePickerController.swift; sourceTree = "<group>"; };
+		B1FBC9301E6DFC0E00D86429 /* UIViewController+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
 		B1FFF6F91E5ECDF900A075D8 /* OrganizationsShowConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrganizationsShowConfigurator.swift; sourceTree = "<group>"; };
 		B1FFF6FA1E5ECDF900A075D8 /* OrganizationsShowInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrganizationsShowInteractor.swift; sourceTree = "<group>"; };
 		B1FFF6FB1E5ECDF900A075D8 /* OrganizationsShowModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrganizationsShowModels.swift; sourceTree = "<group>"; };
@@ -1120,7 +1122,7 @@
 			isa = PBXGroup;
 			children = (
 				B1FFF7301E5F0F0F00A075D8 /* LocationManager.swift */,
-				B122A58B1E6BD11300C39B67 /* MSMImagePickerControllerManager.swift */,
+				B1FBC92E1E6DEFD300D86429 /* MSMImagePickerController.swift */,
 				B19BB6201E6ABF560081533C /* MSMTableViewControllerManager.swift */,
 				B14D1D731E5CB8B000D33435 /* SocialNetworkManager.swift */,
 				B17061A31E69866B00CF9BA9 /* TableViewControllerManager.swift */,
@@ -1285,6 +1287,7 @@
 				B19DFABE1E64B98E00599073 /* UIScrollView+Ext.swift */,
 				B19DFAC01E64B9F100599073 /* UITextField+Ext.swift */,
 				B1739D1B1DE314E80029BCCA /* UIView+Ext.swift */,
+				B1FBC9301E6DFC0E00D86429 /* UIViewController+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1851,7 +1854,6 @@
 				B1BEEDF01E63687500F1DE8A /* OrganizationShowInteractor.swift in Sources */,
 				B177E55E1E54B8F6004F1390 /* PasswordStrengthLevelView.swift in Sources */,
 				B1DA01B11DF1CB2F00E6DD46 /* UIFont+Ext.swift in Sources */,
-				B122A58C1E6BD11300C39B67 /* MSMImagePickerControllerManager.swift in Sources */,
 				B1CF54B31DDB516E00E98049 /* OmnieCardsShowViewController.swift in Sources */,
 				B1CF54D01DDB51A500E98049 /* PersonalPageShowWorker.swift in Sources */,
 				B1597AD41E3FA91400123CB5 /* EllipseView.swift in Sources */,
@@ -1889,6 +1891,7 @@
 				B1CF54CA1DDB51A500E98049 /* PersonalPageShowConfigurator.swift in Sources */,
 				B152915F1DDEB8B500BBA1E0 /* CustomTableView.swift in Sources */,
 				B155DE931E65C41500683384 /* PhonesView.swift in Sources */,
+				B1FBC92F1E6DEFD300D86429 /* MSMImagePickerController.swift in Sources */,
 				B1D56BE71E6167AE008BCE54 /* MapView.swift in Sources */,
 				B1CF548A1DDB50F100E98049 /* BusinessCardsShowWorker.swift in Sources */,
 				B122F1E11DD35B760018A701 /* OrdersShowWorker.swift in Sources */,
@@ -1999,6 +2002,7 @@
 				B1CF54BF1DDB519000E98049 /* OnmieSoftShowPresenter.swift in Sources */,
 				B1BEEDF51E63687500F1DE8A /* OrganizationShowWorker.swift in Sources */,
 				B1BEEDF41E63687500F1DE8A /* OrganizationShowViewController.swift in Sources */,
+				B1FBC9311E6DFC0E00D86429 /* UIViewController+Ext.swift in Sources */,
 				B14E97571DD8B052001E1DE2 /* SignUpShowInteractor.swift in Sources */,
 				B177E5481E54AC7F004F1390 /* EnterCodeShowInteractor.swift in Sources */,
 				B122F1FC1DD35BC70018A701 /* FavoriteShowViewController.swift in Sources */,

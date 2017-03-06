@@ -10,6 +10,7 @@
 //
 
 import UIKit
+import AlamofireImage
 
 // MARK: - Input protocols for current ViewController component VIP-cicle
 protocol PersonalPageShowViewControllerInput {
@@ -74,18 +75,62 @@ class PersonalPageShowViewController: BaseViewController {
         
         // Handler avatar button tap
         personalDataVC?.handlerPassDataCompletion   =   { sender in
-            //let avatarButton    =   sender as! CustomButton
-            
             self.blackoutView!.didShow()
+
+            let avatarButton        =   sender as! CustomButton
+            self.avatarActionView   =   AvatarActionView.init(inView: self.view)
             
-            self.avatarActionView       =   AvatarActionView.init(inView: self.view)
+            // Handler AvatarActionView completions
+            self.avatarActionView!.handlerViewDismissCompletion     =   { actionType in
+                    switch actionType {
+                    // Handler Photo Make button tap
+                    case .PhotoUpload:
+                        let imagePickerController   =   MSMImagePickerController()
+                        imagePickerController.photoDidLoadFromAlbum()
+                        
+                        self.present(imagePickerController, animated: true, completion: nil)
+                        
+                        // Handler MSMImagePickerController results
+                        self.handlerResult(fromImagePicker: imagePickerController, forAvatarButton: avatarButton)
+
+                    case .PhotoMake:
+                        let imagePickerController   =   MSMImagePickerController()
+                        
+                        guard imagePickerController.photoDidMakeWithCamera() else {
+                            self.alertViewDidShow(withTitle: "Error".localized(), andMessage: "Camera is not available".localized())
+                            
+                            self.blackoutView.didHide()
+                            
+                            return
+                        }
+                        
+                        self.present(imagePickerController, animated: true, completion: nil)
+
+                        // Handler MSMImagePickerController results
+                        self.handlerResult(fromImagePicker: imagePickerController, forAvatarButton: avatarButton)
+                        
+                    case .PhotoDelete:
+                        self.print(object: "delete ok")
+                        self.blackoutView.didHide()
+                    }
+            }
             
-            // Handler Cancel button tap
+                        
+            // Handler AvatarActionView Cancel button tap
             self.avatarActionView!.handlerCancelButtonCompletion     =   { _ in
-                self.avatarActionView   =   nil
-                
                 self.blackoutView!.didHide()
             }
+        }
+        
+        // Handler Action Buttons
+        personalDataVC!.handlerSaveButtonCompletion     =   { parameters in
+            // TODO: - ADD API
+            
+            self.router.navigateToCategoriesShowScene()
+        }
+        
+        personalDataVC!.handlerCancelButtonCompletion   =   { _ in
+            self.router.navigateToCategoriesShowScene()
         }
 
         personalTemplatesVC     =   UIStoryboard(name: "PersonalPageShow", bundle: nil).instantiateViewController(withIdentifier: "PersonalTemplatesVC") as? PersonalTemplatesViewController
@@ -115,6 +160,22 @@ class PersonalPageShowViewController: BaseViewController {
             default:
                 self.activeViewController   =   self.personalDataVC
             }
+        }
+    }
+    
+    func handlerResult(fromImagePicker imagePickerController: MSMImagePickerController, forAvatarButton avatarButton: CustomButton) {
+        // Handler success image
+        imagePickerController.handlerImagePickerControllerCompletion    =   { image in
+            UIView.animate(withDuration: 0.5, animations: {
+                avatarButton.setImage(image.af_imageAspectScaled(toFill: avatarButton.frame.size), for: .normal)
+            }, completion: { success in
+                self.blackoutView!.didHide()
+            })
+        }
+        
+        // Handler Cancel result
+        imagePickerController.handlerCancelButtonCompletion     =    { _ in
+            self.blackoutView!.didHide()
         }
     }
     

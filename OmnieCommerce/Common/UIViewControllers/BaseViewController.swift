@@ -180,14 +180,14 @@ class BaseViewController: UIViewController {
         }
     }
     
-    func alertViewDidShow(withTitle title: String, andMessage message: String) {
-        let alertViewController = UIAlertController.init(title: title, message: message, preferredStyle: .alert)
-        
-        let alertViewControllerAction = UIAlertAction.init(title: "Ok".localized(), style: .default, handler: nil)
-        
-        alertViewController.addAction(alertViewControllerAction)
-        present(alertViewController, animated: true, completion: nil)
-    }
+//    func alertViewDidShow(withTitle title: String, andMessage message: String) {
+//        let alertViewController = UIAlertController.init(title: title, message: message, preferredStyle: .alert)
+//        
+//        let alertViewControllerAction = UIAlertAction.init(title: "Ok".localized(), style: .default, handler: nil)
+//        
+//        alertViewController.addAction(alertViewControllerAction)
+//        present(alertViewController, animated: true, completion: nil)
+//    }
     
     
     // MARK: - Custom Functions

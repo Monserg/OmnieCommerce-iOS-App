@@ -60,6 +60,7 @@ protocol InitCellParameters {
     var cellHeight: CGFloat { get set }
 }
 
+
 extension ErrorMessageViewAnimation {
     func didShow(_ view: UIView, withConstraint constraint: NSLayoutConstraint) {
         UIView.animate(withDuration: 0.1, animations: {
