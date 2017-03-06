@@ -17,5 +17,6 @@ target 'OmnieCommerce' do
     pod 'Google/SignIn'
     pod 'MXParallaxHeader', '~> 0.6'
     pod 'PhoneNumberKit', '~> 1.2'
+    pod 'LTHRadioButton', '~> 1.1'
     
 end

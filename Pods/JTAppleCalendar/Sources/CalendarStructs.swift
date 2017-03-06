@@ -37,8 +37,7 @@ public struct CellState {
     /// returns the column in which the date cell appears visually
     public let column: () -> Int
     /// returns the section the date cell belongs to
-    public let dateSection: () ->
-        (range: (start: Date, end: Date), month: Int, rowsForSection: Int)
+    public let dateSection: () -> (range: (start: Date, end: Date), month: Int, rowCount: Int)
     /// returns the position of a selection in the event you wish to do range selection
     public let selectedPosition: () -> SelectionRangePosition
     /// returns the cell frame.
@@ -108,7 +107,7 @@ struct CalendarData {
 }
 
 /// Defines a month structure.
-public struct Month {
+struct Month {
 
     /// Start index day for the month.
     /// The start is total number of days of previous months
@@ -135,17 +134,13 @@ public struct Month {
     let rows: Int
 
     // Return the total number of days for the represented month
-    var numberOfDaysInMonth: Int {
-        get {
-            return numberOfDaysInMonthGrid - inDates - outDates
-        }
-    }
+    var numberOfDaysInMonth: Int
 
     // Return the total number of day cells
     // to generate for the represented month
     var numberOfDaysInMonthGrid: Int {
         get {
-            return sections.reduce(0, +)
+            return numberOfDaysInMonth + inDates + outDates
         }
     }
 
@@ -269,6 +264,8 @@ struct JTAppleDateConfigGenerator {
             let numberOfRowsPerSectionThatUserWants = parameters.numberOfRows
             // Section represents # of months. section is used as an offset
             // to determine which month to calculate
+            
+            
 
             for monthIndex in 0 ..< numberOfMonths {
                 if let currentMonthDate = parameters.calendar.date(byAdding: .month, value: monthIndex, to: parameters.startDate) {
@@ -328,7 +325,8 @@ struct JTAppleDateConfigGenerator {
                         inDates: numberOfPreDatesForThisMonth,
                         outDates: numberOfPostDatesForThisMonth,
                         sectionIndexMaps: sectionIndexMaps,
-                        rows: numberOfRowsToGenerateForCurrentMonth
+                        rows: numberOfRowsToGenerateForCurrentMonth,
+                        numberOfDaysInMonth: numberOfDaysInMonthFixed
                     ))
                     startIndexForMonth += numberOfDaysInMonthFixed
                     startCellIndexForMonth += numberOfDaysInMonthFixed + numberOfPreDatesForThisMonth + numberOfPostDatesForThisMonth

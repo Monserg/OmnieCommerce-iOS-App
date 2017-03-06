@@ -316,6 +316,10 @@
 		B1FA92F01E6C860A0024F225 /* UbuntuLightItalic09LightGrayishCyanLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA92EF1E6C860A0024F225 /* UbuntuLightItalic09LightGrayishCyanLabel.swift */; };
 		B1FA92F21E6C861A0024F225 /* UbuntuLight12VeryLightGrayLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA92F11E6C861A0024F225 /* UbuntuLight12VeryLightGrayLabel.swift */; };
 		B1FA92F41E6C8E1B0024F225 /* UbuntuLightItalic09VeryDarkGrayishBlueLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA92F31E6C8E1B0024F225 /* UbuntuLightItalic09VeryDarkGrayishBlueLabel.swift */; };
+		B1FBC9131E6D426600D86429 /* GenderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FBC9111E6D426600D86429 /* GenderTableViewCell.swift */; };
+		B1FBC9141E6D426600D86429 /* GenderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1FBC9121E6D426600D86429 /* GenderTableViewCell.xib */; };
+		B1FBC9161E6D474400D86429 /* LTHRadioButton.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1FBC9151E6D474400D86429 /* LTHRadioButton.framework */; };
+		B1FBC91B1E6D494D00D86429 /* DLRadioButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B1FBC91A1E6D494D00D86429 /* DLRadioButton.m */; };
 		B1FFF7001E5ECDF900A075D8 /* OrganizationsShowConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FFF6F91E5ECDF900A075D8 /* OrganizationsShowConfigurator.swift */; };
 		B1FFF7011E5ECDF900A075D8 /* OrganizationsShowInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FFF6FA1E5ECDF900A075D8 /* OrganizationsShowInteractor.swift */; };
 		B1FFF7021E5ECDF900A075D8 /* OrganizationsShowModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FFF6FB1E5ECDF900A075D8 /* OrganizationsShowModels.swift */; };
@@ -659,6 +663,11 @@
 		B1FA92EF1E6C860A0024F225 /* UbuntuLightItalic09LightGrayishCyanLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UbuntuLightItalic09LightGrayishCyanLabel.swift; sourceTree = "<group>"; };
 		B1FA92F11E6C861A0024F225 /* UbuntuLight12VeryLightGrayLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UbuntuLight12VeryLightGrayLabel.swift; sourceTree = "<group>"; };
 		B1FA92F31E6C8E1B0024F225 /* UbuntuLightItalic09VeryDarkGrayishBlueLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UbuntuLightItalic09VeryDarkGrayishBlueLabel.swift; sourceTree = "<group>"; };
+		B1FBC9111E6D426600D86429 /* GenderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenderTableViewCell.swift; sourceTree = "<group>"; };
+		B1FBC9121E6D426600D86429 /* GenderTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GenderTableViewCell.xib; sourceTree = "<group>"; };
+		B1FBC9151E6D474400D86429 /* LTHRadioButton.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LTHRadioButton.framework; path = "../../../../../Library/Developer/Xcode/DerivedData/OmnieCommerce-enpckymiymzhiuhdgnbmlxbwmhew/Build/Products/Debug-iphonesimulator/LTHRadioButton/LTHRadioButton.framework"; sourceTree = "<group>"; };
+		B1FBC9191E6D494D00D86429 /* DLRadioButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLRadioButton.h; sourceTree = "<group>"; };
+		B1FBC91A1E6D494D00D86429 /* DLRadioButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLRadioButton.m; sourceTree = "<group>"; };
 		B1FFF6F91E5ECDF900A075D8 /* OrganizationsShowConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrganizationsShowConfigurator.swift; sourceTree = "<group>"; };
 		B1FFF6FA1E5ECDF900A075D8 /* OrganizationsShowInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrganizationsShowInteractor.swift; sourceTree = "<group>"; };
 		B1FFF6FB1E5ECDF900A075D8 /* OrganizationsShowModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrganizationsShowModels.swift; sourceTree = "<group>"; };
@@ -695,6 +704,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1FBC9161E6D474400D86429 /* LTHRadioButton.framework in Frameworks */,
 				B1FFF7271E5F0DAE00A075D8 /* CoreLocation.framework in Frameworks */,
 				B1FFF7251E5F0DA100A075D8 /* MapKit.framework in Frameworks */,
 				B1FFF7231E5F0D8D00A075D8 /* StoreKit.framework in Frameworks */,
@@ -719,6 +729,7 @@
 		A4A33B8C6849A99639A17A3F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B1FBC9151E6D474400D86429 /* LTHRadioButton.framework */,
 				B19DFABA1E64AEF500599073 /* UMParallaxView.framework */,
 				B1FFF7261E5F0DAE00A075D8 /* CoreLocation.framework */,
 				B1FFF7241E5F0DA100A075D8 /* MapKit.framework */,
@@ -1058,6 +1069,7 @@
 		B122F2391DD36F220018A701 /* UIButtons */ = {
 			isa = PBXGroup;
 			children = (
+				B1FBC9171E6D493200D86429 /* RadioButton */,
 				B149A7B91E5D8DD3009BF8C7 /* AnimatedButton.swift */,
 				B149A7BB1E5D8E24009BF8C7 /* AnimatedButton.xib */,
 				B122A58F1E6BF23E00C39B67 /* BorderVeryLightOrangeButton.swift */,
@@ -1191,6 +1203,8 @@
 				B1597AD11E3F42BD00123CB5 /* AvatarActionView.xib */,
 				B1597AC91E3F161900123CB5 /* AvatarTableViewCell.swift */,
 				B1597ACB1E3F162100123CB5 /* AvatarTableViewCell.xib */,
+				B1FBC9111E6D426600D86429 /* GenderTableViewCell.swift */,
+				B1FBC9121E6D426600D86429 /* GenderTableViewCell.xib */,
 			);
 			path = UIView;
 			sourceTree = "<group>";
@@ -1541,6 +1555,15 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		B1FBC9171E6D493200D86429 /* RadioButton */ = {
+			isa = PBXGroup;
+			children = (
+				B1FBC9191E6D494D00D86429 /* DLRadioButton.h */,
+				B1FBC91A1E6D494D00D86429 /* DLRadioButton.m */,
+			);
+			path = RadioButton;
+			sourceTree = "<group>";
+		};
 		B1FFF6F81E5ECDCF00A075D8 /* OrganizationsShow */ = {
 			isa = PBXGroup;
 			children = (
@@ -1634,7 +1657,7 @@
 					B15FD4051DD1DD8C00782324 = {
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = 2DS2B364WY;
-						LastSwiftMigration = 0810;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -1680,6 +1703,7 @@
 				B1BF926D1DD6516C00BECBBB /* helveticaneuecyr-heavyitalic.otf in Resources */,
 				B14107C51DFEA73900F79CF9 /* CalendarDayCellView.xib in Resources */,
 				B1BF926E1DD6516C00BECBBB /* helveticaneuecyr-italic.otf in Resources */,
+				B1FBC9141E6D426600D86429 /* GenderTableViewCell.xib in Resources */,
 				B1BF926F1DD6516C00BECBBB /* helveticaneuecyr-light.otf in Resources */,
 				B1597ACC1E3F162100123CB5 /* AvatarTableViewCell.xib in Resources */,
 				B152915D1DDE44B700BBA1E0 /* MenuSectionFooterView.xib in Resources */,
@@ -2017,6 +2041,7 @@
 				B122DF671DF7F957003823AD /* CalendarShowRouter.swift in Sources */,
 				B1B761C31E629C120067339F /* DropDownItem.swift in Sources */,
 				B1FA92F01E6C860A0024F225 /* UbuntuLightItalic09LightGrayishCyanLabel.swift in Sources */,
+				B1FBC91B1E6D494D00D86429 /* DLRadioButton.m in Sources */,
 				B1E52AB11DDDD0EA00C3B24D /* LaunchScreenViewController.swift in Sources */,
 				B1BEEDF21E63687500F1DE8A /* OrganizationShowPresenter.swift in Sources */,
 				B177E5341E5475EC004F1390 /* SignInContainerShowConfigurator.swift in Sources */,
@@ -2033,6 +2058,7 @@
 				B1BEEDF31E63687500F1DE8A /* OrganizationShowRouter.swift in Sources */,
 				B14E975A1DD8B052001E1DE2 /* SignUpShowRouter.swift in Sources */,
 				B19DF2841DF94DCD000AFC92 /* CalendarViewController.swift in Sources */,
+				B1FBC9131E6D426600D86429 /* GenderTableViewCell.swift in Sources */,
 				B11B9ADD1DF053BA009A4AA1 /* CustomImageView.swift in Sources */,
 				B1C13D871DEF2743002B494A /* DropDownButton.swift in Sources */,
 				B122F2181DD35C2C0018A701 /* NewsShowViewController.swift in Sources */,
@@ -2189,7 +2215,7 @@
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\"";
 				PRODUCT_BUNDLE_IDENTIFIER = ua.com.omniesoft.OmnieCommerce;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/msm72/My Projects/Omnie Soft/App/user/OmnieCommerce/OmnieCommerce/Support Files/OmnieCommerce-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -2214,7 +2240,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ua.com.omniesoft.OmnieCommerce;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/msm72/My Projects/Omnie Soft/App/user/OmnieCommerce/OmnieCommerce/Support Files/OmnieCommerce-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

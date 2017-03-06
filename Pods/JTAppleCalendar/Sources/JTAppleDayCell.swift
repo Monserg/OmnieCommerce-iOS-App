@@ -9,8 +9,8 @@
 /// The JTAppleDayCell class defines the attributes and
 /// behavior of the cells that appear in JTAppleCalendarView objects.
 open class JTAppleDayCell: UICollectionViewCell, JTAppleReusableViewProtocol {
-
-	var view: JTAppleDayCellView?
+    /// Cell view that will be customized
+	public var view: JTAppleDayCellView?
 
     func updateCellView(_ cellInsetX: CGFloat, cellInsetY: CGFloat) {
         let vFrame = self.frame.insetBy(dx: cellInsetX, dy: cellInsetY)
