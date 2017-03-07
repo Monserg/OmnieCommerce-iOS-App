@@ -51,6 +51,8 @@
 "Sat"                           =   "Сб";
 "Sun"                           =   "Нд";
 "Mon-Fri"                       =   "Пн-Пт";
+"Additional Services"           =   "Додаткові послуги:";
+"Comment"                       =   "Коментар:";
 
 
 // Buttons
@@ -75,6 +77,8 @@
 "Phones"                        =   "Телефони";
 "Schedule"                      =   "Графік";
 "Save"                          =   "Зберегти";
+"Use Template"                  =   "Використати шаблон";
+"Delete Template"               =   "Видалити шаблон";
 
 
 // TextField Placeholders
@@ -140,6 +144,7 @@
 "Messages list is empty"        =   "Список повідомлень порожній";
 "News list is empty"            =   "Список новин порожній";
 "Phones list is empty"          =   "Список телефонів порожній";
+"Templates list is empty"       =   "Список шаблонів порожній";
 "Incorrect User name"           =   "Введіть чинне ім'я користувача";
 "Incorrect User password"       =   "Введіть чинний пароль користувача";
 "User not register"             =   "Користувач не зареєстрований";

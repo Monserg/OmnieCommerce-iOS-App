@@ -26,4 +26,18 @@ struct PersonalPageShowModels {
             let userApp: AppUser
         }
     }
+
+    struct Templates {
+        struct RequestModel {
+            let userID: String
+        }
+        
+        struct ResponseModel {
+            let items: [Organization]?
+        }
+        
+        struct ViewModel {
+            let organizations: [Organization]?
+        }
+    }
 }

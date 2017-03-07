@@ -51,6 +51,8 @@
 "Sat"                           =   "Sat";
 "Sun"                           =   "Sun";
 "Mon-Fri"                       =   "Mon-Fri";
+"Additional Services"           =   "Additional Services:";
+"Comment"                       =   "Comment:";
 
 
 // Buttons
@@ -75,6 +77,8 @@
 "Phones"                        =   "Phones";
 "Schedule"                      =   "Schedule";
 "Save"                          =   "Save";
+"Use Template"                  =   "Use Template";
+"Delete Template"               =   "Delete Template";
 
 
 // TextField Placeholders
@@ -140,6 +144,7 @@
 "Messages list is empty"        =   "Messages list is empty";
 "News list is empty"            =   "News list is empty";
 "Phones list is empty"          =   "Phones list is empty";
+"Templates list is empty"       =   "Templates list is empty";
 "Incorrect User name"           =   "Enter the correct user name";
 "Incorrect User password"       =   "Enter the correct user password";
 "User not register"             =   "The user is not registered";

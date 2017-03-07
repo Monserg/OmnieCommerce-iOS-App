@@ -10,10 +10,11 @@
 import Foundation
 import CoreLocation
 
-struct Organization: SearchObject {
+struct Organization: InitCellParameters, SearchObject {
     // MARK: - Properties
     let codeID: Int!
     var name: String!
+    let category: Category!
     let location: CLLocationCoordinate2D!
     var addressCity: String?
     var addressStreet: String?
@@ -23,4 +24,7 @@ struct Organization: SearchObject {
     var isFavorite: Bool    =   false
     var phones: [String]?
     var schedule: Schedule!
+    
+    var cellIdentifier: String
+    var cellHeight: CGFloat
 }

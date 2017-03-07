@@ -11,8 +11,8 @@ import UIKit
 class MSMTableViewControllerManager: BaseViewController {
     // MARK: - Properties
     var sectionsCount               =   0
-    var dataSource                  =   [Any]()
-    var dataSourceFiltered          =   [Any]()
+    var dataSource: [Any]?
+    var dataSourceFiltered: [Any]?
     var isSearchBarActive: Bool     =   false
 
     var tableView: MSMTableView?
@@ -26,6 +26,7 @@ class MSMTableViewControllerManager: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.tableView!.rowHeight   =   UITableViewAutomaticDimension
     }
     
     override func didReceiveMemoryWarning() {
@@ -47,21 +48,30 @@ extension MSMTableViewControllerManager: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return (isSearchBarActive) ? dataSourceFiltered.count : dataSource.count
+        return ((isSearchBarActive) ? dataSourceFiltered?.count ?? 0 : dataSource?.count ?? 0)!
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cellIdentifier  =   (dataSource[indexPath.row] as! InitCellParameters).cellIdentifier
+        let cellIdentifier  =   (dataSource?[indexPath.row] as! InitCellParameters).cellIdentifier
 
         self.tableView!.register(UINib(nibName: cellIdentifier, bundle: nil), forCellReuseIdentifier: cellIdentifier)
 
         let cell            =   self.tableView!.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
-        let item            =   (isSearchBarActive) ? dataSourceFiltered[indexPath.row] : dataSource[indexPath.row]
+        let item            =   (isSearchBarActive) ? dataSourceFiltered![indexPath.row] : dataSource![indexPath.row]
         
         // Config cell
         (cell as! ConfigureCell).setup(withItem: item, andIndexPath: indexPath)
         
         switch cell {
+        case cell as UserTemplateTableViewCell:
+            let userTemplateCell    =   (cell as! UserTemplateTableViewCell)
+            
+            // Handler Expanded Button tap
+            userTemplateCell.handlerSendButtonCompletion        =   { _ in
+                self.tableView!.beginUpdates()
+                self.tableView!.endUpdates()
+            }
+
 //        case cell as AvatarTableViewCell:
 //            let avatarCell  =   (cell as! AvatarTableViewCell)
 //            
@@ -103,21 +113,28 @@ extension MSMTableViewControllerManager: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        handlerSearchCompletion!((isSearchBarActive) ? dataSourceFiltered[indexPath.row] : dataSource[indexPath.row])
+        handlerSearchCompletion!((isSearchBarActive) ? dataSourceFiltered![indexPath.row] : dataSource![indexPath.row])
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        let height  =   (self.dataSource[indexPath.row] as! InitCellParameters).cellHeight
-        
-        if (height == 1) {
-            self.tableView!.estimatedRowHeight     =   height
-            self.tableView!.rowHeight              =   UITableViewAutomaticDimension
-
-            return self.tableView!.rowHeight
-        }
-        
-        return height
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 200.0
     }
+
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        let height  =   (self.dataSource?[indexPath.row] as! InitCellParameters).cellHeight
+////        let cell    =   tableView.cellForRow(at: indexPath)!
+////
+////        if cell.isKind(of: UITableViewCell.self), let userTemplateCell = cell as? UserTemplateTableViewCell {
+////            let isCellExpanded                  =   userTemplateCell.isExpanded
+////            
+////            self.tableView!.estimatedRowHeight  =   (isCellExpanded) ?  userTemplateCell.expandedHeight : height
+////            self.tableView!.rowHeight           =   UITableViewAutomaticDimension
+////
+////            return self.tableView!.rowHeight
+////        }
+//        
+//        return height
+//    }
     
     func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
         let cell                            =   tableView.cellForRow(at: indexPath)!
@@ -159,7 +176,7 @@ extension MSMTableViewControllerManager: UISearchBarDelegate {
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        dataSourceFiltered  =   (searchText.isEmpty) ? dataSource : dataSource.filter{ ($0 as! SearchObject).name.contains(searchBar.text!) }
+        dataSourceFiltered  =   (searchText.isEmpty) ? dataSource! : dataSource!.filter{ ($0 as! SearchObject).name.contains(searchBar.text!) }
         
         tableView!.reloadData()
     }

@@ -32,7 +32,7 @@ class MSMTableView: UITableView {
     func setScrollIndicatorColor(color: UIColor) {
         for view in self.subviews {
             if view.isKind(of: UIImageView.self), let imageView = view as? UIImageView, let image = imageView.image {
-                imageView.tintColor     =   color
+                imageView.tintColor     =   UIColor.veryLightOrange //color
                 imageView.image         =   image.withRenderingMode(.alwaysTemplate)
             }
         }

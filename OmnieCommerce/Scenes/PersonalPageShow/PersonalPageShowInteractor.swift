@@ -13,11 +13,13 @@ import UIKit
 
 // MARK: - Input protocols for current Interactor component VIP-cicle
 protocol PersonalPageShowInteractorInput {
+    func userAppTemplatesDidLoad(withRequestModel requestModel: PersonalPageShowModels.Templates.RequestModel)
     func userAppDataDidUpdate(withRequestModel requestModel: PersonalPageShowModels.UserApp.RequestModel)
 }
 
 // MARK: - Output protocols for Presenter component VIP-cicle
 protocol PersonalPageShowInteractorOutput {
+    func userAppTemplatesDidPrepareToShow(fromResponseModel responseModel: PersonalPageShowModels.Templates.ResponseModel)
     func userAppDataDidPrepareToShow(fromResponseModel responseModel: PersonalPageShowModels.UserApp.ResponseModel)
 }
 
@@ -28,8 +30,16 @@ class PersonalPageShowInteractor: PersonalPageShowInteractorInput {
     
     
     // MARK: - Custom Functions. Business logic
+    func userAppTemplatesDidLoad(withRequestModel requestModel: PersonalPageShowModels.Templates.RequestModel) {
+        worker              =   PersonalPageShowWorker()
+        let items           =   worker.userAppTemplatesDidLoad(forUserApp: requestModel.userID)
+        
+        // NOTE: Pass the result to the Presenter
+        let responseModel   =   PersonalPageShowModels.Templates.ResponseModel(items: items)
+        presenter.userAppTemplatesDidPrepareToShow(fromResponseModel: responseModel)
+    }
+
     func userAppDataDidUpdate(withRequestModel requestModel: PersonalPageShowModels.UserApp.RequestModel) {
-        // NOTE: Create some Worker to do the work
         worker              =   PersonalPageShowWorker()
         let userApp         =   worker.userAppDidUpdateOnServer(withParameters: requestModel.params)
         

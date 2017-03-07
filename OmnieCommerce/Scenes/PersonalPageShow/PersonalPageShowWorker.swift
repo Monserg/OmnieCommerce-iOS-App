@@ -10,9 +10,39 @@
 //
 
 import UIKit
+import CoreLocation
 
 class PersonalPageShowWorker {
     // MARK: - Custom Functions. Business Logic
+    func userAppTemplatesDidLoad(forUserApp userAppCode: String) -> [Organization]? {
+        guard arc4random_uniform(2) == 1 else {
+            return nil
+        }
+        
+        var items   =   [Organization]()
+        
+        for index in 0..<11 {
+            let organization = Organization(codeID: index,
+                                            name: "Organization \(index)",
+                                            category: Category.init("Beauty", "image-beauty-normal"),
+                                            location: CLLocationCoordinate2D.init(latitude: 49.439393, longitude: 26.998901299999943),
+                                            addressCity: nil,
+                                            addressStreet: nil,
+                                            logoURL: (Int(arc4random_uniform(2)) == 1) ? "http://vignette2.wikia.nocookie.net/logopedia/images/2/25/BMW_logo.png/revision/latest?cb=20150410110027" : nil,
+                                            headerURL: (Int(arc4random_uniform(2)) == 1) ? "http://www.khmelnytskyi-park.com.ua/wp-content/uploads/2016/08/KP6.jpg" : nil,
+                                            rating: Double(arc4random_uniform(6)),
+                                            isFavorite: (Int(arc4random_uniform(2)) == 1) ? true : false,
+                                            phones: nil,
+                                            schedule: Schedule(timeWork: "09:00 - 18:00", timeLaunch: "13:00 - 13:45", timeSaturday: "10:00 - 17:00", timeSunday: "Holiday"),
+                                            cellIdentifier: "UserTemplateTableViewCell",
+                                            cellHeight: 54.0)
+            
+            items.append(organization)
+        }
+
+        return items
+    }
+
     func userAppDidUpdateOnServer(withParameters parameters: [String: String]) -> AppUser {
         // NOTE: Do the work
         return CoreDataManager.instance.appUser

@@ -19,6 +19,8 @@
 		B10874A71E5B3D7E004A4FB6 /* AppUser+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10874A51E5B3D7E004A4FB6 /* AppUser+CoreDataProperties.swift */; };
 		B10CF52A1E684B9700811DC1 /* ScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10CF5291E684B9700811DC1 /* ScheduleView.swift */; };
 		B10CF52C1E684BA000811DC1 /* ScheduleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B10CF52B1E684BA000811DC1 /* ScheduleView.xib */; };
+		B1152FAF1E6E9FD8007999B9 /* UserTemplateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1152FAD1E6E9FD8007999B9 /* UserTemplateTableViewCell.swift */; };
+		B1152FB01E6E9FD8007999B9 /* UserTemplateTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1152FAE1E6E9FD8007999B9 /* UserTemplateTableViewCell.xib */; };
 		B11B9AD61DF00CC5009A4AA1 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11B9AD51DF00CC5009A4AA1 /* BaseTableViewCell.swift */; };
 		B11B9ADA1DF02F5C009A4AA1 /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11B9AD91DF02F5C009A4AA1 /* Date+Ext.swift */; };
 		B11B9ADD1DF053BA009A4AA1 /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11B9ADC1DF053BA009A4AA1 /* CustomImageView.swift */; };
@@ -360,6 +362,8 @@
 		B10874A51E5B3D7E004A4FB6 /* AppUser+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AppUser+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		B10CF5291E684B9700811DC1 /* ScheduleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleView.swift; sourceTree = "<group>"; };
 		B10CF52B1E684BA000811DC1 /* ScheduleView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScheduleView.xib; sourceTree = "<group>"; };
+		B1152FAD1E6E9FD8007999B9 /* UserTemplateTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTemplateTableViewCell.swift; sourceTree = "<group>"; };
+		B1152FAE1E6E9FD8007999B9 /* UserTemplateTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserTemplateTableViewCell.xib; sourceTree = "<group>"; };
 		B11B9AD51DF00CC5009A4AA1 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
 		B11B9AD91DF02F5C009A4AA1 /* Date+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
 		B11B9ADC1DF053BA009A4AA1 /* CustomImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
@@ -1206,6 +1210,8 @@
 			children = (
 				B1597ACF1E3F42B600123CB5 /* AvatarActionView.swift */,
 				B1597AD11E3F42BD00123CB5 /* AvatarActionView.xib */,
+				B1152FAD1E6E9FD8007999B9 /* UserTemplateTableViewCell.swift */,
+				B1152FAE1E6E9FD8007999B9 /* UserTemplateTableViewCell.xib */,
 			);
 			path = UIView;
 			sourceTree = "<group>";
@@ -1714,6 +1720,7 @@
 				B1BF92731DD6516C00BECBBB /* helveticaneuecyr-roman.otf in Resources */,
 				B1BF92741DD6516C00BECBBB /* helveticaneuecyr-thin.otf in Resources */,
 				B1BF92751DD6516C00BECBBB /* helveticaneuecyr-thinitalic.otf in Resources */,
+				B1152FB01E6E9FD8007999B9 /* UserTemplateTableViewCell.xib in Resources */,
 				B122DF6B1DF804CD003823AD /* SegmentedControlViewLandscape.xib in Resources */,
 				B1C13D8D1DEF3385002B494A /* DropDown.storyboard in Resources */,
 				B18A45C61DEC21BA003EBD2F /* SmallTopBarView.xib in Resources */,
@@ -1853,6 +1860,7 @@
 				B12FE6441E57323400A4FBA4 /* TextFieldManager.swift in Sources */,
 				B1BEEDF01E63687500F1DE8A /* OrganizationShowInteractor.swift in Sources */,
 				B177E55E1E54B8F6004F1390 /* PasswordStrengthLevelView.swift in Sources */,
+				B1152FAF1E6E9FD8007999B9 /* UserTemplateTableViewCell.swift in Sources */,
 				B1DA01B11DF1CB2F00E6DD46 /* UIFont+Ext.swift in Sources */,
 				B1CF54B31DDB516E00E98049 /* OmnieCardsShowViewController.swift in Sources */,
 				B1CF54D01DDB51A500E98049 /* PersonalPageShowWorker.swift in Sources */,

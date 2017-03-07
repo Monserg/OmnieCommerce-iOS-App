@@ -51,6 +51,8 @@
 "Sat"                           =   "Сб";
 "Sun"                           =   "Вс";
 "Mon-Fri"                       =   "Пн-Пт";
+"Additional Services"           =   "Дополнительные услуги:";
+"Comment"                       =   "Комментарий:";
 
 
 // Buttons
@@ -75,6 +77,8 @@
 "Phones"                        =   "Телефоны";
 "Schedule"                      =   "График";
 "Save"                          =   "Сохранить";
+"Use Template"                  =   "Использовать шаблон";
+"Delete Template"               =   "Удалить шаблон";
 
 
 // TextField Placeholders
@@ -140,6 +144,7 @@
 "Messages list is empty"        =   "Список сообщений пуст";
 "News list is empty"            =   "Список новостей пуст";
 "Phones list is empty"          =   "Список телефонов пуст";
+"Templates list is empty"       =   "Список шаблонов пуст";
 "Incorrect User name"           =   "Введите корректное имя пользователя";
 "Incorrect User password"       =   "Введите корректный пароль пользователя";
 "User not register"             =   "Пользователь не зарегистрирован";

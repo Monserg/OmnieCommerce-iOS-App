@@ -14,11 +14,13 @@ import AlamofireImage
 
 // MARK: - Input protocols for current ViewController component VIP-cicle
 protocol PersonalPageShowViewControllerInput {
+    func userAppTemplatesDidShow(fromViewModel viewModel: PersonalPageShowModels.Templates.ViewModel)
     func userAppDataDidShow(fromViewModel viewModel: PersonalPageShowModels.UserApp.ViewModel)
 }
 
 // MARK: - Output protocols for Interactor component VIP-cicle
 protocol PersonalPageShowViewControllerOutput {
+    func userAppTemplatesDidLoad(withRequestModel requestModel: PersonalPageShowModels.Templates.RequestModel)
     func userAppDataDidUpdate(withRequestModel requestModel: PersonalPageShowModels.UserApp.RequestModel)
 }
 
@@ -150,12 +152,15 @@ class PersonalPageShowViewController: BaseViewController {
     }
     
     func setupSegmentedControlView() {
+        self.userApp                        =   CoreDataManager.instance.appUser
+
         segmentedControlView.actionButtonHandlerCompletion = { sender in
             self.print(object: "\(type(of: self)): \(#function) run. Sender tag = \(sender.tag)")
             
             switch sender.tag {
             case 1:
-                self.activeViewController   =   self.personalTemplatesVC
+                let requestModel            =   PersonalPageShowModels.Templates.RequestModel(userID: self.userApp!.codeID!)
+                self.interactor.userAppTemplatesDidLoad(withRequestModel: requestModel)
                 
             default:
                 self.activeViewController   =   self.personalDataVC
@@ -187,19 +192,36 @@ class PersonalPageShowViewController: BaseViewController {
         smallTopBarView.setNeedsDisplay()
         smallTopBarView.circleView.setNeedsDisplay()
         segmentedControlView.setNeedsDisplay()
+        
+        if (self.activeViewController == self.personalTemplatesVC) {
+            _ = self.personalTemplatesVC!.tableView.visibleCells.map{ ($0 as! UserTemplateTableViewCell).dottedBorderView.setNeedsDisplay() }
+        }
     }
 }
 
 
 // MARK: - PersonalPageShowViewControllerInput
 extension PersonalPageShowViewController: PersonalPageShowViewControllerInput {
-    func userAppDataDidShow(fromViewModel viewModel: PersonalPageShowModels.UserApp.ViewModel) {
+    func userAppTemplatesDidShow(fromViewModel viewModel: PersonalPageShowModels.Templates.ViewModel) {
         guard isNetworkAvailable else {
             alertViewDidShow(withTitle: "Not Reachable".localized(), andMessage: "Disconnected from Network".localized())
             
             return
         }
 
+        self.personalTemplatesVC!.organizations     =   viewModel.organizations
+        self.activeViewController                   =   self.personalTemplatesVC
+        
+        self.personalTemplatesVC!.viewSettingsDidLoad()
+    }
+
+    func userAppDataDidShow(fromViewModel viewModel: PersonalPageShowModels.UserApp.ViewModel) {
+        guard isNetworkAvailable else {
+            alertViewDidShow(withTitle: "Not Reachable".localized(), andMessage: "Disconnected from Network".localized())
+            
+            return
+        }
+        
         print(object: "\(type(of: self)): \(#function) run.")
         
         self.activeViewController?.userApp  =   viewModel.userApp

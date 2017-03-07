@@ -40,6 +40,7 @@ class OrganizationsShowWorker {
         for (index, location) in coordinates.enumerated() {
             let organization = Organization(codeID: index,
                                             name: "Organization \(index)",
+                                            category: Category.init("Beauty", "image-beauty-normal"),
                                             location: location,
                                             addressCity: nil,
                                             addressStreet: nil,
@@ -48,7 +49,9 @@ class OrganizationsShowWorker {
                                             rating: Double(arc4random_uniform(6)),
                                             isFavorite: (Int(arc4random_uniform(2)) == 1) ? true : false,
                                             phones: phonesDidCreate(),
-                                            schedule: scheduleDidCreate())
+                                            schedule: scheduleDidCreate(),
+                                            cellIdentifier: "OrganizationTableViewCell",
+                                            cellHeight: 96.0)
             
             organizations.append(organization)
         }
