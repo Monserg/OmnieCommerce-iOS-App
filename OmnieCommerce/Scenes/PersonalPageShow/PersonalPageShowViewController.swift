@@ -187,8 +187,6 @@ class PersonalPageShowViewController: BaseViewController {
     
     // MARK: - Transition
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        print(object: "\(type(of: self)): \(#function) run. New size = \(size)")
-        
         smallTopBarView.setNeedsDisplay()
         smallTopBarView.circleView.setNeedsDisplay()
         segmentedControlView.setNeedsDisplay()

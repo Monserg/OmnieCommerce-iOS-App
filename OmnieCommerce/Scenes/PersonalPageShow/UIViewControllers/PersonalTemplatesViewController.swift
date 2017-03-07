@@ -34,20 +34,10 @@ class PersonalTemplatesViewController: BaseViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     
     // MARK: - Custom Functions
-    func tableViewDidUpdate(_ organizations: [Organization]?) {
-        
-        //            // Handler select cell
-        //            tableView.tableViewControllerManager.completionHandler    =   { organization in
-        //                // TODO: ADD TRANSITION TO NEWS PROFILE
-        //                self.print(object: "transition to News profile scene")
-        //            }
-    }
-    
     func viewSettingsDidLoad() {
         tableView.tableViewControllerManager.sectionsCount  =   1
         tableView.tableViewControllerManager.dataSource     =   organizations
@@ -59,8 +49,4 @@ class PersonalTemplatesViewController: BaseViewController {
         tableView.reloadData()
     }
     
-    // MARK: - Transition
-    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        _ = tableView.visibleCells.map{ ($0 as! UserTemplateTableViewCell).dottedBorderView.setNeedsDisplay() }
-    }
 }

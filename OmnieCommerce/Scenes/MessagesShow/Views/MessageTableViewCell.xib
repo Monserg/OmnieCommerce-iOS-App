@@ -17,10 +17,10 @@
             <rect key="frame" x="0.0" y="0.0" width="493" height="96"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="t8b-kV-lCE" id="sMV-OY-u28">
-                <rect key="frame" x="0.0" y="0.0" width="493" height="95"/>
+                <rect key="frame" x="0.0" y="0.0" width="493" height="95.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XLs-NS-f4d" userLabel="Border Dotted View">
+                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XLs-NS-f4d" userLabel="Border Dotted View">
                         <rect key="frame" x="50" y="6" width="435" height="84"/>
                         <subviews>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="13g-08-x1W" customClass="DottedBorderView" customModule="OmnieCommerce" customModuleProvider="target">
@@ -160,6 +160,9 @@
                             <constraint firstAttribute="trailing" secondItem="13g-08-x1W" secondAttribute="trailing" id="WLO-0e-Sv0"/>
                             <constraint firstItem="13g-08-x1W" firstAttribute="top" secondItem="XLs-NS-f4d" secondAttribute="top" id="yH7-bM-zyJ"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                        </userDefinedRuntimeAttributes>
                     </view>
                     <imageView opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image-no-photo" translatesAutoresizingMaskIntoConstraints="NO" id="Ryx-ei-hEh" userLabel="Logo Image View" customClass="CustomImageView" customModule="OmnieCommerce" customModuleProvider="target">
                         <rect key="frame" x="8" y="5" width="84" height="84"/>
@@ -192,6 +195,9 @@
                     <constraint firstAttribute="bottom" secondItem="Ryx-ei-hEh" secondAttribute="bottom" constant="6" id="yYQ-qh-0EJ"/>
                     <constraint firstItem="XLs-NS-f4d" firstAttribute="leading" secondItem="sMV-OY-u28" secondAttribute="leading" constant="50" id="z54-2l-awJ"/>
                 </constraints>
+                <userDefinedRuntimeAttributes>
+                    <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                </userDefinedRuntimeAttributes>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
@@ -200,6 +206,9 @@
                 <constraint firstItem="7ki-do-DQa" firstAttribute="width" secondItem="t8b-kV-lCE" secondAttribute="width" multiplier="60:375" id="ZPQ-Su-qTq"/>
                 <constraint firstItem="0Gr-kQ-3PX" firstAttribute="width" secondItem="t8b-kV-lCE" secondAttribute="width" multiplier="8:667" id="yxz-OX-wrq"/>
             </constraints>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+            </userDefinedRuntimeAttributes>
             <variation key="default">
                 <mask key="constraints">
                     <exclude reference="ZPQ-Su-qTq"/>

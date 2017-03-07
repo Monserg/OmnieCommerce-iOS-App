@@ -12,14 +12,16 @@ import AlamofireImage
 class UserTemplateTableViewCell: UITableViewCell {
     // MARK: - Properties
     var handlerSendButtonCompletion: HandlerSendButtonCompletion?
-    let expandedHeight: CGFloat     =   260.0
+    let expandedHeight: CGFloat     =   310.0
     
     var isExpanded: Bool            =   false {
         didSet {
-            self.dottedBorderViewHeightConstraint.constant  =   (isExpanded) ? expandedHeight : 43.5
-            
-            self.handlerSendButtonCompletion!()
+            self.dottedBorderViewHeightConstraint.constant  =   (self.isExpanded) ? self.expandedHeight : 43.5
+
             self.dottedBorderView.setNeedsDisplay()
+            self.handlerSendButtonCompletion!()
+
+            self.dottedBorderView.alpha     =   1
         }
     }
     
@@ -43,7 +45,8 @@ class UserTemplateTableViewCell: UITableViewCell {
     
     // MARK: - Actions
     @IBAction func handlerExpandButtonTap(_ sender: FillVeryLightOrangeButton) {
-        isExpanded  =   !isExpanded
+        self.dottedBorderView.alpha     =   0
+        isExpanded                      =   !isExpanded
     }
 }
 

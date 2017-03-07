@@ -15,7 +15,11 @@ class MSMTableViewControllerManager: BaseViewController {
     var dataSourceFiltered: [Any]?
     var isSearchBarActive: Bool     =   false
 
-    var tableView: MSMTableView?
+    var tableView: MSMTableView? {
+        didSet {
+            tableView!.rowHeight    =   UITableViewAutomaticDimension
+        }
+    }
     
     var handlerSearchCompletion: ((_ value: Any) -> ())?
     var handlerSendButtonCompletion: HandlerSendButtonCompletion?
@@ -25,8 +29,6 @@ class MSMTableViewControllerManager: BaseViewController {
     // MARK: - Class Functions
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.tableView!.rowHeight   =   UITableViewAutomaticDimension
     }
     
     override func didReceiveMemoryWarning() {
@@ -117,24 +119,22 @@ extension MSMTableViewControllerManager: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 200.0
+        return 60.0
     }
 
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        let height  =   (self.dataSource?[indexPath.row] as! InitCellParameters).cellHeight
-////        let cell    =   tableView.cellForRow(at: indexPath)!
-////
-////        if cell.isKind(of: UITableViewCell.self), let userTemplateCell = cell as? UserTemplateTableViewCell {
-////            let isCellExpanded                  =   userTemplateCell.isExpanded
-////            
-////            self.tableView!.estimatedRowHeight  =   (isCellExpanded) ?  userTemplateCell.expandedHeight : height
-////            self.tableView!.rowHeight           =   UITableViewAutomaticDimension
-////
-////            return self.tableView!.rowHeight
-////        }
-//        
-//        return height
-//    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let height  =   (self.dataSource?[indexPath.row] as! InitCellParameters).cellHeight
+        let cellIdentifier  =   (dataSource?[indexPath.row] as! InitCellParameters).cellIdentifier
+
+        if (cellIdentifier == "UserTemplateTableViewCell") {
+            self.tableView!.estimatedRowHeight  =   290 //dedHeight : height
+            self.tableView!.rowHeight           =   UITableViewAutomaticDimension
+
+            return self.tableView!.rowHeight
+        }
+        
+        return height
+    }
     
     func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
         let cell                            =   tableView.cellForRow(at: indexPath)!
