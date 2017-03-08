@@ -11,6 +11,18 @@ import Foundation
 
 class CoreDataManager {
     // MARK: - Properties. CoreDate Stack
+    var modelName: String
+    var sqliteName: String
+    var options: NSDictionary?
+    
+    var description: String {
+        return "context: \(managedObjectContext)\n" + "modelName: \(modelName)" +
+            //        "model: \(model.entityVersionHashesByName)\n" +
+            //        "coordinator: \(coordinator)\n" +
+        "storeURL: \(applicationDocumentsDirectory)\n"
+        //        "store: \(store)"
+    }
+
     var appUser: AppUser! {
         didSet {
             didSaveContext()
@@ -30,15 +42,15 @@ class CoreDataManager {
     }()
     
     lazy var managedObjectModel: NSManagedObjectModel = {
-        let modelURL = Bundle.main.url(forResource: "OmnieCommerceUser", withExtension: "momd")!
+        let modelURL = Bundle.main.url(forResource: self.modelName, withExtension: "momd")!
         
         return NSManagedObjectModel(contentsOf: modelURL)!
     }()
     
     lazy var persistentStoreCoordinator: NSPersistentStoreCoordinator = {
-        let coordinator = NSPersistentStoreCoordinator(managedObjectModel: self.managedObjectModel)
-        let url = self.applicationDocumentsDirectory.appendingPathComponent("SingleViewCoreData.sqlite")
-        var failureReason = "CoreData saved error".localized()
+        let coordinator     =   NSPersistentStoreCoordinator(managedObjectModel: self.managedObjectModel)
+        let url             =   self.applicationDocumentsDirectory.appendingPathComponent(self.sqliteName + ".sqlite")
+        var failureReason   =   "CoreData saved error".localized()
         
         do {
             try coordinator.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: url, options: nil)
@@ -47,7 +59,7 @@ class CoreDataManager {
             dict[NSLocalizedDescriptionKey]         =   "CoreData init error".localized() as AnyObject?
             dict[NSLocalizedFailureReasonErrorKey]  =   failureReason as AnyObject?
             dict[NSUnderlyingErrorKey]              =   error as NSError
-            let wrappedError = NSError(domain: "YOUR_ERROR_DOMAIN", code: 9999, userInfo: dict)
+            let wrappedError                        =   NSError(domain: "YOUR_ERROR_DOMAIN", code: 9999, userInfo: dict)
             
             NSLog("Unresolved error \(wrappedError), \(wrappedError.userInfo)")
             abort()
@@ -66,9 +78,15 @@ class CoreDataManager {
 
     
     // MARK: - Class Initialization. Singleton
-    static let instance = CoreDataManager()
+    static let instance     =   CoreDataManager(modelName: "OmnieCommerceUser",
+                                                sqliteName: "OmnieCommerceUser",
+                                                options: [NSMigratePersistentStoresAutomaticallyOption: true, NSInferMappingModelAutomaticallyOption: true])
     
-    private init() {}
+    private init(modelName: String, sqliteName: String, options: NSDictionary? = nil) {
+        self.modelName      =   modelName
+        self.sqliteName     =   sqliteName
+        self.options        =   options
+    }
     
     
     // MARK: - Class Functions

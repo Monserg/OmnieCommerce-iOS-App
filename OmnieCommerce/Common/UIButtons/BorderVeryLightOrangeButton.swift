@@ -34,7 +34,7 @@ import UIKit
             return
         }
         
-        titleEdgeInsets     =   UIEdgeInsetsMake(0, -15, 0, 0)
-        imageEdgeInsets     =   UIEdgeInsetsMake(0, (titleLabel?.frame.maxX)! + 8, 0, 0)
+        titleEdgeInsets     =   UIEdgeInsetsMake(0, 0, 0, 10)
+        imageEdgeInsets     =   UIEdgeInsetsMake(0, (titleLabel?.frame.maxX)! + 0, 0, 0)
     }
 }

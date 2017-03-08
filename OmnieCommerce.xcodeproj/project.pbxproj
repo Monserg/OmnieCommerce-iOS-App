@@ -498,6 +498,7 @@
 		B15FD4061DD1DD8C00782324 /* OmnieCommerce.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OmnieCommerce.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B15FD4091DD1DD8C00782324 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B15FD4151DD1DD8C00782324 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Info.plist; sourceTree = "<group>"; };
+		B163FE6F1E6FB4E3004AF42E /* OmnieCommerceUser v.2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "OmnieCommerceUser v.2.xcdatamodel"; sourceTree = "<group>"; };
 		B16E966E1DE6C94000147CEF /* BigTopBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BigTopBarView.swift; sourceTree = "<group>"; };
 		B16E96701DE6C94D00147CEF /* BigTopBarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BigTopBarView.xib; sourceTree = "<group>"; };
 		B16E96721DE717E400147CEF /* BigCirleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BigCirleView.swift; sourceTree = "<group>"; };
@@ -2285,9 +2286,10 @@
 		B10874671E5B07A6004A4FB6 /* OmnieCommerceUser.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				B163FE6F1E6FB4E3004AF42E /* OmnieCommerceUser v.2.xcdatamodel */,
 				B10874681E5B07A6004A4FB6 /* OmnieCommerceUser.xcdatamodel */,
 			);
-			currentVersion = B10874681E5B07A6004A4FB6 /* OmnieCommerceUser.xcdatamodel */;
+			currentVersion = B163FE6F1E6FB4E3004AF42E /* OmnieCommerceUser v.2.xcdatamodel */;
 			path = OmnieCommerceUser.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

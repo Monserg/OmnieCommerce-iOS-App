@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -123,10 +123,10 @@
                         </userDefinedRuntimeAttributes>
                     </label>
                     <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="VsB-Qf-lwF" userLabel="Services Stack View">
-                        <rect key="frame" x="202" y="55" width="168" height="92"/>
+                        <rect key="frame" x="202" y="55" width="148" height="73"/>
                         <subviews>
                             <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Service 1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tmz-Da-XZW" userLabel="Service Label 1" customClass="UbuntuLightVeryLightGrayLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="168" height="14.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="148" height="0.0"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <nil key="textColor"/>
@@ -136,7 +136,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Service 2" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="047-AO-7gj" userLabel="Service Label 2" customClass="UbuntuLightVeryLightGrayLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="19.5" width="168" height="14.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="148" height="14.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <nil key="textColor"/>
@@ -146,7 +146,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Service 3" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gMp-sg-hiv" userLabel="Service Label 3" customClass="UbuntuLightVeryLightGrayLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="39" width="168" height="14"/>
+                                <rect key="frame" x="0.0" y="19.5" width="148" height="14.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <nil key="textColor"/>
@@ -156,7 +156,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Service 4" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F3T-V6-azi" userLabel="Service Label 4" customClass="UbuntuLightVeryLightGrayLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="58" width="168" height="14.5"/>
+                                <rect key="frame" x="0.0" y="39" width="148" height="14.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <nil key="textColor"/>
@@ -166,7 +166,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="4" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Service 5" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qgH-FI-n8n" userLabel="Service Label 5" customClass="UbuntuLightVeryLightGrayLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="77.5" width="168" height="14.5"/>
+                                <rect key="frame" x="0.0" y="58.5" width="148" height="14.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <nil key="textColor"/>
@@ -182,7 +182,7 @@
                         </constraints>
                     </stackView>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Comment" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8EB-Vj-4aW" userLabel="Comment Label" customClass="UbuntuLightItalicLightGrayishCyanLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                        <rect key="frame" x="67" y="157" width="130" height="14.5"/>
+                        <rect key="frame" x="67" y="138" width="130" height="14.5"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <nil key="textColor"/>
@@ -192,7 +192,7 @@
                         </userDefinedRuntimeAttributes>
                     </label>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label jkhjkhjkh hjkhjkhj" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MAh-bD-hbL" userLabel="Comment Text Label" customClass="UbuntuLightVeryLightGrayLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                        <rect key="frame" x="202" y="157" width="148" height="30"/>
+                        <rect key="frame" x="202" y="138" width="148" height="30"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="30" id="UbK-uZ-uw9"/>
@@ -205,7 +205,7 @@
                         </userDefinedRuntimeAttributes>
                     </label>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="hdx-DS-Cbf" userLabel="Buttons Stack View">
-                        <rect key="frame" x="77" y="207" width="222" height="87"/>
+                        <rect key="frame" x="77" y="188" width="222" height="87"/>
                         <subviews>
                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z50-sQ-9sa" userLabel="Use Button" customClass="FillVeryLightOrangeButton" customModule="OmnieCommerce" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="222" height="36"/>
@@ -255,7 +255,7 @@
                     <constraint firstItem="NKy-jl-DRW" firstAttribute="centerY" secondItem="gTy-0X-6m2" secondAttribute="centerY" id="Tpr-kt-Ahb"/>
                     <constraint firstItem="Ahf-H1-ntT" firstAttribute="leading" secondItem="gTy-0X-6m2" secondAttribute="trailing" constant="15" id="WFN-kG-qdj"/>
                     <constraint firstAttribute="trailing" secondItem="MAh-bD-hbL" secondAttribute="trailing" constant="25" id="ac7-p3-TX6"/>
-                    <constraint firstAttribute="trailing" secondItem="VsB-Qf-lwF" secondAttribute="trailing" constant="5" id="csS-ZQ-O8T"/>
+                    <constraint firstAttribute="trailing" secondItem="VsB-Qf-lwF" secondAttribute="trailing" constant="25" id="csS-ZQ-O8T"/>
                     <constraint firstAttribute="trailing" secondItem="yRU-8q-EFm" secondAttribute="trailing" constant="8" id="fCD-vM-5UN"/>
                     <constraint firstItem="MAh-bD-hbL" firstAttribute="top" secondItem="8EB-Vj-4aW" secondAttribute="top" id="h8c-lK-3Ii"/>
                     <constraint firstItem="yRU-8q-EFm" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="paE-qc-I2u"/>

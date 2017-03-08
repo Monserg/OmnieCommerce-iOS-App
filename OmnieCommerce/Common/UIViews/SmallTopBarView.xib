@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="landscape">
+    <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -30,10 +31,10 @@
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OTQ-6X-f87" userLabel="Nav Bar View">
-                    <rect key="frame" x="0.0" y="4" width="414" height="44"/>
+                    <rect key="frame" x="0.0" y="20" width="414" height="52.5"/>
                     <subviews>
                         <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1UU-5B-Xhy" userLabel="Action Button">
-                            <rect key="frame" x="4" y="0.0" width="44" height="44"/>
+                            <rect key="frame" x="4" y="4" width="44" height="44"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="44" id="Xwo-Xr-1cS"/>
@@ -42,7 +43,7 @@
                             <state key="normal" image="icon-menu-normal"/>
                         </button>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Orders" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HQM-9u-rBz" userLabel="Title Label" customClass="HelveticaNeueCyrLightVeryLightGrayLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                            <rect key="frame" x="56" y="3.5" width="306" height="38.5"/>
+                            <rect key="frame" x="56" y="7.5" width="306" height="38.5"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <fontDescription key="fontDescription" type="system" pointSize="32"/>
                             <nil key="textColor"/>
@@ -52,7 +53,7 @@
                             </userDefinedRuntimeAttributes>
                         </label>
                         <searchBar clipsSubviews="YES" alpha="0.0" contentMode="redraw" placeholder="Enter name" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NQE-rU-agZ">
-                            <rect key="frame" x="48" y="0.0" width="366" height="44"/>
+                            <rect key="frame" x="48" y="4" width="366" height="44"/>
                             <color key="backgroundColor" red="0.0" green="0.57647058823529407" blue="0.58431372549019611" alpha="1" colorSpace="calibratedRGB"/>
                             <color key="tintColor" red="0.87058823529411766" green="0.87058823529411766" blue="0.87058823529411766" alpha="1" colorSpace="calibratedRGB"/>
                             <color key="barTintColor" red="0.0" green="0.57647058823529407" blue="0.58431372549019611" alpha="1" colorSpace="calibratedRGB"/>
@@ -81,7 +82,7 @@
                             </userDefinedRuntimeAttributes>
                         </searchBar>
                         <stackView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="ef5-nQ-6Bi">
-                            <rect key="frame" x="189" y="46" width="36" height="4"/>
+                            <rect key="frame" x="189" y="50" width="36" height="4"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x6s-gG-iKi" userLabel="Dot 1 View" customClass="DotView" customModule="OmnieCommerce" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="4" height="4"/>
@@ -137,7 +138,7 @@
                             </constraints>
                         </stackView>
                         <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FNP-4w-rop" userLabel="Search Button">
-                            <rect key="frame" x="366" y="0.0" width="44" height="44"/>
+                            <rect key="frame" x="366" y="4" width="44" height="44"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="44" id="0BH-te-VPP"/>
@@ -155,7 +156,6 @@
                         <constraint firstItem="FNP-4w-rop" firstAttribute="leading" secondItem="HQM-9u-rBz" secondAttribute="trailing" constant="4" id="Cz6-PU-kg7"/>
                         <constraint firstAttribute="trailing" secondItem="NQE-rU-agZ" secondAttribute="trailing" id="EIe-lg-3er"/>
                         <constraint firstItem="NQE-rU-agZ" firstAttribute="centerY" secondItem="OTQ-6X-f87" secondAttribute="centerY" id="TLI-b4-wgM"/>
-                        <constraint firstAttribute="height" constant="44" id="Tad-pS-19t"/>
                         <constraint firstItem="ef5-nQ-6Bi" firstAttribute="centerX" secondItem="OTQ-6X-f87" secondAttribute="centerX" id="Z8g-np-luF"/>
                         <constraint firstItem="NQE-rU-agZ" firstAttribute="leading" secondItem="1UU-5B-Xhy" secondAttribute="trailing" id="ghL-0N-AoT"/>
                         <constraint firstItem="1UU-5B-Xhy" firstAttribute="centerY" secondItem="OTQ-6X-f87" secondAttribute="centerY" id="ri0-Kd-0cx"/>
@@ -174,9 +174,11 @@
                     <variation key="heightClass=compact-widthClass=regular" constant="6"/>
                 </constraint>
                 <constraint firstItem="kst-NW-aRW" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="7EP-Gt-d46"/>
+                <constraint firstItem="OTQ-6X-f87" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="44:80" id="Ba8-WM-NbD"/>
                 <constraint firstAttribute="bottom" secondItem="kst-NW-aRW" secondAttribute="bottom" id="D1h-yh-nYp"/>
                 <constraint firstAttribute="trailing" secondItem="kst-NW-aRW" secondAttribute="trailing" id="G4A-at-nGm"/>
                 <constraint firstAttribute="trailing" secondItem="OTQ-6X-f87" secondAttribute="trailing" id="Nwj-qa-tGD"/>
+                <constraint firstItem="OTQ-6X-f87" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="44:95" id="Rda-TR-RWc"/>
                 <constraint firstItem="kst-NW-aRW" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="SE9-mf-Ttm"/>
                 <constraint firstItem="OTQ-6X-f87" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="cnc-W6-Kgo"/>
                 <constraint firstItem="OTQ-6X-f87" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="czJ-d7-Bf8"/>
@@ -185,6 +187,17 @@
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="Rda-TR-RWc"/>
+                </mask>
+            </variation>
+            <variation key="heightClass=regular-widthClass=compact">
+                <mask key="constraints">
+                    <exclude reference="Ba8-WM-NbD"/>
+                    <include reference="Rda-TR-RWc"/>
+                </mask>
+            </variation>
             <point key="canvasLocation" x="33" y="-539.5"/>
         </view>
     </objects>

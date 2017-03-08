@@ -218,11 +218,11 @@
                                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JZz-1m-Prf" userLabel="Gender View">
                                                 <rect key="frame" x="0.0" y="356" width="225" height="67.5"/>
                                                 <subviews>
-                                                    <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" distribution="fillEqually" spacing="45" translatesAutoresizingMaskIntoConstraints="NO" id="ASh-8z-ieF">
-                                                        <rect key="frame" x="30" y="21" width="165" height="26"/>
+                                                    <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="ASh-8z-ieF">
+                                                        <rect key="frame" x="25" y="21" width="175" height="26"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xff-9Q-NHM" userLabel="Man Button" customClass="DLRadioButton">
-                                                                <rect key="frame" x="0.0" y="0.0" width="60" height="26"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="72.5" height="26"/>
                                                                 <fontDescription key="fontDescription" name="Ubuntu-Light" family="Ubuntu" pointSize="12"/>
                                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
                                                                 <state key="normal" title="Man">
@@ -255,7 +255,7 @@
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MDF-kd-21N" userLabel="Female Button" customClass="DLRadioButton">
-                                                                <rect key="frame" x="105" y="0.0" width="60" height="26"/>
+                                                                <rect key="frame" x="102.5" y="0.0" width="72.5" height="26"/>
                                                                 <fontDescription key="fontDescription" name="Ubuntu-Light" family="Ubuntu" pointSize="12"/>
                                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
                                                                 <state key="normal" title="Female">
@@ -438,11 +438,11 @@
                             <constraint firstItem="1fC-iw-UTQ" firstAttribute="height" secondItem="G9m-Iz-XbO" secondAttribute="height" multiplier="40:217" id="dQC-sS-VdP"/>
                             <constraint firstAttribute="bottom" secondItem="hvu-2b-pdi" secondAttribute="bottom" id="fRb-QQ-LiV"/>
                             <constraint firstItem="4Ja-36-aOm" firstAttribute="height" secondItem="G9m-Iz-XbO" secondAttribute="height" multiplier="40:494" id="heI-vV-z45"/>
-                            <constraint firstItem="ASh-8z-ieF" firstAttribute="width" secondItem="G9m-Iz-XbO" secondAttribute="width" multiplier="165:375" id="iWb-Nf-e6G"/>
+                            <constraint firstItem="ASh-8z-ieF" firstAttribute="width" secondItem="G9m-Iz-XbO" secondAttribute="width" multiplier="175:375" id="iWb-Nf-e6G"/>
                             <constraint firstItem="JZz-1m-Prf" firstAttribute="height" secondItem="G9m-Iz-XbO" secondAttribute="height" multiplier="50:494" id="iYc-Q8-e2Q"/>
                             <constraint firstItem="pE6-4v-99U" firstAttribute="height" secondItem="G9m-Iz-XbO" secondAttribute="height" multiplier="86:217" id="kxb-F9-FlC"/>
                             <constraint firstItem="2TL-ng-3zH" firstAttribute="width" secondItem="G9m-Iz-XbO" secondAttribute="width" multiplier="150:375" id="mCe-4V-KMj"/>
-                            <constraint firstItem="ASh-8z-ieF" firstAttribute="width" secondItem="G9m-Iz-XbO" secondAttribute="width" multiplier="165:667" id="o2U-Ny-pTx"/>
+                            <constraint firstItem="ASh-8z-ieF" firstAttribute="width" secondItem="G9m-Iz-XbO" secondAttribute="width" multiplier="175:667" id="o2U-Ny-pTx"/>
                             <constraint firstItem="bzF-PZ-36r" firstAttribute="height" secondItem="G9m-Iz-XbO" secondAttribute="height" multiplier="85:217" id="ogO-Xe-Wpb"/>
                             <constraint firstItem="Jux-ED-ZWm" firstAttribute="height" secondItem="G9m-Iz-XbO" secondAttribute="height" multiplier="87:494" id="os1-3v-rva"/>
                             <constraint firstItem="Jux-ED-ZWm" firstAttribute="height" secondItem="G9m-Iz-XbO" secondAttribute="height" multiplier="87:217" id="qvZ-oE-yjp"/>
@@ -582,7 +582,7 @@
                 <navigationController storyboardIdentifier="PersonalPageShowNC" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="5ua-Ud-9pH" customClass="BaseNavigationController" customModule="OmnieCommerce" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="rDE-36-aLe">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="rDE-36-aLe">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
