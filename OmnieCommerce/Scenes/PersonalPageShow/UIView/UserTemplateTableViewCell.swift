@@ -33,16 +33,11 @@ class UserTemplateTableViewCell: UITableViewCell {
     
     @IBOutlet var serviceLabelsCollection: [UbuntuLightVeryLightGrayLabel]!
     
-    @IBOutlet weak var commentLabel: UbuntuLightItalicLightGrayishCyanLabel! {
-        didSet {}
-    }
-    
-    
     @IBOutlet weak var commentTextLabel: UbuntuLightVeryLightGrayLabel! {
         didSet {
-            commentLabel.lineBreakMode                      =   .byTruncatingTail
-            commentLabel.numberOfLines                      =   2
-            commentLabel.adjustsFontSizeToFitWidth          =   false
+            commentTextLabel.lineBreakMode                  =   .byTruncatingTail
+            commentTextLabel.numberOfLines                  =   2
+            commentTextLabel.adjustsFontSizeToFitWidth      =   false
         }
     }
     
@@ -84,7 +79,7 @@ extension UserTemplateTableViewCell: ConfigureCell {
         let organization                =   item as! Organization
         nameLabel.text                  =   organization.name
         categoryLabel.text              =   organization.category.title
-        commentLabel.text               =   "dasd as das asd asdhasgdh  ashhd gahg ha ajhgd hagd haghs  ajhgdhasgd gags"
+        commentTextLabel.text           =   "dasd as das asd asdhasgdh  ashhd gahg ha ajhgd hagd haghs  ajhgdhasgd gags"
         selectionStyle                  =   .none
         
         logoImageView.af_setImage(withURL: URL(string: organization.logoURL ?? "https://blog.testfort.com/wp-content/uploads/2015/07/apple_logo.png")!,

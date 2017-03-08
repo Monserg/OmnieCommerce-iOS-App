@@ -13,18 +13,18 @@ import UIKit
     override func draw(_ rect: CGRect) {
         let titleText       =   (titleLabel?.text != nil) ? (titleLabel?.text!.localized())! : String()
         
-        setTitle(titleText, for: .normal)
-        setTitle(titleText, for: .highlighted)
-
         if (isAppThemeDark) {
             backgroundColor =   UIColor.white
         } else {
-            setBackgroundImage(UIImage(named: "image-background-color-very-dark-desaturated-blue-normal.png")?.withRenderingMode(.alwaysOriginal), for: .normal)
+            backgroundColor =   UIColor.clear
         }
 
         tintColor           =   (isAppThemeDark) ? UIColor.black : UIColor.veryLightGray
         titleLabel?.font    =   (isAppThemeDark) ? UIFont.systemFont(ofSize: 12) : UIFont.ubuntuRegular16
         borderColor         =   (isAppThemeDark) ? UIColor.black : UIColor.veryLightOrange
+
+        setAttributedTitle(NSAttributedString(string: titleText, attributes: [NSForegroundColorAttributeName: UIColor.veryLightGray]), for: .normal)
+        setAttributedTitle(NSAttributedString(string: titleText, attributes: [NSForegroundColorAttributeName: UIColor.veryLightGrayAlpha30]), for: .highlighted)
 
         layer.borderWidth   =   1
         layer.cornerRadius  =   frame.height / 2

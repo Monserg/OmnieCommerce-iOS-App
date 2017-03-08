@@ -131,6 +131,16 @@ extension UIColor {
         }
     }
     
+    open class var veryLightGrayAlpha30: UIColor {
+        set {
+            self.veryLightGrayAlpha30 = UIColor(hexString: "#dedede", withAlpha: 0.3)!
+        }
+        
+        get {
+            return UIColor(hexString: "#dedede", withAlpha: 0.3)!
+        }
+    }
+    
     open class var veryLightOrange: UIColor {
         set {
             self.veryLightOrange = UIColor(hexString: "#ffd76c")!
@@ -143,7 +153,7 @@ extension UIColor {
     
     open class var veryLightOrangeAlpha30: UIColor {
         set {
-            self.veryLightOrange = UIColor(hexString: "#ffd76c", withAlpha: 0.3)!
+            self.veryLightOrangeAlpha30 = UIColor(hexString: "#ffd76c", withAlpha: 0.3)!
         }
         
         get {
@@ -249,16 +259,6 @@ extension UIColor {
         
         get {
             return UIColor(hexString: "#cacaca", withAlpha: 0.2)!
-        }
-    }
-    
-    open class var veryLightGrayAlpha30: UIColor {
-        set {
-            self.veryLightGrayAlpha30 = UIColor(hexString: "#dedede", withAlpha: 0.3)!
-        }
-        
-        get {
-            return UIColor(hexString: "#dedede", withAlpha: 0.3)!
         }
     }
     
