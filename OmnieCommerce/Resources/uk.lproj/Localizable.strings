@@ -30,6 +30,7 @@
 "Phone or email error"          =   "* невірний номер або Email";
 "Phone error"                   =   "* невірний номер";
 "Email error"                   =   "* невірний Email";
+"Passwords compare error"       =   "* невірний пароль";
 "Auto Service"                  =   "Автосервіс";
 "Health"                        =   "Здоров'я";
 "Beauty"                        =   "Краса";
@@ -41,7 +42,6 @@
 "To"                            =   "до";
 "Enter code"                    =   "Введіть код";
 "Invalid code"                  =   "* Невірний код. Спробуйте ще раз";
-"New password"                  =   "Новий пароль";
 "Organization message"          =   "Повідомлення до організації";
 "Organization price list"       =   "Прайс організації";
 "Organization add card"         =   "Додати візитку організації";
@@ -79,6 +79,7 @@
 "Save"                          =   "Зберегти";
 "Use Template"                  =   "Використати шаблон";
 "Delete Template"               =   "Видалити шаблон";
+"Change"                        =   "Змінити";
 
 
 // TextField Placeholders
@@ -89,7 +90,9 @@
 "Phone"                         =   "Телефон";
 "Phone or Email"                =   "Телефон або Email";
 "Enter Code"                    =   "Введіть код з повідомлення";
-"Repeat password"               =   "Повторити пароль";
+"Old password"                  =   "Старий пароль";
+"New password"                  =   "Новий пароль";
+"Repeat password"               =   "Повторіть пароль";
 "Enter Organization name"       =   "Введіть назву організації";
 
 

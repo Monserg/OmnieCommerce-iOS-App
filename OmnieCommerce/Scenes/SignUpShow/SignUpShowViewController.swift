@@ -28,7 +28,7 @@ class SignUpShowViewController: BaseViewController, EmailErrorMessageView, Passw
     var interactor: SignUpShowViewControllerOutput!
     var router: SignUpShowRouter!
     
-    var textFieldManager: TextFieldManager! {
+    var textFieldManager: MSMTextFieldManager! {
         didSet {
             // Delegates
             for textField in textFieldsCollection {
@@ -75,11 +75,13 @@ class SignUpShowViewController: BaseViewController, EmailErrorMessageView, Passw
     // MARK: - Custom Functions
     func viewSettingsDidLoad() {
         // Apply keyboard handler
-        scrollViewBase = scrollView
+        scrollViewBase              =   scrollView
         
-        // Create TextFieldManager
-        textFieldManager = TextFieldManager(withTextFields: textFieldsCollection)
-        textFieldManager.currentVC = self
+        didAddTapGestureRecognizer()
+
+        // Create MSMTextFieldManager
+        textFieldManager            =   MSMTextFieldManager(withTextFields: textFieldsCollection)
+        textFieldManager.currentVC  =   self
 
         // Hide email error message view
         emailErrorMessageViewHeightConstraint.constant = Config.Constants.errorMessageViewHeight

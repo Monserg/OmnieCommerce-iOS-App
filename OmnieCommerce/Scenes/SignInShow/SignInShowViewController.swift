@@ -104,6 +104,8 @@ class SignInShowViewController: BaseViewController {
         // Hide navigation bar
         navigationBarDidHide()
         
+        didAddTapGestureRecognizer()
+
         // Apply Container childVC
         (CoreDataManager.instance.appUser.isAuthorized) ?   router.navigateAuthorizedUser(duringStartApp: true) :
                                                             router.navigateBetweenContainerSubviews()

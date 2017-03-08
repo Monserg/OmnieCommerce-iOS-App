@@ -40,6 +40,8 @@ enum ViewStyle: String {
     
     // MARK: - Class Functions
     override func draw(_ rect: CGRect) {
+        self.alpha  =   1
+        
         switch style! {
         case .BottomDottedLine:
             self.drawDottedLine(withColor: false)

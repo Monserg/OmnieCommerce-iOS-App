@@ -14,6 +14,7 @@ enum FieldType: String {
     case None               =   "None"
     case Name               =   "Name"
     case Password           =   "Password"
+    case PasswordButton     =   "PasswordButton"
     case PasswordStrength   =   "PasswordStrength"
     case Phone              =   "Phone"
     case Email              =   "Email"
@@ -92,7 +93,12 @@ enum FieldType: String {
         case .Name:
             autocapitalizationType          =   .words
             
-        // Password
+        // Passwords
+        case .PasswordButton:
+            enablesReturnKeyAutomatically   =   true
+            isSecureTextEntry               =   true
+            clearButtonMode                 =   .never
+
         case .Password, .PasswordStrength:
             enablesReturnKeyAutomatically   =   true
             isSecureTextEntry               =   true

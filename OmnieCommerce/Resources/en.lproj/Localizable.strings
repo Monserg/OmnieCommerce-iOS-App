@@ -30,6 +30,7 @@
 "Phone or email error"          =   "* wrong Phone number or Email";
 "Phone error"                   =   "* wrong Phone number";
 "Email error"                   =   "* wrong Email";
+"Passwords compare error"       =   "* wrong old Password";
 "Auto Service"                  =   "Auto Service";
 "Health"                        =   "Health";
 "Beauty"                        =   "Beauty";
@@ -41,7 +42,6 @@
 "To"                            =   "to";
 "Enter code"                    =   "Enter code";
 "Invalid code"                  =   "* Invalid code. Please try again";
-"New password"                  =   "New Password";
 "Organization message"          =   "Message to the organization";
 "Organization price list"       =   "Prices organization";
 "Organization add card"         =   "Add business card organization";
@@ -79,6 +79,7 @@
 "Save"                          =   "Save";
 "Use Template"                  =   "Use Template";
 "Delete Template"               =   "Delete Template";
+"Change"                        =   "Change";
 
 
 // TextField Placeholders
@@ -89,6 +90,8 @@
 "Phone"                         =   "Phone";
 "Phone or Email"                =   "Phone or Email";
 "Enter Code"                    =   "Enter Code";
+"Old password"                  =   "Old Password";
+"New password"                  =   "New Password";
 "Repeat password"               =   "Repeat Password";
 "Enter Organization name"       =   "Enter Organization Name";
 

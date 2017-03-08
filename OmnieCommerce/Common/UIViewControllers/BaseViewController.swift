@@ -40,7 +40,7 @@ class BaseViewController: UIViewController {
     var textFieldsArray = [CustomTextField]() {
         willSet {
             for textField in newValue {
-//                textField.delegate = TextFieldManager()
+//                textField.delegate = MSMTextFieldManager()
             }
         }
     }
@@ -136,16 +136,9 @@ class BaseViewController: UIViewController {
 
     func setup(topBarView: UIView) {
         print(object: "\(type(of: self)): \(#function) run in [line \(#line)]")
-
-        // TopBarView big height
-        if (topBarViewStyle == .Big) {
-            let gestureRecognizer = UITapGestureRecognizer.init(target: self, action: #selector(BaseViewController.handleTap(gestureRecognizer:)))
-            gestureRecognizer.delegate = self
-            view.addGestureRecognizer(gestureRecognizer)
-        }
         
         // TopBarView small height
-        else {
+        if (topBarViewStyle == .Small) {
             // Set background color
             self.view.backgroundColor = UIColor.veryDarkDesaturatedBlue24
 
@@ -180,17 +173,16 @@ class BaseViewController: UIViewController {
         }
     }
     
-//    func alertViewDidShow(withTitle title: String, andMessage message: String) {
-//        let alertViewController = UIAlertController.init(title: title, message: message, preferredStyle: .alert)
-//        
-//        let alertViewControllerAction = UIAlertAction.init(title: "Ok".localized(), style: .default, handler: nil)
-//        
-//        alertViewController.addAction(alertViewControllerAction)
-//        present(alertViewController, animated: true, completion: nil)
-//    }
-    
     
     // MARK: - Custom Functions
+    func didAddTapGestureRecognizer() {
+        // For all TopBarView
+        let gestureRecognizer       =   UITapGestureRecognizer.init(target: self, action: #selector(BaseViewController.handleTap(gestureRecognizer:)))
+        gestureRecognizer.delegate  =   self
+        
+        view.addGestureRecognizer(gestureRecognizer)
+    }
+    
     func releasePrint(object: Any) {
         Swift.print(object)
     }

@@ -11,7 +11,6 @@ import AlamofireImage
 
 class UserTemplateTableViewCell: UITableViewCell {
     // MARK: - Properties
-    var handlerSendButtonCompletion: HandlerSendButtonCompletion?
     let expandedHeight: CGFloat     =   308.0
     let servicesCount               =   4
     
@@ -19,12 +18,11 @@ class UserTemplateTableViewCell: UITableViewCell {
         didSet {
             self.dottedBorderViewHeightConstraint.constant  =   (self.isExpanded) ? (self.expandedHeight - 86.0 + CGFloat(self.servicesCount * 17)) : 43.5
 
-            self.dottedBorderView.setNeedsDisplay()
             self.handlerSendButtonCompletion!()
-
-            self.dottedBorderView.alpha     =   1
         }
     }
+    
+    var handlerSendButtonCompletion: HandlerSendButtonCompletion?
     
     @IBOutlet weak var logoImageView: CustomImageView!
     @IBOutlet weak var dottedBorderView: DottedBorderView!
@@ -57,7 +55,6 @@ class UserTemplateTableViewCell: UITableViewCell {
     // MARK: - Actions
     @IBAction func handlerExpandButtonTap(_ sender: FillVeryLightOrangeButton) {
         self.dottedBorderView.alpha     =   0
-        
         isExpanded                      =   !isExpanded
         
         sender.setImage(UIImage.init(named: (isExpanded) ? "icon-cell-expand-on-normal" : "icon-cell-expand-off-normal"), for: .normal)

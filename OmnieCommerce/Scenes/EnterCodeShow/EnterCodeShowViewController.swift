@@ -28,7 +28,7 @@ class EnterCodeShowViewController: BaseViewController, CodeErrorMessageView {
     var handlerSendButtonCompletion: HandlerSendButtonCompletion?
     var handlerCancelButtonCompletion: HandlerCancelButtonCompletion?
     
-    var textFieldManager: TextFieldManager! {
+    var textFieldManager: MSMTextFieldManager! {
         didSet {
             // Delegates
             for textField in textFieldsCollection {
@@ -69,9 +69,11 @@ class EnterCodeShowViewController: BaseViewController, CodeErrorMessageView {
         // Apply keyboard handler
         scrollViewBase = scrollView
         
-        // Create TextFieldManager
-        textFieldManager = TextFieldManager(withTextFields: textFieldsCollection)
-        textFieldManager.currentVC = self
+        didAddTapGestureRecognizer()
+
+        // Create MSMTextFieldManager
+        textFieldManager            =   MSMTextFieldManager(withTextFields: textFieldsCollection)
+        textFieldManager.currentVC  =   self
         
         // Hide email error message view
         codeErrorMessageViewHeightConstraint.constant = Config.Constants.errorMessageViewHeight
