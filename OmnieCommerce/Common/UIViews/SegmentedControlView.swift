@@ -103,44 +103,46 @@ import Localize_Swift
     @IBAction func handlerActionButtonTap(_ sender: UIButton) {
         print(object: "\(type(of: self)): \(#function) run.")
         
-        switch sender.tag {
-        case 0:
-            leftActionButton.setAttributedTitleWithoutAnimation(title: NSAttributedString(string: leftTitle,
-                                                                                          attributes: UIFont.ubuntuLightVeryLightOrange16))
-           
-            rightActionButton.setAttributedTitleWithoutAnimation(title: NSAttributedString(string: rightTitle,
-                                                                                           attributes: UIFont.ubuntuLightVeryLightGray16))
+        if (self.selectedButton.tag != sender.tag) {
+            switch sender.tag {
+            case 0:
+                leftActionButton.setAttributedTitleWithoutAnimation(title: NSAttributedString(string: leftTitle,
+                                                                                              attributes: UIFont.ubuntuLightVeryLightOrange16))
+                
+                rightActionButton.setAttributedTitleWithoutAnimation(title: NSAttributedString(string: rightTitle,
+                                                                                               attributes: UIFont.ubuntuLightVeryLightGray16))
+                
+            case 1:
+                leftActionButton.setAttributedTitleWithoutAnimation(title: NSAttributedString(string: leftTitle,
+                                                                                              attributes: UIFont.ubuntuLightVeryLightGray16))
+                
+                rightActionButton.setAttributedTitleWithoutAnimation(title: NSAttributedString(string: rightTitle,
+                                                                                               attributes: UIFont.ubuntuLightVeryLightOrange16))
+                
+            default:
+                break
+            }
             
-        case 1:
-            leftActionButton.setAttributedTitleWithoutAnimation(title: NSAttributedString(string: leftTitle,
-                                                                                          attributes: UIFont.ubuntuLightVeryLightGray16))
-           
-            rightActionButton.setAttributedTitleWithoutAnimation(title: NSAttributedString(string: rightTitle,
-                                                                                           attributes: UIFont.ubuntuLightVeryLightOrange16))
-            
-        default:
-            break
-        }
-        
-        UIView.animate(withDuration: 0.3, animations: {
-            if (self.tag == 0) {
-                self.selectedView.frame = CGRect.init(origin: CGPoint.init(x: sender.frame.minX + 8, y: sender.frame.maxY),
-                                                      size: self.selectedView.bounds.size)
-            } else {
-                if (UIApplication.shared.statusBarOrientation.isPortrait) {
+            UIView.animate(withDuration: 0.3, animations: {
+                if (self.tag == 0) {
                     self.selectedView.frame = CGRect.init(origin: CGPoint.init(x: sender.frame.minX + 8, y: sender.frame.maxY),
                                                           size: self.selectedView.bounds.size)
                 } else {
-                    self.selectedView.frame = CGRect.init(origin: CGPoint.init(x: sender.frame.maxX, y: sender.frame.minY + 8),
-                                                          size: self.selectedView.bounds.size)
+                    if (UIApplication.shared.statusBarOrientation.isPortrait) {
+                        self.selectedView.frame = CGRect.init(origin: CGPoint.init(x: sender.frame.minX + 8, y: sender.frame.maxY),
+                                                              size: self.selectedView.bounds.size)
+                    } else {
+                        self.selectedView.frame = CGRect.init(origin: CGPoint.init(x: sender.frame.maxX, y: sender.frame.minY + 8),
+                                                              size: self.selectedView.bounds.size)
+                    }
                 }
-            }
-        }, completion: { success in
-            if (success) {
-                self.selectedButton = sender
-
-                self.actionButtonHandlerCompletion!(sender)
-            }
-        })
+            }, completion: { success in
+                if (success) {
+                    self.selectedButton = sender
+                    
+                    self.actionButtonHandlerCompletion!(sender)
+                }
+            })
+        }
     }
 }

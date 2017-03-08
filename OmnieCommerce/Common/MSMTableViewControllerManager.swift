@@ -118,16 +118,16 @@ extension MSMTableViewControllerManager: UITableViewDelegate {
         handlerSearchCompletion!((isSearchBarActive) ? dataSourceFiltered![indexPath.row] : dataSource![indexPath.row])
     }
     
-    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 60.0
-    }
+//    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+//        return 60.0
+//    }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let height  =   (self.dataSource?[indexPath.row] as! InitCellParameters).cellHeight
         let cellIdentifier  =   (dataSource?[indexPath.row] as! InitCellParameters).cellIdentifier
 
         if (cellIdentifier == "UserTemplateTableViewCell") {
-            self.tableView!.estimatedRowHeight  =   290 //dedHeight : height
+            self.tableView!.estimatedRowHeight  =   290.0
             self.tableView!.rowHeight           =   UITableViewAutomaticDimension
 
             return self.tableView!.rowHeight
