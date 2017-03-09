@@ -13,15 +13,17 @@ class MSMPickerViewManager: UIView {
     var days: [[String]]!
     var months: [String]!
     var years: [String]!
+    var selectedMonthIndex: Int  =   0
     
     
     // MARK: - Class Initialization
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        self.days       =   Date().getDaysInMonth()
-        self.months     =   Date().getMonthsNumbers()
-        self.years      =   Date().getYears()
+        self.days                   =   Date().getDaysInMonth()
+        self.months                 =   Date().getMonthsNumbers()
+        self.years                  =   Date().getYears()
+        self.selectedMonthIndex     =   Calendar.current.dateComponents([.month], from: Date()).month! - 1
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -41,7 +43,7 @@ extension MSMPickerViewManager: UIPickerViewDataSource {
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         switch component {
         case 0:
-            return days.count
+            return days[selectedMonthIndex].count
             
         case 2:
             return months.count
@@ -86,6 +88,10 @@ extension MSMPickerViewManager: UIPickerViewDelegate {
     }
     
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+        pickerView.subviews[0].backgroundColor  =   UIColor.clear       // background
+        pickerView.subviews[1].backgroundColor  =   UIColor.clear       // top separator line
+        pickerView.subviews[2].backgroundColor  =   UIColor.clear       // bottom separator line
+
         var label: UILabel!
         
         if view == nil {
@@ -100,7 +106,7 @@ extension MSMPickerViewManager: UIPickerViewDelegate {
         
         switch component {
         case 0:
-            label.text      =   "fff" //days[months[row]]
+            label.text      =   days[selectedMonthIndex][row]
             
         case 2:
             label.text      =   months[row]
@@ -118,14 +124,17 @@ extension MSMPickerViewManager: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         switch component {
         case 2:
+            selectedMonthIndex   =   row
             pickerView.reloadComponent(0)
             pickerView.selectRow(0, inComponent: 0, animated: true)
             
         case 4:
-            let year        =   self.years[row]
-            self.days       =   "01.04.\(year)".convertToDate().getDaysInMonth()
-            self.months     =   "01.04.\(year)".convertToDate().getMonthsNumbers()
+            let year            =   self.years[row]
+            self.days           =   "01.04.\(year)".convertToDate().getDaysInMonth()
+            self.months         =   "01.04.\(year)".convertToDate().getMonthsNumbers()
             
+            selectedMonthIndex  =   0
+
             pickerView.reloadComponent(0)
             pickerView.selectRow(0, inComponent: 0, animated: true)
             

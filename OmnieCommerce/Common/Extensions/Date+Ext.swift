@@ -17,13 +17,23 @@ enum StringDateStyle: String {
 
 extension Date {
     func getDaysInMonth() -> [[String]] {
+        let currentYear     =   Calendar.current.dateComponents([.year], from: self).year!
         var daysInMonth     =   [[String]]()
         
-        for month in 0..<12 {
-            let dateComponents  =   DateComponents(timeZone: TimeZone.current, year: Calendar.current.component(.year, from: self), month: month)
+        for month in 1..<13 {
+            let dateComponents  =   DateComponents(year: currentYear, month: month)
             let date            =   Calendar.current.date(from: dateComponents)!
             let range           =   Calendar.current.range(of: .day, in: .month, for: date)!
             let daysCount       =   range.count + 1
+            
+            
+            
+            
+            
+//            let dateComponents  =   DateComponents(timeZone: TimeZone.current, year: Calendar.current.component(.year, from: self), month: month)
+//            let date            =   Calendar.current.date(from: dateComponents)!
+//            let range           =   Calendar.current.range(of: .day, in: .month, for: date)!
+//            let daysCount       =   range.count + 1
             
             var days            =   [String]()
             

@@ -19,14 +19,14 @@ class PersonalDataViewController: BaseViewController, EmailErrorMessageView, Pas
             birthdayPickerView.dataSource   =   self.pickerViewManager
 
             let currentDayComponents        =   Calendar.current.dateComponents(in: TimeZone.current, from: Date())
-//            let dayIndex                    =   pickerViewManager.days.index{ $0 == String(currentDayComponents.day!) }
-//            }
-//            
-//            birthdayPickerView.selectRow(pickerViewManager.days.index(where: { (day) -> Bool in
-//                day == String(currentDayComponents.day!)
-//            }), inComponent: 0, animated: true)
-            birthdayPickerView.selectRow(pickerViewManager.months.index(where: { $0 == String(currentDayComponents.month!) })!, inComponent: 2, animated: true)
-            birthdayPickerView.selectRow(pickerViewManager.years.index(where: { $0 == String(currentDayComponents.year!) })!, inComponent: 4, animated: true)
+            let currentMonthIndex           =   pickerViewManager.months.index(where: { $0 == String(currentDayComponents.month!) })!
+            let currentDaysInMonth          =   pickerViewManager.days[currentMonthIndex]
+            let currentDayIndex             =   currentDaysInMonth.index(where: { $0 == String(currentDayComponents.day!) })!
+            let currentYearIndex            =   pickerViewManager.years.index(where: { $0 == String(currentDayComponents.year!) })!
+            
+            birthdayPickerView.selectRow(currentDayIndex, inComponent: 0, animated: true)
+            birthdayPickerView.selectRow(currentMonthIndex, inComponent: 2, animated: true)
+            birthdayPickerView.selectRow(currentYearIndex, inComponent: 4, animated: true)
         }
     }
     
@@ -48,11 +48,7 @@ class PersonalDataViewController: BaseViewController, EmailErrorMessageView, Pas
     @IBOutlet weak var passwordsView: UIView!
     
     @IBOutlet weak var birthdayPickerView: UIPickerView! {
-        didSet {
-//            self.pickerViewManager          =   MSMPickerViewManager.init(frame: self.view.frame)
-//            birthdayPickerView.delegate     =   self.pickerViewManager
-//            birthdayPickerView.dataSource   =   self.pickerViewManager
-        }
+        didSet {}
     }
     
     @IBOutlet var phonesStackViewsCollection: [UIStackView]! {
