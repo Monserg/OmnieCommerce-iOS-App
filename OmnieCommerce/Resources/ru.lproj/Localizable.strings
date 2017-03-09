@@ -30,7 +30,7 @@
 "Wrong Phone or Email"          =   "* неправильный номер или Email";
 "Wrong Phone"                   =   "* неправильный номер";
 "Wrong Email"                   =   "* неправильный Email";
-"Passwords compare error"       =   "* неправильный пароль";
+"Wrong Passwords compare"       =   "* неправильный пароль";
 "Auto Service"                  =   "Автосервис";
 "Health"                        =   "Здоровье";
 "Beauty"                        =   "Красота";

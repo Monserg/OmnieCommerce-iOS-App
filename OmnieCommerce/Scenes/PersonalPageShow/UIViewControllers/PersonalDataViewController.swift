@@ -10,8 +10,26 @@ import UIKit
 
 class PersonalDataViewController: BaseViewController, EmailErrorMessageView, PasswordErrorMessageView, PasswordStrengthView, PasswordStrengthErrorMessageView {
     // MARK: - Properties
-    var parametersForAPI = [String: String]()
+    var parametersForAPI: [String: String]?
+    let phonesCount: CGFloat    =   1
 
+    var pickerViewManager: MSMPickerViewManager! {
+        didSet {
+            birthdayPickerView.delegate     =   self.pickerViewManager
+            birthdayPickerView.dataSource   =   self.pickerViewManager
+
+            let currentDayComponents        =   Calendar.current.dateComponents(in: TimeZone.current, from: Date())
+//            let dayIndex                    =   pickerViewManager.days.index{ $0 == String(currentDayComponents.day!) }
+//            }
+//            
+//            birthdayPickerView.selectRow(pickerViewManager.days.index(where: { (day) -> Bool in
+//                day == String(currentDayComponents.day!)
+//            }), inComponent: 0, animated: true)
+            birthdayPickerView.selectRow(pickerViewManager.months.index(where: { $0 == String(currentDayComponents.month!) })!, inComponent: 2, animated: true)
+            birthdayPickerView.selectRow(pickerViewManager.years.index(where: { $0 == String(currentDayComponents.year!) })!, inComponent: 4, animated: true)
+        }
+    }
+    
     var handlerSaveButtonCompletion: HandlerSaveButtonCompletion?
     var handlerCancelButtonCompletion: HandlerCancelButtonCompletion?
     var handlerPassDataCompletion: HandlerPassDataCompletion?
@@ -29,10 +47,26 @@ class PersonalDataViewController: BaseViewController, EmailErrorMessageView, Pas
     @IBOutlet weak var avatarButton: CustomButton!
     @IBOutlet weak var passwordsView: UIView!
     
+    @IBOutlet weak var birthdayPickerView: UIPickerView! {
+        didSet {
+//            self.pickerViewManager          =   MSMPickerViewManager.init(frame: self.view.frame)
+//            birthdayPickerView.delegate     =   self.pickerViewManager
+//            birthdayPickerView.dataSource   =   self.pickerViewManager
+        }
+    }
+    
+    @IBOutlet var phonesStackViewsCollection: [UIStackView]! {
+        didSet {
+            for index in 0..<Int(phonesCount) {
+                phonesStackViewsCollection[index].isHidden  =   false
+            }
+        }
+    }
+
     @IBOutlet var textFieldsCollection: [CustomTextField]! {
         didSet {
-            textFieldManager                    =   MSMTextFieldManager(withTextFields: textFieldsCollection)
-            textFieldManager.currentVC          =   self
+            textFieldManager            =   MSMTextFieldManager(withTextFields: textFieldsCollection)
+            textFieldManager.currentVC  =   self
             
             _ = textFieldsCollection.map({ textField in
                 // PhoneButton style
@@ -41,12 +75,19 @@ class PersonalDataViewController: BaseViewController, EmailErrorMessageView, Pas
                     self.textFieldManager.handlerTextFieldCompletion    =   { (phoneButtonTextField, success) in
                         self.print(object: "\(phoneButtonTextField, success)")
                         
-                        _   =   self.deleteButtonsCollection.filter{ $0.tag == phoneButtonTextField.tag}.map{ $0.isHidden = success }
+                        _       =   self.deleteButtonsCollection.filter{ $0.tag == phoneButtonTextField.tag}.map{ $0.isHidden = success }
                     }
                     
+                    // Handler add new phone field
+                    if (textField.text?.characters.count == 3) {
+                        self.textFieldManager.handlerPassDataCompletion =   { phoneButtonTextField in
+                            _   =   self.phonesStackViewsCollection.filter{ $0.tag == textField.tag }.map{ $0.isHidden = false }
+                        }
+                    }
+
                     // Handler Error Message
                     self.textFieldManager.handlerPassDataCompletion     =   { phoneButtonTextField in
-                        _   =   self.phoneErrorMessageViewsCollection.filter{$0.tag == (phoneButtonTextField as! CustomTextField).tag}.enumerated().map{
+                        _       =   self.phoneErrorMessageViewsCollection.filter{$0.tag == (phoneButtonTextField as! CustomTextField).tag}.enumerated().map{
                             self.didShow($1, withConstraint: self.phoneErrorMessageViewTopConstraintsCollection[$0])
                         }
                     }
@@ -76,6 +117,7 @@ class PersonalDataViewController: BaseViewController, EmailErrorMessageView, Pas
     }
     
     @IBOutlet weak var passwordsViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var phonesStackViewHeightConstraint: NSLayoutConstraint!
     
     // Protocol EmailErrorMessageView for Email
     @IBOutlet weak var emailErrorMessageView: UIView!
@@ -122,6 +164,10 @@ class PersonalDataViewController: BaseViewController, EmailErrorMessageView, Pas
     func viewSettingsDidLoad() {
         scrollViewBase  =   self.scrollView
         
+        // Create PickerViewManager
+        pickerViewManager                   =   MSMPickerViewManager.init(frame: self.view.frame)
+
+        // Add Tap Gesture Regognizer
         didAddTapGestureRecognizer()
 
         // Set User fields
@@ -140,6 +186,8 @@ class PersonalDataViewController: BaseViewController, EmailErrorMessageView, Pas
         _ =   phoneErrorMessageViewHeightConstraintsCollection.map{ $0.constant  =   Config.Constants.errorMessageViewHeight }
         _ = phoneErrorMessageViewsCollection.enumerated().map{ didHide($1, withConstraint: phoneErrorMessageViewTopConstraintsCollection[$0]) }
         
+        phonesStackViewHeightConstraint.constant                    =   self.view.heightRatio * phonesCount * 40.0
+
         // Hide passwords error message view
         passwordErrorMessageViewHeightConstraint.constant           =   Config.Constants.errorMessageViewHeight
         didHide(passwordErrorMessageView, withConstraint: passwordErrorMessageViewTopConstraint)
@@ -164,7 +212,7 @@ class PersonalDataViewController: BaseViewController, EmailErrorMessageView, Pas
             return
         }
         
-        handlerSaveButtonCompletion!(parametersForAPI)
+        handlerSaveButtonCompletion!(parametersForAPI!)
     }
     
     @IBAction func handlerCancelButtonTap(_ sender: BorderVeryLightOrangeButton) {
@@ -180,8 +228,7 @@ class PersonalDataViewController: BaseViewController, EmailErrorMessageView, Pas
         }
         
         UIView.animate(withDuration: 1.9, animations: {
-            let heightRatio =   ((UIApplication.shared.statusBarOrientation.isPortrait) ? 494 : 216) / self.view.frame.height
-            self.passwordsViewHeightConstraint.constant =   heightRatio * ((sender.tag == 1) ? 120.0 : 0.0)
+            self.passwordsViewHeightConstraint.constant =   self.view.heightRatio * ((sender.tag == 1) ? 120.0 : 0.0)
             
             self.passwordsView.layoutIfNeeded()
         }, completion: { success in
@@ -202,6 +249,6 @@ class PersonalDataViewController: BaseViewController, EmailErrorMessageView, Pas
     }
     
     @IBAction func handlerDeletePhoneButtonTap(_ sender: FillVeryLightOrangeButton) {
-    }
     
+    }
 }

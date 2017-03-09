@@ -177,6 +177,10 @@ extension MSMTextFieldManager: UITextFieldDelegate {
                 return true
             }
             
+            if (textField.text?.characters.count == 3 && !string.isEmpty) {
+                handlerPassDataCompletion!(textField)
+            }
+            
             guard Int(string) != nil || ((textField.text?.isEmpty)! && string == "+") else {
                 handlerPassDataCompletion!(textField)
                 

@@ -9,31 +9,73 @@
 import UIKit
 
 enum StringDateStyle: String {
-    case Date = "Date"
-    case Time = "Time"
-    case MonthYear = "MonthYear"
-    case WeekdayMonthYear = "WeekdayMonthYear"
+    case Date               =   "Date"
+    case Time               =   "Time"
+    case MonthYear          =   "MonthYear"
+    case WeekdayMonthYear   =   "WeekdayMonthYear"
 }
 
 extension Date {
+    func getDaysInMonth() -> [[String]] {
+        var daysInMonth     =   [[String]]()
+        
+        for month in 0..<12 {
+            let dateComponents  =   DateComponents(timeZone: TimeZone.current, year: Calendar.current.component(.year, from: self), month: month)
+            let date            =   Calendar.current.date(from: dateComponents)!
+            let range           =   Calendar.current.range(of: .day, in: .month, for: date)!
+            let daysCount       =   range.count + 1
+            
+            var days            =   [String]()
+            
+            for day in 1..<daysCount {
+                days.append(String(day))
+            }
+            
+            daysInMonth.append(days)
+        }
+    
+        return daysInMonth
+    }
+    
+    func getMonthsNumbers() -> [String] {
+        var months          =   [String]()
+        
+        for i in 1..<13 {
+            months.append(String(i))
+        }
+        
+        return months
+    }
+    
+    func getYears() -> [String] {
+        let currentYear     =   Calendar.current.dateComponents([.year], from: self).year!
+        var years           =   [String]()
+        
+        for year in (currentYear - 5)..<(currentYear + 6) {
+            years.append(String(year))
+        }
+        
+        return years
+    }
+    
     func convertToString(withStyle dateStyle: StringDateStyle) -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.locale = NSLocale.current
+        let dateFormatter       =   DateFormatter()
+        dateFormatter.locale    =   NSLocale.current
         
         switch dateStyle {
         case .Date:
-            dateFormatter.dateFormat = "dd.MM.yyyy"
+            dateFormatter.dateFormat    =   "dd.MM.yyyy"
             
         case .Time:
-            dateFormatter.dateFormat = "HH:mm"
+            dateFormatter.dateFormat    =   "HH:mm"
             
         case .MonthYear:
-            let components = Calendar.current.dateComponents([.weekday, .month, .day, .year], from: self)
-            let monthsNames = Calendar.current.standaloneMonthSymbols
-            dateFormatter.dateFormat = "\(monthsNames[components.month! - 1]) \(components.year!)"
+            let components              =   Calendar.current.dateComponents([.weekday, .month, .day, .year], from: self)
+            let monthsNames             =   Calendar.current.standaloneMonthSymbols
+            dateFormatter.dateFormat    =  "\(monthsNames[components.month! - 1]) \(components.year!)"
 
         case .WeekdayMonthYear:
-            dateFormatter.dateFormat = "EEEE dd MMMM YYYY"
+            dateFormatter.dateFormat    =   "EEEE dd MMMM YYYY"
         }
         
         return dateFormatter.string(from: self).capitalized
@@ -52,8 +94,8 @@ extension Date {
     }
     
     func globalTime() -> Date {
-        let timeZone = TimeZone.current
-        let seconds = TimeInterval(timeZone.secondsFromGMT(for: self))
+        let timeZone    =   TimeZone.current
+        let seconds     =   TimeInterval(timeZone.secondsFromGMT(for: self))
         
         return Date(timeInterval: seconds, since: self)
     }

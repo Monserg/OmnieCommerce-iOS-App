@@ -10,6 +10,14 @@ import UIKit
 
 extension UIView {
     // MARK: - Properties
+    var heightRatio: CGFloat {
+        return ((UIApplication.shared.statusBarOrientation.isPortrait) ? 494 : 216) / self.frame.height
+    }
+
+    var widthRatio: CGFloat {
+        return ((UIApplication.shared.statusBarOrientation.isPortrait) ? 375 : 667) / self.frame.width
+    }
+
     @IBInspectable var cornerRadius: CGFloat {
         set { layer.cornerRadius = newValue }
         get { return layer.cornerRadius }
