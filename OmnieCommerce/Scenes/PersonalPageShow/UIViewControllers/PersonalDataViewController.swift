@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PersonalDataViewController: BaseViewController, EmailErrorMessageView, PasswordErrorMessageView {
+class PersonalDataViewController: BaseViewController, EmailErrorMessageView, PasswordErrorMessageView, PasswordStrengthView, PasswordStrengthErrorMessageView {
     // MARK: - Properties
     var parametersForAPI = [String: String]()
 
@@ -30,6 +30,12 @@ class PersonalDataViewController: BaseViewController, EmailErrorMessageView, Pas
     @IBOutlet weak var passwordsView: UIView!
     
     @IBOutlet var textFieldsCollection: [CustomTextField]!
+    
+    @IBOutlet var dottedBorderViewsCollection: [DottedBorderView]! {
+        didSet {
+            _ = dottedBorderViewsCollection.map{ $0.style = .BottomDottedLine }
+        }
+    }
 
     @IBOutlet var radioButtonsCollection: [DLRadioButton]! {
         didSet {
@@ -49,6 +55,19 @@ class PersonalDataViewController: BaseViewController, EmailErrorMessageView, Pas
     @IBOutlet weak var passwordErrorMessageView: UIView!
     @IBOutlet weak var passwordErrorMessageViewTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var passwordErrorMessageViewHeightConstraint: NSLayoutConstraint!
+
+    // Protocol PasswordStrengthView
+    @IBOutlet weak var passwordStrengthView: PasswordStrengthLevelView!
+
+    // Protocol PasswordStrengthErrorMessageView
+    @IBOutlet weak var passwordStrengthErrorMessageView: UIView!
+    @IBOutlet weak var passwordStrengthErrorMessageViewTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var passwordStrengthErrorMessageViewHeightConstraint: NSLayoutConstraint!
+
+    // Protocol PasswordErrorMessageView
+    @IBOutlet weak var repeatPasswordErrorMessageView: UIView!
+    @IBOutlet weak var repeatPasswordErrorMessageViewTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var repeatPasswordErrorMessageViewHeightConstraint: NSLayoutConstraint!
 
 
     // MARK: - Class Functions
@@ -82,13 +101,18 @@ class PersonalDataViewController: BaseViewController, EmailErrorMessageView, Pas
         textFieldManager.currentVC          =   self
         
         // Hide email error message view
-        emailErrorMessageViewHeightConstraint.constant      =   Config.Constants.errorMessageViewHeight
+        emailErrorMessageViewHeightConstraint.constant              =   Config.Constants.errorMessageViewHeight
         didHide(emailErrorMessageView, withConstraint: emailErrorMessageViewTopConstraint)
 
-        // Hide email error message view
-        passwordErrorMessageViewHeightConstraint.constant   =   Config.Constants.errorMessageViewHeight
+        // Hide passwords error message view
+        passwordErrorMessageViewHeightConstraint.constant           =   Config.Constants.errorMessageViewHeight
         didHide(passwordErrorMessageView, withConstraint: passwordErrorMessageViewTopConstraint)
-
+        
+        passwordStrengthErrorMessageViewHeightConstraint.constant   =   Config.Constants.errorMessageViewHeight
+        didHide(passwordStrengthErrorMessageView, withConstraint: passwordStrengthErrorMessageViewTopConstraint)
+        
+        repeatPasswordErrorMessageViewHeightConstraint.constant     =   Config.Constants.errorMessageViewHeight
+        didHide(repeatPasswordErrorMessageView, withConstraint: repeatPasswordErrorMessageViewTopConstraint)
     }
     
     
@@ -120,8 +144,8 @@ class PersonalDataViewController: BaseViewController, EmailErrorMessageView, Pas
         }
         
         UIView.animate(withDuration: 1.9, animations: {
-            let heightRatio = ((UIApplication.shared.statusBarOrientation.isPortrait) ? 494 : 216) / self.view.frame.height
-            self.passwordsViewHeightConstraint.constant = heightRatio * ((sender.tag == 1) ? 84.0 : 0.0)
+            let heightRatio =   ((UIApplication.shared.statusBarOrientation.isPortrait) ? 494 : 216) / self.view.frame.height
+            self.passwordsViewHeightConstraint.constant =   heightRatio * ((sender.tag == 1) ? 120.0 : 0.0)
             
             self.passwordsView.layoutIfNeeded()
         }, completion: { success in

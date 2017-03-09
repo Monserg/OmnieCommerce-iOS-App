@@ -64,20 +64,20 @@ protocol InitCellParameters {
 extension ErrorMessageViewAnimation {
     func didShow(_ view: UIView, withConstraint constraint: NSLayoutConstraint) {
         UIView.animate(withDuration: 0.1, animations: {
-            constraint.constant = 0
+            constraint.constant     =   0
             view.layoutIfNeeded()
         }) { success in
             UIView.animate(withDuration: 0.3, animations: {
-                view.isHidden = false
+                view.isHidden       =   false
             })
         }
     }
     
     func didHide(_ view: UIView, withConstraint constraint: NSLayoutConstraint) {
         UIView.animate(withDuration: 0.3, animations: {
-            constraint.constant = -Config.Constants.errorMessageViewHeight
+            constraint.constant     =   -Config.Constants.errorMessageViewHeight
             view.layoutIfNeeded()
-            view.isHidden = true
+            view.isHidden           =   true
         })
     }
 }
