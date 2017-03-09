@@ -43,8 +43,8 @@ class FavoriteShowViewController: BaseViewController, FavoriteShowViewController
         super.viewDidLoad()
         
         // Config topBarView
-        smallTopBarView.type = "ParentSearch"
-        topBarViewStyle = .Small
+        smallTopBarView.type    =   "ParentSearch"
+        topBarViewStyle         =   .Small
         setup(topBarView: smallTopBarView)
 
         viewSettingsDidLoad()
@@ -70,12 +70,6 @@ class FavoriteShowViewController: BaseViewController, FavoriteShowViewController
         // nameTextField.text = viewModel.name
     }
     
-    func setupScene(withSize size: CGSize) {
-        print(object: "\(type(of: self)): \(#function) run. Screen view size = \(size)")
-        
-        smallTopBarView.setNeedsDisplay()
-        smallTopBarView.circleView.setNeedsDisplay()
-    }
     
     func setupSegmentedControlView() {
         segmentedControlView.backgroundColor = UIColor.veryDarkDesaturatedBlue24
@@ -91,6 +85,7 @@ class FavoriteShowViewController: BaseViewController, FavoriteShowViewController
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         print(object: "\(type(of: self)): \(#function) run. New size = \(size)")
         
-        setupScene(withSize: size)
+        smallTopBarView.setNeedsDisplay()
+        smallTopBarView.circleView.setNeedsDisplay()
     }
 }

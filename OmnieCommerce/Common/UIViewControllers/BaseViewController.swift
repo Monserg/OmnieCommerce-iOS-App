@@ -1,4 +1,4 @@
-//
+ //
 //  BaseViewController.swift
 //  OmnieCommerce
 //
@@ -37,6 +37,7 @@ class BaseViewController: UIViewController {
         }
     }
 
+    // TODO: - DELETE!!!
     var textFieldsArray = [CustomTextField]() {
         willSet {
             for textField in newValue {
@@ -92,13 +93,7 @@ class BaseViewController: UIViewController {
         
         super.didReceiveMemoryWarning()
     }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        print(object: "\(type(of: self)): \(#function) run in [line \(#line)]")
         
-        super.viewDidDisappear(true)
-    }
-    
     deinit {
         print(object: "\(type(of: self)): \(#function) run in [line \(#line)]")
     }

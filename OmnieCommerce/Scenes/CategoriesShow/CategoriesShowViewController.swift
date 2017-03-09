@@ -39,8 +39,8 @@ class CategoriesShowViewController: BaseViewController {
     @IBOutlet weak var collectionView: UICollectionView! {
         didSet {
             // Delegates
-            collectionView.delegate = self
-            collectionView.dataSource = self
+            collectionView.delegate     =   self
+            collectionView.dataSource   =   self
         }
     }
 
@@ -81,14 +81,6 @@ class CategoriesShowViewController: BaseViewController {
         interactor.citiesDidLoad(withRequestModel: citiesRequestModel)
     }
     
-    func setupScene(withSize size: CGSize) {
-        print(object: "\(type(of: self)): \(#function) run. Screen view size = \(size)")
-        
-        smallTopBarView.setNeedsDisplay()
-        smallTopBarView.circleView.setNeedsDisplay()
-        cityButton.setNeedsDisplay()
-    }
-    
     
     // MARK: - Actions
     @IBAction func handlerCityButtonTap(_ sender: DropDownButton) {
@@ -110,7 +102,9 @@ class CategoriesShowViewController: BaseViewController {
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         print(object: "\(type(of: self)): \(#function) run. New size = \(size)")
         
-        setupScene(withSize: size)
+        smallTopBarView.setNeedsDisplay()
+        smallTopBarView.circleView.setNeedsDisplay()
+        cityButton.setNeedsDisplay()
         
         if (cityButton.isDropDownListShow) {
             cityButton.itemsListDidHide(inView: view)

@@ -94,7 +94,14 @@ class MessagesShowViewController: BaseViewController {
         viewSettingsDidLoad()
     }
     
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        print(object: "\(type(of: self)): \(#function) run in [line \(#line)]")
+        
+        super.viewDidDisappear(true)
+    }
 
+    
     // MARK: - Custom Functions
     func viewSettingsDidLoad() {
         print(object: "\(type(of: self)): \(#function) run.")

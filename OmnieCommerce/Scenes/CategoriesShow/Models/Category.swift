@@ -23,6 +23,8 @@ class Category: NSObject {
         super.init()
     }
     
+    
+    // MARK: - Class Functions
     deinit {
         print("\(type(of: self)) deinit")
     }

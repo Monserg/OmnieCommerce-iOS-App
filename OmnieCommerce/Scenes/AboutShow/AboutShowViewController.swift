@@ -43,8 +43,8 @@ class AboutShowViewController: BaseViewController {
         super.viewDidLoad()
         
         // Config topBarView
-        smallTopBarView.type = "ParentSearch"
-        topBarViewStyle = .Small
+        smallTopBarView.type    =   "ParentSearch"
+        topBarViewStyle         =   .Small
         setup(topBarView: smallTopBarView)
         
         viewSettingsDidLoad()

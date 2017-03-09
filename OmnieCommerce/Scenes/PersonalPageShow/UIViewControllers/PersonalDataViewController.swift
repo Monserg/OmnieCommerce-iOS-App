@@ -64,9 +64,12 @@ class PersonalDataViewController: BaseViewController, PasswordErrorMessageView {
         
         didAddTapGestureRecognizer()
         
-        // Set Old Password
-        textFieldsCollection[0].text        =   userApp?.password
-        textFieldsCollection[0].isEnabled   =   false
+        // Set User fields
+        textFieldsCollection[0].text        =   userApp?.firstName
+        textFieldsCollection[1].text        =   userApp?.lastName
+        
+//        textFieldsCollection[0].text        =   userApp?.password
+//        textFieldsCollection[0].isEnabled   =   false
         
         // Create MSMTextFieldManager
         textFieldManager                    =   MSMTextFieldManager(withTextFields: textFieldsCollection)

@@ -31,6 +31,20 @@ class MSMTableViewControllerManager: BaseViewController {
         super.viewDidLoad()
     }
     
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        print(object: "\(type(of: self)): \(#function) run in [line \(#line)]")
+        
+        dataSource                      =   nil
+        dataSourceFiltered              =   nil
+        tableView                       =   nil
+        handlerSearchCompletion         =   nil
+        handlerSendButtonCompletion     =   nil
+        handlerCancelButtonCompletion   =   nil
+
+        super.viewDidDisappear(true)
+    }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
