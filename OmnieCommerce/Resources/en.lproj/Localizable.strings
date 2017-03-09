@@ -27,9 +27,9 @@
 "Congratulations"               =   "Congratulations!";
 "Not yet registered?"           =   "Not yet registered?";
 "Forgot Password"               =   "Forgot Password";
-"Phone or email error"          =   "* wrong Phone number or Email";
-"Phone error"                   =   "* wrong Phone number";
-"Email error"                   =   "* wrong Email";
+"Wrong Phone or Email"          =   "* wrong Phone number or Email";
+"Wrong Phone"                   =   "* wrong Phone number";
+"Wrong Email"                   =   "* wrong Email";
 "Passwords compare error"       =   "* wrong old Password";
 "Auto Service"                  =   "Auto Service";
 "Health"                        =   "Health";

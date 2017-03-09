@@ -29,14 +29,45 @@ class PersonalDataViewController: BaseViewController, EmailErrorMessageView, Pas
     @IBOutlet weak var avatarButton: CustomButton!
     @IBOutlet weak var passwordsView: UIView!
     
-    @IBOutlet var textFieldsCollection: [CustomTextField]!
+    @IBOutlet var textFieldsCollection: [CustomTextField]! {
+        didSet {
+            textFieldManager                    =   MSMTextFieldManager(withTextFields: textFieldsCollection)
+            textFieldManager.currentVC          =   self
+            
+            _ = textFieldsCollection.map({ textField in
+                // PhoneButton style
+                if (textField.style! == .PhoneButton) {
+                    // Handler Delete Button tap
+                    self.textFieldManager.handlerTextFieldCompletion    =   { (phoneButtonTextField, success) in
+                        self.print(object: "\(phoneButtonTextField, success)")
+                        
+                        _   =   self.deleteButtonsCollection.filter{ $0.tag == phoneButtonTextField.tag}.map{ $0.isHidden = success }
+                    }
+                    
+                    // Handler Error Message
+                    self.textFieldManager.handlerPassDataCompletion     =   { phoneButtonTextField in
+                        _   =   self.phoneErrorMessageViewsCollection.filter{$0.tag == (phoneButtonTextField as! CustomTextField).tag}.enumerated().map{
+                            self.didShow($1, withConstraint: self.phoneErrorMessageViewTopConstraintsCollection[$0])
+                        }
+                    }
+                }
+            })
+        }
+    }
+    
+    @IBOutlet var deleteButtonsCollection: [FillVeryLightOrangeButton]! {
+        didSet {
+            _ = deleteButtonsCollection.map{ $0.isHidden = true }
+        }
+    }
+    
     
     @IBOutlet var dottedBorderViewsCollection: [DottedBorderView]! {
         didSet {
             _ = dottedBorderViewsCollection.map{ $0.style = .BottomDottedLine }
         }
     }
-
+    
     @IBOutlet var radioButtonsCollection: [DLRadioButton]! {
         didSet {
             radioButtonsCollection!.first!.isSelected   =   (userApp!.gender == 1) ? false : true
@@ -46,11 +77,16 @@ class PersonalDataViewController: BaseViewController, EmailErrorMessageView, Pas
     
     @IBOutlet weak var passwordsViewHeightConstraint: NSLayoutConstraint!
     
-    // Protocol EmailErrorMessageView
+    // Protocol EmailErrorMessageView for Email
     @IBOutlet weak var emailErrorMessageView: UIView!
     @IBOutlet weak var emailErrorMessageViewTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var emailErrorMessageViewHeightConstraint: NSLayoutConstraint!
 
+    // Protocol EmailErrorMessageView for Phone
+    @IBOutlet var phoneErrorMessageViewsCollection: [UIView]!
+    @IBOutlet var phoneErrorMessageViewTopConstraintsCollection: [NSLayoutConstraint]!
+    @IBOutlet var phoneErrorMessageViewHeightConstraintsCollection: [NSLayoutConstraint]!
+    
     // Protocol PasswordErrorMessageView
     @IBOutlet weak var passwordErrorMessageView: UIView!
     @IBOutlet weak var passwordErrorMessageViewTopConstraint: NSLayoutConstraint!
@@ -87,7 +123,7 @@ class PersonalDataViewController: BaseViewController, EmailErrorMessageView, Pas
         scrollViewBase  =   self.scrollView
         
         didAddTapGestureRecognizer()
-        
+
         // Set User fields
         textFieldsCollection[0].text        =   userApp?.firstName
         textFieldsCollection[1].text        =   userApp?.lastName
@@ -96,14 +132,14 @@ class PersonalDataViewController: BaseViewController, EmailErrorMessageView, Pas
 //        textFieldsCollection[0].text        =   userApp?.password
 //        textFieldsCollection[0].isEnabled   =   false
         
-        // Create MSMTextFieldManager
-        textFieldManager                    =   MSMTextFieldManager(withTextFields: textFieldsCollection)
-        textFieldManager.currentVC          =   self
-        
         // Hide email error message view
         emailErrorMessageViewHeightConstraint.constant              =   Config.Constants.errorMessageViewHeight
         didHide(emailErrorMessageView, withConstraint: emailErrorMessageViewTopConstraint)
 
+        // Hide phones error message view
+        _ =   phoneErrorMessageViewHeightConstraintsCollection.map{ $0.constant  =   Config.Constants.errorMessageViewHeight }
+        _ = phoneErrorMessageViewsCollection.enumerated().map{ didHide($1, withConstraint: phoneErrorMessageViewTopConstraintsCollection[$0]) }
+        
         // Hide passwords error message view
         passwordErrorMessageViewHeightConstraint.constant           =   Config.Constants.errorMessageViewHeight
         didHide(passwordErrorMessageView, withConstraint: passwordErrorMessageViewTopConstraint)
@@ -164,4 +200,8 @@ class PersonalDataViewController: BaseViewController, EmailErrorMessageView, Pas
             }
         })
     }
+    
+    @IBAction func handlerDeletePhoneButtonTap(_ sender: FillVeryLightOrangeButton) {
+    }
+    
 }

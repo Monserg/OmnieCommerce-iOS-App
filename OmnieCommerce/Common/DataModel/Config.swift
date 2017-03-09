@@ -30,6 +30,7 @@ typealias HandlerLocationCompletion                 =   ((_ organizations: [Orga
 typealias HandlerSaveButtonCompletion               =   ((_ params: [String: String]) -> ())
 typealias HandlerNewViewControllerShowCompletion    =   ((_ viewController: UIViewController) -> ())
 typealias HandlerViewDismissCompletion              =   ((_ actionType: ActionType) -> ())
+typealias HandlerTextFieldCompletion                =   ((_ textField: CustomTextField, _ success: Bool) -> ())
 
 typealias ResponseAPI                               =   (success: Bool, error: String?)
 typealias NameAndPasswordCheckResult                =   (isNameCorrect: Bool, isPasswordCorrect: Bool)

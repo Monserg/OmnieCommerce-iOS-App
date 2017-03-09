@@ -11,8 +11,10 @@ import UIKit
 class MSMTextFieldManager: NSObject {
     // MARK: - Properties
     var textFieldsArray: [CustomTextField]!
-    weak var currentVC: BaseViewController!
+    var currentVC: BaseViewController!
     
+    var handlerTextFieldCompletion: HandlerTextFieldCompletion?
+    var handlerPassDataCompletion: HandlerPassDataCompletion?
     
     // MARK: - Class Initialization
     init(withTextFields array: [CustomTextField]) {
@@ -31,26 +33,26 @@ class MSMTextFieldManager: NSObject {
         if (textField.tag == 99) {
             textField.resignFirstResponder()
         } else {
-            let currentIndex    =   textFieldsArray.index(of: textField)!
-            let nextIndex       =   textFieldsArray.index(after: currentIndex)
+            let currentIndex    =   textFieldsArray!.index(of: textField)!
+            let nextIndex       =   textFieldsArray!.index(after: currentIndex)
             
-            textFieldsArray[nextIndex].becomeFirstResponder()
+            textFieldsArray![nextIndex].becomeFirstResponder()
         }
     }
     
     func checkTextFieldCollection() -> Bool {
         // Check empty fields
-        let emptyFields         =   textFieldsArray.filter({ $0.text?.isEmpty == true })
+        let emptyFields         =   textFieldsArray!.filter({ $0.text?.isEmpty == true })
         
         guard emptyFields.count == 0 else {
-            currentVC.alertViewDidShow(withTitle: "Info".localized(), andMessage: "All fields can be...".localized())
+            currentVC!.alertViewDidShow(withTitle: "Info".localized(), andMessage: "All fields can be...".localized())
             
             return false
         }
         
         var results = [Bool]()
         
-        for textField in textFieldsArray {
+        for textField in textFieldsArray! {
             switch textField.style! {
             case .Email:
                 let result      =   textField.checkEmailValidation(textField.text!)
@@ -59,7 +61,7 @@ class MSMTextFieldManager: NSObject {
                 
                 results.append(result)
                 
-            case .PhoneEmail:
+            case .PhoneEmail, .PhoneButton:
                 let result      =   textField.checkPhoneEmailValidation(textField.text!)
                 
                 (result) ? (currentVC as! EmailErrorMessageView).didHide((currentVC as! EmailErrorMessageView).emailErrorMessageView, withConstraint: (currentVC as! EmailErrorMessageView).emailErrorMessageViewTopConstraint) : (currentVC as! EmailErrorMessageView).didShow((currentVC as! EmailErrorMessageView).emailErrorMessageView, withConstraint: (currentVC as! EmailErrorMessageView).emailErrorMessageViewTopConstraint)
@@ -103,9 +105,13 @@ extension MSMTextFieldManager: UITextFieldDelegate {
         currentVC?.selectedRange = textField.convert(textField.frame, to: currentVC?.view)
         
         switch (textField as! CustomTextField).style! {
-        case .Email, .PhoneEmail:
+        case .Email, .PhoneEmail, .PhoneButton:
             (currentVC as! EmailErrorMessageView).didHide((currentVC as! EmailErrorMessageView).emailErrorMessageView, withConstraint: (currentVC as! EmailErrorMessageView).emailErrorMessageViewTopConstraint)
             
+            if let textFieldNew = (textField as? CustomTextField), textFieldNew.style! == .PhoneButton {
+                handlerTextFieldCompletion!(textFieldNew, (textFieldNew.text?.isEmpty)! ? true : false)
+            }
+
         case .Password, .PasswordButton:
             (currentVC as! PasswordErrorMessageView).didHide((currentVC as! PasswordErrorMessageView).passwordErrorMessageView, withConstraint: (currentVC as! PasswordErrorMessageView).passwordErrorMessageViewTopConstraint)
             
@@ -129,7 +135,7 @@ extension MSMTextFieldManager: UITextFieldDelegate {
                 (currentVC as! EmailErrorMessageView).didShow((currentVC as! EmailErrorMessageView).emailErrorMessageView, withConstraint: (currentVC as! EmailErrorMessageView).emailErrorMessageViewTopConstraint)
             }
             
-        case .PhoneEmail:
+        case .PhoneEmail, .PhoneButton:
             if !(textField as! CustomTextField).checkPhoneEmailValidation(textField.text!) {
                 (currentVC as! EmailErrorMessageView).didShow((currentVC as! EmailErrorMessageView).emailErrorMessageView, withConstraint: (currentVC as! EmailErrorMessageView).emailErrorMessageViewTopConstraint)
             }
@@ -161,6 +167,22 @@ extension MSMTextFieldManager: UITextFieldDelegate {
         case .Email, .PhoneEmail:
             (currentVC as! EmailErrorMessageView).didHide((currentVC as! EmailErrorMessageView).emailErrorMessageView, withConstraint: (currentVC as! EmailErrorMessageView).emailErrorMessageViewTopConstraint)
             
+        case .PhoneButton:
+            (currentVC as! EmailErrorMessageView).didHide((currentVC as! EmailErrorMessageView).emailErrorMessageView, withConstraint: (currentVC as! EmailErrorMessageView).emailErrorMessageViewTopConstraint)
+            
+            // Show/hide Delete button
+            handlerTextFieldCompletion!(textField as! CustomTextField, (textField.text?.characters.count == 1 && string.isEmpty) ? true : false)
+            
+            if (string.isEmpty) {
+                return true
+            }
+            
+            guard Int(string) != nil || ((textField.text?.isEmpty)! && string == "+") else {
+                handlerPassDataCompletion!(textField)
+                
+                return false
+            }
+
         case .Password, .PasswordButton:
             (currentVC as! PasswordErrorMessageView).didHide((currentVC as! PasswordErrorMessageView).passwordErrorMessageView, withConstraint: (currentVC as! PasswordErrorMessageView).passwordErrorMessageViewTopConstraint)
             
@@ -198,7 +220,7 @@ extension MSMTextFieldManager: UITextFieldDelegate {
     
     func textFieldShouldClear(_ textField: UITextField) -> Bool {
         switch (textField as! CustomTextField).style! {
-        case .Email, .PhoneEmail:
+        case .Email, .PhoneEmail, .PhoneButton:
             (currentVC as! EmailErrorMessageView).didHide((currentVC as! EmailErrorMessageView).emailErrorMessageView, withConstraint: (currentVC as! EmailErrorMessageView).emailErrorMessageViewTopConstraint)
             
         case .Password, .PasswordButton:
@@ -229,7 +251,7 @@ extension MSMTextFieldManager: UITextFieldDelegate {
                 (currentVC as! EmailErrorMessageView).didShow((currentVC as! EmailErrorMessageView).emailErrorMessageView, withConstraint: (currentVC as! EmailErrorMessageView).emailErrorMessageViewTopConstraint)
             }
             
-        case .PhoneEmail:
+        case .PhoneEmail, .PhoneButton:
             if (textField as! CustomTextField).checkPhoneEmailValidation(textField.text!) {
                 self.didLoadNextTextField(afterCurrent: textField as! CustomTextField)
             } else {

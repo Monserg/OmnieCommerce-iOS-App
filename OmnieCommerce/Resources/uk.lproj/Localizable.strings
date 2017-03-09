@@ -27,9 +27,9 @@
 "Congratulations"               =   "Вітаємо!";
 "Not yet registered?"           =   "Ще не зареєстровані?";
 "Forgot Password"               =   "Забули пароль";
-"Phone or email error"          =   "* невірний номер або Email";
-"Phone error"                   =   "* невірний номер";
-"Email error"                   =   "* невірний Email";
+"Wrong Phone or Email"          =   "* невірний номер або Email";
+"Wrong Phone"                   =   "* невірний номер";
+"Wrong Email"                   =   "* невірний Email";
 "Passwords compare error"       =   "* невірний пароль";
 "Auto Service"                  =   "Автосервіс";
 "Health"                        =   "Здоров'я";

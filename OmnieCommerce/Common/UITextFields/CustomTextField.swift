@@ -17,6 +17,7 @@ enum FieldType: String {
     case PasswordButton     =   "PasswordButton"
     case PasswordStrength   =   "PasswordStrength"
     case Phone              =   "Phone"
+    case PhoneButton        =   "PhoneButton"
     case Email              =   "Email"
     case PhoneEmail         =   "PhoneEmail"
     case Code               =   "Code"
@@ -103,10 +104,14 @@ enum FieldType: String {
             enablesReturnKeyAutomatically   =   true
             isSecureTextEntry               =   true
             
-        // Phone
+        // Phone, Code
         case .Phone, .Code:
             keyboardType                    =   .numbersAndPunctuation
-            
+            clearButtonMode                 =   .never
+
+        case .PhoneButton:
+            keyboardType                    =   .numbersAndPunctuation
+
         // Email
         case .Email, .PhoneEmail:
             keyboardType                    =   .emailAddress
