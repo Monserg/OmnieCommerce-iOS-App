@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PersonalDataViewController: BaseViewController, PasswordErrorMessageView {
+class PersonalDataViewController: BaseViewController, EmailErrorMessageView, PasswordErrorMessageView {
     // MARK: - Properties
     var parametersForAPI = [String: String]()
 
@@ -40,6 +40,11 @@ class PersonalDataViewController: BaseViewController, PasswordErrorMessageView {
     
     @IBOutlet weak var passwordsViewHeightConstraint: NSLayoutConstraint!
     
+    // Protocol EmailErrorMessageView
+    @IBOutlet weak var emailErrorMessageView: UIView!
+    @IBOutlet weak var emailErrorMessageViewTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var emailErrorMessageViewHeightConstraint: NSLayoutConstraint!
+
     // Protocol PasswordErrorMessageView
     @IBOutlet weak var passwordErrorMessageView: UIView!
     @IBOutlet weak var passwordErrorMessageViewTopConstraint: NSLayoutConstraint!
@@ -67,6 +72,7 @@ class PersonalDataViewController: BaseViewController, PasswordErrorMessageView {
         // Set User fields
         textFieldsCollection[0].text        =   userApp?.firstName
         textFieldsCollection[1].text        =   userApp?.lastName
+        textFieldsCollection[2].text        =   userApp?.email
         
 //        textFieldsCollection[0].text        =   userApp?.password
 //        textFieldsCollection[0].isEnabled   =   false
@@ -76,7 +82,11 @@ class PersonalDataViewController: BaseViewController, PasswordErrorMessageView {
         textFieldManager.currentVC          =   self
         
         // Hide email error message view
-        passwordErrorMessageViewHeightConstraint.constant = Config.Constants.errorMessageViewHeight
+        emailErrorMessageViewHeightConstraint.constant      =   Config.Constants.errorMessageViewHeight
+        didHide(emailErrorMessageView, withConstraint: emailErrorMessageViewTopConstraint)
+
+        // Hide email error message view
+        passwordErrorMessageViewHeightConstraint.constant   =   Config.Constants.errorMessageViewHeight
         didHide(passwordErrorMessageView, withConstraint: passwordErrorMessageViewTopConstraint)
 
     }

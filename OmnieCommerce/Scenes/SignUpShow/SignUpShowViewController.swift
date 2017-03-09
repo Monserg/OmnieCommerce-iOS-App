@@ -42,14 +42,19 @@ class SignUpShowViewController: BaseViewController, EmailErrorMessageView, Passw
     var passwordStrengthLevel: PasswordStrengthLevel = .None
 
     @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var emailErrorMessageView: UIView!
-    @IBOutlet weak var passwordStrengthErrorMessageView: UIView!
-    @IBOutlet weak var passwordStrengthView: PasswordStrengthLevelView!
 
     @IBOutlet var textFieldsCollection: [CustomTextField]!
 
+    // Protocol EmailErrorMessageView
+    @IBOutlet weak var emailErrorMessageView: UIView!
     @IBOutlet weak var emailErrorMessageViewTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var emailErrorMessageViewHeightConstraint: NSLayoutConstraint!
+
+    // Protocol PasswordStrengthView
+    @IBOutlet weak var passwordStrengthView: PasswordStrengthLevelView!
+    
+    // Protocol PasswordStrengthErrorMessageView
+    @IBOutlet weak var passwordStrengthErrorMessageView: UIView!
     @IBOutlet weak var passwordStrengthErrorMessageViewTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var passwordStrengthErrorMessageViewHeightConstraint: NSLayoutConstraint!
 
