@@ -15,9 +15,9 @@ import Localize_Swift
     
     var actionButtonHandlerCompletion: CompletionVoid?
     
-    var leftTitle               =   String()
-    var rightTitle              =   String()
-    var selectedButton          =   UIButton()
+    var leftTitle: String?
+    var rightTitle: String?
+    weak var selectedButton: UIButton?
     
     @IBInspectable var segmentedControlViewStyle: String = "" {
         didSet {
@@ -42,8 +42,8 @@ import Localize_Swift
                 rightTitle      =   "Services".localized()
             }
             
-            leftActionButton.setAttributedTitle(NSAttributedString(string: leftTitle, attributes: UIFont.ubuntuLightVeryLightOrange16), for: .normal)
-            rightActionButton.setAttributedTitle(NSAttributedString(string: rightTitle, attributes: UIFont.ubuntuLightVeryLightGray16), for: .normal)
+            leftActionButton.setAttributedTitle(NSAttributedString(string: leftTitle!, attributes: UIFont.ubuntuLightVeryLightOrange16), for: .normal)
+            rightActionButton.setAttributedTitle(NSAttributedString(string: rightTitle!, attributes: UIFont.ubuntuLightVeryLightGray16), for: .normal)
         }
     }
 
@@ -71,8 +71,8 @@ import Localize_Swift
     override func draw(_ rect: CGRect) {
         print(object: "\(type(of: self)): \(#function) run.")
         
-        if (selectedButton.tag == 1) {
-            self.selectedView.frame     =   CGRect.init(origin: CGPoint.init(x: selectedButton.frame.minX + 8, y: selectedButton.frame.maxY),
+        if (selectedButton!.tag == 1) {
+            self.selectedView.frame     =   CGRect.init(origin: CGPoint.init(x: selectedButton!.frame.minX + 8, y: selectedButton!.frame.maxY),
                                                         size: self.selectedView.bounds.size)
         }
         
@@ -81,6 +81,10 @@ import Localize_Swift
             self.leftActionButton.setVerticalTitleStyle()
             self.rightActionButton.setVerticalTitleStyle()
         }
+    }
+
+    deinit {
+        print(object: "\(type(of: self)): \(#function) run in [line \(#line)]")
     }
 
 
@@ -93,8 +97,8 @@ import Localize_Swift
         }
         
         addSubview(view)
-        view.frame = frame
-        view.backgroundColor = UIColor.veryDarkDesaturatedBlue24
+        view.frame              =   frame
+        view.backgroundColor    =   UIColor.veryDarkDesaturatedBlue24
         
         print(object: "\(type(of: self)): \(#function) run. Initialization view.frame = \(view.frame)")
     }
@@ -104,20 +108,20 @@ import Localize_Swift
     @IBAction func handlerActionButtonTap(_ sender: UIButton) {
         print(object: "\(type(of: self)): \(#function) run.")
         
-        if (self.selectedButton.tag != sender.tag) {
+        if (self.selectedButton!.tag != sender.tag) {
             switch sender.tag {
             case 0:
-                leftActionButton.setAttributedTitleWithoutAnimation(title: NSAttributedString(string: leftTitle,
+                leftActionButton.setAttributedTitleWithoutAnimation(title: NSAttributedString(string: leftTitle!,
                                                                                               attributes: UIFont.ubuntuLightVeryLightOrange16))
                 
-                rightActionButton.setAttributedTitleWithoutAnimation(title: NSAttributedString(string: rightTitle,
+                rightActionButton.setAttributedTitleWithoutAnimation(title: NSAttributedString(string: rightTitle!,
                                                                                                attributes: UIFont.ubuntuLightVeryLightGray16))
                 
             case 1:
-                leftActionButton.setAttributedTitleWithoutAnimation(title: NSAttributedString(string: leftTitle,
+                leftActionButton.setAttributedTitleWithoutAnimation(title: NSAttributedString(string: leftTitle!,
                                                                                               attributes: UIFont.ubuntuLightVeryLightGray16))
                 
-                rightActionButton.setAttributedTitleWithoutAnimation(title: NSAttributedString(string: rightTitle,
+                rightActionButton.setAttributedTitleWithoutAnimation(title: NSAttributedString(string: rightTitle!,
                                                                                                attributes: UIFont.ubuntuLightVeryLightOrange16))
                 
             default:

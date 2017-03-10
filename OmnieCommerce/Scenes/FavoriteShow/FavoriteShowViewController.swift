@@ -65,8 +65,8 @@ class FavoriteShowViewController: BaseViewController {
     func setupSegmentedControlView() {
         segmentedControlView.backgroundColor = UIColor.veryDarkDesaturatedBlue24
         
-        segmentedControlView.actionButtonHandlerCompletion = { sender in
-            self.print(object: "\(type(of: self)): \(#function) run. Sender tag = \(sender.tag)")
+        segmentedControlView.actionButtonHandlerCompletion  =   { sender in
+//            self.print(object: "\(type(of: self)): \(#function) run. Sender tag = \(sender.tag)")
         }
     }
 
