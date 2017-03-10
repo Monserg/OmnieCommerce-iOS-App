@@ -11,7 +11,7 @@ import UIKit
 extension UIView {
     // MARK: - Properties
     var heightRatio: CGFloat {
-        return ((UIApplication.shared.statusBarOrientation.isPortrait) ? 494 : 216) / self.frame.height
+        return ((UIApplication.shared.statusBarOrientation.isPortrait) ? 667 : 375) / self.frame.height
     }
 
     var widthRatio: CGFloat {

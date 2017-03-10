@@ -12,6 +12,7 @@ class PersonalDataViewController: BaseViewController, EmailErrorMessageView, Pas
     // MARK: - Properties
     var parametersForAPI: [String: String]?
     let phonesCount: CGFloat    =   1
+    var phoneLastTag: Int       =   0
 
     var pickerViewManager: MSMPickerViewManager! {
         didSet {
@@ -55,6 +56,7 @@ class PersonalDataViewController: BaseViewController, EmailErrorMessageView, Pas
         didSet {
             for index in 0..<Int(phonesCount) {
                 phonesStackViewsCollection[index].isHidden  =   false
+                phoneLastTag                                =   phonesStackViewsCollection[index].tag
             }
         }
     }
@@ -182,8 +184,6 @@ class PersonalDataViewController: BaseViewController, EmailErrorMessageView, Pas
         _ =   phoneErrorMessageViewHeightConstraintsCollection.map{ $0.constant  =   Config.Constants.errorMessageViewHeight }
         _ = phoneErrorMessageViewsCollection.enumerated().map{ didHide($1, withConstraint: phoneErrorMessageViewTopConstraintsCollection[$0]) }
         
-        phonesStackViewHeightConstraint.constant                    =   self.view.heightRatio * phonesCount * 40.0
-
         // Hide passwords error message view
         passwordErrorMessageViewHeightConstraint.constant           =   Config.Constants.errorMessageViewHeight
         didHide(passwordErrorMessageView, withConstraint: passwordErrorMessageViewTopConstraint)
@@ -195,6 +195,10 @@ class PersonalDataViewController: BaseViewController, EmailErrorMessageView, Pas
         didHide(repeatPasswordErrorMessageView, withConstraint: repeatPasswordErrorMessageViewTopConstraint)
     }
     
+    
+    // MARK: - Transition
+    override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {}
+
     
     // MARK: - Actions
     @IBAction func handlerAvatarButtonTap(_ sender: CustomButton) {

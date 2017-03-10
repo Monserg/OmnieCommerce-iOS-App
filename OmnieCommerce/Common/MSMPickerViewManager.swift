@@ -75,7 +75,7 @@ extension MSMPickerViewManager: UIPickerViewDelegate {
     }
     
     func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
-        return self.heightRatio * 45.0
+        return self.heightRatio * 35.0
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
