@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -24,12 +25,6 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K4O-Hp-7T4" customClass="SmallTopBarView" customModule="OmnieCommerce" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="95"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="95" id="6dg-BM-Ib1">
-                                        <variation key="heightClass=compact-widthClass=compact" constant="80"/>
-                                        <variation key="heightClass=compact-widthClass=regular" constant="80"/>
-                                    </constraint>
-                                </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="titleText" value="DiscountCards"/>
                                     <userDefinedRuntimeAttribute type="string" keyPath="type" value="ParentSearch"/>
@@ -54,11 +49,24 @@
                             </constraint>
                             <constraint firstAttribute="trailing" secondItem="Mhd-tM-ire" secondAttribute="trailing" constant="8" id="AaT-uz-y0p"/>
                             <constraint firstAttribute="bottom" secondItem="Mhd-tM-ire" secondAttribute="bottom" constant="8" id="I5B-45-Ist"/>
+                            <constraint firstItem="K4O-Hp-7T4" firstAttribute="height" secondItem="A4D-yP-xw0" secondAttribute="height" multiplier="95:667" id="UJN-6K-TTu"/>
                             <constraint firstItem="K4O-Hp-7T4" firstAttribute="leading" secondItem="A4D-yP-xw0" secondAttribute="leading" id="Uza-Y8-Gkp"/>
                             <constraint firstItem="Mhd-tM-ire" firstAttribute="leading" secondItem="A4D-yP-xw0" secondAttribute="leading" constant="8" id="Zd0-3j-CRY"/>
                             <constraint firstAttribute="trailing" secondItem="K4O-Hp-7T4" secondAttribute="trailing" id="ap6-sg-toG"/>
                             <constraint firstItem="Mhd-tM-ire" firstAttribute="centerX" secondItem="A4D-yP-xw0" secondAttribute="centerX" id="g82-U3-YBO"/>
+                            <constraint firstItem="K4O-Hp-7T4" firstAttribute="height" secondItem="A4D-yP-xw0" secondAttribute="height" multiplier="80:375" id="n2M-rK-mUC"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="UJN-6K-TTu"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="constraints">
+                                <include reference="UJN-6K-TTu"/>
+                                <exclude reference="n2M-rK-mUC"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="RQS-qq-19K"/>
                     <connections>

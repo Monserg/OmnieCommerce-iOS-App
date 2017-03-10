@@ -150,8 +150,8 @@ class SignInShowViewController: BaseViewController {
                     return
                 }
                 
-                let fbToken     =   result!.token.tokenString
-                let fbUserID    =   result!.token.userID
+//                let fbToken     =   result!.token.tokenString
+//                let fbUserID    =   result!.token.userID
                 
                 //            let fbUserEmail = result!.token.
                 //            let strFirstName: String = (result.objectForKey("first_name") as? String)!

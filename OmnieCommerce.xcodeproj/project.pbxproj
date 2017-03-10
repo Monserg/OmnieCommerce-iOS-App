@@ -191,6 +191,7 @@
 		B18A45C81DEC23B2003EBD2F /* SmallTopBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18A45C71DEC23B2003EBD2F /* SmallTopBarView.swift */; };
 		B18A45CA1DEC282B003EBD2F /* DotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18A45C91DEC282B003EBD2F /* DotView.swift */; };
 		B18A45CC1DEC3918003EBD2F /* SmallCirleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18A45CB1DEC3918003EBD2F /* SmallCirleView.swift */; };
+		B19668601E73098600B9C9AE /* OrganizationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B196685F1E73098600B9C9AE /* OrganizationTableViewCell.swift */; };
 		B19BB61F1E6ABB690081533C /* MSMTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19BB61E1E6ABB690081533C /* MSMTableView.swift */; };
 		B19BB6211E6ABF560081533C /* MSMTableViewControllerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19BB6201E6ABF560081533C /* MSMTableViewControllerManager.swift */; };
 		B19DF2841DF94DCD000AFC92 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19DF2831DF94DCD000AFC92 /* CalendarViewController.swift */; };
@@ -544,6 +545,7 @@
 		B18A45C71DEC23B2003EBD2F /* SmallTopBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmallTopBarView.swift; sourceTree = "<group>"; };
 		B18A45C91DEC282B003EBD2F /* DotView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DotView.swift; sourceTree = "<group>"; };
 		B18A45CB1DEC3918003EBD2F /* SmallCirleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmallCirleView.swift; sourceTree = "<group>"; };
+		B196685F1E73098600B9C9AE /* OrganizationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrganizationTableViewCell.swift; sourceTree = "<group>"; };
 		B19BB61E1E6ABB690081533C /* MSMTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSMTableView.swift; sourceTree = "<group>"; };
 		B19BB6201E6ABF560081533C /* MSMTableViewControllerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSMTableViewControllerManager.swift; sourceTree = "<group>"; };
 		B19DF2831DF94DCD000AFC92 /* CalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
@@ -1371,6 +1373,7 @@
 		B1B761C41E62CD960067339F /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				B196685F1E73098600B9C9AE /* OrganizationTableViewCell.swift */,
 				B1B761C91E62D0030067339F /* OrganizationTableViewCell.xib */,
 			);
 			path = Views;
@@ -1906,6 +1909,7 @@
 				B14E97561DD8B052001E1DE2 /* SignUpShowConfigurator.swift in Sources */,
 				B14E97671DD8B05E001E1DE2 /* ForgotPasswordShowPresenter.swift in Sources */,
 				B122F1DF1DD35B760018A701 /* OrdersShowRouter.swift in Sources */,
+				B19668601E73098600B9C9AE /* OrganizationTableViewCell.swift in Sources */,
 				B1CF54CA1DDB51A500E98049 /* PersonalPageShowConfigurator.swift in Sources */,
 				B152915F1DDEB8B500BBA1E0 /* CustomTableView.swift in Sources */,
 				B155DE931E65C41500683384 /* PhonesView.swift in Sources */,

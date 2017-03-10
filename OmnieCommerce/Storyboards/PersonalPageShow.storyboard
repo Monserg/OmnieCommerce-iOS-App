@@ -770,7 +770,7 @@
                                                                 </userDefinedRuntimeAttributes>
                                                             </view>
                                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="h9c-Vv-mhz" userLabel="Old Password Text Field" customClass="CustomTextField" customModule="OmnieCommerce" customModuleProvider="target">
-                                                                <rect key="frame" x="8" y="28" width="144" height="14"/>
+                                                                <rect key="frame" x="8" y="27.5" width="144" height="15"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                 <nil key="textColor"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -854,7 +854,7 @@
                                                                 </userDefinedRuntimeAttributes>
                                                             </view>
                                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="New password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bBy-Xq-W31" userLabel="Password New Text Field" customClass="CustomTextField" customModule="OmnieCommerce" customModuleProvider="target">
-                                                                <rect key="frame" x="8" y="31" width="225" height="19"/>
+                                                                <rect key="frame" x="8" y="33" width="225" height="15"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                 <nil key="textColor"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -938,7 +938,7 @@
                                                                 </userDefinedRuntimeAttributes>
                                                             </view>
                                                             <textField opaque="NO" clipsSubviews="YES" tag="99" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Repeat password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="W8o-Vn-Rwr" userLabel="Password Repeat Text Field" customClass="CustomTextField" customModule="OmnieCommerce" customModuleProvider="target">
-                                                                <rect key="frame" x="8" y="31" width="225" height="19"/>
+                                                                <rect key="frame" x="8" y="33" width="225" height="15"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                 <nil key="textColor"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -1201,8 +1201,8 @@
                                 <exclude reference="w0I-tw-zd3"/>
                                 <exclude reference="FqW-vw-6UQ"/>
                                 <exclude reference="EdY-xO-uag"/>
-                                <exclude reference="iYc-Q8-e2Q"/>
                                 <exclude reference="93f-VH-gyw"/>
+                                <exclude reference="iYc-Q8-e2Q"/>
                                 <exclude reference="iWb-Nf-e6G"/>
                                 <exclude reference="LjT-kk-oPm"/>
                                 <exclude reference="mCe-4V-KMj"/>
@@ -1234,10 +1234,10 @@
                                 <exclude reference="Tkp-BX-YvY"/>
                                 <exclude reference="6Uw-p9-gow"/>
                                 <include reference="EdY-xO-uag"/>
-                                <include reference="iYc-Q8-e2Q"/>
-                                <exclude reference="uPQ-Wp-AgS"/>
                                 <include reference="93f-VH-gyw"/>
                                 <exclude reference="aUg-5j-UhM"/>
+                                <include reference="iYc-Q8-e2Q"/>
+                                <exclude reference="uPQ-Wp-AgS"/>
                                 <include reference="iWb-Nf-e6G"/>
                                 <exclude reference="o2U-Ny-pTx"/>
                                 <include reference="LjT-kk-oPm"/>

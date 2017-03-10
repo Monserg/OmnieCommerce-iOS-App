@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -24,12 +25,6 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QIO-EA-wXe" customClass="SmallTopBarView" customModule="OmnieCommerce" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="95"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="95" id="Q3Y-BW-Xxf">
-                                        <variation key="heightClass=compact-widthClass=compact" constant="80"/>
-                                        <variation key="heightClass=compact-widthClass=regular" constant="80"/>
-                                    </constraint>
-                                </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="titleText" value="Handbook"/>
                                     <userDefinedRuntimeAttribute type="string" keyPath="type" value="ParentSearch"/>
@@ -49,15 +44,28 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="QIO-EA-wXe" firstAttribute="leading" secondItem="Ueb-xh-5L2" secondAttribute="leading" id="4tA-e0-QW4"/>
+                            <constraint firstItem="QIO-EA-wXe" firstAttribute="height" secondItem="Ueb-xh-5L2" secondAttribute="height" multiplier="80:375" id="EnI-yI-85h"/>
                             <constraint firstItem="QIO-EA-wXe" firstAttribute="top" secondItem="Ueb-xh-5L2" secondAttribute="top" id="R7e-Fb-qKN">
                                 <variation key="heightClass=compact-widthClass=compact" constant="0.0"/>
                                 <variation key="heightClass=compact-widthClass=regular" constant="0.0"/>
                             </constraint>
                             <constraint firstAttribute="trailing" secondItem="0jm-qd-ave" secondAttribute="trailing" constant="8" id="bes-ze-Nvg"/>
+                            <constraint firstItem="QIO-EA-wXe" firstAttribute="height" secondItem="Ueb-xh-5L2" secondAttribute="height" multiplier="95:667" id="dBe-yQ-LmB"/>
                             <constraint firstAttribute="bottom" secondItem="0jm-qd-ave" secondAttribute="bottom" constant="9" id="hmh-SC-0Ma"/>
                             <constraint firstItem="0jm-qd-ave" firstAttribute="leading" secondItem="Ueb-xh-5L2" secondAttribute="leading" constant="8" id="jOa-Zo-Oud"/>
                             <constraint firstAttribute="trailing" secondItem="QIO-EA-wXe" secondAttribute="trailing" id="zYa-WF-StA"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="dBe-yQ-LmB"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="constraints">
+                                <exclude reference="EnI-yI-85h"/>
+                                <include reference="dBe-yQ-LmB"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="pdq-Tq-NOG"/>
                     <connections>

@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -22,14 +23,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9iU-ZQ-06Y" customClass="SmallTopBarView" customModule="OmnieCommerce" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="95"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="81"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="95" id="m2V-5t-zv7">
-                                        <variation key="heightClass=compact-widthClass=compact" constant="80"/>
-                                        <variation key="heightClass=compact-widthClass=regular" constant="80"/>
-                                    </constraint>
-                                </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="titleText" value="About"/>
                                     <userDefinedRuntimeAttribute type="string" keyPath="type" value="ParentSearch"/>
@@ -48,7 +43,9 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="9iU-ZQ-06Y" firstAttribute="height" secondItem="DZ4-b6-Q6f" secondAttribute="height" multiplier="95:667" id="ARX-TD-kvg"/>
                             <constraint firstAttribute="bottom" secondItem="4K9-SO-NQz" secondAttribute="bottom" constant="8" id="Gxf-xj-YJN"/>
+                            <constraint firstItem="9iU-ZQ-06Y" firstAttribute="height" secondItem="DZ4-b6-Q6f" secondAttribute="height" multiplier="80:375" id="a9M-fh-UjR"/>
                             <constraint firstItem="4K9-SO-NQz" firstAttribute="centerX" secondItem="DZ4-b6-Q6f" secondAttribute="centerX" id="b3A-Lj-TqH"/>
                             <constraint firstAttribute="trailing" secondItem="9iU-ZQ-06Y" secondAttribute="trailing" id="bqz-Rh-DXm"/>
                             <constraint firstItem="9iU-ZQ-06Y" firstAttribute="leading" secondItem="DZ4-b6-Q6f" secondAttribute="leading" id="ewK-tO-COT"/>
@@ -59,6 +56,17 @@
                                 <variation key="heightClass=compact-widthClass=regular" constant="0.0"/>
                             </constraint>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="ARX-TD-kvg"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="constraints">
+                                <include reference="ARX-TD-kvg"/>
+                                <exclude reference="a9M-fh-UjR"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="7Iy-MM-fBq"/>
                     <connections>

@@ -31,7 +31,6 @@ class OrganizationsShowViewController: BaseViewController {
     var router: OrganizationsShowRouter!
 
     var category: Category!
-    var tableViewManager                    =   ListTableViewController()
     
     @IBOutlet weak var smallTopBarView: SmallTopBarView!
     @IBOutlet weak var categoriesButton: DropDownButton!
@@ -39,36 +38,35 @@ class OrganizationsShowViewController: BaseViewController {
     @IBOutlet weak var mapButton: CustomButton!
     @IBOutlet weak var dataSourceEmptyView: UIView!
 
-    @IBOutlet weak var tableView: CustomTableView! {
+    @IBOutlet weak var tableView: MSMTableView! {
         didSet {
-            // Register the Nib header/footer section views
-            tableView.register(UINib(nibName: "OrganizationTableViewCell", bundle: nil), forCellReuseIdentifier: "OrganizationCell")
+            tableView.contentInset                                  =   UIEdgeInsetsMake((UIApplication.shared.statusBarOrientation.isPortrait) ? 5 : 45, 0, 0, 0)
+            tableView.scrollIndicatorInsets                         =   UIEdgeInsetsMake((UIApplication.shared.statusBarOrientation.isPortrait) ? 5 : 45, 0, 0, 0)
             
-            // Delegates
-            tableView.dataSource            =   tableViewManager
-            tableView.delegate              =   tableViewManager
-            tableViewManager.tableView      =   tableView
-            tableViewManager.sourceType     =   .Organization
-            
-            smallTopBarView.searchBar.placeholder   =   "Enter Organization name".localized()
-            smallTopBarView.searchBar.delegate      =   tableViewManager
+            // TableViewController Manager
+            tableView.tableViewControllerManager                    =   MSMTableViewControllerManager()
+            tableView.tableViewControllerManager.tableView          =   self.tableView
+            tableView.tableViewControllerManager.sectionsCount      =   1
 
+            // Search Manager
+            smallTopBarView.searchBar.placeholder                   =   "Enter Organization name".localized()
+            smallTopBarView.searchBar.delegate                      =   tableView.tableViewControllerManager
+            
             // Handler select cell
-            tableViewManager.completionHandler = { organization in
-                // TODO: ADD TRANSITION TO ORGANIZATION PROFILE
+            tableView.tableViewControllerManager.handlerSearchCompletion        = { organization in
                 self.print(object: "transition to Organization profile scene")
                 
                 self.router.navigateToOrganizationShowScene(organization as! Organization)
             }
-
+            
             // Handler Search keyboard button tap
-            tableViewManager.handlerSendButtonCompletion    =   { _ in
+            tableView.tableViewControllerManager.handlerSendButtonCompletion    =   { _ in
                 // TODO: - ADD SEARCH API
                 self.smallTopBarView.searchBarDidHide()
             }
-
+            
             // Handler Search Bar Cancel button tap
-            tableViewManager.handlerCancelButtonCompletion  =   { _ in
+            tableView.tableViewControllerManager.handlerCancelButtonCompletion  =   { _ in
                 self.smallTopBarView.searchBarDidHide()
             }
         }
@@ -123,8 +121,8 @@ class OrganizationsShowViewController: BaseViewController {
     
     // MARK: - Actions
     @IBAction func handlerMapButtonTap(_ sender: CustomButton) {
-        if (tableViewManager.dataSource.count > 0) {
-            router.navigateToOrganizationsMapShowScene(withOrganizations: (tableViewManager.dataSource as! [Organization]))
+        if ((tableView.tableViewControllerManager.dataSource?.count)! > 0) {
+            router.navigateToOrganizationsMapShowScene(withOrganizations: (tableView.tableViewControllerManager.dataSource as! [Organization]))
         }
     }
     
@@ -161,7 +159,7 @@ extension OrganizationsShowViewController: OrganizationsShowViewControllerInput 
     }
 
     func organizationsDidShow(fromViewModel viewModel: OrganizationsShowModels.Organizations.ViewModel) {
-        self.tableViewManager.dataSource            =   viewModel.organizations
+        self.tableView.tableViewControllerManager.dataSource    =   viewModel.organizations
         self.mapButton.isUserInteractionEnabled     =   true
         dataSourceEmptyView.isHidden                =   (viewModel.organizations.count == 0) ? false : true
 

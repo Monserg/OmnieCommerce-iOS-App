@@ -26,12 +26,6 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qfb-kj-Smx" customClass="SmallTopBarView" customModule="OmnieCommerce" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="95"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="95" id="JFk-Qy-qES">
-                                        <variation key="heightClass=compact-widthClass=compact" constant="80"/>
-                                        <variation key="heightClass=compact-widthClass=regular" constant="80"/>
-                                    </constraint>
-                                </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="titleText" value="OmnieCards"/>
                                     <userDefinedRuntimeAttribute type="string" keyPath="type" value="ParentSearch"/>
@@ -48,7 +42,7 @@
                                         <rect key="frame" x="0.0" y="38" width="375" height="107"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image-logo-vertical" translatesAutoresizingMaskIntoConstraints="NO" id="04A-8n-AQp">
-                                                <rect key="frame" x="76.5" y="0.0" width="222" height="107"/>
+                                                <rect key="frame" x="76" y="0.0" width="222.5" height="107"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="04A-8n-AQp" secondAttribute="height" multiplier="222:107" id="Ufk-lI-Iy6"/>
                                                 </constraints>
@@ -202,6 +196,7 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Qfb-kj-Smx" firstAttribute="height" secondItem="mMd-Q2-vub" secondAttribute="height" multiplier="80:375" id="DUo-BX-C9d"/>
                             <constraint firstItem="L4c-x8-h4e" firstAttribute="height" secondItem="mMd-Q2-vub" secondAttribute="height" multiplier="140:375" id="DZj-c8-qBq"/>
                             <constraint firstItem="L4c-x8-h4e" firstAttribute="height" secondItem="mMd-Q2-vub" secondAttribute="height" multiplier="368:667" id="JYA-vs-99S"/>
                             <constraint firstItem="L4c-x8-h4e" firstAttribute="top" secondItem="Qfb-kj-Smx" secondAttribute="bottom" id="KCJ-49-0Fp"/>
@@ -221,18 +216,18 @@
                             <constraint firstItem="L4c-x8-h4e" firstAttribute="leading" secondItem="mMd-Q2-vub" secondAttribute="leading" id="oPW-UF-W8k"/>
                             <constraint firstAttribute="trailing" secondItem="1Z8-aZ-gEE" secondAttribute="trailing" constant="8" id="raY-e4-3NO"/>
                             <constraint firstAttribute="bottom" secondItem="1Z8-aZ-gEE" secondAttribute="bottom" constant="9" id="ut0-mE-Upl"/>
+                            <constraint firstItem="Qfb-kj-Smx" firstAttribute="height" secondItem="mMd-Q2-vub" secondAttribute="height" multiplier="95:667" id="vEw-jp-Ebs"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="DZj-c8-qBq"/>
+                                <exclude reference="vEw-jp-Ebs"/>
+                                <exclude reference="JYA-vs-99S"/>
                                 <exclude reference="dr0-li-cQi"/>
                                 <exclude reference="hyR-bG-U93"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=compact-widthClass=compact">
                             <mask key="constraints">
-                                <include reference="DZj-c8-qBq"/>
-                                <exclude reference="JYA-vs-99S"/>
                                 <exclude reference="KCJ-49-0Fp"/>
                                 <include reference="dr0-li-cQi"/>
                                 <include reference="hyR-bG-U93"/>
@@ -240,11 +235,17 @@
                         </variation>
                         <variation key="heightClass=compact-widthClass=regular">
                             <mask key="constraints">
-                                <include reference="DZj-c8-qBq"/>
-                                <exclude reference="JYA-vs-99S"/>
                                 <exclude reference="KCJ-49-0Fp"/>
                                 <include reference="dr0-li-cQi"/>
                                 <include reference="hyR-bG-U93"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="constraints">
+                                <exclude reference="DUo-BX-C9d"/>
+                                <include reference="vEw-jp-Ebs"/>
+                                <exclude reference="DZj-c8-qBq"/>
+                                <include reference="JYA-vs-99S"/>
                             </mask>
                         </variation>
                     </view>

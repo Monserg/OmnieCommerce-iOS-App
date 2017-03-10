@@ -24,8 +24,8 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image-background-landscape" translatesAutoresizingMaskIntoConstraints="NO" id="hn9-sw-5gw">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <variation key="heightClass=compact-widthClass=compact" image="96F3A38C-6576-4029-8668-97534BC6D82F"/>
-                                <variation key="heightClass=compact-widthClass=regular" image="96F3A38C-6576-4029-8668-97534BC6D82F"/>
+                                <variation key="heightClass=compact-widthClass=compact" image="D4C2E0F8-7EC4-41F0-98CB-982306B36A51"/>
+                                <variation key="heightClass=compact-widthClass=regular" image="D4C2E0F8-7EC4-41F0-98CB-982306B36A51"/>
                                 <variation key="heightClass=regular-widthClass=compact" image="image-background-portrait"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i2t-m6-iVM">
@@ -70,7 +70,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="96F3A38C-6576-4029-8668-97534BC6D82F" width="667" height="375">
+        <image name="D4C2E0F8-7EC4-41F0-98CB-982306B36A51" width="667" height="375">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw

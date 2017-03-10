@@ -25,7 +25,7 @@ class BaseViewController: UIViewController {
     var topBarViewStyle = TopBarViewStyle.Big
     var blackOutView: UIView?
     var haveMenuItem = false
-    var userApp: AppUser?
+    weak var userApp: AppUser?
     
     // Network monitoring
     var previousNetworkReachabilityStatus: AFNetworkReachabilityStatus = .unknown
@@ -34,15 +34,6 @@ class BaseViewController: UIViewController {
     var scrollViewBase = UIScrollView() {
         didSet {
             self.scrollViewBase.delegate = self
-        }
-    }
-
-    // TODO: - DELETE!!!
-    var textFieldsArray = [CustomTextField]() {
-        willSet {
-            for textField in newValue {
-//                textField.delegate = MSMTextFieldManager()
-            }
         }
     }
 
@@ -233,95 +224,6 @@ extension BaseViewController: UIImagePickerControllerDelegate {
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
-    }
-}
-
-
-
-// MARK: - UITextFieldDelegate
-extension BaseViewController: UITextFieldDelegate {
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-//        if (NSStringFromClass(type(of: self)).hasSuffix("ForgotPasswordShowViewController")) {
-//            let forgotPasswordShowVC = self as! ForgotPasswordShowViewController
-//            
-//            if (!forgotPasswordShowVC.phoneEmailErrorLabel.isHidden) {
-//                forgotPasswordShowVC.phoneEmailErrorLabel.isHidden = true
-//            }
-//        } else if (NSStringFromClass(type(of: self)).hasSuffix("SignUpShowViewController")) {
-//            let signUpShowVC = self as! SignUpShowViewController
-//            
-//            if (!signUpShowVC.emailErrorLabel.isHidden) {
-//                signUpShowVC.emailErrorLabel.isHidden = true
-//            }
-//        }
-        
-        return true
-    }
-    
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        print(object: "\(type(of: self)): \(#function) run in [line \(#line)]")
-        
-        (textField as! CustomTextField).attributedPlaceholderString = textField.attributedPlaceholder
-        textField.placeholder = nil
-        selectedRange = textField.convert(textField.bounds, to: view)
-    }
-    
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        print(object: "\(type(of: self)): \(#function) run in [line \(#line)]")
-        
-        textField.attributedPlaceholder = (textField as! CustomTextField).attributedPlaceholderString
-    }
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        print(object: "\(type(of: self)): \(#function) run in [line \(#line)]")
-        /*
-        if (NSStringFromClass(type(of: self)).hasSuffix("SignInShowViewController")) {
-            let signInShowVC = self as! SignInShowViewController
-            
-            if textField == signInShowVC.nameTextField {
-                signInShowVC.passwordTextField.becomeFirstResponder()
-            } else {
-                // FIXME: RUN LOGIN FUNC
-                textField.resignFirstResponder()
-            }
-        }
-
-        else if (NSStringFromClass(type(of: self)).hasSuffix("SignUpShowViewController")) {
-            let signUpShowVC = self as! SignUpShowViewController
-            
-            if textField == signUpShowVC.nameTextField {
-                signUpShowVC.emailTextField.becomeFirstResponder()
-            } else if textField == signUpShowVC.emailTextField {
-                if (textField.validateEmailPhone(textField.text!)) {
-                    signUpShowVC.emailErrorLabel.isHidden = true
-                    signUpShowVC.passwordTextField.becomeFirstResponder()
-                } else {
-                    signUpShowVC.emailErrorLabel.isHidden = false
-
-                    return false
-                }
-            } else {
-                // FIXME: RUN LOGIN FUNC
-                textField.resignFirstResponder()
-            }
-        }
-
-        else if (NSStringFromClass(type(of: self)).hasSuffix("ForgotPasswordShowViewController")) {
-            let forgotPasswordShowVC = self as! ForgotPasswordShowViewController
-            
-            if (textField.validateEmailPhone(textField.text!)) {
-                forgotPasswordShowVC.phoneEmailErrorLabel.isHidden = true
-                textField.resignFirstResponder()
-                
-                // TODO: - RUN SEND BUTTON HANDLER
-            } else {
-                forgotPasswordShowVC.phoneEmailErrorLabel.isHidden = false
- 
-                return false
-            }
-        }
-*/
-        return true
     }
 }
 

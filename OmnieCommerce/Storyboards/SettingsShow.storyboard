@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina3_5" orientation="portrait">
+    <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -18,25 +19,19 @@
                         <viewControllerLayoutGuide type="bottom" id="rz1-p5-mBM"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="YdI-eJ-QVc">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zS9-gZ-teb" customClass="SmallTopBarView" customModule="OmnieCommerce" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="95"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="95"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="95" id="bvK-ka-Y2g">
-                                        <variation key="heightClass=compact-widthClass=compact" constant="80"/>
-                                        <variation key="heightClass=compact-widthClass=regular" constant="80"/>
-                                    </constraint>
-                                </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="titleText" value="Settings"/>
                                     <userDefinedRuntimeAttribute type="string" keyPath="type" value="ParentSearch"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Copyright" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ou2-ut-ywD" customClass="UbuntuLightDarkCyanLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                                <rect key="frame" x="8" y="460" width="304" height="11"/>
+                                <rect key="frame" x="8" y="647" width="359" height="11"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="9"/>
                                 <nil key="textColor"/>
@@ -55,9 +50,22 @@
                                 <variation key="heightClass=compact-widthClass=regular" constant="0.0"/>
                             </constraint>
                             <constraint firstAttribute="bottom" secondItem="Ou2-ut-ywD" secondAttribute="bottom" constant="9" id="O4I-Oc-KzN"/>
+                            <constraint firstItem="zS9-gZ-teb" firstAttribute="height" secondItem="YdI-eJ-QVc" secondAttribute="height" multiplier="95:667" id="Pcr-SM-oT3"/>
                             <constraint firstItem="zS9-gZ-teb" firstAttribute="leading" secondItem="YdI-eJ-QVc" secondAttribute="leading" id="S3T-BJ-8Q5"/>
                             <constraint firstAttribute="trailing" secondItem="zS9-gZ-teb" secondAttribute="trailing" id="ndQ-mK-hZ6"/>
+                            <constraint firstItem="zS9-gZ-teb" firstAttribute="height" secondItem="YdI-eJ-QVc" secondAttribute="height" multiplier="80:375" id="ugB-Sy-Xkj"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Pcr-SM-oT3"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="constraints">
+                                <include reference="Pcr-SM-oT3"/>
+                                <exclude reference="ugB-Sy-Xkj"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="bWc-GJ-DAt"/>
                     <connections>

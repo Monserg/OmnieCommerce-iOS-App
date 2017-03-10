@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina5_5" orientation="portrait">
+    <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -18,25 +19,19 @@
                         <viewControllerLayoutGuide type="bottom" id="DTO-wG-tQo"/>
                     </layoutGuides>
                     <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="oKk-pR-n0g">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" restorationIdentifier="TopBarView" translatesAutoresizingMaskIntoConstraints="NO" id="0nN-5h-FmO" userLabel="Small Top Bar View" customClass="SmallTopBarView" customModule="OmnieCommerce" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="95"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="95"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="95" id="SaL-Vb-gSo">
-                                        <variation key="heightClass=compact-widthClass=compact" constant="80"/>
-                                        <variation key="heightClass=compact-widthClass=regular" constant="80"/>
-                                    </constraint>
-                                </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="titleText" value="Orders"/>
                                     <userDefinedRuntimeAttribute type="string" keyPath="type" value="ParentSearch"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Copyright" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EBq-Ba-TWn" customClass="UbuntuLightDarkCyanLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                                <rect key="frame" x="8" y="715.33333333333337" width="398" height="11"/>
+                                <rect key="frame" x="8" y="647" width="359" height="11"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="9"/>
                                 <nil key="textColor"/>
@@ -46,7 +41,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oHb-zG-5fk">
-                                <rect key="frame" x="332" y="134" width="62" height="30"/>
+                                <rect key="frame" x="293" y="134" width="62" height="30"/>
                                 <state key="normal" title="Calendar"/>
                                 <connections>
                                     <segue destination="seO-We-1VM" kind="show" identifier="CalendarShowSegue" id="TNv-N8-vZZ"/>
@@ -62,12 +57,25 @@
                             <constraint firstItem="oHb-zG-5fk" firstAttribute="top" secondItem="0nN-5h-FmO" secondAttribute="bottom" constant="39" id="Bmp-0w-evD"/>
                             <constraint firstItem="EBq-Ba-TWn" firstAttribute="centerX" secondItem="oKk-pR-n0g" secondAttribute="centerX" id="Bo8-FN-hGj"/>
                             <constraint firstItem="0nN-5h-FmO" firstAttribute="leading" secondItem="oKk-pR-n0g" secondAttribute="leading" id="CjR-yb-X9A"/>
+                            <constraint firstItem="0nN-5h-FmO" firstAttribute="height" secondItem="oKk-pR-n0g" secondAttribute="height" multiplier="80:375" id="Hz7-6D-6Nh"/>
                             <constraint firstItem="0nN-5h-FmO" firstAttribute="top" secondItem="oKk-pR-n0g" secondAttribute="top" id="PKg-An-nEH">
                                 <variation key="heightClass=compact-widthClass=compact" constant="0.0"/>
                                 <variation key="heightClass=compact-widthClass=regular" constant="0.0"/>
                             </constraint>
+                            <constraint firstItem="0nN-5h-FmO" firstAttribute="height" secondItem="oKk-pR-n0g" secondAttribute="height" multiplier="95:667" id="Wob-hC-eFE"/>
                             <constraint firstItem="EBq-Ba-TWn" firstAttribute="leading" secondItem="oKk-pR-n0g" secondAttribute="leading" constant="8" id="mjY-xP-tWi"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Wob-hC-eFE"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="constraints">
+                                <exclude reference="Hz7-6D-6Nh"/>
+                                <include reference="Wob-hC-eFE"/>
+                            </mask>
+                        </variation>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" title="Orders" id="5Gb-Un-bfT"/>

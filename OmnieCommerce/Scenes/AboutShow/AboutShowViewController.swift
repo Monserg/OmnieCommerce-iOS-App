@@ -60,19 +60,13 @@ class AboutShowViewController: BaseViewController {
         interactor.doSomething(request: request)
     }
     
-    func setupScene(withSize size: CGSize) {
-        print(object: "\(type(of: self)): \(#function) run. Screen view size = \(size)")
-        
-        smallTopBarView.setNeedsDisplay()
-        smallTopBarView.circleView.setNeedsDisplay()
-    }
-    
     
     // MARK: - Transition
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         print(object: "\(type(of: self)): \(#function) run. New size = \(size)")
         
-        setupScene(withSize: size)
+        smallTopBarView.setNeedsDisplay()
+        smallTopBarView.circleView.setNeedsDisplay()
     }
 }
 

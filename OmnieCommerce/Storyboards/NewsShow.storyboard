@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina3_5" orientation="portrait">
+    <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -19,28 +19,22 @@
                         <viewControllerLayoutGuide type="bottom" id="Ncm-dv-5NH"/>
                     </layoutGuides>
                     <view key="view" opaque="NO" contentMode="scaleToFill" id="kfe-de-o53">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KMj-II-PyU" customClass="SmallTopBarView" customModule="OmnieCommerce" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="95"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="95"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="95" id="Htg-WR-zRy">
-                                        <variation key="heightClass=compact-widthClass=compact" constant="80"/>
-                                        <variation key="heightClass=compact-widthClass=regular" constant="80"/>
-                                    </constraint>
-                                </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="titleText" value="News"/>
                                     <userDefinedRuntimeAttribute type="string" keyPath="type" value="ParentSearch"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="10M-FJ-LCe" userLabel="Segmented Control View">
-                                <rect key="frame" x="0.0" y="95" width="320" height="50"/>
+                                <rect key="frame" x="0.0" y="95" width="375" height="50"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QEZ-zG-MDi" userLabel="Content View" customClass="SegmentedControlView" customModule="OmnieCommerce" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="35"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="35"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="string" keyPath="segmentedControlViewStyle" value="News"/>
@@ -52,13 +46,12 @@
                                 <constraints>
                                     <constraint firstItem="QEZ-zG-MDi" firstAttribute="top" secondItem="10M-FJ-LCe" secondAttribute="top" id="AE2-Xl-w2p"/>
                                     <constraint firstItem="QEZ-zG-MDi" firstAttribute="leading" secondItem="10M-FJ-LCe" secondAttribute="leading" id="DKt-2b-iQV"/>
-                                    <constraint firstAttribute="height" constant="50" id="MF6-f7-bVa"/>
                                     <constraint firstAttribute="bottom" secondItem="QEZ-zG-MDi" secondAttribute="bottom" constant="15" id="vAv-Xb-rmR"/>
                                     <constraint firstAttribute="trailing" secondItem="QEZ-zG-MDi" secondAttribute="trailing" id="w89-R8-JRN"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Copyright" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="krF-Rc-3FU" customClass="UbuntuLightDarkCyanLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                                <rect key="frame" x="8" y="459.5" width="304" height="11"/>
+                                <rect key="frame" x="8" y="647" width="359" height="11"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="9"/>
                                 <nil key="textColor"/>
@@ -68,14 +61,14 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <tableView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="95" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="sJ6-Lv-NkE" customClass="MSMTableView" customModule="OmnieCommerce" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="145" width="320" height="306"/>
+                                <rect key="frame" x="0.0" y="145" width="375" height="493"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <view key="tableFooterView" hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" id="Sqg-0G-DvY">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="News list is empty" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tQe-we-0aS" customClass="UbuntuLightVeryLightGrayLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                                            <rect key="frame" x="108.5" y="26.5" width="103" height="14.5"/>
+                                            <rect key="frame" x="136" y="26.5" width="103" height="14.5"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <nil key="textColor"/>
@@ -98,9 +91,11 @@
                         </subviews>
                         <color key="backgroundColor" red="0.14117647058823529" green="0.19607843137254902" blue="0.24705882352941178" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="KMj-II-PyU" firstAttribute="height" secondItem="kfe-de-o53" secondAttribute="height" multiplier="80:375" id="1It-tz-Mr5"/>
                             <constraint firstAttribute="trailing" secondItem="sJ6-Lv-NkE" secondAttribute="trailing" id="4Ni-Cz-99Z"/>
                             <constraint firstItem="10M-FJ-LCe" firstAttribute="top" secondItem="KMj-II-PyU" secondAttribute="bottom" id="5Kx-He-G0M"/>
                             <constraint firstItem="10M-FJ-LCe" firstAttribute="leading" secondItem="kfe-de-o53" secondAttribute="leading" id="DMJ-g6-jZx"/>
+                            <constraint firstItem="KMj-II-PyU" firstAttribute="height" secondItem="kfe-de-o53" secondAttribute="height" multiplier="95:667" id="OzD-Bb-0u1"/>
                             <constraint firstItem="KMj-II-PyU" firstAttribute="top" secondItem="kfe-de-o53" secondAttribute="top" id="SCC-2u-QNC">
                                 <variation key="heightClass=compact-widthClass=compact" constant="0.0"/>
                                 <variation key="heightClass=compact-widthClass=regular" constant="0.0"/>
@@ -108,6 +103,8 @@
                             <constraint firstAttribute="bottom" secondItem="krF-Rc-3FU" secondAttribute="bottom" constant="9" id="U9b-VZ-tOU"/>
                             <constraint firstItem="sJ6-Lv-NkE" firstAttribute="leading" secondItem="kfe-de-o53" secondAttribute="leading" id="W3s-NZ-HVS"/>
                             <constraint firstItem="krF-Rc-3FU" firstAttribute="top" secondItem="sJ6-Lv-NkE" secondAttribute="bottom" constant="9" id="YAy-cN-Nby"/>
+                            <constraint firstItem="10M-FJ-LCe" firstAttribute="height" secondItem="kfe-de-o53" secondAttribute="height" multiplier="50:375" id="Yqw-Cv-KG1"/>
+                            <constraint firstItem="10M-FJ-LCe" firstAttribute="height" secondItem="kfe-de-o53" secondAttribute="height" multiplier="50:667" id="eoQ-sJ-UKf"/>
                             <constraint firstItem="krF-Rc-3FU" firstAttribute="leading" secondItem="kfe-de-o53" secondAttribute="leading" constant="8" id="gKR-ED-pMH"/>
                             <constraint firstAttribute="trailing" secondItem="10M-FJ-LCe" secondAttribute="trailing" id="ia7-vQ-fxO"/>
                             <constraint firstItem="sJ6-Lv-NkE" firstAttribute="top" secondItem="10M-FJ-LCe" secondAttribute="bottom" id="ifW-f9-ub4"/>
@@ -115,6 +112,20 @@
                             <constraint firstAttribute="trailing" secondItem="KMj-II-PyU" secondAttribute="trailing" id="r5Q-ox-nqr"/>
                             <constraint firstAttribute="trailing" secondItem="krF-Rc-3FU" secondAttribute="trailing" constant="8" id="vv7-ZM-MSa"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="OzD-Bb-0u1"/>
+                                <exclude reference="eoQ-sJ-UKf"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="constraints">
+                                <exclude reference="1It-tz-Mr5"/>
+                                <include reference="OzD-Bb-0u1"/>
+                                <exclude reference="Yqw-Cv-KG1"/>
+                                <include reference="eoQ-sJ-UKf"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="saI-lc-2iO"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>

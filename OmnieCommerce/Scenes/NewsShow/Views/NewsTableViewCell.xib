@@ -25,11 +25,11 @@
                                 <rect key="frame" x="0.0" y="0.0" width="435" height="85"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="borderWidth" value="1.5"/>
                                     <userDefinedRuntimeAttribute type="string" keyPath="viewStyle" value="AroundDottedRectangleColor"/>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                         <real key="value" value="5"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="o1N-GT-z5a">
@@ -120,7 +120,7 @@
                             <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
                         </userDefinedRuntimeAttributes>
                     </view>
-                    <imageView opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image-no-photo" translatesAutoresizingMaskIntoConstraints="NO" id="Ryx-ei-hEh" userLabel="Logo Image View" customClass="CustomImageView" customModule="OmnieCommerce" customModuleProvider="target">
+                    <imageView opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image-no-photo" translatesAutoresizingMaskIntoConstraints="NO" id="Ryx-ei-hEh" userLabel="Logo Image View" customClass="CustomImageView" customModule="OmnieCommerce" customModuleProvider="target">
                         <rect key="frame" x="8" y="5" width="84" height="84"/>
                         <color key="backgroundColor" red="0.15294117647058825" green="0.21568627450980393" blue="0.27058823529411763" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -157,6 +157,9 @@
                 </userDefinedRuntimeAttributes>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+            </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="dateLabel" destination="hKe-9x-Ysk" id="E8N-wn-XSj"/>
                 <outlet property="describeLabel" destination="JFd-zO-ezc" id="QvR-4O-quY"/>
