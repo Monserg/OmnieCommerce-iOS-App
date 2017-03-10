@@ -32,7 +32,7 @@ class BaseViewController: UIViewController {
     var previousNetworkReachabilityStatus: AFNetworkReachabilityStatus = .unknown
     var isNetworkAvailable = false
     
-    weak var scrollViewBase: UIScrollView? {
+    var scrollViewBase: UIScrollView? {
         didSet {
             self.scrollViewBase!.delegate = self
         }
@@ -283,10 +283,12 @@ extension BaseViewController {
             // Create blackOutView
             blackoutView    =   MSMBlackoutView.init(inView: view)
 
-            blackoutView!.didShow()
+            let menuButton  =   UIButton.init(frame: CGRect.init(origin: .zero, size: CGSize.init(width: 80, height: 80)))
+            menuButton.addTarget(revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), for: .touchUpInside)
             
-            // TODO: - BRING MENU BUTTON TO FRONT
-//            view.bringSubview(toFront: revealViewController.frontViewController.view )
+            blackoutView?.addSubview(menuButton)
+            
+            blackoutView!.didShow()
             
         default:
             blackoutView?.removeFromSuperview()

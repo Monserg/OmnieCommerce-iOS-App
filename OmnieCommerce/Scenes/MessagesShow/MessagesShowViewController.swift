@@ -32,44 +32,9 @@ class MessagesShowViewController: BaseViewController {
 
     @IBOutlet weak var tableView: MSMTableView! {
         didSet {
-            smallTopBarView.searchBar.placeholder                   =   "Enter Organization name".localized()
-            tableView.contentInset                                  =   UIEdgeInsetsMake((UIApplication.shared.statusBarOrientation.isPortrait) ? 5 : 45, 0, 0, 0)
-            tableView.scrollIndicatorInsets                         =   UIEdgeInsetsMake((UIApplication.shared.statusBarOrientation.isPortrait) ? 5 : 45, 0, 0, 0)
-            
-            // TableViewController Manager
-            tableView.tableViewControllerManager                    =   MSMTableViewControllerManager()
-            tableView.tableViewControllerManager.tableView          =   self.tableView
-            tableView.tableViewControllerManager.sectionsCount      =   1
-
-            // Search Manager
-            smallTopBarView.searchBar.placeholder                   =   "Enter Organization name".localized()
-            smallTopBarView.searchBar.delegate                      =   tableView.tableViewControllerManager
-            
-            // Handler select cell
-            tableView.tableViewControllerManager.handlerSearchCompletion        = { message in
-                // TODO: ADD TRANSITION TO CHAT SCENE
-                self.print(object: "transition to Chat scene")
-                
-//                self.router.navigateToOrganizationShowScene(organization as! Organization)
-            }
-            
-            // Handler Search keyboard button tap
-            tableView.tableViewControllerManager.handlerSendButtonCompletion    =   { _ in
-                // TODO: - ADD SEARCH API
-                self.smallTopBarView.searchBarDidHide()
-            }
-            
-            // Handler Search Bar Cancel button tap
-            tableView.tableViewControllerManager.handlerCancelButtonCompletion  =   { _ in
-                self.smallTopBarView.searchBarDidHide()
-            }
-
-            
-//            // Handler select cell
-//            tableViewManager.completionHandler = { organization in
-//                // TODO: ADD TRANSITION TO CHAT
-//                self.print(object: "transition to Chat scene")
-//            }
+            smallTopBarView.searchBar.placeholder   =   "Enter Organization name".localized()
+            tableView.contentInset                  =   UIEdgeInsetsMake((UIApplication.shared.statusBarOrientation.isPortrait) ? 5 : 45, 0, 0, 0)
+            tableView.scrollIndicatorInsets         =   UIEdgeInsetsMake((UIApplication.shared.statusBarOrientation.isPortrait) ? 5 : 45, 0, 0, 0)
         }
     }
 
@@ -116,8 +81,8 @@ class MessagesShowViewController: BaseViewController {
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         smallTopBarView.setNeedsDisplay()
         smallTopBarView.circleView.setNeedsDisplay()
-        tableView.contentInset              =   UIEdgeInsetsMake((size.height > size.width) ? 5 : 65, 0, 0, 0)
-        tableView.scrollIndicatorInsets     =   UIEdgeInsetsMake((size.height > size.width) ? 5 : 65, 0, 0, 0)
+        tableView.contentInset                  =   UIEdgeInsetsMake((size.height > size.width) ? 5 : 65, 0, 0, 0)
+        tableView.scrollIndicatorInsets         =   UIEdgeInsetsMake((size.height > size.width) ? 5 : 65, 0, 0, 0)
 
         _ = tableView.visibleCells.map{ ($0 as! MessageTableViewCell).dottedBorderView.setNeedsDisplay() }
     }
@@ -134,10 +99,44 @@ extension MessagesShowViewController: MessagesShowViewControllerInput {
             return
         }
         
-        tableView.tableViewControllerManager.dataSource     =   viewModel.messages!
-        dataSourceEmptyView.isHidden        =   true
-        self.tableView.isScrollEnabled      =   true
+        // TableViewController Manager
+        tableView.tableViewControllerManager                    =   MSMTableViewControllerManager()
+        tableView.tableViewControllerManager!.tableView         =   self.tableView
+        tableView.tableViewControllerManager!.sectionsCount     =   1
+        tableView.tableViewControllerManager!.dataSource        =   viewModel.messages!
+        dataSourceEmptyView.isHidden                            =   true
+        self.tableView.isScrollEnabled                          =   true
         
         self.tableView.reloadData()
+        
+        // Search Manager
+        smallTopBarView.searchBar.placeholder                   =   "Enter Organization name".localized()
+        smallTopBarView.searchBar.delegate                      =   tableView.tableViewControllerManager
+        
+        // Handler select cell
+        tableView.tableViewControllerManager!.handlerSearchCompletion           =   { message in
+            // TODO: ADD TRANSITION TO CHAT SCENE
+            self.print(object: "transition to Chat scene")
+            
+            //                self.router.navigateToOrganizationShowScene(organization as! Organization)
+        }
+        
+        // Handler Search keyboard button tap
+        tableView.tableViewControllerManager!.handlerSendButtonCompletion       =   { _ in
+            // TODO: - ADD SEARCH API
+            self.smallTopBarView.searchBarDidHide()
+        }
+        
+        // Handler Search Bar Cancel button tap
+        tableView.tableViewControllerManager!.handlerCancelButtonCompletion     =   { _ in
+            self.smallTopBarView.searchBarDidHide()
+        }
+        
+        
+        //            // Handler select cell
+        //            tableViewManager.completionHandler = { organization in
+        //                // TODO: ADD TRANSITION TO CHAT
+        //                self.print(object: "transition to Chat scene")
+        //            }
     }
 }

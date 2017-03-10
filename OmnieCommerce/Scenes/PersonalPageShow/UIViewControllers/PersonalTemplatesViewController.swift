@@ -39,12 +39,12 @@ class PersonalTemplatesViewController: BaseViewController {
     
     // MARK: - Custom Functions
     func viewSettingsDidLoad() {
-        tableView.tableViewControllerManager.sectionsCount  =   1
-        tableView.tableViewControllerManager.dataSource     =   organizations
+        tableView.tableViewControllerManager!.sectionsCount     =   1
+        tableView.tableViewControllerManager!.dataSource        =   organizations
         
-        dataSourceEmptyView.isHidden                        =   (organizations == nil) ? false : true
-        tableView.isScrollEnabled                           =   (organizations == nil) ? false : true
-        tableView.tableViewControllerManager.tableView      =   tableView
+        dataSourceEmptyView.isHidden                            =   (organizations == nil) ? false : true
+        tableView.isScrollEnabled                               =   (organizations == nil) ? false : true
+        tableView.tableViewControllerManager!.tableView         =   tableView
         
         tableView.reloadData()
     }

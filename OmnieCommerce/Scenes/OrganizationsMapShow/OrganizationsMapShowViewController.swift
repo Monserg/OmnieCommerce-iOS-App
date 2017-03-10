@@ -179,9 +179,9 @@ extension OrganizationsMapShowViewController: MKMapViewDelegate {
         // Hide the callout view.
         mapView.deselectAnnotation(view.annotation, animated: true)
        
-        let annotation                                      =   view.annotation as! PointAnnotation
-        let index                                           =   pointAnnotations.index(of: annotation)!
-        let organization                                    =   organizations[index]
+        let annotation      =   view.annotation as! PointAnnotation
+        let index           =   pointAnnotations.index(of: annotation)!
+        let organization    =   organizations[index]
         
         router.navigateToOrganizationShowScene(withOrganization: organization)
     }

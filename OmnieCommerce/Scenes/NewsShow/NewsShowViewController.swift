@@ -33,43 +33,8 @@ class NewsShowViewController: BaseViewController {
 
     @IBOutlet weak var tableView: MSMTableView! {
         didSet {
-            tableView.contentInset                                  =   UIEdgeInsetsMake((UIApplication.shared.statusBarOrientation.isPortrait) ? 5 : 45, 0, 0, 0)
-            tableView.scrollIndicatorInsets                         =   UIEdgeInsetsMake((UIApplication.shared.statusBarOrientation.isPortrait) ? 5 : 45, 0, 0, 0)
-            
-            // TableViewController Manager
-            tableView.tableViewControllerManager                    =   MSMTableViewControllerManager()
-            tableView.tableViewControllerManager.tableView          =   self.tableView
-            tableView.tableViewControllerManager.sectionsCount      =   1
-            
-            // Search Manager
-            smallTopBarView.searchBar.placeholder                   =   "Enter Organization name".localized()
-            smallTopBarView.searchBar.delegate                      =   tableView.tableViewControllerManager
-            
-            // Handler select cell
-            tableView.tableViewControllerManager.handlerSearchCompletion        = { news in
-                // TODO: ADD TRANSITION TO CHAT SCENE
-                self.print(object: "transition to Chat scene")
-                
-                //                self.router.navigateToOrganizationShowScene(organization as! Organization)
-            }
-            
-            // Handler Search keyboard button tap
-            tableView.tableViewControllerManager.handlerSendButtonCompletion    =   { _ in
-                // TODO: - ADD SEARCH API
-                self.smallTopBarView.searchBarDidHide()
-            }
-            
-            // Handler Search Bar Cancel button tap
-            tableView.tableViewControllerManager.handlerCancelButtonCompletion  =   { _ in
-                self.smallTopBarView.searchBarDidHide()
-            }
-            
-            
-//            // Handler select cell
-//            tableView.tableViewControllerManager.completionHandler    =   { organization in
-//                // TODO: ADD TRANSITION TO NEWS PROFILE
-//                self.print(object: "transition to News profile scene")
-//            }
+            tableView.contentInset              =   UIEdgeInsetsMake((UIApplication.shared.statusBarOrientation.isPortrait) ? 5 : 45, 0, 0, 0)
+            tableView.scrollIndicatorInsets     =   UIEdgeInsetsMake((UIApplication.shared.statusBarOrientation.isPortrait) ? 5 : 45, 0, 0, 0)
         }
     }
 
@@ -108,8 +73,7 @@ class NewsShowViewController: BaseViewController {
     
     func setupSegmentedControlView() {
         segmentedControlView.actionButtonHandlerCompletion = { sender in
-            self.print(object: "\(type(of: self)): \(#function) run. Sender tag = \(sender.tag)")
-            
+//            self.print(object: "\(type(of: self)): \(#function) run. Sender tag = \(sender.tag)")
         }
     }
     
@@ -140,7 +104,42 @@ extension NewsShowViewController: NewsShowViewControllerInput {
             return
         }
         
-        tableView.tableViewControllerManager.dataSource     =   viewModel.news!.first!
+        // TableViewController Manager
+        tableView.tableViewControllerManager                    =   MSMTableViewControllerManager()
+        tableView.tableViewControllerManager?.tableView         =   self.tableView
+        tableView.tableViewControllerManager?.sectionsCount     =   1
+        
+        // Search Manager
+        smallTopBarView.searchBar.placeholder                   =   "Enter Organization name".localized()
+        smallTopBarView.searchBar.delegate                      =   tableView.tableViewControllerManager
+        
+        // Handler select cell
+        tableView.tableViewControllerManager!.handlerSearchCompletion           =   { news in
+            // TODO: ADD TRANSITION TO CHAT SCENE
+            self.print(object: "transition to Chat scene")
+            
+            //                self.router.navigateToOrganizationShowScene(organization as! Organization)
+        }
+        
+        // Handler Search keyboard button tap
+        tableView.tableViewControllerManager!.handlerSendButtonCompletion       =   { _ in
+            // TODO: - ADD SEARCH API
+            self.smallTopBarView.searchBarDidHide()
+        }
+        
+        // Handler Search Bar Cancel button tap
+        tableView.tableViewControllerManager!.handlerCancelButtonCompletion     =   { _ in
+            self.smallTopBarView.searchBarDidHide()
+        }
+        
+        
+        //            // Handler select cell
+        //            tableView.tableViewControllerManager.completionHandler    =   { organization in
+        //                // TODO: ADD TRANSITION TO NEWS PROFILE
+        //                self.print(object: "transition to News profile scene")
+        //            }
+
+        tableView.tableViewControllerManager!.dataSource        =   viewModel.news!.first!
         dataSourceEmptyView.isHidden        =   true
         tableView.isScrollEnabled           =   true
 

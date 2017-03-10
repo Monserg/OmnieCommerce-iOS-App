@@ -30,7 +30,7 @@ class OrganizationsShowViewController: BaseViewController {
     var interactor: OrganizationsShowViewControllerOutput!
     var router: OrganizationsShowRouter!
 
-    var category: Category!
+    weak var category: Category?
     
     @IBOutlet weak var smallTopBarView: SmallTopBarView!
     @IBOutlet weak var categoriesButton: DropDownButton!
@@ -40,35 +40,8 @@ class OrganizationsShowViewController: BaseViewController {
 
     @IBOutlet weak var tableView: MSMTableView! {
         didSet {
-            tableView.contentInset                                  =   UIEdgeInsetsMake((UIApplication.shared.statusBarOrientation.isPortrait) ? 5 : 45, 0, 0, 0)
-            tableView.scrollIndicatorInsets                         =   UIEdgeInsetsMake((UIApplication.shared.statusBarOrientation.isPortrait) ? 5 : 45, 0, 0, 0)
-            
-            // TableViewController Manager
-            tableView.tableViewControllerManager                    =   MSMTableViewControllerManager()
-            tableView.tableViewControllerManager.tableView          =   self.tableView
-            tableView.tableViewControllerManager.sectionsCount      =   1
-
-            // Search Manager
-            smallTopBarView.searchBar.placeholder                   =   "Enter Organization name".localized()
-            smallTopBarView.searchBar.delegate                      =   tableView.tableViewControllerManager
-            
-            // Handler select cell
-            tableView.tableViewControllerManager.handlerSearchCompletion        = { organization in
-                self.print(object: "transition to Organization profile scene")
-                
-                self.router.navigateToOrganizationShowScene(organization as! Organization)
-            }
-            
-            // Handler Search keyboard button tap
-            tableView.tableViewControllerManager.handlerSendButtonCompletion    =   { _ in
-                // TODO: - ADD SEARCH API
-                self.smallTopBarView.searchBarDidHide()
-            }
-            
-            // Handler Search Bar Cancel button tap
-            tableView.tableViewControllerManager.handlerCancelButtonCompletion  =   { _ in
-                self.smallTopBarView.searchBarDidHide()
-            }
+            tableView.contentInset              =   UIEdgeInsetsMake((UIApplication.shared.statusBarOrientation.isPortrait) ? 5 : 45, 0, 0, 0)
+            tableView.scrollIndicatorInsets     =   UIEdgeInsetsMake((UIApplication.shared.statusBarOrientation.isPortrait) ? 5 : 45, 0, 0, 0)
         }
     }
 
@@ -96,12 +69,12 @@ class OrganizationsShowViewController: BaseViewController {
     // MARK: - Custom Functions
     func viewSettingsDidLoad() {
         // Set scene title
-        smallTopBarView.titleLabel.text     =   category.title
+        smallTopBarView.titleLabel.text     =   category!.title
         
         mapButton.isUserInteractionEnabled  =   false
         
         // Handler Back button tap
-        smallTopBarView.handlerSendButtonCompletion = { _ in
+        smallTopBarView.handlerSendButtonCompletion     =   { _ in
             _ = self.navigationController?.popViewController(animated: true)
         }
         
@@ -121,8 +94,8 @@ class OrganizationsShowViewController: BaseViewController {
     
     // MARK: - Actions
     @IBAction func handlerMapButtonTap(_ sender: CustomButton) {
-        if ((tableView.tableViewControllerManager.dataSource?.count)! > 0) {
-            router.navigateToOrganizationsMapShowScene(withOrganizations: (tableView.tableViewControllerManager.dataSource as! [Organization]))
+        if ((tableView.tableViewControllerManager!.dataSource?.count)! > 0) {
+            router.navigateToOrganizationsMapShowScene(withOrganizations: (tableView.tableViewControllerManager!.dataSource as! [Organization]))
         }
     }
     
@@ -159,10 +132,36 @@ extension OrganizationsShowViewController: OrganizationsShowViewControllerInput 
     }
 
     func organizationsDidShow(fromViewModel viewModel: OrganizationsShowModels.Organizations.ViewModel) {
-        self.tableView.tableViewControllerManager.dataSource    =   viewModel.organizations
-        self.mapButton.isUserInteractionEnabled     =   true
-        dataSourceEmptyView.isHidden                =   (viewModel.organizations.count == 0) ? false : true
-
-        self.tableView.reloadData()
+        // TableViewController Manager
+        tableView.tableViewControllerManager                    =   MSMTableViewControllerManager()
+        tableView.tableViewControllerManager!.tableView         =   self.tableView
+        tableView.tableViewControllerManager!.sectionsCount     =   1
+        tableView.tableViewControllerManager!.dataSource        =   viewModel.organizations
+        mapButton.isUserInteractionEnabled                      =   true
+        dataSourceEmptyView.isHidden                            =   (viewModel.organizations.count == 0) ? false : true
+        
+        tableView.reloadData()
+        
+        // Search Manager
+        smallTopBarView.searchBar.placeholder                   =   "Enter Organization name".localized()
+        smallTopBarView.searchBar.delegate                      =   tableView.tableViewControllerManager
+        
+        // Handler select cell
+        tableView.tableViewControllerManager!.handlerSearchCompletion           =   { organization in
+            self.print(object: "transition to Organization profile scene")
+            
+            self.router.navigateToOrganizationShowScene(organization as! Organization)
+        }
+        
+        // Handler Search keyboard button tap
+        tableView.tableViewControllerManager!.handlerSendButtonCompletion       =   { _ in
+            // TODO: - ADD SEARCH API
+            self.smallTopBarView.searchBarDidHide()
+        }
+        
+        // Handler Search Bar Cancel button tap
+        tableView.tableViewControllerManager!.handlerCancelButtonCompletion     =   { _ in
+            self.smallTopBarView.searchBarDidHide()
+        }
     }
 }
