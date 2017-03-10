@@ -20,7 +20,7 @@ protocol OrdersShowViewControllerOutput {
     func doSomething(request: OrdersShow.Something.Request)
 }
 
-class OrdersShowViewController: BaseViewController, OrdersShowViewControllerInput {
+class OrdersShowViewController: BaseViewController {
     // MARK: - Properties
     var output: OrdersShowViewControllerOutput!
     var router: OrdersShowRouter!
@@ -42,8 +42,8 @@ class OrdersShowViewController: BaseViewController, OrdersShowViewControllerInpu
         super.viewDidLoad()
         
         // Config topBarView
-        smallTopBarView.type = "ParentSearch"
-        topBarViewStyle = .Small
+        smallTopBarView.type    =   "ParentSearch"
+        topBarViewStyle         =   .Small
         setup(topBarView: smallTopBarView)
 
         viewSettingsDidLoad()
@@ -59,26 +59,23 @@ class OrdersShowViewController: BaseViewController, OrdersShowViewControllerInpu
         output.doSomething(request: request)
     }
     
-    // Display logic
-    func displaySomething(viewModel: OrdersShow.Something.ViewModel) {
-        print(object: "\(type(of: self)): \(#function) run.")
-        
-        // NOTE: Display the result from the Presenter
-        // nameTextField.text = viewModel.name
-    }
-    
-    func setupScene(withSize size: CGSize) {
-        print(object: "\(type(of: self)): \(#function) run. Screen view size = \(size)")
-        
-        smallTopBarView.setNeedsDisplay()
-        smallTopBarView.circleView.setNeedsDisplay()
-    }
-    
     
     // MARK: - Transition
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         print(object: "\(type(of: self)): \(#function) run. New size = \(size)")
         
-        setupScene(withSize: size)
+        smallTopBarView.setNeedsDisplay()
+        smallTopBarView.circleView.setNeedsDisplay()
+    }
+}
+
+
+// MARK: - OrdersShowViewControllerInput
+extension OrdersShowViewController: OrdersShowViewControllerInput {
+    func displaySomething(viewModel: OrdersShow.Something.ViewModel) {
+        print(object: "\(type(of: self)): \(#function) run.")
+        
+        // NOTE: Display the result from the Presenter
+        // nameTextField.text = viewModel.name
     }
 }

@@ -14,6 +14,7 @@ import Localize_Swift
     typealias CompletionVoid    =   ((_ sender: UIButton) -> ())
     
     var actionButtonHandlerCompletion: CompletionVoid?
+    
     var leftTitle               =   String()
     var rightTitle              =   String()
     var selectedButton          =   UIButton()

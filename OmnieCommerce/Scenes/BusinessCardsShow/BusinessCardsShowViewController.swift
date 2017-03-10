@@ -20,7 +20,7 @@ protocol BusinessCardsShowViewControllerOutput {
     func doSomething(request: BusinessCardsShow.Something.Request)
 }
 
-class BusinessCardsShowViewController: BaseViewController, BusinessCardsShowViewControllerInput {
+class BusinessCardsShowViewController: BaseViewController {
     // MARK: - Properties
     var output: BusinessCardsShowViewControllerOutput!
     var router: BusinessCardsShowRouter!
@@ -42,8 +42,8 @@ class BusinessCardsShowViewController: BaseViewController, BusinessCardsShowView
         super.viewDidLoad()
         
         // Config topBarView
-        smallTopBarView.type = "ParentSearch"
-        topBarViewStyle = .Small
+        smallTopBarView.type    =   "ParentSearch"
+        topBarViewStyle         =   .Small
         setup(topBarView: smallTopBarView)
         
         viewSettingsDidLoad()
@@ -59,26 +59,23 @@ class BusinessCardsShowViewController: BaseViewController, BusinessCardsShowView
         output.doSomething(request: request)
     }
     
-    // Display logic
-    func displaySomething(viewModel: BusinessCardsShow.Something.ViewModel) {
-        print(object: "\(type(of: self)): \(#function) run.")
-        
-        // NOTE: Display the result from the Presenter
-        // nameTextField.text = viewModel.name
-    }
-    
-    func setupScene(withSize size: CGSize) {
-        print(object: "\(type(of: self)): \(#function) run. Screen view size = \(size)")
-        
-        smallTopBarView.setNeedsDisplay()
-        smallTopBarView.circleView.setNeedsDisplay()
-    }
-    
     
     // MARK: - Transition
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         print(object: "\(type(of: self)): \(#function) run. New size = \(size)")
         
-        setupScene(withSize: size)
+        smallTopBarView.setNeedsDisplay()
+        smallTopBarView.circleView.setNeedsDisplay()
+    }
+}
+
+
+// MARK: - BusinessCardsShowViewControllerInput
+extension BusinessCardsShowViewController: BusinessCardsShowViewControllerInput {
+    func displaySomething(viewModel: BusinessCardsShow.Something.ViewModel) {
+        print(object: "\(type(of: self)): \(#function) run.")
+        
+        // NOTE: Display the result from the Presenter
+        // nameTextField.text = viewModel.name
     }
 }

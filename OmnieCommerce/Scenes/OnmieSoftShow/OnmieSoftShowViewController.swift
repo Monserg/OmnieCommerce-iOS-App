@@ -20,7 +20,7 @@ protocol OnmieSoftShowViewControllerOutput {
     func doSomething(request: OnmieSoftShow.Something.Request)
 }
 
-class OnmieSoftShowViewController: UIViewController, OnmieSoftShowViewControllerInput {
+class OnmieSoftShowViewController: UIViewController {
     // MARK: - Properties
     var output: OnmieSoftShowViewControllerOutput!
     var router: OnmieSoftShowRouter!
@@ -48,8 +48,11 @@ class OnmieSoftShowViewController: UIViewController, OnmieSoftShowViewController
         let request = OnmieSoftShow.Something.Request()
         output.doSomething(request: request)
     }
-    
-    // Display logic
+}
+
+
+// MARK: - OnmieSoftShowViewControllerInput
+extension OnmieSoftShowViewController: OnmieSoftShowViewControllerInput {
     func displaySomething(viewModel: OnmieSoftShow.Something.ViewModel) {
         // NOTE: Display the result from the Presenter
         // nameTextField.text = viewModel.name

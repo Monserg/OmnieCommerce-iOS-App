@@ -73,6 +73,5 @@ class AboutShowViewController: BaseViewController {
 
 // MARK: - AboutShowViewControllerInput
 extension AboutShowViewController: AboutShowViewControllerInput {
-    func displaySomething(viewModel: AboutShow.Something.ViewModel) {
-    }
+    func displaySomething(viewModel: AboutShow.Something.ViewModel) {}
 }

@@ -20,7 +20,7 @@ protocol FavoriteShowViewControllerOutput {
     func doSomething(request: FavoriteShow.Something.Request)
 }
 
-class FavoriteShowViewController: BaseViewController, FavoriteShowViewControllerInput {
+class FavoriteShowViewController: BaseViewController {
     // MARK: - Properties
     var output: FavoriteShowViewControllerOutput!
     var router: FavoriteShowRouter!
@@ -62,21 +62,11 @@ class FavoriteShowViewController: BaseViewController, FavoriteShowViewController
         output.doSomething(request: request)
     }
     
-    // Display logic
-    func displaySomething(viewModel: FavoriteShow.Something.ViewModel) {
-        print(object: "\(type(of: self)): \(#function) run.")
-        
-        // NOTE: Display the result from the Presenter
-        // nameTextField.text = viewModel.name
-    }
-    
-    
     func setupSegmentedControlView() {
         segmentedControlView.backgroundColor = UIColor.veryDarkDesaturatedBlue24
         
         segmentedControlView.actionButtonHandlerCompletion = { sender in
             self.print(object: "\(type(of: self)): \(#function) run. Sender tag = \(sender.tag)")
-            
         }
     }
 
@@ -87,5 +77,16 @@ class FavoriteShowViewController: BaseViewController, FavoriteShowViewController
         
         smallTopBarView.setNeedsDisplay()
         smallTopBarView.circleView.setNeedsDisplay()
+    }
+}
+
+
+// MARK: - 
+extension FavoriteShowViewController: FavoriteShowViewControllerInput {
+    func displaySomething(viewModel: FavoriteShow.Something.ViewModel) {
+        print(object: "\(type(of: self)): \(#function) run.")
+        
+        // NOTE: Display the result from the Presenter
+        // nameTextField.text = viewModel.name
     }
 }

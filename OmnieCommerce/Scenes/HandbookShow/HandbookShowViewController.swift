@@ -20,14 +20,14 @@ protocol HandbookShowViewControllerOutput {
     func doSomething(request: HandbookShow.Something.Request)
 }
 
-class HandbookShowViewController: BaseViewController, HandbookShowViewControllerInput {
+class HandbookShowViewController: BaseViewController {
     // MARK: - Properties
     var output: HandbookShowViewControllerOutput!
     var router: HandbookShowRouter!
     
     @IBOutlet weak var smallTopBarView: SmallTopBarView!
     @IBOutlet weak var copyrightLabel: CustomLabel!
-
+    
     
     // MARK: - Class Initialization
     override func awakeFromNib() {
@@ -36,20 +36,20 @@ class HandbookShowViewController: BaseViewController, HandbookShowViewController
         HandbookShowConfigurator.sharedInstance.configure(viewController: self)
     }
     
-
+    
     // MARK: - Class Functions
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Config topBarView
-        smallTopBarView.type = "ParentSearch"
-        topBarViewStyle = .Small
+        smallTopBarView.type    =   "ParentSearch"
+        topBarViewStyle         =   .Small
         setup(topBarView: smallTopBarView)
         
         viewSettingsDidLoad()
     }
     
-
+    
     // MARK: - Custom Functions
     func viewSettingsDidLoad() {
         print(object: "\(type(of: self)): \(#function) run.")
@@ -59,26 +59,23 @@ class HandbookShowViewController: BaseViewController, HandbookShowViewController
         output.doSomething(request: request)
     }
     
-    // Display logic
-    func displaySomething(viewModel: HandbookShow.Something.ViewModel) {
-        print(object: "\(type(of: self)): \(#function) run.")
-        
-        // NOTE: Display the result from the Presenter
-        // nameTextField.text = viewModel.name
-    }
-    
-    func setupScene(withSize size: CGSize) {
-        print(object: "\(type(of: self)): \(#function) run. Screen view size = \(size)")
-        
-        smallTopBarView.setNeedsDisplay()
-        smallTopBarView.circleView.setNeedsDisplay()
-    }
-    
     
     // MARK: - Transition
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         print(object: "\(type(of: self)): \(#function) run. New size = \(size)")
         
-        setupScene(withSize: size)
+        smallTopBarView.setNeedsDisplay()
+        smallTopBarView.circleView.setNeedsDisplay()
+    }
+}
+
+
+// MARK: - HandbookShowViewControllerInput
+extension HandbookShowViewController: HandbookShowViewControllerInput {
+    func displaySomething(viewModel: HandbookShow.Something.ViewModel) {
+        print(object: "\(type(of: self)): \(#function) run.")
+        
+        // NOTE: Display the result from the Presenter
+        // nameTextField.text = viewModel.name
     }
 }

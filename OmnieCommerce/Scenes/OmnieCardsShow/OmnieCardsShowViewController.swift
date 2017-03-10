@@ -20,7 +20,7 @@ protocol OmnieCardsShowViewControllerOutput {
     func doSomething(request: OmnieCardsShow.Something.Request)
 }
 
-class OmnieCardsShowViewController: BaseViewController, OmnieCardsShowViewControllerInput {
+class OmnieCardsShowViewController: BaseViewController {
     // MARK: - Properties
     var output: OmnieCardsShowViewControllerOutput!
     var router: OmnieCardsShowRouter!
@@ -44,9 +44,9 @@ class OmnieCardsShowViewController: BaseViewController, OmnieCardsShowViewContro
         super.viewDidLoad()
         
         // Config topBarView
-        smallTopBarView.type = "ParentSearch"
-        topBarViewStyle = .Small
-        smallTopBarView.searchButton.isHidden = true
+        smallTopBarView.type                    =   "ParentSearch"
+        topBarViewStyle                         =   .Small
+        smallTopBarView.searchButton.isHidden   =   true
         setup(topBarView: smallTopBarView)
 
         viewSettingsDidLoad()
@@ -59,6 +59,7 @@ class OmnieCardsShowViewController: BaseViewController, OmnieCardsShowViewContro
         barcodeView.imageView.image = barcodeViewModel.createBarCode()
     }
 
+    
     // MARK: - Custom Functions
     func viewSettingsDidLoad() {
         print(object: "\(type(of: self)): \(#function) run.")
@@ -68,26 +69,23 @@ class OmnieCardsShowViewController: BaseViewController, OmnieCardsShowViewContro
         output.doSomething(request: request)
     }
     
-    // Display logic
-    func displaySomething(viewModel: OmnieCardsShow.Something.ViewModel) {
-        print(object: "\(type(of: self)): \(#function) run.")
-        
-        // NOTE: Display the result from the Presenter
-        // nameTextField.text = viewModel.name
-    }
-    
-    func setupScene(withSize size: CGSize) {
-        print(object: "\(type(of: self)): \(#function) run. Screen view size = \(size)")
-        
-        smallTopBarView.setNeedsDisplay()
-        smallTopBarView.circleView.setNeedsDisplay()
-    }
-    
     
     // MARK: - Transition
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         print(object: "\(type(of: self)): \(#function) run. New size = \(size)")
         
-        setupScene(withSize: size)
+        smallTopBarView.setNeedsDisplay()
+        smallTopBarView.circleView.setNeedsDisplay()
+    }
+}
+
+
+// MARK: - OmnieCardsShowViewControllerInput
+extension OmnieCardsShowViewController: OmnieCardsShowViewControllerInput {
+    func displaySomething(viewModel: OmnieCardsShow.Something.ViewModel) {
+        print(object: "\(type(of: self)): \(#function) run.")
+        
+        // NOTE: Display the result from the Presenter
+        // nameTextField.text = viewModel.name
     }
 }

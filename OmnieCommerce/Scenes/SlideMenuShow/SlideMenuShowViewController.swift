@@ -131,6 +131,12 @@ extension SlideMenuShowViewController: UITableViewDelegate {
             let ordersNC = UIStoryboard(name: "OrdersShow", bundle: nil).instantiateViewController(withIdentifier: "OrdersShowNC") as! BaseNavigationController
             revealViewController().pushFrontViewController(ordersNC.viewControllers.first, animated: true)
         } else {
+            guard indexPath.section != 3 else {
+                tableView.deselectRow(at: indexPath, animated: true)
+
+                return
+            }
+            
             // Menu section 4 (Logout)
             if indexPath.section == 4 {
                 CoreDataManager.instance.didUpdateAppUser(state: false)
