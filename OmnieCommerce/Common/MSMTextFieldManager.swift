@@ -29,7 +29,7 @@ class MSMTextFieldManager: NSObject {
     
     
     // MARK: - Custom Functions
-    func didLoadNextTextField(afterCurrent textField: CustomTextField) {
+    func nextTextFieldDidLoad(afterCurrent textField: CustomTextField) {
         if (textField.tag == 99) {
             textField.resignFirstResponder()
         } else {
@@ -250,21 +250,21 @@ extension MSMTextFieldManager: UITextFieldDelegate {
         switch (textField as! CustomTextField).style! {
         case .Email:
             if (textField as! CustomTextField).checkEmailValidation(textField.text!) {
-                self.didLoadNextTextField(afterCurrent: textField as! CustomTextField)
+                self.nextTextFieldDidLoad(afterCurrent: textField as! CustomTextField)
             } else {
                 (currentVC as! EmailErrorMessageView).didShow((currentVC as! EmailErrorMessageView).emailErrorMessageView, withConstraint: (currentVC as! EmailErrorMessageView).emailErrorMessageViewTopConstraint)
             }
             
         case .PhoneEmail, .PhoneButton:
             if (textField as! CustomTextField).checkPhoneEmailValidation(textField.text!) {
-                self.didLoadNextTextField(afterCurrent: textField as! CustomTextField)
+                self.nextTextFieldDidLoad(afterCurrent: textField as! CustomTextField)
             } else {
                 (currentVC as! EmailErrorMessageView).didShow((currentVC as! EmailErrorMessageView).emailErrorMessageView, withConstraint: (currentVC as! EmailErrorMessageView).emailErrorMessageViewTopConstraint)
             }
             
         case .Password, .PasswordButton:
             if ((textField as! CustomTextField).checkPasswordValidation(textField.text!)) {
-                self.didLoadNextTextField(afterCurrent: textField as! CustomTextField)
+                self.nextTextFieldDidLoad(afterCurrent: textField as! CustomTextField)
                 
                 return true
             } else {
@@ -275,7 +275,7 @@ extension MSMTextFieldManager: UITextFieldDelegate {
             
         case .PasswordStrength:
             if ((textField as! CustomTextField).checkPasswordValidation(textField.text!)) {
-                self.didLoadNextTextField(afterCurrent: textField as! CustomTextField)
+                self.nextTextFieldDidLoad(afterCurrent: textField as! CustomTextField)
                 
                 return true
             } else {
@@ -298,7 +298,7 @@ extension MSMTextFieldManager: UITextFieldDelegate {
             }
             
         default:
-            self.didLoadNextTextField(afterCurrent: textField as! CustomTextField)
+            self.nextTextFieldDidLoad(afterCurrent: textField as! CustomTextField)
         }
         
         return true
