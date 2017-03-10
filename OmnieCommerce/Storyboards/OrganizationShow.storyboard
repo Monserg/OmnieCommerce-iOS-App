@@ -256,10 +256,6 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </label>
-                            <view clipsSubviews="YES" alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3a5-sz-gLH" userLabel="Blackout View" customClass="CustomView" customModule="OmnieCommerce" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" red="0.10196078431372549" green="0.13725490196078433" blue="0.17254901960784313" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -278,7 +274,6 @@
                             <constraint firstItem="F2J-Sj-SOC" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="110:667" id="TTV-wR-bZb"/>
                             <constraint firstAttribute="trailing" secondItem="3d9-Qt-0Tr" secondAttribute="trailing" constant="8" id="Tdg-4A-3Gn"/>
                             <constraint firstItem="F2J-Sj-SOC" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="110:375" id="ZGB-O6-CgW"/>
-                            <constraint firstAttribute="trailing" secondItem="3a5-sz-gLH" secondAttribute="trailing" id="bsz-r1-ScI"/>
                             <constraint firstItem="Fg2-g7-Pmf" firstAttribute="top" secondItem="tP1-Vk-hMS" secondAttribute="top" id="d5x-CQ-SAe"/>
                             <constraint firstItem="4G7-UZ-bMP" firstAttribute="top" secondItem="tP1-Vk-hMS" secondAttribute="top" constant="-20" id="dda-Jb-3l1"/>
                             <constraint firstItem="5kB-hm-mY3" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="85:375" id="hLt-S7-dSS"/>
@@ -286,11 +281,8 @@
                             <constraint firstItem="EKb-ci-h91" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="30:375" id="qsL-f4-Sr7"/>
                             <constraint firstItem="5kB-hm-mY3" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="85:667" id="slx-hc-ia6"/>
                             <constraint firstItem="3d9-Qt-0Tr" firstAttribute="top" secondItem="4G7-UZ-bMP" secondAttribute="bottom" constant="9" id="tWB-H0-tnk"/>
-                            <constraint firstItem="3a5-sz-gLH" firstAttribute="top" secondItem="tP1-Vk-hMS" secondAttribute="top" id="uPc-cT-W25"/>
                             <constraint firstItem="EKb-ci-h91" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="30:667" id="w5e-3c-B7K"/>
                             <constraint firstAttribute="trailing" secondItem="Fg2-g7-Pmf" secondAttribute="trailing" id="x1k-Kj-01b"/>
-                            <constraint firstAttribute="bottom" secondItem="3a5-sz-gLH" secondAttribute="bottom" id="xzv-z0-X6P"/>
-                            <constraint firstItem="3a5-sz-gLH" firstAttribute="leading" secondItem="tP1-Vk-hMS" secondAttribute="leading" id="zqP-rE-hgd"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -322,7 +314,6 @@
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
-                        <outlet property="blackoutView" destination="3a5-sz-gLH" id="OPO-1G-KQ3"/>
                         <outlet property="dottedBorderView" destination="ebM-Lf-K5Q" id="SD3-E3-2aU"/>
                         <outlet property="favoriteButton" destination="EKb-ci-h91" id="JtL-Yy-SuX"/>
                         <outlet property="infoView" destination="F2J-Sj-SOC" id="tHX-fc-L0E"/>

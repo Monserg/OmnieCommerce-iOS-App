@@ -52,7 +52,6 @@ class PersonalPageShowViewController: BaseViewController {
     @IBOutlet weak var copyrightLabel: CustomLabel!
     @IBOutlet weak var segmentedControlView: SegmentedControlView!
     @IBOutlet weak var containerView: CustomView!
-    @IBOutlet weak var blackoutView: CustomView!
 
     
     // MARK: - Class Initialization
@@ -77,6 +76,8 @@ class PersonalPageShowViewController: BaseViewController {
         
         // Handler avatar button tap
         personalDataVC?.handlerPassDataCompletion   =   { sender in
+            self.blackoutView       =   MSMBlackoutView.init(inView: self.view)
+            
             self.blackoutView!.didShow()
 
             let avatarButton        =   sender as! CustomButton
@@ -101,7 +102,7 @@ class PersonalPageShowViewController: BaseViewController {
                         guard imagePickerController.photoDidMakeWithCamera() else {
                             self.alertViewDidShow(withTitle: "Error".localized(), andMessage: "Camera is not available".localized())
                             
-                            self.blackoutView.didHide()
+                            self.blackoutView!.didHide()
                             
                             return
                         }
@@ -113,7 +114,7 @@ class PersonalPageShowViewController: BaseViewController {
                         
                     case .PhotoDelete:
                         self.print(object: "delete ok")
-                        self.blackoutView.didHide()
+                        self.blackoutView!.didHide()
                     }
             }
             

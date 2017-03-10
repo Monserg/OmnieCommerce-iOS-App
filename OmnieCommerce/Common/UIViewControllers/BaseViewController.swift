@@ -21,19 +21,20 @@ enum TopBarViewStyle {
 
 class BaseViewController: UIViewController {
     // MARK: - Properties
+    var haveMenuItem        =   false
+    var topBarViewStyle     =   TopBarViewStyle.Big
+
     var selectedRange: CGRect?
-    var topBarViewStyle = TopBarViewStyle.Big
-    var blackOutView: UIView?
-    var haveMenuItem = false
     weak var userApp: AppUser?
+    weak var blackoutView: MSMBlackoutView?
     
     // Network monitoring
     var previousNetworkReachabilityStatus: AFNetworkReachabilityStatus = .unknown
     var isNetworkAvailable = false
     
-    var scrollViewBase = UIScrollView() {
+    weak var scrollViewBase: UIScrollView? {
         didSet {
-            self.scrollViewBase.delegate = self
+            self.scrollViewBase!.delegate = self
         }
     }
 
@@ -96,22 +97,22 @@ class BaseViewController: UIViewController {
         
         let userInfo = notification.userInfo!
         
-        let keyboardScreenEndFrame  =   (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
-        let keyboardViewEndFrame    =   view.convert(keyboardScreenEndFrame, from: view.window)
+        let keyboardScreenEndFrame      =   (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+        let keyboardViewEndFrame        =   view.convert(keyboardScreenEndFrame, from: view.window)
         
-        scrollViewBase.contentInset =   (notification.name == .UIKeyboardWillHide) ? UIEdgeInsets.zero : UIEdgeInsets(top: 0, left: 0, bottom: keyboardViewEndFrame.height + 25, right: 0)
+        scrollViewBase!.contentInset    =   (notification.name == .UIKeyboardWillHide) ? UIEdgeInsets.zero : UIEdgeInsets(top: 0, left: 0, bottom: keyboardViewEndFrame.height + 25, right: 0)
 
         guard (selectedRange != nil && (keyboardViewEndFrame.contains((selectedRange?.origin)!))) else {
             DispatchQueue.main.async {
                 UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseOut, animations: {
-                    self.scrollViewBase.contentOffset.y = 0
+                    self.scrollViewBase!.contentOffset.y = 0
                 }, completion: nil)
             }
             
             return
         }
 
-        scrollViewBase.scrollRectToVisible(selectedRange!, animated: true)
+        scrollViewBase!.scrollRectToVisible(selectedRange!, animated: true)
     }
     
     
@@ -152,6 +153,9 @@ class BaseViewController: UIViewController {
                     revealViewController().frontViewShadowColor         =   UIColor.clear
                     
                     view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+                    
+                    // Delegate
+                    revealViewController().delegate                     =   self
                 } else {
                     view.removeGestureRecognizer(self.revealViewController().panGestureRecognizer())
                 }
@@ -269,3 +273,24 @@ extension BaseViewController {
         }
     }
 }
+ 
+ 
+ // MARK: - SWRevealViewControllerDelegate
+ extension BaseViewController: SWRevealViewControllerDelegate {
+    func revealController(_ revealController: SWRevealViewController!, willMoveTo position: FrontViewPosition) {
+        switch position {
+        case .right, .rightMost, .rightMostRemoved:
+            // Create blackOutView
+            blackoutView    =   MSMBlackoutView.init(inView: view)
+
+            blackoutView!.didShow()
+            
+            // TODO: - BRING MENU BUTTON TO FRONT
+//            view.bringSubview(toFront: revealViewController.frontViewController.view )
+            
+        default:
+            blackoutView?.removeFromSuperview()
+        }
+    }
+ }
+

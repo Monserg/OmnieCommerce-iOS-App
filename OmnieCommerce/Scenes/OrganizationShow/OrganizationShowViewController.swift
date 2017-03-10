@@ -43,7 +43,6 @@ class OrganizationShowViewController: BaseViewController {
     }
     
     @IBOutlet weak var smallTopBarView: SmallTopBarView!
-    @IBOutlet weak var blackoutView: CustomView!
     
     // Info view
     @IBOutlet weak var infoView: UIView!
@@ -189,7 +188,9 @@ class OrganizationShowViewController: BaseViewController {
         }
         
         if (organization.phones!.count > 0) {
-            blackoutView.didShow()
+            self.blackoutView   =   MSMBlackoutView.init(inView: view)
+
+            blackoutView!.didShow()
       
             phonesView          =   PhonesView.init(inView: view)
             phonesView!.phones  =   organization.phones!
@@ -198,13 +199,15 @@ class OrganizationShowViewController: BaseViewController {
             phonesView!.handlerCancelButtonCompletion   =   { _ in
                 self.phonesView =   nil
                 
-                self.blackoutView.didHide()
+                self.blackoutView!.didHide()
             }
         }
     }
     
     @IBAction func handlerScheduleButtonTap(_ sender: CustomButton) {
-        blackoutView.didShow()
+        self.blackoutView       =   MSMBlackoutView.init(inView: view)
+
+        blackoutView!.didShow()
         
         scheduleView            =   ScheduleView.init(inView: view)
         scheduleView!.schedule  =   organization.schedule
@@ -213,7 +216,7 @@ class OrganizationShowViewController: BaseViewController {
         scheduleView!.handlerCancelButtonCompletion     =   { _ in
             self.scheduleView   =   nil
             
-            self.blackoutView.didHide()
+            self.blackoutView!.didHide()
         }
     }
     

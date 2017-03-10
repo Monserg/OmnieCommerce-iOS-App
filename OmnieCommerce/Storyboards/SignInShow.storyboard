@@ -22,11 +22,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AFE38D65-E57B-4289-B09B-F01CC5E9FF76" translatesAutoresizingMaskIntoConstraints="NO" id="38x-X2-VbJ" userLabel="Background Image View">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="63050132-4257-4787-A5A7-28E05DACAF6B" translatesAutoresizingMaskIntoConstraints="NO" id="38x-X2-VbJ" userLabel="Background Image View">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" red="0.1450980392" green="0.20000000000000001" blue="0.25098039220000001" alpha="0.93999999999999995" colorSpace="calibratedRGB"/>
                                 <variation key="heightClass=compact-widthClass=compact" image="image-background-landscape"/>
-                                <variation key="heightClass=compact-widthClass=regular" image="23E79EBF-5ED0-4B8E-A47E-8A75289D9131"/>
+                                <variation key="heightClass=compact-widthClass=regular" image="82D8DEA4-5749-4085-B23F-DBDFEBEB4ACD"/>
                                 <variation key="heightClass=regular-widthClass=compact" image="image-background-portrait"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aC8-Sv-85m" userLabel="Blackout View">
@@ -1648,7 +1648,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="23E79EBF-5ED0-4B8E-A47E-8A75289D9131" width="667" height="375">
+        <image name="63050132-4257-4787-A5A7-28E05DACAF6B" width="667" height="375">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -18377,7 +18377,7 @@ AA9OQAAPTkgAD05LAA9OUAAPTl8AD05jAA9OagAPTnIAD05/AA9OhAAPToYAD06IAA9OjQAPTpUAD06Y
 AA9OnQAPTqUAD06oAA9OugAPTr0AD07CAAAAAAAABAEAAAAAAAAAQQAAAAAAAAAAAAAAAAAPTsQ
 </mutableData>
         </image>
-        <image name="AFE38D65-E57B-4289-B09B-F01CC5E9FF76" width="667" height="375">
+        <image name="82D8DEA4-5749-4085-B23F-DBDFEBEB4ACD" width="667" height="375">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw

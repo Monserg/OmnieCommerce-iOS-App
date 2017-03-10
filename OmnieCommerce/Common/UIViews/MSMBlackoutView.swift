@@ -10,28 +10,31 @@ import UIKit
 
 class MSMBlackoutView: UIView {
     // MARK: - Class Initialization
+    init(inView view: UIView) {
+        super.init(frame: view.frame)
+        
+        setDesignOn(view)
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
-        didSetup()
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        
-        didSetup()
     }
     
     
     // MARK: - Custom Functions
-    func didSetup() {
-        let window          =   UIApplication.shared.keyWindow?.rootViewController!
+    private func setDesignOn(_ view: UIView) {
+        view.addSubview(self)
+        
         translatesAutoresizingMaskIntoConstraints   =   false
         
-        topAnchor.constraint(equalTo: window!.view.topAnchor, constant: 0).isActive         =   true
-        bottomAnchor.constraint(equalTo: window!.view.bottomAnchor, constant: 0).isActive   =   true
-        leftAnchor.constraint(equalTo: window!.view.leftAnchor, constant: 0).isActive       =   true
-        rightAnchor.constraint(equalTo: window!.view.rightAnchor, constant: 0).isActive     =   true
+        topAnchor.constraint(equalTo: view.topAnchor, constant: 0).isActive         =   true
+        bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0).isActive   =   true
+        leftAnchor.constraint(equalTo: view.leftAnchor, constant: 0).isActive       =   true
+        rightAnchor.constraint(equalTo: view.rightAnchor, constant: 0).isActive     =   true
         
         backgroundColor     =   UIColor(hexString: "#1a232c", withAlpha: 0.85)
         isOpaque            =   false
