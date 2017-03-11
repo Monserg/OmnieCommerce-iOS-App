@@ -30,9 +30,9 @@ class CategoriesShowViewController: BaseViewController {
     
     var categories = Array<Category>()
     
-    @IBOutlet weak var smallTopBarView: SmallTopBarView!
-    @IBOutlet weak var copyrightLabel: CustomLabel!
     @IBOutlet weak var cityView: UIView!
+    @IBOutlet weak var copyrightLabel: CustomLabel!
+    @IBOutlet weak var smallTopBarView: SmallTopBarView!
 
     @IBOutlet weak var cityButton: DropDownButton!
     
@@ -57,11 +57,6 @@ class CategoriesShowViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Config topBarView
-        smallTopBarView.type    =   "ParentSearch"
-        topBarViewStyle         =   .Small
-        setup(topBarView: smallTopBarView)
-
         viewSettingsDidLoad()
     }
 
@@ -70,13 +65,16 @@ class CategoriesShowViewController: BaseViewController {
     func viewSettingsDidLoad() {
         print(object: "\(type(of: self)): \(#function) run.")
         
-        // Hide Search button
-        smallTopBarView.searchButton.isHidden = true
-        
-        // Get dataSource
+        // Config topBarView
+        navigationBarView       =   smallTopBarView
+        smallTopBarView.type    =   "Parent"
+        haveMenuItem            =   true
+
+        // Load Categories list
         let categoriesRequestModel = CategoriesShowModels.Categories.RequestModel()
         interactor.categoriesDidLoad(withRequestModel: categoriesRequestModel)
         
+        // Load Cities list
         let citiesRequestModel = CategoriesShowModels.Cities.RequestModel(listType: .City)
         interactor.citiesDidLoad(withRequestModel: citiesRequestModel)
     }

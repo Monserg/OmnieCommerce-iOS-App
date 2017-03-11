@@ -69,20 +69,19 @@ class OrganizationShowViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        smallTopBarView.type        =   "Child"
-        topBarViewStyle             =   .Small
-        setup(topBarView: smallTopBarView)
-
         viewSettingsDidLoad()
     }
     
 
     // MARK: - Custom Functions
     func viewSettingsDidLoad() {
-        // Set organization title
+        // Config smallTopBarView
+        navigationBarView           =   smallTopBarView
+        smallTopBarView.type        =   "Child"
         smallTopBarView.titleText   =   organization.name
+        haveMenuItem                =   true
         
-        // NOTE: Ask the Interactor to do some work
+        // Load data
         let requestModel            =   OrganizationShowModels.Something.RequestModel()
         interactor.doSomething(requestModel: requestModel)
         

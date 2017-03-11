@@ -67,7 +67,7 @@ class EnterCodeShowViewController: BaseViewController, CodeErrorMessageView {
     // MARK: - Custom Functions
     func viewSettingsDidLoad() {
         // Apply keyboard handler
-        scrollViewBase = scrollView
+        scrollViewBase              =   scrollView
         
         didAddTapGestureRecognizer()
 

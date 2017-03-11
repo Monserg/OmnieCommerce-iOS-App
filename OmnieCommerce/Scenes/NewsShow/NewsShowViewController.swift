@@ -26,10 +26,10 @@ class NewsShowViewController: BaseViewController {
     var interactor: NewsShowViewControllerOutput!
     var router: NewsShowRouter!
     
-    @IBOutlet weak var smallTopBarView: SmallTopBarView!
     @IBOutlet weak var copyrightLabel: CustomLabel!
-    @IBOutlet weak var segmentedControlView: SegmentedControlView!
     @IBOutlet weak var dataSourceEmptyView: UIView!
+    @IBOutlet weak var smallTopBarView: SmallTopBarView!
+    @IBOutlet weak var segmentedControlView: SegmentedControlView!
 
     @IBOutlet weak var tableView: MSMTableView! {
         didSet {
@@ -51,11 +51,6 @@ class NewsShowViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
                 
-        // Config topBarView
-        smallTopBarView.type    =   "ParentSearch"
-        topBarViewStyle         =   .Small
-        setup(topBarView: smallTopBarView)
-        
         viewSettingsDidLoad()
     }
     
@@ -66,7 +61,12 @@ class NewsShowViewController: BaseViewController {
         
         setupSegmentedControlView()
 
-        // NOTE: Ask the Interactor to do some work
+        // Config smallTopBarView
+        navigationBarView       =   smallTopBarView
+        smallTopBarView.type    =   "ParentSearch"
+        haveMenuItem            =   true
+        
+        // Load data
         let requestModel        =   NewsShowModels.NewsItems.RequestModel()
         interactor.newsDidLoad(withRequestModel: requestModel)
     }

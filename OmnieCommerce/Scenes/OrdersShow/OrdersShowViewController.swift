@@ -25,8 +25,8 @@ class OrdersShowViewController: BaseViewController {
     var output: OrdersShowViewControllerOutput!
     var router: OrdersShowRouter!
     
-    @IBOutlet weak var smallTopBarView: SmallTopBarView!
     @IBOutlet weak var copyrightLabel: CustomLabel!
+    @IBOutlet weak var smallTopBarView: SmallTopBarView!
 
 
     // MARK: - Class Initialization
@@ -41,11 +41,6 @@ class OrdersShowViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Config topBarView
-        smallTopBarView.type    =   "ParentSearch"
-        topBarViewStyle         =   .Small
-        setup(topBarView: smallTopBarView)
-
         viewSettingsDidLoad()
     }
     
@@ -54,9 +49,14 @@ class OrdersShowViewController: BaseViewController {
     func viewSettingsDidLoad() {
         print(object: "\(type(of: self)): \(#function) run.")
         
-        // NOTE: Ask the Interactor to do some work
-        let request = OrdersShow.Something.Request()
-        output.doSomething(request: request)
+        // Config smallTopBarView
+        navigationBarView       =   smallTopBarView
+        smallTopBarView.type    =   "ParentSearch"
+        haveMenuItem            =   true
+        
+        // Load data
+        let requestModel        =   OrdersShow.Something.Request()
+        output.doSomething(request: requestModel)
     }
     
     
@@ -75,7 +75,7 @@ extension OrdersShowViewController: OrdersShowViewControllerInput {
     func displaySomething(viewModel: OrdersShow.Something.ViewModel) {
         print(object: "\(type(of: self)): \(#function) run.")
         
-        // NOTE: Display the result from the Presenter
+        // Display the result from the Presenter
         // nameTextField.text = viewModel.name
     }
 }

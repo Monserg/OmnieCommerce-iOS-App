@@ -65,20 +65,17 @@ class OrganizationsMapShowViewController: BaseViewController {
         
         spinner.startAnimating()
         
-        smallTopBarView.type        =   "Child"
-        topBarViewStyle             =   .Small
-        setup(topBarView: smallTopBarView)
-
         viewSettingsDidLoad()
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(true)
-    }
-
 
     // MARK: - Custom Functions
     func viewSettingsDidLoad() {
+        // Config smallTopBarView
+        navigationBarView           =   smallTopBarView
+        smallTopBarView.type        =   "Child"
+        haveMenuItem                =   true
+        
         // Handler Back button tap
         smallTopBarView.handlerSendButtonCompletion = { _ in
             _ = self.navigationController?.popViewController(animated: true)
@@ -93,7 +90,7 @@ class OrganizationsMapShowViewController: BaseViewController {
         }
         
         // Load point annotations
-        let requestModel = OrganizationsMapShowModels.PointAnnotations.RequestModel(organizations: organizations)
+        let requestModel            =   OrganizationsMapShowModels.PointAnnotations.RequestModel(organizations: organizations)
         interactor.pointAnnotationsDidLoad(withRequestModel: requestModel)
     }
     

@@ -26,10 +26,10 @@ class AboutShowViewController: BaseViewController {
     var interactor: AboutShowViewControllerOutput!
     var router: AboutShowRouter!
     
-    @IBOutlet weak var smallTopBarView: SmallTopBarView!
     @IBOutlet weak var copyrightLabel: CustomLabel!
-    
+    @IBOutlet weak var smallTopBarView: SmallTopBarView!
  
+    
     // MARK: - Class Initialization
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -42,11 +42,6 @@ class AboutShowViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Config topBarView
-        smallTopBarView.type    =   "ParentSearch"
-        topBarViewStyle         =   .Small
-        setup(topBarView: smallTopBarView)
-        
         viewSettingsDidLoad()
     }
     
@@ -55,9 +50,14 @@ class AboutShowViewController: BaseViewController {
     func viewSettingsDidLoad() {
         print(object: "\(type(of: self)): \(#function) run.")
         
-        // NOTE: Ask the Interactor to do some work
-        let request = AboutShow.Something.Request()
-        interactor.doSomething(request: request)
+        // Config smallTopBarView
+        navigationBarView       =   smallTopBarView
+        smallTopBarView.type    =   "Parent"
+        haveMenuItem            =   true
+
+        // Load data
+        let requestModel        =   AboutShow.Something.Request()
+        interactor.doSomething(request: requestModel)
     }
     
     

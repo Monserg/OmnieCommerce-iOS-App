@@ -25,9 +25,9 @@ class BusinessCardsShowViewController: BaseViewController {
     var output: BusinessCardsShowViewControllerOutput!
     var router: BusinessCardsShowRouter!
     
-    @IBOutlet weak var smallTopBarView: SmallTopBarView!
     @IBOutlet weak var copyrightLabel: CustomLabel!
-
+    @IBOutlet weak var smallTopBarView: SmallTopBarView!
+    
     
     // MARK: - Class Initialization
     override func awakeFromNib() {
@@ -41,11 +41,6 @@ class BusinessCardsShowViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Config topBarView
-        smallTopBarView.type    =   "ParentSearch"
-        topBarViewStyle         =   .Small
-        setup(topBarView: smallTopBarView)
-        
         viewSettingsDidLoad()
     }
     
@@ -54,9 +49,14 @@ class BusinessCardsShowViewController: BaseViewController {
     func viewSettingsDidLoad() {
         print(object: "\(type(of: self)): \(#function) run.")
         
-        // NOTE: Ask the Interactor to do some work
-        let request = BusinessCardsShow.Something.Request()
-        output.doSomething(request: request)
+        // Config smallTopBarView
+        navigationBarView       =   smallTopBarView
+        smallTopBarView.type    =   "Parent"
+        haveMenuItem            =   true
+        
+        // Load data
+        let requestModel        =   BusinessCardsShow.Something.Request()
+        output.doSomething(request: requestModel)
     }
     
     
@@ -75,7 +75,7 @@ extension BusinessCardsShowViewController: BusinessCardsShowViewControllerInput 
     func displaySomething(viewModel: BusinessCardsShow.Something.ViewModel) {
         print(object: "\(type(of: self)): \(#function) run.")
         
-        // NOTE: Display the result from the Presenter
+        // Display the result from the Presenter
         // nameTextField.text = viewModel.name
     }
 }

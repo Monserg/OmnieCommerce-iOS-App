@@ -39,6 +39,8 @@ typealias OrganizationData                          =   (name: String, rating: I
 
 var isAppThemeDark                                  =   false
 
+let NetworkReachabilityChanged                      =   NSNotification.Name("NetworkReachabilityChanged")
+
 struct Config {
     struct Constants {
         static let fillViewSmallRadiusPortrait: Double          =   1531.0

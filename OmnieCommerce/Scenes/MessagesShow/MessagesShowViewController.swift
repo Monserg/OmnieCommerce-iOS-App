@@ -26,9 +26,9 @@ class MessagesShowViewController: BaseViewController {
     var interactor: MessagesShowViewControllerOutput!
     var router:     MessagesShowRouter!
     
-    @IBOutlet weak var smallTopBarView: SmallTopBarView!
     @IBOutlet weak var copyrightLabel: CustomLabel!
     @IBOutlet weak var dataSourceEmptyView: UIView!
+    @IBOutlet weak var smallTopBarView: SmallTopBarView!
 
     @IBOutlet weak var tableView: MSMTableView! {
         didSet {
@@ -51,27 +51,20 @@ class MessagesShowViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Config topBarView
-        smallTopBarView.type    =   "ParentSearch"
-        topBarViewStyle         =   .Small
-        setup(topBarView: smallTopBarView)
-        
         viewSettingsDidLoad()
     }
     
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        print(object: "\(type(of: self)): \(#function) run in [line \(#line)]")
-        
-        super.viewDidDisappear(true)
-    }
-
     
     // MARK: - Custom Functions
     func viewSettingsDidLoad() {
         print(object: "\(type(of: self)): \(#function) run.")
         
-        // NOTE: Ask the Interactor to do some work
+        // Config smallTopBarView
+        navigationBarView       =   smallTopBarView
+        smallTopBarView.type    =   "ParentSearch"
+        haveMenuItem            =   true
+        
+        // Load data
         let requestModel        =   MessagesShowModels.Messages.RequestModel()
         interactor.messagesDidLoad(withRequestModel: requestModel)
     }

@@ -25,8 +25,8 @@ class FavoriteShowViewController: BaseViewController {
     var output: FavoriteShowViewControllerOutput!
     var router: FavoriteShowRouter!
     
-    @IBOutlet weak var smallTopBarView: SmallTopBarView!
     @IBOutlet weak var copyrightLabel: CustomLabel!
+    @IBOutlet weak var smallTopBarView: SmallTopBarView!
     @IBOutlet weak var segmentedControlView: SegmentedControlView!
     
     
@@ -42,11 +42,6 @@ class FavoriteShowViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Config topBarView
-        smallTopBarView.type    =   "ParentSearch"
-        topBarViewStyle         =   .Small
-        setup(topBarView: smallTopBarView)
-
         viewSettingsDidLoad()
     }
 
@@ -57,9 +52,14 @@ class FavoriteShowViewController: BaseViewController {
         
         setupSegmentedControlView()
 
-        // NOTE: Ask the Interactor to do some work
-        let request = FavoriteShow.Something.Request()
-        output.doSomething(request: request)
+        // Config smallTopBarView
+        navigationBarView       =   smallTopBarView
+        smallTopBarView.type    =   "ParentSearch"
+        haveMenuItem            =   true
+        
+        // Load data
+        let requestModel        =   FavoriteShow.Something.Request()
+        output.doSomething(request: requestModel)
     }
     
     func setupSegmentedControlView() {
@@ -81,12 +81,12 @@ class FavoriteShowViewController: BaseViewController {
 }
 
 
-// MARK: - 
+// MARK: - FavoriteShowViewControllerInput
 extension FavoriteShowViewController: FavoriteShowViewControllerInput {
     func displaySomething(viewModel: FavoriteShow.Something.ViewModel) {
         print(object: "\(type(of: self)): \(#function) run.")
         
-        // NOTE: Display the result from the Presenter
+        // Display the result from the Presenter
         // nameTextField.text = viewModel.name
     }
 }

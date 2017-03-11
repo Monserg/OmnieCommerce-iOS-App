@@ -66,11 +66,11 @@ class PersonalPageShowViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Config topBarView
+        // Config smallTopBarView
+        navigationBarView       =   smallTopBarView
         smallTopBarView.type    =   "Parent"
-        topBarViewStyle         =   .Small
-        setup(topBarView: smallTopBarView)
-        
+        haveMenuItem            =   true
+                
         // Container Child Views
         personalDataVC          =   UIStoryboard(name: "PersonalPageShow", bundle: nil).instantiateViewController(withIdentifier: "PersonalDataVC") as? PersonalDataViewController
         

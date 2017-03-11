@@ -25,8 +25,8 @@ class DiscountCardsShowViewController: BaseViewController {
     var output: DiscountCardsShowViewControllerOutput!
     var router: DiscountCardsShowRouter!
     
-    @IBOutlet weak var smallTopBarView: SmallTopBarView!
     @IBOutlet weak var copyrightLabel: CustomLabel!
+    @IBOutlet weak var smallTopBarView: SmallTopBarView!
 
     
     // MARK: - Class Initialization
@@ -41,11 +41,6 @@ class DiscountCardsShowViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Config topBarView
-        smallTopBarView.type    =   "ParentSearch"
-        topBarViewStyle         =   .Small
-        setup(topBarView: smallTopBarView)
-        
         viewSettingsDidLoad()
     }
     
@@ -54,9 +49,14 @@ class DiscountCardsShowViewController: BaseViewController {
     func viewSettingsDidLoad() {
         print(object: "\(type(of: self)): \(#function) run.")
         
-        // NOTE: Ask the Interactor to do some work
-        let request = DiscountCardsShow.Something.Request()
-        output.doSomething(request: request)
+        // Config smallTopBarView
+        navigationBarView       =   smallTopBarView
+        smallTopBarView.type    =   "ParentSearch"
+        haveMenuItem            =   true
+        
+        // Load data
+        let requestModel        =   DiscountCardsShow.Something.Request()
+        output.doSomething(request: requestModel)
     }
     
     

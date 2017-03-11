@@ -58,18 +58,17 @@ class OrganizationsShowViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        smallTopBarView.type                =   "ChildSearch"
-        topBarViewStyle                     =   .Small
-        setup(topBarView: smallTopBarView)
-
         viewSettingsDidLoad()
     }
     
     
     // MARK: - Custom Functions
     func viewSettingsDidLoad() {
-        // Set scene title
+        // Config smallTopBarView
+        navigationBarView                   =   smallTopBarView
+        smallTopBarView.type                =   "ChildSearch"
         smallTopBarView.titleLabel.text     =   category!.title
+        haveMenuItem                        =   true
         
         mapButton.isUserInteractionEnabled  =   false
         

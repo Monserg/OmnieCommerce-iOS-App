@@ -44,9 +44,9 @@ class OnmieSoftShowViewController: UIViewController {
 
     // MARK: - Custom Functions
     func viewSettingsDidLoad() {
-        // NOTE: Ask the Interactor to do some work
-        let request = OnmieSoftShow.Something.Request()
-        output.doSomething(request: request)
+        // Load data
+        let requestModel    =   OnmieSoftShow.Something.Request()
+        output.doSomething(request: requestModel)
     }
 }
 

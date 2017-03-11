@@ -12,22 +12,19 @@ import Localize_Swift
 import SWRevealViewController
 import AlamofireImage
 
-let NetworkReachabilityChanged = NSNotification.Name("NetworkReachabilityChanged")
-
-enum TopBarViewStyle {
-    case Big
-    case Small
-}
-
 class BaseViewController: UIViewController {
     // MARK: - Properties
-    var haveMenuItem        =   false
-    var topBarViewStyle     =   TopBarViewStyle.Big
-
     var selectedRange: CGRect?
     weak var userApp: AppUser?
     weak var blackoutView: MSMBlackoutView?
+    var navigationBarView: SmallTopBarView?
     
+    var haveMenuItem    =   false {
+        didSet {
+            didApplySlideMenuSettings()
+        }
+    }
+
     // Network monitoring
     var previousNetworkReachabilityStatus: AFNetworkReachabilityStatus = .unknown
     var isNetworkAvailable = false
@@ -100,19 +97,19 @@ class BaseViewController: UIViewController {
         let keyboardScreenEndFrame      =   (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
         let keyboardViewEndFrame        =   view.convert(keyboardScreenEndFrame, from: view.window)
         
-        scrollViewBase!.contentInset    =   (notification.name == .UIKeyboardWillHide) ? UIEdgeInsets.zero : UIEdgeInsets(top: 0, left: 0, bottom: keyboardViewEndFrame.height + 25, right: 0)
+        scrollViewBase?.contentInset    =   (notification.name == .UIKeyboardWillHide) ? UIEdgeInsets.zero : UIEdgeInsets(top: 0, left: 0, bottom: keyboardViewEndFrame.height + 25, right: 0)
 
         guard (selectedRange != nil && (keyboardViewEndFrame.contains((selectedRange?.origin)!))) else {
             DispatchQueue.main.async {
                 UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseOut, animations: {
-                    self.scrollViewBase!.contentOffset.y = 0
+                    self.scrollViewBase?.contentOffset.y = 0
                 }, completion: nil)
             }
             
             return
         }
 
-        scrollViewBase!.scrollRectToVisible(selectedRange!, animated: true)
+        scrollViewBase?.scrollRectToVisible(selectedRange!, animated: true)
     }
     
     
@@ -121,49 +118,33 @@ class BaseViewController: UIViewController {
         navigationController?.isNavigationBarHidden = true
     }
 
-    func setup(topBarView: UIView) {
-        print(object: "\(type(of: self)): \(#function) run in [line \(#line)]")
-        
-        // TopBarView small height
-        if (topBarViewStyle == .Small) {
-            // Set background color
-            self.view.backgroundColor = UIColor.veryDarkDesaturatedBlue24
-
-            // Add Slide Menu actions
-            if revealViewController() != nil {
-                if (ViewType(rawValue: (topBarView as! SmallTopBarView).type!) == .Parent ||
-                    ViewType(rawValue: (topBarView as! SmallTopBarView).type!) == .ParentSearch) {
-                    (topBarView as! SmallTopBarView).actionButton.addTarget(revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), for: .touchUpInside)
-                    
-                    // Sidebar is width 296
-                    revealViewController().rearViewRevealWidth          =    296
-                    
-                    revealViewController().rearViewRevealDisplacement   =   198
-                    
-                    revealViewController().rearViewRevealOverdraw       =   0
-                    
-                    // Faster slide animation
-                    revealViewController().toggleAnimationDuration      =   0.3
-                    
-                    // Simply ease out. No Spring animation.
-                    revealViewController().toggleAnimationType          =   .easeOut
-                    
-                    // More shadow
-                    revealViewController().frontViewShadowRadius        =   0
-                    revealViewController().frontViewShadowColor         =   UIColor.clear
-                    
-                    view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-                    
-                    // Delegate
-                    revealViewController().delegate                     =   self
-                } else {
-                    view.removeGestureRecognizer(self.revealViewController().panGestureRecognizer())
-                }
-            }
+    private func didApplySlideMenuSettings() {
+        if (haveMenuItem) {
+            // Delegate
+            revealViewController().delegate                     =   self
+            
+            revealViewController().rearViewRevealWidth          =   296
+            revealViewController().rearViewRevealDisplacement   =   198
+            revealViewController().rearViewRevealOverdraw       =   0
+            
+            // Faster slide animation
+            revealViewController().toggleAnimationDuration      =   0.3
+            
+            // Simply ease out. No Spring animation.
+            revealViewController().toggleAnimationType          =   .easeOut
+            
+            // More shadow
+            revealViewController().frontViewShadowRadius        =   0
+            revealViewController().frontViewShadowColor         =   UIColor.clear
+            
+            view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+            navigationBarView!.actionButton.addTarget(revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), for: .touchUpInside)
+        } else {
+            view.removeGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
     }
-    
-    
+ 
+ 
     // MARK: - Custom Functions
     func didAddTapGestureRecognizer() {
         // For all TopBarView

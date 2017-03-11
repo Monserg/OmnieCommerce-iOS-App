@@ -82,18 +82,13 @@ class SignInShowViewController: BaseViewController {
         super.viewDidLoad()
         
         if (CoreDataManager.instance.appUser.isAuthorized) {
-            self.view.isHidden  =   true
+            self.view.isHidden          =   true
         }
         
-        // Config controls
-        topBarViewStyle         =   .Big
-
         // Set buttons type
         vkontakteButton.designStyle     =   "Social"
         googleButton.designStyle        =   "Social"
         facebookButton.designStyle      =   "Social"
-        
-        setup(topBarView: bigTopBarView)
         
         viewSettingsDidLoad()
     }
@@ -194,7 +189,7 @@ extension SignInShowViewController: SignInShowViewControllerInput {
             return
         }
         
-        // NOTE: Display the result from the Presenter
+        // Display the result from the Presenter
         // nameTextField.text = viewModel.name
     }
 }

@@ -26,9 +26,9 @@ class OmnieCardsShowViewController: BaseViewController {
     var router: OmnieCardsShowRouter!
     let barcodeViewModel = OmnieCardViewModel()
     
-    @IBOutlet weak var smallTopBarView: SmallTopBarView!
-    @IBOutlet weak var copyrightLabel: CustomLabel!
     @IBOutlet weak var barcodeView: BarCodeView!
+    @IBOutlet weak var copyrightLabel: CustomLabel!
+    @IBOutlet weak var smallTopBarView: SmallTopBarView!
 
     
     // MARK: - Class Initialization
@@ -43,20 +43,14 @@ class OmnieCardsShowViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Config topBarView
-        smallTopBarView.type                    =   "ParentSearch"
-        topBarViewStyle                         =   .Small
-        smallTopBarView.searchButton.isHidden   =   true
-        setup(topBarView: smallTopBarView)
-
         viewSettingsDidLoad()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
-        barcodeView.titleLabel.text = barcodeViewModel.getBarCodeID()
-        barcodeView.imageView.image = barcodeViewModel.createBarCode()
+        barcodeView.titleLabel.text     =   barcodeViewModel.getBarCodeID()
+        barcodeView.imageView.image     =   barcodeViewModel.createBarCode()
     }
 
     
@@ -64,9 +58,14 @@ class OmnieCardsShowViewController: BaseViewController {
     func viewSettingsDidLoad() {
         print(object: "\(type(of: self)): \(#function) run.")
         
-        // NOTE: Ask the Interactor to do some work
-        let request = OmnieCardsShow.Something.Request()
-        output.doSomething(request: request)
+        // Config smallTopBarView
+        navigationBarView               =   smallTopBarView
+        smallTopBarView.type            =   "ParentSearch"
+        haveMenuItem                    =   true
+        
+        // Load data
+        let requestModel                =   OmnieCardsShow.Something.Request()
+        output.doSomething(request: requestModel)
     }
     
     
@@ -85,7 +84,7 @@ extension OmnieCardsShowViewController: OmnieCardsShowViewControllerInput {
     func displaySomething(viewModel: OmnieCardsShow.Something.ViewModel) {
         print(object: "\(type(of: self)): \(#function) run.")
         
-        // NOTE: Display the result from the Presenter
+        // Display the result from the Presenter
         // nameTextField.text = viewModel.name
     }
 }

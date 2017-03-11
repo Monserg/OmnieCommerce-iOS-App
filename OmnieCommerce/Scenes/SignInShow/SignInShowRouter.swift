@@ -26,6 +26,7 @@ class SignInShowRouter: SignInShowRouterInput {
     func navigateAuthorizedUser(duringStartApp: Bool) {
         let revealVC                        =   UIStoryboard(name: "SlideMenuShow", bundle: nil).instantiateViewController(withIdentifier: "SWRevealVC") as! SWRevealViewController
         revealVC.modalTransitionStyle       =   (duringStartApp) ? .crossDissolve : .flipHorizontal
+        revealVC.view.backgroundColor       =   UIColor(hexString: "#24323f")!
         
         // Set FrontViewController
         if (duringStartApp) {
@@ -39,7 +40,8 @@ class SignInShowRouter: SignInShowRouterInput {
             revealVC.setFront(personalPageNC, animated: true)
         }
         
-        self.viewController.present(revealVC, animated: !duringStartApp, completion: {
+        self.viewController.present(revealVC, animated: true, completion: {
+//        self.viewController.present(revealVC, animated: !duringStartApp, completion: {
             if (duringStartApp) {
                 self.navigateBetweenContainerSubviews()
                 self.viewController.view.isHidden = false
