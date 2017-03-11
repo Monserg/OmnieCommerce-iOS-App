@@ -20,7 +20,7 @@ protocol SlideMenuShowViewControllerOutput {
     func doSomething(request: SlideMenuShow.Something.Request)
 }
 
-class SlideMenuShowViewController: UIViewController, SlideMenuShowViewControllerInput {
+class SlideMenuShowViewController: UIViewController {
     // MARK: - Properties
     var output: SlideMenuShowViewControllerOutput!
     var router: SlideMenuShowRouter!
@@ -59,8 +59,8 @@ class SlideMenuShowViewController: UIViewController, SlideMenuShowViewController
         
         // FIXME: - REMOVE TO WORKER
         getMenuItemsFromPropertyList()
-    }
-
+    }    
+    
     
     // MARK: - Actions
     @IBAction func handlerAdvertisingViewTap(_ sender: UIButton) {
@@ -69,15 +69,9 @@ class SlideMenuShowViewController: UIViewController, SlideMenuShowViewController
     
     // MARK: - Custom Functions
     func viewSettingsDidLoad() {
-        // NOTE: Ask the Interactor to do some work
-        let request = SlideMenuShow.Something.Request()
-        output.doSomething(request: request)
-    }
-    
-    // Display logic
-    func displaySomething(viewModel: SlideMenuShow.Something.ViewModel) {
-        // NOTE: Display the result from the Presenter
-        // nameTextField.text = viewModel.name
+        // Load data
+        let requestModel    =   SlideMenuShow.Something.Request()
+        output.doSomething(request: requestModel)
     }
     
     func getMenuItemsFromPropertyList() {
@@ -169,5 +163,15 @@ extension SlideMenuShowViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         return (section != menuItemsList.count - 1) ? tableView.dequeueReusableHeaderFooterView(withIdentifier: "MenuSectionFooterView") as? MenuSectionFooterView : tableView.dequeueReusableHeaderFooterView(withIdentifier: "MenuSectionHeaderView") as? MenuSectionHeaderView
+    }
+}
+
+
+
+// MARK: - SlideMenuShowViewControllerInput
+extension SlideMenuShowViewController: SlideMenuShowViewControllerInput {
+    func displaySomething(viewModel: SlideMenuShow.Something.ViewModel) {
+        // Display the result from the Presenter
+        // nameTextField.text = viewModel.name
     }
 }

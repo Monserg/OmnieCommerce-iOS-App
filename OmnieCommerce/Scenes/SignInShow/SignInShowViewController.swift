@@ -92,7 +92,7 @@ class SignInShowViewController: BaseViewController {
         
         viewSettingsDidLoad()
     }
-    
+
     
     // MARK: - Custom Functions
     func viewSettingsDidLoad() {

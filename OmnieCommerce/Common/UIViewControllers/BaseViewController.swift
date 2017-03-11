@@ -120,6 +120,9 @@ class BaseViewController: UIViewController {
 
     private func didApplySlideMenuSettings() {
         if (haveMenuItem) {
+            // Set background color
+            view.backgroundColor                                =   UIColor.veryDarkDesaturatedBlue24
+            
             // Delegate
             revealViewController().delegate                     =   self
             
