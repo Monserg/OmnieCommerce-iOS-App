@@ -138,7 +138,7 @@ class BaseViewController: UIViewController {
             
             // More shadow
             revealViewController().frontViewShadowRadius        =   0
-            revealViewController().frontViewShadowColor         =   UIColor.clear
+            revealViewController().frontViewShadowColor         =   UIColor.clear            
             
             view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
             navigationBarView!.actionButton.addTarget(revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), for: .touchUpInside)

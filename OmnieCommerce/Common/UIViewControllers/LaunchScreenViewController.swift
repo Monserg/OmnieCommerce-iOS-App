@@ -72,7 +72,7 @@ class LaunchScreenViewController: UIViewController {
         let initialNC                           =   signInShowStoryboard.instantiateViewController(withIdentifier: "SignInShowNC") as! BaseNavigationController
         
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
-            window.rootViewController = initialNC
+            window.rootViewController           =   initialNC
             window.makeKeyAndVisible()
         }
     }

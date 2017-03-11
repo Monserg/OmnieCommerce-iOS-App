@@ -27,6 +27,10 @@ class SignInShowRouter: SignInShowRouterInput {
         let revealVC                        =   UIStoryboard(name: "SlideMenuShow", bundle: nil).instantiateViewController(withIdentifier: "SWRevealVC") as! SWRevealViewController
         revealVC.modalTransitionStyle       =   (duringStartApp) ? .crossDissolve : .flipHorizontal
         
+        // Set Flip Horizontal behaind view background color
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.window?.backgroundColor =   UIColor.veryDarkDesaturatedBlue2f
+        
         // Set FrontViewController
         if (duringStartApp) {
             let categoriesNC                =   UIStoryboard(name: "CategoriesShow", bundle: nil).instantiateViewController(withIdentifier: "CategoriesShowNC") as! BaseNavigationController
