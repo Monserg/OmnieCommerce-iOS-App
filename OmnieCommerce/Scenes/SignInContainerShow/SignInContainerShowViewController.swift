@@ -109,7 +109,7 @@ class SignInContainerShowViewController: BaseViewController, PasswordErrorMessag
     }
     
     @IBAction func handlerSignInButtonTap(_ sender: CustomButton) {
-        // NOTE: Ask the Interactor to do some work
+        // User authorization
         guard let name = textFieldsCollection.first?.text, let password = textFieldsCollection.last?.text, !(name.isEmpty), !(password.isEmpty) else {
             alertViewDidShow(withTitle: "Info".localized(), andMessage: "All fields can be...".localized())
             

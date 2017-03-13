@@ -8,11 +8,11 @@
 
 import UIKit
 
-class PersonalDataViewController: BaseViewController, EmailErrorMessageView, PasswordErrorMessageView, PasswordStrengthView, PasswordStrengthErrorMessageView {
+class PersonalDataViewController: BaseViewController, EmailErrorMessageView, PhoneErrorMessageView, PasswordErrorMessageView, PasswordStrengthView, PasswordStrengthErrorMessageView {
     // MARK: - Properties
     var parametersForAPI: [String: String]?
-    let phonesCount: CGFloat    =   1
-    var phoneLastTag: Int       =   0
+    let phonesCount: Int    =   1
+    var phoneLastTag: Int   =   0
 
     var pickerViewManager: MSMPickerViewManager! {
         didSet {
@@ -47,20 +47,13 @@ class PersonalDataViewController: BaseViewController, EmailErrorMessageView, Pas
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var avatarButton: CustomButton!
     @IBOutlet weak var passwordsView: UIView!
+    @IBOutlet weak var phonesView: UIView!
+    @IBOutlet weak var changePasswordButton: UbuntuLightItalicDarkCyanButton!
     
     @IBOutlet weak var birthdayPickerView: UIPickerView! {
         didSet {}
     }
     
-    @IBOutlet var phonesStackViewsCollection: [UIStackView]! {
-        didSet {
-            for index in 0..<Int(phonesCount) {
-                phonesStackViewsCollection[index].isHidden  =   false
-                phoneLastTag                                =   phonesStackViewsCollection[index].tag
-            }
-        }
-    }
-
     @IBOutlet var textFieldsCollection: [CustomTextField]! {
         didSet {
             textFieldManager            =   MSMTextFieldManager(withTextFields: textFieldsCollection)
@@ -73,21 +66,28 @@ class PersonalDataViewController: BaseViewController, EmailErrorMessageView, Pas
                     self.textFieldManager.handlerTextFieldCompletion    =   { (phoneButtonTextField, success) in
                         self.print(object: "\(phoneButtonTextField, success)")
                         
-                        _       =   self.deleteButtonsCollection.filter{ $0.tag == phoneButtonTextField.tag}.map{ $0.isHidden = success }
+                        _       =   self.deleteButtonsCollection.filter({ $0.tag == phoneButtonTextField.tag }).map{ $0.isHidden = success }
                     }
                     
                     // Handler add new phone field
                     if (textField.text?.characters.count == 3) {
                         self.textFieldManager.handlerPassDataCompletion =   { phoneButtonTextField in
-                            _   =   self.phonesStackViewsCollection.filter{ $0.tag == textField.tag }.map{ $0.isHidden = false }
+//                            _   =   self.phonesStackViewsCollection.filter{ $0.tag == textField.tag }.map{ $0.isHidden = false }
                         }
                     }
 
                     // Handler Error Message
                     self.textFieldManager.handlerPassDataCompletion     =   { phoneButtonTextField in
-                        _       =   self.phoneErrorMessageViewsCollection.filter{$0.tag == (phoneButtonTextField as! CustomTextField).tag}.enumerated().map{
-                            self.didShow($1, withConstraint: self.phoneErrorMessageViewTopConstraintsCollection[$0])
-                        }
+                        let phoneErrorView          =   self.phoneErrorMessageViewsCollection.first(where: { $0.tag == (phoneButtonTextField as! CustomTextField).tag })!
+                        let phoneErrorViewIndex     =   self.phoneErrorMessageViewsCollection.index(of: phoneErrorView)!
+                        
+                        UIView.animate(withDuration: 1.9, animations: {
+                            self.phonesViewHeightConstraint.constant =   self.view.heightRatio * CGFloat(40 * self.phonesCount + 154)
+                            
+                            self.phonesView.layoutIfNeeded()
+                        }, completion: { success in
+                            self.didShow(phoneErrorView, withConstraint: self.phoneErrorMessageViewTopConstraintsCollection[phoneErrorViewIndex])
+                        })
                     }
                 }
             })
@@ -115,14 +115,14 @@ class PersonalDataViewController: BaseViewController, EmailErrorMessageView, Pas
     }
     
     @IBOutlet weak var passwordsViewHeightConstraint: NSLayoutConstraint!
-    @IBOutlet weak var phonesStackViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var phonesViewHeightConstraint: NSLayoutConstraint!
     
-    // Protocol EmailErrorMessageView for Email
+    // Protocol EmailErrorMessageView
     @IBOutlet weak var emailErrorMessageView: UIView!
     @IBOutlet weak var emailErrorMessageViewTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var emailErrorMessageViewHeightConstraint: NSLayoutConstraint!
 
-    // Protocol EmailErrorMessageView for Phone
+    // Protocol PhoneErrorMessageView
     @IBOutlet var phoneErrorMessageViewsCollection: [UIView]!
     @IBOutlet var phoneErrorMessageViewTopConstraintsCollection: [NSLayoutConstraint]!
     @IBOutlet var phoneErrorMessageViewHeightConstraintsCollection: [NSLayoutConstraint]!
@@ -181,9 +181,11 @@ class PersonalDataViewController: BaseViewController, EmailErrorMessageView, Pas
         didHide(emailErrorMessageView, withConstraint: emailErrorMessageViewTopConstraint)
 
         // Hide phones error message view
-        _ =   phoneErrorMessageViewHeightConstraintsCollection.map{ $0.constant  =   Config.Constants.errorMessageViewHeight }
-        _ = phoneErrorMessageViewsCollection.enumerated().map{ didHide($1, withConstraint: phoneErrorMessageViewTopConstraintsCollection[$0]) }
+        _   =   phoneErrorMessageViewHeightConstraintsCollection.map{ $0.constant  =   Config.Constants.errorMessageViewHeight }
+        _   =   phoneErrorMessageViewsCollection.enumerated().map{ didHide($1, withConstraint: phoneErrorMessageViewTopConstraintsCollection[$0]) }
         
+        phonesView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: CGFloat(40 * phonesCount) / 494.0).isActive = true
+
         // Hide passwords error message view
         passwordErrorMessageViewHeightConstraint.constant           =   Config.Constants.errorMessageViewHeight
         didHide(passwordErrorMessageView, withConstraint: passwordErrorMessageViewTopConstraint)
@@ -197,7 +199,11 @@ class PersonalDataViewController: BaseViewController, EmailErrorMessageView, Pas
     
     
     // MARK: - Transition
-    override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {}
+    override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
+        changePasswordButton.tag    =   0
+        
+//        phonesView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: CGFloat(40 * phonesCount) / 216.0).isActive = true
+    }
 
     
     // MARK: - Actions
@@ -234,11 +240,11 @@ class PersonalDataViewController: BaseViewController, EmailErrorMessageView, Pas
         }, completion: { success in
             self.textFieldsCollection[0].isEnabled  =   (sender.tag == 1) ? true : false
             
-            if (sender.tag == 1) {
-                self.textFieldsCollection[0].becomeFirstResponder()
-            } else {
-                self.textFieldsCollection[0].resignFirstResponder()
-            }
+//            if (sender.tag == 1) {
+//                self.textFieldsCollection[0].becomeFirstResponder()
+//            } else {
+//                self.textFieldsCollection[0].resignFirstResponder()
+//            }
             
             guard sender.tag == 0 && self.textFieldsCollection[0].text != nil && self.textFieldsCollection[1].text != nil && self.textFieldsCollection[2].text != nil else {
                 self.textFieldsCollection[0].text   =   oldPassword

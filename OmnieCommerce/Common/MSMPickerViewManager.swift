@@ -64,18 +64,18 @@ extension MSMPickerViewManager: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
         switch component {
         case 0, 2:
-            return self.widthRatio * 25.0
+            return 25.0
             
         case 4:
-            return self.widthRatio * 45.0
+            return 45.0
             
         default:
-            return self.widthRatio * 10.0
+            return 10.0
         }
     }
     
     func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
-        return self.heightRatio * 35.0
+        return 35.0
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {

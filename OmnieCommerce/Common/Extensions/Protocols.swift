@@ -21,6 +21,13 @@ protocol EmailErrorMessageView: ErrorMessageViewAnimation {
     var emailErrorMessageViewHeightConstraint: NSLayoutConstraint! { get set }
 }
 
+protocol PhoneErrorMessageView: ErrorMessageViewAnimation {
+    // MARK: - Properties
+    var phoneErrorMessageViewsCollection: [UIView]! { get }
+    var phoneErrorMessageViewTopConstraintsCollection: [NSLayoutConstraint]! { get set }
+    var phoneErrorMessageViewHeightConstraintsCollection: [NSLayoutConstraint]! { get set }
+}
+
 protocol PasswordErrorMessageView: ErrorMessageViewAnimation {
     // MARK: - Properties
     var passwordErrorMessageView: UIView! { get }

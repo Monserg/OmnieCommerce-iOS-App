@@ -9,6 +9,7 @@ target 'OmnieCommerce' do
     pod 'Localize-Swift', '~> 1.6'
     pod 'Device', '~> 2.0.0'
     pod 'Cosmos', '~> 7.0'
+    pod 'Alamofire', '~> 4.4'
     pod 'AlamofireImage', '~> 3.2'
     pod 'JTAppleCalendar', '~> 6.0'
     pod 'Navajo-Swift', '~> 1.0'

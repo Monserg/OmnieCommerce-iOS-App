@@ -20,6 +20,9 @@
 		B10874A71E5B3D7E004A4FB6 /* AppUser+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10874A51E5B3D7E004A4FB6 /* AppUser+CoreDataProperties.swift */; };
 		B10CF52A1E684B9700811DC1 /* ScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10CF5291E684B9700811DC1 /* ScheduleView.swift */; };
 		B10CF52C1E684BA000811DC1 /* ScheduleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B10CF52B1E684BA000811DC1 /* ScheduleView.xib */; };
+		B1131A931E76744300DAF90A /* MSMRestApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1131A921E76744300DAF90A /* MSMRestApiManager.swift */; };
+		B1131A961E768F2900DAF90A /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1131A941E768F2900DAF90A /* Alamofire.framework */; };
+		B1131A971E768F2900DAF90A /* AlamofireImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1131A951E768F2900DAF90A /* AlamofireImage.framework */; };
 		B1152FAF1E6E9FD8007999B9 /* UserTemplateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1152FAD1E6E9FD8007999B9 /* UserTemplateTableViewCell.swift */; };
 		B1152FB01E6E9FD8007999B9 /* UserTemplateTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1152FAE1E6E9FD8007999B9 /* UserTemplateTableViewCell.xib */; };
 		B11B9AD61DF00CC5009A4AA1 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11B9AD51DF00CC5009A4AA1 /* BaseTableViewCell.swift */; };
@@ -367,6 +370,9 @@
 		B10874A51E5B3D7E004A4FB6 /* AppUser+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AppUser+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		B10CF5291E684B9700811DC1 /* ScheduleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleView.swift; sourceTree = "<group>"; };
 		B10CF52B1E684BA000811DC1 /* ScheduleView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScheduleView.xib; sourceTree = "<group>"; };
+		B1131A921E76744300DAF90A /* MSMRestApiManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSMRestApiManager.swift; sourceTree = "<group>"; };
+		B1131A941E768F2900DAF90A /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "../../../../../Library/Developer/Xcode/DerivedData/OmnieCommerce-enpckymiymzhiuhdgnbmlxbwmhew/Build/Products/Debug-iphonesimulator/Alamofire/Alamofire.framework"; sourceTree = "<group>"; };
+		B1131A951E768F2900DAF90A /* AlamofireImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlamofireImage.framework; path = "../../../../../Library/Developer/Xcode/DerivedData/OmnieCommerce-enpckymiymzhiuhdgnbmlxbwmhew/Build/Products/Debug-iphonesimulator/AlamofireImage/AlamofireImage.framework"; sourceTree = "<group>"; };
 		B1152FAD1E6E9FD8007999B9 /* UserTemplateTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTemplateTableViewCell.swift; sourceTree = "<group>"; };
 		B1152FAE1E6E9FD8007999B9 /* UserTemplateTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserTemplateTableViewCell.xib; sourceTree = "<group>"; };
 		B11B9AD51DF00CC5009A4AA1 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
@@ -719,6 +725,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1131A961E768F2900DAF90A /* Alamofire.framework in Frameworks */,
+				B1131A971E768F2900DAF90A /* AlamofireImage.framework in Frameworks */,
 				B1FBC9161E6D474400D86429 /* LTHRadioButton.framework in Frameworks */,
 				B1FFF7271E5F0DAE00A075D8 /* CoreLocation.framework in Frameworks */,
 				B1FFF7251E5F0DA100A075D8 /* MapKit.framework in Frameworks */,
@@ -744,6 +752,8 @@
 		A4A33B8C6849A99639A17A3F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B1131A941E768F2900DAF90A /* Alamofire.framework */,
+				B1131A951E768F2900DAF90A /* AlamofireImage.framework */,
 				B1FBC9151E6D474400D86429 /* LTHRadioButton.framework */,
 				B19DFABA1E64AEF500599073 /* UMParallaxView.framework */,
 				B1FFF7261E5F0DAE00A075D8 /* CoreLocation.framework */,
@@ -1139,6 +1149,7 @@
 				B1FFF7301E5F0F0F00A075D8 /* LocationManager.swift */,
 				B1FBC92E1E6DEFD300D86429 /* MSMImagePickerController.swift */,
 				B10672F91E71BE8100DB2AE0 /* MSMPickerViewManager.swift */,
+				B1131A921E76744300DAF90A /* MSMRestApiManager.swift */,
 				B19BB6201E6ABF560081533C /* MSMTableViewControllerManager.swift */,
 				B17D92DC1E701D750028967E /* MSMTextFieldManager.swift */,
 				B14D1D731E5CB8B000D33435 /* SocialNetworkManager.swift */,
@@ -1892,6 +1903,7 @@
 				B1CF54951DDB512000E98049 /* DiscountCardsShowPresenter.swift in Sources */,
 				B1CF54861DDB50F100E98049 /* BusinessCardsShowModels.swift in Sources */,
 				B1739D181DE314D50029BCCA /* UILabel+Ext.swift in Sources */,
+				B1131A931E76744300DAF90A /* MSMRestApiManager.swift in Sources */,
 				B122F1DD1DD35B760018A701 /* OrdersShowModels.swift in Sources */,
 				B1FFF7021E5ECDF900A075D8 /* OrganizationsShowModels.swift in Sources */,
 				B1CF54CC1DDB51A500E98049 /* PersonalPageShowModels.swift in Sources */,

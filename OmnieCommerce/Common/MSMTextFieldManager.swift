@@ -168,7 +168,10 @@ extension MSMTextFieldManager: UITextFieldDelegate {
             (currentVC as! EmailErrorMessageView).didHide((currentVC as! EmailErrorMessageView).emailErrorMessageView, withConstraint: (currentVC as! EmailErrorMessageView).emailErrorMessageViewTopConstraint)
             
         case .PhoneButton:
-            (currentVC as! EmailErrorMessageView).didHide((currentVC as! EmailErrorMessageView).emailErrorMessageView, withConstraint: (currentVC as! EmailErrorMessageView).emailErrorMessageViewTopConstraint)
+            let phoneErrorView      =   (currentVC as! PhoneErrorMessageView).phoneErrorMessageViewsCollection.first(where: { $0.tag == textField.tag} )!
+            let phoneErrorViewIndex =   (currentVC as! PhoneErrorMessageView).phoneErrorMessageViewsCollection.index(of: phoneErrorView)!
+            
+            (currentVC as! PhoneErrorMessageView).didHide(phoneErrorView, withConstraint: (currentVC as! PhoneErrorMessageView).phoneErrorMessageViewTopConstraintsCollection[phoneErrorViewIndex])
             
             // Show/hide Delete button
             handlerTextFieldCompletion!(textField as! CustomTextField, (textField.text?.characters.count == 1 && string.isEmpty) ? true : false)
@@ -224,8 +227,14 @@ extension MSMTextFieldManager: UITextFieldDelegate {
     
     func textFieldShouldClear(_ textField: UITextField) -> Bool {
         switch (textField as! CustomTextField).style! {
-        case .Email, .PhoneEmail, .PhoneButton:
+        case .Email, .PhoneEmail:
             (currentVC as! EmailErrorMessageView).didHide((currentVC as! EmailErrorMessageView).emailErrorMessageView, withConstraint: (currentVC as! EmailErrorMessageView).emailErrorMessageViewTopConstraint)
+            
+        case .PhoneButton:
+            let phoneErrorView      =   (currentVC as! PhoneErrorMessageView).phoneErrorMessageViewsCollection.first(where: { $0.tag == textField.tag} )!
+            let phoneErrorViewIndex =   (currentVC as! PhoneErrorMessageView).phoneErrorMessageViewsCollection.index(of: phoneErrorView)!
+            
+            (currentVC as! PhoneErrorMessageView).didHide(phoneErrorView, withConstraint: (currentVC as! PhoneErrorMessageView).phoneErrorMessageViewTopConstraintsCollection[phoneErrorViewIndex])
             
         case .Password, .PasswordButton:
             (currentVC as! PasswordErrorMessageView).didHide((currentVC as! PasswordErrorMessageView).passwordErrorMessageView, withConstraint: (currentVC as! PasswordErrorMessageView).passwordErrorMessageViewTopConstraint)
@@ -255,11 +264,21 @@ extension MSMTextFieldManager: UITextFieldDelegate {
                 (currentVC as! EmailErrorMessageView).didShow((currentVC as! EmailErrorMessageView).emailErrorMessageView, withConstraint: (currentVC as! EmailErrorMessageView).emailErrorMessageViewTopConstraint)
             }
             
-        case .PhoneEmail, .PhoneButton:
+        case .PhoneEmail:
             if (textField as! CustomTextField).checkPhoneEmailValidation(textField.text!) {
                 self.nextTextFieldDidLoad(afterCurrent: textField as! CustomTextField)
             } else {
                 (currentVC as! EmailErrorMessageView).didShow((currentVC as! EmailErrorMessageView).emailErrorMessageView, withConstraint: (currentVC as! EmailErrorMessageView).emailErrorMessageViewTopConstraint)
+            }
+            
+        case .PhoneButton:
+            if (textField as! CustomTextField).checkPhoneValidation(textField.text!) {
+                self.nextTextFieldDidLoad(afterCurrent: textField as! CustomTextField)
+            } else {
+                let phoneErrorView      =   (currentVC as! PhoneErrorMessageView).phoneErrorMessageViewsCollection.first(where: { $0.tag == textField.tag} )!
+                let phoneErrorViewIndex =   (currentVC as! PhoneErrorMessageView).phoneErrorMessageViewsCollection.index(of: phoneErrorView)!
+                
+                (currentVC as! PhoneErrorMessageView ).didShow(phoneErrorView, withConstraint: (currentVC as! PhoneErrorMessageView).phoneErrorMessageViewTopConstraintsCollection[phoneErrorViewIndex])
             }
             
         case .Password, .PasswordButton:
