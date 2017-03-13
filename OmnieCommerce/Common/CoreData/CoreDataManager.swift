@@ -129,6 +129,7 @@ class CoreDataManager {
             appUser.imagePath       =   nil
             appUser.lastName        =   nil
             appUser.password        =   nil
+            appUser.appName         =   nil
         }
         
         didSaveContext()

@@ -100,7 +100,6 @@ class PersonalDataViewController: BaseViewController, EmailErrorMessageView, Pho
         }
     }
     
-    
     @IBOutlet var dottedBorderViewsCollection: [DottedBorderView]! {
         didSet {
             _ = dottedBorderViewsCollection.map{ $0.style = .BottomDottedLine }

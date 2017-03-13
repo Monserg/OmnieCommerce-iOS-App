@@ -153,6 +153,7 @@
 "User not register"             =   "Пользователь не зарегистрирован";
 "Authentication failure"        =   "Сбой аутентификации";
 "Wrong input data"              =   "Неправильные входные данные";
+"User is already exist"         =   "Пользователь уже существует";
 
 
 // Cities

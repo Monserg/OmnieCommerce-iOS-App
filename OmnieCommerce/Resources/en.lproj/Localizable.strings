@@ -153,6 +153,7 @@
 "User not register"             =   "The user is not registered";
 "Authentication failure"        =   "Authentication failed";
 "Wrong input data"              =   "Wrong input data";
+"User is already exist"         =   "User is already exist";
 
 
 // Cities

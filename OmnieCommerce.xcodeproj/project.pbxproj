@@ -564,6 +564,7 @@
 		B19DFABC1E64AF3100599073 /* UMParallaxView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UMParallaxView.swift; sourceTree = "<group>"; };
 		B19DFABE1E64B98E00599073 /* UIScrollView+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIScrollView+Ext.swift"; sourceTree = "<group>"; };
 		B19DFAC01E64B9F100599073 /* UITextField+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+Ext.swift"; sourceTree = "<group>"; };
+		B1B4E4831E77161B00EAECB0 /* OmnieCommerceUser v.5.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "OmnieCommerceUser v.5.xcdatamodel"; sourceTree = "<group>"; };
 		B1B761C21E629C120067339F /* DropDownItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DropDownItem.swift; sourceTree = "<group>"; };
 		B1B761C91E62D0030067339F /* OrganizationTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OrganizationTableViewCell.xib; sourceTree = "<group>"; };
 		B1BEEDE51E63402000F1DE8A /* ListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListTableViewController.swift; sourceTree = "<group>"; };
@@ -2320,12 +2321,13 @@
 		B10874671E5B07A6004A4FB6 /* OmnieCommerceUser.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				B1B4E4831E77161B00EAECB0 /* OmnieCommerceUser v.5.xcdatamodel */,
 				B105D1BA1E770C5F00FCDC73 /* OmnieCommerceUser v.4.xcdatamodel */,
 				B105D1B91E77095900FCDC73 /* OmnieCommerceUser v. 3.xcdatamodel */,
 				B163FE6F1E6FB4E3004AF42E /* OmnieCommerceUser v.2.xcdatamodel */,
 				B10874681E5B07A6004A4FB6 /* OmnieCommerceUser.xcdatamodel */,
 			);
-			currentVersion = B105D1BA1E770C5F00FCDC73 /* OmnieCommerceUser v.4.xcdatamodel */;
+			currentVersion = B1B4E4831E77161B00EAECB0 /* OmnieCommerceUser v.5.xcdatamodel */;
 			path = OmnieCommerceUser.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

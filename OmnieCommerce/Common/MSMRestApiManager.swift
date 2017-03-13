@@ -92,6 +92,25 @@ final class MSMRestApiManager {
         })
     }
     
+    func userRegistration(_ userName: String, andEmail email: String, andPassword password: String, withHandlerResponseAPICompletion handlerResponseAPICompletion: @escaping (ResponseAPI?) -> Void) {
+        let authParameters      =   [ "userName": userName, "email": email, "password": password ]
+        appApiString            =   "/registration/"
+        
+        createItem(withURL: self.appURL, andParameters: authParameters, andEncoding: JSONEncoding.default, andHeaders: self.headers, withHandlerDataResponseCompletion: { dataResponse in
+            if (dataResponse.result.value != nil) {
+                let json        =   JSON(dataResponse.result.value!)
+                let responseAPI =   ResponseAPI.init(fromJSON: json)
+                
+                handlerResponseAPICompletion(responseAPI)
+                return
+            } else {
+                handlerResponseAPICompletion(nil)
+                return
+            }
+        })
+    }
+
+    
     
     // MARK: - Custom REST Functions
 //    func get(url: String, headers: [String: String]?, callback: @escaping (ECallbackResultType) -> Void) {}
@@ -105,7 +124,7 @@ final class MSMRestApiManager {
     
     
     
-    func createItem(withURL url: URLConvertible, andParameters parameters: [String: String]?, andEncoding encoding: ParameterEncoding, andHeaders headers: HTTPHeaders?, withHandlerDataResponseCompletion handlerDataResponseCompletion: @escaping (DataResponse<Any>) -> Void) {
+    private func createItem(withURL url: URLConvertible, andParameters parameters: [String: String]?, andEncoding encoding: ParameterEncoding, andHeaders headers: HTTPHeaders?, withHandlerDataResponseCompletion handlerDataResponseCompletion: @escaping (DataResponse<Any>) -> Void) {
         Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { dataResponse -> Void in
             handlerDataResponseCompletion(dataResponse)
             return

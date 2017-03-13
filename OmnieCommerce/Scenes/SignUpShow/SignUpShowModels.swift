@@ -39,11 +39,11 @@ struct SignUpShowModels {
         }
         
         struct ResponseModel {
-            let result: (success: Bool, error: String?)
+            let responseAPI: ResponseAPI?
         }
         
         struct ViewModel {
-            let result: (success: Bool, error: String?)
+            let responseAPI: ResponseAPI?
         }
     }
 }

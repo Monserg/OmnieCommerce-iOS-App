@@ -13,14 +13,12 @@ import UIKit
 
 // MARK: - Input protocols for current ViewController component VIP-cicle
 protocol SignUpShowViewControllerInput {
-    func didShowPasswordTextFieldCheckResult(fromViewModel viewModel: SignUpShowModels.PasswordTextField.ViewModel)
-    func didShowShowRegisterUserResult(fromViewModel viewModel: SignUpShowModels.User.ViewModel)
+    func userAppDidShowRegister(fromViewModel viewModel: SignUpShowModels.User.ViewModel)
 }
 
 // MARK: - Output protocols for Interactor component VIP-cicle
 protocol SignUpShowViewControllerOutput {
-    func didValidatePasswordTextFieldStrength(fromRequestModel requestModel: SignUpShowModels.PasswordTextField.RequestModel)
-    func didRegisterUser(fromRequestModel requestModel: SignUpShowModels.User.RequestModel)
+    func userAppDidRegister(fromRequestModel requestModel: SignUpShowModels.User.RequestModel)
 }
 
 class SignUpShowViewController: BaseViewController, EmailErrorMessageView, PasswordStrengthView, PasswordStrengthErrorMessageView {
@@ -44,6 +42,12 @@ class SignUpShowViewController: BaseViewController, EmailErrorMessageView, Passw
     @IBOutlet weak var scrollView: UIScrollView!
 
     @IBOutlet var textFieldsCollection: [CustomTextField]!
+
+    @IBOutlet var dottedBorderViewsCollection: [DottedBorderView]! {
+        didSet {
+            _ = dottedBorderViewsCollection.map{ $0.style = .BottomDottedLine }
+        }
+    }
 
     // Protocol EmailErrorMessageView
     @IBOutlet weak var emailErrorMessageView: UIView!
@@ -106,7 +110,7 @@ class SignUpShowViewController: BaseViewController, EmailErrorMessageView, Passw
             }
             
             let requestModel = SignUpShowModels.User.RequestModel(name: textFieldsCollection.first!.text!, email: textFieldsCollection[1].text!, password: textFieldsCollection.last!.text!)
-            interactor.didRegisterUser(fromRequestModel: requestModel)
+            interactor.userAppDidRegister(fromRequestModel: requestModel)
         }
     }
     
@@ -124,20 +128,18 @@ class SignUpShowViewController: BaseViewController, EmailErrorMessageView, Passw
 
 // MARK: - SignUpShowViewControllerInput
 extension SignUpShowViewController: SignUpShowViewControllerInput {
-    func didShowPasswordTextFieldCheckResult(fromViewModel: SignUpShowModels.PasswordTextField.ViewModel) {
-        //        passwordCheckResult?.strengthLevel = viewModel.strengthLevel
-        //        passwordCheckResult?.isValid = viewModel.isValid
-        //        passwordStrengthView.passwordStrengthLevel = viewModel.strengthLevel
-    }
-    
-    func didShowShowRegisterUserResult(fromViewModel viewModel: SignUpShowModels.User.ViewModel) {
-        guard viewModel.result.error == nil else {
-            alertViewDidShow(withTitle: "Error".localized(), andMessage: (viewModel.result.error?.description)!)
+    func userAppDidShowRegister(fromViewModel viewModel: SignUpShowModels.User.ViewModel) {
+        guard viewModel.responseAPI != nil && viewModel.responseAPI?.code == 200 else {
+            alertViewDidShow(withTitle: "Error".localized(), andMessage: "User is already exist".localized())
             
             return
         }
         
         CoreDataManager.instance.didUpdateAppUser(state: true)
+        CoreDataManager.instance.appUser.appName        =   self.textFieldsCollection.first?.text!
+        CoreDataManager.instance.appUser.email          =   self.textFieldsCollection[1].text!
+        CoreDataManager.instance.appUser.password       =   self.textFieldsCollection.last?.text!
+        CoreDataManager.instance.didSaveContext()
         
         handlerRegisterButtonCompletion!()
         

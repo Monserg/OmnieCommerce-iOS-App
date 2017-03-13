@@ -40,9 +40,9 @@ class SignInShowRouter: SignInShowRouterInput {
         } else {
             var nextNC  =   BaseNavigationController()
             
-            if (statusCodeNote! == .SUCCESS) {
+            if (statusCodeNote == .SUCCESS) {
                 nextNC  =   UIStoryboard(name: "CategoriesShow", bundle: nil).instantiateViewController(withIdentifier: "CategoriesShowNC") as! BaseNavigationController
-            } else if (statusCodeNote! == .CONTINUE) {
+            } else if (statusCodeNote == .CONTINUE) {
                 nextNC  =   UIStoryboard(name: "PersonalPageShow", bundle: nil).instantiateViewController(withIdentifier: "PersonalPageShowNC") as! BaseNavigationController
                 (nextNC.viewControllers.first as! PersonalPageShowViewController).userApp       =   CoreDataManager.instance.appUser
             }

@@ -146,7 +146,7 @@ extension SignInContainerShowViewController: SignInContainerShowViewControllerIn
         
         // Mofidy AppUser properties
         CoreDataManager.instance.didUpdateAppUser(state: true)
-        CoreDataManager.instance.appUser.email          =   self.textFieldsCollection.first?.text!
+        CoreDataManager.instance.appUser.appName        =   self.textFieldsCollection.first?.text!
         CoreDataManager.instance.appUser.password       =   self.textFieldsCollection.last?.text!
         CoreDataManager.instance.appUser.accessToken    =   viewModel.responseAPI!.accessToken
         CoreDataManager.instance.didSaveContext()

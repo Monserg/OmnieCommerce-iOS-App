@@ -13,14 +13,12 @@ import UIKit
 
 // MARK: - Input protocols for current Presenter component VIP-cicle
 protocol SignUpShowPresenterInput {
-    func didPrepareShowPasswordTextFieldResult(fromResponseModel responseModel: SignUpShowModels.PasswordTextField.ResponseModel)
-    func didPrepareShowRegisterUserResult(fromResponseModel responseModel: SignUpShowModels.User.ResponseModel)
+    func userAppDidPrepareToShowRegister(fromResponseModel responseModel: SignUpShowModels.User.ResponseModel)
 }
 
 // MARK: - Output protocols for ViewController component VIP-cicle
 protocol SignUpShowPresenterOutput: class {
-    func didShowPasswordTextFieldCheckResult(fromViewModel viewModel: SignUpShowModels.PasswordTextField.ViewModel)
-    func didShowShowRegisterUserResult(fromViewModel viewModel: SignUpShowModels.User.ViewModel)
+    func userAppDidShowRegister(fromViewModel viewModel: SignUpShowModels.User.ViewModel)
 }
 
 class SignUpShowPresenter: SignUpShowPresenterInput {
@@ -29,16 +27,8 @@ class SignUpShowPresenter: SignUpShowPresenterInput {
     
     
     // MARK: - Custom Functions. Presentation logic
-    func didPrepareShowPasswordTextFieldResult(fromResponseModel responseModel: SignUpShowModels.PasswordTextField.ResponseModel) {
-        let viewModel = SignUpShowModels.PasswordTextField.ViewModel(strengthLevel: responseModel.strengthLevel, isValid: responseModel.isValid)
-        
-        viewController.didShowPasswordTextFieldCheckResult(fromViewModel: viewModel)
-    }
-    
-    func didPrepareShowRegisterUserResult(fromResponseModel responseModel: SignUpShowModels.User.ResponseModel) {
-        let viewModel = SignUpShowModels.User.ViewModel(result: responseModel.result)
-        
-        viewController.didShowShowRegisterUserResult(fromViewModel: viewModel)
-        
+    func userAppDidPrepareToShowRegister(fromResponseModel responseModel: SignUpShowModels.User.ResponseModel) {
+        let viewModel   =   SignUpShowModels.User.ViewModel(responseAPI: responseModel.responseAPI)
+        viewController.userAppDidShowRegister(fromViewModel: viewModel)
     }
 }

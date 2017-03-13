@@ -16,6 +16,8 @@ extension AppUser {
         return NSFetchRequest<AppUser>(entityName: "AppUser");
     }
 
+    @NSManaged public var accessToken: String?
+    @NSManaged public var appName: String?
     @NSManaged public var birthday: NSDate?
     @NSManaged public var codeID: String?
     @NSManaged public var email: String?
@@ -25,6 +27,5 @@ extension AppUser {
     @NSManaged public var isAuthorized: Bool
     @NSManaged public var lastName: String?
     @NSManaged public var password: String?
-    @NSManaged public var accessToken: String?
 
 }

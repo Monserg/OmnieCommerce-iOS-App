@@ -153,6 +153,7 @@
 "User not register"             =   "Користувач не зареєстрований";
 "Authentication failure"        =   "Помилка перевірки автентичності";
 "Wrong input data"              =   "Неправильні вхідні дані";
+"User is already exist"         =   "Користувач вже існує";
 
 
 // Cities
