@@ -13,12 +13,12 @@ import UIKit
 
 class SignInContainerShowWorker {
     // MARK: - Custom Functions. Business Logic
-    func userAppDidCheckName(_ name: String, andPassword password: String) -> NameAndPasswordCheckResult {
-        // Check User Name & Password
-        let userApp             =   CoreDataManager.instance.appUser
-        let nameCorrect         =   (name == userApp?.firstName)
-        let passwordCorrect     =   (password == userApp?.password)
-        
-        return (nameCorrect, passwordCorrect)
-    }
+//    func userAppDidCheckName(_ name: String, andPassword password: String) -> NameAndPasswordCheckResult {
+//        // Check User Name & Password
+//        let userApp             =   CoreDataManager.instance.appUser
+//        let nameCorrect         =   (name == userApp?.firstName)
+//        let passwordCorrect     =   (password == userApp?.password)
+//        
+//        return (nameCorrect, passwordCorrect)
+//    }
 }

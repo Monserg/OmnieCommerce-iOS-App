@@ -12,7 +12,7 @@
 import UIKit
 
 class SignUpShowWorker {
-    func didApplyREST() -> ResponseAPI {
+    func didApplyREST() -> (success: Bool, error: String?) {
         // NOTE: Do the work
         
         return (true, nil)

@@ -35,7 +35,7 @@ class SignInContainerShowViewController: BaseViewController, PasswordErrorMessag
         }
     }
     
-    var handlerSendButtonCompletion: HandlerSendButtonCompletion?
+    var handlerPassDataCompletion: HandlerPassDataCompletion?
     var handlerRegisterButtonCompletion: HandlerRegisterButtonCompletion?
     var handlerForgotPasswordButtonCompletion: HandlerForgotPasswordButtonCompletion?
 
@@ -131,27 +131,18 @@ class SignInContainerShowViewController: BaseViewController, PasswordErrorMessag
 // MARK: - SignInContainerShowViewControllerInput
 extension SignInContainerShowViewController: SignInContainerShowViewControllerInput {
     func userAppDidShow(fromViewModel viewModel: SignInContainerShowModels.User.ViewModel) {
-        guard (viewModel.result.isNameCorrect || viewModel.result.isPasswordCorrect) else {
-            alertViewDidShow(withTitle: "Error".localized(), andMessage: "User not register".localized())
-            
-            return
-        }
-        
-        guard (viewModel.result.isNameCorrect) else {
-            alertViewDidShow(withTitle: "Error".localized(), andMessage: "Incorrect User name".localized())
-            
-            return
-        }
-        
-        guard (viewModel.result.isPasswordCorrect) else {
-            alertViewDidShow(withTitle: "Error".localized(), andMessage: "Incorrect User password".localized())
+        guard viewModel.responseAPI != nil && viewModel.responseAPI?.code != 4401 && viewModel.responseAPI?.code != 4500 else {
+            alertViewDidShow(withTitle: "Error".localized(),
+                             andMessage: ((viewModel.responseAPI?.code == 4401) ? "Authentication failure" : "Wrong input data").localized())
             
             return
         }
         
         CoreDataManager.instance.didUpdateAppUser(state: true)
+        CoreDataManager.instance.appUser.email      =   self.textFieldsCollection.first?.text!
+        CoreDataManager.instance.appUser.password   =   self.textFieldsCollection.last?.text!
         
-        handlerSendButtonCompletion!()
+        handlerPassDataCompletion!(viewModel.responseAPI!.code!)
         
         // Clear all text fields
         self.didCleanTextFields()

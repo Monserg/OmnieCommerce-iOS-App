@@ -151,6 +151,8 @@
 "Incorrect User name"           =   "Введіть чинне ім'я користувача";
 "Incorrect User password"       =   "Введіть чинний пароль користувача";
 "User not register"             =   "Користувач не зареєстрований";
+"Authentication failure"        =   "Помилка перевірки автентичності";
+"Wrong input data"              =   "Неправильні вхідні дані";
 
 
 // Cities

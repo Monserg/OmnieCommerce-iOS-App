@@ -29,7 +29,7 @@ class SignInContainerShowPresenter: SignInContainerShowPresenterInput {
     // MARK: - Custom Functions. Presentation logic
     func userAppDidPrepareToShow(fromResponseModel responseModel: SignInContainerShowModels.User.ResponseModel) {
         // NOTE: Format the response from the Interactor and pass the result back to the View Controller
-        let viewModel   =   SignInContainerShowModels.User.ViewModel(result: responseModel.result)
+        let viewModel   =   SignInContainerShowModels.User.ViewModel(responseAPI: responseModel.responseAPI)
         viewController.userAppDidShow(fromViewModel: viewModel)
     }
 }

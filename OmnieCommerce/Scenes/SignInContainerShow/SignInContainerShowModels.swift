@@ -20,11 +20,11 @@ struct SignInContainerShowModels {
         }
         
         struct ResponseModel {
-            let result: NameAndPasswordCheckResult
+            let responseAPI: ResponseAPI?
         }
         
         struct ViewModel {
-            let result: NameAndPasswordCheckResult
+            let responseAPI: ResponseAPI?
         }
     }
 }

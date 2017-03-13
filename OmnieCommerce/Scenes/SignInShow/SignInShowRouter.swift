@@ -20,7 +20,8 @@ protocol SignInShowRouterInput {
 class SignInShowRouter: SignInShowRouterInput {
     // MARK: - Properties
     weak var viewController: SignInShowViewController!
-
+    var statusCodeNote: StatusCodeNote?
+    
     
     // MARK: - Custom Functions. Navigation
     func navigateAuthorizedUser(duringStartApp: Bool) {
@@ -37,14 +38,20 @@ class SignInShowRouter: SignInShowRouterInput {
             
             revealVC.setFront(categoriesNC, animated: true)
         } else {
-            let personalPageNC              =   UIStoryboard(name: "PersonalPageShow", bundle: nil).instantiateViewController(withIdentifier: "PersonalPageShowNC") as! BaseNavigationController
-            (personalPageNC.viewControllers.first as! PersonalPageShowViewController).userApp   =   CoreDataManager.instance.appUser
+            var nextNC  =   BaseNavigationController()
             
-            revealVC.setFront(personalPageNC, animated: true)
+            if (statusCodeNote! == .SUCCESS) {
+                nextNC  =   UIStoryboard(name: "CategoriesShow", bundle: nil).instantiateViewController(withIdentifier: "CategoriesShowNC") as! BaseNavigationController
+            } else if (statusCodeNote! == .CONTINUE) {
+                nextNC  =   UIStoryboard(name: "PersonalPageShow", bundle: nil).instantiateViewController(withIdentifier: "PersonalPageShowNC") as! BaseNavigationController
+                (nextNC.viewControllers.first as! PersonalPageShowViewController).userApp       =   CoreDataManager.instance.appUser
+            }
+            
+            revealVC.setFront(nextNC, animated: true)
         }
         
         self.viewController.present(revealVC, animated: true, completion: {
-//        self.viewController.present(revealVC, animated: !duringStartApp, completion: {
+            //        self.viewController.present(revealVC, animated: !duringStartApp, completion: {
             if (duringStartApp) {
                 self.navigateBetweenContainerSubviews()
                 self.viewController.view.isHidden = false
@@ -57,23 +64,25 @@ class SignInShowRouter: SignInShowRouterInput {
         viewController.signInContainerShowVC = UIStoryboard(name: "SignInShow", bundle: nil).instantiateViewController(withIdentifier: "SignInContainerShowVC") as? SignInContainerShowViewController
         
         // SignInContainerShowVC: SignIn button handler
-        viewController.signInContainerShowVC?.handlerSendButtonCompletion = { _ in
+        viewController.signInContainerShowVC?.handlerPassDataCompletion                         =   { successCode in
+            self.statusCodeNote     =   StatusCodeNote(rawValue: successCode as! Int)
+            
             self.navigateAuthorizedUser(duringStartApp: false)
         }
         
         // SignInContainerShowVC: Register button handler
-        viewController.signInContainerShowVC?.handlerRegisterButtonCompletion = { _ in
+        viewController.signInContainerShowVC?.handlerRegisterButtonCompletion                   =   { _ in
             self.viewController.signUpShowVC = UIStoryboard(name: "SignInShow", bundle: nil).instantiateViewController(withIdentifier: "SignUpShowVC") as? SignUpShowViewController
             
             // SignUpShowVC: Register button handler
-            self.viewController.signUpShowVC?.handlerRegisterButtonCompletion = { _ in
+            self.viewController.signUpShowVC?.handlerRegisterButtonCompletion                   =   { _ in
                 self.viewController.signInContainerShowVC?.didCleanTextFields()
                 self.navigateAuthorizedUser(duringStartApp: false)
                 self.viewController.activeViewController = self.viewController.signInContainerShowVC
             }
             
             // SignUpShowVC: Cancel button handler
-            self.viewController.signUpShowVC?.handlerCancelButtonCompletion = { _ in
+            self.viewController.signUpShowVC?.handlerCancelButtonCompletion                     =   { _ in
                 self.viewController.activeViewController = self.viewController.signInContainerShowVC
             }
             
@@ -81,19 +90,19 @@ class SignInShowRouter: SignInShowRouterInput {
         }
         
         // SignInContainerShowVC: ForgotPassword button handler
-        viewController.signInContainerShowVC?.handlerForgotPasswordButtonCompletion = { _ in
+        viewController.signInContainerShowVC?.handlerForgotPasswordButtonCompletion             =   { _ in
             // Create ForgotPasswordViewController
             self.viewController.forgotPasswordShowVC = UIStoryboard(name: "SignInShow", bundle: nil).instantiateViewController(withIdentifier: "ForgotPasswordShowVC") as? ForgotPasswordShowViewController
             
             // ForgotPasswordShowVC: Send button handler
-            self.viewController.forgotPasswordShowVC?.handlerPassDataCompletion = { code in
+            self.viewController.forgotPasswordShowVC?.handlerPassDataCompletion                 =   { code in
                 // Create EnterCodeShowViewController
                 self.viewController.enterCodeShowViewController = UIStoryboard(name: "SignInShow", bundle: nil).instantiateViewController(withIdentifier: "EnterCodeShowVC") as? EnterCodeShowViewController
                 
                 self.viewController.enterCodeShowViewController?.enteredCode = code as! String
                 
                 // EnterCodeShowVC: Send button handler
-                self.viewController.enterCodeShowViewController?.handlerSendButtonCompletion = { _ in
+                self.viewController.enterCodeShowViewController?.handlerSendButtonCompletion    =   { _ in
                     // Create RepetitionPasswordShow scene
                     self.viewController.repetitionPasswordShowViewController = UIStoryboard(name: "SignInShow", bundle: nil).instantiateViewController(withIdentifier: "RepetitionPasswordShowVC") as? RepetitionPasswordShowViewController
                     
@@ -113,7 +122,7 @@ class SignInShowRouter: SignInShowRouterInput {
                 }
                 
                 // EnterCodeShowVC: Cancel button handler
-                self.viewController.enterCodeShowViewController?.handlerCancelButtonCompletion = { _ in
+                self.viewController.enterCodeShowViewController?.handlerCancelButtonCompletion  =   { _ in
                     self.viewController.activeViewController = self.viewController.forgotPasswordShowVC
                 }
                 
@@ -121,7 +130,7 @@ class SignInShowRouter: SignInShowRouterInput {
             }
             
             // ForgotPasswordShowVC: Cancel button handler
-            self.viewController.forgotPasswordShowVC?.handlerCancelButtonCompletion = { _ in
+            self.viewController.forgotPasswordShowVC?.handlerCancelButtonCompletion             =   { _ in
                 self.didActiveViewControllerLoad()
             }
             

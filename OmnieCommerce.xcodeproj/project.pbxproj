@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4B80CBB54BC2985E0EDC5A94 /* Pods_OmnieCommerce.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9EA988F3F694011D76FF246 /* Pods_OmnieCommerce.framework */; };
+		B105D1B81E76B90800FCDC73 /* ResponseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B105D1B71E76B90800FCDC73 /* ResponseAPI.swift */; };
 		B10672FA1E71BE8100DB2AE0 /* MSMPickerViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10672F91E71BE8100DB2AE0 /* MSMPickerViewManager.swift */; };
 		B10871521E379A4800374DD5 /* OmnieCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10871511E379A4800374DD5 /* OmnieCard.swift */; };
 		B10871541E379A9A00374DD5 /* OmnieCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10871531E379A9A00374DD5 /* OmnieCardViewModel.swift */; };
@@ -358,6 +359,7 @@
 
 /* Begin PBXFileReference section */
 		796E69C2BE10D1D43C710949 /* Pods-OmnieCommerce.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OmnieCommerce.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OmnieCommerce/Pods-OmnieCommerce.debug.xcconfig"; sourceTree = "<group>"; };
+		B105D1B71E76B90800FCDC73 /* ResponseAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseAPI.swift; sourceTree = "<group>"; };
 		B10672F91E71BE8100DB2AE0 /* MSMPickerViewManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSMPickerViewManager.swift; sourceTree = "<group>"; };
 		B10871511E379A4800374DD5 /* OmnieCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OmnieCard.swift; sourceTree = "<group>"; };
 		B10871531E379A9A00374DD5 /* OmnieCardViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OmnieCardViewModel.swift; sourceTree = "<group>"; };
@@ -859,6 +861,7 @@
 				B1BF92431DD5FC8000BECBBB /* Config.swift */,
 				B1B761C21E629C120067339F /* DropDownItem.swift */,
 				B1228FB41DD4856A00A90FBB /* MenuItem.swift */,
+				B105D1B71E76B90800FCDC73 /* ResponseAPI.swift */,
 			);
 			path = DataModel;
 			sourceTree = "<group>";
@@ -1961,6 +1964,7 @@
 				B1CF54881DDB50F100E98049 /* BusinessCardsShowRouter.swift in Sources */,
 				B122F2221DD35CC80018A701 /* SlideMenuShowConfigurator.swift in Sources */,
 				B177E5581E54B739004F1390 /* RepetitionPasswordShowModels.swift in Sources */,
+				B105D1B81E76B90800FCDC73 /* ResponseAPI.swift in Sources */,
 				B1FFF7051E5ECDF900A075D8 /* OrganizationsShowViewController.swift in Sources */,
 				B1597AD01E3F42B600123CB5 /* AvatarActionView.swift in Sources */,
 				B14E974A1DD8B042001E1DE2 /* SignInShowModels.swift in Sources */,

@@ -8,30 +8,45 @@
 
 import UIKit
 import Alamofire
+import SwiftyJSON
 
-enum ApiResult<Value> {
-    case success(value: Value)
-    case failure(error: NSError)
-    
-    init(_ f: () throws -> Value) {
-        do {
-            let value = try f()
-            
-            self    =   .success(value: value)
-        } catch let error as NSError {
-            self    =   .failure(error: error)
-        }
-    }
-    
-    func unwrap() throws -> Value {
-        switch self {
-        case .success(let value):
-            return value
-        
-        case .failure(let error):
-            throw error
-        }
-    }
+//enum ApiResult<Value> {
+//    case success(value: Value)
+//    case failure(error: NSError)
+//    
+//    init(_ f: () throws -> Value) {
+//        do {
+//            let value   =   try f()
+//            
+//            self        =   .success(value: value)
+//        } catch let error as NSError {
+//            self        =   .failure(error: error)
+//        }
+//    }
+//    
+//    func unwrap() throws -> Value {
+//        switch self {
+//        case .success(let value):
+//            return value
+//        
+//        case .failure(let error):
+//            throw error
+//        }
+//    }
+//}
+
+public enum StatusCodeNote: Int {
+    case SUCCESS                    =   200     // GET or DELETE result is successful
+    case CONTINUE                   =   2201    // POST result is successful & need continue
+    case CREATED                    =   201     // POST or PUT is successful
+    case NOT_MODIFIED               =   304     // If caching is enabled and etag matches with the server
+    case BAD_REQUEST                =   400     // Possibly the parameters are invalid
+    case INVALID_CREDENTIAL         =   401     // INVALID CREDENTIAL, possible invalid token
+    case NOT_FOUND                  =   404     // The item you looked for is not found
+    case CONFLICT                   =   409     // Conflict - means already exist
+    case AUTHENTICATION_EXPIRED     =   419     // Expired
+    case BAD_AUTHORIZATION          =   4401    // BAD AUTHORIZATION
+    case WRONG_INPUT_DATA           =   4500    // WRONG INPUT DATA
 }
 
 final class MSMRestApiManager {
@@ -54,26 +69,39 @@ final class MSMRestApiManager {
     
     
     // MARK: - Class Functions
-    func userAutorization(_ userName: String, andPassword password: String, withResponseCompletionHandler responseCompletionHandler: @escaping (ApiResult<Bool>) -> Void) {
+    func userAutorization(_ userName: String, andPassword password: String, withHandlerResponseAPICompletion handlerResponseAPICompletion: @escaping (ResponseAPI?) -> Void) {
         let authParameters      =   [ "userName": userName, "password": password ]
         appApiString            =   "/auth/"
         
-        postRequestDidRun(withURL: self.appURL, andParameters: authParameters, andEncoding: JSONEncoding.default, andHeaders: self.headers, withResponseCompletionHandler: { (success) in
-            responseCompletionHandler(success)
-            
-            return
+        createItem(withURL: self.appURL, andParameters: authParameters, andEncoding: JSONEncoding.default, andHeaders: self.headers, withHandlerDataResponseCompletion: { dataResponse in
+            if (dataResponse.result.value != nil) {
+                let json        =   JSON(dataResponse.result.value!)
+                
+                handlerResponseAPICompletion(ResponseAPI.init(fromJSON: json))
+                return
+            } else {
+                handlerResponseAPICompletion(nil)
+                return
+            }
         })
     }
     
     
-    // MARK: - Custom Functions
-    func postRequestDidRun(withURL url: URLConvertible, andParameters parameters: [String: String]?, andEncoding encoding: ParameterEncoding, andHeaders headers: HTTPHeaders?, withResponseCompletionHandler responseCompletionHandler: @escaping (ApiResult<Bool>) -> Void) {
-        Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
-            print(response.request as Any)  // original URL request
-            print(response.response as Any) // URL response
-            print(response.result.value as Any)   // result of response serialization
-            
-            responseCompletionHandler(.success(value: true))
+    // MARK: - Custom REST Functions
+//    func get(url: String, headers: [String: String]?, callback: @escaping (ECallbackResultType) -> Void) {}
+//    
+//    func update(url: String, parameters: [String: Any]?, headers: [String: String]?, callback: @escaping (ECallbackResultType) -> Void) {}
+//    
+//    func create(url: String, parameters: [String: Any]?, headers: [String: String]?, callback: @escaping (Bool) -> Void) {}
+//    
+//    func delete(url: String, parameters: [String: Any]?, headers: [String: String]?, callback: @escaping (ECallbackResultType) -> Void) {}
+
+    
+    
+    
+    func createItem(withURL url: URLConvertible, andParameters parameters: [String: String]?, andEncoding encoding: ParameterEncoding, andHeaders headers: HTTPHeaders?, withHandlerDataResponseCompletion handlerDataResponseCompletion: @escaping (DataResponse<Any>) -> Void) {
+        Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { dataResponse -> Void in
+            handlerDataResponseCompletion(dataResponse)
             return
         }
     }

@@ -19,5 +19,6 @@ target 'OmnieCommerce' do
     pod 'MXParallaxHeader', '~> 0.6'
     pod 'PhoneNumberKit', '~> 1.2'
     pod 'LTHRadioButton', '~> 1.1'
-    
+    pod 'SwiftyJSON', '~> 3.1'
+
 end

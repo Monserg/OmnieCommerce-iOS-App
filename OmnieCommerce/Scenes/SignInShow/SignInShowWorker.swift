@@ -13,7 +13,7 @@ import UIKit
 
 class SignInShowWorker {
     // MARK: - Custom Functions. Business Logic
-    func doSomeWork() -> ResponseAPI {
+    func doSomeWork() -> (success: Bool, error: String?) {
         // NOTE: Do the work
         
         return (true, nil)

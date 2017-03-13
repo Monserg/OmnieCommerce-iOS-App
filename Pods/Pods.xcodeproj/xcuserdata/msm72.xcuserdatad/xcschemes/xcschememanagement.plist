@@ -84,6 +84,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>SwiftyJSON.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>SwiftyVK.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -107,17 +112,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>31395D56C6EFE5167DB0CDA766B41177</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>4D5B8B1BE64F80268007C79821DDDC20</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>5E90024CA4621EC0A8B8C777C958214A</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>6217A0D76ACBAB589864E8DD9E973CD6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -137,7 +142,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>992AC336817A13BD3B15993F08D8069E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>9EFE4C70245EE2857D336B8B9FA4E825</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>AC7824B3E4D27942A9D6E8265C84F7E8</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -152,17 +167,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E53599B9769837A3198537E856DB01A6</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>E75E5BAC0FE6E4C6A5E5F95EA6807F8A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>EB3B58C0AF3A88F36BCA90CC21AC96E3</key>
+		<key>E95BB16102419D731AF527F127051765</key>
 		<dict>
 			<key>primary</key>
 			<true/>

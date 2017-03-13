@@ -31,14 +31,12 @@ class SignInContainerShowInteractor: SignInContainerShowInteractorInput {
     func userAppDidSignIn(withRequestModel requestModel: SignInContainerShowModels.User.RequestModel) {
         // NOTE: Create some Worker to do the work
 //        worker              =   SignInContainerShowWorker()
-//        let result          =   worker.userAppDidCheckName(requestModel.name, andPassword: requestModel.password)
+//        let resultCheck     =   worker.userAppDidCheckName(requestModel.name, andPassword: requestModel.password)
         
-        MSMRestApiManager.instance.userAutorization(requestModel.name, andPassword: requestModel.password, withResponseCompletionHandler: { response in
-            print(response)
+        MSMRestApiManager.instance.userAutorization(requestModel.name, andPassword: requestModel.password, withHandlerResponseAPICompletion: { responseAPI in
+            // Pass the result to the Presenter
+            let responseModel   =   SignInContainerShowModels.User.ResponseModel(responseAPI: responseAPI)
+            self.presenter.userAppDidPrepareToShow(fromResponseModel: responseModel)
         })
-        
-//        // Pass the result to the Presenter
-//        let responseModel   =   SignInContainerShowModels.User.ResponseModel(result: result)
-//        presenter.userAppDidPrepareToShow(fromResponseModel: responseModel)
     }
 }

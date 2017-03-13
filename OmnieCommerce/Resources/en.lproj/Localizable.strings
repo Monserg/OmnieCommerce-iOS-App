@@ -151,6 +151,8 @@
 "Incorrect User name"           =   "Enter the correct user name";
 "Incorrect User password"       =   "Enter the correct user password";
 "User not register"             =   "The user is not registered";
+"Authentication failure"        =   "Authentication failed";
+"Wrong input data"              =   "Wrong input data";
 
 
 // Cities

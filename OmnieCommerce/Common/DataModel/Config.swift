@@ -32,8 +32,8 @@ typealias HandlerNewViewControllerShowCompletion    =   ((_ viewController: UIVi
 typealias HandlerViewDismissCompletion              =   ((_ actionType: ActionType) -> ())
 typealias HandlerTextFieldCompletion                =   ((_ textField: CustomTextField, _ success: Bool) -> ())
 
-typealias ResponseAPI                               =   (success: Bool, error: String?)
-typealias NameAndPasswordCheckResult                =   (isNameCorrect: Bool, isPasswordCorrect: Bool)
+//typealias ResponseAPI                               =   (success: Bool, error: String?)
+//typealias NameAndPasswordCheckResult                =   (isNameCorrect: Bool, isPasswordCorrect: Bool)
 typealias LocationData                              =   (placemark: CLPlacemark?, coordinate: CLLocationCoordinate2D?, address: String?)
 typealias OrganizationData                          =   (name: String, rating: Int, isFavorite: Bool, city: String, street: String, logo: UIImage, location: CLLocationCoordinate2D)
 
