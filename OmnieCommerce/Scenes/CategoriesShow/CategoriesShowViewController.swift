@@ -75,7 +75,7 @@ class CategoriesShowViewController: BaseViewController {
         interactor.categoriesDidLoad(withRequestModel: categoriesRequestModel)
         
         // Load Cities list
-        let citiesRequestModel = CategoriesShowModels.Cities.RequestModel(listType: .City)
+        let citiesRequestModel  =   CategoriesShowModels.Cities.RequestModel(listType: .City)
         interactor.citiesDidLoad(withRequestModel: citiesRequestModel)
     }
     

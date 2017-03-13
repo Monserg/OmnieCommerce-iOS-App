@@ -55,7 +55,7 @@ class CoreDataManager {
         do {
             try coordinator.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: url, options: nil)
         } catch {
-            var dict = [String: AnyObject]()
+            var dict                                =   [String: AnyObject]()
             dict[NSLocalizedDescriptionKey]         =   "CoreData init error".localized() as AnyObject?
             dict[NSLocalizedFailureReasonErrorKey]  =   failureReason as AnyObject?
             dict[NSUnderlyingErrorKey]              =   error as NSError
@@ -118,7 +118,18 @@ class CoreDataManager {
     }
     
     func didUpdateAppUser(state: Bool) {
-        appUser.isAuthorized = state
+        appUser.isAuthorized        =   state
+        
+        if (!state) {
+            appUser.accessToken     =   nil
+            appUser.birthday        =   nil
+            appUser.codeID          =   nil
+            appUser.email           =   nil
+            appUser.firstName       =   nil
+            appUser.imagePath       =   nil
+            appUser.lastName        =   nil
+            appUser.password        =   nil
+        }
         
         didSaveContext()
     }

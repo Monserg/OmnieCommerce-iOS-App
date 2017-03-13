@@ -76,8 +76,14 @@ final class MSMRestApiManager {
         createItem(withURL: self.appURL, andParameters: authParameters, andEncoding: JSONEncoding.default, andHeaders: self.headers, withHandlerDataResponseCompletion: { dataResponse in
             if (dataResponse.result.value != nil) {
                 let json        =   JSON(dataResponse.result.value!)
+                let responseAPI =   ResponseAPI.init(fromJSON: json)
                 
-                handlerResponseAPICompletion(ResponseAPI.init(fromJSON: json))
+                if (dataResponse.response?.statusCode == 200) {
+                    let responseHeaders         =   dataResponse.response!.allHeaderFields
+                    responseAPI.accessToken     =   responseHeaders["Authorization"] as? String
+                }
+                
+                handlerResponseAPICompletion(responseAPI)
                 return
             } else {
                 handlerResponseAPICompletion(nil)

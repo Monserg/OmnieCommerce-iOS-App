@@ -42,6 +42,12 @@ class SignInContainerShowViewController: BaseViewController, PasswordErrorMessag
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet var textFieldsCollection: [CustomTextField]!
     
+    @IBOutlet var dottedBorderViewsCollection: [DottedBorderView]! {
+        didSet {
+            _ = dottedBorderViewsCollection.map{ $0.style = .BottomDottedLine }
+        }
+    }
+
     // Protocol PasswordErrorMessageView
     @IBOutlet weak var passwordErrorMessageView: UIView!
     @IBOutlet weak var passwordErrorMessageViewTopConstraint: NSLayoutConstraint!
@@ -138,9 +144,12 @@ extension SignInContainerShowViewController: SignInContainerShowViewControllerIn
             return
         }
         
+        // Mofidy AppUser properties
         CoreDataManager.instance.didUpdateAppUser(state: true)
-        CoreDataManager.instance.appUser.email      =   self.textFieldsCollection.first?.text!
-        CoreDataManager.instance.appUser.password   =   self.textFieldsCollection.last?.text!
+        CoreDataManager.instance.appUser.email          =   self.textFieldsCollection.first?.text!
+        CoreDataManager.instance.appUser.password       =   self.textFieldsCollection.last?.text!
+        CoreDataManager.instance.appUser.accessToken    =   viewModel.responseAPI!.accessToken
+        CoreDataManager.instance.didSaveContext()
         
         handlerPassDataCompletion!(viewModel.responseAPI!.code!)
         
