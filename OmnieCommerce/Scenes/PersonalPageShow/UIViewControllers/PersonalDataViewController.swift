@@ -64,7 +64,7 @@ class PersonalDataViewController: BaseViewController, EmailErrorMessageView, Pho
                 // PhoneButton style
                 if (textField.style! == .PhoneButton) {
                     // Handler Delete Button tap
-                    self.textFieldManager.handlerTextFieldCompletion    =   { (phoneButtonTextField, success) in
+                    self.textFieldManager.handlerTextFieldCompletion                =   { (phoneButtonTextField, success) in
                         self.print(object: "\(phoneButtonTextField, success)")
                         
                         _       =   self.deleteButtonsCollection.filter({ $0.tag == phoneButtonTextField.tag }).map{ $0.isHidden = success }
@@ -72,23 +72,23 @@ class PersonalDataViewController: BaseViewController, EmailErrorMessageView, Pho
                     
                     // Handler add new phone field
                     if (textField.text?.characters.count == 3) {
-                        self.textFieldManager.handlerPassDataCompletion =   { phoneButtonTextField in
+                        self.textFieldManager.handlerPassDataCompletion             =   { phoneButtonTextField in
 //                            _   =   self.phonesStackViewsCollection.filter{ $0.tag == textField.tag }.map{ $0.isHidden = false }
                         }
                     }
 
-                    // Handler Error Message
-                    self.textFieldManager.handlerPassDataCompletion     =   { phoneButtonTextField in
-                        let phoneErrorView          =   self.phoneErrorMessageViewsCollection.first(where: { $0.tag == (phoneButtonTextField as! CustomTextField).tag })!
+                    // Handler Show/Hide Phone Error Message View
+                    self.textFieldManager.handlerTextFieldShowErrorViewCompletion   =   { (phoneButtonTextField, isShow) in
+                        let phoneErrorView          =   self.phoneErrorMessageViewsCollection.first(where: { $0.tag == phoneButtonTextField.tag })!
                         let phoneErrorViewIndex     =   self.phoneErrorMessageViewsCollection.index(of: phoneErrorView)!
                         
-                        UIView.animate(withDuration: 1.9, animations: {
-                            self.phonesViewHeightConstraint.constant =   self.view.heightRatio * CGFloat(40 * self.phonesCount + 154)
-                            
-                            self.phonesView.layoutIfNeeded()
-                        }, completion: { success in
-                            self.didShow(phoneErrorView, withConstraint: self.phoneErrorMessageViewTopConstraintsCollection[phoneErrorViewIndex])
-                        })
+                        if ((phoneErrorView.isHidden && isShow) || (!phoneErrorView.isHidden && !isShow)) {
+                            UIView.animate(withDuration: 0.9, animations: {
+                                self.phonesViewHeightConstraint.constant    =   self.phonesViewHeightConstraint.constant + 14 * ((isShow) ? 1 : -1)
+                            }, completion: { success in
+                                phoneErrorView.didShow(isShow, withConstraint: self.phoneErrorMessageViewTopConstraintsCollection[phoneErrorViewIndex])
+                            })
+                        }
                     }
                 }
             })
@@ -123,7 +123,7 @@ class PersonalDataViewController: BaseViewController, EmailErrorMessageView, Pho
     @IBOutlet weak var emailErrorMessageViewHeightConstraint: NSLayoutConstraint!
 
     // Protocol PhoneErrorMessageView
-    @IBOutlet var phoneErrorMessageViewsCollection: [UIView]!
+    @IBOutlet var phoneErrorMessageViewsCollection: [ErrorMessageView]!
     @IBOutlet var phoneErrorMessageViewTopConstraintsCollection: [NSLayoutConstraint]!
     @IBOutlet var phoneErrorMessageViewHeightConstraintsCollection: [NSLayoutConstraint]!
     
@@ -169,20 +169,20 @@ class PersonalDataViewController: BaseViewController, EmailErrorMessageView, Pho
         didAddTapGestureRecognizer()
 
         // Set User fields
-////        textFieldsCollection[0].text        =   userApp?.firstName
-////        textFieldsCollection[1].text        =   userApp?.lastName
-////        textFieldsCollection[2].text        =   userApp?.email
+        textFieldsCollection[0].text        =   userApp?.firstName
+        textFieldsCollection[1].text        =   userApp?.lastName
+        textFieldsCollection[2].text        =   userApp?.email
         
 ////        textFieldsCollection[0].text        =   userApp?.password
 ////        textFieldsCollection[0].isEnabled   =   false
         
         // Hide email error message view
-////        emailErrorMessageViewHeightConstraint.constant              =   Config.Constants.errorMessageViewHeight
-////        didHide(emailErrorMessageView, withConstraint: emailErrorMessageViewTopConstraint)
+        emailErrorMessageViewHeightConstraint.constant              =   Config.Constants.errorMessageViewHeight
+        didHide(emailErrorMessageView, withConstraint: emailErrorMessageViewTopConstraint)
 
         // Hide phones error message view
-////        _   =   phoneErrorMessageViewHeightConstraintsCollection.map{ $0.constant  =   Config.Constants.errorMessageViewHeight }
-////        _   =   phoneErrorMessageViewsCollection.enumerated().map{ didHide($1, withConstraint: phoneErrorMessageViewTopConstraintsCollection[$0]) }
+        _   =   phoneErrorMessageViewHeightConstraintsCollection.map{ $0.constant  =   Config.Constants.errorMessageViewHeight }
+        _   =   phoneErrorMessageViewsCollection.enumerated().map{ didHide($1, withConstraint: phoneErrorMessageViewTopConstraintsCollection[$0]) }
         
 ////        phonesView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: CGFloat(40 * phonesCount) / 494.0).isActive = true
 
@@ -238,11 +238,11 @@ class PersonalDataViewController: BaseViewController, EmailErrorMessageView, Pho
         }, completion: { success in
             self.textFieldsCollection[0].isEnabled  =   (sender.tag == 1) ? true : false
             
-//            if (sender.tag == 1) {
-//                self.textFieldsCollection[0].becomeFirstResponder()
-//            } else {
-//                self.textFieldsCollection[0].resignFirstResponder()
-//            }
+///            if (sender.tag == 1) {
+///                self.textFieldsCollection[0].becomeFirstResponder()
+///            } else {
+///                self.textFieldsCollection[0].resignFirstResponder()
+///            }
             
             guard sender.tag == 0 && self.textFieldsCollection[0].text != nil && self.textFieldsCollection[1].text != nil && self.textFieldsCollection[2].text != nil else {
                 self.textFieldsCollection[0].text   =   oldPassword

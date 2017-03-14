@@ -262,6 +262,8 @@ extension BaseViewController {
  // MARK: - SWRevealViewControllerDelegate
  extension BaseViewController: SWRevealViewControllerDelegate {
     func revealController(_ revealController: SWRevealViewController!, willMoveTo position: FrontViewPosition) {
+        view.endEditing(true)
+        
         switch position {
         case .right, .rightMost, .rightMostRemoved:
             // Create blackOutView

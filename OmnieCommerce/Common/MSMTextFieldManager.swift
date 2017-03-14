@@ -15,6 +15,8 @@ class MSMTextFieldManager: NSObject {
     
     var handlerTextFieldCompletion: HandlerTextFieldCompletion?
     var handlerPassDataCompletion: HandlerPassDataCompletion?
+    var handlerTextFieldShowErrorViewCompletion: HandlerTextFieldShowErrorViewCompletion?
+    
     
     // MARK: - Class Initialization
     init(withTextFields array: [CustomTextField]) {
@@ -168,25 +170,30 @@ extension MSMTextFieldManager: UITextFieldDelegate {
             (currentVC as! EmailErrorMessageView).didHide((currentVC as! EmailErrorMessageView).emailErrorMessageView, withConstraint: (currentVC as! EmailErrorMessageView).emailErrorMessageViewTopConstraint)
             
         case .PhoneButton:
-            let phoneErrorView      =   (currentVC as! PhoneErrorMessageView).phoneErrorMessageViewsCollection.first(where: { $0.tag == textField.tag} )!
-            let phoneErrorViewIndex =   (currentVC as! PhoneErrorMessageView).phoneErrorMessageViewsCollection.index(of: phoneErrorView)!
-            
-            (currentVC as! PhoneErrorMessageView).didHide(phoneErrorView, withConstraint: (currentVC as! PhoneErrorMessageView).phoneErrorMessageViewTopConstraintsCollection[phoneErrorViewIndex])
-            
             // Show/hide Delete button
             handlerTextFieldCompletion!(textField as! CustomTextField, (textField.text?.characters.count == 1 && string.isEmpty) ? true : false)
             
+            // Delete character
             if (string.isEmpty) {
+                handlerTextFieldShowErrorViewCompletion!(textField as! CustomTextField, false)
                 return true
             }
             
             if (textField.text?.characters.count == 3 && !string.isEmpty) {
-                handlerPassDataCompletion!(textField)
+////                handlerPassDataCompletion!(textField)
+                return true
             }
             
             guard Int(string) != nil || ((textField.text?.isEmpty)! && string == "+") else {
-                handlerPassDataCompletion!(textField)
-                
+                handlerTextFieldShowErrorViewCompletion!(textField as! CustomTextField, true)
+                return false
+            }
+            
+            // Hide Phone error message view
+            if let _ = Int(string) {
+                handlerTextFieldShowErrorViewCompletion!(textField as! CustomTextField, false)
+                return true
+            } else {
                 return false
             }
 

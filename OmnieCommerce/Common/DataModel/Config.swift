@@ -31,6 +31,7 @@ typealias HandlerSaveButtonCompletion               =   ((_ params: [String: Str
 typealias HandlerNewViewControllerShowCompletion    =   ((_ viewController: UIViewController) -> ())
 typealias HandlerViewDismissCompletion              =   ((_ actionType: ActionType) -> ())
 typealias HandlerTextFieldCompletion                =   ((_ textField: CustomTextField, _ success: Bool) -> ())
+typealias HandlerTextFieldShowErrorViewCompletion   =   ((_ textField: CustomTextField, _ isShow: Bool) -> ())
 
 //typealias ResponseAPI                               =   (success: Bool, error: String?)
 //typealias NameAndPasswordCheckResult                =   (isNameCorrect: Bool, isPasswordCorrect: Bool)

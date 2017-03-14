@@ -23,7 +23,7 @@ protocol EmailErrorMessageView: ErrorMessageViewAnimation {
 
 protocol PhoneErrorMessageView: ErrorMessageViewAnimation {
     // MARK: - Properties
-    var phoneErrorMessageViewsCollection: [UIView]! { get }
+    var phoneErrorMessageViewsCollection: [ErrorMessageView]! { get }
     var phoneErrorMessageViewTopConstraintsCollection: [NSLayoutConstraint]! { get set }
     var phoneErrorMessageViewHeightConstraintsCollection: [NSLayoutConstraint]! { get set }
 }
