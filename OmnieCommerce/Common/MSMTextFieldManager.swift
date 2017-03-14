@@ -179,9 +179,14 @@ extension MSMTextFieldManager: UITextFieldDelegate {
                 return true
             }
             
+            // Add New Phone View
             if (textField.text?.characters.count == 3 && !string.isEmpty) {
-////                handlerPassDataCompletion!(textField)
-                return true
+                if let _ = Int(string) {
+                    handlerPassDataCompletion!(textField)
+                    return true
+                } else {
+                    return false
+                }
             }
             
             guard Int(string) != nil || ((textField.text?.isEmpty)! && string == "+") else {

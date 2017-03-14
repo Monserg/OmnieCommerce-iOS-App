@@ -203,6 +203,8 @@
 		B19DFABD1E64AF3100599073 /* UMParallaxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19DFABC1E64AF3100599073 /* UMParallaxView.swift */; };
 		B19DFABF1E64B98E00599073 /* UIScrollView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19DFABE1E64B98E00599073 /* UIScrollView+Ext.swift */; };
 		B19DFAC11E64B9F100599073 /* UITextField+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19DFAC01E64B9F100599073 /* UITextField+Ext.swift */; };
+		B19E01B01E78217500B53E02 /* NewPhoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19E01AF1E78217500B53E02 /* NewPhoneView.swift */; };
+		B19E01B21E78217F00B53E02 /* NewPhoneView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B19E01B11E78217F00B53E02 /* NewPhoneView.xib */; };
 		B1B761C31E629C120067339F /* DropDownItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B761C21E629C120067339F /* DropDownItem.swift */; };
 		B1B761CA1E62D0030067339F /* OrganizationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1B761C91E62D0030067339F /* OrganizationTableViewCell.xib */; };
 		B1BEEDE61E63402000F1DE8A /* ListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1BEEDE51E63402000F1DE8A /* ListTableViewController.swift */; };
@@ -564,6 +566,8 @@
 		B19DFABC1E64AF3100599073 /* UMParallaxView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UMParallaxView.swift; sourceTree = "<group>"; };
 		B19DFABE1E64B98E00599073 /* UIScrollView+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIScrollView+Ext.swift"; sourceTree = "<group>"; };
 		B19DFAC01E64B9F100599073 /* UITextField+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+Ext.swift"; sourceTree = "<group>"; };
+		B19E01AF1E78217500B53E02 /* NewPhoneView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPhoneView.swift; sourceTree = "<group>"; };
+		B19E01B11E78217F00B53E02 /* NewPhoneView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewPhoneView.xib; sourceTree = "<group>"; };
 		B1B4E4831E77161B00EAECB0 /* OmnieCommerceUser v.5.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "OmnieCommerceUser v.5.xcdatamodel"; sourceTree = "<group>"; };
 		B1B761C21E629C120067339F /* DropDownItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DropDownItem.swift; sourceTree = "<group>"; };
 		B1B761C91E62D0030067339F /* OrganizationTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OrganizationTableViewCell.xib; sourceTree = "<group>"; };
@@ -1239,6 +1243,8 @@
 			children = (
 				B1597ACF1E3F42B600123CB5 /* AvatarActionView.swift */,
 				B1597AD11E3F42BD00123CB5 /* AvatarActionView.xib */,
+				B19E01AF1E78217500B53E02 /* NewPhoneView.swift */,
+				B19E01B11E78217F00B53E02 /* NewPhoneView.xib */,
 				B1152FAD1E6E9FD8007999B9 /* UserTemplateTableViewCell.swift */,
 				B1152FAE1E6E9FD8007999B9 /* UserTemplateTableViewCell.xib */,
 			);
@@ -1781,6 +1787,7 @@
 				B1B761CA1E62D0030067339F /* OrganizationTableViewCell.xib in Resources */,
 				B122F2321DD35EF10018A701 /* NewsShow.storyboard in Resources */,
 				B122F2301DD35EE10018A701 /* CategoriesShow.storyboard in Resources */,
+				B19E01B21E78217F00B53E02 /* NewPhoneView.xib in Resources */,
 				B122F22A1DD35D6F0018A701 /* OrdersShow.storyboard in Resources */,
 				B122F22C1DD35E550018A701 /* MessagesShow.storyboard in Resources */,
 				B1CF54E61DDB552300E98049 /* PersonalPageShow.storyboard in Resources */,
@@ -1944,6 +1951,7 @@
 				B1CF54641DDAE78200E98049 /* CustomButton.swift in Sources */,
 				B122DF691DF7F957003823AD /* CalendarShowWorker.swift in Sources */,
 				B122F1ED1DD35BA70018A701 /* MessagesShowRouter.swift in Sources */,
+				B19E01B01E78217500B53E02 /* NewPhoneView.swift in Sources */,
 				B1FFF7131E5F017A00A075D8 /* OrganizationsMapShowModels.swift in Sources */,
 				B14E97491DD8B042001E1DE2 /* SignInShowInteractor.swift in Sources */,
 				B15FD40A1DD1DD8C00782324 /* AppDelegate.swift in Sources */,

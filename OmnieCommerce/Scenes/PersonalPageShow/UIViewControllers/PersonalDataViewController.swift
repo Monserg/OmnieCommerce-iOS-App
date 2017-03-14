@@ -11,8 +11,9 @@ import UIKit
 class PersonalDataViewController: BaseViewController, EmailErrorMessageView, PhoneErrorMessageView, PasswordErrorMessageView, PasswordStrengthView, PasswordStrengthErrorMessageView {
     // MARK: - Properties
     var parametersForAPI: [String: String]?
-    let phonesCount: Int    =   1
-    var phoneLastTag: Int   =   0
+    var phonesCount: Int                    =   1
+    var phoneLastTag: Int                   =   0
+    var onePhoneViewHeight: CGFloat         =   0
 
     var pickerViewManager: MSMPickerViewManager! {
         didSet {
@@ -51,6 +52,7 @@ class PersonalDataViewController: BaseViewController, EmailErrorMessageView, Pho
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var avatarButton: CustomButton!
     @IBOutlet weak var passwordsView: UIView!
+    
     @IBOutlet weak var phonesView: UIView!
     @IBOutlet weak var changePasswordButton: UbuntuLightItalicDarkCyanButton!
     @IBOutlet weak var birthdayPickerView: UIPickerView!
@@ -70,11 +72,25 @@ class PersonalDataViewController: BaseViewController, EmailErrorMessageView, Pho
                         _       =   self.deleteButtonsCollection.filter({ $0.tag == phoneButtonTextField.tag }).map{ $0.isHidden = success }
                     }
                     
-                    // Handler add new phone field
-                    if (textField.text?.characters.count == 3) {
-                        self.textFieldManager.handlerPassDataCompletion             =   { phoneButtonTextField in
-//                            _   =   self.phonesStackViewsCollection.filter{ $0.tag == textField.tag }.map{ $0.isHidden = false }
-                        }
+                    // Handler Add New Phone View
+                    self.textFieldManager.handlerPassDataCompletion                 =   { phoneButtonTextField in
+                        let newPhoneView            =   NewPhoneView.init(frame: CGRect.init(origin: .zero, size: self.phonesView.frame.size))
+                        let phoneErrorView          =   self.phoneErrorMessageViewsCollection.first(where: { $0.tag == (phoneButtonTextField as! CustomTextField).tag })!
+//                        let phoneErrorViewIndex     =   self.phoneErrorMessageViewsCollection.index(of: phoneErrorView)!
+
+                        self.phonesViewHeightConstraint.constant    =   self.onePhoneViewHeight * CGFloat(self.phonesCount)
+                        self.phonesView.addSubview(newPhoneView)
+                        self.phonesCount            =   self.phonesCount + 1
+                        
+                        // Add Layouts
+                        newPhoneView.topAnchor.constraint(equalTo: phoneErrorView.bottomAnchor, constant: 0).isActive       =   true
+                        newPhoneView.bottomAnchor.constraint(equalTo: self.phonesView.bottomAnchor, constant: 0).isActive   =   true
+                        newPhoneView.leftAnchor.constraint(equalTo: self.phonesView.leftAnchor, constant: 0).isActive       =   true
+                        newPhoneView.rightAnchor.constraint(equalTo: self.phonesView.rightAnchor, constant: 0).isActive     =   true
+                        
+                        newPhoneView.transform      =   CGAffineTransform(translationX: 0, y: self.phonesView.frame.height)
+                        
+                        newPhoneView.errorMessageView.didShow(false, withConstraint: newPhoneView.errorMessageViewTopConstraint)
                     }
 
                     // Handler Show/Hide Phone Error Message View
@@ -195,6 +211,21 @@ class PersonalDataViewController: BaseViewController, EmailErrorMessageView, Pho
 ////
 ////        repeatPasswordErrorMessageViewHeightConstraint.constant     =   Config.Constants.errorMessageViewHeight
 ////        didHide(repeatPasswordErrorMessageView, withConstraint: repeatPasswordErrorMessageViewTopConstraint)
+    }
+    
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        
+        onePhoneViewHeight      =   phonesView.frame.height
+    }
+    
+    private func addNewPhoneView() {
+        
+    }
+    
+    private func deletePhoneView(phoneView: UIView) {
+        
     }
     
     
