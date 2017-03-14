@@ -16,6 +16,10 @@ class PersonalDataViewController: BaseViewController, EmailErrorMessageView, Pho
 
     var pickerViewManager: MSMPickerViewManager! {
         didSet {
+            guard birthdayPickerView != nil else {
+                return
+            }
+            
             birthdayPickerView.delegate     =   self.pickerViewManager
             birthdayPickerView.dataSource   =   self.pickerViewManager
 
@@ -49,10 +53,7 @@ class PersonalDataViewController: BaseViewController, EmailErrorMessageView, Pho
     @IBOutlet weak var passwordsView: UIView!
     @IBOutlet weak var phonesView: UIView!
     @IBOutlet weak var changePasswordButton: UbuntuLightItalicDarkCyanButton!
-    
-    @IBOutlet weak var birthdayPickerView: UIPickerView! {
-        didSet {}
-    }
+    @IBOutlet weak var birthdayPickerView: UIPickerView!
     
     @IBOutlet var textFieldsCollection: [CustomTextField]! {
         didSet {
@@ -168,40 +169,38 @@ class PersonalDataViewController: BaseViewController, EmailErrorMessageView, Pho
         didAddTapGestureRecognizer()
 
         // Set User fields
-        textFieldsCollection[0].text        =   userApp?.firstName
-        textFieldsCollection[1].text        =   userApp?.lastName
-        textFieldsCollection[2].text        =   userApp?.email
+////        textFieldsCollection[0].text        =   userApp?.firstName
+////        textFieldsCollection[1].text        =   userApp?.lastName
+////        textFieldsCollection[2].text        =   userApp?.email
         
-//        textFieldsCollection[0].text        =   userApp?.password
-//        textFieldsCollection[0].isEnabled   =   false
+////        textFieldsCollection[0].text        =   userApp?.password
+////        textFieldsCollection[0].isEnabled   =   false
         
         // Hide email error message view
-        emailErrorMessageViewHeightConstraint.constant              =   Config.Constants.errorMessageViewHeight
-        didHide(emailErrorMessageView, withConstraint: emailErrorMessageViewTopConstraint)
+////        emailErrorMessageViewHeightConstraint.constant              =   Config.Constants.errorMessageViewHeight
+////        didHide(emailErrorMessageView, withConstraint: emailErrorMessageViewTopConstraint)
 
         // Hide phones error message view
-        _   =   phoneErrorMessageViewHeightConstraintsCollection.map{ $0.constant  =   Config.Constants.errorMessageViewHeight }
-        _   =   phoneErrorMessageViewsCollection.enumerated().map{ didHide($1, withConstraint: phoneErrorMessageViewTopConstraintsCollection[$0]) }
+////        _   =   phoneErrorMessageViewHeightConstraintsCollection.map{ $0.constant  =   Config.Constants.errorMessageViewHeight }
+////        _   =   phoneErrorMessageViewsCollection.enumerated().map{ didHide($1, withConstraint: phoneErrorMessageViewTopConstraintsCollection[$0]) }
         
-        phonesView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: CGFloat(40 * phonesCount) / 494.0).isActive = true
+////        phonesView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: CGFloat(40 * phonesCount) / 494.0).isActive = true
 
         // Hide passwords error message view
-        passwordErrorMessageViewHeightConstraint.constant           =   Config.Constants.errorMessageViewHeight
-        didHide(passwordErrorMessageView, withConstraint: passwordErrorMessageViewTopConstraint)
-        
-        passwordStrengthErrorMessageViewHeightConstraint.constant   =   Config.Constants.errorMessageViewHeight
-        didHide(passwordStrengthErrorMessageView, withConstraint: passwordStrengthErrorMessageViewTopConstraint)
-        
-        repeatPasswordErrorMessageViewHeightConstraint.constant     =   Config.Constants.errorMessageViewHeight
-        didHide(repeatPasswordErrorMessageView, withConstraint: repeatPasswordErrorMessageViewTopConstraint)
+////        passwordErrorMessageViewHeightConstraint.constant           =   Config.Constants.errorMessageViewHeight
+////        didHide(passwordErrorMessageView, withConstraint: passwordErrorMessageViewTopConstraint)
+////
+////        passwordStrengthErrorMessageViewHeightConstraint.constant   =   Config.Constants.errorMessageViewHeight
+////        didHide(passwordStrengthErrorMessageView, withConstraint: passwordStrengthErrorMessageViewTopConstraint)
+////
+////        repeatPasswordErrorMessageViewHeightConstraint.constant     =   Config.Constants.errorMessageViewHeight
+////        didHide(repeatPasswordErrorMessageView, withConstraint: repeatPasswordErrorMessageViewTopConstraint)
     }
     
     
     // MARK: - Transition
     override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
-        changePasswordButton.tag    =   0
-        
-//        phonesView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: CGFloat(40 * phonesCount) / 216.0).isActive = true
+////        changePasswordButton.tag    =   0
     }
 
     
