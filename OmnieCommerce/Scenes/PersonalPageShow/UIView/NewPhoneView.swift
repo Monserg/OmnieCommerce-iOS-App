@@ -44,7 +44,7 @@ import UIKit
     func createFromXIB() {
         UINib(nibName: String(describing: NewPhoneView.self), bundle: Bundle(for: NewPhoneView.self)).instantiate(withOwner: self, options: nil)
         addSubview(view)
-        view.frame          =   frame
+        view.frame          =   CGRect.init(origin: .zero, size: CGSize.init(width: frame.width, height: 40.0))
         alpha               =   0
         tag                 =   0
         phoneTextField.tag  =   tag

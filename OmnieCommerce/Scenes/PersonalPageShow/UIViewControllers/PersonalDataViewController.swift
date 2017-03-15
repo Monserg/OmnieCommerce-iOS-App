@@ -14,6 +14,12 @@ class PersonalDataViewController: BaseViewController, EmailErrorMessageView, Pho
     var phoneLastTag: Int!
     var phonesCount: Int                    =   1
     var onePhoneViewHeight: CGFloat         =   0
+    var deleteButtonsCollection             =   [FillVeryLightOrangeButton]()
+
+    // Protocol PhoneErrorMessageView
+    var phoneErrorMessageViewsCollection                    =   [ErrorMessageView]()
+    var phoneErrorMessageViewTopConstraintsCollection       =   [NSLayoutConstraint]()
+    var phoneErrorMessageViewHeightConstraintsCollection    =   [NSLayoutConstraint]()
 
     var pickerViewManager: MSMPickerViewManager! {
         didSet {
@@ -56,10 +62,15 @@ class PersonalDataViewController: BaseViewController, EmailErrorMessageView, Pho
     @IBOutlet weak var changePasswordButton: UbuntuLightItalicDarkCyanButton!
     @IBOutlet weak var birthdayPickerView: UIPickerView!
     
-    @IBOutlet weak var firstPhoneView: UIView! {
+    @IBOutlet weak var firstPhoneView: NewPhoneView! {
         didSet {
             phoneLastTag                =   firstPhoneView.tag
             firstPhoneView.alpha        =   1
+            
+            // Handler Delete Button Tap
+            firstPhoneView.handlerDeleteButtonCompletion                            =   { _ in
+                self.phoneViewDidDelete(self.firstPhoneView)
+            }
         }
     }
     
@@ -147,11 +158,12 @@ class PersonalDataViewController: BaseViewController, EmailErrorMessageView, Pho
         }
     }
     
-    @IBOutlet var deleteButtonsCollection: [FillVeryLightOrangeButton]! {
-        didSet {
-            _ = deleteButtonsCollection.map{ $0.isHidden = true }
-        }
-    }
+    // TODO: DELETE!!!
+//    @IBOutlet var deleteButtonsCollection1: [FillVeryLightOrangeButton]! {
+//        didSet {
+//            _ = deleteButtonsCollection1.map{ $0.isHidden = true }
+//        }
+//    }
     
     @IBOutlet var dottedBorderViewsCollection: [DottedBorderView]! {
         didSet {
@@ -173,11 +185,6 @@ class PersonalDataViewController: BaseViewController, EmailErrorMessageView, Pho
     @IBOutlet weak var emailErrorMessageView: UIView!
     @IBOutlet weak var emailErrorMessageViewTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var emailErrorMessageViewHeightConstraint: NSLayoutConstraint!
-
-    // Protocol PhoneErrorMessageView
-    @IBOutlet var phoneErrorMessageViewsCollection: [ErrorMessageView]!
-    @IBOutlet var phoneErrorMessageViewTopConstraintsCollection: [NSLayoutConstraint]!
-    @IBOutlet var phoneErrorMessageViewHeightConstraintsCollection: [NSLayoutConstraint]!
     
     // Protocol PasswordErrorMessageView
     @IBOutlet weak var passwordErrorMessageView: UIView!
@@ -235,12 +242,26 @@ class PersonalDataViewController: BaseViewController, EmailErrorMessageView, Pho
         emailErrorMessageViewHeightConstraint.constant              =   Config.Constants.errorMessageViewHeight
         didHide(emailErrorMessageView, withConstraint: emailErrorMessageViewTopConstraint)
 
+        // Settings Phones View
+        textFieldsCollection.append(firstPhoneView.phoneTextField)
+        deleteButtonsCollection.append(firstPhoneView.deleteButton)
+        dottedBorderViewsCollection.append(firstPhoneView.dottedBorderView)
+
+        // Protocol PhoneErrorMessageView
+        phoneErrorMessageViewsCollection.append(firstPhoneView.errorMessageView)
+        phoneErrorMessageViewTopConstraintsCollection.append(firstPhoneView.errorMessageViewTopConstraint)
+        phoneErrorMessageViewHeightConstraintsCollection.append(firstPhoneView.errorMessageViewHeightConstraint)
+        
         // Hide phones error message view
         _   =   phoneErrorMessageViewHeightConstraintsCollection.map{ $0.constant  =   Config.Constants.errorMessageViewHeight }
         _   =   phoneErrorMessageViewsCollection.enumerated().map{ didHide($1, withConstraint: phoneErrorMessageViewTopConstraintsCollection[$0]) }
         
-////        phonesView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: CGFloat(40 * phonesCount) / 494.0).isActive = true
-
+        
+        
+        
+        
+        
+        
         // Hide passwords error message view
 ////        passwordErrorMessageViewHeightConstraint.constant           =   Config.Constants.errorMessageViewHeight
 ////        didHide(passwordErrorMessageView, withConstraint: passwordErrorMessageViewTopConstraint)
@@ -250,6 +271,8 @@ class PersonalDataViewController: BaseViewController, EmailErrorMessageView, Pho
 ////
 ////        repeatPasswordErrorMessageViewHeightConstraint.constant     =   Config.Constants.errorMessageViewHeight
 ////        didHide(repeatPasswordErrorMessageView, withConstraint: repeatPasswordErrorMessageViewTopConstraint)
+        
+        textFieldManager.textFieldsArray        =   textFieldsCollection
     }
     
     func phoneViewDidDelete(_ phoneView: UIView) {
