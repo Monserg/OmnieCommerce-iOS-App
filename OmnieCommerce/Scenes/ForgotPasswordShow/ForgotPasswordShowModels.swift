@@ -19,11 +19,11 @@ struct ForgotPasswordShowModels {
         }
         
         struct ResponseModel {
-            let code: String
+            let code: Int?
         }
         
         struct ViewModel {
-            let code: String
+            let code: Int?
         }
     }
 }

@@ -84,11 +84,12 @@ class MSMTextFieldManager: NSObject {
                 results.append(result)
                 
             case .Code:
-                let result      =   textField.text == (currentVC as! EnterCodeShowViewController).enteredCode
-                
-                (result) ? (currentVC as! EnterCodeShowViewController).didHide((currentVC as! EnterCodeShowViewController).codeErrorMessageView, withConstraint: (currentVC as! EnterCodeShowViewController).codeErrorMessageViewTopConstraint) : (currentVC as! EnterCodeShowViewController).didShow((currentVC as! EnterCodeShowViewController).codeErrorMessageView, withConstraint: (currentVC as! EnterCodeShowViewController).codeErrorMessageViewTopConstraint)
-                
-                results.append(result)
+                print("ddd")
+//                let result      =   textField.text == (currentVC as! EnterCodeShowViewController).enteredCode
+//                
+//                (result) ? (currentVC as! EnterCodeShowViewController).didHide((currentVC as! EnterCodeShowViewController).codeErrorMessageView, withConstraint: (currentVC as! EnterCodeShowViewController).codeErrorMessageViewTopConstraint) : (currentVC as! EnterCodeShowViewController).didShow((currentVC as! EnterCodeShowViewController).codeErrorMessageView, withConstraint: (currentVC as! EnterCodeShowViewController).codeErrorMessageViewTopConstraint)
+//                
+//                results.append(result)
                 
             default:
                 break
@@ -153,9 +154,10 @@ extension MSMTextFieldManager: UITextFieldDelegate {
             }
             
         case .Code:
-            if (textField.text != (currentVC as! EnterCodeShowViewController).enteredCode) {
-                (currentVC as! EnterCodeShowViewController).didShow((currentVC as! EnterCodeShowViewController).codeErrorMessageView, withConstraint: (currentVC as! EnterCodeShowViewController).codeErrorMessageViewTopConstraint)
-            }
+            return true
+            //            if (textField.text != (currentVC as! EnterCodeShowViewController).enteredCode) {
+//                (currentVC as! EnterCodeShowViewController).didShow((currentVC as! EnterCodeShowViewController).codeErrorMessageView, withConstraint: (currentVC as! EnterCodeShowViewController).codeErrorMessageViewTopConstraint)
+//            }
             
         default:
             break
@@ -317,17 +319,18 @@ extension MSMTextFieldManager: UITextFieldDelegate {
             }
             
         case .Code:
-            if (textField.text == (currentVC as! EnterCodeShowViewController).enteredCode) {
-                (currentVC as! EnterCodeShowViewController).didHide((currentVC as! EnterCodeShowViewController).codeErrorMessageView, withConstraint: (currentVC as! EnterCodeShowViewController).codeErrorMessageViewTopConstraint)
-                
-                textField.resignFirstResponder()
-                
-                return true
-            } else {
-                (currentVC as! EnterCodeShowViewController).didShow((currentVC as! EnterCodeShowViewController).codeErrorMessageView, withConstraint: (currentVC as! EnterCodeShowViewController).codeErrorMessageViewTopConstraint)
-                
-                return false
-            }
+            return true
+//            if (textField.text == (currentVC as! EnterCodeShowViewController).enteredCode) {
+//                (currentVC as! EnterCodeShowViewController).didHide((currentVC as! EnterCodeShowViewController).codeErrorMessageView, withConstraint: (currentVC as! EnterCodeShowViewController).codeErrorMessageViewTopConstraint)
+//                
+//                textField.resignFirstResponder()
+//                
+//                return true
+//            } else {
+//                (currentVC as! EnterCodeShowViewController).didShow((currentVC as! EnterCodeShowViewController).codeErrorMessageView, withConstraint: (currentVC as! EnterCodeShowViewController).codeErrorMessageViewTopConstraint)
+//                
+//                return false
+//            }
             
         default:
             self.nextTextFieldDidLoad(afterCurrent: textField as! CustomTextField)

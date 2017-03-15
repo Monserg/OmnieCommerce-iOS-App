@@ -15,9 +15,9 @@ import CoreLocation
 class PersonalPageShowWorker {
     // MARK: - Custom Functions. Business Logic
     func userAppTemplatesDidLoad(forUserApp userAppCode: String) -> [Organization]? {
-//        guard arc4random_uniform(2) == 1 else {
-//            return nil
-//        }
+        guard arc4random_uniform(2) == 1 else {
+            return nil
+        }
         
         var items   =   [Organization]()
         

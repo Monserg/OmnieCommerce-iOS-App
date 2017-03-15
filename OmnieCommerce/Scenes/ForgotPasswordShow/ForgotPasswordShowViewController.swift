@@ -13,12 +13,12 @@ import UIKit
 
 // MARK: - Input protocols for current ViewController component VIP-cicle
 protocol ForgotPasswordShowViewControllerInput {
-    func didPassCode(fromViewModel viewModel: ForgotPasswordShowModels.Code.ViewModel)
+    func codeDidShow(fromViewModel viewModel: ForgotPasswordShowModels.Code.ViewModel)
 }
 
 // MARK: - Output protocols for Interactor component VIP-cicle
 protocol ForgotPasswordShowViewControllerOutput {
-    func didLoadCode(fromRequestModel requestModel: ForgotPasswordShowModels.Code.RequestModel)
+    func codeDidLoad(fromRequestModel requestModel: ForgotPasswordShowModels.Code.RequestModel)
 }
 
 class ForgotPasswordShowViewController: BaseViewController, EmailErrorMessageView {
@@ -26,7 +26,7 @@ class ForgotPasswordShowViewController: BaseViewController, EmailErrorMessageVie
     var interactor: ForgotPasswordShowViewControllerOutput!
     var router: ForgotPasswordShowRouter!
     
-    var handlerPassDataCompletion: HandlerPassDataCompletion?
+    var handlerSendButtonCompletion: HandlerSendButtonCompletion?
     var handlerCancelButtonCompletion: HandlerCancelButtonCompletion?
 
     var textFieldManager: MSMTextFieldManager! {
@@ -93,8 +93,8 @@ class ForgotPasswordShowViewController: BaseViewController, EmailErrorMessageVie
 
             let data: (phone: String?, email: String?) = (textFieldsCollection.first!.isPhone!) ? (phone: textFieldsCollection.first!.text!, email: nil) : (phone: nil, email: textFieldsCollection.first!.text!)
             
-            let requestModel = ForgotPasswordShowModels.Code.RequestModel(data: data)
-            interactor.didLoadCode(fromRequestModel: requestModel)
+            let requestModel    =   ForgotPasswordShowModels.Code.RequestModel(data: data)
+            interactor.codeDidLoad(fromRequestModel: requestModel)
         } else {
             didShow(emailErrorMessageView, withConstraint: emailErrorMessageViewTopConstraint)
         }
@@ -114,16 +114,20 @@ class ForgotPasswordShowViewController: BaseViewController, EmailErrorMessageVie
 
 // MARK: - ForgotPasswordShowViewControllerInput
 extension ForgotPasswordShowViewController: ForgotPasswordShowViewControllerInput {
-    func didPassCode(fromViewModel viewModel: ForgotPasswordShowModels.Code.ViewModel) {
-        // TODO: PASS CODE TO ENTER CODE SCENE
-        print(object: viewModel.code)
-        
+    func codeDidShow(fromViewModel viewModel: ForgotPasswordShowModels.Code.ViewModel) {
         guard isNetworkAvailable else {
             alertViewDidShow(withTitle: "Not Reachable".localized(), andMessage: "Disconnected from Network".localized())
-            
+            UIApplication.shared.isNetworkActivityIndicatorVisible  =   false
+
             return
         }
 
-        handlerPassDataCompletion!(viewModel.code)
+        if (viewModel.code == 200) {
+            handlerSendButtonCompletion!()
+        } else {
+            alertViewDidShow(withTitle: "Error".localized(), andMessage: "Wrong input data".localized())
+        }
+        
+        UIApplication.shared.isNetworkActivityIndicatorVisible      =   false
     }
 }

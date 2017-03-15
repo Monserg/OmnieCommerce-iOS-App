@@ -95,11 +95,10 @@ class SignInShowRouter: SignInShowRouterInput {
             self.viewController.forgotPasswordShowVC = UIStoryboard(name: "SignInShow", bundle: nil).instantiateViewController(withIdentifier: "ForgotPasswordShowVC") as? ForgotPasswordShowViewController
             
             // ForgotPasswordShowVC: Send button handler
-            self.viewController.forgotPasswordShowVC?.handlerPassDataCompletion                 =   { code in
+            self.viewController.forgotPasswordShowVC?.handlerSendButtonCompletion               =   { code in
                 // Create EnterCodeShowViewController
-                self.viewController.enterCodeShowViewController = UIStoryboard(name: "SignInShow", bundle: nil).instantiateViewController(withIdentifier: "EnterCodeShowVC") as? EnterCodeShowViewController
-                
-                self.viewController.enterCodeShowViewController?.enteredCode = code as! String
+                self.viewController.enterCodeShowViewController         =   UIStoryboard(name: "SignInShow", bundle: nil).instantiateViewController(withIdentifier: "EnterCodeShowVC") as? EnterCodeShowViewController
+                self.viewController.enterCodeShowViewController!.email  =   self.viewController.forgotPasswordShowVC?.textFieldsCollection.first!.text!
                 
                 // EnterCodeShowVC: Send button handler
                 self.viewController.enterCodeShowViewController?.handlerSendButtonCompletion    =   { _ in
@@ -110,7 +109,7 @@ class SignInShowRouter: SignInShowRouterInput {
                     self.viewController.repetitionPasswordShowViewController?.handlerSendButtonCompletion = { _ in
                         self.viewController.signInContainerShowVC?.didCleanTextFields()
                         self.navigateAuthorizedUser(duringStartApp: false)
-                        self.viewController.activeViewController = self.viewController.signInContainerShowVC
+                        self.viewController.activeViewController    =   self.viewController.signInContainerShowVC
                     }
                     
                     // RepetitionPasswordShowVC: handler Cancel button

@@ -22,8 +22,7 @@ class EnterCodeShowViewController: BaseViewController, CodeErrorMessageView {
     var interactor: EnterCodeShowViewControllerOutput!
     var router: EnterCodeShowRouter!
     
-    var enteredCode: String!
-    var isInputCodeValid = false
+    var email: String!
     
     var handlerSendButtonCompletion: HandlerSendButtonCompletion?
     var handlerCancelButtonCompletion: HandlerCancelButtonCompletion?
@@ -83,21 +82,21 @@ class EnterCodeShowViewController: BaseViewController, CodeErrorMessageView {
     
     // MARK: - Actions
     @IBAction func handlerSendButtonTap(_ sender: CustomButton) {
-        guard let text = textFieldsCollection.last?.text else {
+        guard textFieldsCollection.last?.text != nil else {
             return
         }
         
-        if (text == enteredCode) {
-            guard isNetworkAvailable else {
-                alertViewDidShow(withTitle: "Not Reachable".localized(), andMessage: "Disconnected from Network".localized())
-                
-                return
-            }
-
-            handlerSendButtonCompletion!()
-        } else {
-            didShow(codeErrorMessageView, withConstraint: codeErrorMessageViewTopConstraint)
+        guard isNetworkAvailable else {
+            alertViewDidShow(withTitle: "Not Reachable".localized(), andMessage: "Disconnected from Network".localized())
+            
+            return
         }
+        
+        handlerSendButtonCompletion!()
+        
+////        } else {
+////            didShow(codeErrorMessageView, withConstraint: codeErrorMessageViewTopConstraint)
+////        }
     }
     
     @IBAction func handlerCancelButtonTap(_ sender: CustomButton) {

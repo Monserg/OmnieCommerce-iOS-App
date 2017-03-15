@@ -13,12 +13,12 @@ import UIKit
 
 // MARK: - Input protocols for current Interactor component VIP-cicle
 protocol ForgotPasswordShowInteractorInput {
-    func didLoadCode(fromRequestModel requestModel: ForgotPasswordShowModels.Code.RequestModel)
+    func codeDidLoad(fromRequestModel requestModel: ForgotPasswordShowModels.Code.RequestModel)
 }
 
 // MARK: - Output protocols for Presenter component VIP-cicle
 protocol ForgotPasswordShowInteractorOutput {
-    func didPreparePassCode(fromResponseModel responseModel: ForgotPasswordShowModels.Code.ResponseModel)
+    func codeDidPrepareToShow(fromResponseModel responseModel: ForgotPasswordShowModels.Code.ResponseModel)
 }
 
 class ForgotPasswordShowInteractor: ForgotPasswordShowInteractorInput {
@@ -28,11 +28,13 @@ class ForgotPasswordShowInteractor: ForgotPasswordShowInteractorInput {
     
     
     // MARK: - Custom Functions. Business logic
-    func didLoadCode(fromRequestModel requestModel: ForgotPasswordShowModels.Code.RequestModel) {
-        worker = ForgotPasswordShowWorker()
-        let code = worker.didReceiveCode(withRequestModel: requestModel)
-        
-        let responseModel = ForgotPasswordShowModels.Code.ResponseModel(code: code)
-        presenter.didPreparePassCode(fromResponseModel: responseModel)
+    func codeDidLoad(fromRequestModel requestModel: ForgotPasswordShowModels.Code.RequestModel) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible  =   true
+
+        MSMRestApiManager.instance.userForgotPassword(requestModel.data.email!, withHandlerResponseAPICompletion: { responseAPI in
+            // Pass the result to the Presenter
+            let responseModel   =   ForgotPasswordShowModels.Code.ResponseModel(code: (responseAPI != nil) ? responseAPI!.code : nil)
+            self.presenter.codeDidPrepareToShow(fromResponseModel: responseModel)
+        })
     }
 }

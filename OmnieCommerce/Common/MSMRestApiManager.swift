@@ -75,8 +75,8 @@ final class MSMRestApiManager {
         
         createItem(withURL: self.appURL, andParameters: authParameters, andEncoding: JSONEncoding.default, andHeaders: self.headers, withHandlerDataResponseCompletion: { dataResponse in
             if (dataResponse.result.value != nil) {
-                let json        =   JSON(dataResponse.result.value!)
-                let responseAPI =   ResponseAPI.init(fromJSON: json)
+                let json            =   JSON(dataResponse.result.value!)
+                let responseAPI     =   ResponseAPI.init(fromJSON: json)
                 
                 if (dataResponse.response?.statusCode == 200) {
                     let responseHeaders         =   dataResponse.response!.allHeaderFields
@@ -93,13 +93,13 @@ final class MSMRestApiManager {
     }
     
     func userRegistration(_ userName: String, andEmail email: String, andPassword password: String, withHandlerResponseAPICompletion handlerResponseAPICompletion: @escaping (ResponseAPI?) -> Void) {
-        let authParameters      =   [ "userName": userName, "email": email, "password": password ]
-        appApiString            =   "/registration/"
+        let authParameters          =   [ "userName": userName, "email": email, "password": password ]
+        appApiString                =   "/registration/"
         
         createItem(withURL: self.appURL, andParameters: authParameters, andEncoding: JSONEncoding.default, andHeaders: self.headers, withHandlerDataResponseCompletion: { dataResponse in
             if (dataResponse.result.value != nil) {
-                let json        =   JSON(dataResponse.result.value!)
-                let responseAPI =   ResponseAPI.init(fromJSON: json)
+                let json            =   JSON(dataResponse.result.value!)
+                let responseAPI     =   ResponseAPI.init(fromJSON: json)
                 
                 handlerResponseAPICompletion(responseAPI)
                 return
@@ -108,6 +108,24 @@ final class MSMRestApiManager {
                 return
             }
         })
+    }
+    
+    func userForgotPassword(_ email: String, withHandlerResponseAPICompletion handlerResponseAPICompletion: @escaping (ResponseAPI?) -> Void) {
+        appApiString                =   "/forgot/"
+        self.appURL                 =   URL.init(string: self.appURL.absoluteString.appending("?email=\(email)"))
+
+        Alamofire.request(self.appURL, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil).responseJSON { dataResponse -> Void in
+            if (dataResponse.result.value != nil) {
+                let json            =   JSON(dataResponse.result.value!)
+                let responseAPI     =   ResponseAPI.init(fromJSON: json)
+                
+                handlerResponseAPICompletion(responseAPI)
+                return
+            } else {
+                handlerResponseAPICompletion(nil)
+                return
+            }
+        }
     }
 
     
