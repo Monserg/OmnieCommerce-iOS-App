@@ -154,6 +154,7 @@
 "Authentication failure"        =   "Помилка перевірки автентичності";
 "Wrong input data"              =   "Неправильні вхідні дані";
 "User is already exist"         =   "Користувач вже існує";
+"Retry request succeeded"       =   "Повторний запит успішно виконаний";
 
 
 // Cities

@@ -101,15 +101,16 @@ class SignInShowRouter: SignInShowRouterInput {
                 self.viewController.enterCodeShowViewController!.email  =   self.viewController.forgotPasswordShowVC?.textFieldsCollection.first!.text!
                 
                 // EnterCodeShowVC: Send button handler
-                self.viewController.enterCodeShowViewController?.handlerSendButtonCompletion    =   { _ in
+                self.viewController.enterCodeShowViewController?.handlerPassDataCompletion      =   { resetToken in
                     // Create RepetitionPasswordShow scene
-                    self.viewController.repetitionPasswordShowViewController = UIStoryboard(name: "SignInShow", bundle: nil).instantiateViewController(withIdentifier: "RepetitionPasswordShowVC") as? RepetitionPasswordShowViewController
+                    self.viewController.repetitionPasswordShowViewController                    =   UIStoryboard(name: "SignInShow", bundle: nil).instantiateViewController(withIdentifier: "RepetitionPasswordShowVC") as? RepetitionPasswordShowViewController
+                    self.viewController.repetitionPasswordShowViewController?.resetToken        =   resetToken as! String
                     
                     // RepetitionPasswordShowVC: handler Send button
                     self.viewController.repetitionPasswordShowViewController?.handlerSendButtonCompletion = { _ in
                         self.viewController.signInContainerShowVC?.didCleanTextFields()
                         self.navigateAuthorizedUser(duringStartApp: false)
-                        self.viewController.activeViewController    =   self.viewController.signInContainerShowVC
+                        self.viewController.activeViewController        =   self.viewController.signInContainerShowVC
                     }
                     
                     // RepetitionPasswordShowVC: handler Cancel button
@@ -117,7 +118,7 @@ class SignInShowRouter: SignInShowRouterInput {
                         self.viewController.activeViewController = self.viewController.enterCodeShowViewController
                     }
                     
-                    self.viewController.activeViewController = self.viewController.repetitionPasswordShowViewController
+                    self.viewController.activeViewController            =   self.viewController.repetitionPasswordShowViewController
                 }
                 
                 // EnterCodeShowVC: Cancel button handler

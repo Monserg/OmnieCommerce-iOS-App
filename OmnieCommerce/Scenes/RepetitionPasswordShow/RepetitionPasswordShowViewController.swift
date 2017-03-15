@@ -26,6 +26,8 @@ class RepetitionPasswordShowViewController: BaseViewController, PasswordStrength
     var interactor: RepetitionPasswordShowViewControllerOutput!
     var router: RepetitionPasswordShowRouter!
     
+    var resetToken: String!
+    
     var handlerSendButtonCompletion: HandlerSendButtonCompletion?
     var handlerCancelButtonCompletion: HandlerCancelButtonCompletion?
     

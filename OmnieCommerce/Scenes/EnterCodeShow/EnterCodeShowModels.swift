@@ -13,17 +13,33 @@ import UIKit
 
 // MARK: - Data models
 struct EnterCodeShowModels {
-    struct Renew {
+    struct EnterCode {
+        struct RequestModel {
+            let code: Int
+            let email: String
+        }
+        
+        struct ResponseModel {
+            let response: ResponseAPI?
+        }
+        
+        struct ViewModel {
+            let responseCode: Int?
+            let resetToken: String?
+        }
+    }
+    
+    struct Code {
         struct RequestModel {
             let email: String
         }
         
         struct ResponseModel {
-            let success: Bool
+            let code: Int?
         }
         
         struct ViewModel {
-            let success: Bool
+            let code: Int?
         }
     }
 }

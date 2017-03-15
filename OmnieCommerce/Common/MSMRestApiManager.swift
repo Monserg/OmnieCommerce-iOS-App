@@ -128,6 +128,24 @@ final class MSMRestApiManager {
         }
     }
 
+    func userCheckEmail(_ email: String, withCode code: Int, andWithHandlerResponseAPICompletion handlerResponseAPICompletion: @escaping (ResponseAPI?) -> Void) {
+        let checkParameters         =   [ "email": email, "code": String(code) ]
+        appApiString                =   "/forgot/"
+        
+        Alamofire.request(self.appURL, method: .post, parameters: checkParameters, encoding: JSONEncoding.default, headers: self.headers).responseJSON { dataResponse -> Void in
+            if (dataResponse.result.value != nil) {
+                let json            =   JSON(dataResponse.result.value!)
+                let responseAPI     =   ResponseAPI.init(fromJSON: json)
+                
+                handlerResponseAPICompletion(responseAPI)
+                return
+            } else {
+                handlerResponseAPICompletion(nil)
+                return
+            }
+        }
+    }
+
     
     
     // MARK: - Custom REST Functions

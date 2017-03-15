@@ -12,10 +12,16 @@
 import UIKit
 
 // MARK: - Input protocols for current Interactor component VIP-cicle
-protocol EnterCodeShowInteractorInput {}
+protocol EnterCodeShowInteractorInput {
+    func codeDidLoad(fromRequestModel requestModel: EnterCodeShowModels.Code.RequestModel)
+    func enteredCodeDidCheck(fromRequestModel requestModel: EnterCodeShowModels.EnterCode.RequestModel)
+}
 
 // MARK: - Output protocols for Presenter component VIP-cicle
-protocol EnterCodeShowInteractorOutput {}
+protocol EnterCodeShowInteractorOutput {
+    func codeDidPrepareToShow(fromResponseModel responseModel: EnterCodeShowModels.Code.ResponseModel)
+    func enteredCodeDidPrepareToShow(fromResponseModel responseModel: EnterCodeShowModels.EnterCode.ResponseModel)
+}
 
 class EnterCodeShowInteractor: EnterCodeShowInteractorInput {
     // MARK: - Properties
@@ -24,16 +30,23 @@ class EnterCodeShowInteractor: EnterCodeShowInteractorInput {
     
     
     // MARK: - Custom Functions. Business logic
-    /*
-    func didValidateCode(fromRequestModel requestModel: EnterCodeShowModels.Code.RequestModel) {
-        // NOTE: Create some Worker to do the work
-        worker = EnterCodeShowWorker()
-        let enterCode = requestModel.inputCode
-        let isCodesEqual = worker.checkCodes(enterCode, andInputCode: requestModel.inputCode)
+    func codeDidLoad(fromRequestModel requestModel: EnterCodeShowModels.Code.RequestModel) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible  =   true
         
-        // NOTE: Pass the result to the Presenter
-        let responseModel = EnterCodeShowModels.Code.ResponseModel(isValueValid: isCodesEqual)
-        presenter.didPrepareReturnValidationResult(fromResponseModel: responseModel)
+        MSMRestApiManager.instance.userForgotPassword(requestModel.email, withHandlerResponseAPICompletion: { responseAPI in
+            // Pass the result to the Presenter
+            let responseModel   =   EnterCodeShowModels.Code.ResponseModel(code: (responseAPI != nil) ? responseAPI!.code : nil)
+            self.presenter.codeDidPrepareToShow(fromResponseModel: responseModel)
+        })
     }
-     */
+    
+    func enteredCodeDidCheck(fromRequestModel requestModel: EnterCodeShowModels.EnterCode.RequestModel) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible  =   true
+
+        MSMRestApiManager.instance.userCheckEmail(requestModel.email, withCode: requestModel.code) { responseAPI in
+            // Pass the result to the Presenter
+            let responseModel   =   EnterCodeShowModels.EnterCode.ResponseModel(response: responseAPI)
+            self.presenter.enteredCodeDidPrepareToShow(fromResponseModel: responseModel)
+        }
+    }
 }

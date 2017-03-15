@@ -12,10 +12,16 @@
 import UIKit
 
 // MARK: - Input protocols for current ViewController component VIP-cicle
-protocol EnterCodeShowViewControllerInput {}
+protocol EnterCodeShowViewControllerInput {
+    func codeDidShow(fromViewModel viewModel: EnterCodeShowModels.Code.ViewModel)
+    func enteredCodeDidShow(fromViewModel viewModel: EnterCodeShowModels.EnterCode.ViewModel)
+}
 
 // MARK: - Output protocols for Interactor component VIP-cicle
-protocol EnterCodeShowViewControllerOutput {}
+protocol EnterCodeShowViewControllerOutput {
+    func codeDidLoad(fromRequestModel requestModel: EnterCodeShowModels.Code.RequestModel)
+    func enteredCodeDidCheck(fromRequestModel requestModel: EnterCodeShowModels.EnterCode.RequestModel)
+}
 
 class EnterCodeShowViewController: BaseViewController, CodeErrorMessageView {
     // MARK: - Properties
@@ -24,7 +30,7 @@ class EnterCodeShowViewController: BaseViewController, CodeErrorMessageView {
     
     var email: String!
     
-    var handlerSendButtonCompletion: HandlerSendButtonCompletion?
+    var handlerPassDataCompletion: HandlerPassDataCompletion?
     var handlerCancelButtonCompletion: HandlerCancelButtonCompletion?
     
     var textFieldManager: MSMTextFieldManager! {
@@ -92,11 +98,8 @@ class EnterCodeShowViewController: BaseViewController, CodeErrorMessageView {
             return
         }
         
-        handlerSendButtonCompletion!()
-        
-////        } else {
-////            didShow(codeErrorMessageView, withConstraint: codeErrorMessageViewTopConstraint)
-////        }
+        let requestModel    =   EnterCodeShowModels.EnterCode.RequestModel(code: Int(textFieldsCollection.first!.text!)!, email: email)
+        interactor.enteredCodeDidCheck(fromRequestModel: requestModel)
     }
     
     @IBAction func handlerCancelButtonTap(_ sender: CustomButton) {
@@ -115,9 +118,46 @@ class EnterCodeShowViewController: BaseViewController, CodeErrorMessageView {
             
             return
         }
+        
+        let requestModel    =   EnterCodeShowModels.Code.RequestModel(email: email)
+        interactor.codeDidLoad(fromRequestModel: requestModel)
     }
 }
 
 
 // MARK: - EnterCodeShowViewControllerInput
-extension EnterCodeShowViewController: EnterCodeShowViewControllerInput {}
+extension EnterCodeShowViewController: EnterCodeShowViewControllerInput {
+    func enteredCodeDidShow(fromViewModel viewModel: EnterCodeShowModels.EnterCode.ViewModel) {
+        guard isNetworkAvailable else {
+            alertViewDidShow(withTitle: "Not Reachable".localized(), andMessage: "Disconnected from Network".localized())
+            UIApplication.shared.isNetworkActivityIndicatorVisible  =   false
+            
+            return
+        }
+        
+        if (viewModel.responseCode == 200) {
+            handlerPassDataCompletion!(viewModel.resetToken!)
+        } else {
+            didShow(codeErrorMessageView, withConstraint: codeErrorMessageViewTopConstraint)
+        }
+        
+        UIApplication.shared.isNetworkActivityIndicatorVisible      =   false
+    }
+
+    func codeDidShow(fromViewModel viewModel: EnterCodeShowModels.Code.ViewModel) {
+        guard isNetworkAvailable else {
+            alertViewDidShow(withTitle: "Not Reachable".localized(), andMessage: "Disconnected from Network".localized())
+            UIApplication.shared.isNetworkActivityIndicatorVisible  =   false
+            
+            return
+        }
+        
+        if (viewModel.code == 200) {
+            alertViewDidShow(withTitle: "Info".localized(), andMessage: "Retry request succeeded".localized())
+        } else {
+            alertViewDidShow(withTitle: "Error".localized(), andMessage: "Wrong input data".localized())
+        }
+        
+        UIApplication.shared.isNetworkActivityIndicatorVisible      =   false
+    }
+}

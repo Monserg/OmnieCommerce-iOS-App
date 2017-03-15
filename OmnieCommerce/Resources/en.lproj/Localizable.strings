@@ -154,6 +154,7 @@
 "Authentication failure"        =   "Authentication failed";
 "Wrong input data"              =   "Wrong input data";
 "User is already exist"         =   "User is already exist";
+"Retry request succeeded"       =   "Retry request succeeded";
 
 
 // Cities
