@@ -17,14 +17,15 @@ class UserTemplateTableViewCell: UITableViewCell {
     var isExpanded: Bool            =   false {
         didSet {
             self.dottedBorderViewHeightConstraint.constant  =   (self.isExpanded) ? (self.expandedHeight - 86.0 + CGFloat(self.servicesCount * 17)) : 43.5
-
-            self.handlerSendButtonCompletion!()
+            self.dottedBorderView.layoutIfNeeded()
+//            self.handlerSendButtonCompletion!()
         }
     }
     
     var handlerSendButtonCompletion: HandlerSendButtonCompletion?
     
     @IBOutlet weak var logoImageView: CustomImageView!
+    @IBOutlet weak var expandButton: FillVeryLightOrangeButton!
     @IBOutlet weak var dottedBorderView: DottedBorderView!
     @IBOutlet weak var nameLabel: UbuntuLightVeryLightGrayLabel!
     @IBOutlet weak var categoryLabel: UbuntuLightItalicVeryDarkGrayishBlueLabel!
@@ -54,10 +55,10 @@ class UserTemplateTableViewCell: UITableViewCell {
     
     // MARK: - Actions
     @IBAction func handlerExpandButtonTap(_ sender: FillVeryLightOrangeButton) {
-        self.dottedBorderView.alpha     =   0
         isExpanded                      =   !isExpanded
         
         sender.setImage(UIImage.init(named: (isExpanded) ? "icon-cell-expand-on-normal" : "icon-cell-expand-off-normal"), for: .normal)
+        self.handlerSendButtonCompletion!()
     }
     
     @IBAction func handlerUseTemplateButtonTap(_ sender: FillVeryLightOrangeButton) {

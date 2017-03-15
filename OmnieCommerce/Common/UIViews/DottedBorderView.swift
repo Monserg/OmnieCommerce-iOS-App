@@ -40,8 +40,6 @@ enum ViewStyle: String {
     
     // MARK: - Class Functions
     override func draw(_ rect: CGRect) {
-        self.alpha  =   1
-        
         switch style! {
         case .BottomDottedLine:
             self.drawDottedLine(withColor: false)
@@ -67,6 +65,7 @@ enum ViewStyle: String {
         let dottedLinePath              =   UIBezierPath()
         let lineWidth                   =   CGFloat((borderWidth as NSString).floatValue)
         
+//        self.alpha                      =   0
         self.viewStyle                  =   (isColor) ? "BottomDottedLineColor" : "BottomDottedLine"
         
         // Create line path around frame as single line
@@ -83,6 +82,7 @@ enum ViewStyle: String {
                     ((isAppThemeDark) ? UIColor.black.set() : UIColor.lightGrayAlpha20.set())
         
         dottedLinePath.stroke()
+//        self.alpha                      =   1
     }
 
     private func drawDottedRectangle(withColor isColor: Bool) {

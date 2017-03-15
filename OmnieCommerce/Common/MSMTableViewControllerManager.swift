@@ -13,6 +13,7 @@ class MSMTableViewControllerManager: BaseViewController {
     var sectionsCount               =   0
     var dataSource: [Any]?
     var dataSourceFiltered: [Any]?
+    var expandedCells               =   [IndexPath]()
     var isSearchBarActive: Bool     =   false
 
     weak var tableView: MSMTableView? {
@@ -61,18 +62,37 @@ extension MSMTableViewControllerManager: UITableViewDataSource {
         let cell            =   self.tableView!.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
         let item            =   (isSearchBarActive) ? dataSourceFiltered![indexPath.row] : dataSource![indexPath.row]
         
-        // Config cell
-        (cell as! ConfigureCell).setup(withItem: item, andIndexPath: indexPath)
-        
         switch cell {
         case cell as UserTemplateTableViewCell:
-            let userTemplateCell    =   (cell as! UserTemplateTableViewCell)
+            let userTemplateCell                =   (cell as! UserTemplateTableViewCell)
             
+            // Show Expanded Cells
+            if (expandedCells.count > 0) {
+                userTemplateCell.isExpanded     =   expandedCells.contains(indexPath)
+                userTemplateCell.expandButton.setImage(UIImage.init(named: (userTemplateCell.isExpanded) ? "icon-cell-expand-on-normal" : "icon-cell-expand-off-normal"),
+                                                                    for: .normal)
+            }
+
             // Handler Expanded Button tap
             userTemplateCell.handlerSendButtonCompletion        =   { _ in
                 self.tableView!.beginUpdates()
+                
+                if (userTemplateCell.isExpanded) {
+                    self.expandedCells.append(indexPath)
+                }
+                
+                guard self.expandedCells.count > 0 else {
+                    self.tableView!.endUpdates()
+                    return
+                }
+                
+                if (!userTemplateCell.isExpanded) {
+                    self.expandedCells.remove(at: self.expandedCells.index(where: { $0 == indexPath })!)
+                }
+            
                 self.tableView!.endUpdates()
             }
+            
 
 //        case cell as AvatarTableViewCell:
 //            let avatarCell  =   (cell as! AvatarTableViewCell)
@@ -99,6 +119,10 @@ extension MSMTableViewControllerManager: UITableViewDataSource {
             break
         }
         
+        // Config cell
+        (cell as! ConfigureCell).setup(withItem: item, andIndexPath: indexPath)
+        
+        
         //        // Handler Favorite button tap
         //        cell.handlerFavoriteButtonCompletion    =   { _ in
         //            // TODO: ADD API TO ADD/REMOVE ITEM TO/FROM FAVORITE LIST
@@ -112,16 +136,30 @@ extension MSMTableViewControllerManager: UITableViewDataSource {
 
 // MARK: - UITableViewDelegate
 extension MSMTableViewControllerManager: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        let cellIdentifier  =   (dataSource?[indexPath.row] as! InitCellParameters).cellIdentifier
+        let cell            =   self.tableView!.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
+        
+        switch cell {
+        case cell as UserTemplateTableViewCell:
+            let userTemplateCell    =   (cell as! UserTemplateTableViewCell)
+            
+//            if (userTemplateCell.dottedBorderView.alpha == 0) {
+                userTemplateCell.dottedBorderView.setNeedsDisplay()
+//                userTemplateCell.dottedBorderView.alpha =   1
+//            }
+            
+        default:
+            break
+        }
+    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
         handlerSearchCompletion!((isSearchBarActive) ? dataSourceFiltered![indexPath.row] : dataSource![indexPath.row])
     }
     
-//    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return 60.0
-//    }
-
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let height          =   (dataSource?[indexPath.row] as! InitCellParameters).cellHeight
         let cellIdentifier  =   (dataSource?[indexPath.row] as! InitCellParameters).cellIdentifier
