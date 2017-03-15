@@ -40,6 +40,12 @@ class RepetitionPasswordShowViewController: BaseViewController, PasswordStrength
         }
     }
 
+    @IBOutlet var dottedBorderViewsCollection: [DottedBorderView]! {
+        didSet {
+            _ = dottedBorderViewsCollection.map{ $0.style = .BottomDottedLine }
+        }
+    }
+
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet var textFieldsCollection: [CustomTextField]!
 
