@@ -12,6 +12,16 @@ import UIKit
     // MARK: - Properties
     var handlerDeleteButtonCompletion: HandlerSendButtonCompletion?
     
+    override var tag: Int {
+        didSet {
+            deleteButton.tag        =   tag
+            phoneTextField.tag      =   tag
+            dottedBorderView.tag    =   tag
+            errorMessageView.tag    =   tag
+            
+        }
+    }
+    
     @IBOutlet var view: UIView!
     @IBOutlet weak var dottedBorderView: DottedBorderView!
     @IBOutlet weak var phoneTextField: CustomTextField!
@@ -21,9 +31,6 @@ import UIKit
     
     @IBOutlet weak var errorMessageViewTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var errorMessageViewHeightConstraint: NSLayoutConstraint!
-    
-    
-//    var handlerDeleteButtonTap: handlerdele
     
     
     // MARK: - Class Initialization

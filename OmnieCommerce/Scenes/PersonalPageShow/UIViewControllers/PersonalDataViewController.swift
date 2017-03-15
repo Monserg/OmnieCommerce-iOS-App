@@ -11,10 +11,11 @@ import UIKit
 class PersonalDataViewController: BaseViewController, EmailErrorMessageView, PhoneErrorMessageView, PasswordErrorMessageView, PasswordStrengthView, PasswordStrengthErrorMessageView {
     // MARK: - Properties
     var parametersForAPI: [String: String]?
-    var phoneLastTag: Int!
-    var phonesCount: Int                    =   1
+    var phoneLastTag: Int                   =   -1
+    var phonesCount: Int                    =   0
     var onePhoneViewHeight: CGFloat         =   0
     var deleteButtonsCollection             =   [FillVeryLightOrangeButton]()
+    var phoneViewsCollection                =   [NewPhoneView]()
 
     // Protocol PhoneErrorMessageView
     var phoneErrorMessageViewsCollection                    =   [ErrorMessageView]()
@@ -62,18 +63,6 @@ class PersonalDataViewController: BaseViewController, EmailErrorMessageView, Pho
     @IBOutlet weak var changePasswordButton: UbuntuLightItalicDarkCyanButton!
     @IBOutlet weak var birthdayPickerView: UIPickerView!
     
-    @IBOutlet weak var firstPhoneView: NewPhoneView! {
-        didSet {
-            phoneLastTag                =   firstPhoneView.tag
-            firstPhoneView.alpha        =   1
-            
-            // Handler Delete Button Tap
-            firstPhoneView.handlerDeleteButtonCompletion                            =   { _ in
-                self.phoneViewDidDelete(self.firstPhoneView)
-            }
-        }
-    }
-    
     @IBOutlet var textFieldsCollection: [CustomTextField]! {
         didSet {
             textFieldManager            =   MSMTextFieldManager(withTextFields: textFieldsCollection)
@@ -92,48 +81,51 @@ class PersonalDataViewController: BaseViewController, EmailErrorMessageView, Pho
                     
                     // Handler Add New Phone View
                     self.textFieldManager.handlerPassDataCompletion                 =   { phoneButtonTextField in
-                        let newPhoneView            =   NewPhoneView.init(frame: CGRect.init(origin: .zero, size: CGSize.init(width: self.phonesView.frame.width, height: self.onePhoneViewHeight)))
-                        let phoneErrorView          =   self.phoneErrorMessageViewsCollection.first(where: { $0.tag == (phoneButtonTextField as! CustomTextField).tag })!
-                        self.phonesCount            =   self.phonesCount + 1
-
-                        self.phonesViewHeightConstraint         =   self.view.constraintDidUpdate(self.phonesViewHeightConstraint, withNewMultiplier: self.onePhoneViewHeight * CGFloat(self.phonesCount) / ((UIApplication.shared.statusBarOrientation.isPortrait) ? 494.0 : 216.0))
-
-                        self.phonesView.addSubview(newPhoneView)
-                        self.dottedBorderViewsCollection.append(newPhoneView.dottedBorderView)
-
-                        newPhoneView.translatesAutoresizingMaskIntoConstraints   =   false
-
-                        // Add Layouts
-                        newPhoneView.topAnchor.constraint(equalTo: (((phoneButtonTextField as! CustomTextField).tag == 0) ? phoneErrorView : self.phonesView).bottomAnchor, constant: 0).isActive       =   true
-                        newPhoneView.bottomAnchor.constraint(equalTo: self.phonesView.bottomAnchor, constant: 0).isActive   =   true
-                        newPhoneView.leftAnchor.constraint(equalTo: self.phonesView.leftAnchor, constant: 0).isActive       =   true
-                        newPhoneView.rightAnchor.constraint(equalTo: self.phonesView.rightAnchor, constant: 0).isActive     =   true
+                        self.phoneViewDidAdd()
                         
-                        // Set properties to all collections
-                        self.phoneLastTag                       =   self.phoneLastTag + 1
-                        newPhoneView.phoneTextField.tag         =   self.phoneLastTag
-                        newPhoneView.deleteButton.tag           =   self.phoneLastTag
-                        newPhoneView.errorMessageView.tag       =   self.phoneLastTag
                         
-                        self.textFieldsCollection.append(newPhoneView.phoneTextField)
-                        self.deleteButtonsCollection.append(newPhoneView.deleteButton)
-                        self.phoneErrorMessageViewsCollection.append(newPhoneView.errorMessageView)
-                        self.phoneErrorMessageViewTopConstraintsCollection.append(newPhoneView.errorMessageViewTopConstraint)
-                        self.phoneErrorMessageViewHeightConstraintsCollection.append(newPhoneView.errorMessageViewHeightConstraint)
-                        
-                        self.textFieldManager.textFieldsArray   =   self.textFieldsCollection
-
-                        newPhoneView.errorMessageView.didShow(false, withConstraint: newPhoneView.errorMessageViewTopConstraint)
-
-                        UIView.animate(withDuration: 0.5, animations: {
-                            newPhoneView.alpha      =   1
-                        }, completion: { success in
-                        })
-                        
-                        // Handler Delete Button Tap
-                        newPhoneView.handlerDeleteButtonCompletion                  =   { _ in
-                            self.phoneViewDidDelete(newPhoneView)
-                        }
+//                        let newPhoneView            =   NewPhoneView.init(frame: CGRect.init(origin: .zero, size: CGSize.init(width: self.phonesView.frame.width, height: self.onePhoneViewHeight)))
+//                        let phoneErrorView          =   self.phoneErrorMessageViewsCollection.first(where: { $0.tag == (phoneButtonTextField as! CustomTextField).tag })!
+//                        self.phonesCount            =   self.phonesCount + 1
+//
+//                        self.phonesViewHeightConstraint         =   self.view.constraintDidUpdate(self.phonesViewHeightConstraint, withNewMultiplier: self.onePhoneViewHeight * CGFloat(self.phonesCount) / ((UIApplication.shared.statusBarOrientation.isPortrait) ? 494.0 : 216.0))
+//
+//                        self.phonesView.addSubview(newPhoneView)
+//                        self.dottedBorderViewsCollection.append(newPhoneView.dottedBorderView)
+//
+//                        newPhoneView.translatesAutoresizingMaskIntoConstraints   =   false
+//
+//                        // Add Layouts
+//                        newPhoneView.topAnchor.constraint(equalTo: (((phoneButtonTextField as! CustomTextField).tag == 0) ? phoneErrorView : self.phonesView).bottomAnchor, constant: 0).isActive       =   true
+//                        newPhoneView.bottomAnchor.constraint(equalTo: self.phonesView.bottomAnchor, constant: 0).isActive   =   true
+//                        newPhoneView.leftAnchor.constraint(equalTo: self.phonesView.leftAnchor, constant: 0).isActive       =   true
+//                        newPhoneView.rightAnchor.constraint(equalTo: self.phonesView.rightAnchor, constant: 0).isActive     =   true
+//                        
+//                        // Set properties to all collections
+//                        self.phoneLastTag                       =   self.phoneLastTag + 1
+//                        newPhoneView.phoneTextField.tag         =   self.phoneLastTag
+//                        newPhoneView.deleteButton.tag           =   self.phoneLastTag
+//                        newPhoneView.errorMessageView.tag       =   self.phoneLastTag
+//                        
+//                        self.textFieldsCollection.append(newPhoneView.phoneTextField)
+//                        self.deleteButtonsCollection.append(newPhoneView.deleteButton)
+//                        self.phoneErrorMessageViewsCollection.append(newPhoneView.errorMessageView)
+//                        self.phoneErrorMessageViewTopConstraintsCollection.append(newPhoneView.errorMessageViewTopConstraint)
+//                        self.phoneErrorMessageViewHeightConstraintsCollection.append(newPhoneView.errorMessageViewHeightConstraint)
+//                        
+//                        self.textFieldManager.textFieldsArray   =   self.textFieldsCollection
+//
+//                        newPhoneView.errorMessageView.didShow(false, withConstraint: newPhoneView.errorMessageViewTopConstraint)
+//
+//                        UIView.animate(withDuration: 0.5, animations: {
+//                            newPhoneView.alpha      =   1
+//                        }, completion: { success in
+//                        })
+//                        
+//                        // Handler Delete Button Tap
+//                        newPhoneView.handlerDeleteButtonCompletion                  =   { _ in
+//                            self.phoneViewDidDelete(newPhoneView)
+//                        }
                     }
 
                     // Handler Show/Hide Phone Error Message View
@@ -157,13 +149,6 @@ class PersonalDataViewController: BaseViewController, EmailErrorMessageView, Pho
             })
         }
     }
-    
-    // TODO: DELETE!!!
-//    @IBOutlet var deleteButtonsCollection1: [FillVeryLightOrangeButton]! {
-//        didSet {
-//            _ = deleteButtonsCollection1.map{ $0.isHidden = true }
-//        }
-//    }
     
     @IBOutlet var dottedBorderViewsCollection: [DottedBorderView]! {
         didSet {
@@ -242,20 +227,8 @@ class PersonalDataViewController: BaseViewController, EmailErrorMessageView, Pho
         emailErrorMessageViewHeightConstraint.constant              =   Config.Constants.errorMessageViewHeight
         didHide(emailErrorMessageView, withConstraint: emailErrorMessageViewTopConstraint)
 
-        // Settings Phones View
-        textFieldsCollection.append(firstPhoneView.phoneTextField)
-        deleteButtonsCollection.append(firstPhoneView.deleteButton)
-        dottedBorderViewsCollection.append(firstPhoneView.dottedBorderView)
-
-        // Protocol PhoneErrorMessageView
-        phoneErrorMessageViewsCollection.append(firstPhoneView.errorMessageView)
-        phoneErrorMessageViewTopConstraintsCollection.append(firstPhoneView.errorMessageViewTopConstraint)
-        phoneErrorMessageViewHeightConstraintsCollection.append(firstPhoneView.errorMessageViewHeightConstraint)
-        
-        // Hide phones error message view
-        _   =   phoneErrorMessageViewHeightConstraintsCollection.map{ $0.constant  =   Config.Constants.errorMessageViewHeight }
-        _   =   phoneErrorMessageViewsCollection.enumerated().map{ didHide($1, withConstraint: phoneErrorMessageViewTopConstraintsCollection[$0]) }
-        
+        // Add New Phones View
+        phoneViewDidAdd()
         
         
         
@@ -275,15 +248,69 @@ class PersonalDataViewController: BaseViewController, EmailErrorMessageView, Pho
         textFieldManager.textFieldsArray        =   textFieldsCollection
     }
     
-    func phoneViewDidDelete(_ phoneView: UIView) {
-        let phoneErrorView          =   self.phoneErrorMessageViewsCollection.first(where: { $0.tag == phoneView.tag })!
-        let phoneErrorViewIndex     =   self.phoneErrorMessageViewsCollection.index(of: phoneErrorView)!
+    func phoneViewDidAdd() {
+        let newPhoneView            =   NewPhoneView.init(frame: CGRect.init(origin: .zero, size: CGSize.init(width: self.phonesView.frame.width, height: self.onePhoneViewHeight)))
+        self.phonesCount            =   self.phonesCount + 1
+        
+        self.phonesViewHeightConstraint         =   self.view.constraintDidUpdate(self.phonesViewHeightConstraint, withNewMultiplier: self.onePhoneViewHeight * CGFloat(self.phonesCount) / ((UIApplication.shared.statusBarOrientation.isPortrait) ? 494.0 : 216.0))
+        
+        self.phonesView.addSubview(newPhoneView)
+        self.dottedBorderViewsCollection.append(newPhoneView.dottedBorderView)
+        
+        newPhoneView.translatesAutoresizingMaskIntoConstraints   =   false
+        
+        // Set properties to all collections
+        self.phoneLastTag   +=  1
+        newPhoneView.tag    =   self.phoneLastTag
+
+        // Add Layouts
+        if (self.phoneLastTag == 0) {
+            newPhoneView.topAnchor.constraint(equalTo: self.phonesView.topAnchor, constant: 0).isActive     =   true
+        } else {
+            newPhoneView.topAnchor.constraint(equalTo: self.phoneViewsCollection.last!.bottomAnchor, constant: 0).isActive  =   true
+        }
+
+        newPhoneView.bottomAnchor.constraint(equalTo: self.phonesView.bottomAnchor, constant: 0).isActive   =   true
+        newPhoneView.leftAnchor.constraint(equalTo: self.phonesView.leftAnchor, constant: 0).isActive       =   true
+        newPhoneView.rightAnchor.constraint(equalTo: self.phonesView.rightAnchor, constant: 0).isActive     =   true
+        
+        // Append new elements to all collections
+        self.phoneViewsCollection.append(newPhoneView)
+        self.textFieldsCollection.append(newPhoneView.phoneTextField)
+        self.deleteButtonsCollection.append(newPhoneView.deleteButton)
+        newPhoneView.deleteButton.isHidden      =   true
+
+        // Protocol PhoneErrorMessageView
+        phoneErrorMessageViewsCollection.append(newPhoneView.errorMessageView)
+        phoneErrorMessageViewTopConstraintsCollection.append(newPhoneView.errorMessageViewTopConstraint)
+        phoneErrorMessageViewHeightConstraintsCollection.append(newPhoneView.errorMessageViewHeightConstraint)
+        
+        // Hide phones error message view
+        newPhoneView.errorMessageViewHeightConstraint.constant  =   Config.Constants.errorMessageViewHeight
+        newPhoneView.errorMessageView.didShow(false, withConstraint: newPhoneView.errorMessageViewTopConstraint)
+
+        self.textFieldManager.textFieldsArray   =   self.textFieldsCollection
+        
+        UIView.animate(withDuration: 0.5, animations: {
+            newPhoneView.alpha      =   1
+        })
+        
+        // Handler Delete Button Tap
+        newPhoneView.handlerDeleteButtonCompletion      =   { _ in
+            if (self.phoneViewsCollection.count > 1) {
+                self.phoneViewDidDelete(newPhoneView)
+            }
+        }
+    }
+    
+    func phoneViewDidDelete(_ phoneView: NewPhoneView) {
+        let phoneViewIndex          =   self.phoneViewsCollection.index(of: phoneView)!
 
         phoneView.removeFromSuperview()
-        phoneErrorView.removeFromSuperview()
-        textFieldsCollection.remove(at: phoneErrorViewIndex)
-        deleteButtonsCollection.remove(at: phoneErrorViewIndex)
-        dottedBorderViewsCollection.remove(at: phoneErrorViewIndex)
+        phoneViewsCollection.remove(at: phoneViewIndex)
+        textFieldsCollection.remove(at: phoneViewIndex)
+        deleteButtonsCollection.remove(at: phoneViewIndex)
+        dottedBorderViewsCollection.remove(at: phoneViewIndex)
         
         textFieldManager.textFieldsArray    =   textFieldsCollection
         
@@ -295,8 +322,15 @@ class PersonalDataViewController: BaseViewController, EmailErrorMessageView, Pho
     // MARK: - Transition
     override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
 ////        changePasswordButton.tag    =   0
+        
+        // Portrait
+        if newCollection.containsTraits(in: UITraitCollection(verticalSizeClass: .regular)) {
+            onePhoneViewHeight              =   UIScreen.main.bounds.height / 667.0 * 40.0
+        } else {
+            onePhoneViewHeight              =   UIScreen.main.bounds.width / 375.0 * 40.0
+        }
     }
-
+    
     
     // MARK: - Actions
     @IBAction func handlerAvatarButtonTap(_ sender: CustomButton) {
@@ -344,9 +378,5 @@ class PersonalDataViewController: BaseViewController, EmailErrorMessageView, Pho
                 return
             }
         })
-    }
-    
-    @IBAction func handlerDeletePhoneButtonTap(_ sender: FillVeryLightOrangeButton) {
-        phoneViewDidDelete(firstPhoneView)
     }
 }
