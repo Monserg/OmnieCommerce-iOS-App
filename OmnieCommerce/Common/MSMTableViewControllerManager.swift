@@ -75,22 +75,35 @@ extension MSMTableViewControllerManager: UITableViewDataSource {
 
             // Handler Expanded Button tap
             userTemplateCell.handlerSendButtonCompletion        =   { _ in
-                self.tableView!.beginUpdates()
-                
                 if (userTemplateCell.isExpanded) {
                     self.expandedCells.append(indexPath)
+                    
+                    self.tableView!.beginUpdates()
+
+                    // Redraw Dotted Border View
+                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.0) {
+                        userTemplateCell.dottedBorderView.setNeedsDisplay()
+                    }
+                    
+                    self.tableView!.endUpdates()
                 }
                 
                 guard self.expandedCells.count > 0 else {
-                    self.tableView!.endUpdates()
                     return
                 }
                 
                 if (!userTemplateCell.isExpanded) {
                     self.expandedCells.remove(at: self.expandedCells.index(where: { $0 == indexPath })!)
+                    
+                    self.tableView!.beginUpdates()
+                    
+                    // Redraw Dotted Border View
+                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.3) {
+                        userTemplateCell.dottedBorderView.setNeedsDisplay()
+                    }
+                    
+                    self.tableView!.endUpdates()
                 }
-            
-                self.tableView!.endUpdates()
             }
             
 
@@ -136,24 +149,6 @@ extension MSMTableViewControllerManager: UITableViewDataSource {
 
 // MARK: - UITableViewDelegate
 extension MSMTableViewControllerManager: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        let cellIdentifier  =   (dataSource?[indexPath.row] as! InitCellParameters).cellIdentifier
-        let cell            =   self.tableView!.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
-        
-        switch cell {
-        case cell as UserTemplateTableViewCell:
-            let userTemplateCell    =   (cell as! UserTemplateTableViewCell)
-            
-//            if (userTemplateCell.dottedBorderView.alpha == 0) {
-                userTemplateCell.dottedBorderView.setNeedsDisplay()
-//                userTemplateCell.dottedBorderView.alpha =   1
-//            }
-            
-        default:
-            break
-        }
-    }
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
