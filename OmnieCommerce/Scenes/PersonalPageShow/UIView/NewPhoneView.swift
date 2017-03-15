@@ -8,8 +8,10 @@
 
 import UIKit
 
-class NewPhoneView: UIView {
+@IBDesignable class NewPhoneView: UIView {
     // MARK: - Properties
+    var handlerDeleteButtonCompletion: HandlerSendButtonCompletion?
+    
     @IBOutlet var view: UIView!
     @IBOutlet weak var dottedBorderView: DottedBorderView!
     @IBOutlet weak var phoneTextField: CustomTextField!
@@ -42,12 +44,17 @@ class NewPhoneView: UIView {
     func createFromXIB() {
         UINib(nibName: String(describing: NewPhoneView.self), bundle: Bundle(for: NewPhoneView.self)).instantiate(withOwner: self, options: nil)
         addSubview(view)
-        view.frame  =   frame
+        view.frame          =   frame
+        alpha               =   0
+        tag                 =   1
+        phoneTextField.tag  =   tag
+        deleteButton.tag    =   tag
     }
     
     
     // MARK: - Actions
     @IBAction func handlerDeleteButtonTap(_ sender: FillVeryLightOrangeButton) {
+        handlerDeleteButtonCompletion!()
     }
     
 }

@@ -12,9 +12,9 @@ class ErrorMessageView: UIView {
     // MARK: - Custom Functions
     func didShow(_ value: Bool, withConstraint constraint: NSLayoutConstraint) {
         UIView.animate(withDuration: 1.3, animations: {
-            constraint.constant     =   (value) ? 0 : -self.frame.height
+            constraint.constant     =   (value) ? 0 : -14 //self.frame.height
             self.isHidden           =   (value) ? false : true
-
+            
             self.layoutIfNeeded()
         })
     }

@@ -17,7 +17,6 @@ class MSMTextFieldManager: NSObject {
     var handlerPassDataCompletion: HandlerPassDataCompletion?
     var handlerTextFieldShowErrorViewCompletion: HandlerTextFieldShowErrorViewCompletion?
     
-    
     // MARK: - Class Initialization
     init(withTextFields array: [CustomTextField]) {
         super.init()
@@ -189,12 +188,13 @@ extension MSMTextFieldManager: UITextFieldDelegate {
                 }
             }
             
+            // Show Phone Error Message View
             guard Int(string) != nil || ((textField.text?.isEmpty)! && string == "+") else {
                 handlerTextFieldShowErrorViewCompletion!(textField as! CustomTextField, true)
                 return false
             }
             
-            // Hide Phone error message view
+            // Hide Phone Error Message View
             if let _ = Int(string) {
                 handlerTextFieldShowErrorViewCompletion!(textField as! CustomTextField, false)
                 return true

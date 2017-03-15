@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="landscape">
+    <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -25,11 +25,11 @@
                         <viewControllerLayoutGuide type="bottom" id="9Hf-Hr-JzW"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="WeC-xT-hwP">
-                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="08z-zS-Fzg" customClass="SmallTopBarView" customModule="OmnieCommerce" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="667" height="80"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="95"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="titleText" value="PersonalPage"/>
@@ -37,10 +37,10 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C6T-NV-zxA" userLabel="Segmented Control View">
-                                <rect key="frame" x="0.0" y="80" width="667" height="50"/>
+                                <rect key="frame" x="0.0" y="95" width="375" height="50"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AJk-0S-k6N" userLabel="Content View" customClass="SegmentedControlView" customModule="OmnieCommerce" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="667" height="35"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="35"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="string" keyPath="segmentedControlViewStyle" value="PersonalPage"/>
@@ -56,10 +56,10 @@
                                 </constraints>
                             </view>
                             <containerView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aKH-YG-AUK" customClass="CustomView" customModule="OmnieCommerce" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="130" width="667" height="216"/>
+                                <rect key="frame" x="0.0" y="145" width="375" height="493"/>
                             </containerView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Copyright" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ASc-N1-FS2" customClass="UbuntuLightDarkCyanLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                                <rect key="frame" x="8" y="355" width="651" height="11"/>
+                                <rect key="frame" x="8" y="647" width="359" height="11"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="9"/>
                                 <nil key="textColor"/>
@@ -128,18 +128,18 @@
                         <viewControllerLayoutGuide type="bottom" id="aMi-Wd-BPW"/>
                     </layoutGuides>
                     <view key="view" clipsSubviews="YES" tag="1" contentMode="scaleToFill" id="O1B-vT-ch7">
-                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5Jv-lD-5kg" customClass="MSMTableView" customModule="OmnieCommerce" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <view key="tableFooterView" hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" id="sjS-wP-KxF" userLabel="Data Source Empty View">
-                                    <rect key="frame" x="0.0" y="0.0" width="667" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Templates list is empty" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DqD-Qj-yRV" customClass="UbuntuLightVeryLightGrayLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                                            <rect key="frame" x="268.5" y="26" width="130" height="15"/>
+                                            <rect key="frame" x="122.5" y="26" width="130" height="15"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <nil key="textColor"/>
@@ -209,20 +209,20 @@
                         <viewControllerLayoutGuide type="bottom" id="Naw-g1-PdC"/>
                     </layoutGuides>
                     <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="BCA-3j-wEk">
-                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ph0-LK-aMq">
-                                <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gwY-6v-Lh9" userLabel="Content View">
-                                        <rect key="frame" x="221" y="0.0" width="225" height="762"/>
+                                        <rect key="frame" x="75" y="0.0" width="225" height="423.5"/>
                                         <subviews>
                                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hBm-3u-D6E" userLabel="Avatar View">
-                                                <rect key="frame" x="0.0" y="0.0" width="225" height="149.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="225" height="116"/>
                                                 <subviews>
                                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Lw-ai-Lx3" userLabel="Avatar Button" customClass="CustomButton" customModule="OmnieCommerce" customModuleProvider="target">
-                                                        <rect key="frame" x="39" y="1.5" width="147" height="147"/>
+                                                        <rect key="frame" x="55" y="1" width="115" height="114.5"/>
                                                         <color key="backgroundColor" red="0.1529411765" green="0.2156862745" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="0Lw-ai-Lx3" secondAttribute="height" multiplier="1:1" id="229-R8-fP8"/>
@@ -250,10 +250,10 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J74-wy-HtM" userLabel="Name View">
-                                                <rect key="frame" x="0.0" y="159.5" width="225" height="69.5"/>
+                                                <rect key="frame" x="0.0" y="126" width="225" height="54"/>
                                                 <subviews>
                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y7Y-Bb-Jp8" userLabel="Name Dotted Border View" customClass="DottedBorderView" customModule="OmnieCommerce" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="225" height="69.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="225" height="54"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="string" keyPath="viewStyle" value="BottomDottedLine"/>
@@ -261,7 +261,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="kS6-AW-8e4" userLabel="Name Text Field" customClass="CustomTextField" customModule="OmnieCommerce" customModuleProvider="target">
-                                                        <rect key="frame" x="8" y="35.5" width="225" height="19"/>
+                                                        <rect key="frame" x="8" y="31" width="225" height="19"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -293,16 +293,16 @@
                                                 </variation>
                                                 <variation key="heightClass=regular-widthClass=compact">
                                                     <mask key="constraints">
-                                                        <exclude reference="MPJ-KR-aIu"/>
                                                         <include reference="AQZ-gU-1Uq"/>
+                                                        <exclude reference="MPJ-KR-aIu"/>
                                                     </mask>
                                                 </variation>
                                             </view>
                                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gxC-Rj-htM" userLabel="Surname View">
-                                                <rect key="frame" x="0.0" y="229" width="225" height="69"/>
+                                                <rect key="frame" x="0.0" y="180" width="225" height="54"/>
                                                 <subviews>
                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sQv-tR-Sfp" userLabel="Surname Dotted Border View" customClass="DottedBorderView" customModule="OmnieCommerce" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="225" height="69"/>
+                                                        <rect key="frame" x="0.0" y="0.5" width="225" height="54"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="string" keyPath="viewStyle" value="BottomDottedLine"/>
@@ -310,7 +310,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Surname" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="QeN-Uq-axx" userLabel="Surname Text Field" customClass="CustomTextField" customModule="OmnieCommerce" customModuleProvider="target">
-                                                        <rect key="frame" x="8" y="36" width="225" height="19"/>
+                                                        <rect key="frame" x="8" y="31" width="225" height="19"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -348,17 +348,17 @@
                                                 </variation>
                                             </view>
                                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="koQ-ku-C6N" userLabel="Email View">
-                                                <rect key="frame" x="0.0" y="298" width="225" height="69.5"/>
+                                                <rect key="frame" x="0.0" y="234" width="225" height="54"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6vG-sL-FMv" userLabel="Email Dotted Line View" customClass="DottedBorderView" customModule="OmnieCommerce" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="225" height="69.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="225" height="54"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="string" keyPath="viewStyle" value="BottomDottedLine"/>
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="pSw-D6-Wx0" userLabel="Email Text Field" customClass="CustomTextField" customModule="OmnieCommerce" customModuleProvider="target">
-                                                        <rect key="frame" x="8" y="36" width="225" height="19"/>
+                                                        <rect key="frame" x="8" y="31" width="225" height="19"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -396,7 +396,7 @@
                                                 </variation>
                                             </view>
                                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yUP-OC-Rvg" userLabel="Email Error View">
-                                                <rect key="frame" x="0.0" y="367.5" width="225" height="14"/>
+                                                <rect key="frame" x="0.0" y="288" width="225" height="14"/>
                                                 <subviews>
                                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wrong Email" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yfu-0t-T5Y" userLabel="Email Error Message Label" customClass="UbuntuLightItalicModerateRedLabel" customModule="OmnieCommerce" customModuleProvider="target">
                                                         <rect key="frame" x="8" y="0.0" width="217" height="12"/>
@@ -421,119 +421,188 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="feO-QX-Jfr" userLabel="Phones View">
-                                                <rect key="frame" x="0.0" y="381.5" width="225" height="69.5"/>
+                                                <rect key="frame" x="0.0" y="302" width="225" height="54"/>
                                                 <subviews>
-                                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Euk-TO-i6q" userLabel="One Phone View">
-                                                        <rect key="frame" x="0.0" y="0.0" width="225" height="69.5"/>
+                                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HBS-eI-rim" userLabel="Phone View">
+                                                        <rect key="frame" x="0.0" y="0.0" width="225" height="54"/>
                                                         <subviews>
-                                                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HBS-eI-rim" userLabel="Phone View">
-                                                                <rect key="frame" x="0.0" y="0.0" width="225" height="55.5"/>
-                                                                <subviews>
-                                                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ABI-eu-Oy7" userLabel="0 Dotted Border View" customClass="DottedBorderView" customModule="OmnieCommerce" customModuleProvider="target">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="225" height="55.5"/>
-                                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                                        <userDefinedRuntimeAttributes>
-                                                                            <userDefinedRuntimeAttribute type="string" keyPath="borderWidth" value="1.5"/>
-                                                                            <userDefinedRuntimeAttribute type="string" keyPath="viewStyle" value="BottomDottedLine"/>
-                                                                        </userDefinedRuntimeAttributes>
-                                                                    </view>
-                                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Phone" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="pWi-wB-bGS" userLabel="0 Phone Text Field" customClass="CustomTextField" customModule="OmnieCommerce" customModuleProvider="target">
-                                                                        <rect key="frame" x="8" y="26.5" width="225" height="19"/>
-                                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                                        <nil key="textColor"/>
-                                                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" enablesReturnKeyAutomatically="YES"/>
-                                                                        <userDefinedRuntimeAttributes>
-                                                                            <userDefinedRuntimeAttribute type="string" keyPath="fieldType" value="PhoneButton"/>
-                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
-                                                                        </userDefinedRuntimeAttributes>
-                                                                    </textField>
-                                                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YvS-mj-dTE" userLabel="0 Delete Button" customClass="FillVeryLightOrangeButton" customModule="OmnieCommerce" customModuleProvider="target">
-                                                                        <rect key="frame" x="193.5" y="17" width="31.5" height="31.5"/>
-                                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                                        <constraints>
-                                                                            <constraint firstAttribute="width" secondItem="YvS-mj-dTE" secondAttribute="height" multiplier="1:1" id="IeH-Fo-ouw"/>
-                                                                        </constraints>
-                                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                                        <state key="normal" title="-"/>
-                                                                        <userDefinedRuntimeAttributes>
-                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
-                                                                        </userDefinedRuntimeAttributes>
-                                                                        <connections>
-                                                                            <action selector="handlerDeletePhoneButtonTap:" destination="CTG-bt-tIh" eventType="touchUpInside" id="xOV-D5-lQR"/>
-                                                                        </connections>
-                                                                    </button>
-                                                                </subviews>
+                                                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ABI-eu-Oy7" userLabel="0 Dotted Border View" customClass="DottedBorderView" customModule="OmnieCommerce" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="0.0" width="225" height="54"/>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="borderWidth" value="1.5"/>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="viewStyle" value="BottomDottedLine"/>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </view>
+                                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Phone" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="pWi-wB-bGS" userLabel="0 Phone Text Field" customClass="CustomTextField" customModule="OmnieCommerce" customModuleProvider="target">
+                                                                <rect key="frame" x="8" y="31" width="225" height="19"/>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                                <nil key="textColor"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" enablesReturnKeyAutomatically="YES"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="fieldType" value="PhoneButton"/>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </textField>
+                                                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YvS-mj-dTE" userLabel="0 Delete Button" customClass="FillVeryLightOrangeButton" customModule="OmnieCommerce" customModuleProvider="target">
+                                                                <rect key="frame" x="201" y="24" width="24" height="24.5"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                 <constraints>
-                                                                    <constraint firstItem="YvS-mj-dTE" firstAttribute="centerY" secondItem="pWi-wB-bGS" secondAttribute="centerY" multiplier="0.9" id="Af1-VS-NFT"/>
-                                                                    <constraint firstAttribute="bottom" secondItem="ABI-eu-Oy7" secondAttribute="bottom" id="E42-Vo-ICA"/>
-                                                                    <constraint firstItem="pWi-wB-bGS" firstAttribute="centerY" secondItem="HBS-eI-rim" secondAttribute="centerY" multiplier="1.3" id="S8t-oR-rez"/>
-                                                                    <constraint firstAttribute="trailing" secondItem="pWi-wB-bGS" secondAttribute="trailing" constant="-8" id="UTl-6r-kRa"/>
-                                                                    <constraint firstItem="ABI-eu-Oy7" firstAttribute="leading" secondItem="HBS-eI-rim" secondAttribute="leading" id="Z0I-YA-trq"/>
-                                                                    <constraint firstItem="pWi-wB-bGS" firstAttribute="centerY" secondItem="HBS-eI-rim" secondAttribute="centerY" multiplier="1.5" id="Z7i-fe-9Zt"/>
-                                                                    <constraint firstAttribute="trailing" secondItem="ABI-eu-Oy7" secondAttribute="trailing" id="cZE-Wy-jF8"/>
-                                                                    <constraint firstItem="ABI-eu-Oy7" firstAttribute="top" secondItem="HBS-eI-rim" secondAttribute="top" id="eUj-gZ-ynh"/>
-                                                                    <constraint firstAttribute="trailing" secondItem="YvS-mj-dTE" secondAttribute="trailing" id="oAK-I2-VRh"/>
-                                                                    <constraint firstItem="pWi-wB-bGS" firstAttribute="leading" secondItem="HBS-eI-rim" secondAttribute="leading" constant="8" id="snj-3d-Dxz"/>
+                                                                    <constraint firstAttribute="width" secondItem="YvS-mj-dTE" secondAttribute="height" multiplier="1:1" id="IeH-Fo-ouw"/>
                                                                 </constraints>
-                                                                <variation key="default">
-                                                                    <mask key="constraints">
-                                                                        <exclude reference="Z7i-fe-9Zt"/>
-                                                                    </mask>
-                                                                </variation>
-                                                                <variation key="heightClass=regular-widthClass=compact">
-                                                                    <mask key="constraints">
-                                                                        <exclude reference="S8t-oR-rez"/>
-                                                                        <include reference="Z7i-fe-9Zt"/>
-                                                                    </mask>
-                                                                </variation>
-                                                            </view>
-                                                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sPl-10-aGU" userLabel="Phone Error Message View" customClass="ErrorMessageView" customModule="OmnieCommerce" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="55.5" width="225" height="14"/>
-                                                                <subviews>
-                                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wrong Phone" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kUt-Jr-dGy" customClass="UbuntuLightItalicModerateRedLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                                                                        <rect key="frame" x="8" y="0.0" width="217" height="12"/>
-                                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                                                        <nil key="textColor"/>
-                                                                        <nil key="highlightedColor"/>
-                                                                        <userDefinedRuntimeAttributes>
-                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
-                                                                        </userDefinedRuntimeAttributes>
-                                                                    </label>
-                                                                </subviews>
-                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                                <constraints>
-                                                                    <constraint firstItem="kUt-Jr-dGy" firstAttribute="leading" secondItem="sPl-10-aGU" secondAttribute="leading" constant="8" id="Jzi-w1-kj0"/>
-                                                                    <constraint firstAttribute="height" constant="14" id="WGm-GO-YZW" userLabel="0 height = 14"/>
-                                                                    <constraint firstItem="kUt-Jr-dGy" firstAttribute="top" secondItem="sPl-10-aGU" secondAttribute="top" id="pTE-Fy-U5h" userLabel="0 Wrong Phone.top = top"/>
-                                                                    <constraint firstAttribute="trailing" secondItem="kUt-Jr-dGy" secondAttribute="trailing" id="xuc-ye-ck7"/>
-                                                                </constraints>
-                                                            </view>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                                <state key="normal" title="-"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                                                </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <action selector="handlerDeletePhoneButtonTap:" destination="edG-FD-XdD" eventType="touchUpInside" id="XHz-UO-Ps0"/>
+                                                                </connections>
+                                                            </button>
                                                         </subviews>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="bottom" secondItem="sPl-10-aGU" secondAttribute="bottom" id="Msu-Dq-Myx"/>
-                                                            <constraint firstItem="HBS-eI-rim" firstAttribute="leading" secondItem="Euk-TO-i6q" secondAttribute="leading" id="NwX-Gv-aDI"/>
-                                                            <constraint firstItem="HBS-eI-rim" firstAttribute="top" secondItem="Euk-TO-i6q" secondAttribute="top" id="d3W-Fn-XNe"/>
-                                                            <constraint firstItem="sPl-10-aGU" firstAttribute="leading" secondItem="Euk-TO-i6q" secondAttribute="leading" id="gs7-7C-IP0"/>
-                                                            <constraint firstItem="sPl-10-aGU" firstAttribute="top" secondItem="HBS-eI-rim" secondAttribute="bottom" id="jlm-HM-ndS"/>
-                                                            <constraint firstAttribute="trailing" secondItem="sPl-10-aGU" secondAttribute="trailing" id="w7i-tM-Qb0"/>
-                                                            <constraint firstAttribute="trailing" secondItem="HBS-eI-rim" secondAttribute="trailing" id="znX-Xo-82G"/>
+                                                            <constraint firstItem="YvS-mj-dTE" firstAttribute="centerY" secondItem="pWi-wB-bGS" secondAttribute="centerY" multiplier="0.9" id="Af1-VS-NFT"/>
+                                                            <constraint firstAttribute="bottom" secondItem="ABI-eu-Oy7" secondAttribute="bottom" id="E42-Vo-ICA"/>
+                                                            <constraint firstItem="pWi-wB-bGS" firstAttribute="centerY" secondItem="HBS-eI-rim" secondAttribute="centerY" multiplier="1.3" id="S8t-oR-rez"/>
+                                                            <constraint firstAttribute="trailing" secondItem="pWi-wB-bGS" secondAttribute="trailing" constant="-8" id="UTl-6r-kRa"/>
+                                                            <constraint firstItem="ABI-eu-Oy7" firstAttribute="leading" secondItem="HBS-eI-rim" secondAttribute="leading" id="Z0I-YA-trq"/>
+                                                            <constraint firstItem="pWi-wB-bGS" firstAttribute="centerY" secondItem="HBS-eI-rim" secondAttribute="centerY" multiplier="1.5" id="Z7i-fe-9Zt"/>
+                                                            <constraint firstAttribute="trailing" secondItem="ABI-eu-Oy7" secondAttribute="trailing" id="cZE-Wy-jF8"/>
+                                                            <constraint firstItem="ABI-eu-Oy7" firstAttribute="top" secondItem="HBS-eI-rim" secondAttribute="top" id="eUj-gZ-ynh"/>
+                                                            <constraint firstAttribute="trailing" secondItem="YvS-mj-dTE" secondAttribute="trailing" id="oAK-I2-VRh"/>
+                                                            <constraint firstItem="pWi-wB-bGS" firstAttribute="leading" secondItem="HBS-eI-rim" secondAttribute="leading" constant="8" id="snj-3d-Dxz"/>
                                                         </constraints>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
-                                                        </userDefinedRuntimeAttributes>
+                                                        <variation key="default">
+                                                            <mask key="constraints">
+                                                                <exclude reference="Z7i-fe-9Zt"/>
+                                                            </mask>
+                                                        </variation>
+                                                        <variation key="heightClass=regular-widthClass=compact">
+                                                            <mask key="constraints">
+                                                                <exclude reference="S8t-oR-rez"/>
+                                                                <include reference="Z7i-fe-9Zt"/>
+                                                            </mask>
+                                                        </variation>
+                                                    </view>
+                                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sPl-10-aGU" userLabel="Phone Error Message View" customClass="ErrorMessageView" customModule="OmnieCommerce" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="54" width="225" height="14"/>
+                                                        <subviews>
+                                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wrong Phone" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kUt-Jr-dGy" customClass="UbuntuLightItalicModerateRedLabel" customModule="OmnieCommerce" customModuleProvider="target">
+                                                                <rect key="frame" x="8" y="0.0" width="217" height="12"/>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </label>
+                                                        </subviews>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="14" id="1NZ-uZ-R4B"/>
+                                                            <constraint firstItem="kUt-Jr-dGy" firstAttribute="leading" secondItem="sPl-10-aGU" secondAttribute="leading" constant="8" id="Jzi-w1-kj0"/>
+                                                            <constraint firstItem="kUt-Jr-dGy" firstAttribute="top" secondItem="sPl-10-aGU" secondAttribute="top" id="pTE-Fy-U5h" userLabel="0 Wrong Phone.top = top"/>
+                                                            <constraint firstAttribute="trailing" secondItem="kUt-Jr-dGy" secondAttribute="trailing" id="xuc-ye-ck7"/>
+                                                        </constraints>
                                                     </view>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstItem="Euk-TO-i6q" firstAttribute="top" secondItem="feO-QX-Jfr" secondAttribute="top" id="4aZ-tT-Whx"/>
-                                                    <constraint firstAttribute="bottom" secondItem="Euk-TO-i6q" secondAttribute="bottom" id="5cT-vl-iLf"/>
-                                                    <constraint firstAttribute="trailing" secondItem="Euk-TO-i6q" secondAttribute="trailing" id="Wvn-XV-89E"/>
-                                                    <constraint firstItem="Euk-TO-i6q" firstAttribute="leading" secondItem="feO-QX-Jfr" secondAttribute="leading" id="XA7-vA-kDj"/>
+                                                    <constraint firstItem="sPl-10-aGU" firstAttribute="leading" secondItem="feO-QX-Jfr" secondAttribute="leading" id="DtP-7s-Alp"/>
+                                                    <constraint firstItem="HBS-eI-rim" firstAttribute="top" secondItem="feO-QX-Jfr" secondAttribute="top" id="IZQ-Eb-v74"/>
+                                                    <constraint firstAttribute="trailing" secondItem="HBS-eI-rim" secondAttribute="trailing" id="da0-Yk-Dto"/>
+                                                    <constraint firstItem="sPl-10-aGU" firstAttribute="top" secondItem="HBS-eI-rim" secondAttribute="bottom" id="ixS-7T-ZDS"/>
+                                                    <constraint firstAttribute="trailing" secondItem="sPl-10-aGU" secondAttribute="trailing" id="q47-jF-NBk"/>
+                                                    <constraint firstItem="HBS-eI-rim" firstAttribute="leading" secondItem="feO-QX-Jfr" secondAttribute="leading" id="xZu-HJ-Uam"/>
                                                 </constraints>
+                                            </view>
+                                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XZU-0i-KnE" userLabel="Gender View">
+                                                <rect key="frame" x="0.0" y="356" width="225" height="67.5"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="Jbc-5V-V5w">
+                                                        <rect key="frame" x="48" y="21" width="108" height="26"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d9Z-Je-ZN6" userLabel="Man Button" customClass="DLRadioButton">
+                                                                <rect key="frame" x="0.0" y="0.0" width="39" height="26"/>
+                                                                <fontDescription key="fontDescription" name="Ubuntu-Light" family="Ubuntu" pointSize="12"/>
+                                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
+                                                                <state key="normal" title="Man">
+                                                                    <color key="titleColor" red="0.87058823529999996" green="0.87058823529999996" blue="0.87058823529999996" alpha="1" colorSpace="calibratedRGB"/>
+                                                                </state>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="iconSize">
+                                                                        <real key="value" value="10"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="color" keyPath="iconColor">
+                                                                        <color key="value" red="1" green="0.84313725490000002" blue="0.42352941179999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="indicatorSize">
+                                                                        <real key="value" value="3"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="color" keyPath="indicatorColor">
+                                                                        <color key="value" red="1" green="0.84313725490000002" blue="0.42352941179999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="marginWidth">
+                                                                        <real key="value" value="1"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="iconSquare" value="NO"/>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="iconStrokeWidth">
+                                                                        <real key="value" value="1"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="iconOnRight" value="NO"/>
+                                                                </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <outletCollection property="otherButtons" destination="xh6-L2-I5D" id="tDX-q0-tgD"/>
+                                                                </connections>
+                                                            </button>
+                                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xh6-L2-I5D" userLabel="Female Button" customClass="DLRadioButton">
+                                                                <rect key="frame" x="69" y="0.0" width="39" height="26"/>
+                                                                <fontDescription key="fontDescription" name="Ubuntu-Light" family="Ubuntu" pointSize="12"/>
+                                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
+                                                                <state key="normal" title="Female">
+                                                                    <color key="titleColor" red="0.87058823529999996" green="0.87058823529999996" blue="0.87058823529999996" alpha="1" colorSpace="calibratedRGB"/>
+                                                                </state>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="iconSize">
+                                                                        <real key="value" value="10"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="color" keyPath="iconColor">
+                                                                        <color key="value" red="1" green="0.84313725490000002" blue="0.42352941179999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="iconStrokeWidth">
+                                                                        <real key="value" value="1"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="indicatorSize">
+                                                                        <real key="value" value="3"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="color" keyPath="indicatorColor">
+                                                                        <color key="value" red="1" green="0.84313725490000002" blue="0.42352941179999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="marginWidth">
+                                                                        <real key="value" value="1"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="iconSquare" value="NO"/>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="iconOnRight" value="NO"/>
+                                                                </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <outletCollection property="otherButtons" destination="d9Z-Je-ZN6" id="KZD-Ka-P1g"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    </stackView>
+                                                </subviews>
+                                                <color key="backgroundColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstItem="Jbc-5V-V5w" firstAttribute="centerY" secondItem="XZU-0i-KnE" secondAttribute="centerY" id="Kch-DQ-Dnj"/>
+                                                    <constraint firstItem="Jbc-5V-V5w" firstAttribute="centerX" secondItem="XZU-0i-KnE" secondAttribute="centerX" multiplier="0.9" id="ivh-ru-6Sk"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
                                             </view>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -543,8 +612,10 @@
                                             <constraint firstAttribute="trailing" secondItem="gxC-Rj-htM" secondAttribute="trailing" id="LC1-Ng-5Gw"/>
                                             <constraint firstItem="yUP-OC-Rvg" firstAttribute="leading" secondItem="gwY-6v-Lh9" secondAttribute="leading" id="P0U-lp-AZs"/>
                                             <constraint firstAttribute="trailing" secondItem="koQ-ku-C6N" secondAttribute="trailing" id="PXM-L3-GuG"/>
-                                            <constraint firstAttribute="bottom" secondItem="feO-QX-Jfr" secondAttribute="bottom" constant="311" id="UfU-QT-GXP"/>
+                                            <constraint firstAttribute="trailing" secondItem="XZU-0i-KnE" secondAttribute="trailing" id="SfV-HN-DAc"/>
+                                            <constraint firstItem="XZU-0i-KnE" firstAttribute="top" secondItem="feO-QX-Jfr" secondAttribute="bottom" id="TN5-1M-gAa"/>
                                             <constraint firstItem="yUP-OC-Rvg" firstAttribute="top" secondItem="koQ-ku-C6N" secondAttribute="bottom" id="Y8B-B4-WEb"/>
+                                            <constraint firstItem="XZU-0i-KnE" firstAttribute="leading" secondItem="gwY-6v-Lh9" secondAttribute="leading" id="ZBY-XG-NKT"/>
                                             <constraint firstAttribute="trailing" secondItem="feO-QX-Jfr" secondAttribute="trailing" id="aMx-wr-08R"/>
                                             <constraint firstItem="feO-QX-Jfr" firstAttribute="leading" secondItem="gwY-6v-Lh9" secondAttribute="leading" id="bMC-WO-mus"/>
                                             <constraint firstAttribute="trailing" secondItem="yUP-OC-Rvg" secondAttribute="trailing" id="eVQ-BH-YlR"/>
@@ -556,6 +627,7 @@
                                             <constraint firstItem="J74-wy-HtM" firstAttribute="leading" secondItem="gwY-6v-Lh9" secondAttribute="leading" id="t2v-Q0-reU"/>
                                             <constraint firstItem="koQ-ku-C6N" firstAttribute="leading" secondItem="gwY-6v-Lh9" secondAttribute="leading" id="uer-Gu-VWS"/>
                                             <constraint firstItem="feO-QX-Jfr" firstAttribute="top" secondItem="yUP-OC-Rvg" secondAttribute="bottom" id="vOf-gU-MSZ"/>
+                                            <constraint firstAttribute="bottom" secondItem="XZU-0i-KnE" secondAttribute="bottom" id="wh6-ef-g87"/>
                                             <constraint firstAttribute="trailing" secondItem="J74-wy-HtM" secondAttribute="trailing" id="yTh-68-I91"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
@@ -590,22 +662,26 @@
                         <constraints>
                             <constraint firstItem="gwY-6v-Lh9" firstAttribute="height" secondItem="BCA-3j-wEk" secondAttribute="height" priority="250" id="0AU-AV-rvL"/>
                             <constraint firstItem="koQ-ku-C6N" firstAttribute="height" secondItem="BCA-3j-wEk" secondAttribute="height" multiplier="40:216" id="1uR-bT-ced"/>
-                            <constraint firstItem="YvS-mj-dTE" firstAttribute="height" secondItem="BCA-3j-wEk" secondAttribute="height" multiplier="18:216" id="4El-KK-77i"/>
+                            <constraint firstItem="HBS-eI-rim" firstAttribute="height" secondItem="BCA-3j-wEk" secondAttribute="height" multiplier="40:216" id="4ub-Ye-grc"/>
                             <constraint firstItem="hBm-3u-D6E" firstAttribute="height" secondItem="BCA-3j-wEk" secondAttribute="height" multiplier="86:494" id="9mk-Gi-PRg"/>
                             <constraint firstAttribute="bottom" secondItem="Ph0-LK-aMq" secondAttribute="bottom" id="CBu-F1-KaD"/>
+                            <constraint firstItem="YvS-mj-dTE" firstAttribute="height" secondItem="BCA-3j-wEk" secondAttribute="height" multiplier="18:494" id="Dwt-2d-F0T"/>
+                            <constraint firstItem="YvS-mj-dTE" firstAttribute="height" secondItem="BCA-3j-wEk" secondAttribute="height" multiplier="18:216" id="Eev-hf-Zw7"/>
                             <constraint firstItem="J74-wy-HtM" firstAttribute="height" secondItem="BCA-3j-wEk" secondAttribute="height" multiplier="40:216" id="Gca-nE-adH"/>
                             <constraint firstItem="0Lw-ai-Lx3" firstAttribute="height" secondItem="BCA-3j-wEk" secondAttribute="height" multiplier="85:217" id="HET-G8-ufu"/>
-                            <constraint firstItem="feO-QX-Jfr" firstAttribute="height" secondItem="BCA-3j-wEk" secondAttribute="height" multiplier="40:494" priority="750" id="Qn0-uc-gPy"/>
+                            <constraint firstItem="feO-QX-Jfr" firstAttribute="height" secondItem="BCA-3j-wEk" secondAttribute="height" multiplier="40:494" id="Qn0-uc-gPy"/>
                             <constraint firstAttribute="trailing" secondItem="Ph0-LK-aMq" secondAttribute="trailing" id="YMS-dc-n3H"/>
                             <constraint firstItem="Ph0-LK-aMq" firstAttribute="top" secondItem="BCA-3j-wEk" secondAttribute="top" id="avk-vO-eyJ"/>
-                            <constraint firstItem="YvS-mj-dTE" firstAttribute="height" secondItem="BCA-3j-wEk" secondAttribute="height" multiplier="18:494" id="cvY-Pa-MkF"/>
                             <constraint firstItem="0Lw-ai-Lx3" firstAttribute="height" secondItem="BCA-3j-wEk" secondAttribute="height" multiplier="85:494" id="gML-ll-FHU"/>
                             <constraint firstItem="Ph0-LK-aMq" firstAttribute="leading" secondItem="BCA-3j-wEk" secondAttribute="leading" id="gZZ-wS-91P"/>
                             <constraint firstItem="hBm-3u-D6E" firstAttribute="height" secondItem="BCA-3j-wEk" secondAttribute="height" multiplier="86:216" id="jks-A0-y0b"/>
                             <constraint firstItem="gxC-Rj-htM" firstAttribute="height" secondItem="BCA-3j-wEk" secondAttribute="height" multiplier="40:216" id="kwS-pS-HVC"/>
+                            <constraint firstItem="HBS-eI-rim" firstAttribute="height" secondItem="BCA-3j-wEk" secondAttribute="height" multiplier="40:494" id="mjr-rB-aYF"/>
+                            <constraint firstItem="XZU-0i-KnE" firstAttribute="height" secondItem="BCA-3j-wEk" secondAttribute="height" multiplier="50:216" id="smU-fA-eTg"/>
                             <constraint firstItem="gwY-6v-Lh9" firstAttribute="width" secondItem="BCA-3j-wEk" secondAttribute="width" multiplier="225:667" id="t50-yn-Tyq"/>
                             <constraint firstItem="gxC-Rj-htM" firstAttribute="height" secondItem="BCA-3j-wEk" secondAttribute="height" multiplier="40:494" id="t69-sD-iwj"/>
                             <constraint firstItem="feO-QX-Jfr" firstAttribute="height" secondItem="BCA-3j-wEk" secondAttribute="height" multiplier="40:216" id="uzy-cd-sbu"/>
+                            <constraint firstItem="XZU-0i-KnE" firstAttribute="height" secondItem="BCA-3j-wEk" secondAttribute="height" multiplier="50:494" id="ve8-5H-awA"/>
                             <constraint firstItem="koQ-ku-C6N" firstAttribute="height" secondItem="BCA-3j-wEk" secondAttribute="height" multiplier="40:494" id="wAX-xs-zOB"/>
                             <constraint firstItem="J74-wy-HtM" firstAttribute="height" secondItem="BCA-3j-wEk" secondAttribute="height" multiplier="40:494" id="zeu-mg-lv6"/>
                         </constraints>
@@ -616,8 +692,10 @@
                                 <exclude reference="zeu-mg-lv6"/>
                                 <exclude reference="t69-sD-iwj"/>
                                 <exclude reference="wAX-xs-zOB"/>
+                                <exclude reference="mjr-rB-aYF"/>
                                 <exclude reference="Qn0-uc-gPy"/>
-                                <exclude reference="cvY-Pa-MkF"/>
+                                <exclude reference="Dwt-2d-F0T"/>
+                                <exclude reference="ve8-5H-awA"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -633,10 +711,14 @@
                                 <include reference="t69-sD-iwj"/>
                                 <exclude reference="1uR-bT-ced"/>
                                 <include reference="wAX-xs-zOB"/>
+                                <exclude reference="4ub-Ye-grc"/>
+                                <include reference="mjr-rB-aYF"/>
                                 <include reference="Qn0-uc-gPy"/>
                                 <exclude reference="uzy-cd-sbu"/>
-                                <exclude reference="4El-KK-77i"/>
-                                <include reference="cvY-Pa-MkF"/>
+                                <include reference="Dwt-2d-F0T"/>
+                                <exclude reference="Eev-hf-Zw7"/>
+                                <exclude reference="smU-fA-eTg"/>
+                                <include reference="ve8-5H-awA"/>
                             </mask>
                         </variation>
                     </view>
@@ -646,6 +728,7 @@
                         <outlet property="emailErrorMessageView" destination="yUP-OC-Rvg" id="6Y6-0O-06D"/>
                         <outlet property="emailErrorMessageViewHeightConstraint" destination="wg0-I8-hHo" id="YXX-6I-BFO"/>
                         <outlet property="emailErrorMessageViewTopConstraint" destination="Y8B-B4-WEb" id="nwo-Id-7Hj"/>
+                        <outlet property="firstPhoneView" destination="HBS-eI-rim" id="PaV-1j-Im4"/>
                         <outlet property="phonesView" destination="feO-QX-Jfr" id="CkX-4S-aQ0"/>
                         <outlet property="phonesViewHeightConstraint" destination="Qn0-uc-gPy" id="AK6-uz-I4e"/>
                         <outlet property="scrollView" destination="Ph0-LK-aMq" id="4RH-mA-XjS"/>
@@ -657,12 +740,12 @@
                         <outletCollection property="textFieldsCollection" destination="QeN-Uq-axx" collectionClass="NSMutableArray" id="OPu-0M-gKQ"/>
                         <outletCollection property="dottedBorderViewsCollection" destination="6vG-sL-FMv" collectionClass="NSMutableArray" id="Z90-Yz-wLH"/>
                         <outletCollection property="textFieldsCollection" destination="pSw-D6-Wx0" collectionClass="NSMutableArray" id="hHF-6I-f6J"/>
-                        <outletCollection property="dottedBorderViewsCollection" destination="ABI-eu-Oy7" collectionClass="NSMutableArray" id="ae1-Ag-WHx"/>
-                        <outletCollection property="textFieldsCollection" destination="pWi-wB-bGS" collectionClass="NSMutableArray" id="2vG-uY-CzG"/>
                         <outletCollection property="deleteButtonsCollection" destination="YvS-mj-dTE" collectionClass="NSMutableArray" id="pki-QJ-ubp"/>
+                        <outletCollection property="textFieldsCollection" destination="pWi-wB-bGS" collectionClass="NSMutableArray" id="2vG-uY-CzG"/>
+                        <outletCollection property="dottedBorderViewsCollection" destination="ABI-eu-Oy7" collectionClass="NSMutableArray" id="ae1-Ag-WHx"/>
                         <outletCollection property="phoneErrorMessageViewsCollection" destination="sPl-10-aGU" collectionClass="NSMutableArray" id="BAJ-jh-Vdu"/>
-                        <outletCollection property="phoneErrorMessageViewHeightConstraintsCollection" destination="WGm-GO-YZW" collectionClass="NSMutableArray" id="I0U-4f-FH5"/>
-                        <outletCollection property="phoneErrorMessageViewTopConstraintsCollection" destination="jlm-HM-ndS" collectionClass="NSMutableArray" id="SQY-CK-LFD"/>
+                        <outletCollection property="phoneErrorMessageViewHeightConstraintsCollection" destination="1NZ-uZ-R4B" collectionClass="NSMutableArray" id="H7J-ro-VYc"/>
+                        <outletCollection property="phoneErrorMessageViewTopConstraintsCollection" destination="ixS-7T-ZDS" collectionClass="NSMutableArray" id="SRy-eO-JNH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wmv-Hn-Scq" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -692,7 +775,7 @@
                                             </userDefinedRuntimeAttributes>
                                         </view>
                                         <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Phone" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="5LD-vP-JAC" userLabel="Phone Text Field" customClass="CustomTextField" customModule="OmnieCommerce" customModuleProvider="target">
-                                            <rect key="frame" x="8" y="23" width="225" height="19"/>
+                                            <rect key="frame" x="8" y="28" width="225" height="19"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <nil key="textColor"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -703,7 +786,7 @@
                                             </userDefinedRuntimeAttributes>
                                         </textField>
                                         <button opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Neo-my-Ezn" userLabel="Delete Button" customClass="FillVeryLightOrangeButton" customModule="OmnieCommerce" customModuleProvider="target">
-                                            <rect key="frame" x="193" y="14" width="32" height="32"/>
+                                            <rect key="frame" x="193" y="18" width="32" height="32"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="Neo-my-Ezn" secondAttribute="height" multiplier="1:1" id="hva-Yt-rf6"/>
@@ -783,7 +866,7 @@
                                             </userDefinedRuntimeAttributes>
                                         </view>
                                         <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Phone" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="iD9-cp-Kgo" userLabel="Phone Text Field" customClass="CustomTextField" customModule="OmnieCommerce" customModuleProvider="target">
-                                            <rect key="frame" x="8" y="23" width="225" height="19"/>
+                                            <rect key="frame" x="8" y="28" width="225" height="19"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <nil key="textColor"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -794,7 +877,7 @@
                                             </userDefinedRuntimeAttributes>
                                         </textField>
                                         <button opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9tL-qL-muY" userLabel="Delete Button" customClass="FillVeryLightOrangeButton" customModule="OmnieCommerce" customModuleProvider="target">
-                                            <rect key="frame" x="193" y="14" width="32" height="32"/>
+                                            <rect key="frame" x="193" y="18" width="32" height="32"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="9tL-qL-muY" secondAttribute="height" multiplier="1:1" id="on5-M1-VvN"/>
@@ -877,20 +960,20 @@
                         <viewControllerLayoutGuide type="bottom" id="nE7-fe-hyk"/>
                     </layoutGuides>
                     <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="aqh-Mw-FKd">
-                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v8q-K5-pqc">
-                                <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qdD-Jf-YDl" userLabel="Content View">
-                                        <rect key="frame" x="221" y="0.0" width="225" height="1057"/>
+                                        <rect key="frame" x="75" y="0.0" width="225" height="844.5"/>
                                         <subviews>
                                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ke4-F4-7DX" userLabel="Avatar View">
-                                                <rect key="frame" x="0.0" y="0.0" width="225" height="149.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="225" height="116"/>
                                                 <subviews>
                                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GEl-Yo-a5S" userLabel="Avatar Button" customClass="CustomButton" customModule="OmnieCommerce" customModuleProvider="target">
-                                                        <rect key="frame" x="39" y="1.5" width="147" height="147"/>
+                                                        <rect key="frame" x="55" y="1" width="115" height="114.5"/>
                                                         <color key="backgroundColor" red="0.1529411765" green="0.2156862745" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="GEl-Yo-a5S" secondAttribute="height" multiplier="1:1" id="K7R-NH-1do"/>
@@ -918,10 +1001,10 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ded-z8-VzR" userLabel="Name View">
-                                                <rect key="frame" x="0.0" y="159.5" width="225" height="69.5"/>
+                                                <rect key="frame" x="0.0" y="126" width="225" height="54"/>
                                                 <subviews>
                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="crF-b5-Zus" customClass="DottedBorderView" customModule="OmnieCommerce" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="225" height="69.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="225" height="54"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="string" keyPath="viewStyle" value="BottomDottedLine"/>
@@ -929,7 +1012,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="BGO-aW-mlC" userLabel="Name Text Field" customClass="CustomTextField" customModule="OmnieCommerce" customModuleProvider="target">
-                                                        <rect key="frame" x="8" y="35.5" width="225" height="19"/>
+                                                        <rect key="frame" x="8" y="31" width="225" height="19"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -967,10 +1050,10 @@
                                                 </variation>
                                             </view>
                                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NKP-b3-5iJ" userLabel="Surname View">
-                                                <rect key="frame" x="0.0" y="229" width="225" height="69"/>
+                                                <rect key="frame" x="0.0" y="180" width="225" height="54"/>
                                                 <subviews>
                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6LH-r3-UwV" customClass="DottedBorderView" customModule="OmnieCommerce" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="225" height="69"/>
+                                                        <rect key="frame" x="0.0" y="0.5" width="225" height="54"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="string" keyPath="viewStyle" value="BottomDottedLine"/>
@@ -978,7 +1061,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Surname" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="SNZ-ky-0Nr" userLabel="Surname Text Field" customClass="CustomTextField" customModule="OmnieCommerce" customModuleProvider="target">
-                                                        <rect key="frame" x="8" y="36" width="225" height="19"/>
+                                                        <rect key="frame" x="8" y="31" width="225" height="19"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -1010,23 +1093,23 @@
                                                 </variation>
                                                 <variation key="heightClass=regular-widthClass=compact">
                                                     <mask key="constraints">
-                                                        <include reference="z8x-KY-b54"/>
                                                         <exclude reference="eQc-Py-1j3"/>
+                                                        <include reference="z8x-KY-b54"/>
                                                     </mask>
                                                 </variation>
                                             </view>
                                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dgj-mN-vdn" userLabel="Email View">
-                                                <rect key="frame" x="0.0" y="298" width="225" height="69.5"/>
+                                                <rect key="frame" x="0.0" y="234" width="225" height="54"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="srl-0N-21S" userLabel="Dotted Line View" customClass="DottedBorderView" customModule="OmnieCommerce" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="225" height="69.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="225" height="54"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="string" keyPath="viewStyle" value="BottomDottedLine"/>
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="oJx-P6-HH4" userLabel="Email Text Field" customClass="CustomTextField" customModule="OmnieCommerce" customModuleProvider="target">
-                                                        <rect key="frame" x="8" y="36" width="225" height="19"/>
+                                                        <rect key="frame" x="8" y="31" width="225" height="19"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -1058,13 +1141,13 @@
                                                 </variation>
                                                 <variation key="heightClass=regular-widthClass=compact">
                                                     <mask key="constraints">
-                                                        <include reference="mnp-hm-41p"/>
                                                         <exclude reference="FtV-7N-3ep"/>
+                                                        <include reference="mnp-hm-41p"/>
                                                     </mask>
                                                 </variation>
                                             </view>
                                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7kW-ke-Xh5" userLabel="Email Error View">
-                                                <rect key="frame" x="0.0" y="367.5" width="225" height="14"/>
+                                                <rect key="frame" x="0.0" y="288" width="225" height="14"/>
                                                 <subviews>
                                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wrong Email" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Y0-MN-M5f" userLabel="Email Error Message Label" customClass="UbuntuLightItalicModerateRedLabel" customModule="OmnieCommerce" customModuleProvider="target">
                                                         <rect key="frame" x="8" y="0.0" width="217" height="12"/>
@@ -1089,13 +1172,13 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1se-4Y-j1U" userLabel="Phones View">
-                                                <rect key="frame" x="0.0" y="381.5" width="225" height="83.5"/>
+                                                <rect key="frame" x="0.0" y="302" width="225" height="68"/>
                                                 <subviews>
                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hyE-Om-Mkv" userLabel="0 Phone View">
-                                                        <rect key="frame" x="0.0" y="0.0" width="225" height="69.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="225" height="54"/>
                                                         <subviews>
                                                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pBH-LG-Luu" userLabel="0 Dotted Border View" customClass="DottedBorderView" customModule="OmnieCommerce" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="0.0" width="225" height="69.5"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="225" height="54"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="string" keyPath="borderWidth" value="1.5"/>
@@ -1103,7 +1186,7 @@
                                                                 </userDefinedRuntimeAttributes>
                                                             </view>
                                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Phone" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="WEf-u1-2OF" userLabel="0 Phone Text Field" customClass="CustomTextField" customModule="OmnieCommerce" customModuleProvider="target">
-                                                                <rect key="frame" x="8" y="36" width="225" height="19"/>
+                                                                <rect key="frame" x="8" y="31" width="225" height="19"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                 <nil key="textColor"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -1114,7 +1197,7 @@
                                                                 </userDefinedRuntimeAttributes>
                                                             </textField>
                                                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1iL-jT-wUV" userLabel="0 Delete Button" customClass="FillVeryLightOrangeButton" customModule="OmnieCommerce" customModuleProvider="target">
-                                                                <rect key="frame" x="194.5" y="25" width="30.5" height="31"/>
+                                                                <rect key="frame" x="201" y="24" width="24" height="24.5"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" secondItem="1iL-jT-wUV" secondAttribute="height" multiplier="1:1" id="a9h-Rs-xxf"/>
@@ -1155,7 +1238,7 @@
                                                         </variation>
                                                     </view>
                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fRS-Iv-Qol" userLabel="0 Phone Error Message View">
-                                                        <rect key="frame" x="0.0" y="69.5" width="225" height="14"/>
+                                                        <rect key="frame" x="0.0" y="54" width="225" height="14"/>
                                                         <subviews>
                                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wrong Phone" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X14-Aw-EBG" customClass="UbuntuLightItalicModerateRedLabel" customModule="OmnieCommerce" customModuleProvider="target">
                                                                 <rect key="frame" x="8" y="0.0" width="217" height="12"/>
@@ -1189,10 +1272,10 @@
                                                 </constraints>
                                             </view>
                                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7DT-Fm-d9l" userLabel="Gender View">
-                                                <rect key="frame" x="0.0" y="465" width="225" height="87"/>
+                                                <rect key="frame" x="0.0" y="370" width="225" height="67.5"/>
                                                 <subviews>
                                                     <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="UmH-cK-anm">
-                                                        <rect key="frame" x="14" y="30.5" width="175" height="26"/>
+                                                        <rect key="frame" x="14" y="21" width="175" height="26"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TPK-Mm-vzJ" userLabel="Man Button" customClass="DLRadioButton">
                                                                 <rect key="frame" x="0.0" y="0.0" width="72.5" height="26"/>
@@ -1274,7 +1357,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nvN-ac-0A3" userLabel="Birthday View">
-                                                <rect key="frame" x="45" y="552" width="135" height="224.5"/>
+                                                <rect key="frame" x="45" y="437.5" width="135" height="175.5"/>
                                                 <subviews>
                                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Birthday" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kvL-LT-Qrh" userLabel="Title Label" customClass="UbuntuLightVeryLightGrayLabel" customModule="OmnieCommerce" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="5" width="135" height="14.5"/>
@@ -1287,7 +1370,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1zl-aA-uRa" userLabel="Separators View">
-                                                        <rect key="frame" x="0.0" y="94" width="135" height="78"/>
+                                                        <rect key="frame" x="0.0" y="74" width="135" height="60.5"/>
                                                         <subviews>
                                                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eB4-lz-Bmp" userLabel="Top Left Line View">
                                                                 <rect key="frame" x="0.0" y="5" width="25" height="1"/>
@@ -1320,7 +1403,7 @@
                                                                 </userDefinedRuntimeAttributes>
                                                             </view>
                                                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="led-4k-rDF" userLabel="Bottom Left Line View">
-                                                                <rect key="frame" x="0.0" y="72" width="25" height="1"/>
+                                                                <rect key="frame" x="0.0" y="54.5" width="25" height="1"/>
                                                                 <color key="backgroundColor" red="0.0" green="0.57647058819999997" blue="0.58431372550000005" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="1" id="Rdo-W2-70j"/>
@@ -1330,7 +1413,7 @@
                                                                 </userDefinedRuntimeAttributes>
                                                             </view>
                                                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tRH-oj-1iE" userLabel="Bottom Middle Line View">
-                                                                <rect key="frame" x="45" y="72" width="25" height="1"/>
+                                                                <rect key="frame" x="45" y="54.5" width="25" height="1"/>
                                                                 <color key="backgroundColor" red="0.0" green="0.57647058819999997" blue="0.58431372550000005" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="1" id="vEt-hB-opY"/>
@@ -1340,7 +1423,7 @@
                                                                 </userDefinedRuntimeAttributes>
                                                             </view>
                                                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="POi-hj-9hB" userLabel="Bottom Right Line View">
-                                                                <rect key="frame" x="90" y="72" width="45" height="1"/>
+                                                                <rect key="frame" x="90" y="54.5" width="45" height="1"/>
                                                                 <color key="backgroundColor" red="0.0" green="0.57647058819999997" blue="0.58431372550000005" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="1" id="6JF-ba-KSM"/>
@@ -1375,7 +1458,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <pickerView clipsSubviews="YES" contentMode="scaleToFill" showsSelectionIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C8e-8Q-3FV" userLabel="Birthday Picker View">
-                                                        <rect key="frame" x="0.0" y="42.5" width="135" height="182"/>
+                                                        <rect key="frame" x="0.0" y="34" width="135" height="141.5"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
@@ -1399,13 +1482,13 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="drr-Ef-c0X" userLabel="Passwords View">
-                                                <rect key="frame" x="0.0" y="796.5" width="225" height="69.5"/>
+                                                <rect key="frame" x="0.0" y="633" width="225" height="54"/>
                                                 <subviews>
                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t32-9q-sik" userLabel="Old Password View">
-                                                        <rect key="frame" x="0.0" y="0.0" width="225" height="69.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="225" height="54"/>
                                                         <subviews>
                                                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hl0-sL-hlJ" customClass="DottedBorderView" customModule="OmnieCommerce" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="0.0" width="225" height="69.5"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="225" height="54"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="string" keyPath="viewStyle" value="BottomDottedLine"/>
@@ -1413,7 +1496,7 @@
                                                                 </userDefinedRuntimeAttributes>
                                                             </view>
                                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="O7z-Ll-sQh" userLabel="Old Password Text Field" customClass="CustomTextField" customModule="OmnieCommerce" customModuleProvider="target">
-                                                                <rect key="frame" x="8" y="38" width="144" height="14"/>
+                                                                <rect key="frame" x="8" y="28.5" width="144" height="14"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                 <nil key="textColor"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -1424,7 +1507,7 @@
                                                                 </userDefinedRuntimeAttributes>
                                                             </textField>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HcW-ws-GDv" userLabel="Change Button" customClass="UbuntuLightItalicDarkCyanButton" customModule="OmnieCommerce" customModuleProvider="target">
-                                                                <rect key="frame" x="142" y="0.0" width="75" height="67.5"/>
+                                                                <rect key="frame" x="142" y="0.0" width="75" height="52"/>
                                                                 <state key="normal" title="Изменить"/>
                                                                 <connections>
                                                                     <action selector="handlerChangeButtonTap:" destination="CTG-bt-tIh" eventType="touchUpInside" id="5XH-Ho-2VW"/>
@@ -1455,13 +1538,13 @@
                                                         </variation>
                                                         <variation key="heightClass=regular-widthClass=compact">
                                                             <mask key="constraints">
-                                                                <include reference="iii-Og-Xv6"/>
                                                                 <exclude reference="HKc-5w-1kL"/>
+                                                                <include reference="iii-Og-Xv6"/>
                                                             </mask>
                                                         </variation>
                                                     </view>
                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L2c-4o-s6P" userLabel="Old Password Error Message View">
-                                                        <rect key="frame" x="0.0" y="69.5" width="225" height="14"/>
+                                                        <rect key="frame" x="0.0" y="54" width="225" height="14"/>
                                                         <subviews>
                                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wrong Passwords compare" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6uq-OG-Bes" userLabel="Password Error Message Label" customClass="UbuntuLightItalicModerateRedLabel" customModule="OmnieCommerce" customModuleProvider="target">
                                                                 <rect key="frame" x="8" y="0.0" width="217" height="12"/>
@@ -1486,10 +1569,10 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dei-fg-JnP" userLabel="New Password View">
-                                                        <rect key="frame" x="0.0" y="83.5" width="225" height="69.5"/>
+                                                        <rect key="frame" x="0.0" y="68" width="225" height="54"/>
                                                         <subviews>
                                                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O7d-nw-8rJ" customClass="DottedBorderView" customModule="OmnieCommerce" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="0.0" width="225" height="69.5"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="225" height="54"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="string" keyPath="viewStyle" value="BottomDottedLine"/>
@@ -1497,7 +1580,7 @@
                                                                 </userDefinedRuntimeAttributes>
                                                             </view>
                                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="New password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YaG-rA-m3g" userLabel="Password New Text Field" customClass="CustomTextField" customModule="OmnieCommerce" customModuleProvider="target">
-                                                                <rect key="frame" x="8" y="35.5" width="225" height="19"/>
+                                                                <rect key="frame" x="8" y="31" width="225" height="19"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                 <nil key="textColor"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -1529,13 +1612,13 @@
                                                         </variation>
                                                         <variation key="heightClass=regular-widthClass=compact">
                                                             <mask key="constraints">
-                                                                <include reference="Lh8-ZF-63b"/>
                                                                 <exclude reference="Idx-tD-GoQ"/>
+                                                                <include reference="Lh8-ZF-63b"/>
                                                             </mask>
                                                         </variation>
                                                     </view>
                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FUx-jU-sdn" userLabel="New Password Strength View" customClass="PasswordStrengthLevelView" customModule="OmnieCommerce" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="153" width="225" height="4"/>
+                                                        <rect key="frame" x="0.0" y="122" width="225" height="4"/>
                                                         <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="4" id="aJf-7r-46w"/>
@@ -1545,7 +1628,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eDn-7n-01n" userLabel="New Password Error View">
-                                                        <rect key="frame" x="0.0" y="157" width="225" height="14"/>
+                                                        <rect key="frame" x="0.0" y="126" width="225" height="14"/>
                                                         <subviews>
                                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password min lenght error" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rQr-S8-9c2" userLabel="Password Error Message Label" customClass="UbuntuLightItalicModerateRedLabel" customModule="OmnieCommerce" customModuleProvider="target">
                                                                 <rect key="frame" x="8" y="0.0" width="217" height="12"/>
@@ -1570,10 +1653,10 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n24-mW-WdL" userLabel="Repeat Password View">
-                                                        <rect key="frame" x="0.0" y="171" width="225" height="69.5"/>
+                                                        <rect key="frame" x="0.0" y="140" width="225" height="54"/>
                                                         <subviews>
                                                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rw8-Q5-e11" customClass="DottedBorderView" customModule="OmnieCommerce" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="0.0" width="225" height="69.5"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="225" height="54"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="string" keyPath="viewStyle" value="BottomDottedLine"/>
@@ -1581,7 +1664,7 @@
                                                                 </userDefinedRuntimeAttributes>
                                                             </view>
                                                             <textField opaque="NO" clipsSubviews="YES" tag="99" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Repeat password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gqg-VJ-mTf" userLabel="Password Repeat Text Field" customClass="CustomTextField" customModule="OmnieCommerce" customModuleProvider="target">
-                                                                <rect key="frame" x="8" y="35.5" width="225" height="19"/>
+                                                                <rect key="frame" x="8" y="31" width="225" height="19"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                 <nil key="textColor"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -1619,7 +1702,7 @@
                                                         </variation>
                                                     </view>
                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FCC-ka-Eaw" userLabel="Repeat Password Error Message View">
-                                                        <rect key="frame" x="0.0" y="240.5" width="225" height="14"/>
+                                                        <rect key="frame" x="0.0" y="194" width="225" height="14"/>
                                                         <subviews>
                                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Invalid code" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zF8-Zw-QGl" userLabel="Password Repeat Error Message Label" customClass="UbuntuLightItalicModerateRedLabel" customModule="OmnieCommerce" customModuleProvider="target">
                                                                 <rect key="frame" x="8" y="0.0" width="217" height="12"/>
@@ -1679,10 +1762,10 @@
                                                 </variation>
                                             </view>
                                             <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="zhM-SP-U0R" userLabel="Buttons Stack View">
-                                                <rect key="frame" x="0.0" y="891" width="225" height="151"/>
+                                                <rect key="frame" x="0.0" y="712" width="225" height="117.5"/>
                                                 <subviews>
                                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sjX-1O-Zyo" userLabel="Save Button" customClass="FillVeryLightOrangeButton" customModule="OmnieCommerce" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="225" height="62"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="225" height="49"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <state key="normal" title="Save" image="icon-confirm-save-normal"/>
                                                         <userDefinedRuntimeAttributes>
@@ -1693,14 +1776,14 @@
                                                         </connections>
                                                     </button>
                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JiO-oP-Swj" userLabel="Empty View">
-                                                        <rect key="frame" x="0.0" y="62" width="225" height="27.5"/>
+                                                        <rect key="frame" x="0.0" y="49" width="225" height="20"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1eV-ST-3Fv" userLabel="Cancel Button" customClass="BorderVeryLightOrangeButton" customModule="OmnieCommerce" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="89.5" width="225" height="61.5"/>
+                                                        <rect key="frame" x="0.0" y="69" width="225" height="48.5"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <state key="normal" title="Cancel" image="icon-confirm-cancel-white-normal"/>
                                                         <userDefinedRuntimeAttributes>
@@ -1845,73 +1928,73 @@
                                 <exclude reference="nK5-Ti-oey"/>
                                 <exclude reference="lpa-tN-KMa"/>
                                 <exclude reference="Dgy-mj-MT1"/>
-                                <exclude reference="Vpa-yX-gPY"/>
                                 <exclude reference="OpL-yJ-8et"/>
+                                <exclude reference="Vpa-yX-gPY"/>
                                 <exclude reference="ntw-Yf-HFO"/>
                                 <exclude reference="yul-Zl-Ply"/>
                                 <exclude reference="32o-r8-bWM"/>
-                                <exclude reference="MXb-ja-9TG"/>
                                 <exclude reference="CXm-F9-IEr"/>
+                                <exclude reference="MXb-ja-9TG"/>
                                 <exclude reference="F8W-i4-Xui"/>
                                 <exclude reference="drE-CC-wRk"/>
                                 <exclude reference="VCR-WN-Hq5"/>
                                 <exclude reference="SPK-j8-ETU"/>
                                 <exclude reference="FNd-mW-BTn"/>
-                                <exclude reference="o8g-8e-hVG"/>
                                 <exclude reference="Shf-Au-LIV"/>
+                                <exclude reference="o8g-8e-hVG"/>
                                 <exclude reference="Qwf-8V-gkd"/>
-                                <exclude reference="APb-SI-g3p"/>
                                 <exclude reference="7eD-6c-Fnt"/>
+                                <exclude reference="APb-SI-g3p"/>
                                 <exclude reference="jbi-bT-EtY"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="constraints">
-                                <exclude reference="Luu-WM-C3a"/>
                                 <include reference="9of-iw-O7u"/>
                                 <exclude reference="ldU-VZ-SQk"/>
+                                <exclude reference="Luu-WM-C3a"/>
                                 <exclude reference="6aY-U7-5k9"/>
                                 <include reference="VqI-fr-O6T"/>
                                 <exclude reference="i0X-cE-tQ9"/>
                                 <include reference="nK5-Ti-oey"/>
                                 <exclude reference="FWA-7k-ILH"/>
                                 <include reference="lpa-tN-KMa"/>
-                                <exclude reference="FzF-BT-sc3"/>
                                 <include reference="Dgy-mj-MT1"/>
-                                <exclude reference="yrp-Jp-NM7"/>
-                                <include reference="Vpa-yX-gPY"/>
+                                <exclude reference="FzF-BT-sc3"/>
                                 <include reference="OpL-yJ-8et"/>
                                 <exclude reference="UAz-lc-I1G"/>
-                                <exclude reference="rnc-uk-z8h"/>
+                                <include reference="Vpa-yX-gPY"/>
+                                <exclude reference="yrp-Jp-NM7"/>
                                 <include reference="ntw-Yf-HFO"/>
+                                <exclude reference="rnc-uk-z8h"/>
                                 <exclude reference="lpd-1k-xdO"/>
                                 <include reference="yul-Zl-Ply"/>
-                                <exclude reference="5xN-vN-PvL"/>
                                 <include reference="32o-r8-bWM"/>
+                                <exclude reference="5xN-vN-PvL"/>
+                                <exclude reference="9kL-hv-Qcu"/>
+                                <include reference="CXm-F9-IEr"/>
                                 <include reference="MXb-ja-9TG"/>
                                 <exclude reference="WGD-Cq-c5x"/>
-                                <include reference="CXm-F9-IEr"/>
-                                <exclude reference="9kL-hv-Qcu"/>
                                 <exclude reference="7G1-fr-jrA"/>
                                 <include reference="F8W-i4-Xui"/>
                                 <include reference="drE-CC-wRk"/>
                                 <exclude reference="yRr-Jp-R5y"/>
-                                <include reference="VCR-WN-Hq5"/>
                                 <exclude reference="MJN-W8-rZt"/>
+                                <include reference="VCR-WN-Hq5"/>
                                 <exclude reference="RCx-dF-Lya"/>
                                 <include reference="SPK-j8-ETU"/>
-                                <include reference="FNd-mW-BTn"/>
                                 <exclude reference="DaV-p9-ro0"/>
-                                <include reference="o8g-8e-hVG"/>
-                                <exclude reference="JFI-my-9yg"/>
-                                <exclude reference="Zsh-bL-SwS"/>
+                                <include reference="FNd-mW-BTn"/>
                                 <include reference="Shf-Au-LIV"/>
-                                <include reference="Qwf-8V-gkd"/>
+                                <exclude reference="Zsh-bL-SwS"/>
+                                <exclude reference="JFI-my-9yg"/>
+                                <include reference="o8g-8e-hVG"/>
                                 <exclude reference="76c-S8-2t2"/>
-                                <exclude reference="ohz-xm-xgC"/>
-                                <include reference="APb-SI-g3p"/>
-                                <exclude reference="wYJ-fO-xEG"/>
+                                <include reference="Qwf-8V-gkd"/>
                                 <include reference="7eD-6c-Fnt"/>
+                                <exclude reference="wYJ-fO-xEG"/>
+                                <include reference="APb-SI-g3p"/>
+                                <exclude reference="ohz-xm-xgC"/>
                                 <exclude reference="WEV-OJ-sQq"/>
                                 <include reference="jbi-bT-EtY"/>
                             </mask>
@@ -1988,7 +2071,7 @@
                                             </userDefinedRuntimeAttributes>
                                         </view>
                                         <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Phone" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="1cl-q3-j4Z" userLabel="Phone Text Field" customClass="CustomTextField" customModule="OmnieCommerce" customModuleProvider="target">
-                                            <rect key="frame" x="8" y="23" width="225" height="19"/>
+                                            <rect key="frame" x="8" y="28" width="225" height="19"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <nil key="textColor"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -1999,7 +2082,7 @@
                                             </userDefinedRuntimeAttributes>
                                         </textField>
                                         <button opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Je4-gc-fvE" userLabel="Delete Button" customClass="FillVeryLightOrangeButton" customModule="OmnieCommerce" customModuleProvider="target">
-                                            <rect key="frame" x="193" y="13.5" width="32" height="32"/>
+                                            <rect key="frame" x="193" y="18" width="32" height="32"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="Je4-gc-fvE" secondAttribute="height" multiplier="1:1" id="IEw-BT-doK"/>
@@ -2079,7 +2162,7 @@
                                             </userDefinedRuntimeAttributes>
                                         </view>
                                         <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Phone" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="s6L-hr-tei" userLabel="Phone Text Field" customClass="CustomTextField" customModule="OmnieCommerce" customModuleProvider="target">
-                                            <rect key="frame" x="8" y="23" width="225" height="19"/>
+                                            <rect key="frame" x="8" y="28" width="225" height="19"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <nil key="textColor"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -2090,7 +2173,7 @@
                                             </userDefinedRuntimeAttributes>
                                         </textField>
                                         <button opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MiO-4v-r1d" userLabel="Delete Button" customClass="FillVeryLightOrangeButton" customModule="OmnieCommerce" customModuleProvider="target">
-                                            <rect key="frame" x="193" y="13.5" width="32" height="32"/>
+                                            <rect key="frame" x="193" y="18" width="32" height="32"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="MiO-4v-r1d" secondAttribute="height" multiplier="1:1" id="UQa-2B-1p0"/>
@@ -2122,8 +2205,8 @@
                                     </variation>
                                     <variation key="heightClass=regular-widthClass=compact">
                                         <mask key="constraints">
-                                            <include reference="UFe-uz-ytj"/>
                                             <exclude reference="SDs-eW-6hk"/>
+                                            <include reference="UFe-uz-ytj"/>
                                         </mask>
                                     </variation>
                                 </view>

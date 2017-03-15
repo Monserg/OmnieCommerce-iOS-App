@@ -39,7 +39,7 @@
                             </userDefinedRuntimeAttributes>
                         </view>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Phone" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="eeY-Qb-9FC" userLabel="New Phone Text Field" customClass="CustomTextField" customModule="OmnieCommerce" customModuleProvider="target">
-                            <rect key="frame" x="8" y="21" width="375" height="19"/>
+                            <rect key="frame" x="8" y="20.5" width="375" height="19"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <nil key="textColor"/>
                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -50,7 +50,7 @@
                             </userDefinedRuntimeAttributes>
                         </textField>
                         <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RsG-dg-LNl" userLabel="New Delete Button" customClass="FillVeryLightOrangeButton" customModule="OmnieCommerce" customModuleProvider="target">
-                            <rect key="frame" x="350" y="15" width="25" height="24.5"/>
+                            <rect key="frame" x="350" y="14.5" width="25" height="24.5"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="RsG-dg-LNl" secondAttribute="height" multiplier="1:1" id="Bf6-rP-3Is"/>
@@ -114,7 +114,7 @@
                     </constraints>
                 </view>
             </subviews>
-            <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="IAK-Ws-c9R" firstAttribute="leading" secondItem="iLK-OM-sar" secondAttribute="leading" id="2eO-kS-gvM"/>
                 <constraint firstItem="IAK-Ws-c9R" firstAttribute="top" secondItem="iLK-OM-sar" secondAttribute="top" id="3FM-OT-RJV"/>
@@ -126,6 +126,7 @@
                 <constraint firstItem="gvo-Pw-949" firstAttribute="top" secondItem="IAK-Ws-c9R" secondAttribute="bottom" id="rM8-y5-JDD"/>
                 <constraint firstItem="gvo-Pw-949" firstAttribute="leading" secondItem="iLK-OM-sar" secondAttribute="leading" id="xWN-7f-aSW"/>
             </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <userDefinedRuntimeAttributes>
                 <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>

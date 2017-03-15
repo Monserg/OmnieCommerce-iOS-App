@@ -71,14 +71,25 @@ extension UIView {
     
     func didShow() {
         UIView.animate(withDuration: 0.3, animations: {
-            self.alpha  =   1
+            self.alpha      =   1
         })
     }
     
     func didHide() {
         UIView.animate(withDuration: 0.3, animations: {
-            self.alpha  =   0
+            self.alpha      =   0
         })
+    }
+    
+    func constraintDidUpdate( _ constraint: NSLayoutConstraint, withNewMultiplier newMultiplier: CGFloat) -> NSLayoutConstraint {
+        let newConstraint   =   constraint.didUpdate(withNewMultiplier: newMultiplier)
+        
+        self.removeConstraint(constraint)
+        self.addConstraint(newConstraint)
+        
+        self.layoutIfNeeded()
+        
+        return newConstraint
     }
 }
 
@@ -88,3 +99,11 @@ extension CGColor {
         return UIKit.UIColor(cgColor: self)
     }
 }
+
+
+extension NSLayoutConstraint {
+    func didUpdate(withNewMultiplier multiplier: CGFloat) -> NSLayoutConstraint {
+        return NSLayoutConstraint(item: self.firstItem, attribute: self.firstAttribute, relatedBy: self.relation, toItem: self.secondItem, attribute: self.secondAttribute, multiplier: multiplier, constant: self.constant)
+    }
+}
+
