@@ -302,7 +302,7 @@
                                                 <rect key="frame" x="0.0" y="180" width="225" height="54"/>
                                                 <subviews>
                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sQv-tR-Sfp" userLabel="Surname Dotted Border View" customClass="DottedBorderView" customModule="OmnieCommerce" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.5" width="225" height="54"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="225" height="54"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="string" keyPath="viewStyle" value="BottomDottedLine"/>
@@ -615,6 +615,7 @@
                                             <constraint firstAttribute="trailing" secondItem="XZU-0i-KnE" secondAttribute="trailing" id="SfV-HN-DAc"/>
                                             <constraint firstItem="XZU-0i-KnE" firstAttribute="top" secondItem="feO-QX-Jfr" secondAttribute="bottom" id="TN5-1M-gAa"/>
                                             <constraint firstItem="yUP-OC-Rvg" firstAttribute="top" secondItem="koQ-ku-C6N" secondAttribute="bottom" id="Y8B-B4-WEb"/>
+                                            <constraint firstAttribute="bottom" secondItem="XZU-0i-KnE" secondAttribute="bottom" id="Yle-Uu-5qi"/>
                                             <constraint firstItem="XZU-0i-KnE" firstAttribute="leading" secondItem="gwY-6v-Lh9" secondAttribute="leading" id="ZBY-XG-NKT"/>
                                             <constraint firstAttribute="trailing" secondItem="feO-QX-Jfr" secondAttribute="trailing" id="aMx-wr-08R"/>
                                             <constraint firstItem="feO-QX-Jfr" firstAttribute="leading" secondItem="gwY-6v-Lh9" secondAttribute="leading" id="bMC-WO-mus"/>
@@ -627,7 +628,6 @@
                                             <constraint firstItem="J74-wy-HtM" firstAttribute="leading" secondItem="gwY-6v-Lh9" secondAttribute="leading" id="t2v-Q0-reU"/>
                                             <constraint firstItem="koQ-ku-C6N" firstAttribute="leading" secondItem="gwY-6v-Lh9" secondAttribute="leading" id="uer-Gu-VWS"/>
                                             <constraint firstItem="feO-QX-Jfr" firstAttribute="top" secondItem="yUP-OC-Rvg" secondAttribute="bottom" id="vOf-gU-MSZ"/>
-                                            <constraint firstAttribute="bottom" secondItem="XZU-0i-KnE" secondAttribute="bottom" id="wh6-ef-g87"/>
                                             <constraint firstAttribute="trailing" secondItem="J74-wy-HtM" secondAttribute="trailing" id="yTh-68-I91"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
@@ -728,7 +728,6 @@
                         <outlet property="emailErrorMessageView" destination="yUP-OC-Rvg" id="6Y6-0O-06D"/>
                         <outlet property="emailErrorMessageViewHeightConstraint" destination="wg0-I8-hHo" id="YXX-6I-BFO"/>
                         <outlet property="emailErrorMessageViewTopConstraint" destination="Y8B-B4-WEb" id="nwo-Id-7Hj"/>
-                        <outlet property="firstPhoneView" destination="HBS-eI-rim" id="PaV-1j-Im4"/>
                         <outlet property="phonesView" destination="feO-QX-Jfr" id="CkX-4S-aQ0"/>
                         <outlet property="phonesViewHeightConstraint" destination="Qn0-uc-gPy" id="AK6-uz-I4e"/>
                         <outlet property="scrollView" destination="Ph0-LK-aMq" id="4RH-mA-XjS"/>
@@ -1496,7 +1495,7 @@
                                                                 </userDefinedRuntimeAttributes>
                                                             </view>
                                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="O7z-Ll-sQh" userLabel="Old Password Text Field" customClass="CustomTextField" customModule="OmnieCommerce" customModuleProvider="target">
-                                                                <rect key="frame" x="8" y="28.5" width="144" height="14"/>
+                                                                <rect key="frame" x="8" y="28" width="144" height="15"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                 <nil key="textColor"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -1580,7 +1579,7 @@
                                                                 </userDefinedRuntimeAttributes>
                                                             </view>
                                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="New password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YaG-rA-m3g" userLabel="Password New Text Field" customClass="CustomTextField" customModule="OmnieCommerce" customModuleProvider="target">
-                                                                <rect key="frame" x="8" y="31" width="225" height="19"/>
+                                                                <rect key="frame" x="8" y="33" width="225" height="15"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                 <nil key="textColor"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -1664,7 +1663,7 @@
                                                                 </userDefinedRuntimeAttributes>
                                                             </view>
                                                             <textField opaque="NO" clipsSubviews="YES" tag="99" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Repeat password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gqg-VJ-mTf" userLabel="Password Repeat Text Field" customClass="CustomTextField" customModule="OmnieCommerce" customModuleProvider="target">
-                                                                <rect key="frame" x="8" y="31" width="225" height="19"/>
+                                                                <rect key="frame" x="8" y="33" width="225" height="15"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                 <nil key="textColor"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>

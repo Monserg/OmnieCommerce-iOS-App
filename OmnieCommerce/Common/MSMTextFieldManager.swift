@@ -109,6 +109,7 @@ extension MSMTextFieldManager: UITextFieldDelegate {
         case .Email, .PhoneEmail, .PhoneButton:
             (currentVC as! EmailErrorMessageView).didHide((currentVC as! EmailErrorMessageView).emailErrorMessageView, withConstraint: (currentVC as! EmailErrorMessageView).emailErrorMessageViewTopConstraint)
             
+            // Hide/Show Delete Button
             if let textFieldNew = (textField as? CustomTextField), textFieldNew.style! == .PhoneButton {
                 handlerTextFieldCompletion!(textFieldNew, (textFieldNew.text?.isEmpty)! ? true : false)
             }

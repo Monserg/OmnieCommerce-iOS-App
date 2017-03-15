@@ -46,7 +46,7 @@ import UIKit
         addSubview(view)
         view.frame          =   frame
         alpha               =   0
-        tag                 =   1
+        tag                 =   0
         phoneTextField.tag  =   tag
         deleteButton.tag    =   tag
     }

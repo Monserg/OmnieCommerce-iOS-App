@@ -58,7 +58,8 @@ class PersonalDataViewController: BaseViewController, EmailErrorMessageView, Pho
     
     @IBOutlet weak var firstPhoneView: UIView! {
         didSet {
-            phoneLastTag    =   firstPhoneView.tag
+            phoneLastTag                =   firstPhoneView.tag
+            firstPhoneView.alpha        =   1
         }
     }
     
@@ -73,7 +74,8 @@ class PersonalDataViewController: BaseViewController, EmailErrorMessageView, Pho
                     // Handler Show/Hide Delete Button
                     self.textFieldManager.handlerTextFieldCompletion                =   { (phoneButtonTextField, success) in
                         if (self.phoneLastTag != 0) {
-                            _   =   self.deleteButtonsCollection.filter{ $0.tag == phoneButtonTextField.tag }.map{ $0.isHidden = success }
+                            let deleteButton        =   self.deleteButtonsCollection.first(where: { $0.tag == phoneButtonTextField.tag })
+                            deleteButton?.isHidden  =   (self.phoneErrorMessageViewsCollection.count == 1) ? true : false
                         }
                     }
                     
@@ -91,7 +93,7 @@ class PersonalDataViewController: BaseViewController, EmailErrorMessageView, Pho
                         newPhoneView.translatesAutoresizingMaskIntoConstraints   =   false
 
                         // Add Layouts
-                        newPhoneView.topAnchor.constraint(equalTo: phoneErrorView.bottomAnchor, constant: 0).isActive       =   true
+                        newPhoneView.topAnchor.constraint(equalTo: (((phoneButtonTextField as! CustomTextField).tag == 0) ? phoneErrorView : self.phonesView).bottomAnchor, constant: 0).isActive       =   true
                         newPhoneView.bottomAnchor.constraint(equalTo: self.phonesView.bottomAnchor, constant: 0).isActive   =   true
                         newPhoneView.leftAnchor.constraint(equalTo: self.phonesView.leftAnchor, constant: 0).isActive       =   true
                         newPhoneView.rightAnchor.constraint(equalTo: self.phonesView.rightAnchor, constant: 0).isActive     =   true
@@ -260,9 +262,10 @@ class PersonalDataViewController: BaseViewController, EmailErrorMessageView, Pho
         deleteButtonsCollection.remove(at: phoneErrorViewIndex)
         dottedBorderViewsCollection.remove(at: phoneErrorViewIndex)
         
-        phonesCount                 =   phonesCount - 1
+        textFieldManager.textFieldsArray    =   textFieldsCollection
+        
+        phonesCount                         =   phonesCount - 1
         self.phonesViewHeightConstraint     =   self.view.constraintDidUpdate(self.phonesViewHeightConstraint, withNewMultiplier: self.onePhoneViewHeight * CGFloat(self.phonesCount - 1) / ((UIApplication.shared.statusBarOrientation.isPortrait) ? 494.0 : 216.0))
-
     }
     
     
