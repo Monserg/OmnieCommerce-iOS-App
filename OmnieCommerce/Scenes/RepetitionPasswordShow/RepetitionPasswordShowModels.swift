@@ -13,14 +13,19 @@ import UIKit
 
 // MARK: - Data models
 struct RepetitionPasswordShowModels {
-    struct Something {
+    struct Password {
         struct RequestModel {
+            let email: String
+            let newPassword: String
+            let resetToken: String
         }
         
         struct ResponseModel {
+            let response: ResponseAPI?
         }
         
         struct ViewModel {
+            let response: ResponseAPI?
         }
     }
 }

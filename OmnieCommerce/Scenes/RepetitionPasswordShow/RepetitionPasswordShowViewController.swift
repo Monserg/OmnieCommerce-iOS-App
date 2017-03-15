@@ -13,12 +13,12 @@ import UIKit
 
 // MARK: - Input protocols for current ViewController component VIP-cicle
 protocol RepetitionPasswordShowViewControllerInput {
-    func displaySomething(viewModel: RepetitionPasswordShowModels.Something.ViewModel)
+    func newPasswordDidShow(fromViewModel viewModel: RepetitionPasswordShowModels.Password.ViewModel)
 }
 
 // MARK: - Output protocols for Interactor component VIP-cicle
 protocol RepetitionPasswordShowViewControllerOutput {
-    func doSomething(requestModel: RepetitionPasswordShowModels.Something.RequestModel)
+    func newPasswordDidChange(fromRequestModel requestModel: RepetitionPasswordShowModels.Password.RequestModel)
 }
 
 class RepetitionPasswordShowViewController: BaseViewController, PasswordStrengthView, PasswordStrengthErrorMessageView, PasswordErrorMessageView {
@@ -26,9 +26,10 @@ class RepetitionPasswordShowViewController: BaseViewController, PasswordStrength
     var interactor: RepetitionPasswordShowViewControllerOutput!
     var router: RepetitionPasswordShowRouter!
     
+    var email: String!
     var resetToken: String!
     
-    var handlerSendButtonCompletion: HandlerSendButtonCompletion?
+    var handlerPassDataCompletion: HandlerPassDataCompletion?
     var handlerCancelButtonCompletion: HandlerCancelButtonCompletion?
     
     var textFieldManager: MSMTextFieldManager! {
@@ -101,17 +102,13 @@ class RepetitionPasswordShowViewController: BaseViewController, PasswordStrength
     // MARK: - Actions
     @IBAction func handlerSendButtonTap(_ sender: CustomButton) {
         if (textFieldsCollection.first?.text == textFieldsCollection.last?.text) {
-            CoreDataManager.instance.didUpdateAppUser(state: true)
-            
             guard isNetworkAvailable else {
                 alertViewDidShow(withTitle: "Not Reachable".localized(), andMessage: "Disconnected from Network".localized())
-                
                 return
             }
-            
-            handlerSendButtonCompletion!()
-        } else {
-            didShow(passwordErrorMessageView, withConstraint: passwordErrorMessageViewTopConstraint)
+         
+            let requestModel    =   RepetitionPasswordShowModels.Password.RequestModel(email: email, newPassword: textFieldsCollection.first!.text!, resetToken: resetToken)
+            interactor.newPasswordDidChange(fromRequestModel: requestModel)
         }
     }
     
@@ -129,8 +126,26 @@ class RepetitionPasswordShowViewController: BaseViewController, PasswordStrength
 
 // MARK: - ForgotPasswordShowViewControllerInput
 extension RepetitionPasswordShowViewController: RepetitionPasswordShowViewControllerInput {
-    func displaySomething(viewModel: RepetitionPasswordShowModels.Something.ViewModel) {
-        // NOTE: Display the result from the Presenter
-        // nameTextField.text = viewModel.name
+    func newPasswordDidShow(fromViewModel viewModel: RepetitionPasswordShowModels.Password.ViewModel) {
+        guard isNetworkAvailable else {
+            alertViewDidShow(withTitle: "Not Reachable".localized(), andMessage: "Disconnected from Network".localized())
+            UIApplication.shared.isNetworkActivityIndicatorVisible  =   false
+            
+            return
+        }
+        
+        if (viewModel.response?.code == 200) {
+            CoreDataManager.instance.didUpdateAppUser(state: true)
+            CoreDataManager.instance.appUser.email                  =   email
+            CoreDataManager.instance.appUser.password               =   textFieldsCollection.first!.text!
+            CoreDataManager.instance.appUser.accessToken            =   viewModel.response!.body
+            CoreDataManager.instance.didSaveContext()
+            
+            handlerPassDataCompletion!(viewModel.response!.code)
+        } else {
+            didShow(passwordErrorMessageView, withConstraint: passwordErrorMessageViewTopConstraint)
+        }
+        
+        UIApplication.shared.isNetworkActivityIndicatorVisible      =   false
     }
 }

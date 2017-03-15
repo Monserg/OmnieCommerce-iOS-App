@@ -104,17 +104,20 @@ class SignInShowRouter: SignInShowRouterInput {
                 self.viewController.enterCodeShowViewController?.handlerPassDataCompletion      =   { resetToken in
                     // Create RepetitionPasswordShow scene
                     self.viewController.repetitionPasswordShowViewController                    =   UIStoryboard(name: "SignInShow", bundle: nil).instantiateViewController(withIdentifier: "RepetitionPasswordShowVC") as? RepetitionPasswordShowViewController
+                    self.viewController.repetitionPasswordShowViewController?.email             =   self.viewController.enterCodeShowViewController?.email
                     self.viewController.repetitionPasswordShowViewController?.resetToken        =   resetToken as! String
                     
                     // RepetitionPasswordShowVC: handler Send button
-                    self.viewController.repetitionPasswordShowViewController?.handlerSendButtonCompletion = { _ in
+                    self.viewController.repetitionPasswordShowViewController?.handlerPassDataCompletion         =   { successCode in
                         self.viewController.signInContainerShowVC?.didCleanTextFields()
+                        self.statusCodeNote                             =   StatusCodeNote(rawValue: successCode as! Int)
+
                         self.navigateAuthorizedUser(duringStartApp: false)
                         self.viewController.activeViewController        =   self.viewController.signInContainerShowVC
                     }
                     
                     // RepetitionPasswordShowVC: handler Cancel button
-                    self.viewController.repetitionPasswordShowViewController?.handlerCancelButtonCompletion = { _ in
+                    self.viewController.repetitionPasswordShowViewController?.handlerCancelButtonCompletion     =   { _ in
                         self.viewController.activeViewController = self.viewController.enterCodeShowViewController
                     }
                     
