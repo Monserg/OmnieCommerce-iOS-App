@@ -13,14 +13,14 @@ import UIKit
 
 // MARK: - Input protocols for current ViewController component VIP-cicle
 protocol EnterCodeShowViewControllerInput {
-    func codeDidShow(fromViewModel viewModel: EnterCodeShowModels.Code.ViewModel)
-    func enteredCodeDidShow(fromViewModel viewModel: EnterCodeShowModels.EnterCode.ViewModel)
+    func codeDidShowLoad(fromViewModel viewModel: EnterCodeShowModels.Code.ViewModel)
+    func enteredCodeDidShowCheck(fromViewModel viewModel: EnterCodeShowModels.EnterCode.ViewModel)
 }
 
 // MARK: - Output protocols for Interactor component VIP-cicle
 protocol EnterCodeShowViewControllerOutput {
-    func codeDidLoad(fromRequestModel requestModel: EnterCodeShowModels.Code.RequestModel)
-    func enteredCodeDidCheck(fromRequestModel requestModel: EnterCodeShowModels.EnterCode.RequestModel)
+    func codeDidLoad(withRequestModel requestModel: EnterCodeShowModels.Code.RequestModel)
+    func enteredCodeDidCheck(withRequestModel requestModel: EnterCodeShowModels.EnterCode.RequestModel)
 }
 
 class EnterCodeShowViewController: BaseViewController, CodeErrorMessageView {
@@ -28,9 +28,7 @@ class EnterCodeShowViewController: BaseViewController, CodeErrorMessageView {
     var interactor: EnterCodeShowViewControllerOutput!
     var router: EnterCodeShowRouter!
     
-    var email: String!
-    
-    var handlerPassDataCompletion: HandlerPassDataCompletion?
+    var handlerSendButtonCompletion: HandlerSendButtonCompletion?
     var handlerCancelButtonCompletion: HandlerCancelButtonCompletion?
     
     var textFieldManager: MSMTextFieldManager! {
@@ -78,13 +76,13 @@ class EnterCodeShowViewController: BaseViewController, CodeErrorMessageView {
     // MARK: - Custom Functions
     func viewSettingsDidLoad() {
         // Apply keyboard handler
-        scrollViewBase              =   scrollView
+        scrollViewBase = scrollView
         
         didAddTapGestureRecognizer()
 
         // Create MSMTextFieldManager
-        textFieldManager            =   MSMTextFieldManager(withTextFields: textFieldsCollection)
-        textFieldManager.currentVC  =   self
+        textFieldManager = MSMTextFieldManager(withTextFields: textFieldsCollection)
+        textFieldManager.currentVC = self
         
         // Hide email error message view
         codeErrorMessageViewHeightConstraint.constant = Config.Constants.errorMessageViewHeight
@@ -104,8 +102,9 @@ class EnterCodeShowViewController: BaseViewController, CodeErrorMessageView {
             return
         }
         
-        let requestModel    =   EnterCodeShowModels.EnterCode.RequestModel(code: Int(textFieldsCollection.first!.text!)!, email: email)
-        interactor.enteredCodeDidCheck(fromRequestModel: requestModel)
+        let enterCodeRequestModel = EnterCodeShowModels.EnterCode.RequestModel(code:  Int(textFieldsCollection.first!.text!)!,
+                                                                               email: UserDefaults.standard.value(forKey: keyEmail) as! String)
+        interactor.enteredCodeDidCheck(withRequestModel: enterCodeRequestModel)
     }
     
     @IBAction func handlerCancelButtonTap(_ sender: CustomButton) {
@@ -125,32 +124,17 @@ class EnterCodeShowViewController: BaseViewController, CodeErrorMessageView {
             return
         }
         
-        let requestModel    =   EnterCodeShowModels.Code.RequestModel(email: email)
-        interactor.codeDidLoad(fromRequestModel: requestModel)
+        let repeatRequestModel = EnterCodeShowModels.Code.RequestModel(email: UserDefaults.standard.value(forKey: keyEmail) as! String)
+        interactor.codeDidLoad(withRequestModel: repeatRequestModel)
     }
 }
 
 
 // MARK: - EnterCodeShowViewControllerInput
 extension EnterCodeShowViewController: EnterCodeShowViewControllerInput {
-    func enteredCodeDidShow(fromViewModel viewModel: EnterCodeShowModels.EnterCode.ViewModel) {
+    func codeDidShowLoad(fromViewModel viewModel: EnterCodeShowModels.Code.ViewModel) {
         UIApplication.shared.isNetworkActivityIndicatorVisible = false
-
-        guard isNetworkAvailable else {
-            alertViewDidShow(withTitle: "Not Reachable".localized(), andMessage: "Disconnected from Network".localized())
-            return
-        }
         
-        if (viewModel.responseCode == 200) {
-            handlerPassDataCompletion!(viewModel.resetToken!)
-        } else {
-            didShow(codeErrorMessageView, withConstraint: codeErrorMessageViewTopConstraint)
-        }
-    }
-
-    func codeDidShow(fromViewModel viewModel: EnterCodeShowModels.Code.ViewModel) {
-        UIApplication.shared.isNetworkActivityIndicatorVisible = false
-
         guard isNetworkAvailable else {
             alertViewDidShow(withTitle: "Not Reachable".localized(), andMessage: "Disconnected from Network".localized())
             return
@@ -160,6 +144,22 @@ extension EnterCodeShowViewController: EnterCodeShowViewControllerInput {
             alertViewDidShow(withTitle: "Info".localized(), andMessage: "Retry request succeeded".localized())
         } else {
             alertViewDidShow(withTitle: "Error".localized(), andMessage: "Wrong input data".localized())
+        }
+    }
+
+    func enteredCodeDidShowCheck(fromViewModel viewModel: EnterCodeShowModels.EnterCode.ViewModel) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
+
+        guard isNetworkAvailable else {
+            alertViewDidShow(withTitle: "Not Reachable".localized(), andMessage: "Disconnected from Network".localized())
+            return
+        }
+        
+        if (viewModel.responseCode == 200) {
+            UserDefaults.standard.set(viewModel.resetToken!, forKey: keyResetToken)
+            handlerSendButtonCompletion!()
+        } else {
+            didShow(codeErrorMessageView, withConstraint: codeErrorMessageViewTopConstraint)
         }
     }
 }

@@ -13,12 +13,12 @@ import UIKit
 
 // MARK: - Input protocols for current Presenter component VIP-cicle
 protocol RepetitionPasswordShowPresenterInput {
-    func newPasswordDidPrepareToShow(fromResponseModel responseModel: RepetitionPasswordShowModels.Password.ResponseModel)
+    func newPasswordDidPrepareToShowChange(fromResponseModel responseModel: RepetitionPasswordShowModels.Password.ResponseModel)
 }
 
 // MARK: - Output protocols for ViewController component VIP-cicle
 protocol RepetitionPasswordShowPresenterOutput: class {
-    func newPasswordDidShow(fromViewModel viewModel: RepetitionPasswordShowModels.Password.ViewModel)
+    func newPasswordDidShowChange(fromViewModel viewModel: RepetitionPasswordShowModels.Password.ViewModel)
 }
 
 class RepetitionPasswordShowPresenter: RepetitionPasswordShowPresenterInput {
@@ -27,9 +27,9 @@ class RepetitionPasswordShowPresenter: RepetitionPasswordShowPresenterInput {
     
     
     // MARK: - Custom Functions. Presentation logic
-    func newPasswordDidPrepareToShow(fromResponseModel responseModel: RepetitionPasswordShowModels.Password.ResponseModel) {
+    func newPasswordDidPrepareToShowChange(fromResponseModel responseModel: RepetitionPasswordShowModels.Password.ResponseModel) {
         // Format the response from the Interactor and pass the result back to the View Controller
-        let viewModel   =   RepetitionPasswordShowModels.Password.ViewModel(response: responseModel.response)
-        viewController.newPasswordDidShow(fromViewModel: viewModel)
+        let viewModel = RepetitionPasswordShowModels.Password.ViewModel(response: responseModel.response)
+        viewController.newPasswordDidShowChange(fromViewModel: viewModel)
     }
 }

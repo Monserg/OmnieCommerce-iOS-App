@@ -19,6 +19,13 @@ enum ThemeDesign: String {
     case DarkForGuest   =   "DarkForGuest"
 }
 
+// Keys
+public let keyEmail: String                         =   "email"
+public let keyResetToken: String                    =   "resetToken"
+public let keyPassword: String                      =   "password"
+
+
+// Handlers
 typealias HandlerSendButtonCompletion               =   (() -> ())
 typealias HandlerRegisterButtonCompletion           =   (() -> ())
 typealias HandlerForgotPasswordButtonCompletion     =   (() -> ())

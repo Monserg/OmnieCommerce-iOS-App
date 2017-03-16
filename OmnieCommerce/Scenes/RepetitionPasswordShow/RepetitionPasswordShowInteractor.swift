@@ -13,12 +13,12 @@ import UIKit
 
 // MARK: - Input protocols for current Interactor component VIP-cicle
 protocol RepetitionPasswordShowInteractorInput {
-    func newPasswordDidChange(fromRequestModel requestModel: RepetitionPasswordShowModels.Password.RequestModel)
+    func newPasswordDidChange(withRequestModel requestModel: RepetitionPasswordShowModels.Password.RequestModel)
 }
 
 // MARK: - Output protocols for Presenter component VIP-cicle
 protocol RepetitionPasswordShowInteractorOutput {
-    func newPasswordDidPrepareToShow(fromResponseModel responseModel: RepetitionPasswordShowModels.Password.ResponseModel)
+    func newPasswordDidPrepareToShowChange(fromResponseModel responseModel: RepetitionPasswordShowModels.Password.ResponseModel)
 }
 
 class RepetitionPasswordShowInteractor: RepetitionPasswordShowInteractorInput {
@@ -28,12 +28,12 @@ class RepetitionPasswordShowInteractor: RepetitionPasswordShowInteractorInput {
     
     
     // MARK: - Custom Functions. Business logic
-    func newPasswordDidChange(fromRequestModel requestModel: RepetitionPasswordShowModels.Password.RequestModel) {
-        UIApplication.shared.isNetworkActivityIndicatorVisible  =   true
+    func newPasswordDidChange(withRequestModel requestModel: RepetitionPasswordShowModels.Password.RequestModel) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
         
         MSMRestApiManager.instance.userChangePassword(requestModel.email, withNewPassword: requestModel.newPassword, withResetToken: requestModel.resetToken) { responseAPI in
-            let responseModel   =   RepetitionPasswordShowModels.Password.ResponseModel(response: responseAPI)
-            self.presenter.newPasswordDidPrepareToShow(fromResponseModel: responseModel)
+            let responseModel = RepetitionPasswordShowModels.Password.ResponseModel(response: responseAPI)
+            self.presenter.newPasswordDidPrepareToShowChange(fromResponseModel: responseModel)
         }
     }
 }

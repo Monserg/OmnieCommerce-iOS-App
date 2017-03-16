@@ -128,6 +128,7 @@ extension ForgotPasswordShowViewController: ForgotPasswordShowViewControllerInpu
         }
 
         if (viewModel.code == 200) {
+            UserDefaults.standard.set(textFieldsCollection.first!.text!, forKey: keyEmail)
             handlerSendButtonCompletion!()
         } else {
             alertViewDidShow(withTitle: "Error".localized(), andMessage: "Wrong input data".localized())

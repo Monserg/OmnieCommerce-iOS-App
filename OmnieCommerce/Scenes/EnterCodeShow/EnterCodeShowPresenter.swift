@@ -13,14 +13,14 @@ import UIKit
 
 // MARK: - Input protocols for current Presenter component VIP-cicle
 protocol EnterCodeShowPresenterInput {
-    func codeDidPrepareToShow(fromResponseModel responseModel: EnterCodeShowModels.Code.ResponseModel)
-    func enteredCodeDidPrepareToShow(fromResponseModel responseModel: EnterCodeShowModels.EnterCode.ResponseModel)
+    func codeDidPrepareToShowLoad(fromResponseModel responseModel: EnterCodeShowModels.Code.ResponseModel)
+    func enteredCodeDidPrepareToShowCheck(fromResponseModel responseModel: EnterCodeShowModels.EnterCode.ResponseModel)
 }
 
 // MARK: - Output protocols for ViewController component VIP-cicle
 protocol EnterCodeShowPresenterOutput: class {
-    func codeDidShow(fromViewModel viewModel: EnterCodeShowModels.Code.ViewModel)
-    func enteredCodeDidShow(fromViewModel viewModel: EnterCodeShowModels.EnterCode.ViewModel)
+    func codeDidShowLoad(fromViewModel viewModel: EnterCodeShowModels.Code.ViewModel)
+    func enteredCodeDidShowCheck(fromViewModel viewModel: EnterCodeShowModels.EnterCode.ViewModel)
 }
 
 class EnterCodeShowPresenter: EnterCodeShowPresenterInput {
@@ -29,18 +29,18 @@ class EnterCodeShowPresenter: EnterCodeShowPresenterInput {
     
     
     // MARK: - Custom Functions. Presentation logic
-    func codeDidPrepareToShow(fromResponseModel responseModel: EnterCodeShowModels.Code.ResponseModel) {
+    func codeDidPrepareToShowLoad(fromResponseModel responseModel: EnterCodeShowModels.Code.ResponseModel) {
         // Format the response from the Interactor and pass the result back to the View Controller
-        let viewModel   =   EnterCodeShowModels.Code.ViewModel(code: responseModel.code)
-        viewController.codeDidShow(fromViewModel: viewModel)
+        let codeViewModel = EnterCodeShowModels.Code.ViewModel(code: responseModel.code)
+        viewController.codeDidShowLoad(fromViewModel: codeViewModel)
     }
     
-    func enteredCodeDidPrepareToShow(fromResponseModel responseModel: EnterCodeShowModels.EnterCode.ResponseModel) {
+    func enteredCodeDidPrepareToShowCheck(fromResponseModel responseModel: EnterCodeShowModels.EnterCode.ResponseModel) {
         // Format the response from the Interactor and pass the result back to the View Controller
-        let code                =   responseModel.response?.code ?? nil
-        let resetToken          =   responseModel.response?.body ?? nil
+        let code = responseModel.response?.code ?? nil
+        let resetToken = responseModel.response?.body ?? nil
         
-        let viewModel           =   EnterCodeShowModels.EnterCode.ViewModel(responseCode: code, resetToken: resetToken)
-        viewController.enteredCodeDidShow(fromViewModel: viewModel)
+        let enteredCodeViewModel = EnterCodeShowModels.EnterCode.ViewModel(responseCode: code, resetToken: resetToken)
+        viewController.enteredCodeDidShowCheck(fromViewModel: enteredCodeViewModel)
     }
 }

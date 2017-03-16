@@ -13,12 +13,12 @@ import UIKit
 
 // MARK: - Input protocols for current ViewController component VIP-cicle
 protocol RepetitionPasswordShowViewControllerInput {
-    func newPasswordDidShow(fromViewModel viewModel: RepetitionPasswordShowModels.Password.ViewModel)
+    func newPasswordDidShowChange(fromViewModel viewModel: RepetitionPasswordShowModels.Password.ViewModel)
 }
 
 // MARK: - Output protocols for Interactor component VIP-cicle
 protocol RepetitionPasswordShowViewControllerOutput {
-    func newPasswordDidChange(fromRequestModel requestModel: RepetitionPasswordShowModels.Password.RequestModel)
+    func newPasswordDidChange(withRequestModel requestModel: RepetitionPasswordShowModels.Password.RequestModel)
 }
 
 class RepetitionPasswordShowViewController: BaseViewController, PasswordStrengthView, PasswordStrengthErrorMessageView, PasswordErrorMessageView {
@@ -26,10 +26,7 @@ class RepetitionPasswordShowViewController: BaseViewController, PasswordStrength
     var interactor: RepetitionPasswordShowViewControllerOutput!
     var router: RepetitionPasswordShowRouter!
     
-    var email: String!
-    var resetToken: String!
-    
-    var handlerPassDataCompletion: HandlerPassDataCompletion?
+    var handlerSendButtonCompletion: HandlerSendButtonCompletion?
     var handlerCancelButtonCompletion: HandlerCancelButtonCompletion?
     
     var textFieldManager: MSMTextFieldManager! {
@@ -88,8 +85,8 @@ class RepetitionPasswordShowViewController: BaseViewController, PasswordStrength
         didAddTapGestureRecognizer()
 
         // Create MSMTextFieldManager
-        textFieldManager            =   MSMTextFieldManager(withTextFields: textFieldsCollection)
-        textFieldManager.currentVC  =   self
+        textFieldManager = MSMTextFieldManager(withTextFields: textFieldsCollection)
+        textFieldManager.currentVC = self
         
         // Hide email error message view
         passwordErrorMessageViewHeightConstraint.constant = Config.Constants.errorMessageViewHeight
@@ -107,8 +104,10 @@ class RepetitionPasswordShowViewController: BaseViewController, PasswordStrength
                 return
             }
          
-            let requestModel    =   RepetitionPasswordShowModels.Password.RequestModel(email: email, newPassword: textFieldsCollection.first!.text!, resetToken: resetToken)
-            interactor.newPasswordDidChange(fromRequestModel: requestModel)
+            let requestModel = RepetitionPasswordShowModels.Password.RequestModel(email: UserDefaults.standard.value(forKey: keyEmail) as! String,
+                                                                                  newPassword: textFieldsCollection.first!.text!,
+                                                                                  resetToken: UserDefaults.standard.value(forKey: keyResetToken) as! String)
+            interactor.newPasswordDidChange(withRequestModel: requestModel)
         }
     }
     
@@ -126,7 +125,7 @@ class RepetitionPasswordShowViewController: BaseViewController, PasswordStrength
 
 // MARK: - ForgotPasswordShowViewControllerInput
 extension RepetitionPasswordShowViewController: RepetitionPasswordShowViewControllerInput {
-    func newPasswordDidShow(fromViewModel viewModel: RepetitionPasswordShowModels.Password.ViewModel) {
+    func newPasswordDidShowChange(fromViewModel viewModel: RepetitionPasswordShowModels.Password.ViewModel) {
         UIApplication.shared.isNetworkActivityIndicatorVisible = false
 
         guard isNetworkAvailable else {
@@ -135,13 +134,14 @@ extension RepetitionPasswordShowViewController: RepetitionPasswordShowViewContro
         }
         
         if (viewModel.response?.code == 200) {
+            // Save UserApp values
             CoreDataManager.instance.didUpdateAppUser(state: true)
-            CoreDataManager.instance.appUser.email = email
+            CoreDataManager.instance.appUser.email = UserDefaults.standard.value(forKey: keyEmail) as? String
             CoreDataManager.instance.appUser.password = textFieldsCollection.first!.text!
             CoreDataManager.instance.appUser.accessToken = viewModel.response!.body
             CoreDataManager.instance.didSaveContext()
             
-            handlerPassDataCompletion!(viewModel.response!.code)
+            handlerSendButtonCompletion!()
         } else {
             didShow(passwordErrorMessageView, withConstraint: passwordErrorMessageViewTopConstraint)
         }
