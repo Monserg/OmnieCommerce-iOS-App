@@ -134,10 +134,10 @@ class EnterCodeShowViewController: BaseViewController, CodeErrorMessageView {
 // MARK: - EnterCodeShowViewControllerInput
 extension EnterCodeShowViewController: EnterCodeShowViewControllerInput {
     func enteredCodeDidShow(fromViewModel viewModel: EnterCodeShowModels.EnterCode.ViewModel) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
+
         guard isNetworkAvailable else {
             alertViewDidShow(withTitle: "Not Reachable".localized(), andMessage: "Disconnected from Network".localized())
-            UIApplication.shared.isNetworkActivityIndicatorVisible  =   false
-            
             return
         }
         
@@ -146,15 +146,13 @@ extension EnterCodeShowViewController: EnterCodeShowViewControllerInput {
         } else {
             didShow(codeErrorMessageView, withConstraint: codeErrorMessageViewTopConstraint)
         }
-        
-        UIApplication.shared.isNetworkActivityIndicatorVisible      =   false
     }
 
     func codeDidShow(fromViewModel viewModel: EnterCodeShowModels.Code.ViewModel) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
+
         guard isNetworkAvailable else {
             alertViewDidShow(withTitle: "Not Reachable".localized(), andMessage: "Disconnected from Network".localized())
-            UIApplication.shared.isNetworkActivityIndicatorVisible  =   false
-            
             return
         }
         
@@ -163,7 +161,5 @@ extension EnterCodeShowViewController: EnterCodeShowViewControllerInput {
         } else {
             alertViewDidShow(withTitle: "Error".localized(), andMessage: "Wrong input data".localized())
         }
-        
-        UIApplication.shared.isNetworkActivityIndicatorVisible      =   false
     }
 }

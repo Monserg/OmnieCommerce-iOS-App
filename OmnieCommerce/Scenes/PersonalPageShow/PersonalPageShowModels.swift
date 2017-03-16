@@ -13,17 +13,16 @@ import UIKit
 
 // MARK: - Data models
 struct PersonalPageShowModels {
-    struct UserApp {
+    struct Data {
         struct RequestModel {
-            let params: [String: String]
         }
         
         struct ResponseModel {
-            let userApp: AppUser
+            let response: ResponseAPI?
         }
         
         struct ViewModel {
-            let userApp: AppUser
+            let response: ResponseAPI?
         }
     }
 

@@ -36,7 +36,7 @@ class SignInContainerShowViewController: BaseViewController, PasswordErrorMessag
     }
     
     var handlerPassDataCompletion: HandlerPassDataCompletion?
-    var handlerRegisterButtonCompletion: HandlerRegisterButtonCompletion?
+    var handlerAuthorizationButtonCompletion: HandlerRegisterButtonCompletion?
     var handlerForgotPasswordButtonCompletion: HandlerForgotPasswordButtonCompletion?
 
     @IBOutlet weak var scrollView: UIScrollView!
@@ -101,7 +101,7 @@ class SignInContainerShowViewController: BaseViewController, PasswordErrorMessag
             return
         }
                 
-        handlerRegisterButtonCompletion!()
+        handlerAuthorizationButtonCompletion!()
     }
     
     @IBAction func handlerForgotPasswordButtonTap(_ sender: CustomButton) {
@@ -137,10 +137,11 @@ class SignInContainerShowViewController: BaseViewController, PasswordErrorMessag
 // MARK: - SignInContainerShowViewControllerInput
 extension SignInContainerShowViewController: SignInContainerShowViewControllerInput {
     func userAppDidShow(fromViewModel viewModel: SignInContainerShowModels.User.ViewModel) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
+
         guard viewModel.responseAPI != nil && viewModel.responseAPI?.code != 4401 && viewModel.responseAPI?.code != 4500 else {
             alertViewDidShow(withTitle: "Error".localized(),
                              andMessage: ((viewModel.responseAPI?.code == 4401) ? "Authentication failure" : "Wrong input data").localized())
-            
             return
         }
         

@@ -13,14 +13,16 @@ import UIKit
 
 // MARK: - Input protocols for current Interactor component VIP-cicle
 protocol PersonalPageShowInteractorInput {
+    func userAppDataDidLoad(withRequestModel requestModel: PersonalPageShowModels.Data.RequestModel)
+    func userAppDataDidUpdate(withRequestModel requestModel: PersonalPageShowModels.Data.RequestModel)
     func userAppTemplatesDidLoad(withRequestModel requestModel: PersonalPageShowModels.Templates.RequestModel)
-    func userAppDataDidUpdate(withRequestModel requestModel: PersonalPageShowModels.UserApp.RequestModel)
 }
 
 // MARK: - Output protocols for Presenter component VIP-cicle
 protocol PersonalPageShowInteractorOutput {
+    func userAppDataDidPrepareToShowLoad(fromResponseModel responseModel: PersonalPageShowModels.Data.ResponseModel)
+    func userAppDataDidPrepareToShowUpdate(fromResponseModel responseModel: PersonalPageShowModels.Data.ResponseModel)
     func userAppTemplatesDidPrepareToShow(fromResponseModel responseModel: PersonalPageShowModels.Templates.ResponseModel)
-    func userAppDataDidPrepareToShow(fromResponseModel responseModel: PersonalPageShowModels.UserApp.ResponseModel)
 }
 
 class PersonalPageShowInteractor: PersonalPageShowInteractorInput {
@@ -39,12 +41,22 @@ class PersonalPageShowInteractor: PersonalPageShowInteractorInput {
         presenter.userAppTemplatesDidPrepareToShow(fromResponseModel: responseModel)
     }
 
-    func userAppDataDidUpdate(withRequestModel requestModel: PersonalPageShowModels.UserApp.RequestModel) {
-        worker              =   PersonalPageShowWorker()
-        let userApp         =   worker.userAppDidUpdateOnServer(withParameters: requestModel.params)
+    func userAppDataDidLoad(withRequestModel requestModel: PersonalPageShowModels.Data.RequestModel) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible  =   true
         
-        // NOTE: Pass the result to the Presenter
-        let responseModel   =   PersonalPageShowModels.UserApp.ResponseModel(userApp: userApp)
-        presenter.userAppDataDidPrepareToShow(fromResponseModel: responseModel)
+        MSMRestApiManager.instance.userGetProfileData { responseAPI in
+            // Pass the result to the Presenter
+            let loadResponseModel = PersonalPageShowModels.Data.ResponseModel(response: responseAPI)
+            self.presenter.userAppDataDidPrepareToShowLoad(fromResponseModel: loadResponseModel)
+        }
+    }
+    
+    func userAppDataDidUpdate(withRequestModel requestModel: PersonalPageShowModels.Data.RequestModel) {
+//        worker              =   PersonalPageShowWorker()
+//        let userApp         =   worker.userAppDidUpdateOnServer(withParameters: requestModel.params)
+//        
+//        // NOTE: Pass the result to the Presenter
+//        let responseModel   =   PersonalPageShowModels.UserApp.ResponseModel(userApp: userApp)
+//        presenter.userAppDataDidPrepareToShow(fromResponseModel: responseModel)
     }
 }

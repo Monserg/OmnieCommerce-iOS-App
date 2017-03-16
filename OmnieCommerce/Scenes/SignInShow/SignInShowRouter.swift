@@ -64,25 +64,25 @@ class SignInShowRouter: SignInShowRouterInput {
         viewController.signInContainerShowVC = UIStoryboard(name: "SignInShow", bundle: nil).instantiateViewController(withIdentifier: "SignInContainerShowVC") as? SignInContainerShowViewController
         
         // SignInContainerShowVC: SignIn button handler
-        viewController.signInContainerShowVC?.handlerPassDataCompletion                         =   { successCode in
-            self.statusCodeNote     =   StatusCodeNote(rawValue: successCode as! Int)
+        viewController.signInContainerShowVC?.handlerPassDataCompletion = { successCode in
+            self.statusCodeNote = StatusCodeNote(rawValue: successCode as! Int)
             
             self.navigateAuthorizedUser(duringStartApp: false)
         }
         
-        // SignInContainerShowVC: Register button handler
-        viewController.signInContainerShowVC?.handlerRegisterButtonCompletion                   =   { _ in
+        // Handler: SignInContainerShowVC success Authorization completion
+        viewController.signInContainerShowVC?.handlerAuthorizationButtonCompletion = { _ in
             self.viewController.signUpShowVC = UIStoryboard(name: "SignInShow", bundle: nil).instantiateViewController(withIdentifier: "SignUpShowVC") as? SignUpShowViewController
             
-            // SignUpShowVC: Register button handler
-            self.viewController.signUpShowVC?.handlerRegisterButtonCompletion                   =   { _ in
+            // Handler: SignUpShowVC success Register completion
+            self.viewController.signUpShowVC?.handlerRegisterButtonCompletion = { _ in
                 self.viewController.signInContainerShowVC?.didCleanTextFields()
-                self.navigateAuthorizedUser(duringStartApp: false)
+//                self.navigateAuthorizedUser(duringStartApp: false)
                 self.viewController.activeViewController = self.viewController.signInContainerShowVC
             }
             
-            // SignUpShowVC: Cancel button handler
-            self.viewController.signUpShowVC?.handlerCancelButtonCompletion                     =   { _ in
+            // Handler: SignUpShowVC success Cancel completion
+            self.viewController.signUpShowVC?.handlerCancelButtonCompletion = { _ in
                 self.viewController.activeViewController = self.viewController.signInContainerShowVC
             }
             

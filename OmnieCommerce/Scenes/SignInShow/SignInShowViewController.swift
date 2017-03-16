@@ -183,14 +183,12 @@ class SignInShowViewController: BaseViewController {
 // MARK: - SignInShowViewControllerInput
 extension SignInShowViewController: SignInShowViewControllerInput {
     func displaySomething(viewModel: SignInShowModels.User.ViewModel) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
+
         guard isNetworkAvailable else {
             alertViewDidShow(withTitle: "Not Reachable".localized(), andMessage: "Disconnected from Network".localized())
-            
             return
         }
-        
-        // Display the result from the Presenter
-        // nameTextField.text = viewModel.name
     }
 }
 

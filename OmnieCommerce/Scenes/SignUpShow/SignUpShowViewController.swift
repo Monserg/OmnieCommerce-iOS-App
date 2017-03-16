@@ -135,10 +135,11 @@ extension SignUpShowViewController: SignUpShowViewControllerInput {
             return
         }
         
+        // Save UserApp
         CoreDataManager.instance.didUpdateAppUser(state: true)
-        CoreDataManager.instance.appUser.appName        =   self.textFieldsCollection.first?.text!
-        CoreDataManager.instance.appUser.email          =   self.textFieldsCollection[1].text!
-        CoreDataManager.instance.appUser.password       =   self.textFieldsCollection.last?.text!
+        CoreDataManager.instance.appUser.appName = textFieldsCollection.first?.text!
+        CoreDataManager.instance.appUser.email = textFieldsCollection[1].text!
+        CoreDataManager.instance.appUser.password = textFieldsCollection.last?.text!
         CoreDataManager.instance.didSaveContext()
         
         handlerRegisterButtonCompletion!()

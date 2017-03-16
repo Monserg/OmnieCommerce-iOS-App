@@ -44,7 +44,7 @@ class PersonalPageShowRouter: PersonalPageShowRouterInput {
                 self.addActiveViewController(activeVC)
                 
                 UIView.animate(withDuration: 0.2, animations: {
-                    activeVC.view.transform     =   CGAffineTransform(translationX: (self.viewController.animationDirection == .FromRightToLeft) ? 0 : 0, y: 0)
+                    activeVC.view.transform = CGAffineTransform(translationX: (self.viewController.animationDirection == .FromRightToLeft) ? 0 : 0, y: 0)
                 })
             }
         }
@@ -53,17 +53,17 @@ class PersonalPageShowRouter: PersonalPageShowRouterInput {
     private func addActiveViewController(_ activeVC: BaseViewController) {
         switch activeVC {
         case activeVC as PersonalDataViewController:
-            let personalDataVC              =   activeVC as! PersonalDataViewController
-            personalDataVC.userApp          =   CoreDataManager.instance.appUser
+            let personalDataVC = activeVC as! PersonalDataViewController
+            personalDataVC.userApp = CoreDataManager.instance.appUser
             
             // Handler Save Button tap
-            personalDataVC.handlerSaveButtonCompletion      =   { parameters in
-                let requestModel        =   PersonalPageShowModels.UserApp.RequestModel(params: parameters)
+            personalDataVC.handlerSaveButtonCompletion = { parameters in
+                let requestModel = PersonalPageShowModels.Data.RequestModel()
                 self.viewController.interactor.userAppDataDidUpdate(withRequestModel: requestModel)
             }
             
             // Handler Cancel Button tap
-            personalDataVC.handlerCancelButtonCompletion    =   { _ in
+            personalDataVC.handlerCancelButtonCompletion = { _ in
                 self.navigateToCategoriesShowScene()
             }
             
@@ -77,10 +77,10 @@ class PersonalPageShowRouter: PersonalPageShowRouterInput {
         self.viewController.addChildViewController(activeVC)
         
         if (self.viewController.animationDirection == nil) {
-            activeVC.view.frame         =   self.viewController.containerView.bounds
+            activeVC.view.frame = self.viewController.containerView.bounds
         } else {
-            activeVC.view.frame.size    =   self.viewController.containerView.frame.size
-            activeVC.view.transform     =   CGAffineTransform(translationX: (self.viewController.animationDirection == .FromRightToLeft) ? 1000 : -1000, y: 0)
+            activeVC.view.frame.size = self.viewController.containerView.frame.size
+            activeVC.view.transform = CGAffineTransform(translationX: (self.viewController.animationDirection == .FromRightToLeft) ? 1000 : -1000, y: 0)
         }
         
         self.viewController.containerView.addSubview(activeVC.view)
@@ -90,7 +90,7 @@ class PersonalPageShowRouter: PersonalPageShowRouterInput {
     
     // MARK: - Custom Functions. Navigation
     func navigateToCategoriesShowScene() {
-        let categoriesNC                =   UIStoryboard(name: "CategoriesShow", bundle: nil).instantiateViewController(withIdentifier: "CategoriesShowNC") as! BaseNavigationController
+        let categoriesNC = UIStoryboard(name: "CategoriesShow", bundle: nil).instantiateViewController(withIdentifier: "CategoriesShowNC") as! BaseNavigationController
 
         viewController.revealViewController().revealToggle(animated: true)
         viewController.revealViewController().setFront(categoriesNC, animated: true)

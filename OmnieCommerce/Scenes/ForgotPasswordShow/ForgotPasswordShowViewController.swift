@@ -109,7 +109,6 @@ class ForgotPasswordShowViewController: BaseViewController, EmailErrorMessageVie
     @IBAction func handlerCancelButtonTap(_ sender: CustomButton) {
         guard isNetworkAvailable else {
             alertViewDidShow(withTitle: "Not Reachable".localized(), andMessage: "Disconnected from Network".localized())
-            
             return
         }
 
@@ -121,10 +120,10 @@ class ForgotPasswordShowViewController: BaseViewController, EmailErrorMessageVie
 // MARK: - ForgotPasswordShowViewControllerInput
 extension ForgotPasswordShowViewController: ForgotPasswordShowViewControllerInput {
     func codeDidShow(fromViewModel viewModel: ForgotPasswordShowModels.Code.ViewModel) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
+
         guard isNetworkAvailable else {
             alertViewDidShow(withTitle: "Not Reachable".localized(), andMessage: "Disconnected from Network".localized())
-            UIApplication.shared.isNetworkActivityIndicatorVisible  =   false
-
             return
         }
 
@@ -133,7 +132,5 @@ extension ForgotPasswordShowViewController: ForgotPasswordShowViewControllerInpu
         } else {
             alertViewDidShow(withTitle: "Error".localized(), andMessage: "Wrong input data".localized())
         }
-        
-        UIApplication.shared.isNetworkActivityIndicatorVisible      =   false
     }
 }

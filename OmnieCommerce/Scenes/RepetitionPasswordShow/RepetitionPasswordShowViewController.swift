@@ -127,25 +127,23 @@ class RepetitionPasswordShowViewController: BaseViewController, PasswordStrength
 // MARK: - ForgotPasswordShowViewControllerInput
 extension RepetitionPasswordShowViewController: RepetitionPasswordShowViewControllerInput {
     func newPasswordDidShow(fromViewModel viewModel: RepetitionPasswordShowModels.Password.ViewModel) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
+
         guard isNetworkAvailable else {
             alertViewDidShow(withTitle: "Not Reachable".localized(), andMessage: "Disconnected from Network".localized())
-            UIApplication.shared.isNetworkActivityIndicatorVisible  =   false
-            
             return
         }
         
         if (viewModel.response?.code == 200) {
             CoreDataManager.instance.didUpdateAppUser(state: true)
-            CoreDataManager.instance.appUser.email                  =   email
-            CoreDataManager.instance.appUser.password               =   textFieldsCollection.first!.text!
-            CoreDataManager.instance.appUser.accessToken            =   viewModel.response!.body
+            CoreDataManager.instance.appUser.email = email
+            CoreDataManager.instance.appUser.password = textFieldsCollection.first!.text!
+            CoreDataManager.instance.appUser.accessToken = viewModel.response!.body
             CoreDataManager.instance.didSaveContext()
             
             handlerPassDataCompletion!(viewModel.response!.code)
         } else {
             didShow(passwordErrorMessageView, withConstraint: passwordErrorMessageViewTopConstraint)
         }
-        
-        UIApplication.shared.isNetworkActivityIndicatorVisible      =   false
     }
 }

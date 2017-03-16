@@ -14,14 +14,16 @@ import AlamofireImage
 
 // MARK: - Input protocols for current ViewController component VIP-cicle
 protocol PersonalPageShowViewControllerInput {
+    func userAppDataDidShowLoad(fromViewModel viewModel: PersonalPageShowModels.Data.ViewModel)
+    func userAppDataDidShowUpdate(fromViewModel viewModel: PersonalPageShowModels.Data.ViewModel)
     func userAppTemplatesDidShow(fromViewModel viewModel: PersonalPageShowModels.Templates.ViewModel)
-    func userAppDataDidShow(fromViewModel viewModel: PersonalPageShowModels.UserApp.ViewModel)
 }
 
 // MARK: - Output protocols for Interactor component VIP-cicle
 protocol PersonalPageShowViewControllerOutput {
+    func userAppDataDidLoad(withRequestModel requestModel: PersonalPageShowModels.Data.RequestModel)
+    func userAppDataDidUpdate(withRequestModel requestModel: PersonalPageShowModels.Data.RequestModel)
     func userAppTemplatesDidLoad(withRequestModel requestModel: PersonalPageShowModels.Templates.RequestModel)
-    func userAppDataDidUpdate(withRequestModel requestModel: PersonalPageShowModels.UserApp.RequestModel)
 }
 
 class PersonalPageShowViewController: BaseViewController {
@@ -72,19 +74,19 @@ class PersonalPageShowViewController: BaseViewController {
         haveMenuItem            =   true
                 
         // Container Child Views
-        personalDataVC          =   UIStoryboard(name: "PersonalPageShow", bundle: nil).instantiateViewController(withIdentifier: "PersonalDataVC") as? PersonalDataViewController
+        personalDataVC = UIStoryboard(name: "PersonalPageShow", bundle: nil).instantiateViewController(withIdentifier: "PersonalDataVC") as? PersonalDataViewController
         
         // Handler avatar button tap
-        personalDataVC?.handlerPassDataCompletion   =   { sender in
-            self.blackoutView       =   MSMBlackoutView.init(inView: self.view)
+        personalDataVC?.handlerPassDataCompletion = { sender in
+            self.blackoutView = MSMBlackoutView.init(inView: self.view)
             
             self.blackoutView!.didShow()
 
-            let avatarButton        =   sender as! CustomButton
-            self.avatarActionView   =   AvatarActionView.init(inView: self.view)
+            let avatarButton = sender as! CustomButton
+            self.avatarActionView = AvatarActionView.init(inView: self.view)
             
             // Handler AvatarActionView completions
-            self.avatarActionView!.handlerViewDismissCompletion     =   { actionType in
+            self.avatarActionView!.handlerViewDismissCompletion = { actionType in
                     switch actionType {
                     // Handler Photo Make button tap
                     case .PhotoUpload:
@@ -97,7 +99,7 @@ class PersonalPageShowViewController: BaseViewController {
                         self.handlerResult(fromImagePicker: imagePickerController, forAvatarButton: avatarButton)
 
                     case .PhotoMake:
-                        let imagePickerController   =   MSMImagePickerController()
+                        let imagePickerController = MSMImagePickerController()
                         
                         guard imagePickerController.photoDidMakeWithCamera() else {
                             self.alertViewDidShow(withTitle: "Error".localized(), andMessage: "Camera is not available".localized())
@@ -120,25 +122,25 @@ class PersonalPageShowViewController: BaseViewController {
             
                         
             // Handler AvatarActionView Cancel button tap
-            self.avatarActionView!.handlerCancelButtonCompletion     =   { _ in
+            self.avatarActionView!.handlerCancelButtonCompletion = { _ in
                 self.blackoutView!.didHide()
             }
         }
         
         // Handler Action Buttons
-        personalDataVC!.handlerSaveButtonCompletion     =   { parameters in
+        personalDataVC!.handlerSaveButtonCompletion = { parameters in
             // TODO: - ADD API
             
             self.router.navigateToCategoriesShowScene()
         }
         
-        personalDataVC!.handlerCancelButtonCompletion   =   { _ in
+        personalDataVC!.handlerCancelButtonCompletion = { _ in
             self.router.navigateToCategoriesShowScene()
         }
 
-        personalTemplatesVC     =   UIStoryboard(name: "PersonalPageShow", bundle: nil).instantiateViewController(withIdentifier: "PersonalTemplatesVC") as? PersonalTemplatesViewController
+        personalTemplatesVC = UIStoryboard(name: "PersonalPageShow", bundle: nil).instantiateViewController(withIdentifier: "PersonalTemplatesVC") as? PersonalTemplatesViewController
         
-        activeViewController    =   personalDataVC
+        activeViewController = personalDataVC
 
         viewSettingsDidLoad()        
     }
@@ -148,30 +150,33 @@ class PersonalPageShowViewController: BaseViewController {
     func viewSettingsDidLoad() {
         print(object: "\(type(of: self)): \(#function) run.")
         
+        userAppDataDidLoad()
         setupSegmentedControlView()
-        containerView.autoresizesSubviews   =   true
+        containerView.autoresizesSubviews = true
     }
     
     func setupSegmentedControlView() {
-        self.userApp                        =   CoreDataManager.instance.appUser
-
         segmentedControlView.actionButtonHandlerCompletion = { sender in
-            self.print(object: "\(type(of: self)): \(#function) run. Sender tag = \(sender.tag)")
-            
             switch sender.tag {
             case 1:
-                let requestModel            =   PersonalPageShowModels.Templates.RequestModel(userID: "01") // self.userApp!.codeID!)
+                let requestModel = PersonalPageShowModels.Templates.RequestModel(userID: "01") // self.userApp!.codeID!)
                 self.interactor.userAppTemplatesDidLoad(withRequestModel: requestModel)
                 
             default:
-                self.activeViewController   =   self.personalDataVC
+//                self.activeViewController = self.personalDataVC
+                self.userAppDataDidLoad()
             }
         }
     }
     
+    func userAppDataDidLoad() {
+        let loadRequestModel = PersonalPageShowModels.Data.RequestModel()
+        self.interactor.userAppDataDidLoad(withRequestModel: loadRequestModel)
+    }
+    
     func handlerResult(fromImagePicker imagePickerController: MSMImagePickerController, forAvatarButton avatarButton: CustomButton) {
         // Handler success image
-        imagePickerController.handlerImagePickerControllerCompletion    =   { image in
+        imagePickerController.handlerImagePickerControllerCompletion = { image in
             UIView.animate(withDuration: 0.5, animations: {
                 avatarButton.setImage(image.af_imageAspectScaled(toFill: avatarButton.frame.size), for: .normal)
             }, completion: { success in
@@ -180,7 +185,7 @@ class PersonalPageShowViewController: BaseViewController {
         }
         
         // Handler Cancel result
-        imagePickerController.handlerCancelButtonCompletion     =    { _ in
+        imagePickerController.handlerCancelButtonCompletion = { _ in
             self.blackoutView!.didHide()
         }
     }
@@ -202,29 +207,47 @@ class PersonalPageShowViewController: BaseViewController {
 // MARK: - PersonalPageShowViewControllerInput
 extension PersonalPageShowViewController: PersonalPageShowViewControllerInput {
     func userAppTemplatesDidShow(fromViewModel viewModel: PersonalPageShowModels.Templates.ViewModel) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
+
         guard isNetworkAvailable else {
             alertViewDidShow(withTitle: "Not Reachable".localized(), andMessage: "Disconnected from Network".localized())
-            
             return
         }
 
-        self.personalTemplatesVC!.organizations     =   viewModel.organizations
-        self.activeViewController                   =   self.personalTemplatesVC
+        self.personalTemplatesVC!.organizations = viewModel.organizations
+        self.activeViewController = self.personalTemplatesVC
         
         self.personalTemplatesVC!.viewSettingsDidLoad()
     }
 
-    func userAppDataDidShow(fromViewModel viewModel: PersonalPageShowModels.UserApp.ViewModel) {
+    func userAppDataDidShowLoad(fromViewModel viewModel: PersonalPageShowModels.Data.ViewModel) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
+
+        // Check Network state
         guard isNetworkAvailable else {
             alertViewDidShow(withTitle: "Not Reachable".localized(), andMessage: "Disconnected from Network".localized())
-            
             return
         }
         
-        print(object: "\(type(of: self)): \(#function) run.")
+        // Check Response value
+        guard viewModel.response != nil && (viewModel.response?.code == 200 || viewModel.response?.code == 2201) else {
+            alertViewDidShow(withTitle: "Error".localized(), andMessage: "Wrong input data".localized())
+            return
+        }
         
-        self.activeViewController?.userApp  =   viewModel.userApp
+        // Mofidy AppUser properties
+//        CoreDataManager.instance.appUser.appName = textFieldsCollection.first?.text!
+//        CoreDataManager.instance.appUser.password = textFieldsCollection.last?.text!
+//        CoreDataManager.instance.appUser.accessToken = viewModel.responseAPI!.accessToken
+        CoreDataManager.instance.didSaveContext()
         
+        activeViewController = personalDataVC
+    }
+    
+    func userAppDataDidShowUpdate(fromViewModel viewModel: PersonalPageShowModels.Data.ViewModel) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
+
+        //        self.activeViewController?.userApp  =   viewModel.userApp
         router.navigateToCategoriesShowScene()
     }
 }

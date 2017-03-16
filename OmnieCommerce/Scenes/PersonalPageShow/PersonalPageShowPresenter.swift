@@ -13,14 +13,16 @@ import UIKit
 
 // MARK: - Input protocols for current Presenter component VIP-cicle
 protocol PersonalPageShowPresenterInput {
+    func userAppDataDidPrepareToShowLoad(fromResponseModel responseModel: PersonalPageShowModels.Data.ResponseModel)
+    func userAppDataDidPrepareToShowUpdate(fromResponseModel responseModel: PersonalPageShowModels.Data.ResponseModel)
     func userAppTemplatesDidPrepareToShow(fromResponseModel responseModel: PersonalPageShowModels.Templates.ResponseModel)
-    func userAppDataDidPrepareToShow(fromResponseModel responseModel: PersonalPageShowModels.UserApp.ResponseModel)
 }
 
 // MARK: - Output protocols for ViewController component VIP-cicle
 protocol PersonalPageShowPresenterOutput: class {
+    func userAppDataDidShowLoad(fromViewModel viewModel: PersonalPageShowModels.Data.ViewModel)
+    func userAppDataDidShowUpdate(fromViewModel viewModel: PersonalPageShowModels.Data.ViewModel)
     func userAppTemplatesDidShow(fromViewModel viewModel: PersonalPageShowModels.Templates.ViewModel)
-    func userAppDataDidShow(fromViewModel viewModel: PersonalPageShowModels.UserApp.ViewModel)
 }
 
 class PersonalPageShowPresenter: PersonalPageShowPresenterInput {
@@ -34,8 +36,13 @@ class PersonalPageShowPresenter: PersonalPageShowPresenterInput {
         viewController.userAppTemplatesDidShow(fromViewModel: viewModel)
     }
 
-    func userAppDataDidPrepareToShow(fromResponseModel responseModel: PersonalPageShowModels.UserApp.ResponseModel) {
-        let viewModel   =   PersonalPageShowModels.UserApp.ViewModel(userApp: responseModel.userApp)
-        viewController.userAppDataDidShow(fromViewModel: viewModel)
+    func userAppDataDidPrepareToShowLoad(fromResponseModel responseModel: PersonalPageShowModels.Data.ResponseModel) {
+        let loadViewModel = PersonalPageShowModels.Data.ViewModel(response: responseModel.response)
+        viewController.userAppDataDidShowLoad(fromViewModel: loadViewModel)
+    }
+    
+    func userAppDataDidPrepareToShowUpdate(fromResponseModel responseModel: PersonalPageShowModels.Data.ResponseModel) {
+        let updateViewModel = PersonalPageShowModels.Data.ViewModel(response: responseModel.response)
+        viewController.userAppDataDidShowUpdate(fromViewModel: updateViewModel)
     }
 }

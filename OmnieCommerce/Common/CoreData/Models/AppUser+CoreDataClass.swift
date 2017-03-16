@@ -8,12 +8,13 @@
 
 import Foundation
 import CoreData
+import SwiftyJSON
 
 @objc(AppUser)
 public class AppUser: NSManagedObject, InitCellParameters {
     // MARK: - Properties
-    var cellIdentifier: String  =   "AppUser"
-    var cellHeight: CGFloat     =   44.0
+    var cellIdentifier: String = "AppUser"
+    var cellHeight: CGFloat = 44.0
     
     
     // MARK: - Class Initialization
@@ -23,5 +24,14 @@ public class AppUser: NSManagedObject, InitCellParameters {
     
     deinit {
         print("\(type(of: self)) deinit")
+    }
+    
+    
+    // MARK: - Custom Functions
+    func didMap(fromDictionary dictionary: [String: Any]) {
+//        self.birthday =
+//        self.firstName = dictionary["firstName"] as? String
+//        self.gender =
+//        self.lastName =
     }
 }
