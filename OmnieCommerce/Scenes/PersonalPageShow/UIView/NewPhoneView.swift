@@ -18,7 +18,6 @@ import UIKit
             phoneTextField.tag      =   tag
             dottedBorderView.tag    =   tag
             errorMessageView.tag    =   tag
-            
         }
     }
     
@@ -28,7 +27,6 @@ import UIKit
     @IBOutlet weak var deleteButton: FillVeryLightOrangeButton!
     
     @IBOutlet weak var errorMessageView: ErrorMessageView!
-    
     @IBOutlet weak var errorMessageViewTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var errorMessageViewHeightConstraint: NSLayoutConstraint!
     
@@ -51,7 +49,8 @@ import UIKit
     func createFromXIB() {
         UINib(nibName: String(describing: NewPhoneView.self), bundle: Bundle(for: NewPhoneView.self)).instantiate(withOwner: self, options: nil)
         addSubview(view)
-        view.frame          =   CGRect.init(origin: .zero, size: CGSize.init(width: frame.width, height: 40.0))
+        view.frame          =   CGRect.init(origin: .zero, size: CGSize.init(width: UIScreen.main.bounds.width / ((UIApplication.shared.statusBarOrientation.isPortrait) ? 375.0 : 667.0) * 225.0,
+                                                                             height: UIScreen.main.bounds.height / ((UIApplication.shared.statusBarOrientation.isPortrait) ? 667.0 : 375) * 40.0))
         alpha               =   0
         tag                 =   0
         phoneTextField.tag  =   tag

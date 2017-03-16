@@ -95,11 +95,11 @@ class CoreDataManager {
     }
     
     func fetchedResultsController(_ entityName: String, keyForSort: String) -> NSFetchedResultsController<NSFetchRequestResult> {
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
-        let sortDescriptor = NSSortDescriptor(key: keyForSort, ascending: true)
-        fetchRequest.sortDescriptors = [sortDescriptor]
+        let fetchRequest                =   NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
+        let sortDescriptor              =   NSSortDescriptor(key: keyForSort, ascending: true)
+        fetchRequest.sortDescriptors    =   [sortDescriptor]
         
-        let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: CoreDataManager.instance.managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
+        let fetchedResultsController    =   NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: CoreDataManager.instance.managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
         
         return fetchedResultsController
     }

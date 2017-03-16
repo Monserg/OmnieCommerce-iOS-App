@@ -187,7 +187,7 @@
                 <navigationController storyboardIdentifier="PersonalPageShowNC" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="5ua-Ud-9pH" customClass="BaseNavigationController" customModule="OmnieCommerce" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="rDE-36-aLe">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="rDE-36-aLe">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -216,7 +216,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gwY-6v-Lh9" userLabel="Content View">
-                                        <rect key="frame" x="75" y="0.0" width="225" height="423.5"/>
+                                        <rect key="frame" x="75" y="0.0" width="225" height="652.5"/>
                                         <subviews>
                                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hBm-3u-D6E" userLabel="Avatar View">
                                                 <rect key="frame" x="0.0" y="0.0" width="225" height="116"/>
@@ -261,7 +261,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="kS6-AW-8e4" userLabel="Name Text Field" customClass="CustomTextField" customModule="OmnieCommerce" customModuleProvider="target">
-                                                        <rect key="frame" x="8" y="31" width="225" height="19"/>
+                                                        <rect key="frame" x="8" y="30.5" width="225" height="19"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -310,7 +310,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Surname" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="QeN-Uq-axx" userLabel="Surname Text Field" customClass="CustomTextField" customModule="OmnieCommerce" customModuleProvider="target">
-                                                        <rect key="frame" x="8" y="31" width="225" height="19"/>
+                                                        <rect key="frame" x="8" y="30.5" width="225" height="19"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -420,12 +420,18 @@
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="feO-QX-Jfr" userLabel="Phones View">
-                                                <rect key="frame" x="0.0" y="302" width="225" height="54"/>
+                                            <view clipsSubviews="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="225" placeholderIntrinsicHeight="40" translatesAutoresizingMaskIntoConstraints="NO" id="feO-QX-Jfr" userLabel="Phones View">
+                                                <rect key="frame" x="0.0" y="302" width="225" height="40"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="24D-TF-4kq"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
                                             </view>
                                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XZU-0i-KnE" userLabel="Gender View">
-                                                <rect key="frame" x="0.0" y="356" width="225" height="67.5"/>
+                                                <rect key="frame" x="0.0" y="342" width="225" height="67.5"/>
                                                 <subviews>
                                                     <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="Jbc-5V-V5w">
                                                         <rect key="frame" x="48" y="21" width="108" height="26"/>
@@ -517,10 +523,9 @@
                                             <constraint firstAttribute="trailing" secondItem="gxC-Rj-htM" secondAttribute="trailing" id="LC1-Ng-5Gw"/>
                                             <constraint firstItem="yUP-OC-Rvg" firstAttribute="leading" secondItem="gwY-6v-Lh9" secondAttribute="leading" id="P0U-lp-AZs"/>
                                             <constraint firstAttribute="trailing" secondItem="koQ-ku-C6N" secondAttribute="trailing" id="PXM-L3-GuG"/>
+                                            <constraint firstItem="XZU-0i-KnE" firstAttribute="top" secondItem="feO-QX-Jfr" secondAttribute="bottom" id="Pbq-66-kER"/>
                                             <constraint firstAttribute="trailing" secondItem="XZU-0i-KnE" secondAttribute="trailing" id="SfV-HN-DAc"/>
-                                            <constraint firstItem="XZU-0i-KnE" firstAttribute="top" secondItem="feO-QX-Jfr" secondAttribute="bottom" id="TN5-1M-gAa"/>
                                             <constraint firstItem="yUP-OC-Rvg" firstAttribute="top" secondItem="koQ-ku-C6N" secondAttribute="bottom" id="Y8B-B4-WEb"/>
-                                            <constraint firstAttribute="bottom" secondItem="XZU-0i-KnE" secondAttribute="bottom" id="Yle-Uu-5qi"/>
                                             <constraint firstItem="XZU-0i-KnE" firstAttribute="leading" secondItem="gwY-6v-Lh9" secondAttribute="leading" id="ZBY-XG-NKT"/>
                                             <constraint firstAttribute="trailing" secondItem="feO-QX-Jfr" secondAttribute="trailing" id="aMx-wr-08R"/>
                                             <constraint firstItem="feO-QX-Jfr" firstAttribute="leading" secondItem="gwY-6v-Lh9" secondAttribute="leading" id="bMC-WO-mus"/>
@@ -533,6 +538,7 @@
                                             <constraint firstItem="J74-wy-HtM" firstAttribute="leading" secondItem="gwY-6v-Lh9" secondAttribute="leading" id="t2v-Q0-reU"/>
                                             <constraint firstItem="koQ-ku-C6N" firstAttribute="leading" secondItem="gwY-6v-Lh9" secondAttribute="leading" id="uer-Gu-VWS"/>
                                             <constraint firstItem="feO-QX-Jfr" firstAttribute="top" secondItem="yUP-OC-Rvg" secondAttribute="bottom" id="vOf-gU-MSZ"/>
+                                            <constraint firstAttribute="bottom" secondItem="XZU-0i-KnE" secondAttribute="bottom" constant="243" id="wcz-OG-6mC"/>
                                             <constraint firstAttribute="trailing" secondItem="J74-wy-HtM" secondAttribute="trailing" id="yTh-68-I91"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
@@ -571,7 +577,6 @@
                             <constraint firstAttribute="bottom" secondItem="Ph0-LK-aMq" secondAttribute="bottom" id="CBu-F1-KaD"/>
                             <constraint firstItem="J74-wy-HtM" firstAttribute="height" secondItem="BCA-3j-wEk" secondAttribute="height" multiplier="40:216" id="Gca-nE-adH"/>
                             <constraint firstItem="0Lw-ai-Lx3" firstAttribute="height" secondItem="BCA-3j-wEk" secondAttribute="height" multiplier="85:217" id="HET-G8-ufu"/>
-                            <constraint firstItem="feO-QX-Jfr" firstAttribute="height" secondItem="BCA-3j-wEk" secondAttribute="height" multiplier="40:494" id="Qn0-uc-gPy"/>
                             <constraint firstAttribute="trailing" secondItem="Ph0-LK-aMq" secondAttribute="trailing" id="YMS-dc-n3H"/>
                             <constraint firstItem="Ph0-LK-aMq" firstAttribute="top" secondItem="BCA-3j-wEk" secondAttribute="top" id="avk-vO-eyJ"/>
                             <constraint firstItem="0Lw-ai-Lx3" firstAttribute="height" secondItem="BCA-3j-wEk" secondAttribute="height" multiplier="85:494" id="gML-ll-FHU"/>
@@ -581,7 +586,6 @@
                             <constraint firstItem="XZU-0i-KnE" firstAttribute="height" secondItem="BCA-3j-wEk" secondAttribute="height" multiplier="50:216" id="smU-fA-eTg"/>
                             <constraint firstItem="gwY-6v-Lh9" firstAttribute="width" secondItem="BCA-3j-wEk" secondAttribute="width" multiplier="225:667" id="t50-yn-Tyq"/>
                             <constraint firstItem="gxC-Rj-htM" firstAttribute="height" secondItem="BCA-3j-wEk" secondAttribute="height" multiplier="40:494" id="t69-sD-iwj"/>
-                            <constraint firstItem="feO-QX-Jfr" firstAttribute="height" secondItem="BCA-3j-wEk" secondAttribute="height" multiplier="40:216" id="uzy-cd-sbu"/>
                             <constraint firstItem="XZU-0i-KnE" firstAttribute="height" secondItem="BCA-3j-wEk" secondAttribute="height" multiplier="50:494" id="ve8-5H-awA"/>
                             <constraint firstItem="koQ-ku-C6N" firstAttribute="height" secondItem="BCA-3j-wEk" secondAttribute="height" multiplier="40:494" id="wAX-xs-zOB"/>
                             <constraint firstItem="J74-wy-HtM" firstAttribute="height" secondItem="BCA-3j-wEk" secondAttribute="height" multiplier="40:494" id="zeu-mg-lv6"/>
@@ -593,7 +597,6 @@
                                 <exclude reference="zeu-mg-lv6"/>
                                 <exclude reference="t69-sD-iwj"/>
                                 <exclude reference="wAX-xs-zOB"/>
-                                <exclude reference="Qn0-uc-gPy"/>
                                 <exclude reference="ve8-5H-awA"/>
                             </mask>
                         </variation>
@@ -610,8 +613,6 @@
                                 <include reference="t69-sD-iwj"/>
                                 <exclude reference="1uR-bT-ced"/>
                                 <include reference="wAX-xs-zOB"/>
-                                <include reference="Qn0-uc-gPy"/>
-                                <exclude reference="uzy-cd-sbu"/>
                                 <exclude reference="smU-fA-eTg"/>
                                 <include reference="ve8-5H-awA"/>
                             </mask>
@@ -624,7 +625,7 @@
                         <outlet property="emailErrorMessageViewHeightConstraint" destination="wg0-I8-hHo" id="YXX-6I-BFO"/>
                         <outlet property="emailErrorMessageViewTopConstraint" destination="Y8B-B4-WEb" id="nwo-Id-7Hj"/>
                         <outlet property="phonesView" destination="feO-QX-Jfr" id="CkX-4S-aQ0"/>
-                        <outlet property="phonesViewHeightConstraint" destination="Qn0-uc-gPy" id="AK6-uz-I4e"/>
+                        <outlet property="phonesViewHeightConstraint" destination="24D-TF-4kq" id="YhE-B9-ijU"/>
                         <outlet property="scrollView" destination="Ph0-LK-aMq" id="4RH-mA-XjS"/>
                         <outletCollection property="dottedBorderViewsCollection" destination="CZp-ju-vni" collectionClass="NSMutableArray" id="2oV-cB-ugs"/>
                         <outletCollection property="dottedBorderViewsCollection" destination="KpZ-4z-hpT" collectionClass="NSMutableArray" id="GqO-SN-D4P"/>
@@ -900,7 +901,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="BGO-aW-mlC" userLabel="Name Text Field" customClass="CustomTextField" customModule="OmnieCommerce" customModuleProvider="target">
-                                                        <rect key="frame" x="8" y="31" width="225" height="19"/>
+                                                        <rect key="frame" x="8" y="30.5" width="225" height="19"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -949,7 +950,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Surname" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="SNZ-ky-0Nr" userLabel="Surname Text Field" customClass="CustomTextField" customModule="OmnieCommerce" customModuleProvider="target">
-                                                        <rect key="frame" x="8" y="31" width="225" height="19"/>
+                                                        <rect key="frame" x="8" y="30.5" width="225" height="19"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -1818,8 +1819,8 @@
                                 <exclude reference="Dgy-mj-MT1"/>
                                 <exclude reference="OpL-yJ-8et"/>
                                 <exclude reference="Vpa-yX-gPY"/>
-                                <exclude reference="ntw-Yf-HFO"/>
                                 <exclude reference="yul-Zl-Ply"/>
+                                <exclude reference="ntw-Yf-HFO"/>
                                 <exclude reference="32o-r8-bWM"/>
                                 <exclude reference="CXm-F9-IEr"/>
                                 <exclude reference="MXb-ja-9TG"/>
@@ -1853,10 +1854,10 @@
                                 <exclude reference="UAz-lc-I1G"/>
                                 <include reference="Vpa-yX-gPY"/>
                                 <exclude reference="yrp-Jp-NM7"/>
-                                <include reference="ntw-Yf-HFO"/>
-                                <exclude reference="rnc-uk-z8h"/>
                                 <exclude reference="lpd-1k-xdO"/>
                                 <include reference="yul-Zl-Ply"/>
+                                <include reference="ntw-Yf-HFO"/>
+                                <exclude reference="rnc-uk-z8h"/>
                                 <include reference="32o-r8-bWM"/>
                                 <exclude reference="5xN-vN-PvL"/>
                                 <exclude reference="9kL-hv-Qcu"/>
