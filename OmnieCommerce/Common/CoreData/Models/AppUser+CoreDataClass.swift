@@ -30,8 +30,8 @@ public class AppUser: NSManagedObject, InitCellParameters {
     // MARK: - Custom Functions
     func didMap(fromDictionary dictionary: [String: Any]) {
 //        self.birthday =
-//        self.firstName = dictionary["firstName"] as? String
-//        self.gender =
+        self.firstName = dictionary["firstName"] as? String
+        self.gender = dictionary["sex"] as! Int16
 //        self.lastName =
     }
 }

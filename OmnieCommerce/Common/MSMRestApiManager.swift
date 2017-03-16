@@ -51,16 +51,16 @@ public enum StatusCodeNote: Int {
 
 final class MSMRestApiManager {
     // MARK: - Properties
-    static let instance         =   MSMRestApiManager()
+    static let instance = MSMRestApiManager()
     
     var appURL: URL!
-    let appHostURL              =   URL.init(string: "http://omniecom.com:9333")!
-    let appApiVersionString     =   "api/v1/omnie/webservice"
-    var headers                 =   [ "Content-Type": "application/json" ]
+    let appHostURL = URL.init(string: "http://omniecom.com:9333")!
+    let appApiVersionString = "api/v1/omnie/webservice"
+    var headers = [ "Content-Type": "application/json" ]
 
     var appApiString: String! {
         didSet {
-            self.appURL         =   (self.appHostURL.appendingPathComponent(appApiVersionString)).appendingPathComponent(self.appApiString)
+            self.appURL = (self.appHostURL.appendingPathComponent(appApiVersionString)).appendingPathComponent(self.appApiString)
         }
     }
     
@@ -70,17 +70,17 @@ final class MSMRestApiManager {
     
     // MARK: - Class Functions
     func userAutorization(_ userName: String, andPassword password: String, withHandlerResponseAPICompletion handlerResponseAPICompletion: @escaping (ResponseAPI?) -> Void) {
-        let authParameters      =   [ "userName": userName, "password": password ]
-        appApiString            =   "/auth/"
+        let authParameters = [ "userName": userName, "password": password ]
+        appApiString = "/auth/"
         
         createItem(withURL: self.appURL, andParameters: authParameters, andEncoding: JSONEncoding.default, andHeaders: self.headers, withHandlerDataResponseCompletion: { dataResponse in
             if (dataResponse.result.value != nil) {
-                let json            =   JSON(dataResponse.result.value!)
-                let responseAPI     =   ResponseAPI.init(fromJSON: json)
+                let json = JSON(dataResponse.result.value!)
+                let responseAPI = ResponseAPI.init(fromJSON: json)
                 
                 if (dataResponse.response?.statusCode == 200) {
-                    let responseHeaders         =   dataResponse.response!.allHeaderFields
-                    responseAPI.accessToken     =   responseHeaders["Authorization"] as? String
+                    let responseHeaders = dataResponse.response!.allHeaderFields
+                    UserDefaults.standard.set(responseHeaders["Authorization"] as? String, forKey: keyAccessToken)
                 }
                 
                 handlerResponseAPICompletion(responseAPI)
@@ -93,13 +93,13 @@ final class MSMRestApiManager {
     }
     
     func userRegistration(_ userName: String, andEmail email: String, andPassword password: String, withHandlerResponseAPICompletion handlerResponseAPICompletion: @escaping (ResponseAPI?) -> Void) {
-        let authParameters          =   [ "userName": userName, "email": email, "password": password ]
-        appApiString                =   "/registration/"
+        let authParameters = [ "userName": userName, "email": email, "password": password ]
+        appApiString = "/registration/"
         
         createItem(withURL: self.appURL, andParameters: authParameters, andEncoding: JSONEncoding.default, andHeaders: self.headers, withHandlerDataResponseCompletion: { dataResponse in
             if (dataResponse.result.value != nil) {
-                let json            =   JSON(dataResponse.result.value!)
-                let responseAPI     =   ResponseAPI.init(fromJSON: json)
+                let json = JSON(dataResponse.result.value!)
+                let responseAPI = ResponseAPI.init(fromJSON: json)
                 
                 handlerResponseAPICompletion(responseAPI)
                 return
@@ -111,13 +111,13 @@ final class MSMRestApiManager {
     }
     
     func userForgotPassword(_ email: String, withHandlerResponseAPICompletion handlerResponseAPICompletion: @escaping (ResponseAPI?) -> Void) {
-        appApiString                =   "/forgot/"
-        self.appURL                 =   URL.init(string: self.appURL.absoluteString.appending("?email=\(email)"))
+        appApiString = "/forgot/"
+        appURL = URL.init(string: self.appURL.absoluteString.appending("?email=\(email)"))
 
         Alamofire.request(self.appURL, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil).responseJSON { dataResponse -> Void in
             if (dataResponse.result.value != nil) {
-                let json            =   JSON(dataResponse.result.value!)
-                let responseAPI     =   ResponseAPI.init(fromJSON: json)
+                let json = JSON(dataResponse.result.value!)
+                let responseAPI = ResponseAPI.init(fromJSON: json)
                 
                 handlerResponseAPICompletion(responseAPI)
                 return
@@ -129,13 +129,13 @@ final class MSMRestApiManager {
     }
 
     func userCheckEmail(_ email: String, withCode code: Int, andWithHandlerResponseAPICompletion handlerResponseAPICompletion: @escaping (ResponseAPI?) -> Void) {
-        let checkParameters         =   [ "email": email, "code": String(code) ]
-        appApiString                =   "/forgot/"
+        let checkParameters = [ "email": email, "code": String(code) ]
+        appApiString = "/forgot/"
         
         Alamofire.request(self.appURL, method: .post, parameters: checkParameters, encoding: JSONEncoding.default, headers: self.headers).responseJSON { dataResponse -> Void in
             if (dataResponse.result.value != nil) {
-                let json            =   JSON(dataResponse.result.value!)
-                let responseAPI     =   ResponseAPI.init(fromJSON: json)
+                let json = JSON(dataResponse.result.value!)
+                let responseAPI = ResponseAPI.init(fromJSON: json)
                 
                 handlerResponseAPICompletion(responseAPI)
                 return
@@ -147,13 +147,13 @@ final class MSMRestApiManager {
     }
 
     func userChangePassword(_ email: String, withNewPassword password: String, withResetToken resetToken: String, andWithHandlerResponseAPICompletion handlerResponseAPICompletion: @escaping (ResponseAPI?) -> Void) {
-        let saveParameters          =   [ "email": email, "password": password, "resetToken": resetToken ]
-        appApiString                =   "/change-password/"
+        let saveParameters = [ "email": email, "password": password, "resetToken": resetToken ]
+        appApiString = "/change-password/"
         
         Alamofire.request(self.appURL, method: .post, parameters: saveParameters, encoding: JSONEncoding.default, headers: self.headers).responseJSON { dataResponse -> Void in
             if (dataResponse.result.value != nil) {
-                let json            =   JSON(dataResponse.result.value!)
-                let responseAPI     =   ResponseAPI.init(fromJSON: json)
+                let json = JSON(dataResponse.result.value!)
+                let responseAPI = ResponseAPI.init(fromJSON: json)
                 
                 handlerResponseAPICompletion(responseAPI)
                 return

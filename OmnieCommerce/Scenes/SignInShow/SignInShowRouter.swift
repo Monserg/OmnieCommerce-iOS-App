@@ -66,8 +66,10 @@ class SignInShowRouter: SignInShowRouterInput {
         // SignInContainerShowVC: SignIn button handler
         viewController.signInContainerShowVC?.handlerPassDataCompletion = { successCode in
             self.statusCodeNote = StatusCodeNote(rawValue: successCode as! Int)
-            
             self.navigateAuthorizedUser(duringStartApp: false)
+            
+            // Clean UserDefaults
+            UserDefaults.standard.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
         }
         
         // Handler: SignInContainerShowVC success Authorization completion

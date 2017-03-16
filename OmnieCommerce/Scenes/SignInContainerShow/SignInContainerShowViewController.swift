@@ -128,7 +128,7 @@ class SignInContainerShowViewController: BaseViewController, PasswordErrorMessag
             return
         }
 
-        let requestModel    =   SignInContainerShowModels.User.RequestModel(name: name, password: password)
+        let requestModel = SignInContainerShowModels.User.RequestModel(name: name, password: password)
         interactor.userAppDidSignIn(withRequestModel: requestModel)
     }
 }
@@ -147,9 +147,9 @@ extension SignInContainerShowViewController: SignInContainerShowViewControllerIn
         
         // Mofidy AppUser properties
         CoreDataManager.instance.didUpdateAppUser(state: true)
-        CoreDataManager.instance.appUser.appName        =   self.textFieldsCollection.first?.text!
-        CoreDataManager.instance.appUser.password       =   self.textFieldsCollection.last?.text!
-        CoreDataManager.instance.appUser.accessToken    =   viewModel.responseAPI!.accessToken
+        CoreDataManager.instance.appUser.appName = textFieldsCollection.first?.text!
+        CoreDataManager.instance.appUser.password = textFieldsCollection.last?.text!
+        CoreDataManager.instance.appUser.accessToken = UserDefaults.standard.value(forKey: keyAccessToken) as? String
         CoreDataManager.instance.didSaveContext()
         
         handlerPassDataCompletion!(viewModel.responseAPI!.code!)
