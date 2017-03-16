@@ -34,8 +34,13 @@ class MSMTextFieldManager: NSObject {
         if (textField.tag == 99) {
             textField.resignFirstResponder()
         } else {
-            let currentIndex    =   textFieldsArray!.index(of: textField)!
-            let nextIndex       =   textFieldsArray!.index(after: currentIndex)
+            let currentIndex = textFieldsArray!.index(of: textField)!
+            let nextIndex = textFieldsArray!.index(after: currentIndex)
+            
+            guard nextIndex <= textFieldsArray.count - 1 else {
+                textField.resignFirstResponder()
+                return
+            }
             
             textFieldsArray![nextIndex].becomeFirstResponder()
         }
@@ -43,7 +48,7 @@ class MSMTextFieldManager: NSObject {
     
     func checkTextFieldCollection() -> Bool {
         // Check empty fields
-        let emptyFields         =   textFieldsArray!.filter({ $0.text?.isEmpty == true })
+        let emptyFields = textFieldsArray!.filter({ $0.text?.isEmpty == true })
         
         guard emptyFields.count == 0 else {
             currentVC!.alertViewDidShow(withTitle: "Info".localized(), andMessage: "All fields can be...".localized())

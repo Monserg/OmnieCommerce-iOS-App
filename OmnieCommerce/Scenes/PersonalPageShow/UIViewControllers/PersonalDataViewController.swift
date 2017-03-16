@@ -212,31 +212,10 @@ class PersonalDataViewController: BaseViewController, EmailErrorMessageView, Pho
         phonesView.addSubview(newPhoneView)
         dottedBorderViewsCollection.append(newPhoneView.dottedBorderView)
         
-//        newPhoneView.translatesAutoresizingMaskIntoConstraints = false
-        
         // Set properties to all collections
         phoneLastTag += 1
         newPhoneView.tag = phoneLastTag
 
-        // Add Layouts
-//        if (phoneLastTag == 3) {
-//            newPhoneView.topAnchor.constraint(equalTo: phonesView.topAnchor, constant: 0).isActive = true
-//            newPhoneView.backgroundColor = UIColor.blue
-//        } else {
-//            phoneViewsCollection.last!.bottomAnchor.constraint(equalTo: phonesView.bottomAnchor, constant: 0).isActive  = false
-//            phoneViewsCollection.last!.bottomAnchor.constraint(equalTo: newPhoneView.topAnchor, constant: 0).isActive = true
-//            newPhoneView.backgroundColor = UIColor.orange
-//        }
-//
-//        newPhoneView.bottomAnchor.constraint(equalTo: phonesView.bottomAnchor, constant: 0).isActive = true
-//        newPhoneView.leftAnchor.constraint(equalTo: phonesView.leftAnchor, constant: 0).isActive = true
-//        newPhoneView.rightAnchor.constraint(equalTo: phonesView.rightAnchor, constant: 0).isActive = true
-        
-        
-        phonesView.layoutIfNeeded()
-        phonesView.setNeedsLayout()
-        phonesView.setNeedsDisplay()
-        
         // Append new elements to all collections
         phoneViewsCollection.append(newPhoneView)
         textFieldsCollection.append(newPhoneView.phoneTextField)
@@ -259,7 +238,7 @@ class PersonalDataViewController: BaseViewController, EmailErrorMessageView, Pho
         })
         
         // Handler Delete Button Tap
-        newPhoneView.handlerDeleteButtonCompletion      =   { _ in
+        newPhoneView.handlerDeleteButtonCompletion = { _ in
             if (self.phoneViewsCollection.count > 1) {
                 self.phoneViewDidDelete(newPhoneView)
             }
@@ -267,17 +246,20 @@ class PersonalDataViewController: BaseViewController, EmailErrorMessageView, Pho
     }
     
     func phoneViewDidDelete(_ phoneView: NewPhoneView) {
-        let phoneViewIndex      =   self.phoneViewsCollection.index(of: phoneView)!
+        let phoneViewIndex = phoneViewsCollection.index(of: phoneView)!
 
+        _ = phoneViewsCollection.filter{ $0.tag > phoneView.tag }.map{ $0.transform = CGAffineTransform(translationX: 0, y: -phoneView.frame.height) }
         phoneView.removeFromSuperview()
         phoneViewsCollection.remove(at: phoneViewIndex)
         textFieldsCollection.remove(at: phoneViewIndex)
         deleteButtonsCollection.remove(at: phoneViewIndex)
         dottedBorderViewsCollection.remove(at: phoneViewIndex)
         
-        textFieldManager.textFieldsArray            =   textFieldsCollection
-        phonesCount                                 -=  1
-        self.phonesViewHeightConstraint.constant    +=   self.onePhoneViewHeight * CGFloat(self.phonesCount)
+        textFieldManager.textFieldsArray = textFieldsCollection
+        phonesCount -= 1
+        
+        phonesViewHeightConstraint.constant -= phoneView.frame.height
+        phonesView.layoutIfNeeded()
     }
     
     
