@@ -27,12 +27,11 @@ class OrganizationsMapShowViewController: BaseViewController {
     var interactor: OrganizationsMapShowViewControllerOutput!
     var router: OrganizationsMapShowRouter!
     
-    var organizations               =   [Organization]()
-    var pointAnnotations            =   [PointAnnotation]()
-    var regionRect                  =   MKMapRect()
+    var organizations = [Organization]()
+    var pointAnnotations = [PointAnnotation]()
+    var regionRect = MKMapRect()
 
     @IBOutlet weak var smallTopBarView: SmallTopBarView!
-    @IBOutlet weak var spinner: UIActivityIndicatorView!
     
     // Info view
     @IBOutlet weak var infoView: UIView!
@@ -42,11 +41,11 @@ class OrganizationsMapShowViewController: BaseViewController {
     @IBOutlet weak var mapView: MapView! {
         didSet {
             // Delegates
-            mapView.delegate        =   self
+            mapView.delegate = self
             
             // Customize map view
-            mapView.showsScale      =   true
-            mapView.showsCompass    =   true
+            mapView.showsScale = true
+            mapView.showsCompass = true
         }
     }
     
@@ -98,7 +97,7 @@ class OrganizationsMapShowViewController: BaseViewController {
         mapView.addAnnotations(pointAnnotations)
         mapView.showAnnotations(pointAnnotations, animated: true)
 
-        regionRect              =   mapView.mapRectThatFits(regionRect, edgePadding: UIEdgeInsetsMake(20, 50, 20, 50))
+        regionRect = mapView.mapRectThatFits(regionRect, edgePadding: UIEdgeInsetsMake(20, 50, 20, 50))
 
         mapView.setVisibleMapRect(regionRect, animated: true)
     }
@@ -114,8 +113,8 @@ class OrganizationsMapShowViewController: BaseViewController {
 // MARK: - OrganizationsMapShowViewControllerInput
 extension OrganizationsMapShowViewController: OrganizationsMapShowViewControllerInput {
     func pointAnnotationsDidShow(fromViewModel viewModel: OrganizationsMapShowModels.PointAnnotations.ViewModel) {
-        self.pointAnnotations   =   viewModel.pointAnnotations
-        self.regionRect         =   viewModel.regionRect
+        self.pointAnnotations = viewModel.pointAnnotations
+        self.regionRect = viewModel.regionRect
         
         self.mapViewDidAddPointAnnotations()
     }
@@ -176,11 +175,10 @@ extension OrganizationsMapShowViewController: MKMapViewDelegate {
         // Hide the callout view.
         mapView.deselectAnnotation(view.annotation, animated: true)
        
-        let annotation      =   view.annotation as! PointAnnotation
-        let index           =   pointAnnotations.index(of: annotation)!
-        let organization    =   organizations[index]
+        let annotation = view.annotation as! PointAnnotation
+        let index = pointAnnotations.index(of: annotation)!
+        let organization = organizations[index]
         
         router.navigateToOrganizationShowScene(withOrganization: organization)
     }
 }
-

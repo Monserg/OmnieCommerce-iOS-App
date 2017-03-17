@@ -89,10 +89,6 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </label>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="0ff-i1-cWe">
-                                <rect key="frame" x="169" y="315" width="37" height="37"/>
-                                <color key="color" red="0.0" green="0.57647058823529407" blue="0.58431372549019611" alpha="1" colorSpace="calibratedRGB"/>
-                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -108,7 +104,6 @@
                             <constraint firstItem="VNH-Bn-faD" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="20:667" id="OXP-89-pbW"/>
                             <constraint firstItem="VNH-Bn-faD" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="20:375" id="TTL-4D-8Ig"/>
                             <constraint firstAttribute="trailing" secondItem="3d9-Qt-0Tr" secondAttribute="trailing" constant="8" id="Tdg-4A-3Gn"/>
-                            <constraint firstItem="0ff-i1-cWe" firstAttribute="centerX" secondItem="tP1-Vk-hMS" secondAttribute="centerX" id="WAX-Sz-LA4"/>
                             <constraint firstItem="Fg2-g7-Pmf" firstAttribute="leading" secondItem="tP1-Vk-hMS" secondAttribute="leading" id="YA4-sD-5WW"/>
                             <constraint firstItem="Fg2-g7-Pmf" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="95:667" id="ZbF-Ja-PwO"/>
                             <constraint firstItem="3d9-Qt-0Tr" firstAttribute="top" secondItem="drL-zB-iSh" secondAttribute="bottom" constant="9" id="ZqC-CL-dP1"/>
@@ -117,7 +112,6 @@
                             <constraint firstItem="Fg2-g7-Pmf" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="80:375" id="hb0-zV-YBD"/>
                             <constraint firstAttribute="trailing" secondItem="drL-zB-iSh" secondAttribute="trailing" id="kIb-2p-OQH"/>
                             <constraint firstItem="drL-zB-iSh" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="45:667" id="nTj-uv-Mkh"/>
-                            <constraint firstItem="0ff-i1-cWe" firstAttribute="centerY" secondItem="tP1-Vk-hMS" secondAttribute="centerY" id="qj9-a2-TWW"/>
                             <constraint firstItem="drL-zB-iSh" firstAttribute="leading" secondItem="tP1-Vk-hMS" secondAttribute="leading" id="vbi-Me-iaU"/>
                             <constraint firstItem="MdL-Lr-kmn" firstAttribute="top" secondItem="Fg2-g7-Pmf" secondAttribute="bottom" constant="-50" id="xqY-nk-vXK"/>
                             <constraint firstItem="drL-zB-iSh" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="45:375" id="yOF-Cc-iy4"/>
@@ -148,7 +142,6 @@
                         <outlet property="infoView" destination="drL-zB-iSh" id="gif-yA-dga"/>
                         <outlet property="mapView" destination="MdL-Lr-kmn" id="GOA-3v-hb6"/>
                         <outlet property="smallTopBarView" destination="Fg2-g7-Pmf" id="Ydp-aQ-WF5"/>
-                        <outlet property="spinner" destination="0ff-i1-cWe" id="2WT-Yh-UXF"/>
                         <outlet property="streetLabel" destination="1BF-H0-42l" id="Ioo-lT-KQG"/>
                     </connections>
                 </viewController>

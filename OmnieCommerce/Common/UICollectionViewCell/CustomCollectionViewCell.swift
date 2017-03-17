@@ -36,8 +36,7 @@ import AlamofireImage
         self.imageView.image = UIImage.init(named: "image-no-organization")
         
         if let imagePath = category.imagePath {
-            self.imageView.af_setImage(withURL: URL(string: "http://\(imagePath)")!,
-                                       placeholderImage: UIImage.init(named: "image-no-organization"))
+            self.imageView.af_setImage(withURL: URL(string: "http://\(imagePath)")!, placeholderImage: UIImage.init(named: "image-no-organization"))
         }
 
         // Set selected color

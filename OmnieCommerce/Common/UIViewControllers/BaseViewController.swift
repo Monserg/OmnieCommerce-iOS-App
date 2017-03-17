@@ -18,8 +18,9 @@ class BaseViewController: UIViewController {
     weak var userApp: AppUser?
     weak var blackoutView: MSMBlackoutView?
     var navigationBarView: SmallTopBarView?
+    let spinner = UIActivityIndicatorView.init(activityIndicatorStyle: .whiteLarge)
     
-    var haveMenuItem    =   false {
+    var haveMenuItem = false {
         didSet {
             didApplySlideMenuSettings()
         }
@@ -147,8 +148,6 @@ class BaseViewController: UIViewController {
         }
     }
  
- 
-    // MARK: - Custom Functions
     func didAddTapGestureRecognizer() {
         // For all TopBarView
         let gestureRecognizer       =   UITapGestureRecognizer.init(target: self, action: #selector(BaseViewController.handleTap(gestureRecognizer:)))
@@ -165,6 +164,22 @@ class BaseViewController: UIViewController {
         #if DEBUG
             Swift.print(object)
         #endif
+    }
+    
+    func spinnerDidStart() {
+        spinner.color = UIColor.veryDarkCyan
+        spinner.center = view.center
+        
+        view.addSubview(spinner)
+        view.bringSubview(toFront: spinner)
+        spinner.startAnimating()
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+    }
+    
+    func spinnerDidFinish() {
+        spinner.stopAnimating()
+        spinner.removeFromSuperview()
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
     }
 }
 

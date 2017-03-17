@@ -71,6 +71,7 @@ class CategoriesShowViewController: BaseViewController {
         haveMenuItem            =   true
 
         // Load Categories list
+        spinnerDidStart()
         let categoriesRequestModel = CategoriesShowModels.Categories.RequestModel()
         interactor.categoriesDidLoad(withRequestModel: categoriesRequestModel)
         
@@ -114,7 +115,7 @@ class CategoriesShowViewController: BaseViewController {
 // MARK: - CategoriesShowViewControllerInput
 extension CategoriesShowViewController: CategoriesShowViewControllerInput {
     func categoriesDidShowLoad(fromViewModel viewModel: CategoriesShowModels.Categories.ViewModel) {
-        UIApplication.shared.isNetworkActivityIndicatorVisible = false
+        spinnerDidFinish()
         
         guard isNetworkAvailable else {
             alertViewDidShow(withTitle: "Not Reachable".localized(), andMessage: "Disconnected from Network".localized())

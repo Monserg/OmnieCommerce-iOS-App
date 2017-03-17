@@ -31,8 +31,6 @@ class CategoriesShowInteractor: CategoriesShowInteractorInput {
     
     // MARK: - Custom Functions. Business logic
     func categoriesDidLoad(withRequestModel requestModel: CategoriesShowModels.Categories.RequestModel) {
-        UIApplication.shared.isNetworkActivityIndicatorVisible = true
-        
         MSMRestApiManager.instance.userGetCategoriesList { responseAPI in
             // Pass the result to the Presenter
             let categoriesResponseModel = CategoriesShowModels.Categories.ResponseModel(responseAPI: responseAPI)
