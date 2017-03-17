@@ -138,7 +138,7 @@ extension RepetitionPasswordShowViewController: RepetitionPasswordShowViewContro
             CoreDataManager.instance.didUpdateAppUser(state: true)
             CoreDataManager.instance.appUser.email = UserDefaults.standard.value(forKey: keyEmail) as? String
             CoreDataManager.instance.appUser.password = textFieldsCollection.first!.text!
-            CoreDataManager.instance.appUser.accessToken = viewModel.response!.body
+            CoreDataManager.instance.appUser.accessToken = viewModel.response!.body as? String
             CoreDataManager.instance.didSaveContext()
             
             handlerSendButtonCompletion!()

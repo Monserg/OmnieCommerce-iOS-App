@@ -9,23 +9,44 @@
 import Foundation
 import SwiftyJSON
 
+enum BodyType {
+    case Default
+    case ServicesArray
+    case UserDictionary
+    case CategoriesArray
+    case OrganizationsArray
+    case OrganizationDictionary
+}
+
 class ResponseAPI {
     // MARK: - Properties
-    let code: Int!
-    let status: String!
-    let body: String!
-    
+    var code: Int?
+    var status: String?
+    var body: Any?
+    var errorMessage: String?
+        
     
     // MARK: - Class Initialization
-    init(fromJSON json: JSON) {
+    init(withErrorMessage type: BodyType) {
+        switch type {
+        case .UserDictionary:
+            self.errorMessage = "4401 - Bad Authorization".localized()
+            
+        default:
+            self.errorMessage = "404 - Wrong Found".localized()
+        }
+    }
+    
+    init(fromJSON json: JSON, withBodyType type: BodyType) {
         self.code = json["code"].intValue
         self.status = json["status"].stringValue
         
-        if (json["body"].stringValue.isEmpty) {
-            self.body = ""
-            let dictionary = json["body"].dictionaryObject!
-            CoreDataManager.instance.appUser.didMap(fromDictionary: dictionary)
-        } else {
+        switch type {
+        case .UserDictionary:
+            self.body = json["body"].dictionaryObject!
+            CoreDataManager.instance.appUser.didMap(fromDictionary: self.body as! [String: Any])
+        
+        default:
             self.body = json["body"].stringValue
         }
     }

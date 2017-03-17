@@ -157,6 +157,11 @@
 "Retry request succeeded"       =   "Retry request succeeded";
 
 
+// Request Errors
+"404 - Wrong Found"             =   "Wrong Found";
+"4401 - Bad Authorization"      =   "Please, try authorization again";
+
+
 // Cities
 "Lviv"                          =   "Lviv";
 "Kyiv"                          =   "Kyiv";

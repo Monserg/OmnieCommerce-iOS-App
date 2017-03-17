@@ -16,7 +16,7 @@ import AlamofireImage
 protocol PersonalPageShowViewControllerInput {
     func userAppDataDidShowLoad(fromViewModel viewModel: PersonalPageShowModels.Data.ViewModel)
     func userAppDataDidShowUpdate(fromViewModel viewModel: PersonalPageShowModels.Data.ViewModel)
-    func userAppTemplatesDidShow(fromViewModel viewModel: PersonalPageShowModels.Templates.ViewModel)
+    func userAppTemplatesDidShowLoad(fromViewModel viewModel: PersonalPageShowModels.Templates.ViewModel)
 }
 
 // MARK: - Output protocols for Interactor component VIP-cicle
@@ -159,12 +159,10 @@ class PersonalPageShowViewController: BaseViewController {
         segmentedControlView.actionButtonHandlerCompletion = { sender in
             switch sender.tag {
             case 1:
-                let requestModel = PersonalPageShowModels.Templates.RequestModel(userID: "01") // self.userApp!.codeID!)
-                self.interactor.userAppTemplatesDidLoad(withRequestModel: requestModel)
+                self.activeViewController = self.personalTemplatesVC
                 
             default:
-//                self.activeViewController = self.personalDataVC
-                self.userAppDataDidLoad()
+                self.activeViewController = self.personalDataVC
             }
         }
     }
@@ -206,20 +204,6 @@ class PersonalPageShowViewController: BaseViewController {
 
 // MARK: - PersonalPageShowViewControllerInput
 extension PersonalPageShowViewController: PersonalPageShowViewControllerInput {
-    func userAppTemplatesDidShow(fromViewModel viewModel: PersonalPageShowModels.Templates.ViewModel) {
-        UIApplication.shared.isNetworkActivityIndicatorVisible = false
-
-        guard isNetworkAvailable else {
-            alertViewDidShow(withTitle: "Not Reachable".localized(), andMessage: "Disconnected from Network".localized())
-            return
-        }
-
-        self.personalTemplatesVC!.organizations = viewModel.organizations
-        self.activeViewController = self.personalTemplatesVC
-        
-        self.personalTemplatesVC!.viewSettingsDidLoad()
-    }
-
     func userAppDataDidShowLoad(fromViewModel viewModel: PersonalPageShowModels.Data.ViewModel) {
         UIApplication.shared.isNetworkActivityIndicatorVisible = false
 
@@ -231,17 +215,20 @@ extension PersonalPageShowViewController: PersonalPageShowViewControllerInput {
         
         // Check Response value
         guard viewModel.response != nil && (viewModel.response?.code == 200 || viewModel.response?.code == 2201) else {
-            alertViewDidShow(withTitle: "Error".localized(), andMessage: "Wrong input data".localized())
+            if (viewModel.response?.errorMessage == nil) {
+                alertViewDidShow(withTitle: "Error".localized(), andMessage: "Wrong input data".localized())
+            } else {
+                alertViewDidShow(withTitle: "Error".localized(), andMessage: viewModel.response!.errorMessage!)
+            }
             return
         }
         
         // Mofidy AppUser properties
-//        CoreDataManager.instance.appUser.appName = textFieldsCollection.first?.text!
-//        CoreDataManager.instance.appUser.password = textFieldsCollection.last?.text!
-//        CoreDataManager.instance.appUser.accessToken = viewModel.responseAPI!.accessToken
         CoreDataManager.instance.didSaveContext()
         
-        activeViewController = personalDataVC
+        // TODO: ADD HERE GET TEMPLATES REQUEST
+        let templatesRequestModel = PersonalPageShowModels.Templates.RequestModel(userID: "01") // self.userApp!.codeID!)
+        self.interactor.userAppTemplatesDidLoad(withRequestModel: templatesRequestModel)
     }
     
     func userAppDataDidShowUpdate(fromViewModel viewModel: PersonalPageShowModels.Data.ViewModel) {
@@ -249,5 +236,19 @@ extension PersonalPageShowViewController: PersonalPageShowViewControllerInput {
 
         //        self.activeViewController?.userApp  =   viewModel.userApp
         router.navigateToCategoriesShowScene()
+    }
+    
+    func userAppTemplatesDidShowLoad(fromViewModel viewModel: PersonalPageShowModels.Templates.ViewModel) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
+        
+        guard isNetworkAvailable else {
+            alertViewDidShow(withTitle: "Not Reachable".localized(), andMessage: "Disconnected from Network".localized())
+            return
+        }
+        
+        personalTemplatesVC!.organizations = viewModel.organizations
+        activeViewController = personalTemplatesVC
+        
+        personalTemplatesVC!.viewSettingsDidLoad()
     }
 }

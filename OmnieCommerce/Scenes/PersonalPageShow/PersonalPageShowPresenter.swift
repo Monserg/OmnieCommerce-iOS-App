@@ -15,14 +15,14 @@ import UIKit
 protocol PersonalPageShowPresenterInput {
     func userAppDataDidPrepareToShowLoad(fromResponseModel responseModel: PersonalPageShowModels.Data.ResponseModel)
     func userAppDataDidPrepareToShowUpdate(fromResponseModel responseModel: PersonalPageShowModels.Data.ResponseModel)
-    func userAppTemplatesDidPrepareToShow(fromResponseModel responseModel: PersonalPageShowModels.Templates.ResponseModel)
+    func userAppTemplatesDidPrepareToShowLoad(fromResponseModel responseModel: PersonalPageShowModels.Templates.ResponseModel)
 }
 
 // MARK: - Output protocols for ViewController component VIP-cicle
 protocol PersonalPageShowPresenterOutput: class {
     func userAppDataDidShowLoad(fromViewModel viewModel: PersonalPageShowModels.Data.ViewModel)
     func userAppDataDidShowUpdate(fromViewModel viewModel: PersonalPageShowModels.Data.ViewModel)
-    func userAppTemplatesDidShow(fromViewModel viewModel: PersonalPageShowModels.Templates.ViewModel)
+    func userAppTemplatesDidShowLoad(fromViewModel viewModel: PersonalPageShowModels.Templates.ViewModel)
 }
 
 class PersonalPageShowPresenter: PersonalPageShowPresenterInput {
@@ -31,11 +31,6 @@ class PersonalPageShowPresenter: PersonalPageShowPresenterInput {
     
     
     // MARK: - Custom Functions. Presentation logic
-    func userAppTemplatesDidPrepareToShow(fromResponseModel responseModel: PersonalPageShowModels.Templates.ResponseModel) {
-        let viewModel   =   PersonalPageShowModels.Templates.ViewModel(organizations: responseModel.items)
-        viewController.userAppTemplatesDidShow(fromViewModel: viewModel)
-    }
-
     func userAppDataDidPrepareToShowLoad(fromResponseModel responseModel: PersonalPageShowModels.Data.ResponseModel) {
         let loadViewModel = PersonalPageShowModels.Data.ViewModel(response: responseModel.response)
         viewController.userAppDataDidShowLoad(fromViewModel: loadViewModel)
@@ -44,5 +39,10 @@ class PersonalPageShowPresenter: PersonalPageShowPresenterInput {
     func userAppDataDidPrepareToShowUpdate(fromResponseModel responseModel: PersonalPageShowModels.Data.ResponseModel) {
         let updateViewModel = PersonalPageShowModels.Data.ViewModel(response: responseModel.response)
         viewController.userAppDataDidShowUpdate(fromViewModel: updateViewModel)
+    }
+    
+    func userAppTemplatesDidPrepareToShowLoad(fromResponseModel responseModel: PersonalPageShowModels.Templates.ResponseModel) {
+        let viewModel = PersonalPageShowModels.Templates.ViewModel(organizations: responseModel.items)
+        viewController.userAppTemplatesDidShowLoad(fromViewModel: viewModel)
     }
 }

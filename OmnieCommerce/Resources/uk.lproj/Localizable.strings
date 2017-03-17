@@ -157,6 +157,11 @@
 "Retry request succeeded"       =   "Повторний запит успішно виконаний";
 
 
+// Request Errors
+"404 - Wrong Found"             =   "Запитувані дані не знайдені";
+"4401 - Bad Authorization"      =   "Будь ласка, повторіть процедуру авторизації";
+
+
 // Cities
 "Lviv"                          =   "Львів";
 "Kyiv"                          =   "Київ";

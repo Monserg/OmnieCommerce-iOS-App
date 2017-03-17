@@ -553,6 +553,7 @@
 		B177E55D1E54B8F6004F1390 /* PasswordStrengthLevelView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordStrengthLevelView.swift; sourceTree = "<group>"; };
 		B17D92DA1E6FFC290028967E /* UbuntuLightItalicModerateRedLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UbuntuLightItalicModerateRedLabel.swift; sourceTree = "<group>"; };
 		B17D92DC1E701D750028967E /* MSMTextFieldManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSMTextFieldManager.swift; sourceTree = "<group>"; };
+		B17E49081E7BA5A10008A463 /* OmnieCommerceUser v.6.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "OmnieCommerceUser v.6.xcdatamodel"; sourceTree = "<group>"; };
 		B18A45C51DEC21BA003EBD2F /* SmallTopBarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SmallTopBarView.xib; sourceTree = "<group>"; };
 		B18A45C71DEC23B2003EBD2F /* SmallTopBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmallTopBarView.swift; sourceTree = "<group>"; };
 		B18A45C91DEC282B003EBD2F /* DotView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DotView.swift; sourceTree = "<group>"; };
@@ -2329,13 +2330,14 @@
 		B10874671E5B07A6004A4FB6 /* OmnieCommerceUser.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				B17E49081E7BA5A10008A463 /* OmnieCommerceUser v.6.xcdatamodel */,
 				B1B4E4831E77161B00EAECB0 /* OmnieCommerceUser v.5.xcdatamodel */,
 				B105D1BA1E770C5F00FCDC73 /* OmnieCommerceUser v.4.xcdatamodel */,
 				B105D1B91E77095900FCDC73 /* OmnieCommerceUser v. 3.xcdatamodel */,
 				B163FE6F1E6FB4E3004AF42E /* OmnieCommerceUser v.2.xcdatamodel */,
 				B10874681E5B07A6004A4FB6 /* OmnieCommerceUser.xcdatamodel */,
 			);
-			currentVersion = B1B4E4831E77161B00EAECB0 /* OmnieCommerceUser v.5.xcdatamodel */;
+			currentVersion = B17E49081E7BA5A10008A463 /* OmnieCommerceUser v.6.xcdatamodel */;
 			path = OmnieCommerceUser.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

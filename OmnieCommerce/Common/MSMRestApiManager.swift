@@ -10,31 +10,6 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-//enum ApiResult<Value> {
-//    case success(value: Value)
-//    case failure(error: NSError)
-//    
-//    init(_ f: () throws -> Value) {
-//        do {
-//            let value   =   try f()
-//            
-//            self        =   .success(value: value)
-//        } catch let error as NSError {
-//            self        =   .failure(error: error)
-//        }
-//    }
-//    
-//    func unwrap() throws -> Value {
-//        switch self {
-//        case .success(let value):
-//            return value
-//        
-//        case .failure(let error):
-//            throw error
-//        }
-//    }
-//}
-
 public enum StatusCodeNote: Int {
     case SUCCESS                    =   200     // GET or DELETE result is successful
     case CONTINUE                   =   2201    // POST result is successful & need continue
@@ -60,7 +35,7 @@ final class MSMRestApiManager {
 
     var appApiString: String! {
         didSet {
-            self.appURL = (self.appHostURL.appendingPathComponent(appApiVersionString)).appendingPathComponent(self.appApiString)
+            appURL = (appHostURL.appendingPathComponent(appApiVersionString)).appendingPathComponent(appApiString)
         }
     }
     
@@ -76,7 +51,7 @@ final class MSMRestApiManager {
         createItem(withURL: self.appURL, andParameters: authParameters, andEncoding: JSONEncoding.default, andHeaders: self.headers, withHandlerDataResponseCompletion: { dataResponse in
             if (dataResponse.result.value != nil) {
                 let json = JSON(dataResponse.result.value!)
-                let responseAPI = ResponseAPI.init(fromJSON: json)
+                let responseAPI = ResponseAPI.init(fromJSON: json, withBodyType: .Default)
                 
                 if (dataResponse.response?.statusCode == 200) {
                     let responseHeaders = dataResponse.response!.allHeaderFields
@@ -96,10 +71,10 @@ final class MSMRestApiManager {
         let authParameters = [ "userName": userName, "email": email, "password": password ]
         appApiString = "/registration/"
         
-        createItem(withURL: self.appURL, andParameters: authParameters, andEncoding: JSONEncoding.default, andHeaders: self.headers, withHandlerDataResponseCompletion: { dataResponse in
+        createItem(withURL: appURL, andParameters: authParameters, andEncoding: JSONEncoding.default, andHeaders: headers, withHandlerDataResponseCompletion: { dataResponse in
             if (dataResponse.result.value != nil) {
                 let json = JSON(dataResponse.result.value!)
-                let responseAPI = ResponseAPI.init(fromJSON: json)
+                let responseAPI = ResponseAPI.init(fromJSON: json, withBodyType: .Default)
                 
                 handlerResponseAPICompletion(responseAPI)
                 return
@@ -112,12 +87,12 @@ final class MSMRestApiManager {
     
     func userForgotPassword(_ email: String, withHandlerResponseAPICompletion handlerResponseAPICompletion: @escaping (ResponseAPI?) -> Void) {
         appApiString = "/forgot/"
-        appURL = URL.init(string: self.appURL.absoluteString.appending("?email=\(email)"))
+        appURL = URL.init(string: appURL.absoluteString.appending("?email=\(email)"))
 
-        Alamofire.request(self.appURL, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil).responseJSON { dataResponse -> Void in
+        Alamofire.request(appURL, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil).responseJSON { dataResponse -> Void in
             if (dataResponse.result.value != nil) {
                 let json = JSON(dataResponse.result.value!)
-                let responseAPI = ResponseAPI.init(fromJSON: json)
+                let responseAPI = ResponseAPI.init(fromJSON: json, withBodyType: .Default)
                 
                 handlerResponseAPICompletion(responseAPI)
                 return
@@ -132,10 +107,10 @@ final class MSMRestApiManager {
         let checkParameters = [ "email": email, "code": String(code) ]
         appApiString = "/forgot/"
         
-        Alamofire.request(self.appURL, method: .post, parameters: checkParameters, encoding: JSONEncoding.default, headers: self.headers).responseJSON { dataResponse -> Void in
+        Alamofire.request(appURL, method: .post, parameters: checkParameters, encoding: JSONEncoding.default, headers: headers).responseJSON { dataResponse -> Void in
             if (dataResponse.result.value != nil) {
                 let json = JSON(dataResponse.result.value!)
-                let responseAPI = ResponseAPI.init(fromJSON: json)
+                let responseAPI = ResponseAPI.init(fromJSON: json, withBodyType: .Default)
                 
                 handlerResponseAPICompletion(responseAPI)
                 return
@@ -150,10 +125,10 @@ final class MSMRestApiManager {
         let saveParameters = [ "email": email, "password": password, "resetToken": resetToken ]
         appApiString = "/change-password/"
         
-        Alamofire.request(self.appURL, method: .post, parameters: saveParameters, encoding: JSONEncoding.default, headers: self.headers).responseJSON { dataResponse -> Void in
+        Alamofire.request(appURL, method: .post, parameters: saveParameters, encoding: JSONEncoding.default, headers: headers).responseJSON { dataResponse -> Void in
             if (dataResponse.result.value != nil) {
                 let json = JSON(dataResponse.result.value!)
-                let responseAPI = ResponseAPI.init(fromJSON: json)
+                let responseAPI = ResponseAPI.init(fromJSON: json, withBodyType: .Default)
                 
                 handlerResponseAPICompletion(responseAPI)
                 return
@@ -165,13 +140,18 @@ final class MSMRestApiManager {
     }
     
     func userGetProfileData(_ handlerResponseAPICompletion: @escaping (ResponseAPI?) -> Void) {
+        guard CoreDataManager.instance.appUser.accessToken != nil else {
+            handlerResponseAPICompletion(ResponseAPI.init(withErrorMessage: .UserDictionary))
+            return
+        }
+        
         headers["Authorization"] = CoreDataManager.instance.appUser.accessToken!
         appApiString = "/user/profile/"
         
         Alamofire.request(appURL, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers).responseJSON { dataResponse -> Void in
             if (dataResponse.result.value != nil) {
                 let json = JSON(dataResponse.result.value!)
-                let responseAPI = ResponseAPI.init(fromJSON: json)
+                let responseAPI = ResponseAPI.init(fromJSON: json, withBodyType: .UserDictionary)
                 
                 handlerResponseAPICompletion(responseAPI)
                 return

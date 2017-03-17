@@ -22,7 +22,7 @@ protocol PersonalPageShowInteractorInput {
 protocol PersonalPageShowInteractorOutput {
     func userAppDataDidPrepareToShowLoad(fromResponseModel responseModel: PersonalPageShowModels.Data.ResponseModel)
     func userAppDataDidPrepareToShowUpdate(fromResponseModel responseModel: PersonalPageShowModels.Data.ResponseModel)
-    func userAppTemplatesDidPrepareToShow(fromResponseModel responseModel: PersonalPageShowModels.Templates.ResponseModel)
+    func userAppTemplatesDidPrepareToShowLoad(fromResponseModel responseModel: PersonalPageShowModels.Templates.ResponseModel)
 }
 
 class PersonalPageShowInteractor: PersonalPageShowInteractorInput {
@@ -32,19 +32,10 @@ class PersonalPageShowInteractor: PersonalPageShowInteractorInput {
     
     
     // MARK: - Custom Functions. Business logic
-    func userAppTemplatesDidLoad(withRequestModel requestModel: PersonalPageShowModels.Templates.RequestModel) {
-        worker              =   PersonalPageShowWorker()
-        let items           =   worker.userAppTemplatesDidLoad(forUserApp: requestModel.userID)
-        
-        // NOTE: Pass the result to the Presenter
-        let responseModel   =   PersonalPageShowModels.Templates.ResponseModel(items: items)
-        presenter.userAppTemplatesDidPrepareToShow(fromResponseModel: responseModel)
-    }
-
     func userAppDataDidLoad(withRequestModel requestModel: PersonalPageShowModels.Data.RequestModel) {
-        UIApplication.shared.isNetworkActivityIndicatorVisible  =   true
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
         
-        MSMRestApiManager.instance.userGetProfileData { responseAPI in
+        MSMRestApiManager.instance.userGetProfileData{ responseAPI in
             // Pass the result to the Presenter
             let loadResponseModel = PersonalPageShowModels.Data.ResponseModel(response: responseAPI)
             self.presenter.userAppDataDidPrepareToShowLoad(fromResponseModel: loadResponseModel)
@@ -58,5 +49,14 @@ class PersonalPageShowInteractor: PersonalPageShowInteractorInput {
 //        // NOTE: Pass the result to the Presenter
 //        let responseModel   =   PersonalPageShowModels.UserApp.ResponseModel(userApp: userApp)
 //        presenter.userAppDataDidPrepareToShow(fromResponseModel: responseModel)
+    }
+    
+    func userAppTemplatesDidLoad(withRequestModel requestModel: PersonalPageShowModels.Templates.RequestModel) {
+        worker = PersonalPageShowWorker()
+        let items = worker.userAppTemplatesDidLoad(forUserApp: requestModel.userID)
+        
+        // Pass the result to the Presenter
+        let responseModel = PersonalPageShowModels.Templates.ResponseModel(items: items)
+        presenter.userAppTemplatesDidPrepareToShowLoad(fromResponseModel: responseModel)
     }
 }
