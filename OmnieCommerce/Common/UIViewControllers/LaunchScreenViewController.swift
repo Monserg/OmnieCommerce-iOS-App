@@ -21,7 +21,7 @@ class LaunchScreenViewController: UIViewController {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        let appSettings = CoreDataManager.instance.didLoadEntity(byName: "AppSettings") as? AppSettings ?? AppSettings()
+        let appSettings = CoreDataManager.instance.entityDidLoad(byName: "AppSettings") as? AppSettings ?? AppSettings()
         CoreDataManager.instance.appSettings = appSettings
     }
 
@@ -40,11 +40,11 @@ class LaunchScreenViewController: UIViewController {
 
     // MARK: - Custom Functions
     func setup() {
-        let window      =   UIApplication.shared.windows[0]
+        let window = UIApplication.shared.windows[0]
         
         // Create CoreData instance
-        let appUser     =   CoreDataManager.instance.didLoadEntity(byName: "AppUser") as? AppUser ?? AppUser()
-        CoreDataManager.instance.appUser        =   appUser
+        let appUser = CoreDataManager.instance.entityDidLoad(byName: "AppUser") as? AppUser ?? AppUser()
+        CoreDataManager.instance.appUser = appUser
         
         if (appUser.isAuthorized) {
             backgroundImageView.isHidden        =   true
@@ -57,11 +57,11 @@ class LaunchScreenViewController: UIViewController {
         }
         
         // Initial VC
-        let signInShowStoryboard                =   UIStoryboard(name: "SignInShow", bundle: nil)
-        let initialNC                           =   signInShowStoryboard.instantiateViewController(withIdentifier: "SignInShowNC") as! BaseNavigationController
+        let signInShowStoryboard = UIStoryboard(name: "SignInShow", bundle: nil)
+        let initialNC = signInShowStoryboard.instantiateViewController(withIdentifier: "SignInShowNC") as! BaseNavigationController
         
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
-            window.rootViewController           =   initialNC
+            window.rootViewController = initialNC
             window.makeKeyAndVisible()
         }
     }

@@ -24,6 +24,7 @@ public let keyEmail: String                         =   "email"
 public let keyResetToken: String                    =   "resetToken"
 public let keyPassword: String                      =   "password"
 public let keyAccessToken: String                   =   "accessToken"
+public let keyCategories: String                    =   "Categories"
 
 
 // Handlers

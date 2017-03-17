@@ -28,7 +28,7 @@ class CategoriesShowViewController: BaseViewController {
     var interactor: CategoriesShowViewControllerOutput!
     var router: CategoriesShowRouter!
     
-    var categories = Array<Category>()
+    var categories = [Category]()
     
     @IBOutlet weak var cityView: UIView!
     @IBOutlet weak var copyrightLabel: CustomLabel!
@@ -119,11 +119,29 @@ extension CategoriesShowViewController: CategoriesShowViewControllerInput {
         
         guard isNetworkAvailable else {
             alertViewDidShow(withTitle: "Not Reachable".localized(), andMessage: "Disconnected from Network".localized())
-            return
-        }
 
+            // Show categories list from CoreData
+            let categoriesData = CoreDataManager.instance.entityDidLoad(byName: keyCategories) as! Categories
+            categories = NSKeyedUnarchiver.unarchiveObject(with: categoriesData.list as! Data) as! Array<Category>
+
+            collectionView.reloadData()
+            return
+        }        
+        
+        // Show categories list from server
         categories = viewModel.categories!
         collectionView.reloadData()
+        
+        // Save new data to CoreData
+        let categoriesData = NSKeyedArchiver.archivedData(withRootObject: categories) as NSData?
+        
+        guard categoriesData != nil else {
+            return
+        }
+        
+        let entityCategories = CoreDataManager.instance.entityDidLoad(byName: keyCategories) as! Categories
+        entityCategories.list = categoriesData!
+        CoreDataManager.instance.didSaveContext()
     }
     
     func citiesDidShowLoad(fromViewModel viewModel: CategoriesShowModels.Cities.ViewModel) {

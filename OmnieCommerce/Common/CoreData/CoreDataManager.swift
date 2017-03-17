@@ -136,17 +136,33 @@ class CoreDataManager {
     }
     
     // Get Entity by name
-    func didLoadEntity(byName name: String) -> NSManagedObject? {
+    func entityDidLoad(byName name: String) -> NSManagedObject? {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: name)
         
         do {
             let results = try CoreDataManager.instance.managedObjectContext.fetch(fetchRequest)
             
-            return (results.count == 0) ? nil : results.first as? NSManagedObject
+            return (results.count == 0) ? self.entityDidCreate(byName: name) : results.first as? NSManagedObject
         } catch {
             print(error)
             
             return nil
         }
+    }
+    
+    func entityDidCreate(byName name: String) -> NSManagedObject? {
+        let newEntity = NSEntityDescription.insertNewObject(forEntityName: name, into: self.managedObjectContext)
+        
+//        switch name {
+//        case keyCategories:
+//            (newEntity as! Categories).list = nil
+//            
+//        default:
+//            break
+//        }
+        
+        self.didSaveContext()
+        
+        return newEntity
     }
 }
