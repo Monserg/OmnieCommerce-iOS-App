@@ -19,8 +19,8 @@ protocol CategoriesShowInteractorInput {
 
 // MARK: - Output protocols for Presenter component VIP-cicle
 protocol CategoriesShowInteractorOutput {
-    func categoriesDidPrepareToShow(fromResponseModel responseModel: CategoriesShowModels.Categories.ResponseModel)
-    func citiesDidPrepareShow(fromResponseModel responseModel: CategoriesShowModels.Cities.ResponseModel)
+    func categoriesDidPrepareToShowLoad(fromResponseModel responseModel: CategoriesShowModels.Categories.ResponseModel)
+    func citiesDidPrepareShowLoad(fromResponseModel responseModel: CategoriesShowModels.Cities.ResponseModel)
 }
 
 class CategoriesShowInteractor: CategoriesShowInteractorInput {
@@ -31,13 +31,13 @@ class CategoriesShowInteractor: CategoriesShowInteractorInput {
     
     // MARK: - Custom Functions. Business logic
     func categoriesDidLoad(withRequestModel requestModel: CategoriesShowModels.Categories.RequestModel) {
-        // NOTE: Create some Worker to do the work
-        worker = CategoriesShowWorker()
-        let result = worker.categoriesDidLoad()
+        UIApplication.shared.isNetworkActivityIndicatorVisible  =   true
         
-        // NOTE: Pass the result to the Presenter
-        let responseModel = CategoriesShowModels.Categories.ResponseModel(result: result)
-        presenter.categoriesDidPrepareToShow(fromResponseModel: responseModel)
+        MSMRestApiManager.instance.userGetCategoriesList { responseAPI in
+            // Pass the result to the Presenter
+            let categoriesResponseModel = CategoriesShowModels.Categories.ResponseModel(responseAPI: responseAPI)
+            self.presenter.categoriesDidPrepareToShowLoad(fromResponseModel: categoriesResponseModel)
+        }
     }
     
     func citiesDidLoad(withRequestModel requestModel: CategoriesShowModels.Cities.RequestModel) {
@@ -45,6 +45,6 @@ class CategoriesShowInteractor: CategoriesShowInteractorInput {
         let result = worker.citiesDidLoad()
 
         let citiesResponseModel = CategoriesShowModels.Cities.ResponseModel(result: result)
-        presenter.citiesDidPrepareShow(fromResponseModel: citiesResponseModel)
+        presenter.citiesDidPrepareShowLoad(fromResponseModel: citiesResponseModel)
     }
 }

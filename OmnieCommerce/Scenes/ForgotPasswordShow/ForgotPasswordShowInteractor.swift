@@ -29,11 +29,11 @@ class ForgotPasswordShowInteractor: ForgotPasswordShowInteractorInput {
     
     // MARK: - Custom Functions. Business logic
     func codeDidLoad(fromRequestModel requestModel: ForgotPasswordShowModels.Code.RequestModel) {
-        UIApplication.shared.isNetworkActivityIndicatorVisible  =   true
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
 
         MSMRestApiManager.instance.userForgotPassword(requestModel.data.email!, withHandlerResponseAPICompletion: { responseAPI in
             // Pass the result to the Presenter
-            let responseModel   =   ForgotPasswordShowModels.Code.ResponseModel(code: (responseAPI != nil) ? responseAPI!.code : nil)
+            let responseModel = ForgotPasswordShowModels.Code.ResponseModel(code: (responseAPI != nil) ? responseAPI!.code : nil)
             self.presenter.codeDidPrepareToShow(fromResponseModel: responseModel)
         })
     }

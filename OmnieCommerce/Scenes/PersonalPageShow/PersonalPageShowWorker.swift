@@ -24,7 +24,7 @@ class PersonalPageShowWorker {
         for index in 0..<11 {
             let organization = Organization(codeID: index,
                                             name: "Organization \(index)",
-                                            category: Category.init("Beauty", "image-beauty-normal"),
+                                            category: Category.init(),
                                             location: CLLocationCoordinate2D.init(latitude: 49.439393, longitude: 26.998901299999943),
                                             addressCity: nil,
                                             addressStreet: nil,

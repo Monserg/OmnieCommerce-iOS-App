@@ -247,9 +247,6 @@ extension PersonalPageShowViewController: PersonalPageShowViewControllerInput {
             return
         }
         
-        personalTemplatesVC!.organizations = viewModel.organizations
-        activeViewController = personalTemplatesVC
-        
-        personalTemplatesVC!.viewSettingsDidLoad()
+        personalTemplatesVC!.organizations = viewModel.organizations        
     }
 }

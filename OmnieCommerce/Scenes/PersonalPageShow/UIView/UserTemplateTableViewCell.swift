@@ -76,7 +76,7 @@ extension UserTemplateTableViewCell: ConfigureCell {
     func setup(withItem item: Any, andIndexPath indexPath: IndexPath) {
         let organization                =   item as! Organization
         nameLabel.text                  =   organization.name
-        categoryLabel.text              =   organization.category.title
+        categoryLabel.text              =   organization.category.name!
         commentTextLabel.text           =   "dasd as das asd asdhasgdh  ashhd gahg ha ajhgd hagd haghs  ajhgdhasgd gags"
         selectionStyle                  =   .none
         

@@ -40,7 +40,7 @@ class OrganizationsShowWorker {
         for (index, location) in coordinates.enumerated() {
             let organization = Organization(codeID: index,
                                             name: "Organization \(index)",
-                                            category: Category.init("Beauty", "image-beauty-normal"),
+                                            category: Category.init(),
                                             location: location,
                                             addressCity: nil,
                                             addressStreet: nil,

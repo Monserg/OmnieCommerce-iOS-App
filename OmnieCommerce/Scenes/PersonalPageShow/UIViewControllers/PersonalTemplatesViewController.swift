@@ -38,7 +38,7 @@ class PersonalTemplatesViewController: BaseViewController {
     
     
     // MARK: - Custom Functions
-    func viewSettingsDidLoad() {
+    private func viewSettingsDidLoad() {
         tableView.tableViewControllerManager!.sectionsCount     =   1
         tableView.tableViewControllerManager!.dataSource        =   organizations
         

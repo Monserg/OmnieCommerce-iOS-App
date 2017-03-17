@@ -13,8 +13,8 @@ import UIKit
 
 // MARK: - Input protocols for current ViewController component VIP-cicle
 protocol CategoriesShowViewControllerInput {
-    func categoriesDidShow(fromViewModel viewModel: CategoriesShowModels.Categories.ViewModel)
-    func citiesDidShow(fromViewModel viewModel: CategoriesShowModels.Cities.ViewModel)
+    func categoriesDidShowLoad(fromViewModel viewModel: CategoriesShowModels.Categories.ViewModel)
+    func citiesDidShowLoad(fromViewModel viewModel: CategoriesShowModels.Cities.ViewModel)
 }
 
 // MARK: - Output protocols for Interactor component VIP-cicle
@@ -39,8 +39,8 @@ class CategoriesShowViewController: BaseViewController {
     @IBOutlet weak var collectionView: UICollectionView! {
         didSet {
             // Delegates
-            collectionView.delegate     =   self
-            collectionView.dataSource   =   self
+            collectionView.delegate = self
+            collectionView.dataSource = self
         }
     }
 
@@ -75,7 +75,7 @@ class CategoriesShowViewController: BaseViewController {
         interactor.categoriesDidLoad(withRequestModel: categoriesRequestModel)
         
         // Load Cities list
-        let citiesRequestModel  =   CategoriesShowModels.Cities.RequestModel(listType: .City)
+        let citiesRequestModel = CategoriesShowModels.Cities.RequestModel(listType: .City)
         interactor.citiesDidLoad(withRequestModel: citiesRequestModel)
     }
     
@@ -113,13 +113,13 @@ class CategoriesShowViewController: BaseViewController {
 
 // MARK: - CategoriesShowViewControllerInput
 extension CategoriesShowViewController: CategoriesShowViewControllerInput {
-    func categoriesDidShow(fromViewModel viewModel: CategoriesShowModels.Categories.ViewModel) {
-        self.categories = viewModel.list
-        
-        self.collectionView.reloadData()
+    func categoriesDidShowLoad(fromViewModel viewModel: CategoriesShowModels.Categories.ViewModel) {
+//        self.categories = viewModel.list
+//        
+//        self.collectionView.reloadData()
     }
     
-    func citiesDidShow(fromViewModel viewModel: CategoriesShowModels.Cities.ViewModel) {
+    func citiesDidShowLoad(fromViewModel viewModel: CategoriesShowModels.Cities.ViewModel) {
         cityButton.dataSource = viewModel.list
     }
 }

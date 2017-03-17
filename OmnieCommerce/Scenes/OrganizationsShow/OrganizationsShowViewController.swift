@@ -67,7 +67,7 @@ class OrganizationsShowViewController: BaseViewController {
         // Config smallTopBarView
         navigationBarView                   =   smallTopBarView
         smallTopBarView.type                =   "ChildSearch"
-        smallTopBarView.titleLabel.text     =   category!.title
+        smallTopBarView.titleLabel.text     =   category!.name!
         haveMenuItem                        =   true
         
         mapButton.isUserInteractionEnabled  =   false

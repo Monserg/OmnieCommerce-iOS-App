@@ -31,8 +31,8 @@ import UIKit
     
     // MARK: - Custom Functions
     func didSetup(withCategory category: Category) {
-        self.imageView.image            =   UIImage.init(named: category.icon)
-        self.name.text                  =   category.title
+//        self.imageView.image            =   UIImage.init(named: category.icon)
+        self.name.text                  =   category.name!
         
         // Set selected color
         let selectedView                =   UIView.init(frame: self.frame)

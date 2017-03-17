@@ -162,6 +162,25 @@ final class MSMRestApiManager {
         }
     }
 
+    func userGetCategoriesList(withHandlerResponseAPICompletion handlerResponseAPICompletion: @escaping (ResponseAPI?) -> Void) {
+        appApiString = "/categories/"
+        appURL = URL.init(string: appURL.absoluteString.appending("?locale=\(Locale.current.regionCode!)"))
+        
+        Alamofire.request(appURL, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil).responseJSON { dataResponse -> Void in
+            if (dataResponse.result.value != nil) {
+                let json = JSON(dataResponse.result.value!)
+                let responseAPI = ResponseAPI.init(fromJSON: json, withBodyType: .CategoriesArray)
+                
+                handlerResponseAPICompletion(responseAPI)
+                return
+            } else {
+                handlerResponseAPICompletion(nil)
+                return
+            }
+        }
+    }
+    
+
     
     
     // MARK: - Custom REST Functions

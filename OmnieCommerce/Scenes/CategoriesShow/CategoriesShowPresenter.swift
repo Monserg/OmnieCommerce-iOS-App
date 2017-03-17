@@ -13,14 +13,14 @@ import UIKit
 
 // MARK: - Input protocols for current Presenter component VIP-cicle
 protocol CategoriesShowPresenterInput {
-    func categoriesDidPrepareToShow(fromResponseModel responseModel: CategoriesShowModels.Categories.ResponseModel)
-    func citiesDidPrepareShow(fromResponseModel responseModel: CategoriesShowModels.Cities.ResponseModel)
+    func categoriesDidPrepareToShowLoad(fromResponseModel responseModel: CategoriesShowModels.Categories.ResponseModel)
+    func citiesDidPrepareShowLoad(fromResponseModel responseModel: CategoriesShowModels.Cities.ResponseModel)
 }
 
 // MARK: - Output protocols for ViewController component VIP-cicle
 protocol CategoriesShowPresenterOutput: class {
-    func categoriesDidShow(fromViewModel viewModel: CategoriesShowModels.Categories.ViewModel)
-    func citiesDidShow(fromViewModel viewModel: CategoriesShowModels.Cities.ViewModel)
+    func categoriesDidShowLoad(fromViewModel viewModel: CategoriesShowModels.Categories.ViewModel)
+    func citiesDidShowLoad(fromViewModel viewModel: CategoriesShowModels.Cities.ViewModel)
 }
 
 class CategoriesShowPresenter: CategoriesShowPresenterInput {
@@ -29,13 +29,20 @@ class CategoriesShowPresenter: CategoriesShowPresenterInput {
     
     
     // MARK: - Custom Functions. Presentation logic
-    func categoriesDidPrepareToShow(fromResponseModel responseModel: CategoriesShowModels.Categories.ResponseModel) {
-        let viewModel = CategoriesShowModels.Categories.ViewModel(list: responseModel.result)
-        viewController.categoriesDidShow(fromViewModel: viewModel)
-    }
+    func categoriesDidPrepareToShowLoad(fromResponseModel responseModel: CategoriesShowModels.Categories.ResponseModel) {
+        var categories: [Category]?
+        
+        if (responseModel.responseAPI != nil) {
+            let responseBodyArray = responseModel.responseAPI!.body!
+            
+        }
 
-    func citiesDidPrepareShow(fromResponseModel responseModel: CategoriesShowModels.Cities.ResponseModel) {
+//        let categoriesViewModel = CategoriesShowModels.Categories.ViewModel(categories: <#T##[Category]?#>)
+//        viewController.categoriesDidShowLoad(fromViewModel: categoriesViewModel)
+    }
+ 
+    func citiesDidPrepareShowLoad(fromResponseModel responseModel: CategoriesShowModels.Cities.ResponseModel) {
         let viewModel = CategoriesShowModels.Cities.ViewModel(list: responseModel.result)
-        viewController.citiesDidShow(fromViewModel: viewModel)
+        viewController.citiesDidShowLoad(fromViewModel: viewModel)
     }
 }

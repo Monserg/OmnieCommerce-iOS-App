@@ -32,11 +32,12 @@ struct CategoriesShowModels {
         }
         
         struct ResponseModel {
-            let result: [Category]
+            let responseAPI: ResponseAPI?
         }
         
         struct ViewModel {
-            let list: [Category]
+            let categories: [Category]?
+//            let subcategories: [Subcategories]?
         }
     }
 }
