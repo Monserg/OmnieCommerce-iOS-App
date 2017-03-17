@@ -30,15 +30,8 @@ class CategoriesShowPresenter: CategoriesShowPresenterInput {
     
     // MARK: - Custom Functions. Presentation logic
     func categoriesDidPrepareToShowLoad(fromResponseModel responseModel: CategoriesShowModels.Categories.ResponseModel) {
-        var categories: [Category]?
-        
-        if (responseModel.responseAPI != nil) {
-            let responseBodyArray = responseModel.responseAPI!.body!
-            
-        }
-
-//        let categoriesViewModel = CategoriesShowModels.Categories.ViewModel(categories: <#T##[Category]?#>)
-//        viewController.categoriesDidShowLoad(fromViewModel: categoriesViewModel)
+        let categoriesViewModel = CategoriesShowModels.Categories.ViewModel(categories: responseModel.responseAPI?.body as? [Category])
+        viewController.categoriesDidShowLoad(fromViewModel: categoriesViewModel)
     }
  
     func citiesDidPrepareShowLoad(fromResponseModel responseModel: CategoriesShowModels.Cities.ResponseModel) {

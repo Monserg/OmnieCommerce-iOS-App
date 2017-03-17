@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AlamofireImage
 
 @IBDesignable class CustomCollectionViewCell: UICollectionViewCell {
     // MARK: - Properties
@@ -31,13 +32,17 @@ import UIKit
     
     // MARK: - Custom Functions
     func didSetup(withCategory category: Category) {
-//        self.imageView.image            =   UIImage.init(named: category.icon)
-        self.name.text                  =   category.name!
+        self.name.text = category.name!
+        self.imageView.image = UIImage.init(named: "image-no-organization")
         
+        if let imagePath = category.imagePath {
+            self.imageView.af_setImage(withURL: URL(string: "http://\(imagePath)")!,
+                                       placeholderImage: UIImage.init(named: "image-no-organization"))
+        }
+
         // Set selected color
-        let selectedView                =   UIView.init(frame: self.frame)
-        selectedView.backgroundColor    =   UIColor.init(hexString: "#38444e", withAlpha: 0.3)
-        
-        self.selectedBackgroundView     =   selectedView
+        let selectedView = UIView.init(frame: self.frame)
+        selectedView.backgroundColor = UIColor.init(hexString: "#38444e", withAlpha: 0.3)
+        self.selectedBackgroundView = selectedView
     }
 }

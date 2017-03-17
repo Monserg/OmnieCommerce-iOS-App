@@ -114,9 +114,15 @@ class CategoriesShowViewController: BaseViewController {
 // MARK: - CategoriesShowViewControllerInput
 extension CategoriesShowViewController: CategoriesShowViewControllerInput {
     func categoriesDidShowLoad(fromViewModel viewModel: CategoriesShowModels.Categories.ViewModel) {
-//        self.categories = viewModel.list
-//        
-//        self.collectionView.reloadData()
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
+        
+        guard isNetworkAvailable else {
+            alertViewDidShow(withTitle: "Not Reachable".localized(), andMessage: "Disconnected from Network".localized())
+            return
+        }
+
+        categories = viewModel.categories!
+        collectionView.reloadData()
     }
     
     func citiesDidShowLoad(fromViewModel viewModel: CategoriesShowModels.Cities.ViewModel) {

@@ -164,7 +164,7 @@ final class MSMRestApiManager {
 
     func userGetCategoriesList(withHandlerResponseAPICompletion handlerResponseAPICompletion: @escaping (ResponseAPI?) -> Void) {
         appApiString = "/categories/"
-        appURL = URL.init(string: appURL.absoluteString.appending("?locale=\(Locale.current.regionCode!)"))
+        appURL = URL.init(string: appURL.absoluteString.appending("?locale=\(Locale.current.regionCode!.lowercased())"))
         
         Alamofire.request(appURL, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil).responseJSON { dataResponse -> Void in
             if (dataResponse.result.value != nil) {

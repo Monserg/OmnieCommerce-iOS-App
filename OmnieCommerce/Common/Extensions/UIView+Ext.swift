@@ -81,6 +81,10 @@ extension UIView {
         })
     }
     
+    func isSquare() -> Bool {
+        return self.frame.height == self.frame.width
+    }
+    
     func constraintDidUpdate( _ constraint: NSLayoutConstraint, withNewMultiplier newMultiplier: CGFloat) -> NSLayoutConstraint {
         let newConstraint   =   constraint.didUpdate(withNewMultiplier: newMultiplier)
         
