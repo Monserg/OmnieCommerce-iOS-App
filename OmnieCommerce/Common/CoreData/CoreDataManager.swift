@@ -53,7 +53,7 @@ class CoreDataManager {
         var failureReason   =   "CoreData saved error".localized()
         
         do {
-            try coordinator.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: url, options: nil)
+            try coordinator.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: url, options: self.options as! [AnyHashable: Any]?)
         } catch {
             var dict                                =   [String: AnyObject]()
             dict[NSLocalizedDescriptionKey]         =   "CoreData init error".localized() as AnyObject?
@@ -78,9 +78,9 @@ class CoreDataManager {
 
     
     // MARK: - Class Initialization. Singleton
-    static let instance     =   CoreDataManager(modelName: "OmnieCommerceUser",
+    static let instance     =   CoreDataManager(modelName:  "OmnieCommerceUser",
                                                 sqliteName: "OmnieCommerceUser",
-                                                options: [NSMigratePersistentStoresAutomaticallyOption: true, NSInferMappingModelAutomaticallyOption: true])
+                                                options:    [NSMigratePersistentStoresAutomaticallyOption: true, NSInferMappingModelAutomaticallyOption: true])
     
     private init(modelName: String, sqliteName: String, options: NSDictionary? = nil) {
         self.modelName      =   modelName

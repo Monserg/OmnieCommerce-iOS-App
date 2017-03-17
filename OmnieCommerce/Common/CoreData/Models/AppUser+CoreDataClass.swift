@@ -29,20 +29,13 @@ public class AppUser: NSManagedObject, InitCellParameters {
     
     // MARK: - Custom Functions
     func didMap(fromDictionary dictionary: [String: Any]) {
-        self.firstName = dictionary["firstName"] as? String         // Ivan
-        self.lastName = dictionary["lastName"] as? String           // Ivanov
-        self.surName = dictionary["surName"] as? String             // Ivanovich
-        self.gender = dictionary["sex"] as! Int16
-        self.familyStatus = dictionary["familyStatus"] as! Int16
-        self.hasChildren = dictionary["hasChildren"] as! Int16
-        self.hasPet = dictionary["hasPet"] as! Int16
-        
-        
-        //        self.birthday =
-        
-        
-//        "birthDay": "Nov 11, 2011 12:00:00 AM",
-
-
+        self.firstName      =   dictionary["firstName"] as? String         // Ivan
+        self.lastName       =   dictionary["lastName"] as? String           // Ivanov
+        self.surName        =   dictionary["surName"] as? String             // Ivanovich
+        self.gender         =   dictionary["sex"] as! Int16
+        self.familyStatus   =   dictionary["familyStatus"] as! Int16
+        self.hasChildren    =   dictionary["hasChildren"] as! Int16
+        self.hasPet         =   dictionary["hasPet"] as! Int16
+        self.birthday       =   (dictionary["birthDay"] as! String).convertToDate(withDateFormat: .ResponseDate) as NSDate?
     }
 }

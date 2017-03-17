@@ -13,7 +13,7 @@ import Foundation
 
 enum DateFormatType: String {
     case Default                =   "dd.MM.yyyy"                        // "17.03.2017"
-    case DD                     =   "MMM dd, yyyy HH:mm:ss a"           // "Nov 11, 2011 12:00:00 AM"
+    case ResponseDate           =   "MMM dd, yyyy HH:mm:ss a"           // "Nov 11, 2011 12:00:00 AM"
 }
 
 extension String {
@@ -44,8 +44,8 @@ extension String {
     }
     
     func convertToDate(withDateFormat dateFormatType: DateFormatType) -> Date {
-        let dateFormatter           =   DateFormatter()
-        dateFormatter.dateFormat    =   dateFormatType.rawValue
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = dateFormatType.rawValue
         
         return dateFormatter.date(from: self)!
     }

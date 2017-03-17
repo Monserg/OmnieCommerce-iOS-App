@@ -220,6 +220,7 @@ extension PersonalPageShowViewController: PersonalPageShowViewControllerInput {
             } else {
                 alertViewDidShow(withTitle: "Error".localized(), andMessage: viewModel.response!.errorMessage!)
             }
+            
             return
         }
         
