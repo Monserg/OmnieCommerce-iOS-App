@@ -10,12 +10,16 @@ import CoreData
 import SwiftyJSON
 import Foundation
 
-class Category: NSObject, NSCoding {
+class Category: NSObject, NSCoding, InitCellParameters {
     // MARK: - Properties
     var codeID: String!
     var name: String!
     var imagePath: String?
     var subcategories: [Subcategory]!
+
+    // Confirm InitCellParameters Protocol
+    var cellIdentifier: String  =   "CategoryCollectionViewCell"
+    var cellHeight: CGFloat     =   102.0
 
     
     // MARK: - Class Initialization

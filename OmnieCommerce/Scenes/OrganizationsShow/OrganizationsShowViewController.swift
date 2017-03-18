@@ -40,8 +40,8 @@ class OrganizationsShowViewController: BaseViewController {
 
     @IBOutlet weak var tableView: MSMTableView! {
         didSet {
-            tableView.contentInset              =   UIEdgeInsetsMake((UIApplication.shared.statusBarOrientation.isPortrait) ? 5 : 45, 0, 0, 0)
-            tableView.scrollIndicatorInsets     =   UIEdgeInsetsMake((UIApplication.shared.statusBarOrientation.isPortrait) ? 5 : 45, 0, 0, 0)
+            tableView.contentInset = UIEdgeInsetsMake((UIApplication.shared.statusBarOrientation.isPortrait) ? 5 : 45, 0, 0, 0)
+            tableView.scrollIndicatorInsets = UIEdgeInsetsMake((UIApplication.shared.statusBarOrientation.isPortrait) ? 5 : 45, 0, 0, 0)
         }
     }
 
@@ -65,28 +65,28 @@ class OrganizationsShowViewController: BaseViewController {
     // MARK: - Custom Functions
     func viewSettingsDidLoad() {
         // Config smallTopBarView
-        navigationBarView                   =   smallTopBarView
-        smallTopBarView.type                =   "ChildSearch"
-        smallTopBarView.titleLabel.text     =   category!.name!
-        haveMenuItem                        =   true
+        navigationBarView = smallTopBarView
+        smallTopBarView.type = "ChildSearch"
+        smallTopBarView.titleLabel.text = category!.name!
+        haveMenuItem = true
         
-        mapButton.isUserInteractionEnabled  =   false
+        mapButton.isUserInteractionEnabled = false
         
         // Handler Back button tap
-        smallTopBarView.handlerSendButtonCompletion     =   { _ in
+        smallTopBarView.handlerSendButtonCompletion = { _ in
             _ = self.navigationController?.popViewController(animated: true)
         }
         
         // Load organizations
-        let organizationsRequestModel       =   OrganizationsShowModels.Organizations.RequestModel()
+        let organizationsRequestModel = OrganizationsShowModels.Organizations.RequestModel()
         interactor.organizationsDidLoad(withRequestModel: organizationsRequestModel)
         
         // Load services
-        let servicesRequestModel            =   OrganizationsShowModels.DropDownList.RequestModel()
+        let servicesRequestModel = OrganizationsShowModels.DropDownList.RequestModel()
         interactor.servicesDidLoad(withRequestModel: servicesRequestModel)
 
         // Load categories
-        let categoriesRequestModel          =   OrganizationsShowModels.DropDownList.RequestModel()
+        let categoriesRequestModel = OrganizationsShowModels.DropDownList.RequestModel()
         interactor.categoriesDidLoad(withRequestModel: categoriesRequestModel)
     }
     
@@ -123,43 +123,42 @@ class OrganizationsShowViewController: BaseViewController {
 // MARK: - OrganizationsShowViewControllerInput
 extension OrganizationsShowViewController: OrganizationsShowViewControllerInput {
     func servicesDidShow(fromViewModel viewModel: OrganizationsShowModels.DropDownList.ViewModel) {
-        servicesButton.dataSource                   =   viewModel.dropDownList
+        servicesButton.dataSource = viewModel.dropDownList
     }
     
     func categoriesDidShow(fromViewModel viewModel: OrganizationsShowModels.DropDownList.ViewModel) {
-        categoriesButton.dataSource                 =   viewModel.dropDownList
+        categoriesButton.dataSource = viewModel.dropDownList
     }
 
     func organizationsDidShow(fromViewModel viewModel: OrganizationsShowModels.Organizations.ViewModel) {
-        // TableViewController Manager
-        tableView.tableViewControllerManager                    =   MSMTableViewControllerManager()
-        tableView.tableViewControllerManager!.tableView         =   self.tableView
-        tableView.tableViewControllerManager!.sectionsCount     =   1
-        tableView.tableViewControllerManager!.dataSource        =   viewModel.organizations
-        mapButton.isUserInteractionEnabled                      =   true
-        dataSourceEmptyView.isHidden                            =   (viewModel.organizations.count == 0) ? false : true
-        
+        // Setting MSMTableViewControllerManager
+        tableView.tableViewControllerManager = MSMTableViewControllerManager()
+        tableView.tableViewControllerManager!.tableView = self.tableView
+        tableView.tableViewControllerManager!.sectionsCount = 1
+        tableView.tableViewControllerManager!.dataSource = viewModel.organizations
+        mapButton.isUserInteractionEnabled = true
+        dataSourceEmptyView.isHidden = (viewModel.organizations.count == 0) ? false : true
         tableView.reloadData()
         
         // Search Manager
-        smallTopBarView.searchBar.placeholder                   =   "Enter Organization name".localized()
-        smallTopBarView.searchBar.delegate                      =   tableView.tableViewControllerManager
+        smallTopBarView.searchBar.placeholder = "Enter Organization name".localized()
+        smallTopBarView.searchBar.delegate = tableView.tableViewControllerManager
         
         // Handler select cell
-        tableView.tableViewControllerManager!.handlerSearchCompletion           =   { organization in
+        tableView.tableViewControllerManager!.handlerSearchCompletion = { organization in
             self.print(object: "transition to Organization profile scene")
             
             self.router.navigateToOrganizationShowScene(organization as! Organization)
         }
         
         // Handler Search keyboard button tap
-        tableView.tableViewControllerManager!.handlerSendButtonCompletion       =   { _ in
+        tableView.tableViewControllerManager!.handlerSendButtonCompletion = { _ in
             // TODO: - ADD SEARCH API
             self.smallTopBarView.searchBarDidHide()
         }
         
         // Handler Search Bar Cancel button tap
-        tableView.tableViewControllerManager!.handlerCancelButtonCompletion     =   { _ in
+        tableView.tableViewControllerManager!.handlerCancelButtonCompletion = { _ in
             self.smallTopBarView.searchBarDidHide()
         }
     }

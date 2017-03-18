@@ -167,6 +167,7 @@ class BaseViewController: UIViewController {
     }
     
     func spinnerDidStart() {
+        view.isUserInteractionEnabled = false
         spinner.color = UIColor.veryDarkCyan
         spinner.center = view.center
         
@@ -180,6 +181,7 @@ class BaseViewController: UIViewController {
         spinner.stopAnimating()
         spinner.removeFromSuperview()
         UIApplication.shared.isNetworkActivityIndicatorVisible = false
+        view.isUserInteractionEnabled = true
     }
 }
 

@@ -36,14 +36,15 @@ enum TableCellStyle: String {
         }
     }
     
-    func setScrollIndicatorColor(color: UIColor) {
-        for view in self.subviews {
-            if view.isKind(of: UIImageView.self), let imageView = view as? UIImageView, let image = imageView.image {
-                imageView.tintColor     =   color
-                imageView.image         =   image.withRenderingMode(.alwaysTemplate)
-            }
-        }
-        
-        self.flashScrollIndicators()
-    }
+    // FIXME: - DELETE IF SUCCESS WORK !!!
+//    func setScrollIndicatorColor(color: UIColor) {
+//        for view in self.subviews {
+//            if view.isKind(of: UIImageView.self), let imageView = view as? UIImageView, let image = imageView.image {
+//                imageView.tintColor     =   color
+//                imageView.image         =   image.withRenderingMode(.alwaysTemplate)
+//            }
+//        }
+//        
+//        self.flashScrollIndicators()
+//    }
 }

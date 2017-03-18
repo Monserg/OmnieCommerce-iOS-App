@@ -11,11 +11,13 @@ import UIKit
 extension UIView {
     // MARK: - Properties
     var heightRatio: CGFloat {
-        return ((UIApplication.shared.statusBarOrientation.isPortrait) ? 667 : 375) / self.frame.height
+        let screenHeight = (UIApplication.shared.statusBarOrientation.isPortrait) ? UIScreen.main.bounds.height : UIScreen.main.bounds.width
+        return screenHeight / 667.0
     }
 
     var widthRatio: CGFloat {
-        return ((UIApplication.shared.statusBarOrientation.isPortrait) ? 375 : 667) / self.frame.width
+        let screenWidth = (UIApplication.shared.statusBarOrientation.isPortrait) ? UIScreen.main.bounds.width : UIScreen.main.bounds.height
+        return screenWidth / 375.0
     }
 
     @IBInspectable var cornerRadius: CGFloat {
@@ -94,6 +96,15 @@ extension UIView {
         self.layoutIfNeeded()
         
         return newConstraint
+    }
+    
+    func setScrollIndicatorColor(color: UIColor) {
+        for view in self.subviews {
+            if view.isKind(of: UIImageView.self), let imageView = view as? UIImageView, let image = imageView.image {
+                imageView.tintColor = UIColor.veryLightOrange //color
+                imageView.image = image.withRenderingMode(.alwaysTemplate)
+            }
+        }
     }
 }
 

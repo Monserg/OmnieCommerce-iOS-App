@@ -155,6 +155,7 @@
 "Wrong input data"              =   "Неправильні вхідні дані";
 "User is already exist"         =   "Користувач вже існує";
 "Retry request succeeded"       =   "Повторний запит успішно виконаний";
+"Categories list is empty"      =   "Список категорій порожній";
 
 
 // Request Errors

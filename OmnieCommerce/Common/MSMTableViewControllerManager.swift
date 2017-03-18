@@ -55,26 +55,25 @@ extension MSMTableViewControllerManager: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cellIdentifier  =   (dataSource?[indexPath.row] as! InitCellParameters).cellIdentifier
-
+        let cellIdentifier = (dataSource?[indexPath.row] as! InitCellParameters).cellIdentifier
         self.tableView!.register(UINib(nibName: cellIdentifier, bundle: nil), forCellReuseIdentifier: cellIdentifier)
 
-        let cell            =   self.tableView!.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
-        let item            =   (isSearchBarActive) ? dataSourceFiltered![indexPath.row] : dataSource![indexPath.row]
+        let cell = self.tableView!.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
+        let item = (isSearchBarActive) ? dataSourceFiltered![indexPath.row] : dataSource![indexPath.row]
         
         switch cell {
         case cell as UserTemplateTableViewCell:
-            let userTemplateCell                =   (cell as! UserTemplateTableViewCell)
+            let userTemplateCell = (cell as! UserTemplateTableViewCell)
             
             // Show Expanded Cells
             if (expandedCells.count > 0) {
-                userTemplateCell.isExpanded     =   expandedCells.contains(indexPath)
+                userTemplateCell.isExpanded = expandedCells.contains(indexPath)
                 userTemplateCell.expandButton.setImage(UIImage.init(named: (userTemplateCell.isExpanded) ? "icon-cell-expand-on-normal" : "icon-cell-expand-off-normal"),
                                                                     for: .normal)
             }
 
             // Handler Expanded Button tap
-            userTemplateCell.handlerSendButtonCompletion        =   { _ in
+            userTemplateCell.handlerSendButtonCompletion = { _ in
                 if (userTemplateCell.isExpanded) {
                     self.expandedCells.append(indexPath)
                     
@@ -156,12 +155,12 @@ extension MSMTableViewControllerManager: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        let height          =   (dataSource?[indexPath.row] as! InitCellParameters).cellHeight
-        let cellIdentifier  =   (dataSource?[indexPath.row] as! InitCellParameters).cellIdentifier
+        let height = (dataSource?[indexPath.row] as! InitCellParameters).cellHeight
+        let cellIdentifier = (dataSource?[indexPath.row] as! InitCellParameters).cellIdentifier
 
         if (cellIdentifier == "UserTemplateTableViewCell") {
-            self.tableView!.estimatedRowHeight  =   290.0
-            self.tableView!.rowHeight           =   UITableViewAutomaticDimension
+            self.tableView!.estimatedRowHeight = 290.0
+            self.tableView!.rowHeight = UITableViewAutomaticDimension
 
             return self.tableView!.rowHeight
         }
@@ -170,13 +169,13 @@ extension MSMTableViewControllerManager: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
-        let cell                            =   tableView.cellForRow(at: indexPath)!
-        cell.contentView.backgroundColor    =   .veryDarkGrayishBlue38
+        let cell = tableView.cellForRow(at: indexPath)!
+        cell.contentView.backgroundColor = .veryDarkGrayishBlue38
     }
     
     func tableView(_ tableView: UITableView, didUnhighlightRowAt indexPath: IndexPath) {
-        let cell                            =   tableView.cellForRow(at: indexPath)!
-        cell.contentView.backgroundColor    =   .clear
+        let cell = tableView.cellForRow(at: indexPath)!
+        cell.contentView.backgroundColor = .clear
     }
 }
 
@@ -189,27 +188,27 @@ extension MSMTableViewControllerManager: UISearchBarDelegate {
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        isSearchBarActive   =   false
-        searchBar.text      =   nil
+        isSearchBarActive = false
+        searchBar.text = nil
         
         handlerCancelButtonCompletion!()
         tableView!.reloadData()
     }
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        isSearchBarActive   =   true
+        isSearchBarActive = true
     }
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        isSearchBarActive   =   false
+        isSearchBarActive = false
     }
     
     func searchBarBookmarkButtonClicked(_ searchBar: UISearchBar) {
-        isSearchBarActive   =   false
+        isSearchBarActive = false
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        dataSourceFiltered  =   (searchText.isEmpty) ? dataSource! : dataSource!.filter{ ($0 as! SearchObject).name.contains(searchBar.text!) }
+        dataSourceFiltered = (searchText.isEmpty) ? dataSource! : dataSource!.filter{ ($0 as! SearchObject).name.contains(searchBar.text!) }
         
         tableView!.reloadData()
     }

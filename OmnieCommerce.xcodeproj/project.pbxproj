@@ -100,6 +100,11 @@
 		B122F2411DD371B30018A701 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B122F2401DD371B30018A701 /* BaseNavigationController.swift */; };
 		B122F2481DD393330018A701 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B122F24A1DD393330018A701 /* Localizable.strings */; };
 		B12FE6461E57327D00A4FBA4 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12FE6451E57327D00A4FBA4 /* CustomTextField.swift */; };
+		B137EC8B1E7D0334006F0184 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B137EC891E7D0334006F0184 /* CategoryCollectionViewCell.swift */; };
+		B137EC8C1E7D0334006F0184 /* CategoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B137EC8A1E7D0334006F0184 /* CategoryCollectionViewCell.xib */; };
+		B137EC8E1E7D059B006F0184 /* UbuntuRegularVeryDarkGrayLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B137EC8D1E7D059B006F0184 /* UbuntuRegularVeryDarkGrayLabel.swift */; };
+		B137EC931E7D19B0006F0184 /* MSMCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B137EC921E7D19B0006F0184 /* MSMCollectionView.swift */; };
+		B137EC951E7D19FB006F0184 /* MSMCollectionViewControllerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B137EC941E7D19FB006F0184 /* MSMCollectionViewControllerManager.swift */; };
 		B14107C41DFEA73900F79CF9 /* CalendarDayCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14107C21DFEA73900F79CF9 /* CalendarDayCellView.swift */; };
 		B14107C51DFEA73900F79CF9 /* CalendarDayCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B14107C31DFEA73900F79CF9 /* CalendarDayCellView.xib */; };
 		B14107C71DFEB1D700F79CF9 /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14107C61DFEB1D700F79CF9 /* CustomView.swift */; };
@@ -160,7 +165,6 @@
 		B17061A41E69866B00CF9BA9 /* TableViewControllerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17061A31E69866B00CF9BA9 /* TableViewControllerManager.swift */; };
 		B17061A71E699F3900CF9BA9 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17061A61E699F3900CF9BA9 /* News.swift */; };
 		B17061AA1E699F8300CF9BA9 /* NewsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B17061A91E699F8300CF9BA9 /* NewsTableViewCell.xib */; };
-		B17323CA1DED84FF003A8D3E /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17323C91DED84FF003A8D3E /* CustomCollectionViewCell.swift */; };
 		B1739D161DE314C70029BCCA /* UIButton+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1739D151DE314C70029BCCA /* UIButton+Ext.swift */; };
 		B1739D181DE314D50029BCCA /* UILabel+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1739D171DE314D50029BCCA /* UILabel+Ext.swift */; };
 		B1739D1A1DE314DF0029BCCA /* UIColor+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1739D191DE314DF0029BCCA /* UIColor+Ext.swift */; };
@@ -460,6 +464,11 @@
 		B122F24C1DD393350018A701 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B122F24D1DD393360018A701 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B12FE6451E57327D00A4FBA4 /* CustomTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		B137EC891E7D0334006F0184 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		B137EC8A1E7D0334006F0184 /* CategoryCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CategoryCollectionViewCell.xib; sourceTree = "<group>"; };
+		B137EC8D1E7D059B006F0184 /* UbuntuRegularVeryDarkGrayLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UbuntuRegularVeryDarkGrayLabel.swift; sourceTree = "<group>"; };
+		B137EC921E7D19B0006F0184 /* MSMCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSMCollectionView.swift; sourceTree = "<group>"; };
+		B137EC941E7D19FB006F0184 /* MSMCollectionViewControllerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSMCollectionViewControllerManager.swift; sourceTree = "<group>"; };
 		B14107C21DFEA73900F79CF9 /* CalendarDayCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarDayCellView.swift; sourceTree = "<group>"; };
 		B14107C31DFEA73900F79CF9 /* CalendarDayCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CalendarDayCellView.xib; sourceTree = "<group>"; };
 		B14107C61DFEB1D700F79CF9 /* CustomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
@@ -524,7 +533,6 @@
 		B17061A31E69866B00CF9BA9 /* TableViewControllerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewControllerManager.swift; sourceTree = "<group>"; };
 		B17061A61E699F3900CF9BA9 /* News.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
 		B17061A91E699F8300CF9BA9 /* NewsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsTableViewCell.xib; sourceTree = "<group>"; };
-		B17323C91DED84FF003A8D3E /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
 		B1739D151DE314C70029BCCA /* UIButton+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Ext.swift"; sourceTree = "<group>"; };
 		B1739D171DE314D50029BCCA /* UILabel+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+Ext.swift"; sourceTree = "<group>"; };
 		B1739D191DE314DF0029BCCA /* UIColor+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Ext.swift"; sourceTree = "<group>"; };
@@ -905,6 +913,7 @@
 				B1FBC91E1E6D904700D86429 /* UbuntuLightItalicVeryDarkGrayishBlueLabel.swift */,
 				B1FBC9201E6D923E00D86429 /* UbuntuLightVeryLightGrayLabel.swift */,
 				B1FBC9221E6D940D00D86429 /* UbuntuLightVeryLightOrangeLabel.swift */,
+				B137EC8D1E7D059B006F0184 /* UbuntuRegularVeryDarkGrayLabel.swift */,
 			);
 			path = UILabels;
 			sourceTree = "<group>";
@@ -1018,6 +1027,7 @@
 		B122F1D01DD35B1C0018A701 /* CategoriesShow */ = {
 			isa = PBXGroup;
 			children = (
+				B137EC881E7D030C006F0184 /* Views */,
 				B149A7BD1E5DD52C009BF8C7 /* Models */,
 				B122F1FE1DD35BEB0018A701 /* CategoriesShowConfigurator.swift */,
 				B122F1FF1DD35BEB0018A701 /* CategoriesShowInteractor.swift */,
@@ -1096,7 +1106,7 @@
 				B1739D141DE3145F0029BCCA /* Extensions */,
 				B12FE6421E57321500A4FBA4 /* Managers */,
 				B122F2391DD36F220018A701 /* UIButtons */,
-				B17323C81DED8430003A8D3E /* UICollectionViewCell */,
+				B137EC911E7D1998006F0184 /* UICollectionView */,
 				B11B9ADB1DF0537A009A4AA1 /* UIImageView */,
 				B1228FBB1DD4BDE600A90FBB /* UILabels */,
 				B122F23F1DD371830018A701 /* UINavigationControllers */,
@@ -1169,6 +1179,7 @@
 			isa = PBXGroup;
 			children = (
 				B1FFF7301E5F0F0F00A075D8 /* LocationManager.swift */,
+				B137EC941E7D19FB006F0184 /* MSMCollectionViewControllerManager.swift */,
 				B1FBC92E1E6DEFD300D86429 /* MSMImagePickerController.swift */,
 				B10672F91E71BE8100DB2AE0 /* MSMPickerViewManager.swift */,
 				B1131A921E76744300DAF90A /* MSMRestApiManager.swift */,
@@ -1178,6 +1189,23 @@
 				B17061A31E69866B00CF9BA9 /* TableViewControllerManager.swift */,
 			);
 			name = Managers;
+			sourceTree = "<group>";
+		};
+		B137EC881E7D030C006F0184 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B137EC891E7D0334006F0184 /* CategoryCollectionViewCell.swift */,
+				B137EC8A1E7D0334006F0184 /* CategoryCollectionViewCell.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		B137EC911E7D1998006F0184 /* UICollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				B137EC921E7D19B0006F0184 /* MSMCollectionView.swift */,
+			);
+			name = UICollectionView;
 			sourceTree = "<group>";
 		};
 		B149A7BD1E5DD52C009BF8C7 /* Models */ = {
@@ -1318,14 +1346,6 @@
 				B17061A91E699F8300CF9BA9 /* NewsTableViewCell.xib */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		B17323C81DED8430003A8D3E /* UICollectionViewCell */ = {
-			isa = PBXGroup;
-			children = (
-				B17323C91DED84FF003A8D3E /* CustomCollectionViewCell.swift */,
-			);
-			path = UICollectionViewCell;
 			sourceTree = "<group>";
 		};
 		B1739D141DE3145F0029BCCA /* Extensions */ = {
@@ -1793,6 +1813,7 @@
 				B1F7EDBA1DF54886003B36AD /* SegmentedControlView.xib in Resources */,
 				B1BF927C1DD6516C00BECBBB /* UBUNTU-L.TTF in Resources */,
 				B1BF927D1DD6516C00BECBBB /* UBUNTU-LI.TTF in Resources */,
+				B137EC8C1E7D0334006F0184 /* CategoryCollectionViewCell.xib in Resources */,
 				B1597AD21E3F42BD00123CB5 /* AvatarActionView.xib in Resources */,
 				B1BF927E1DD6516C00BECBBB /* UBUNTU-M.TTF in Resources */,
 				B1BF927F1DD6516C00BECBBB /* UBUNTU-MI.TTF in Resources */,
@@ -1940,6 +1961,7 @@
 				B1CF54A31DDB515000E98049 /* HandbookShowPresenter.swift in Sources */,
 				B1FFF7161E5F017A00A075D8 /* OrganizationsMapShowViewController.swift in Sources */,
 				B14CD91A1E57C058005F8BF6 /* Protocols.swift in Sources */,
+				B137EC951E7D19FB006F0184 /* MSMCollectionViewControllerManager.swift in Sources */,
 				B14E97591DD8B052001E1DE2 /* SignUpShowPresenter.swift in Sources */,
 				B10874691E5B07A6004A4FB6 /* OmnieCommerceUser.xcdatamodeld in Sources */,
 				B17061A41E69866B00CF9BA9 /* TableViewControllerManager.swift in Sources */,
@@ -2022,6 +2044,7 @@
 				B177E55B1E54B739004F1390 /* RepetitionPasswordShowViewController.swift in Sources */,
 				B177E5371E5475EC004F1390 /* SignInContainerShowPresenter.swift in Sources */,
 				B14E974C1DD8B042001E1DE2 /* SignInShowRouter.swift in Sources */,
+				B137EC931E7D19B0006F0184 /* MSMCollectionView.swift in Sources */,
 				B1FBC9251E6D948B00D86429 /* UbuntuLightVeryLightOrangeButton.swift in Sources */,
 				B14E97651DD8B05E001E1DE2 /* ForgotPasswordShowInteractor.swift in Sources */,
 				B1CF54961DDB512000E98049 /* DiscountCardsShowRouter.swift in Sources */,
@@ -2035,6 +2058,7 @@
 				B1CF54D81DDB51BE00E98049 /* SettingsShowConfigurator.swift in Sources */,
 				B122F1EC1DD35BA70018A701 /* MessagesShowPresenter.swift in Sources */,
 				B1FFF7121E5F017A00A075D8 /* OrganizationsMapShowInteractor.swift in Sources */,
+				B137EC8B1E7D0334006F0184 /* CategoryCollectionViewCell.swift in Sources */,
 				B122F1DE1DD35B760018A701 /* OrdersShowPresenter.swift in Sources */,
 				B122A5961E6C56F800C39B67 /* MessageTableViewCell.swift in Sources */,
 				B14E975B1DD8B052001E1DE2 /* SignUpShowViewController.swift in Sources */,
@@ -2043,7 +2067,6 @@
 				B1FBC9271E6D974300D86429 /* UbuntuLightItalicLightGrayishCyanLabel.swift in Sources */,
 				B17D92DB1E6FFC290028967E /* UbuntuLightItalicModerateRedLabel.swift in Sources */,
 				B19DFABD1E64AF3100599073 /* UMParallaxView.swift in Sources */,
-				B17323CA1DED84FF003A8D3E /* CustomCollectionViewCell.swift in Sources */,
 				B1597AC71E3F12BF00123CB5 /* PersonalTemplatesViewController.swift in Sources */,
 				B177E5361E5475EC004F1390 /* SignInContainerShowModels.swift in Sources */,
 				B1CF54CF1DDB51A500E98049 /* PersonalPageShowViewController.swift in Sources */,
@@ -2073,6 +2096,7 @@
 				B1FBC9311E6DFC0E00D86429 /* UIViewController+Ext.swift in Sources */,
 				B14E97571DD8B052001E1DE2 /* SignUpShowInteractor.swift in Sources */,
 				B177E5481E54AC7F004F1390 /* EnterCodeShowInteractor.swift in Sources */,
+				B137EC8E1E7D059B006F0184 /* UbuntuRegularVeryDarkGrayLabel.swift in Sources */,
 				B122F1FC1DD35BC70018A701 /* FavoriteShowViewController.swift in Sources */,
 				B1CF54BD1DDB519000E98049 /* OnmieSoftShowInteractor.swift in Sources */,
 				B177E5561E54B739004F1390 /* RepetitionPasswordShowConfigurator.swift in Sources */,

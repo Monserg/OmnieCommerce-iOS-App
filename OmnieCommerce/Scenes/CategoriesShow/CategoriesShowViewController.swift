@@ -28,19 +28,17 @@ class CategoriesShowViewController: BaseViewController {
     var interactor: CategoriesShowViewControllerOutput!
     var router: CategoriesShowRouter!
     
-    var categories = [Category]()
-    
     @IBOutlet weak var cityView: UIView!
     @IBOutlet weak var copyrightLabel: CustomLabel!
     @IBOutlet weak var smallTopBarView: SmallTopBarView!
-
+    @IBOutlet weak var dataSourceEmptyView: UIView!
+    
     @IBOutlet weak var cityButton: DropDownButton!
     
-    @IBOutlet weak var collectionView: UICollectionView! {
+    @IBOutlet weak var collectionView: MSMCollectionView! {
         didSet {
-            // Delegates
-            collectionView.delegate = self
-            collectionView.dataSource = self
+            collectionView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0)
+            collectionView.scrollIndicatorInsets = UIEdgeInsetsMake(0, 0, 0, 0)
         }
     }
 
@@ -58,26 +56,6 @@ class CategoriesShowViewController: BaseViewController {
         super.viewDidLoad()
         
         viewSettingsDidLoad()
-    }
-
-
-    // MARK: - Custom Functions
-    func viewSettingsDidLoad() {
-        print(object: "\(type(of: self)): \(#function) run.")
-        
-        // Config topBarView
-        navigationBarView       =   smallTopBarView
-        smallTopBarView.type    =   "Parent"
-        haveMenuItem            =   true
-
-        // Load Categories list
-        spinnerDidStart()
-        let categoriesRequestModel = CategoriesShowModels.Categories.RequestModel()
-        interactor.categoriesDidLoad(withRequestModel: categoriesRequestModel)
-        
-        // Load Cities list
-        let citiesRequestModel = CategoriesShowModels.Cities.RequestModel(listType: .City)
-        interactor.citiesDidLoad(withRequestModel: citiesRequestModel)
     }
     
     
@@ -109,6 +87,50 @@ class CategoriesShowViewController: BaseViewController {
         
         collectionView.reloadData()
     }
+    
+    
+    // MARK: - Custom Functions
+    func viewSettingsDidLoad() {
+        print(object: "\(type(of: self)): \(#function) run.")
+        
+        // Config topBarView
+        navigationBarView = smallTopBarView
+        smallTopBarView.type = "Parent"
+        haveMenuItem = true
+        
+        // Load Categories list
+        spinnerDidStart()
+        let categoriesRequestModel = CategoriesShowModels.Categories.RequestModel()
+        interactor.categoriesDidLoad(withRequestModel: categoriesRequestModel)
+        
+        // Load Cities list
+        // TODO: UNCOMMENT WHEN NEED TO USE FILTER BY CITIES !!!
+//        let citiesRequestModel = CategoriesShowModels.Cities.RequestModel(listType: .City)
+//        interactor.citiesDidLoad(withRequestModel: citiesRequestModel)
+    }
+
+    func categoriesDidShow(_ categories: [Category], fromAPI isDataFromAPI: Bool) {
+        // Setting MSMCollectionViewControllerManager
+        collectionView.collectionViewControllerManager = MSMCollectionViewControllerManager(withCollectionView: self.collectionView)
+        collectionView.collectionViewControllerManager!.sectionsCount = 1
+        collectionView.collectionViewControllerManager!.dataSource = categories
+        dataSourceEmptyView.isHidden = (categories.count == 0) ? false : true
+        
+        collectionView.reloadData()
+        
+        // Save new data to CoreData
+        if (isDataFromAPI) {
+            let categoriesData = NSKeyedArchiver.archivedData(withRootObject: categories) as NSData?
+            
+            guard categoriesData != nil else {
+                return
+            }
+            
+            let entityCategories = CoreDataManager.instance.entityDidLoad(byName: keyCategories) as! Categories
+            entityCategories.list = categoriesData!
+            CoreDataManager.instance.didSaveContext()
+        }
+    }
 }
 
 
@@ -122,74 +144,18 @@ extension CategoriesShowViewController: CategoriesShowViewControllerInput {
 
             // Show categories list from CoreData
             let categoriesData = CoreDataManager.instance.entityDidLoad(byName: keyCategories) as! Categories
-            categories = NSKeyedUnarchiver.unarchiveObject(with: categoriesData.list as! Data) as! Array<Category>
+            let categories = NSKeyedUnarchiver.unarchiveObject(with: categoriesData.list as! Data) as! Array<Category>
 
-            collectionView.reloadData()
+            self.categoriesDidShow(categories, fromAPI: false)
             return
         }        
         
-        // Show categories list from server
-        categories = viewModel.categories!
-        collectionView.reloadData()
-        
-        // Save new data to CoreData
-        let categoriesData = NSKeyedArchiver.archivedData(withRootObject: categories) as NSData?
-        
-        guard categoriesData != nil else {
-            return
-        }
-        
-        let entityCategories = CoreDataManager.instance.entityDidLoad(byName: keyCategories) as! Categories
-        entityCategories.list = categoriesData!
-        CoreDataManager.instance.didSaveContext()
+        // Show categories list from API
+        let categories = viewModel.categories!
+        self.categoriesDidShow(categories, fromAPI: true)
     }
     
     func citiesDidShowLoad(fromViewModel viewModel: CategoriesShowModels.Cities.ViewModel) {
         cityButton.dataSource = viewModel.list
-    }
-}
-
-
-// MARK: - UICollectionViewDataSource
-extension CategoriesShowViewController: UICollectionViewDataSource {
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return categories.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategoryCell", for: indexPath) as! CustomCollectionViewCell
-        
-        cell.didSetup(withCategory: categories[indexPath.row])
-        
-        return cell
-    }
-}
-
-
-// MARK: - UICollectionViewDelegate
-extension CategoriesShowViewController: UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(object: "\(type(of: self)): \(#function) run.")
-        
-        if (cityButton.isDropDownListShow) {
-            cityButton.itemsListDidHide(inView: view)
-        }
-        
-        // Transition to OrganizationsShow scene with pass data
-        router.navigateToOrganizationsShowScene(withCategory: categories[indexPath.row])
-        
-        collectionView.deselectItem(at: indexPath, animated: true)
-    }
-}
-
-
-// MARK: - UICollectionViewDelegateFlowLayout
-extension CategoriesShowViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return (UIApplication.shared.statusBarOrientation.isPortrait) ? CGSize.init(width: (collectionView.frame.width - 16.0) / 2, height: 102) : CGSize.init(width: (collectionView.frame.width - 16 * 2) / 3, height: 102)
     }
 }

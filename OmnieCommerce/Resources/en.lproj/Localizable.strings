@@ -155,6 +155,7 @@
 "Wrong input data"              =   "Wrong input data";
 "User is already exist"         =   "User is already exist";
 "Retry request succeeded"       =   "Retry request succeeded";
+"Categories list is empty"      =   "Categories list is empty";
 
 
 // Request Errors
