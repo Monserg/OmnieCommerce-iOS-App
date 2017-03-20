@@ -35,7 +35,7 @@ class PersonalPageShowInteractor: PersonalPageShowInteractorInput {
     func userAppDataDidLoad(withRequestModel requestModel: PersonalPageShowModels.Data.RequestModel) {
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         
-        MSMRestApiManager.instance.userGetProfileData{ responseAPI in
+        MSMRestApiManager.instance.userGetProfileData { responseAPI in
             // Pass the result to the Presenter
             let loadResponseModel = PersonalPageShowModels.Data.ResponseModel(response: responseAPI)
             self.presenter.userAppDataDidPrepareToShowLoad(fromResponseModel: loadResponseModel)

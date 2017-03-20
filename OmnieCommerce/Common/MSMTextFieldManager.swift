@@ -168,7 +168,7 @@ extension MSMTextFieldManager: UITextFieldDelegate {
             }
             
             // Show Phone Error Message View
-            guard Int(string) != nil || ((textField.text?.isEmpty)! && string == "+") else {
+            guard Int(string) != nil || string == "+" else {
                 (currentVC as! PhoneErrorMessageView).phoneErrorMessageView.didShow(true, withConstraint: (currentVC as! PhoneErrorMessageView).phoneErrorMessageViewTopConstraint)
                     return false
             }
@@ -176,6 +176,8 @@ extension MSMTextFieldManager: UITextFieldDelegate {
             // Hide Phone Error Message View
             if let _ = Int(string) {
                 (currentVC as! PhoneErrorMessageView).phoneErrorMessageView.didShow(false, withConstraint: (currentVC as! PhoneErrorMessageView).phoneErrorMessageViewTopConstraint)
+                return true
+            } else if ((textField.text?.isEmpty)! && string == "+") {
                 return true
             } else {
                 return false

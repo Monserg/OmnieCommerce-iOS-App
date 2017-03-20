@@ -68,6 +68,8 @@ class PersonalPageShowViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        spinnerDidStart()
+        
         // Config smallTopBarView
         navigationBarView       =   smallTopBarView
         smallTopBarView.type    =   "Parent"
@@ -140,8 +142,6 @@ class PersonalPageShowViewController: BaseViewController {
 
         personalTemplatesVC = UIStoryboard(name: "PersonalPageShow", bundle: nil).instantiateViewController(withIdentifier: "PersonalTemplatesVC") as? PersonalTemplatesViewController
         
-        activeViewController = personalDataVC
-
         viewSettingsDidLoad()        
     }
     
@@ -187,7 +187,7 @@ class PersonalPageShowViewController: BaseViewController {
             self.blackoutView!.didHide()
         }
     }
-    
+        
     
     // MARK: - Transition
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -205,7 +205,7 @@ class PersonalPageShowViewController: BaseViewController {
 // MARK: - PersonalPageShowViewControllerInput
 extension PersonalPageShowViewController: PersonalPageShowViewControllerInput {
     func userAppDataDidShowLoad(fromViewModel viewModel: PersonalPageShowModels.Data.ViewModel) {
-        UIApplication.shared.isNetworkActivityIndicatorVisible = false
+        spinnerDidFinish()
 
         // Check Network state
         guard isNetworkAvailable else {
@@ -227,20 +227,22 @@ extension PersonalPageShowViewController: PersonalPageShowViewControllerInput {
         // Mofidy AppUser properties
         CoreDataManager.instance.didSaveContext()
         
+        activeViewController = personalDataVC
+
         // TODO: ADD HERE GET TEMPLATES REQUEST
         let templatesRequestModel = PersonalPageShowModels.Templates.RequestModel(userID: "01") // self.userApp!.codeID!)
         self.interactor.userAppTemplatesDidLoad(withRequestModel: templatesRequestModel)
     }
     
     func userAppDataDidShowUpdate(fromViewModel viewModel: PersonalPageShowModels.Data.ViewModel) {
-        UIApplication.shared.isNetworkActivityIndicatorVisible = false
+        spinnerDidFinish()
 
-        //        self.activeViewController?.userApp  =   viewModel.userApp
+        //        self.activeViewController?.userApp = viewModel.userApp
         router.navigateToCategoriesShowScene()
     }
     
     func userAppTemplatesDidShowLoad(fromViewModel viewModel: PersonalPageShowModels.Templates.ViewModel) {
-        UIApplication.shared.isNetworkActivityIndicatorVisible = false
+        spinnerDidFinish()
         
         guard isNetworkAvailable else {
             alertViewDidShow(withTitle: "Not Reachable".localized(), andMessage: "Disconnected from Network".localized())

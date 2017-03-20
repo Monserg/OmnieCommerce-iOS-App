@@ -52,10 +52,23 @@ class PersonalDataViewController: BaseViewController, EmailErrorMessageView, Pho
     @IBOutlet weak var changePasswordButton: UbuntuLightItalicDarkCyanButton!
     @IBOutlet weak var birthdayPickerView: UIPickerView!
     
+    @IBOutlet weak var emailTextField: CustomTextField! {
+        didSet {
+            self.emailTextField.text = userApp!.email
+        }
+    }
+    
     @IBOutlet var textFieldsCollection: [CustomTextField]! {
         didSet {
             textFieldManager = MSMTextFieldManager(withTextFields: textFieldsCollection)
             textFieldManager.currentVC = self
+            
+            textFieldsCollection[0].text = userApp!.firstName
+            textFieldsCollection[1].text = userApp!.surName
+            textFieldsCollection[2].text = userApp!.phone
+            
+            ////        textFieldsCollection[0].text = userApp?.password
+            ////        textFieldsCollection[0].isEnabled = false
         }
     }
     
@@ -125,18 +138,6 @@ class PersonalDataViewController: BaseViewController, EmailErrorMessageView, Pho
 
         // Add Tap Gesture Regognizer
         didAddTapGestureRecognizer()
-
-        // Set User fields
-        guard userApp != nil else {
-            return
-        }
-        
-        textFieldsCollection[0].text = userApp!.firstName
-        textFieldsCollection[1].text = userApp!.lastName
-        textFieldsCollection[2].text = userApp!.email
-        
-////        textFieldsCollection[0].text = userApp?.password
-////        textFieldsCollection[0].isEnabled = false
         
         // Hide Email Error Message View
         emailErrorMessageViewHeightConstraint.constant = Config.Constants.errorMessageViewHeight
@@ -219,5 +220,9 @@ class PersonalDataViewController: BaseViewController, EmailErrorMessageView, Pho
                 return
             }
         })
+    }
+    
+    @IBAction func handlerRadioButtonTap(_ sender: DLRadioButton) {
+        view.endEditing(true)
     }
 }

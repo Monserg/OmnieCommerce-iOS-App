@@ -521,6 +521,7 @@
 		B1597ACF1E3F42B600123CB5 /* AvatarActionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvatarActionView.swift; sourceTree = "<group>"; };
 		B1597AD11E3F42BD00123CB5 /* AvatarActionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AvatarActionView.xib; sourceTree = "<group>"; };
 		B1597AD31E3FA91400123CB5 /* EllipseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EllipseView.swift; sourceTree = "<group>"; };
+		B15E32C41E7FC6930040EDD9 /* OmnieCommerceUser v.10.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "OmnieCommerceUser v.10.xcdatamodel"; sourceTree = "<group>"; };
 		B15ED1F31E68433200039737 /* Schedule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
 		B15FD4061DD1DD8C00782324 /* OmnieCommerce.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OmnieCommerce.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B15FD4091DD1DD8C00782324 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -2369,6 +2370,7 @@
 		B10874671E5B07A6004A4FB6 /* OmnieCommerceUser.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				B15E32C41E7FC6930040EDD9 /* OmnieCommerceUser v.10.xcdatamodel */,
 				B1A9ACD01E7C70330010FF05 /* OmnieCommerceUser v.9.xcdatamodel */,
 				B1A9ACCB1E7C23F00010FF05 /* OmnieCommerceUser v.8.xcdatamodel */,
 				B1CDA7401E7C11FC00467E4F /* OmnieCommerceUser v.7.xcdatamodel */,
@@ -2379,7 +2381,7 @@
 				B163FE6F1E6FB4E3004AF42E /* OmnieCommerceUser v.2.xcdatamodel */,
 				B10874681E5B07A6004A4FB6 /* OmnieCommerceUser.xcdatamodel */,
 			);
-			currentVersion = B1A9ACD01E7C70330010FF05 /* OmnieCommerceUser v.9.xcdatamodel */;
+			currentVersion = B15E32C41E7FC6930040EDD9 /* OmnieCommerceUser v.10.xcdatamodel */;
 			path = OmnieCommerceUser.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

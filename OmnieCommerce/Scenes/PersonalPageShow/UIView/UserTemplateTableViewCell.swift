@@ -55,7 +55,7 @@ class UserTemplateTableViewCell: UITableViewCell {
     
     // MARK: - Actions
     @IBAction func handlerExpandButtonTap(_ sender: FillVeryLightOrangeButton) {
-        isExpanded                      =   !isExpanded
+        isExpanded = !isExpanded
         
         sender.setImage(UIImage.init(named: (isExpanded) ? "icon-cell-expand-on-normal" : "icon-cell-expand-off-normal"), for: .normal)
         self.handlerSendButtonCompletion!()
@@ -84,6 +84,6 @@ extension UserTemplateTableViewCell: ConfigureCell {
                                   placeholderImage: UIImage.init(named: "image-no-photo"),
                                   filter: AspectScaledToFillSizeWithRoundedCornersFilter(size: logoImageView.frame.size, radius: logoImageView.frame.size.width / 2))
         
-        dottedBorderView.style          =   .AroundDottedRectangle
+        dottedBorderView.style = .AroundDottedRectangle
     }
 }
