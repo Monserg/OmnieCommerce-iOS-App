@@ -210,6 +210,7 @@ extension PersonalPageShowViewController: PersonalPageShowViewControllerInput {
         // Check Network state
         guard isNetworkAvailable else {
             alertViewDidShow(withTitle: "Not Reachable".localized(), andMessage: "Disconnected from Network".localized())
+            activeViewController = personalDataVC
             return
         }
         
@@ -221,6 +222,7 @@ extension PersonalPageShowViewController: PersonalPageShowViewControllerInput {
                 alertViewDidShow(withTitle: "Error".localized(), andMessage: viewModel.response!.errorMessage!)
             }
             
+            activeViewController = personalDataVC
             return
         }
         
