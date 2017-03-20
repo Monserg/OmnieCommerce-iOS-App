@@ -21,7 +21,7 @@ class PersonalDataViewController: BaseViewController, EmailErrorMessageView, Pho
             birthdayPickerView.delegate = self.pickerViewManager
             birthdayPickerView.dataSource = self.pickerViewManager
 
-            let currentDayComponents = Calendar.current.dateComponents(in: TimeZone.current, from: Date())
+            let currentDayComponents = Calendar.current.dateComponents(in: TimeZone.current, from: userApp!.birthday as! Date)
             let currentMonthIndex = pickerViewManager.months.index(where: { $0 == String(currentDayComponents.month!) })!
             let currentDaysInMonth = pickerViewManager.days[currentMonthIndex]
             let currentDayIndex = currentDaysInMonth.index(where: { $0 == String(currentDayComponents.day!) })!
