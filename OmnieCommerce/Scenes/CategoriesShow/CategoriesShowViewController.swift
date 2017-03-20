@@ -130,6 +130,21 @@ class CategoriesShowViewController: BaseViewController {
             entityCategories.list = categoriesData!
             CoreDataManager.instance.didSaveContext()
         }
+        
+        self.collectionViewCellDidSelect()
+    }
+    
+    private func collectionViewCellDidSelect() {
+        collectionView.collectionViewControllerManager!.handlerCellSelectCompletion = { item in
+            switch item {
+            case (let category as Category):
+                // Transition to OrganizationsShow scene with selected Category value
+                self.router.navigateToOrganizationsShowScene(withCategory: category)
+
+            default:
+                break
+            }
+        }
     }
 }
 

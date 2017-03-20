@@ -14,17 +14,15 @@ import UIKit
     
     override var tag: Int {
         didSet {
-            deleteButton.tag        =   tag
-            phoneTextField.tag      =   tag
-            dottedBorderView.tag    =   tag
-            errorMessageView.tag    =   tag
+            phoneTextField.tag = tag
+            dottedBorderView.tag = tag
+            errorMessageView.tag = tag
         }
     }
     
     @IBOutlet var view: UIView!
     @IBOutlet weak var dottedBorderView: DottedBorderView!
     @IBOutlet weak var phoneTextField: CustomTextField!
-    @IBOutlet weak var deleteButton: FillVeryLightOrangeButton!
     
     @IBOutlet weak var errorMessageView: ErrorMessageView!
     @IBOutlet weak var errorMessageViewTopConstraint: NSLayoutConstraint!
@@ -49,18 +47,10 @@ import UIKit
     func createFromXIB() {
         UINib(nibName: String(describing: NewPhoneView.self), bundle: Bundle(for: NewPhoneView.self)).instantiate(withOwner: self, options: nil)
         addSubview(view)
-        view.frame          =   CGRect.init(origin: .zero, size: CGSize.init(width: UIScreen.main.bounds.width / ((UIApplication.shared.statusBarOrientation.isPortrait) ? 375.0 : 667.0) * 225.0,
-                                                                             height: UIScreen.main.bounds.height / ((UIApplication.shared.statusBarOrientation.isPortrait) ? 667.0 : 375) * 40.0))
-        alpha               =   0
-        tag                 =   0
-        phoneTextField.tag  =   tag
-        deleteButton.tag    =   tag
+        view.frame = CGRect.init(origin: .zero, size: CGSize.init(width: UIScreen.main.bounds.width / ((UIApplication.shared.statusBarOrientation.isPortrait) ? 375.0 : 667.0) * 225.0,
+                                                                  height: UIScreen.main.bounds.height / ((UIApplication.shared.statusBarOrientation.isPortrait) ? 667.0 : 375) * 40.0))
+        alpha = 0
+        tag = 0
+        phoneTextField.tag = tag
     }
-    
-    
-    // MARK: - Actions
-    @IBAction func handlerDeleteButtonTap(_ sender: FillVeryLightOrangeButton) {
-        handlerDeleteButtonCompletion!()
-    }
-    
 }

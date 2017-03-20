@@ -30,6 +30,12 @@ enum FieldType: String {
     private var validator = NJOPasswordValidator.standardValidator
     var isPhone: Bool?
         
+    override var tag: Int {
+        didSet {
+            self.setupWithType(self.style)
+        }
+    }
+    
     @IBInspectable var fieldType: String? {
         set { setupWithTypeNamed(newValue) }
         get { return nil }
@@ -64,7 +70,7 @@ enum FieldType: String {
     }
     
     func setupWithType(_ fieldType: FieldType) {
-        self.style                          =   fieldType
+        self.style = fieldType
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.firstLineHeadIndent = 0
         
@@ -92,29 +98,28 @@ enum FieldType: String {
         switch fieldType {
         // Name
         case .Name:
-            autocapitalizationType          =   .words
+            autocapitalizationType = .words
             
         // Passwords
         case .PasswordButton:
-            enablesReturnKeyAutomatically   =   true
-            isSecureTextEntry               =   true
-            clearButtonMode                 =   .never
+            enablesReturnKeyAutomatically = true
+            isSecureTextEntry = true
 
         case .Password, .PasswordStrength:
-            enablesReturnKeyAutomatically   =   true
-            isSecureTextEntry               =   true
+            enablesReturnKeyAutomatically = true
+            isSecureTextEntry = true
             
         // Phone, Code
         case .Phone, .Code:
-            keyboardType                    =   .numbersAndPunctuation
-            clearButtonMode                 =   .never
+            keyboardType = .numbersAndPunctuation
+            clearButtonMode = .never
 
         case .PhoneButton:
-            keyboardType                    =   .numbersAndPunctuation
+            keyboardType = .numbersAndPunctuation
 
         // Email
         case .Email, .PhoneEmail:
-            keyboardType                    =   .emailAddress
+            keyboardType = .emailAddress
 
         default:
             break
@@ -125,20 +130,6 @@ enum FieldType: String {
     
     
     // MARK: - Custom Functions
-//    func changeClearButtonColor() {
-//        // Change clear button color
-//        if let clearButton = self.value(forKey: "_clearButton") as? UIButton {
-//            // Create a template copy of the original button image
-//            let templateImage = clearButton.imageView?.image?.withRenderingMode(.alwaysTemplate)
-//            
-//            // Set the template image copy as the button image
-//            clearButton.setImage(templateImage, for: .normal)
-//            
-//            // Finally, set the image color
-//            clearButton.tintColor = self.tintColor
-//        }
-//    }
-
     func checkPasswordStrength(_ password: String) -> PasswordStrengthLevel {
         let strengthLevelString = Navajo.localizedString(for: Navajo.strength(of: password))
         var strengthLevel: PasswordStrengthLevel!

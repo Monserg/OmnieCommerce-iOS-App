@@ -150,8 +150,8 @@ class BaseViewController: UIViewController {
  
     func didAddTapGestureRecognizer() {
         // For all TopBarView
-        let gestureRecognizer       =   UITapGestureRecognizer.init(target: self, action: #selector(BaseViewController.handleTap(gestureRecognizer:)))
-        gestureRecognizer.delegate  =   self
+        let gestureRecognizer = UITapGestureRecognizer.init(target: self, action: #selector(BaseViewController.handleTap(gestureRecognizer:)))
+        gestureRecognizer.delegate = self
         
         view.addGestureRecognizer(gestureRecognizer)
     }

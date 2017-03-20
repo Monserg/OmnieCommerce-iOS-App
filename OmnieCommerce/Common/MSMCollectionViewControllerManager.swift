@@ -24,8 +24,7 @@ class MSMCollectionViewControllerManager: BaseViewController {
     var collectionView: MSMCollectionView!
     
     // Handlers
-//    var handlerSendButtonCompletion: HandlerSendButtonCompletion?
-//    var handlerCancelButtonCompletion: HandlerCancelButtonCompletion?
+    var handlerCellSelectCompletion: HandlerPassDataCompletion?
     
     
     // MARK: - Class Initialization
@@ -99,16 +98,12 @@ extension MSMCollectionViewControllerManager: UICollectionViewDataSource {
 // MARK: - UICollectionViewDelegate
 extension MSMCollectionViewControllerManager {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        if (cityButton.isDropDownListShow) {
-//            cityButton.itemsListDidHide(inView: view)
-//        }
-//        
-//        // Transition to OrganizationsShow scene with pass data
-//        router.navigateToOrganizationsShowScene(withCategory: categories[indexPath.row])
-//        
-//        collectionView.deselectItem(at: indexPath, animated: true)
+        self.collectionView.deselectItem(at: indexPath, animated: true)
+        handlerCellSelectCompletion!(dataSource[indexPath.row])
+        self.collectionView.deselectItem(at: indexPath, animated: true)
     }
 
+    /*
     // Specify if the specified item should be highlighted during tracking
     func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
         return true
@@ -131,6 +126,7 @@ extension MSMCollectionViewControllerManager {
     func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
         
     }
+    */
 }
 
 
@@ -141,7 +137,6 @@ extension MSMCollectionViewControllerManager: UICollectionViewDelegateFlowLayout
         
         switch cellIdentifier {
         case "CategoryCollectionViewCell":
-            print(object: "\(collectionView.heightRatio, collectionView.widthRatio)")
             let cellHeight: CGFloat = 102.0 * self.collectionView.heightRatio
             
             return (UIApplication.shared.statusBarOrientation.isPortrait) ? CGSize.init(width: (collectionView.frame.width - 16.0) / 2, height: cellHeight) :
