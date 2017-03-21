@@ -13,21 +13,31 @@ class MSMPickerViewManager: UIView {
     var days: [[String]]!
     var months: [String]!
     var years: [String]!
+
+    // Selected values
     var selectedMonthIndex: Int = 0
-    
+    var selectedDayIndex: Int = 0
+    var selectedYearIndex: Int = 0
+
     
     // MARK: - Class Initialization
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        self.days                   =   Date().getDaysInMonth()
-        self.months                 =   Date().getMonthsNumbers()
-        self.years                  =   Date().getYears()
-        self.selectedMonthIndex     =   Calendar.current.dateComponents([.month], from: Date()).month! - 1
+        self.days = Date().getDaysInMonth()
+        self.months = Date().getMonthsNumbers()
+        self.years = Date().getYears()
+        self.selectedMonthIndex = Calendar.current.dateComponents([.month], from: Date()).month! - 1
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+    }
+    
+    
+    // MARK: - Custom Functions
+    func selectedDateDidShow() -> String {
+        return "\(years[selectedYearIndex])-\(months[selectedMonthIndex])-\(days[selectedMonthIndex][selectedDayIndex])"
     }
 }
 
@@ -123,6 +133,9 @@ extension MSMPickerViewManager: UIPickerViewDelegate {
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         switch component {
+        case 0:
+            selectedDayIndex = row
+            
         case 2:
             selectedMonthIndex = row
             pickerView.reloadComponent(0)
@@ -133,8 +146,10 @@ extension MSMPickerViewManager: UIPickerViewDelegate {
             self.days = "01.04.\(year)".convertToDate(withDateFormat: .Default).getDaysInMonth()
             self.months = "01.04.\(year)".convertToDate(withDateFormat: .Default).getMonthsNumbers()
             
+            selectedDayIndex = 0
             selectedMonthIndex = 0
-
+            selectedYearIndex = row
+            
             pickerView.reloadComponent(0)
             pickerView.selectRow(0, inComponent: 0, animated: true)
             

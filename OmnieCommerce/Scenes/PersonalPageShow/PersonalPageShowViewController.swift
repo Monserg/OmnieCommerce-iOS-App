@@ -14,15 +14,17 @@ import AlamofireImage
 
 // MARK: - Input protocols for current ViewController component VIP-cicle
 protocol PersonalPageShowViewControllerInput {
-    func userAppDataDidShowLoad(fromViewModel viewModel: PersonalPageShowModels.Data.ViewModel)
-    func userAppDataDidShowUpdate(fromViewModel viewModel: PersonalPageShowModels.Data.ViewModel)
+    func userAppDataDidShowLoad(fromViewModel viewModel: PersonalPageShowModels.LoadData.ViewModel)
+    func userAppDataDidShowUpload(fromViewModel viewModel: PersonalPageShowModels.UploadData.ViewModel)
+    func userAppImageDidShowUpload(fromViewModel viewModel: PersonalPageShowModels.UploadImage.ViewModel)
     func userAppTemplatesDidShowLoad(fromViewModel viewModel: PersonalPageShowModels.Templates.ViewModel)
 }
 
 // MARK: - Output protocols for Interactor component VIP-cicle
 protocol PersonalPageShowViewControllerOutput {
-    func userAppDataDidLoad(withRequestModel requestModel: PersonalPageShowModels.Data.RequestModel)
-    func userAppDataDidUpdate(withRequestModel requestModel: PersonalPageShowModels.Data.RequestModel)
+    func userAppDataDidLoad(withRequestModel requestModel: PersonalPageShowModels.LoadData.RequestModel)
+    func userAppDataDidUpload(withRequestModel requestModel: PersonalPageShowModels.UploadData.RequestModel)
+    func userAppImageDidUpload(withRequestModel requestModel: PersonalPageShowModels.UploadImage.RequestModel)
     func userAppTemplatesDidLoad(withRequestModel requestModel: PersonalPageShowModels.Templates.RequestModel)
 }
 
@@ -35,6 +37,8 @@ class PersonalPageShowViewController: BaseViewController {
     var animationDirection: AnimationDirection?
     var personalDataVC: PersonalDataViewController?
     var personalTemplatesVC: PersonalTemplatesViewController?
+    
+    var imageID: String?
     weak var avatarActionView: AvatarActionView?
 
     var activeViewController: BaseViewController? {
@@ -168,7 +172,7 @@ class PersonalPageShowViewController: BaseViewController {
     }
     
     func userAppDataDidLoad() {
-        let loadRequestModel = PersonalPageShowModels.Data.RequestModel()
+        let loadRequestModel = PersonalPageShowModels.LoadData.RequestModel()
         self.interactor.userAppDataDidLoad(withRequestModel: loadRequestModel)
     }
     
@@ -178,7 +182,8 @@ class PersonalPageShowViewController: BaseViewController {
             UIView.animate(withDuration: 0.5, animations: {
                 avatarButton.setImage(image.af_imageAspectScaled(toFill: avatarButton.frame.size), for: .normal)
             }, completion: { success in
-                self.blackoutView!.didHide()
+                let imageUploadRequestModel = PersonalPageShowModels.UploadImage.RequestModel(image: image)
+                self.interactor.userAppImageDidUpload(withRequestModel: imageUploadRequestModel)
             })
         }
         
@@ -204,7 +209,7 @@ class PersonalPageShowViewController: BaseViewController {
 
 // MARK: - PersonalPageShowViewControllerInput
 extension PersonalPageShowViewController: PersonalPageShowViewControllerInput {
-    func userAppDataDidShowLoad(fromViewModel viewModel: PersonalPageShowModels.Data.ViewModel) {
+    func userAppDataDidShowLoad(fromViewModel viewModel: PersonalPageShowModels.LoadData.ViewModel) {
         spinnerDidFinish()
 
         // Check Network state
@@ -236,11 +241,18 @@ extension PersonalPageShowViewController: PersonalPageShowViewControllerInput {
         self.interactor.userAppTemplatesDidLoad(withRequestModel: templatesRequestModel)
     }
     
-    func userAppDataDidShowUpdate(fromViewModel viewModel: PersonalPageShowModels.Data.ViewModel) {
+    func userAppDataDidShowUpload(fromViewModel viewModel: PersonalPageShowModels.UploadData.ViewModel) {
         spinnerDidFinish()
 
-        //        self.activeViewController?.userApp = viewModel.userApp
+        CoreDataManager.instance.didSaveContext()
         router.navigateToCategoriesShowScene()
+    }
+    
+    func userAppImageDidShowUpload(fromViewModel viewModel: PersonalPageShowModels.UploadImage.ViewModel) {
+        spinnerDidFinish()
+        
+        CoreDataManager.instance.didSaveContext()
+        self.blackoutView!.didHide()
     }
     
     func userAppTemplatesDidShowLoad(fromViewModel viewModel: PersonalPageShowModels.Templates.ViewModel) {

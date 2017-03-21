@@ -13,15 +13,17 @@ import UIKit
 
 // MARK: - Input protocols for current Presenter component VIP-cicle
 protocol PersonalPageShowPresenterInput {
-    func userAppDataDidPrepareToShowLoad(fromResponseModel responseModel: PersonalPageShowModels.Data.ResponseModel)
-    func userAppDataDidPrepareToShowUpdate(fromResponseModel responseModel: PersonalPageShowModels.Data.ResponseModel)
+    func userAppDataDidPrepareToShowLoad(fromResponseModel responseModel: PersonalPageShowModels.LoadData.ResponseModel)
+    func userAppDataDidPrepareToShowUpload(fromResponseModel responseModel: PersonalPageShowModels.UploadData.ResponseModel)
+    func userAppImageDidPrepareToShowUpload(fromResponseModel responseModel: PersonalPageShowModels.UploadImage.ResponseModel)
     func userAppTemplatesDidPrepareToShowLoad(fromResponseModel responseModel: PersonalPageShowModels.Templates.ResponseModel)
 }
 
 // MARK: - Output protocols for ViewController component VIP-cicle
 protocol PersonalPageShowPresenterOutput: class {
-    func userAppDataDidShowLoad(fromViewModel viewModel: PersonalPageShowModels.Data.ViewModel)
-    func userAppDataDidShowUpdate(fromViewModel viewModel: PersonalPageShowModels.Data.ViewModel)
+    func userAppDataDidShowLoad(fromViewModel viewModel: PersonalPageShowModels.LoadData.ViewModel)
+    func userAppDataDidShowUpload(fromViewModel viewModel: PersonalPageShowModels.UploadData.ViewModel)
+    func userAppImageDidShowUpload(fromViewModel viewModel: PersonalPageShowModels.UploadImage.ViewModel)
     func userAppTemplatesDidShowLoad(fromViewModel viewModel: PersonalPageShowModels.Templates.ViewModel)
 }
 
@@ -31,16 +33,30 @@ class PersonalPageShowPresenter: PersonalPageShowPresenterInput {
     
     
     // MARK: - Custom Functions. Presentation logic
-    func userAppDataDidPrepareToShowLoad(fromResponseModel responseModel: PersonalPageShowModels.Data.ResponseModel) {
-        let loadViewModel = PersonalPageShowModels.Data.ViewModel(response: responseModel.response)
+    func userAppDataDidPrepareToShowLoad(fromResponseModel responseModel: PersonalPageShowModels.LoadData.ResponseModel) {
+        let loadViewModel = PersonalPageShowModels.LoadData.ViewModel(response: responseModel.response)
         viewController.userAppDataDidShowLoad(fromViewModel: loadViewModel)
     }
     
-    func userAppDataDidPrepareToShowUpdate(fromResponseModel responseModel: PersonalPageShowModels.Data.ResponseModel) {
-        let updateViewModel = PersonalPageShowModels.Data.ViewModel(response: responseModel.response)
-        viewController.userAppDataDidShowUpdate(fromViewModel: updateViewModel)
+    func userAppDataDidPrepareToShowUpload(fromResponseModel responseModel: PersonalPageShowModels.UploadData.ResponseModel) {
+        
+        //        self.activeViewController?.userApp = viewModel.userApp
+
+        let uploadViewModel = PersonalPageShowModels.UploadData.ViewModel(response: responseModel.response)
+        viewController.userAppDataDidShowUpload(fromViewModel: uploadViewModel)
     }
     
+    func userAppImageDidPrepareToShowUpload(fromResponseModel responseModel: PersonalPageShowModels.UploadImage.ResponseModel) {
+        let imageURL = responseModel.response?.body as? String
+        
+        if (imageURL != nil) {
+            CoreDataManager.instance.appUser.imagePath = imageURL!
+        }
+        
+        let uploadImageViewModel = PersonalPageShowModels.UploadImage.ViewModel(imageStringURL: imageURL)
+        viewController.userAppImageDidShowUpload(fromViewModel: uploadImageViewModel)
+    }
+
     func userAppTemplatesDidPrepareToShowLoad(fromResponseModel responseModel: PersonalPageShowModels.Templates.ResponseModel) {
         let viewModel = PersonalPageShowModels.Templates.ViewModel(organizations: responseModel.items)
         viewController.userAppTemplatesDidShowLoad(fromViewModel: viewModel)

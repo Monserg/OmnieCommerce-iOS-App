@@ -38,5 +38,6 @@ public class AppUser: NSManagedObject, InitCellParameters {
         self.birthday       =   (dictionary["birthDay"] as! String).convertToDate(withDateFormat: .ResponseDate) as NSDate?
         self.phone          =   dictionary["userPhone"] as? String
         self.email          =   dictionary["userEmail"] as? String
+        self.imagePath      =   dictionary["image"] as? String
     }
 }

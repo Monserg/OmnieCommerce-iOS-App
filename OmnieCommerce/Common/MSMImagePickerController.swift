@@ -50,7 +50,7 @@ class MSMImagePickerController: UIImagePickerController {
 // MARK: - UIImagePickerControllerDelegate
 extension MSMImagePickerController: UIImagePickerControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        let chosenImage     =   info[UIImagePickerControllerOriginalImage] as! UIImage
+        let chosenImage = info[UIImagePickerControllerOriginalImage] as! UIImage
         
         dismiss(animated: true, completion: nil)
         

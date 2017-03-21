@@ -180,7 +180,62 @@ final class MSMRestApiManager {
         }
     }
     
+    func userUploadImage(_ image: UIImage, withHandlerResponseAPICompletion handlerResponseAPICompletion: @escaping (ResponseAPI?) -> Void) {
+        let imageData = UIImagePNGRepresentation(image)
+        appApiString = "/user/profile/image/"
+        headers["Authorization"] = CoreDataManager.instance.appUser.accessToken!
+        headers["Content-Type"] = "multipart/form-data"
+       
+        let uploadURL = try! URLRequest(url: appURL, method: .post, headers: headers)
+        
+        guard imageData != nil else {
+            return
+        }
+        
+        Alamofire.upload(multipartFormData: { (multipartFormData) in
+            multipartFormData.append(imageData!, withName: "uploaded_file", fileName: "userImage.jpg", mimeType: "image/jpeg")
+        }, with: uploadURL, encodingCompletion: { encodingResult in
+            switch encodingResult {
+            case .success(let upload, _, _):
+                upload.responseJSON(completionHandler: { dataResponse in
+                    debugPrint(dataResponse)
+                    
+                    let json = JSON(dataResponse.result.value!)
+                    let responseAPI = ResponseAPI.init(fromJSON: json, withBodyType: .Default)
+                    
+                    handlerResponseAPICompletion(responseAPI)
+                    return
+                })
 
+            case .failure(let encodingError):
+                print(encodingError)
+                
+                handlerResponseAPICompletion(nil)
+                return
+            }
+            
+        })
+    }
+
+    func userDeleteImage(withHandlerResponseAPICompletion handlerResponseAPICompletion: @escaping (ResponseAPI?) -> Void) {
+        appApiString = "/user/profile/image/"
+        headers["Authorization"] = CoreDataManager.instance.appUser.accessToken!
+        
+        Alamofire.request(appURL, method: .delete, parameters: nil, encoding: JSONEncoding.default, headers: headers).responseJSON { dataResponse -> Void in
+            if (dataResponse.result.value != nil) {
+                let json = JSON(dataResponse.result.value!)
+                let responseAPI = ResponseAPI.init(fromJSON: json, withBodyType: .Default)
+                
+                handlerResponseAPICompletion(responseAPI)
+                return
+            } else {
+                handlerResponseAPICompletion(nil)
+                return
+            }
+        }
+    }
+
+    
     
     
     // MARK: - Custom REST Functions

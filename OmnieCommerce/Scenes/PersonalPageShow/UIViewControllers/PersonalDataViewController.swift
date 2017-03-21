@@ -7,11 +7,13 @@
 //
 
 import UIKit
+import AlamofireImage
 
-class PersonalDataViewController: BaseViewController, EmailErrorMessageView, PhoneErrorMessageView, PasswordErrorMessageView, PasswordStrengthView, PasswordStrengthErrorMessageView {
+class PersonalDataViewController: BaseViewController, EmailErrorMessageView, PhoneErrorMessageView, PasswordErrorMessageView, PasswordStrengthView, PasswordStrengthErrorMessageView, RepeatPasswordErrorMessageView {
     // MARK: - Properties
-    var parametersForAPI: [String: String]?
-
+    var parametersForAPI: [String: Any]?
+    let imageCache = AutoPurgingImageCache(memoryCapacity: 100_000_000, preferredMemoryUsageAfterPurge: 60_000_000)
+    
     var pickerViewManager: MSMPickerViewManager! {
         didSet {
             guard birthdayPickerView != nil else {
@@ -22,14 +24,14 @@ class PersonalDataViewController: BaseViewController, EmailErrorMessageView, Pho
             birthdayPickerView.dataSource = self.pickerViewManager
 
             let currentDayComponents = Calendar.current.dateComponents(in: TimeZone.current, from: userApp!.birthday as! Date)
-            let currentMonthIndex = pickerViewManager.months.index(where: { $0 == String(currentDayComponents.month!) })!
-            let currentDaysInMonth = pickerViewManager.days[currentMonthIndex]
-            let currentDayIndex = currentDaysInMonth.index(where: { $0 == String(currentDayComponents.day!) })!
-            let currentYearIndex = pickerViewManager.years.index(where: { $0 == String(currentDayComponents.year!) })!
+            self.pickerViewManager.selectedMonthIndex = pickerViewManager.months.index(where: { $0 == String(currentDayComponents.month!) })!
+            let currentDaysInMonth = pickerViewManager.days[self.pickerViewManager.selectedMonthIndex]
+            self.pickerViewManager.selectedDayIndex = currentDaysInMonth.index(where: { $0 == String(currentDayComponents.day!) })!
+            self.pickerViewManager.selectedYearIndex = pickerViewManager.years.index(where: { $0 == String(currentDayComponents.year!) })!
             
-            birthdayPickerView.selectRow(currentDayIndex, inComponent: 0, animated: true)
-            birthdayPickerView.selectRow(currentMonthIndex, inComponent: 2, animated: true)
-            birthdayPickerView.selectRow(currentYearIndex, inComponent: 4, animated: true)
+            birthdayPickerView.selectRow(self.pickerViewManager.selectedDayIndex, inComponent: 0, animated: true)
+            birthdayPickerView.selectRow(self.pickerViewManager.selectedMonthIndex, inComponent: 2, animated: true)
+            birthdayPickerView.selectRow(self.pickerViewManager.selectedYearIndex, inComponent: 4, animated: true)
         }
     }
     
@@ -47,11 +49,40 @@ class PersonalDataViewController: BaseViewController, EmailErrorMessageView, Pho
     }
 
     @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var avatarButton: CustomButton!
     @IBOutlet weak var passwordsView: UIView!
     @IBOutlet weak var changePasswordButton: UbuntuLightItalicDarkCyanButton!
     @IBOutlet weak var birthdayPickerView: UIPickerView!
+    @IBOutlet weak var oldPasswordChangeButton: UbuntuLightItalicDarkCyanButton!
     
+    @IBOutlet weak var avatarButton: CustomButton! {
+        didSet {
+            guard CoreDataManager.instance.appUser.imagePath != nil else {
+                return
+            }
+            
+            guard isNetworkAvailable else {
+                // Fetch Image from Cache
+                let cachedAvatarImage = self.imageCache.image(withIdentifier: "userAvatar")
+                self.avatarButton.setImage(cachedAvatarImage, for: .normal)
+                return
+            }
+            
+            let userImageView = UIImageView.init(image: UIImage.init(named: "image-no-user")!)
+            
+            userImageView.af_setImage(withURL: URL(string: "http://\((CoreDataManager.instance.appUser.imagePath!))")!,
+                                      placeholderImage: UIImage.init(named: "image-no-user"),
+                                      filter: AspectScaledToFillSizeWithRoundedCornersFilter(size: self.avatarButton.frame.size,
+                                                                                             radius: self.avatarButton.frame.size.width / 2),
+                                      completion: { image in
+                                            self.imageCache.add(UIImage.af_threadSafeImage(with: image.data!)!, withIdentifier: "userAvatar")
+                                        
+                                        UIView.animate(withDuration: 0.9, animations: {
+                                            self.avatarButton.setImage(userImageView.image!, for: .normal)
+                                        })
+            })
+        }
+    }
+
     @IBOutlet weak var emailTextField: CustomTextField! {
         didSet {
             self.emailTextField.text = userApp!.email
@@ -66,9 +97,17 @@ class PersonalDataViewController: BaseViewController, EmailErrorMessageView, Pho
             textFieldsCollection[0].text = userApp!.firstName
             textFieldsCollection[1].text = userApp!.surName
             textFieldsCollection[2].text = userApp!.phone
+            textFieldsCollection[3].text = "Test password"
+            textFieldsCollection[3].isEnabled = false
+            textFieldsCollection[3].clearButtonMode = .never
             
-            ////        textFieldsCollection[0].text = userApp?.password
-            ////        textFieldsCollection[0].isEnabled = false
+            // Handler Check New & Repeat Passwords Values
+            textFieldManager.handlerPassDataCompletion = { textField in
+                guard self.textFieldsCollection[4].text == self.textFieldsCollection[5].text else {
+                    self.didShow(self.repeatPasswordErrorMessageView, withConstraint: self.repeatPasswordErrorMessageViewTopConstraint)
+                    return
+                }
+            }
         }
     }
     
@@ -86,7 +125,6 @@ class PersonalDataViewController: BaseViewController, EmailErrorMessageView, Pho
     }
     
     @IBOutlet weak var passwordsViewHeightConstraint: NSLayoutConstraint!
-    @IBOutlet weak var phonesViewHeightConstraint: NSLayoutConstraint!
     
     // Protocol EmailErrorMessageView
     @IBOutlet weak var emailErrorMessageView: UIView!
@@ -111,7 +149,7 @@ class PersonalDataViewController: BaseViewController, EmailErrorMessageView, Pho
     @IBOutlet weak var passwordStrengthErrorMessageViewTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var passwordStrengthErrorMessageViewHeightConstraint: NSLayoutConstraint!
 
-    // Protocol PasswordErrorMessageView
+    // Protocol RepeatPasswordErrorMessageView
     @IBOutlet weak var repeatPasswordErrorMessageView: UIView!
     @IBOutlet weak var repeatPasswordErrorMessageViewTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var repeatPasswordErrorMessageViewHeightConstraint: NSLayoutConstraint!
@@ -148,29 +186,20 @@ class PersonalDataViewController: BaseViewController, EmailErrorMessageView, Pho
         phoneErrorMessageView.didShow(false, withConstraint: phoneErrorMessageViewTopConstraint)
         
         // Hide passwords error message view
-////        passwordErrorMessageViewHeightConstraint.constant = Config.Constants.errorMessageViewHeight
-////        didHide(passwordErrorMessageView, withConstraint: passwordErrorMessageViewTopConstraint)
-////
-////        passwordStrengthErrorMessageViewHeightConstraint.constant = Config.Constants.errorMessageViewHeight
-////        didHide(passwordStrengthErrorMessageView, withConstraint: passwordStrengthErrorMessageViewTopConstraint)
-////
-////        repeatPasswordErrorMessageViewHeightConstraint.constant = Config.Constants.errorMessageViewHeight
-////        didHide(repeatPasswordErrorMessageView, withConstraint: repeatPasswordErrorMessageViewTopConstraint)
-        
+        passwordErrorMessageViewHeightConstraint.constant = Config.Constants.errorMessageViewHeight
+        didHide(passwordErrorMessageView, withConstraint: passwordErrorMessageViewTopConstraint)
+
+        passwordStrengthErrorMessageViewHeightConstraint.constant = Config.Constants.errorMessageViewHeight
+        didHide(passwordStrengthErrorMessageView, withConstraint: passwordStrengthErrorMessageViewTopConstraint)
+
+        repeatPasswordErrorMessageViewHeightConstraint.constant = Config.Constants.errorMessageViewHeight
+        didHide(repeatPasswordErrorMessageView, withConstraint: repeatPasswordErrorMessageViewTopConstraint)
     }
 
     
     // MARK: - Transition
     override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
-////        changePasswordButton.tag = 0
-        
-
-        // Portrait
-//        if newCollection.containsTraits(in: UITraitCollection(verticalSizeClass: .regular)) {
-//            onePhoneViewHeight = UIScreen.main.bounds.height / 667.0 * 40.0
-//        } else {
-//            onePhoneViewHeight = UIScreen.main.bounds.width / 375.0 * 40.0
-//        }
+        changePasswordButton.tag = 0
     }
     
     
@@ -180,11 +209,16 @@ class PersonalDataViewController: BaseViewController, EmailErrorMessageView, Pho
     }
     
     @IBAction func handlerSaveButtonTap(_ sender: FillVeryLightOrangeButton) {
-        guard textFieldsCollection[0].text == userApp?.password else {
-            didShow(passwordErrorMessageView, withConstraint: passwordErrorMessageViewTopConstraint)
-            
-            return
-        }
+        parametersForAPI =  [
+                                "firstName": textFieldsCollection[0].text!,
+                                "surName": textFieldsCollection[1].text!,
+                                "birthDay": pickerViewManager.selectedDateDidShow(),
+                                "sex": radioButtonsCollection[0].isSelected ? 1 : 0,
+                                "familyStatus": userApp!.familyStatus,
+                                "hasChildren": userApp!.hasChildren,
+                                "hasPat": userApp!.hasPet,
+                                "userPhone": textFieldsCollection[3].text!
+                            ]
         
         handlerSaveButtonCompletion!(parametersForAPI!)
     }
@@ -194,35 +228,34 @@ class PersonalDataViewController: BaseViewController, EmailErrorMessageView, Pho
     }
     
     @IBAction func handlerChangeButtonTap(_ sender: UbuntuLightItalicDarkCyanButton) {
-        var oldPassword: String!
         sender.tag = (sender.tag == 1) ? 0 : 1
-        
-        if (sender.tag == 1) {
-            oldPassword = textFieldsCollection[0].text
-        }
-        
+
         UIView.animate(withDuration: 1.9, animations: {
             self.passwordsViewHeightConstraint.constant = self.view.heightRatio * ((sender.tag == 1) ? 120.0 : 0.0)
-            
             self.passwordsView.layoutIfNeeded()
         }, completion: { success in
-            self.textFieldsCollection[0].isEnabled = (sender.tag == 1) ? true : false
+            self.textFieldsCollection[3].isEnabled = (sender.tag == 1) ? true : false
             
-///            if (sender.tag == 1) {
-///                self.textFieldsCollection[0].becomeFirstResponder()
-///            } else {
-///                self.textFieldsCollection[0].resignFirstResponder()
-///            }
-            
-            guard sender.tag == 0 && self.textFieldsCollection[0].text != nil && self.textFieldsCollection[1].text != nil && self.textFieldsCollection[2].text != nil else {
-                self.textFieldsCollection[0].text = oldPassword
-                
-                return
+            if (sender.tag == 1) {
+                self.textFieldsCollection[3].becomeFirstResponder()
+                self.textFieldsCollection[3].text = nil
+            } else {
+                self.textFieldsCollection[3].resignFirstResponder()
             }
+            
+            if (sender.tag == 0 && ((self.textFieldsCollection[3].text?.isEmpty)! || (self.textFieldsCollection[4].text?.isEmpty)! || (self.textFieldsCollection[5].text?.isEmpty)!)) {
+                self.textFieldsCollection[3].text = "Test password"
+                self.didHide(self.passwordErrorMessageView, withConstraint: self.passwordErrorMessageViewTopConstraint)
+            }
+            
         })
     }
     
     @IBAction func handlerRadioButtonTap(_ sender: DLRadioButton) {
         view.endEditing(true)
+        
+        if (oldPasswordChangeButton.tag == 1) {
+            self.textFieldsCollection[3].text = "Test password"
+        }
     }
 }

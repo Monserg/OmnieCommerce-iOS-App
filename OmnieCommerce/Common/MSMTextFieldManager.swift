@@ -138,11 +138,14 @@ extension MSMTextFieldManager: UITextFieldDelegate {
         case .Password, .PasswordButton:
             if !((textField as! CustomTextField).checkPasswordValidation(textField.text!)) {
                 (currentVC as! PasswordErrorMessageView).didShow((currentVC as! PasswordErrorMessageView).passwordErrorMessageView, withConstraint: (currentVC as! PasswordErrorMessageView).passwordErrorMessageViewTopConstraint)
+            } else if (textField.tag == 99) {
+                handlerPassDataCompletion!(textField)
             }
             
         case .PasswordStrength:
             if !((textField as! CustomTextField).checkPasswordValidation(textField.text!)) {
                 (currentVC as! PasswordStrengthErrorMessageView).didShow((currentVC as! PasswordStrengthErrorMessageView).passwordStrengthErrorMessageView, withConstraint: (currentVC as! PasswordStrengthErrorMessageView).passwordStrengthErrorMessageViewTopConstraint)
+                return false
             }
             
         case .Code:
@@ -185,6 +188,9 @@ extension MSMTextFieldManager: UITextFieldDelegate {
 
         case .Password, .PasswordButton:
             (currentVC as! PasswordErrorMessageView).didHide((currentVC as! PasswordErrorMessageView).passwordErrorMessageView, withConstraint: (currentVC as! PasswordErrorMessageView).passwordErrorMessageViewTopConstraint)
+            
+        case .PasswordRepeat:
+            (currentVC as! RepeatPasswordErrorMessageView).didHide((currentVC as! RepeatPasswordErrorMessageView).repeatPasswordErrorMessageView, withConstraint: (currentVC as! RepeatPasswordErrorMessageView).repeatPasswordErrorMessageViewTopConstraint)
             
         case .PasswordStrength:
             (currentVC as! PasswordStrengthErrorMessageView).didHide((currentVC as! PasswordStrengthErrorMessageView).passwordStrengthErrorMessageView, withConstraint: (currentVC as! PasswordStrengthErrorMessageView).passwordStrengthErrorMessageViewTopConstraint)
@@ -273,10 +279,11 @@ extension MSMTextFieldManager: UITextFieldDelegate {
                 self.nextTextFieldDidLoad(afterCurrent: textField as! CustomTextField)
                 
                 return true
+            } else if (textField.tag == 99) {
+                handlerPassDataCompletion!(textField)
+                return false
             } else {
                 (currentVC as! PasswordErrorMessageView).didShow((currentVC as! PasswordErrorMessageView).passwordErrorMessageView, withConstraint: (currentVC as! PasswordErrorMessageView).passwordErrorMessageViewTopConstraint)
-                
-                return false
             }
             
         case .PasswordStrength:

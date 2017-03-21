@@ -35,6 +35,13 @@ protocol PasswordErrorMessageView: ErrorMessageViewAnimation {
     var passwordErrorMessageViewHeightConstraint: NSLayoutConstraint! { get set }
 }
 
+protocol RepeatPasswordErrorMessageView: ErrorMessageViewAnimation {
+    // MARK: - Properties
+    var repeatPasswordErrorMessageView: UIView! { get }
+    var repeatPasswordErrorMessageViewTopConstraint: NSLayoutConstraint! { get set }
+    var repeatPasswordErrorMessageViewHeightConstraint: NSLayoutConstraint! { get set }
+}
+
 protocol PasswordStrengthView {
     var passwordStrengthView: PasswordStrengthLevelView! { get }
 }

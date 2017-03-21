@@ -13,7 +13,7 @@ import UIKit
 
 // MARK: - Data models
 struct PersonalPageShowModels {
-    struct Data {
+    struct LoadData {
         struct RequestModel {
         }
         
@@ -26,6 +26,34 @@ struct PersonalPageShowModels {
         }
     }
 
+    struct UploadData {
+        struct RequestModel {
+            let parameters: [String: Any]
+        }
+        
+        struct ResponseModel {
+            let response: ResponseAPI?
+        }
+        
+        struct ViewModel {
+            let response: ResponseAPI?
+        }
+    }
+
+    struct UploadImage {
+        struct RequestModel {
+            let image: UIImage
+        }
+        
+        struct ResponseModel {
+            let response: ResponseAPI?
+        }
+        
+        struct ViewModel {
+            let imageStringURL: String?
+        }
+    }
+    
     struct Templates {
         struct RequestModel {
             let userID: String

@@ -28,7 +28,14 @@ class BaseViewController: UIViewController {
 
     // Network monitoring
     var previousNetworkReachabilityStatus: AFNetworkReachabilityStatus = .unknown
-    var isNetworkAvailable = false
+    var isNetworkAvailable: Bool {
+        set{}
+        
+        get {
+            let status = AFNetworkReachabilityManager.shared().networkReachabilityStatus
+            return (status != .reachableViaWWAN && status != .reachableViaWiFi) ? false : true
+        }
+    }
     
     var scrollViewBase: UIScrollView? {
         didSet {
@@ -45,7 +52,7 @@ class BaseViewController: UIViewController {
         
         super.awakeFromNib()
         
-        self.isNetworkAvailable = true
+//        self.isNetworkAvailable = true
     }
     
     
@@ -95,10 +102,10 @@ class BaseViewController: UIViewController {
         
         let userInfo = notification.userInfo!
         
-        let keyboardScreenEndFrame      =   (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
-        let keyboardViewEndFrame        =   view.convert(keyboardScreenEndFrame, from: view.window)
+        let keyboardScreenEndFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+        let keyboardViewEndFrame = view.convert(keyboardScreenEndFrame, from: view.window)
         
-        scrollViewBase?.contentInset    =   (notification.name == .UIKeyboardWillHide) ? UIEdgeInsets.zero : UIEdgeInsets(top: 0, left: 0, bottom: keyboardViewEndFrame.height + 25, right: 0)
+        scrollViewBase?.contentInset = (notification.name == .UIKeyboardWillHide) ? UIEdgeInsets.zero : UIEdgeInsets(top: 0, left: 0, bottom: keyboardViewEndFrame.height + 25, right: 0)
 
         guard (selectedRange != nil && (keyboardViewEndFrame.contains((selectedRange?.origin)!))) else {
             DispatchQueue.main.async {
@@ -221,7 +228,7 @@ extension BaseViewController: UINavigationControllerDelegate {
 // MARK: - UIImagePickerControllerDelegate
 extension BaseViewController: UIImagePickerControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        let chosenImage     =   info[UIImagePickerControllerOriginalImage] as! UIImage
+        let chosenImage = info[UIImagePickerControllerOriginalImage] as! UIImage
         
         dismiss(animated: true, completion: nil)
         handlerImagePickerControllerCompletion!(chosenImage)
@@ -240,21 +247,19 @@ extension BaseViewController {
         AFNetworkReachabilityManager.shared().startMonitoring()
         
         AFNetworkReachabilityManager.shared().setReachabilityStatusChange { status in
-            var reachableOrNot              =   ""
-            var networkSummary              =   ""
+            var reachableOrNot = ""
+            var networkSummary = ""
             
             switch (status) {
             case .reachableViaWWAN, .reachableViaWiFi:
                 // Reachable.
-                reachableOrNot              =   "Reachable".localized()
-                networkSummary              =   "Connected to Network".localized()
-                self.isNetworkAvailable     =   true
+                reachableOrNot = "Reachable".localized()
+                networkSummary = "Connected to Network".localized()
             
             default:
                 // Not reachable.
-                reachableOrNot              =   "Not Reachable".localized()
-                networkSummary              =   "Disconnected from Network".localized()
-                self.isNetworkAvailable     =   false
+                reachableOrNot = "Not Reachable".localized()
+                networkSummary = "Disconnected from Network".localized()
             }
             
             // Any class which has observer for this notification will be able to report loss of network connection successfully

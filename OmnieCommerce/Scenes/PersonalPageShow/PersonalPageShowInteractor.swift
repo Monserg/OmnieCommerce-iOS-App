@@ -13,15 +13,17 @@ import UIKit
 
 // MARK: - Input protocols for current Interactor component VIP-cicle
 protocol PersonalPageShowInteractorInput {
-    func userAppDataDidLoad(withRequestModel requestModel: PersonalPageShowModels.Data.RequestModel)
-    func userAppDataDidUpdate(withRequestModel requestModel: PersonalPageShowModels.Data.RequestModel)
+    func userAppDataDidLoad(withRequestModel requestModel: PersonalPageShowModels.LoadData.RequestModel)
+    func userAppDataDidUpload(withRequestModel requestModel: PersonalPageShowModels.UploadData.RequestModel)
+    func userAppImageDidUpload(withRequestModel requestModel: PersonalPageShowModels.UploadImage.RequestModel)
     func userAppTemplatesDidLoad(withRequestModel requestModel: PersonalPageShowModels.Templates.RequestModel)
 }
 
 // MARK: - Output protocols for Presenter component VIP-cicle
 protocol PersonalPageShowInteractorOutput {
-    func userAppDataDidPrepareToShowLoad(fromResponseModel responseModel: PersonalPageShowModels.Data.ResponseModel)
-    func userAppDataDidPrepareToShowUpdate(fromResponseModel responseModel: PersonalPageShowModels.Data.ResponseModel)
+    func userAppDataDidPrepareToShowLoad(fromResponseModel responseModel: PersonalPageShowModels.LoadData.ResponseModel)
+    func userAppDataDidPrepareToShowUpload(fromResponseModel responseModel: PersonalPageShowModels.UploadData.ResponseModel)
+    func userAppImageDidPrepareToShowUpload(fromResponseModel responseModel: PersonalPageShowModels.UploadImage.ResponseModel)
     func userAppTemplatesDidPrepareToShowLoad(fromResponseModel responseModel: PersonalPageShowModels.Templates.ResponseModel)
 }
 
@@ -32,17 +34,17 @@ class PersonalPageShowInteractor: PersonalPageShowInteractorInput {
     
     
     // MARK: - Custom Functions. Business logic
-    func userAppDataDidLoad(withRequestModel requestModel: PersonalPageShowModels.Data.RequestModel) {
+    func userAppDataDidLoad(withRequestModel requestModel: PersonalPageShowModels.LoadData.RequestModel) {
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         
         MSMRestApiManager.instance.userGetProfileData { responseAPI in
             // Pass the result to the Presenter
-            let loadResponseModel = PersonalPageShowModels.Data.ResponseModel(response: responseAPI)
+            let loadResponseModel = PersonalPageShowModels.LoadData.ResponseModel(response: responseAPI)
             self.presenter.userAppDataDidPrepareToShowLoad(fromResponseModel: loadResponseModel)
         }
     }
     
-    func userAppDataDidUpdate(withRequestModel requestModel: PersonalPageShowModels.Data.RequestModel) {
+    func userAppDataDidUpload(withRequestModel requestModel: PersonalPageShowModels.UploadData.RequestModel) {
 //        worker              =   PersonalPageShowWorker()
 //        let userApp         =   worker.userAppDidUpdateOnServer(withParameters: requestModel.params)
 //        
@@ -51,6 +53,16 @@ class PersonalPageShowInteractor: PersonalPageShowInteractorInput {
 //        presenter.userAppDataDidPrepareToShow(fromResponseModel: responseModel)
     }
     
+    func userAppImageDidUpload(withRequestModel requestModel: PersonalPageShowModels.UploadImage.RequestModel) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        
+        MSMRestApiManager.instance.userUploadImage(requestModel.image) { responseAPI in
+            // Pass the result to the Presenter
+            let imageUploadResponseModel = PersonalPageShowModels.UploadImage.ResponseModel(response: responseAPI)
+            self.presenter.userAppImageDidPrepareToShowUpload(fromResponseModel: imageUploadResponseModel)
+        }
+    }
+
     func userAppTemplatesDidLoad(withRequestModel requestModel: PersonalPageShowModels.Templates.RequestModel) {
         worker = PersonalPageShowWorker()
         let items = worker.userAppTemplatesDidLoad(forUserApp: requestModel.userID)
