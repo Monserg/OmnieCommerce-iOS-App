@@ -178,8 +178,13 @@ class PersonalPageShowViewController: BaseViewController {
     }
     
     func userAppDataDidLoad() {
-        let loadRequestModel = PersonalPageShowModels.LoadData.RequestModel()
-        self.interactor.userAppDataDidLoad(withRequestModel: loadRequestModel)
+        if (isNetworkAvailable) {
+            let loadRequestModel = PersonalPageShowModels.LoadData.RequestModel()
+            self.interactor.userAppDataDidLoad(withRequestModel: loadRequestModel)
+        } else {
+            spinnerDidFinish()
+            activeViewController = personalDataVC
+        }
     }
     
     func handlerResult(fromImagePicker imagePickerController: MSMImagePickerController, forAvatarButton avatarButton: CustomButton) {
@@ -192,8 +197,10 @@ class PersonalPageShowViewController: BaseViewController {
             UIView.animate(withDuration: 0.5, animations: {
                 avatarButton.setImage(uploadedImage, for: .normal)
             }, completion: { success in
-                let imageUploadRequestModel = PersonalPageShowModels.UploadImage.RequestModel(image: uploadedImage)
-                self.interactor.userAppImageDidUpload(withRequestModel: imageUploadRequestModel)
+                if (self.isNetworkAvailable) {
+                    let imageUploadRequestModel = PersonalPageShowModels.UploadImage.RequestModel(image: uploadedImage)
+                    self.interactor.userAppImageDidUpload(withRequestModel: imageUploadRequestModel)
+                }
             })
         }
         
@@ -224,7 +231,6 @@ extension PersonalPageShowViewController: PersonalPageShowViewControllerInput {
 
         // Check Network state
         guard isNetworkAvailable else {
-            alertViewDidShow(withTitle: "Not Reachable".localized(), andMessage: "Disconnected from Network".localized())
             activeViewController = personalDataVC
             return
         }
@@ -254,6 +260,12 @@ extension PersonalPageShowViewController: PersonalPageShowViewControllerInput {
     func userAppDataDidShowUpload(fromViewModel viewModel: PersonalPageShowModels.UploadData.ViewModel) {
         spinnerDidFinish()
 
+        // Check Network state
+        guard isNetworkAvailable else {
+            activeViewController = personalDataVC
+            return
+        }
+        
         CoreDataManager.instance.didSaveContext()
         router.navigateToCategoriesShowScene()
     }
@@ -261,12 +273,22 @@ extension PersonalPageShowViewController: PersonalPageShowViewControllerInput {
     func userAppImageDidShowUpload(fromViewModel viewModel: PersonalPageShowModels.UploadImage.ViewModel) {
         spinnerDidFinish()
         
+        // Check Network state
+        guard isNetworkAvailable else {
+            return
+        }
+        
         CoreDataManager.instance.didSaveContext()
         self.blackoutView!.didHide()
     }
     
     func userAppImageDidShowDelete(fromViewModel viewModel: PersonalPageShowModels.LoadData.ViewModel) {
         spinnerDidFinish()
+        
+        // Check Network state
+        guard isNetworkAvailable else {
+            return
+        }
         
         CoreDataManager.instance.didSaveContext()
         self.blackoutView!.didHide()
@@ -276,7 +298,6 @@ extension PersonalPageShowViewController: PersonalPageShowViewControllerInput {
         spinnerDidFinish()
         
         guard isNetworkAvailable else {
-            alertViewDidShow(withTitle: "Not Reachable".localized(), andMessage: "Disconnected from Network".localized())
             return
         }
         

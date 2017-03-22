@@ -33,7 +33,14 @@ class BaseViewController: UIViewController {
         
         get {
             let status = AFNetworkReachabilityManager.shared().networkReachabilityStatus
-            return (status != .reachableViaWWAN && status != .reachableViaWiFi) ? false : true
+            let result = (status != .reachableViaWWAN && status != .reachableViaWiFi) ? false : true
+            
+            guard result else {
+                alertViewDidShow(withTitle: "Not Reachable".localized(), andMessage: "Disconnected from Network".localized())
+                return result
+            }
+            
+            return result
         }
     }
     
@@ -51,8 +58,6 @@ class BaseViewController: UIViewController {
         print(object: "\(type(of: self)): \(#function) run in [line \(#line)]")
         
         super.awakeFromNib()
-        
-//        self.isNetworkAvailable = true
     }
     
     
@@ -303,4 +308,3 @@ extension BaseViewController {
         }
     }
  }
-
