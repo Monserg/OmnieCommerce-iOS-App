@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 @IBDesignable class CategoryCollectionViewCell: UICollectionViewCell {
     // MARK: - Properties
@@ -29,12 +30,15 @@ import UIKit
 extension CategoryCollectionViewCell: ConfigureCell {
     func setup(withItem item: Any, andIndexPath indexPath: IndexPath) {
         let category = item as! Category
-        
         self.name.text = category.name!
-        self.imageView.image = UIImage.init(named: "image-no-organization")
         
         if let imagePath = category.imagePath {
-            self.imageView.af_setImage(withURL: URL(string: "http://\(imagePath)")!, placeholderImage: UIImage.init(named: "image-no-organization"))
+            self.imageView.kf.setImage(with: ImageResource(downloadURL: URL(string: imagePath)!, cacheKey: category.codeID),
+                                       placeholder: UIImage.init(named: "image-no-organization"),
+                                       options: [.transition(ImageTransition.fade(1))],
+                                       completionHandler: { image, error, cacheType, imageURL in
+                                           self.imageView.kf.cancelDownloadTask()
+            })
         }
         
         // Set selected color

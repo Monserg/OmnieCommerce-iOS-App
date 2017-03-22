@@ -155,8 +155,6 @@ extension CategoriesShowViewController: CategoriesShowViewControllerInput {
         spinnerDidFinish()
         
         guard isNetworkAvailable else {
-            alertViewDidShow(withTitle: "Not Reachable".localized(), andMessage: "Disconnected from Network".localized())
-
             // Show categories list from CoreData
             let categoriesData = CoreDataManager.instance.entityDidLoad(byName: keyCategories) as! Categories
             let categories = NSKeyedUnarchiver.unarchiveObject(with: categoriesData.list as! Data) as! Array<Category>

@@ -18,8 +18,8 @@ class Category: NSObject, NSCoding, InitCellParameters {
     var subcategories: [Subcategory]!
 
     // Confirm InitCellParameters Protocol
-    var cellIdentifier: String  =   "CategoryCollectionViewCell"
-    var cellHeight: CGFloat     =   102.0
+    var cellIdentifier: String = "CategoryCollectionViewCell"
+    var cellHeight: CGFloat = 102.0
 
     
     // MARK: - Class Initialization
@@ -61,7 +61,10 @@ class Category: NSObject, NSCoding, InitCellParameters {
     func didMap(fromDictionary dictionary: [String: Any]) {
         self.codeID                 =   dictionary["uuid"] as? String
         self.name                   =   dictionary["name"] as? String
-        self.imagePath              =   dictionary["logo"] as? String
+        
+        if (dictionary["logo"] as? String != nil) {
+            self.imagePath          =   "http://\(dictionary["logo"] as! String)"
+        }
         
         // Map Subcategory list
         let responseSubcategories   =   dictionary["subCategories"] as! NSArray
