@@ -11,6 +11,7 @@
 
 import UIKit
 import Toucan
+import Kingfisher
 
 // MARK: - Input protocols for current ViewController component VIP-cicle
 protocol PersonalPageShowViewControllerInput {
@@ -40,7 +41,7 @@ class PersonalPageShowViewController: BaseViewController {
     var personalDataVC: PersonalDataViewController?
     var personalTemplatesVC: PersonalTemplatesViewController?
     
-    var imageID: String?
+    var wasImageUploaded: Bool?
     weak var avatarActionView: AvatarActionView?
 
     var activeViewController: BaseViewController? {
@@ -161,6 +162,21 @@ class PersonalPageShowViewController: BaseViewController {
         userAppDataDidLoad()
         setupSegmentedControlView()
         containerView.autoresizesSubviews = true
+        
+        // Handler Change Network State
+        personalDataVC!.handlerChangeNetworkStateCompletion = { success in
+            guard self.wasImageUploaded != nil else {
+                return
+            }
+            
+            if ((success as! Bool) && !self.wasImageUploaded!) {
+                // Deferred Upload Image API
+                self.spinnerDidStart(self.blackoutView!)
+                let uploadedImage = (self.personalDataVC!.avatarButton.image(for: .normal))!
+                let imageUploadRequestModel = PersonalPageShowModels.UploadImage.RequestModel(image: uploadedImage)
+                self.interactor.userAppImageDidUpload(withRequestModel: imageUploadRequestModel)
+            }
+        }
     }
     
     func setupSegmentedControlView() {
@@ -192,18 +208,20 @@ class PersonalPageShowViewController: BaseViewController {
                                 .resize(avatarButton.frame.size, fitMode: Toucan.Resize.FitMode.crop)
                                 .maskWithEllipse().image
 
-            UIView.animate(withDuration: 0.5, animations: {
-                avatarButton.setImage(uploadedImage, for: .normal)
-            }, completion: { success in
-                if (self.isNetworkAvailable) {
-                    // Upload Image API
-                    self.spinnerDidStart(self.blackoutView!)
-                    let imageUploadRequestModel = PersonalPageShowModels.UploadImage.RequestModel(image: uploadedImage)
-                    self.interactor.userAppImageDidUpload(withRequestModel: imageUploadRequestModel)
-                } else {
+            if (self.isNetworkAvailable) {
+                // Upload Image API
+                self.spinnerDidStart(self.blackoutView!)
+                let imageUploadRequestModel = PersonalPageShowModels.UploadImage.RequestModel(image: uploadedImage)
+                self.interactor.userAppImageDidUpload(withRequestModel: imageUploadRequestModel)
+            } else {
+                // Change Avatar Button Image
+                UIView.animate(withDuration: 0.7, animations: {
+                    avatarButton.setImage(uploadedImage, for: .normal)
+                }, completion: { success in
+                    self.wasImageUploaded = false
                     self.blackoutView!.didHide()
-                }
-            })
+                })
+            }
         }
         
         // Handler Cancel result
@@ -277,10 +295,13 @@ extension PersonalPageShowViewController: PersonalPageShowViewControllerInput {
         
         // Check Network state
         guard isNetworkAvailable else {
+            self.wasImageUploaded = false
             return
         }
         
         CoreDataManager.instance.didSaveContext()
+        ImageCache.default.store(self.personalDataVC!.avatarButton.image(for: .normal)!, forKey: "userImage")
+        wasImageUploaded = true
         self.blackoutView!.didHide()
     }
     

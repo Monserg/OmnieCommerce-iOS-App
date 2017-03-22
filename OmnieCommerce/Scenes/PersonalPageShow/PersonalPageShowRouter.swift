@@ -58,13 +58,7 @@ class PersonalPageShowRouter: PersonalPageShowRouterInput {
             
             // Handler Save Button tap
             personalDataVC.handlerSaveButtonCompletion = { parameters in
-                var params = parameters
-                
-                if (self.viewController.imageID != nil) {
-                    params["userImg"] = self.viewController.imageID!
-                }
-                
-                let uploadRequestModel = PersonalPageShowModels.UploadData.RequestModel(parameters: params)
+                let uploadRequestModel = PersonalPageShowModels.UploadData.RequestModel(parameters: parameters)
                 self.viewController.interactor.userAppDataDidUpload(withRequestModel: uploadRequestModel)
             }
             

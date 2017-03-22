@@ -29,19 +29,21 @@ class AvatarActionView: CustomView {
         
         createFromXIB()
         
-        let widthRatio          =   ((UIApplication.shared.statusBarOrientation.isPortrait) ? 375 : 667) / view.frame.width
-        let heightRatio         =   ((UIApplication.shared.statusBarOrientation.isPortrait) ? 667 : 375) / view.frame.height
-        self.frame              =   CGRect.init(x: 0, y: 0, width: 345 * widthRatio, height: 185 * heightRatio)
+        let widthRatio          =   CGFloat(((UIApplication.shared.statusBarOrientation.isPortrait) ? 375 : 667) / 345.0)
+        let heightRatio         =   CGFloat(((UIApplication.shared.statusBarOrientation.isPortrait) ? 667 : 375) / 185.0)
+        self.frame              =   CGRect.init(x: 0, y: 0, width: view.frame.width / widthRatio, height: view.frame.height / heightRatio)
         self.alpha              =   0
         self.backgroundColor    =   UIColor.clear
         self.layer.cornerRadius =   5
         self.clipsToBounds      =   true
         
         view.addSubview(self)
-        self.translatesAutoresizingMaskIntoConstraints = false
+        self.center = view.center
+        self.autoresizingMask   =   [.flexibleRightMargin, .flexibleLeftMargin, .flexibleTopMargin, .flexibleBottomMargin]
+//        self.translatesAutoresizingMaskIntoConstraints = false
         
-        self.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        self.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+//        self.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+//        self.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         
         self.didShow()
     }

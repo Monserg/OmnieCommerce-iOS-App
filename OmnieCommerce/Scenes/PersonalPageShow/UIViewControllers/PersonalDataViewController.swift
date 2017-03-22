@@ -37,6 +37,7 @@ class PersonalDataViewController: BaseViewController, EmailErrorMessageView, Pho
     var handlerSaveButtonCompletion: HandlerSaveButtonCompletion?
     var handlerCancelButtonCompletion: HandlerCancelButtonCompletion?
     var handlerPassDataCompletion: HandlerPassDataCompletion?
+    var handlerChangeNetworkStateCompletion: HandlerPassDataCompletion?
     
     var textFieldManager: MSMTextFieldManager! {
         didSet {
@@ -63,7 +64,7 @@ class PersonalDataViewController: BaseViewController, EmailErrorMessageView, Pho
             self.avatarButton.kf.setImage(with: ImageResource(downloadURL: URL(string: CoreDataManager.instance.appUser.imagePath!)!, cacheKey: "userImage"),
                                           for: .normal,
                                           placeholder: UIImage.init(named: "image-no-user"),
-                                          options: [.transition(ImageTransition.fade(0.3))],
+                                          options: [.transition(ImageTransition.fade(1))],
                                           completionHandler: { image, error, cacheType, imageURL in
                                               self.avatarButton.imageView!.kf.cancelDownloadTask()
             })
@@ -147,6 +148,11 @@ class PersonalDataViewController: BaseViewController, EmailErrorMessageView, Pho
         super.viewDidLoad()
 
         viewSettingsDidLoad()
+        
+        // Handler Change Network Connection State
+        self.handlerChangeNetworkConnectionStateCompletion = { success in
+            self.handlerChangeNetworkStateCompletion!(success as! Bool)
+        }
     }
 
     override func didReceiveMemoryWarning() {

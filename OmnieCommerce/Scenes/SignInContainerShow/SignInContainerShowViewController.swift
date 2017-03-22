@@ -75,13 +75,14 @@ class SignInContainerShowViewController: BaseViewController, PasswordErrorMessag
     // MARK: - Custom Functions
     func viewSettingsDidLoad() {
         // Apply keyboard handler
-        scrollViewBase              =   scrollView
+        scrollViewBase = scrollView
         
         didAddTapGestureRecognizer()
 
         // Create MSMTextFieldManager
-        textFieldManager            =   MSMTextFieldManager(withTextFields: textFieldsCollection)
-        textFieldManager.currentVC  =   self
+        textFieldManager = MSMTextFieldManager(withTextFields: textFieldsCollection)
+        textFieldManager.currentVC = self
+        textFieldManager.handlerPassDataCompletion = { textField in }
         
         // Hide email error message view
         passwordErrorMessageViewHeightConstraint.constant = Config.Constants.errorMessageViewHeight

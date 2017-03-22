@@ -51,7 +51,7 @@ class BaseViewController: UIViewController {
     }
 
     var handlerImagePickerControllerCompletion: HandlerImagePickerControllerCompletion?
-
+    var handlerChangeNetworkConnectionStateCompletion: HandlerPassDataCompletion?
     
     // MARK: - Class Initialization
     override func awakeFromNib() {
@@ -270,6 +270,10 @@ extension BaseViewController {
             // Any class which has observer for this notification will be able to report loss of network connection successfully
             if ((self.previousNetworkReachabilityStatus != .unknown && status != self.previousNetworkReachabilityStatus) || status == .notReachable) {
                 self.alertViewDidShow(withTitle: reachableOrNot, andMessage: networkSummary)
+                
+                if (self.isKind(of: PersonalDataViewController.self)) {
+                    self.handlerChangeNetworkConnectionStateCompletion!(self.isNetworkAvailable)
+                }
             }
             
             self.previousNetworkReachabilityStatus = status
