@@ -8,6 +8,7 @@
 
 import CoreData
 import Foundation
+import Kingfisher
 
 class CoreDataManager {
     // MARK: - Properties. CoreDate Stack
@@ -131,6 +132,10 @@ class CoreDataManager {
             appUser.password        =   nil
             appUser.appName         =   nil
             appUser.phone           =   nil
+            
+            // Clean Image Cache
+            KingfisherManager.shared.cache.clearMemoryCache()
+            KingfisherManager.shared.cache.clearDiskCache()
         }
         
         didSaveContext()

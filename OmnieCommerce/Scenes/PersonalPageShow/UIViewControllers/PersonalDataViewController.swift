@@ -7,12 +7,11 @@
 //
 
 import UIKit
-import AlamofireImage
+import Kingfisher
 
 class PersonalDataViewController: BaseViewController, EmailErrorMessageView, PhoneErrorMessageView, PasswordErrorMessageView, PasswordStrengthView, PasswordStrengthErrorMessageView, RepeatPasswordErrorMessageView {
     // MARK: - Properties
     var parametersForAPI: [String: Any]?
-    let imageCache = AutoPurgingImageCache(memoryCapacity: 100_000_000, preferredMemoryUsageAfterPurge: 60_000_000)
     
     var pickerViewManager: MSMPickerViewManager! {
         didSet {
@@ -60,25 +59,15 @@ class PersonalDataViewController: BaseViewController, EmailErrorMessageView, Pho
                 return
             }
             
-            guard isNetworkAvailable else {
-                // Fetch Image from Cache
-                let cachedAvatarImage = self.imageCache.image(withIdentifier: "userAvatar")
-                self.avatarButton.setImage(cachedAvatarImage, for: .normal)
-                return
-            }
-            
-            let userImageView = UIImageView.init(image: UIImage.init(named: "image-no-user")!)
-            
-            userImageView.af_setImage(withURL: URL(string: "http://\((CoreDataManager.instance.appUser.imagePath!))")!,
-                                      placeholderImage: UIImage.init(named: "image-no-user"),
-                                      filter: AspectScaledToFillSizeWithRoundedCornersFilter(size: self.avatarButton.frame.size,
-                                                                                             radius: self.avatarButton.frame.size.width / 2),
-                                      completion: { image in
-                                            self.imageCache.add(UIImage.af_threadSafeImage(with: image.data!)!, withIdentifier: "userAvatar")
-                                        
-                                        UIView.animate(withDuration: 0.9, animations: {
-                                            self.avatarButton.setImage(userImageView.image!, for: .normal)
-                                        })
+            // Get User Image by URL            
+            self.avatarButton.imageView!.kf.indicatorType = .activity
+
+            self.avatarButton.kf.setImage(with: URL(string: CoreDataManager.instance.appUser.imagePath!)!,
+                                          for: .normal,
+                                          placeholder: UIImage.init(named: "image-no-user"),
+                                          options: [.transition(ImageTransition.fade(0.3))],
+                                          completionHandler: { image, error, cacheType, imageURL in
+                                              self.avatarButton.imageView!.kf.cancelDownloadTask()
             })
         }
     }
@@ -199,7 +188,7 @@ class PersonalDataViewController: BaseViewController, EmailErrorMessageView, Pho
     
     // MARK: - Transition
     override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
-        changePasswordButton.tag = 0
+//        changePasswordButton.tag = 0
     }
     
     

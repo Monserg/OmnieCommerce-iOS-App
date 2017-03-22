@@ -21,7 +21,7 @@ class AvatarActionView: CustomView {
     
     @IBOutlet var view: UIView!
     @IBOutlet weak var cancelButton: UIButton!
-    
+    @IBOutlet weak var deleteButton: UbuntuLightVeryLightOrangeButton!
     
     // MARK: - Class Initialization
     init(inView view: UIView) {
@@ -38,10 +38,10 @@ class AvatarActionView: CustomView {
         self.clipsToBounds      =   true
         
         view.addSubview(self)
-        self.translatesAutoresizingMaskIntoConstraints   =   false
+        self.translatesAutoresizingMaskIntoConstraints = false
         
-        self.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive  =   true
-        self.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive  =   true
+        self.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        self.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         
         self.didShow()
     }
@@ -71,7 +71,7 @@ class AvatarActionView: CustomView {
     func createFromXIB() {
         UINib(nibName: String(describing: AvatarActionView.self), bundle: Bundle(for: AvatarActionView.self)).instantiate(withOwner: self, options: nil)
         addSubview(view)
-        view.frame  =   frame
+        view.frame = frame
     }
     
     

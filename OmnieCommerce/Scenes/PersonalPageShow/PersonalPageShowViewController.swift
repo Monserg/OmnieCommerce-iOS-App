@@ -10,13 +10,14 @@
 //
 
 import UIKit
-import AlamofireImage
+import Toucan
 
 // MARK: - Input protocols for current ViewController component VIP-cicle
 protocol PersonalPageShowViewControllerInput {
     func userAppDataDidShowLoad(fromViewModel viewModel: PersonalPageShowModels.LoadData.ViewModel)
     func userAppDataDidShowUpload(fromViewModel viewModel: PersonalPageShowModels.UploadData.ViewModel)
     func userAppImageDidShowUpload(fromViewModel viewModel: PersonalPageShowModels.UploadImage.ViewModel)
+    func userAppImageDidShowDelete(fromViewModel viewModel: PersonalPageShowModels.LoadData.ViewModel)
     func userAppTemplatesDidShowLoad(fromViewModel viewModel: PersonalPageShowModels.Templates.ViewModel)
 }
 
@@ -25,6 +26,7 @@ protocol PersonalPageShowViewControllerOutput {
     func userAppDataDidLoad(withRequestModel requestModel: PersonalPageShowModels.LoadData.RequestModel)
     func userAppDataDidUpload(withRequestModel requestModel: PersonalPageShowModels.UploadData.RequestModel)
     func userAppImageDidUpload(withRequestModel requestModel: PersonalPageShowModels.UploadImage.RequestModel)
+    func userAppImageDidDelete(withRequestModel requestModel: PersonalPageShowModels.LoadData.RequestModel)
     func userAppTemplatesDidLoad(withRequestModel requestModel: PersonalPageShowModels.Templates.RequestModel)
 }
 
@@ -82,7 +84,7 @@ class PersonalPageShowViewController: BaseViewController {
         // Container Child Views
         personalDataVC = UIStoryboard(name: "PersonalPageShow", bundle: nil).instantiateViewController(withIdentifier: "PersonalDataVC") as? PersonalDataViewController
         
-        // Handler avatar button tap
+        // Handler Avatar Button tap
         personalDataVC?.handlerPassDataCompletion = { sender in
             self.blackoutView = MSMBlackoutView.init(inView: self.view)
             
@@ -91,12 +93,16 @@ class PersonalPageShowViewController: BaseViewController {
             let avatarButton = sender as! CustomButton
             self.avatarActionView = AvatarActionView.init(inView: self.view)
             
+            if ((sender as! CustomButton).currentImage == nil) {
+                self.avatarActionView!.deleteButton.isHidden = true
+            }
+            
             // Handler AvatarActionView completions
             self.avatarActionView!.handlerViewDismissCompletion = { actionType in
                     switch actionType {
                     // Handler Photo Make button tap
                     case .PhotoUpload:
-                        let imagePickerController   =   MSMImagePickerController()
+                        let imagePickerController = MSMImagePickerController()
                         imagePickerController.photoDidLoadFromAlbum()
                         
                         self.present(imagePickerController, animated: true, completion: nil)
@@ -121,7 +127,7 @@ class PersonalPageShowViewController: BaseViewController {
                         self.handlerResult(fromImagePicker: imagePickerController, forAvatarButton: avatarButton)
                         
                     case .PhotoDelete:
-                        self.print(object: "delete ok")
+
                         self.blackoutView!.didHide()
                     }
             }
@@ -179,10 +185,14 @@ class PersonalPageShowViewController: BaseViewController {
     func handlerResult(fromImagePicker imagePickerController: MSMImagePickerController, forAvatarButton avatarButton: CustomButton) {
         // Handler success image
         imagePickerController.handlerImagePickerControllerCompletion = { image in
+            let uploadedImage = Toucan(image: image)
+                                .resize(avatarButton.frame.size, fitMode: Toucan.Resize.FitMode.crop)
+                                .maskWithEllipse().image
+
             UIView.animate(withDuration: 0.5, animations: {
-                avatarButton.setImage(image.af_imageAspectScaled(toFill: avatarButton.frame.size), for: .normal)
+                avatarButton.setImage(uploadedImage, for: .normal)
             }, completion: { success in
-                let imageUploadRequestModel = PersonalPageShowModels.UploadImage.RequestModel(image: image)
+                let imageUploadRequestModel = PersonalPageShowModels.UploadImage.RequestModel(image: uploadedImage)
                 self.interactor.userAppImageDidUpload(withRequestModel: imageUploadRequestModel)
             })
         }
@@ -236,7 +246,7 @@ extension PersonalPageShowViewController: PersonalPageShowViewControllerInput {
         
         activeViewController = personalDataVC
 
-        // TODO: ADD HERE GET TEMPLATES REQUEST
+        // Get Templates
         let templatesRequestModel = PersonalPageShowModels.Templates.RequestModel(userID: "01") // self.userApp!.codeID!)
         self.interactor.userAppTemplatesDidLoad(withRequestModel: templatesRequestModel)
     }
@@ -249,6 +259,13 @@ extension PersonalPageShowViewController: PersonalPageShowViewControllerInput {
     }
     
     func userAppImageDidShowUpload(fromViewModel viewModel: PersonalPageShowModels.UploadImage.ViewModel) {
+        spinnerDidFinish()
+        
+        CoreDataManager.instance.didSaveContext()
+        self.blackoutView!.didHide()
+    }
+    
+    func userAppImageDidShowDelete(fromViewModel viewModel: PersonalPageShowModels.LoadData.ViewModel) {
         spinnerDidFinish()
         
         CoreDataManager.instance.didSaveContext()

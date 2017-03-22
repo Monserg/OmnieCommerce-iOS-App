@@ -16,6 +16,7 @@ protocol PersonalPageShowInteractorInput {
     func userAppDataDidLoad(withRequestModel requestModel: PersonalPageShowModels.LoadData.RequestModel)
     func userAppDataDidUpload(withRequestModel requestModel: PersonalPageShowModels.UploadData.RequestModel)
     func userAppImageDidUpload(withRequestModel requestModel: PersonalPageShowModels.UploadImage.RequestModel)
+    func userAppImageDidDelete(withRequestModel requestModel: PersonalPageShowModels.LoadData.RequestModel)
     func userAppTemplatesDidLoad(withRequestModel requestModel: PersonalPageShowModels.Templates.RequestModel)
 }
 
@@ -24,6 +25,7 @@ protocol PersonalPageShowInteractorOutput {
     func userAppDataDidPrepareToShowLoad(fromResponseModel responseModel: PersonalPageShowModels.LoadData.ResponseModel)
     func userAppDataDidPrepareToShowUpload(fromResponseModel responseModel: PersonalPageShowModels.UploadData.ResponseModel)
     func userAppImageDidPrepareToShowUpload(fromResponseModel responseModel: PersonalPageShowModels.UploadImage.ResponseModel)
+    func userAppImageDidPrepareToShowDelete(fromResponseModel responseModel: PersonalPageShowModels.LoadData.ResponseModel)
     func userAppTemplatesDidPrepareToShowLoad(fromResponseModel responseModel: PersonalPageShowModels.Templates.ResponseModel)
 }
 
@@ -63,6 +65,16 @@ class PersonalPageShowInteractor: PersonalPageShowInteractorInput {
         }
     }
 
+    func userAppImageDidDelete(withRequestModel requestModel: PersonalPageShowModels.LoadData.RequestModel) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        
+        MSMRestApiManager.instance.userDeleteImage(withHandlerResponseAPICompletion: { responseAPI in
+            // Pass the result to the Presenter
+            let imageDeleteResponseModel = PersonalPageShowModels.LoadData.ResponseModel(response: responseAPI)
+            self.presenter.userAppImageDidPrepareToShowDelete(fromResponseModel: imageDeleteResponseModel)
+        })
+    }
+    
     func userAppTemplatesDidLoad(withRequestModel requestModel: PersonalPageShowModels.Templates.RequestModel) {
         worker = PersonalPageShowWorker()
         let items = worker.userAppTemplatesDidLoad(forUserApp: requestModel.userID)

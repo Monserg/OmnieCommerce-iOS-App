@@ -54,6 +54,7 @@ PODS:
   - GTMSessionFetcher/Full (1.1.9):
     - GTMSessionFetcher/Core (= 1.1.9)
   - JTAppleCalendar (6.1.5)
+  - Kingfisher (3.5.2)
   - Localize-Swift (1.7.1)
   - LTHRadioButton (1.1.1)
   - MXParallaxHeader (0.6.1)
@@ -67,6 +68,7 @@ PODS:
   - SwiftyJSON (3.1.4)
   - SwiftyVK (2.0.6)
   - SWRevealViewController (2.3.0)
+  - Toucan (0.6.0)
 
 DEPENDENCIES:
   - AFNetworking (~> 3.1)
@@ -76,6 +78,7 @@ DEPENDENCIES:
   - Device (~> 2.0.0)
   - Google/SignIn
   - JTAppleCalendar (~> 6.0)
+  - Kingfisher (~> 3.5)
   - Localize-Swift (~> 1.6)
   - LTHRadioButton (~> 1.1)
   - MXParallaxHeader (~> 0.6)
@@ -84,6 +87,7 @@ DEPENDENCIES:
   - SwiftyJSON (~> 3.1)
   - SwiftyVK (~> 2.0)
   - SWRevealViewController (~> 2.3)
+  - Toucan (~> 0.6)
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
@@ -100,6 +104,7 @@ SPEC CHECKSUMS:
   GTMOAuth2: 7fc9c10f5c745f4d9850419ea88889fe3baa6b7d
   GTMSessionFetcher: 5c046c76a1f859bc9c187e918f18e4fc7bb57b5e
   JTAppleCalendar: 7fe18d6b7c26b8095f714ff089d4c0cbd9d6a632
+  Kingfisher: 9950e382c500b6834ce004c7c4131c444e90c3a1
   Localize-Swift: 6cabc1087c0e910e77bfa87c2ed3f65c80c0b2df
   LTHRadioButton: 6d54db446b2edba0eafcb65b28deedb09dad8a47
   MXParallaxHeader: 858c403532ed933b381556a81ce333d7065ad182
@@ -108,7 +113,8 @@ SPEC CHECKSUMS:
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
   SwiftyVK: 548e77e9d49ed4f46c66786544c38776b394b14c
   SWRevealViewController: 6d3fd97f70112fd7cef9de14df4260eacce4c63a
+  Toucan: 47485bbc9cb4541ef6318d6886103e6eaf16e919
 
-PODFILE CHECKSUM: bbb9f534375240fc913aa43920cbb3086923e947
+PODFILE CHECKSUM: eb9c4471afac63c9fe44974b0ad600a2d8eae1e2
 
 COCOAPODS: 1.2.0.beta.1

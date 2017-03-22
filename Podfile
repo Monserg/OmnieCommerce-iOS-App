@@ -20,5 +20,7 @@ target 'OmnieCommerce' do
     pod 'PhoneNumberKit', '~> 1.2'
     pod 'LTHRadioButton', '~> 1.1'
     pod 'SwiftyJSON', '~> 3.1'
+    pod 'Kingfisher', '~> 3.5'
+    pod 'Toucan', '~> 0.6'
 
 end

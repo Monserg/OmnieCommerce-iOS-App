@@ -14,6 +14,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AvatarActionView">
             <connections>
                 <outlet property="cancelButton" destination="5d2-SK-bQu" id="hBS-W2-wv0"/>
+                <outlet property="deleteButton" destination="QEw-l9-xXg" id="PbG-Wa-ky6"/>
                 <outlet property="view" destination="iN0-l3-epB" id="ejE-4b-RN8"/>
             </connections>
         </placeholder>

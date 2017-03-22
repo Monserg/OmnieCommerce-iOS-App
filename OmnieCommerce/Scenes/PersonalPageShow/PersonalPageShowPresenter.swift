@@ -16,6 +16,7 @@ protocol PersonalPageShowPresenterInput {
     func userAppDataDidPrepareToShowLoad(fromResponseModel responseModel: PersonalPageShowModels.LoadData.ResponseModel)
     func userAppDataDidPrepareToShowUpload(fromResponseModel responseModel: PersonalPageShowModels.UploadData.ResponseModel)
     func userAppImageDidPrepareToShowUpload(fromResponseModel responseModel: PersonalPageShowModels.UploadImage.ResponseModel)
+    func userAppImageDidPrepareToShowDelete(fromResponseModel responseModel: PersonalPageShowModels.LoadData.ResponseModel)
     func userAppTemplatesDidPrepareToShowLoad(fromResponseModel responseModel: PersonalPageShowModels.Templates.ResponseModel)
 }
 
@@ -24,6 +25,7 @@ protocol PersonalPageShowPresenterOutput: class {
     func userAppDataDidShowLoad(fromViewModel viewModel: PersonalPageShowModels.LoadData.ViewModel)
     func userAppDataDidShowUpload(fromViewModel viewModel: PersonalPageShowModels.UploadData.ViewModel)
     func userAppImageDidShowUpload(fromViewModel viewModel: PersonalPageShowModels.UploadImage.ViewModel)
+    func userAppImageDidShowDelete(fromViewModel viewModel: PersonalPageShowModels.LoadData.ViewModel)
     func userAppTemplatesDidShowLoad(fromViewModel viewModel: PersonalPageShowModels.Templates.ViewModel)
 }
 
@@ -57,6 +59,15 @@ class PersonalPageShowPresenter: PersonalPageShowPresenterInput {
         viewController.userAppImageDidShowUpload(fromViewModel: uploadImageViewModel)
     }
 
+    func userAppImageDidPrepareToShowDelete(fromResponseModel responseModel: PersonalPageShowModels.LoadData.ResponseModel) {
+        if (responseModel.response?.code == 200) {
+            CoreDataManager.instance.appUser.imagePath = nil
+        }
+        
+        let deleteImageViewModel = PersonalPageShowModels.LoadData.ViewModel(response: responseModel.response)
+        viewController.userAppImageDidShowDelete(fromViewModel: deleteImageViewModel)
+    }
+    
     func userAppTemplatesDidPrepareToShowLoad(fromResponseModel responseModel: PersonalPageShowModels.Templates.ResponseModel) {
         let viewModel = PersonalPageShowModels.Templates.ViewModel(organizations: responseModel.items)
         viewController.userAppTemplatesDidShowLoad(fromViewModel: viewModel)
