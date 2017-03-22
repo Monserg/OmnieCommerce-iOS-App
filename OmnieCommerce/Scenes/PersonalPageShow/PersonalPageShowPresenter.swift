@@ -52,7 +52,7 @@ class PersonalPageShowPresenter: PersonalPageShowPresenterInput {
         let imageURL = responseModel.response?.body as? String
         
         if (imageURL != nil) {
-            CoreDataManager.instance.appUser.imagePath = imageURL!
+            CoreDataManager.instance.appUser.imagePath = "http://\(imageURL!)"
         }
         
         let uploadImageViewModel = PersonalPageShowModels.UploadImage.ViewModel(imageStringURL: imageURL)

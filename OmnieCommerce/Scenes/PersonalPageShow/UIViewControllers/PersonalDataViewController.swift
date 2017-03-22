@@ -60,9 +60,7 @@ class PersonalDataViewController: BaseViewController, EmailErrorMessageView, Pho
             }
             
             // Get User Image by URL            
-            self.avatarButton.imageView!.kf.indicatorType = .activity
-
-            self.avatarButton.kf.setImage(with: URL(string: CoreDataManager.instance.appUser.imagePath!)!,
+            self.avatarButton.kf.setImage(with: ImageResource(downloadURL: URL(string: CoreDataManager.instance.appUser.imagePath!)!, cacheKey: "userImage"),
                                           for: .normal,
                                           placeholder: UIImage.init(named: "image-no-user"),
                                           options: [.transition(ImageTransition.fade(0.3))],

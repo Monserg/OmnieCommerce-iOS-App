@@ -178,13 +178,13 @@ class BaseViewController: UIViewController {
         #endif
     }
     
-    func spinnerDidStart() {
-        view.isUserInteractionEnabled = false
+    func spinnerDidStart(_ view: UIView?) {
+        self.view.isUserInteractionEnabled = false
         spinner.color = UIColor.veryDarkCyan
-        spinner.center = view.center
+        spinner.center = (view == nil) ? self.view.center : view!.center
         
-        view.addSubview(spinner)
-        view.bringSubview(toFront: spinner)
+        (view == nil) ? self.view.addSubview(spinner) : view!.addSubview(spinner)
+        (view == nil) ? self.view.bringSubview(toFront: spinner) : view!.bringSubview(toFront: spinner)
         spinner.startAnimating()
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
     }
@@ -193,7 +193,7 @@ class BaseViewController: UIViewController {
         spinner.stopAnimating()
         spinner.removeFromSuperview()
         UIApplication.shared.isNetworkActivityIndicatorVisible = false
-        view.isUserInteractionEnabled = true
+        self.view.isUserInteractionEnabled = true
     }
 }
 

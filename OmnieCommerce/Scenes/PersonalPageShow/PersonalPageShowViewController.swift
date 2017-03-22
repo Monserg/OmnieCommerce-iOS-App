@@ -74,7 +74,7 @@ class PersonalPageShowViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        spinnerDidStart()
+        spinnerDidStart(nil)
         
         // Config smallTopBarView
         navigationBarView       =   smallTopBarView
@@ -115,9 +115,7 @@ class PersonalPageShowViewController: BaseViewController {
                         
                         guard imagePickerController.photoDidMakeWithCamera() else {
                             self.alertViewDidShow(withTitle: "Error".localized(), andMessage: "Camera is not available".localized())
-                            
                             self.blackoutView!.didHide()
-                            
                             return
                         }
                         
@@ -188,7 +186,7 @@ class PersonalPageShowViewController: BaseViewController {
     }
     
     func handlerResult(fromImagePicker imagePickerController: MSMImagePickerController, forAvatarButton avatarButton: CustomButton) {
-        // Handler success image
+        // Handler Success Select Image
         imagePickerController.handlerImagePickerControllerCompletion = { image in
             let uploadedImage = Toucan(image: image)
                                 .resize(avatarButton.frame.size, fitMode: Toucan.Resize.FitMode.crop)
@@ -198,8 +196,12 @@ class PersonalPageShowViewController: BaseViewController {
                 avatarButton.setImage(uploadedImage, for: .normal)
             }, completion: { success in
                 if (self.isNetworkAvailable) {
+                    // Upload Image API
+                    self.spinnerDidStart(self.blackoutView!)
                     let imageUploadRequestModel = PersonalPageShowModels.UploadImage.RequestModel(image: uploadedImage)
                     self.interactor.userAppImageDidUpload(withRequestModel: imageUploadRequestModel)
+                } else {
+                    self.blackoutView!.didHide()
                 }
             })
         }

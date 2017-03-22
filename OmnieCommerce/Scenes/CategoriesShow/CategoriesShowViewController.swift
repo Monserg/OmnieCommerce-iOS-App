@@ -99,7 +99,7 @@ class CategoriesShowViewController: BaseViewController {
         haveMenuItem = true
         
         // Load Categories list
-        spinnerDidStart()
+        spinnerDidStart(nil)
         let categoriesRequestModel = CategoriesShowModels.Categories.RequestModel()
         interactor.categoriesDidLoad(withRequestModel: categoriesRequestModel)
         
