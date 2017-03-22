@@ -73,14 +73,20 @@ extension MSMPickerViewManager: UIPickerViewDelegate {
     // returns width of column and height of row for each component.
     func pickerView(_ pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
         switch component {
-        case 0, 2:
-            return 25.0
+        case 0:
+            return 20.0
+            
+        case 1:
+            return 15
+            
+        case 2:
+            return 20.0
             
         case 4:
-            return 45.0
+            return 35.0
             
         default:
-            return 10.0
+            return 15.0
         }
     }
     
