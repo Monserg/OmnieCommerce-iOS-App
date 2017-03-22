@@ -57,6 +57,7 @@ class PersonalDataViewController: BaseViewController, EmailErrorMessageView, Pho
     @IBOutlet weak var avatarButton: CustomButton! {
         didSet {
             guard CoreDataManager.instance.appUser.imagePath != nil else {
+                avatarButton.setImage(UIImage.init(named: "image-no-user"), for: .normal)
                 return
             }
             

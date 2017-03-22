@@ -39,7 +39,7 @@ public class AppUser: NSManagedObject, InitCellParameters {
         self.phone          =   dictionary["userPhone"] as? String
         self.email          =   dictionary["userEmail"] as? String
         
-        guard (dictionary["userEmail"] as? String) != nil else {
+        guard (dictionary["userEmail"] as? String) != nil && (dictionary["image"] as? String) != nil else {
             return
         }
         

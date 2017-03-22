@@ -126,8 +126,9 @@ class PersonalPageShowViewController: BaseViewController {
                         self.handlerResult(fromImagePicker: imagePickerController, forAvatarButton: avatarButton)
                         
                     case .PhotoDelete:
-
-                        self.blackoutView!.didHide()
+                        self.spinnerDidStart(self.blackoutView!)
+                        let deleteImageRequestModel = PersonalPageShowModels.LoadData.RequestModel()
+                        self.interactor.userAppImageDidDelete(withRequestModel: deleteImageRequestModel)
                     }
             }
             
@@ -314,6 +315,9 @@ extension PersonalPageShowViewController: PersonalPageShowViewControllerInput {
         }
         
         CoreDataManager.instance.didSaveContext()
+        ImageCache.default.clearDiskCache()
+        ImageCache.default.clearMemoryCache()
+        self.personalDataVC!.avatarButton.setImage(UIImage.init(named: "image-no-user")!, for: .normal)
         self.blackoutView!.didHide()
     }
     

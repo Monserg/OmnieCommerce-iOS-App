@@ -37,8 +37,6 @@ class PersonalPageShowInteractor: PersonalPageShowInteractorInput {
     
     // MARK: - Custom Functions. Business logic
     func userAppDataDidLoad(withRequestModel requestModel: PersonalPageShowModels.LoadData.RequestModel) {
-        UIApplication.shared.isNetworkActivityIndicatorVisible = true
-        
         MSMRestApiManager.instance.userGetProfileData { responseAPI in
             // Pass the result to the Presenter
             let loadResponseModel = PersonalPageShowModels.LoadData.ResponseModel(response: responseAPI)
@@ -56,8 +54,6 @@ class PersonalPageShowInteractor: PersonalPageShowInteractorInput {
     }
     
     func userAppImageDidUpload(withRequestModel requestModel: PersonalPageShowModels.UploadImage.RequestModel) {
-        UIApplication.shared.isNetworkActivityIndicatorVisible = true
-        
         MSMRestApiManager.instance.userUploadImage(requestModel.image) { responseAPI in
             // Pass the result to the Presenter
             let imageUploadResponseModel = PersonalPageShowModels.UploadImage.ResponseModel(response: responseAPI)
@@ -66,8 +62,6 @@ class PersonalPageShowInteractor: PersonalPageShowInteractorInput {
     }
 
     func userAppImageDidDelete(withRequestModel requestModel: PersonalPageShowModels.LoadData.RequestModel) {
-        UIApplication.shared.isNetworkActivityIndicatorVisible = true
-        
         MSMRestApiManager.instance.userDeleteImage(withHandlerResponseAPICompletion: { responseAPI in
             // Pass the result to the Presenter
             let imageDeleteResponseModel = PersonalPageShowModels.LoadData.ResponseModel(response: responseAPI)
