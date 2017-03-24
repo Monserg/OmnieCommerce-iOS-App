@@ -238,7 +238,7 @@ class PersonalDataViewController: BaseViewController, EmailErrorMessageView, Pho
     @IBAction func handlerSaveButtonTap(_ sender: FillVeryLightOrangeButton) {
         profileParameters =         [
                                         "birthDay": pickerViewManager.selectedDateDidShow(),
-                                        "sex": radioButtonsCollection[0].isSelected ? 1 : 0,
+                                        "sex": radioButtonsCollection[0].isSelected ? 0 : 1,
                                         "familyStatus": CoreDataManager.instance.appUser!.familyStatus,
                                         "hasChildren": CoreDataManager.instance.appUser!.hasChildren,
                                         "hasPet": CoreDataManager.instance.appUser!.hasPet

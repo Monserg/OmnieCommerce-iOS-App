@@ -71,7 +71,7 @@ final class MSMRestApiManager {
         let authParameters = [ "userName": userName, "email": email, "password": password ]
         appApiString = "/registration/"
         
-        createItem(withURL: appURL, andParameters: authParameters, andEncoding: JSONEncoding.default, andHeaders: headers, withHandlerDataResponseCompletion: { dataResponse in
+        Alamofire.request(appURL, method: .post, parameters: authParameters, encoding: JSONEncoding.default, headers: headers).responseJSON { dataResponse -> Void in
             if (dataResponse.result.value != nil) {
                 let json = JSON(dataResponse.result.value!)
                 let responseAPI = ResponseAPI.init(fromJSON: json, withBodyType: .Default)
@@ -82,7 +82,7 @@ final class MSMRestApiManager {
                 handlerResponseAPICompletion(nil)
                 return
             }
-        })
+        }
     }
     
     func userForgotPassword(_ email: String, withHandlerResponseAPICompletion handlerResponseAPICompletion: @escaping (ResponseAPI?) -> Void) {
@@ -305,26 +305,27 @@ final class MSMRestApiManager {
             }
         }
     }
-
     
-    
-    
-    // MARK: - Custom REST Functions
-//    func get(url: String, headers: [String: String]?, callback: @escaping (ECallbackResultType) -> Void) {}
-//    
-//    func update(url: String, parameters: [String: Any]?, headers: [String: String]?, callback: @escaping (ECallbackResultType) -> Void) {}
-//    
-//    func create(url: String, parameters: [String: Any]?, headers: [String: String]?, callback: @escaping (Bool) -> Void) {}
-//    
-//    func delete(url: String, parameters: [String: Any]?, headers: [String: String]?, callback: @escaping (ECallbackResultType) -> Void) {}
-
-    
-    
-    
-    private func createItem(withURL url: URLConvertible, andParameters parameters: [String: String]?, andEncoding encoding: ParameterEncoding, andHeaders headers: HTTPHeaders?, withHandlerDataResponseCompletion handlerDataResponseCompletion: @escaping (DataResponse<Any>) -> Void) {
-        Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { dataResponse -> Void in
-            handlerDataResponseCompletion(dataResponse)
+    func userGetOrganizationsListByCategory(_ parameters: [String: Any], withHandlerResponseAPICompletion handlerResponseAPICompletion: @escaping (ResponseAPI?) -> Void) {
+        guard CoreDataManager.instance.appUser.accessToken != nil else {
+            handlerResponseAPICompletion(ResponseAPI.init(withErrorMessage: .UserDataDictionary))
             return
+        }
+        
+        headers["Authorization"] = CoreDataManager.instance.appUser.accessToken!
+        appApiString = "/user/organization/"
+        
+        Alamofire.request(appURL, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { dataResponse -> Void in
+            if (dataResponse.result.value != nil && dataResponse.response!.statusCode == 200) {
+                let json = JSON(dataResponse.result.value!)
+                let responseAPI = ResponseAPI.init(fromJSON: json, withBodyType: .UserDataDictionary)
+                
+                handlerResponseAPICompletion(responseAPI)
+                return
+            } else {
+                handlerResponseAPICompletion(nil)
+                return
+            }
         }
     }
 }
