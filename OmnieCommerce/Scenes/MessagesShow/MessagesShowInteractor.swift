@@ -29,11 +29,11 @@ class MessagesShowInteractor: MessagesShowInteractorInput {
     
     // MARK: - Custom Functions. Business logic
     func messagesDidLoad(withRequestModel requestModel: MessagesShowModels.Messages.RequestModel) {
-        worker      =   MessagesShowWorker()
-        let items   =   worker.messagesDidLoad()
+        worker = MessagesShowWorker()
+        let items = worker.messagesDidLoad()
         
         // NOTE: Pass the result to the Presenter
-        let responseModel   =   MessagesShowModels.Messages.ResponseModel(items: items)
+        let responseModel = MessagesShowModels.Messages.ResponseModel(items: items)
         presenter.messagesDidPrepareToShow(fromResponseModel: responseModel)
     }
 }

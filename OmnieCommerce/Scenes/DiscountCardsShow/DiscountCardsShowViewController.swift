@@ -55,7 +55,7 @@ class DiscountCardsShowViewController: BaseViewController {
         haveMenuItem            =   true
         
         // Load data
-        let requestModel        =   DiscountCardsShow.Something.Request()
+        let requestModel = DiscountCardsShow.Something.Request()
         output.doSomething(request: requestModel)
     }
     

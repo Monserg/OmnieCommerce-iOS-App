@@ -12,7 +12,8 @@ import SwiftyJSON
 enum BodyType {
     case Default
     case ServicesArray
-    case UserDictionary
+    case UserDataDictionary
+    case UserAdditionalDataDictionary
     case CategoriesArray
     case OrganizationsArray
     case OrganizationDictionary
@@ -29,7 +30,7 @@ class ResponseAPI {
     // MARK: - Class Initialization
     init(withErrorMessage type: BodyType) {
         switch type {
-        case .UserDictionary:
+        case .UserDataDictionary:
             self.errorMessage = "4401 - Bad Authorization".localized()
             
         default:
@@ -42,10 +43,14 @@ class ResponseAPI {
         self.status = json["status"].stringValue
         
         switch type {
-        case .UserDictionary:
+        case .UserDataDictionary:
             self.body = json["body"].dictionaryObject!
-            CoreDataManager.instance.appUser.didMap(fromDictionary: self.body as! [String: Any])
+            CoreDataManager.instance.appUser.dataDidMap(fromDictionary: self.body as! [String: Any])
         
+        case .UserAdditionalDataDictionary:
+            self.body = json["body"].dictionaryObject!
+            CoreDataManager.instance.appUser.additionalDataDidMap(fromDictionary: self.body as! [String: Any])
+            
         case .CategoriesArray:
             let responseCategories = json["body"].arrayObject!
             var categories = [Category]()

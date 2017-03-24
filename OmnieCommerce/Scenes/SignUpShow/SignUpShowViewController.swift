@@ -31,7 +31,7 @@ class SignUpShowViewController: BaseViewController, EmailErrorMessageView, Passw
             // Delegates
             for textField in textFieldsCollection {
                 textField.delegate = textFieldManager
-            }
+            }            
         }
     }
     
@@ -40,7 +40,6 @@ class SignUpShowViewController: BaseViewController, EmailErrorMessageView, Passw
     var passwordStrengthLevel: PasswordStrengthLevel = .None
 
     @IBOutlet weak var scrollView: UIScrollView!
-
     @IBOutlet var textFieldsCollection: [CustomTextField]!
 
     @IBOutlet var dottedBorderViewsCollection: [DottedBorderView]! {
@@ -50,7 +49,12 @@ class SignUpShowViewController: BaseViewController, EmailErrorMessageView, Passw
     }
 
     // Protocol EmailErrorMessageView
-    @IBOutlet weak var emailErrorMessageView: ErrorMessageView!
+    @IBOutlet weak var emailErrorMessageView: ErrorMessageView! {
+        didSet {
+            emailErrorMessageView.handlerHiddenCompletion = { isHidden in }
+        }
+    }
+    
     @IBOutlet weak var emailErrorMessageViewTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var emailErrorMessageViewHeightConstraint: NSLayoutConstraint!
 
@@ -84,17 +88,17 @@ class SignUpShowViewController: BaseViewController, EmailErrorMessageView, Passw
     // MARK: - Custom Functions
     func viewSettingsDidLoad() {
         // Apply keyboard handler
-        scrollViewBase              =   scrollView
+        scrollViewBase = scrollView
         
         didAddTapGestureRecognizer()
 
         // Create MSMTextFieldManager
-        textFieldManager            =   MSMTextFieldManager(withTextFields: textFieldsCollection)
-        textFieldManager.currentVC  =   self
+        textFieldManager = MSMTextFieldManager(withTextFields: textFieldsCollection)
+        textFieldManager.currentVC = self
 
         // Hide email error message view
         emailErrorMessageViewHeightConstraint.constant = Config.Constants.errorMessageViewHeight
-        didHide(emailErrorMessageView, withConstraint: emailErrorMessageViewTopConstraint)
+        emailErrorMessageView.didShow(false, withConstraint: emailErrorMessageViewTopConstraint)
         didHide(passwordStrengthErrorMessageView, withConstraint: passwordStrengthErrorMessageViewTopConstraint)
         passwordStrengthView.passwordStrengthLevel = .None
     }
@@ -104,10 +108,10 @@ class SignUpShowViewController: BaseViewController, EmailErrorMessageView, Passw
     @IBAction func handlerRegisterButtonTap(_ sender: CustomButton) {
         if (textFieldManager.checkTextFieldCollection()) {
             guard isNetworkAvailable else {
-                alertViewDidShow(withTitle: "Not Reachable", andMessage: "Disconnected from Network", completion: { _ in })
-                
                 return
             }
+            
+            spinnerDidStart(view)
             
             let requestModel = SignUpShowModels.User.RequestModel(name: textFieldsCollection.first!.text!, email: textFieldsCollection[1].text!, password: textFieldsCollection.last!.text!)
             interactor.userAppDidRegister(fromRequestModel: requestModel)
@@ -116,8 +120,6 @@ class SignUpShowViewController: BaseViewController, EmailErrorMessageView, Passw
     
     @IBAction func handlerCancelButtonTap(_ sender: CustomButton) {
         guard isNetworkAvailable else {
-            alertViewDidShow(withTitle: "Not Reachable", andMessage: "Disconnected from Network", completion: { _ in })
-            
             return
         }
         
@@ -129,22 +131,25 @@ class SignUpShowViewController: BaseViewController, EmailErrorMessageView, Passw
 // MARK: - SignUpShowViewControllerInput
 extension SignUpShowViewController: SignUpShowViewControllerInput {
     func userAppDidShowRegister(fromViewModel viewModel: SignUpShowModels.User.ViewModel) {
+        spinnerDidFinish()
+        
         guard viewModel.responseAPI != nil && viewModel.responseAPI?.code == 200 else {
             alertViewDidShow(withTitle: "Error", andMessage: "User is already exist", completion: { _ in })
-            
             return
         }
         
-        // Save UserApp
-        CoreDataManager.instance.didUpdateAppUser(state: true)
-        CoreDataManager.instance.appUser.appName = textFieldsCollection.first?.text!
-        CoreDataManager.instance.appUser.email = textFieldsCollection[1].text!
-        CoreDataManager.instance.appUser.password = textFieldsCollection.last?.text!
-        CoreDataManager.instance.didSaveContext()
-        
-        handlerRegisterButtonCompletion!()
-        
-        // Clear all text fields
-        _ = textFieldsCollection.map{ $0.text = nil }
+        alertViewDidShow(withTitle: "Info", andMessage: "User register successful", completion: { _ in
+            // Save UserApp
+            CoreDataManager.instance.didUpdateAppUser(state: true)
+            CoreDataManager.instance.appUser.appName = self.textFieldsCollection.first?.text!
+            CoreDataManager.instance.appUser.email = self.textFieldsCollection[1].text!
+            CoreDataManager.instance.appUser.password = self.textFieldsCollection.last?.text!
+            CoreDataManager.instance.didSaveContext()
+            
+            self.handlerRegisterButtonCompletion!()
+            
+            // Clear all text fields
+            _ = self.textFieldsCollection.map{ $0.text = nil }
+        })
     }
 }

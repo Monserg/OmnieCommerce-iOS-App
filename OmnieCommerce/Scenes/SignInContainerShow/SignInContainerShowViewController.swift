@@ -32,6 +32,12 @@ class SignInContainerShowViewController: BaseViewController, PasswordErrorMessag
             for textField in textFieldsCollection {
                 textField.delegate = textFieldManager
             }
+            
+            // Handlers completion
+            textFieldManager.handlerCleanReturnCompletion = { needShow in
+                (needShow as! Bool) ?   self.didShow(self.passwordErrorMessageView, withConstraint: self.passwordErrorMessageViewTopConstraint) :
+                                        self.didHide(self.passwordErrorMessageView, withConstraint: self.passwordErrorMessageViewTopConstraint)
+            }
         }
     }
     
@@ -82,7 +88,6 @@ class SignInContainerShowViewController: BaseViewController, PasswordErrorMessag
         // Create MSMTextFieldManager
         textFieldManager = MSMTextFieldManager(withTextFields: textFieldsCollection)
         textFieldManager.currentVC = self
-        textFieldManager.handlerPassDataCompletion = { textField in }
         
         // Hide email error message view
         passwordErrorMessageViewHeightConstraint.constant = Config.Constants.errorMessageViewHeight
@@ -97,8 +102,6 @@ class SignInContainerShowViewController: BaseViewController, PasswordErrorMessag
     // MARK: - Actions
     @IBAction func handlerRegisterButtonTap(_ sender: CustomButton) {
         guard isNetworkAvailable else {
-            alertViewDidShow(withTitle: "Not Reachable", andMessage: "Disconnected from Network", completion: { _ in })
-            
             return
         }
                 
@@ -107,8 +110,6 @@ class SignInContainerShowViewController: BaseViewController, PasswordErrorMessag
     
     @IBAction func handlerForgotPasswordButtonTap(_ sender: CustomButton) {
         guard isNetworkAvailable else {
-            alertViewDidShow(withTitle: "Not Reachable", andMessage: "Disconnected from Network", completion: { _ in })
-            
             return
         }
 
@@ -124,11 +125,11 @@ class SignInContainerShowViewController: BaseViewController, PasswordErrorMessag
         }
         
         guard isNetworkAvailable else {
-            alertViewDidShow(withTitle: "Not Reachable", andMessage: "Disconnected from Network", completion: { _ in })
-            
             return
         }
 
+        spinnerDidStart(view)
+        
         let requestModel = SignInContainerShowModels.User.RequestModel(name: name, password: password)
         interactor.userAppDidSignIn(withRequestModel: requestModel)
     }
@@ -138,7 +139,7 @@ class SignInContainerShowViewController: BaseViewController, PasswordErrorMessag
 // MARK: - SignInContainerShowViewControllerInput
 extension SignInContainerShowViewController: SignInContainerShowViewControllerInput {
     func userAppDidShow(fromViewModel viewModel: SignInContainerShowModels.User.ViewModel) {
-        UIApplication.shared.isNetworkActivityIndicatorVisible = false
+        spinnerDidFinish()
 
         guard viewModel.responseAPI != nil && viewModel.responseAPI?.code != 4401 && viewModel.responseAPI?.code != 4500 else {
             alertViewDidShow(withTitle: "Error",
@@ -149,6 +150,7 @@ extension SignInContainerShowViewController: SignInContainerShowViewControllerIn
         
         // Mofidy AppUser properties
         CoreDataManager.instance.didUpdateAppUser(state: true)
+        CoreDataManager.instance.appUser.codeID = "\(viewModel.responseAPI?.code)"
         CoreDataManager.instance.appUser.appName = textFieldsCollection.first?.text!
         CoreDataManager.instance.appUser.password = textFieldsCollection.last?.text!
         CoreDataManager.instance.appUser.accessToken = UserDefaults.standard.value(forKey: keyAccessToken) as? String

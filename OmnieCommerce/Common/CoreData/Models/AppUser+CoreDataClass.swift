@@ -28,7 +28,7 @@ public class AppUser: NSManagedObject, InitCellParameters {
     
     
     // MARK: - Custom Functions
-    func didMap(fromDictionary dictionary: [String: Any]) {
+    func dataDidMap(fromDictionary dictionary: [String: Any]) {
         self.firstName      =   dictionary["firstName"] as? String          // Ivan
         self.surName        =   dictionary["surName"] as? String            // Ivanov
         self.gender         =   dictionary["sex"] as! Int16
@@ -44,5 +44,10 @@ public class AppUser: NSManagedObject, InitCellParameters {
         }
         
         self.imagePath      =   "http://\(dictionary["image"] as! String)"
+        self.additionalData =   NSKeyedArchiver.archivedData(withRootObject: dictionary["additionalData"] as! [String: String]) as NSData?
+    }
+    
+    func additionalDataDidMap(fromDictionary dictionary: [String: Any]) {
+        self.additionalData =   NSKeyedArchiver.archivedData(withRootObject: dictionary) as NSData?
     }
 }

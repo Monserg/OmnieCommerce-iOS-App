@@ -97,10 +97,10 @@ class EnterCodeShowViewController: BaseViewController, CodeErrorMessageView {
         }
         
         guard isNetworkAvailable else {
-            alertViewDidShow(withTitle: "Not Reachable", andMessage: "Disconnected from Network", completion: { _ in })
-            
             return
         }
+        
+        spinnerDidStart(view)
         
         let enterCodeRequestModel = EnterCodeShowModels.EnterCode.RequestModel(code:  Int(textFieldsCollection.first!.text!)!,
                                                                                email: UserDefaults.standard.value(forKey: keyEmail) as! String)
@@ -109,8 +109,6 @@ class EnterCodeShowViewController: BaseViewController, CodeErrorMessageView {
     
     @IBAction func handlerCancelButtonTap(_ sender: CustomButton) {
         guard isNetworkAvailable else {
-            alertViewDidShow(withTitle: "Not Reachable", andMessage: "Disconnected from Network", completion: { _ in })
-            
             return
         }
 
@@ -119,10 +117,10 @@ class EnterCodeShowViewController: BaseViewController, CodeErrorMessageView {
     
     @IBAction func handlerSendAgainButtonTap(_ sender: CustomButton) {
         guard isNetworkAvailable else {
-            alertViewDidShow(withTitle: "Not Reachable", andMessage: "Disconnected from Network", completion: { _ in })
-            
             return
         }
+        
+        spinnerDidStart(view)
         
         let repeatRequestModel = EnterCodeShowModels.Code.RequestModel(email: UserDefaults.standard.value(forKey: keyEmail) as! String)
         interactor.codeDidLoad(withRequestModel: repeatRequestModel)
@@ -133,10 +131,9 @@ class EnterCodeShowViewController: BaseViewController, CodeErrorMessageView {
 // MARK: - EnterCodeShowViewControllerInput
 extension EnterCodeShowViewController: EnterCodeShowViewControllerInput {
     func codeDidShowLoad(fromViewModel viewModel: EnterCodeShowModels.Code.ViewModel) {
-        UIApplication.shared.isNetworkActivityIndicatorVisible = false
+        spinnerDidFinish()
         
         guard isNetworkAvailable else {
-            alertViewDidShow(withTitle: "Not Reachable", andMessage: "Disconnected from Network", completion: { _ in })
             return
         }
         
@@ -148,10 +145,9 @@ extension EnterCodeShowViewController: EnterCodeShowViewControllerInput {
     }
 
     func enteredCodeDidShowCheck(fromViewModel viewModel: EnterCodeShowModels.EnterCode.ViewModel) {
-        UIApplication.shared.isNetworkActivityIndicatorVisible = false
-
+        spinnerDidFinish()
+        
         guard isNetworkAvailable else {
-            alertViewDidShow(withTitle: "Not Reachable", andMessage: "Disconnected from Network", completion: { _ in })
             return
         }
         

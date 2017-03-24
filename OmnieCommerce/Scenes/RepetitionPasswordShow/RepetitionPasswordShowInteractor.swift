@@ -29,8 +29,6 @@ class RepetitionPasswordShowInteractor: RepetitionPasswordShowInteractorInput {
     
     // MARK: - Custom Functions. Business logic
     func newPasswordDidChange(withRequestModel requestModel: RepetitionPasswordShowModels.Password.RequestModel) {
-        UIApplication.shared.isNetworkActivityIndicatorVisible = true
-        
         MSMRestApiManager.instance.userChangePasswordFromLogin(requestModel.email, withNewPassword: requestModel.newPassword, withResetToken: requestModel.resetToken) { responseAPI in
             let responseModel = RepetitionPasswordShowModels.Password.ResponseModel(response: responseAPI)
             self.presenter.newPasswordDidPrepareToShowChange(fromResponseModel: responseModel)

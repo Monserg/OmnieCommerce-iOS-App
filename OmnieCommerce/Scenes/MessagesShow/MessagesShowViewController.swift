@@ -32,9 +32,9 @@ class MessagesShowViewController: BaseViewController {
 
     @IBOutlet weak var tableView: MSMTableView! {
         didSet {
-            smallTopBarView.searchBar.placeholder   =   "Enter Organization name".localized()
-            tableView.contentInset                  =   UIEdgeInsetsMake((UIApplication.shared.statusBarOrientation.isPortrait) ? 5 : 45, 0, 0, 0)
-            tableView.scrollIndicatorInsets         =   UIEdgeInsetsMake((UIApplication.shared.statusBarOrientation.isPortrait) ? 5 : 45, 0, 0, 0)
+            smallTopBarView.searchBar.placeholder = "Enter Organization name".localized()
+            tableView.contentInset = UIEdgeInsetsMake((UIApplication.shared.statusBarOrientation.isPortrait) ? 5 : 45, 0, 0, 0)
+            tableView.scrollIndicatorInsets = UIEdgeInsetsMake((UIApplication.shared.statusBarOrientation.isPortrait) ? 5 : 45, 0, 0, 0)
         }
     }
 
@@ -65,7 +65,7 @@ class MessagesShowViewController: BaseViewController {
         haveMenuItem            =   true
         
         // Load data
-        let requestModel        =   MessagesShowModels.Messages.RequestModel()
+        let requestModel = MessagesShowModels.Messages.RequestModel()
         interactor.messagesDidLoad(withRequestModel: requestModel)
     }
     
@@ -74,8 +74,8 @@ class MessagesShowViewController: BaseViewController {
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         smallTopBarView.setNeedsDisplay()
         smallTopBarView.circleView.setNeedsDisplay()
-        tableView.contentInset                  =   UIEdgeInsetsMake((size.height > size.width) ? 5 : 65, 0, 0, 0)
-        tableView.scrollIndicatorInsets         =   UIEdgeInsetsMake((size.height > size.width) ? 5 : 65, 0, 0, 0)
+        tableView.contentInset = UIEdgeInsetsMake((size.height > size.width) ? 5 : 65, 0, 0, 0)
+        tableView.scrollIndicatorInsets = UIEdgeInsetsMake((size.height > size.width) ? 5 : 65, 0, 0, 0)
 
         _ = tableView.visibleCells.map{ ($0 as! MessageTableViewCell).dottedBorderView.setNeedsDisplay() }
     }
@@ -86,8 +86,8 @@ class MessagesShowViewController: BaseViewController {
 extension MessagesShowViewController: MessagesShowViewControllerInput {
     func messagesDidShow(fromViewModel viewModel: MessagesShowModels.Messages.ViewModel) {
         guard viewModel.messages != nil else {
-            self.dataSourceEmptyView.isHidden   =   false
-            self.tableView.isScrollEnabled      =   false
+            self.dataSourceEmptyView.isHidden = false
+            self.tableView.isScrollEnabled = false
 
             return
         }
@@ -103,11 +103,11 @@ extension MessagesShowViewController: MessagesShowViewControllerInput {
         self.tableView.reloadData()
         
         // Search Manager
-        smallTopBarView.searchBar.placeholder                   =   "Enter Organization name".localized()
-        smallTopBarView.searchBar.delegate                      =   tableView.tableViewControllerManager
+        smallTopBarView.searchBar.placeholder = "Enter Organization name".localized()
+        smallTopBarView.searchBar.delegate = tableView.tableViewControllerManager
         
         // Handler select cell
-        tableView.tableViewControllerManager!.handlerSearchCompletion           =   { message in
+        tableView.tableViewControllerManager!.handlerSearchCompletion = { message in
             // TODO: ADD TRANSITION TO CHAT SCENE
             self.print(object: "transition to Chat scene")
             
@@ -115,13 +115,13 @@ extension MessagesShowViewController: MessagesShowViewControllerInput {
         }
         
         // Handler Search keyboard button tap
-        tableView.tableViewControllerManager!.handlerSendButtonCompletion       =   { _ in
+        tableView.tableViewControllerManager!.handlerSendButtonCompletion = { _ in
             // TODO: - ADD SEARCH API
             self.smallTopBarView.searchBarDidHide()
         }
         
         // Handler Search Bar Cancel button tap
-        tableView.tableViewControllerManager!.handlerCancelButtonCompletion     =   { _ in
+        tableView.tableViewControllerManager!.handlerCancelButtonCompletion = { _ in
             self.smallTopBarView.searchBarDidHide()
         }
         

@@ -14,7 +14,7 @@ class MSMTextFieldManager: NSObject {
     var currentVC: BaseViewController!
     
     var handlerTextFieldCompletion: HandlerTextFieldCompletion?
-    var handlerPassDataCompletion: HandlerPassDataCompletion?
+    var handlerCleanReturnCompletion: HandlerPassDataCompletion?
     var handlerTextFieldShowErrorViewCompletion: HandlerTextFieldShowErrorViewCompletion?
     
     // MARK: - Class Initialization
@@ -139,7 +139,7 @@ extension MSMTextFieldManager: UITextFieldDelegate {
             if !((textField as! CustomTextField).checkPasswordValidation(textField.text!)) {
                 (currentVC as! PasswordErrorMessageView).didShow((currentVC as! PasswordErrorMessageView).passwordErrorMessageView, withConstraint: (currentVC as! PasswordErrorMessageView).passwordErrorMessageViewTopConstraint)
             } else if (textField.tag == 99) {
-                handlerPassDataCompletion!(textField)
+                handlerCleanReturnCompletion!(false)
             }
             
         case .PasswordStrength:
@@ -280,7 +280,7 @@ extension MSMTextFieldManager: UITextFieldDelegate {
                 
                 return true
             } else if (textField.tag == 99) {
-                handlerPassDataCompletion!(textField)
+                handlerCleanReturnCompletion!(true)
                 return false
             } else {
                 (currentVC as! PasswordErrorMessageView).didShow((currentVC as! PasswordErrorMessageView).passwordErrorMessageView, withConstraint: (currentVC as! PasswordErrorMessageView).passwordErrorMessageViewTopConstraint)

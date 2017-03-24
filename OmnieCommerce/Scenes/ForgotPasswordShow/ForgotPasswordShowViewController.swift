@@ -97,6 +97,8 @@ class ForgotPasswordShowViewController: BaseViewController, EmailErrorMessageVie
 
             let data: (phone: String?, email: String?) = (textFieldsCollection.first!.isPhone!) ? (phone: textFieldsCollection.first!.text!, email: nil) : (phone: nil, email: textFieldsCollection.first!.text!)
             
+            spinnerDidStart(view)
+            
             let forgotPasswordRequestModel = ForgotPasswordShowModels.Code.RequestModel(data: data)
             interactor.codeDidLoad(fromRequestModel: forgotPasswordRequestModel)
         } else {
@@ -117,7 +119,7 @@ class ForgotPasswordShowViewController: BaseViewController, EmailErrorMessageVie
 // MARK: - ForgotPasswordShowViewControllerInput
 extension ForgotPasswordShowViewController: ForgotPasswordShowViewControllerInput {
     func codeDidShow(fromViewModel viewModel: ForgotPasswordShowModels.Code.ViewModel) {
-        UIApplication.shared.isNetworkActivityIndicatorVisible = false
+        spinnerDidFinish()
 
         guard isNetworkAvailable else {
             return

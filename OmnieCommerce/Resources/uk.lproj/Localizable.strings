@@ -132,7 +132,7 @@
 
 // Info/Errors Messages
 "Google services error"         =   "Помилка налаштування служб Google:";
-"Password min lenght error"     =   "* Довжина паролю повинна бути не менше 6 символів";
+"Password min lenght error"     =   "* Довжина паролю повинна бути більше 6 символів";
 "CoreData saved error"          =   "Помилка при створенні або завантаженні локальних даних";
 "CoreData init error"           =   "Не вдалося прочитати локальні дані";
 "Reachable"                     =   "Підключення";
@@ -151,6 +151,7 @@
 "Incorrect User name"           =   "Введіть чинне ім'я користувача";
 "Incorrect User password"       =   "Введіть чинний пароль користувача";
 "User not register"             =   "Користувач не зареєстрований";
+"User register successful"      =   "Користувач зареєстрований.\nБудь ласка, перевірте email";
 "Authentication failure"        =   "Помилка перевірки автентичності";
 "Wrong input data"              =   "Неправильні вхідні дані";
 "User is already exist"         =   "Користувач вже існує";

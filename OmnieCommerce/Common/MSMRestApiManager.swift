@@ -48,7 +48,7 @@ final class MSMRestApiManager {
         let authParameters = [ "userName": userName, "password": password ]
         appApiString = "/auth/"
         
-        createItem(withURL: self.appURL, andParameters: authParameters, andEncoding: JSONEncoding.default, andHeaders: self.headers, withHandlerDataResponseCompletion: { dataResponse in
+        Alamofire.request(appURL, method: .post, parameters: authParameters, encoding: JSONEncoding.default, headers: headers).responseJSON { dataResponse -> Void in
             if (dataResponse.result.value != nil) {
                 let json = JSON(dataResponse.result.value!)
                 let responseAPI = ResponseAPI.init(fromJSON: json, withBodyType: .Default)
@@ -64,7 +64,7 @@ final class MSMRestApiManager {
                 handlerResponseAPICompletion(nil)
                 return
             }
-        })
+        }
     }
     
     func userRegistration(_ userName: String, andEmail email: String, andPassword password: String, withHandlerResponseAPICompletion handlerResponseAPICompletion: @escaping (ResponseAPI?) -> Void) {
@@ -188,7 +188,7 @@ final class MSMRestApiManager {
     
     func userGetProfileData(_ handlerResponseAPICompletion: @escaping (ResponseAPI?) -> Void) {
         guard CoreDataManager.instance.appUser.accessToken != nil else {
-            handlerResponseAPICompletion(ResponseAPI.init(withErrorMessage: .UserDictionary))
+            handlerResponseAPICompletion(ResponseAPI.init(withErrorMessage: .UserDataDictionary))
             return
         }
         
@@ -198,7 +198,7 @@ final class MSMRestApiManager {
         Alamofire.request(appURL, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers).responseJSON { dataResponse -> Void in
             if (dataResponse.result.value != nil) {
                 let json = JSON(dataResponse.result.value!)
-                let responseAPI = ResponseAPI.init(fromJSON: json, withBodyType: .UserDictionary)
+                let responseAPI = ResponseAPI.init(fromJSON: json, withBodyType: ((CoreDataManager.instance.appUser.codeID == "200") ? .UserDataDictionary : .UserAdditionalDataDictionary))
                 
                 handlerResponseAPICompletion(responseAPI)
                 return
@@ -211,7 +211,7 @@ final class MSMRestApiManager {
 
     func userUploadProfileData(_ parameters: [String: Any], withHandlerResponseAPICompletion handlerResponseAPICompletion: @escaping (ResponseAPI?) -> Void) {
         guard CoreDataManager.instance.appUser.accessToken != nil else {
-            handlerResponseAPICompletion(ResponseAPI.init(withErrorMessage: .UserDictionary))
+            handlerResponseAPICompletion(ResponseAPI.init(withErrorMessage: .UserDataDictionary))
             return
         }
         
@@ -222,7 +222,7 @@ final class MSMRestApiManager {
         Alamofire.request(appURL, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { dataResponse -> Void in
             if (dataResponse.result.value != nil && dataResponse.response!.statusCode == 200) {
                 let json = JSON(dataResponse.result.value!)
-                let responseAPI = ResponseAPI.init(fromJSON: json, withBodyType: .UserDictionary)
+                let responseAPI = ResponseAPI.init(fromJSON: json, withBodyType: .UserDataDictionary)
                 
                 handlerResponseAPICompletion(responseAPI)
                 return

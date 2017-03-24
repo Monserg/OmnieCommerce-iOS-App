@@ -56,7 +56,7 @@ class AboutShowViewController: BaseViewController {
         haveMenuItem            =   true
 
         // Load data
-        let requestModel        =   AboutShow.Something.Request()
+        let requestModel = AboutShow.Something.Request()
         interactor.doSomething(request: requestModel)
     }
     

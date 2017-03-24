@@ -31,8 +31,6 @@ class EnterCodeShowInteractor: EnterCodeShowInteractorInput {
     
     // MARK: - Custom Functions. Business logic
     func codeDidLoad(withRequestModel requestModel: EnterCodeShowModels.Code.RequestModel) {
-        UIApplication.shared.isNetworkActivityIndicatorVisible = true
-        
         MSMRestApiManager.instance.userForgotPassword(requestModel.email, withHandlerResponseAPICompletion: { responseAPI in
             // Pass the result to the Presenter
             let responseModel = EnterCodeShowModels.Code.ResponseModel(code: (responseAPI != nil) ? responseAPI!.code : nil)
@@ -41,8 +39,6 @@ class EnterCodeShowInteractor: EnterCodeShowInteractorInput {
     }
     
     func enteredCodeDidCheck(withRequestModel requestModel: EnterCodeShowModels.EnterCode.RequestModel) {
-        UIApplication.shared.isNetworkActivityIndicatorVisible = true
-
         MSMRestApiManager.instance.userCheckEmail(requestModel.email, withCode: requestModel.code) { responseAPI in
             // Pass the result to the Presenter
             let responseModel = EnterCodeShowModels.EnterCode.ResponseModel(response: responseAPI)

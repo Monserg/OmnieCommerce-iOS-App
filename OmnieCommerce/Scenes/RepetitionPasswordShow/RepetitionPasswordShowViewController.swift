@@ -100,10 +100,11 @@ class RepetitionPasswordShowViewController: BaseViewController, PasswordStrength
     @IBAction func handlerSendButtonTap(_ sender: CustomButton) {
         if (textFieldsCollection.first?.text == textFieldsCollection.last?.text) {
             guard isNetworkAvailable else {
-                alertViewDidShow(withTitle: "Not Reachable", andMessage: "Disconnected from Network", completion: { _ in })
                 return
             }
          
+            spinnerDidStart(view)
+            
             let requestModel = RepetitionPasswordShowModels.Password.RequestModel(email: UserDefaults.standard.value(forKey: keyEmail) as! String,
                                                                                   newPassword: textFieldsCollection.first!.text!,
                                                                                   resetToken: UserDefaults.standard.value(forKey: keyResetToken) as! String)
@@ -113,8 +114,6 @@ class RepetitionPasswordShowViewController: BaseViewController, PasswordStrength
     
     @IBAction func handlerCancelButtonTap(_ sender: CustomButton) {
         guard isNetworkAvailable else {
-            alertViewDidShow(withTitle: "Not Reachable", andMessage: "Disconnected from Network", completion: { _ in })
-            
             return
         }
         
@@ -126,10 +125,9 @@ class RepetitionPasswordShowViewController: BaseViewController, PasswordStrength
 // MARK: - ForgotPasswordShowViewControllerInput
 extension RepetitionPasswordShowViewController: RepetitionPasswordShowViewControllerInput {
     func newPasswordDidShowChange(fromViewModel viewModel: RepetitionPasswordShowModels.Password.ViewModel) {
-        UIApplication.shared.isNetworkActivityIndicatorVisible = false
+        spinnerDidFinish()
 
         guard isNetworkAvailable else {
-            alertViewDidShow(withTitle: "Not Reachable", andMessage: "Disconnected from Network", completion: { _ in })
             return
         }
         

@@ -132,7 +132,7 @@
 
 // Info/Errors Messages
 "Google services error"         =   "Error configuring Google services:";
-"Password min lenght error"     =   "* Password must be of minimum 6 characters length";
+"Password min lenght error"     =   "* Password must be longer than 6 character length";
 "CoreData saved error"          =   "There was an error creating or loading the application's saved data";
 "CoreData init error"           =   "Failed to initialize the application's saved data";
 "Reachable"                     =   "Reachable";
@@ -151,6 +151,7 @@
 "Incorrect User name"           =   "Enter the correct user name";
 "Incorrect User password"       =   "Enter the correct user password";
 "User not register"             =   "The user is not registered";
+"User register successful"      =   "User registered.\nPlease check email";
 "Authentication failure"        =   "Authentication failed";
 "Wrong input data"              =   "Wrong input data";
 "User is already exist"         =   "User is already exist";

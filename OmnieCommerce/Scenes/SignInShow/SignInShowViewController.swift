@@ -82,13 +82,13 @@ class SignInShowViewController: BaseViewController {
         super.viewDidLoad()
         
         if (CoreDataManager.instance.appUser.isAuthorized) {
-            self.view.isHidden          =   true
+            self.view.isHidden = true
         }
         
         // Set buttons type
-        vkontakteButton.designStyle     =   "Social"
-        googleButton.designStyle        =   "Social"
-        facebookButton.designStyle      =   "Social"
+        vkontakteButton.designStyle = "Social"
+        googleButton.designStyle = "Social"
+        facebookButton.designStyle = "Social"
         
         viewSettingsDidLoad()
     }
@@ -106,16 +106,6 @@ class SignInShowViewController: BaseViewController {
                                                             router.navigateBetweenContainerSubviews()
     }
     
-    func setupScene(withSize size: CGSize) {
-        print(object: "\(type(of: self)): \(#function) run. Screen view size = \(size)")
-
-        bigTopBarView.setNeedsDisplay()
-        bigTopBarView.circleView.setNeedsDisplay()
-        vkontakteButton.setNeedsDisplay()
-        googleButton.setNeedsDisplay()
-        facebookButton.setNeedsDisplay()
-    }
-    
     
     // MARK: - Actions
     @IBAction func handlerSignInButtonTap(_ sender: CustomButton) {
@@ -124,8 +114,6 @@ class SignInShowViewController: BaseViewController {
     
     @IBAction func handlerSocialNetworkButtonTap(_ sender: CustomButton) {
         guard isNetworkAvailable else {
-            alertViewDidShow(withTitle: "Not Reachable", andMessage: "Disconnected from Network", completion: { _ in })
-            
             return
         }
         
@@ -173,9 +161,11 @@ class SignInShowViewController: BaseViewController {
     
     // MARK: - Transition
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        print(object: "\(type(of: self)): \(#function) run. New size = \(size)")
-        
-        setupScene(withSize: size)
+        bigTopBarView.setNeedsDisplay()
+        bigTopBarView.circleView.setNeedsDisplay()
+        vkontakteButton.setNeedsDisplay()
+        googleButton.setNeedsDisplay()
+        facebookButton.setNeedsDisplay()
     }
 }
 
@@ -183,10 +173,9 @@ class SignInShowViewController: BaseViewController {
 // MARK: - SignInShowViewControllerInput
 extension SignInShowViewController: SignInShowViewControllerInput {
     func displaySomething(viewModel: SignInShowModels.User.ViewModel) {
-        UIApplication.shared.isNetworkActivityIndicatorVisible = false
+        spinnerDidFinish()
 
         guard isNetworkAvailable else {
-            alertViewDidShow(withTitle: "Not Reachable", andMessage: "Disconnected from Network", completion: { _ in })
             return
         }
     }

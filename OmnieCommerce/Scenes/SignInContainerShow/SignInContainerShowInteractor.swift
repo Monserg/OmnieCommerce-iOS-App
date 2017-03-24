@@ -29,11 +29,9 @@ class SignInContainerShowInteractor: SignInContainerShowInteractorInput {
     
     // MARK: - Custom Functions. Business logic
     func userAppDidSignIn(withRequestModel requestModel: SignInContainerShowModels.User.RequestModel) {
-        UIApplication.shared.isNetworkActivityIndicatorVisible  =   true
-
         MSMRestApiManager.instance.userAutorization(requestModel.name, andPassword: requestModel.password, withHandlerResponseAPICompletion: { responseAPI in
             // Pass the result to the Presenter
-            let responseModel   =   SignInContainerShowModels.User.ResponseModel(responseAPI: responseAPI)
+            let responseModel = SignInContainerShowModels.User.ResponseModel(responseAPI: responseAPI)
             self.presenter.userAppDidPrepareToShow(fromResponseModel: responseModel)
         })
     }

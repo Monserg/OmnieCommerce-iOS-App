@@ -55,7 +55,7 @@ class BusinessCardsShowViewController: BaseViewController {
         haveMenuItem            =   true
         
         // Load data
-        let requestModel        =   BusinessCardsShow.Something.Request()
+        let requestModel = BusinessCardsShow.Something.Request()
         output.doSomething(request: requestModel)
     }
     

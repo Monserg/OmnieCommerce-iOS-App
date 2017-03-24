@@ -26,7 +26,8 @@ class PersonalDataViewController: BaseViewController, EmailErrorMessageView, Pho
             birthdayPickerView.delegate = self.pickerViewManager
             birthdayPickerView.dataSource = self.pickerViewManager
 
-            let currentDayComponents = Calendar.current.dateComponents(in: TimeZone.current, from: CoreDataManager.instance.appUser!.birthday as! Date)
+            let currentDayComponents = Calendar.current.dateComponents(in: TimeZone.current,
+                                                                       from: (CoreDataManager.instance.appUser.codeID == "200") ? CoreDataManager.instance.appUser!.birthday as! Date : Date())
             self.pickerViewManager.selectedMonthIndex = pickerViewManager.months.index(where: { $0 == String(currentDayComponents.month!) })!
             let currentDaysInMonth = pickerViewManager.days[self.pickerViewManager.selectedMonthIndex]
             self.pickerViewManager.selectedDayIndex = currentDaysInMonth.index(where: { $0 == String(currentDayComponents.day!) })!
@@ -80,7 +81,12 @@ class PersonalDataViewController: BaseViewController, EmailErrorMessageView, Pho
 
     @IBOutlet weak var emailTextField: CustomTextField! {
         didSet {
-            self.emailTextField.text = CoreDataManager.instance.appUser!.email
+            if (CoreDataManager.instance.appUser.codeID == "200") {
+                self.emailTextField.text = CoreDataManager.instance.appUser!.email
+            } else {
+                let dictionary = NSKeyedUnarchiver.unarchiveObject(with: CoreDataManager.instance.appUser!.additionalData! as Data) as! [String : Any]
+                self.emailTextField.text = dictionary["userEmail"] as? String
+            }
         }
     }
     
@@ -98,7 +104,7 @@ class PersonalDataViewController: BaseViewController, EmailErrorMessageView, Pho
             textFieldsCollection[4].clearButtonMode = .never
             
             // Handler Check New & Repeat Passwords Values
-            textFieldManager.handlerPassDataCompletion = { textField in
+            textFieldManager.handlerCleanReturnCompletion = { textField in
                 guard self.textFieldsCollection[5].text == self.textFieldsCollection[6].text else {
                     self.didShow(self.repeatPasswordErrorMessageView, withConstraint: self.repeatPasswordErrorMessageViewTopConstraint)
                     return

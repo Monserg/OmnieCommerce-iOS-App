@@ -2,7 +2,7 @@
 //  AppUser+CoreDataProperties.swift
 //  OmnieCommerce
 //
-//  Created by msm72 on 20.03.17.
+//  Created by msm72 on 24.03.17.
 //  Copyright © 2017 Omniesoft. All rights reserved.
 //
 
@@ -29,7 +29,8 @@ extension AppUser {
     @NSManaged public var imagePath: String?
     @NSManaged public var isAuthorized: Bool
     @NSManaged public var password: String?
-    @NSManaged public var surName: String?
     @NSManaged public var phone: String?
+    @NSManaged public var surName: String?
+    @NSManaged public var additionalData: NSData?
 
 }
