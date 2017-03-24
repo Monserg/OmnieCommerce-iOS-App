@@ -237,15 +237,24 @@ class PersonalDataViewController: BaseViewController, EmailErrorMessageView, Pho
     
     @IBAction func handlerSaveButtonTap(_ sender: FillVeryLightOrangeButton) {
         profileParameters =         [
-                                        "firstName": textFieldsCollection[0].text!,
-                                        "surName": textFieldsCollection[1].text!,
                                         "birthDay": pickerViewManager.selectedDateDidShow(),
                                         "sex": radioButtonsCollection[0].isSelected ? 1 : 0,
                                         "familyStatus": CoreDataManager.instance.appUser!.familyStatus,
                                         "hasChildren": CoreDataManager.instance.appUser!.hasChildren,
-                                        "hasPet": CoreDataManager.instance.appUser!.hasPet,
-                                        "userPhone": textFieldsCollection[3].text!
+                                        "hasPet": CoreDataManager.instance.appUser!.hasPet
                                     ]
+        
+        if (!(textFieldsCollection[0].text?.isEmpty)!) {
+            profileParameters!["firstName"] = textFieldsCollection[0].text!
+        }
+        
+        if (!(textFieldsCollection[1].text?.isEmpty)!) {
+            profileParameters!["surName"] = textFieldsCollection[1].text!
+        }
+        
+        if (!(textFieldsCollection[3].text?.isEmpty)!) {
+            profileParameters!["userPhone"] = textFieldsCollection[3].text!
+        }
         
         parametersForAPI = [ParametersForAPI]()
         parametersForAPI!.append(profileParameters!)
