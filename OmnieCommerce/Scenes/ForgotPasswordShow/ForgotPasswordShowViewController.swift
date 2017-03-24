@@ -79,12 +79,12 @@ class ForgotPasswordShowViewController: BaseViewController, EmailErrorMessageVie
         didAddTapGestureRecognizer()
 
         // Create MSMTextFieldManager
-        textFieldManager            =   MSMTextFieldManager(withTextFields: textFieldsCollection)
-        textFieldManager.currentVC  =   self
+        textFieldManager = MSMTextFieldManager(withTextFields: textFieldsCollection)
+        textFieldManager.currentVC = self
         
         // Hide email error message view
         emailErrorMessageViewHeightConstraint.constant = Config.Constants.errorMessageViewHeight
-        didHide(emailErrorMessageView, withConstraint: emailErrorMessageViewTopConstraint)
+        emailErrorMessageView.didShow(false, withConstraint: emailErrorMessageViewTopConstraint)
     }
     
     
@@ -92,23 +92,20 @@ class ForgotPasswordShowViewController: BaseViewController, EmailErrorMessageVie
     @IBAction func handlerSendButtonTap(_ sender: CustomButton) {
         if (textFieldManager.checkTextFieldCollection()) {
             guard isNetworkAvailable else {
-                alertViewDidShow(withTitle: "Not Reachable".localized(), andMessage: "Disconnected from Network".localized())
-                
                 return
             }
 
             let data: (phone: String?, email: String?) = (textFieldsCollection.first!.isPhone!) ? (phone: textFieldsCollection.first!.text!, email: nil) : (phone: nil, email: textFieldsCollection.first!.text!)
             
-            let requestModel    =   ForgotPasswordShowModels.Code.RequestModel(data: data)
-            interactor.codeDidLoad(fromRequestModel: requestModel)
+            let forgotPasswordRequestModel = ForgotPasswordShowModels.Code.RequestModel(data: data)
+            interactor.codeDidLoad(fromRequestModel: forgotPasswordRequestModel)
         } else {
-            didShow(emailErrorMessageView, withConstraint: emailErrorMessageViewTopConstraint)
+            emailErrorMessageView.didShow(true, withConstraint: emailErrorMessageViewTopConstraint)
         }
     }
     
     @IBAction func handlerCancelButtonTap(_ sender: CustomButton) {
         guard isNetworkAvailable else {
-            alertViewDidShow(withTitle: "Not Reachable".localized(), andMessage: "Disconnected from Network".localized())
             return
         }
 
@@ -123,7 +120,6 @@ extension ForgotPasswordShowViewController: ForgotPasswordShowViewControllerInpu
         UIApplication.shared.isNetworkActivityIndicatorVisible = false
 
         guard isNetworkAvailable else {
-            alertViewDidShow(withTitle: "Not Reachable".localized(), andMessage: "Disconnected from Network".localized())
             return
         }
 
@@ -131,7 +127,7 @@ extension ForgotPasswordShowViewController: ForgotPasswordShowViewControllerInpu
             UserDefaults.standard.set(textFieldsCollection.first!.text!, forKey: keyEmail)
             handlerSendButtonCompletion!()
         } else {
-            alertViewDidShow(withTitle: "Error".localized(), andMessage: "Wrong input data".localized())
+            alertViewDidShow(withTitle: "Error", andMessage: "Wrong input data", completion: { _ in })
         }
     }
 }

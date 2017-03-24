@@ -130,7 +130,7 @@
 "Photo delete"                  =   "Delete a photo";
 
 
-// Errors
+// Info/Errors Messages
 "Google services error"         =   "Error configuring Google services:";
 "Password min lenght error"     =   "* Password must be of minimum 6 characters length";
 "CoreData saved error"          =   "There was an error creating or loading the application's saved data";
@@ -156,6 +156,8 @@
 "User is already exist"         =   "User is already exist";
 "Retry request succeeded"       =   "Retry request succeeded";
 "Categories list is empty"      =   "Categories list is empty";
+"Change Email info message"     =   "Request successfully completed.\nConfirm your decision by checking the entered email";
+"Change Email error message"    =   "Request failed.\nRepeat your attempt later";
 
 
 // Request Errors

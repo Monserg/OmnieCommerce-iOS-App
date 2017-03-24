@@ -24,6 +24,7 @@ import UIKit
     @IBOutlet weak var dottedBorderView: DottedBorderView!
     @IBOutlet weak var phoneTextField: CustomTextField!
     
+    // Protocol EmailErrorMessageView
     @IBOutlet weak var errorMessageView: ErrorMessageView!
     @IBOutlet weak var errorMessageViewTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var errorMessageViewHeightConstraint: NSLayoutConstraint!

@@ -130,7 +130,7 @@
 "Photo delete"                  =   "Удалити фото";
 
 
-// Errors
+// Info/Errors Messages
 "Google services error"         =   "Помилка налаштування служб Google:";
 "Password min lenght error"     =   "* Довжина паролю повинна бути не менше 6 символів";
 "CoreData saved error"          =   "Помилка при створенні або завантаженні локальних даних";
@@ -156,6 +156,8 @@
 "User is already exist"         =   "Користувач вже існує";
 "Retry request succeeded"       =   "Повторний запит успішно виконаний";
 "Categories list is empty"      =   "Список категорій порожній";
+"Change Email info message"     =   "Запит успішно виконаний.\nПодтвердіть своє рішення, перевіривши вказаний email";
+"Change Email error message"    =   "Запит невиконаний.\nПовторіть спробу пізніше";
 
 
 // Request Errors

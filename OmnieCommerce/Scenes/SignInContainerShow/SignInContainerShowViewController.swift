@@ -97,7 +97,7 @@ class SignInContainerShowViewController: BaseViewController, PasswordErrorMessag
     // MARK: - Actions
     @IBAction func handlerRegisterButtonTap(_ sender: CustomButton) {
         guard isNetworkAvailable else {
-            alertViewDidShow(withTitle: "Not Reachable".localized(), andMessage: "Disconnected from Network".localized())
+            alertViewDidShow(withTitle: "Not Reachable", andMessage: "Disconnected from Network", completion: { _ in })
             
             return
         }
@@ -107,7 +107,7 @@ class SignInContainerShowViewController: BaseViewController, PasswordErrorMessag
     
     @IBAction func handlerForgotPasswordButtonTap(_ sender: CustomButton) {
         guard isNetworkAvailable else {
-            alertViewDidShow(withTitle: "Not Reachable".localized(), andMessage: "Disconnected from Network".localized())
+            alertViewDidShow(withTitle: "Not Reachable", andMessage: "Disconnected from Network", completion: { _ in })
             
             return
         }
@@ -118,13 +118,13 @@ class SignInContainerShowViewController: BaseViewController, PasswordErrorMessag
     @IBAction func handlerSignInButtonTap(_ sender: CustomButton) {
         // User authorization
         guard let name = textFieldsCollection.first?.text, let password = textFieldsCollection.last?.text, !(name.isEmpty), !(password.isEmpty) else {
-            alertViewDidShow(withTitle: "Info".localized(), andMessage: "All fields can be...".localized())
+            alertViewDidShow(withTitle: "Info", andMessage: "All fields can be...", completion: { _ in })
             
             return
         }
         
         guard isNetworkAvailable else {
-            alertViewDidShow(withTitle: "Not Reachable".localized(), andMessage: "Disconnected from Network".localized())
+            alertViewDidShow(withTitle: "Not Reachable", andMessage: "Disconnected from Network", completion: { _ in })
             
             return
         }
@@ -141,8 +141,9 @@ extension SignInContainerShowViewController: SignInContainerShowViewControllerIn
         UIApplication.shared.isNetworkActivityIndicatorVisible = false
 
         guard viewModel.responseAPI != nil && viewModel.responseAPI?.code != 4401 && viewModel.responseAPI?.code != 4500 else {
-            alertViewDidShow(withTitle: "Error".localized(),
-                             andMessage: ((viewModel.responseAPI?.code == 4401) ? "Authentication failure" : "Wrong input data").localized())
+            alertViewDidShow(withTitle: "Error",
+                             andMessage: ((viewModel.responseAPI?.code == 4401) ? "Authentication failure" : "Wrong input data"),
+                             completion: { _ in })
             return
         }
         

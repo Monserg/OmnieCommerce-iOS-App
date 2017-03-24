@@ -9,10 +9,12 @@
 import UIKit
 
 extension UIViewController {
-    func alertViewDidShow(withTitle title: String, andMessage message: String) {
-        let alertViewController = UIAlertController.init(title: title, message: message, preferredStyle: .alert)
+    func alertViewDidShow(withTitle title: String, andMessage message: String, completion: @escaping (() -> ())) {
+        let alertViewController = UIAlertController.init(title: title.localized(), message: message.localized(), preferredStyle: .alert)
         
-        let alertViewControllerAction = UIAlertAction.init(title: "Ok".localized(), style: .default, handler: nil)
+        let alertViewControllerAction = UIAlertAction.init(title: "Ok".localized(), style: .default, handler: { action in
+            return completion()
+        })
         
         alertViewController.addAction(alertViewControllerAction)
         present(alertViewController, animated: true, completion: nil)

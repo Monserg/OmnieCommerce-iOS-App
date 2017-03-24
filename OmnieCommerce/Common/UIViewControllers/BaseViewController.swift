@@ -35,7 +35,7 @@ class BaseViewController: UIViewController {
             let result = (status != .reachableViaWWAN && status != .reachableViaWiFi) ? false : true
             
             guard result else {
-                alertViewDidShow(withTitle: "Not Reachable".localized(), andMessage: "Disconnected from Network".localized())
+                alertViewDidShow(withTitle: "Not Reachable", andMessage: "Disconnected from Network", completion: { _ in })
                 return result
             }
             
@@ -251,18 +251,18 @@ extension BaseViewController {
             switch (status) {
             case .reachableViaWWAN, .reachableViaWiFi:
                 // Reachable.
-                reachableOrNot = "Reachable".localized()
-                networkSummary = "Connected to Network".localized()
+                reachableOrNot = "Reachable"
+                networkSummary = "Connected to Network"
             
             default:
                 // Not reachable.
-                reachableOrNot = "Not Reachable".localized()
-                networkSummary = "Disconnected from Network".localized()
+                reachableOrNot = "Not Reachable"
+                networkSummary = "Disconnected from Network"
             }
             
             // Any class which has observer for this notification will be able to report loss of network connection successfully
             if ((self.previousNetworkReachabilityStatus != .unknown && status != self.previousNetworkReachabilityStatus) || status == .notReachable) {
-                self.alertViewDidShow(withTitle: reachableOrNot, andMessage: networkSummary)
+                self.alertViewDidShow(withTitle: reachableOrNot, andMessage: networkSummary, completion: { _ in })
                 
                 if (self.isKind(of: PersonalDataViewController.self)) {
                     self.handlerChangeNetworkConnectionStateCompletion!(self.isNetworkAvailable)
@@ -275,7 +275,7 @@ extension BaseViewController {
     
     func didCheckNetworkConnection() {
         guard isNetworkAvailable else {
-            alertViewDidShow(withTitle: "Not Reachable".localized(), andMessage: "Disconnected from Network".localized())
+            alertViewDidShow(withTitle: "Not Reachable", andMessage: "Disconnected from Network", completion: { _ in })
             
             return
         }

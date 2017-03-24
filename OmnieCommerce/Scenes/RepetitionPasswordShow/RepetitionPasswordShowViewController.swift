@@ -100,7 +100,7 @@ class RepetitionPasswordShowViewController: BaseViewController, PasswordStrength
     @IBAction func handlerSendButtonTap(_ sender: CustomButton) {
         if (textFieldsCollection.first?.text == textFieldsCollection.last?.text) {
             guard isNetworkAvailable else {
-                alertViewDidShow(withTitle: "Not Reachable".localized(), andMessage: "Disconnected from Network".localized())
+                alertViewDidShow(withTitle: "Not Reachable", andMessage: "Disconnected from Network", completion: { _ in })
                 return
             }
          
@@ -113,7 +113,7 @@ class RepetitionPasswordShowViewController: BaseViewController, PasswordStrength
     
     @IBAction func handlerCancelButtonTap(_ sender: CustomButton) {
         guard isNetworkAvailable else {
-            alertViewDidShow(withTitle: "Not Reachable".localized(), andMessage: "Disconnected from Network".localized())
+            alertViewDidShow(withTitle: "Not Reachable", andMessage: "Disconnected from Network", completion: { _ in })
             
             return
         }
@@ -129,7 +129,7 @@ extension RepetitionPasswordShowViewController: RepetitionPasswordShowViewContro
         UIApplication.shared.isNetworkActivityIndicatorVisible = false
 
         guard isNetworkAvailable else {
-            alertViewDidShow(withTitle: "Not Reachable".localized(), andMessage: "Disconnected from Network".localized())
+            alertViewDidShow(withTitle: "Not Reachable", andMessage: "Disconnected from Network", completion: { _ in })
             return
         }
         

@@ -181,7 +181,7 @@ class OrganizationShowViewController: BaseViewController {
     
     @IBAction func handlerPhonesButtonTap(_ sender: CustomButton) {
         guard organization.phones != nil else {
-            alertViewDidShow(withTitle: "Info".localized(), andMessage: "Phones list is empty".localized())
+            alertViewDidShow(withTitle: "Info", andMessage: "Phones list is empty", completion: { _ in })
            
             return
         }

@@ -20,6 +20,7 @@ protocol PersonalPageShowViewControllerInput {
     func userAppImageDidShowUpload(fromViewModel viewModel: PersonalPageShowModels.UploadImage.ViewModel)
     func userAppImageDidShowDelete(fromViewModel viewModel: PersonalPageShowModels.LoadData.ViewModel)
     func userAppPasswordDidShowChange(fromViewModel viewModel: PersonalPageShowModels.UploadData.ViewModel)
+    func userAppEmailDidShowChange(fromViewModel viewModel: PersonalPageShowModels.ChangeEmail.ViewModel)
     func userAppTemplatesDidShowLoad(fromViewModel viewModel: PersonalPageShowModels.Templates.ViewModel)
 }
 
@@ -30,6 +31,7 @@ protocol PersonalPageShowViewControllerOutput {
     func userAppImageDidUpload(withRequestModel requestModel: PersonalPageShowModels.UploadImage.RequestModel)
     func userAppImageDidDelete(withRequestModel requestModel: PersonalPageShowModels.LoadData.RequestModel)
     func userAppPasswordDidChange(withRequestModel requestModel: PersonalPageShowModels.UploadData.RequestModel)
+    func userAppEmailDidChange(withRequestModel requestModel: PersonalPageShowModels.ChangeEmail.RequestModel)
     func userAppTemplatesDidLoad(withRequestModel requestModel: PersonalPageShowModels.Templates.RequestModel)
 }
 
@@ -117,7 +119,7 @@ class PersonalPageShowViewController: BaseViewController {
                         let imagePickerController = MSMImagePickerController()
                         
                         guard imagePickerController.photoDidMakeWithCamera() else {
-                            self.alertViewDidShow(withTitle: "Error".localized(), andMessage: "Camera is not available".localized())
+                            self.alertViewDidShow(withTitle: "Error", andMessage: "Camera is not available", completion: { _ in })
                             self.blackoutView!.didHide()
                             return
                         }
@@ -270,9 +272,9 @@ extension PersonalPageShowViewController: PersonalPageShowViewControllerInput {
         // Check Response value
         guard viewModel.response != nil && (viewModel.response?.code == 200 || viewModel.response?.code == 2201) else {
             if (viewModel.response?.errorMessage == nil) {
-                alertViewDidShow(withTitle: "Error".localized(), andMessage: "Wrong input data".localized())
+                alertViewDidShow(withTitle: "Error", andMessage: "Wrong input data", completion: { _ in })
             } else {
-                alertViewDidShow(withTitle: "Error".localized(), andMessage: viewModel.response!.errorMessage!)
+                alertViewDidShow(withTitle: "Error", andMessage: viewModel.response!.errorMessage!, completion: { _ in })
             }
             
             activeViewController = personalDataVC
@@ -324,6 +326,25 @@ extension PersonalPageShowViewController: PersonalPageShowViewControllerInput {
     
     func userAppPasswordDidShowChange(fromViewModel viewModel: PersonalPageShowModels.UploadData.ViewModel) {}
 
+    func userAppEmailDidShowChange(fromViewModel viewModel: PersonalPageShowModels.ChangeEmail.ViewModel) {
+        spinnerDidFinish()
+        
+        // Check Network state
+        guard isNetworkAvailable else {
+            self.wasImageUploaded = false
+            return
+        }
+        
+        guard viewModel.response?.code == 200 else {
+            alertViewDidShow(withTitle: "Error", andMessage: "Change Email error message", completion: { _ in })
+            return
+        }
+        
+        alertViewDidShow(withTitle: "Info", andMessage: "Change Email info message", completion: { _ in
+            CoreDataManager.instance.didSaveContext()
+        })
+    }
+    
     func userAppImageDidShowDelete(fromViewModel viewModel: PersonalPageShowModels.LoadData.ViewModel) {
         spinnerDidFinish()
         

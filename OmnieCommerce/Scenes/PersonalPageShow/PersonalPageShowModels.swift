@@ -13,6 +13,20 @@ import UIKit
 
 // MARK: - Data models
 struct PersonalPageShowModels {
+    struct ChangeEmail {
+        struct RequestModel {
+            let email: String
+        }
+        
+        struct ResponseModel {
+            let response: ResponseAPI?
+        }
+        
+        struct ViewModel {
+            let response: ResponseAPI?
+        }
+    }
+    
     struct LoadData {
         struct RequestModel {
         }

@@ -108,13 +108,13 @@ extension LocationManager: CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        alertViewDidShow(withTitle: "Error".localized(), andMessage: error.localizedDescription)
+        alertViewDidShow(withTitle: "Error", andMessage: error.localizedDescription, completion: { _ in })
     }
     
     // Check Authorization status
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         if (status != .authorizedAlways || status != .authorizedWhenInUse) {
-            alertViewDidShow(withTitle: "Info".localized(), andMessage: "Location authorization error".localized())
+            alertViewDidShow(withTitle: "Info", andMessage: "Location authorization error", completion: { _ in })
         }
     }
 }

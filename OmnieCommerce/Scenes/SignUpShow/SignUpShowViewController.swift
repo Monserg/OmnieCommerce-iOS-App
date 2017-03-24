@@ -104,7 +104,7 @@ class SignUpShowViewController: BaseViewController, EmailErrorMessageView, Passw
     @IBAction func handlerRegisterButtonTap(_ sender: CustomButton) {
         if (textFieldManager.checkTextFieldCollection()) {
             guard isNetworkAvailable else {
-                alertViewDidShow(withTitle: "Not Reachable".localized(), andMessage: "Disconnected from Network".localized())
+                alertViewDidShow(withTitle: "Not Reachable", andMessage: "Disconnected from Network", completion: { _ in })
                 
                 return
             }
@@ -116,7 +116,7 @@ class SignUpShowViewController: BaseViewController, EmailErrorMessageView, Passw
     
     @IBAction func handlerCancelButtonTap(_ sender: CustomButton) {
         guard isNetworkAvailable else {
-            alertViewDidShow(withTitle: "Not Reachable".localized(), andMessage: "Disconnected from Network".localized())
+            alertViewDidShow(withTitle: "Not Reachable", andMessage: "Disconnected from Network", completion: { _ in })
             
             return
         }
@@ -130,7 +130,7 @@ class SignUpShowViewController: BaseViewController, EmailErrorMessageView, Passw
 extension SignUpShowViewController: SignUpShowViewControllerInput {
     func userAppDidShowRegister(fromViewModel viewModel: SignUpShowModels.User.ViewModel) {
         guard viewModel.responseAPI != nil && viewModel.responseAPI?.code == 200 else {
-            alertViewDidShow(withTitle: "Error".localized(), andMessage: "User is already exist".localized())
+            alertViewDidShow(withTitle: "Error", andMessage: "User is already exist", completion: { _ in })
             
             return
         }

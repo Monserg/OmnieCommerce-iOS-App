@@ -18,6 +18,7 @@ protocol PersonalPageShowPresenterInput {
     func userAppImageDidPrepareToShowUpload(fromResponseModel responseModel: PersonalPageShowModels.UploadImage.ResponseModel)
     func userAppImageDidPrepareToShowDelete(fromResponseModel responseModel: PersonalPageShowModels.LoadData.ResponseModel)
     func userAppPasswordDidPrepareToShowChange(fromResponseModel responseModel: PersonalPageShowModels.UploadData.ResponseModel)
+    func userAppEmailDidPrepareToShowChange(fromResponseModel responseModel: PersonalPageShowModels.ChangeEmail.ResponseModel)
     func userAppTemplatesDidPrepareToShowLoad(fromResponseModel responseModel: PersonalPageShowModels.Templates.ResponseModel)
 }
 
@@ -28,6 +29,7 @@ protocol PersonalPageShowPresenterOutput: class {
     func userAppImageDidShowUpload(fromViewModel viewModel: PersonalPageShowModels.UploadImage.ViewModel)
     func userAppImageDidShowDelete(fromViewModel viewModel: PersonalPageShowModels.LoadData.ViewModel)
     func userAppPasswordDidShowChange(fromViewModel viewModel: PersonalPageShowModels.UploadData.ViewModel)
+    func userAppEmailDidShowChange(fromViewModel viewModel: PersonalPageShowModels.ChangeEmail.ViewModel)
     func userAppTemplatesDidShowLoad(fromViewModel viewModel: PersonalPageShowModels.Templates.ViewModel)
 }
 
@@ -72,6 +74,11 @@ class PersonalPageShowPresenter: PersonalPageShowPresenterInput {
         viewController.userAppPasswordDidShowChange(fromViewModel: passwordChangeViewModel)
     }
     
+    func userAppEmailDidPrepareToShowChange(fromResponseModel responseModel: PersonalPageShowModels.ChangeEmail.ResponseModel) {
+        let emailChangeViewModel = PersonalPageShowModels.ChangeEmail.ViewModel(response: responseModel.response)
+        viewController.userAppEmailDidShowChange(fromViewModel: emailChangeViewModel)
+    }
+
     func userAppTemplatesDidPrepareToShowLoad(fromResponseModel responseModel: PersonalPageShowModels.Templates.ResponseModel) {
         let viewModel = PersonalPageShowModels.Templates.ViewModel(organizations: responseModel.items)
         viewController.userAppTemplatesDidShowLoad(fromViewModel: viewModel)

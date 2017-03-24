@@ -51,7 +51,7 @@ class MSMTextFieldManager: NSObject {
         let emptyFields = textFieldsArray!.filter({ $0.text?.isEmpty == true })
         
         guard emptyFields.count == 0 else {
-            currentVC!.alertViewDidShow(withTitle: "Info".localized(), andMessage: "All fields can be...".localized())
+            currentVC!.alertViewDidShow(withTitle: "Info", andMessage: "All fields can be...", completion: { _ in })
             
             return false
         }

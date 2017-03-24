@@ -97,7 +97,7 @@ class EnterCodeShowViewController: BaseViewController, CodeErrorMessageView {
         }
         
         guard isNetworkAvailable else {
-            alertViewDidShow(withTitle: "Not Reachable".localized(), andMessage: "Disconnected from Network".localized())
+            alertViewDidShow(withTitle: "Not Reachable", andMessage: "Disconnected from Network", completion: { _ in })
             
             return
         }
@@ -109,7 +109,7 @@ class EnterCodeShowViewController: BaseViewController, CodeErrorMessageView {
     
     @IBAction func handlerCancelButtonTap(_ sender: CustomButton) {
         guard isNetworkAvailable else {
-            alertViewDidShow(withTitle: "Not Reachable".localized(), andMessage: "Disconnected from Network".localized())
+            alertViewDidShow(withTitle: "Not Reachable", andMessage: "Disconnected from Network", completion: { _ in })
             
             return
         }
@@ -119,7 +119,7 @@ class EnterCodeShowViewController: BaseViewController, CodeErrorMessageView {
     
     @IBAction func handlerSendAgainButtonTap(_ sender: CustomButton) {
         guard isNetworkAvailable else {
-            alertViewDidShow(withTitle: "Not Reachable".localized(), andMessage: "Disconnected from Network".localized())
+            alertViewDidShow(withTitle: "Not Reachable", andMessage: "Disconnected from Network", completion: { _ in })
             
             return
         }
@@ -136,14 +136,14 @@ extension EnterCodeShowViewController: EnterCodeShowViewControllerInput {
         UIApplication.shared.isNetworkActivityIndicatorVisible = false
         
         guard isNetworkAvailable else {
-            alertViewDidShow(withTitle: "Not Reachable".localized(), andMessage: "Disconnected from Network".localized())
+            alertViewDidShow(withTitle: "Not Reachable", andMessage: "Disconnected from Network", completion: { _ in })
             return
         }
         
         if (viewModel.code == 200) {
-            alertViewDidShow(withTitle: "Info".localized(), andMessage: "Retry request succeeded".localized())
+            alertViewDidShow(withTitle: "Info", andMessage: "Retry request succeeded", completion: { _ in })
         } else {
-            alertViewDidShow(withTitle: "Error".localized(), andMessage: "Wrong input data".localized())
+            alertViewDidShow(withTitle: "Error", andMessage: "Wrong input data", completion: { _ in })
         }
     }
 
@@ -151,7 +151,7 @@ extension EnterCodeShowViewController: EnterCodeShowViewControllerInput {
         UIApplication.shared.isNetworkActivityIndicatorVisible = false
 
         guard isNetworkAvailable else {
-            alertViewDidShow(withTitle: "Not Reachable".localized(), andMessage: "Disconnected from Network".localized())
+            alertViewDidShow(withTitle: "Not Reachable", andMessage: "Disconnected from Network", completion: { _ in })
             return
         }
         

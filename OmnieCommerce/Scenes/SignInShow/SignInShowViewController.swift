@@ -124,7 +124,7 @@ class SignInShowViewController: BaseViewController {
     
     @IBAction func handlerSocialNetworkButtonTap(_ sender: CustomButton) {
         guard isNetworkAvailable else {
-            alertViewDidShow(withTitle: "Not Reachable".localized(), andMessage: "Disconnected from Network".localized())
+            alertViewDidShow(withTitle: "Not Reachable", andMessage: "Disconnected from Network", completion: { _ in })
             
             return
         }
@@ -186,7 +186,7 @@ extension SignInShowViewController: SignInShowViewControllerInput {
         UIApplication.shared.isNetworkActivityIndicatorVisible = false
 
         guard isNetworkAvailable else {
-            alertViewDidShow(withTitle: "Not Reachable".localized(), andMessage: "Disconnected from Network".localized())
+            alertViewDidShow(withTitle: "Not Reachable", andMessage: "Disconnected from Network", completion: { _ in })
             return
         }
     }
