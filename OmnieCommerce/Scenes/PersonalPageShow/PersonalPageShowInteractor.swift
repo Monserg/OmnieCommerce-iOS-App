@@ -17,6 +17,7 @@ protocol PersonalPageShowInteractorInput {
     func userAppDataDidUpload(withRequestModel requestModel: PersonalPageShowModels.UploadData.RequestModel)
     func userAppImageDidUpload(withRequestModel requestModel: PersonalPageShowModels.UploadImage.RequestModel)
     func userAppImageDidDelete(withRequestModel requestModel: PersonalPageShowModels.LoadData.RequestModel)
+    func userAppPasswordDidChange(withRequestModel requestModel: PersonalPageShowModels.UploadData.RequestModel)
     func userAppTemplatesDidLoad(withRequestModel requestModel: PersonalPageShowModels.Templates.RequestModel)
 }
 
@@ -26,6 +27,7 @@ protocol PersonalPageShowInteractorOutput {
     func userAppDataDidPrepareToShowUpload(fromResponseModel responseModel: PersonalPageShowModels.UploadData.ResponseModel)
     func userAppImageDidPrepareToShowUpload(fromResponseModel responseModel: PersonalPageShowModels.UploadImage.ResponseModel)
     func userAppImageDidPrepareToShowDelete(fromResponseModel responseModel: PersonalPageShowModels.LoadData.ResponseModel)
+    func userAppPasswordDidPrepareToShowChange(fromResponseModel responseModel: PersonalPageShowModels.UploadData.ResponseModel)
     func userAppTemplatesDidPrepareToShowLoad(fromResponseModel responseModel: PersonalPageShowModels.Templates.ResponseModel)
 }
 
@@ -45,12 +47,14 @@ class PersonalPageShowInteractor: PersonalPageShowInteractorInput {
     }
     
     func userAppDataDidUpload(withRequestModel requestModel: PersonalPageShowModels.UploadData.RequestModel) {
-//        worker              =   PersonalPageShowWorker()
-//        let userApp         =   worker.userAppDidUpdateOnServer(withParameters: requestModel.params)
-//        
-//        // NOTE: Pass the result to the Presenter
-//        let responseModel   =   PersonalPageShowModels.UserApp.ResponseModel(userApp: userApp)
-//        presenter.userAppDataDidPrepareToShow(fromResponseModel: responseModel)
+        let profileParameters = (requestModel.parameters as! [[String: Any]]).first!
+        let passwordsParameters: [String: Any]? = ((requestModel.parameters as! [[String: Any]]).count > 1) ? (requestModel.parameters as! [[String: Any]]).last : nil
+        
+        MSMRestApiManager.instance.userUploadProfileData(profileParameters, withHandlerResponseAPICompletion: { responseAPI in
+            // Pass the result to the Presenter
+            let responseModel = PersonalPageShowModels.UploadData.ResponseModel(response: responseAPI, passwordsParams: passwordsParameters)
+            self.presenter.userAppDataDidPrepareToShowUpload(fromResponseModel: responseModel)
+        })
     }
     
     func userAppImageDidUpload(withRequestModel requestModel: PersonalPageShowModels.UploadImage.RequestModel) {
@@ -69,6 +73,14 @@ class PersonalPageShowInteractor: PersonalPageShowInteractorInput {
         })
     }
     
+    func userAppPasswordDidChange(withRequestModel requestModel: PersonalPageShowModels.UploadData.RequestModel) {
+        MSMRestApiManager.instance.userChangePasswordFromProfile(requestModel.parameters as! [String: Any], withHandlerResponseAPICompletion: { responseAPI in
+            // Pass the result to the Presenter
+            let passwordChangeResponseModel = PersonalPageShowModels.UploadData.ResponseModel(response: responseAPI, passwordsParams: nil)
+            self.presenter.userAppPasswordDidPrepareToShowChange(fromResponseModel: passwordChangeResponseModel)
+        })
+    }
+
     func userAppTemplatesDidLoad(withRequestModel requestModel: PersonalPageShowModels.Templates.RequestModel) {
         worker = PersonalPageShowWorker()
         let items = worker.userAppTemplatesDidLoad(forUserApp: requestModel.userID)

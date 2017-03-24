@@ -127,7 +127,7 @@ extension MSMTextFieldManager: UITextFieldDelegate {
         switch (textField as! CustomTextField).style! {
         case .Email:
             if !(textField as! CustomTextField).checkEmailValidation(textField.text!) {
-                (currentVC as! EmailErrorMessageView).didShow((currentVC as! EmailErrorMessageView).emailErrorMessageView, withConstraint: (currentVC as! EmailErrorMessageView).emailErrorMessageViewTopConstraint)
+                (currentVC as! EmailErrorMessageView).emailErrorMessageView.didShow(true, withConstraint: (currentVC as! EmailErrorMessageView).emailErrorMessageViewTopConstraint)
             }
             
         case .PhoneEmail, .PhoneButton:
@@ -161,7 +161,7 @@ extension MSMTextFieldManager: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         switch (textField as! CustomTextField).style! {
         case .Email, .PhoneEmail:
-            (currentVC as! EmailErrorMessageView).didHide((currentVC as! EmailErrorMessageView).emailErrorMessageView, withConstraint: (currentVC as! EmailErrorMessageView).emailErrorMessageViewTopConstraint)
+            (currentVC as! EmailErrorMessageView).emailErrorMessageView.didShow(false, withConstraint: (currentVC as! EmailErrorMessageView).emailErrorMessageViewTopConstraint)
             
         case .PhoneButton:
             // Delete character
@@ -257,7 +257,7 @@ extension MSMTextFieldManager: UITextFieldDelegate {
             if (textField as! CustomTextField).checkEmailValidation(textField.text!) {
                 self.nextTextFieldDidLoad(afterCurrent: textField as! CustomTextField)
             } else {
-                (currentVC as! EmailErrorMessageView).didShow((currentVC as! EmailErrorMessageView).emailErrorMessageView, withConstraint: (currentVC as! EmailErrorMessageView).emailErrorMessageViewTopConstraint)
+                (currentVC as! EmailErrorMessageView).emailErrorMessageView.didShow(true, withConstraint: (currentVC as! EmailErrorMessageView).emailErrorMessageViewTopConstraint)
             }
             
         case .PhoneEmail:

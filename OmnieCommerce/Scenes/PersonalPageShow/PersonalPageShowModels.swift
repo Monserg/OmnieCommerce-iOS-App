@@ -28,15 +28,17 @@ struct PersonalPageShowModels {
 
     struct UploadData {
         struct RequestModel {
-            let parameters: [String: Any]
+            let parameters: Any
         }
         
         struct ResponseModel {
             let response: ResponseAPI?
+            let passwordsParams: [String: Any]?
         }
         
         struct ViewModel {
             let response: ResponseAPI?
+            let passwordsParams: [String: Any]?
         }
     }
 

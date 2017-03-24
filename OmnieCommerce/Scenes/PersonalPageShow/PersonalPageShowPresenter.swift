@@ -17,6 +17,7 @@ protocol PersonalPageShowPresenterInput {
     func userAppDataDidPrepareToShowUpload(fromResponseModel responseModel: PersonalPageShowModels.UploadData.ResponseModel)
     func userAppImageDidPrepareToShowUpload(fromResponseModel responseModel: PersonalPageShowModels.UploadImage.ResponseModel)
     func userAppImageDidPrepareToShowDelete(fromResponseModel responseModel: PersonalPageShowModels.LoadData.ResponseModel)
+    func userAppPasswordDidPrepareToShowChange(fromResponseModel responseModel: PersonalPageShowModels.UploadData.ResponseModel)
     func userAppTemplatesDidPrepareToShowLoad(fromResponseModel responseModel: PersonalPageShowModels.Templates.ResponseModel)
 }
 
@@ -26,6 +27,7 @@ protocol PersonalPageShowPresenterOutput: class {
     func userAppDataDidShowUpload(fromViewModel viewModel: PersonalPageShowModels.UploadData.ViewModel)
     func userAppImageDidShowUpload(fromViewModel viewModel: PersonalPageShowModels.UploadImage.ViewModel)
     func userAppImageDidShowDelete(fromViewModel viewModel: PersonalPageShowModels.LoadData.ViewModel)
+    func userAppPasswordDidShowChange(fromViewModel viewModel: PersonalPageShowModels.UploadData.ViewModel)
     func userAppTemplatesDidShowLoad(fromViewModel viewModel: PersonalPageShowModels.Templates.ViewModel)
 }
 
@@ -41,11 +43,8 @@ class PersonalPageShowPresenter: PersonalPageShowPresenterInput {
     }
     
     func userAppDataDidPrepareToShowUpload(fromResponseModel responseModel: PersonalPageShowModels.UploadData.ResponseModel) {
-        
-        //        self.activeViewController?.userApp = viewModel.userApp
-
-        let uploadViewModel = PersonalPageShowModels.UploadData.ViewModel(response: responseModel.response)
-        viewController.userAppDataDidShowUpload(fromViewModel: uploadViewModel)
+        let uploadDataViewModel = PersonalPageShowModels.UploadData.ViewModel(response: responseModel.response, passwordsParams: responseModel.passwordsParams)
+        viewController.userAppDataDidShowUpload(fromViewModel: uploadDataViewModel)
     }
     
     func userAppImageDidPrepareToShowUpload(fromResponseModel responseModel: PersonalPageShowModels.UploadImage.ResponseModel) {
@@ -66,6 +65,11 @@ class PersonalPageShowPresenter: PersonalPageShowPresenterInput {
         
         let deleteImageViewModel = PersonalPageShowModels.LoadData.ViewModel(response: responseModel.response)
         viewController.userAppImageDidShowDelete(fromViewModel: deleteImageViewModel)
+    }
+    
+    func userAppPasswordDidPrepareToShowChange(fromResponseModel responseModel: PersonalPageShowModels.UploadData.ResponseModel) {
+        let passwordChangeViewModel = PersonalPageShowModels.UploadData.ViewModel(response: responseModel.response, passwordsParams: nil)
+        viewController.userAppPasswordDidShowChange(fromViewModel: passwordChangeViewModel)
     }
     
     func userAppTemplatesDidPrepareToShowLoad(fromResponseModel responseModel: PersonalPageShowModels.Templates.ResponseModel) {

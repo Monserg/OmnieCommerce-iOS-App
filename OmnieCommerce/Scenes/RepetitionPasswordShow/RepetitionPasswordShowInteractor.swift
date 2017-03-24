@@ -31,7 +31,7 @@ class RepetitionPasswordShowInteractor: RepetitionPasswordShowInteractorInput {
     func newPasswordDidChange(withRequestModel requestModel: RepetitionPasswordShowModels.Password.RequestModel) {
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         
-        MSMRestApiManager.instance.userChangePassword(requestModel.email, withNewPassword: requestModel.newPassword, withResetToken: requestModel.resetToken) { responseAPI in
+        MSMRestApiManager.instance.userChangePasswordFromLogin(requestModel.email, withNewPassword: requestModel.newPassword, withResetToken: requestModel.resetToken) { responseAPI in
             let responseModel = RepetitionPasswordShowModels.Password.ResponseModel(response: responseAPI)
             self.presenter.newPasswordDidPrepareToShowChange(fromResponseModel: responseModel)
         }

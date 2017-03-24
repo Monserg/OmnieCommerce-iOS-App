@@ -50,7 +50,7 @@ class SignUpShowViewController: BaseViewController, EmailErrorMessageView, Passw
     }
 
     // Protocol EmailErrorMessageView
-    @IBOutlet weak var emailErrorMessageView: UIView!
+    @IBOutlet weak var emailErrorMessageView: ErrorMessageView!
     @IBOutlet weak var emailErrorMessageViewTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var emailErrorMessageViewHeightConstraint: NSLayoutConstraint!
 

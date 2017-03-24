@@ -9,13 +9,20 @@
 import UIKit
 
 class ErrorMessageView: UIView {
+    // MARK: - Properties
+    var handlerHiddenCompletion: HandlerPassDataCompletion?
+    
+    
     // MARK: - Custom Functions
     func didShow(_ value: Bool, withConstraint constraint: NSLayoutConstraint) {
-        UIView.animate(withDuration: 1.3, animations: {
+        UIView.animate(withDuration: 0.3, animations: {
             constraint.constant = (value) ? 0 : -self.frame.height
-            self.isHidden = (value) ? false : true
-            
             self.layoutIfNeeded()
+        }, completion: { success in
+            UIView.animate(withDuration: 0.3, animations: {
+                self.isHidden = (value) ? false : true
+                self.handlerHiddenCompletion!(self.isHidden)
+            })
         })
     }
 }

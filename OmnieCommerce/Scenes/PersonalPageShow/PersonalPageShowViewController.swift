@@ -19,6 +19,7 @@ protocol PersonalPageShowViewControllerInput {
     func userAppDataDidShowUpload(fromViewModel viewModel: PersonalPageShowModels.UploadData.ViewModel)
     func userAppImageDidShowUpload(fromViewModel viewModel: PersonalPageShowModels.UploadImage.ViewModel)
     func userAppImageDidShowDelete(fromViewModel viewModel: PersonalPageShowModels.LoadData.ViewModel)
+    func userAppPasswordDidShowChange(fromViewModel viewModel: PersonalPageShowModels.UploadData.ViewModel)
     func userAppTemplatesDidShowLoad(fromViewModel viewModel: PersonalPageShowModels.Templates.ViewModel)
 }
 
@@ -28,6 +29,7 @@ protocol PersonalPageShowViewControllerOutput {
     func userAppDataDidUpload(withRequestModel requestModel: PersonalPageShowModels.UploadData.RequestModel)
     func userAppImageDidUpload(withRequestModel requestModel: PersonalPageShowModels.UploadImage.RequestModel)
     func userAppImageDidDelete(withRequestModel requestModel: PersonalPageShowModels.LoadData.RequestModel)
+    func userAppPasswordDidChange(withRequestModel requestModel: PersonalPageShowModels.UploadData.RequestModel)
     func userAppTemplatesDidLoad(withRequestModel requestModel: PersonalPageShowModels.Templates.RequestModel)
 }
 
@@ -141,9 +143,13 @@ class PersonalPageShowViewController: BaseViewController {
         
         // Handler Action Buttons
         personalDataVC!.handlerSaveButtonCompletion = { parameters in
-            // TODO: - ADD API
+            guard self.isNetworkAvailable else {
+                return
+            }
             
-            self.router.navigateToCategoriesShowScene()
+            self.spinnerDidStart(nil)
+            let uploadProfileRequestModel = PersonalPageShowModels.UploadData.RequestModel(parameters: parameters)
+            self.interactor.userAppDataDidUpload(withRequestModel: uploadProfileRequestModel)
         }
         
         personalDataVC!.handlerCancelButtonCompletion = { _ in
@@ -177,6 +183,11 @@ class PersonalPageShowViewController: BaseViewController {
                 let imageUploadRequestModel = PersonalPageShowModels.UploadImage.RequestModel(image: uploadedImage)
                 self.interactor.userAppImageDidUpload(withRequestModel: imageUploadRequestModel)
             }
+        }
+        
+        // Handler Change Email Button Tap
+        personalDataVC!.handlerChangeEmailCompletion = { newEmail in
+            // TODO: - ADD API TO CHANGE E-MAIL
         }
     }
     
@@ -289,6 +300,11 @@ extension PersonalPageShowViewController: PersonalPageShowViewControllerInput {
         
         CoreDataManager.instance.didSaveContext()
         router.navigateToCategoriesShowScene()
+        
+        if (viewModel.passwordsParams != nil) {
+            let passwordChangeRequestModel = PersonalPageShowModels.UploadData.RequestModel(parameters: viewModel.passwordsParams!)
+            interactor.userAppPasswordDidChange(withRequestModel: passwordChangeRequestModel)
+        }
     }
     
     func userAppImageDidShowUpload(fromViewModel viewModel: PersonalPageShowModels.UploadImage.ViewModel) {
@@ -306,6 +322,8 @@ extension PersonalPageShowViewController: PersonalPageShowViewControllerInput {
         self.blackoutView!.didHide()
     }
     
+    func userAppPasswordDidShowChange(fromViewModel viewModel: PersonalPageShowModels.UploadData.ViewModel) {}
+
     func userAppImageDidShowDelete(fromViewModel viewModel: PersonalPageShowModels.LoadData.ViewModel) {
         spinnerDidFinish()
         

@@ -121,11 +121,58 @@ final class MSMRestApiManager {
         }
     }
 
-    func userChangePassword(_ email: String, withNewPassword password: String, withResetToken resetToken: String, andWithHandlerResponseAPICompletion handlerResponseAPICompletion: @escaping (ResponseAPI?) -> Void) {
+    // Change current E-mail
+    func userChangeEmail(_ email: String, withHandlerResponseAPICompletion handlerResponseAPICompletion: @escaping (ResponseAPI?) -> Void) {
+        appApiString = "/user/email/"
+        appURL = URL.init(string: appURL.absoluteString.appending("?email=\(email)"))
+        headers["Authorization"] = CoreDataManager.instance.appUser.accessToken!
+        
+        Alamofire.request(appURL, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers).responseJSON { dataResponse -> Void in
+            if (dataResponse.result.value != nil) {
+                let json = JSON(dataResponse.result.value!)
+                let responseAPI = ResponseAPI.init(fromJSON: json, withBodyType: .Default)
+                
+                handlerResponseAPICompletion(responseAPI)
+                return
+            } else {
+                handlerResponseAPICompletion(nil)
+                return
+            }
+        }
+    }
+    
+    // Change Password during Authorization
+    func userChangePasswordFromLogin(_ email: String, withNewPassword password: String, withResetToken resetToken: String, andWithHandlerResponseAPICompletion handlerResponseAPICompletion: @escaping (ResponseAPI?) -> Void) {
         let saveParameters = [ "email": email, "password": password, "resetToken": resetToken ]
         appApiString = "/change-password/"
         
         Alamofire.request(appURL, method: .post, parameters: saveParameters, encoding: JSONEncoding.default, headers: headers).responseJSON { dataResponse -> Void in
+            if (dataResponse.result.value != nil) {
+                let json = JSON(dataResponse.result.value!)
+                let responseAPI = ResponseAPI.init(fromJSON: json, withBodyType: .Default)
+                
+                handlerResponseAPICompletion(responseAPI)
+                return
+            } else {
+                handlerResponseAPICompletion(nil)
+                return
+            }
+        }
+    }
+    
+    // Change Password from Profile
+    func userChangePasswordFromProfile(_ parameters: [String: Any], withHandlerResponseAPICompletion handlerResponseAPICompletion: @escaping (ResponseAPI?) -> Void) {
+        guard CoreDataManager.instance.appUser.accessToken != nil else {
+            handlerResponseAPICompletion(ResponseAPI.init(withErrorMessage: .Default))
+            return
+        }
+        
+        var params = parameters
+        params["currentPassword"] = CoreDataManager.instance.appUser.password!
+        headers["Authorization"] = CoreDataManager.instance.appUser.accessToken!
+        appApiString = "/user/password/"
+        
+        Alamofire.request(appURL, method: .put, parameters: params, encoding: JSONEncoding.default, headers: headers).responseJSON { dataResponse -> Void in
             if (dataResponse.result.value != nil) {
                 let json = JSON(dataResponse.result.value!)
                 let responseAPI = ResponseAPI.init(fromJSON: json, withBodyType: .Default)
@@ -150,6 +197,30 @@ final class MSMRestApiManager {
         
         Alamofire.request(appURL, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers).responseJSON { dataResponse -> Void in
             if (dataResponse.result.value != nil) {
+                let json = JSON(dataResponse.result.value!)
+                let responseAPI = ResponseAPI.init(fromJSON: json, withBodyType: .UserDictionary)
+                
+                handlerResponseAPICompletion(responseAPI)
+                return
+            } else {
+                handlerResponseAPICompletion(nil)
+                return
+            }
+        }
+    }
+
+    func userUploadProfileData(_ parameters: [String: Any], withHandlerResponseAPICompletion handlerResponseAPICompletion: @escaping (ResponseAPI?) -> Void) {
+        guard CoreDataManager.instance.appUser.accessToken != nil else {
+            handlerResponseAPICompletion(ResponseAPI.init(withErrorMessage: .UserDictionary))
+            return
+        }
+        
+        headers["Authorization"] = CoreDataManager.instance.appUser.accessToken!
+        headers["Role"] = "admin"
+        appApiString = "/user/profile/"
+        
+        Alamofire.request(appURL, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { dataResponse -> Void in
+            if (dataResponse.result.value != nil && dataResponse.response!.statusCode == 200) {
                 let json = JSON(dataResponse.result.value!)
                 let responseAPI = ResponseAPI.init(fromJSON: json, withBodyType: .UserDictionary)
                 

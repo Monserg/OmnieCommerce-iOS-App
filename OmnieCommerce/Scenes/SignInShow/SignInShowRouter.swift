@@ -25,26 +25,25 @@ class SignInShowRouter: SignInShowRouterInput {
     
     // MARK: - Custom Functions. Navigation
     func navigateAuthorizedUser(duringStartApp: Bool) {
-        let revealVC                        =   UIStoryboard(name: "SlideMenuShow", bundle: nil).instantiateViewController(withIdentifier: "SWRevealVC") as! SWRevealViewController
-        revealVC.modalTransitionStyle       =   (duringStartApp) ? .crossDissolve : .flipHorizontal
+        let revealVC = UIStoryboard(name: "SlideMenuShow", bundle: nil).instantiateViewController(withIdentifier: "SWRevealVC") as! SWRevealViewController
+        revealVC.modalTransitionStyle = (duringStartApp) ? .crossDissolve : .flipHorizontal
         
         // Set Flip Horizontal behaind view background color
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        appDelegate.window?.backgroundColor =   UIColor.veryDarkDesaturatedBlue2f
+        appDelegate.window?.backgroundColor = UIColor.veryDarkDesaturatedBlue2f
         
         // Set FrontViewController
         if (duringStartApp) {
-            let categoriesNC                =   UIStoryboard(name: "CategoriesShow", bundle: nil).instantiateViewController(withIdentifier: "CategoriesShowNC") as! BaseNavigationController
+            let categoriesNC = UIStoryboard(name: "CategoriesShow", bundle: nil).instantiateViewController(withIdentifier: "CategoriesShowNC") as! BaseNavigationController
             
             revealVC.setFront(categoriesNC, animated: true)
         } else {
-            var nextNC  =   BaseNavigationController()
+            var nextNC = BaseNavigationController()
             
             if (statusCodeNote == .SUCCESS) {
-                nextNC  =   UIStoryboard(name: "CategoriesShow", bundle: nil).instantiateViewController(withIdentifier: "CategoriesShowNC") as! BaseNavigationController
+                nextNC = UIStoryboard(name: "CategoriesShow", bundle: nil).instantiateViewController(withIdentifier: "CategoriesShowNC") as! BaseNavigationController
             } else if (statusCodeNote == .CONTINUE) {
-                nextNC  =   UIStoryboard(name: "PersonalPageShow", bundle: nil).instantiateViewController(withIdentifier: "PersonalPageShowNC") as! BaseNavigationController
-                (nextNC.viewControllers.first as! PersonalPageShowViewController).userApp       =   CoreDataManager.instance.appUser
+                nextNC = UIStoryboard(name: "PersonalPageShow", bundle: nil).instantiateViewController(withIdentifier: "PersonalPageShowNC") as! BaseNavigationController
             }
             
             revealVC.setFront(nextNC, animated: true)

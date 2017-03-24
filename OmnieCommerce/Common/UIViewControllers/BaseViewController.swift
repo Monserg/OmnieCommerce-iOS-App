@@ -15,7 +15,6 @@ import AlamofireImage
 class BaseViewController: UIViewController {
     // MARK: - Properties
     var selectedRange: CGRect?
-    weak var userApp: AppUser?
     weak var blackoutView: MSMBlackoutView?
     var navigationBarView: SmallTopBarView?
     let spinner = UIActivityIndicatorView.init(activityIndicatorStyle: .whiteLarge)
@@ -113,12 +112,6 @@ class BaseViewController: UIViewController {
         scrollViewBase?.contentInset = (notification.name == .UIKeyboardWillHide) ? UIEdgeInsets.zero : UIEdgeInsets(top: 0, left: 0, bottom: keyboardViewEndFrame.height + 25, right: 0)
 
         guard (selectedRange != nil && (keyboardViewEndFrame.contains((selectedRange?.origin)!))) else {
-            DispatchQueue.main.async {
-                UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseOut, animations: {
-                    self.scrollViewBase?.contentOffset.y = 0
-                }, completion: nil)
-            }
-            
             return
         }
 

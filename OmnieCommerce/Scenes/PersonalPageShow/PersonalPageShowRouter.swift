@@ -51,29 +51,6 @@ class PersonalPageShowRouter: PersonalPageShowRouterInput {
     }
 
     private func addActiveViewController(_ activeVC: BaseViewController) {
-        switch activeVC {
-        case activeVC as PersonalDataViewController:
-            let personalDataVC = activeVC as! PersonalDataViewController
-            personalDataVC.userApp = CoreDataManager.instance.appUser
-            
-            // Handler Save Button tap
-            personalDataVC.handlerSaveButtonCompletion = { parameters in
-                let uploadRequestModel = PersonalPageShowModels.UploadData.RequestModel(parameters: parameters)
-                self.viewController.interactor.userAppDataDidUpload(withRequestModel: uploadRequestModel)
-            }
-            
-            // Handler Cancel Button tap
-            personalDataVC.handlerCancelButtonCompletion = { _ in
-                self.navigateToCategoriesShowScene()
-            }
-            
-        case activeVC as PersonalTemplatesViewController:
-            break
-            
-        default:
-            break
-        }
-
         self.viewController.addChildViewController(activeVC)
         
         if (self.viewController.animationDirection == nil) {
