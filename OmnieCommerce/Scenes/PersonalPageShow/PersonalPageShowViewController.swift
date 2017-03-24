@@ -189,7 +189,8 @@ class PersonalPageShowViewController: BaseViewController {
         
         // Handler Change Email Button Tap
         personalDataVC!.handlerChangeEmailCompletion = { newEmail in
-            // TODO: - ADD API TO CHANGE E-MAIL
+            let emailChangeRequestModel = PersonalPageShowModels.ChangeEmail.RequestModel(email: newEmail as! String)
+            self.interactor.userAppEmailDidChange(withRequestModel: emailChangeRequestModel)
         }
     }
     
@@ -336,12 +337,14 @@ extension PersonalPageShowViewController: PersonalPageShowViewControllerInput {
         }
         
         guard viewModel.response?.code == 200 else {
-            alertViewDidShow(withTitle: "Error", andMessage: "Change Email error message", completion: { _ in })
+            alertViewDidShow(withTitle: "Error", andMessage: (viewModel.response?.code == 3894) ? "3894 - Email use" : "Change Email error message", completion: { _ in })
             return
         }
         
         alertViewDidShow(withTitle: "Info", andMessage: "Change Email info message", completion: { _ in
             CoreDataManager.instance.didSaveContext()
+            self.personalDataVC!.textFieldsCollection[2].resignFirstResponder()
+            self.personalDataVC!.handlerChangeEmailButtonTap(self.personalDataVC!.emailChangeButton)
         })
     }
     

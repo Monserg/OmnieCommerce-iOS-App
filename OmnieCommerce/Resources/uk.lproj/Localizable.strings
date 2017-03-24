@@ -157,12 +157,13 @@
 "User is already exist"         =   "Користувач вже існує";
 "Retry request succeeded"       =   "Повторний запит успішно виконаний";
 "Categories list is empty"      =   "Список категорій порожній";
-"Change Email info message"     =   "Запит успішно виконаний.\nПодтвердіть своє рішення, перевіривши вказаний email";
+"Change Email info message"     =   "Запит успішно виконаний.\nПідтвердіть своє рішення, перевіривши вказаний email";
 "Change Email error message"    =   "Запит невиконаний.\nПовторіть спробу пізніше";
 
 
 // Request Errors
 "404 - Wrong Found"             =   "Запитувані дані не знайдені";
+"3894 - Email use"              =   "Email вже використовується";
 "4401 - Bad Authorization"      =   "Будь ласка, повторіть процедуру авторизації";
 
 

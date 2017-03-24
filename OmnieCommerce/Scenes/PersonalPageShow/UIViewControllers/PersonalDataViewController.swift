@@ -60,6 +60,7 @@ class PersonalDataViewController: BaseViewController, EmailErrorMessageView, Pho
     @IBOutlet weak var birthdayPickerView: UIPickerView!
     @IBOutlet weak var oldPasswordChangeButton: UbuntuLightItalicDarkCyanButton!
     @IBOutlet weak var emailsView: UIView!
+    @IBOutlet weak var emailChangeButton: UbuntuLightItalicDarkCyanButton!
     
     @IBOutlet weak var avatarButton: CustomButton! {
         didSet {
@@ -134,14 +135,7 @@ class PersonalDataViewController: BaseViewController, EmailErrorMessageView, Pho
         didSet {
             emailErrorMessageView.handlerHiddenCompletion = { isHidden in
                 UIView.animate(withDuration: 0.5, animations: {
-                    if (self.emailErrorMessageView.isHidden && !(isHidden as! Bool)) {
-                        self.emailsViewHeightConstraint.constant += 14.0
-                    }
-
-                    if (!self.emailErrorMessageView.isHidden && (isHidden as! Bool)) {
-                        self.emailsViewHeightConstraint.constant -= 14.0
-                    }
-
+                    self.emailsViewHeightConstraint.constant += (isHidden as! Bool) ? -14.0 : 14.0
                     self.view.layoutIfNeeded()
                 })
             }

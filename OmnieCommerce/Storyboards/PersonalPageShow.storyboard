@@ -373,8 +373,11 @@
                                                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PN9-4C-UTf" userLabel="Old Email Change Button" customClass="UbuntuLightItalicDarkCyanButton" customModule="OmnieCommerce" customModuleProvider="target">
                                                                 <rect key="frame" x="147" y="0.0" width="70" height="54"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                 <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-2"/>
-                                                                <state key="normal" title="Change"/>
+                                                                <state key="normal" title="Change">
+                                                                    <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                                </state>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
                                                                 </userDefinedRuntimeAttributes>
@@ -475,7 +478,7 @@
                                                             </mask>
                                                         </variation>
                                                     </view>
-                                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yUP-OC-Rvg" userLabel="New Email Error View" customClass="ErrorMessageView" customModule="OmnieCommerce" customModuleProvider="target">
+                                                    <view hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yUP-OC-Rvg" userLabel="New Email Error View" customClass="ErrorMessageView" customModule="OmnieCommerce" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="108" width="225" height="14"/>
                                                         <subviews>
                                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wrong Email" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yfu-0t-T5Y" userLabel="Email Error Message Label" customClass="UbuntuLightItalicModerateRedLabel" customModule="OmnieCommerce" customModuleProvider="target">
@@ -566,7 +569,7 @@
                                                     </mask>
                                                 </variation>
                                             </view>
-                                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s4p-Zm-ugN" userLabel="Phone Error Message View" customClass="ErrorMessageView" customModule="OmnieCommerce" customModuleProvider="target">
+                                            <view hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s4p-Zm-ugN" userLabel="Phone Error Message View" customClass="ErrorMessageView" customModule="OmnieCommerce" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="410" width="225" height="14"/>
                                                 <subviews>
                                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wrong Phone" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vqz-p3-8Dc" userLabel="Wrong Phone Label" customClass="UbuntuLightItalicModerateRedLabel" customModule="OmnieCommerce" customModuleProvider="target">
@@ -1389,6 +1392,7 @@
                     <connections>
                         <outlet property="avatarButton" destination="0Lw-ai-Lx3" id="Ntx-K5-VTj"/>
                         <outlet property="birthdayPickerView" destination="fM3-Ih-tO6" id="2FJ-Fn-8qZ"/>
+                        <outlet property="emailChangeButton" destination="PN9-4C-UTf" id="CjL-1L-zBg"/>
                         <outlet property="emailErrorMessageView" destination="yUP-OC-Rvg" id="6Y6-0O-06D"/>
                         <outlet property="emailErrorMessageViewHeightConstraint" destination="wg0-I8-hHo" id="YXX-6I-BFO"/>
                         <outlet property="emailErrorMessageViewTopConstraint" destination="Pud-7S-Mml" id="VY9-4L-o9D"/>

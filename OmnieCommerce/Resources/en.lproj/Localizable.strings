@@ -163,6 +163,7 @@
 
 // Request Errors
 "404 - Wrong Found"             =   "Wrong Found";
+"3894 - Email use"              =   "Email is already in use";
 "4401 - Bad Authorization"      =   "Please, try authorization again";
 
 
