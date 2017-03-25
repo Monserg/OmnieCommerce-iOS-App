@@ -18,16 +18,16 @@ class PointAnnotation: MKPointAnnotation {
     init(fromOrganization organization: Organization) {
         super.init()
         
-        self.title          =   organization.name
-        self.coordinate     =   organization.location
+        self.title = organization.name
+        self.coordinate = organization.location!
         
         if (organization.addressStreet != nil) {
-            self.subtitle   =   organization.addressStreet!
+            self.subtitle = organization.addressStreet!
         } else if (organization.addressCity != nil) {
-            self.subtitle   =   organization.addressCity!
+            self.subtitle = organization.addressCity!
         }
         
-//        self.image          =   organization.lo
+//        self.image = organization.lo
     }
     
     deinit {

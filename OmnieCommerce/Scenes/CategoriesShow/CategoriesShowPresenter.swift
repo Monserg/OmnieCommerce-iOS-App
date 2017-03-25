@@ -30,7 +30,18 @@ class CategoriesShowPresenter: CategoriesShowPresenterInput {
     
     // MARK: - Custom Functions. Presentation logic
     func categoriesDidPrepareToShowLoad(fromResponseModel responseModel: CategoriesShowModels.Categories.ResponseModel) {
-        let categoriesViewModel = CategoriesShowModels.Categories.ViewModel(categories: responseModel.responseAPI?.body as? [Category])
+        // Save new data to CoreData
+        let categories = responseModel.responseAPI?.body as? [Category]
+        let entityCategories = CoreDataManager.instance.entityDidLoad(byName: keyCategories) as! Categories
+        
+        if  (categories != nil) {
+            let categoriesData = NSKeyedArchiver.archivedData(withRootObject: categories!) as NSData?
+            entityCategories.list = categoriesData!
+        } else {
+            entityCategories.list = nil
+        }
+
+        let categoriesViewModel = CategoriesShowModels.Categories.ViewModel(categories: categories)
         viewController.categoriesDidShowLoad(fromViewModel: categoriesViewModel)
     }
  

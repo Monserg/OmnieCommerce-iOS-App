@@ -308,7 +308,7 @@ final class MSMRestApiManager {
     
     func userGetOrganizationsListByCategory(_ parameters: [String: Any], withHandlerResponseAPICompletion handlerResponseAPICompletion: @escaping (ResponseAPI?) -> Void) {
         guard CoreDataManager.instance.appUser.accessToken != nil else {
-            handlerResponseAPICompletion(ResponseAPI.init(withErrorMessage: .UserDataDictionary))
+            handlerResponseAPICompletion(ResponseAPI.init(withErrorMessage: .OrganizationsArray))
             return
         }
         
@@ -318,7 +318,7 @@ final class MSMRestApiManager {
         Alamofire.request(appURL, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { dataResponse -> Void in
             if (dataResponse.result.value != nil && dataResponse.response!.statusCode == 200) {
                 let json = JSON(dataResponse.result.value!)
-                let responseAPI = ResponseAPI.init(fromJSON: json, withBodyType: .UserDataDictionary)
+                let responseAPI = ResponseAPI.init(fromJSON: json, withBodyType: .OrganizationsArray)
                 
                 handlerResponseAPICompletion(responseAPI)
                 return

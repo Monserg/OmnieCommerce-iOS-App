@@ -70,10 +70,12 @@ class OrganizationsMapShowViewController: BaseViewController {
 
     // MARK: - Custom Functions
     func viewSettingsDidLoad() {
+        spinnerDidStart(mapView)
+        
         // Config smallTopBarView
-        navigationBarView           =   smallTopBarView
-        smallTopBarView.type        =   "Child"
-        haveMenuItem                =   true
+        navigationBarView = smallTopBarView
+        smallTopBarView.type = "Child"
+        haveMenuItem = false
         
         // Handler Back button tap
         smallTopBarView.handlerSendButtonCompletion = { _ in
@@ -81,15 +83,15 @@ class OrganizationsMapShowViewController: BaseViewController {
         }
         
         if (organizations.count == 1) {
-            infoView.isHidden       =   false
-            cityLabel.text          =   organizations.first!.addressCity
-            streetLabel.text        =   organizations.first!.addressStreet
+            infoView.isHidden = false
+            cityLabel.text = organizations.first!.addressCity
+            streetLabel.text = organizations.first!.addressStreet
         } else {
-            infoView.isHidden       =   true
+            infoView.isHidden = true
         }
         
         // Load point annotations
-        let requestModel            =   OrganizationsMapShowModels.PointAnnotations.RequestModel(organizations: organizations)
+        let requestModel = OrganizationsMapShowModels.PointAnnotations.RequestModel(organizations: organizations)
         interactor.pointAnnotationsDidLoad(withRequestModel: requestModel)
     }
     
@@ -113,6 +115,8 @@ class OrganizationsMapShowViewController: BaseViewController {
 // MARK: - OrganizationsMapShowViewControllerInput
 extension OrganizationsMapShowViewController: OrganizationsMapShowViewControllerInput {
     func pointAnnotationsDidShow(fromViewModel viewModel: OrganizationsMapShowModels.PointAnnotations.ViewModel) {
+        spinnerDidFinish()
+        
         self.pointAnnotations = viewModel.pointAnnotations
         self.regionRect = viewModel.regionRect
         
@@ -131,18 +135,18 @@ extension OrganizationsMapShowViewController: MKMapViewDelegate {
     }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        let pinIdentifier                   =   "Pin"
-        var pinAnnotationView               =   mapView.dequeueReusableAnnotationView(withIdentifier: pinIdentifier) as? MKPinAnnotationView
+        let pinIdentifier = "Pin"
+        var pinAnnotationView = mapView.dequeueReusableAnnotationView(withIdentifier: pinIdentifier) as? MKPinAnnotationView
         
         if (pinAnnotationView != nil) {
-            pinAnnotationView!.annotation   =   annotation
+            pinAnnotationView!.annotation = annotation
         } else {
-            pinAnnotationView               =   MKPinAnnotationView(annotation: annotation, reuseIdentifier: pinIdentifier)
-            pinAnnotationView!.pinTintColor =   UIColor.init(hexString: "#009395", withAlpha: 1.0)
+            pinAnnotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: pinIdentifier)
+            pinAnnotationView!.pinTintColor = UIColor.init(hexString: "#009395", withAlpha: 1.0)
         }
         
-        pinAnnotationView!.canShowCallout   =   false
-        pinAnnotationView!.isDraggable      =   true
+        pinAnnotationView!.canShowCallout = false
+        pinAnnotationView!.isDraggable = true
         
         /*
         // Add button

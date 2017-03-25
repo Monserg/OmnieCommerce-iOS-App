@@ -16,6 +16,7 @@ target 'OmnieCommerce' do
     pod 'AFNetworking', '~> 3.1'
     pod 'SwiftyVK', '~> 2.0'
     pod 'Google/SignIn'
+    pod 'GooglePlaces'
     pod 'MXParallaxHeader', '~> 0.6'
     pod 'PhoneNumberKit', '~> 1.2'
     pod 'LTHRadioButton', '~> 1.1'

@@ -199,6 +199,8 @@
 		B18A45CA1DEC282B003EBD2F /* DotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18A45C91DEC282B003EBD2F /* DotView.swift */; };
 		B18A45CC1DEC3918003EBD2F /* SmallCirleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18A45CB1DEC3918003EBD2F /* SmallCirleView.swift */; };
 		B19668601E73098600B9C9AE /* OrganizationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B196685F1E73098600B9C9AE /* OrganizationTableViewCell.swift */; };
+		B19A24251E8625DE0070841F /* Organizations+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19A24231E8625DE0070841F /* Organizations+CoreDataClass.swift */; };
+		B19A24261E8625DE0070841F /* Organizations+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19A24241E8625DE0070841F /* Organizations+CoreDataProperties.swift */; };
 		B19BB61F1E6ABB690081533C /* MSMTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19BB61E1E6ABB690081533C /* MSMTableView.swift */; };
 		B19BB6211E6ABF560081533C /* MSMTableViewControllerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19BB6201E6ABF560081533C /* MSMTableViewControllerManager.swift */; };
 		B19DF2841DF94DCD000AFC92 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19DF2831DF94DCD000AFC92 /* CalendarViewController.swift */; };
@@ -570,6 +572,8 @@
 		B18A45C91DEC282B003EBD2F /* DotView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DotView.swift; sourceTree = "<group>"; };
 		B18A45CB1DEC3918003EBD2F /* SmallCirleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmallCirleView.swift; sourceTree = "<group>"; };
 		B196685F1E73098600B9C9AE /* OrganizationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrganizationTableViewCell.swift; sourceTree = "<group>"; };
+		B19A24231E8625DE0070841F /* Organizations+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Organizations+CoreDataClass.swift"; sourceTree = "<group>"; };
+		B19A24241E8625DE0070841F /* Organizations+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Organizations+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		B19BB61E1E6ABB690081533C /* MSMTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSMTableView.swift; sourceTree = "<group>"; };
 		B19BB6201E6ABF560081533C /* MSMTableViewControllerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSMTableViewControllerManager.swift; sourceTree = "<group>"; };
 		B19DF2831DF94DCD000AFC92 /* CalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
@@ -822,6 +826,8 @@
 				B10874A51E5B3D7E004A4FB6 /* AppUser+CoreDataProperties.swift */,
 				B1A9ACCC1E7C6FE60010FF05 /* Categories+CoreDataClass.swift */,
 				B1A9ACCD1E7C6FE60010FF05 /* Categories+CoreDataProperties.swift */,
+				B19A24231E8625DE0070841F /* Organizations+CoreDataClass.swift */,
+				B19A24241E8625DE0070841F /* Organizations+CoreDataProperties.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -2044,6 +2050,7 @@
 				B1C13D8F1DEF5736002B494A /* DropDownTableViewCell.swift in Sources */,
 				B177E55B1E54B739004F1390 /* RepetitionPasswordShowViewController.swift in Sources */,
 				B177E5371E5475EC004F1390 /* SignInContainerShowPresenter.swift in Sources */,
+				B19A24261E8625DE0070841F /* Organizations+CoreDataProperties.swift in Sources */,
 				B14E974C1DD8B042001E1DE2 /* SignInShowRouter.swift in Sources */,
 				B137EC931E7D19B0006F0184 /* MSMCollectionView.swift in Sources */,
 				B1FBC9251E6D948B00D86429 /* UbuntuLightVeryLightOrangeButton.swift in Sources */,
@@ -2156,6 +2163,7 @@
 				B1BEEDF31E63687500F1DE8A /* OrganizationShowRouter.swift in Sources */,
 				B14E975A1DD8B052001E1DE2 /* SignUpShowRouter.swift in Sources */,
 				B19DF2841DF94DCD000AFC92 /* CalendarViewController.swift in Sources */,
+				B19A24251E8625DE0070841F /* Organizations+CoreDataClass.swift in Sources */,
 				B11B9ADD1DF053BA009A4AA1 /* CustomImageView.swift in Sources */,
 				B1C13D871DEF2743002B494A /* DropDownButton.swift in Sources */,
 				B122F2181DD35C2C0018A701 /* NewsShowViewController.swift in Sources */,

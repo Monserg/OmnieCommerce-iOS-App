@@ -15,14 +15,15 @@ import UIKit
 struct OrganizationsShowModels {
     struct Organizations {
         struct RequestModel {
+            let parameters: [String: Any]
         }
         
         struct ResponseModel {
-            let result: [Organization]
+            let response: ResponseAPI?
         }
         
         struct ViewModel {
-            let organizations: [Organization]
+            let organizations: [Organization]?
         }
     }
     

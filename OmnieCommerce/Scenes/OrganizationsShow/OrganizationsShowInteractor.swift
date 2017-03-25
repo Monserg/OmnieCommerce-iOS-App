@@ -20,9 +20,9 @@ protocol OrganizationsShowInteractorInput {
 
 // MARK: - Output protocols for Presenter component VIP-cicle
 protocol OrganizationsShowInteractorOutput {
-    func servicesDidPrepareToShow(fromResponseModel responseModel: OrganizationsShowModels.DropDownList.ResponseModel)
-    func categoriesDidPrepareToShow(fromResponseModel responseModel: OrganizationsShowModels.DropDownList.ResponseModel)
-    func organizationsDidPrepareToShow(fromResponseModel responseModel: OrganizationsShowModels.Organizations.ResponseModel)
+    func servicesDidPrepareToShowLoad(fromResponseModel responseModel: OrganizationsShowModels.DropDownList.ResponseModel)
+    func categoriesDidPrepareToShowLoad(fromResponseModel responseModel: OrganizationsShowModels.DropDownList.ResponseModel)
+    func organizationsDidPrepareToShowLoad(fromResponseModel responseModel: OrganizationsShowModels.Organizations.ResponseModel)
 }
 
 class OrganizationsShowInteractor: OrganizationsShowInteractorInput {
@@ -33,32 +33,25 @@ class OrganizationsShowInteractor: OrganizationsShowInteractorInput {
     
     // MARK: - Custom Functions. Business logic
     func servicesDidLoad(withRequestModel requestModel: OrganizationsShowModels.DropDownList.RequestModel) {
-        worker          =   OrganizationsShowWorker()
-        let services    =   worker.dropDownListDidLoad(withType: .Services)
+        worker = OrganizationsShowWorker()
+        let services = worker.dropDownListDidLoad(withType: .Services)
         
         let servicesResponseModel = OrganizationsShowModels.DropDownList.ResponseModel(result: services)
-        presenter.servicesDidPrepareToShow(fromResponseModel: servicesResponseModel)
+        presenter.servicesDidPrepareToShowLoad(fromResponseModel: servicesResponseModel)
     }
 
     func categoriesDidLoad(withRequestModel requestModel: OrganizationsShowModels.DropDownList.RequestModel) {
-        worker          =   OrganizationsShowWorker()
-        let categories  =   worker.dropDownListDidLoad(withType: .Categories)
+        worker = OrganizationsShowWorker()
+        let categories = worker.dropDownListDidLoad(withType: .Categories)
         
         let categoriesResponseModel = OrganizationsShowModels.DropDownList.ResponseModel(result: categories)
-        presenter.categoriesDidPrepareToShow(fromResponseModel: categoriesResponseModel)
+        presenter.categoriesDidPrepareToShowLoad(fromResponseModel: categoriesResponseModel)
     }
 
     func organizationsDidLoad(withRequestModel requestModel: OrganizationsShowModels.Organizations.RequestModel) {
-        UIApplication.shared.isNetworkActivityIndicatorVisible = true
-        
-        // NOTE: Create some Worker to do the work
-        worker = OrganizationsShowWorker()
-        worker.organizationsDidLoad()
-        
-        worker.handlerLocationCompletion = { organizations in
-            // NOTE: Pass the result to the Presenter
-            let responseModel = OrganizationsShowModels.Organizations.ResponseModel(result: organizations)
-            self.presenter.organizationsDidPrepareToShow(fromResponseModel: responseModel)
-        }
+        MSMRestApiManager.instance.userGetOrganizationsListByCategory(requestModel.parameters, withHandlerResponseAPICompletion: { responseAPI in
+            let organizationsResponseModel = OrganizationsShowModels.Organizations.ResponseModel(response: responseAPI)
+            self.presenter.organizationsDidPrepareToShowLoad(fromResponseModel: organizationsResponseModel)
+        })
     }
 }

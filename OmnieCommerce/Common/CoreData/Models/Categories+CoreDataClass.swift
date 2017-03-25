@@ -19,5 +19,4 @@ public class Categories: NSManagedObject {
     deinit {
         print("\(type(of: self)) deinit")
     }
-
 }

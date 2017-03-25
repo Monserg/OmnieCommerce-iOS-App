@@ -109,7 +109,7 @@ class CategoriesShowViewController: BaseViewController {
 //        interactor.citiesDidLoad(withRequestModel: citiesRequestModel)
     }
 
-    func categoriesDidShow(_ categories: [Category], fromAPI isDataFromAPI: Bool) {
+    func categoriesDidShow(_ categories: [Category]) {
         // Setting MSMCollectionViewControllerManager
         collectionView.collectionViewControllerManager = MSMCollectionViewControllerManager(withCollectionView: self.collectionView)
         collectionView.collectionViewControllerManager!.sectionsCount = 1
@@ -117,20 +117,7 @@ class CategoriesShowViewController: BaseViewController {
         dataSourceEmptyView.isHidden = (categories.count == 0) ? false : true
         
         collectionView.reloadData()
-        
-        // Save new data to CoreData
-        if (isDataFromAPI) {
-            let categoriesData = NSKeyedArchiver.archivedData(withRootObject: categories) as NSData?
-            
-            guard categoriesData != nil else {
-                return
-            }
-            
-            let entityCategories = CoreDataManager.instance.entityDidLoad(byName: keyCategories) as! Categories
-            entityCategories.list = categoriesData!
-            CoreDataManager.instance.didSaveContext()
-        }
-        
+                
         self.collectionViewCellDidSelect()
     }
     
@@ -153,19 +140,20 @@ class CategoriesShowViewController: BaseViewController {
 extension CategoriesShowViewController: CategoriesShowViewControllerInput {
     func categoriesDidShowLoad(fromViewModel viewModel: CategoriesShowModels.Categories.ViewModel) {
         spinnerDidFinish()
+        CoreDataManager.instance.didSaveContext()
         
         guard isNetworkAvailable else {
             // Show categories list from CoreData
             let categoriesData = CoreDataManager.instance.entityDidLoad(byName: keyCategories) as! Categories
-            let categories = NSKeyedUnarchiver.unarchiveObject(with: categoriesData.list as! Data) as! Array<Category>
+            let categories = NSKeyedUnarchiver.unarchiveObject(with: categoriesData.list as! Data) as! [Category]
 
-            self.categoriesDidShow(categories, fromAPI: false)
+            self.categoriesDidShow(categories)
             return
         }        
         
         // Show categories list from API
         let categories = viewModel.categories!
-        self.categoriesDidShow(categories, fromAPI: true)
+        self.categoriesDidShow(categories)
     }
     
     func citiesDidShowLoad(fromViewModel viewModel: CategoriesShowModels.Cities.ViewModel) {

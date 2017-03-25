@@ -125,26 +125,26 @@ class BaseViewController: UIViewController {
     }
 
     private func didApplySlideMenuSettings() {
+        // Set background color
+        view.backgroundColor = UIColor.veryDarkDesaturatedBlue24
+
         if (haveMenuItem) {
-            // Set background color
-            view.backgroundColor                                =   UIColor.veryDarkDesaturatedBlue24
-            
             // Delegate
-            revealViewController().delegate                     =   self
+            revealViewController().delegate = self
             
-            revealViewController().rearViewRevealWidth          =   296
-            revealViewController().rearViewRevealDisplacement   =   198
-            revealViewController().rearViewRevealOverdraw       =   0
+            revealViewController().rearViewRevealWidth = 296
+            revealViewController().rearViewRevealDisplacement = 198
+            revealViewController().rearViewRevealOverdraw = 0
             
             // Faster slide animation
-            revealViewController().toggleAnimationDuration      =   0.3
+            revealViewController().toggleAnimationDuration = 0.3
             
             // Simply ease out. No Spring animation.
-            revealViewController().toggleAnimationType          =   .easeOut
+            revealViewController().toggleAnimationType = .easeOut
             
             // More shadow
-            revealViewController().frontViewShadowRadius        =   0
-            revealViewController().frontViewShadowColor         =   UIColor.clear            
+            revealViewController().frontViewShadowRadius = 0
+            revealViewController().frontViewShadowColor = UIColor.clear
             
             view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
             navigationBarView!.actionButton.addTarget(revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), for: .touchUpInside)
@@ -214,11 +214,11 @@ extension BaseViewController: UIGestureRecognizerDelegate {
 // MARK: - UINavigationControllerDelegate
 extension BaseViewController: UINavigationControllerDelegate {
     func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
-        UIApplication.shared.statusBarStyle                 =   .lightContent
-        UINavigationBar.appearance().barTintColor           =   UIColor.veryDarkGray
-        UINavigationBar.appearance().tintColor              =   UIColor.veryLightGray
-        UINavigationBar.appearance().titleTextAttributes    =   [NSForegroundColorAttributeName: UIColor.veryLightGray]
-        UINavigationBar.appearance().isTranslucent          =   false
+        UIApplication.shared.statusBarStyle = .lightContent
+        UINavigationBar.appearance().barTintColor = UIColor.veryDarkGray
+        UINavigationBar.appearance().tintColor = UIColor.veryLightGray
+        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.veryLightGray]
+        UINavigationBar.appearance().isTranslucent = false
     }
 }
 

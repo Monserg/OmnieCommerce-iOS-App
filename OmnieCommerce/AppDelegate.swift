@@ -10,6 +10,7 @@ import UIKit
 import FBSDKCoreKit
 import FBSDKLoginKit
 import Google
+import GooglePlaces
 import GoogleSignIn
 import SwiftyVK
 
@@ -26,6 +27,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Facebook SDK
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
 
+        // Google Maps
+        GMSPlacesClient.provideAPIKey("AIzaSyAjgia40VOxC_eaVwrULf1TOjmlw2cwqpE")
+        
         return true
     }
 

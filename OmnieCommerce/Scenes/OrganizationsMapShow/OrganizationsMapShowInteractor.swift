@@ -35,10 +35,10 @@ class OrganizationsMapShowInteractor: OrganizationsMapShowInteractorInput {
         worker = OrganizationsMapShowWorker()
         worker.pointAnnotationsDidLoad(fromOrganizations: requestModel.organizations)
 
-        let regionRect          =   worker.regionRect
-        let pointAnnotations    =   worker.points
+        let regionRect = worker.regionRect
+        let pointAnnotations = worker.points
         
-        let responseModel       =   OrganizationsMapShowModels.PointAnnotations.ResponseModel(result: pointAnnotations, regionRect: regionRect)
+        let responseModel = OrganizationsMapShowModels.PointAnnotations.ResponseModel(result: pointAnnotations, regionRect: regionRect)
         presenter.pointAnnotationsDidPrepareToShow(fromResponseModel: responseModel)
     }
 }

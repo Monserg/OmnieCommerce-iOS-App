@@ -46,11 +46,11 @@ class ResponseAPI {
         case .UserDataDictionary:
             self.body = json["body"].dictionaryObject!
             CoreDataManager.instance.appUser.dataDidMap(fromDictionary: self.body as! [String: Any])
-        
+
         case .UserAdditionalDataDictionary:
             self.body = json["body"].dictionaryObject!
             CoreDataManager.instance.appUser.additionalDataDidMap(fromDictionary: self.body as! [String: Any])
-            
+
         case .CategoriesArray:
             let responseCategories = json["body"].arrayObject!
             var categories = [Category]()
@@ -64,8 +64,29 @@ class ResponseAPI {
             
             self.body = categories
             
+        case .OrganizationsArray:
+            self.body = json["body"].arrayObject!
+            
         default:
             self.body = json["body"].stringValue
+        }
+    }
+    
+    
+    // MARK: - Custom Functions
+    func organizationsAddressDidLoad(_ organizationsList: [Any], completion: @escaping ((_ organizations: [Organization]) -> ())) {
+        var organizations = [Organization]()
+        
+        for dictionary in organizationsList {
+            let organization = Organization.init()
+            
+            organization.didMap(fromDictionary: dictionary as! [String : Any], completion: { _ in
+                organizations.append(organization)
+                
+                if (organizations.count == organizationsList.count) {
+                    completion(organizations)
+                }
+            })
         }
     }
 }

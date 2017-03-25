@@ -29,9 +29,13 @@
     <entity name="Categories" representedClassName="Categories" syncable="YES">
         <attribute name="list" optional="YES" attributeType="Binary" syncable="YES"/>
     </entity>
+    <entity name="Organizations" representedClassName="Organizations" syncable="YES">
+        <attribute name="list" optional="YES" attributeType="Binary" syncable="YES"/>
+    </entity>
     <elements>
         <element name="AppSettings" positionX="-54" positionY="-9" width="128" height="60"/>
         <element name="AppUser" positionX="-63" positionY="-18" width="128" height="285"/>
         <element name="Categories" positionX="-54" positionY="99" width="128" height="60"/>
+        <element name="Organizations" positionX="-54" positionY="99" width="128" height="60"/>
     </elements>
 </model>

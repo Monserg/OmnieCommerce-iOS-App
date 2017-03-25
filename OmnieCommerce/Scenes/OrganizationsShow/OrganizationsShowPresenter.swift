@@ -13,16 +13,16 @@ import UIKit
 
 // MARK: - Input protocols for current Presenter component VIP-cicle
 protocol OrganizationsShowPresenterInput {
-    func servicesDidPrepareToShow(fromResponseModel responseModel: OrganizationsShowModels.DropDownList.ResponseModel)
-    func categoriesDidPrepareToShow(fromResponseModel responseModel: OrganizationsShowModels.DropDownList.ResponseModel)
-    func organizationsDidPrepareToShow(fromResponseModel responseModel: OrganizationsShowModels.Organizations.ResponseModel)
+    func servicesDidPrepareToShowLoad(fromResponseModel responseModel: OrganizationsShowModels.DropDownList.ResponseModel)
+    func categoriesDidPrepareToShowLoad(fromResponseModel responseModel: OrganizationsShowModels.DropDownList.ResponseModel)
+    func organizationsDidPrepareToShowLoad(fromResponseModel responseModel: OrganizationsShowModels.Organizations.ResponseModel)
 }
 
 // MARK: - Output protocols for ViewController component VIP-cicle
 protocol OrganizationsShowPresenterOutput: class {
-    func servicesDidShow(fromViewModel viewModel: OrganizationsShowModels.DropDownList.ViewModel)
-    func categoriesDidShow(fromViewModel viewModel: OrganizationsShowModels.DropDownList.ViewModel)
-    func organizationsDidShow(fromViewModel viewModel: OrganizationsShowModels.Organizations.ViewModel)
+    func servicesDidShowLoad(fromViewModel viewModel: OrganizationsShowModels.DropDownList.ViewModel)
+    func categoriesDidShowLoad(fromViewModel viewModel: OrganizationsShowModels.DropDownList.ViewModel)
+    func organizationsDidShowLoad(fromViewModel viewModel: OrganizationsShowModels.Organizations.ViewModel)
 }
 
 class OrganizationsShowPresenter: OrganizationsShowPresenterInput {
@@ -31,20 +31,26 @@ class OrganizationsShowPresenter: OrganizationsShowPresenterInput {
     
     
     // MARK: - Custom Functions. Presentation logic
-    func servicesDidPrepareToShow(fromResponseModel responseModel: OrganizationsShowModels.DropDownList.ResponseModel) {
+    func servicesDidPrepareToShowLoad(fromResponseModel responseModel: OrganizationsShowModels.DropDownList.ResponseModel) {
         let servicesViewModel = OrganizationsShowModels.DropDownList.ViewModel(dropDownList: responseModel.result)
-        viewController.servicesDidShow(fromViewModel: servicesViewModel)
+        viewController.servicesDidShowLoad(fromViewModel: servicesViewModel)
     }
     
-    func categoriesDidPrepareToShow(fromResponseModel responseModel: OrganizationsShowModels.DropDownList.ResponseModel) {
+    func categoriesDidPrepareToShowLoad(fromResponseModel responseModel: OrganizationsShowModels.DropDownList.ResponseModel) {
         let categoriesViewModel = OrganizationsShowModels.DropDownList.ViewModel(dropDownList: responseModel.result)
-        viewController.categoriesDidShow(fromViewModel: categoriesViewModel)
+        viewController.categoriesDidShowLoad(fromViewModel: categoriesViewModel)
     }
 
-    func organizationsDidPrepareToShow(fromResponseModel responseModel: OrganizationsShowModels.Organizations.ResponseModel) {
-        let viewModel = OrganizationsShowModels.Organizations.ViewModel(organizations: responseModel.result)
-        viewController.organizationsDidShow(fromViewModel: viewModel)
-        
-        UIApplication.shared.isNetworkActivityIndicatorVisible = false
+    func organizationsDidPrepareToShowLoad(fromResponseModel responseModel: OrganizationsShowModels.Organizations.ResponseModel) {
+        // Convert Google Place ID to address strings
+        responseModel.response?.organizationsAddressDidLoad(responseModel.response?.body as! [Any], completion: { organizations in
+            // Prepare to save Organizations in CoreData
+            let entityOrganizations = CoreDataManager.instance.entityDidLoad(byName: keyOrganizations) as! Organizations
+            let organizationsData = NSKeyedArchiver.archivedData(withRootObject: organizations) as NSData?
+            entityOrganizations.list = organizationsData!
+            
+            let organizationsViewModel = OrganizationsShowModels.Organizations.ViewModel(organizations: organizations)
+            self.viewController.organizationsDidShowLoad(fromViewModel: organizationsViewModel)
+        })
     }
 }

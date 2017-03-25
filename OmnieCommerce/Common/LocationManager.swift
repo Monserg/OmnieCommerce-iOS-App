@@ -8,6 +8,7 @@
 
 import UIKit
 import MapKit
+import GooglePlaces
 import CoreLocation
 import Contacts
 
@@ -35,15 +36,15 @@ class LocationManager: BaseViewController {
     
     // MARK: - Custom Functions
     func startCoreLocation(withOrganizations organizations: [Organization]) {
-        self.organizations          =   organizations
+        self.organizations = organizations
         
-        locationManager             =   CLLocationManager()
-        locationManager!.delegate   =   self
+        locationManager = CLLocationManager()
+        locationManager!.delegate = self
         locationManager!.requestWhenInUseAuthorization()
         
         if CLLocationManager.locationServicesEnabled() {
-            locationManager!.desiredAccuracy    =   kCLLocationAccuracyBest
-            locationManager!.distanceFilter     =   10.0
+            locationManager!.desiredAccuracy = kCLLocationAccuracyBest
+            locationManager!.distanceFilter = 10.0
             locationManager!.requestLocation()
         }
     }
@@ -58,33 +59,32 @@ class LocationManager: BaseViewController {
         
         // Geocoding organizations locations
         for organization in organizations {
-            let location    =   CLLocation.init(latitude: organization.location.latitude, longitude: organization.location.longitude)
-            var item        =   organization
+            let location = CLLocation.init(latitude: (organization.location?.latitude)!, longitude: (organization.location?.longitude)!)
+            let item = organization
             
             self.print(object: "organization: \(organization.name) before: \(location)")
 
-            
             CLGeocoder().reverseGeocodeLocation(location) { placemarks, error in
                 guard placemarks != nil else {
                     return
                 }
                 
-                let placemark               =   placemarks![0]
+                let placemark = placemarks![0]
                 self.print(object: "organization: \(organization.name) after: \(location) placemark: \(placemark)")
 
                 if (item.name == "Organization 0") {
                     self.print(object: placemark)
                 }
                 
-                item.addressCity            =   placemark.locality
-                let street                  =   placemark.thoroughfare ?? ""
-                let house                   =   placemark.subThoroughfare ?? ""
+                item.addressCity = placemark.locality
+                let street = placemark.thoroughfare ?? ""
+                let house = placemark.subThoroughfare ?? ""
                 
                 if (!street.isEmpty) {
                     if (house.isEmpty) {
-                        item.addressStreet  =   "\(street)"
+                        item.addressStreet = "\(street)"
                     } else {
-                        item.addressStreet  =   "\(street), \(house)"
+                        item.addressStreet = "\(street), \(house)"
                     }
                 }
                 
@@ -97,6 +97,49 @@ class LocationManager: BaseViewController {
                 }
             }
         }
+    }
+    
+    func geocodingAddress(string address: String, completion: @escaping ((_ coordinate: CLLocationCoordinate2D?, _ city: String?, _ street: String?) -> ())) {
+        CLGeocoder().geocodeAddressString(address, completionHandler: { placemarks, error in
+            guard error == nil else {
+                return completion(nil, nil, nil)
+            }
+            
+            let placemark = placemarks!.first!
+            let coordinate = placemark.location!.coordinate
+            let city = placemark.locality
+            var street = placemark.thoroughfare ?? ""
+            let house = placemark.subThoroughfare ?? ""
+            
+            if (!street.isEmpty) {
+                if (house.isEmpty) {
+                    street = "\(street)"
+                } else {
+                    street = "\(street), \(house)"
+                }
+            }
+
+            return completion(coordinate, city, street)
+        })
+    }
+    
+    func geocodingAddress(byGoogleID placeID: String, completion: @escaping ((_ coordinate: CLLocationCoordinate2D?, _ city: String?, _ street: String?) -> ())) {
+        GMSPlacesClient().lookUpPlaceID(placeID, callback: { (place, error) in
+            if (error != nil) {
+                return completion(nil, nil, nil)
+            }
+            
+            if let place = place {
+                let coordinate = place.coordinate
+                let components = place.addressComponents
+                let city = (components!.first(where: { $0.type == "locality" })! as GMSAddressComponent).name
+                let street = place.name
+
+                return completion(coordinate, city, street)
+            } else {
+                return completion(nil, nil, nil)
+            }
+        })
     }
 }
 

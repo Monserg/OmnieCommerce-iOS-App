@@ -38,7 +38,7 @@ class OrganizationShowViewController: BaseViewController {
     
     @IBOutlet var scrollView: MXScrollView! {
         didSet {
-            scrollView.delegate     =   self
+            scrollView.delegate = self
         }
     }
     
@@ -52,7 +52,7 @@ class OrganizationShowViewController: BaseViewController {
     
     @IBOutlet weak var dottedBorderView: DottedBorderView! {
         didSet {
-            dottedBorderView.style  =   .BottomDottedLine
+            dottedBorderView.style = .BottomDottedLine
         }
     }
 
@@ -76,13 +76,13 @@ class OrganizationShowViewController: BaseViewController {
     // MARK: - Custom Functions
     func viewSettingsDidLoad() {
         // Config smallTopBarView
-        navigationBarView           =   smallTopBarView
-        smallTopBarView.type        =   "Child"
-        smallTopBarView.titleText   =   organization.name
-        haveMenuItem                =   true
+        navigationBarView = smallTopBarView
+        smallTopBarView.type = "Child"
+        smallTopBarView.titleText = organization.name
+        haveMenuItem = false
         
         // Load data
-        let requestModel            =   OrganizationShowModels.Something.RequestModel()
+        let requestModel = OrganizationShowModels.Something.RequestModel()
         interactor.doSomething(requestModel: requestModel)
         
         // Handler Back button tap
@@ -92,61 +92,61 @@ class OrganizationShowViewController: BaseViewController {
         
         // Parallax
         if (organization.headerURL != nil) {
-            headerView              =   UIImageView.init(frame: CGRect.init(origin: CGPoint.zero, size: CGSize.init(width: view.frame.width, height: 150)))
-            headerView!.contentMode =   .scaleAspectFill
+            headerView = UIImageView.init(frame: CGRect.init(origin: CGPoint.zero, size: CGSize.init(width: view.frame.width, height: 150)))
+            headerView!.contentMode = .scaleAspectFill
 
             // Get header image
             Alamofire.request(organization.headerURL!).responseImage { response in
                 if let image = response.result.value {
-                    self.headerView!.image  =   image
+                    self.headerView!.image = image
                 }
             }
 
             // Settings
-            scrollView.parallaxHeader.view              =   headerView
-            scrollView.parallaxHeader.height            =   150
-            scrollView.parallaxHeader.mode              =   .fill
-            scrollView.parallaxHeader.minimumHeight     =   smallTopBarView.frame.height
-            scrollView.parallaxHeader.delegate          =   self
-            scrollView.showsVerticalScrollIndicator     =   true
-            smallTopBarView.alpha                       =   0
+            scrollView.parallaxHeader.view = headerView
+            scrollView.parallaxHeader.height = 150
+            scrollView.parallaxHeader.mode = .fill
+            scrollView.parallaxHeader.minimumHeight = smallTopBarView.frame.height
+            scrollView.parallaxHeader.delegate = self
+            scrollView.showsVerticalScrollIndicator = true
+            smallTopBarView.alpha = 0
 
             // Add Back button
-            backButton                                  =   UIButton.init(frame: CGRect.init(origin: CGPoint.zero, size: CGSize.zero))
-            backButton!.imageEdgeInsets                 =   UIEdgeInsets(top: 0, left: -16, bottom: 0, right: 0)
+            backButton = UIButton.init(frame: CGRect.init(origin: CGPoint.zero, size: CGSize.zero))
+            backButton!.imageEdgeInsets = UIEdgeInsets(top: 0, left: -16, bottom: 0, right: 0)
 
             backButton!.setImage(UIImage.init(named: "icon-back-bar-button-normal"), for: .normal)
             backButton!.addTarget(self, action: #selector(handlerBackButtonTap), for: .touchUpInside)
             
             view.addSubview(backButton!)
-            backButton!.translatesAutoresizingMaskIntoConstraints                               =   false
+            backButton!.translatesAutoresizingMaskIntoConstraints = false
 
-            backButton!.topAnchor.constraint(equalTo: view.topAnchor, constant: (UIApplication.shared.statusBarOrientation.isPortrait) ? 20 : 4).isActive     =   true
-            backButton!.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 4).isActive   =   true
-            backButton!.heightAnchor.constraint(equalToConstant: 44).isActive                   =   true
-            backButton!.widthAnchor.constraint(equalToConstant: 44).isActive                    =   true
+            backButton!.topAnchor.constraint(equalTo: view.topAnchor, constant: (UIApplication.shared.statusBarOrientation.isPortrait) ? 20 : 4).isActive = true
+            backButton!.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 4).isActive = true
+            backButton!.heightAnchor.constraint(equalToConstant: 44).isActive = true
+            backButton!.widthAnchor.constraint(equalToConstant: 44).isActive = true
             
-            scrollView.scrollIndicatorInsets            =   UIEdgeInsets(top: scrollView.parallaxHeader.view!.frame.maxY, left: 0, bottom: 0, right: 0)
+            scrollView.scrollIndicatorInsets = UIEdgeInsets(top: scrollView.parallaxHeader.view!.frame.maxY, left: 0, bottom: 0, right: 0)
         } else {
-            scrollView.transform                        =   CGAffineTransform(translationX: 0, y: smallTopBarView.frame.maxY)
-            scrollView.contentOffset                    =   CGPoint.init(x: 0, y: smallTopBarView.frame.maxY + 70)
-            scrollView.scrollIndicatorInsets            =   UIEdgeInsets(top: smallTopBarView.frame.maxY, left: 0, bottom: 0, right: 0)
+            scrollView.transform = CGAffineTransform(translationX: 0, y: smallTopBarView.frame.maxY)
+            scrollView.contentOffset = CGPoint.init(x: 0, y: smallTopBarView.frame.maxY + 70)
+            scrollView.scrollIndicatorInsets = UIEdgeInsets(top: smallTopBarView.frame.maxY, left: 0, bottom: 0, right: 0)
         }
         
         // Initial Info view
-        nameLabel.text                      =   organization.name + " jashdjk hjahdjahs hahd asd asdgag dgahd ghasg hgash dgashjgd ags dgasdaseyqteyqu  i slasldklaskdasklaskdlask"
-        nameLabel.lineBreakMode             =   .byTruncatingTail
-        nameLabel.numberOfLines             =   2
-        nameLabel.adjustsFontSizeToFitWidth =   false
+        nameLabel.text = organization.name + " jashdjk hjahdjahs hahd asd asdgag dgahd ghasg hgash dgashjgd ags dgasdaseyqteyqu  i slasldklaskdasklaskdlask"
+        nameLabel.lineBreakMode = .byTruncatingTail
+        nameLabel.numberOfLines = 2
+        nameLabel.adjustsFontSizeToFitWidth = false
         
-        favoriteButton.tag                  =   (organization.isFavorite) ? 1 : 0
+        favoriteButton.tag = (organization.isFavorite) ? 1 : 0
         favoriteButton.setImage(UIImage.init(named: (favoriteButton.tag == 0) ? "image-favorite-star-normal" : "image-favorite-star-selected"), for: .normal)
 
         if (organization.logoURL != nil) {
             Alamofire.request(organization.logoURL!).responseImage { response in
                 if let image = response.result.value {
-                    self.logoImageView!.image           =   image
-                    self.logoImageView!.contentMode     =   .scaleAspectFit
+                    self.logoImageView!.image = image
+                    self.logoImageView!.contentMode = .scaleAspectFit
                 }
             }
         }
@@ -163,9 +163,9 @@ class OrganizationShowViewController: BaseViewController {
         
         // Portrait
         if newCollection.containsTraits(in: UITraitCollection(verticalSizeClass: .regular)) {
-            backButton!.topAnchor.constraint(equalTo: view.topAnchor, constant: 20).isActive    =   true
+            backButton!.topAnchor.constraint(equalTo: view.topAnchor, constant: 20).isActive = true
         } else {
-            backButton!.topAnchor.constraint(equalTo: view.topAnchor, constant: 4).isActive     =   true
+            backButton!.topAnchor.constraint(equalTo: view.topAnchor, constant: 4).isActive = true
         }
     }
 
@@ -187,16 +187,16 @@ class OrganizationShowViewController: BaseViewController {
         }
         
         if (organization.phones!.count > 0) {
-            self.blackoutView   =   MSMBlackoutView.init(inView: view)
+            self.blackoutView = MSMBlackoutView.init(inView: view)
 
             blackoutView!.didShow()
       
-            phonesView          =   PhonesView.init(inView: view)
-            phonesView!.phones  =   organization.phones!
+            phonesView = PhonesView.init(inView: view)
+            phonesView!.phones = organization.phones!
             
             // Handler Cancel button tap
-            phonesView!.handlerCancelButtonCompletion   =   { _ in
-                self.phonesView =   nil
+            phonesView!.handlerCancelButtonCompletion = { _ in
+                self.phonesView = nil
                 
                 self.blackoutView!.didHide()
             }
@@ -204,16 +204,16 @@ class OrganizationShowViewController: BaseViewController {
     }
     
     @IBAction func handlerScheduleButtonTap(_ sender: CustomButton) {
-        self.blackoutView       =   MSMBlackoutView.init(inView: view)
+        self.blackoutView = MSMBlackoutView.init(inView: view)
 
         blackoutView!.didShow()
         
-        scheduleView            =   ScheduleView.init(inView: view)
-        scheduleView!.schedule  =   organization.schedule
+        scheduleView = ScheduleView.init(inView: view)
+        scheduleView!.schedule = organization.schedule
         
         // Handler Cancel button tap
-        scheduleView!.handlerCancelButtonCompletion     =   { _ in
-            self.scheduleView   =   nil
+        scheduleView!.handlerCancelButtonCompletion = { _ in
+            self.scheduleView = nil
             
             self.blackoutView!.didHide()
         }

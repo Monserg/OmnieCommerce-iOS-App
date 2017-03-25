@@ -14,6 +14,7 @@ import MapKit
 
 class OrganizationsShowWorker {
     // MARK: - Properties
+    /*
     private let locationManager = LocationManager()
     var organizations: [Organization]!
     var handlerLocationCompletion: HandlerLocationCompletion?
@@ -66,7 +67,7 @@ class OrganizationsShowWorker {
             self.handlerLocationCompletion!(organizations)
         }
     }
-    
+    */
     private func phonesDidCreate() -> [String]? {
         var array: [String]?
         let count = Int(arc4random_uniform(3))

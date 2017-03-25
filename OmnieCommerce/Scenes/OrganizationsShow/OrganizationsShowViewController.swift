@@ -13,9 +13,9 @@ import UIKit
 
 // MARK: - Input protocols for current ViewController component VIP-cicle
 protocol OrganizationsShowViewControllerInput {
-    func servicesDidShow(fromViewModel viewModel: OrganizationsShowModels.DropDownList.ViewModel)
-    func categoriesDidShow(fromViewModel viewModel: OrganizationsShowModels.DropDownList.ViewModel)
-    func organizationsDidShow(fromViewModel viewModel: OrganizationsShowModels.Organizations.ViewModel)
+    func servicesDidShowLoad(fromViewModel viewModel: OrganizationsShowModels.DropDownList.ViewModel)
+    func categoriesDidShowLoad(fromViewModel viewModel: OrganizationsShowModels.DropDownList.ViewModel)
+    func organizationsDidShowLoad(fromViewModel viewModel: OrganizationsShowModels.Organizations.ViewModel)
 }
 
 // MARK: - Output protocols for Interactor component VIP-cicle
@@ -31,6 +31,7 @@ class OrganizationsShowViewController: BaseViewController {
     var router: OrganizationsShowRouter!
 
     weak var category: Category?
+    var paginationInts = (limit: Config.Constants.paginationLimit, offset: 0)
     
     @IBOutlet weak var smallTopBarView: SmallTopBarView!
     @IBOutlet weak var categoriesButton: DropDownButton!
@@ -68,8 +69,7 @@ class OrganizationsShowViewController: BaseViewController {
         navigationBarView = smallTopBarView
         smallTopBarView.type = "ChildSearch"
         smallTopBarView.titleLabel.text = category!.name!
-        haveMenuItem = true
-        
+        haveMenuItem = false
         mapButton.isUserInteractionEnabled = false
         
         // Handler Back button tap
@@ -78,8 +78,7 @@ class OrganizationsShowViewController: BaseViewController {
         }
         
         // Load organizations
-        let organizationsRequestModel = OrganizationsShowModels.Organizations.RequestModel()
-        interactor.organizationsDidLoad(withRequestModel: organizationsRequestModel)
+        organizationsListDidLoad(withOffset: 0, subCategory: "", filter: "")
         
         // Load services
         let servicesRequestModel = OrganizationsShowModels.DropDownList.RequestModel()
@@ -90,6 +89,55 @@ class OrganizationsShowViewController: BaseViewController {
         interactor.categoriesDidLoad(withRequestModel: categoriesRequestModel)
     }
     
+    func organizationsListDidLoad(withOffset offset: Int, subCategory: String, filter: String) {
+        spinnerDidStart(view)
+        
+        let parameters: [String: Any] =     [
+                                                "category": self.category!.codeID,
+                                                "subCategory": subCategory,
+                                                "filter": filter,
+                                                "limit": Config.Constants.paginationLimit,
+                                                "offset": offset
+                                            ]
+
+        let organizationsRequestModel = OrganizationsShowModels.Organizations.RequestModel(parameters: parameters)
+        interactor.organizationsDidLoad(withRequestModel: organizationsRequestModel)
+    }
+    
+    func organizationsListDidShow(_ organizations: [Organization]) {
+        // Setting MSMTableViewControllerManager
+        tableView.tableViewControllerManager = MSMTableViewControllerManager()
+        tableView.tableViewControllerManager!.tableView = self.tableView
+        tableView.tableViewControllerManager!.sectionsCount = 1
+        tableView.tableViewControllerManager!.dataSource = organizations
+        mapButton.isUserInteractionEnabled = true
+        dataSourceEmptyView.isHidden = (organizations.count == 0) ? false : true
+        
+        tableView.reloadData()
+        
+        // Search Manager
+        smallTopBarView.searchBar.placeholder = "Enter Organization name".localized()
+        smallTopBarView.searchBar.delegate = tableView.tableViewControllerManager
+        
+        // Handler select cell
+        tableView.tableViewControllerManager!.handlerSearchCompletion = { organization in
+            self.print(object: "transition to Organization profile scene")
+            
+            self.router.navigateToOrganizationShowScene(organization as! Organization)
+        }
+        
+        // Handler Search keyboard button tap
+        tableView.tableViewControllerManager!.handlerSendButtonCompletion = { _ in
+            // TODO: - ADD SEARCH API
+            self.smallTopBarView.searchBarDidHide()
+        }
+        
+        // Handler Search Bar Cancel button tap
+        tableView.tableViewControllerManager!.handlerCancelButtonCompletion = { _ in
+            self.smallTopBarView.searchBarDidHide()
+        }
+    }
+
     
     // MARK: - Actions
     @IBAction func handlerMapButtonTap(_ sender: CustomButton) {
@@ -122,44 +170,28 @@ class OrganizationsShowViewController: BaseViewController {
 
 // MARK: - OrganizationsShowViewControllerInput
 extension OrganizationsShowViewController: OrganizationsShowViewControllerInput {
-    func servicesDidShow(fromViewModel viewModel: OrganizationsShowModels.DropDownList.ViewModel) {
+    func servicesDidShowLoad(fromViewModel viewModel: OrganizationsShowModels.DropDownList.ViewModel) {
         servicesButton.dataSource = viewModel.dropDownList
     }
     
-    func categoriesDidShow(fromViewModel viewModel: OrganizationsShowModels.DropDownList.ViewModel) {
+    func categoriesDidShowLoad(fromViewModel viewModel: OrganizationsShowModels.DropDownList.ViewModel) {
         categoriesButton.dataSource = viewModel.dropDownList
     }
 
-    func organizationsDidShow(fromViewModel viewModel: OrganizationsShowModels.Organizations.ViewModel) {
-        // Setting MSMTableViewControllerManager
-        tableView.tableViewControllerManager = MSMTableViewControllerManager()
-        tableView.tableViewControllerManager!.tableView = self.tableView
-        tableView.tableViewControllerManager!.sectionsCount = 1
-        tableView.tableViewControllerManager!.dataSource = viewModel.organizations
-        mapButton.isUserInteractionEnabled = true
-        dataSourceEmptyView.isHidden = (viewModel.organizations.count == 0) ? false : true
-        tableView.reloadData()
-        
-        // Search Manager
-        smallTopBarView.searchBar.placeholder = "Enter Organization name".localized()
-        smallTopBarView.searchBar.delegate = tableView.tableViewControllerManager
-        
-        // Handler select cell
-        tableView.tableViewControllerManager!.handlerSearchCompletion = { organization in
-            self.print(object: "transition to Organization profile scene")
-            
-            self.router.navigateToOrganizationShowScene(organization as! Organization)
+    func organizationsDidShowLoad(fromViewModel viewModel: OrganizationsShowModels.Organizations.ViewModel) {
+        spinnerDidFinish()
+        CoreDataManager.instance.didSaveContext()
+
+        guard isNetworkAvailable else {
+            // Show Organizations list from CoreData
+            let organizationsData = CoreDataManager.instance.entityDidLoad(byName: keyOrganizations) as! Organizations
+            let organizations = NSKeyedUnarchiver.unarchiveObject(with: organizationsData.list as! Data) as! [Organization]
+            self.organizationsListDidShow(organizations)
+            return
         }
         
-        // Handler Search keyboard button tap
-        tableView.tableViewControllerManager!.handlerSendButtonCompletion = { _ in
-            // TODO: - ADD SEARCH API
-            self.smallTopBarView.searchBarDidHide()
-        }
-        
-        // Handler Search Bar Cancel button tap
-        tableView.tableViewControllerManager!.handlerCancelButtonCompletion = { _ in
-            self.smallTopBarView.searchBarDidHide()
-        }
+        // Show Organizations list from API
+        let organizations = viewModel.organizations!
+        self.organizationsListDidShow(organizations)
     }
 }
