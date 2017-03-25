@@ -19,7 +19,7 @@ class PersonalPageShowWorker {
             return nil
         }
         
-        var items   =   [Organization]()
+        var items = [Organization]()
         
         for index in 0..<11 {
             let organization = Organization(codeID: "\(index)",
@@ -27,7 +27,11 @@ class PersonalPageShowWorker {
                                             category: Category.init(),
                                             rating: Double(arc4random_uniform(6)),
                                             isFavorite: false,
-                                            logoURL: "http://vignette2.wikia.nocookie.net/logopedia/images/2/25/BMW_logo.png/revision/latest?cb=20150410110027")
+                                            logoURL: "http://vignette2.wikia.nocookie.net/logopedia/images/2/25/BMW_logo.png/revision/latest?cb=20150410110027",
+                                            city: "Lviv",
+                                            street: "Svobody Ave, 28",
+                                            latitude: 49.84402978414681,
+                                            longitude: 24.026198387145996)
             
             items.append(organization)
         }

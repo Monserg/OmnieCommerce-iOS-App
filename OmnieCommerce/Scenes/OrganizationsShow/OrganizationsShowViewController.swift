@@ -77,7 +77,13 @@ class OrganizationsShowViewController: BaseViewController {
             _ = self.navigationController?.popViewController(animated: true)
         }
         
-        // Load organizations
+        // Load Organizations list from Core Data
+        guard isNetworkAvailable else {
+            self.organizationsListDidShow(nil, fromAPI: false)
+            return
+        }
+        
+        // Load Organizations list from API
         organizationsListDidLoad(withOffset: 0, subCategory: "", filter: "")
         
         // Load services
@@ -100,18 +106,27 @@ class OrganizationsShowViewController: BaseViewController {
                                                 "offset": offset
                                             ]
 
-        let organizationsRequestModel = OrganizationsShowModels.Organizations.RequestModel(parameters: parameters)
+        let organizationsRequestModel = OrganizationsShowModels.Organizations.RequestModel(parameters: parameters, category: category!)
         interactor.organizationsDidLoad(withRequestModel: organizationsRequestModel)
     }
     
-    func organizationsListDidShow(_ organizations: [Organization]) {
+    func organizationsListDidShow(_ organizations: [Organization]?, fromAPI: Bool) {
+        var organizationsList = [Organization]()
+        
+        if (fromAPI) {
+            organizationsList = organizations!
+        } else {
+            let organizationsData = CoreDataManager.instance.entityDidLoad(byName: keyOrganizations) as! Organizations
+            organizationsList = NSKeyedUnarchiver.unarchiveObject(with: organizationsData.list as! Data) as! [Organization]
+        }
+
         // Setting MSMTableViewControllerManager
         tableView.tableViewControllerManager = MSMTableViewControllerManager()
         tableView.tableViewControllerManager!.tableView = self.tableView
         tableView.tableViewControllerManager!.sectionsCount = 1
-        tableView.tableViewControllerManager!.dataSource = organizations
+        tableView.tableViewControllerManager!.dataSource = organizationsList
         mapButton.isUserInteractionEnabled = true
-        dataSourceEmptyView.isHidden = (organizations.count == 0) ? false : true
+        dataSourceEmptyView.isHidden = (organizationsList.count == 0) ? false : true
         
         tableView.reloadData()
         
@@ -182,16 +197,14 @@ extension OrganizationsShowViewController: OrganizationsShowViewControllerInput 
         spinnerDidFinish()
         CoreDataManager.instance.didSaveContext()
 
+        // Load Organizations list from CoreData
         guard isNetworkAvailable else {
-            // Show Organizations list from CoreData
-            let organizationsData = CoreDataManager.instance.entityDidLoad(byName: keyOrganizations) as! Organizations
-            let organizations = NSKeyedUnarchiver.unarchiveObject(with: organizationsData.list as! Data) as! [Organization]
-            self.organizationsListDidShow(organizations)
+            self.organizationsListDidShow(nil, fromAPI: false)
             return
         }
         
-        // Show Organizations list from API
+        // Load Organizations list from API
         let organizations = viewModel.organizations!
-        self.organizationsListDidShow(organizations)
+        self.organizationsListDidShow(organizations, fromAPI: true)
     }
 }

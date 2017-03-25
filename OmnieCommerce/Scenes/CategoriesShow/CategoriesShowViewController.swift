@@ -98,23 +98,40 @@ class CategoriesShowViewController: BaseViewController {
         smallTopBarView.type = "Parent"
         haveMenuItem = true
         
-        // Load Categories list
+        // Load Categories list from CoreData
+        guard isNetworkAvailable else {
+            self.categoriesListDidShow(nil, fromAPI: false)
+            
+            // TODO: - ADD LOAD CITIES LIST FROM COREDATA
+            return
+        }
+        
+        // Load Categories list from API
         spinnerDidStart(nil)
         let categoriesRequestModel = CategoriesShowModels.Categories.RequestModel()
         interactor.categoriesDidLoad(withRequestModel: categoriesRequestModel)
         
-        // Load Cities list
-        // TODO: UNCOMMENT WHEN NEED TO USE FILTER BY CITIES !!!
+        // Load Cities list from API
+        // TODO: - UNCOMMENT WHEN NEED TO USE FILTER BY CITIES !!!
 //        let citiesRequestModel = CategoriesShowModels.Cities.RequestModel(listType: .City)
 //        interactor.citiesDidLoad(withRequestModel: citiesRequestModel)
     }
 
-    func categoriesDidShow(_ categories: [Category]) {
+    func categoriesListDidShow(_ categories: [Category]?, fromAPI: Bool) {
+        var categoriesList = [Category]()
+        
+        if (fromAPI) {
+            categoriesList = categories!
+        } else {
+            let categoriesData = CoreDataManager.instance.entityDidLoad(byName: keyCategories) as! Categories
+            categoriesList = NSKeyedUnarchiver.unarchiveObject(with: categoriesData.list as! Data) as! [Category]
+        }
+        
         // Setting MSMCollectionViewControllerManager
         collectionView.collectionViewControllerManager = MSMCollectionViewControllerManager(withCollectionView: self.collectionView)
         collectionView.collectionViewControllerManager!.sectionsCount = 1
-        collectionView.collectionViewControllerManager!.dataSource = categories
-        dataSourceEmptyView.isHidden = (categories.count == 0) ? false : true
+        collectionView.collectionViewControllerManager!.dataSource = categoriesList
+        dataSourceEmptyView.isHidden = (categoriesList.count == 0) ? false : true
         
         collectionView.reloadData()
                 
@@ -142,18 +159,15 @@ extension CategoriesShowViewController: CategoriesShowViewControllerInput {
         spinnerDidFinish()
         CoreDataManager.instance.didSaveContext()
         
+        // Load Categories list from CoreData
         guard isNetworkAvailable else {
-            // Show categories list from CoreData
-            let categoriesData = CoreDataManager.instance.entityDidLoad(byName: keyCategories) as! Categories
-            let categories = NSKeyedUnarchiver.unarchiveObject(with: categoriesData.list as! Data) as! [Category]
-
-            self.categoriesDidShow(categories)
+            self.categoriesListDidShow(nil, fromAPI: false)
             return
         }        
         
-        // Show categories list from API
+        // Load categories list from API
         let categories = viewModel.categories!
-        self.categoriesDidShow(categories)
+        self.categoriesListDidShow(categories, fromAPI: true)
     }
     
     func citiesDidShowLoad(fromViewModel viewModel: CategoriesShowModels.Cities.ViewModel) {

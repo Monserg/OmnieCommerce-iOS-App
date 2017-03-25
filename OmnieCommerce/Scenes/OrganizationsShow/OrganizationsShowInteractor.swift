@@ -50,7 +50,7 @@ class OrganizationsShowInteractor: OrganizationsShowInteractorInput {
 
     func organizationsDidLoad(withRequestModel requestModel: OrganizationsShowModels.Organizations.RequestModel) {
         MSMRestApiManager.instance.userGetOrganizationsListByCategory(requestModel.parameters, withHandlerResponseAPICompletion: { responseAPI in
-            let organizationsResponseModel = OrganizationsShowModels.Organizations.ResponseModel(response: responseAPI)
+            let organizationsResponseModel = OrganizationsShowModels.Organizations.ResponseModel(response: responseAPI, category: requestModel.category)
             self.presenter.organizationsDidPrepareToShowLoad(fromResponseModel: organizationsResponseModel)
         })
     }

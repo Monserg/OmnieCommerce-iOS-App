@@ -32,7 +32,7 @@ class BaseViewController: UIViewController {
         
         get {
             let status = AFNetworkReachabilityManager.shared().networkReachabilityStatus
-            let result = (status != .reachableViaWWAN && status != .reachableViaWiFi) ? false : true
+            let result = (status != .reachableViaWWAN && status != .reachableViaWiFi && status != .unknown) ? false : true
             
             guard result else {
                 alertViewDidShow(withTitle: "Not Reachable", andMessage: "Disconnected from Network", completion: { _ in })

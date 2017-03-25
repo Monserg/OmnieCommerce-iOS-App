@@ -59,7 +59,7 @@ class LocationManager: BaseViewController {
         
         // Geocoding organizations locations
         for organization in organizations {
-            let location = CLLocation.init(latitude: (organization.location?.latitude)!, longitude: (organization.location?.longitude)!)
+            let location = CLLocation.init(latitude: (organization.latitude)!, longitude: (organization.longitude)!)
             let item = organization
             
             self.print(object: "organization: \(organization.name) before: \(location)")

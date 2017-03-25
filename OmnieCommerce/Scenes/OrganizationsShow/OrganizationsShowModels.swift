@@ -16,10 +16,12 @@ struct OrganizationsShowModels {
     struct Organizations {
         struct RequestModel {
             let parameters: [String: Any]
+            let category: Category
         }
         
         struct ResponseModel {
             let response: ResponseAPI?
+            let category: Category
         }
         
         struct ViewModel {

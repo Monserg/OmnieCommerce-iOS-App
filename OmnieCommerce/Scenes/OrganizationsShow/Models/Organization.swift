@@ -15,9 +15,11 @@ class Organization: NSObject, NSCoding, InitCellParameters, SearchObject {
     var codeID: String!
     var name: String!
     var category: Category!
-    var location: CLLocationCoordinate2D?
-    var addressCity: String?
-    var addressStreet: String?
+//    var location: CLLocationCoordinate2D!
+    var latitude: CLLocationDegrees!
+    var longitude: CLLocationDegrees!
+    var addressCity: String!
+    var addressStreet: String!
     var logoURL: String?
     var headerURL: String?
     var rating: Double = 0.0
@@ -35,24 +37,32 @@ class Organization: NSObject, NSCoding, InitCellParameters, SearchObject {
         super.init()
     }
     
-    init(codeID: String, name: String, category: Category, rating: Double, isFavorite: Bool, logoURL: String) {
+    init(codeID: String, name: String, category: Category, rating: Double, isFavorite: Bool, logoURL: String?, city: String, street: String, latitude: CLLocationDegrees, longitude: CLLocationDegrees) {
         self.codeID = codeID
         self.name = name
         self.category = category
         self.rating = rating
         self.isFavorite = isFavorite
         self.logoURL = logoURL
+        self.latitude = latitude
+        self.longitude = longitude
+        self.addressCity = city
+        self.addressStreet = street
     }
     
     required convenience init(coder aDecoder: NSCoder) {
         let codeID = aDecoder.decodeObject(forKey: "codeID") as! String
         let name = aDecoder.decodeObject(forKey: "name") as! String
         let category = aDecoder.decodeObject(forKey: "category") as! Category
-        let rating = aDecoder.decodeObject(forKey: "rating") as! Double
-        let isFavorite = aDecoder.decodeObject(forKey: "isFavorite") as! Bool
-        let logoURL = aDecoder.decodeObject(forKey: "logoURL") as! String
+        let rating = aDecoder.decodeDouble(forKey: "rating")
+        let isFavorite = aDecoder.decodeBool(forKey: "isFavorite")
+        let logoURL = aDecoder.decodeObject(forKey: "logoURL") as? String
+        let latitude = aDecoder.decodeObject(forKey: "latitude") as! CLLocationDegrees
+        let longitude = aDecoder.decodeObject(forKey: "longitude") as! CLLocationDegrees
+        let addressCity = aDecoder.decodeObject(forKey: "addressCity") as! String
+        let addressStreet = aDecoder.decodeObject(forKey: "addressStreet") as! String
 
-        self.init(codeID: codeID, name: name, category: category, rating: rating, isFavorite: isFavorite, logoURL: logoURL)
+        self.init(codeID: codeID, name: name, category: category, rating: rating, isFavorite: isFavorite, logoURL: logoURL, city: addressCity, street: addressStreet, latitude: latitude, longitude: longitude)
     }
     
     func encode(with aCoder: NSCoder){
@@ -62,6 +72,10 @@ class Organization: NSObject, NSCoding, InitCellParameters, SearchObject {
         aCoder.encode(rating, forKey: "rating")
         aCoder.encode(isFavorite, forKey: "isFavorite")
         aCoder.encode(logoURL, forKey: "logoURL")
+        aCoder.encode(addressCity, forKey: "addressCity")
+        aCoder.encode(addressStreet, forKey: "addressStreet")
+        aCoder.encode(latitude, forKey: "latitude")
+        aCoder.encode(longitude, forKey: "longitude")
     }
     
     
@@ -83,7 +97,8 @@ class Organization: NSObject, NSCoding, InitCellParameters, SearchObject {
             let locationManager = LocationManager()
             
             locationManager.geocodingAddress(byGoogleID: (dictionary["placeId"] as? String)!, completion: { coordinate, city, street in
-                self.location = coordinate
+                self.latitude = coordinate?.latitude
+                self.longitude = coordinate?.longitude
                 self.addressCity = city
                 self.addressStreet = street
                 
