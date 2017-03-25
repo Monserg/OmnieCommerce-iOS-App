@@ -32,7 +32,7 @@ class BaseViewController: UIViewController {
         
         get {
             let status = AFNetworkReachabilityManager.shared().networkReachabilityStatus
-            let result = (status != .reachableViaWWAN && status != .reachableViaWiFi && status != .unknown) ? false : true
+            let result = (status != .reachableViaWWAN && status != .reachableViaWiFi) ? false : true
             
             guard result else {
                 alertViewDidShow(withTitle: "Not Reachable", andMessage: "Disconnected from Network", completion: { _ in })
@@ -253,11 +253,13 @@ extension BaseViewController {
                 // Reachable.
                 reachableOrNot = "Reachable"
                 networkSummary = "Connected to Network"
+                self.isNetworkAvailable = true
             
             default:
                 // Not reachable.
                 reachableOrNot = "Not Reachable"
                 networkSummary = "Disconnected from Network"
+                self.isNetworkAvailable = false
             }
             
             // Any class which has observer for this notification will be able to report loss of network connection successfully
