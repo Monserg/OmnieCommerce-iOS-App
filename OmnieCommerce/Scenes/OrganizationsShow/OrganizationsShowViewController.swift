@@ -43,6 +43,12 @@ class OrganizationsShowViewController: BaseViewController {
         didSet {
             tableView.contentInset = UIEdgeInsetsMake((UIApplication.shared.statusBarOrientation.isPortrait) ? 5 : 45, 0, 0, 0)
             tableView.scrollIndicatorInsets = UIEdgeInsetsMake((UIApplication.shared.statusBarOrientation.isPortrait) ? 5 : 45, 0, 0, 0)
+            
+            // Create MSMTableViewControllerManager
+            tableView.tableViewControllerManager = MSMTableViewControllerManager()
+            tableView.tableViewControllerManager!.tableView = self.tableView
+            tableView.tableViewControllerManager!.sectionsCount = 1
+            tableView.tableViewControllerManager!.pullRefreshDidCreate()
         }
     }
 
@@ -84,7 +90,7 @@ class OrganizationsShowViewController: BaseViewController {
         }
         
         // Load Organizations list from API
-        organizationsListDidLoad(withOffset: 0, subCategory: "", filter: "")
+        organizationsListDidLoad(withOffset: 0, subCategory: "", filter: "", scrollingData: false)
         
         // Load services
         let servicesRequestModel = OrganizationsShowModels.DropDownList.RequestModel()
@@ -95,8 +101,10 @@ class OrganizationsShowViewController: BaseViewController {
         interactor.categoriesDidLoad(withRequestModel: categoriesRequestModel)
     }
     
-    func organizationsListDidLoad(withOffset offset: Int, subCategory: String, filter: String) {
-        spinnerDidStart(view)
+    func organizationsListDidLoad(withOffset offset: Int, subCategory: String, filter: String, scrollingData: Bool) {
+        if (!scrollingData) {
+            spinnerDidStart(view)
+        }
         
         let parameters: [String: Any] =     [
                                                 "category": self.category!.codeID,
@@ -121,9 +129,6 @@ class OrganizationsShowViewController: BaseViewController {
         }
 
         // Setting MSMTableViewControllerManager
-        tableView.tableViewControllerManager = MSMTableViewControllerManager()
-        tableView.tableViewControllerManager!.tableView = self.tableView
-        tableView.tableViewControllerManager!.sectionsCount = 1
         tableView.tableViewControllerManager!.dataSource = organizationsList
         mapButton.isUserInteractionEnabled = true
         dataSourceEmptyView.isHidden = (organizationsList.count == 0) ? false : true
@@ -151,6 +156,14 @@ class OrganizationsShowViewController: BaseViewController {
         tableView.tableViewControllerManager!.handlerCancelButtonCompletion = { _ in
             self.smallTopBarView.searchBarDidHide()
         }
+        
+        // Handler PullRefresh
+        tableView.tableViewControllerManager!.handlerPullRefreshCompletion = { _ in
+            // Reload Organizations list from API
+            self.organizationsListDidLoad(withOffset: 0, subCategory: "", filter: "", scrollingData: true)
+        }
+        
+        tableView.tableViewControllerManager.pullRefreshDidFinish()
     }
 
     

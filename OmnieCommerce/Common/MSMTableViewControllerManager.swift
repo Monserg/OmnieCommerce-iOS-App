@@ -10,22 +10,23 @@ import UIKit
 
 class MSMTableViewControllerManager: BaseViewController {
     // MARK: - Properties
-    var sectionsCount               =   0
+    var sectionsCount = 0
     var dataSource: [Any]?
     var dataSourceFiltered: [Any]?
-    var expandedCells               =   [IndexPath]()
-    var isSearchBarActive: Bool     =   false
+    var expandedCells = [IndexPath]()
+    var isSearchBarActive: Bool = false
+    var refreshControl: UIRefreshControl?
 
     weak var tableView: MSMTableView? {
         didSet {
-            tableView!.rowHeight    =   UITableViewAutomaticDimension
+            tableView!.rowHeight = UITableViewAutomaticDimension
         }
     }
     
     var handlerSearchCompletion: ((_ value: Any) -> ())?
     var handlerSendButtonCompletion: HandlerSendButtonCompletion?
     var handlerCancelButtonCompletion: HandlerCancelButtonCompletion?
-    
+    var handlerPullRefreshCompletion: HandlerSendButtonCompletion?
     
     // MARK: - Class Functions
     override func viewDidLoad() {
@@ -40,6 +41,40 @@ class MSMTableViewControllerManager: BaseViewController {
         print(object: "\(type(of: self)): \(#function) run in [line \(#line)]. UIScrollView.contentOffset.y = \(scrollView.contentOffset.y)")
         
         self.tableView!.setScrollIndicatorColor(color: UIColor.veryLightOrange)
+    }
+    
+    func pullRefreshDidCreate() {
+        refreshControl = UIRefreshControl()
+        refreshControl!.tintColor = UIColor.init(hexString: "#dedede", withAlpha: 1.0)
+        refreshControl!.attributedTitle = NSAttributedString(string: "Loading Data".localized(),
+                                                             attributes: [NSFontAttributeName:  UIFont(name: "Ubuntu-Light", size: 12.0)!,
+                                                                          NSForegroundColorAttributeName: UIColor.veryLightGray])
+        
+        if #available(iOS 10.0, *) {
+            tableView!.refreshControl = refreshControl!
+        } else {
+            tableView!.addSubview(refreshControl!)
+        }
+        
+        refreshControl!.addTarget(self, action: #selector(handlerPullRefresh), for: .valueChanged)
+    }
+    
+    func pullRefreshDidFinish() {
+        refreshControl!.endRefreshing()
+    }
+    
+    func handlerPullRefresh(refreshControl: UIRefreshControl) {
+        guard isNetworkAvailable else {
+            refreshControl.endRefreshing()
+            return
+        }
+        
+        handlerPullRefreshCompletion!()
+        
+        // NOTE: - Tested pause
+        //        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
+        //            refreshControl.endRefreshing()
+        //        }
     }
 }
 

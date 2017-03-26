@@ -98,9 +98,7 @@ class OrganizationsMapShowViewController: BaseViewController {
     func mapViewDidAddPointAnnotations() {
         mapView.addAnnotations(pointAnnotations)
         mapView.showAnnotations(pointAnnotations, animated: true)
-
         regionRect = mapView.mapRectThatFits(regionRect, edgePadding: UIEdgeInsetsMake(20, 50, 20, 50))
-
         mapView.setVisibleMapRect(regionRect, animated: true)
     }
     
@@ -119,7 +117,6 @@ extension OrganizationsMapShowViewController: OrganizationsMapShowViewController
         
         self.pointAnnotations = viewModel.pointAnnotations
         self.regionRect = viewModel.regionRect
-        
         self.mapViewDidAddPointAnnotations()
     }
 }
