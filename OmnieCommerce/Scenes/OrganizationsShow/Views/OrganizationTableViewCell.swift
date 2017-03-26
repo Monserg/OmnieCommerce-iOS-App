@@ -12,7 +12,7 @@ import AlamofireImage
 
 class OrganizationTableViewCell: UITableViewCell {
     // MARK: - Properties
-    var isFavorite      =   false
+    var isFavorite = false
     var handlerFavoriteButtonCompletion: HandlerSendButtonCompletion?
     
     @IBOutlet weak var nameLabel: UbuntuLightVeryLightGrayLabel!
@@ -51,13 +51,13 @@ class OrganizationTableViewCell: UITableViewCell {
 // MARK: - ConfigureCell
 extension OrganizationTableViewCell: ConfigureCell {
     func setup(withItem item: Any, andIndexPath indexPath: IndexPath) {
-        let organization                    =   item as! Organization
-        nameLabel.text                      =   organization.name
-        cityLabel.text                      =   organization.addressCity
-        streetLabel.text                    =   organization.addressStreet
-        ratingView.rating                   =   organization.rating
-        isFavorite                          =   organization.isFavorite
-        selectionStyle                      =   .none
+        let organization = item as! Organization
+        nameLabel.text = organization.name
+        cityLabel.text = organization.addressCity
+        streetLabel.text = organization.addressStreet
+        ratingView.rating = organization.rating
+        isFavorite = organization.isFavorite
+        selectionStyle = .none
         
         favoriteButton.setImage((isFavorite) ? UIImage(named: "image-favorite-star-selected") : UIImage(named: "image-favorite-star-normal"), for: .normal)
         
@@ -65,6 +65,6 @@ extension OrganizationTableViewCell: ConfigureCell {
                                   placeholderImage: UIImage.init(named: "image-no-organization"),
                                   filter: AspectScaledToFillSizeWithRoundedCornersFilter(size: logoImageView.frame.size, radius: logoImageView.frame.size.width / 2))
         
-        dottedBorderView.style              =   (indexPath.row <= 1) ? .AroundDottedRectangleColor : .AroundDottedRectangle
+        dottedBorderView.style = (indexPath.row <= 1) ? .AroundDottedRectangleColor : .AroundDottedRectangle
     }
 }

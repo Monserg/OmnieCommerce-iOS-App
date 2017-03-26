@@ -13,6 +13,7 @@ import Google
 import GooglePlaces
 import GoogleSignIn
 import SwiftyVK
+import AFNetworking
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -20,7 +21,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {        
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        AFNetworkReachabilityManager.shared().startMonitoring()
+
         // Get stored value
         isAppThemeDark = CoreDataManager.instance.appSettings.isThemeDark
         
