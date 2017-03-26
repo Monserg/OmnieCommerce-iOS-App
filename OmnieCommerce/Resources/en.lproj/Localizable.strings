@@ -53,7 +53,8 @@
 "Mon-Fri"                       =   "Mon-Fri";
 "Additional Services"           =   "Additional Services:";
 "Comment"                       =   "Comment:";
-"Loading Data"                  =   "Loading data";
+"Loading Data"                  =   "Loading data...";
+"Loading More"                  =   "Loading more...";
 
 
 // Buttons

@@ -53,7 +53,8 @@
 "Mon-Fri"                       =   "Пн-Пт";
 "Additional Services"           =   "Додаткові послуги:";
 "Comment"                       =   "Коментар:";
-"Loading Data"                  =   "Завантаження даних";
+"Loading Data"                  =   "Завантаження даних...";
+"Loading More"                  =   "Завантаження більше...";
 
 
 // Buttons

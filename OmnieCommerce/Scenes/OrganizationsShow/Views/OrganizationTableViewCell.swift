@@ -13,7 +13,7 @@ import AlamofireImage
 class OrganizationTableViewCell: UITableViewCell {
     // MARK: - Properties
     var isFavorite = false
-    var handlerFavoriteButtonCompletion: HandlerSendButtonCompletion?
+    var organizationID: String!
     
     @IBOutlet weak var nameLabel: UbuntuLightVeryLightGrayLabel!
     @IBOutlet weak var cityLabel: UbuntuLightItalicLightGrayishCyanLabel!
@@ -41,9 +41,12 @@ class OrganizationTableViewCell: UITableViewCell {
     @IBAction func handlerFavoriteButtonTap(_ sender: UIButton) {
         isFavorite = !isFavorite
         
-        favoriteButton.setImage((isFavorite) ? UIImage(named: "image-favorite-star-selected") : UIImage(named: "image-favorite-star-normal"), for: .normal)
-        
-        handlerFavoriteButtonCompletion!()
+        MSMRestApiManager.instance.userAddRemoveOrganizationToFavorite(["organization" : organizationID], withHandlerResponseAPICompletion: { responseAPI in
+            if (responseAPI?.code == 200) {
+                self.favoriteButton.setImage((self.isFavorite) ?    UIImage(named: "image-favorite-star-selected") :
+                                                                    UIImage(named: "image-favorite-star-normal"), for: .normal)
+            }
+        })
     }
 }
 
@@ -52,6 +55,7 @@ class OrganizationTableViewCell: UITableViewCell {
 extension OrganizationTableViewCell: ConfigureCell {
     func setup(withItem item: Any, andIndexPath indexPath: IndexPath) {
         let organization = item as! Organization
+        organizationID = organization.codeID
         nameLabel.text = organization.name
         cityLabel.text = organization.addressCity
         streetLabel.text = organization.addressStreet

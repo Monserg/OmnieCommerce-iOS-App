@@ -60,15 +60,15 @@ extension TableViewControllerManager: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cellIdentifier  =   sourceType.rawValue
-        let cell            =   tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! BaseTableViewCell
-        let item            =   (isSearchBarActive) ? dataSourceFiltered[indexPath.row] : dataSource[indexPath.row]
+        let cellIdentifier = sourceType.rawValue
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! BaseTableViewCell
+        let item = (isSearchBarActive) ? dataSourceFiltered[indexPath.row] : dataSource[indexPath.row]
         
         // Config cell
         cell.setup(withItem: item, andIndexPath: indexPath)
         
         // Handler Favorite button tap
-        cell.handlerFavoriteButtonCompletion    =   { _ in
+        cell.handlerFavoriteButtonCompletion = { _ in
             // TODO: ADD API TO ADD/REMOVE ITEM TO/FROM FAVORITE LIST
             self.print(object: "favorite button tapped")
         }
@@ -91,13 +91,13 @@ extension TableViewControllerManager: UITableViewDelegate {
 //    }
     
     func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
-        let cell                            =   tableView.cellForRow(at: indexPath)!
-        cell.contentView.backgroundColor    =   .veryDarkGrayishBlue38
+        let cell = tableView.cellForRow(at: indexPath)!
+        cell.contentView.backgroundColor = .veryDarkGrayishBlue38
     }
     
     func tableView(_ tableView: UITableView, didUnhighlightRowAt indexPath: IndexPath) {
-        let cell                            =   tableView.cellForRow(at: indexPath)!
-        cell.contentView.backgroundColor    =   .clear
+        let cell = tableView.cellForRow(at: indexPath)!
+        cell.contentView.backgroundColor = .clear
     }
 }
 

@@ -324,6 +324,8 @@
 		B1CF54EE1DDB588600E98049 /* DiscountCardsShow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1CF54ED1DDB588600E98049 /* DiscountCardsShow.storyboard */; };
 		B1CF54F01DDB5F1A00E98049 /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CF54EF1DDB5F1A00E98049 /* CustomLabel.swift */; };
 		B1D56BE71E6167AE008BCE54 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D56BE61E6167AE008BCE54 /* MapView.swift */; };
+		B1D57E901E87CB7500CA6243 /* MSMTableViewFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D57E8F1E87CB7500CA6243 /* MSMTableViewFooterView.swift */; };
+		B1D57E921E87CB7F00CA6243 /* MSMTableViewFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1D57E911E87CB7F00CA6243 /* MSMTableViewFooterView.xib */; };
 		B1DA01B11DF1CB2F00E6DD46 /* UIFont+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DA01B01DF1CB2F00E6DD46 /* UIFont+Ext.swift */; };
 		B1E52AB11DDDD0EA00C3B24D /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E52AB01DDDD0EA00C3B24D /* LaunchScreenViewController.swift */; };
 		B1E52AD31DDDDEC600C3B24D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1E52AD21DDDDEC600C3B24D /* Main.storyboard */; };
@@ -702,6 +704,8 @@
 		B1CF54ED1DDB588600E98049 /* DiscountCardsShow.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DiscountCardsShow.storyboard; sourceTree = "<group>"; };
 		B1CF54EF1DDB5F1A00E98049 /* CustomLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
 		B1D56BE61E6167AE008BCE54 /* MapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		B1D57E8F1E87CB7500CA6243 /* MSMTableViewFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSMTableViewFooterView.swift; sourceTree = "<group>"; };
+		B1D57E911E87CB7F00CA6243 /* MSMTableViewFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MSMTableViewFooterView.xib; sourceTree = "<group>"; };
 		B1DA01B01DF1CB2F00E6DD46 /* UIFont+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+Ext.swift"; sourceTree = "<group>"; };
 		B1E52AB01DDDD0EA00C3B24D /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewController.swift; sourceTree = "<group>"; };
 		B1E52AD21DDDDEC600C3B24D /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -866,6 +870,8 @@
 				B15291581DDE3FFA00BBA1E0 /* MenuSectionHeaderView.swift */,
 				B15291561DDE3FEF00BBA1E0 /* MenuSectionHeaderView.xib */,
 				B1FBC9281E6D9FEB00D86429 /* MSMBlackoutView.swift */,
+				B1D57E8F1E87CB7500CA6243 /* MSMTableViewFooterView.swift */,
+				B1D57E911E87CB7F00CA6243 /* MSMTableViewFooterView.xib */,
 				B177E55D1E54B8F6004F1390 /* PasswordStrengthLevelView.swift */,
 				B1F7EDB71DF54878003B36AD /* SegmentedControlView.swift */,
 				B1F7EDB91DF54886003B36AD /* SegmentedControlView.xib */,
@@ -1816,6 +1822,7 @@
 				B17061AA1E699F8300CF9BA9 /* NewsTableViewCell.xib in Resources */,
 				B1E52AD31DDDDEC600C3B24D /* Main.storyboard in Resources */,
 				B1BEEDF71E6368F000F1DE8A /* OrganizationShow.storyboard in Resources */,
+				B1D57E921E87CB7F00CA6243 /* MSMTableViewFooterView.xib in Resources */,
 				B1BF927B1DD6516C00BECBBB /* UBUNTU-I.TTF in Resources */,
 				B1F7EDBA1DF54886003B36AD /* SegmentedControlView.xib in Resources */,
 				B1BF927C1DD6516C00BECBBB /* UBUNTU-L.TTF in Resources */,
@@ -1948,6 +1955,7 @@
 				B1CF54871DDB50F100E98049 /* BusinessCardsShowPresenter.swift in Sources */,
 				B122DF651DF7F957003823AD /* CalendarShowModels.swift in Sources */,
 				B10871541E379A9A00374DD5 /* OmnieCardViewModel.swift in Sources */,
+				B1D57E901E87CB7500CA6243 /* MSMTableViewFooterView.swift in Sources */,
 				B1FFF7111E5F017A00A075D8 /* OrganizationsMapShowConfigurator.swift in Sources */,
 				B1A9ACD21E7C7CE00010FF05 /* Category.swift in Sources */,
 				B1C94BC21E37825E00122933 /* BarCodeView.swift in Sources */,

@@ -11,12 +11,23 @@ import UIKit
 class MSMTableViewControllerManager: BaseViewController {
     // MARK: - Properties
     var sectionsCount = 0
-    var dataSource: [Any]?
     var dataSourceFiltered: [Any]?
     var expandedCells = [IndexPath]()
     var isSearchBarActive: Bool = false
     var refreshControl: UIRefreshControl?
+    let footerViewHeight: CGFloat = 60.0
+    var isLoadMore = false
 
+    var dataSource: [Any]? {
+        didSet {
+            let cellIdentifier = (dataSource!.first as! InitCellParameters).cellIdentifier
+            
+            if (cellIdentifier == "OrganizationTableViewCell") {
+                tableView!.tableFooterView?.isHidden = (dataSource!.count == 0) ? false : true
+            }
+        }
+    }
+        
     weak var tableView: MSMTableView? {
         didSet {
             tableView!.rowHeight = UITableViewAutomaticDimension
@@ -27,6 +38,7 @@ class MSMTableViewControllerManager: BaseViewController {
     var handlerSendButtonCompletion: HandlerSendButtonCompletion?
     var handlerCancelButtonCompletion: HandlerCancelButtonCompletion?
     var handlerPullRefreshCompletion: HandlerSendButtonCompletion?
+    var handlerInfiniteScrollCompletion: HandlerSendButtonCompletion?
     
     // MARK: - Class Functions
     override func viewDidLoad() {
@@ -41,6 +53,13 @@ class MSMTableViewControllerManager: BaseViewController {
         print(object: "\(type(of: self)): \(#function) run in [line \(#line)]. UIScrollView.contentOffset.y = \(scrollView.contentOffset.y)")
         
         self.tableView!.setScrollIndicatorColor(color: UIColor.veryLightOrange)
+        
+        // Set Infinite Scroll
+        if (scrollView.contentOffset.y >= footerViewHeight && !isLoadMore) {
+            isLoadMore = !isLoadMore
+            self.tableView!.tableFooterView?.isHidden = false
+            handlerInfiniteScrollCompletion!()
+        }
     }
     
     func pullRefreshDidCreate() {
@@ -56,7 +75,7 @@ class MSMTableViewControllerManager: BaseViewController {
             tableView!.addSubview(refreshControl!)
         }
         
-        refreshControl!.addTarget(self, action: #selector(handlerPullRefresh), for: .valueChanged)
+        refreshControl!.addTarget(self, action: #selector(handlerPullRefresh), for: .valueChanged)        
     }
     
     func pullRefreshDidFinish() {
@@ -70,11 +89,6 @@ class MSMTableViewControllerManager: BaseViewController {
         }
         
         handlerPullRefreshCompletion!()
-        
-        // NOTE: - Tested pause
-        //        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
-        //            refreshControl.endRefreshing()
-        //        }
     }
 }
 
@@ -140,7 +154,6 @@ extension MSMTableViewControllerManager: UITableViewDataSource {
                 }
             }
             
-
 //        case cell as AvatarTableViewCell:
 //            let avatarCell  =   (cell as! AvatarTableViewCell)
 //            
@@ -169,13 +182,6 @@ extension MSMTableViewControllerManager: UITableViewDataSource {
         // Config cell
         (cell as! ConfigureCell).setup(withItem: item, andIndexPath: indexPath)
         
-        
-        //        // Handler Favorite button tap
-        //        cell.handlerFavoriteButtonCompletion    =   { _ in
-        //            // TODO: ADD API TO ADD/REMOVE ITEM TO/FROM FAVORITE LIST
-        //            self.print(object: "favorite button tapped")
-        //        }
-
         return cell
     }
 }
@@ -211,6 +217,48 @@ extension MSMTableViewControllerManager: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didUnhighlightRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath)!
         cell.contentView.backgroundColor = .clear
+    }
+    
+//    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+//        guard dataSource != nil  else {
+//            return 0.0
+//        }
+//        
+//        let cellIdentifier = (dataSource!.first as! InitCellParameters).cellIdentifier
+//        
+//        switch cellIdentifier {
+//        case "OrganizationTableViewCell":
+//            return (self.tableView!.tableFooterView?.isHidden)! ? 0.0 : footerViewHeight
+//        
+//        default:
+//            return 0.0
+//        }
+//    }
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        guard dataSource != nil  else {
+            return nil
+        }
+
+        let cellIdentifier = (dataSource!.first as! InitCellParameters).cellIdentifier
+        
+        switch cellIdentifier {
+        case "OrganizationTableViewCell":
+            let footerView = self.tableView!.dequeueReusableHeaderFooterView(withIdentifier: "MSMTableViewFooterView") as! MSMTableViewFooterView
+            
+            if (dataSource!.count == 0) {
+                footerView.emptyView.isHidden = false
+                footerView.infiniteScrollView.isHidden = true
+            } else {
+                footerView.emptyView.isHidden = true
+                footerView.infiniteScrollView.isHidden = false
+            }
+            
+            return footerView
+
+        default:
+            return nil
+        }
     }
 }
 

@@ -31,19 +31,22 @@ class OrganizationsShowViewController: BaseViewController {
     var router: OrganizationsShowRouter!
 
     weak var category: Category?
+    var organizations = [Organization]()
     var paginationInts = (limit: Config.Constants.paginationLimit, offset: 0)
     
     @IBOutlet weak var smallTopBarView: SmallTopBarView!
     @IBOutlet weak var categoriesButton: DropDownButton!
     @IBOutlet weak var servicesButton: DropDownButton!
     @IBOutlet weak var mapButton: CustomButton!
-    @IBOutlet weak var dataSourceEmptyView: UIView!
 
     @IBOutlet weak var tableView: MSMTableView! {
         didSet {
             tableView.contentInset = UIEdgeInsetsMake((UIApplication.shared.statusBarOrientation.isPortrait) ? 5 : 45, 0, 0, 0)
             tableView.scrollIndicatorInsets = UIEdgeInsetsMake((UIApplication.shared.statusBarOrientation.isPortrait) ? 5 : 45, 0, 0, 0)
             
+            // Register the Nib footer section views
+            tableView.register(UINib(nibName: "MSMTableViewFooterView", bundle: nil), forHeaderFooterViewReuseIdentifier: "MSMTableViewFooterView")
+
             // Create MSMTableViewControllerManager
             tableView.tableViewControllerManager = MSMTableViewControllerManager()
             tableView.tableViewControllerManager!.tableView = self.tableView
@@ -131,8 +134,8 @@ class OrganizationsShowViewController: BaseViewController {
         // Setting MSMTableViewControllerManager
         tableView.tableViewControllerManager!.dataSource = organizationsList
         mapButton.isUserInteractionEnabled = true
-        dataSourceEmptyView.isHidden = (organizationsList.count == 0) ? false : true
-        
+        tableView.tableFooterView?.isHidden = (organizationsList.count > 0) ? true : false
+
         tableView.reloadData()
         
         // Search Manager
@@ -160,10 +163,19 @@ class OrganizationsShowViewController: BaseViewController {
         // Handler PullRefresh
         tableView.tableViewControllerManager!.handlerPullRefreshCompletion = { _ in
             // Reload Organizations list from API
+            self.organizations = [Organization]()
             self.organizationsListDidLoad(withOffset: 0, subCategory: "", filter: "", scrollingData: true)
         }
         
+        // Handler InfiniteScroll
+        tableView.tableViewControllerManager.handlerInfiniteScrollCompletion = { _ in
+            // Load More Organizations from API
+            self.organizationsListDidLoad(withOffset: organizations!.count, subCategory: "", filter: "", scrollingData: true)
+        }
+        
         tableView.tableViewControllerManager.pullRefreshDidFinish()
+        //tableView.tableViewControllerManager.tableView!.tableFooterView!.isHidden = true
+        tableView.tableViewControllerManager.isLoadMore = false
     }
 
     
@@ -217,7 +229,7 @@ extension OrganizationsShowViewController: OrganizationsShowViewControllerInput 
         }
         
         // Load Organizations list from API
-        let organizations = viewModel.organizations!
+        self.organizations.append(contentsOf: viewModel.organizations!)
         self.organizationsListDidShow(organizations, fromAPI: true)
     }
 }
