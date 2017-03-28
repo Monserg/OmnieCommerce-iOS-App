@@ -16,7 +16,7 @@ class MSMTableViewFooterView: UIView {
     
     @IBOutlet weak var spinner: UIActivityIndicatorView! {
         didSet {
-            spinner.sizeThatFits(CGSize.init(width: 64, height: 64))
+            spinner.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
         }
     }
     
