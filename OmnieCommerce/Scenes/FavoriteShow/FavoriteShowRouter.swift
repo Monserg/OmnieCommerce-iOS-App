@@ -66,6 +66,16 @@ class FavoriteShowRouter: FavoriteShowRouterInput {
     
     
     // MARK: - Custom Functions. Navigation
+    func navigateToCategoriesShowScene() {
+        let categoriesNC = UIStoryboard(name: "CategoriesShow", bundle: nil).instantiateViewController(withIdentifier: "CategoriesShowNC") as! BaseNavigationController
+        
+        viewController.revealViewController().revealToggle(animated: true)
+        viewController.revealViewController().setFront(categoriesNC, animated: true)
+        viewController.revealViewController().rightRevealToggle(animated: true)
+    }
+    
+    
+    // MARK: - Custom Functions. Navigation
     func navigateToSomewhere() {
         // NOTE: Teach the router how to navigate to another scene. Some examples follow:
         // 1. Trigger a storyboard segue

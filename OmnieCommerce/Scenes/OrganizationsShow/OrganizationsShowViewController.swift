@@ -32,7 +32,6 @@ class OrganizationsShowViewController: BaseViewController {
 
     weak var category: Category?
     var organizations = [Organization]()
-    var paginationInts = (limit: Config.Constants.paginationLimit, offset: 0)
     
     @IBOutlet weak var smallTopBarView: SmallTopBarView!
     @IBOutlet weak var categoriesButton: DropDownButton!
@@ -42,7 +41,7 @@ class OrganizationsShowViewController: BaseViewController {
     @IBOutlet weak var tableView: MSMTableView! {
         didSet {
             tableView.contentInset = UIEdgeInsetsMake((UIApplication.shared.statusBarOrientation.isPortrait) ? 5 : 45, 0, 0, 0)
-            tableView.scrollIndicatorInsets = UIEdgeInsetsMake((UIApplication.shared.statusBarOrientation.isPortrait) ? 5 : 45, 0, 0, 0)
+            tableView.scrollIndicatorInsets = UIEdgeInsetsMake((UIApplication.shared.statusBarOrientation.isPortrait) ? 5 : 45, 0, 0, 0)            
         }
     }
 
@@ -65,9 +64,6 @@ class OrganizationsShowViewController: BaseViewController {
     
     // MARK: - Custom Functions
     func viewSettingsDidLoad() {
-        // Register the Nib footer section views
-        tableView.register(UINib(nibName: "MSMTableViewFooterView", bundle: nil), forHeaderFooterViewReuseIdentifier: "MSMTableViewFooterView")
-
         // Create MSMTableViewControllerManager
         tableView.tableViewControllerManager = MSMTableViewControllerManager.init(withTableView: self.tableView, andSectionsCount: 1)
 
@@ -171,8 +167,6 @@ class OrganizationsShowViewController: BaseViewController {
         }
         
         tableView.tableViewControllerManager.pullRefreshDidFinish()
-        //tableView.tableViewControllerManager.tableView!.tableFooterView!.isHidden = true
-        tableView.tableViewControllerManager.isLoadMore = false
     }
 
     
@@ -217,6 +211,12 @@ extension OrganizationsShowViewController: OrganizationsShowViewControllerInput 
 
     func organizationsDidShowLoad(fromViewModel viewModel: OrganizationsShowModels.Organizations.ViewModel) {
         spinnerDidFinish()
+        
+        guard viewModel.organizations != nil else {
+            self.organizationsListDidShow(organizations, fromAPI: true)
+            return
+        }
+        
         CoreDataManager.instance.didSaveContext()
 
         // Load Organizations list from CoreData

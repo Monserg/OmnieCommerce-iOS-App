@@ -15,18 +15,12 @@ class MSMTableViewControllerManager: BaseViewController {
     var expandedCells = [IndexPath]()
     var isSearchBarActive: Bool = false
     var refreshControl: UIRefreshControl?
-    let footerViewHeight: CGFloat = 60.0
+    var footerViewHeight: CGFloat = 60.0
     var isLoadMore = false
     
     var dataSource: [Any]?
-//        {
+//    {
 //        didSet {
-//            let cellIdentifier = (dataSource!.first as! InitCellParameters).cellIdentifier
-//            
-//            if (cellIdentifier == "OrganizationTableViewCell") {
-//                tableView!.tableFooterView!.isHidden = (dataSource!.count == 0) ? false : true
-//            }
-//        }
 //    }
     
     weak var tableView: MSMTableView? {
@@ -74,10 +68,7 @@ class MSMTableViewControllerManager: BaseViewController {
         // Set Infinite Scroll
         if (scrollView.contentOffset.y >= footerViewHeight && !isLoadMore) {
             isLoadMore = !isLoadMore
-            let footerView = self.tableView!.dequeueReusableHeaderFooterView(withIdentifier: "MSMTableViewFooterView") as! MSMTableViewFooterView
-            footerView.isHidden = false
-//            self.tableView!.tableFooterView!.isHidden = false
-//            self.tableView!.reloadData()
+            self.tableView!.reloadData()
             
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 5) {
                 self.handlerInfiniteScrollCompletion!()
@@ -99,14 +90,11 @@ class MSMTableViewControllerManager: BaseViewController {
         }
         
         refreshControl!.addTarget(self, action: #selector(handlerPullRefresh), for: .valueChanged)
-        
-        // Register the Nib footer section views
-        tableView!.tableFooterView = MSMTableViewFooterView(frame: CGRect.init(origin: .zero, size: CGSize.init(width: tableView!.frame.width, height: footerViewHeight)))
-        tableView!.tableFooterView?.backgroundColor = UIColor.red
     }
     
     func pullRefreshDidFinish() {
         refreshControl!.endRefreshing()
+        isLoadMore = false
     }
     
     func handlerPullRefresh(refreshControl: UIRefreshControl) {
@@ -249,49 +237,30 @@ extension MSMTableViewControllerManager: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        guard dataSource != nil  else {
-            return 0.0
+        guard dataSource != nil else {
+            return 0
         }
         
-        let cellIdentifier = (dataSource!.first as! InitCellParameters).cellIdentifier
-        
-        switch cellIdentifier {
-        case "OrganizationTableViewCell":
-            return footerViewHeight //(self.tableView!.tableFooterView!.isHidden) ? 0.0 : footerViewHeight
-        
-        default:
-            return 0.0
-        }
+        return footerViewHeight
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        guard dataSource != nil  else {
-            return nil
-        }
-
+        let footerView = MSMTableViewFooterView.init(frame: CGRect.init(origin: .zero, size: CGSize.init(width: tableView.frame.width, height: footerViewHeight)))
         let cellIdentifier = (dataSource!.first as! InitCellParameters).cellIdentifier
         
-        switch cellIdentifier {
-        case "OrganizationTableViewCell":
-            let footerView = self.tableView!.dequeueReusableHeaderFooterView(withIdentifier: "MSMTableViewFooterView") as! MSMTableViewFooterView
-            
+        if (cellIdentifier == "OrganizationTableViewCell") {
             if (dataSource!.count == 0) {
                 footerView.emptyView.isHidden = false
                 footerView.infiniteScrollView.isHidden = true
-//                (self.tableView!.tableFooterView as! MSMTableViewFooterView).emptyView.isHidden = false
-//                (self.tableView!.tableFooterView as! MSMTableViewFooterView).infiniteScrollView.isHidden = true
+                footerView.isHidden = false
             } else {
                 footerView.emptyView.isHidden = true
                 footerView.infiniteScrollView.isHidden = false
-//                (self.tableView!.tableFooterView as! MSMTableViewFooterView).emptyView.isHidden = true
-//                (self.tableView!.tableFooterView as! MSMTableViewFooterView).infiniteScrollView.isHidden = false
+                footerView.isHidden = (isLoadMore) ? false : true
             }
-            
-            return footerView
-
-        default:
-            return nil
         }
+
+        return footerView
     }
 }
 

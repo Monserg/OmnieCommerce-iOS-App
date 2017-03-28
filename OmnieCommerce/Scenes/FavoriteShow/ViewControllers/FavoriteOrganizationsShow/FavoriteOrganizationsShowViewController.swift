@@ -13,12 +13,12 @@ import UIKit
 
 // MARK: - Input protocols for current ViewController component VIP-cicle
 protocol FavoriteOrganizationsShowViewControllerInput {
-    func displaySomething(viewModel: FavoriteOrganizationsShowModels.Something.ViewModel)
+    func favoriteOrganizationsDidShowLoad(fromViewModel viewModel: FavoriteOrganizationsShowModels.Organizations.ViewModel)
 }
 
 // MARK: - Output protocols for Interactor component VIP-cicle
 protocol FavoriteOrganizationsShowViewControllerOutput {
-    func doSomething(requestModel: FavoriteOrganizationsShowModels.Something.RequestModel)
+    func favoriteOrganizationsDidLoad(withRequestModel requestModel: FavoriteOrganizationsShowModels.Organizations.RequestModel)
 }
 
 class FavoriteOrganizationsShowViewController: BaseViewController {
@@ -26,7 +26,16 @@ class FavoriteOrganizationsShowViewController: BaseViewController {
     var interactor: FavoriteOrganizationsShowViewControllerOutput!
     var router: FavoriteOrganizationsShowRouter!
     
+    var organizations = [Organization]()
 
+    @IBOutlet weak var tableView: MSMTableView! {
+        didSet {
+            tableView.contentInset = UIEdgeInsetsMake((UIApplication.shared.statusBarOrientation.isPortrait) ? 5 : 45, 0, 0, 0)
+            tableView.scrollIndicatorInsets = UIEdgeInsetsMake((UIApplication.shared.statusBarOrientation.isPortrait) ? 5 : 45, 0, 0, 0)
+        }
+    }
+
+    
     // MARK: - Class initialization
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -45,17 +54,96 @@ class FavoriteOrganizationsShowViewController: BaseViewController {
 
     // MARK: - Custom Functions
     func viewSettingsDidLoad() {
-        // Load data
-        let organizationsRequestModel = FavoriteOrganizationsShowModels.Something.RequestModel()
-        interactor.doSomething(requestModel: organizationsRequestModel)
+        // Create MSMTableViewControllerManager
+        tableView.tableViewControllerManager = MSMTableViewControllerManager.init(withTableView: self.tableView, andSectionsCount: 1)
+
+        // Load Organizations list from Core Data
+        guard isNetworkAvailable else {
+            favoriteOrganizationsListDidShow(nil, fromAPI: false)
+            return
+        }
+        
+        // Load Organizations list from API
+        if (isNetworkAvailable) {
+            favoriteOrganizationsListDidLoad(withOffset: 0, scrollingData: false)
+        } else {
+            spinnerDidFinish()
+        }
+    }
+    
+    func favoriteOrganizationsListDidLoad(withOffset offset: Int, scrollingData: Bool) {
+        if (!scrollingData) {
+            spinnerDidStart(view)
+        }
+        
+        let parameters: [String: Int] =     [
+                                                "limit": Config.Constants.paginationLimit,
+                                                "offset": offset
+                                            ]
+        
+        let organizationsRequestModel = FavoriteOrganizationsShowModels.Organizations.RequestModel(parameters: parameters)
+        interactor.favoriteOrganizationsDidLoad(withRequestModel: organizationsRequestModel)
+    }
+    
+    func favoriteOrganizationsListDidShow(_ organizations: [Organization]?, fromAPI: Bool) {
+        var organizationsList = [Organization]()
+        
+        if (fromAPI) {
+            organizationsList = organizations!
+        } else {
+            let organizationsData = CoreDataManager.instance.entityDidLoad(byName: keyFavoriteOrganizations) as! Organizations
+            organizationsList = NSKeyedUnarchiver.unarchiveObject(with: organizationsData.list! as Data) as! [Organization]
+        }
+        
+        // Setting MSMTableViewControllerManager
+        tableView.tableViewControllerManager!.dataSource = organizationsList
+        tableView.tableFooterView?.isHidden = (organizationsList.count > 0) ? true : false
+        
+        tableView.reloadData()
+        
+        // Handler select cell
+        tableView.tableViewControllerManager!.handlerSearchCompletion = { organization in
+            self.router.navigateToOrganizationShowScene(organization as! Organization)
+        }
+        
+        // Handler PullRefresh
+        tableView.tableViewControllerManager!.handlerPullRefreshCompletion = { _ in
+            // Reload Organizations list from API
+            self.organizations = [Organization]()
+            self.favoriteOrganizationsListDidLoad(withOffset: 0, scrollingData: true)
+        }
+        
+        // Handler InfiniteScroll
+        tableView.tableViewControllerManager.handlerInfiniteScrollCompletion = { _ in
+            // Load More Organizations from API
+            self.favoriteOrganizationsListDidLoad(withOffset: organizations!.count, scrollingData: true)
+        }
+        
+        tableView.tableViewControllerManager.pullRefreshDidFinish()
     }
 }
 
 
 // MARK: - FavoriteOrganizationsShowViewControllerInput
 extension FavoriteOrganizationsShowViewController: FavoriteOrganizationsShowViewControllerInput {
-    func displaySomething(viewModel: FavoriteOrganizationsShowModels.Something.ViewModel) {
-        // Display the result from the Presenter
-        // nameTextField.text = viewModel.name
-    }
+    func favoriteOrganizationsDidShowLoad(fromViewModel viewModel: FavoriteOrganizationsShowModels.Organizations.ViewModel) {
+        spinnerDidFinish()
+        
+        guard viewModel.organizations != nil else {
+            self.favoriteOrganizationsListDidShow(organizations, fromAPI: true)
+            return
+        }
+        
+        CoreDataManager.instance.didSaveContext()
+        
+        // Load Organizations list from CoreData
+        guard isNetworkAvailable else {
+            self.favoriteOrganizationsListDidShow(nil, fromAPI: false)
+            return
+        }
+        
+        // Load Organizations list from API
+        self.organizations.append(contentsOf: viewModel.organizations!)
+        self.favoriteOrganizationsListDidShow(organizations, fromAPI: true)
+    }    
 }

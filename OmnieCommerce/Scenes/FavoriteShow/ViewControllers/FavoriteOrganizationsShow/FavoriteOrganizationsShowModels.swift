@@ -13,14 +13,17 @@ import UIKit
 
 // MARK: - Data models
 struct FavoriteOrganizationsShowModels {
-    struct Something {
+    struct Organizations {
         struct RequestModel {
+            let parameters: [String: Int]
         }
         
         struct ResponseModel {
+            let response: ResponseAPI?
         }
         
         struct ViewModel {
+            let organizations: [Organization]?
         }
-    }
+    }    
 }

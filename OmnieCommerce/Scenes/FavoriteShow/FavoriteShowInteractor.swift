@@ -13,27 +13,16 @@ import UIKit
 
 // MARK: - Input & Output protocols
 protocol FavoriteShowInteractorInput {
-    func doSomething(request: FavoriteShow.Something.Request)
 }
 
 protocol FavoriteShowInteractorOutput {
-    func presentSomething(response: FavoriteShow.Something.Response)
 }
 
 class FavoriteShowInteractor: FavoriteShowInteractorInput {
     // MARK: - Properties
-    var output: FavoriteShowInteractorOutput!
+    var presenter: FavoriteShowInteractorOutput!
     var worker: FavoriteShowWorker!
     
     
     // MARK: - Custom Functions. Business logic
-    func doSomething(request: FavoriteShow.Something.Request) {
-        // NOTE: Create some Worker to do the work
-        worker = FavoriteShowWorker()
-        worker.doSomeWork()
-        
-        // NOTE: Pass the result to the Presenter
-        let response = FavoriteShow.Something.Response()
-        output.presentSomething(response: response)
-    }
 }

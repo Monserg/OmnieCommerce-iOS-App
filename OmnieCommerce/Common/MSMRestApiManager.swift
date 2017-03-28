@@ -351,5 +351,24 @@ final class MSMRestApiManager {
             }
         }
     }
+    
+    func userGetFavoriteOrganizationsList(_ parameters: [String: Int], withHandlerResponseAPICompletion handlerResponseAPICompletion: @escaping (ResponseAPI?) -> Void) {
+        appApiString = "/user/organization/favorite/"
+        headers["Authorization"] = CoreDataManager.instance.appUser.accessToken!
+        
+        Alamofire.request(appURL, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { dataResponse -> Void in
+            if (dataResponse.result.value != nil) {
+                let json = JSON(dataResponse.result.value!)
+                let responseAPI = ResponseAPI.init(fromJSON: json, withBodyType: .FavoriteOrganizationsArray)
+                
+                handlerResponseAPICompletion(responseAPI)
+                return
+            } else {
+                handlerResponseAPICompletion(nil)
+                return
+            }
+        }
+    }
+
 
 }

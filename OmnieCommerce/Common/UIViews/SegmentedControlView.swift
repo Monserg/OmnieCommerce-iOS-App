@@ -11,7 +11,7 @@ import Localize_Swift
 
 @IBDesignable class SegmentedControlView: UIView {
     // MARK: - Properties
-    typealias CompletionVoid    =   ((_ sender: UIButton) -> ())
+    typealias CompletionVoid = ((_ sender: UIButton) -> ())
     
     var actionButtonHandlerCompletion: CompletionVoid?
     
@@ -72,8 +72,8 @@ import Localize_Swift
         print(object: "\(type(of: self)): \(#function) run.")
         
         if (selectedButton!.tag == 1) {
-            self.selectedView.frame     =   CGRect.init(origin: CGPoint.init(x: selectedButton!.frame.minX + 8, y: selectedButton!.frame.maxY),
-                                                        size: self.selectedView.bounds.size)
+            self.selectedView.frame = CGRect.init(origin: CGPoint.init(x: selectedButton!.frame.minX + 8, y: selectedButton!.frame.maxY),
+                                                  size: self.selectedView.bounds.size)
         }
         
         // Set vertical style
@@ -97,8 +97,8 @@ import Localize_Swift
         }
         
         addSubview(view)
-        view.frame              =   frame
-        view.backgroundColor    =   UIColor.veryDarkDesaturatedBlue24
+        view.frame = frame
+        view.backgroundColor = UIColor.veryDarkDesaturatedBlue24
         
         print(object: "\(type(of: self)): \(#function) run. Initialization view.frame = \(view.frame)")
     }

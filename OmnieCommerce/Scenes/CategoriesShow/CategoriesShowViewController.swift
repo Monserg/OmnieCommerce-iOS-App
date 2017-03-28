@@ -124,7 +124,7 @@ class CategoriesShowViewController: BaseViewController {
             categoriesList = categories!
         } else {
             let categoriesData = CoreDataManager.instance.entityDidLoad(byName: keyCategories) as! Categories
-            categoriesList = NSKeyedUnarchiver.unarchiveObject(with: categoriesData.list as! Data) as! [Category]
+            categoriesList = NSKeyedUnarchiver.unarchiveObject(with: categoriesData.list! as Data) as! [Category]
         }
         
         // Setting MSMCollectionViewControllerManager

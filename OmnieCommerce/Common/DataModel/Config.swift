@@ -26,6 +26,7 @@ public let keyPassword: String                      =   "password"
 public let keyAccessToken: String                   =   "accessToken"
 public let keyCategories: String                    =   "Categories"
 public let keyOrganizations: String                 =   "Organizations"
+public let keyFavoriteOrganizations: String         =   "FavoriteOrganizations"
 
 
 // Handlers

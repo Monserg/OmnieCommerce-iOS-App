@@ -53,8 +53,8 @@
 "Mon-Fri"                       =   "Пн-Пт";
 "Additional Services"           =   "Дополнительные услуги:";
 "Comment"                       =   "Комментарий:";
-"Loading Data"                  =   "Загрузка данных...";
-"Loading More"                  =   "Загрузка больше...";
+"Loading Data"                  =   "Загрузить...";
+"Loading More"                  =   "Загрузить ещё...";
 
 
 // Buttons

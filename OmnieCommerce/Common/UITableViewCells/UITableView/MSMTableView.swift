@@ -16,7 +16,7 @@ class MSMTableView: UITableView {
             self.dataSource = tableViewControllerManager
         }
     }
-
+    
     
     // MARK: - Class Functions
     override func draw(_ rect: CGRect) {

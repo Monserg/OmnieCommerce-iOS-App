@@ -13,12 +13,12 @@ import UIKit
 
 // MARK: - Input protocols for current ViewController component VIP-cicle
 protocol FavoriteServicesShowViewControllerInput {
-    func displaySomething(viewModel: FavoriteServicesShowModels.Something.ViewModel)
+    func favoriteServicesDidShowLoad(fromViewModel viewModel: FavoriteServicesShowModels.Services.ViewModel)
 }
 
 // MARK: - Output protocols for Interactor component VIP-cicle
 protocol FavoriteServicesShowViewControllerOutput {
-    func doSomething(requestModel: FavoriteServicesShowModels.Something.RequestModel)
+    func favoriteServicesDidLoad(withRequestModel requestModel: FavoriteServicesShowModels.Services.RequestModel)
 }
 
 class FavoriteServicesShowViewController: BaseViewController {
@@ -46,16 +46,19 @@ class FavoriteServicesShowViewController: BaseViewController {
     // MARK: - Custom Functions
     func viewSettingsDidLoad() {
         // Load data
-        let requestModel    =   FavoriteServicesShowModels.Something.RequestModel()
-        interactor.doSomething(requestModel: requestModel)
+//        let servicesRequestModel = FavoriteServicesShowModels.Services.RequestModel(parameters: <#T##[String : Int]#>)
+//        interactor.favoriteServicesDidLoad(withRequestModel: servicesRequestModel)
     }
 }
 
 
 // MARK: - FavoriteServicesShowViewControllerInput
 extension FavoriteServicesShowViewController: FavoriteServicesShowViewControllerInput {
-    func displaySomething(viewModel: FavoriteServicesShowModels.Something.ViewModel) {
-        // Display the result from the Presenter
-        // nameTextField.text = viewModel.name
+    func favoriteServicesDidShowLoad(fromViewModel viewModel: FavoriteServicesShowModels.Services.ViewModel) {
+        guard isNetworkAvailable else {
+            return
+        }
+        
+        CoreDataManager.instance.didSaveContext()
     }
 }

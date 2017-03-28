@@ -12,15 +12,5 @@
 import UIKit
 
 // MARK: - Data models
-struct FavoriteShow {
-    struct Something {
-        struct Request {
-        }
-        
-        struct Response {
-        }
-        
-        struct ViewModel {
-        }
-    }
+struct FavoriteShowModels {
 }

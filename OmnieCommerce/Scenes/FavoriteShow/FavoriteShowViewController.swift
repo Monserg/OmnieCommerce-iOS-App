@@ -11,18 +11,17 @@
 
 import UIKit
 
-// MARK: - Input & Output protocols
+// MARK: - Input protocols for current ViewController component VIP-cicle
 protocol FavoriteShowViewControllerInput {
-    func displaySomething(viewModel: FavoriteShow.Something.ViewModel)
 }
 
+// MARK: - Output protocols for Interactor component VIP-cicle
 protocol FavoriteShowViewControllerOutput {
-    func doSomething(request: FavoriteShow.Something.Request)
 }
 
 class FavoriteShowViewController: BaseViewController {
     // MARK: - Properties
-    var output: FavoriteShowViewControllerOutput!
+    var interactor: FavoriteShowViewControllerOutput!
     var router: FavoriteShowRouter!
     
     // Container childVC
@@ -61,6 +60,13 @@ class FavoriteShowViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Container Child Views
+        favoriteOrganizationsVC  = UIStoryboard(name: "FavoriteShow", bundle: nil).instantiateViewController(withIdentifier: "FavoriteOrganizationsShowVC") as? FavoriteOrganizationsShowViewController
+        
+        favoriteServicesVC = UIStoryboard(name: "FavoriteShow", bundle: nil).instantiateViewController(withIdentifier: "FavoriteServicesShowVC") as? FavoriteServicesShowViewController
+
+        activeViewController = favoriteOrganizationsVC
+        
         viewSettingsDidLoad()
     }
 
@@ -69,23 +75,27 @@ class FavoriteShowViewController: BaseViewController {
     func viewSettingsDidLoad() {
         print(object: "\(type(of: self)): \(#function) run.")
         
-        setupSegmentedControlView()
-
         // Config smallTopBarView
         navigationBarView = smallTopBarView
         smallTopBarView.type = "ParentSearch"
         haveMenuItem = true
         
         // Load data
-        let requestModel = FavoriteShow.Something.Request()
-        output.doSomething(request: requestModel)
+        setupSegmentedControlView()
+        containerView.autoresizesSubviews = true
     }
     
     func setupSegmentedControlView() {
         segmentedControlView.backgroundColor = UIColor.veryDarkDesaturatedBlue24
         
         segmentedControlView.actionButtonHandlerCompletion = { sender in
-//            self.print(object: "\(type(of: self)): \(#function) run. Sender tag = \(sender.tag)")
+            switch sender.tag {
+            case 1:
+                self.activeViewController = self.favoriteServicesVC
+                
+            default:
+                self.activeViewController = self.favoriteOrganizationsVC
+            }
         }
     }
 
@@ -102,11 +112,4 @@ class FavoriteShowViewController: BaseViewController {
 
 
 // MARK: - FavoriteShowViewControllerInput
-extension FavoriteShowViewController: FavoriteShowViewControllerInput {
-    func displaySomething(viewModel: FavoriteShow.Something.ViewModel) {
-        print(object: "\(type(of: self)): \(#function) run.")
-        
-        // Display the result from the Presenter
-        // nameTextField.text = viewModel.name
-    }
-}
+extension FavoriteShowViewController: FavoriteShowViewControllerInput {}

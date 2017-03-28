@@ -13,6 +13,7 @@ import UIKit
 
 // MARK: - Input & Output protocols
 protocol FavoriteOrganizationsShowRouterInput {
+    func navigateToOrganizationShowScene(_ organization: Organization)
     func navigateToSomewhere()
 }
 
@@ -22,6 +23,14 @@ class FavoriteOrganizationsShowRouter: FavoriteOrganizationsShowRouterInput {
     
     
     // MARK: - Custom Functions. Navigation
+    func navigateToOrganizationShowScene(_ organization: Organization) {
+        let storyboard                          =   UIStoryboard(name: "OrganizationShow", bundle: nil)
+        let organizationShowVC                  =   storyboard.instantiateViewController(withIdentifier: "OrganizationShowVC") as! OrganizationShowViewController
+        organizationShowVC.organization         =   organization
+        
+        viewController.navigationController?.pushViewController(organizationShowVC, animated: true)
+    }
+
     func navigateToSomewhere() {
         // NOTE: Teach the router how to navigate to another scene. Some examples follow:
         // 1. Trigger a storyboard segue

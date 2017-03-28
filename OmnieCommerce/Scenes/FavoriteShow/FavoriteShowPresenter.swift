@@ -13,22 +13,15 @@ import UIKit
 
 // MARK: - Input & Output protocols
 protocol FavoriteShowPresenterInput {
-    func presentSomething(response: FavoriteShow.Something.Response)
 }
 
 protocol FavoriteShowPresenterOutput: class {
-    func displaySomething(viewModel: FavoriteShow.Something.ViewModel)
 }
 
 class FavoriteShowPresenter: FavoriteShowPresenterInput {
     // MARK: - Properties
-    weak var output: FavoriteShowPresenterOutput!
+    weak var viewController: FavoriteShowPresenterOutput!
     
     
     // MARK: - Custom Functions. Presentation logic
-    func presentSomething(response: FavoriteShow.Something.Response) {
-        // NOTE: Format the response from the Interactor and pass the result back to the View Controller
-        let viewModel = FavoriteShow.Something.ViewModel()
-        output.displaySomething(viewModel: viewModel)
-    }
 }

@@ -13,12 +13,12 @@ import UIKit
 
 // MARK: - Input protocols for current Interactor component VIP-cicle
 protocol FavoriteServicesShowInteractorInput {
-    func doSomething(requestModel: FavoriteServicesShowModels.Something.RequestModel)
+    func favoriteServicesDidLoad(withRequestModel requestModel: FavoriteServicesShowModels.Services.RequestModel)
 }
 
 // MARK: - Output protocols for Presenter component VIP-cicle
 protocol FavoriteServicesShowInteractorOutput {
-    func presentSomething(responseModel: FavoriteServicesShowModels.Something.ResponseModel)
+    func favoriteServicesDidPrepareToShowLoad(fromResponseModel responseModel: FavoriteServicesShowModels.Services.ResponseModel)
 }
 
 class FavoriteServicesShowInteractor: FavoriteServicesShowInteractorInput {
@@ -28,13 +28,7 @@ class FavoriteServicesShowInteractor: FavoriteServicesShowInteractorInput {
     
     
     // MARK: - Custom Functions. Business logic
-    func doSomething(requestModel: FavoriteServicesShowModels.Something.RequestModel) {
-        // NOTE: Create some Worker to do the work
-        worker = FavoriteServicesShowWorker()
-        worker.doSomeWork()
+    func favoriteServicesDidLoad(withRequestModel requestModel: FavoriteServicesShowModels.Services.RequestModel) {
         
-        // NOTE: Pass the result to the Presenter
-        let responseModel = FavoriteServicesShowModels.Something.ResponseModel()
-        presenter.presentSomething(responseModel: responseModel)
     }
 }

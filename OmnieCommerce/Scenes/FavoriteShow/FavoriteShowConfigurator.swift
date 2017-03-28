@@ -35,16 +35,16 @@ class FavoriteShowConfigurator {
 
     // MARK: - Custom Functions
     func configure(viewController: FavoriteShowViewController) {
-        let router = FavoriteShowRouter()
-        router.viewController = viewController
+        let router                  =   FavoriteShowRouter()
+        router.viewController       =   viewController
         
-        let presenter = FavoriteShowPresenter()
-        presenter.output = viewController
+        let presenter               =   FavoriteShowPresenter()
+        presenter.viewController    =   viewController
         
-        let interactor = FavoriteShowInteractor()
-        interactor.output = presenter
+        let interactor              =   FavoriteShowInteractor()
+        interactor.presenter        =   presenter
         
-        viewController.output = interactor
-        viewController.router = router
+        viewController.interactor   =   interactor
+        viewController.router       =   router
     }
 }

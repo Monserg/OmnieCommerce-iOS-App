@@ -13,12 +13,12 @@ import UIKit
 
 // MARK: - Input protocols for current Interactor component VIP-cicle
 protocol FavoriteOrganizationsShowInteractorInput {
-    func doSomething(requestModel: FavoriteOrganizationsShowModels.Something.RequestModel)
+    func favoriteOrganizationsDidLoad(withRequestModel requestModel: FavoriteOrganizationsShowModels.Organizations.RequestModel)
 }
 
 // MARK: - Output protocols for Presenter component VIP-cicle
 protocol FavoriteOrganizationsShowInteractorOutput {
-    func presentSomething(responseModel: FavoriteOrganizationsShowModels.Something.ResponseModel)
+    func favoriteOrganizationsDidPrepareToShowLoad(fromResponseModel responseModel: FavoriteOrganizationsShowModels.Organizations.ResponseModel)
 }
 
 class FavoriteOrganizationsShowInteractor: FavoriteOrganizationsShowInteractorInput {
@@ -28,13 +28,10 @@ class FavoriteOrganizationsShowInteractor: FavoriteOrganizationsShowInteractorIn
     
     
     // MARK: - Custom Functions. Business logic
-    func doSomething(requestModel: FavoriteOrganizationsShowModels.Something.RequestModel) {
-        // NOTE: Create some Worker to do the work
-        worker = FavoriteOrganizationsShowWorker()
-        worker.doSomeWork()
-        
-        // NOTE: Pass the result to the Presenter
-        let responseModel = FavoriteOrganizationsShowModels.Something.ResponseModel()
-        presenter.presentSomething(responseModel: responseModel)
+    func favoriteOrganizationsDidLoad(withRequestModel requestModel: FavoriteOrganizationsShowModels.Organizations.RequestModel) {
+        MSMRestApiManager.instance.userGetFavoriteOrganizationsList(requestModel.parameters) { responseAPI in
+            let organizationsResponseModel = FavoriteOrganizationsShowModels.Organizations.ResponseModel(response: responseAPI)
+            self.presenter.favoriteOrganizationsDidPrepareToShowLoad(fromResponseModel: organizationsResponseModel)
+        }
     }
 }

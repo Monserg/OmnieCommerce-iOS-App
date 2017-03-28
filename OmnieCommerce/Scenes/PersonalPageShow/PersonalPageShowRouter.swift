@@ -91,6 +91,7 @@ class PersonalPageShowRouter: PersonalPageShowRouterInput {
         // viewController.navigationController?.pushViewController(someWhereViewController, animated: true)
     }
     
+
     // Communication
     func passDataToNextScene(segue: UIStoryboardSegue) {
         // NOTE: Teach the router which scenes it can communicate with

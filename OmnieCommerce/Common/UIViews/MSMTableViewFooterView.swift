@@ -8,38 +8,37 @@
 
 import UIKit
 
-class MSMTableViewFooterView: UITableViewHeaderFooterView {
+class MSMTableViewFooterView: UIView {
     // MARK: - Properties
-//    @IBOutlet var view: UIView!
+    @IBOutlet var view: UIView!
     @IBOutlet weak var emptyView: UIView!
-    @IBOutlet weak var spinner: UIActivityIndicatorView!
-    @IBOutlet weak var stackView: UIStackView!
-
-    @IBOutlet weak var infiniteScrollView: UIView! {
+    @IBOutlet weak var infiniteScrollView: UIView!
+    
+    @IBOutlet weak var spinner: UIActivityIndicatorView! {
         didSet {
-//            (infiniteScrollView.isHidden) ? spinner.stopAnimating() : spinner.startAnimating()
+            spinner.sizeThatFits(CGSize.init(width: 64, height: 64))
         }
     }
     
     
     // MARK: - Class Initialization
-//    override init(frame: CGRect) {
-//        super.init(frame: frame)
-//        
-//        createFromXIB()
-//    }
-//    
-//    required init?(coder aDecoder: NSCoder) {
-//        super.init(coder: aDecoder)
-//        
-//        createFromXIB()
-//    }
-//    
-//    
-//    // MARK: - Class Functions
-//    func createFromXIB() {
-//        UINib(nibName: String(describing: MSMTableViewFooterView.self), bundle: Bundle(for: MSMTableViewFooterView.self)).instantiate(withOwner: self, options: nil)
-//        addSubview(view)
-//        view.frame = frame
-//    }
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        
+        createFromXIB()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        
+        createFromXIB()
+    }
+    
+    
+    // MARK: - Class Functions
+    func createFromXIB() {
+        UINib(nibName: String(describing: MSMTableViewFooterView.self), bundle: Bundle(for: MSMTableViewFooterView.self)).instantiate(withOwner: self, options: nil)
+        addSubview(view)
+        view.frame = frame
+    }
 }

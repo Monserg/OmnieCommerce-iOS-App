@@ -17,6 +17,7 @@ enum BodyType {
     case CategoriesArray
     case OrganizationsArray
     case OrganizationDictionary
+    case FavoriteOrganizationsArray
 }
 
 class ResponseAPI {
@@ -65,6 +66,9 @@ class ResponseAPI {
             self.body = categories
             
         case .OrganizationsArray:
+            self.body = json["body"].arrayObject!
+            
+        case .FavoriteOrganizationsArray:
             self.body = json["body"].arrayObject!
             
         default:

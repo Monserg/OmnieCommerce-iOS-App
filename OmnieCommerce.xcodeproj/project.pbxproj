@@ -345,6 +345,8 @@
 		B1DA01B11DF1CB2F00E6DD46 /* UIFont+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DA01B01DF1CB2F00E6DD46 /* UIFont+Ext.swift */; };
 		B1E52AB11DDDD0EA00C3B24D /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E52AB01DDDD0EA00C3B24D /* LaunchScreenViewController.swift */; };
 		B1E52AD31DDDDEC600C3B24D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1E52AD21DDDDEC600C3B24D /* Main.storyboard */; };
+		B1EC9F2C1E8AE31500F2E342 /* FavoriteOrganizations+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1EC9F2A1E8AE31500F2E342 /* FavoriteOrganizations+CoreDataClass.swift */; };
+		B1EC9F2D1E8AE31500F2E342 /* FavoriteOrganizations+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1EC9F2B1E8AE31500F2E342 /* FavoriteOrganizations+CoreDataProperties.swift */; };
 		B1F7EDB81DF54878003B36AD /* SegmentedControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F7EDB71DF54878003B36AD /* SegmentedControlView.swift */; };
 		B1F7EDBA1DF54886003B36AD /* SegmentedControlView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1F7EDB91DF54886003B36AD /* SegmentedControlView.xib */; };
 		B1FBC9161E6D474400D86429 /* LTHRadioButton.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1FBC9151E6D474400D86429 /* LTHRadioButton.framework */; };
@@ -741,6 +743,8 @@
 		B1DA01B01DF1CB2F00E6DD46 /* UIFont+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+Ext.swift"; sourceTree = "<group>"; };
 		B1E52AB01DDDD0EA00C3B24D /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewController.swift; sourceTree = "<group>"; };
 		B1E52AD21DDDDEC600C3B24D /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		B1EC9F2A1E8AE31500F2E342 /* FavoriteOrganizations+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FavoriteOrganizations+CoreDataClass.swift"; sourceTree = "<group>"; };
+		B1EC9F2B1E8AE31500F2E342 /* FavoriteOrganizations+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FavoriteOrganizations+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		B1F7EDB71DF54878003B36AD /* SegmentedControlView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentedControlView.swift; sourceTree = "<group>"; };
 		B1F7EDB91DF54886003B36AD /* SegmentedControlView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SegmentedControlView.xib; sourceTree = "<group>"; };
 		B1FBC9151E6D474400D86429 /* LTHRadioButton.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LTHRadioButton.framework; path = "../../../../../Library/Developer/Xcode/DerivedData/OmnieCommerce-enpckymiymzhiuhdgnbmlxbwmhew/Build/Products/Debug-iphonesimulator/LTHRadioButton/LTHRadioButton.framework"; sourceTree = "<group>"; };
@@ -862,6 +866,8 @@
 				B10874A51E5B3D7E004A4FB6 /* AppUser+CoreDataProperties.swift */,
 				B1A9ACCC1E7C6FE60010FF05 /* Categories+CoreDataClass.swift */,
 				B1A9ACCD1E7C6FE60010FF05 /* Categories+CoreDataProperties.swift */,
+				B1EC9F2A1E8AE31500F2E342 /* FavoriteOrganizations+CoreDataClass.swift */,
+				B1EC9F2B1E8AE31500F2E342 /* FavoriteOrganizations+CoreDataProperties.swift */,
 				B19A24231E8625DE0070841F /* Organizations+CoreDataClass.swift */,
 				B19A24241E8625DE0070841F /* Organizations+CoreDataProperties.swift */,
 			);
@@ -2006,6 +2012,7 @@
 				B177E54A1E54AC7F004F1390 /* EnterCodeShowPresenter.swift in Sources */,
 				B1CF54B41DDB516E00E98049 /* OmnieCardsShowWorker.swift in Sources */,
 				B122F2091DD35BEB0018A701 /* CategoriesShowRouter.swift in Sources */,
+				B1EC9F2C1E8AE31500F2E342 /* FavoriteOrganizations+CoreDataClass.swift in Sources */,
 				B122F1EB1DD35BA70018A701 /* MessagesShowModels.swift in Sources */,
 				B122F2261DD35CC80018A701 /* SlideMenuShowRouter.swift in Sources */,
 				B1228FB51DD4856A00A90FBB /* MenuItem.swift in Sources */,
@@ -2232,6 +2239,7 @@
 				B122F1EF1DD35BA70018A701 /* MessagesShowWorker.swift in Sources */,
 				B122F2241DD35CC80018A701 /* SlideMenuShowModels.swift in Sources */,
 				B1CF54CB1DDB51A500E98049 /* PersonalPageShowInteractor.swift in Sources */,
+				B1EC9F2D1E8AE31500F2E342 /* FavoriteOrganizations+CoreDataProperties.swift in Sources */,
 				B122F2131DD35C2C0018A701 /* NewsShowConfigurator.swift in Sources */,
 				B1FBC9211E6D923E00D86429 /* UbuntuLightVeryLightGrayLabel.swift in Sources */,
 				B12FE6461E57327D00A4FBA4 /* CustomTextField.swift in Sources */,
