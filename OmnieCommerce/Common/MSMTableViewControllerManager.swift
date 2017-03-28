@@ -17,17 +17,18 @@ class MSMTableViewControllerManager: BaseViewController {
     var refreshControl: UIRefreshControl?
     let footerViewHeight: CGFloat = 60.0
     var isLoadMore = false
-
-    var dataSource: [Any]? {
-        didSet {
-            let cellIdentifier = (dataSource!.first as! InitCellParameters).cellIdentifier
-            
-            if (cellIdentifier == "OrganizationTableViewCell") {
-                tableView!.tableFooterView?.isHidden = (dataSource!.count == 0) ? false : true
-            }
-        }
-    }
-        
+    
+    var dataSource: [Any]?
+//        {
+//        didSet {
+//            let cellIdentifier = (dataSource!.first as! InitCellParameters).cellIdentifier
+//            
+//            if (cellIdentifier == "OrganizationTableViewCell") {
+//                tableView!.tableFooterView!.isHidden = (dataSource!.count == 0) ? false : true
+//            }
+//        }
+//    }
+    
     weak var tableView: MSMTableView? {
         didSet {
             tableView!.rowHeight = UITableViewAutomaticDimension
@@ -39,6 +40,22 @@ class MSMTableViewControllerManager: BaseViewController {
     var handlerCancelButtonCompletion: HandlerCancelButtonCompletion?
     var handlerPullRefreshCompletion: HandlerSendButtonCompletion?
     var handlerInfiniteScrollCompletion: HandlerSendButtonCompletion?
+    
+    
+    // MARK: - Class Initialization
+    init(withTableView tableView: MSMTableView, andSectionsCount sections: Int) {
+        super.init(nibName: nil, bundle: nil)
+        
+        self.tableView = tableView
+        self.sectionsCount = sections
+        
+        self.pullRefreshDidCreate()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     
     // MARK: - Class Functions
     override func viewDidLoad() {
@@ -57,12 +74,18 @@ class MSMTableViewControllerManager: BaseViewController {
         // Set Infinite Scroll
         if (scrollView.contentOffset.y >= footerViewHeight && !isLoadMore) {
             isLoadMore = !isLoadMore
-            self.tableView!.tableFooterView?.isHidden = false
-            handlerInfiniteScrollCompletion!()
+            let footerView = self.tableView!.dequeueReusableHeaderFooterView(withIdentifier: "MSMTableViewFooterView") as! MSMTableViewFooterView
+            footerView.isHidden = false
+//            self.tableView!.tableFooterView!.isHidden = false
+//            self.tableView!.reloadData()
+            
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 5) {
+                self.handlerInfiniteScrollCompletion!()
+            }
         }
     }
     
-    func pullRefreshDidCreate() {
+    private func pullRefreshDidCreate() {
         refreshControl = UIRefreshControl()
         refreshControl!.tintColor = UIColor.init(hexString: "#dedede", withAlpha: 1.0)
         refreshControl!.attributedTitle = NSAttributedString(string: "Loading Data".localized(),
@@ -75,7 +98,11 @@ class MSMTableViewControllerManager: BaseViewController {
             tableView!.addSubview(refreshControl!)
         }
         
-        refreshControl!.addTarget(self, action: #selector(handlerPullRefresh), for: .valueChanged)        
+        refreshControl!.addTarget(self, action: #selector(handlerPullRefresh), for: .valueChanged)
+        
+        // Register the Nib footer section views
+        tableView!.tableFooterView = MSMTableViewFooterView(frame: CGRect.init(origin: .zero, size: CGSize.init(width: tableView!.frame.width, height: footerViewHeight)))
+        tableView!.tableFooterView?.backgroundColor = UIColor.red
     }
     
     func pullRefreshDidFinish() {
@@ -88,7 +115,9 @@ class MSMTableViewControllerManager: BaseViewController {
             return
         }
         
-        handlerPullRefreshCompletion!()
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
+            self.handlerPullRefreshCompletion!()
+        }
     }
 }
 
@@ -219,21 +248,21 @@ extension MSMTableViewControllerManager: UITableViewDelegate {
         cell.contentView.backgroundColor = .clear
     }
     
-//    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-//        guard dataSource != nil  else {
-//            return 0.0
-//        }
-//        
-//        let cellIdentifier = (dataSource!.first as! InitCellParameters).cellIdentifier
-//        
-//        switch cellIdentifier {
-//        case "OrganizationTableViewCell":
-//            return (self.tableView!.tableFooterView?.isHidden)! ? 0.0 : footerViewHeight
-//        
-//        default:
-//            return 0.0
-//        }
-//    }
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        guard dataSource != nil  else {
+            return 0.0
+        }
+        
+        let cellIdentifier = (dataSource!.first as! InitCellParameters).cellIdentifier
+        
+        switch cellIdentifier {
+        case "OrganizationTableViewCell":
+            return footerViewHeight //(self.tableView!.tableFooterView!.isHidden) ? 0.0 : footerViewHeight
+        
+        default:
+            return 0.0
+        }
+    }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         guard dataSource != nil  else {
@@ -249,9 +278,13 @@ extension MSMTableViewControllerManager: UITableViewDelegate {
             if (dataSource!.count == 0) {
                 footerView.emptyView.isHidden = false
                 footerView.infiniteScrollView.isHidden = true
+//                (self.tableView!.tableFooterView as! MSMTableViewFooterView).emptyView.isHidden = false
+//                (self.tableView!.tableFooterView as! MSMTableViewFooterView).infiniteScrollView.isHidden = true
             } else {
                 footerView.emptyView.isHidden = true
                 footerView.infiniteScrollView.isHidden = false
+//                (self.tableView!.tableFooterView as! MSMTableViewFooterView).emptyView.isHidden = true
+//                (self.tableView!.tableFooterView as! MSMTableViewFooterView).infiniteScrollView.isHidden = false
             }
             
             return footerView

@@ -14,11 +14,8 @@ class PersonalTemplatesViewController: BaseViewController {
     
     @IBOutlet weak var tableView: MSMTableView! {
         didSet {
-            tableView.contentInset                  =   UIEdgeInsetsMake(0, 0, 0, 0)
-            tableView.scrollIndicatorInsets         =   UIEdgeInsetsMake(0, 0, 0, 0)
-            
-            // TableViewController Manager
-            tableView.tableViewControllerManager    =   MSMTableViewControllerManager()
+            tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0)
+            tableView.scrollIndicatorInsets = UIEdgeInsetsMake(0, 0, 0, 0)
         }
     }
     
@@ -39,14 +36,14 @@ class PersonalTemplatesViewController: BaseViewController {
     
     // MARK: - Custom Functions
     private func viewSettingsDidLoad() {
-        tableView.tableViewControllerManager!.sectionsCount     =   1
-        tableView.tableViewControllerManager!.dataSource        =   organizations
+        // TableViewController Manager
+        tableView.tableViewControllerManager = MSMTableViewControllerManager.init(withTableView: self.tableView, andSectionsCount: 1)
+        tableView.tableViewControllerManager!.dataSource = organizations
         
-        dataSourceEmptyView.isHidden                            =   (organizations == nil) ? false : true
-        tableView.isScrollEnabled                               =   (organizations == nil) ? false : true
-        tableView.tableViewControllerManager!.tableView         =   tableView
+        dataSourceEmptyView.isHidden = (organizations == nil) ? false : true
+        tableView.isScrollEnabled = (organizations == nil) ? false : true
+        tableView.tableViewControllerManager!.tableView = tableView
         
         tableView.reloadData()
     }
-    
 }

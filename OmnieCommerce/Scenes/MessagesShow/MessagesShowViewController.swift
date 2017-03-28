@@ -59,6 +59,9 @@ class MessagesShowViewController: BaseViewController {
     func viewSettingsDidLoad() {
         print(object: "\(type(of: self)): \(#function) run.")
         
+        // TableViewController Manager
+        tableView.tableViewControllerManager = MSMTableViewControllerManager.init(withTableView: self.tableView, andSectionsCount: 1)
+
         // Config smallTopBarView
         navigationBarView       =   smallTopBarView
         smallTopBarView.type    =   "ParentSearch"
@@ -93,12 +96,9 @@ extension MessagesShowViewController: MessagesShowViewControllerInput {
         }
         
         // TableViewController Manager
-        tableView.tableViewControllerManager                    =   MSMTableViewControllerManager()
-        tableView.tableViewControllerManager!.tableView         =   self.tableView
-        tableView.tableViewControllerManager!.sectionsCount     =   1
-        tableView.tableViewControllerManager!.dataSource        =   viewModel.messages!
-        dataSourceEmptyView.isHidden                            =   true
-        self.tableView.isScrollEnabled                          =   true
+        tableView.tableViewControllerManager!.dataSource = viewModel.messages!
+        dataSourceEmptyView.isHidden = true
+        self.tableView.isScrollEnabled = true
         
         self.tableView.reloadData()
         

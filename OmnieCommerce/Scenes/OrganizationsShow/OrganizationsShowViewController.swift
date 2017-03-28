@@ -43,15 +43,6 @@ class OrganizationsShowViewController: BaseViewController {
         didSet {
             tableView.contentInset = UIEdgeInsetsMake((UIApplication.shared.statusBarOrientation.isPortrait) ? 5 : 45, 0, 0, 0)
             tableView.scrollIndicatorInsets = UIEdgeInsetsMake((UIApplication.shared.statusBarOrientation.isPortrait) ? 5 : 45, 0, 0, 0)
-            
-            // Register the Nib footer section views
-            tableView.register(UINib(nibName: "MSMTableViewFooterView", bundle: nil), forHeaderFooterViewReuseIdentifier: "MSMTableViewFooterView")
-
-            // Create MSMTableViewControllerManager
-            tableView.tableViewControllerManager = MSMTableViewControllerManager()
-            tableView.tableViewControllerManager!.tableView = self.tableView
-            tableView.tableViewControllerManager!.sectionsCount = 1
-            tableView.tableViewControllerManager!.pullRefreshDidCreate()
         }
     }
 
@@ -74,6 +65,12 @@ class OrganizationsShowViewController: BaseViewController {
     
     // MARK: - Custom Functions
     func viewSettingsDidLoad() {
+        // Register the Nib footer section views
+        tableView.register(UINib(nibName: "MSMTableViewFooterView", bundle: nil), forHeaderFooterViewReuseIdentifier: "MSMTableViewFooterView")
+
+        // Create MSMTableViewControllerManager
+        tableView.tableViewControllerManager = MSMTableViewControllerManager.init(withTableView: self.tableView, andSectionsCount: 1)
+
         // Config smallTopBarView
         navigationBarView = smallTopBarView
         smallTopBarView.type = "ChildSearch"
@@ -128,7 +125,7 @@ class OrganizationsShowViewController: BaseViewController {
             organizationsList = organizations!
         } else {
             let organizationsData = CoreDataManager.instance.entityDidLoad(byName: keyOrganizations) as! Organizations
-            organizationsList = NSKeyedUnarchiver.unarchiveObject(with: organizationsData.list as! Data) as! [Organization]
+            organizationsList = NSKeyedUnarchiver.unarchiveObject(with: organizationsData.list! as Data) as! [Organization]
         }
 
         // Setting MSMTableViewControllerManager

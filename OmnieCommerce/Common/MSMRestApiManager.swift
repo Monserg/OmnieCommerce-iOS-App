@@ -45,7 +45,7 @@ final class MSMRestApiManager {
     
     // MARK: - Class Functions
     func userAutorization(_ userName: String, andPassword password: String, withHandlerResponseAPICompletion handlerResponseAPICompletion: @escaping (ResponseAPI?) -> Void) {
-        let authParameters = [ "userName": userName, "password": password ]
+        let authParameters = [ "login": userName, "password": password ]
         appApiString = "/auth/"
         
         Alamofire.request(appURL, method: .post, parameters: authParameters, encoding: JSONEncoding.default, headers: headers).responseJSON { dataResponse -> Void in

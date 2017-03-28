@@ -19,11 +19,11 @@
                 <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="xeg-SH-Php" userLabel="Table View Footer Stack View">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
                     <subviews>
-                        <view hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f5S-2F-Mb4" userLabel="Empty Table View">
+                        <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f5S-2F-Mb4" userLabel="Empty Table View">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="30"/>
                             <subviews>
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Organizations list is empty" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hah-4p-Rxa" customClass="UbuntuLightVeryLightGrayLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                                    <rect key="frame" x="112.5" y="16" width="150" height="14.5"/>
+                                    <rect key="frame" x="112.5" y="15.5" width="150" height="14.5"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                     <nil key="textColor"/>
@@ -69,7 +69,7 @@
                             </constraints>
                         </view>
                     </subviews>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
                     </userDefinedRuntimeAttributes>
@@ -88,9 +88,10 @@
                 <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
             </userDefinedRuntimeAttributes>
             <connections>
-                <outlet property="emptyView" destination="f5S-2F-Mb4" id="deU-xr-DJ2"/>
-                <outlet property="infiniteScrollView" destination="rDd-CA-coX" id="zIL-Lo-Bny"/>
-                <outlet property="spinner" destination="eMb-UX-SyN" id="kht-08-csc"/>
+                <outlet property="emptyView" destination="f5S-2F-Mb4" id="24m-r4-mDn"/>
+                <outlet property="infiniteScrollView" destination="rDd-CA-coX" id="Jxl-6E-I5R"/>
+                <outlet property="spinner" destination="eMb-UX-SyN" id="f1V-EL-llU"/>
+                <outlet property="stackView" destination="xeg-SH-Php" id="Qmi-G6-mvI"/>
             </connections>
         </view>
     </objects>
