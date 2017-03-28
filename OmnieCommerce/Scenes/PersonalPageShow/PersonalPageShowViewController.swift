@@ -82,9 +82,9 @@ class PersonalPageShowViewController: BaseViewController {
         spinnerDidStart(nil)
         
         // Config smallTopBarView
-        navigationBarView       =   smallTopBarView
-        smallTopBarView.type    =   "Parent"
-        haveMenuItem            =   true
+        navigationBarView = smallTopBarView
+        smallTopBarView.type = "Parent"
+        haveMenuItem = true
                 
         // Container Child Views
         personalDataVC = UIStoryboard(name: "PersonalPageShow", bundle: nil).instantiateViewController(withIdentifier: "PersonalDataVC") as? PersonalDataViewController

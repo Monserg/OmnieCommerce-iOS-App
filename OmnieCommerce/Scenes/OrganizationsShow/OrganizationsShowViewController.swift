@@ -200,7 +200,7 @@ class OrganizationsShowViewController: BaseViewController {
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         categoriesButton.setNeedsDisplay()
         servicesButton.setNeedsDisplay()
-        _ = tableView.visibleCells.map{ ($0 as! BaseTableViewCell).dottedBorderView.setNeedsDisplay() }
+        _ = tableView.visibleCells.map { ($0 as! BaseTableViewCell).dottedBorderView.setNeedsDisplay() }
     }
 }
 

@@ -25,10 +25,29 @@ class FavoriteShowViewController: BaseViewController {
     var output: FavoriteShowViewControllerOutput!
     var router: FavoriteShowRouter!
     
+    // Container childVC
+    var animationDirection: AnimationDirection?
+    var favoriteServicesVC: FavoriteServicesShowViewController?
+    var favoriteOrganizationsVC: FavoriteOrganizationsShowViewController?
+    
+    var activeViewController: BaseViewController? {
+        didSet {
+            guard oldValue != nil else {
+                router.updateActiveViewController()
+                
+                return
+            }
+            
+            animationDirection = ((oldValue?.view.tag)! < (activeViewController?.view.tag)!) ? .FromRightToLeft : .FromLeftToRight
+            router.removeInactiveViewController(inactiveViewController: oldValue)
+        }
+    }
+    
     @IBOutlet weak var copyrightLabel: CustomLabel!
     @IBOutlet weak var smallTopBarView: SmallTopBarView!
     @IBOutlet weak var segmentedControlView: SegmentedControlView!
-    
+    @IBOutlet weak var containerView: CustomView!
+
     
     // MARK: - Class Initialization
     override func awakeFromNib() {
@@ -53,19 +72,19 @@ class FavoriteShowViewController: BaseViewController {
         setupSegmentedControlView()
 
         // Config smallTopBarView
-        navigationBarView       =   smallTopBarView
-        smallTopBarView.type    =   "ParentSearch"
-        haveMenuItem            =   true
+        navigationBarView = smallTopBarView
+        smallTopBarView.type = "ParentSearch"
+        haveMenuItem = true
         
         // Load data
-        let requestModel        =   FavoriteShow.Something.Request()
+        let requestModel = FavoriteShow.Something.Request()
         output.doSomething(request: requestModel)
     }
     
     func setupSegmentedControlView() {
         segmentedControlView.backgroundColor = UIColor.veryDarkDesaturatedBlue24
         
-        segmentedControlView.actionButtonHandlerCompletion  =   { sender in
+        segmentedControlView.actionButtonHandlerCompletion = { sender in
 //            self.print(object: "\(type(of: self)): \(#function) run. Sender tag = \(sender.tag)")
         }
     }
@@ -77,6 +96,7 @@ class FavoriteShowViewController: BaseViewController {
         
         smallTopBarView.setNeedsDisplay()
         smallTopBarView.circleView.setNeedsDisplay()
+        segmentedControlView.setNeedsDisplay()
     }
 }
 

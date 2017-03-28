@@ -19,6 +19,22 @@
 		B10874821E5B1822004A4FB6 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B10874811E5B1822004A4FB6 /* CoreData.framework */; };
 		B10874A61E5B3D7E004A4FB6 /* AppUser+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10874A41E5B3D7E004A4FB6 /* AppUser+CoreDataClass.swift */; };
 		B10874A71E5B3D7E004A4FB6 /* AppUser+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10874A51E5B3D7E004A4FB6 /* AppUser+CoreDataProperties.swift */; };
+		B10B48B11E8A5517007DDD81 /* FavoriteOrganizationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10B48AF1E8A5517007DDD81 /* FavoriteOrganizationTableViewCell.swift */; };
+		B10B48B21E8A5517007DDD81 /* FavoriteOrganizationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B10B48B01E8A5517007DDD81 /* FavoriteOrganizationTableViewCell.xib */; };
+		B10B48CB1E8A5AEC007DDD81 /* FavoriteServicesShowConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10B48C41E8A5AEC007DDD81 /* FavoriteServicesShowConfigurator.swift */; };
+		B10B48CC1E8A5AEC007DDD81 /* FavoriteServicesShowInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10B48C51E8A5AEC007DDD81 /* FavoriteServicesShowInteractor.swift */; };
+		B10B48CD1E8A5AEC007DDD81 /* FavoriteServicesShowModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10B48C61E8A5AEC007DDD81 /* FavoriteServicesShowModels.swift */; };
+		B10B48CE1E8A5AEC007DDD81 /* FavoriteServicesShowPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10B48C71E8A5AEC007DDD81 /* FavoriteServicesShowPresenter.swift */; };
+		B10B48CF1E8A5AEC007DDD81 /* FavoriteServicesShowRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10B48C81E8A5AEC007DDD81 /* FavoriteServicesShowRouter.swift */; };
+		B10B48D01E8A5AEC007DDD81 /* FavoriteServicesShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10B48C91E8A5AEC007DDD81 /* FavoriteServicesShowViewController.swift */; };
+		B10B48D11E8A5AEC007DDD81 /* FavoriteServicesShowWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10B48CA1E8A5AEC007DDD81 /* FavoriteServicesShowWorker.swift */; };
+		B10B48D91E8A5B2E007DDD81 /* FavoriteOrganizationsShowConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10B48D21E8A5B2E007DDD81 /* FavoriteOrganizationsShowConfigurator.swift */; };
+		B10B48DA1E8A5B2E007DDD81 /* FavoriteOrganizationsShowInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10B48D31E8A5B2E007DDD81 /* FavoriteOrganizationsShowInteractor.swift */; };
+		B10B48DB1E8A5B2E007DDD81 /* FavoriteOrganizationsShowModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10B48D41E8A5B2E007DDD81 /* FavoriteOrganizationsShowModels.swift */; };
+		B10B48DC1E8A5B2E007DDD81 /* FavoriteOrganizationsShowPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10B48D51E8A5B2E007DDD81 /* FavoriteOrganizationsShowPresenter.swift */; };
+		B10B48DD1E8A5B2E007DDD81 /* FavoriteOrganizationsShowRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10B48D61E8A5B2E007DDD81 /* FavoriteOrganizationsShowRouter.swift */; };
+		B10B48DE1E8A5B2E007DDD81 /* FavoriteOrganizationsShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10B48D71E8A5B2E007DDD81 /* FavoriteOrganizationsShowViewController.swift */; };
+		B10B48DF1E8A5B2E007DDD81 /* FavoriteOrganizationsShowWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10B48D81E8A5B2E007DDD81 /* FavoriteOrganizationsShowWorker.swift */; };
 		B10CF52A1E684B9700811DC1 /* ScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10CF5291E684B9700811DC1 /* ScheduleView.swift */; };
 		B10CF52C1E684BA000811DC1 /* ScheduleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B10CF52B1E684BA000811DC1 /* ScheduleView.xib */; };
 		B1131A931E76744300DAF90A /* MSMRestApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1131A921E76744300DAF90A /* MSMRestApiManager.swift */; };
@@ -385,6 +401,22 @@
 		B10874811E5B1822004A4FB6 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		B10874A41E5B3D7E004A4FB6 /* AppUser+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AppUser+CoreDataClass.swift"; sourceTree = "<group>"; };
 		B10874A51E5B3D7E004A4FB6 /* AppUser+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AppUser+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		B10B48AF1E8A5517007DDD81 /* FavoriteOrganizationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteOrganizationTableViewCell.swift; sourceTree = "<group>"; };
+		B10B48B01E8A5517007DDD81 /* FavoriteOrganizationTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FavoriteOrganizationTableViewCell.xib; sourceTree = "<group>"; };
+		B10B48C41E8A5AEC007DDD81 /* FavoriteServicesShowConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteServicesShowConfigurator.swift; sourceTree = "<group>"; };
+		B10B48C51E8A5AEC007DDD81 /* FavoriteServicesShowInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteServicesShowInteractor.swift; sourceTree = "<group>"; };
+		B10B48C61E8A5AEC007DDD81 /* FavoriteServicesShowModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteServicesShowModels.swift; sourceTree = "<group>"; };
+		B10B48C71E8A5AEC007DDD81 /* FavoriteServicesShowPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteServicesShowPresenter.swift; sourceTree = "<group>"; };
+		B10B48C81E8A5AEC007DDD81 /* FavoriteServicesShowRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteServicesShowRouter.swift; sourceTree = "<group>"; };
+		B10B48C91E8A5AEC007DDD81 /* FavoriteServicesShowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteServicesShowViewController.swift; sourceTree = "<group>"; };
+		B10B48CA1E8A5AEC007DDD81 /* FavoriteServicesShowWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteServicesShowWorker.swift; sourceTree = "<group>"; };
+		B10B48D21E8A5B2E007DDD81 /* FavoriteOrganizationsShowConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteOrganizationsShowConfigurator.swift; sourceTree = "<group>"; };
+		B10B48D31E8A5B2E007DDD81 /* FavoriteOrganizationsShowInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteOrganizationsShowInteractor.swift; sourceTree = "<group>"; };
+		B10B48D41E8A5B2E007DDD81 /* FavoriteOrganizationsShowModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteOrganizationsShowModels.swift; sourceTree = "<group>"; };
+		B10B48D51E8A5B2E007DDD81 /* FavoriteOrganizationsShowPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteOrganizationsShowPresenter.swift; sourceTree = "<group>"; };
+		B10B48D61E8A5B2E007DDD81 /* FavoriteOrganizationsShowRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteOrganizationsShowRouter.swift; sourceTree = "<group>"; };
+		B10B48D71E8A5B2E007DDD81 /* FavoriteOrganizationsShowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteOrganizationsShowViewController.swift; sourceTree = "<group>"; };
+		B10B48D81E8A5B2E007DDD81 /* FavoriteOrganizationsShowWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteOrganizationsShowWorker.swift; sourceTree = "<group>"; };
 		B10CF5291E684B9700811DC1 /* ScheduleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleView.swift; sourceTree = "<group>"; };
 		B10CF52B1E684BA000811DC1 /* ScheduleView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScheduleView.xib; sourceTree = "<group>"; };
 		B1131A921E76744300DAF90A /* MSMRestApiManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSMRestApiManager.swift; sourceTree = "<group>"; };
@@ -836,6 +868,52 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		B10B48AA1E8A549D007DDD81 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B10B48AF1E8A5517007DDD81 /* FavoriteOrganizationTableViewCell.swift */,
+				B10B48B01E8A5517007DDD81 /* FavoriteOrganizationTableViewCell.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		B10B48B31E8A5A52007DDD81 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				B10B48B51E8A5A95007DDD81 /* FavoriteServicesShow */,
+				B10B48B41E8A5A77007DDD81 /* FavoriteOrganizationsShow */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		B10B48B41E8A5A77007DDD81 /* FavoriteOrganizationsShow */ = {
+			isa = PBXGroup;
+			children = (
+				B10B48D21E8A5B2E007DDD81 /* FavoriteOrganizationsShowConfigurator.swift */,
+				B10B48D31E8A5B2E007DDD81 /* FavoriteOrganizationsShowInteractor.swift */,
+				B10B48D41E8A5B2E007DDD81 /* FavoriteOrganizationsShowModels.swift */,
+				B10B48D51E8A5B2E007DDD81 /* FavoriteOrganizationsShowPresenter.swift */,
+				B10B48D61E8A5B2E007DDD81 /* FavoriteOrganizationsShowRouter.swift */,
+				B10B48D71E8A5B2E007DDD81 /* FavoriteOrganizationsShowViewController.swift */,
+				B10B48D81E8A5B2E007DDD81 /* FavoriteOrganizationsShowWorker.swift */,
+			);
+			path = FavoriteOrganizationsShow;
+			sourceTree = "<group>";
+		};
+		B10B48B51E8A5A95007DDD81 /* FavoriteServicesShow */ = {
+			isa = PBXGroup;
+			children = (
+				B10B48C41E8A5AEC007DDD81 /* FavoriteServicesShowConfigurator.swift */,
+				B10B48C51E8A5AEC007DDD81 /* FavoriteServicesShowInteractor.swift */,
+				B10B48C61E8A5AEC007DDD81 /* FavoriteServicesShowModels.swift */,
+				B10B48C71E8A5AEC007DDD81 /* FavoriteServicesShowPresenter.swift */,
+				B10B48C81E8A5AEC007DDD81 /* FavoriteServicesShowRouter.swift */,
+				B10B48C91E8A5AEC007DDD81 /* FavoriteServicesShowViewController.swift */,
+				B10B48CA1E8A5AEC007DDD81 /* FavoriteServicesShowWorker.swift */,
+			);
+			path = FavoriteServicesShow;
+			sourceTree = "<group>";
+		};
 		B11B9ADB1DF0537A009A4AA1 /* UIImageView */ = {
 			isa = PBXGroup;
 			children = (
@@ -1056,6 +1134,8 @@
 		B122F1D11DD35B270018A701 /* FavoriteShow */ = {
 			isa = PBXGroup;
 			children = (
+				B10B48B31E8A5A52007DDD81 /* ViewControllers */,
+				B10B48AA1E8A549D007DDD81 /* Views */,
 				B122F1F01DD35BC70018A701 /* FavoriteShowConfigurator.swift */,
 				B122F1F11DD35BC70018A701 /* FavoriteShowInteractor.swift */,
 				B122F1F21DD35BC70018A701 /* FavoriteShowModels.swift */,
@@ -1800,6 +1880,7 @@
 				B1BF92711DD6516C00BECBBB /* helveticaneuecyr-medium.otf in Resources */,
 				B1BF92721DD6516C00BECBBB /* helveticaneuecyr-mediumitaicl.otf in Resources */,
 				B1BF92731DD6516C00BECBBB /* helveticaneuecyr-roman.otf in Resources */,
+				B10B48B21E8A5517007DDD81 /* FavoriteOrganizationTableViewCell.xib in Resources */,
 				B1BF92741DD6516C00BECBBB /* helveticaneuecyr-thin.otf in Resources */,
 				B1BF92751DD6516C00BECBBB /* helveticaneuecyr-thinitalic.otf in Resources */,
 				B1152FB01E6E9FD8007999B9 /* UserTemplateTableViewCell.xib in Resources */,
@@ -1939,13 +2020,17 @@
 				B1FFF7151E5F017A00A075D8 /* OrganizationsMapShowRouter.swift in Sources */,
 				B122F2281DD35CC80018A701 /* SlideMenuShowWorker.swift in Sources */,
 				B122F2071DD35BEB0018A701 /* CategoriesShowModels.swift in Sources */,
+				B10B48DC1E8A5B2E007DDD81 /* FavoriteOrganizationsShowPresenter.swift in Sources */,
 				B1CF54CD1DDB51A500E98049 /* PersonalPageShowPresenter.swift in Sources */,
 				B177E5381E5475EC004F1390 /* SignInContainerShowRouter.swift in Sources */,
 				B11B9ADA1DF02F5C009A4AA1 /* Date+Ext.swift in Sources */,
 				B1CF54C11DDB519000E98049 /* OnmieSoftShowViewController.swift in Sources */,
+				B10B48DB1E8A5B2E007DDD81 /* FavoriteOrganizationsShowModels.swift in Sources */,
 				B1BEEDF01E63687500F1DE8A /* OrganizationShowInteractor.swift in Sources */,
+				B10B48D01E8A5AEC007DDD81 /* FavoriteServicesShowViewController.swift in Sources */,
 				B177E55E1E54B8F6004F1390 /* PasswordStrengthLevelView.swift in Sources */,
 				B1152FAF1E6E9FD8007999B9 /* UserTemplateTableViewCell.swift in Sources */,
+				B10B48D91E8A5B2E007DDD81 /* FavoriteOrganizationsShowConfigurator.swift in Sources */,
 				B1DA01B11DF1CB2F00E6DD46 /* UIFont+Ext.swift in Sources */,
 				B1CF54B31DDB516E00E98049 /* OmnieCardsShowViewController.swift in Sources */,
 				B1CF54D01DDB51A500E98049 /* PersonalPageShowWorker.swift in Sources */,
@@ -1960,14 +2045,17 @@
 				B1A9ACD21E7C7CE00010FF05 /* Category.swift in Sources */,
 				B1C94BC21E37825E00122933 /* BarCodeView.swift in Sources */,
 				B14107C71DFEB1D700F79CF9 /* CustomView.swift in Sources */,
+				B10B48CC1E8A5AEC007DDD81 /* FavoriteServicesShowInteractor.swift in Sources */,
 				B1CF54771DDB50D900E98049 /* AboutShowInteractor.swift in Sources */,
 				B16E96731DE717E400147CEF /* BigCirleView.swift in Sources */,
 				B177E5491E54AC7F004F1390 /* EnterCodeShowModels.swift in Sources */,
+				B10B48D11E8A5AEC007DDD81 /* FavoriteServicesShowWorker.swift in Sources */,
 				B1CF54951DDB512000E98049 /* DiscountCardsShowPresenter.swift in Sources */,
 				B1CF54861DDB50F100E98049 /* BusinessCardsShowModels.swift in Sources */,
 				B1739D181DE314D50029BCCA /* UILabel+Ext.swift in Sources */,
 				B1131A931E76744300DAF90A /* MSMRestApiManager.swift in Sources */,
 				B122F1DD1DD35B760018A701 /* OrdersShowModels.swift in Sources */,
+				B10B48DD1E8A5B2E007DDD81 /* FavoriteOrganizationsShowRouter.swift in Sources */,
 				B1FFF7021E5ECDF900A075D8 /* OrganizationsShowModels.swift in Sources */,
 				B1CF54CC1DDB51A500E98049 /* PersonalPageShowModels.swift in Sources */,
 				B1739D1A1DE314DF0029BCCA /* UIColor+Ext.swift in Sources */,
@@ -1978,6 +2066,8 @@
 				B14CD91A1E57C058005F8BF6 /* Protocols.swift in Sources */,
 				B137EC951E7D19FB006F0184 /* MSMCollectionViewControllerManager.swift in Sources */,
 				B14E97591DD8B052001E1DE2 /* SignUpShowPresenter.swift in Sources */,
+				B10B48DE1E8A5B2E007DDD81 /* FavoriteOrganizationsShowViewController.swift in Sources */,
+				B10B48DF1E8A5B2E007DDD81 /* FavoriteOrganizationsShowWorker.swift in Sources */,
 				B10874691E5B07A6004A4FB6 /* OmnieCommerceUser.xcdatamodeld in Sources */,
 				B17061A41E69866B00CF9BA9 /* TableViewControllerManager.swift in Sources */,
 				B1FFF7341E5F0F9E00A075D8 /* PointAnnotation.swift in Sources */,
@@ -2034,6 +2124,7 @@
 				B1CF54A01DDB515000E98049 /* HandbookShowConfigurator.swift in Sources */,
 				B122DF661DF7F957003823AD /* CalendarShowPresenter.swift in Sources */,
 				B1A9ACCE1E7C6FE60010FF05 /* Categories+CoreDataClass.swift in Sources */,
+				B10B48B11E8A5517007DDD81 /* FavoriteOrganizationTableViewCell.swift in Sources */,
 				B1CF54981DDB512000E98049 /* DiscountCardsShowWorker.swift in Sources */,
 				B122F1FD1DD35BC70018A701 /* FavoriteShowWorker.swift in Sources */,
 				B14E974D1DD8B042001E1DE2 /* SignInShowViewController.swift in Sources */,
@@ -2080,6 +2171,7 @@
 				B14E975B1DD8B052001E1DE2 /* SignUpShowViewController.swift in Sources */,
 				B1FFF7171E5F017A00A075D8 /* OrganizationsMapShowWorker.swift in Sources */,
 				B1CF54A11DDB515000E98049 /* HandbookShowInteractor.swift in Sources */,
+				B10B48DA1E8A5B2E007DDD81 /* FavoriteOrganizationsShowInteractor.swift in Sources */,
 				B1FBC9271E6D974300D86429 /* UbuntuLightItalicLightGrayishCyanLabel.swift in Sources */,
 				B17D92DB1E6FFC290028967E /* UbuntuLightItalicModerateRedLabel.swift in Sources */,
 				B19DFABD1E64AF3100599073 /* UMParallaxView.swift in Sources */,
@@ -2101,6 +2193,7 @@
 				B14E97481DD8B042001E1DE2 /* SignInShowConfigurator.swift in Sources */,
 				B177E53C1E5489A2004F1390 /* ErrorMessageView.swift in Sources */,
 				B18A45C81DEC23B2003EBD2F /* SmallTopBarView.swift in Sources */,
+				B10B48CB1E8A5AEC007DDD81 /* FavoriteServicesShowConfigurator.swift in Sources */,
 				B19DFABF1E64B98E00599073 /* UIScrollView+Ext.swift in Sources */,
 				B1FFF7001E5ECDF900A075D8 /* OrganizationsShowConfigurator.swift in Sources */,
 				B1FFF7311E5F0F0F00A075D8 /* LocationManager.swift in Sources */,
@@ -2158,6 +2251,7 @@
 				B1BEEDF21E63687500F1DE8A /* OrganizationShowPresenter.swift in Sources */,
 				B177E5341E5475EC004F1390 /* SignInContainerShowConfigurator.swift in Sources */,
 				B122F1DC1DD35B760018A701 /* OrdersShowInteractor.swift in Sources */,
+				B10B48CD1E8A5AEC007DDD81 /* FavoriteServicesShowModels.swift in Sources */,
 				B177E54B1E54AC7F004F1390 /* EnterCodeShowRouter.swift in Sources */,
 				B1FBC9291E6D9FEB00D86429 /* MSMBlackoutView.swift in Sources */,
 				B14E97681DD8B05E001E1DE2 /* ForgotPasswordShowRouter.swift in Sources */,
@@ -2174,7 +2268,9 @@
 				B19A24251E8625DE0070841F /* Organizations+CoreDataClass.swift in Sources */,
 				B11B9ADD1DF053BA009A4AA1 /* CustomImageView.swift in Sources */,
 				B1C13D871DEF2743002B494A /* DropDownButton.swift in Sources */,
+				B10B48CF1E8A5AEC007DDD81 /* FavoriteServicesShowRouter.swift in Sources */,
 				B122F2181DD35C2C0018A701 /* NewsShowViewController.swift in Sources */,
+				B10B48CE1E8A5AEC007DDD81 /* FavoriteServicesShowPresenter.swift in Sources */,
 				B177E54D1E54AC7F004F1390 /* EnterCodeShowWorker.swift in Sources */,
 				B122F1F81DD35BC70018A701 /* FavoriteShowInteractor.swift in Sources */,
 				B14E976A1DD8B05E001E1DE2 /* ForgotPasswordShowWorker.swift in Sources */,
