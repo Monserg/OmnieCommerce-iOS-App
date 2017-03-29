@@ -27,7 +27,7 @@ class OrganizationsMapShowViewController: BaseViewController {
     var interactor: OrganizationsMapShowViewControllerOutput!
     var router: OrganizationsMapShowRouter!
     
-    var organizations = [Organization]()
+    var items = [PointAnnotationBinding]()
     var pointAnnotations = [PointAnnotation]()
     var regionRect = MKMapRect()
 
@@ -82,16 +82,16 @@ class OrganizationsMapShowViewController: BaseViewController {
             _ = self.navigationController?.popViewController(animated: true)
         }
         
-        if (organizations.count == 1) {
+        if (items.count == 1) {
             infoView.isHidden = false
-            cityLabel.text = organizations.first!.addressCity
-            streetLabel.text = organizations.first!.addressStreet
+            cityLabel.text = items.first!.addressCity
+            streetLabel.text = items.first!.addressStreet
         } else {
             infoView.isHidden = true
         }
         
         // Load point annotations
-        let requestModel = OrganizationsMapShowModels.PointAnnotations.RequestModel(organizations: organizations)
+        let requestModel = OrganizationsMapShowModels.PointAnnotations.RequestModel(items: items)
         interactor.pointAnnotationsDidLoad(withRequestModel: requestModel)
     }
     
@@ -178,8 +178,8 @@ extension OrganizationsMapShowViewController: MKMapViewDelegate {
        
         let annotation = view.annotation as! PointAnnotation
         let index = pointAnnotations.index(of: annotation)!
-        let organization = organizations[index]
+        let item = items[index]
         
-        router.navigateToOrganizationShowScene(withOrganization: organization)
+        router.navigateToItemShowScene(withItem: item)
     }
 }

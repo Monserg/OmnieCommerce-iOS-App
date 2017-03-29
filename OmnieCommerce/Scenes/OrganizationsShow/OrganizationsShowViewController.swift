@@ -32,6 +32,7 @@ class OrganizationsShowViewController: BaseViewController {
     var organizations = [Organization]()
     var services = [Service]()
     var subcategoryCode: String = ""
+    var wasByOrganizationSelected = true
     
     var subcategoriesDropDownTableView: MSMTableView! {
         didSet {
@@ -64,8 +65,8 @@ class OrganizationsShowViewController: BaseViewController {
     
     @IBOutlet weak var tableView: MSMTableView! {
         didSet {
-            tableView.contentInset = UIEdgeInsetsMake((UIApplication.shared.statusBarOrientation.isPortrait) ? 5 : 45, 0, 0, 0)
-            tableView.scrollIndicatorInsets = UIEdgeInsetsMake((UIApplication.shared.statusBarOrientation.isPortrait) ? 5 : 45, 0, 0, 0)            
+            tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0)
+            tableView.scrollIndicatorInsets = UIEdgeInsetsMake(0, 0, 0, 0)
         }
     }
 
@@ -147,6 +148,7 @@ class OrganizationsShowViewController: BaseViewController {
         // Setting MSMTableViewControllerManager
         tableView.tableViewControllerManager!.dataSource = organizationsList
         mapButton.isUserInteractionEnabled = true
+        tableView.tableViewControllerManager.emptyText = "Organizations list is empty"
         tableView.tableFooterView?.isHidden = (organizationsList.count > 0) ? true : false
 
         tableView.reloadData()
@@ -220,6 +222,7 @@ class OrganizationsShowViewController: BaseViewController {
         tableView.tableViewControllerManager!.dataSource = servicesList
         mapButton.isUserInteractionEnabled = true
         tableView.tableFooterView?.isHidden = (servicesList.count > 0) ? true : false
+        tableView.tableViewControllerManager.emptyText = "Services list is empty"
         
         tableView.reloadData()
         
@@ -266,7 +269,7 @@ class OrganizationsShowViewController: BaseViewController {
     // MARK: - Actions
     @IBAction func handlerMapButtonTap(_ sender: CustomButton) {
         if ((tableView.tableViewControllerManager!.dataSource?.count)! > 0) {
-            router.navigateToOrganizationsMapShowScene(withOrganizations: (tableView.tableViewControllerManager!.dataSource as! [Organization]))
+            router.navigateToOrganizationsMapShowScene(withItems: (tableView.tableViewControllerManager!.dataSource as! [PointAnnotationBinding]))
         }
     }
     
@@ -280,8 +283,13 @@ class OrganizationsShowViewController: BaseViewController {
             sender.itemsListDidHide(self.subcategoriesDropDownTableView, inView: self.view)
             self.subcategoryCode = ((subcategory as! DropDownItem).codeID == "All-Subcategories-ID") ? "" : (subcategory as! DropDownItem).codeID
             
-            self.organizations = [Organization]()
-            self.organizationsListDidLoad(withOffset: 0, subCategory: self.subcategoryCode, filter: "", scrollingData: false)
+            if (self.wasByOrganizationSelected) {
+                self.organizations = [Organization]()
+                self.organizationsListDidLoad(withOffset: 0, subCategory: self.subcategoryCode, filter: "", scrollingData: false)
+            } else {
+                self.services = [Service]()
+                self.servicesListDidLoad(withOffset: 0, subCategory: self.subcategoryCode, filter: "", scrollingData: false)
+            }
         }
         
         if (organizationServiceButton.isDropDownListShow) {
@@ -301,9 +309,11 @@ class OrganizationsShowViewController: BaseViewController {
             if ((item as! DropDownItem).codeID == keyOrganization) {
                 self.organizations = [Organization]()
                 self.organizationsListDidLoad(withOffset: 0, subCategory: self.subcategoryCode, filter: "", scrollingData: false)
+                self.wasByOrganizationSelected = true
             } else {
                 self.services = [Service]()
                 self.servicesListDidLoad(withOffset: 0, subCategory: self.subcategoryCode, filter: "", scrollingData: false)
+                self.wasByOrganizationSelected = false
             }
         }
         
@@ -317,7 +327,7 @@ class OrganizationsShowViewController: BaseViewController {
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         subcategoriesButton.setNeedsDisplay()
         organizationServiceButton.setNeedsDisplay()
-        _ = tableView.visibleCells.map { ($0 as! OrganizationTableViewCell).dottedBorderView.setNeedsDisplay() }
+        _ = tableView.visibleCells.map { ($0 as! DottedBorderViewBinding).dottedBorderView.setNeedsDisplay() }
     }
 }
 

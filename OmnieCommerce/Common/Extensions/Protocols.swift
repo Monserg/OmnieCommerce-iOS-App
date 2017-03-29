@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 protocol ErrorMessageViewAnimation {
     // MARK: - Functions
@@ -78,6 +79,19 @@ protocol DropDownItem {
     var codeID: String! { get set }
     var name: String! { get set }
     var type: DropDownItemType! { get set }
+}
+
+protocol PointAnnotationBinding: InitCellParameters {
+    // MARK: - Properties
+    var name: String! { get set }
+    var latitude: CLLocationDegrees? { get set }
+    var longitude: CLLocationDegrees? { get set }
+    var addressCity: String? { get set }
+    var addressStreet: String? { get set }
+}
+
+protocol DottedBorderViewBinding {
+    var dottedBorderView: DottedBorderView! { get set }
 }
 
 

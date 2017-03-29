@@ -10,7 +10,7 @@
 import Foundation
 import CoreLocation
 
-class Organization: NSObject, NSCoding, InitCellParameters, SearchObject {
+class Organization: NSObject, NSCoding, InitCellParameters, SearchObject, PointAnnotationBinding {
     // MARK: - Properties
     var codeID: String!
     var name: String!

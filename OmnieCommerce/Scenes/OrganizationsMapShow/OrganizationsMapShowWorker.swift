@@ -20,13 +20,13 @@ class OrganizationsMapShowWorker {
 
     
     // MARK: - Custom Functions. Business Logic
-    func pointAnnotationsDidLoad(fromOrganizations organizations: [Organization]) {
-        for organization in organizations {
-            let point           =   PointAnnotation.init(fromOrganization: organization)
-            let pointCenter     =   MKMapPointForCoordinate(point.coordinate)
-            let pointRect       =   MKMapRectMake(pointCenter.x - delta, pointCenter.y - delta, delta * 2, delta * 2)
+    func pointAnnotationsDidLoad(fromItems items: [PointAnnotationBinding]) {
+        for item in items {
+            let point       =   PointAnnotation.init(fromItem: item)
+            let pointCenter =   MKMapPointForCoordinate(point.coordinate)
+            let pointRect   =   MKMapRectMake(pointCenter.x - delta, pointCenter.y - delta, delta * 2, delta * 2)
             
-            regionRect          =   MKMapRectUnion(regionRect, pointRect)
+            regionRect      =   MKMapRectUnion(regionRect, pointRect)
             points.append(point)
         }
     }

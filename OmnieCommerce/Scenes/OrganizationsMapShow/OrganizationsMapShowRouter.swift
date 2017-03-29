@@ -13,7 +13,7 @@ import UIKit
 
 // MARK: - Input & Output protocols
 protocol OrganizationsMapShowRouterInput {
-    func navigateToOrganizationShowScene(withOrganization organization: Organization)
+    func navigateToItemShowScene(withItem item: PointAnnotationBinding)
 }
 
 class OrganizationsMapShowRouter: OrganizationsMapShowRouterInput {
@@ -22,12 +22,13 @@ class OrganizationsMapShowRouter: OrganizationsMapShowRouterInput {
     
     
     // MARK: - Custom Functions. Navigation
-    func navigateToOrganizationShowScene(withOrganization organization: Organization) {
-        let storyboard = UIStoryboard(name: "OrganizationShow", bundle: nil)
-        let organizationShowVC = storyboard.instantiateViewController(withIdentifier: "OrganizationShowVC") as! OrganizationShowViewController
-        organizationShowVC.organization = organization
-        
-        viewController.navigationController?.pushViewController(organizationShowVC, animated: true)
+    func navigateToItemShowScene(withItem item: PointAnnotationBinding) {
+        // TODO: - ITEM WITH NAME GOTO ORGANIZATION OR SERVICE SCENE
+//        let storyboard = UIStoryboard(name: "OrganizationShow", bundle: nil)
+//        let organizationShowVC = storyboard.instantiateViewController(withIdentifier: "OrganizationShowVC") as! OrganizationShowViewController
+//        organizationShowVC.organization = organization
+//        
+//        viewController.navigationController?.pushViewController(organizationShowVC, animated: true)
     }
     
     // Communication

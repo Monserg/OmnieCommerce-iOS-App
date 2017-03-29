@@ -272,7 +272,7 @@ extension MSMTableViewControllerManager: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        if (emptyText == "Organizations list is empty") {
+        if (emptyText.contains(" list is empty")) {
             let footerView = MSMTableViewFooterView.init(frame: CGRect.init(origin: .zero, size: CGSize.init(width: tableView.frame.width, height: footerViewHeight)))
             
             if (dataSource!.count == 0) {

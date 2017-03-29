@@ -16,7 +16,7 @@ import MapKit
 struct OrganizationsMapShowModels {
     struct PointAnnotations {
         struct RequestModel {
-            let organizations: [Organization]
+            let items: [PointAnnotationBinding]
         }
         
         struct ResponseModel {

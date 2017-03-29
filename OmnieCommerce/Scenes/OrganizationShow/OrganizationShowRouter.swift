@@ -23,9 +23,9 @@ class OrganizationShowRouter: OrganizationShowRouterInput {
     
     // MARK: - Custom Functions. Navigation
     func navigateToOrganizationsMapShowScene(_ organization: Organization) {
-        let storyboard                          =   UIStoryboard(name: "OrganizationsMapShow", bundle: nil)
-        let organizationsMapShowVC              =   storyboard.instantiateViewController(withIdentifier: "OrganizationsMapShowVC") as! OrganizationsMapShowViewController
-        organizationsMapShowVC.organizations    =   [organization]
+        let storyboard                  =   UIStoryboard(name: "OrganizationsMapShow", bundle: nil)
+        let organizationsMapShowVC      =   storyboard.instantiateViewController(withIdentifier: "OrganizationsMapShowVC") as! OrganizationsMapShowViewController
+        organizationsMapShowVC.items    =   [organization]
         
         viewController.navigationController?.pushViewController(organizationsMapShowVC, animated: true)
     }

@@ -1,8 +1,8 @@
 //
-//  OrganizationTableViewCell.swift
+//  ServiceTableViewCell.swift
 //  OmnieCommerce
 //
-//  Created by msm72 on 10.03.17.
+//  Created by msm72 on 29.03.17.
 //  Copyright © 2017 Omniesoft. All rights reserved.
 //
 
@@ -10,10 +10,10 @@ import UIKit
 import Cosmos
 import AlamofireImage
 
-class OrganizationTableViewCell: UITableViewCell, DottedBorderViewBinding {
+class ServiceTableViewCell: UITableViewCell, DottedBorderViewBinding {
     // MARK: - Properties
     var isFavorite = false
-    var organizationID: String!
+    var serviceID: String!
     
     @IBOutlet weak var nameLabel: UbuntuLightVeryLightGrayLabel!
     @IBOutlet weak var cityLabel: UbuntuLightItalicLightGrayishCyanLabel!
@@ -25,13 +25,13 @@ class OrganizationTableViewCell: UITableViewCell, DottedBorderViewBinding {
     @IBOutlet weak var dottedBorderView: DottedBorderView!
     
     @IBOutlet weak var favoriteButton: UIButton!
-
+    
     
     // MARK: - Class Functions
     override func awakeFromNib() {
         super.awakeFromNib()
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
@@ -41,7 +41,7 @@ class OrganizationTableViewCell: UITableViewCell, DottedBorderViewBinding {
     @IBAction func handlerFavoriteButtonTap(_ sender: UIButton) {
         isFavorite = !isFavorite
         
-        MSMRestApiManager.instance.userAddRemoveOrganizationToFavorite(["organization" : organizationID], withHandlerResponseAPICompletion: { responseAPI in
+        MSMRestApiManager.instance.userAddRemoveServiceToFavorite(["service" : serviceID], withHandlerResponseAPICompletion: { responseAPI in
             if (responseAPI?.code == 200) {
                 self.favoriteButton.setImage((self.isFavorite) ?    UIImage(named: "image-favorite-star-selected") :
                                                                     UIImage(named: "image-favorite-star-normal"), for: .normal)
@@ -52,20 +52,20 @@ class OrganizationTableViewCell: UITableViewCell, DottedBorderViewBinding {
 
 
 // MARK: - ConfigureCell
-extension OrganizationTableViewCell: ConfigureCell {
+extension ServiceTableViewCell: ConfigureCell {
     func setup(withItem item: Any, andIndexPath indexPath: IndexPath) {
-        let organization = item as! Organization
-        organizationID = organization.codeID
-        nameLabel.text = organization.name
-        cityLabel.text = organization.addressCity!
-        streetLabel.text = organization.addressStreet!
-        ratingView.rating = organization.rating!
-        isFavorite = organization.isFavorite
+        let service = item as! Service
+        serviceID = service.codeID
+        nameLabel.text = service.name
+        cityLabel.text = service.addressCity!
+        streetLabel.text = service.addressStreet!
+        ratingView.rating = service.rating!
+        isFavorite = service.isFavorite
         selectionStyle = .none
         
         favoriteButton.setImage((isFavorite) ? UIImage(named: "image-favorite-star-selected") : UIImage(named: "image-favorite-star-normal"), for: .normal)
         
-        logoImageView.af_setImage(withURL: URL(string: organization.logoURL ?? "https://blog.testfort.com/wp-content/uploads/2015/07/apple_logo.png")!,
+        logoImageView.af_setImage(withURL: URL(string: service.logoURL ?? "https://blog.testfort.com/wp-content/uploads/2015/07/apple_logo.png")!,
                                   placeholderImage: UIImage.init(named: "image-no-organization"),
                                   filter: AspectScaledToFillSizeWithRoundedCornersFilter(size: logoImageView.frame.size, radius: logoImageView.frame.size.width / 2))
         

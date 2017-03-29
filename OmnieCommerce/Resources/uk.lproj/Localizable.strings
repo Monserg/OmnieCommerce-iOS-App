@@ -96,7 +96,7 @@
 "New password"                  =   "Новий пароль";
 "Repeat password"               =   "Повторіть пароль";
 "Enter Organization name"       =   "Введіть назву організації";
-"Enter Service name"            =   "Введіть назву сервіса";
+"Enter Service name"            =   "Введіть назву послуги";
 
 
 // Segmented Control Titles
@@ -147,6 +147,7 @@
 "Location authorization error"  =   "Будь ласка, перейдіть в Налаштування та включіть службу геолокації";
 "Camera is not available"       =   "Відсутній доступ до камери";
 "Organizations list is empty"   =   "Список організацій порожній";
+"Services list is empty"        =   "Список послуг порожній";
 "Messages list is empty"        =   "Список повідомлень порожній";
 "News list is empty"            =   "Список новин порожній";
 "Phones list is empty"          =   "Список телефонів порожній";

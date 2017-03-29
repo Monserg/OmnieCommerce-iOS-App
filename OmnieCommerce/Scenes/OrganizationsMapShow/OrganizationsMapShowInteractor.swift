@@ -33,7 +33,7 @@ class OrganizationsMapShowInteractor: OrganizationsMapShowInteractorInput {
 
         // NOTE: Create some Worker to do the work
         worker = OrganizationsMapShowWorker()
-        worker.pointAnnotationsDidLoad(fromOrganizations: requestModel.organizations)
+        worker.pointAnnotationsDidLoad(fromItems: requestModel.items)
 
         let regionRect = worker.regionRect
         let pointAnnotations = worker.points

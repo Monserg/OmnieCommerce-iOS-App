@@ -15,16 +15,16 @@ class PointAnnotation: MKPointAnnotation {
     
     
     // MARK: - Class Initialization
-    init(fromOrganization organization: Organization) {
+    init(fromItem item: PointAnnotationBinding) {
         super.init()
         
-        self.title = organization.name
-        self.coordinate = CLLocationCoordinate2D.init(latitude: organization.latitude!, longitude: organization.longitude!)
+        self.title = item.name
+        self.coordinate = CLLocationCoordinate2D.init(latitude: item.latitude!, longitude: item.longitude!)
         
-        if (organization.addressStreet != nil) {
-            self.subtitle = organization.addressStreet!
-        } else if (organization.addressCity != nil) {
-            self.subtitle = organization.addressCity!
+        if (item.addressStreet != nil) {
+            self.subtitle = item.addressStreet!
+        } else if (item.addressCity != nil) {
+            self.subtitle = item.addressCity!
         }
     }
     

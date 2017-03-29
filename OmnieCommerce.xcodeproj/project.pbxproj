@@ -215,6 +215,8 @@
 		B19668601E73098600B9C9AE /* OrganizationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B196685F1E73098600B9C9AE /* OrganizationTableViewCell.swift */; };
 		B19A24251E8625DE0070841F /* Organizations+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19A24231E8625DE0070841F /* Organizations+CoreDataClass.swift */; };
 		B19A24261E8625DE0070841F /* Organizations+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19A24241E8625DE0070841F /* Organizations+CoreDataProperties.swift */; };
+		B19B51401E8C1BD200353CCB /* ServiceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19B513E1E8C1BD200353CCB /* ServiceTableViewCell.swift */; };
+		B19B51411E8C1BD200353CCB /* ServiceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B19B513F1E8C1BD200353CCB /* ServiceTableViewCell.xib */; };
 		B19BB61F1E6ABB690081533C /* MSMTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19BB61E1E6ABB690081533C /* MSMTableView.swift */; };
 		B19BB6211E6ABF560081533C /* MSMTableViewControllerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19BB6201E6ABF560081533C /* MSMTableViewControllerManager.swift */; };
 		B19DF2841DF94DCD000AFC92 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19DF2831DF94DCD000AFC92 /* CalendarViewController.swift */; };
@@ -616,6 +618,8 @@
 		B196685F1E73098600B9C9AE /* OrganizationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrganizationTableViewCell.swift; sourceTree = "<group>"; };
 		B19A24231E8625DE0070841F /* Organizations+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Organizations+CoreDataClass.swift"; sourceTree = "<group>"; };
 		B19A24241E8625DE0070841F /* Organizations+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Organizations+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		B19B513E1E8C1BD200353CCB /* ServiceTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceTableViewCell.swift; sourceTree = "<group>"; };
+		B19B513F1E8C1BD200353CCB /* ServiceTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ServiceTableViewCell.xib; sourceTree = "<group>"; };
 		B19BB61E1E6ABB690081533C /* MSMTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSMTableView.swift; sourceTree = "<group>"; };
 		B19BB6201E6ABF560081533C /* MSMTableViewControllerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSMTableViewControllerManager.swift; sourceTree = "<group>"; };
 		B19DF2831DF94DCD000AFC92 /* CalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
@@ -1543,6 +1547,8 @@
 			children = (
 				B196685F1E73098600B9C9AE /* OrganizationTableViewCell.swift */,
 				B1B761C91E62D0030067339F /* OrganizationTableViewCell.xib */,
+				B19B513E1E8C1BD200353CCB /* ServiceTableViewCell.swift */,
+				B19B513F1E8C1BD200353CCB /* ServiceTableViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1968,6 +1974,7 @@
 				B1CBAB921DE446E700A8BCA2 /* Assets.xcassets in Resources */,
 				B122F22E1DD35ECC0018A701 /* FavoriteShow.storyboard in Resources */,
 				B149A7BC1E5D8E24009BF8C7 /* AnimatedButton.xib in Resources */,
+				B19B51411E8C1BD200353CCB /* ServiceTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2221,6 +2228,7 @@
 				B1FBC9271E6D974300D86429 /* UbuntuLightItalicLightGrayishCyanLabel.swift in Sources */,
 				B17D92DB1E6FFC290028967E /* UbuntuLightItalicModerateRedLabel.swift in Sources */,
 				B19DFABD1E64AF3100599073 /* UMParallaxView.swift in Sources */,
+				B19B51401E8C1BD200353CCB /* ServiceTableViewCell.swift in Sources */,
 				B1597AC71E3F12BF00123CB5 /* PersonalTemplatesViewController.swift in Sources */,
 				B177E5361E5475EC004F1390 /* SignInContainerShowModels.swift in Sources */,
 				B1CF54CF1DDB51A500E98049 /* PersonalPageShowViewController.swift in Sources */,

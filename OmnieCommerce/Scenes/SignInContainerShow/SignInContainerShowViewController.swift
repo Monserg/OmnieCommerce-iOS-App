@@ -150,7 +150,7 @@ extension SignInContainerShowViewController: SignInContainerShowViewControllerIn
         
         // Mofidy AppUser properties
         CoreDataManager.instance.didUpdateAppUser(state: true)
-        CoreDataManager.instance.appUser.codeID = "\(viewModel.responseAPI?.code)"
+        CoreDataManager.instance.appUser.codeID = String.init(describing: viewModel.responseAPI?.code)
         CoreDataManager.instance.appUser.appName = textFieldsCollection.first?.text!
         CoreDataManager.instance.appUser.password = textFieldsCollection.last?.text!
         CoreDataManager.instance.appUser.accessToken = UserDefaults.standard.value(forKey: keyAccessToken) as? String
