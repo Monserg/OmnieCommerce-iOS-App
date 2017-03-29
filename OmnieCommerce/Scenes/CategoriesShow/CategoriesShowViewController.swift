@@ -14,13 +14,11 @@ import UIKit
 // MARK: - Input protocols for current ViewController component VIP-cicle
 protocol CategoriesShowViewControllerInput {
     func categoriesDidShowLoad(fromViewModel viewModel: CategoriesShowModels.Categories.ViewModel)
-    func citiesDidShowLoad(fromViewModel viewModel: CategoriesShowModels.Cities.ViewModel)
 }
 
 // MARK: - Output protocols for Interactor component VIP-cicle
 protocol CategoriesShowViewControllerOutput {
     func categoriesDidLoad(withRequestModel requestModel: CategoriesShowModels.Categories.RequestModel)
-    func citiesDidLoad(withRequestModel requestModel: CategoriesShowModels.Cities.RequestModel)
 }
 
 class CategoriesShowViewController: BaseViewController {
@@ -61,17 +59,17 @@ class CategoriesShowViewController: BaseViewController {
     
     // MARK: - Actions
     @IBAction func handlerCityButtonTap(_ sender: DropDownButton) {
-        print(object: "\(type(of: self)): \(#function) run.")
-        
-        (sender.isDropDownListShow) ? sender.itemsListDidHide(inView: view) : sender.itemsListDidShow(inView: view)
-        (sender.dropDownTableVC.tableView as! CustomTableView).setScrollIndicatorColor(color: UIColor.veryLightOrange)
-        
-        // Handler DropDownList selection
-        sender.dropDownTableVC.completionHandler = ({ selectedObject in
-            sender.changeTitle(newValue: selectedObject.name)
-            
-            sender.itemsListDidHide(inView: self.view)
-        })
+//        print(object: "\(type(of: self)): \(#function) run.")
+//        
+//        (sender.isDropDownListShow) ? sender.itemsListDidHide(inView: view) : sender.itemsListDidShow(inView: view)
+//        (sender.dropDownTableVC.tableView as! CustomTableView).setScrollIndicatorColor(color: UIColor.veryLightOrange)
+//        
+//        // Handler DropDownList selection
+//        sender.dropDownTableVC.completionHandler = ({ selectedObject in
+//            sender.changeTitle(newValue: selectedObject.name)
+//            
+//            sender.itemsListDidHide(inView: self.view)
+//        })
     }
     
     
@@ -79,11 +77,11 @@ class CategoriesShowViewController: BaseViewController {
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         smallTopBarView.setNeedsDisplay()
         smallTopBarView.circleView.setNeedsDisplay()
-        cityButton.setNeedsDisplay()
-        
-        if (cityButton.isDropDownListShow) {
-            cityButton.itemsListDidHide(inView: view)
-        }
+//        cityButton.setNeedsDisplay()
+//        
+//        if (cityButton.isDropDownListShow) {
+//            cityButton.itemsListDidHide(inView: view)
+//        }
         
         collectionView.reloadData()
     }
@@ -110,11 +108,6 @@ class CategoriesShowViewController: BaseViewController {
         spinnerDidStart(nil)
         let categoriesRequestModel = CategoriesShowModels.Categories.RequestModel()
         interactor.categoriesDidLoad(withRequestModel: categoriesRequestModel)
-        
-        // Load Cities list from API
-        // TODO: - UNCOMMENT WHEN NEED TO USE FILTER BY CITIES !!!
-//        let citiesRequestModel = CategoriesShowModels.Cities.RequestModel(listType: .City)
-//        interactor.citiesDidLoad(withRequestModel: citiesRequestModel)
     }
 
     func categoriesListDidShow(_ categories: [Category]?, fromAPI: Bool) {
@@ -132,7 +125,7 @@ class CategoriesShowViewController: BaseViewController {
         collectionView.collectionViewControllerManager!.sectionsCount = 1
         collectionView.collectionViewControllerManager!.dataSource = categoriesList
         dataSourceEmptyView.isHidden = (categoriesList.count == 0) ? false : true
-        
+
         collectionView.reloadData()
                 
         self.collectionViewCellDidSelect()
@@ -168,9 +161,5 @@ extension CategoriesShowViewController: CategoriesShowViewControllerInput {
         // Load categories list from API
         let categories = viewModel.categories!
         self.categoriesListDidShow(categories, fromAPI: true)
-    }
-    
-    func citiesDidShowLoad(fromViewModel viewModel: CategoriesShowModels.Cities.ViewModel) {
-        cityButton.dataSource = viewModel.list
     }
 }

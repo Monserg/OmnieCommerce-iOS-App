@@ -13,15 +13,11 @@ import UIKit
 
 // MARK: - Input protocols for current Interactor component VIP-cicle
 protocol OrganizationsShowInteractorInput {
-    func servicesDidLoad(withRequestModel requestModel: OrganizationsShowModels.DropDownList.RequestModel)
-    func categoriesDidLoad(withRequestModel requestModel: OrganizationsShowModels.DropDownList.RequestModel)
     func organizationsDidLoad(withRequestModel requestModel: OrganizationsShowModels.Organizations.RequestModel)
 }
 
 // MARK: - Output protocols for Presenter component VIP-cicle
 protocol OrganizationsShowInteractorOutput {
-    func servicesDidPrepareToShowLoad(fromResponseModel responseModel: OrganizationsShowModels.DropDownList.ResponseModel)
-    func categoriesDidPrepareToShowLoad(fromResponseModel responseModel: OrganizationsShowModels.DropDownList.ResponseModel)
     func organizationsDidPrepareToShowLoad(fromResponseModel responseModel: OrganizationsShowModels.Organizations.ResponseModel)
 }
 
@@ -32,22 +28,6 @@ class OrganizationsShowInteractor: OrganizationsShowInteractorInput {
     
     
     // MARK: - Custom Functions. Business logic
-    func servicesDidLoad(withRequestModel requestModel: OrganizationsShowModels.DropDownList.RequestModel) {
-        worker = OrganizationsShowWorker()
-        let services = worker.dropDownListDidLoad(withType: .Services)
-        
-        let servicesResponseModel = OrganizationsShowModels.DropDownList.ResponseModel(result: services)
-        presenter.servicesDidPrepareToShowLoad(fromResponseModel: servicesResponseModel)
-    }
-
-    func categoriesDidLoad(withRequestModel requestModel: OrganizationsShowModels.DropDownList.RequestModel) {
-        worker = OrganizationsShowWorker()
-        let categories = worker.dropDownListDidLoad(withType: .Categories)
-        
-        let categoriesResponseModel = OrganizationsShowModels.DropDownList.ResponseModel(result: categories)
-        presenter.categoriesDidPrepareToShowLoad(fromResponseModel: categoriesResponseModel)
-    }
-
     func organizationsDidLoad(withRequestModel requestModel: OrganizationsShowModels.Organizations.RequestModel) {
         MSMRestApiManager.instance.userGetOrganizationsListByCategory(requestModel.parameters, withHandlerResponseAPICompletion: { responseAPI in
             let organizationsResponseModel = OrganizationsShowModels.Organizations.ResponseModel(response: responseAPI, category: requestModel.category)

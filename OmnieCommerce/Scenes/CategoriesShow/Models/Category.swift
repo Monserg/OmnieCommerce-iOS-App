@@ -59,24 +59,24 @@ class Category: NSObject, NSCoding, InitCellParameters {
     
     // MARK: - Custom Functions
     func didMap(fromDictionary dictionary: [String: Any]) {
-        self.codeID                 =   dictionary["uuid"] as? String
-        self.name                   =   dictionary["name"] as? String
+        self.codeID = dictionary["uuid"] as? String
+        self.name = dictionary["name"] as? String
         
         if (dictionary["logo"] as? String != nil) {
-            self.imagePath          =   "http://\(dictionary["logo"] as! String)"
+            self.imagePath = "http://\(dictionary["logo"] as! String)"
         }
         
         // Map Subcategory list
-        let responseSubcategories   =   dictionary["subCategories"] as! NSArray
-        var subCategories           =   [Subcategory]()
+        let responseSubcategories = dictionary["subCategories"] as! NSArray
+        var subcategories = [Subcategory.init(codeID: "All-Subcategories-ID", name: "By all subcategories".localized())]
         
         for dictionary in responseSubcategories {
             let subcategory = Subcategory.init()
             subcategory.didMap(fromDictionary: dictionary as! [String : Any])
             
-            subCategories.append(subcategory)
+            subcategories.append(subcategory)
         }
         
-        self.subcategories          =   subCategories
+        self.subcategories = subcategories
     }
 }

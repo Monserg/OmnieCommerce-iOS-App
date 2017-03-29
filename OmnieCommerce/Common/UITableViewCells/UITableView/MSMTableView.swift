@@ -18,6 +18,22 @@ class MSMTableView: UITableView {
     }
     
     
+    // MARK: - Class Initialization
+    override init(frame: CGRect, style: UITableViewStyle) {
+        super.init(frame: frame, style: style)
+        
+        self.backgroundColor = UIColor.clear
+        self.separatorStyle = .none
+        self.showsVerticalScrollIndicator = true
+        self.showsHorizontalScrollIndicator = false
+        self.setScrollIndicatorColor(color: UIColor.veryLightOrange)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
+    
     // MARK: - Class Functions
     override func draw(_ rect: CGRect) {
         // Drawing code

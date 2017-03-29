@@ -28,17 +28,4 @@ struct OrganizationsShowModels {
             let organizations: [Organization]?
         }
     }
-    
-    struct DropDownList {
-        struct RequestModel {
-        }
-        
-        struct ResponseModel {
-            let result: [DropDownItem]
-        }
-        
-        struct ViewModel {
-            let dropDownList: [DropDownItem]
-        }
-    }
 }

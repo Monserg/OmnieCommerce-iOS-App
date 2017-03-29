@@ -13,28 +13,4 @@ import UIKit
 
 class CategoriesShowWorker {
     // MARK: - Custom Functions. Business Logic
-//    func categoriesDidLoad() -> Array<Category> {
-//        var dataSource = Array<Category>()
-//        
-//        let names = [ "Auto Service", "Health", "Beauty", "Training", "Restaurants", "Tourism", "Sport" ]
-//        let images = [ "image-auto-service-normal", "image-health-normal", "image-beauty-normal", "image-training-normal", "image-restaurants-normal", "image-tourism-normal", "image-sport-normal" ]
-//        
-//        for i in 0 ..< names.count {
-//            dataSource.append(Category.init(names[i].localized(), images[i]))
-//        }
-//
-//        return dataSource
-//    }
-//    
-    func citiesDidLoad() -> [DropDownItem] {
-        var dataSource = [DropDownItem]()
-        
-        let names = ["Lviv", "Kyiv", "Kharkiv", "Uzgorod", "Vinnitsa", "Khmelnytskyi", "Zhitomir", "Poltava"]
-        
-        for i in 0 ..< names.count {
-            dataSource.append(DropDownItem(name: names[i].localized(), codeID: i))
-        }
-        
-        return dataSource
-    }
 }

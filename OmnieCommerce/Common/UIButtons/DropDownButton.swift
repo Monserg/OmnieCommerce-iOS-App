@@ -8,20 +8,10 @@
 
 import UIKit
 
-enum DropDownList: String {
-    case City               =   "City"
-    case Services           =   "Services"
-    case Categories         =   "Categories"
-}
-
 @IBDesignable class DropDownButton: CustomButton {
     // MARK: - Properties
-    var dropDownTableVC: DropDownTableViewController!
     var isDropDownListShow = false
-    var dataSource: [DropDownItem]!
     
-    @IBInspectable var dropDownList: String?
-
     
     // MARK: - Class Initialization
     override init(frame: CGRect) {
@@ -42,43 +32,42 @@ enum DropDownList: String {
 
     
     // MARK: - Custom Functions
-    func itemsListDidShow(inView view: UIView) {
+    func itemsListDidShow(_ itemListView: MSMTableView, inView view: UIView) {
         // Create DropDownListView from Nib-file
-        let senderFrame                                 =   self.convert(self.frame, to: view)
-        dropDownTableVC                                 =   UIStoryboard(name: "DropDown",
-                                                                         bundle: nil).instantiateViewController(withIdentifier: "DropDownTableVC") as! DropDownTableViewController
-     
-        dropDownTableVC.tableView.alpha                 =   0
-        dropDownTableVC.sourceType                      =   DropDownList.init(rawValue: dropDownList!)
-        dropDownTableVC.dataSource                      =   self.dataSource
+        let senderFrame = self.convert(self.frame, to: view)
+        let count: CGFloat = (itemListView.tableViewControllerManager!.dataSource!.count >= 5) ? 5.0 : CGFloat(itemListView.tableViewControllerManager!.dataSource!.count)
         
-        let count: CGFloat                              =   (dataSource.count >= 5) ? 5.0 : CGFloat(dataSource.count)
-        
-        dropDownTableVC.tableView.frame                 =   CGRect.init(x: self.frame.minX + self.superview!.frame.minX,
-                                                                        y: senderFrame.minY - self.frame.minY,
-                                                                        width: senderFrame.width,
-                                                                        height: Config.Constants.dropDownCellHeight * count)
+        itemListView.frame = CGRect.init(x: self.frame.minX + self.superview!.frame.minX,
+                                         y: senderFrame.minY - self.frame.minY,
+                                         width: senderFrame.width,
+                                         height: Config.Constants.dropDownCellHeight * count)
 
-        view.addSubview(dropDownTableVC.tableView)
+        itemListView.layer.cornerRadius = 5
+        itemListView.layer.borderWidth = 1
+        itemListView.layer.borderColor = UIColor.init(hexString: "#009395", withAlpha: 1.0)?.cgColor
+        itemListView.clipsToBounds = true
+        itemListView.backgroundColor = UIColor.init(hexString: "#24323f", withAlpha: 1.0)
+        
+        view.addSubview(itemListView)
 
         UIView.animate(withDuration: 0.5, animations: { () -> Void in
-            self.dropDownTableVC.tableView.transform    =   CGAffineTransform(translationX: 0, y: self.frame.height + 2)
-            self.dropDownTableVC.tableView.alpha        =   1
-            self.isDropDownListShow                     =   true
-        }, completion: nil)
+            itemListView.transform = CGAffineTransform(translationX: 0, y: self.frame.height + 2)
+            itemListView.alpha = 1
+            self.isDropDownListShow = true
+        })
     }
     
-    func itemsListDidHide(inView view: UIView) {
+    func itemsListDidHide(_ itemListView: MSMTableView, inView view: UIView) {
         UIView.animate(withDuration: 0.5, animations: { () -> Void in
-            self.dropDownTableVC.view.transform         =   CGAffineTransform(translationX: 0, y: 0)
-            self.dropDownTableVC.view.alpha             =   0
-            self.isDropDownListShow                     =   false
+            itemListView.transform = CGAffineTransform(translationX: 0, y: 0)
+            itemListView.alpha = 0
+            self.isDropDownListShow = false
         }, completion: { success in
             guard success else {
                 return
             }
             
-            self.dropDownTableVC.tableView.removeFromSuperview()
+            itemListView.removeFromSuperview()
         })
     }
     

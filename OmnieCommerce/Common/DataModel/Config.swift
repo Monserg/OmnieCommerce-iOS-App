@@ -25,8 +25,11 @@ public let keyResetToken: String                    =   "resetToken"
 public let keyPassword: String                      =   "password"
 public let keyAccessToken: String                   =   "accessToken"
 public let keyCategories: String                    =   "Categories"
+public let keyOrganization: String                  =   "Organization"
 public let keyOrganizations: String                 =   "Organizations"
 public let keyFavoriteOrganizations: String         =   "FavoriteOrganizations"
+public let keyService: String                       =   "Service"
+public let keyServices: String                      =   "Services"
 
 
 // Handlers

@@ -14,13 +14,11 @@ import UIKit
 // MARK: - Input protocols for current Presenter component VIP-cicle
 protocol CategoriesShowPresenterInput {
     func categoriesDidPrepareToShowLoad(fromResponseModel responseModel: CategoriesShowModels.Categories.ResponseModel)
-    func citiesDidPrepareShowLoad(fromResponseModel responseModel: CategoriesShowModels.Cities.ResponseModel)
 }
 
 // MARK: - Output protocols for ViewController component VIP-cicle
 protocol CategoriesShowPresenterOutput: class {
     func categoriesDidShowLoad(fromViewModel viewModel: CategoriesShowModels.Categories.ViewModel)
-    func citiesDidShowLoad(fromViewModel viewModel: CategoriesShowModels.Cities.ViewModel)
 }
 
 class CategoriesShowPresenter: CategoriesShowPresenterInput {
@@ -43,10 +41,5 @@ class CategoriesShowPresenter: CategoriesShowPresenterInput {
 
         let categoriesViewModel = CategoriesShowModels.Categories.ViewModel(categories: categories)
         viewController.categoriesDidShowLoad(fromViewModel: categoriesViewModel)
-    }
- 
-    func citiesDidPrepareShowLoad(fromResponseModel responseModel: CategoriesShowModels.Cities.ResponseModel) {
-        let viewModel = CategoriesShowModels.Cities.ViewModel(list: responseModel.result)
-        viewController.citiesDidShowLoad(fromViewModel: viewModel)
     }
 }

@@ -111,7 +111,7 @@ class FavoriteOrganizationsShowViewController: BaseViewController {
         tableView.reloadData()
         
         // Handler select cell
-        tableView.tableViewControllerManager!.handlerSearchCompletion = { organization in
+        tableView.tableViewControllerManager!.handlerSelectRowCompletion = { organization in
             self.router.navigateToOrganizationShowScene(organization as! Organization)
         }
         

@@ -25,26 +25,14 @@ enum TableCellStyle: String {
         didSet {
             switch TableCellStyle.init(rawValue: tableCellStyle!)! {
             case .Menu:
-                self.backgroundColor    =   UIColor.veryDarkDesaturatedBlue25Alpha1
+                self.backgroundColor = UIColor.veryDarkDesaturatedBlue25Alpha1
                 
             case .DropDown:
-                self.backgroundColor    =   UIColor.veryDarkDesaturatedBlue24
+                self.backgroundColor = UIColor.veryDarkDesaturatedBlue24
 
             default:
-                self.backgroundColor    =   UIColor.veryDarkDesaturatedBlue24
+                self.backgroundColor = UIColor.veryDarkDesaturatedBlue24
             }
         }
     }
-    
-    // FIXME: - DELETE IF SUCCESS WORK !!!
-//    func setScrollIndicatorColor(color: UIColor) {
-//        for view in self.subviews {
-//            if view.isKind(of: UIImageView.self), let imageView = view as? UIImageView, let image = imageView.image {
-//                imageView.tintColor     =   color
-//                imageView.image         =   image.withRenderingMode(.alwaysTemplate)
-//            }
-//        }
-//        
-//        self.flashScrollIndicators()
-//    }
 }

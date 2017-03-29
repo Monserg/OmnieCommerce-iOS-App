@@ -111,7 +111,7 @@ extension NewsShowViewController: NewsShowViewControllerInput {
         smallTopBarView.searchBar.delegate = tableView.tableViewControllerManager
         
         // Handler select cell
-        tableView.tableViewControllerManager!.handlerSearchCompletion = { news in
+        tableView.tableViewControllerManager!.handlerSelectRowCompletion = { news in
             // TODO: ADD TRANSITION TO CHAT SCENE
             self.print(object: "transition to Chat scene")
             

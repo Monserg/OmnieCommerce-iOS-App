@@ -13,15 +13,11 @@ import UIKit
 
 // MARK: - Input protocols for current ViewController component VIP-cicle
 protocol OrganizationsShowViewControllerInput {
-    func servicesDidShowLoad(fromViewModel viewModel: OrganizationsShowModels.DropDownList.ViewModel)
-    func categoriesDidShowLoad(fromViewModel viewModel: OrganizationsShowModels.DropDownList.ViewModel)
     func organizationsDidShowLoad(fromViewModel viewModel: OrganizationsShowModels.Organizations.ViewModel)
 }
 
 // MARK: - Output protocols for Interactor component VIP-cicle
 protocol OrganizationsShowViewControllerOutput {
-    func servicesDidLoad(withRequestModel requestModel: OrganizationsShowModels.DropDownList.RequestModel)
-    func categoriesDidLoad(withRequestModel requestModel: OrganizationsShowModels.DropDownList.RequestModel)
     func organizationsDidLoad(withRequestModel requestModel: OrganizationsShowModels.Organizations.RequestModel)
 }
 
@@ -33,11 +29,35 @@ class OrganizationsShowViewController: BaseViewController {
     weak var category: Category?
     var organizations = [Organization]()
     
-    @IBOutlet weak var smallTopBarView: SmallTopBarView!
-    @IBOutlet weak var categoriesButton: DropDownButton!
-    @IBOutlet weak var servicesButton: DropDownButton!
-    @IBOutlet weak var mapButton: CustomButton!
+    var subcategoriesDropDownTableView: MSMTableView! {
+        didSet {
+            subcategoriesDropDownTableView.tableViewControllerManager = MSMTableViewControllerManager.init(withTableView: subcategoriesDropDownTableView, andSectionsCount: 1, withEmptyText: "DropDownList")
+            subcategoriesDropDownTableView.alpha = 0
+            subcategoriesDropDownTableView.tableViewControllerManager.dataSource = category!.subcategories!
+        }
+    }
 
+    var organizationServiceDropDownTableView: MSMTableView! {
+        didSet {
+            organizationServiceDropDownTableView.tableViewControllerManager = MSMTableViewControllerManager.init(withTableView: organizationServiceDropDownTableView, andSectionsCount: 1, withEmptyText: "DropDownList")
+            organizationServiceDropDownTableView.alpha = 0
+            organizationServiceDropDownTableView.tableViewControllerManager.dataSource =    [
+                                                                                                DropDownValue.init(keyOrganization,
+                                                                                                                   withName: "By organizations".localized(),
+                                                                                                                   andType: .OrganizationService),
+                                                                                                DropDownValue.init(keyService,
+                                                                                                                   withName: "By services".localized(),
+                                                                                                                   andType: .OrganizationService)
+                                                                                            ]
+        }
+    }
+
+
+    @IBOutlet weak var smallTopBarView: SmallTopBarView!
+    @IBOutlet weak var mapButton: CustomButton!
+    @IBOutlet weak var subcategoriesButton: DropDownButton!
+    @IBOutlet weak var organizationServiceButton: DropDownButton!
+    
     @IBOutlet weak var tableView: MSMTableView! {
         didSet {
             tableView.contentInset = UIEdgeInsetsMake((UIApplication.shared.statusBarOrientation.isPortrait) ? 5 : 45, 0, 0, 0)
@@ -88,13 +108,9 @@ class OrganizationsShowViewController: BaseViewController {
         // Load Organizations list from API
         organizationsListDidLoad(withOffset: 0, subCategory: "", filter: "", scrollingData: false)
         
-        // Load services
-        let servicesRequestModel = OrganizationsShowModels.DropDownList.RequestModel()
-        interactor.servicesDidLoad(withRequestModel: servicesRequestModel)
-
-        // Load categories
-        let categoriesRequestModel = OrganizationsShowModels.DropDownList.RequestModel()
-        interactor.categoriesDidLoad(withRequestModel: categoriesRequestModel)
+        // Set DropDown lists
+        subcategoriesDropDownTableView = MSMTableView(frame: .zero, style: .plain)
+        organizationServiceDropDownTableView = MSMTableView(frame: .zero, style: .plain)
     }
     
     func organizationsListDidLoad(withOffset offset: Int, subCategory: String, filter: String, scrollingData: Bool) {
@@ -136,7 +152,7 @@ class OrganizationsShowViewController: BaseViewController {
         smallTopBarView.searchBar.delegate = tableView.tableViewControllerManager
         
         // Handler select cell
-        tableView.tableViewControllerManager!.handlerSearchCompletion = { organization in
+        tableView.tableViewControllerManager!.handlerSelectRowCompletion = { organization in
             self.print(object: "transition to Organization profile scene")
             
             self.router.navigateToOrganizationShowScene(organization as! Organization)
@@ -177,23 +193,43 @@ class OrganizationsShowViewController: BaseViewController {
         }
     }
     
-    @IBAction func handlerDropDownButtonTap(_ sender: DropDownButton) {
-        (sender.isDropDownListShow) ? sender.itemsListDidHide(inView: view) : sender.itemsListDidShow(inView: view)
-        (sender.dropDownTableVC.tableView as! CustomTableView).setScrollIndicatorColor(color: UIColor.veryLightOrange)
+    @IBAction func handlerSubcategoriesButtonTap(_ sender: DropDownButton) {
+        (sender.isDropDownListShow) ?   sender.itemsListDidHide(subcategoriesDropDownTableView, inView: view) :
+                                        sender.itemsListDidShow(subcategoriesDropDownTableView, inView: view)
+
+        // Handler DropDownList selection
+        subcategoriesDropDownTableView.tableViewControllerManager!.handlerSelectRowCompletion = { subcategory in
+            sender.changeTitle(newValue: (subcategory as! DropDownItem).name)
+            
+            sender.itemsListDidHide(self.subcategoriesDropDownTableView, inView: self.view)
+        }
+        
+        if (organizationServiceButton.isDropDownListShow) {
+            organizationServiceButton.itemsListDidHide(organizationServiceDropDownTableView, inView: view)
+        }
+    }
+    
+    @IBAction func handlerOrganizationServiceButtonTap(_ sender: DropDownButton) {
+        (sender.isDropDownListShow) ?   sender.itemsListDidHide(organizationServiceDropDownTableView, inView: view) :
+                                        sender.itemsListDidShow(organizationServiceDropDownTableView, inView: view)
         
         // Handler DropDownList selection
-        sender.dropDownTableVC.completionHandler = ({ selectedObject in
-            sender.changeTitle(newValue: selectedObject.name)
+        organizationServiceDropDownTableView.tableViewControllerManager!.handlerSelectRowCompletion = { item in
+            sender.changeTitle(newValue: (item as! DropDownItem).name)
             
-            sender.itemsListDidHide(inView: self.view)
-        })
+            sender.itemsListDidHide(self.organizationServiceDropDownTableView, inView: self.view)
+        }
+        
+        if (subcategoriesButton.isDropDownListShow) {
+            subcategoriesButton.itemsListDidHide(subcategoriesDropDownTableView, inView: view)
+        }
     }
 
     
     // MARK: - Transition
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        categoriesButton.setNeedsDisplay()
-        servicesButton.setNeedsDisplay()
+        subcategoriesButton.setNeedsDisplay()
+        organizationServiceButton.setNeedsDisplay()
         _ = tableView.visibleCells.map { ($0 as! BaseTableViewCell).dottedBorderView.setNeedsDisplay() }
     }
 }
@@ -201,14 +237,6 @@ class OrganizationsShowViewController: BaseViewController {
 
 // MARK: - OrganizationsShowViewControllerInput
 extension OrganizationsShowViewController: OrganizationsShowViewControllerInput {
-    func servicesDidShowLoad(fromViewModel viewModel: OrganizationsShowModels.DropDownList.ViewModel) {
-        servicesButton.dataSource = viewModel.dropDownList
-    }
-    
-    func categoriesDidShowLoad(fromViewModel viewModel: OrganizationsShowModels.DropDownList.ViewModel) {
-        categoriesButton.dataSource = viewModel.dropDownList
-    }
-
     func organizationsDidShowLoad(fromViewModel viewModel: OrganizationsShowModels.Organizations.ViewModel) {
         spinnerDidFinish()
         

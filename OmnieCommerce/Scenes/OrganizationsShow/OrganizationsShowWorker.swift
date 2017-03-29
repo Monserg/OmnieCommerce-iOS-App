@@ -87,27 +87,5 @@ class OrganizationsShowWorker {
     
     private func scheduleDidCreate() -> Schedule {
         return Schedule(timeWork: "09:00 - 18:00", timeLaunch: "13:00 - 14:00", timeSaturday: "10:00 - 17:00", timeSunday: "Holiday".localized())
-    }
-    
-    func dropDownListDidLoad(withType type: DropDownList) -> [DropDownItem] {
-        var dataSource = [DropDownItem]()
-        var names: [String]!
-        
-        switch type {
-        case .Services:
-            names = ["By services", "By organizations"]
-
-        case .Categories:
-            names = ["Всі", "Сауни", "Перукарні", "Бані", "Джакузі", "Спа"]
-
-        default:
-            break
-        }
-        
-        for i in 0 ..< names.count {
-            dataSource.append(DropDownItem(name: names[i].localized(), codeID: i))
-        }
-        
-        return dataSource
-    }
+    }    
 }

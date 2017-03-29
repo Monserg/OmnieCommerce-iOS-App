@@ -34,10 +34,10 @@
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oTC-Vw-t0Y" userLabel="Filters View">
                                 <rect key="frame" x="8" y="95" width="359" height="71"/>
                                 <subviews>
-                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b7l-X1-Tog" userLabel="Categories Button" customClass="DropDownButton" customModule="OmnieCommerce" customModuleProvider="target">
+                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b7l-X1-Tog" userLabel="Subcategories Button" customClass="DropDownButton" customModule="OmnieCommerce" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="19" width="172" height="33"/>
                                         <color key="backgroundColor" red="0.14117647058823529" green="0.19607843137254902" blue="0.24705882352941178" alpha="1" colorSpace="calibratedRGB"/>
-                                        <state key="normal" title="By all categories" image="icon-drop-down-accessory-normal"/>
+                                        <state key="normal" title="By all subcategories" image="icon-drop-down-accessory-normal"/>
                                         <state key="highlighted">
                                             <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
@@ -46,10 +46,10 @@
                                             <userDefinedRuntimeAttribute type="string" keyPath="dropDownList" value="Categories"/>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="handlerDropDownButtonTap:" destination="9s1-kT-Mzo" eventType="touchUpInside" id="BTK-uy-JDA"/>
+                                            <action selector="handlerSubcategoriesButtonTap:" destination="9s1-kT-Mzo" eventType="touchUpInside" id="Sv4-CG-ghx"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OVx-4o-DGA" userLabel="Sevices Button" customClass="DropDownButton" customModule="OmnieCommerce" customModuleProvider="target">
+                                    <button opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OVx-4o-DGA" userLabel="Organization &amp; Service Button" customClass="DropDownButton" customModule="OmnieCommerce" customModuleProvider="target">
                                         <rect key="frame" x="187" y="19" width="172" height="33"/>
                                         <color key="backgroundColor" red="0.14117647059999999" green="0.1960784314" blue="0.2470588235" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" title="By organizations" image="icon-drop-down-accessory-normal"/>
@@ -61,7 +61,7 @@
                                             <userDefinedRuntimeAttribute type="string" keyPath="dropDownList" value="Organizations"/>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="handlerDropDownButtonTap:" destination="9s1-kT-Mzo" eventType="touchUpInside" id="wZn-Il-rOt"/>
+                                            <action selector="handlerOrganizationServiceButtonTap:" destination="9s1-kT-Mzo" eventType="touchUpInside" id="LKj-im-zFk"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -163,10 +163,10 @@
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
-                        <outlet property="categoriesButton" destination="b7l-X1-Tog" id="zeU-Kt-JAc"/>
                         <outlet property="mapButton" destination="DUL-OJ-fqc" id="MQV-5o-6tm"/>
-                        <outlet property="servicesButton" destination="OVx-4o-DGA" id="wBT-8f-RA2"/>
+                        <outlet property="organizationServiceButton" destination="OVx-4o-DGA" id="O1E-51-XhG"/>
                         <outlet property="smallTopBarView" destination="Fg2-g7-Pmf" id="62H-Fl-ZBP"/>
+                        <outlet property="subcategoriesButton" destination="b7l-X1-Tog" id="Wp9-PR-cPy"/>
                         <outlet property="tableView" destination="jrE-FB-0PX" id="rOF-ha-q80"/>
                     </connections>
                 </viewController>

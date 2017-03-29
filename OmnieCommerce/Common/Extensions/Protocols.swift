@@ -74,6 +74,12 @@ protocol InitCellParameters {
     var cellHeight: CGFloat { get set }
 }
 
+protocol DropDownItem {
+    var codeID: String! { get set }
+    var name: String! { get set }
+    var type: DropDownItemType! { get set }
+}
+
 
 extension ErrorMessageViewAnimation {
     func didShow(_ view: UIView, withConstraint constraint: NSLayoutConstraint) {

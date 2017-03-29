@@ -228,7 +228,6 @@
 		B1A9ACCF1E7C6FE60010FF05 /* Categories+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A9ACCD1E7C6FE60010FF05 /* Categories+CoreDataProperties.swift */; };
 		B1A9ACD21E7C7CE00010FF05 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A9ACD11E7C7CE00010FF05 /* Category.swift */; };
 		B1A9ACD41E7C7E1C0010FF05 /* Subcategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A9ACD31E7C7E1C0010FF05 /* Subcategory.swift */; };
-		B1B761C31E629C120067339F /* DropDownItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B761C21E629C120067339F /* DropDownItem.swift */; };
 		B1B761CA1E62D0030067339F /* OrganizationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1B761C91E62D0030067339F /* OrganizationTableViewCell.xib */; };
 		B1BEEDE61E63402000F1DE8A /* ListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1BEEDE51E63402000F1DE8A /* ListTableViewController.swift */; };
 		B1BEEDEF1E63687500F1DE8A /* OrganizationShowConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1BEEDE81E63687500F1DE8A /* OrganizationShowConfigurator.swift */; };
@@ -349,6 +348,8 @@
 		B1EC9F321E8B7FEF00F2E342 /* FavoriteOrganizationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1EC9F301E8B7FEF00F2E342 /* FavoriteOrganizationTableViewCell.xib */; };
 		B1EC9F3A1E8B925F00F2E342 /* FavoriteServiceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1EC9F381E8B925F00F2E342 /* FavoriteServiceTableViewCell.swift */; };
 		B1EC9F3B1E8B925F00F2E342 /* FavoriteServiceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1EC9F391E8B925F00F2E342 /* FavoriteServiceTableViewCell.xib */; };
+		B1EC9F3D1E8BBDBD00F2E342 /* DropDownItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1EC9F3C1E8BBDBD00F2E342 /* DropDownItem.swift */; };
+		B1EC9F3F1E8BC80B00F2E342 /* DropDownTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1EC9F3E1E8BC80B00F2E342 /* DropDownTableViewCell.xib */; };
 		B1F7EDB81DF54878003B36AD /* SegmentedControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F7EDB71DF54878003B36AD /* SegmentedControlView.swift */; };
 		B1F7EDBA1DF54886003B36AD /* SegmentedControlView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1F7EDB91DF54886003B36AD /* SegmentedControlView.xib */; };
 		B1FBC9161E6D474400D86429 /* LTHRadioButton.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1FBC9151E6D474400D86429 /* LTHRadioButton.framework */; };
@@ -627,7 +628,6 @@
 		B1A9ACD11E7C7CE00010FF05 /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		B1A9ACD31E7C7E1C0010FF05 /* Subcategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Subcategory.swift; sourceTree = "<group>"; };
 		B1B4E4831E77161B00EAECB0 /* OmnieCommerceUser v.5.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "OmnieCommerceUser v.5.xcdatamodel"; sourceTree = "<group>"; };
-		B1B761C21E629C120067339F /* DropDownItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DropDownItem.swift; sourceTree = "<group>"; };
 		B1B761C91E62D0030067339F /* OrganizationTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OrganizationTableViewCell.xib; sourceTree = "<group>"; };
 		B1BEEDE51E63402000F1DE8A /* ListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListTableViewController.swift; sourceTree = "<group>"; };
 		B1BEEDE81E63687500F1DE8A /* OrganizationShowConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrganizationShowConfigurator.swift; sourceTree = "<group>"; };
@@ -749,6 +749,8 @@
 		B1EC9F301E8B7FEF00F2E342 /* FavoriteOrganizationTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FavoriteOrganizationTableViewCell.xib; sourceTree = "<group>"; };
 		B1EC9F381E8B925F00F2E342 /* FavoriteServiceTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteServiceTableViewCell.swift; sourceTree = "<group>"; };
 		B1EC9F391E8B925F00F2E342 /* FavoriteServiceTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FavoriteServiceTableViewCell.xib; sourceTree = "<group>"; };
+		B1EC9F3C1E8BBDBD00F2E342 /* DropDownItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DropDownItem.swift; sourceTree = "<group>"; };
+		B1EC9F3E1E8BC80B00F2E342 /* DropDownTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DropDownTableViewCell.xib; sourceTree = "<group>"; };
 		B1F7EDB71DF54878003B36AD /* SegmentedControlView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentedControlView.swift; sourceTree = "<group>"; };
 		B1F7EDB91DF54886003B36AD /* SegmentedControlView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SegmentedControlView.xib; sourceTree = "<group>"; };
 		B1FBC9151E6D474400D86429 /* LTHRadioButton.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LTHRadioButton.framework; path = "../../../../../Library/Developer/Xcode/DerivedData/OmnieCommerce-enpckymiymzhiuhdgnbmlxbwmhew/Build/Products/Debug-iphonesimulator/LTHRadioButton/LTHRadioButton.framework"; sourceTree = "<group>"; };
@@ -980,7 +982,7 @@
 			isa = PBXGroup;
 			children = (
 				B1BF92431DD5FC8000BECBBB /* Config.swift */,
-				B1B761C21E629C120067339F /* DropDownItem.swift */,
+				B1EC9F3C1E8BBDBD00F2E342 /* DropDownItem.swift */,
 				B1228FB41DD4856A00A90FBB /* MenuItem.swift */,
 				B105D1B71E76B90800FCDC73 /* ResponseAPI.swift */,
 			);
@@ -1246,6 +1248,7 @@
 				B14107C21DFEA73900F79CF9 /* CalendarDayCellView.swift */,
 				B14107C31DFEA73900F79CF9 /* CalendarDayCellView.xib */,
 				B1C13D8E1DEF5736002B494A /* DropDownTableViewCell.swift */,
+				B1EC9F3E1E8BC80B00F2E342 /* DropDownTableViewCell.xib */,
 				B1228FB11DD47C9F00A90FBB /* MenuViewCell.swift */,
 			);
 			path = UITableViewCells;
@@ -1936,6 +1939,7 @@
 				B1BF92801DD6516C00BECBBB /* UBUNTU-R.TTF in Resources */,
 				B1B761CA1E62D0030067339F /* OrganizationTableViewCell.xib in Resources */,
 				B122F2321DD35EF10018A701 /* NewsShow.storyboard in Resources */,
+				B1EC9F3F1E8BC80B00F2E342 /* DropDownTableViewCell.xib in Resources */,
 				B122F2301DD35EE10018A701 /* CategoriesShow.storyboard in Resources */,
 				B19E01B21E78217F00B53E02 /* NewPhoneView.xib in Resources */,
 				B122F22A1DD35D6F0018A701 /* OrdersShow.storyboard in Resources */,
@@ -2076,6 +2080,7 @@
 				B1CF54861DDB50F100E98049 /* BusinessCardsShowModels.swift in Sources */,
 				B1739D181DE314D50029BCCA /* UILabel+Ext.swift in Sources */,
 				B1131A931E76744300DAF90A /* MSMRestApiManager.swift in Sources */,
+				B1EC9F3D1E8BBDBD00F2E342 /* DropDownItem.swift in Sources */,
 				B122F1DD1DD35B760018A701 /* OrdersShowModels.swift in Sources */,
 				B10B48DD1E8A5B2E007DDD81 /* FavoriteOrganizationsShowRouter.swift in Sources */,
 				B1FFF7021E5ECDF900A075D8 /* OrganizationsShowModels.swift in Sources */,
@@ -2269,7 +2274,6 @@
 				B1CF54DC1DDB51BE00E98049 /* SettingsShowRouter.swift in Sources */,
 				B122F2411DD371B30018A701 /* BaseNavigationController.swift in Sources */,
 				B122DF671DF7F957003823AD /* CalendarShowRouter.swift in Sources */,
-				B1B761C31E629C120067339F /* DropDownItem.swift in Sources */,
 				B1FBC91B1E6D494D00D86429 /* DLRadioButton.m in Sources */,
 				B1E52AB11DDDD0EA00C3B24D /* LaunchScreenViewController.swift in Sources */,
 				B1BEEDF21E63687500F1DE8A /* OrganizationShowPresenter.swift in Sources */,

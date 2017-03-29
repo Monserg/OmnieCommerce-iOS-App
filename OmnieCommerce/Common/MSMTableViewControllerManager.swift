@@ -26,7 +26,7 @@ class MSMTableViewControllerManager: BaseViewController {
         }
     }
     
-    var handlerSearchCompletion: ((_ value: Any) -> ())?
+    var handlerSelectRowCompletion: HandlerPassDataCompletion?
     var handlerSendButtonCompletion: HandlerSendButtonCompletion?
     var handlerCancelButtonCompletion: HandlerCancelButtonCompletion?
     var handlerPullRefreshCompletion: HandlerSendButtonCompletion?
@@ -41,7 +41,9 @@ class MSMTableViewControllerManager: BaseViewController {
         self.sectionsCount = sections
         self.emptyText = text
         
-        self.pullRefreshDidCreate()
+        if (emptyText != "DropDownList") {
+            self.pullRefreshDidCreate()
+        }
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -64,12 +66,14 @@ class MSMTableViewControllerManager: BaseViewController {
         self.tableView!.setScrollIndicatorColor(color: UIColor.veryLightOrange)
         
         // Set Infinite Scroll
-        if (scrollView.contentOffset.y >= footerViewHeight && !isLoadMore) {
-            isLoadMore = !isLoadMore
-            self.tableView!.reloadData()
-            
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 5) {
-                self.handlerInfiniteScrollCompletion!()
+        if (emptyText != "DropDownList") {
+            if (scrollView.contentOffset.y >= footerViewHeight && !isLoadMore) {
+                isLoadMore = !isLoadMore
+                self.tableView!.reloadData()
+                
+                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
+                    self.handlerInfiniteScrollCompletion!()
+                }
             }
         }
     }
@@ -232,7 +236,7 @@ extension MSMTableViewControllerManager: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        handlerSearchCompletion!((isSearchBarActive) ? dataSourceFiltered![indexPath.row] : dataSource![indexPath.row])
+        handlerSelectRowCompletion!((isSearchBarActive) ? dataSourceFiltered![indexPath.row] : dataSource![indexPath.row])
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -264,7 +268,7 @@ extension MSMTableViewControllerManager: UITableViewDelegate {
             return 0
         }
         
-        return footerViewHeight
+        return (emptyText == "DropDownList") ? 0.0 : footerViewHeight
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {

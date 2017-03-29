@@ -11,7 +11,6 @@ import UIKit
 class DropDownTableViewController: UITableViewController {
     // MARK: - Properties
     var dataSource = [DropDownItem]()
-    var sourceType: DropDownList!
     var completionHandler: ((_ value: DropDownItem) -> ())?
     
     
@@ -39,7 +38,7 @@ extension DropDownTableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DropDownCell", for: indexPath) as! DropDownTableViewCell
 
-        cell.didSetup(withDropDownItem: dataSource[indexPath.row])
+//        cell.didSetup(withDropDownItem: dataSource[indexPath.row])
         
         return cell
     }

@@ -13,15 +13,11 @@ import UIKit
 
 // MARK: - Input protocols for current Presenter component VIP-cicle
 protocol OrganizationsShowPresenterInput {
-    func servicesDidPrepareToShowLoad(fromResponseModel responseModel: OrganizationsShowModels.DropDownList.ResponseModel)
-    func categoriesDidPrepareToShowLoad(fromResponseModel responseModel: OrganizationsShowModels.DropDownList.ResponseModel)
     func organizationsDidPrepareToShowLoad(fromResponseModel responseModel: OrganizationsShowModels.Organizations.ResponseModel)
 }
 
 // MARK: - Output protocols for ViewController component VIP-cicle
 protocol OrganizationsShowPresenterOutput: class {
-    func servicesDidShowLoad(fromViewModel viewModel: OrganizationsShowModels.DropDownList.ViewModel)
-    func categoriesDidShowLoad(fromViewModel viewModel: OrganizationsShowModels.DropDownList.ViewModel)
     func organizationsDidShowLoad(fromViewModel viewModel: OrganizationsShowModels.Organizations.ViewModel)
 }
 
@@ -31,16 +27,6 @@ class OrganizationsShowPresenter: OrganizationsShowPresenterInput {
     
     
     // MARK: - Custom Functions. Presentation logic
-    func servicesDidPrepareToShowLoad(fromResponseModel responseModel: OrganizationsShowModels.DropDownList.ResponseModel) {
-        let servicesViewModel = OrganizationsShowModels.DropDownList.ViewModel(dropDownList: responseModel.result)
-        viewController.servicesDidShowLoad(fromViewModel: servicesViewModel)
-    }
-    
-    func categoriesDidPrepareToShowLoad(fromResponseModel responseModel: OrganizationsShowModels.DropDownList.ResponseModel) {
-        let categoriesViewModel = OrganizationsShowModels.DropDownList.ViewModel(dropDownList: responseModel.result)
-        viewController.categoriesDidShowLoad(fromViewModel: categoriesViewModel)
-    }
-
     func organizationsDidPrepareToShowLoad(fromResponseModel responseModel: OrganizationsShowModels.Organizations.ResponseModel) {
         // Convert Google Place ID to address strings
         if ((responseModel.response?.body as! [Any]).count > 0) {

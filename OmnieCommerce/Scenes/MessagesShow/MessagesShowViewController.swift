@@ -106,7 +106,7 @@ extension MessagesShowViewController: MessagesShowViewControllerInput {
         smallTopBarView.searchBar.delegate = tableView.tableViewControllerManager
         
         // Handler select cell
-        tableView.tableViewControllerManager!.handlerSearchCompletion = { message in
+        tableView.tableViewControllerManager!.handlerSelectRowCompletion = { message in
             // TODO: ADD TRANSITION TO CHAT SCENE
             self.print(object: "transition to Chat scene")
             

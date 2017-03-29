@@ -14,13 +14,11 @@ import UIKit
 // MARK: - Input protocols for current Interactor component VIP-cicle
 protocol CategoriesShowInteractorInput {
     func categoriesDidLoad(withRequestModel requestModel: CategoriesShowModels.Categories.RequestModel)
-    func citiesDidLoad(withRequestModel requestModel: CategoriesShowModels.Cities.RequestModel)
 }
 
 // MARK: - Output protocols for Presenter component VIP-cicle
 protocol CategoriesShowInteractorOutput {
     func categoriesDidPrepareToShowLoad(fromResponseModel responseModel: CategoriesShowModels.Categories.ResponseModel)
-    func citiesDidPrepareShowLoad(fromResponseModel responseModel: CategoriesShowModels.Cities.ResponseModel)
 }
 
 class CategoriesShowInteractor: CategoriesShowInteractorInput {
@@ -36,13 +34,5 @@ class CategoriesShowInteractor: CategoriesShowInteractorInput {
             let categoriesResponseModel = CategoriesShowModels.Categories.ResponseModel(responseAPI: responseAPI)
             self.presenter.categoriesDidPrepareToShowLoad(fromResponseModel: categoriesResponseModel)
         }
-    }
-    
-    func citiesDidLoad(withRequestModel requestModel: CategoriesShowModels.Cities.RequestModel) {
-        worker = CategoriesShowWorker()
-        let result = worker.citiesDidLoad()
-
-        let citiesResponseModel = CategoriesShowModels.Cities.ResponseModel(result: result)
-        presenter.citiesDidPrepareShowLoad(fromResponseModel: citiesResponseModel)
     }
 }

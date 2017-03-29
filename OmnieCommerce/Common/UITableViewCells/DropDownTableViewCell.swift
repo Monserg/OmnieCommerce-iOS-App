@@ -10,7 +10,9 @@ import UIKit
 
 @IBDesignable class DropDownTableViewCell: UITableViewCell {
     // MARK: - Properties
-    @IBOutlet weak var nameLabel: CustomLabel!
+    var itemCode: String!
+    
+    @IBOutlet weak var nameLabel: UbuntuLightVeryLightGrayLabel!
     
     
     // MARK: - Class Functions
@@ -24,19 +26,22 @@ import UIKit
     }
     
     override func draw(_ rect: CGRect) {
-        self.contentView.backgroundColor    =   UIColor.veryDarkDesaturatedBlue24
-        self.nameLabel.backgroundColor      =   UIColor.veryDarkDesaturatedBlue24
+        self.contentView.backgroundColor = UIColor.veryDarkDesaturatedBlue24
     }
-    
-    
-    // MARK: - Custom Functions
-    func didSetup(withDropDownItem item: DropDownItem) {
-        self.nameLabel.text                 =   item.name
+}
+
+
+extension DropDownTableViewCell: ConfigureCell {
+    func setup(withItem item: Any, andIndexPath indexPath: IndexPath) {
+        let dropDownValue = item as! DropDownItem
+        itemCode = dropDownValue.codeID
+        nameLabel.text = dropDownValue.name
+        selectionStyle = .none
         
         // Set selected color
-        let selectedView                    =   UIView.init(frame: self.frame)
-        selectedView.backgroundColor        =   UIColor.init(hexString: "#38444e", withAlpha: 0.3)
+        let selectedView = UIView.init(frame: self.frame)
+        selectedView.backgroundColor = UIColor.init(hexString: "#38444e", withAlpha: 0.3)
         
-        self.selectedBackgroundView         =   selectedView
+        self.selectedBackgroundView = selectedView
     }
 }
