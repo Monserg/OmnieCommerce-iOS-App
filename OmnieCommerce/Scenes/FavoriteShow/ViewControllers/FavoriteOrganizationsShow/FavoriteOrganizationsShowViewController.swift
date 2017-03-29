@@ -47,11 +47,15 @@ class FavoriteOrganizationsShowViewController: BaseViewController {
     // MARK: - Class Functions
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        viewSettingsDidLoad()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
 
+        viewSettingsDidLoad()
+    }
+
+    
     // MARK: - Custom Functions
     func viewSettingsDidLoad() {
         // Create MSMTableViewControllerManager
