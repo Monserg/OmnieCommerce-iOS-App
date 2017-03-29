@@ -14,11 +14,13 @@ import UIKit
 // MARK: - Input protocols for current Presenter component VIP-cicle
 protocol OrganizationsShowPresenterInput {
     func organizationsDidPrepareToShowLoad(fromResponseModel responseModel: OrganizationsShowModels.Organizations.ResponseModel)
+    func servicesDidPrepareToShowLoad(fromResponseModel responseModel: OrganizationsShowModels.Services.ResponseModel)
 }
 
 // MARK: - Output protocols for ViewController component VIP-cicle
 protocol OrganizationsShowPresenterOutput: class {
     func organizationsDidShowLoad(fromViewModel viewModel: OrganizationsShowModels.Organizations.ViewModel)
+    func servicesDidShowLoad(fromViewModel viewModel: OrganizationsShowModels.Services.ViewModel)
 }
 
 class OrganizationsShowPresenter: OrganizationsShowPresenterInput {
@@ -43,6 +45,25 @@ class OrganizationsShowPresenter: OrganizationsShowPresenterInput {
         } else {
             let organizationsViewModel = OrganizationsShowModels.Organizations.ViewModel(organizations: nil)
             self.viewController.organizationsDidShowLoad(fromViewModel: organizationsViewModel)
+        }
+    }
+
+    func servicesDidPrepareToShowLoad(fromResponseModel responseModel: OrganizationsShowModels.Services.ResponseModel) {
+        // Convert Google Place ID to address strings
+        if ((responseModel.response?.body as! [Any]).count > 0) {
+            responseModel.response?.servicesAddressDidLoad(responseModel.response?.body as! [Any], completion: { services in
+                // Prepare to save Organizations in CoreData
+                let _ = services.map { $0.category = responseModel.category }
+                let entityServices = CoreDataManager.instance.entityDidLoad(byName: keyServices) as! Services
+                let servicesData = NSKeyedArchiver.archivedData(withRootObject: services) as NSData?
+                entityServices.list = servicesData!
+                
+                let servicesViewModel = OrganizationsShowModels.Services.ViewModel(services: services)
+                self.viewController.servicesDidShowLoad(fromViewModel: servicesViewModel)
+            })
+        } else {
+            let servicesViewModel = OrganizationsShowModels.Services.ViewModel(services: nil)
+            self.viewController.servicesDidShowLoad(fromViewModel: servicesViewModel)
         }
     }
 }

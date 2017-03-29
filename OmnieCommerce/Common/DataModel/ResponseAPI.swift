@@ -64,9 +64,12 @@ class ResponseAPI {
             
             self.body = categories
             
-        case .OrganizationsArray:
+        case .ServicesArray:
             self.body = json["body"].arrayObject!
             
+        case .OrganizationsArray:
+            self.body = json["body"].arrayObject!
+
         default:
             self.body = json["body"].stringValue
         }
@@ -85,6 +88,22 @@ class ResponseAPI {
                 
                 if (organizations.count == organizationsList.count) {
                     completion(organizations)
+                }
+            })
+        }
+    }
+
+    func servicesAddressDidLoad(_ servicesList: [Any], completion: @escaping ((_ services: [Service]) -> ())) {
+        var services = [Service]()
+        
+        for dictionary in servicesList {
+            let service = Service.init()
+            
+            service.didMap(fromDictionary: dictionary as! [String : Any], completion: { _ in
+                services.append(service)
+                
+                if (services.count == servicesList.count) {
+                    completion(services)
                 }
             })
         }

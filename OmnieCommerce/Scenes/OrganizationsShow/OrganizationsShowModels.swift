@@ -28,4 +28,20 @@ struct OrganizationsShowModels {
             let organizations: [Organization]?
         }
     }
+
+    struct Services {
+        struct RequestModel {
+            let parameters: [String: Any]
+            let category: Category
+        }
+        
+        struct ResponseModel {
+            let response: ResponseAPI?
+            let category: Category
+        }
+        
+        struct ViewModel {
+            let services: [Service]?
+        }
+    }
 }

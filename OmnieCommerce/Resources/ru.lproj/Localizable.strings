@@ -96,6 +96,7 @@
 "New password"                  =   "Новый пароль";
 "Repeat password"               =   "Повторить пароль";
 "Enter Organization name"       =   "Введите название организации";
+"Enter Service name"            =   "Введите название сервиса";
 
 
 // Segmented Control Titles

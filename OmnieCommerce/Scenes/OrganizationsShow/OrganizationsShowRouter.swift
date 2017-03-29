@@ -31,6 +31,14 @@ class OrganizationsShowRouter: OrganizationsShowRouterInput {
         viewController.navigationController?.pushViewController(organizationShowVC, animated: true)
     }
 
+    func navigateToServiceShowScene(_ service: Service) {
+//        let storyboard                          =   UIStoryboard(name: "ServiceShow", bundle: nil)
+//        let serviceShowVC                       =   storyboard.instantiateViewController(withIdentifier: "ServiceShowVC") as! ServiceShowViewController
+//        serviceShowVC.service                   =   service
+//        
+//        viewController.navigationController?.pushViewController(serviceShowVC, animated: true)
+    }
+    
     func navigateToOrganizationsMapShowScene(withOrganizations organizations: [Organization]) {
         let storyboard                          =   UIStoryboard(name: "OrganizationsMapShow", bundle: nil)
         let organizationsMapShowVC              =   storyboard.instantiateViewController(withIdentifier: "OrganizationsMapShowVC") as! OrganizationsMapShowViewController

@@ -14,11 +14,13 @@ import UIKit
 // MARK: - Input protocols for current ViewController component VIP-cicle
 protocol OrganizationsShowViewControllerInput {
     func organizationsDidShowLoad(fromViewModel viewModel: OrganizationsShowModels.Organizations.ViewModel)
+    func servicesDidShowLoad(fromViewModel viewModel: OrganizationsShowModels.Services.ViewModel)
 }
 
 // MARK: - Output protocols for Interactor component VIP-cicle
 protocol OrganizationsShowViewControllerOutput {
     func organizationsDidLoad(withRequestModel requestModel: OrganizationsShowModels.Organizations.RequestModel)
+    func servicesDidLoad(withRequestModel requestModel: OrganizationsShowModels.Services.RequestModel)
 }
 
 class OrganizationsShowViewController: BaseViewController {
@@ -28,6 +30,7 @@ class OrganizationsShowViewController: BaseViewController {
 
     weak var category: Category?
     var organizations = [Organization]()
+    var services = [Service]()
     var subcategoryCode: String = ""
     
     var subcategoriesDropDownTableView: MSMTableView! {
@@ -185,6 +188,79 @@ class OrganizationsShowViewController: BaseViewController {
         
         tableView.tableViewControllerManager.pullRefreshDidFinish()
     }
+    
+    func servicesListDidLoad(withOffset offset: Int, subCategory: String, filter: String, scrollingData: Bool) {
+        if (!scrollingData) {
+            spinnerDidStart(view)
+        }
+        
+        let parameters: [String: Any] =     [
+                                                "category": self.category!.codeID,
+                                                "subCategory": subCategory,
+                                                "filter": filter,
+                                                "limit": Config.Constants.paginationLimit,
+                                                "offset": offset
+        ]
+        
+        let servicesRequestModel = OrganizationsShowModels.Services.RequestModel(parameters: parameters, category: category!)
+        interactor.servicesDidLoad(withRequestModel: servicesRequestModel)
+    }
+    
+    func servicesListDidShow(_ services: [Service]?, fromAPI: Bool) {
+        var servicesList = [Service]()
+        
+        if (fromAPI) {
+            servicesList = services!
+        } else {
+            let servicesData = CoreDataManager.instance.entityDidLoad(byName: keyServices) as! Services
+            servicesList = NSKeyedUnarchiver.unarchiveObject(with: servicesData.list! as Data) as! [Service]
+        }
+        
+        // Setting MSMTableViewControllerManager
+        tableView.tableViewControllerManager!.dataSource = servicesList
+        mapButton.isUserInteractionEnabled = true
+        tableView.tableFooterView?.isHidden = (servicesList.count > 0) ? true : false
+        
+        tableView.reloadData()
+        
+        // Search Manager
+        smallTopBarView.searchBar.placeholder = "Enter Service name".localized()
+        smallTopBarView.searchBar.delegate = tableView.tableViewControllerManager
+        
+        // Handler select cell
+        tableView.tableViewControllerManager!.handlerSelectRowCompletion = { service in
+            self.print(object: "transition to Service profile scene")
+            
+            self.router.navigateToServiceShowScene(service as! Service)
+        }
+        
+        // Handler Search keyboard button tap
+        tableView.tableViewControllerManager!.handlerSendButtonCompletion = { _ in
+            // TODO: - ADD SEARCH API
+            self.smallTopBarView.searchBarDidHide()
+        }
+        
+        // Handler Search Bar Cancel button tap
+        tableView.tableViewControllerManager!.handlerCancelButtonCompletion = { _ in
+            self.smallTopBarView.searchBarDidHide()
+        }
+        
+        // Handler PullRefresh
+        tableView.tableViewControllerManager!.handlerPullRefreshCompletion = { _ in
+            // Reload Organizations list from API
+            self.services = [Service]()
+            self.servicesListDidLoad(withOffset: 0, subCategory: self.subcategoryCode, filter: "", scrollingData: true)
+        }
+        
+        // Handler InfiniteScroll
+        tableView.tableViewControllerManager.handlerInfiniteScrollCompletion = { _ in
+            // Load More Organizations from API
+            self.servicesListDidLoad(withOffset: services!.count, subCategory: self.subcategoryCode, filter: "", scrollingData: true)
+        }
+        
+        tableView.tableViewControllerManager.pullRefreshDidFinish()
+    }
+
 
     
     // MARK: - Actions
@@ -226,8 +302,8 @@ class OrganizationsShowViewController: BaseViewController {
                 self.organizations = [Organization]()
                 self.organizationsListDidLoad(withOffset: 0, subCategory: self.subcategoryCode, filter: "", scrollingData: false)
             } else {
-                // TODO: ADD API SERVICES LOAD
-                self.organizations = [Organization]()
+                self.services = [Service]()
+                self.servicesListDidLoad(withOffset: 0, subCategory: self.subcategoryCode, filter: "", scrollingData: false)
             }
         }
         
@@ -267,5 +343,26 @@ extension OrganizationsShowViewController: OrganizationsShowViewControllerInput 
         // Load Organizations list from API
         self.organizations.append(contentsOf: viewModel.organizations!)
         self.organizationsListDidShow(organizations, fromAPI: true)
+    }
+    
+    func servicesDidShowLoad(fromViewModel viewModel: OrganizationsShowModels.Services.ViewModel) {
+        spinnerDidFinish()
+        
+        guard viewModel.services != nil else {
+            self.servicesListDidShow(services, fromAPI: true)
+            return
+        }
+        
+        CoreDataManager.instance.didSaveContext()
+        
+        // Load Organizations list from CoreData
+        guard isNetworkAvailable else {
+            self.servicesListDidShow(nil, fromAPI: false)
+            return
+        }
+        
+        // Load Services list from API
+        self.services.append(contentsOf: viewModel.services!)
+        self.servicesListDidShow(services, fromAPI: true)
     }
 }
