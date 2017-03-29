@@ -28,6 +28,7 @@ class OrganizationsShowViewController: BaseViewController {
 
     weak var category: Category?
     var organizations = [Organization]()
+    var subcategoryCode: String = ""
     
     var subcategoriesDropDownTableView: MSMTableView! {
         didSet {
@@ -106,7 +107,7 @@ class OrganizationsShowViewController: BaseViewController {
         }
         
         // Load Organizations list from API
-        organizationsListDidLoad(withOffset: 0, subCategory: "", filter: "", scrollingData: false)
+        organizationsListDidLoad(withOffset: 0, subCategory: self.subcategoryCode, filter: "", scrollingData: false)
         
         // Set DropDown lists
         subcategoriesDropDownTableView = MSMTableView(frame: .zero, style: .plain)
@@ -173,13 +174,13 @@ class OrganizationsShowViewController: BaseViewController {
         tableView.tableViewControllerManager!.handlerPullRefreshCompletion = { _ in
             // Reload Organizations list from API
             self.organizations = [Organization]()
-            self.organizationsListDidLoad(withOffset: 0, subCategory: "", filter: "", scrollingData: true)
+            self.organizationsListDidLoad(withOffset: 0, subCategory: self.subcategoryCode, filter: "", scrollingData: true)
         }
         
         // Handler InfiniteScroll
         tableView.tableViewControllerManager.handlerInfiniteScrollCompletion = { _ in
             // Load More Organizations from API
-            self.organizationsListDidLoad(withOffset: organizations!.count, subCategory: "", filter: "", scrollingData: true)
+            self.organizationsListDidLoad(withOffset: organizations!.count, subCategory: self.subcategoryCode, filter: "", scrollingData: true)
         }
         
         tableView.tableViewControllerManager.pullRefreshDidFinish()
@@ -200,8 +201,11 @@ class OrganizationsShowViewController: BaseViewController {
         // Handler DropDownList selection
         subcategoriesDropDownTableView.tableViewControllerManager!.handlerSelectRowCompletion = { subcategory in
             sender.changeTitle(newValue: (subcategory as! DropDownItem).name)
-            
             sender.itemsListDidHide(self.subcategoriesDropDownTableView, inView: self.view)
+            self.subcategoryCode = ((subcategory as! DropDownItem).codeID == "All-Subcategories-ID") ? "" : (subcategory as! DropDownItem).codeID
+            
+            self.organizations = [Organization]()
+            self.organizationsListDidLoad(withOffset: 0, subCategory: self.subcategoryCode, filter: "", scrollingData: false)
         }
         
         if (organizationServiceButton.isDropDownListShow) {
@@ -216,8 +220,15 @@ class OrganizationsShowViewController: BaseViewController {
         // Handler DropDownList selection
         organizationServiceDropDownTableView.tableViewControllerManager!.handlerSelectRowCompletion = { item in
             sender.changeTitle(newValue: (item as! DropDownItem).name)
-            
             sender.itemsListDidHide(self.organizationServiceDropDownTableView, inView: self.view)
+            
+            if ((item as! DropDownItem).codeID == keyOrganization) {
+                self.organizations = [Organization]()
+                self.organizationsListDidLoad(withOffset: 0, subCategory: self.subcategoryCode, filter: "", scrollingData: false)
+            } else {
+                // TODO: ADD API SERVICES LOAD
+                self.organizations = [Organization]()
+            }
         }
         
         if (subcategoriesButton.isDropDownListShow) {
@@ -230,7 +241,7 @@ class OrganizationsShowViewController: BaseViewController {
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         subcategoriesButton.setNeedsDisplay()
         organizationServiceButton.setNeedsDisplay()
-        _ = tableView.visibleCells.map { ($0 as! BaseTableViewCell).dottedBorderView.setNeedsDisplay() }
+        _ = tableView.visibleCells.map { ($0 as! OrganizationTableViewCell).dottedBorderView.setNeedsDisplay() }
     }
 }
 
