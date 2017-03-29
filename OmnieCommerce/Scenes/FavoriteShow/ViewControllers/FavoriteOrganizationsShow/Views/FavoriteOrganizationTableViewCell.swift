@@ -14,8 +14,9 @@ class FavoriteOrganizationTableViewCell: UITableViewCell {
     var isFavorite = false
     var organizationID: String!
     
+    var handlerFavoriteButtonTapCompletion: HandlerPassDataCompletion?
+    
     @IBOutlet weak var nameLabel: UbuntuLightVeryLightGrayLabel!
-    @IBOutlet weak var subcategoryLabel: UbuntuLightItalicLightGrayishCyanLabel!
     
     @IBOutlet weak var logoImageView: CustomImageView!
     @IBOutlet weak var dottedBorderView: DottedBorderView!
@@ -41,6 +42,8 @@ class FavoriteOrganizationTableViewCell: UITableViewCell {
             if (responseAPI?.code == 200) {
                 self.favoriteButton.setImage((self.isFavorite) ?    UIImage(named: "image-favorite-star-selected") :
                                                                     UIImage(named: "image-favorite-star-normal"), for: .normal)
+                
+                self.handlerFavoriteButtonTapCompletion!(self.organizationID)
             }
         })
     }

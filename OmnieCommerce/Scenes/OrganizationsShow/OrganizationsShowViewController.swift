@@ -65,7 +65,7 @@ class OrganizationsShowViewController: BaseViewController {
     // MARK: - Custom Functions
     func viewSettingsDidLoad() {
         // Create MSMTableViewControllerManager
-        tableView.tableViewControllerManager = MSMTableViewControllerManager.init(withTableView: self.tableView, andSectionsCount: 1)
+        tableView.tableViewControllerManager = MSMTableViewControllerManager.init(withTableView: self.tableView, andSectionsCount: 1, withEmptyText: "Organizations list is empty")
 
         // Config smallTopBarView
         navigationBarView = smallTopBarView

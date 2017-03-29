@@ -27,7 +27,6 @@ class MessagesShowViewController: BaseViewController {
     var router:     MessagesShowRouter!
     
     @IBOutlet weak var copyrightLabel: CustomLabel!
-    @IBOutlet weak var dataSourceEmptyView: UIView!
     @IBOutlet weak var smallTopBarView: SmallTopBarView!
 
     @IBOutlet weak var tableView: MSMTableView! {
@@ -60,7 +59,7 @@ class MessagesShowViewController: BaseViewController {
         print(object: "\(type(of: self)): \(#function) run.")
         
         // TableViewController Manager
-        tableView.tableViewControllerManager = MSMTableViewControllerManager.init(withTableView: self.tableView, andSectionsCount: 1)
+        tableView.tableViewControllerManager = MSMTableViewControllerManager.init(withTableView: self.tableView, andSectionsCount: 1, withEmptyText: "Messages list is empty")
 
         // Config smallTopBarView
         navigationBarView       =   smallTopBarView
@@ -89,7 +88,7 @@ class MessagesShowViewController: BaseViewController {
 extension MessagesShowViewController: MessagesShowViewControllerInput {
     func messagesDidShow(fromViewModel viewModel: MessagesShowModels.Messages.ViewModel) {
         guard viewModel.messages != nil else {
-            self.dataSourceEmptyView.isHidden = false
+//            self.dataSourceEmptyView.isHidden = false
             self.tableView.isScrollEnabled = false
 
             return
@@ -97,7 +96,7 @@ extension MessagesShowViewController: MessagesShowViewControllerInput {
         
         // TableViewController Manager
         tableView.tableViewControllerManager!.dataSource = viewModel.messages!
-        dataSourceEmptyView.isHidden = true
+//        dataSourceEmptyView.isHidden = true
         self.tableView.isScrollEnabled = true
         
         self.tableView.reloadData()

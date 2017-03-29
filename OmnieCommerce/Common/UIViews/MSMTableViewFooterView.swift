@@ -12,6 +12,7 @@ class MSMTableViewFooterView: UIView {
     // MARK: - Properties
     @IBOutlet var view: UIView!
     @IBOutlet weak var emptyView: UIView!
+    @IBOutlet weak var emptyMessageLabel: UbuntuLightVeryLightGrayLabel!
     @IBOutlet weak var infiniteScrollView: UIView!
     
     @IBOutlet weak var spinner: UIActivityIndicatorView! {

@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MSMTableViewFooterView" customModule="OmnieCommerce" customModuleProvider="target">
             <connections>
+                <outlet property="emptyMessageLabel" destination="hah-4p-Rxa" id="BhH-wT-FYy"/>
                 <outlet property="emptyView" destination="f5S-2F-Mb4" id="cKX-sc-c4I"/>
                 <outlet property="infiniteScrollView" destination="rDd-CA-coX" id="Cdn-wc-ToN"/>
                 <outlet property="spinner" destination="eMb-UX-SyN" id="m6q-jf-gMQ"/>

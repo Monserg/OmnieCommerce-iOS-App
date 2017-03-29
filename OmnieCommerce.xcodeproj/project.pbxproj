@@ -347,6 +347,8 @@
 		B1EC9F2D1E8AE31500F2E342 /* FavoriteOrganizations+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1EC9F2B1E8AE31500F2E342 /* FavoriteOrganizations+CoreDataProperties.swift */; };
 		B1EC9F311E8B7FEF00F2E342 /* FavoriteOrganizationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1EC9F2F1E8B7FEF00F2E342 /* FavoriteOrganizationTableViewCell.swift */; };
 		B1EC9F321E8B7FEF00F2E342 /* FavoriteOrganizationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1EC9F301E8B7FEF00F2E342 /* FavoriteOrganizationTableViewCell.xib */; };
+		B1EC9F3A1E8B925F00F2E342 /* FavoriteServiceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1EC9F381E8B925F00F2E342 /* FavoriteServiceTableViewCell.swift */; };
+		B1EC9F3B1E8B925F00F2E342 /* FavoriteServiceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1EC9F391E8B925F00F2E342 /* FavoriteServiceTableViewCell.xib */; };
 		B1F7EDB81DF54878003B36AD /* SegmentedControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F7EDB71DF54878003B36AD /* SegmentedControlView.swift */; };
 		B1F7EDBA1DF54886003B36AD /* SegmentedControlView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1F7EDB91DF54886003B36AD /* SegmentedControlView.xib */; };
 		B1FBC9161E6D474400D86429 /* LTHRadioButton.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1FBC9151E6D474400D86429 /* LTHRadioButton.framework */; };
@@ -745,6 +747,8 @@
 		B1EC9F2B1E8AE31500F2E342 /* FavoriteOrganizations+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FavoriteOrganizations+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		B1EC9F2F1E8B7FEF00F2E342 /* FavoriteOrganizationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteOrganizationTableViewCell.swift; sourceTree = "<group>"; };
 		B1EC9F301E8B7FEF00F2E342 /* FavoriteOrganizationTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FavoriteOrganizationTableViewCell.xib; sourceTree = "<group>"; };
+		B1EC9F381E8B925F00F2E342 /* FavoriteServiceTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteServiceTableViewCell.swift; sourceTree = "<group>"; };
+		B1EC9F391E8B925F00F2E342 /* FavoriteServiceTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FavoriteServiceTableViewCell.xib; sourceTree = "<group>"; };
 		B1F7EDB71DF54878003B36AD /* SegmentedControlView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentedControlView.swift; sourceTree = "<group>"; };
 		B1F7EDB91DF54886003B36AD /* SegmentedControlView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SegmentedControlView.xib; sourceTree = "<group>"; };
 		B1FBC9151E6D474400D86429 /* LTHRadioButton.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LTHRadioButton.framework; path = "../../../../../Library/Developer/Xcode/DerivedData/OmnieCommerce-enpckymiymzhiuhdgnbmlxbwmhew/Build/Products/Debug-iphonesimulator/LTHRadioButton/LTHRadioButton.framework"; sourceTree = "<group>"; };
@@ -901,6 +905,7 @@
 		B10B48B51E8A5A95007DDD81 /* FavoriteServicesShow */ = {
 			isa = PBXGroup;
 			children = (
+				B1EC9F331E8B916800F2E342 /* Views */,
 				B10B48C41E8A5AEC007DDD81 /* FavoriteServicesShowConfigurator.swift */,
 				B10B48C51E8A5AEC007DDD81 /* FavoriteServicesShowInteractor.swift */,
 				B10B48C61E8A5AEC007DDD81 /* FavoriteServicesShowModels.swift */,
@@ -1732,6 +1737,15 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		B1EC9F331E8B916800F2E342 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B1EC9F381E8B925F00F2E342 /* FavoriteServiceTableViewCell.swift */,
+				B1EC9F391E8B925F00F2E342 /* FavoriteServiceTableViewCell.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		B1FBC9171E6D493200D86429 /* RadioButton */ = {
 			isa = PBXGroup;
 			children = (
@@ -1915,6 +1929,7 @@
 				B1BF927C1DD6516C00BECBBB /* UBUNTU-L.TTF in Resources */,
 				B1BF927D1DD6516C00BECBBB /* UBUNTU-LI.TTF in Resources */,
 				B137EC8C1E7D0334006F0184 /* CategoryCollectionViewCell.xib in Resources */,
+				B1EC9F3B1E8B925F00F2E342 /* FavoriteServiceTableViewCell.xib in Resources */,
 				B1597AD21E3F42BD00123CB5 /* AvatarActionView.xib in Resources */,
 				B1BF927E1DD6516C00BECBBB /* UBUNTU-M.TTF in Resources */,
 				B1BF927F1DD6516C00BECBBB /* UBUNTU-MI.TTF in Resources */,
@@ -2145,6 +2160,7 @@
 				B122A58E1E6BE10F00C39B67 /* FillVeryLightOrangeButton.swift in Sources */,
 				B108746C1E5B07D3004A4FB6 /* CoreDataManager.swift in Sources */,
 				B19DF2861DF94DED000AFC92 /* SchedulerViewController.swift in Sources */,
+				B1EC9F3A1E8B925F00F2E342 /* FavoriteServiceTableViewCell.swift in Sources */,
 				B1CF54CE1DDB51A500E98049 /* PersonalPageShowRouter.swift in Sources */,
 				B18A45CA1DEC282B003EBD2F /* DotView.swift in Sources */,
 				B14D1D741E5CB8B000D33435 /* SocialNetworkManager.swift in Sources */,

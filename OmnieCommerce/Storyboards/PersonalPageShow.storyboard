@@ -134,27 +134,6 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5Jv-lD-5kg" customClass="MSMTableView" customModule="OmnieCommerce" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <view key="tableFooterView" hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" id="sjS-wP-KxF" userLabel="Data Source Empty View">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Templates list is empty" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DqD-Qj-yRV" customClass="UbuntuLightVeryLightGrayLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                                            <rect key="frame" x="123" y="26" width="130" height="15"/>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                            <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
-                                            </userDefinedRuntimeAttributes>
-                                        </label>
-                                    </subviews>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                    <constraints>
-                                        <constraint firstItem="DqD-Qj-yRV" firstAttribute="centerY" secondItem="sjS-wP-KxF" secondAttribute="centerY" multiplier="1.5" id="dJD-SZ-5cU"/>
-                                        <constraint firstItem="DqD-Qj-yRV" firstAttribute="centerX" secondItem="sjS-wP-KxF" secondAttribute="centerX" id="uWY-Tt-KnS"/>
-                                    </constraints>
-                                </view>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
@@ -173,7 +152,6 @@
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
                     <connections>
-                        <outlet property="dataSourceEmptyView" destination="sjS-wP-KxF" id="pKS-DD-8Vz"/>
                         <outlet property="tableView" destination="5Jv-lD-5kg" id="cdZ-cc-QUx"/>
                     </connections>
                 </viewController>

@@ -27,7 +27,8 @@ class FavoriteOrganizationsShowViewController: BaseViewController {
     var router: FavoriteOrganizationsShowRouter!
     
     var organizations = [Organization]()
-
+    var wasLaunchedAPI = false
+    
     @IBOutlet weak var tableView: MSMTableView! {
         didSet {
             tableView.contentInset = UIEdgeInsetsMake((UIApplication.shared.statusBarOrientation.isPortrait) ? 5 : 45, 0, 0, 0)
@@ -52,14 +53,16 @@ class FavoriteOrganizationsShowViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
 
-        viewSettingsDidLoad()
+        if (!wasLaunchedAPI) {
+            viewSettingsDidLoad()
+        }
     }
 
     
     // MARK: - Custom Functions
     func viewSettingsDidLoad() {
         // Create MSMTableViewControllerManager
-        tableView.tableViewControllerManager = MSMTableViewControllerManager.init(withTableView: self.tableView, andSectionsCount: 1)
+        tableView.tableViewControllerManager = MSMTableViewControllerManager.init(withTableView: self.tableView, andSectionsCount: 1, withEmptyText: "Organizations list is empty")
 
         // Load Organizations list from Core Data
         guard isNetworkAvailable else {
@@ -69,7 +72,9 @@ class FavoriteOrganizationsShowViewController: BaseViewController {
         
         // Load Organizations list from API
         if (isNetworkAvailable) {
+            organizations = [Organization]()
             favoriteOrganizationsListDidLoad(withOffset: 0, scrollingData: false)
+            wasLaunchedAPI = true
         } else {
             spinnerDidFinish()
         }

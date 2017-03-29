@@ -27,7 +27,6 @@ class NewsShowViewController: BaseViewController {
     var router: NewsShowRouter!
     
     @IBOutlet weak var copyrightLabel: CustomLabel!
-    @IBOutlet weak var dataSourceEmptyView: UIView!
     @IBOutlet weak var smallTopBarView: SmallTopBarView!
     @IBOutlet weak var segmentedControlView: SegmentedControlView!
 
@@ -62,7 +61,7 @@ class NewsShowViewController: BaseViewController {
         setupSegmentedControlView()
 
         // TableViewController Manager
-        tableView.tableViewControllerManager = MSMTableViewControllerManager.init(withTableView: self.tableView, andSectionsCount: 1)
+        tableView.tableViewControllerManager = MSMTableViewControllerManager.init(withTableView: self.tableView, andSectionsCount: 1, withEmptyText: "News list is empty")
 
         // Config smallTopBarView
         navigationBarView = smallTopBarView
@@ -101,7 +100,7 @@ class NewsShowViewController: BaseViewController {
 extension NewsShowViewController: NewsShowViewControllerInput {
     func newsDidShow(fromViewModel viewModel: NewsShowModels.NewsItems.ViewModel) {
         guard (viewModel.news?.first?.count)! > 0 else {
-            dataSourceEmptyView.isHidden = false
+//            dataSourceEmptyView.isHidden = false
             tableView.isScrollEnabled = false
 
             return
@@ -138,7 +137,7 @@ extension NewsShowViewController: NewsShowViewControllerInput {
         //            }
 
         tableView.tableViewControllerManager!.dataSource = viewModel.news!.first!
-        dataSourceEmptyView.isHidden = true
+//        dataSourceEmptyView.isHidden = true
         tableView.isScrollEnabled = true
 
         self.tableView.reloadData()

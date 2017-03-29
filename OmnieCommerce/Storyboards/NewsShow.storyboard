@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -63,27 +63,6 @@
                             <tableView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="95" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="sJ6-Lv-NkE" customClass="MSMTableView" customModule="OmnieCommerce" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="145" width="375" height="493"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <view key="tableFooterView" hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" id="Sqg-0G-DvY">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="News list is empty" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tQe-we-0aS" customClass="UbuntuLightVeryLightGrayLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                                            <rect key="frame" x="136" y="26.5" width="103" height="14.5"/>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                            <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
-                                            </userDefinedRuntimeAttributes>
-                                        </label>
-                                    </subviews>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                    <constraints>
-                                        <constraint firstItem="tQe-we-0aS" firstAttribute="centerX" secondItem="Sqg-0G-DvY" secondAttribute="centerX" id="3J6-LQ-fTn"/>
-                                        <constraint firstItem="tQe-we-0aS" firstAttribute="centerY" secondItem="Sqg-0G-DvY" secondAttribute="centerY" multiplier="1.5" id="770-Km-DZm"/>
-                                    </constraints>
-                                </view>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
@@ -132,7 +111,6 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="copyrightLabel" destination="krF-Rc-3FU" id="GIf-FF-rYt"/>
-                        <outlet property="dataSourceEmptyView" destination="Sqg-0G-DvY" id="Lgc-qX-7Gd"/>
                         <outlet property="segmentedControlView" destination="QEZ-zG-MDi" id="ye3-yD-hY5"/>
                         <outlet property="smallTopBarView" destination="KMj-II-PyU" id="ZE4-9S-C7d"/>
                         <outlet property="tableView" destination="sJ6-Lv-NkE" id="L6p-97-HYe"/>
@@ -147,7 +125,7 @@
             <objects>
                 <navigationController storyboardIdentifier="NewsShowNC" automaticallyAdjustsScrollViewInsets="NO" id="y4G-zF-e55" customClass="BaseNavigationController" customModule="OmnieCommerce" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="GUk-oy-T9T">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="GUk-oy-T9T">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

@@ -18,6 +18,7 @@ class MSMTableViewControllerManager: BaseViewController {
     var footerViewHeight: CGFloat = 60.0
     var isLoadMore = false
     var dataSource: [Any]?
+    var emptyText: String!
     
     weak var tableView: MSMTableView? {
         didSet {
@@ -33,11 +34,12 @@ class MSMTableViewControllerManager: BaseViewController {
     
     
     // MARK: - Class Initialization
-    init(withTableView tableView: MSMTableView, andSectionsCount sections: Int) {
+    init(withTableView tableView: MSMTableView, andSectionsCount sections: Int, withEmptyText text: String) {
         super.init(nibName: nil, bundle: nil)
         
         self.tableView = tableView
         self.sectionsCount = sections
+        self.emptyText = text
         
         self.pullRefreshDidCreate()
     }
@@ -167,6 +169,31 @@ extension MSMTableViewControllerManager: UITableViewDataSource {
                 }
             }
             
+        case cell as FavoriteOrganizationTableViewCell:
+            let favoriteOrganizationCell = cell as! FavoriteOrganizationTableViewCell
+            
+            // Handler Favorite Button tap
+            favoriteOrganizationCell.handlerFavoriteButtonTapCompletion = { organizationID in
+                let organization = (self.dataSource as! [Organization]).first(where: { $0.codeID == organizationID as! String })!
+                let organizationIndex = (self.dataSource as! [Organization]).index(of: organization)!
+                var organizationsList = self.dataSource as! [Organization]
+                
+                // Delete selected row from table view
+                organizationsList.remove(at: organizationIndex)
+                self.dataSource = organizationsList
+                
+                if (self.dataSource?.count == 0) {
+                    self.tableView!.tableFooterView?.isHidden = false
+                }
+
+                self.tableView!.beginUpdates()
+                self.tableView!.deleteRows(at: [IndexPath(row: organizationIndex, section: 0)], with: .left)
+                self.tableView!.endUpdates()
+                
+                self.tableView!.reloadData()
+            }
+            
+            
 //        case cell as AvatarTableViewCell:
 //            let avatarCell  =   (cell as! AvatarTableViewCell)
 //            
@@ -241,12 +268,12 @@ extension MSMTableViewControllerManager: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        let footerView = MSMTableViewFooterView.init(frame: CGRect.init(origin: .zero, size: CGSize.init(width: tableView.frame.width, height: footerViewHeight)))
-        let cellIdentifier = (dataSource!.first as! InitCellParameters).cellIdentifier
-        
-        if (cellIdentifier == "OrganizationTableViewCell" || cellIdentifier == "FavoriteOrganizationTableViewCell") {
+        if (emptyText == "Organizations list is empty") {
+            let footerView = MSMTableViewFooterView.init(frame: CGRect.init(origin: .zero, size: CGSize.init(width: tableView.frame.width, height: footerViewHeight)))
+            
             if (dataSource!.count == 0) {
                 footerView.emptyView.isHidden = false
+                footerView.emptyMessageLabel.text = emptyText.localized()
                 footerView.infiniteScrollView.isHidden = true
                 footerView.isHidden = false
             } else {
@@ -254,9 +281,15 @@ extension MSMTableViewControllerManager: UITableViewDelegate {
                 footerView.infiniteScrollView.isHidden = false
                 footerView.isHidden = (isLoadMore) ? false : true
             }
+            
+            return footerView
         }
-
-        return footerView
+        
+        return nil
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
     }
 }
 

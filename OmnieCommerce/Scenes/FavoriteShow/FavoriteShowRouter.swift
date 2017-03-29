@@ -59,7 +59,7 @@ class FavoriteShowRouter: FavoriteShowRouterInput {
             activeVC.view.frame.size = self.viewController.containerView.frame.size
             activeVC.view.transform = CGAffineTransform(translationX: (self.viewController.animationDirection == .FromRightToLeft) ? 1000 : -1000, y: 0)
         }
-        
+                
         self.viewController.containerView.addSubview(activeVC.view)
         activeVC.didMove(toParentViewController: self.viewController)
     }

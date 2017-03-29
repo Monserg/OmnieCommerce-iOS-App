@@ -19,8 +19,6 @@ class PersonalTemplatesViewController: BaseViewController {
         }
     }
     
-    @IBOutlet weak var dataSourceEmptyView: UIView!
-
     
     // MARK: - Class Functions
     override func viewDidLoad() {
@@ -37,10 +35,9 @@ class PersonalTemplatesViewController: BaseViewController {
     // MARK: - Custom Functions
     private func viewSettingsDidLoad() {
         // TableViewController Manager
-        tableView.tableViewControllerManager = MSMTableViewControllerManager.init(withTableView: self.tableView, andSectionsCount: 1)
+        tableView.tableViewControllerManager = MSMTableViewControllerManager.init(withTableView: self.tableView, andSectionsCount: 1, withEmptyText: "Templates list is empty")
         tableView.tableViewControllerManager!.dataSource = organizations
         
-        dataSourceEmptyView.isHidden = (organizations == nil) ? false : true
         tableView.isScrollEnabled = (organizations == nil) ? false : true
         tableView.tableViewControllerManager!.tableView = tableView
         
