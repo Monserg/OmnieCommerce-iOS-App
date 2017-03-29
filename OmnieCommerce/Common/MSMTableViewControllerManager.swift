@@ -17,11 +17,7 @@ class MSMTableViewControllerManager: BaseViewController {
     var refreshControl: UIRefreshControl?
     var footerViewHeight: CGFloat = 60.0
     var isLoadMore = false
-    
     var dataSource: [Any]?
-//    {
-//        didSet {
-//    }
     
     weak var tableView: MSMTableView? {
         didSet {
@@ -248,7 +244,7 @@ extension MSMTableViewControllerManager: UITableViewDelegate {
         let footerView = MSMTableViewFooterView.init(frame: CGRect.init(origin: .zero, size: CGSize.init(width: tableView.frame.width, height: footerViewHeight)))
         let cellIdentifier = (dataSource!.first as! InitCellParameters).cellIdentifier
         
-        if (cellIdentifier == "OrganizationTableViewCell") {
+        if (cellIdentifier == "OrganizationTableViewCell" || cellIdentifier == "FavoriteOrganizationTableViewCell") {
             if (dataSource!.count == 0) {
                 footerView.emptyView.isHidden = false
                 footerView.infiniteScrollView.isHidden = true

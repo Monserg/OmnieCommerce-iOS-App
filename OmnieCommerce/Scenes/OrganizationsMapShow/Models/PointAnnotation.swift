@@ -19,15 +19,13 @@ class PointAnnotation: MKPointAnnotation {
         super.init()
         
         self.title = organization.name
-        self.coordinate = CLLocationCoordinate2D.init(latitude: organization.latitude, longitude: organization.longitude)
+        self.coordinate = CLLocationCoordinate2D.init(latitude: organization.latitude!, longitude: organization.longitude!)
         
         if (organization.addressStreet != nil) {
             self.subtitle = organization.addressStreet!
         } else if (organization.addressCity != nil) {
             self.subtitle = organization.addressCity!
         }
-        
-//        self.image = organization.lo
     }
     
     deinit {

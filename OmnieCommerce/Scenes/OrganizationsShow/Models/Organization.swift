@@ -14,15 +14,14 @@ class Organization: NSObject, NSCoding, InitCellParameters, SearchObject {
     // MARK: - Properties
     var codeID: String!
     var name: String!
-    var category: Category!
-//    var location: CLLocationCoordinate2D!
-    var latitude: CLLocationDegrees!
-    var longitude: CLLocationDegrees!
-    var addressCity: String!
-    var addressStreet: String!
+    var category: Category?
+    var latitude: CLLocationDegrees?
+    var longitude: CLLocationDegrees?
+    var addressCity: String?
+    var addressStreet: String?
     var logoURL: String?
     var headerURL: String?
-    var rating: Double = 0.0
+    var rating: Double?
     var isFavorite: Bool = false
     var phones: [String]?
     var schedule: Schedule?
@@ -37,7 +36,7 @@ class Organization: NSObject, NSCoding, InitCellParameters, SearchObject {
         super.init()
     }
     
-    init(codeID: String, name: String, category: Category, rating: Double, isFavorite: Bool, logoURL: String?, city: String, street: String, latitude: CLLocationDegrees, longitude: CLLocationDegrees) {
+    init(codeID: String, name: String, category: Category?, rating: Double?, isFavorite: Bool, logoURL: String?, city: String?, street: String?, latitude: CLLocationDegrees?, longitude: CLLocationDegrees?) {
         self.codeID = codeID
         self.name = name
         self.category = category
@@ -53,14 +52,14 @@ class Organization: NSObject, NSCoding, InitCellParameters, SearchObject {
     required convenience init(coder aDecoder: NSCoder) {
         let codeID = aDecoder.decodeObject(forKey: "codeID") as! String
         let name = aDecoder.decodeObject(forKey: "name") as! String
-        let category = aDecoder.decodeObject(forKey: "category") as! Category
+        let category = aDecoder.decodeObject(forKey: "category") as? Category
         let rating = aDecoder.decodeDouble(forKey: "rating")
         let isFavorite = aDecoder.decodeBool(forKey: "isFavorite")
         let logoURL = aDecoder.decodeObject(forKey: "logoURL") as? String
-        let latitude = aDecoder.decodeObject(forKey: "latitude") as! CLLocationDegrees
-        let longitude = aDecoder.decodeObject(forKey: "longitude") as! CLLocationDegrees
-        let addressCity = aDecoder.decodeObject(forKey: "addressCity") as! String
-        let addressStreet = aDecoder.decodeObject(forKey: "addressStreet") as! String
+        let latitude = aDecoder.decodeObject(forKey: "latitude") as? CLLocationDegrees
+        let longitude = aDecoder.decodeObject(forKey: "longitude") as? CLLocationDegrees
+        let addressCity = aDecoder.decodeObject(forKey: "addressCity") as? String
+        let addressStreet = aDecoder.decodeObject(forKey: "addressStreet") as? String
 
         self.init(codeID: codeID, name: name, category: category, rating: rating, isFavorite: isFavorite, logoURL: logoURL, city: addressCity, street: addressStreet, latitude: latitude, longitude: longitude)
     }
@@ -89,9 +88,16 @@ class Organization: NSObject, NSCoding, InitCellParameters, SearchObject {
     func didMap(fromDictionary dictionary: [String: Any], completion: @escaping (() -> ())) {
         self.codeID = dictionary["uuid"] as? String
         self.name = dictionary["orgName"] as? String
-        self.rating = (dictionary["rating"] as? Double)!
         self.isFavorite = (dictionary["isFavorite"] as? Bool)!
         
+        if (dictionary["rating"] as? Double != nil) {
+            self.rating = dictionary["rating"] as? Double
+        }
+        
+        if (dictionary["staticUrl"] as? String != nil) {
+            self.logoURL = "\(MSMRestApiManager.instance.appHostURL.absoluteString)\(dictionary["staticUrl"] as! String)"
+        }
+
         if (dictionary["placeId"] as? String != nil) {
             // Get Location
             let locationManager = LocationManager()
@@ -104,10 +110,8 @@ class Organization: NSObject, NSCoding, InitCellParameters, SearchObject {
                 
                 completion()
             })            
-        }
-        
-        if (dictionary["staticUrl"] as? String != nil) {
-            self.logoURL = "\(MSMRestApiManager.instance.appHostURL.absoluteString)\(dictionary["staticUrl"] as! String)"
+        } else {
+            completion()
         }
     }
 }

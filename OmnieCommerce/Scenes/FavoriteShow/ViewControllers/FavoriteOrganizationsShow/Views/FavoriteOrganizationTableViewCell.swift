@@ -53,7 +53,7 @@ extension FavoriteOrganizationTableViewCell: ConfigureCell {
         let organization = item as! Organization
         organizationID = organization.codeID
         nameLabel.text = organization.name
-        subcategoryLabel.text = organization.category.name
+//        subcategoryLabel.text = organization.category.name
         isFavorite = organization.isFavorite
         selectionStyle = .none
         
@@ -63,6 +63,6 @@ extension FavoriteOrganizationTableViewCell: ConfigureCell {
                                   placeholderImage: UIImage.init(named: "image-no-organization"),
                                   filter: AspectScaledToFillSizeWithRoundedCornersFilter(size: logoImageView.frame.size, radius: logoImageView.frame.size.width / 2))
         
-        dottedBorderView.style = (indexPath.row <= 1) ? .AroundDottedRectangleColor : .AroundDottedRectangle
+        dottedBorderView.style = .AroundDottedRectangle //(indexPath.row <= 1) ? .AroundDottedRectangleColor : .AroundDottedRectangle
     }
 }

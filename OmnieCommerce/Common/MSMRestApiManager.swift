@@ -359,7 +359,7 @@ final class MSMRestApiManager {
         Alamofire.request(appURL, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { dataResponse -> Void in
             if (dataResponse.result.value != nil) {
                 let json = JSON(dataResponse.result.value!)
-                let responseAPI = ResponseAPI.init(fromJSON: json, withBodyType: .FavoriteOrganizationsArray)
+                let responseAPI = ResponseAPI.init(fromJSON: json, withBodyType: .OrganizationsArray)
                 
                 handlerResponseAPICompletion(responseAPI)
                 return

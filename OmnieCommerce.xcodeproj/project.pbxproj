@@ -19,8 +19,6 @@
 		B10874821E5B1822004A4FB6 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B10874811E5B1822004A4FB6 /* CoreData.framework */; };
 		B10874A61E5B3D7E004A4FB6 /* AppUser+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10874A41E5B3D7E004A4FB6 /* AppUser+CoreDataClass.swift */; };
 		B10874A71E5B3D7E004A4FB6 /* AppUser+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10874A51E5B3D7E004A4FB6 /* AppUser+CoreDataProperties.swift */; };
-		B10B48B11E8A5517007DDD81 /* FavoriteOrganizationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10B48AF1E8A5517007DDD81 /* FavoriteOrganizationTableViewCell.swift */; };
-		B10B48B21E8A5517007DDD81 /* FavoriteOrganizationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B10B48B01E8A5517007DDD81 /* FavoriteOrganizationTableViewCell.xib */; };
 		B10B48CB1E8A5AEC007DDD81 /* FavoriteServicesShowConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10B48C41E8A5AEC007DDD81 /* FavoriteServicesShowConfigurator.swift */; };
 		B10B48CC1E8A5AEC007DDD81 /* FavoriteServicesShowInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10B48C51E8A5AEC007DDD81 /* FavoriteServicesShowInteractor.swift */; };
 		B10B48CD1E8A5AEC007DDD81 /* FavoriteServicesShowModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10B48C61E8A5AEC007DDD81 /* FavoriteServicesShowModels.swift */; };
@@ -347,6 +345,8 @@
 		B1E52AD31DDDDEC600C3B24D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1E52AD21DDDDEC600C3B24D /* Main.storyboard */; };
 		B1EC9F2C1E8AE31500F2E342 /* FavoriteOrganizations+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1EC9F2A1E8AE31500F2E342 /* FavoriteOrganizations+CoreDataClass.swift */; };
 		B1EC9F2D1E8AE31500F2E342 /* FavoriteOrganizations+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1EC9F2B1E8AE31500F2E342 /* FavoriteOrganizations+CoreDataProperties.swift */; };
+		B1EC9F311E8B7FEF00F2E342 /* FavoriteOrganizationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1EC9F2F1E8B7FEF00F2E342 /* FavoriteOrganizationTableViewCell.swift */; };
+		B1EC9F321E8B7FEF00F2E342 /* FavoriteOrganizationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1EC9F301E8B7FEF00F2E342 /* FavoriteOrganizationTableViewCell.xib */; };
 		B1F7EDB81DF54878003B36AD /* SegmentedControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F7EDB71DF54878003B36AD /* SegmentedControlView.swift */; };
 		B1F7EDBA1DF54886003B36AD /* SegmentedControlView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1F7EDB91DF54886003B36AD /* SegmentedControlView.xib */; };
 		B1FBC9161E6D474400D86429 /* LTHRadioButton.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1FBC9151E6D474400D86429 /* LTHRadioButton.framework */; };
@@ -403,8 +403,6 @@
 		B10874811E5B1822004A4FB6 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		B10874A41E5B3D7E004A4FB6 /* AppUser+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AppUser+CoreDataClass.swift"; sourceTree = "<group>"; };
 		B10874A51E5B3D7E004A4FB6 /* AppUser+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AppUser+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		B10B48AF1E8A5517007DDD81 /* FavoriteOrganizationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteOrganizationTableViewCell.swift; sourceTree = "<group>"; };
-		B10B48B01E8A5517007DDD81 /* FavoriteOrganizationTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FavoriteOrganizationTableViewCell.xib; sourceTree = "<group>"; };
 		B10B48C41E8A5AEC007DDD81 /* FavoriteServicesShowConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteServicesShowConfigurator.swift; sourceTree = "<group>"; };
 		B10B48C51E8A5AEC007DDD81 /* FavoriteServicesShowInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteServicesShowInteractor.swift; sourceTree = "<group>"; };
 		B10B48C61E8A5AEC007DDD81 /* FavoriteServicesShowModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteServicesShowModels.swift; sourceTree = "<group>"; };
@@ -745,6 +743,8 @@
 		B1E52AD21DDDDEC600C3B24D /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		B1EC9F2A1E8AE31500F2E342 /* FavoriteOrganizations+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FavoriteOrganizations+CoreDataClass.swift"; sourceTree = "<group>"; };
 		B1EC9F2B1E8AE31500F2E342 /* FavoriteOrganizations+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FavoriteOrganizations+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		B1EC9F2F1E8B7FEF00F2E342 /* FavoriteOrganizationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteOrganizationTableViewCell.swift; sourceTree = "<group>"; };
+		B1EC9F301E8B7FEF00F2E342 /* FavoriteOrganizationTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FavoriteOrganizationTableViewCell.xib; sourceTree = "<group>"; };
 		B1F7EDB71DF54878003B36AD /* SegmentedControlView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentedControlView.swift; sourceTree = "<group>"; };
 		B1F7EDB91DF54886003B36AD /* SegmentedControlView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SegmentedControlView.xib; sourceTree = "<group>"; };
 		B1FBC9151E6D474400D86429 /* LTHRadioButton.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LTHRadioButton.framework; path = "../../../../../Library/Developer/Xcode/DerivedData/OmnieCommerce-enpckymiymzhiuhdgnbmlxbwmhew/Build/Products/Debug-iphonesimulator/LTHRadioButton/LTHRadioButton.framework"; sourceTree = "<group>"; };
@@ -874,15 +874,6 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		B10B48AA1E8A549D007DDD81 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				B10B48AF1E8A5517007DDD81 /* FavoriteOrganizationTableViewCell.swift */,
-				B10B48B01E8A5517007DDD81 /* FavoriteOrganizationTableViewCell.xib */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
 		B10B48B31E8A5A52007DDD81 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -895,6 +886,7 @@
 		B10B48B41E8A5A77007DDD81 /* FavoriteOrganizationsShow */ = {
 			isa = PBXGroup;
 			children = (
+				B1EC9F2E1E8B7FD300F2E342 /* Views */,
 				B10B48D21E8A5B2E007DDD81 /* FavoriteOrganizationsShowConfigurator.swift */,
 				B10B48D31E8A5B2E007DDD81 /* FavoriteOrganizationsShowInteractor.swift */,
 				B10B48D41E8A5B2E007DDD81 /* FavoriteOrganizationsShowModels.swift */,
@@ -1141,7 +1133,6 @@
 			isa = PBXGroup;
 			children = (
 				B10B48B31E8A5A52007DDD81 /* ViewControllers */,
-				B10B48AA1E8A549D007DDD81 /* Views */,
 				B122F1F01DD35BC70018A701 /* FavoriteShowConfigurator.swift */,
 				B122F1F11DD35BC70018A701 /* FavoriteShowInteractor.swift */,
 				B122F1F21DD35BC70018A701 /* FavoriteShowModels.swift */,
@@ -1732,6 +1723,15 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		B1EC9F2E1E8B7FD300F2E342 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B1EC9F2F1E8B7FEF00F2E342 /* FavoriteOrganizationTableViewCell.swift */,
+				B1EC9F301E8B7FEF00F2E342 /* FavoriteOrganizationTableViewCell.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		B1FBC9171E6D493200D86429 /* RadioButton */ = {
 			isa = PBXGroup;
 			children = (
@@ -1886,7 +1886,7 @@
 				B1BF92711DD6516C00BECBBB /* helveticaneuecyr-medium.otf in Resources */,
 				B1BF92721DD6516C00BECBBB /* helveticaneuecyr-mediumitaicl.otf in Resources */,
 				B1BF92731DD6516C00BECBBB /* helveticaneuecyr-roman.otf in Resources */,
-				B10B48B21E8A5517007DDD81 /* FavoriteOrganizationTableViewCell.xib in Resources */,
+				B1EC9F321E8B7FEF00F2E342 /* FavoriteOrganizationTableViewCell.xib in Resources */,
 				B1BF92741DD6516C00BECBBB /* helveticaneuecyr-thin.otf in Resources */,
 				B1BF92751DD6516C00BECBBB /* helveticaneuecyr-thinitalic.otf in Resources */,
 				B1152FB01E6E9FD8007999B9 /* UserTemplateTableViewCell.xib in Resources */,
@@ -2131,7 +2131,6 @@
 				B1CF54A01DDB515000E98049 /* HandbookShowConfigurator.swift in Sources */,
 				B122DF661DF7F957003823AD /* CalendarShowPresenter.swift in Sources */,
 				B1A9ACCE1E7C6FE60010FF05 /* Categories+CoreDataClass.swift in Sources */,
-				B10B48B11E8A5517007DDD81 /* FavoriteOrganizationTableViewCell.swift in Sources */,
 				B1CF54981DDB512000E98049 /* DiscountCardsShowWorker.swift in Sources */,
 				B122F1FD1DD35BC70018A701 /* FavoriteShowWorker.swift in Sources */,
 				B14E974D1DD8B042001E1DE2 /* SignInShowViewController.swift in Sources */,
@@ -2226,6 +2225,7 @@
 				B1CF54D91DDB51BE00E98049 /* SettingsShowInteractor.swift in Sources */,
 				B1CF547C1DDB50D900E98049 /* AboutShowWorker.swift in Sources */,
 				B1CF54DA1DDB51BE00E98049 /* SettingsShowModels.swift in Sources */,
+				B1EC9F311E8B7FEF00F2E342 /* FavoriteOrganizationTableViewCell.swift in Sources */,
 				B1CF54791DDB50D900E98049 /* AboutShowPresenter.swift in Sources */,
 				B122F1F71DD35BC70018A701 /* FavoriteShowConfigurator.swift in Sources */,
 				B177E53A1E5475EC004F1390 /* SignInContainerShowWorker.swift in Sources */,

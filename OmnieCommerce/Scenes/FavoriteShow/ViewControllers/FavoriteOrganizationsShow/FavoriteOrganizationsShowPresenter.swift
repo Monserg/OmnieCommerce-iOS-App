@@ -30,14 +30,14 @@ class FavoriteOrganizationsShowPresenter: FavoriteOrganizationsShowPresenterInpu
     func favoriteOrganizationsDidPrepareToShowLoad(fromResponseModel responseModel: FavoriteOrganizationsShowModels.Organizations.ResponseModel) {
         // Format the response from the Interactor and pass the result back to the View Controller
         if ((responseModel.response?.body as! [Any]).count > 0) {
-            responseModel.response?.organizationsAddressDidLoad(responseModel.response?.body as! [Any], completion: { organizations in
+            responseModel.response?.organizationsAddressDidLoad(responseModel.response?.body as! [Any], completion: { favoriteOrganizations in
                 // Prepare to save Organizations in CoreData
-//                let _ = organizations.map { $0.category = responseModel.category }
-                let entityOrganizations = CoreDataManager.instance.entityDidLoad(byName: keyFavoriteOrganizations) as! Organizations
-                let organizationsData = NSKeyedArchiver.archivedData(withRootObject: organizations) as NSData?
-                entityOrganizations.list = organizationsData!
+                let _ = favoriteOrganizations.map { $0.cellHeight = 60.0; $0.cellIdentifier = "FavoriteOrganizationTableViewCell" }
+                let entityFavoriteOrganizations = CoreDataManager.instance.entityDidLoad(byName: keyFavoriteOrganizations) as! FavoriteOrganizations
+                let favoriteOrganizationsData = NSKeyedArchiver.archivedData(withRootObject: favoriteOrganizations) as NSData?
+                entityFavoriteOrganizations.list = favoriteOrganizationsData!
                 
-                let organizationsViewModel = FavoriteOrganizationsShowModels.Organizations.ViewModel(organizations: organizations)
+                let organizationsViewModel = FavoriteOrganizationsShowModels.Organizations.ViewModel(organizations: favoriteOrganizations)
                 self.viewController.favoriteOrganizationsDidShowLoad(fromViewModel: organizationsViewModel)
             })
         } else {
