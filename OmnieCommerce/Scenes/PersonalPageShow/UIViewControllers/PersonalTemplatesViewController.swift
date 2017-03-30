@@ -35,7 +35,8 @@ class PersonalTemplatesViewController: BaseViewController {
     // MARK: - Custom Functions
     private func viewSettingsDidLoad() {
         // TableViewController Manager
-        tableView.tableViewControllerManager = MSMTableViewControllerManager.init(withTableView: self.tableView, andSectionsCount: 1, withEmptyText: "Templates list is empty")
+        let userTemplatesTableManager = MSMTableViewControllerManager.init(withTableView: tableView, andSectionsCount: 1, andEmptyMessageText: "Templates list is empty")
+        tableView.tableViewControllerManager = userTemplatesTableManager
         tableView.tableViewControllerManager!.dataSource = organizations
         
         tableView.isScrollEnabled = (organizations == nil) ? false : true

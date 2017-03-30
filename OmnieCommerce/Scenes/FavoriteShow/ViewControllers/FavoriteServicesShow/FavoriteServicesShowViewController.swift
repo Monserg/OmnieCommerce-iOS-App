@@ -62,7 +62,8 @@ class FavoriteServicesShowViewController: BaseViewController {
     // MARK: - Custom Functions
     func viewSettingsDidLoad() {
         // Create MSMTableViewControllerManager
-        tableView.tableViewControllerManager = MSMTableViewControllerManager.init(withTableView: self.tableView, andSectionsCount: 1, withEmptyText: "Services list is empty")
+        let servicesTableManager = MSMTableViewControllerManager.init(withTableView: self.tableView, andSectionsCount: 1, andEmptyMessageText: "Services list is empty")
+        tableView.tableViewControllerManager = servicesTableManager
         
         // Load Services list from Core Data
         guard isNetworkAvailable else {
@@ -106,8 +107,9 @@ class FavoriteServicesShowViewController: BaseViewController {
         
         // Setting MSMTableViewControllerManager
         tableView.tableViewControllerManager!.dataSource = servicesList
-        tableView.tableFooterView?.isHidden = (servicesList.count > 0) ? true : false
-        
+        tableView!.tableFooterView!.isHidden = (servicesList.count > 0) ? true : false
+        (tableView!.tableFooterView as! MSMTableViewFooterView).didUpload(forItemsCount: servicesList.count,
+                                                                          andEmptyText: "Services list is empty")
         tableView.reloadData()
         
         // Handler select cell

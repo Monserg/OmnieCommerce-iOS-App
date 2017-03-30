@@ -15,7 +15,7 @@
             <rect key="frame" x="0.0" y="0.0" width="493" height="96"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" multipleTouchEnabled="YES" contentMode="center" tableViewCell="n4L-Kx-ktX" id="lSQ-ft-YkF">
-                <rect key="frame" x="0.0" y="0.0" width="493" height="95"/>
+                <rect key="frame" x="0.0" y="0.0" width="493" height="95.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EVO-Fi-P0B" userLabel="Border Dotted View">
@@ -155,7 +155,7 @@
                             <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
                         </userDefinedRuntimeAttributes>
                     </view>
-                    <imageView opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image-no-organization" translatesAutoresizingMaskIntoConstraints="NO" id="4LM-13-j80" userLabel="Logo Image View" customClass="CustomImageView" customModule="OmnieCommerce" customModuleProvider="target">
+                    <imageView opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image-no-service" translatesAutoresizingMaskIntoConstraints="NO" id="4LM-13-j80" userLabel="Logo Image View" customClass="CustomImageView" customModule="OmnieCommerce" customModuleProvider="target">
                         <rect key="frame" x="8" y="5" width="85" height="85"/>
                         <color key="backgroundColor" red="0.1529411765" green="0.2156862745" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -226,6 +226,6 @@
     </objects>
     <resources>
         <image name="image-favorite-star-normal" width="13" height="12"/>
-        <image name="image-no-organization" width="24" height="20"/>
+        <image name="image-no-service" width="60" height="84"/>
     </resources>
 </document>

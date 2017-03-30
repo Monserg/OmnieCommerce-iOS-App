@@ -36,16 +36,20 @@ class OrganizationsShowViewController: BaseViewController {
     
     var subcategoriesDropDownTableView: MSMTableView! {
         didSet {
-            subcategoriesDropDownTableView.tableViewControllerManager = MSMTableViewControllerManager.init(withTableView: subcategoriesDropDownTableView, andSectionsCount: 1, withEmptyText: "DropDownList")
+            let subcategoriesTableManager = MSMTableViewControllerManager.init(withTableView: subcategoriesDropDownTableView, andSectionsCount: 1, andEmptyMessageText: "DropDownList")
+            subcategoriesDropDownTableView.tableViewControllerManager = subcategoriesTableManager
             subcategoriesDropDownTableView.alpha = 0
+           
             subcategoriesDropDownTableView.tableViewControllerManager.dataSource = category!.subcategories!
         }
     }
 
     var organizationServiceDropDownTableView: MSMTableView! {
         didSet {
-            organizationServiceDropDownTableView.tableViewControllerManager = MSMTableViewControllerManager.init(withTableView: organizationServiceDropDownTableView, andSectionsCount: 1, withEmptyText: "DropDownList")
+            let organizationServiceTableManager = MSMTableViewControllerManager.init(withTableView: organizationServiceDropDownTableView, andSectionsCount: 1, andEmptyMessageText: "DropDownList")
+            organizationServiceDropDownTableView.tableViewControllerManager = organizationServiceTableManager
             organizationServiceDropDownTableView.alpha = 0
+            
             organizationServiceDropDownTableView.tableViewControllerManager.dataSource =    [
                                                                                                 DropDownValue.init(keyOrganization,
                                                                                                                    withName: "By organizations".localized(),
@@ -56,7 +60,6 @@ class OrganizationsShowViewController: BaseViewController {
                                                                                             ]
         }
     }
-
 
     @IBOutlet weak var smallTopBarView: SmallTopBarView!
     @IBOutlet weak var mapButton: CustomButton!
@@ -83,14 +86,20 @@ class OrganizationsShowViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        viewSettingsDidLoad()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
+        viewSettingsDidLoad()
+    }
+
     
     // MARK: - Custom Functions
     func viewSettingsDidLoad() {
         // Create MSMTableViewControllerManager
-        tableView.tableViewControllerManager = MSMTableViewControllerManager.init(withTableView: self.tableView, andSectionsCount: 1, withEmptyText: "Organizations list is empty")
+        let organizationsTableManager = MSMTableViewControllerManager.init(withTableView: tableView, andSectionsCount: 1, andEmptyMessageText: "Organizations list is empty")
+        tableView.tableViewControllerManager = organizationsTableManager
 
         // Config smallTopBarView
         navigationBarView = smallTopBarView
@@ -146,11 +155,11 @@ class OrganizationsShowViewController: BaseViewController {
         }
 
         // Setting MSMTableViewControllerManager
-        tableView.tableViewControllerManager!.dataSource = organizationsList
+        tableView!.tableViewControllerManager!.dataSource = organizationsList
+        tableView!.tableFooterView!.isHidden = (organizationsList.count > 0) ? true : false
+        (tableView!.tableFooterView as! MSMTableViewFooterView).didUpload(forItemsCount: organizationsList.count,
+                                                                          andEmptyText: "Organizations list is empty")
         mapButton.isUserInteractionEnabled = true
-        tableView.tableViewControllerManager.emptyText = "Organizations list is empty"
-        tableView.tableFooterView?.isHidden = (organizationsList.count > 0) ? true : false
-
         tableView.reloadData()
         
         // Search Manager
@@ -219,13 +228,13 @@ class OrganizationsShowViewController: BaseViewController {
         }
         
         // Setting MSMTableViewControllerManager
-        tableView.tableViewControllerManager!.dataSource = servicesList
+        tableView!.tableViewControllerManager!.dataSource = servicesList
+        tableView!.tableFooterView!.isHidden = (servicesList.count > 0) ? true : false
+        (tableView!.tableFooterView as! MSMTableViewFooterView).didUpload(forItemsCount: servicesList.count,
+                                                                          andEmptyText: "Services list is empty")
         mapButton.isUserInteractionEnabled = true
-        tableView.tableFooterView?.isHidden = (servicesList.count > 0) ? true : false
-        tableView.tableViewControllerManager.emptyText = "Services list is empty"
-        
         tableView.reloadData()
-        
+
         // Search Manager
         smallTopBarView.searchBar.placeholder = "Enter Service name".localized()
         smallTopBarView.searchBar.delegate = tableView.tableViewControllerManager

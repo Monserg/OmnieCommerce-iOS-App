@@ -8,7 +8,8 @@
 
 import UIKit
 import Cosmos
-import AlamofireImage
+import Toucan
+import Kingfisher
 
 class ServiceTableViewCell: UITableViewCell, DottedBorderViewBinding {
     // MARK: - Properties
@@ -63,11 +64,23 @@ extension ServiceTableViewCell: ConfigureCell {
         isFavorite = service.isFavorite
         selectionStyle = .none
         
-        favoriteButton.setImage((isFavorite) ? UIImage(named: "image-favorite-star-selected") : UIImage(named: "image-favorite-star-normal"), for: .normal)
+        favoriteButton.setImage((isFavorite) ?  UIImage(named: "image-favorite-star-selected") :
+                                                UIImage(named: "image-favorite-star-normal"), for: .normal)
         
-        logoImageView.af_setImage(withURL: URL(string: service.logoURL ?? "https://blog.testfort.com/wp-content/uploads/2015/07/apple_logo.png")!,
-                                  placeholderImage: UIImage.init(named: "image-no-organization"),
-                                  filter: AspectScaledToFillSizeWithRoundedCornersFilter(size: logoImageView.frame.size, radius: logoImageView.frame.size.width / 2))
+        if let imagePath = service.logoURL {
+            logoImageView.kf.setImage(with: ImageResource(downloadURL: URL(string: imagePath)!, cacheKey: serviceID),
+                                      placeholder: UIImage.init(named: "image-no-service"),
+                                      options: [.transition(ImageTransition.fade(1))],
+                                      completionHandler: { image, error, cacheType, imageURL in
+                                        if (image != nil) {
+                                            self.logoImageView.image = Toucan(image: image!)
+                                                .resize(self.logoImageView.frame.size, fitMode: Toucan.Resize.FitMode.crop)
+                                                .maskWithEllipse().image
+                                        }
+                                        
+                                        self.logoImageView.kf.cancelDownloadTask()
+            })
+        }
         
         dottedBorderView.style = (indexPath.row <= 1) ? .AroundDottedRectangleColor : .AroundDottedRectangle
     }

@@ -61,7 +61,8 @@ class NewsShowViewController: BaseViewController {
         setupSegmentedControlView()
 
         // TableViewController Manager
-        tableView.tableViewControllerManager = MSMTableViewControllerManager.init(withTableView: self.tableView, andSectionsCount: 1, withEmptyText: "News list is empty")
+        let newsTableManager = MSMTableViewControllerManager.init(withTableView: tableView, andSectionsCount: 1, andEmptyMessageText: "News list is empty")
+        tableView.tableViewControllerManager = newsTableManager
 
         // Config smallTopBarView
         navigationBarView = smallTopBarView

@@ -59,7 +59,8 @@ class MessagesShowViewController: BaseViewController {
         print(object: "\(type(of: self)): \(#function) run.")
         
         // TableViewController Manager
-        tableView.tableViewControllerManager = MSMTableViewControllerManager.init(withTableView: self.tableView, andSectionsCount: 1, withEmptyText: "Messages list is empty")
+        let messagesTableManager = MSMTableViewControllerManager.init(withTableView: self.tableView, andSectionsCount: 1, andEmptyMessageText: "Messages list is empty")
+        tableView.tableViewControllerManager = messagesTableManager
 
         // Config smallTopBarView
         navigationBarView       =   smallTopBarView

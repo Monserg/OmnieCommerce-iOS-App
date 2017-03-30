@@ -42,4 +42,18 @@ class MSMTableViewFooterView: UIView {
         addSubview(view)
         view.frame = frame
     }
+    
+    
+    // MARK: - Custom Functions
+    func didUpload(forItemsCount itemsCount: Int, andEmptyText emptyText: String) {
+        if (itemsCount == 0) {
+            emptyView.isHidden = false
+            emptyMessageLabel.text = emptyText.localized()
+            infiniteScrollView.isHidden = true
+        } else {
+            emptyView.isHidden = true
+            infiniteScrollView.isHidden = false
+//            isHidden = (isLoadMore) ? false : true
+        }
+    }
 }

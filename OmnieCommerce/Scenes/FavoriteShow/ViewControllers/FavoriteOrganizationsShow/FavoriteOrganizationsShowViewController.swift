@@ -62,7 +62,8 @@ class FavoriteOrganizationsShowViewController: BaseViewController {
     // MARK: - Custom Functions
     func viewSettingsDidLoad() {
         // Create MSMTableViewControllerManager
-        tableView.tableViewControllerManager = MSMTableViewControllerManager.init(withTableView: self.tableView, andSectionsCount: 1, withEmptyText: "Organizations list is empty")
+        let organizationsTableManager = MSMTableViewControllerManager.init(withTableView: self.tableView, andSectionsCount: 1, andEmptyMessageText: "Organizations list is empty")
+        tableView.tableViewControllerManager = organizationsTableManager
 
         // Load Organizations list from Core Data
         guard isNetworkAvailable else {
@@ -106,8 +107,9 @@ class FavoriteOrganizationsShowViewController: BaseViewController {
         
         // Setting MSMTableViewControllerManager
         tableView.tableViewControllerManager!.dataSource = organizationsList
-        tableView.tableFooterView?.isHidden = (organizationsList.count > 0) ? true : false
-        
+        tableView!.tableFooterView!.isHidden = (organizationsList.count > 0) ? true : false
+        (tableView!.tableFooterView as! MSMTableViewFooterView).didUpload(forItemsCount: organizationsList.count,
+                                                                          andEmptyText: "Organizations list is empty")
         tableView.reloadData()
         
         // Handler select cell

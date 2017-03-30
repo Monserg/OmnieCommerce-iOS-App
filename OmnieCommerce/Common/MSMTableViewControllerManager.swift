@@ -34,13 +34,14 @@ class MSMTableViewControllerManager: BaseViewController {
     
     
     // MARK: - Class Initialization
-    init(withTableView tableView: MSMTableView, andSectionsCount sections: Int, withEmptyText text: String) {
+    init(withTableView tableView: MSMTableView, andSectionsCount sections: Int, andEmptyMessageText text: String) {
         super.init(nibName: nil, bundle: nil)
         
         self.tableView = tableView
         self.sectionsCount = sections
         self.emptyText = text
-        
+        self.tableView!.tableFooterView = (text.contains(" list is empty")) ? MSMTableViewFooterView.init(frame: CGRect.init(origin: .zero, size: CGSize.init(width: tableView.frame.width, height: footerViewHeight))) : nil
+
         if (emptyText != "DropDownList") {
             self.pullRefreshDidCreate()
         }
@@ -69,7 +70,13 @@ class MSMTableViewControllerManager: BaseViewController {
         if (emptyText != "DropDownList") {
             if (scrollView.contentOffset.y >= footerViewHeight && !isLoadMore) {
                 isLoadMore = !isLoadMore
-                self.tableView!.reloadData()
+                
+                // Refresh FooterView
+                self.tableView!.beginUpdates()
+                self.tableView!.tableFooterView?.isHidden = false
+                (self.tableView!.tableFooterView as! MSMTableViewFooterView).didUpload(forItemsCount: (dataSource?.count)!,
+                                                                                       andEmptyText: "Services list is empty")
+                self.tableView!.endUpdates()
                 
                 DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
                     self.handlerInfiniteScrollCompletion!()
@@ -78,6 +85,8 @@ class MSMTableViewControllerManager: BaseViewController {
         }
     }
     
+    
+    // MARK: - Custom Functions
     private func pullRefreshDidCreate() {
         refreshControl = UIRefreshControl()
         refreshControl!.tintColor = UIColor.init(hexString: "#dedede", withAlpha: 1.0)
@@ -123,7 +132,7 @@ extension MSMTableViewControllerManager: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cellIdentifier = (dataSource?[indexPath.row] as! InitCellParameters).cellIdentifier
+        let cellIdentifier = (dataSource![indexPath.row] as! InitCellParameters).cellIdentifier
         self.tableView!.register(UINib(nibName: cellIdentifier, bundle: nil), forCellReuseIdentifier: cellIdentifier)
 
         let cell = self.tableView!.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
@@ -185,16 +194,16 @@ extension MSMTableViewControllerManager: UITableViewDataSource {
                 // Delete selected row from table view
                 organizationsList.remove(at: organizationIndex)
                 self.dataSource = organizationsList
-                
+                self.tableView!.beginUpdates()
+
                 if (self.dataSource?.count == 0) {
                     self.tableView!.tableFooterView?.isHidden = false
+                    (self.tableView!.tableFooterView as! MSMTableViewFooterView).didUpload(forItemsCount: 0,
+                                                                                           andEmptyText: "Organizations list is empty")
                 }
 
-                self.tableView!.beginUpdates()
                 self.tableView!.deleteRows(at: [IndexPath(row: organizationIndex, section: 0)], with: .left)
                 self.tableView!.endUpdates()
-                
-                self.tableView!.reloadData()
             }
 
         case cell as FavoriteServiceTableViewCell:
@@ -212,6 +221,8 @@ extension MSMTableViewControllerManager: UITableViewDataSource {
                 
                 if (self.dataSource?.count == 0) {
                     self.tableView!.tableFooterView?.isHidden = false
+                    (self.tableView!.tableFooterView as! MSMTableViewFooterView).didUpload(forItemsCount: 0,
+                                                                                           andEmptyText: "Services list is empty")
                 }
                 
                 self.tableView!.beginUpdates()
@@ -286,36 +297,7 @@ extension MSMTableViewControllerManager: UITableViewDelegate {
         let cell = tableView.cellForRow(at: indexPath)!
         cell.contentView.backgroundColor = .clear
     }
-    
-    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        guard dataSource != nil else {
-            return 0
-        }
         
-        return (emptyText == "DropDownList") ? 0.0 : footerViewHeight
-    }
-    
-    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        if (emptyText.contains(" list is empty")) {
-            let footerView = MSMTableViewFooterView.init(frame: CGRect.init(origin: .zero, size: CGSize.init(width: tableView.frame.width, height: footerViewHeight)))
-            
-            if (dataSource!.count == 0) {
-                footerView.emptyView.isHidden = false
-                footerView.emptyMessageLabel.text = emptyText.localized()
-                footerView.infiniteScrollView.isHidden = true
-                footerView.isHidden = false
-            } else {
-                footerView.emptyView.isHidden = true
-                footerView.infiniteScrollView.isHidden = false
-                footerView.isHidden = (isLoadMore) ? false : true
-            }
-            
-            return footerView
-        }
-        
-        return nil
-    }
-    
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }

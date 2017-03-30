@@ -84,7 +84,7 @@
                             <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
                         </userDefinedRuntimeAttributes>
                     </view>
-                    <imageView opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image-no-organization" translatesAutoresizingMaskIntoConstraints="NO" id="G1j-OU-Czb" userLabel="Logo Image View" customClass="CustomImageView" customModule="OmnieCommerce" customModuleProvider="target">
+                    <imageView opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image-no-service" translatesAutoresizingMaskIntoConstraints="NO" id="G1j-OU-Czb" userLabel="Logo Image View" customClass="CustomImageView" customModule="OmnieCommerce" customModuleProvider="target">
                         <rect key="frame" x="8" y="5" width="50" height="50"/>
                         <color key="backgroundColor" red="0.1529411765" green="0.2156862745" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -151,6 +151,6 @@
     </objects>
     <resources>
         <image name="image-favorite-star-normal" width="13" height="12"/>
-        <image name="image-no-organization" width="24" height="20"/>
+        <image name="image-no-service" width="16" height="22"/>
     </resources>
 </document>
