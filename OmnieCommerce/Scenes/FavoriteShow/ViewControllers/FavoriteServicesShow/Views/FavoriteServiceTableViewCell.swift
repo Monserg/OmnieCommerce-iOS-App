@@ -16,6 +16,7 @@ class FavoriteServiceTableViewCell: UITableViewCell, DottedBorderViewBinding {
     
     var handlerFavoriteButtonTapCompletion: HandlerPassDataCompletion?
     
+    @IBOutlet weak var nameLabel: UbuntuLightVeryLightGrayLabel!
     @IBOutlet weak var serviceLabel: UbuntuLightItalicLightGrayishCyanLabel!
     @IBOutlet weak var logoImageView: CustomImageView!
     @IBOutlet weak var dottedBorderView: DottedBorderView!
@@ -55,6 +56,7 @@ extension FavoriteServiceTableViewCell: ConfigureCell {
         let service = item as! Service
         serviceID = service.codeID
         serviceLabel.text = service.name
+        nameLabel.text = service.organizationName
         isFavorite = service.isFavorite
         selectionStyle = .none
         

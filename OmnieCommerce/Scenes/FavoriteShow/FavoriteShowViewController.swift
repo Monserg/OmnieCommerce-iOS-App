@@ -108,7 +108,11 @@ class FavoriteShowViewController: BaseViewController {
         smallTopBarView.circleView.setNeedsDisplay()
         segmentedControlView.setNeedsDisplay()
 
-        _ = favoriteOrganizationsVC!.tableView.visibleCells.map { ($0 as! FavoriteOrganizationTableViewCell).dottedBorderView.setNeedsDisplay() }
+        _ = favoriteOrganizationsVC!.tableView.visibleCells.map { ($0 as! DottedBorderViewBinding).dottedBorderView.setNeedsDisplay() }
+        
+        if (favoriteServicesVC!.tableView != nil) {
+            _ = favoriteServicesVC!.tableView.visibleCells.map { ($0 as! DottedBorderViewBinding).dottedBorderView.setNeedsDisplay() }
+        }
     }
 }
 

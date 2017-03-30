@@ -14,6 +14,7 @@ class Service: NSObject, NSCoding, InitCellParameters, SearchObject, PointAnnota
     // MARK: - Properties
     var codeID: String!
     var name: String!
+    var organizationName: String!
     var category: Category?
     var latitude: CLLocationDegrees?
     var longitude: CLLocationDegrees?
@@ -34,9 +35,10 @@ class Service: NSObject, NSCoding, InitCellParameters, SearchObject, PointAnnota
         super.init()
     }
     
-    init(codeID: String, name: String, category: Category?, rating: Double?, isFavorite: Bool, logoURL: String?, city: String?, street: String?, latitude: CLLocationDegrees?, longitude: CLLocationDegrees?) {
+    init(codeID: String, name: String, organizationName: String, category: Category?, rating: Double?, isFavorite: Bool, logoURL: String?, city: String?, street: String?, latitude: CLLocationDegrees?, longitude: CLLocationDegrees?) {
         self.codeID = codeID
         self.name = name
+        self.organizationName = organizationName
         self.category = category
         self.rating = rating
         self.isFavorite = isFavorite
@@ -50,6 +52,7 @@ class Service: NSObject, NSCoding, InitCellParameters, SearchObject, PointAnnota
     required convenience init(coder aDecoder: NSCoder) {
         let codeID = aDecoder.decodeObject(forKey: "codeID") as! String
         let name = aDecoder.decodeObject(forKey: "name") as! String
+        let organizationName = aDecoder.decodeObject(forKey: "orgName") as! String
         let category = aDecoder.decodeObject(forKey: "category") as? Category
         let rating = aDecoder.decodeObject(forKey: "rating") as? Double
         let isFavorite = aDecoder.decodeBool(forKey: "isFavorite")
@@ -59,12 +62,13 @@ class Service: NSObject, NSCoding, InitCellParameters, SearchObject, PointAnnota
         let addressCity = aDecoder.decodeObject(forKey: "addressCity") as? String
         let addressStreet = aDecoder.decodeObject(forKey: "addressStreet") as? String
 
-        self.init(codeID: codeID, name: name, category: category, rating: rating, isFavorite: isFavorite, logoURL: logoURL, city: addressCity, street: addressStreet, latitude: latitude, longitude: longitude)
+        self.init(codeID: codeID, name: name, organizationName: organizationName, category: category, rating: rating, isFavorite: isFavorite, logoURL: logoURL, city: addressCity, street: addressStreet, latitude: latitude, longitude: longitude)
     }
     
     func encode(with aCoder: NSCoder){
         aCoder.encode(codeID, forKey: "codeID")
         aCoder.encode(name, forKey: "name")
+        aCoder.encode(organizationName, forKey: "orgName")
         aCoder.encode(category, forKey: "category")
         aCoder.encode(rating, forKey: "rating")
         aCoder.encode(isFavorite, forKey: "isFavorite")
@@ -86,6 +90,7 @@ class Service: NSObject, NSCoding, InitCellParameters, SearchObject, PointAnnota
     func didMap(fromDictionary dictionary: [String: Any], completion: @escaping (() -> ())) {
         self.codeID = dictionary["uuid"] as? String
         self.name = dictionary["name"] as? String
+        self.organizationName = dictionary["orgName"] as? String
         self.isFavorite = (dictionary["isFavorite"] as? Bool)!
         
         if (dictionary["rating"] as? Double != nil) {
