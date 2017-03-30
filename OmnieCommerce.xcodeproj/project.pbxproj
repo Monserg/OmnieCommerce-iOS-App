@@ -119,6 +119,8 @@
 		B137EC8E1E7D059B006F0184 /* UbuntuRegularVeryDarkGrayLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B137EC8D1E7D059B006F0184 /* UbuntuRegularVeryDarkGrayLabel.swift */; };
 		B137EC931E7D19B0006F0184 /* MSMCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B137EC921E7D19B0006F0184 /* MSMCollectionView.swift */; };
 		B137EC951E7D19FB006F0184 /* MSMCollectionViewControllerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B137EC941E7D19FB006F0184 /* MSMCollectionViewControllerManager.swift */; };
+		B1390FFC1E8D1E4B00BD9219 /* FavoriteServiceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1390FFA1E8D1E4B00BD9219 /* FavoriteServiceTableViewCell.swift */; };
+		B1390FFD1E8D1E4B00BD9219 /* FavoriteServiceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1390FFB1E8D1E4B00BD9219 /* FavoriteServiceTableViewCell.xib */; };
 		B14107C41DFEA73900F79CF9 /* CalendarDayCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14107C21DFEA73900F79CF9 /* CalendarDayCellView.swift */; };
 		B14107C51DFEA73900F79CF9 /* CalendarDayCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B14107C31DFEA73900F79CF9 /* CalendarDayCellView.xib */; };
 		B14107C71DFEB1D700F79CF9 /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14107C61DFEB1D700F79CF9 /* CustomView.swift */; };
@@ -348,8 +350,6 @@
 		B1EC9F2D1E8AE31500F2E342 /* FavoriteOrganizations+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1EC9F2B1E8AE31500F2E342 /* FavoriteOrganizations+CoreDataProperties.swift */; };
 		B1EC9F311E8B7FEF00F2E342 /* FavoriteOrganizationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1EC9F2F1E8B7FEF00F2E342 /* FavoriteOrganizationTableViewCell.swift */; };
 		B1EC9F321E8B7FEF00F2E342 /* FavoriteOrganizationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1EC9F301E8B7FEF00F2E342 /* FavoriteOrganizationTableViewCell.xib */; };
-		B1EC9F3A1E8B925F00F2E342 /* FavoriteServiceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1EC9F381E8B925F00F2E342 /* FavoriteServiceTableViewCell.swift */; };
-		B1EC9F3B1E8B925F00F2E342 /* FavoriteServiceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1EC9F391E8B925F00F2E342 /* FavoriteServiceTableViewCell.xib */; };
 		B1EC9F3D1E8BBDBD00F2E342 /* DropDownItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1EC9F3C1E8BBDBD00F2E342 /* DropDownItem.swift */; };
 		B1EC9F3F1E8BC80B00F2E342 /* DropDownTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1EC9F3E1E8BC80B00F2E342 /* DropDownTableViewCell.xib */; };
 		B1EC9F411E8C133800F2E342 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1EC9F401E8C133800F2E342 /* Service.swift */; };
@@ -515,6 +515,8 @@
 		B137EC8D1E7D059B006F0184 /* UbuntuRegularVeryDarkGrayLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UbuntuRegularVeryDarkGrayLabel.swift; sourceTree = "<group>"; };
 		B137EC921E7D19B0006F0184 /* MSMCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSMCollectionView.swift; sourceTree = "<group>"; };
 		B137EC941E7D19FB006F0184 /* MSMCollectionViewControllerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSMCollectionViewControllerManager.swift; sourceTree = "<group>"; };
+		B1390FFA1E8D1E4B00BD9219 /* FavoriteServiceTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteServiceTableViewCell.swift; sourceTree = "<group>"; };
+		B1390FFB1E8D1E4B00BD9219 /* FavoriteServiceTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FavoriteServiceTableViewCell.xib; sourceTree = "<group>"; };
 		B14107C21DFEA73900F79CF9 /* CalendarDayCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarDayCellView.swift; sourceTree = "<group>"; };
 		B14107C31DFEA73900F79CF9 /* CalendarDayCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CalendarDayCellView.xib; sourceTree = "<group>"; };
 		B14107C61DFEB1D700F79CF9 /* CustomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
@@ -756,8 +758,6 @@
 		B1EC9F2B1E8AE31500F2E342 /* FavoriteOrganizations+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FavoriteOrganizations+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		B1EC9F2F1E8B7FEF00F2E342 /* FavoriteOrganizationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteOrganizationTableViewCell.swift; sourceTree = "<group>"; };
 		B1EC9F301E8B7FEF00F2E342 /* FavoriteOrganizationTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FavoriteOrganizationTableViewCell.xib; sourceTree = "<group>"; };
-		B1EC9F381E8B925F00F2E342 /* FavoriteServiceTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteServiceTableViewCell.swift; sourceTree = "<group>"; };
-		B1EC9F391E8B925F00F2E342 /* FavoriteServiceTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FavoriteServiceTableViewCell.xib; sourceTree = "<group>"; };
 		B1EC9F3C1E8BBDBD00F2E342 /* DropDownItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DropDownItem.swift; sourceTree = "<group>"; };
 		B1EC9F3E1E8BC80B00F2E342 /* DropDownTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DropDownTableViewCell.xib; sourceTree = "<group>"; };
 		B1EC9F401E8C133800F2E342 /* Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
@@ -1763,8 +1763,8 @@
 		B1EC9F331E8B916800F2E342 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				B1EC9F381E8B925F00F2E342 /* FavoriteServiceTableViewCell.swift */,
-				B1EC9F391E8B925F00F2E342 /* FavoriteServiceTableViewCell.xib */,
+				B1390FFA1E8D1E4B00BD9219 /* FavoriteServiceTableViewCell.swift */,
+				B1390FFB1E8D1E4B00BD9219 /* FavoriteServiceTableViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1953,7 +1953,6 @@
 				B1BF927C1DD6516C00BECBBB /* UBUNTU-L.TTF in Resources */,
 				B1BF927D1DD6516C00BECBBB /* UBUNTU-LI.TTF in Resources */,
 				B137EC8C1E7D0334006F0184 /* CategoryCollectionViewCell.xib in Resources */,
-				B1EC9F3B1E8B925F00F2E342 /* FavoriteServiceTableViewCell.xib in Resources */,
 				B1597AD21E3F42BD00123CB5 /* AvatarActionView.xib in Resources */,
 				B1BF927E1DD6516C00BECBBB /* UBUNTU-M.TTF in Resources */,
 				B1BF927F1DD6516C00BECBBB /* UBUNTU-MI.TTF in Resources */,
@@ -1967,6 +1966,7 @@
 				B122F22C1DD35E550018A701 /* MessagesShow.storyboard in Resources */,
 				B1CF54E61DDB552300E98049 /* PersonalPageShow.storyboard in Resources */,
 				B122F2481DD393330018A701 /* Localizable.strings in Resources */,
+				B1390FFD1E8D1E4B00BD9219 /* FavoriteServiceTableViewCell.xib in Resources */,
 				B122DF5A1DF7F901003823AD /* CalendarShow.storyboard in Resources */,
 				B1CF54EE1DDB588600E98049 /* DiscountCardsShow.storyboard in Resources */,
 				B1CF54E41DDB543300E98049 /* SettingsShow.storyboard in Resources */,
@@ -2136,6 +2136,7 @@
 				B1CF548A1DDB50F100E98049 /* BusinessCardsShowWorker.swift in Sources */,
 				B122F1E11DD35B760018A701 /* OrdersShowWorker.swift in Sources */,
 				B17D92DD1E701D750028967E /* MSMTextFieldManager.swift in Sources */,
+				B1390FFC1E8D1E4B00BD9219 /* FavoriteServiceTableViewCell.swift in Sources */,
 				B1FFF7061E5ECDF900A075D8 /* OrganizationsShowWorker.swift in Sources */,
 				B1FFF71F1E5F038400A075D8 /* Organization.swift in Sources */,
 				B122F2191DD35C2C0018A701 /* NewsShowWorker.swift in Sources */,
@@ -2190,7 +2191,6 @@
 				B122A58E1E6BE10F00C39B67 /* FillVeryLightOrangeButton.swift in Sources */,
 				B108746C1E5B07D3004A4FB6 /* CoreDataManager.swift in Sources */,
 				B19DF2861DF94DED000AFC92 /* SchedulerViewController.swift in Sources */,
-				B1EC9F3A1E8B925F00F2E342 /* FavoriteServiceTableViewCell.swift in Sources */,
 				B1CF54CE1DDB51A500E98049 /* PersonalPageShowRouter.swift in Sources */,
 				B18A45CA1DEC282B003EBD2F /* DotView.swift in Sources */,
 				B14D1D741E5CB8B000D33435 /* SocialNetworkManager.swift in Sources */,

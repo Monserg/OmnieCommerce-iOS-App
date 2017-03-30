@@ -44,6 +44,11 @@ public class AppUser: NSManagedObject, InitCellParameters {
         }
         
         self.imagePath      =   "http://\(dictionary["image"] as! String)"
+        
+        guard dictionary["additionalData"] != nil else {
+            return
+        }
+        
         self.additionalData =   NSKeyedArchiver.archivedData(withRootObject: dictionary["additionalData"] as! [String: String]) as NSData?
     }
     

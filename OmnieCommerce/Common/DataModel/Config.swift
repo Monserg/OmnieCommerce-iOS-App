@@ -30,6 +30,7 @@ public let keyOrganizations: String                 =   "Organizations"
 public let keyFavoriteOrganizations: String         =   "FavoriteOrganizations"
 public let keyService: String                       =   "Service"
 public let keyServices: String                      =   "Services"
+public let keyFavoriteServices: String              =   "FavoriteServices"
 
 
 // Handlers

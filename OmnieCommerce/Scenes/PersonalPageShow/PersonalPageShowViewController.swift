@@ -90,7 +90,7 @@ class PersonalPageShowViewController: BaseViewController {
         personalDataVC = UIStoryboard(name: "PersonalPageShow", bundle: nil).instantiateViewController(withIdentifier: "PersonalDataVC") as? PersonalDataViewController
         
         // Handler Avatar Button tap
-        personalDataVC?.handlerPassDataCompletion = { sender in
+        personalDataVC!.handlerPassDataCompletion = { sender in
             self.blackoutView = MSMBlackoutView.init(inView: self.view)
             
             self.blackoutView!.didShow()

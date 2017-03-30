@@ -9,7 +9,7 @@
 import UIKit
 import AlamofireImage
 
-class FavoriteOrganizationTableViewCell: UITableViewCell {
+class FavoriteOrganizationTableViewCell: UITableViewCell, DottedBorderViewBinding {
     // MARK: - Properties
     var isFavorite = false
     var organizationID: String!

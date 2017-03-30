@@ -196,7 +196,31 @@ extension MSMTableViewControllerManager: UITableViewDataSource {
                 
                 self.tableView!.reloadData()
             }
+
+        case cell as FavoriteServiceTableViewCell:
+            let favoriteServiceCell = cell as! FavoriteServiceTableViewCell
             
+            // Handler Favorite Button tap
+            favoriteServiceCell.handlerFavoriteButtonTapCompletion = { serviceID in
+                let service = (self.dataSource as! [Service]).first(where: { $0.codeID == serviceID as! String })!
+                let serviceIndex = (self.dataSource as! [Service]).index(of: service)!
+                var servicesList = self.dataSource as! [Service]
+                
+                // Delete selected row from table view
+                servicesList.remove(at: serviceIndex)
+                self.dataSource = servicesList
+                
+                if (self.dataSource?.count == 0) {
+                    self.tableView!.tableFooterView?.isHidden = false
+                }
+                
+                self.tableView!.beginUpdates()
+                self.tableView!.deleteRows(at: [IndexPath(row: serviceIndex, section: 0)], with: .left)
+                self.tableView!.endUpdates()
+                
+                self.tableView!.reloadData()
+            }
+
             
 //        case cell as AvatarTableViewCell:
 //            let avatarCell  =   (cell as! AvatarTableViewCell)

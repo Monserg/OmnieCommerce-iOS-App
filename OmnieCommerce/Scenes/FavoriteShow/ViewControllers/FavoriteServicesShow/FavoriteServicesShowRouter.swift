@@ -14,6 +14,7 @@ import UIKit
 // MARK: - Input & Output protocols
 protocol FavoriteServicesShowRouterInput {
     func navigateToSomewhere()
+    func navigateToServiceShowScene()
 }
 
 class FavoriteServicesShowRouter: FavoriteServicesShowRouterInput {
@@ -22,6 +23,15 @@ class FavoriteServicesShowRouter: FavoriteServicesShowRouterInput {
     
     
     // MARK: - Custom Functions. Navigation
+    func navigateToServiceShowScene() {
+        // TODO: - UNCOMMENT
+//        let storyboard          =   UIStoryboard(name: "ServiceShow", bundle: nil)
+//        let serviceShowVC       =   storyboard.instantiateViewController(withIdentifier: "ServiceShowVC") as! ServiceShowViewController
+//        serviceShowVC.service   =   organization
+//        
+//        viewController.navigationController?.pushViewController(serviceShowVC, animated: true)
+    }
+    
     func navigateToSomewhere() {
         // NOTE: Teach the router how to navigate to another scene. Some examples follow:
         // 1. Trigger a storyboard segue

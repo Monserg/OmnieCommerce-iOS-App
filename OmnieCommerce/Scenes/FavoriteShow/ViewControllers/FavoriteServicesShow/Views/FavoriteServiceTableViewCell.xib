@@ -1,144 +1,19 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FavoriteOrganizationTableViewCell" rowHeight="60" id="QIs-hN-DjD" customClass="FavoriteServiceTableViewCell">
-            <rect key="frame" x="0.0" y="0.0" width="493" height="60"/>
-            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QIs-hN-DjD" id="mwA-pi-hdj">
-                <rect key="frame" x="0.0" y="0.0" width="493" height="59.5"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="FavoriteServiceTableViewCell" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <frame key="frameInset" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
-                <subviews>
-                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JCw-Vm-3Sj" userLabel="Border Dotted View">
-                        <rect key="frame" x="33" y="5" width="452" height="49.5"/>
-                        <subviews>
-                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8H1-0b-j5L" customClass="DottedBorderView" customModule="OmnieCommerce" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="452" height="49.5"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="viewStyle" value="AroundDottedRectangle"/>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="5"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="2Ub-3P-sfK">
-                                <rect key="frame" x="35" y="1" width="408" height="48"/>
-                                <subviews>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Service Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="32U-27-R5o" userLabel="Service Label" customClass="UbuntuLightItalicLightGrayishCyanLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="408" height="48"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
-                                        </userDefinedRuntimeAttributes>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstItem="32U-27-R5o" firstAttribute="leading" secondItem="2Ub-3P-sfK" secondAttribute="leading" id="Cn1-ku-w9R"/>
-                                    <constraint firstAttribute="trailing" secondItem="32U-27-R5o" secondAttribute="trailing" id="aeM-EQ-i23"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
-                                </userDefinedRuntimeAttributes>
-                            </stackView>
-                        </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="2Ub-3P-sfK" firstAttribute="leading" secondItem="JCw-Vm-3Sj" secondAttribute="leading" constant="35" id="7dy-Jh-2z1"/>
-                            <constraint firstAttribute="bottom" secondItem="8H1-0b-j5L" secondAttribute="bottom" id="DMx-3a-7cB"/>
-                            <constraint firstItem="2Ub-3P-sfK" firstAttribute="top" secondItem="JCw-Vm-3Sj" secondAttribute="top" constant="1" id="KvZ-IG-FYI"/>
-                            <constraint firstItem="8H1-0b-j5L" firstAttribute="top" secondItem="JCw-Vm-3Sj" secondAttribute="top" id="RgP-0x-JLa"/>
-                            <constraint firstAttribute="bottom" relation="lessThanOrEqual" secondItem="2Ub-3P-sfK" secondAttribute="bottom" constant="1" id="i1R-lW-QuQ"/>
-                            <constraint firstItem="8H1-0b-j5L" firstAttribute="leading" secondItem="JCw-Vm-3Sj" secondAttribute="leading" id="iLl-O1-GOg"/>
-                            <constraint firstAttribute="trailing" secondItem="2Ub-3P-sfK" secondAttribute="trailing" constant="9" id="nTR-n7-X0C"/>
-                            <constraint firstAttribute="trailing" secondItem="8H1-0b-j5L" secondAttribute="trailing" id="pBu-JH-KeM"/>
-                        </constraints>
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
-                        </userDefinedRuntimeAttributes>
-                    </view>
-                    <imageView opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image-no-organization" translatesAutoresizingMaskIntoConstraints="NO" id="JGh-nK-R9N" userLabel="Logo Image View" customClass="CustomImageView" customModule="OmnieCommerce" customModuleProvider="target">
-                        <rect key="frame" x="8" y="5" width="50" height="50"/>
-                        <color key="backgroundColor" red="0.1529411765" green="0.2156862745" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="50" id="6ul-Ew-HFV"/>
-                            <constraint firstAttribute="width" constant="50" id="oSG-qv-Lij"/>
-                        </constraints>
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                <real key="value" value="42"/>
-                            </userDefinedRuntimeAttribute>
-                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                <color key="value" red="0.1137254902" green="0.1647058824" blue="0.2156862745" alpha="1" colorSpace="calibratedRGB"/>
-                            </userDefinedRuntimeAttribute>
-                            <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
-                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                <real key="value" value="1"/>
-                            </userDefinedRuntimeAttribute>
-                            <userDefinedRuntimeAttribute type="boolean" keyPath="isCircle" value="YES"/>
-                        </userDefinedRuntimeAttributes>
-                    </imageView>
-                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D2T-oG-uLD" userLabel="Favorite Button">
-                        <rect key="frame" x="453" y="15" width="30" height="30"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="30" id="I30-Qm-O6a"/>
-                            <constraint firstAttribute="height" constant="30" id="xFc-bY-fd8"/>
-                        </constraints>
-                        <state key="normal" image="image-favorite-star-normal"/>
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
-                        </userDefinedRuntimeAttributes>
-                        <connections>
-                            <action selector="handlerFavoriteButtonTap:" destination="QIs-hN-DjD" eventType="touchUpInside" id="DNC-C6-wGJ"/>
-                        </connections>
-                    </button>
-                </subviews>
-                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                <constraints>
-                    <constraint firstAttribute="trailing" secondItem="JCw-Vm-3Sj" secondAttribute="trailing" constant="8" id="40h-WC-TQ3"/>
-                    <constraint firstItem="JGh-nK-R9N" firstAttribute="centerY" secondItem="mwA-pi-hdj" secondAttribute="centerY" id="C8M-NZ-9kw"/>
-                    <constraint firstItem="JGh-nK-R9N" firstAttribute="leading" secondItem="mwA-pi-hdj" secondAttribute="leading" constant="8" id="FlL-uu-a29"/>
-                    <constraint firstAttribute="trailing" secondItem="D2T-oG-uLD" secondAttribute="trailing" constant="10" id="NY3-dz-GHY"/>
-                    <constraint firstAttribute="bottom" secondItem="JCw-Vm-3Sj" secondAttribute="bottom" constant="5" id="THY-pj-Iaj"/>
-                    <constraint firstItem="JCw-Vm-3Sj" firstAttribute="leading" secondItem="mwA-pi-hdj" secondAttribute="leading" constant="33" id="YdC-Je-gfB"/>
-                    <constraint firstItem="JCw-Vm-3Sj" firstAttribute="top" secondItem="mwA-pi-hdj" secondAttribute="top" constant="5" id="feZ-b9-Ex1"/>
-                    <constraint firstItem="D2T-oG-uLD" firstAttribute="centerY" secondItem="mwA-pi-hdj" secondAttribute="centerY" id="irQ-hF-TUK"/>
-                    <constraint firstItem="JCw-Vm-3Sj" firstAttribute="centerY" secondItem="mwA-pi-hdj" secondAttribute="centerY" id="xWo-ve-iGE"/>
-                </constraints>
-                <userDefinedRuntimeAttributes>
-                    <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
-                </userDefinedRuntimeAttributes>
             </tableViewCellContentView>
-            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-            <userDefinedRuntimeAttributes>
-                <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
-            </userDefinedRuntimeAttributes>
-            <connections>
-                <outlet property="dottedBorderView" destination="8H1-0b-j5L" id="2FL-8b-DVa"/>
-                <outlet property="favoriteButton" destination="D2T-oG-uLD" id="c3J-94-ug6"/>
-                <outlet property="logoImageView" destination="JGh-nK-R9N" id="IcK-Ad-PTh"/>
-                <outlet property="serviceLabel" destination="32U-27-R5o" id="H2B-iz-Jfm"/>
-            </connections>
-            <point key="canvasLocation" x="-87" y="60"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <image name="image-favorite-star-normal" width="13" height="12"/>
-        <image name="image-no-organization" width="24" height="20"/>
-    </resources>
 </document>

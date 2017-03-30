@@ -163,11 +163,30 @@
                     <view key="view" clipsSubviews="YES" tag="2" contentMode="scaleToFill" id="ceq-NS-F8T">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nxl-Ga-l85" customClass="MSMTableView" customModule="OmnieCommerce" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="nxl-Ga-l85" firstAttribute="top" secondItem="ceq-NS-F8T" secondAttribute="top" id="AjC-oy-Xyd"/>
+                            <constraint firstAttribute="bottom" secondItem="nxl-Ga-l85" secondAttribute="bottom" id="E5c-Bn-aUz"/>
+                            <constraint firstAttribute="trailing" secondItem="nxl-Ga-l85" secondAttribute="trailing" id="ZPP-Jd-FOk"/>
+                            <constraint firstItem="nxl-Ga-l85" firstAttribute="leading" secondItem="ceq-NS-F8T" secondAttribute="leading" id="gwX-TC-0fW"/>
+                        </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
                         </userDefinedRuntimeAttributes>
                     </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <connections>
+                        <outlet property="tableView" destination="nxl-Ga-l85" id="x7h-9f-4Ph"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HkF-8w-GhX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

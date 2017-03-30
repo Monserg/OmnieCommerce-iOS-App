@@ -23,7 +23,7 @@ struct FavoriteServicesShowModels {
         }
         
         struct ViewModel {
-            let response: ResponseAPI?
+            let services: [Service]?
         }
     }
 }

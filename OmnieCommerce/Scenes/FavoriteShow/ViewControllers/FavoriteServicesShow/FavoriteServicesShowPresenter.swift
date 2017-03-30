@@ -28,8 +28,28 @@ class FavoriteServicesShowPresenter: FavoriteServicesShowPresenterInput {
     
     // MARK: - Custom Functions. Presentation logic
     func favoriteServicesDidPrepareToShowLoad(fromResponseModel responseModel: FavoriteServicesShowModels.Services.ResponseModel) {
+        guard responseModel.response != nil else {
+            let servicesViewModel = FavoriteServicesShowModels.Services.ViewModel(services: nil)
+            viewController.favoriteServicesDidShowLoad(fromViewModel: servicesViewModel)
+            
+            return
+        }
+        
         // Format the response from the Interactor and pass the result back to the View Controller
-        let servicesViewModel = FavoriteServicesShowModels.Services.ViewModel(response: responseModel.response)
-        viewController.favoriteServicesDidShowLoad(fromViewModel: servicesViewModel)
+        if ((responseModel.response?.body as! [Any]).count > 0) {
+            responseModel.response?.servicesAddressDidLoad(responseModel.response?.body as! [Any], completion: { favoriteServices in
+                // Prepare to save Services in CoreData
+                let _ = favoriteServices.map { $0.cellHeight = 60.0; $0.cellIdentifier = "FavoriteServiceTableViewCell" }
+                let entityFavoriteServices = CoreDataManager.instance.entityDidLoad(byName: keyFavoriteServices) as! FavoriteServices
+                let favoriteServicesData = NSKeyedArchiver.archivedData(withRootObject: favoriteServices) as NSData?
+                entityFavoriteServices.list = favoriteServicesData!
+                
+                let servicesViewModel = FavoriteServicesShowModels.Services.ViewModel(services: favoriteServices)
+                self.viewController.favoriteServicesDidShowLoad(fromViewModel: servicesViewModel)
+            })
+        } else {
+            let servicesViewModel = FavoriteServicesShowModels.Services.ViewModel(services: nil)
+            viewController.favoriteServicesDidShowLoad(fromViewModel: servicesViewModel)
+        }
     }
 }
