@@ -77,7 +77,7 @@ class FavoriteShowViewController: BaseViewController {
         
         // Config smallTopBarView
         navigationBarView = smallTopBarView
-        smallTopBarView.type = "ParentSearch"
+        smallTopBarView.type = "Parent"
         haveMenuItem = true
         
         // Load data

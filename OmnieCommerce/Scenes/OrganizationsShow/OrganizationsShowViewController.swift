@@ -104,6 +104,10 @@ class OrganizationsShowViewController: BaseViewController {
             _ = self.navigationController?.popViewController(animated: true)
         }
         
+        // Set DropDown lists
+        subcategoriesDropDownTableView = MSMTableView(frame: .zero, style: .plain)
+        organizationServiceDropDownTableView = MSMTableView(frame: .zero, style: .plain)
+
         // Load Organizations list from Core Data
         guard isNetworkAvailable else {
             self.organizationsListDidShow(nil, fromAPI: false)
@@ -112,10 +116,6 @@ class OrganizationsShowViewController: BaseViewController {
         
         // Load Organizations list from API
         organizationsListDidLoad(withOffset: 0, subCategory: self.subcategoryCode, filter: "", scrollingData: false)
-        
-        // Set DropDown lists
-        subcategoriesDropDownTableView = MSMTableView(frame: .zero, style: .plain)
-        organizationServiceDropDownTableView = MSMTableView(frame: .zero, style: .plain)
     }
     
     func organizationsListDidLoad(withOffset offset: Int, subCategory: String, filter: String, scrollingData: Bool) {
@@ -202,7 +202,7 @@ class OrganizationsShowViewController: BaseViewController {
                                                 "filter": filter,
                                                 "limit": Config.Constants.paginationLimit,
                                                 "offset": offset
-        ]
+                                            ]
         
         let servicesRequestModel = OrganizationsShowModels.Services.RequestModel(parameters: parameters, category: category!)
         interactor.servicesDidLoad(withRequestModel: servicesRequestModel)

@@ -53,7 +53,7 @@ class Organization: NSObject, NSCoding, InitCellParameters, SearchObject, PointA
         let codeID = aDecoder.decodeObject(forKey: "codeID") as! String
         let name = aDecoder.decodeObject(forKey: "name") as! String
         let category = aDecoder.decodeObject(forKey: "category") as? Category
-        let rating = aDecoder.decodeDouble(forKey: "rating")
+        let rating = aDecoder.decodeObject(forKey: "rating") as? Double
         let isFavorite = aDecoder.decodeBool(forKey: "isFavorite")
         let logoURL = aDecoder.decodeObject(forKey: "logoURL") as? String
         let latitude = aDecoder.decodeObject(forKey: "latitude") as? CLLocationDegrees

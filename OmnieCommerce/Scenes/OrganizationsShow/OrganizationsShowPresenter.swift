@@ -30,6 +30,12 @@ class OrganizationsShowPresenter: OrganizationsShowPresenterInput {
     
     // MARK: - Custom Functions. Presentation logic
     func organizationsDidPrepareToShowLoad(fromResponseModel responseModel: OrganizationsShowModels.Organizations.ResponseModel) {
+        guard responseModel.response != nil else {
+            let organizationsViewModel = OrganizationsShowModels.Organizations.ViewModel(organizations: nil)
+            self.viewController.organizationsDidShowLoad(fromViewModel: organizationsViewModel)
+            return
+        }
+        
         // Convert Google Place ID to address strings
         if ((responseModel.response?.body as! [Any]).count > 0) {
             responseModel.response?.organizationsAddressDidLoad(responseModel.response?.body as! [Any], completion: { organizations in
@@ -49,6 +55,12 @@ class OrganizationsShowPresenter: OrganizationsShowPresenterInput {
     }
 
     func servicesDidPrepareToShowLoad(fromResponseModel responseModel: OrganizationsShowModels.Services.ResponseModel) {
+        guard responseModel.response != nil else {
+            let servicesViewModel = OrganizationsShowModels.Services.ViewModel(services: nil)
+            self.viewController.servicesDidShowLoad(fromViewModel: servicesViewModel)
+            return
+        }
+        
         // Convert Google Place ID to address strings
         if ((responseModel.response?.body as! [Any]).count > 0) {
             responseModel.response?.servicesAddressDidLoad(responseModel.response?.body as! [Any], completion: { services in
