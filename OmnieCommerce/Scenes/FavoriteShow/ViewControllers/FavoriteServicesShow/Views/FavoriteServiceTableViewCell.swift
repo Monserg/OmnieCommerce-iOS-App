@@ -38,14 +38,14 @@ class FavoriteServiceTableViewCell: UITableViewCell, DottedBorderViewBinding {
     @IBAction func handlerFavoriteButtonTap(_ sender: UIButton) {
         isFavorite = !isFavorite
         
-        //        MSMRestApiManager.instance.userAddRemoveOrganizationToFavorite(["organization" : organizationID], withHandlerResponseAPICompletion: { responseAPI in
-        //            if (responseAPI?.code == 200) {
-        //                self.favoriteButton.setImage((self.isFavorite) ?    UIImage(named: "image-favorite-star-selected") :
-        //                                                                    UIImage(named: "image-favorite-star-normal"), for: .normal)
-        //
-        //                self.handlerFavoriteButtonTapCompletion!(self.organizationID)
-        //            }
-        //        })
+        MSMRestApiManager.instance.userAddRemoveServiceToFavorite(["service": serviceID], withHandlerResponseAPICompletion: { responseAPI in
+            if (responseAPI?.code == 200) {
+                self.favoriteButton.setImage((self.isFavorite) ?    UIImage(named: "image-favorite-star-selected") :
+                                                                    UIImage(named: "image-favorite-star-normal"), for: .normal)
+                
+                self.handlerFavoriteButtonTapCompletion!(self.serviceID)
+            }
+        })
     }
 }
 
