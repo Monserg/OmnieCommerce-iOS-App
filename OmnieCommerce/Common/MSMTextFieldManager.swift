@@ -126,7 +126,7 @@ extension MSMTextFieldManager: UITextFieldDelegate {
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
         switch (textField as! CustomTextField).style! {
         case .Email:
-            if !(textField as! CustomTextField).checkEmailValidation(textField.text!) {
+            if !(textField as! CustomTextField).checkEmailValidation(textField.text!) && textField.tag != 0 {
                 (currentVC as! EmailErrorMessageView).emailErrorMessageView.didShow(true, withConstraint: (currentVC as! EmailErrorMessageView).emailErrorMessageViewTopConstraint)
             }
             

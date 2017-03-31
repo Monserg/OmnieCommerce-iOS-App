@@ -10,7 +10,6 @@ import UIKit
 import AFNetworking
 import Localize_Swift
 import SWRevealViewController
-import AlamofireImage
 
 class BaseViewController: UIViewController {
     // MARK: - Properties
@@ -43,11 +42,12 @@ class BaseViewController: UIViewController {
         }
     }
     
-    var scrollViewBase: UIScrollView? {
-        didSet {
-            self.scrollViewBase!.delegate = self
-        }
-    }
+    var scrollViewBase: UIScrollView?
+//    {
+//        didSet {
+//            self.scrollViewBase!.delegate = self
+//        }
+//    }
 
     var handlerImagePickerControllerCompletion: HandlerImagePickerControllerCompletion?
     var handlerChangeNetworkConnectionStateCompletion: HandlerPassDataCompletion?
@@ -68,7 +68,7 @@ class BaseViewController: UIViewController {
         
         // Add Observers
         NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardAction), name: .UIKeyboardWillHide, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardAction), name: .UIKeyboardWillChangeFrame, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardAction), name: .UIKeyboardWillShow, object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -109,7 +109,7 @@ class BaseViewController: UIViewController {
         let keyboardScreenEndFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
         let keyboardViewEndFrame = view.convert(keyboardScreenEndFrame, from: view.window)
         
-        scrollViewBase?.contentInset = (notification.name == .UIKeyboardWillHide) ? UIEdgeInsets.zero : UIEdgeInsets(top: 0, left: 0, bottom: keyboardViewEndFrame.height + 25, right: 0)
+        scrollViewBase?.contentInset = (notification.name == .UIKeyboardWillHide) ? .zero : UIEdgeInsets(top: 0, left: 0, bottom: keyboardViewEndFrame.height + 25, right: 0)
 
         guard (selectedRange != nil && (keyboardViewEndFrame.contains((selectedRange?.origin)!))) else {
             return
@@ -191,14 +191,14 @@ class BaseViewController: UIViewController {
 }
 
 
-// MARK: - UIScrollViewDelegate
-extension BaseViewController: UIScrollViewDelegate {
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        print(object: "\(type(of: self)): \(#function) run in [line \(#line)]. UIScrollView.contentOffset.y = \(scrollView.contentOffset.y)")
-        
-        scrollView.indicatorDidChange(UIColor.veryLightOrange)
-    }
-}
+//// MARK: - UIScrollViewDelegate
+//extension BaseViewController: UIScrollViewDelegate {
+//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+//        print(object: "\(type(of: self)): \(#function) run in [line \(#line)]. UIScrollView.contentOffset.y = \(scrollView.contentOffset.y)")
+//        
+//        scrollView.indicatorDidChange(UIColor.veryLightOrange)
+//    }
+//}
 
 
 // MARK: - UIGestureRecognizerDelegate

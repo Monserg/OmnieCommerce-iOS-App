@@ -56,9 +56,9 @@ import UIKit
             }
             
             if (UIApplication.shared.statusBarOrientation.isPortrait) {
-                center = CGPoint.init(x: circleX + Config.Constants.fillViewBigRadiusPortrait * cos((M_PI * buttonDegree) / 180), y: circleY - Config.Constants.fillViewBigRadiusPortrait * sin((M_PI * buttonDegree) / 180))
+                center = CGPoint.init(x: circleX + Config.Constants.fillViewBigRadiusPortrait * cos((.pi * buttonDegree) / 180), y: circleY - Config.Constants.fillViewBigRadiusPortrait * sin((.pi * buttonDegree) / 180))
             } else {
-                center = CGPoint.init(x: circleX + Config.Constants.fillViewBigRadiusLandscape * cos((M_PI * buttonDegree) / 180), y: circleY - Config.Constants.fillViewBigRadiusLandscape * sin((M_PI * buttonDegree) / 180))
+                center = CGPoint.init(x: circleX + Config.Constants.fillViewBigRadiusLandscape * cos((.pi * buttonDegree) / 180), y: circleY - Config.Constants.fillViewBigRadiusLandscape * sin((.pi * buttonDegree) / 180))
             }
         }
         
@@ -71,7 +71,7 @@ import UIKit
     func didShowButtonsTree() {
         // Button animation
         UIView.animate(withDuration: 0.5, animations: {
-            self.transform = CGAffineTransform(rotationAngle: CGFloat(M_PI * 45.0 * ((self.isButtonsTreeShow) ? 0 : 1)) / 180)
+            self.transform = CGAffineTransform(rotationAngle: CGFloat(.pi * 45.0 * ((self.isButtonsTreeShow) ? 0 : 1)) / 180)
         }, completion: { success in
             // Create Business Card button
             let businessCardButton = UIButton(frame: CGRect(x: 0, y: 0, width: 35, height: 35))

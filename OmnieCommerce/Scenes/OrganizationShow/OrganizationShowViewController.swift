@@ -240,7 +240,7 @@ extension OrganizationShowViewController: OrganizationShowViewControllerInput {
 
 // MARK: - MXScrollViewDelegate
 extension OrganizationShowViewController: MXScrollViewDelegate {
-    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
         scrollView.indicatorDidChange(UIColor.veryLightOrange)
     }
 }

@@ -54,7 +54,12 @@ class PersonalDataViewController: BaseViewController, EmailErrorMessageView, Pho
         }
     }
 
-    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var scrollView: UIScrollView! {
+        didSet {
+            scrollViewBase = scrollView
+        }
+    }
+    
     @IBOutlet weak var passwordsView: UIView!
     @IBOutlet weak var changePasswordButton: UbuntuLightItalicDarkCyanButton!
     @IBOutlet weak var birthdayPickerView: UIPickerView!
@@ -196,8 +201,6 @@ class PersonalDataViewController: BaseViewController, EmailErrorMessageView, Pho
         
     // MARK: - Custom Functions
     func viewSettingsDidLoad() {
-        scrollViewBase = self.scrollView
-        
         // Create PickerViewManager
         pickerViewManager = MSMPickerViewManager.init(frame: self.view.frame)
 
@@ -308,9 +311,10 @@ class PersonalDataViewController: BaseViewController, EmailErrorMessageView, Pho
     
     @IBAction func handlerChangeEmailButtonTap(_ sender: UbuntuLightItalicDarkCyanButton) {
         sender.tag = (sender.tag == 1) ? 0 : 1
+        self.textFieldsCollection[2].tag = sender.tag
         
         UIView.animate(withDuration: 0.5, animations: {
-            self.emailsViewHeightConstraint.constant = self.view.heightRatio * ((sender.tag == 1) ? 80.0 : 40.0)
+            self.emailsViewHeightConstraint.constant = ((sender.tag == 1) ? 80.0 : 40.0) * self.view.heightRatio
             self.view.layoutIfNeeded()
         }, completion: { success in
             if (sender.tag == 1) {

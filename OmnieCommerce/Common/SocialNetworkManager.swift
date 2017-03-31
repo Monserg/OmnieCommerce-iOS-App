@@ -51,7 +51,7 @@ class SocialNetworkManager: UIViewController {
 
         case .Google:
             GGLContext.sharedInstance().configureWithError(&configureError)
-            assert(configureError == nil, "Error configuring Google services: \(configureError)")
+            assert(configureError == nil, "Error configuring Google services: \(String(describing: configureError))")
 
             GIDSignIn.sharedInstance().clientID = googleID
             GIDSignIn.sharedInstance().delegate = self

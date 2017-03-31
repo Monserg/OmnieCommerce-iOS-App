@@ -61,7 +61,7 @@ class MSMTableViewControllerManager: BaseViewController {
         super.didReceiveMemoryWarning()
     }
     
-    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
         print(object: "\(type(of: self)): \(#function) run in [line \(#line)]. UIScrollView.contentOffset.y = \(scrollView.contentOffset.y)")
         
         self.tableView!.setScrollIndicatorColor(color: UIColor.veryLightOrange)
