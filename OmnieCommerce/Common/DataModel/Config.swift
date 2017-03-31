@@ -31,6 +31,8 @@ public let keyFavoriteOrganizations: String         =   "FavoriteOrganizations"
 public let keyService: String                       =   "Service"
 public let keyServices: String                      =   "Services"
 public let keyFavoriteServices: String              =   "FavoriteServices"
+public let keyNewsData: String                      =   "News"
+public let keyNewsActions: String                   =   "Actions"
 
 
 // Handlers

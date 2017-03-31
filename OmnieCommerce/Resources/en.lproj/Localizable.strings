@@ -101,7 +101,7 @@
 
 // Segmented Control Titles
 "Subscription"                  =   "Subscription";
-"Hot News"                      =   "Hot News";
+"Actions"                       =   "Actions";
 "Personal Data"                 =   "Personal Data";
 "My Templates"                  =   "My Templates";
 "Organizations"                 =   "Organizations";
@@ -149,7 +149,8 @@
 "Organizations list is empty"   =   "Organizations list is empty";
 "Services list is empty"        =   "Services list is empty";
 "Messages list is empty"        =   "Messages list is empty";
-"News list is empty"            =   "News list is empty";
+"NewsData list is empty"        =   "News list is empty";
+"NewsActions list is empty"     =   "Actions list is empty";
 "Phones list is empty"          =   "Phones list is empty";
 "Templates list is empty"       =   "Templates list is empty";
 "Incorrect User name"           =   "Enter the correct user name";

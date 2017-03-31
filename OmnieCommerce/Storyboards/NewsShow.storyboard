@@ -33,7 +33,7 @@
                             <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="10M-FJ-LCe" userLabel="Segmented Control View">
                                 <rect key="frame" x="0.0" y="95" width="375" height="50"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QEZ-zG-MDi" userLabel="Content View" customClass="SegmentedControlView" customModule="OmnieCommerce" customModuleProvider="target">
+                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QEZ-zG-MDi" userLabel="Content View" customClass="SegmentedControlView" customModule="OmnieCommerce" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="35"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <userDefinedRuntimeAttributes>
@@ -60,33 +60,33 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </label>
-                            <tableView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="95" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="sJ6-Lv-NkE" customClass="MSMTableView" customModule="OmnieCommerce" customModuleProvider="target">
+                            <containerView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yPG-gu-zm3" customClass="CustomView" customModule="OmnieCommerce" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="145" width="375" height="493"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
-                            </tableView>
+                            </containerView>
                         </subviews>
                         <color key="backgroundColor" red="0.14117647058823529" green="0.19607843137254902" blue="0.24705882352941178" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="KMj-II-PyU" firstAttribute="height" secondItem="kfe-de-o53" secondAttribute="height" multiplier="80:375" id="1It-tz-Mr5"/>
-                            <constraint firstAttribute="trailing" secondItem="sJ6-Lv-NkE" secondAttribute="trailing" id="4Ni-Cz-99Z"/>
                             <constraint firstItem="10M-FJ-LCe" firstAttribute="top" secondItem="KMj-II-PyU" secondAttribute="bottom" id="5Kx-He-G0M"/>
                             <constraint firstItem="10M-FJ-LCe" firstAttribute="leading" secondItem="kfe-de-o53" secondAttribute="leading" id="DMJ-g6-jZx"/>
+                            <constraint firstItem="yPG-gu-zm3" firstAttribute="top" secondItem="10M-FJ-LCe" secondAttribute="bottom" id="JxS-5U-unw"/>
+                            <constraint firstItem="krF-Rc-3FU" firstAttribute="top" secondItem="yPG-gu-zm3" secondAttribute="bottom" constant="9" id="LjC-5J-JRh"/>
                             <constraint firstItem="KMj-II-PyU" firstAttribute="height" secondItem="kfe-de-o53" secondAttribute="height" multiplier="95:667" id="OzD-Bb-0u1"/>
+                            <constraint firstItem="yPG-gu-zm3" firstAttribute="leading" secondItem="kfe-de-o53" secondAttribute="leading" id="Ppl-Y7-QEz"/>
+                            <constraint firstAttribute="trailing" secondItem="yPG-gu-zm3" secondAttribute="trailing" id="QDD-Ct-Fkh"/>
                             <constraint firstItem="KMj-II-PyU" firstAttribute="top" secondItem="kfe-de-o53" secondAttribute="top" id="SCC-2u-QNC">
                                 <variation key="heightClass=compact-widthClass=compact" constant="0.0"/>
                                 <variation key="heightClass=compact-widthClass=regular" constant="0.0"/>
                             </constraint>
                             <constraint firstAttribute="bottom" secondItem="krF-Rc-3FU" secondAttribute="bottom" constant="9" id="U9b-VZ-tOU"/>
-                            <constraint firstItem="sJ6-Lv-NkE" firstAttribute="leading" secondItem="kfe-de-o53" secondAttribute="leading" id="W3s-NZ-HVS"/>
-                            <constraint firstItem="krF-Rc-3FU" firstAttribute="top" secondItem="sJ6-Lv-NkE" secondAttribute="bottom" constant="9" id="YAy-cN-Nby"/>
                             <constraint firstItem="10M-FJ-LCe" firstAttribute="height" secondItem="kfe-de-o53" secondAttribute="height" multiplier="50:375" id="Yqw-Cv-KG1"/>
                             <constraint firstItem="10M-FJ-LCe" firstAttribute="height" secondItem="kfe-de-o53" secondAttribute="height" multiplier="50:667" id="eoQ-sJ-UKf"/>
                             <constraint firstItem="krF-Rc-3FU" firstAttribute="leading" secondItem="kfe-de-o53" secondAttribute="leading" constant="8" id="gKR-ED-pMH"/>
                             <constraint firstAttribute="trailing" secondItem="10M-FJ-LCe" secondAttribute="trailing" id="ia7-vQ-fxO"/>
-                            <constraint firstItem="sJ6-Lv-NkE" firstAttribute="top" secondItem="10M-FJ-LCe" secondAttribute="bottom" id="ifW-f9-ub4"/>
                             <constraint firstItem="KMj-II-PyU" firstAttribute="leading" secondItem="kfe-de-o53" secondAttribute="leading" id="jnZ-Lh-cha"/>
                             <constraint firstAttribute="trailing" secondItem="KMj-II-PyU" secondAttribute="trailing" id="r5Q-ox-nqr"/>
                             <constraint firstAttribute="trailing" secondItem="krF-Rc-3FU" secondAttribute="trailing" constant="8" id="vv7-ZM-MSa"/>
@@ -110,15 +110,95 @@
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="containerView" destination="yPG-gu-zm3" id="q4b-P0-IiW"/>
                         <outlet property="copyrightLabel" destination="krF-Rc-3FU" id="GIf-FF-rYt"/>
                         <outlet property="segmentedControlView" destination="QEZ-zG-MDi" id="ye3-yD-hY5"/>
                         <outlet property="smallTopBarView" destination="KMj-II-PyU" id="ZE4-9S-C7d"/>
-                        <outlet property="tableView" destination="sJ6-Lv-NkE" id="L6p-97-HYe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2fW-dN-t4N" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1264.8" y="178.56071964017991"/>
+            <point key="canvasLocation" x="1169" y="179"/>
+        </scene>
+        <!--News Data Show View Controller-->
+        <scene sceneID="Z1n-e5-stH">
+            <objects>
+                <viewController storyboardIdentifier="NewsDataShowVC" id="Ilf-Sn-Zlw" customClass="NewsDataShowViewController" customModule="OmnieCommerce" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="bqt-L3-OMJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="gfO-BQ-LUo"/>
+                    </layoutGuides>
+                    <view key="view" clipsSubviews="YES" tag="1" contentMode="scaleToFill" id="ifC-ZK-xUt">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" tag="1" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="k4R-nE-6Gi" customClass="MSMTableView" customModule="OmnieCommerce" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="k4R-nE-6Gi" firstAttribute="top" secondItem="ifC-ZK-xUt" secondAttribute="top" id="A59-fS-dXg"/>
+                            <constraint firstItem="k4R-nE-6Gi" firstAttribute="leading" secondItem="ifC-ZK-xUt" secondAttribute="leading" id="eZW-Dd-wE9"/>
+                            <constraint firstAttribute="bottom" secondItem="k4R-nE-6Gi" secondAttribute="bottom" id="mp0-LW-O35"/>
+                            <constraint firstAttribute="trailing" secondItem="k4R-nE-6Gi" secondAttribute="trailing" id="tvo-Wf-zwf"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <connections>
+                        <outlet property="tableView" destination="k4R-nE-6Gi" id="Lby-tG-rKh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="22h-Ey-3Qt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1982" y="179"/>
+        </scene>
+        <!--News Actions Show View Controller-->
+        <scene sceneID="sAx-fG-xSk">
+            <objects>
+                <viewController storyboardIdentifier="NewsActionsShowVC" id="SMl-8W-dvi" customClass="NewsActionsShowViewController" customModule="OmnieCommerce" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="0vm-16-728"/>
+                        <viewControllerLayoutGuide type="bottom" id="Cbj-Q9-SRe"/>
+                    </layoutGuides>
+                    <view key="view" clipsSubviews="YES" tag="2" contentMode="scaleToFill" id="QbX-Hq-wZJ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" tag="2" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vxL-xW-4a1" customClass="MSMTableView" customModule="OmnieCommerce" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="vxL-xW-4a1" secondAttribute="trailing" id="46m-Z1-Meq"/>
+                            <constraint firstItem="vxL-xW-4a1" firstAttribute="top" secondItem="QbX-Hq-wZJ" secondAttribute="top" id="Opg-NO-rtQ"/>
+                            <constraint firstItem="vxL-xW-4a1" firstAttribute="leading" secondItem="QbX-Hq-wZJ" secondAttribute="leading" id="ULR-PJ-Fjk"/>
+                            <constraint firstAttribute="bottom" secondItem="vxL-xW-4a1" secondAttribute="bottom" id="VKL-7V-4pm"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <connections>
+                        <outlet property="tableView" destination="vxL-xW-4a1" id="Xez-HJ-5hh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="omS-MU-TUk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2793" y="179"/>
         </scene>
         <!--Base Navigation Controller-->
         <scene sceneID="03u-hL-hQj">

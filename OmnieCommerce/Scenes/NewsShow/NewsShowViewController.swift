@@ -13,12 +13,10 @@ import UIKit
 
 // MARK: - Input protocols for current ViewController component VIP-cicle
 protocol NewsShowViewControllerInput {
-    func newsDidShow(fromViewModel viewModel: NewsShowModels.NewsItems.ViewModel)
 }
 
 // MARK: - Output protocols for Interactor component VIP-cicle
 protocol NewsShowViewControllerOutput {
-    func newsDidLoad(withRequestModel requestModel: NewsShowModels.NewsItems.RequestModel)
 }
 
 class NewsShowViewController: BaseViewController {
@@ -26,16 +24,28 @@ class NewsShowViewController: BaseViewController {
     var interactor: NewsShowViewControllerOutput!
     var router: NewsShowRouter!
     
+    // Container childVC
+    var animationDirection: AnimationDirection?
+    var newsDataVC: NewsDataShowViewController?
+    var newsActionsVC: NewsActionsShowViewController?
+    
+    var activeViewController: BaseViewController? {
+        didSet {
+            guard oldValue != nil else {
+                router.updateActiveViewController()
+                
+                return
+            }
+            
+            animationDirection = ((oldValue?.view.tag)! < (activeViewController?.view.tag)!) ? .FromRightToLeft : .FromLeftToRight
+            router.removeInactiveViewController(inactiveViewController: oldValue)
+        }
+    }
+
     @IBOutlet weak var copyrightLabel: CustomLabel!
     @IBOutlet weak var smallTopBarView: SmallTopBarView!
     @IBOutlet weak var segmentedControlView: SegmentedControlView!
-
-    @IBOutlet weak var tableView: MSMTableView! {
-        didSet {
-            tableView.contentInset = UIEdgeInsetsMake((UIApplication.shared.statusBarOrientation.isPortrait) ? 5 : 45, 0, 0, 0)
-            tableView.scrollIndicatorInsets = UIEdgeInsetsMake((UIApplication.shared.statusBarOrientation.isPortrait) ? 5 : 45, 0, 0, 0)
-        }
-    }
+    @IBOutlet weak var containerView: CustomView!
 
     
     // MARK: - Class Initialization
@@ -50,6 +60,13 @@ class NewsShowViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
                 
+        // Container Child Views
+        newsDataVC = UIStoryboard(name: "NewsShow", bundle: nil).instantiateViewController(withIdentifier: "NewsDataShowVC") as? NewsDataShowViewController
+        
+        newsActionsVC = UIStoryboard(name: "NewsShow", bundle: nil).instantiateViewController(withIdentifier: "NewsActionsShowVC") as? NewsActionsShowViewController
+        
+        activeViewController = newsDataVC
+        
         viewSettingsDidLoad()
     }
     
@@ -59,24 +76,25 @@ class NewsShowViewController: BaseViewController {
         print(object: "\(type(of: self)): \(#function) run.")
         
         setupSegmentedControlView()
-
-        // TableViewController Manager
-        let newsTableManager = MSMTableViewControllerManager.init(withTableView: tableView, andSectionsCount: 1, andEmptyMessageText: "News list is empty")
-        tableView.tableViewControllerManager = newsTableManager
+        containerView.autoresizesSubviews = true
 
         // Config smallTopBarView
         navigationBarView = smallTopBarView
         smallTopBarView.type = "ParentSearch"
         haveMenuItem = true
-        
-        // Load data
-        let requestModel = NewsShowModels.NewsItems.RequestModel()
-        interactor.newsDidLoad(withRequestModel: requestModel)
     }
     
     func setupSegmentedControlView() {
+        segmentedControlView.backgroundColor = UIColor.veryDarkDesaturatedBlue24
+        
         segmentedControlView.actionButtonHandlerCompletion = { sender in
-//            self.print(object: "\(type(of: self)): \(#function) run. Sender tag = \(sender.tag)")
+            switch sender.tag {
+            case 1:
+                self.activeViewController = self.newsActionsVC
+                
+            default:
+                self.activeViewController = self.newsDataVC
+            }
         }
     }
     
@@ -88,59 +106,15 @@ class NewsShowViewController: BaseViewController {
         smallTopBarView.setNeedsDisplay()
         smallTopBarView.circleView.setNeedsDisplay()
         segmentedControlView.setNeedsDisplay()
-
-        tableView.contentInset = UIEdgeInsetsMake((size.height > size.width) ? 5 : 65, 0, 0, 0)
-        tableView.scrollIndicatorInsets = UIEdgeInsetsMake((size.height > size.width) ? 5 : 65, 0, 0, 0)
         
-        _ = tableView.visibleCells.map{ ($0 as! NewsTableViewCell).dottedBorderView.setNeedsDisplay() }
+        _ = newsDataVC!.tableView.visibleCells.map { ($0 as! DottedBorderViewBinding).dottedBorderView.setNeedsDisplay() }
+        
+        if (newsActionsVC!.tableView != nil) {
+            _ = newsActionsVC!.tableView.visibleCells.map { ($0 as! DottedBorderViewBinding).dottedBorderView.setNeedsDisplay() }
+        }
     }
 }
 
 
 // MARK: - NewsShowViewControllerInput
-extension NewsShowViewController: NewsShowViewControllerInput {
-    func newsDidShow(fromViewModel viewModel: NewsShowModels.NewsItems.ViewModel) {
-        guard (viewModel.news?.first?.count)! > 0 else {
-//            dataSourceEmptyView.isHidden = false
-            tableView.isScrollEnabled = false
-
-            return
-        }
-        
-        // Search Manager
-        smallTopBarView.searchBar.placeholder = "Enter Organization name".localized()
-        smallTopBarView.searchBar.delegate = tableView.tableViewControllerManager
-        
-        // Handler select cell
-        tableView.tableViewControllerManager!.handlerSelectRowCompletion = { news in
-            // TODO: ADD TRANSITION TO CHAT SCENE
-            self.print(object: "transition to Chat scene")
-            
-            //                self.router.navigateToOrganizationShowScene(organization as! Organization)
-        }
-        
-        // Handler Search keyboard button tap
-        tableView.tableViewControllerManager!.handlerSendButtonCompletion = { _ in
-            // TODO: - ADD SEARCH API
-            self.smallTopBarView.searchBarDidHide()
-        }
-        
-        // Handler Search Bar Cancel button tap
-        tableView.tableViewControllerManager!.handlerCancelButtonCompletion = { _ in
-            self.smallTopBarView.searchBarDidHide()
-        }
-        
-        
-        //            // Handler select cell
-        //            tableView.tableViewControllerManager.completionHandler    =   { organization in
-        //                // TODO: ADD TRANSITION TO NEWS PROFILE
-        //                self.print(object: "transition to News profile scene")
-        //            }
-
-        tableView.tableViewControllerManager!.dataSource = viewModel.news!.first!
-//        dataSourceEmptyView.isHidden = true
-        tableView.isScrollEnabled = true
-
-        self.tableView.reloadData()
-    }
-}
+extension NewsShowViewController: NewsShowViewControllerInput {}

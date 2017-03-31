@@ -94,6 +94,10 @@ protocol DottedBorderViewBinding {
     var dottedBorderView: DottedBorderView! { get set }
 }
 
+protocol MapObjectBinding {
+    func didMap(fromDictionary dictionary: [String: Any], completion: @escaping (() -> ()))
+}
+
 
 extension ErrorMessageViewAnimation {
     func didShow(_ view: UIView, withConstraint constraint: NSLayoutConstraint) {

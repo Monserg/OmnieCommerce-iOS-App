@@ -35,6 +35,7 @@
 		B10B48DF1E8A5B2E007DDD81 /* FavoriteOrganizationsShowWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10B48D81E8A5B2E007DDD81 /* FavoriteOrganizationsShowWorker.swift */; };
 		B10CF52A1E684B9700811DC1 /* ScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10CF5291E684B9700811DC1 /* ScheduleView.swift */; };
 		B10CF52C1E684BA000811DC1 /* ScheduleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B10CF52B1E684BA000811DC1 /* ScheduleView.xib */; };
+		B112036E1E8EDD5D0036001A /* UbuntuLightVeryDarkGrayishBlueLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B112036D1E8EDD5D0036001A /* UbuntuLightVeryDarkGrayishBlueLabel.swift */; };
 		B1131A931E76744300DAF90A /* MSMRestApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1131A921E76744300DAF90A /* MSMRestApiManager.swift */; };
 		B1131A961E768F2900DAF90A /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1131A941E768F2900DAF90A /* Alamofire.framework */; };
 		B1131A971E768F2900DAF90A /* AlamofireImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1131A951E768F2900DAF90A /* AlamofireImage.framework */; };
@@ -180,8 +181,6 @@
 		B16E96711DE6C94D00147CEF /* BigTopBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B16E96701DE6C94D00147CEF /* BigTopBarView.xib */; };
 		B16E96731DE717E400147CEF /* BigCirleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16E96721DE717E400147CEF /* BigCirleView.swift */; };
 		B17061A41E69866B00CF9BA9 /* TableViewControllerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17061A31E69866B00CF9BA9 /* TableViewControllerManager.swift */; };
-		B17061A71E699F3900CF9BA9 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17061A61E699F3900CF9BA9 /* News.swift */; };
-		B17061AA1E699F8300CF9BA9 /* NewsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B17061A91E699F8300CF9BA9 /* NewsTableViewCell.xib */; };
 		B1739D161DE314C70029BCCA /* UIButton+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1739D151DE314C70029BCCA /* UIButton+Ext.swift */; };
 		B1739D181DE314D50029BCCA /* UILabel+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1739D171DE314D50029BCCA /* UILabel+Ext.swift */; };
 		B1739D1A1DE314DF0029BCCA /* UIColor+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1739D191DE314DF0029BCCA /* UIColor+Ext.swift */; };
@@ -343,6 +342,27 @@
 		B1D56BE71E6167AE008BCE54 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D56BE61E6167AE008BCE54 /* MapView.swift */; };
 		B1D57E901E87CB7500CA6243 /* MSMTableViewFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D57E8F1E87CB7500CA6243 /* MSMTableViewFooterView.swift */; };
 		B1D57E921E87CB7F00CA6243 /* MSMTableViewFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1D57E911E87CB7F00CA6243 /* MSMTableViewFooterView.xib */; };
+		B1D883101E8E8971006F4831 /* NewsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D8830F1E8E8971006F4831 /* NewsData.swift */; };
+		B1D883131E8E8995006F4831 /* NewsDataTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D883111E8E8995006F4831 /* NewsDataTableViewCell.swift */; };
+		B1D883141E8E8995006F4831 /* NewsDataTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1D883121E8E8995006F4831 /* NewsDataTableViewCell.xib */; };
+		B1D8831C1E8E8C98006F4831 /* NewsDataShowConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D883151E8E8C98006F4831 /* NewsDataShowConfigurator.swift */; };
+		B1D8831D1E8E8C98006F4831 /* NewsDataShowInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D883161E8E8C98006F4831 /* NewsDataShowInteractor.swift */; };
+		B1D8831E1E8E8C98006F4831 /* NewsDataShowModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D883171E8E8C98006F4831 /* NewsDataShowModels.swift */; };
+		B1D8831F1E8E8C98006F4831 /* NewsDataShowPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D883181E8E8C98006F4831 /* NewsDataShowPresenter.swift */; };
+		B1D883201E8E8C98006F4831 /* NewsDataShowRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D883191E8E8C98006F4831 /* NewsDataShowRouter.swift */; };
+		B1D883211E8E8C98006F4831 /* NewsDataShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D8831A1E8E8C98006F4831 /* NewsDataShowViewController.swift */; };
+		B1D883221E8E8C98006F4831 /* NewsDataShowWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D8831B1E8E8C98006F4831 /* NewsDataShowWorker.swift */; };
+		B1D8832A1E8E8D63006F4831 /* NewsActionsShowConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D883231E8E8D63006F4831 /* NewsActionsShowConfigurator.swift */; };
+		B1D8832B1E8E8D63006F4831 /* NewsActionsShowInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D883241E8E8D63006F4831 /* NewsActionsShowInteractor.swift */; };
+		B1D8832C1E8E8D63006F4831 /* NewsActionsShowModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D883251E8E8D63006F4831 /* NewsActionsShowModels.swift */; };
+		B1D8832D1E8E8D63006F4831 /* NewsActionsShowPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D883261E8E8D63006F4831 /* NewsActionsShowPresenter.swift */; };
+		B1D8832E1E8E8D63006F4831 /* NewsActionsShowRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D883271E8E8D63006F4831 /* NewsActionsShowRouter.swift */; };
+		B1D8832F1E8E8D63006F4831 /* NewsActionsShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D883281E8E8D63006F4831 /* NewsActionsShowViewController.swift */; };
+		B1D883301E8E8D63006F4831 /* NewsActionsShowWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D883291E8E8D63006F4831 /* NewsActionsShowWorker.swift */; };
+		B1D883351E8E9150006F4831 /* Actions+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D883311E8E9150006F4831 /* Actions+CoreDataClass.swift */; };
+		B1D883361E8E9150006F4831 /* Actions+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D883321E8E9150006F4831 /* Actions+CoreDataProperties.swift */; };
+		B1D883371E8E9150006F4831 /* News+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D883331E8E9150006F4831 /* News+CoreDataClass.swift */; };
+		B1D883381E8E9150006F4831 /* News+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D883341E8E9150006F4831 /* News+CoreDataProperties.swift */; };
 		B1DA01B11DF1CB2F00E6DD46 /* UIFont+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DA01B01DF1CB2F00E6DD46 /* UIFont+Ext.swift */; };
 		B1E52AB11DDDD0EA00C3B24D /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E52AB01DDDD0EA00C3B24D /* LaunchScreenViewController.swift */; };
 		B1E52AD31DDDDEC600C3B24D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1E52AD21DDDDEC600C3B24D /* Main.storyboard */; };
@@ -368,7 +388,6 @@
 		B1FBC9251E6D948B00D86429 /* UbuntuLightVeryLightOrangeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FBC9241E6D948B00D86429 /* UbuntuLightVeryLightOrangeButton.swift */; };
 		B1FBC9271E6D974300D86429 /* UbuntuLightItalicLightGrayishCyanLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FBC9261E6D974300D86429 /* UbuntuLightItalicLightGrayishCyanLabel.swift */; };
 		B1FBC9291E6D9FEB00D86429 /* MSMBlackoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FBC9281E6D9FEB00D86429 /* MSMBlackoutView.swift */; };
-		B1FBC92B1E6DB42B00D86429 /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FBC92A1E6DB42B00D86429 /* NewsTableViewCell.swift */; };
 		B1FBC92D1E6DD86500D86429 /* UbuntuLightDarkCyanLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FBC92C1E6DD86500D86429 /* UbuntuLightDarkCyanLabel.swift */; };
 		B1FBC92F1E6DEFD300D86429 /* MSMImagePickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FBC92E1E6DEFD300D86429 /* MSMImagePickerController.swift */; };
 		B1FBC9311E6DFC0E00D86429 /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FBC9301E6DFC0E00D86429 /* UIViewController+Ext.swift */; };
@@ -429,6 +448,7 @@
 		B10B48D81E8A5B2E007DDD81 /* FavoriteOrganizationsShowWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteOrganizationsShowWorker.swift; sourceTree = "<group>"; };
 		B10CF5291E684B9700811DC1 /* ScheduleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleView.swift; sourceTree = "<group>"; };
 		B10CF52B1E684BA000811DC1 /* ScheduleView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScheduleView.xib; sourceTree = "<group>"; };
+		B112036D1E8EDD5D0036001A /* UbuntuLightVeryDarkGrayishBlueLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UbuntuLightVeryDarkGrayishBlueLabel.swift; sourceTree = "<group>"; };
 		B1131A921E76744300DAF90A /* MSMRestApiManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSMRestApiManager.swift; sourceTree = "<group>"; };
 		B1131A941E768F2900DAF90A /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "../../../../../Library/Developer/Xcode/DerivedData/OmnieCommerce-enpckymiymzhiuhdgnbmlxbwmhew/Build/Products/Debug-iphonesimulator/Alamofire/Alamofire.framework"; sourceTree = "<group>"; };
 		B1131A951E768F2900DAF90A /* AlamofireImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlamofireImage.framework; path = "../../../../../Library/Developer/Xcode/DerivedData/OmnieCommerce-enpckymiymzhiuhdgnbmlxbwmhew/Build/Products/Debug-iphonesimulator/AlamofireImage/AlamofireImage.framework"; sourceTree = "<group>"; };
@@ -581,8 +601,6 @@
 		B16E96701DE6C94D00147CEF /* BigTopBarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BigTopBarView.xib; sourceTree = "<group>"; };
 		B16E96721DE717E400147CEF /* BigCirleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BigCirleView.swift; sourceTree = "<group>"; };
 		B17061A31E69866B00CF9BA9 /* TableViewControllerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewControllerManager.swift; sourceTree = "<group>"; };
-		B17061A61E699F3900CF9BA9 /* News.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
-		B17061A91E699F8300CF9BA9 /* NewsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsTableViewCell.xib; sourceTree = "<group>"; };
 		B1739D151DE314C70029BCCA /* UIButton+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Ext.swift"; sourceTree = "<group>"; };
 		B1739D171DE314D50029BCCA /* UILabel+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+Ext.swift"; sourceTree = "<group>"; };
 		B1739D191DE314DF0029BCCA /* UIColor+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Ext.swift"; sourceTree = "<group>"; };
@@ -751,6 +769,27 @@
 		B1D56BE61E6167AE008BCE54 /* MapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		B1D57E8F1E87CB7500CA6243 /* MSMTableViewFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSMTableViewFooterView.swift; sourceTree = "<group>"; };
 		B1D57E911E87CB7F00CA6243 /* MSMTableViewFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MSMTableViewFooterView.xib; sourceTree = "<group>"; };
+		B1D8830F1E8E8971006F4831 /* NewsData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsData.swift; sourceTree = "<group>"; };
+		B1D883111E8E8995006F4831 /* NewsDataTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsDataTableViewCell.swift; sourceTree = "<group>"; };
+		B1D883121E8E8995006F4831 /* NewsDataTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsDataTableViewCell.xib; sourceTree = "<group>"; };
+		B1D883151E8E8C98006F4831 /* NewsDataShowConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsDataShowConfigurator.swift; sourceTree = "<group>"; };
+		B1D883161E8E8C98006F4831 /* NewsDataShowInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsDataShowInteractor.swift; sourceTree = "<group>"; };
+		B1D883171E8E8C98006F4831 /* NewsDataShowModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsDataShowModels.swift; sourceTree = "<group>"; };
+		B1D883181E8E8C98006F4831 /* NewsDataShowPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsDataShowPresenter.swift; sourceTree = "<group>"; };
+		B1D883191E8E8C98006F4831 /* NewsDataShowRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsDataShowRouter.swift; sourceTree = "<group>"; };
+		B1D8831A1E8E8C98006F4831 /* NewsDataShowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsDataShowViewController.swift; sourceTree = "<group>"; };
+		B1D8831B1E8E8C98006F4831 /* NewsDataShowWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsDataShowWorker.swift; sourceTree = "<group>"; };
+		B1D883231E8E8D63006F4831 /* NewsActionsShowConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsActionsShowConfigurator.swift; sourceTree = "<group>"; };
+		B1D883241E8E8D63006F4831 /* NewsActionsShowInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsActionsShowInteractor.swift; sourceTree = "<group>"; };
+		B1D883251E8E8D63006F4831 /* NewsActionsShowModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsActionsShowModels.swift; sourceTree = "<group>"; };
+		B1D883261E8E8D63006F4831 /* NewsActionsShowPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsActionsShowPresenter.swift; sourceTree = "<group>"; };
+		B1D883271E8E8D63006F4831 /* NewsActionsShowRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsActionsShowRouter.swift; sourceTree = "<group>"; };
+		B1D883281E8E8D63006F4831 /* NewsActionsShowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsActionsShowViewController.swift; sourceTree = "<group>"; };
+		B1D883291E8E8D63006F4831 /* NewsActionsShowWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsActionsShowWorker.swift; sourceTree = "<group>"; };
+		B1D883311E8E9150006F4831 /* Actions+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Actions+CoreDataClass.swift"; sourceTree = "<group>"; };
+		B1D883321E8E9150006F4831 /* Actions+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Actions+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		B1D883331E8E9150006F4831 /* News+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "News+CoreDataClass.swift"; sourceTree = "<group>"; };
+		B1D883341E8E9150006F4831 /* News+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "News+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		B1DA01B01DF1CB2F00E6DD46 /* UIFont+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+Ext.swift"; sourceTree = "<group>"; };
 		B1E52AB01DDDD0EA00C3B24D /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewController.swift; sourceTree = "<group>"; };
 		B1E52AD21DDDDEC600C3B24D /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -777,7 +816,6 @@
 		B1FBC9241E6D948B00D86429 /* UbuntuLightVeryLightOrangeButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UbuntuLightVeryLightOrangeButton.swift; sourceTree = "<group>"; };
 		B1FBC9261E6D974300D86429 /* UbuntuLightItalicLightGrayishCyanLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UbuntuLightItalicLightGrayishCyanLabel.swift; sourceTree = "<group>"; };
 		B1FBC9281E6D9FEB00D86429 /* MSMBlackoutView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSMBlackoutView.swift; sourceTree = "<group>"; };
-		B1FBC92A1E6DB42B00D86429 /* NewsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
 		B1FBC92C1E6DD86500D86429 /* UbuntuLightDarkCyanLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UbuntuLightDarkCyanLabel.swift; sourceTree = "<group>"; };
 		B1FBC92E1E6DEFD300D86429 /* MSMImagePickerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSMImagePickerController.swift; sourceTree = "<group>"; };
 		B1FBC9301E6DFC0E00D86429 /* UIViewController+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
@@ -880,6 +918,8 @@
 		B108746A1E5B07B2004A4FB6 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				B1D883311E8E9150006F4831 /* Actions+CoreDataClass.swift */,
+				B1D883321E8E9150006F4831 /* Actions+CoreDataProperties.swift */,
 				B108747B1E5B0DC9004A4FB6 /* AppSettings+CoreDataClass.swift */,
 				B108747C1E5B0DC9004A4FB6 /* AppSettings+CoreDataProperties.swift */,
 				B10874A41E5B3D7E004A4FB6 /* AppUser+CoreDataClass.swift */,
@@ -890,6 +930,8 @@
 				B1EC9F2B1E8AE31500F2E342 /* FavoriteOrganizations+CoreDataProperties.swift */,
 				B1EC9F441E8C13FE00F2E342 /* FavoriteServices+CoreDataClass.swift */,
 				B1EC9F451E8C13FE00F2E342 /* FavoriteServices+CoreDataProperties.swift */,
+				B1D883331E8E9150006F4831 /* News+CoreDataClass.swift */,
+				B1D883341E8E9150006F4831 /* News+CoreDataProperties.swift */,
 				B19A24231E8625DE0070841F /* Organizations+CoreDataClass.swift */,
 				B19A24241E8625DE0070841F /* Organizations+CoreDataProperties.swift */,
 				B1EC9F421E8C13FE00F2E342 /* Services+CoreDataClass.swift */,
@@ -1025,6 +1067,7 @@
 				B1FBC9261E6D974300D86429 /* UbuntuLightItalicLightGrayishCyanLabel.swift */,
 				B17D92DA1E6FFC290028967E /* UbuntuLightItalicModerateRedLabel.swift */,
 				B1FBC91E1E6D904700D86429 /* UbuntuLightItalicVeryDarkGrayishBlueLabel.swift */,
+				B112036D1E8EDD5D0036001A /* UbuntuLightVeryDarkGrayishBlueLabel.swift */,
 				B1FBC9201E6D923E00D86429 /* UbuntuLightVeryLightGrayLabel.swift */,
 				B1FBC9221E6D940D00D86429 /* UbuntuLightVeryLightOrangeLabel.swift */,
 				B137EC8D1E7D059B006F0184 /* UbuntuRegularVeryDarkGrayLabel.swift */,
@@ -1172,8 +1215,7 @@
 		B122F1D21DD35B320018A701 /* NewsShow */ = {
 			isa = PBXGroup;
 			children = (
-				B17061A51E699F1900CF9BA9 /* Models */,
-				B17061A81E699F4600CF9BA9 /* Views */,
+				B1D882FA1E8E8789006F4831 /* ViewControllers */,
 				B122F20C1DD35C2C0018A701 /* NewsShowConfigurator.swift */,
 				B122F20D1DD35C2C0018A701 /* NewsShowInteractor.swift */,
 				B122F20E1DD35C2C0018A701 /* NewsShowModels.swift */,
@@ -1445,23 +1487,6 @@
 				B1228FAB1DD44CD700A90FBB /* Support Files */,
 			);
 			path = OmnieCommerce;
-			sourceTree = "<group>";
-		};
-		B17061A51E699F1900CF9BA9 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				B17061A61E699F3900CF9BA9 /* News.swift */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
-		B17061A81E699F4600CF9BA9 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				B1FBC92A1E6DB42B00D86429 /* NewsTableViewCell.swift */,
-				B17061A91E699F8300CF9BA9 /* NewsTableViewCell.xib */,
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 		B1739D141DE3145F0029BCCA /* Extensions */ = {
@@ -1751,6 +1776,78 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		B1D882FA1E8E8789006F4831 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				B1D883091E8E883D006F4831 /* NewsDataShow */,
+				B1D8830A1E8E8847006F4831 /* NewsActionsShow */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		B1D883091E8E883D006F4831 /* NewsDataShow */ = {
+			isa = PBXGroup;
+			children = (
+				B1D8830B1E8E88DF006F4831 /* Models */,
+				B1D8830C1E8E8909006F4831 /* Views */,
+				B1D883151E8E8C98006F4831 /* NewsDataShowConfigurator.swift */,
+				B1D883161E8E8C98006F4831 /* NewsDataShowInteractor.swift */,
+				B1D883171E8E8C98006F4831 /* NewsDataShowModels.swift */,
+				B1D883181E8E8C98006F4831 /* NewsDataShowPresenter.swift */,
+				B1D883191E8E8C98006F4831 /* NewsDataShowRouter.swift */,
+				B1D8831A1E8E8C98006F4831 /* NewsDataShowViewController.swift */,
+				B1D8831B1E8E8C98006F4831 /* NewsDataShowWorker.swift */,
+			);
+			path = NewsDataShow;
+			sourceTree = "<group>";
+		};
+		B1D8830A1E8E8847006F4831 /* NewsActionsShow */ = {
+			isa = PBXGroup;
+			children = (
+				B1D8830E1E8E8931006F4831 /* Models */,
+				B1D8830D1E8E8928006F4831 /* Views */,
+				B1D883231E8E8D63006F4831 /* NewsActionsShowConfigurator.swift */,
+				B1D883241E8E8D63006F4831 /* NewsActionsShowInteractor.swift */,
+				B1D883251E8E8D63006F4831 /* NewsActionsShowModels.swift */,
+				B1D883261E8E8D63006F4831 /* NewsActionsShowPresenter.swift */,
+				B1D883271E8E8D63006F4831 /* NewsActionsShowRouter.swift */,
+				B1D883281E8E8D63006F4831 /* NewsActionsShowViewController.swift */,
+				B1D883291E8E8D63006F4831 /* NewsActionsShowWorker.swift */,
+			);
+			path = NewsActionsShow;
+			sourceTree = "<group>";
+		};
+		B1D8830B1E8E88DF006F4831 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B1D8830F1E8E8971006F4831 /* NewsData.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B1D8830C1E8E8909006F4831 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B1D883111E8E8995006F4831 /* NewsDataTableViewCell.swift */,
+				B1D883121E8E8995006F4831 /* NewsDataTableViewCell.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		B1D8830D1E8E8928006F4831 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		B1D8830E1E8E8931006F4831 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		B1EC9F2E1E8B7FD300F2E342 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -1904,6 +2001,7 @@
 			files = (
 				B1BF92681DD6516C00BECBBB /* helveticaneuecyr-black.otf in Resources */,
 				B1FFF72A1E5F0DFB00A075D8 /* InfoPlist.strings in Resources */,
+				B1D883141E8E8995006F4831 /* NewsDataTableViewCell.xib in Resources */,
 				B14E976C1DD8B8CB001E1DE2 /* SignInShow.storyboard in Resources */,
 				B16E96711DE6C94D00147CEF /* BigTopBarView.xib in Resources */,
 				B1C6F35D1DD9C718004695C2 /* MenuItemsList.plist in Resources */,
@@ -1944,7 +2042,6 @@
 				B14D1D601E5CB60600D33435 /* GoogleService-Info.plist in Resources */,
 				B1CF54E21DDB529300E98049 /* AboutShow.storyboard in Resources */,
 				B1BF927A1DD6516C00BECBBB /* UBUNTU-C.TTF in Resources */,
-				B17061AA1E699F8300CF9BA9 /* NewsTableViewCell.xib in Resources */,
 				B1E52AD31DDDDEC600C3B24D /* Main.storyboard in Resources */,
 				B1BEEDF71E6368F000F1DE8A /* OrganizationShow.storyboard in Resources */,
 				B1D57E921E87CB7F00CA6243 /* MSMTableViewFooterView.xib in Resources */,
@@ -2037,6 +2134,7 @@
 				B1A9ACCF1E7C6FE60010FF05 /* Categories+CoreDataProperties.swift in Sources */,
 				B16E966F1DE6C94000147CEF /* BigTopBarView.swift in Sources */,
 				B10874801E5B0DC9004A4FB6 /* AppSettings+CoreDataProperties.swift in Sources */,
+				B1D883211E8E8C98006F4831 /* NewsDataShowViewController.swift in Sources */,
 				B122F1F91DD35BC70018A701 /* FavoriteShowModels.swift in Sources */,
 				B10CF52A1E684B9700811DC1 /* ScheduleView.swift in Sources */,
 				B19BB6211E6ABF560081533C /* MSMTableViewControllerManager.swift in Sources */,
@@ -2050,6 +2148,7 @@
 				B1CF547B1DDB50D900E98049 /* AboutShowViewController.swift in Sources */,
 				B1F7EDB81DF54878003B36AD /* SegmentedControlView.swift in Sources */,
 				B122F2051DD35BEB0018A701 /* CategoriesShowConfigurator.swift in Sources */,
+				B1D883101E8E8971006F4831 /* NewsData.swift in Sources */,
 				B177E54A1E54AC7F004F1390 /* EnterCodeShowPresenter.swift in Sources */,
 				B1CF54B41DDB516E00E98049 /* OmnieCardsShowWorker.swift in Sources */,
 				B122F2091DD35BEB0018A701 /* CategoriesShowRouter.swift in Sources */,
@@ -2068,6 +2167,7 @@
 				B1EC9F461E8C13FE00F2E342 /* Services+CoreDataClass.swift in Sources */,
 				B1BEEDEF1E63687500F1DE8A /* OrganizationShowConfigurator.swift in Sources */,
 				B1FFF7151E5F017A00A075D8 /* OrganizationsMapShowRouter.swift in Sources */,
+				B1D8832C1E8E8D63006F4831 /* NewsActionsShowModels.swift in Sources */,
 				B122F2281DD35CC80018A701 /* SlideMenuShowWorker.swift in Sources */,
 				B122F2071DD35BEB0018A701 /* CategoriesShowModels.swift in Sources */,
 				B10B48DC1E8A5B2E007DDD81 /* FavoriteOrganizationsShowPresenter.swift in Sources */,
@@ -2085,6 +2185,7 @@
 				B1CF54B31DDB516E00E98049 /* OmnieCardsShowViewController.swift in Sources */,
 				B1CF54D01DDB51A500E98049 /* PersonalPageShowWorker.swift in Sources */,
 				B1597AD41E3FA91400123CB5 /* EllipseView.swift in Sources */,
+				B1D8831C1E8E8C98006F4831 /* NewsDataShowConfigurator.swift in Sources */,
 				B1CF54921DDB512000E98049 /* DiscountCardsShowConfigurator.swift in Sources */,
 				B177E5391E5475EC004F1390 /* SignInContainerShowViewController.swift in Sources */,
 				B1CF54871DDB50F100E98049 /* BusinessCardsShowPresenter.swift in Sources */,
@@ -2096,6 +2197,7 @@
 				B1C94BC21E37825E00122933 /* BarCodeView.swift in Sources */,
 				B14107C71DFEB1D700F79CF9 /* CustomView.swift in Sources */,
 				B10B48CC1E8A5AEC007DDD81 /* FavoriteServicesShowInteractor.swift in Sources */,
+				B1D883351E8E9150006F4831 /* Actions+CoreDataClass.swift in Sources */,
 				B1CF54771DDB50D900E98049 /* AboutShowInteractor.swift in Sources */,
 				B16E96731DE717E400147CEF /* BigCirleView.swift in Sources */,
 				B177E5491E54AC7F004F1390 /* EnterCodeShowModels.swift in Sources */,
@@ -2119,11 +2221,13 @@
 				B14E97591DD8B052001E1DE2 /* SignUpShowPresenter.swift in Sources */,
 				B10B48DE1E8A5B2E007DDD81 /* FavoriteOrganizationsShowViewController.swift in Sources */,
 				B10B48DF1E8A5B2E007DDD81 /* FavoriteOrganizationsShowWorker.swift in Sources */,
+				B1D883201E8E8C98006F4831 /* NewsDataShowRouter.swift in Sources */,
 				B10874691E5B07A6004A4FB6 /* OmnieCommerceUser.xcdatamodeld in Sources */,
 				B17061A41E69866B00CF9BA9 /* TableViewControllerManager.swift in Sources */,
 				B1FFF7341E5F0F9E00A075D8 /* PointAnnotation.swift in Sources */,
 				B1CF54781DDB50D900E98049 /* AboutShowModels.swift in Sources */,
 				B14E97561DD8B052001E1DE2 /* SignUpShowConfigurator.swift in Sources */,
+				B1D883131E8E8995006F4831 /* NewsDataTableViewCell.swift in Sources */,
 				B14E97671DD8B05E001E1DE2 /* ForgotPasswordShowPresenter.swift in Sources */,
 				B122F1DF1DD35B760018A701 /* OrdersShowRouter.swift in Sources */,
 				B19668601E73098600B9C9AE /* OrganizationTableViewCell.swift in Sources */,
@@ -2146,6 +2250,7 @@
 				B122F1ED1DD35BA70018A701 /* MessagesShowRouter.swift in Sources */,
 				B19E01B01E78217500B53E02 /* NewPhoneView.swift in Sources */,
 				B1FFF7131E5F017A00A075D8 /* OrganizationsMapShowModels.swift in Sources */,
+				B1D883301E8E8D63006F4831 /* NewsActionsShowWorker.swift in Sources */,
 				B14E97491DD8B042001E1DE2 /* SignInShowInteractor.swift in Sources */,
 				B15FD40A1DD1DD8C00782324 /* AppDelegate.swift in Sources */,
 				B1CF54B21DDB516E00E98049 /* OmnieCardsShowRouter.swift in Sources */,
@@ -2172,10 +2277,12 @@
 				B105D1B81E76B90800FCDC73 /* ResponseAPI.swift in Sources */,
 				B1FFF7051E5ECDF900A075D8 /* OrganizationsShowViewController.swift in Sources */,
 				B1597AD01E3F42B600123CB5 /* AvatarActionView.swift in Sources */,
+				B1D8832A1E8E8D63006F4831 /* NewsActionsShowConfigurator.swift in Sources */,
 				B14E974A1DD8B042001E1DE2 /* SignInShowModels.swift in Sources */,
 				B122F1E01DD35B760018A701 /* OrdersShowViewController.swift in Sources */,
 				B1CF54A01DDB515000E98049 /* HandbookShowConfigurator.swift in Sources */,
 				B122DF661DF7F957003823AD /* CalendarShowPresenter.swift in Sources */,
+				B1D883371E8E9150006F4831 /* News+CoreDataClass.swift in Sources */,
 				B1A9ACCE1E7C6FE60010FF05 /* Categories+CoreDataClass.swift in Sources */,
 				B1CF54981DDB512000E98049 /* DiscountCardsShowWorker.swift in Sources */,
 				B122F1FD1DD35BC70018A701 /* FavoriteShowWorker.swift in Sources */,
@@ -2190,6 +2297,7 @@
 				B177E55C1E54B739004F1390 /* RepetitionPasswordShowWorker.swift in Sources */,
 				B122A58E1E6BE10F00C39B67 /* FillVeryLightOrangeButton.swift in Sources */,
 				B108746C1E5B07D3004A4FB6 /* CoreDataManager.swift in Sources */,
+				B1D8831F1E8E8C98006F4831 /* NewsDataShowPresenter.swift in Sources */,
 				B19DF2861DF94DED000AFC92 /* SchedulerViewController.swift in Sources */,
 				B1CF54CE1DDB51A500E98049 /* PersonalPageShowRouter.swift in Sources */,
 				B18A45CA1DEC282B003EBD2F /* DotView.swift in Sources */,
@@ -2216,9 +2324,11 @@
 				B14E975C1DD8B052001E1DE2 /* SignUpShowWorker.swift in Sources */,
 				B1EC9F471E8C13FE00F2E342 /* Services+CoreDataProperties.swift in Sources */,
 				B1CF54D81DDB51BE00E98049 /* SettingsShowConfigurator.swift in Sources */,
+				B112036E1E8EDD5D0036001A /* UbuntuLightVeryDarkGrayishBlueLabel.swift in Sources */,
 				B122F1EC1DD35BA70018A701 /* MessagesShowPresenter.swift in Sources */,
 				B1FFF7121E5F017A00A075D8 /* OrganizationsMapShowInteractor.swift in Sources */,
 				B137EC8B1E7D0334006F0184 /* CategoryCollectionViewCell.swift in Sources */,
+				B1D883361E8E9150006F4831 /* Actions+CoreDataProperties.swift in Sources */,
 				B122F1DE1DD35B760018A701 /* OrdersShowPresenter.swift in Sources */,
 				B122A5961E6C56F800C39B67 /* MessageTableViewCell.swift in Sources */,
 				B14E975B1DD8B052001E1DE2 /* SignUpShowViewController.swift in Sources */,
@@ -2233,7 +2343,6 @@
 				B177E5361E5475EC004F1390 /* SignInContainerShowModels.swift in Sources */,
 				B1CF54CF1DDB51A500E98049 /* PersonalPageShowViewController.swift in Sources */,
 				B122A5901E6BF23E00C39B67 /* BorderVeryLightOrangeButton.swift in Sources */,
-				B1FBC92B1E6DB42B00D86429 /* NewsTableViewCell.swift in Sources */,
 				B14107C41DFEA73900F79CF9 /* CalendarDayCellView.swift in Sources */,
 				B177E5351E5475EC004F1390 /* SignInContainerShowInteractor.swift in Sources */,
 				B1228FBA1DD49ED400A90FBB /* BaseViewController.swift in Sources */,
@@ -2245,12 +2354,14 @@
 				B1FBC91F1E6D904700D86429 /* UbuntuLightItalicVeryDarkGrayishBlueLabel.swift in Sources */,
 				B122DF631DF7F957003823AD /* CalendarShowConfigurator.swift in Sources */,
 				B14E97481DD8B042001E1DE2 /* SignInShowConfigurator.swift in Sources */,
+				B1D8831D1E8E8C98006F4831 /* NewsDataShowInteractor.swift in Sources */,
 				B177E53C1E5489A2004F1390 /* ErrorMessageView.swift in Sources */,
 				B18A45C81DEC23B2003EBD2F /* SmallTopBarView.swift in Sources */,
 				B10B48CB1E8A5AEC007DDD81 /* FavoriteServicesShowConfigurator.swift in Sources */,
 				B19DFABF1E64B98E00599073 /* UIScrollView+Ext.swift in Sources */,
 				B1FFF7001E5ECDF900A075D8 /* OrganizationsShowConfigurator.swift in Sources */,
 				B1FFF7311E5F0F0F00A075D8 /* LocationManager.swift in Sources */,
+				B1D8832F1E8E8D63006F4831 /* NewsActionsShowViewController.swift in Sources */,
 				B122F2141DD35C2C0018A701 /* NewsShowInteractor.swift in Sources */,
 				B1CF54AE1DDB516E00E98049 /* OmnieCardsShowConfigurator.swift in Sources */,
 				B1CF54BF1DDB519000E98049 /* OnmieSoftShowPresenter.swift in Sources */,
@@ -2281,6 +2392,8 @@
 				B122F2061DD35BEB0018A701 /* CategoriesShowInteractor.swift in Sources */,
 				B1FBC91D1E6D902C00D86429 /* HelveticaNeueCyrLightVeryLightGrayLabel.swift in Sources */,
 				B1CF54931DDB512000E98049 /* DiscountCardsShowInteractor.swift in Sources */,
+				B1D883221E8E8C98006F4831 /* NewsDataShowWorker.swift in Sources */,
+				B1D8832B1E8E8D63006F4831 /* NewsActionsShowInteractor.swift in Sources */,
 				B1CF54C01DDB519000E98049 /* OnmieSoftShowRouter.swift in Sources */,
 				B10874A61E5B3D7E004A4FB6 /* AppUser+CoreDataClass.swift in Sources */,
 				B1CF54BC1DDB519000E98049 /* OnmieSoftShowConfigurator.swift in Sources */,
@@ -2295,13 +2408,13 @@
 				B1FFF7031E5ECDF900A075D8 /* OrganizationsShowPresenter.swift in Sources */,
 				B1CF54761DDB50D900E98049 /* AboutShowConfigurator.swift in Sources */,
 				B122F1FA1DD35BC70018A701 /* FavoriteShowPresenter.swift in Sources */,
-				B17061A71E699F3900CF9BA9 /* News.swift in Sources */,
 				B1BEEDE61E63402000F1DE8A /* ListTableViewController.swift in Sources */,
 				B1FBC92D1E6DD86500D86429 /* UbuntuLightDarkCyanLabel.swift in Sources */,
 				B1CF54BE1DDB519000E98049 /* OnmieSoftShowModels.swift in Sources */,
 				B1CF54DC1DDB51BE00E98049 /* SettingsShowRouter.swift in Sources */,
 				B122F2411DD371B30018A701 /* BaseNavigationController.swift in Sources */,
 				B122DF671DF7F957003823AD /* CalendarShowRouter.swift in Sources */,
+				B1D8832D1E8E8D63006F4831 /* NewsActionsShowPresenter.swift in Sources */,
 				B1FBC91B1E6D494D00D86429 /* DLRadioButton.m in Sources */,
 				B1E52AB11DDDD0EA00C3B24D /* LaunchScreenViewController.swift in Sources */,
 				B1BEEDF21E63687500F1DE8A /* OrganizationShowPresenter.swift in Sources */,
@@ -2315,6 +2428,7 @@
 				B14E97581DD8B052001E1DE2 /* SignUpShowModels.swift in Sources */,
 				B14E974B1DD8B042001E1DE2 /* SignInShowPresenter.swift in Sources */,
 				B1CF54941DDB512000E98049 /* DiscountCardsShowModels.swift in Sources */,
+				B1D8832E1E8E8D63006F4831 /* NewsActionsShowRouter.swift in Sources */,
 				B177E5571E54B739004F1390 /* RepetitionPasswordShowInteractor.swift in Sources */,
 				B10871521E379A4800374DD5 /* OmnieCard.swift in Sources */,
 				B122A5981E6C728300C39B67 /* Message.swift in Sources */,
@@ -2325,9 +2439,11 @@
 				B11B9ADD1DF053BA009A4AA1 /* CustomImageView.swift in Sources */,
 				B1C13D871DEF2743002B494A /* DropDownButton.swift in Sources */,
 				B10B48CF1E8A5AEC007DDD81 /* FavoriteServicesShowRouter.swift in Sources */,
+				B1D883381E8E9150006F4831 /* News+CoreDataProperties.swift in Sources */,
 				B122F2181DD35C2C0018A701 /* NewsShowViewController.swift in Sources */,
 				B10B48CE1E8A5AEC007DDD81 /* FavoriteServicesShowPresenter.swift in Sources */,
 				B177E54D1E54AC7F004F1390 /* EnterCodeShowWorker.swift in Sources */,
+				B1D8831E1E8E8C98006F4831 /* NewsDataShowModels.swift in Sources */,
 				B122F1F81DD35BC70018A701 /* FavoriteShowInteractor.swift in Sources */,
 				B14E976A1DD8B05E001E1DE2 /* ForgotPasswordShowWorker.swift in Sources */,
 				B1CF54DE1DDB51BE00E98049 /* SettingsShowWorker.swift in Sources */,

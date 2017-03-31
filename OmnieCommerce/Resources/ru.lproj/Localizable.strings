@@ -101,7 +101,7 @@
 
 // Segmented Control Titles
 "Subscription"                  =   "Подписка";
-"Hot News"                      =   "Горячие новости";
+"Actions"                       =   "Акции";
 "Personal Data"                 =   "Личные данные";
 "My Templates"                  =   "Мои шаблоны";
 "Organizations"                 =   "Организации";
@@ -149,7 +149,8 @@
 "Organizations list is empty"   =   "Список организаций пуст";
 "Services list is empty"        =   "Список услуг пуст";
 "Messages list is empty"        =   "Список сообщений пуст";
-"News list is empty"            =   "Список новостей пуст";
+"NewsData list is empty"        =   "Список новостей пуст";
+"NewsActions list is empty"     =   "Список акций пуст";
 "Phones list is empty"          =   "Список телефонов пуст";
 "Templates list is empty"       =   "Список шаблонов пуст";
 "Incorrect User name"           =   "Введите корректное имя пользователя";

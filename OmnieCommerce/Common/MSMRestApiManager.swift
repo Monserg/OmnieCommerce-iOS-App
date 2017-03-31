@@ -435,4 +435,22 @@ final class MSMRestApiManager {
         }
     }
 
+    func userGetNewsDataList(_ parameters: [String: Int], withHandlerResponseAPICompletion handlerResponseAPICompletion: @escaping (ResponseAPI?) -> Void) {
+        appApiString = "/user/news/"
+        headers["Authorization"] = CoreDataManager.instance.appUser.accessToken!
+        
+        Alamofire.request(appURL, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { dataResponse -> Void in
+            if (dataResponse.result.value != nil) {
+                let json = JSON(dataResponse.result.value!)
+                let responseAPI = ResponseAPI.init(fromJSON: json, withBodyType: .NewsDataArray)
+                
+                handlerResponseAPICompletion(responseAPI)
+                return
+            } else {
+                handlerResponseAPICompletion(nil)
+                return
+            }
+        }
+    }
+
 }

@@ -14,6 +14,7 @@ import Foundation
 enum DateFormatType: String {
     case Default                =   "dd.MM.yyyy"                        // "17.03.2017"
     case ResponseDate           =   "yyyy-MM-dd"                        // "2017-03-17"
+    case NewsDate               =   "yyyy-MM-dd HH:mm"                  // "2017-03-31 01:03"
 }
 
 extension String {

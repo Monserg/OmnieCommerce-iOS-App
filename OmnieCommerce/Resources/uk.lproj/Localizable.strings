@@ -101,7 +101,7 @@
 
 // Segmented Control Titles
 "Subscription"                  =   "Підписка";
-"Hot News"                      =   "Гарячі новини";
+"Actions"                       =   "Акції";
 "Personal Data"                 =   "Особисті дані";
 "My Templates"                  =   "Мої шаблони";
 "Organizations"                 =   "Організації";
@@ -149,7 +149,8 @@
 "Organizations list is empty"   =   "Список організацій порожній";
 "Services list is empty"        =   "Список послуг порожній";
 "Messages list is empty"        =   "Список повідомлень порожній";
-"News list is empty"            =   "Список новин порожній";
+"NewsData list is empty"        =   "Список новин порожній";
+"NewsActions list is empty"     =   "Список акцій порожній";
 "Phones list is empty"          =   "Список телефонів порожній";
 "Templates list is empty"       =   "Список шаблонів порожній";
 "Incorrect User name"           =   "Введіть чинне ім'я користувача";

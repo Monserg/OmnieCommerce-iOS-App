@@ -12,6 +12,7 @@ import SwiftyJSON
 enum BodyType {
     case Default
     case ServicesArray
+    case NewsDataArray
     case UserDataDictionary
     case UserAdditionalDataDictionary
     case CategoriesArray
@@ -67,6 +68,9 @@ class ResponseAPI {
         case .ServicesArray:
             self.body = json["body"].arrayObject!
             
+        case .NewsDataArray:
+            self.body = json["body"].arrayObject!
+
         case .OrganizationsArray:
             self.body = json["body"].arrayObject!
 
@@ -77,6 +81,22 @@ class ResponseAPI {
     
     
     // MARK: - Custom Functions
+    func itemsDidLoad<T: NSObject>(fromItemsArray itemsList: [Any], withItem item: T, completion: @escaping ((_ items: [T]) -> ())) {
+        var items = [T]()
+        
+        for dictionary in itemsList {
+            let itemValue = item
+            
+            (itemValue as! MapObjectBinding).didMap(fromDictionary: dictionary as! [String : Any], completion: { _ in
+                items.append(itemValue)
+                
+                if (items.count == itemsList.count) {
+                    completion(items)
+                }
+            })
+        }
+    }
+
     func organizationsAddressDidLoad(_ organizationsList: [Any], completion: @escaping ((_ organizations: [Organization]) -> ())) {
         var organizations = [Organization]()
         

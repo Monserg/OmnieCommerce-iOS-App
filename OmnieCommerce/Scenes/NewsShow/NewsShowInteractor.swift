@@ -13,12 +13,10 @@ import UIKit
 
 // MARK: - Input protocols for current Interactor component VIP-cicle
 protocol NewsShowInteractorInput {
-    func newsDidLoad(withRequestModel requestModel: NewsShowModels.NewsItems.RequestModel)
 }
 
 // MARK: - Output protocols for Presenter component VIP-cicle
 protocol NewsShowInteractorOutput {
-    func newsDidPrepareToShow(fromResponseModel responseModel: NewsShowModels.NewsItems.ResponseModel)
 }
 
 class NewsShowInteractor: NewsShowInteractorInput {
@@ -28,13 +26,4 @@ class NewsShowInteractor: NewsShowInteractorInput {
     
     
     // MARK: - Custom Functions. Business logic
-    func newsDidLoad(withRequestModel requestModel: NewsShowModels.NewsItems.RequestModel) {
-        // NOTE: Create some Worker to do the work
-        worker              =   NewsShowWorker()
-        let items           =   worker.newsDidLoad()
-        
-        // NOTE: Pass the result to the Presenter
-        let responseModel   =   NewsShowModels.NewsItems.ResponseModel(items: items)
-        presenter.newsDidPrepareToShow(fromResponseModel: responseModel)
-    }
 }

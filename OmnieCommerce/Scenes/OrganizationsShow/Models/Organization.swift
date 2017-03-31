@@ -10,7 +10,7 @@
 import Foundation
 import CoreLocation
 
-class Organization: NSObject, NSCoding, InitCellParameters, SearchObject, PointAnnotationBinding {
+class Organization: NSObject, NSCoding, InitCellParameters, SearchObject, PointAnnotationBinding, MapObjectBinding {
     // MARK: - Properties
     var codeID: String!
     var name: String!
@@ -84,7 +84,7 @@ class Organization: NSObject, NSCoding, InitCellParameters, SearchObject, PointA
     }
     
     
-    // MARK: - Custom Functions
+    // Confirm MapObjectBinding Protocol
     func didMap(fromDictionary dictionary: [String: Any], completion: @escaping (() -> ())) {
         self.codeID = dictionary["uuid"] as? String
         self.name = dictionary["orgName"] as? String

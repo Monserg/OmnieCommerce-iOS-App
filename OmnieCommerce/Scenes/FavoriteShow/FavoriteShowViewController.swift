@@ -80,7 +80,6 @@ class FavoriteShowViewController: BaseViewController {
         smallTopBarView.type = "Parent"
         haveMenuItem = true
         
-        // Load data
         setupSegmentedControlView()
         containerView.autoresizesSubviews = true
     }

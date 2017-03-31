@@ -26,8 +26,8 @@ import Localize_Swift
             
             switch viewStyle {
             case .News:
-                leftTitle       =   "Subscription".localized()
-                rightTitle      =   "Hot News".localized()
+                leftTitle       =   "News".localized()
+                rightTitle      =   "Actions".localized()
 
             case .Calendar:
                 leftTitle       =   "Calendar".localized()

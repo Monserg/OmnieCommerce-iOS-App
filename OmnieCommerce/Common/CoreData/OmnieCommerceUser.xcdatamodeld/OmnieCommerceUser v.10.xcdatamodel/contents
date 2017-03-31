@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="12141" systemVersion="16E195" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Actions" representedClassName="Actions" syncable="YES">
+        <attribute name="list" optional="YES" attributeType="Binary" syncable="YES"/>
+    </entity>
     <entity name="AppSettings" representedClassName="AppSettings" syncable="YES">
         <attribute name="isThemeDark" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
     </entity>
@@ -35,6 +38,9 @@
     <entity name="FavoriteServices" representedClassName="FavoriteServices" syncable="YES">
         <attribute name="list" optional="YES" attributeType="Binary" syncable="YES"/>
     </entity>
+    <entity name="News" representedClassName="News" syncable="YES">
+        <attribute name="list" optional="YES" attributeType="Binary" syncable="YES"/>
+    </entity>
     <entity name="Organizations" representedClassName="Organizations" syncable="YES">
         <attribute name="list" optional="YES" attributeType="Binary" syncable="YES"/>
     </entity>
@@ -45,9 +51,11 @@
         <element name="AppSettings" positionX="-54" positionY="-9" width="128" height="60"/>
         <element name="AppUser" positionX="-63" positionY="-18" width="128" height="285"/>
         <element name="Categories" positionX="-54" positionY="99" width="128" height="60"/>
-        <element name="Organizations" positionX="-54" positionY="99" width="128" height="60"/>
         <element name="FavoriteOrganizations" positionX="-45" positionY="108" width="128" height="60"/>
-        <element name="Services" positionX="-36" positionY="117" width="128" height="60"/>
         <element name="FavoriteServices" positionX="-18" positionY="126" width="128" height="60"/>
+        <element name="Organizations" positionX="-54" positionY="99" width="128" height="60"/>
+        <element name="Services" positionX="-36" positionY="117" width="128" height="60"/>
+        <element name="News" positionX="-36" positionY="99" width="128" height="60"/>
+        <element name="Actions" positionX="-27" positionY="108" width="128" height="60"/>
     </elements>
 </model>
