@@ -8,19 +8,18 @@
 
 import UIKit
 import Alamofire
-import AlamofireImage
 
 @IBDesignable class CustomImageView: UIImageView {
     // MARK: - Properties
     @IBInspectable var isCircle: Bool = false {
         didSet {
-            layer.cornerRadius  =   (isCircle) ? frame.height / 2 : 0
+            layer.cornerRadius = (isCircle) ? frame.height / 2 : 0
         }
     }
 
     @IBInspectable var borderWidth: CGFloat = 1.0 {
         didSet {
-            layer.borderWidth   =   borderWidth
+            layer.borderWidth = borderWidth
         }
     }
     
@@ -39,18 +38,4 @@ import AlamofireImage
     
     // MARK: - Class Functions
     override func draw(_ rect: CGRect) {}
-    
-    
-    // MARK: - Custom Functions
-//    func downloadImage(pathString: String?) {
-//        let imageView = UIImageView(frame: frame)
-//        let url = URL(string: pathString ?? "https://omniesoft.ua/")!
-//        let placeholderImage = UIImage(named: "image-no-photo")!
-//        
-//        imageView.af_setImage(withURL: url, placeholderImage: placeholderImage)
-//        
-//        Alamofire.request(url).responseImage { uploadedImage in
-//            self.image = uploadedImage
-//        }
-//    }
 }

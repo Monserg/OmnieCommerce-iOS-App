@@ -198,7 +198,8 @@ final class MSMRestApiManager {
         Alamofire.request(appURL, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers).responseJSON { dataResponse -> Void in
             if (dataResponse.result.value != nil) {
                 let json = JSON(dataResponse.result.value!)
-                let responseAPI = ResponseAPI.init(fromJSON: json, withBodyType: ((CoreDataManager.instance.appUser.codeID == "200") ? .UserDataDictionary : .UserAdditionalDataDictionary))
+                let responseAPI = ResponseAPI.init(fromJSON: json,
+                                                   withBodyType: ((dataResponse.response!.statusCode == 200) ? .UserDataDictionary : .UserAdditionalDataDictionary))
                 
                 handlerResponseAPICompletion(responseAPI)
                 return

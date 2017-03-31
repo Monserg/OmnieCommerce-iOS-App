@@ -228,15 +228,15 @@ class PersonalPageShowViewController: BaseViewController {
                 self.spinnerDidStart(self.blackoutView!)
                 let imageUploadRequestModel = PersonalPageShowModels.UploadImage.RequestModel(image: uploadedImage)
                 self.interactor.userAppImageDidUpload(withRequestModel: imageUploadRequestModel)
-            } else {
-                // Change Avatar Button Image
-                UIView.animate(withDuration: 0.7, animations: {
-                    avatarButton.setImage(uploadedImage, for: .normal)
-                }, completion: { success in
-                    self.wasImageUploaded = false
-                    self.blackoutView!.didHide()
-                })
             }
+            
+            // Change Avatar Button Image
+            UIView.animate(withDuration: 0.7, animations: {
+                avatarButton.setImage(uploadedImage, for: .normal)
+            }, completion: { success in
+                self.wasImageUploaded = false
+                self.blackoutView!.didHide()
+            })
         }
         
         // Handler Cancel result
@@ -315,14 +315,15 @@ extension PersonalPageShowViewController: PersonalPageShowViewControllerInput {
         
         // Check Network state
         guard isNetworkAvailable else {
-            self.wasImageUploaded = false
+            wasImageUploaded = false
+            blackoutView!.didHide()
             return
         }
         
         CoreDataManager.instance.didSaveContext()
-        ImageCache.default.store(self.personalDataVC!.avatarButton.image(for: .normal)!, forKey: "userImage")
+        ImageCache.default.store(personalDataVC!.avatarButton.image(for: .normal)!, forKey: "userImage")
         wasImageUploaded = true
-        self.blackoutView!.didHide()
+        blackoutView!.didHide()
     }
     
     func userAppPasswordDidShowChange(fromViewModel viewModel: PersonalPageShowModels.UploadData.ViewModel) {}

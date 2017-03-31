@@ -37,6 +37,7 @@ class OrganizationsMapShowViewController: BaseViewController {
     @IBOutlet weak var infoView: UIView!
     @IBOutlet weak var cityLabel: CustomLabel!
     @IBOutlet weak var streetLabel: CustomLabel!
+    @IBOutlet weak var copyrightLabel: UbuntuLightDarkCyanLabel!
 
     @IBOutlet weak var mapView: MapView! {
         didSet {
@@ -86,8 +87,10 @@ class OrganizationsMapShowViewController: BaseViewController {
             infoView.isHidden = false
             cityLabel.text = items.first!.addressCity
             streetLabel.text = items.first!.addressStreet
+            copyrightLabel.isHidden = true
         } else {
             infoView.isHidden = true
+            copyrightLabel.isHidden = false
         }
         
         // Load point annotations

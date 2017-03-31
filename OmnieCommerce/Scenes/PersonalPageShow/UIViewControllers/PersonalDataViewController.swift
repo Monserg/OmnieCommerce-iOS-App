@@ -27,7 +27,7 @@ class PersonalDataViewController: BaseViewController, EmailErrorMessageView, Pho
             birthdayPickerView.dataSource = self.pickerViewManager
 
             let currentDayComponents = Calendar.current.dateComponents(in: TimeZone.current,
-                                                                       from: (CoreDataManager.instance.appUser.codeID == "200") ? CoreDataManager.instance.appUser!.birthday! as Date : Date())
+                                                                       from: (CoreDataManager.instance.appUser.birthday != nil) ? CoreDataManager.instance.appUser!.birthday! as Date : Date())
             self.pickerViewManager.selectedMonthIndex = pickerViewManager.months.index(where: { $0 == String(currentDayComponents.month!) })!
             let currentDaysInMonth = pickerViewManager.days[self.pickerViewManager.selectedMonthIndex]
             self.pickerViewManager.selectedDayIndex = currentDaysInMonth.index(where: { $0 == String(currentDayComponents.day!) })!
@@ -70,20 +70,21 @@ class PersonalDataViewController: BaseViewController, EmailErrorMessageView, Pho
             }
             
             // Set User Image by URL
-            self.avatarButton.kf.setImage(with: ImageResource(downloadURL: URL(string: CoreDataManager.instance.appUser.imagePath!)!, cacheKey: "userImage"),
-                                          for: .normal,
-                                          placeholder: UIImage.init(named: "image-no-user"),
-                                          options: [.transition(ImageTransition.fade(1))],
-                                          completionHandler: { image, error, cacheType, imageURL in
-                                              self.avatarButton.imageView!.kf.cancelDownloadTask()
+            avatarButton.kf.setImage(with: ImageResource(downloadURL: URL(string: CoreDataManager.instance.appUser.imagePath!)!, cacheKey: CoreDataManager.instance.appUser.imagePath!),
+                                     for: .normal,
+                                     placeholder: UIImage.init(named: "image-no-user"),
+                                     options: [.transition(ImageTransition.fade(1)),
+                                               .processor(ResizingImageProcessor(targetSize: avatarButton.frame.size))],
+                                     completionHandler: { image, error, cacheType, imageURL in
+                                        self.avatarButton.imageView!.kf.cancelDownloadTask()
             })
         }
     }
 
     @IBOutlet weak var emailTextField: CustomTextField! {
         didSet {
-            if (CoreDataManager.instance.appUser.codeID == "200") {
-                self.emailTextField.text = CoreDataManager.instance.appUser!.email
+            if (CoreDataManager.instance.appUser.email != nil) {
+                self.emailTextField.text = CoreDataManager.instance.appUser!.email!
             } else {
                 let dictionary = NSKeyedUnarchiver.unarchiveObject(with: CoreDataManager.instance.appUser!.additionalData! as Data) as! [String : Any]
                 self.emailTextField.text = dictionary["userEmail"] as? String

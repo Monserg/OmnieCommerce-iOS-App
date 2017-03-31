@@ -8,7 +8,6 @@
 
 import UIKit
 import Cosmos
-import Toucan
 import Kingfisher
 
 class ServiceTableViewCell: UITableViewCell, DottedBorderViewBinding {
@@ -70,14 +69,9 @@ extension ServiceTableViewCell: ConfigureCell {
         if let imagePath = service.logoURL {
             logoImageView.kf.setImage(with: ImageResource(downloadURL: URL(string: imagePath)!, cacheKey: serviceID),
                                       placeholder: UIImage.init(named: "image-no-service"),
-                                      options: [.transition(ImageTransition.fade(1))],
+                                      options: [.transition(ImageTransition.fade(1)),
+                                                .processor(ResizingImageProcessor(targetSize: logoImageView.frame.size))],
                                       completionHandler: { image, error, cacheType, imageURL in
-                                        if (image != nil) {
-                                            self.logoImageView.image = Toucan(image: image!)
-                                                .resize(self.logoImageView.frame.size, fitMode: Toucan.Resize.FitMode.crop)
-                                                .maskWithEllipse().image
-                                        }
-                                        
                                         self.logoImageView.kf.cancelDownloadTask()
             })
         }

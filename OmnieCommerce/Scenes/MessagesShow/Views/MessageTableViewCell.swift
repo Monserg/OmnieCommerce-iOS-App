@@ -45,17 +45,17 @@ extension MessageTableViewCell: ConfigureCell {
                                   placeholderImage: UIImage.init(named: "image-no-photo"),
                                   filter: AspectScaledToFillSizeWithRoundedCornersFilter(size: logoImageView.frame.size, radius: logoImageView.frame.size.width / 2))
         
-        dottedBorderView.style  =   .AroundDottedRectangle
+        dottedBorderView.style = .AroundDottedRectangle
         
         if (message.isOwn) {
-            userAvatarImageView.isHidden    =  false
-            userAvatarImageView.frame       =   CGRect.init(origin: .zero, size: CGSize.init(width: 20, height: 20))
+            userAvatarImageView.isHidden = false
+            userAvatarImageView.frame = CGRect.init(origin: .zero, size: CGSize.init(width: 20, height: 20))
             
             userAvatarImageView.af_setImage(withURL: URL(string: message.userAvatarStringURL ?? "http://static1.milkcapmania.co.uk/Img/Other/TV%20Story%20Vedettos/300DPI/Sylvester-Stallone.png")!,
                                             placeholderImage: UIImage.init(named: "image-no-user"),
                                             filter: AspectScaledToFillSizeWithRoundedCornersFilter(size: userAvatarImageView.frame.size, radius: userAvatarImageView.frame.height / 2))
         } else {
-            userAvatarImageView.isHidden    =  true
+            userAvatarImageView.isHidden = true
         }
     }
 }

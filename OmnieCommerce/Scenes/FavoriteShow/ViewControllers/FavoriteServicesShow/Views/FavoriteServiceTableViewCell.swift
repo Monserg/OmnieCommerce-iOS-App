@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Toucan
 import Kingfisher
 
 class FavoriteServiceTableViewCell: UITableViewCell, DottedBorderViewBinding {
@@ -70,16 +69,10 @@ extension FavoriteServiceTableViewCell: ConfigureCell {
                                       options: [.transition(ImageTransition.fade(1)),
                                                 .processor(ResizingImageProcessor(targetSize: logoImageView.frame.size))],
                                       completionHandler: { image, error, cacheType, imageURL in
-//                                        if (image != nil) {
-//                                            self.logoImageView.image = Toucan(image: image!)
-//                                                .resize(self.logoImageView.frame.size, fitMode: Toucan.Resize.FitMode.crop)
-//                                                .maskWithEllipse().image
-//                                        }
-
                                         self.logoImageView.kf.cancelDownloadTask()
             })
         }
         
-        dottedBorderView.style = .AroundDottedRectangle //(indexPath.row <= 1) ? .AroundDottedRectangleColor : .AroundDottedRectangle
+        dottedBorderView.style = .AroundDottedRectangle
     }
 }
