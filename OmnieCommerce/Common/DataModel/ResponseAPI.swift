@@ -11,8 +11,10 @@ import SwiftyJSON
 
 enum BodyType {
     case Default
+    case ItemsArray
+    case ItemsDictionary
+    
     case ServicesArray
-    case NewsDataArray
     case UserDataDictionary
     case UserAdditionalDataDictionary
     case CategoriesArray
@@ -65,12 +67,9 @@ class ResponseAPI {
             
             self.body = categories
             
-        case .ServicesArray:
+        case .ItemsArray:
             self.body = json["body"].arrayObject!
             
-        case .NewsDataArray:
-            self.body = json["body"].arrayObject!
-
         case .OrganizationsArray:
             self.body = json["body"].arrayObject!
 

@@ -15,7 +15,7 @@ import UIKit
 struct FavoriteServicesShowModels {
     struct Services {
         struct RequestModel {
-            let parameters: [String: Int]
+            let parameters: [String: Any]
         }
         
         struct ResponseModel {

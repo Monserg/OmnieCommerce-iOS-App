@@ -29,10 +29,10 @@ class SignUpShowInteractor: SignUpShowInteractorInput {
     
     // MARK: - Custom Functions. Business logic
     func userAppDidRegister(fromRequestModel requestModel: SignUpShowModels.User.RequestModel) {
-        MSMRestApiManager.instance.userRegistration(requestModel.name, andEmail: requestModel.email, andPassword: requestModel.password, withHandlerResponseAPICompletion: { responseAPI in
+        MSMRestApiManager.instance.userRequestDidRun(.userRegistration(requestModel.parameters), withHandlerResponseAPICompletion: { responseAPI in
             // Pass the result to the Presenter
-            let responseModel   =   SignUpShowModels.User.ResponseModel(responseAPI: responseAPI)
-            self.presenter.userAppDidPrepareToShowRegister(fromResponseModel: responseModel)
+            let signUpResponseModel = SignUpShowModels.User.ResponseModel(responseAPI: responseAPI)
+            self.presenter.userAppDidPrepareToShowRegister(fromResponseModel: signUpResponseModel)
         })
     }
 }

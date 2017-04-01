@@ -113,8 +113,14 @@ class SignUpShowViewController: BaseViewController, EmailErrorMessageView, Passw
             
             spinnerDidStart(view)
             
-            let requestModel = SignUpShowModels.User.RequestModel(name: textFieldsCollection.first!.text!, email: textFieldsCollection[1].text!, password: textFieldsCollection.last!.text!)
-            interactor.userAppDidRegister(fromRequestModel: requestModel)
+            let requestParameters: [String: Any] =  [
+                                                        "userName": textFieldsCollection.first!.text!,
+                                                        "email": textFieldsCollection[1].text!,
+                                                        "password": textFieldsCollection.last!.text!
+                                                    ]
+
+            let signUpRequestModel = SignUpShowModels.User.RequestModel(parameters: requestParameters)
+            interactor.userAppDidRegister(fromRequestModel: signUpRequestModel)
         }
     }
     

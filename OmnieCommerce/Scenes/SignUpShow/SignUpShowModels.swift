@@ -33,9 +33,7 @@ struct SignUpShowModels {
     // User
     struct User {
         struct RequestModel {
-            let name: String
-            let email: String
-            let password: String
+            let parameters: [String: Any]
         }
         
         struct ResponseModel {
