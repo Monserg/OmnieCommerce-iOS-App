@@ -37,7 +37,8 @@ class FavoriteServicesShowPresenter: FavoriteServicesShowPresenterInput {
         
         // Format the response from the Interactor and pass the result back to the View Controller
         if ((responseModel.response?.body as! [Any]).count > 0) {
-            responseModel.response?.servicesAddressDidLoad(responseModel.response?.body as! [Any], completion: { favoriteServices in
+            responseModel.response!.itemsDidLoad(fromItemsArray: responseModel.response!.body as! [Any], withItem: Service.init(), completion: { favoriteServices in
+//            responseModel.response?.servicesAddressDidLoad(responseModel.response?.body as! [Any], completion: { favoriteServices in
                 // Prepare to save Services in CoreData
                 let _ = favoriteServices.map { $0.cellHeight = 60.0; $0.cellIdentifier = "FavoriteServiceTableViewCell" }
                 let entityFavoriteServices = CoreDataManager.instance.entityDidLoad(byName: keyFavoriteServices) as! FavoriteServices

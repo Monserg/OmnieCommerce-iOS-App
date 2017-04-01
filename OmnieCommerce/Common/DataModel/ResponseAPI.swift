@@ -96,36 +96,4 @@ class ResponseAPI {
             })
         }
     }
-
-    func organizationsAddressDidLoad(_ organizationsList: [Any], completion: @escaping ((_ organizations: [Organization]) -> ())) {
-        var organizations = [Organization]()
-        
-        for dictionary in organizationsList {
-            let organization = Organization.init()
-            
-            organization.didMap(fromDictionary: dictionary as! [String : Any], completion: { _ in
-                organizations.append(organization)
-                
-                if (organizations.count == organizationsList.count) {
-                    completion(organizations)
-                }
-            })
-        }
-    }
-
-    func servicesAddressDidLoad(_ servicesList: [Any], completion: @escaping ((_ services: [Service]) -> ())) {
-        var services = [Service]()
-        
-        for dictionary in servicesList {
-            let service = Service.init()
-            
-            service.didMap(fromDictionary: dictionary as! [String : Any], completion: { _ in
-                services.append(service)
-                
-                if (services.count == servicesList.count) {
-                    completion(services)
-                }
-            })
-        }
-    }
 }
