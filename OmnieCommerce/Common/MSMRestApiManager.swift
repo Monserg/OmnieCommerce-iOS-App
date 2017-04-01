@@ -31,8 +31,8 @@ enum RequestType {
     case userRegistration([String: Any])
     case userGetNewsDataList([String: Any])
     case userGetFavoriteServicesList([String: Any])
-
-    //    case ([String: Any])
+    case userGetFavoriteOrganizationsList([String: Any])
+    
 //    case ([String: Any])
 //    case ([String: Any])
 //    case ([String: Any])
@@ -48,30 +48,35 @@ enum RequestType {
 
     func introduced() -> RequestParametersType {
         switch self {
-        case .userAutorization(let params):                 return (method: .post,
-                                                                    apiStringURL: "/auth/",
-                                                                    parameters: params,
-                                                                    bodyType: .Default,
-                                                                    headers: nil)
+        case .userAutorization(let params):                         return (method: .post,
+                                                                            apiStringURL: "/auth/",
+                                                                            parameters: params,
+                                                                            bodyType: .Default,
+                                                                            headers: nil)
             
-        case .userRegistration(let params):                 return (method: .post,
-                                                                    apiStringURL: "/registration/",
-                                                                    parameters: params,
-                                                                    bodyType: .Default,
-                                                                    headers: nil)
+        case .userRegistration(let params):                         return (method: .post,
+                                                                            apiStringURL: "/registration/",
+                                                                            parameters: params,
+                                                                            bodyType: .Default,
+                                                                            headers: nil)
 
-        case .userGetNewsDataList(let params):              return (method: .post,
-                                                                    apiStringURL: "/user/news/",
-                                                                    parameters: params,
-                                                                    bodyType: .ItemsArray,
-                                                                    headers: [ "Authorization": CoreDataManager.instance.appUser.accessToken!])
+        case .userGetNewsDataList(let params):                      return (method: .post,
+                                                                            apiStringURL: "/user/news/",
+                                                                            parameters: params,
+                                                                            bodyType: .ItemsArray,
+                                                                            headers: [ "Authorization": CoreDataManager.instance.appUser.accessToken! ])
         
-        case .userGetFavoriteServicesList(let params):      return (method: .post,
-                                                                    apiStringURL: "/user/service/favorite/",
-                                                                    parameters: params,
-                                                                    bodyType: .ItemsArray,
-                                                                    headers: [ "Authorization": CoreDataManager.instance.appUser.accessToken!])
+        case .userGetFavoriteServicesList(let params):              return (method: .post,
+                                                                            apiStringURL: "/user/service/favorite/",
+                                                                            parameters: params,
+                                                                            bodyType: .ItemsArray,
+                                                                            headers: [ "Authorization": CoreDataManager.instance.appUser.accessToken! ])
 
+        case .userGetFavoriteOrganizationsList(let params):         return (method: .post,
+                                                                            apiStringURL: "/user/organization/favorite/",
+                                                                            parameters: params,
+                                                                            bodyType: .ItemsArray,
+                                                                            headers: [ "Authorization": CoreDataManager.instance.appUser.accessToken! ])
 
             
             
@@ -79,7 +84,7 @@ enum RequestType {
 //                                                                    apiStringURL: "",
 //                                                                    parameters: params,
 //                                                                    bodyType: .,
-//                                                                    headers: [ "Authorization": CoreDataManager.instance.appUser.accessToken!])
+//                                                                    headers: [ "Authorization": CoreDataManager.instance.appUser.accessToken! ])
 
         }
     }
@@ -87,14 +92,14 @@ enum RequestType {
 
 
 // REMOVED!!!
-//func userRegistration(_ userName: String, andEmail email: String, andPassword password: String, withHandlerResponseAPICompletion handlerResponseAPICompletion: @escaping (ResponseAPI?) -> Void) {
-//    let authParameters = [ "userName": userName, "email": email, "password": password ]
-//    appApiString = "/registration/"
+//func userGetFavoriteOrganizationsList(_ parameters: [String: Int], withHandlerResponseAPICompletion handlerResponseAPICompletion: @escaping (ResponseAPI?) -> Void) {
+//    appApiString = "/user/organization/favorite/"
+//    headers["Authorization"] = CoreDataManager.instance.appUser.accessToken!
 //    
-//    Alamofire.request(appURL, method: .post, parameters: authParameters, encoding: JSONEncoding.default, headers: headers).responseJSON { dataResponse -> Void in
+//    Alamofire.request(appURL, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { dataResponse -> Void in
 //        if (dataResponse.result.value != nil) {
 //            let json = JSON(dataResponse.result.value!)
-//            let responseAPI = ResponseAPI.init(fromJSON: json, withBodyType: .Default)
+//            let responseAPI = ResponseAPI.init(fromJSON: json, withBodyType: .OrganizationsArray)
 //            
 //            handlerResponseAPICompletion(responseAPI)
 //            return
@@ -504,23 +509,4 @@ final class MSMRestApiManager {
             }
         }
     }
-    
-    func userGetFavoriteOrganizationsList(_ parameters: [String: Int], withHandlerResponseAPICompletion handlerResponseAPICompletion: @escaping (ResponseAPI?) -> Void) {
-        appApiString = "/user/organization/favorite/"
-        headers["Authorization"] = CoreDataManager.instance.appUser.accessToken!
-        
-        Alamofire.request(appURL, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { dataResponse -> Void in
-            if (dataResponse.result.value != nil) {
-                let json = JSON(dataResponse.result.value!)
-                let responseAPI = ResponseAPI.init(fromJSON: json, withBodyType: .OrganizationsArray)
-                
-                handlerResponseAPICompletion(responseAPI)
-                return
-            } else {
-                handlerResponseAPICompletion(nil)
-                return
-            }
-        }
-    }
-
 }

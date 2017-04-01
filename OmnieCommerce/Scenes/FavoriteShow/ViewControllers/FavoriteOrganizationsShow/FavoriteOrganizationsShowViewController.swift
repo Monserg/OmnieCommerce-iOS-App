@@ -86,7 +86,7 @@ class FavoriteOrganizationsShowViewController: BaseViewController {
             spinnerDidStart(view)
         }
         
-        let parameters: [String: Int] =     [
+        let parameters: [String: Any] =     [
                                                 "limit": Config.Constants.paginationLimit,
                                                 "offset": offset
                                             ]
