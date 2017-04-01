@@ -63,9 +63,9 @@ class MessagesShowViewController: BaseViewController {
         tableView.tableViewControllerManager = messagesTableManager
 
         // Config smallTopBarView
-        navigationBarView       =   smallTopBarView
-        smallTopBarView.type    =   "ParentSearch"
-        haveMenuItem            =   true
+        navigationBarView = smallTopBarView
+        smallTopBarView.type = "ParentSearch"
+        haveMenuItem = true
         
         // Load data
         let requestModel = MessagesShowModels.Messages.RequestModel()

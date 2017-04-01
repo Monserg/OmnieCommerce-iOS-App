@@ -34,9 +34,15 @@ class NewsDataShowInteractor: NewsDataShowInteractorInput {
         worker.doSomeWork()
         
         // NOTE: Pass the result to the Presenter
-        MSMRestApiManager.instance.userGetNewsDataList(requestModel.parameters, withHandlerResponseAPICompletion: { responseAPI in
+//        MSMRestApiManager.instance.userGetNewsDataList(requestModel.parameters, withHandlerResponseAPICompletion: { responseAPI in
+//            let newsDataResponseModel = NewsDataShowModels.Data.ResponseModel(response: responseAPI)
+//            self.presenter.newsDataDidPrepareToShowLoad(fromResponseModel: newsDataResponseModel)
+//        })
+        
+        // TESTED!!!
+        MSMRestApiManager.instance.userRequestDidRun(.userGetNewsDataList(requestModel.parameters)) { responseAPI in
             let newsDataResponseModel = NewsDataShowModels.Data.ResponseModel(response: responseAPI)
             self.presenter.newsDataDidPrepareToShowLoad(fromResponseModel: newsDataResponseModel)
-        })
+        }
     }
 }

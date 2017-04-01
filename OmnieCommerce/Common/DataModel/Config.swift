@@ -50,15 +50,18 @@ typealias HandlerViewDismissCompletion              =   ((_ actionType: ActionTy
 typealias HandlerTextFieldCompletion                =   ((_ textField: CustomTextField, _ success: Bool) -> ())
 typealias HandlerTextFieldShowErrorViewCompletion   =   ((_ textField: CustomTextField, _ isShow: Bool) -> ())
 
-//typealias ResponseAPI                               =   (success: Bool, error: String?)
-//typealias NameAndPasswordCheckResult                =   (isNameCorrect: Bool, isPasswordCorrect: Bool)
+
+// New Types
 typealias LocationData                              =   (placemark: CLPlacemark?, coordinate: CLLocationCoordinate2D?, address: String?)
 typealias OrganizationData                          =   (name: String, rating: Int, isFavorite: Bool, city: String, street: String, logo: UIImage, location: CLLocationCoordinate2D)
 
-var isAppThemeDark                                  =   false
 
+// Public Constants
+var isAppThemeDark                                  =   false
 let NetworkReachabilityChanged                      =   NSNotification.Name("NetworkReachabilityChanged")
 
+
+// Public Constans as Struct's
 struct Config {
     struct Constants {
         static let fillViewSmallRadiusPortrait: Double          =   1531.0

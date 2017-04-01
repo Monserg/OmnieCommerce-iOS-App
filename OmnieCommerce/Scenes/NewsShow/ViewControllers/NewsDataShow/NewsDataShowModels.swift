@@ -15,7 +15,7 @@ import UIKit
 struct NewsDataShowModels {
     struct Data {
         struct RequestModel {
-            let parameters: [String: Int]
+            let parameters: [String: Any]
         }
         
         struct ResponseModel {

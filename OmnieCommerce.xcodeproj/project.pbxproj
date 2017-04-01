@@ -36,6 +36,7 @@
 		B10CF52A1E684B9700811DC1 /* ScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10CF5291E684B9700811DC1 /* ScheduleView.swift */; };
 		B10CF52C1E684BA000811DC1 /* ScheduleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B10CF52B1E684BA000811DC1 /* ScheduleView.xib */; };
 		B112036E1E8EDD5D0036001A /* UbuntuLightVeryDarkGrayishBlueLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B112036D1E8EDD5D0036001A /* UbuntuLightVeryDarkGrayishBlueLabel.swift */; };
+		B11203701E8F6A420036001A /* Dictionary+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B112036F1E8F6A420036001A /* Dictionary+Ext.swift */; };
 		B1131A931E76744300DAF90A /* MSMRestApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1131A921E76744300DAF90A /* MSMRestApiManager.swift */; };
 		B1131A961E768F2900DAF90A /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1131A941E768F2900DAF90A /* Alamofire.framework */; };
 		B1131A971E768F2900DAF90A /* AlamofireImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1131A951E768F2900DAF90A /* AlamofireImage.framework */; };
@@ -180,7 +181,6 @@
 		B16E966F1DE6C94000147CEF /* BigTopBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16E966E1DE6C94000147CEF /* BigTopBarView.swift */; };
 		B16E96711DE6C94D00147CEF /* BigTopBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B16E96701DE6C94D00147CEF /* BigTopBarView.xib */; };
 		B16E96731DE717E400147CEF /* BigCirleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16E96721DE717E400147CEF /* BigCirleView.swift */; };
-		B17061A41E69866B00CF9BA9 /* TableViewControllerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17061A31E69866B00CF9BA9 /* TableViewControllerManager.swift */; };
 		B1739D161DE314C70029BCCA /* UIButton+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1739D151DE314C70029BCCA /* UIButton+Ext.swift */; };
 		B1739D181DE314D50029BCCA /* UILabel+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1739D171DE314D50029BCCA /* UILabel+Ext.swift */; };
 		B1739D1A1DE314DF0029BCCA /* UIColor+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1739D191DE314DF0029BCCA /* UIColor+Ext.swift */; };
@@ -449,6 +449,7 @@
 		B10CF5291E684B9700811DC1 /* ScheduleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleView.swift; sourceTree = "<group>"; };
 		B10CF52B1E684BA000811DC1 /* ScheduleView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScheduleView.xib; sourceTree = "<group>"; };
 		B112036D1E8EDD5D0036001A /* UbuntuLightVeryDarkGrayishBlueLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UbuntuLightVeryDarkGrayishBlueLabel.swift; sourceTree = "<group>"; };
+		B112036F1E8F6A420036001A /* Dictionary+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Dictionary+Ext.swift"; sourceTree = "<group>"; };
 		B1131A921E76744300DAF90A /* MSMRestApiManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSMRestApiManager.swift; sourceTree = "<group>"; };
 		B1131A941E768F2900DAF90A /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "../../../../../Library/Developer/Xcode/DerivedData/OmnieCommerce-enpckymiymzhiuhdgnbmlxbwmhew/Build/Products/Debug-iphonesimulator/Alamofire/Alamofire.framework"; sourceTree = "<group>"; };
 		B1131A951E768F2900DAF90A /* AlamofireImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlamofireImage.framework; path = "../../../../../Library/Developer/Xcode/DerivedData/OmnieCommerce-enpckymiymzhiuhdgnbmlxbwmhew/Build/Products/Debug-iphonesimulator/AlamofireImage/AlamofireImage.framework"; sourceTree = "<group>"; };
@@ -600,7 +601,6 @@
 		B16E966E1DE6C94000147CEF /* BigTopBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BigTopBarView.swift; sourceTree = "<group>"; };
 		B16E96701DE6C94D00147CEF /* BigTopBarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BigTopBarView.xib; sourceTree = "<group>"; };
 		B16E96721DE717E400147CEF /* BigCirleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BigCirleView.swift; sourceTree = "<group>"; };
-		B17061A31E69866B00CF9BA9 /* TableViewControllerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewControllerManager.swift; sourceTree = "<group>"; };
 		B1739D151DE314C70029BCCA /* UIButton+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Ext.swift"; sourceTree = "<group>"; };
 		B1739D171DE314D50029BCCA /* UILabel+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+Ext.swift"; sourceTree = "<group>"; };
 		B1739D191DE314DF0029BCCA /* UIColor+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Ext.swift"; sourceTree = "<group>"; };
@@ -1344,7 +1344,6 @@
 				B19BB6201E6ABF560081533C /* MSMTableViewControllerManager.swift */,
 				B17D92DC1E701D750028967E /* MSMTextFieldManager.swift */,
 				B14D1D731E5CB8B000D33435 /* SocialNetworkManager.swift */,
-				B17061A31E69866B00CF9BA9 /* TableViewControllerManager.swift */,
 			);
 			name = Managers;
 			sourceTree = "<group>";
@@ -1493,6 +1492,7 @@
 			isa = PBXGroup;
 			children = (
 				B11B9AD91DF02F5C009A4AA1 /* Date+Ext.swift */,
+				B112036F1E8F6A420036001A /* Dictionary+Ext.swift */,
 				B14CD9191E57C058005F8BF6 /* Protocols.swift */,
 				B122DF6C1DF80FC1003823AD /* String+Ext.swift */,
 				B1739D151DE314C70029BCCA /* UIButton+Ext.swift */,
@@ -2130,6 +2130,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B11203701E8F6A420036001A /* Dictionary+Ext.swift in Sources */,
 				B1BEEDF11E63687500F1DE8A /* OrganizationShowModels.swift in Sources */,
 				B1A9ACCF1E7C6FE60010FF05 /* Categories+CoreDataProperties.swift in Sources */,
 				B16E966F1DE6C94000147CEF /* BigTopBarView.swift in Sources */,
@@ -2223,7 +2224,6 @@
 				B10B48DF1E8A5B2E007DDD81 /* FavoriteOrganizationsShowWorker.swift in Sources */,
 				B1D883201E8E8C98006F4831 /* NewsDataShowRouter.swift in Sources */,
 				B10874691E5B07A6004A4FB6 /* OmnieCommerceUser.xcdatamodeld in Sources */,
-				B17061A41E69866B00CF9BA9 /* TableViewControllerManager.swift in Sources */,
 				B1FFF7341E5F0F9E00A075D8 /* PointAnnotation.swift in Sources */,
 				B1CF54781DDB50D900E98049 /* AboutShowModels.swift in Sources */,
 				B14E97561DD8B052001E1DE2 /* SignUpShowConfigurator.swift in Sources */,

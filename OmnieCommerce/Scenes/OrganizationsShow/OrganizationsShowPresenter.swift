@@ -39,7 +39,6 @@ class OrganizationsShowPresenter: OrganizationsShowPresenterInput {
         // Convert Google Place ID to address strings
         if ((responseModel.response?.body as! [Any]).count > 0) {
             responseModel.response!.itemsDidLoad(fromItemsArray: responseModel.response!.body as! [Any], withItem: Organization.init(), completion: { organizations in
-//            responseModel.response?.organizationsAddressDidLoad(responseModel.response?.body as! [Any], completion: { organizations in
                 // Prepare to save Organizations in CoreData
                 let _ = organizations.map { $0.category = responseModel.category }
                 let entityOrganizations = CoreDataManager.instance.entityDidLoad(byName: keyOrganizations) as! Organizations
@@ -65,7 +64,6 @@ class OrganizationsShowPresenter: OrganizationsShowPresenterInput {
         // Convert Google Place ID to address strings
         if ((responseModel.response?.body as! [Any]).count > 0) {
             responseModel.response!.itemsDidLoad(fromItemsArray: responseModel.response!.body as! [Any], withItem: Service.init(), completion: { services in
-//            responseModel.response?.servicesAddressDidLoad(responseModel.response?.body as! [Any], completion: { services in
                 // Prepare to save Organizations in CoreData
                 let _ = services.map { $0.category = responseModel.category }
                 let entityServices = CoreDataManager.instance.entityDidLoad(byName: keyServices) as! Services

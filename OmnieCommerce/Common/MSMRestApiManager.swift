@@ -10,6 +10,8 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
+typealias RequestParametersType     =   (method: HTTPMethod, apiStringURL: String, parameters: [String: Any], bodyType: BodyType, headers: [String: String]?)
+
 public enum StatusCodeNote: Int {
     case SUCCESS                    =   200     // GET or DELETE result is successful
     case CONTINUE                   =   2201    // POST result is successful & need continue
@@ -23,6 +25,32 @@ public enum StatusCodeNote: Int {
     case BAD_AUTHORIZATION          =   4401    // BAD AUTHORIZATION
     case WRONG_INPUT_DATA           =   4500    // WRONG INPUT DATA
 }
+
+enum RequestType {
+    case userAutorization([String: String])
+    case userGetNewsDataList([String: Any])
+    
+    func introduced() -> RequestParametersType {
+        switch self {
+        case .userAutorization(let params):         return (method: .post,
+                                                                         apiStringURL: "/auth/",
+                                                                         parameters: params,
+                                                                         bodyType: .Default,
+                                                                         headers: nil)
+            
+        case .userGetNewsDataList(let params):      return (method: .post,
+                                                                         apiStringURL: "/user/news/",
+                                                                         parameters: params,
+                                                                         bodyType: .NewsDataArray,
+                                                                         headers: [ "Authorization": CoreDataManager.instance.appUser.accessToken!])
+        }
+    }
+}
+
+
+
+
+
 
 final class MSMRestApiManager {
     // MARK: - Properties
@@ -44,6 +72,44 @@ final class MSMRestApiManager {
     
     
     // MARK: - Class Functions
+    
+    // Main Generic func
+    func userRequestDidRun(_ requestType: RequestType, withHandlerResponseAPICompletion handlerResponseAPICompletion: @escaping (ResponseAPI?) -> Void) {
+        let requestParameters = requestType.introduced()
+        
+        appApiString = requestParameters.apiStringURL
+        
+        if (requestParameters.headers != nil) {
+            headers.merge(withDicitionary: requestParameters.headers!)
+        }
+        
+        Alamofire.request(appURL, method: requestParameters.method, parameters: requestParameters.parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { dataResponse -> Void in
+            if (dataResponse.result.value != nil) {
+                let json = JSON(dataResponse.result.value!)
+                let responseAPI = ResponseAPI.init(fromJSON: json, withBodyType: requestParameters.bodyType)
+                
+                handlerResponseAPICompletion(responseAPI)
+                return
+            } else {
+                handlerResponseAPICompletion(nil)
+                return
+            }
+        }
+    }
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     func userAutorization(_ userName: String, andPassword password: String, withHandlerResponseAPICompletion handlerResponseAPICompletion: @escaping (ResponseAPI?) -> Void) {
         let authParameters = [ "login": userName, "password": password ]
         appApiString = "/auth/"
