@@ -10,74 +10,89 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-typealias RequestParametersType     =   (method: HTTPMethod, apiStringURL: String, parameters: [String: Any], bodyType: BodyType, headers: [String: String]?)
-
-public enum StatusCodeNote: Int {
-    case SUCCESS                    =   200     // GET or DELETE result is successful
-    case CONTINUE                   =   2201    // POST result is successful & need continue
-    case CREATED                    =   201     // POST or PUT is successful
-    case NOT_MODIFIED               =   304     // If caching is enabled and etag matches with the server
-    case BAD_REQUEST                =   400     // Possibly the parameters are invalid
-    case INVALID_CREDENTIAL         =   401     // INVALID CREDENTIAL, possible invalid token
-    case NOT_FOUND                  =   404     // The item you looked for is not found
-    case CONFLICT                   =   409     // Conflict - means already exist
-    case AUTHENTICATION_EXPIRED     =   419     // Expired
-    case BAD_AUTHORIZATION          =   4401    // BAD AUTHORIZATION
-    case WRONG_INPUT_DATA           =   4500    // WRONG INPUT DATA
-}
+typealias RequestParametersType = (method: HTTPMethod, apiStringURL: String, body: [String: Any]?, bodyType: BodyType, headers: [String: String]?, parameters: [String: Any]?)
 
 enum RequestType {
-    case userAutorization([String: Any])
-    case userRegistration([String: Any])
-    case userGetNewsDataList([String: Any])
-    case userGetFavoriteServicesList([String: Any])
-    case userGetFavoriteOrganizationsList([String: Any])
+    case userAutorization([String: Any], Bool)
+    case userRegistration([String: Any], Bool)
+    case userGetNewsDataList([String: Any], Bool)
+    case userGetCategoriesList([String: Any], Bool)
+    case userGetFavoriteServicesList([String: Any], Bool)
+    case userGetServicesListByCategory([String: Any], Bool)
+    case userGetFavoriteOrganizationsList([String: Any], Bool)
+    case userGetOrganizationsListByCategory([String: Any], Bool)
     
-//    case ([String: Any])
-//    case ([String: Any])
-//    case ([String: Any])
-//    case ([String: Any])
-//    case ([String: Any])
-//    case ([String: Any])
-//    case ([String: Any])
-//    case ([String: Any])
-//    case ([String: Any])
-//    case ([String: Any])
-//    case ([String: Any])
-//    case ([String: Any])
+//    case ([String: Any], Bool)
+//    case ([String: Any], Bool)
+//    case ([String: Any], Bool)
+//    case ([String: Any], Bool)
+//    case ([String: Any], Bool)
+//    case ([String: Any], Bool)
+//    case ([String: Any], Bool)
+//    case ([String: Any], Bool)
+//    case ([String: Any], Bool)
 
     func introduced() -> RequestParametersType {
-        switch self {
-        case .userAutorization(let params):                         return (method: .post,
-                                                                            apiStringURL: "/auth/",
-                                                                            parameters: params,
-                                                                            bodyType: .Default,
-                                                                            headers: nil)
-            
-        case .userRegistration(let params):                         return (method: .post,
-                                                                            apiStringURL: "/registration/",
-                                                                            parameters: params,
-                                                                            bodyType: .Default,
-                                                                            headers: nil)
-
-        case .userGetNewsDataList(let params):                      return (method: .post,
-                                                                            apiStringURL: "/user/news/",
-                                                                            parameters: params,
-                                                                            bodyType: .ItemsArray,
-                                                                            headers: [ "Authorization": CoreDataManager.instance.appUser.accessToken! ])
+        let headers = [ "Content-Type": "application/json" ]
+        let userAccessToken = CoreDataManager.instance.appUser.accessToken
+        let headersExtended = (userAccessToken != nil) ? [ "Content-Type": "application/json", "Authorization" : userAccessToken! ] : nil
         
-        case .userGetFavoriteServicesList(let params):              return (method: .post,
-                                                                            apiStringURL: "/user/service/favorite/",
-                                                                            parameters: params,
+        switch self {
+        case .userAutorization(let params, let isBodyParams):   return (method: .post,
+                                                                        apiStringURL: "/auth/",
+                                                                        body: (isBodyParams ? params : nil),
+                                                                        bodyType: .Default,
+                                                                        headers: headers,
+                                                                        parameters: (isBodyParams ? nil : params))
+            
+        case .userRegistration(let params, let isBodyParams):   return (method: .post,
+                                                                        apiStringURL: "/registration/",
+                                                                        body: (isBodyParams ? params : nil),
+                                                                        bodyType: .Default,
+                                                                        headers: headers,
+                                                                        parameters: (isBodyParams ? nil : params))
+            
+        case .userGetNewsDataList(let params, let isBodyParams):    return (method: .post,
+                                                                            apiStringURL: "/user/news/",
+                                                                            body: (isBodyParams ? params : nil),
                                                                             bodyType: .ItemsArray,
-                                                                            headers: [ "Authorization": CoreDataManager.instance.appUser.accessToken! ])
-
-        case .userGetFavoriteOrganizationsList(let params):         return (method: .post,
-                                                                            apiStringURL: "/user/organization/favorite/",
-                                                                            parameters: params,
+                                                                            headers: headersExtended,
+                                                                            parameters: (isBodyParams ? nil : params))
+            
+        case .userGetCategoriesList(let params, let isBodyParams):  return (method: .get,
+                                                                            apiStringURL: "/categories/",
+                                                                            body: (isBodyParams ? params : nil),
                                                                             bodyType: .ItemsArray,
-                                                                            headers: [ "Authorization": CoreDataManager.instance.appUser.accessToken! ])
-
+                                                                            headers: headers,
+                                                                            parameters: (isBodyParams ? nil : params))
+            
+        case .userGetFavoriteServicesList(let params, let isBodyParams):    return (method: .post,
+                                                                                    apiStringURL: "/user/service/favorite/",
+                                                                                    body: (isBodyParams ? params : nil),
+                                                                                    bodyType: .ItemsArray,
+                                                                                    headers: headersExtended,
+                                                                                    parameters: (isBodyParams ? nil : params))
+            
+        case .userGetServicesListByCategory(let params, let isBodyParams):  return (method: .post,
+                                                                                    apiStringURL: "/user/service/",
+                                                                                    body: (isBodyParams ? params : nil),
+                                                                                    bodyType: .ItemsArray,
+                                                                                    headers: headersExtended,
+                                                                                    parameters: (isBodyParams ? nil : params))
+            
+        case .userGetFavoriteOrganizationsList(let params, let isBodyParams):   return (method: .post,
+                                                                                        apiStringURL: "/user/organization/favorite/",
+                                                                                        body: (isBodyParams ? params : nil),
+                                                                                        bodyType: .ItemsArray,
+                                                                                        headers: headersExtended,
+                                                                                        parameters: (isBodyParams ? nil : params))
+            
+        case .userGetOrganizationsListByCategory(let params, let isBodyParams): return (method: .post,
+                                                                                        apiStringURL: "/user/organization/",
+                                                                                        body: (isBodyParams ? params : nil),
+                                                                                        bodyType: .ItemsArray,
+                                                                                        headers: headersExtended,
+                                                                                        parameters: (isBodyParams ? nil : params))
             
             
 //        case .(let params):      return (method: .,
@@ -92,23 +107,9 @@ enum RequestType {
 
 
 // REMOVED!!!
-//func userGetFavoriteOrganizationsList(_ parameters: [String: Int], withHandlerResponseAPICompletion handlerResponseAPICompletion: @escaping (ResponseAPI?) -> Void) {
-//    appApiString = "/user/organization/favorite/"
-//    headers["Authorization"] = CoreDataManager.instance.appUser.accessToken!
-//    
-//    Alamofire.request(appURL, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { dataResponse -> Void in
-//        if (dataResponse.result.value != nil) {
-//            let json = JSON(dataResponse.result.value!)
-//            let responseAPI = ResponseAPI.init(fromJSON: json, withBodyType: .OrganizationsArray)
-//            
-//            handlerResponseAPICompletion(responseAPI)
-//            return
-//        } else {
-//            handlerResponseAPICompletion(nil)
-//            return
-//        }
-//    }
-//}
+
+
+
 
 
 
@@ -140,24 +141,25 @@ final class MSMRestApiManager {
     // Main Generic func
     func userRequestDidRun(_ requestType: RequestType, withHandlerResponseAPICompletion handlerResponseAPICompletion: @escaping (ResponseAPI?) -> Void) {
         let requestParameters = requestType.introduced()
-        
         appApiString = requestParameters.apiStringURL
         
-        if (requestParameters.headers != nil) {
-            headers.merge(withDicitionary: requestParameters.headers!)
+        if (requestParameters.body != nil) {
+            let key = requestParameters.body!.keys.first!
+            let value = requestParameters.body![key] as! String
+            appURL = URL.init(string: appURL.absoluteString.appending("?\(key)=\(value)"))
         }
         
-        Alamofire.request(appURL, method: requestParameters.method, parameters: requestParameters.parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { dataResponse -> Void in
-            if (dataResponse.result.value != nil) {
-                let json = JSON(dataResponse.result.value!)
-                let responseAPI = ResponseAPI.init(fromJSON: json, withBodyType: requestParameters.bodyType)
-                
-                handlerResponseAPICompletion(responseAPI)
-                return
-            } else {
+        Alamofire.request(appURL, method: requestParameters.method, parameters: requestParameters.parameters, encoding: JSONEncoding.default, headers: requestParameters.headers).responseJSON { dataResponse -> Void in
+            guard dataResponse.error == nil && dataResponse.result.value != nil else {
                 handlerResponseAPICompletion(nil)
                 return
             }
+            
+            let json = JSON(dataResponse.result.value!)
+            let responseAPI = ResponseAPI.init(fromJSON: json, withBodyType: requestParameters.bodyType)
+            
+            handlerResponseAPICompletion(responseAPI)
+            return
         }
     }
 
@@ -274,7 +276,7 @@ final class MSMRestApiManager {
     // Change Password from Profile
     func userChangePasswordFromProfile(_ parameters: [String: Any], withHandlerResponseAPICompletion handlerResponseAPICompletion: @escaping (ResponseAPI?) -> Void) {
         guard CoreDataManager.instance.appUser.accessToken != nil else {
-            handlerResponseAPICompletion(ResponseAPI.init(withErrorMessage: .Default))
+//            handlerResponseAPICompletion(ResponseAPI.init(withErrorMessage: .Default))
             return
         }
         
@@ -299,7 +301,7 @@ final class MSMRestApiManager {
     
     func userGetProfileData(_ handlerResponseAPICompletion: @escaping (ResponseAPI?) -> Void) {
         guard CoreDataManager.instance.appUser.accessToken != nil else {
-            handlerResponseAPICompletion(ResponseAPI.init(withErrorMessage: .UserDataDictionary))
+//            handlerResponseAPICompletion(ResponseAPI.init(withErrorMessage: .UserDataDictionary))
             return
         }
         
@@ -323,7 +325,7 @@ final class MSMRestApiManager {
 
     func userUploadProfileData(_ parameters: [String: Any], withHandlerResponseAPICompletion handlerResponseAPICompletion: @escaping (ResponseAPI?) -> Void) {
         guard CoreDataManager.instance.appUser.accessToken != nil else {
-            handlerResponseAPICompletion(ResponseAPI.init(withErrorMessage: .UserDataDictionary))
+//            handlerResponseAPICompletion(ResponseAPI.init(withErrorMessage: .UserDataDictionary))
             return
         }
         
@@ -345,24 +347,6 @@ final class MSMRestApiManager {
         }
     }
 
-    func userGetCategoriesList(withHandlerResponseAPICompletion handlerResponseAPICompletion: @escaping (ResponseAPI?) -> Void) {
-        appApiString = "/categories/"
-        appURL = URL.init(string: appURL.absoluteString.appending("?locale=\(Locale.current.regionCode!.lowercased())"))
-        
-        Alamofire.request(appURL, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil).responseJSON { dataResponse -> Void in
-            if (dataResponse.result.value != nil) {
-                let json = JSON(dataResponse.result.value!)
-                let responseAPI = ResponseAPI.init(fromJSON: json, withBodyType: .CategoriesArray)
-                
-                handlerResponseAPICompletion(responseAPI)
-                return
-            } else {
-                handlerResponseAPICompletion(nil)
-                return
-            }
-        }
-    }
-    
     func userUploadImage(_ image: UIImage, withHandlerResponseAPICompletion handlerResponseAPICompletion: @escaping (ResponseAPI?) -> Void) {
         let imageData = UIImagePNGRepresentation(image)
         appApiString = "/user/profile/image/"
@@ -418,55 +402,9 @@ final class MSMRestApiManager {
         }
     }
     
-    func userGetOrganizationsListByCategory(_ parameters: [String: Any], withHandlerResponseAPICompletion handlerResponseAPICompletion: @escaping (ResponseAPI?) -> Void) {
-        guard CoreDataManager.instance.appUser.accessToken != nil else {
-            handlerResponseAPICompletion(ResponseAPI.init(withErrorMessage: .OrganizationsArray))
-            return
-        }
-        
-        headers["Authorization"] = CoreDataManager.instance.appUser.accessToken!
-        appApiString = "/user/organization/"
-        
-        Alamofire.request(appURL, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { dataResponse -> Void in
-            if (dataResponse.result.value != nil && dataResponse.response!.statusCode == 200) {
-                let json = JSON(dataResponse.result.value!)
-                let responseAPI = ResponseAPI.init(fromJSON: json, withBodyType: .OrganizationsArray)
-                
-                handlerResponseAPICompletion(responseAPI)
-                return
-            } else {
-                handlerResponseAPICompletion(nil)
-                return
-            }
-        }
-    }
-    
-    func userGetServicesListByCategory(_ parameters: [String: Any], withHandlerResponseAPICompletion handlerResponseAPICompletion: @escaping (ResponseAPI?) -> Void) {
-        guard CoreDataManager.instance.appUser.accessToken != nil else {
-            handlerResponseAPICompletion(ResponseAPI.init(withErrorMessage: .ServicesArray))
-            return
-        }
-        
-        headers["Authorization"] = CoreDataManager.instance.appUser.accessToken!
-        appApiString = "/user/service/"
-        
-        Alamofire.request(appURL, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { dataResponse -> Void in
-            if (dataResponse.result.value != nil && dataResponse.response!.statusCode == 200) {
-                let json = JSON(dataResponse.result.value!)
-                let responseAPI = ResponseAPI.init(fromJSON: json, withBodyType: .ServicesArray)
-                
-                handlerResponseAPICompletion(responseAPI)
-                return
-            } else {
-                handlerResponseAPICompletion(nil)
-                return
-            }
-        }
-    }
-    
     func userAddRemoveOrganizationToFavorite(_ organizationID: [String: Any], withHandlerResponseAPICompletion handlerResponseAPICompletion: @escaping (ResponseAPI?) -> Void) {
         guard CoreDataManager.instance.appUser.accessToken != nil else {
-            handlerResponseAPICompletion(ResponseAPI.init(withErrorMessage: .Default))
+//            handlerResponseAPICompletion(ResponseAPI.init(withErrorMessage: .Default))
             return
         }
         
@@ -489,7 +427,7 @@ final class MSMRestApiManager {
     
     func userAddRemoveServiceToFavorite(_ serviceID: [String: Any], withHandlerResponseAPICompletion handlerResponseAPICompletion: @escaping (ResponseAPI?) -> Void) {
         guard CoreDataManager.instance.appUser.accessToken != nil else {
-            handlerResponseAPICompletion(ResponseAPI.init(withErrorMessage: .Default))
+//            handlerResponseAPICompletion(ResponseAPI.init(withErrorMessage: .Default))
             return
         }
         

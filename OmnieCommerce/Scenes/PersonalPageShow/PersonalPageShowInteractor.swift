@@ -43,7 +43,7 @@ class PersonalPageShowInteractor: PersonalPageShowInteractorInput {
     func userAppDataDidLoad(withRequestModel requestModel: PersonalPageShowModels.LoadData.RequestModel) {
         MSMRestApiManager.instance.userGetProfileData { responseAPI in
             // Pass the result to the Presenter
-            let loadResponseModel = PersonalPageShowModels.LoadData.ResponseModel(response: responseAPI)
+            let loadResponseModel = PersonalPageShowModels.LoadData.ResponseModel(responseAPI: responseAPI)
             self.presenter.userAppDataDidPrepareToShowLoad(fromResponseModel: loadResponseModel)
         }
     }
@@ -54,7 +54,7 @@ class PersonalPageShowInteractor: PersonalPageShowInteractorInput {
         
         MSMRestApiManager.instance.userUploadProfileData(profileParameters, withHandlerResponseAPICompletion: { responseAPI in
             // Pass the result to the Presenter
-            let responseModel = PersonalPageShowModels.UploadData.ResponseModel(response: responseAPI, passwordsParams: passwordsParameters)
+            let responseModel = PersonalPageShowModels.UploadData.ResponseModel(responseAPI: responseAPI, passwordsParams: passwordsParameters)
             self.presenter.userAppDataDidPrepareToShowUpload(fromResponseModel: responseModel)
         })
     }
@@ -62,7 +62,7 @@ class PersonalPageShowInteractor: PersonalPageShowInteractorInput {
     func userAppImageDidUpload(withRequestModel requestModel: PersonalPageShowModels.UploadImage.RequestModel) {
         MSMRestApiManager.instance.userUploadImage(requestModel.image) { responseAPI in
             // Pass the result to the Presenter
-            let imageUploadResponseModel = PersonalPageShowModels.UploadImage.ResponseModel(response: responseAPI)
+            let imageUploadResponseModel = PersonalPageShowModels.UploadImage.ResponseModel(responseAPI: responseAPI)
             self.presenter.userAppImageDidPrepareToShowUpload(fromResponseModel: imageUploadResponseModel)
         }
     }
@@ -70,7 +70,7 @@ class PersonalPageShowInteractor: PersonalPageShowInteractorInput {
     func userAppImageDidDelete(withRequestModel requestModel: PersonalPageShowModels.LoadData.RequestModel) {
         MSMRestApiManager.instance.userDeleteImage(withHandlerResponseAPICompletion: { responseAPI in
             // Pass the result to the Presenter
-            let imageDeleteResponseModel = PersonalPageShowModels.LoadData.ResponseModel(response: responseAPI)
+            let imageDeleteResponseModel = PersonalPageShowModels.LoadData.ResponseModel(responseAPI: responseAPI)
             self.presenter.userAppImageDidPrepareToShowDelete(fromResponseModel: imageDeleteResponseModel)
         })
     }
@@ -78,7 +78,7 @@ class PersonalPageShowInteractor: PersonalPageShowInteractorInput {
     func userAppPasswordDidChange(withRequestModel requestModel: PersonalPageShowModels.UploadData.RequestModel) {
         MSMRestApiManager.instance.userChangePasswordFromProfile(requestModel.parameters as! [String: Any], withHandlerResponseAPICompletion: { responseAPI in
             // Pass the result to the Presenter
-            let passwordChangeResponseModel = PersonalPageShowModels.UploadData.ResponseModel(response: responseAPI, passwordsParams: nil)
+            let passwordChangeResponseModel = PersonalPageShowModels.UploadData.ResponseModel(responseAPI: responseAPI, passwordsParams: nil)
             self.presenter.userAppPasswordDidPrepareToShowChange(fromResponseModel: passwordChangeResponseModel)
         })
     }
@@ -86,7 +86,7 @@ class PersonalPageShowInteractor: PersonalPageShowInteractorInput {
     func userAppEmailDidChange(withRequestModel requestModel: PersonalPageShowModels.ChangeEmail.RequestModel) {
         MSMRestApiManager.instance.userChangeEmail(requestModel.email, withHandlerResponseAPICompletion: { responseAPI in
             // Pass the result to the Presenter
-            let emailChangeResponseModel = PersonalPageShowModels.ChangeEmail.ResponseModel(response: responseAPI)
+            let emailChangeResponseModel = PersonalPageShowModels.ChangeEmail.ResponseModel(responseAPI: responseAPI)
             self.presenter.userAppEmailDidPrepareToShowChange(fromResponseModel: emailChangeResponseModel)
         })
     }

@@ -29,7 +29,7 @@ class SignUpShowInteractor: SignUpShowInteractorInput {
     
     // MARK: - Custom Functions. Business logic
     func userAppDidRegister(fromRequestModel requestModel: SignUpShowModels.User.RequestModel) {
-        MSMRestApiManager.instance.userRequestDidRun(.userRegistration(requestModel.parameters), withHandlerResponseAPICompletion: { responseAPI in
+        MSMRestApiManager.instance.userRequestDidRun(.userRegistration(requestModel.parameters, false), withHandlerResponseAPICompletion: { responseAPI in
             // Pass the result to the Presenter
             let signUpResponseModel = SignUpShowModels.User.ResponseModel(responseAPI: responseAPI)
             self.presenter.userAppDidPrepareToShowRegister(fromResponseModel: signUpResponseModel)

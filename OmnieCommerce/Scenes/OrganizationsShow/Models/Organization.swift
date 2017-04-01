@@ -10,7 +10,7 @@
 import Foundation
 import CoreLocation
 
-class Organization: NSObject, NSCoding, InitCellParameters, SearchObject, PointAnnotationBinding, MapObjectBinding {
+class Organization: NSObject, NSCoding, NSCopying, InitCellParameters, SearchObject, PointAnnotationBinding, MapObjectBinding {
     // MARK: - Properties
     var codeID: String!
     var name: String!
@@ -113,5 +113,11 @@ class Organization: NSObject, NSCoding, InitCellParameters, SearchObject, PointA
         } else {
             completion()
         }
+    }
+    
+    // Confirm NSCopying Protocol
+    func copy(with zone: NSZone? = nil) -> Any {
+        let copy = Organization()
+        return copy
     }
 }

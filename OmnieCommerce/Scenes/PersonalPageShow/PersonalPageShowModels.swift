@@ -19,11 +19,11 @@ struct PersonalPageShowModels {
         }
         
         struct ResponseModel {
-            let response: ResponseAPI?
+            let responseAPI: ResponseAPI?
         }
         
         struct ViewModel {
-            let response: ResponseAPI?
+            let responseAPI: ResponseAPI?
         }
     }
     
@@ -32,11 +32,11 @@ struct PersonalPageShowModels {
         }
         
         struct ResponseModel {
-            let response: ResponseAPI?
+            let responseAPI: ResponseAPI?
         }
         
         struct ViewModel {
-            let response: ResponseAPI?
+            let responseAPI: ResponseAPI?
         }
     }
 
@@ -46,12 +46,12 @@ struct PersonalPageShowModels {
         }
         
         struct ResponseModel {
-            let response: ResponseAPI?
+            let responseAPI: ResponseAPI?
             let passwordsParams: [String: Any]?
         }
         
         struct ViewModel {
-            let response: ResponseAPI?
+            let responseAPI: ResponseAPI?
             let passwordsParams: [String: Any]?
         }
     }
@@ -62,7 +62,7 @@ struct PersonalPageShowModels {
         }
         
         struct ResponseModel {
-            let response: ResponseAPI?
+            let responseAPI: ResponseAPI?
         }
         
         struct ViewModel {

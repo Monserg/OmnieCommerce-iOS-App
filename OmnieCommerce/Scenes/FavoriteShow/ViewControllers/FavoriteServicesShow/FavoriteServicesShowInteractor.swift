@@ -29,9 +29,9 @@ class FavoriteServicesShowInteractor: FavoriteServicesShowInteractorInput {
     
     // MARK: - Custom Functions. Business logic
     func favoriteServicesDidLoad(withRequestModel requestModel: FavoriteServicesShowModels.Services.RequestModel) {
-        MSMRestApiManager.instance.userRequestDidRun(.userGetFavoriteServicesList(requestModel.parameters)) { responseAPI in
-            let servicesResponseModel = FavoriteServicesShowModels.Services.ResponseModel(response: responseAPI)
+        MSMRestApiManager.instance.userRequestDidRun(.userGetFavoriteServicesList(requestModel.parameters, false), withHandlerResponseAPICompletion:  { responseAPI in
+            let servicesResponseModel = FavoriteServicesShowModels.Services.ResponseModel(responseAPI: responseAPI)
             self.presenter.favoriteServicesDidPrepareToShowLoad(fromResponseModel: servicesResponseModel)
-        }
+        })
     }
 }

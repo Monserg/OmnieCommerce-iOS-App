@@ -19,11 +19,12 @@ struct FavoriteOrganizationsShowModels {
         }
         
         struct ResponseModel {
-            let response: ResponseAPI?
+            let responseAPI: ResponseAPI?
         }
         
         struct ViewModel {
             let organizations: [Organization]?
+            let status: String
         }
     }    
 }

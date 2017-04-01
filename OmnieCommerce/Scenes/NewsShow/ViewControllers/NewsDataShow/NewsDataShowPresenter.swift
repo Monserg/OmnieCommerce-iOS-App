@@ -28,7 +28,7 @@ class NewsDataShowPresenter: NewsDataShowPresenterInput {
     
     // MARK: - Custom Functions. Presentation logic
     func newsDataDidPrepareToShowLoad(fromResponseModel responseModel: NewsDataShowModels.Data.ResponseModel) {
-        guard responseModel.response != nil else {
+        guard responseModel.responseAPI != nil else {
             let newsDataViewModel = NewsDataShowModels.Data.ViewModel(newsData: nil)
             viewController.newsDataDidShowLoad(fromViewModel: newsDataViewModel)
             
@@ -36,8 +36,8 @@ class NewsDataShowPresenter: NewsDataShowPresenterInput {
         }
         
         // Format the response from the Interactor and pass the result back to the View Controller
-        if ((responseModel.response!.body as! [Any]).count > 0) {
-            responseModel.response!.itemsDidLoad(fromItemsArray: responseModel.response!.body as! [Any], withItem: NewsData.init(), completion: { newsData in
+        if ((responseModel.responseAPI!.body as! [Any]).count > 0) {
+            responseModel.responseAPI!.itemsDidLoad(fromItemsArray: responseModel.responseAPI!.body as! [Any], withItem: NewsData.init(), completion: { newsData in
                 // Prepare to save NewsDataList in CoreData
                 let entityNews = CoreDataManager.instance.entityDidLoad(byName: keyNewsData) as! News
                 let newsDataData = NSKeyedArchiver.archivedData(withRootObject: newsData) as NSData?

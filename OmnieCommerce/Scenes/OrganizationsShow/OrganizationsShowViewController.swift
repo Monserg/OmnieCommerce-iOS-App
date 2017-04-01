@@ -156,9 +156,11 @@ class OrganizationsShowViewController: BaseViewController {
         // Setting MSMTableViewControllerManager
         tableView!.tableViewControllerManager!.dataSource = organizationsList
         tableView!.tableFooterView!.isHidden = (organizationsList.count > 0) ? true : false
+        smallTopBarView.searchButton.isHidden = (organizationsList.count == 0) ? true : false
+        mapButton.isUserInteractionEnabled = true
+
         (tableView!.tableFooterView as! MSMTableViewFooterView).didUpload(forItemsCount: organizationsList.count,
                                                                           andEmptyText: "Organizations list is empty")
-        mapButton.isUserInteractionEnabled = true
         tableView.reloadData()
         
         // Search Manager
@@ -229,9 +231,10 @@ class OrganizationsShowViewController: BaseViewController {
         // Setting MSMTableViewControllerManager
         tableView!.tableViewControllerManager!.dataSource = servicesList
         tableView!.tableFooterView!.isHidden = (servicesList.count > 0) ? true : false
+        smallTopBarView.searchButton.isHidden = (servicesList.count == 0) ? true : false
+        mapButton.isUserInteractionEnabled = true
         (tableView!.tableFooterView as! MSMTableViewFooterView).didUpload(forItemsCount: servicesList.count,
                                                                           andEmptyText: "Services list is empty")
-        mapButton.isUserInteractionEnabled = true
         tableView.reloadData()
 
         // Search Manager
@@ -345,15 +348,21 @@ extension OrganizationsShowViewController: OrganizationsShowViewControllerInput 
     func organizationsDidShowLoad(fromViewModel viewModel: OrganizationsShowModels.Organizations.ViewModel) {
         spinnerDidFinish()
         
+        // Check for errors
         guard viewModel.organizations != nil else {
-            self.organizationsListDidShow(organizations, fromAPI: true)
+            self.alertViewDidShow(withTitle: "Error", andMessage: viewModel.status, completion: { _ in
+                self.organizationsListDidShow(self.organizations, fromAPI: true)
+            })
+
             return
         }
         
+        // Save Organizations to CoreData
         CoreDataManager.instance.didSaveContext()
 
-        // Load Organizations list from CoreData
+        // Check network connection
         guard isNetworkAvailable else {
+            // Load Organizations list from CoreData
             self.organizationsListDidShow(nil, fromAPI: false)
             return
         }
@@ -366,15 +375,21 @@ extension OrganizationsShowViewController: OrganizationsShowViewControllerInput 
     func servicesDidShowLoad(fromViewModel viewModel: OrganizationsShowModels.Services.ViewModel) {
         spinnerDidFinish()
         
+        // Check for errors
         guard viewModel.services != nil else {
-            self.servicesListDidShow(services, fromAPI: true)
+            self.alertViewDidShow(withTitle: "Error", andMessage: viewModel.status, completion: { _ in
+                self.servicesListDidShow(self.services, fromAPI: true)
+            })
+            
             return
         }
         
+        // Save Services to CoreData
         CoreDataManager.instance.didSaveContext()
         
-        // Load Organizations list from CoreData
+        // Check network connection
         guard isNetworkAvailable else {
+            // Load Services list from CoreData
             self.servicesListDidShow(nil, fromAPI: false)
             return
         }

@@ -28,28 +28,23 @@ class FavoriteOrganizationsShowPresenter: FavoriteOrganizationsShowPresenterInpu
     
     // MARK: - Custom Functions. Presentation logic
     func favoriteOrganizationsDidPrepareToShowLoad(fromResponseModel responseModel: FavoriteOrganizationsShowModels.Organizations.ResponseModel) {
-        guard responseModel.response != nil && (responseModel.response?.body as! [Any]).count > 0 else {
-            let organizationsViewModel = FavoriteOrganizationsShowModels.Organizations.ViewModel(organizations: nil)
+        guard responseModel.responseAPI?.body != nil else {
+            let organizationsViewModel = FavoriteOrganizationsShowModels.Organizations.ViewModel(organizations: nil, status: (responseModel.responseAPI?.status)!)
             self.viewController.favoriteOrganizationsDidShowLoad(fromViewModel: organizationsViewModel)
 
             return
         }
         
         // Format the response from the Interactor and pass the result back to the View Controller
-//        if ((responseModel.response?.body as! [Any]).count > 0) {
-            responseModel.response!.itemsDidLoad(fromItemsArray: responseModel.response!.body as! [Any], withItem: Organization.init(), completion: { favoriteOrganizations in
-                // Prepare to save Organizations in CoreData
-                let _ = favoriteOrganizations.map { $0.cellHeight = 60.0; $0.cellIdentifier = "FavoriteOrganizationTableViewCell" }
-                let entityFavoriteOrganizations = CoreDataManager.instance.entityDidLoad(byName: keyFavoriteOrganizations) as! FavoriteOrganizations
-                let favoriteOrganizationsData = NSKeyedArchiver.archivedData(withRootObject: favoriteOrganizations) as NSData?
-                entityFavoriteOrganizations.list = favoriteOrganizationsData!
-                
-                let organizationsViewModel = FavoriteOrganizationsShowModels.Organizations.ViewModel(organizations: favoriteOrganizations)
-                self.viewController.favoriteOrganizationsDidShowLoad(fromViewModel: organizationsViewModel)
-            })
-//        } else {
-//            let organizationsViewModel = FavoriteOrganizationsShowModels.Organizations.ViewModel(organizations: nil)
-//            self.viewController.favoriteOrganizationsDidShowLoad(fromViewModel: organizationsViewModel)
-//        }
+        responseModel.responseAPI!.itemsDidLoad(fromItemsArray: responseModel.responseAPI!.body as! [Any], withItem: Organization.init(), completion: { favoriteOrganizations in
+            // Prepare to save Favorite Organizations in CoreData
+            let _ = favoriteOrganizations.map { $0.cellHeight = 60.0; $0.cellIdentifier = "FavoriteOrganizationTableViewCell" }
+            let entityFavoriteOrganizations = CoreDataManager.instance.entityDidLoad(byName: keyFavoriteOrganizations) as! FavoriteOrganizations
+            let favoriteOrganizationsData = NSKeyedArchiver.archivedData(withRootObject: favoriteOrganizations) as NSData?
+            entityFavoriteOrganizations.list = favoriteOrganizationsData!
+            
+            let organizationsViewModel = FavoriteOrganizationsShowModels.Organizations.ViewModel(organizations: favoriteOrganizations, status: (responseModel.responseAPI?.status)!)
+            self.viewController.favoriteOrganizationsDidShowLoad(fromViewModel: organizationsViewModel)
+        })
     }
 }

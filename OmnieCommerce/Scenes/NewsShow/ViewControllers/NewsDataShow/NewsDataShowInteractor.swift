@@ -34,9 +34,9 @@ class NewsDataShowInteractor: NewsDataShowInteractorInput {
         worker.doSomeWork()
         
         // NOTE: Pass the result to the Presenter
-        MSMRestApiManager.instance.userRequestDidRun(.userGetNewsDataList(requestModel.parameters)) { responseAPI in
-            let newsDataResponseModel = NewsDataShowModels.Data.ResponseModel(response: responseAPI)
+        MSMRestApiManager.instance.userRequestDidRun(.userGetNewsDataList(requestModel.parameters, false), withHandlerResponseAPICompletion:  { responseAPI in
+            let newsDataResponseModel = NewsDataShowModels.Data.ResponseModel(responseAPI: responseAPI)
             self.presenter.newsDataDidPrepareToShowLoad(fromResponseModel: newsDataResponseModel)
-        }
+        })
     }
 }

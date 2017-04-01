@@ -20,12 +20,13 @@ struct OrganizationsShowModels {
         }
         
         struct ResponseModel {
-            let response: ResponseAPI?
+            let responseAPI: ResponseAPI?
             let category: Category
         }
         
         struct ViewModel {
             let organizations: [Organization]?
+            let status: String
         }
     }
 
@@ -36,12 +37,13 @@ struct OrganizationsShowModels {
         }
         
         struct ResponseModel {
-            let response: ResponseAPI?
+            let responseAPI: ResponseAPI?
             let category: Category
         }
         
         struct ViewModel {
             let services: [Service]?
+            let status: String
         }
     }
 }

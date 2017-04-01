@@ -140,21 +140,27 @@ extension FavoriteOrganizationsShowViewController: FavoriteOrganizationsShowView
     func favoriteOrganizationsDidShowLoad(fromViewModel viewModel: FavoriteOrganizationsShowModels.Organizations.ViewModel) {
         spinnerDidFinish()
         
+        // Check for errors
         guard viewModel.organizations != nil else {
-            self.favoriteOrganizationsListDidShow(organizations, fromAPI: true)
+            self.alertViewDidShow(withTitle: "Error", andMessage: viewModel.status, completion: { _ in
+                self.favoriteOrganizationsListDidShow(self.organizations, fromAPI: true)
+            })
+
             return
         }
         
+        // Save Favorite Organizations to CoreData
         CoreDataManager.instance.didSaveContext()
         
-        // Load Organizations list from CoreData
+        // Check network connection
         guard isNetworkAvailable else {
+            // Load Favorite Organizations list from CoreData
             self.favoriteOrganizationsListDidShow(nil, fromAPI: false)
             return
         }
         
-        // Load Organizations list from API
+        // Load Favorite Organizations list from API
         self.organizations.append(contentsOf: viewModel.organizations!)
         self.favoriteOrganizationsListDidShow(organizations, fromAPI: true)
-    }    
+    }
 }

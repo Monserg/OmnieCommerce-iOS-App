@@ -19,7 +19,7 @@ struct NewsDataShowModels {
         }
         
         struct ResponseModel {
-            let response: ResponseAPI?
+            let responseAPI: ResponseAPI?
         }
         
         struct ViewModel {

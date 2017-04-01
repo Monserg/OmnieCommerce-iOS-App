@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-class Subcategory: NSObject, NSCoding, DropDownItem, InitCellParameters {
+class Subcategory: NSObject, NSCoding, DropDownItem, InitCellParameters, MapObjectBinding {
     // MARK: - Properties
     var codeID: String!
     var name: String!
@@ -25,7 +25,7 @@ class Subcategory: NSObject, NSCoding, DropDownItem, InitCellParameters {
     }
 
     init(codeID: String, name: String) {
-        self.codeID  = codeID
+        self.codeID = codeID
         self.name = name
     }
     
@@ -48,9 +48,11 @@ class Subcategory: NSObject, NSCoding, DropDownItem, InitCellParameters {
     }
     
     
-    // MARK: - Custom Functions
-    func didMap(fromDictionary dictionary: [String: Any]) {
-        self.codeID = dictionary["uuid"] as? String
-        self.name = dictionary["name"] as? String
+    // Confirm MapObjectBinding Protocol
+    func didMap(fromDictionary dictionary: [String: Any], completion: @escaping (() -> ())) {
+        self.codeID = dictionary["uuid"] as! String
+        self.name = dictionary["name"] as! String
+        
+        completion()
     }
 }

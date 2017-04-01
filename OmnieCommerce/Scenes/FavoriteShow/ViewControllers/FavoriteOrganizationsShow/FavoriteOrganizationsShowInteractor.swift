@@ -29,8 +29,8 @@ class FavoriteOrganizationsShowInteractor: FavoriteOrganizationsShowInteractorIn
     
     // MARK: - Custom Functions. Business logic
     func favoriteOrganizationsDidLoad(withRequestModel requestModel: FavoriteOrganizationsShowModels.Organizations.RequestModel) {
-        MSMRestApiManager.instance.userRequestDidRun(.userGetFavoriteOrganizationsList(requestModel.parameters), withHandlerResponseAPICompletion: { responseAPI in
-            let organizationsResponseModel = FavoriteOrganizationsShowModels.Organizations.ResponseModel(response: responseAPI)
+        MSMRestApiManager.instance.userRequestDidRun(.userGetFavoriteOrganizationsList(requestModel.parameters, false), withHandlerResponseAPICompletion: { responseAPI in
+            let organizationsResponseModel = FavoriteOrganizationsShowModels.Organizations.ResponseModel(responseAPI: responseAPI)
             self.presenter.favoriteOrganizationsDidPrepareToShowLoad(fromResponseModel: organizationsResponseModel)
         })
     }

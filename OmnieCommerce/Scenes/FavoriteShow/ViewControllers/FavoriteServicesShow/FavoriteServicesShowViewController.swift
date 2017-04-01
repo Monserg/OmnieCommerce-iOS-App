@@ -141,20 +141,26 @@ extension FavoriteServicesShowViewController: FavoriteServicesShowViewController
     func favoriteServicesDidShowLoad(fromViewModel viewModel: FavoriteServicesShowModels.Services.ViewModel) {
         spinnerDidFinish()
         
+        // Check for errors
         guard viewModel.services != nil else {
-            self.favoriteServicesListDidShow(services, fromAPI: true)
+            self.alertViewDidShow(withTitle: "Error", andMessage: viewModel.status, completion: { _ in
+                self.favoriteServicesListDidShow(self.services, fromAPI: true)
+            })
+            
             return
         }
         
+        // Save Favorite Services to CoreData
         CoreDataManager.instance.didSaveContext()
         
-        // Load Services list from CoreData
+        // Check network connection
         guard isNetworkAvailable else {
+            // Load Favorite Services list from CoreData
             self.favoriteServicesListDidShow(nil, fromAPI: false)
             return
         }
         
-        // Load Services list from API
+        // Load Favorite Services list from API
         self.services.append(contentsOf: viewModel.services!)
         self.favoriteServicesListDidShow(self.services, fromAPI: true)
     }

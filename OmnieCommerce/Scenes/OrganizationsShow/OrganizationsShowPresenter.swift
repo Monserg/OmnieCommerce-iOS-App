@@ -30,52 +30,42 @@ class OrganizationsShowPresenter: OrganizationsShowPresenterInput {
     
     // MARK: - Custom Functions. Presentation logic
     func organizationsDidPrepareToShowLoad(fromResponseModel responseModel: OrganizationsShowModels.Organizations.ResponseModel) {
-        guard responseModel.response != nil else {
-            let organizationsViewModel = OrganizationsShowModels.Organizations.ViewModel(organizations: nil)
+        guard responseModel.responseAPI?.body != nil else {
+            let organizationsViewModel = OrganizationsShowModels.Organizations.ViewModel(organizations: nil, status: (responseModel.responseAPI?.status)!)
             self.viewController.organizationsDidShowLoad(fromViewModel: organizationsViewModel)
             return
         }
         
         // Convert Google Place ID to address strings
-        if ((responseModel.response?.body as! [Any]).count > 0) {
-            responseModel.response!.itemsDidLoad(fromItemsArray: responseModel.response!.body as! [Any], withItem: Organization.init(), completion: { organizations in
-                // Prepare to save Organizations in CoreData
-                let _ = organizations.map { $0.category = responseModel.category }
-                let entityOrganizations = CoreDataManager.instance.entityDidLoad(byName: keyOrganizations) as! Organizations
-                let organizationsData = NSKeyedArchiver.archivedData(withRootObject: organizations) as NSData?
-                entityOrganizations.list = organizationsData!
-                
-                let organizationsViewModel = OrganizationsShowModels.Organizations.ViewModel(organizations: organizations)
-                self.viewController.organizationsDidShowLoad(fromViewModel: organizationsViewModel)
-            })
-        } else {
-            let organizationsViewModel = OrganizationsShowModels.Organizations.ViewModel(organizations: nil)
+        responseModel.responseAPI!.itemsDidLoad(fromItemsArray: responseModel.responseAPI!.body as! [Any], withItem: Organization.init(), completion: { organizations in
+            // Prepare to save Organizations in CoreData
+            let _ = organizations.map { $0.category = responseModel.category }
+            let entityOrganizations = CoreDataManager.instance.entityDidLoad(byName: keyOrganizations) as! Organizations
+            let organizationsData = NSKeyedArchiver.archivedData(withRootObject: organizations) as NSData?
+            entityOrganizations.list = organizationsData!
+            
+            let organizationsViewModel = OrganizationsShowModels.Organizations.ViewModel(organizations: organizations, status: (responseModel.responseAPI?.status)!)
             self.viewController.organizationsDidShowLoad(fromViewModel: organizationsViewModel)
-        }
+        })
     }
 
     func servicesDidPrepareToShowLoad(fromResponseModel responseModel: OrganizationsShowModels.Services.ResponseModel) {
-        guard responseModel.response != nil else {
-            let servicesViewModel = OrganizationsShowModels.Services.ViewModel(services: nil)
+        guard responseModel.responseAPI?.body != nil else {
+            let servicesViewModel = OrganizationsShowModels.Services.ViewModel(services: nil, status: (responseModel.responseAPI?.status)!)
             self.viewController.servicesDidShowLoad(fromViewModel: servicesViewModel)
             return
         }
         
         // Convert Google Place ID to address strings
-        if ((responseModel.response?.body as! [Any]).count > 0) {
-            responseModel.response!.itemsDidLoad(fromItemsArray: responseModel.response!.body as! [Any], withItem: Service.init(), completion: { services in
-                // Prepare to save Organizations in CoreData
-                let _ = services.map { $0.category = responseModel.category }
-                let entityServices = CoreDataManager.instance.entityDidLoad(byName: keyServices) as! Services
-                let servicesData = NSKeyedArchiver.archivedData(withRootObject: services) as NSData?
-                entityServices.list = servicesData!
-                
-                let servicesViewModel = OrganizationsShowModels.Services.ViewModel(services: services)
-                self.viewController.servicesDidShowLoad(fromViewModel: servicesViewModel)
-            })
-        } else {
-            let servicesViewModel = OrganizationsShowModels.Services.ViewModel(services: nil)
+        responseModel.responseAPI!.itemsDidLoad(fromItemsArray: responseModel.responseAPI!.body as! [Any], withItem: Service.init(), completion: { services in
+            // Prepare to save Services in CoreData
+            let _ = services.map { $0.category = responseModel.category }
+            let entityServices = CoreDataManager.instance.entityDidLoad(byName: keyServices) as! Services
+            let servicesData = NSKeyedArchiver.archivedData(withRootObject: services) as NSData?
+            entityServices.list = servicesData!
+            
+            let servicesViewModel = OrganizationsShowModels.Services.ViewModel(services: services, status: (responseModel.responseAPI?.status)!)
             self.viewController.servicesDidShowLoad(fromViewModel: servicesViewModel)
-        }
+        })
     }
 }

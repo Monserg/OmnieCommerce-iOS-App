@@ -15,6 +15,7 @@ import UIKit
 struct CategoriesShowModels {
     struct Categories {
         struct RequestModel {
+            let parameters: [String: Any]
         }
         
         struct ResponseModel {

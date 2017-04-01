@@ -28,18 +28,22 @@ class CategoriesShowPresenter: CategoriesShowPresenterInput {
     
     // MARK: - Custom Functions. Presentation logic
     func categoriesDidPrepareToShowLoad(fromResponseModel responseModel: CategoriesShowModels.Categories.ResponseModel) {
-        // Save new data to CoreData
-        let categories = responseModel.responseAPI?.body as? [Category]
-        let entityCategories = CoreDataManager.instance.entityDidLoad(byName: keyCategories) as! Categories
-        
-        if  (categories != nil) {
-            let categoriesData = NSKeyedArchiver.archivedData(withRootObject: categories!) as NSData?
-            entityCategories.list = categoriesData!
-        } else {
-            entityCategories.list = nil
+        guard responseModel.responseAPI != nil else {
+            let categoriesViewModel = CategoriesShowModels.Categories.ViewModel(categories: nil)
+            viewController.categoriesDidShowLoad(fromViewModel: categoriesViewModel)
+            return
         }
 
-        let categoriesViewModel = CategoriesShowModels.Categories.ViewModel(categories: categories)
-        viewController.categoriesDidShowLoad(fromViewModel: categoriesViewModel)
+        // Convert responseAPI body to Categories list
+        responseModel.responseAPI!.itemsDidLoad(fromItemsArray: responseModel.responseAPI!.body as! [Any], withItem: Category.init(), completion: { categories in
+            // Prepare to save Categories in CoreData
+            let _ = categories.map { $0.cellHeight = 102.0; $0.cellIdentifier = "CategoryCollectionViewCell" }
+            let entityCategories = CoreDataManager.instance.entityDidLoad(byName: keyCategories) as! Categories
+            let categoriesData = NSKeyedArchiver.archivedData(withRootObject: categories) as NSData?
+            entityCategories.list = categoriesData!
+            
+            let categoriesViewModel = CategoriesShowModels.Categories.ViewModel(categories: categories)
+            self.viewController.categoriesDidShowLoad(fromViewModel: categoriesViewModel)
+        })
     }
 }

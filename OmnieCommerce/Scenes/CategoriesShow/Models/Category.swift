@@ -10,7 +10,7 @@ import CoreData
 import SwiftyJSON
 import Foundation
 
-class Category: NSObject, NSCoding, InitCellParameters {
+class Category: NSObject, NSCoding, NSCopying, InitCellParameters, MapObjectBinding {
     // MARK: - Properties
     var codeID: String!
     var name: String!
@@ -57,10 +57,10 @@ class Category: NSObject, NSCoding, InitCellParameters {
     }
 
     
-    // MARK: - Custom Functions
-    func didMap(fromDictionary dictionary: [String: Any]) {
-        self.codeID = dictionary["uuid"] as? String
-        self.name = dictionary["name"] as? String
+    // Confirm MapObjectBinding Protocol
+    func didMap(fromDictionary dictionary: [String: Any], completion: @escaping (() -> ())) {
+        self.codeID = dictionary["uuid"] as! String
+        self.name = dictionary["name"] as! String
         
         if (dictionary["logo"] as? String != nil) {
             self.imagePath = "http://\(dictionary["logo"] as! String)"
@@ -68,15 +68,25 @@ class Category: NSObject, NSCoding, InitCellParameters {
         
         // Map Subcategory list
         let responseSubcategories = dictionary["subCategories"] as! NSArray
-        var subcategories = [Subcategory.init(codeID: "All-Subcategories-ID", name: "By all subcategories".localized())]
+        subcategories = [Subcategory.init(codeID: "All-Subcategories-ID", name: "By all subcategories".localized())]
+        
+        guard responseSubcategories.count > 0 else {
+            completion()
+            return
+        }
         
         for dictionary in responseSubcategories {
             let subcategory = Subcategory.init()
-            subcategory.didMap(fromDictionary: dictionary as! [String : Any])
-            
+            subcategory.didMap(fromDictionary: dictionary as! [String : Any], completion: { _ in })
             subcategories.append(subcategory)
         }
-        
-        self.subcategories = subcategories
+
+        completion()
+    }
+    
+    // Confirm NSCopying Protocol
+    func copy(with zone: NSZone? = nil) -> Any {
+        let copy = Category()
+        return copy
     }
 }

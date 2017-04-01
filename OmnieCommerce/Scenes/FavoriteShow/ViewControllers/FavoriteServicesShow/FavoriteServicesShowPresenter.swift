@@ -28,28 +28,23 @@ class FavoriteServicesShowPresenter: FavoriteServicesShowPresenterInput {
     
     // MARK: - Custom Functions. Presentation logic
     func favoriteServicesDidPrepareToShowLoad(fromResponseModel responseModel: FavoriteServicesShowModels.Services.ResponseModel) {
-        guard responseModel.response != nil else {
-            let servicesViewModel = FavoriteServicesShowModels.Services.ViewModel(services: nil)
+        guard responseModel.responseAPI?.body != nil else {
+            let servicesViewModel = FavoriteServicesShowModels.Services.ViewModel(services: nil, status: (responseModel.responseAPI?.status)!)
             viewController.favoriteServicesDidShowLoad(fromViewModel: servicesViewModel)
             
             return
         }
         
         // Format the response from the Interactor and pass the result back to the View Controller
-        if ((responseModel.response?.body as! [Any]).count > 0) {
-            responseModel.response!.itemsDidLoad(fromItemsArray: responseModel.response!.body as! [Any], withItem: Service.init(), completion: { favoriteServices in
-                // Prepare to save Services in CoreData
-                let _ = favoriteServices.map { $0.cellHeight = 60.0; $0.cellIdentifier = "FavoriteServiceTableViewCell" }
-                let entityFavoriteServices = CoreDataManager.instance.entityDidLoad(byName: keyFavoriteServices) as! FavoriteServices
-                let favoriteServicesData = NSKeyedArchiver.archivedData(withRootObject: favoriteServices) as NSData?
-                entityFavoriteServices.list = favoriteServicesData!
-                
-                let servicesViewModel = FavoriteServicesShowModels.Services.ViewModel(services: favoriteServices)
-                self.viewController.favoriteServicesDidShowLoad(fromViewModel: servicesViewModel)
-            })
-        } else {
-            let servicesViewModel = FavoriteServicesShowModels.Services.ViewModel(services: nil)
-            viewController.favoriteServicesDidShowLoad(fromViewModel: servicesViewModel)
-        }
+        responseModel.responseAPI!.itemsDidLoad(fromItemsArray: responseModel.responseAPI!.body as! [Any], withItem: Service.init(), completion: { favoriteServices in
+            // Prepare to save Services in CoreData
+            let _ = favoriteServices.map { $0.cellHeight = 60.0; $0.cellIdentifier = "FavoriteServiceTableViewCell" }
+            let entityFavoriteServices = CoreDataManager.instance.entityDidLoad(byName: keyFavoriteServices) as! FavoriteServices
+            let favoriteServicesData = NSKeyedArchiver.archivedData(withRootObject: favoriteServices) as NSData?
+            entityFavoriteServices.list = favoriteServicesData!
+            
+            let servicesViewModel = FavoriteServicesShowModels.Services.ViewModel(services: favoriteServices, status: (responseModel.responseAPI?.status)!)
+            self.viewController.favoriteServicesDidShowLoad(fromViewModel: servicesViewModel)
+        })
     }
 }

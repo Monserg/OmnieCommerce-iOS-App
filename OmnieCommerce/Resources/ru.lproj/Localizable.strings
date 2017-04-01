@@ -167,9 +167,18 @@
 
 
 // Request Errors
-"404 - Wrong Found"             =   "Запрашиваемые данные не найдены";
-"3894 - Email use"              =   "Email уже используется";
-"4401 - Bad Authorization"      =   "Пожалуйста, повторите процедуру авторизации";
+"SUCCESS"                       =   "Запрос успешно выполнен";                          // 200
+"CONTINUE"                      =   "";     // 2201
+"CREATED"                       =   "";     // 201
+"NOT_MODIFIED"                  =   "";     // 304
+"SOMETHING_WRONG"               =   "Email уже используется";                           // 3894
+"BAD_REQUEST"                   =   "";     // 400
+"INVALID_CREDENTIAL"            =   "";     // 401
+"NOT_FOUND"                     =   "Запрашиваемые данные не найдены";                  // 404
+"CONFLICT"                      =   "";     // 409
+"AUTHENTICATION_EXPIRED"        =   "";     // 419
+"BAD_AUTHORIZATION"             =   "Пожалуйста, повторите процедуру авторизации";      // 4401
+"WRONG_INPUT_DATA"              =   "";     // 4500
 
 
 // Cities

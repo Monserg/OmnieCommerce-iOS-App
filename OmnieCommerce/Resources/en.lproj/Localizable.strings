@@ -167,9 +167,17 @@
 
 
 // Request Errors
-"404 - Wrong Found"             =   "Wrong Found";
-"3894 - Email use"              =   "Email is already in use";
-"4401 - Bad Authorization"      =   "Please, try authorization again";
+"SUCCESS"                       =   "";     // 200
+"CONTINUE"                      =   "";     // 2201
+"CREATED"                       =   "";     // 201
+"NOT_MODIFIED"                  =   "";     // 304
+"BAD_REQUEST"                   =   "";     // 400
+"INVALID_CREDENTIAL"            =   "";     // 401
+"NOT_FOUND"                     =   "";     // 404
+"CONFLICT"                      =   "";     // 409
+"AUTHENTICATION_EXPIRED"        =   "";     // 419
+"BAD_AUTHORIZATION"             =   "";     // 4401
+"WRONG_INPUT_DATA"              =   "";     // 4500
 
 
 // Cities

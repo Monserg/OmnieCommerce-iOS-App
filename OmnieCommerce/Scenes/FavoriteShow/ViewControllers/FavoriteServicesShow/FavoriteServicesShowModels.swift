@@ -19,11 +19,12 @@ struct FavoriteServicesShowModels {
         }
         
         struct ResponseModel {
-            let response: ResponseAPI?
+            let responseAPI: ResponseAPI?
         }
         
         struct ViewModel {
             let services: [Service]?
+            let status: String
         }
     }
 }

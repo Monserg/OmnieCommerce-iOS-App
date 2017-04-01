@@ -167,9 +167,18 @@
 
 
 // Request Errors
-"404 - Wrong Found"             =   "Запитувані дані не знайдені";
-"3894 - Email use"              =   "Email вже використовується";
-"4401 - Bad Authorization"      =   "Будь ласка, повторіть процедуру авторизації";
+"SUCCESS"                       =   "Запит успішно виконаний";                          // 200
+"CONTINUE"                      =   "";     // 2201
+"CREATED"                       =   "";     // 201
+"NOT_MODIFIED"                  =   "";     // 304
+"SOMETHING_WRONG"               =   "Email вже використовується";                       // 3894
+"BAD_REQUEST"                   =   "";     // 400
+"INVALID_CREDENTIAL"            =   "";     // 401
+"NOT_FOUND"                     =   "Запитувані дані не знайдені";                      // 404
+"CONFLICT"                      =   "";     // 409
+"AUTHENTICATION_EXPIRED"        =   "";     // 419
+"BAD_AUTHORIZATION"             =   "Будь ласка, повторіть процедуру авторизації";      // 4401
+"WRONG_INPUT_DATA"              =   "";     // 4500
 
 
 // Cities

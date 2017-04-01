@@ -271,12 +271,12 @@ extension PersonalPageShowViewController: PersonalPageShowViewControllerInput {
         }
         
         // Check Response value
-        guard viewModel.response != nil && (viewModel.response?.code == 200 || viewModel.response?.code == 2201) else {
-            if (viewModel.response?.errorMessage == nil) {
-                alertViewDidShow(withTitle: "Error", andMessage: "Wrong input data", completion: { _ in })
-            } else {
-                alertViewDidShow(withTitle: "Error", andMessage: viewModel.response!.errorMessage!, completion: { _ in })
-            }
+        guard viewModel.responseAPI != nil && (viewModel.responseAPI?.code == 200 || viewModel.responseAPI?.code == 2201) else {
+//            if (viewModel.responseAPI?.errorMessage == nil) {
+//                alertViewDidShow(withTitle: "Error", andMessage: "Wrong input data", completion: { _ in })
+//            } else {
+//                alertViewDidShow(withTitle: "Error", andMessage: viewModel.responseAPI!.errorMessage!, completion: { _ in })
+//            }
             
             activeViewController = personalDataVC
             return
@@ -337,8 +337,8 @@ extension PersonalPageShowViewController: PersonalPageShowViewControllerInput {
             return
         }
         
-        guard viewModel.response?.code == 200 else {
-            alertViewDidShow(withTitle: "Error", andMessage: (viewModel.response?.code == 3894) ? "3894 - Email use" : "Change Email error message", completion: { _ in })
+        guard viewModel.responseAPI?.code == 200 else {
+            alertViewDidShow(withTitle: "Error", andMessage: (viewModel.responseAPI?.code == 3894) ? "3894 - Email use" : "Change Email error message", completion: { _ in })
             return
         }
         
