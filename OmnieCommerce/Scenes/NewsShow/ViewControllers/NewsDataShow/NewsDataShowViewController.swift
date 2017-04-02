@@ -86,12 +86,8 @@ class NewsDataShowViewController: BaseViewController {
             spinnerDidStart(view)
         }
         
-        let parameters: [String: Any] =     [
-                                                "limit": Config.Constants.paginationLimit,
-                                                "offset": offset
-                                            ]
-        
-        let newsDataRequestModel = NewsDataShowModels.Data.RequestModel(parameters: parameters)
+        let bodyParameters: [String: Any] = [ "limit": Config.Constants.paginationLimit, "offset": offset ]
+        let newsDataRequestModel = NewsDataShowModels.Data.RequestModel(parameters: bodyParameters)
         interactor.newsDataDidLoad(withRequestModel: newsDataRequestModel)
     }
     
@@ -141,20 +137,26 @@ extension NewsDataShowViewController: NewsDataShowViewControllerInput {
     func newsDataDidShowLoad(fromViewModel viewModel: NewsDataShowModels.Data.ViewModel) {
         spinnerDidFinish()
         
+        // Check for errors
         guard viewModel.newsData != nil else {
-            self.newsDataListDidShow(newsData, fromAPI: true)
+            self.alertViewDidShow(withTitle: "Error", andMessage: viewModel.status, completion: {
+                self.newsDataListDidShow(self.newsData, fromAPI: true)
+            })
+            
             return
         }
         
+        // Save Favorite Services to CoreData
         CoreDataManager.instance.didSaveContext()
         
-        // Load NewsData list from CoreData
+        // Check network connection
         guard isNetworkAvailable else {
+            // Load NewsData list from CoreData
             self.newsDataListDidShow(nil, fromAPI: false)
             return
         }
         
-        // Load Services list from API
+        // Load NewsData list from API
         self.newsData.append(contentsOf: viewModel.newsData!)
         self.newsDataListDidShow(self.newsData, fromAPI: true)
     }

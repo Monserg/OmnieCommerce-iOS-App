@@ -24,6 +24,7 @@ struct NewsDataShowModels {
         
         struct ViewModel {
             var newsData: [NewsData]?
+            let status: String
         }
     }
 }

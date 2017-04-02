@@ -96,11 +96,12 @@ enum RequestType {
                                                                                         parameters: (isBodyParams ? nil : params))
             
             
-//        case .(let params):      return (method: .,
-//                                                                    apiStringURL: "",
-//                                                                    parameters: params,
-//                                                                    bodyType: .,
-//                                                                    headers: [ "Authorization": CoreDataManager.instance.appUser.accessToken! ])
+//        case .(let params, let isBodyParams): return (method: .,
+//                                                                                        apiStringURL: "",
+//                                                                                        body: (isBodyParams ? params : nil),
+//                                                                                        bodyType: .ItemsArray,
+//                                                                                        headers: headersExtended,
+//                                                                                        parameters: (isBodyParams ? nil : params))
 
         }
     }
@@ -108,28 +109,6 @@ enum RequestType {
 
 
 // REMOVED!!!
-//func userAutorization(_ userName: String, andPassword password: String, withHandlerResponseAPICompletion handlerResponseAPICompletion: @escaping (ResponseAPI?) -> Void) {
-//    let authParameters = [ "login": userName, "password": password ]
-//    appApiString = "/auth/"
-//    
-//    Alamofire.request(appURL, method: .post, parameters: authParameters, encoding: JSONEncoding.default, headers: headers).responseJSON { dataResponse -> Void in
-//        if (dataResponse.result.value != nil) {
-//            let json = JSON(dataResponse.result.value!)
-//            let responseAPI = ResponseAPI.init(fromJSON: json, withBodyType: .Default)
-//            
-//            if (dataResponse.response?.statusCode == 200) {
-//                let responseHeaders = dataResponse.response!.allHeaderFields
-//                UserDefaults.standard.set(responseHeaders["Authorization"] as? String, forKey: keyAccessToken)
-//            }
-//            
-//            handlerResponseAPICompletion(responseAPI)
-//            return
-//        } else {
-//            handlerResponseAPICompletion(nil)
-//            return
-//        }
-//    }
-//}
 
 
 

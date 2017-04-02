@@ -143,7 +143,7 @@ extension FavoriteServicesShowViewController: FavoriteServicesShowViewController
         
         // Check for errors
         guard viewModel.services != nil else {
-            self.alertViewDidShow(withTitle: "Error", andMessage: viewModel.status, completion: { _ in
+            self.alertViewDidShow(withTitle: "Error", andMessage: viewModel.status, completion: {
                 self.favoriteServicesListDidShow(self.services, fromAPI: true)
             })
             

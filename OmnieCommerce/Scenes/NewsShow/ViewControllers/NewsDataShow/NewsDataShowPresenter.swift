@@ -28,27 +28,22 @@ class NewsDataShowPresenter: NewsDataShowPresenterInput {
     
     // MARK: - Custom Functions. Presentation logic
     func newsDataDidPrepareToShowLoad(fromResponseModel responseModel: NewsDataShowModels.Data.ResponseModel) {
-        guard responseModel.responseAPI != nil else {
-            let newsDataViewModel = NewsDataShowModels.Data.ViewModel(newsData: nil)
+        guard responseModel.responseAPI?.body != nil else {
+            let newsDataViewModel = NewsDataShowModels.Data.ViewModel(newsData: nil, status: (responseModel.responseAPI?.status)!)
             viewController.newsDataDidShowLoad(fromViewModel: newsDataViewModel)
             
             return
         }
         
         // Format the response from the Interactor and pass the result back to the View Controller
-        if ((responseModel.responseAPI!.body as! [Any]).count > 0) {
-            responseModel.responseAPI!.itemsDidLoad(fromItemsArray: responseModel.responseAPI!.body as! [Any], withItem: NewsData.init(), completion: { newsData in
-                // Prepare to save NewsDataList in CoreData
-                let entityNews = CoreDataManager.instance.entityDidLoad(byName: keyNewsData) as! News
-                let newsDataData = NSKeyedArchiver.archivedData(withRootObject: newsData) as NSData?
-                entityNews.list = newsDataData!
-                
-                let newsDataViewModel = NewsDataShowModels.Data.ViewModel(newsData: newsData)
-                self.viewController.newsDataDidShowLoad(fromViewModel: newsDataViewModel)
-            })
-        } else {
-            let newsDataViewModel = NewsDataShowModels.Data.ViewModel(newsData: nil)
-            viewController.newsDataDidShowLoad(fromViewModel: newsDataViewModel)
-        }
+        responseModel.responseAPI!.itemsDidLoad(fromItemsArray: responseModel.responseAPI!.body as! [Any], withItem: NewsData.init(), completion: { newsData in
+            // Prepare to save NewsDataList in CoreData
+            let entityNews = CoreDataManager.instance.entityDidLoad(byName: keyNewsData) as! News
+            let newsDataData = NSKeyedArchiver.archivedData(withRootObject: newsData) as NSData?
+            entityNews.list = newsDataData!
+            
+            let newsDataViewModel = NewsDataShowModels.Data.ViewModel(newsData: newsData, status: (responseModel.responseAPI?.status)!)
+            self.viewController.newsDataDidShowLoad(fromViewModel: newsDataViewModel)
+        })
     }
 }

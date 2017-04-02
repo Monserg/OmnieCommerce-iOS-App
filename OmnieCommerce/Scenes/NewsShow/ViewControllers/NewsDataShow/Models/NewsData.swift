@@ -8,7 +8,7 @@
 
 import Foundation
 
-class NewsData: NSObject, NSCoding, InitCellParameters, SearchObject, MapObjectBinding {
+class NewsData: NSObject, NSCoding, NSCopying, InitCellParameters, SearchObject, MapObjectBinding {
     // MARK: - Properties
     var codeID: String!
     var organizationID: String!
@@ -81,5 +81,11 @@ class NewsData: NSObject, NSCoding, InitCellParameters, SearchObject, MapObjectB
         }
         
         completion()
+    }
+    
+    // Confirm NSCopying Protocol
+    func copy(with zone: NSZone? = nil) -> Any {
+        let copy = NewsData()
+        return copy
     }
 }
