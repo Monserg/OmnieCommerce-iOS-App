@@ -35,7 +35,8 @@ public enum StatusCodeNote: Int {
     case AUTHENTICATION_EXPIRED     =   419     // Expired
     case BAD_AUTHORIZATION          =   4401    // BAD AUTHORIZATION
     case WRONG_INPUT_DATA           =   4500    // WRONG INPUT DATA
-    
+    case USER_EXIST                 =   4670
+
     var name: String {
         get { return String(describing: self) }
     }

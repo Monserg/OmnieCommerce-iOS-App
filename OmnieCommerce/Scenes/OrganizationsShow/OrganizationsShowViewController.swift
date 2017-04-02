@@ -131,7 +131,7 @@ class OrganizationsShowViewController: BaseViewController {
             spinnerDidStart(view)
         }
         
-        let parameters: [String: Any] =     [
+        let bodyParameters: [String: Any] = [
                                                 "category": self.category!.codeID,
                                                 "subCategory": subCategory,
                                                 "filter": filter,
@@ -139,7 +139,7 @@ class OrganizationsShowViewController: BaseViewController {
                                                 "offset": offset
                                             ]
 
-        let organizationsRequestModel = OrganizationsShowModels.Organizations.RequestModel(parameters: parameters, category: category!)
+        let organizationsRequestModel = OrganizationsShowModels.Organizations.RequestModel(parameters: bodyParameters, category: category!)
         interactor.organizationsDidLoad(withRequestModel: organizationsRequestModel)
     }
     
@@ -206,7 +206,7 @@ class OrganizationsShowViewController: BaseViewController {
             spinnerDidStart(view)
         }
         
-        let parameters: [String: Any] =     [
+        let bodyParameters: [String: Any] = [
                                                 "category": self.category!.codeID,
                                                 "subCategory": subCategory,
                                                 "filter": filter,
@@ -214,7 +214,7 @@ class OrganizationsShowViewController: BaseViewController {
                                                 "offset": offset
                                             ]
         
-        let servicesRequestModel = OrganizationsShowModels.Services.RequestModel(parameters: parameters, category: category!)
+        let servicesRequestModel = OrganizationsShowModels.Services.RequestModel(parameters: bodyParameters, category: category!)
         interactor.servicesDidLoad(withRequestModel: servicesRequestModel)
     }
     

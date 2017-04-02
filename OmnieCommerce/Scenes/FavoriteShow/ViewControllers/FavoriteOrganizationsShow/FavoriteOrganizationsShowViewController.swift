@@ -86,12 +86,8 @@ class FavoriteOrganizationsShowViewController: BaseViewController {
             spinnerDidStart(view)
         }
         
-        let parameters: [String: Any] =     [
-                                                "limit": Config.Constants.paginationLimit,
-                                                "offset": offset
-                                            ]
-        
-        let organizationsRequestModel = FavoriteOrganizationsShowModels.Organizations.RequestModel(parameters: parameters)
+        let bodyParameters: [String: Any] = [ "limit": Config.Constants.paginationLimit, "offset": offset ]
+        let organizationsRequestModel = FavoriteOrganizationsShowModels.Organizations.RequestModel(parameters: bodyParameters)
         interactor.favoriteOrganizationsDidLoad(withRequestModel: organizationsRequestModel)
     }
     
@@ -142,7 +138,7 @@ extension FavoriteOrganizationsShowViewController: FavoriteOrganizationsShowView
         
         // Check for errors
         guard viewModel.organizations != nil else {
-            self.alertViewDidShow(withTitle: "Error", andMessage: viewModel.status, completion: { _ in
+            self.alertViewDidShow(withTitle: "Error", andMessage: viewModel.status, completion: {
                 self.favoriteOrganizationsListDidShow(self.organizations, fromAPI: true)
             })
 

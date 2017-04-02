@@ -113,13 +113,13 @@ class SignUpShowViewController: BaseViewController, EmailErrorMessageView, Passw
             
             spinnerDidStart(view)
             
-            let requestParameters: [String: Any] =  [
-                                                        "userName": textFieldsCollection.first!.text!,
-                                                        "email": textFieldsCollection[1].text!,
-                                                        "password": textFieldsCollection.last!.text!
-                                                    ]
+            let bodyParameters: [String: Any] = [
+                                                    "userName": textFieldsCollection.first!.text!,
+                                                    "email": textFieldsCollection[1].text!,
+                                                    "password": textFieldsCollection.last!.text!
+                                                ]
 
-            let signUpRequestModel = SignUpShowModels.User.RequestModel(parameters: requestParameters)
+            let signUpRequestModel = SignUpShowModels.User.RequestModel(parameters: bodyParameters)
             interactor.userAppDidRegister(fromRequestModel: signUpRequestModel)
         }
     }
@@ -139,13 +139,14 @@ extension SignUpShowViewController: SignUpShowViewControllerInput {
     func userAppDidShowRegister(fromViewModel viewModel: SignUpShowModels.User.ViewModel) {
         spinnerDidFinish()
         
-        guard viewModel.responseAPI != nil && viewModel.responseAPI?.code == 200 else {
-            alertViewDidShow(withTitle: "Error", andMessage: "User is already exist", completion: { _ in })
+        // Check for errors
+        guard viewModel.responseAPI?.code == 200 else {
+            self.alertViewDidShow(withTitle: "Error", andMessage: String(viewModel.responseAPI!.status), completion: { _ in })
             return
         }
         
         alertViewDidShow(withTitle: "Info", andMessage: "User register successful", completion: { _ in
-            // Save UserApp
+            // Mofidy AppUser properties
             CoreDataManager.instance.didUpdateAppUser(state: true)
             CoreDataManager.instance.appUser.appName = self.textFieldsCollection.first?.text!
             CoreDataManager.instance.appUser.email = self.textFieldsCollection[1].text!

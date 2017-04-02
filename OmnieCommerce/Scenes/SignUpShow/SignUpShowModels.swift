@@ -42,6 +42,7 @@ struct SignUpShowModels {
         
         struct ViewModel {
             let responseAPI: ResponseAPI?
+            let status: String
         }
     }
 }

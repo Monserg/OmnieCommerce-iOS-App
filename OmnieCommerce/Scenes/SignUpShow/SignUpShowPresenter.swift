@@ -28,7 +28,7 @@ class SignUpShowPresenter: SignUpShowPresenterInput {
     
     // MARK: - Custom Functions. Presentation logic
     func userAppDidPrepareToShowRegister(fromResponseModel responseModel: SignUpShowModels.User.ResponseModel) {
-        let signUpViewModel = SignUpShowModels.User.ViewModel(responseAPI: responseModel.responseAPI)
+        let signUpViewModel = SignUpShowModels.User.ViewModel(responseAPI: responseModel.responseAPI, status: (responseModel.responseAPI?.status)!)
         viewController.userAppDidShowRegister(fromViewModel: signUpViewModel)
     }
 }

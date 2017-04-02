@@ -179,6 +179,7 @@
 "AUTHENTICATION_EXPIRED"        =   "";     // 419
 "BAD_AUTHORIZATION"             =   "Будь ласка, повторіть процедуру авторизації";      // 4401
 "WRONG_INPUT_DATA"              =   "";     // 4500
+"USER_EXIST"                    =   "Такий користувач вже існує";                       // 4670
 
 
 // Cities

@@ -86,12 +86,8 @@ class FavoriteServicesShowViewController: BaseViewController {
             spinnerDidStart(view)
         }
         
-        let parameters: [String: Any] =     [
-                                                "limit": Config.Constants.paginationLimit,
-                                                "offset": offset
-                                            ]
-        
-        let servicesRequestModel = FavoriteServicesShowModels.Services.RequestModel(parameters: parameters)
+        let bodyParameters: [String: Any] = [ "limit": Config.Constants.paginationLimit, "offset": offset ]
+        let servicesRequestModel = FavoriteServicesShowModels.Services.RequestModel(parameters: bodyParameters)
         interactor.favoriteServicesDidLoad(withRequestModel: servicesRequestModel)
     }
     
