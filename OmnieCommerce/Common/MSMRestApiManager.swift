@@ -19,10 +19,10 @@ enum RequestType {
     case userGetCategoriesList([String: Any], Bool)
     case userGetFavoriteServicesList([String: Any], Bool)
     case userGetServicesListByCategory([String: Any], Bool)
+    case userAddRemoveServiceToFavorite([String: Any], Bool)
     case userGetFavoriteOrganizationsList([String: Any], Bool)
     case userGetOrganizationsListByCategory([String: Any], Bool)
     
-//    case ([String: Any], Bool)
 //    case ([String: Any], Bool)
 //    case ([String: Any], Bool)
 //    case ([String: Any], Bool)
@@ -81,6 +81,13 @@ enum RequestType {
                                                                                     headers: headersExtended,
                                                                                     parameters: (isBodyParams ? nil : params))
             
+        case .userAddRemoveServiceToFavorite(let params, let isBodyParams):     return (method: .put,
+                                                                                        apiStringURL: "/user/service/",
+                                                                                        body: (isBodyParams ? params : nil),
+                                                                                        bodyType: .Default,
+                                                                                        headers: headersExtended,
+                                                                                        parameters: (isBodyParams ? nil : params))
+
         case .userGetFavoriteOrganizationsList(let params, let isBodyParams):   return (method: .post,
                                                                                         apiStringURL: "/user/organization/favorite/",
                                                                                         body: (isBodyParams ? params : nil),
@@ -411,26 +418,4 @@ final class MSMRestApiManager {
         }
     }
     
-    func userAddRemoveServiceToFavorite(_ serviceID: [String: Any], withHandlerResponseAPICompletion handlerResponseAPICompletion: @escaping (ResponseAPI?) -> Void) {
-        guard CoreDataManager.instance.appUser.accessToken != nil else {
-//            handlerResponseAPICompletion(ResponseAPI.init(withErrorMessage: .Default))
-            return
-        }
-        
-        headers["Authorization"] = CoreDataManager.instance.appUser.accessToken!
-        appApiString = "/user/service/"
-        
-        Alamofire.request(appURL, method: .put, parameters: serviceID, encoding: JSONEncoding.default, headers: headers).responseJSON { dataResponse -> Void in
-            if (dataResponse.result.value != nil) {
-                let json = JSON(dataResponse.result.value!)
-                let responseAPI = ResponseAPI.init(fromJSON: json, withBodyType: .Default)
-                
-                handlerResponseAPICompletion(responseAPI)
-                return
-            } else {
-                handlerResponseAPICompletion(nil)
-                return
-            }
-        }
-    }
 }
