@@ -77,7 +77,13 @@ class SignInContainerShowViewController: BaseViewController, PasswordErrorMessag
         viewSettingsDidLoad()
     }
     
-
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
+        didHide(passwordErrorMessageView, withConstraint: passwordErrorMessageViewTopConstraint)
+    }
+    
+    
     // MARK: - Custom Functions
     func viewSettingsDidLoad() {
         // Apply keyboard handler
@@ -91,7 +97,6 @@ class SignInContainerShowViewController: BaseViewController, PasswordErrorMessag
         
         // Hide email error message view
         passwordErrorMessageViewHeightConstraint.constant = Config.Constants.errorMessageViewHeight
-        didHide(passwordErrorMessageView, withConstraint: passwordErrorMessageViewTopConstraint)
     }
     
     func didCleanTextFields() {
@@ -129,8 +134,7 @@ class SignInContainerShowViewController: BaseViewController, PasswordErrorMessag
         }
 
         spinnerDidStart(view)
-        
-        let requestModel = SignInContainerShowModels.User.RequestModel(name: name, password: password)
+        let requestModel = SignInContainerShowModels.User.RequestModel(bodyParameters: [ "login": name, "password": password ])
         interactor.userAppDidSignIn(withRequestModel: requestModel)
     }
 }
@@ -141,13 +145,12 @@ extension SignInContainerShowViewController: SignInContainerShowViewControllerIn
     func userAppDidShow(fromViewModel viewModel: SignInContainerShowModels.User.ViewModel) {
         spinnerDidFinish()
 
-        guard viewModel.responseAPI != nil && viewModel.responseAPI?.code != 4401 && viewModel.responseAPI?.code != 4500 else {
-            alertViewDidShow(withTitle: "Error",
-                             andMessage: ((viewModel.responseAPI?.code == 4401) ? "Authentication failure" : "Wrong input data"),
-                             completion: { _ in })
+        // Check for errors
+        guard viewModel.responseAPI?.code == 200 else {
+            self.alertViewDidShow(withTitle: "Error", andMessage: String(viewModel.responseAPI!.status), completion: { _ in })
             return
         }
-        
+
         // Mofidy AppUser properties
         CoreDataManager.instance.didUpdateAppUser(state: true)
         CoreDataManager.instance.appUser.codeID = String.init(describing: viewModel.responseAPI?.code)
@@ -160,5 +163,6 @@ extension SignInContainerShowViewController: SignInContainerShowViewControllerIn
         
         // Clear all text fields
         self.didCleanTextFields()
+        UserDefaults.standard.removeObject(forKey: keyAccessToken)
     }
 }

@@ -37,6 +37,7 @@ enum RequestType {
         let userAccessToken = CoreDataManager.instance.appUser.accessToken
         let headersExtended = (userAccessToken != nil) ? [ "Content-Type": "application/json", "Authorization" : userAccessToken! ] : nil
         
+        // Body & Parametes named such as in Postman
         switch self {
         case .userAutorization(let params, let isBodyParams):   return (method: .post,
                                                                         apiStringURL: "/auth/",
@@ -107,6 +108,29 @@ enum RequestType {
 
 
 // REMOVED!!!
+//func userAutorization(_ userName: String, andPassword password: String, withHandlerResponseAPICompletion handlerResponseAPICompletion: @escaping (ResponseAPI?) -> Void) {
+//    let authParameters = [ "login": userName, "password": password ]
+//    appApiString = "/auth/"
+//    
+//    Alamofire.request(appURL, method: .post, parameters: authParameters, encoding: JSONEncoding.default, headers: headers).responseJSON { dataResponse -> Void in
+//        if (dataResponse.result.value != nil) {
+//            let json = JSON(dataResponse.result.value!)
+//            let responseAPI = ResponseAPI.init(fromJSON: json, withBodyType: .Default)
+//            
+//            if (dataResponse.response?.statusCode == 200) {
+//                let responseHeaders = dataResponse.response!.allHeaderFields
+//                UserDefaults.standard.set(responseHeaders["Authorization"] as? String, forKey: keyAccessToken)
+//            }
+//            
+//            handlerResponseAPICompletion(responseAPI)
+//            return
+//        } else {
+//            handlerResponseAPICompletion(nil)
+//            return
+//        }
+//    }
+//}
+
 
 
 
@@ -143,13 +167,13 @@ final class MSMRestApiManager {
         let requestParameters = requestType.introduced()
         appApiString = requestParameters.apiStringURL
         
-        if (requestParameters.body != nil) {
-            let key = requestParameters.body!.keys.first!
-            let value = requestParameters.body![key] as! String
+        if (requestParameters.parameters != nil) {
+            let key = requestParameters.parameters!.keys.first!
+            let value = requestParameters.parameters![key] as! String
             appURL = URL.init(string: appURL.absoluteString.appending("?\(key)=\(value)"))
         }
         
-        Alamofire.request(appURL, method: requestParameters.method, parameters: requestParameters.parameters, encoding: JSONEncoding.default, headers: requestParameters.headers).responseJSON { dataResponse -> Void in
+        Alamofire.request(appURL, method: requestParameters.method, parameters: requestParameters.body, encoding: JSONEncoding.default, headers: requestParameters.headers).responseJSON { dataResponse -> Void in
             guard dataResponse.error == nil && dataResponse.result.value != nil else {
                 handlerResponseAPICompletion(nil)
                 return
@@ -158,6 +182,12 @@ final class MSMRestApiManager {
             let json = JSON(dataResponse.result.value!)
             let responseAPI = ResponseAPI.init(fromJSON: json, withBodyType: requestParameters.bodyType)
             
+            // Save headers
+            if (dataResponse.response?.statusCode == 200 && requestParameters.bodyType == .Default) {
+                let responseHeaders = dataResponse.response!.allHeaderFields
+                UserDefaults.standard.set(responseHeaders["Authorization"] as? String, forKey: keyAccessToken)
+            }
+
             handlerResponseAPICompletion(responseAPI)
             return
         }
@@ -174,29 +204,6 @@ final class MSMRestApiManager {
     
     
     
-    
-    func userAutorization(_ userName: String, andPassword password: String, withHandlerResponseAPICompletion handlerResponseAPICompletion: @escaping (ResponseAPI?) -> Void) {
-        let authParameters = [ "login": userName, "password": password ]
-        appApiString = "/auth/"
-        
-        Alamofire.request(appURL, method: .post, parameters: authParameters, encoding: JSONEncoding.default, headers: headers).responseJSON { dataResponse -> Void in
-            if (dataResponse.result.value != nil) {
-                let json = JSON(dataResponse.result.value!)
-                let responseAPI = ResponseAPI.init(fromJSON: json, withBodyType: .Default)
-                
-                if (dataResponse.response?.statusCode == 200) {
-                    let responseHeaders = dataResponse.response!.allHeaderFields
-                    UserDefaults.standard.set(responseHeaders["Authorization"] as? String, forKey: keyAccessToken)
-                }
-                
-                handlerResponseAPICompletion(responseAPI)
-                return
-            } else {
-                handlerResponseAPICompletion(nil)
-                return
-            }
-        }
-    }
     
     func userForgotPassword(_ email: String, withHandlerResponseAPICompletion handlerResponseAPICompletion: @escaping (ResponseAPI?) -> Void) {
         appApiString = "/forgot/"

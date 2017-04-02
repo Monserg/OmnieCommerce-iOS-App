@@ -29,7 +29,7 @@ class SignInContainerShowInteractor: SignInContainerShowInteractorInput {
     
     // MARK: - Custom Functions. Business logic
     func userAppDidSignIn(withRequestModel requestModel: SignInContainerShowModels.User.RequestModel) {
-        MSMRestApiManager.instance.userAutorization(requestModel.name, andPassword: requestModel.password, withHandlerResponseAPICompletion: { responseAPI in
+        MSMRestApiManager.instance.userRequestDidRun(.userAutorization(requestModel.bodyParameters, true), withHandlerResponseAPICompletion: { responseAPI in
             // Pass the result to the Presenter
             let responseModel = SignInContainerShowModels.User.ResponseModel(responseAPI: responseAPI)
             self.presenter.userAppDidPrepareToShow(fromResponseModel: responseModel)

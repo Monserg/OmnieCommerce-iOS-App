@@ -77,7 +77,7 @@ class SignInShowRouter: SignInShowRouterInput {
             
             // Handler: SignUpShowVC success Register completion
             self.viewController.signUpShowVC?.handlerRegisterButtonCompletion = { _ in
-                self.viewController.signInContainerShowVC?.didCleanTextFields()
+                self.viewController.signInContainerShowVC!.didCleanTextFields()
                 self.viewController.activeViewController = self.viewController.signInContainerShowVC
             }
             

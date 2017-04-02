@@ -15,8 +15,7 @@ import UIKit
 struct SignInContainerShowModels {
     struct User {
         struct RequestModel {
-            let name: String
-            let password: String
+            let bodyParameters: [String: Any]
         }
         
         struct ResponseModel {
