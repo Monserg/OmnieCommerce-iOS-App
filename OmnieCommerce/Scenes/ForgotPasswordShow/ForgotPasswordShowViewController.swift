@@ -95,11 +95,13 @@ class ForgotPasswordShowViewController: BaseViewController, EmailErrorMessageVie
                 return
             }
 
-            let data: (phone: String?, email: String?) = (textFieldsCollection.first!.isPhone!) ? (phone: textFieldsCollection.first!.text!, email: nil) : (phone: nil, email: textFieldsCollection.first!.text!)
-            
             spinnerDidStart(view)
+
+            let parameters: [String: Any] = (textFieldsCollection.first!.isPhone!) ?    [ "phone": textFieldsCollection.first!.text! ] :
+                                                                                        [ "email": textFieldsCollection.first!.text! ]
             
-            let forgotPasswordRequestModel = ForgotPasswordShowModels.Code.RequestModel(data: data)
+            
+            let forgotPasswordRequestModel = ForgotPasswordShowModels.Code.RequestModel(parameters: parameters)
             interactor.codeDidLoad(fromRequestModel: forgotPasswordRequestModel)
         } else {
             emailErrorMessageView.didShow(true, withConstraint: emailErrorMessageViewTopConstraint)

@@ -15,7 +15,7 @@ import UIKit
 struct ForgotPasswordShowModels {
     struct Code {
         struct RequestModel {
-            let data: (phone: String?, email: String?)
+            let parameters: [String: Any]
         }
         
         struct ResponseModel {

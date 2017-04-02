@@ -15,23 +15,22 @@ import UIKit
 struct EnterCodeShowModels {
     struct EnterCode {
         struct RequestModel {
-            let code: Int
-            let email: String
+            let parameters: [String: Any]
         }
         
         struct ResponseModel {
-            let response: ResponseAPI?
+            let responseAPI: ResponseAPI?
         }
         
         struct ViewModel {
-            let responseCode: Int?
+            let responseAPI: ResponseAPI?
             let resetToken: String?
         }
     }
     
     struct Code {
         struct RequestModel {
-            let email: String
+            let parameters: [String: Any]
         }
         
         struct ResponseModel {

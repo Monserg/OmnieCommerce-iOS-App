@@ -13,8 +13,10 @@ import SwiftyJSON
 typealias RequestParametersType = (method: HTTPMethod, apiStringURL: String, body: [String: Any]?, bodyType: BodyType, headers: [String: String]?, parameters: [String: Any]?)
 
 enum RequestType {
+    case userCheckEmail([String: Any], Bool)
     case userAutorization([String: Any], Bool)
     case userRegistration([String: Any], Bool)
+    case userForgotPassword([String: Any], Bool)
     case userGetNewsDataList([String: Any], Bool)
     case userGetCategoriesList([String: Any], Bool)
     case userGetFavoriteServicesList([String: Any], Bool)
@@ -23,8 +25,7 @@ enum RequestType {
     case userGetFavoriteOrganizationsList([String: Any], Bool)
     case userGetOrganizationsListByCategory([String: Any], Bool)
     
-//    case ([String: Any], Bool)
-//    case ([String: Any], Bool)
+    
 //    case ([String: Any], Bool)
 //    case ([String: Any], Bool)
 //    case ([String: Any], Bool)
@@ -39,6 +40,14 @@ enum RequestType {
         
         // Body & Parametes named such as in Postman
         switch self {
+        // Forgot password, step 2
+        case .userCheckEmail(let params, let isBodyParams):     return (method: .post,
+                                                                        apiStringURL: "/forgot/",
+                                                                        body: (isBodyParams ? params : nil),
+                                                                        bodyType: .Default,
+                                                                        headers: headers,
+                                                                        parameters: (isBodyParams ? nil : params))
+            
         case .userAutorization(let params, let isBodyParams):   return (method: .post,
                                                                         apiStringURL: "/auth/",
                                                                         body: (isBodyParams ? params : nil),
@@ -53,6 +62,13 @@ enum RequestType {
                                                                         headers: headers,
                                                                         parameters: (isBodyParams ? nil : params))
             
+        case .userForgotPassword(let params, let isBodyParams):     return (method: .get,
+                                                                            apiStringURL: "/forgot/",
+                                                                            body: (isBodyParams ? params : nil),
+                                                                            bodyType: .Default,
+                                                                            headers: headers,
+                                                                            parameters: (isBodyParams ? nil : params))
+
         case .userGetNewsDataList(let params, let isBodyParams):    return (method: .post,
                                                                             apiStringURL: "/user/news/",
                                                                             body: (isBodyParams ? params : nil),
@@ -191,41 +207,6 @@ final class MSMRestApiManager {
     
     
     
-    func userForgotPassword(_ email: String, withHandlerResponseAPICompletion handlerResponseAPICompletion: @escaping (ResponseAPI?) -> Void) {
-        appApiString = "/forgot/"
-        appURL = URL.init(string: appURL.absoluteString.appending("?email=\(email)"))
-
-        Alamofire.request(appURL, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil).responseJSON { dataResponse -> Void in
-            if (dataResponse.result.value != nil) {
-                let json = JSON(dataResponse.result.value!)
-                let responseAPI = ResponseAPI.init(fromJSON: json, withBodyType: .Default)
-                
-                handlerResponseAPICompletion(responseAPI)
-                return
-            } else {
-                handlerResponseAPICompletion(nil)
-                return
-            }
-        }
-    }
-
-    func userCheckEmail(_ email: String, withCode code: Int, andWithHandlerResponseAPICompletion handlerResponseAPICompletion: @escaping (ResponseAPI?) -> Void) {
-        let checkParameters = [ "email": email, "code": String(code) ]
-        appApiString = "/forgot/"
-        
-        Alamofire.request(appURL, method: .post, parameters: checkParameters, encoding: JSONEncoding.default, headers: headers).responseJSON { dataResponse -> Void in
-            if (dataResponse.result.value != nil) {
-                let json = JSON(dataResponse.result.value!)
-                let responseAPI = ResponseAPI.init(fromJSON: json, withBodyType: .Default)
-                
-                handlerResponseAPICompletion(responseAPI)
-                return
-            } else {
-                handlerResponseAPICompletion(nil)
-                return
-            }
-        }
-    }
 
     // Change current E-mail
     func userChangeEmail(_ email: String, withHandlerResponseAPICompletion handlerResponseAPICompletion: @escaping (ResponseAPI?) -> Void) {

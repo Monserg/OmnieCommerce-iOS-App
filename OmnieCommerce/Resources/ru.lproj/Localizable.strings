@@ -171,7 +171,7 @@
 "CONTINUE"                      =   "";     // 2201
 "CREATED"                       =   "";     // 201
 "NOT_MODIFIED"                  =   "";     // 304
-"SOMETHING_WRONG"               =   "Email уже используется";                           // 3894
+"SOMETHING_WRONG_3894"          =   "Email уже используется";                           // 3894
 "BAD_REQUEST"                   =   "";     // 400
 "INVALID_CREDENTIAL"            =   "";     // 401
 "NOT_FOUND"                     =   "Запрашиваемые данные не найдены";                  // 404
@@ -180,6 +180,7 @@
 "BAD_AUTHORIZATION"             =   "Пожалуйста, повторите процедуру авторизации";      // 4401
 "WRONG_INPUT_DATA"              =   "";     // 4500
 "USER_EXIST"                    =   "Такой пользователь уже существует";                // 4670
+"SOMETHING_WRONG_5000"          =   "Пожалуйста, введите правильный код";               // 5000
 
 
 // Cities

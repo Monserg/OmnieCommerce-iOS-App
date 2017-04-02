@@ -101,9 +101,10 @@ class EnterCodeShowViewController: BaseViewController, CodeErrorMessageView {
         }
         
         spinnerDidStart(view)
+        let bodyParameters: [String: Any] = [ "code":  Int(textFieldsCollection.first!.text!)!,
+                                              "email": UserDefaults.standard.value(forKey: keyEmail) as! String ]
         
-        let enterCodeRequestModel = EnterCodeShowModels.EnterCode.RequestModel(code:  Int(textFieldsCollection.first!.text!)!,
-                                                                               email: UserDefaults.standard.value(forKey: keyEmail) as! String)
+        let enterCodeRequestModel = EnterCodeShowModels.EnterCode.RequestModel(parameters: bodyParameters)
         interactor.enteredCodeDidCheck(withRequestModel: enterCodeRequestModel)
     }
     
@@ -121,8 +122,7 @@ class EnterCodeShowViewController: BaseViewController, CodeErrorMessageView {
         }
         
         spinnerDidStart(view)
-        
-        let repeatRequestModel = EnterCodeShowModels.Code.RequestModel(email: UserDefaults.standard.value(forKey: keyEmail) as! String)
+        let repeatRequestModel = EnterCodeShowModels.Code.RequestModel(parameters: [ "email": UserDefaults.standard.value(forKey: keyEmail) as! String ])
         interactor.codeDidLoad(withRequestModel: repeatRequestModel)
     }
 }
@@ -151,7 +151,7 @@ extension EnterCodeShowViewController: EnterCodeShowViewControllerInput {
             return
         }
         
-        if (viewModel.responseCode == 200) {
+        if (viewModel.responseAPI?.code == 200) {
             UserDefaults.standard.set(viewModel.resetToken!, forKey: keyResetToken)
             handlerSendButtonCompletion!()
         } else {

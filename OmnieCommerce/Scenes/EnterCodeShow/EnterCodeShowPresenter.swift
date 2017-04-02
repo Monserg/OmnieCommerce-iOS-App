@@ -37,10 +37,8 @@ class EnterCodeShowPresenter: EnterCodeShowPresenterInput {
     
     func enteredCodeDidPrepareToShowCheck(fromResponseModel responseModel: EnterCodeShowModels.EnterCode.ResponseModel) {
         // Format the response from the Interactor and pass the result back to the View Controller
-        let code = responseModel.response?.code ?? nil
-        let resetToken = responseModel.response?.body as? String ?? nil
-        
-        let enteredCodeViewModel = EnterCodeShowModels.EnterCode.ViewModel(responseCode: code, resetToken: resetToken)
+        let resetToken = responseModel.responseAPI?.body as? String ?? nil
+        let enteredCodeViewModel = EnterCodeShowModels.EnterCode.ViewModel(responseAPI: responseModel.responseAPI, resetToken: resetToken)
         viewController.enteredCodeDidShowCheck(fromViewModel: enteredCodeViewModel)
     }
 }

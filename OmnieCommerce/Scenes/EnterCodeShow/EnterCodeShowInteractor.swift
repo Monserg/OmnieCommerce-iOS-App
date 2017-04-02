@@ -31,7 +31,7 @@ class EnterCodeShowInteractor: EnterCodeShowInteractorInput {
     
     // MARK: - Custom Functions. Business logic
     func codeDidLoad(withRequestModel requestModel: EnterCodeShowModels.Code.RequestModel) {
-        MSMRestApiManager.instance.userForgotPassword(requestModel.email, withHandlerResponseAPICompletion: { responseAPI in
+        MSMRestApiManager.instance.userRequestDidRun(.userForgotPassword(requestModel.parameters, false), withHandlerResponseAPICompletion: { responseAPI in
             // Pass the result to the Presenter
             let responseModel = EnterCodeShowModels.Code.ResponseModel(code: (responseAPI != nil) ? responseAPI!.code : nil)
             self.presenter.codeDidPrepareToShowLoad(fromResponseModel: responseModel)
@@ -39,10 +39,10 @@ class EnterCodeShowInteractor: EnterCodeShowInteractorInput {
     }
     
     func enteredCodeDidCheck(withRequestModel requestModel: EnterCodeShowModels.EnterCode.RequestModel) {
-        MSMRestApiManager.instance.userCheckEmail(requestModel.email, withCode: requestModel.code) { responseAPI in
+        MSMRestApiManager.instance.userRequestDidRun(.userCheckEmail(requestModel.parameters, true), withHandlerResponseAPICompletion: { responseAPI in
             // Pass the result to the Presenter
-            let responseModel = EnterCodeShowModels.EnterCode.ResponseModel(response: responseAPI)
+            let responseModel = EnterCodeShowModels.EnterCode.ResponseModel(responseAPI: responseAPI)
             self.presenter.enteredCodeDidPrepareToShowCheck(fromResponseModel: responseModel)
-        }
+        })
     }
 }

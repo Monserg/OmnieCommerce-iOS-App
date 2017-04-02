@@ -29,7 +29,7 @@ class ForgotPasswordShowInteractor: ForgotPasswordShowInteractorInput {
     
     // MARK: - Custom Functions. Business logic
     func codeDidLoad(fromRequestModel requestModel: ForgotPasswordShowModels.Code.RequestModel) {
-        MSMRestApiManager.instance.userForgotPassword(requestModel.data.email!, withHandlerResponseAPICompletion: { responseAPI in
+        MSMRestApiManager.instance.userRequestDidRun(.userForgotPassword(requestModel.parameters, false), withHandlerResponseAPICompletion: { responseAPI in
             // Pass the result to the Presenter
             let responseModel = ForgotPasswordShowModels.Code.ResponseModel(code: (responseAPI != nil) ? responseAPI!.code : nil)
             self.presenter.codeDidPrepareToShow(fromResponseModel: responseModel)
