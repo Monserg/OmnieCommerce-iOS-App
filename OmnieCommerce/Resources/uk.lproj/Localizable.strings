@@ -55,6 +55,7 @@
 "Comment"                       =   "Коментар:";
 "Loading Data"                  =   "Завантажити...";
 "Loading More"                  =   "Завантажити ще...";
+"Reviews"                       =   "Залишити відгук";
 
 
 // Buttons
@@ -97,6 +98,8 @@
 "Repeat password"               =   "Повторіть пароль";
 "Enter Organization name"       =   "Введіть назву організації";
 "Enter Service name"            =   "Введіть назву послуги";
+"Theme"                         =   "Тема";
+"Comment"                       =   "Коментар";
 
 
 // Segmented Control Titles

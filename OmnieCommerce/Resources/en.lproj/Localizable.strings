@@ -55,6 +55,7 @@
 "Comment"                       =   "Comment:";
 "Loading Data"                  =   "Loading data...";
 "Loading More"                  =   "Loading more...";
+"Reviews"                       =   "Reviews";
 
 
 // Buttons
@@ -97,6 +98,8 @@
 "Repeat password"               =   "Repeat Password";
 "Enter Organization name"       =   "Enter Organization Name";
 "Enter Service name"            =   "Enter Service Name";
+"Theme"                         =   "Theme";
+"Comment"                       =   "Comment";
 
 
 // Segmented Control Titles

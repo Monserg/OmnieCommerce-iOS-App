@@ -165,7 +165,7 @@
                 <navigationController storyboardIdentifier="PersonalPageShowNC" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="5ua-Ud-9pH" customClass="BaseNavigationController" customModule="OmnieCommerce" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="rDE-36-aLe">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="rDE-36-aLe">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1302,9 +1302,9 @@
                                 <exclude reference="zeu-mg-lv6"/>
                                 <exclude reference="t69-sD-iwj"/>
                                 <exclude reference="owx-YB-Mgj"/>
+                                <exclude reference="IMi-0e-QCX"/>
                                 <exclude reference="CAW-3l-yTM"/>
                                 <exclude reference="Z0R-BO-IlO"/>
-                                <exclude reference="IMi-0e-QCX"/>
                                 <exclude reference="cK2-O7-8bg"/>
                                 <exclude reference="tbn-sh-sLK"/>
                                 <exclude reference="3bh-3P-5Ku"/>
@@ -1334,12 +1334,12 @@
                                 <include reference="t69-sD-iwj"/>
                                 <exclude reference="cL7-vz-8G1"/>
                                 <include reference="owx-YB-Mgj"/>
+                                <include reference="IMi-0e-QCX"/>
+                                <exclude reference="toK-ue-ZZa"/>
                                 <exclude reference="3hm-a8-wSK"/>
                                 <include reference="CAW-3l-yTM"/>
                                 <exclude reference="Xtl-OJ-EEa"/>
                                 <include reference="Z0R-BO-IlO"/>
-                                <include reference="IMi-0e-QCX"/>
-                                <exclude reference="toK-ue-ZZa"/>
                                 <exclude reference="MV8-rl-t2I"/>
                                 <include reference="cK2-O7-8bg"/>
                                 <exclude reference="QCN-qm-bNv"/>

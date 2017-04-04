@@ -55,6 +55,7 @@
 "Comment"                       =   "Комментарий:";
 "Loading Data"                  =   "Загрузить...";
 "Loading More"                  =   "Загрузить ещё...";
+"Reviews"                       =   "Оставить отзыв";
 
 
 // Buttons
@@ -97,6 +98,8 @@
 "Repeat password"               =   "Повторить пароль";
 "Enter Organization name"       =   "Введите название организации";
 "Enter Service name"            =   "Введите название сервиса";
+"Theme"                         =   "Тема";
+"Comment"                       =   "Комментарий";
 
 
 // Segmented Control Titles

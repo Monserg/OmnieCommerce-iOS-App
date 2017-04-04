@@ -35,6 +35,7 @@ class OrganizationShowViewController: BaseViewController {
     
     var phonesView: PhonesView?
     var scheduleView: ScheduleView?
+    var previewsView: ReviewsView?
     
     @IBOutlet var scrollView: MXScrollView! {
         didSet {
@@ -225,6 +226,20 @@ class OrganizationShowViewController: BaseViewController {
         sender.setImage(UIImage.init(named: (sender.tag == 0) ? "image-favorite-star-normal" : "image-favorite-star-selected"), for: .normal)
         
         // TODO: - ADD API TO POST FAVORITE STATE & CHANGE ORGANIZATION PROFILE
+    }
+    
+    // TESTED
+    @IBAction func handlerShowPopupView(_ sender: UIButton) {
+        self.blackoutView = MSMBlackoutView.init(inView: view)
+        blackoutView!.didShow()
+        
+        previewsView = ReviewsView.init(inView: blackoutView!)
+        
+        // Handler Cancel button tap
+        previewsView!.handlerCancelButtonCompletion = { _ in
+            self.previewsView = nil
+            self.blackoutView!.didHide()
+        }
     }
 }
 

@@ -123,7 +123,6 @@
 		B137EC951E7D19FB006F0184 /* MSMCollectionViewControllerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B137EC941E7D19FB006F0184 /* MSMCollectionViewControllerManager.swift */; };
 		B1390FFC1E8D1E4B00BD9219 /* FavoriteServiceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1390FFA1E8D1E4B00BD9219 /* FavoriteServiceTableViewCell.swift */; };
 		B1390FFD1E8D1E4B00BD9219 /* FavoriteServiceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1390FFB1E8D1E4B00BD9219 /* FavoriteServiceTableViewCell.xib */; };
-		B1390FFF1E8D43D000BD9219 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1390FFE1E8D43D000BD9219 /* Assets.xcassets */; };
 		B14107C41DFEA73900F79CF9 /* CalendarDayCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14107C21DFEA73900F79CF9 /* CalendarDayCellView.swift */; };
 		B14107C51DFEA73900F79CF9 /* CalendarDayCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B14107C31DFEA73900F79CF9 /* CalendarDayCellView.xib */; };
 		B14107C71DFEB1D700F79CF9 /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14107C61DFEB1D700F79CF9 /* CustomView.swift */; };
@@ -342,6 +341,9 @@
 		B1D56BE71E6167AE008BCE54 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D56BE61E6167AE008BCE54 /* MapView.swift */; };
 		B1D57E901E87CB7500CA6243 /* MSMTableViewFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D57E8F1E87CB7500CA6243 /* MSMTableViewFooterView.swift */; };
 		B1D57E921E87CB7F00CA6243 /* MSMTableViewFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1D57E911E87CB7F00CA6243 /* MSMTableViewFooterView.xib */; };
+		B1D738421E9382C300A764F4 /* ReviewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D738411E9382C300A764F4 /* ReviewsView.swift */; };
+		B1D7384E1E93B0B200A764F4 /* ReviewsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1D7384D1E93B0B200A764F4 /* ReviewsView.xib */; };
+		B1D738501E93B23300A764F4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1D7384F1E93B23300A764F4 /* Assets.xcassets */; };
 		B1D883101E8E8971006F4831 /* NewsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D8830F1E8E8971006F4831 /* NewsData.swift */; };
 		B1D883131E8E8995006F4831 /* NewsDataTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D883111E8E8995006F4831 /* NewsDataTableViewCell.swift */; };
 		B1D883141E8E8995006F4831 /* NewsDataTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1D883121E8E8995006F4831 /* NewsDataTableViewCell.xib */; };
@@ -538,7 +540,6 @@
 		B137EC941E7D19FB006F0184 /* MSMCollectionViewControllerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSMCollectionViewControllerManager.swift; sourceTree = "<group>"; };
 		B1390FFA1E8D1E4B00BD9219 /* FavoriteServiceTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteServiceTableViewCell.swift; sourceTree = "<group>"; };
 		B1390FFB1E8D1E4B00BD9219 /* FavoriteServiceTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FavoriteServiceTableViewCell.xib; sourceTree = "<group>"; };
-		B1390FFE1E8D43D000BD9219 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B14107C21DFEA73900F79CF9 /* CalendarDayCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarDayCellView.swift; sourceTree = "<group>"; };
 		B14107C31DFEA73900F79CF9 /* CalendarDayCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CalendarDayCellView.xib; sourceTree = "<group>"; };
 		B14107C61DFEB1D700F79CF9 /* CustomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
@@ -769,6 +770,9 @@
 		B1D56BE61E6167AE008BCE54 /* MapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		B1D57E8F1E87CB7500CA6243 /* MSMTableViewFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSMTableViewFooterView.swift; sourceTree = "<group>"; };
 		B1D57E911E87CB7F00CA6243 /* MSMTableViewFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MSMTableViewFooterView.xib; sourceTree = "<group>"; };
+		B1D738411E9382C300A764F4 /* ReviewsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewsView.swift; sourceTree = "<group>"; };
+		B1D7384D1E93B0B200A764F4 /* ReviewsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReviewsView.xib; sourceTree = "<group>"; };
+		B1D7384F1E93B23300A764F4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B1D8830F1E8E8971006F4831 /* NewsData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsData.swift; sourceTree = "<group>"; };
 		B1D883111E8E8995006F4831 /* NewsDataTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsDataTableViewCell.swift; sourceTree = "<group>"; };
 		B1D883121E8E8995006F4831 /* NewsDataTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsDataTableViewCell.xib; sourceTree = "<group>"; };
@@ -1325,7 +1329,7 @@
 		B122F2451DD392C60018A701 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				B1390FFE1E8D43D000BD9219 /* Assets.xcassets */,
+				B1D7384F1E93B23300A764F4 /* Assets.xcassets */,
 				B1BF924E1DD6508A00BECBBB /* Fonts */,
 				B122F24A1DD393330018A701 /* Localizable.strings */,
 				B1FFF72C1E5F0DFB00A075D8 /* InfoPlist.strings */,
@@ -1423,6 +1427,8 @@
 				B155DE901E65C3F900683384 /* PhonesView.xib */,
 				B10CF5291E684B9700811DC1 /* ScheduleView.swift */,
 				B10CF52B1E684BA000811DC1 /* ScheduleView.xib */,
+				B1D738411E9382C300A764F4 /* ReviewsView.swift */,
+				B1D7384D1E93B0B200A764F4 /* ReviewsView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1999,6 +2005,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1D7384E1E93B0B200A764F4 /* ReviewsView.xib in Resources */,
 				B1BF92681DD6516C00BECBBB /* helveticaneuecyr-black.otf in Resources */,
 				B1FFF72A1E5F0DFB00A075D8 /* InfoPlist.strings in Resources */,
 				B1D883141E8E8995006F4831 /* NewsDataTableViewCell.xib in Resources */,
@@ -2028,6 +2035,7 @@
 				B1152FB01E6E9FD8007999B9 /* UserTemplateTableViewCell.xib in Resources */,
 				B122DF6B1DF804CD003823AD /* SegmentedControlViewLandscape.xib in Resources */,
 				B1C13D8D1DEF3385002B494A /* DropDown.storyboard in Resources */,
+				B1D738501E93B23300A764F4 /* Assets.xcassets in Resources */,
 				B18A45C61DEC21BA003EBD2F /* SmallTopBarView.xib in Resources */,
 				B1BF92761DD6516C00BECBBB /* helveticaneuecyr-ultralight.otf in Resources */,
 				B1FFF7191E5F01A000A075D8 /* OrganizationsMapShow.storyboard in Resources */,
@@ -2051,7 +2059,6 @@
 				B1BF927D1DD6516C00BECBBB /* UBUNTU-LI.TTF in Resources */,
 				B137EC8C1E7D0334006F0184 /* CategoryCollectionViewCell.xib in Resources */,
 				B1597AD21E3F42BD00123CB5 /* AvatarActionView.xib in Resources */,
-				B1390FFF1E8D43D000BD9219 /* Assets.xcassets in Resources */,
 				B1BF927E1DD6516C00BECBBB /* UBUNTU-M.TTF in Resources */,
 				B1BF927F1DD6516C00BECBBB /* UBUNTU-MI.TTF in Resources */,
 				B1BF92801DD6516C00BECBBB /* UBUNTU-R.TTF in Resources */,
@@ -2280,6 +2287,7 @@
 				B1D8832A1E8E8D63006F4831 /* NewsActionsShowConfigurator.swift in Sources */,
 				B14E974A1DD8B042001E1DE2 /* SignInShowModels.swift in Sources */,
 				B122F1E01DD35B760018A701 /* OrdersShowViewController.swift in Sources */,
+				B1D738421E9382C300A764F4 /* ReviewsView.swift in Sources */,
 				B1CF54A01DDB515000E98049 /* HandbookShowConfigurator.swift in Sources */,
 				B122DF661DF7F957003823AD /* CalendarShowPresenter.swift in Sources */,
 				B1D883371E8E9150006F4831 /* News+CoreDataClass.swift in Sources */,

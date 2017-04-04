@@ -12,6 +12,7 @@ class NewsData: NSObject, NSCoding, NSCopying, InitCellParameters, SearchObject,
     // MARK: - Properties
     var codeID: String!
     var organizationID: String!
+    var actionServices: [String]?
     var name: String!
     var text: String!
     var logoStringURL: String?

@@ -17,6 +17,7 @@ enum RequestType {
     case userAutorization([String: Any], Bool)
     case userRegistration([String: Any], Bool)
     case userForgotPassword([String: Any], Bool)
+    case userGetNewsDataByID([String: Any], Bool)
     case userGetNewsDataList([String: Any], Bool)
     case userGetCategoriesList([String: Any], Bool)
     case userGetFavoriteServicesList([String: Any], Bool)
@@ -26,7 +27,7 @@ enum RequestType {
     case userGetOrganizationsListByCategory([String: Any], Bool)
     
     
-//    case ([String: Any], Bool)
+    
 //    case ([String: Any], Bool)
 //    case ([String: Any], Bool)
 //    case ([String: Any], Bool)
@@ -69,6 +70,14 @@ enum RequestType {
                                                                             headers: headers,
                                                                             parameters: (isBodyParams ? nil : params))
 
+        // TODO: ADD REQUEST VIP-CYCLE WITH ISBODYPARAMS = FALSE
+        case .userGetNewsDataByID(let params, let isBodyParams):    return (method: .get,
+                                                                            apiStringURL: "/user/news/",
+                                                                            body: (isBodyParams ? params : nil),
+                                                                            bodyType: .ItemsArray,
+                                                                            headers: headersExtended,
+                                                                            parameters: (isBodyParams ? nil : params))
+            
         case .userGetNewsDataList(let params, let isBodyParams):    return (method: .post,
                                                                             apiStringURL: "/user/news/",
                                                                             body: (isBodyParams ? params : nil),
@@ -132,7 +141,7 @@ enum RequestType {
 
 
 // REMOVED!!!
-
+//news by id
 
 
 
