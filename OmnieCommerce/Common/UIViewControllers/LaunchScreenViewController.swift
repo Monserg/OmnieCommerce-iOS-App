@@ -47,13 +47,13 @@ class LaunchScreenViewController: UIViewController {
         CoreDataManager.instance.appUser = appUser
         
         if (appUser.isAuthorized) {
-            backgroundImageView.isHidden        =   true
-            backgroundImageView.backgroundColor =   UIColor.clear
-            blackoutView.backgroundColor        =   UIColor.veryDarkDesaturatedBlue25Alpha94
+            backgroundImageView.isHidden = true
+            backgroundImageView.backgroundColor = UIColor.clear
+            blackoutView.backgroundColor = UIColor.veryDarkDesaturatedBlue25Alpha94
         } else {
-            backgroundImageView.image           =   (UIApplication.shared.statusBarOrientation.isPortrait) ? UIImage(named: "image-background-portrait") : UIImage(named: "image-background-landscape")
-            blackoutView.isHidden               =   false
-            blackoutView.backgroundColor        =   UIColor.veryDarkDesaturatedBlue25Alpha94
+            backgroundImageView.image = (UIApplication.shared.statusBarOrientation.isPortrait) ? UIImage(named: "image-background-portrait") : UIImage(named: "image-background-landscape")
+            blackoutView.isHidden = false
+            blackoutView.backgroundColor = UIColor.veryDarkDesaturatedBlue25Alpha94
         }
         
         // Initial VC

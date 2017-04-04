@@ -34,14 +34,13 @@ class SignInShowRouter: SignInShowRouterInput {
         
         // Set FrontViewController
         if (duringStartApp) {
-            let categoriesNC = UIStoryboard(name: "CategoriesShow", bundle: nil).instantiateViewController(withIdentifier: "CategoriesShowNC") as! BaseNavigationController
-            
-            revealVC.setFront(categoriesNC, animated: true)
+            let newsDataNC = UIStoryboard(name: "NewsShow", bundle: nil).instantiateViewController(withIdentifier: "NewsShowNC") as! BaseNavigationController
+            revealVC.setFront(newsDataNC, animated: true)
         } else {
             var nextNC = BaseNavigationController()
             
             if (statusCodeNote == .SUCCESS) {
-                nextNC = UIStoryboard(name: "CategoriesShow", bundle: nil).instantiateViewController(withIdentifier: "CategoriesShowNC") as! BaseNavigationController
+                nextNC = UIStoryboard(name: "NewsShow", bundle: nil).instantiateViewController(withIdentifier: "NewsShowNC") as! BaseNavigationController
             } else if (statusCodeNote == .CONTINUE) {
                 nextNC = UIStoryboard(name: "PersonalPageShow", bundle: nil).instantiateViewController(withIdentifier: "PersonalPageShowNC") as! BaseNavigationController
             }
@@ -50,7 +49,6 @@ class SignInShowRouter: SignInShowRouterInput {
         }
         
         self.viewController.present(revealVC, animated: true, completion: {
-            //        self.viewController.present(revealVC, animated: !duringStartApp, completion: {
             if (duringStartApp) {
                 self.navigateBetweenContainerSubviews()
                 self.viewController.view.isHidden = false
