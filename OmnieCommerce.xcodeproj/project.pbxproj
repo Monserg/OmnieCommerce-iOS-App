@@ -184,6 +184,7 @@
 		B1739D181DE314D50029BCCA /* UILabel+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1739D171DE314D50029BCCA /* UILabel+Ext.swift */; };
 		B1739D1A1DE314DF0029BCCA /* UIColor+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1739D191DE314DF0029BCCA /* UIColor+Ext.swift */; };
 		B1739D1C1DE314E80029BCCA /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1739D1B1DE314E80029BCCA /* UIView+Ext.swift */; };
+		B1767D7A1E93DA520095859B /* UbuntuLightSoftOrangeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1767D791E93DA520095859B /* UbuntuLightSoftOrangeLabel.swift */; };
 		B177E5341E5475EC004F1390 /* SignInContainerShowConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B177E52D1E5475EC004F1390 /* SignInContainerShowConfigurator.swift */; };
 		B177E5351E5475EC004F1390 /* SignInContainerShowInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B177E52E1E5475EC004F1390 /* SignInContainerShowInteractor.swift */; };
 		B177E5361E5475EC004F1390 /* SignInContainerShowModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B177E52F1E5475EC004F1390 /* SignInContainerShowModels.swift */; };
@@ -606,6 +607,7 @@
 		B1739D171DE314D50029BCCA /* UILabel+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+Ext.swift"; sourceTree = "<group>"; };
 		B1739D191DE314DF0029BCCA /* UIColor+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Ext.swift"; sourceTree = "<group>"; };
 		B1739D1B1DE314E80029BCCA /* UIView+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
+		B1767D791E93DA520095859B /* UbuntuLightSoftOrangeLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UbuntuLightSoftOrangeLabel.swift; sourceTree = "<group>"; };
 		B177E52B1E546DD9004F1390 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B177E52D1E5475EC004F1390 /* SignInContainerShowConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInContainerShowConfigurator.swift; sourceTree = "<group>"; };
 		B177E52E1E5475EC004F1390 /* SignInContainerShowInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInContainerShowInteractor.swift; sourceTree = "<group>"; };
@@ -1071,6 +1073,7 @@
 				B1FBC9261E6D974300D86429 /* UbuntuLightItalicLightGrayishCyanLabel.swift */,
 				B17D92DA1E6FFC290028967E /* UbuntuLightItalicModerateRedLabel.swift */,
 				B1FBC91E1E6D904700D86429 /* UbuntuLightItalicVeryDarkGrayishBlueLabel.swift */,
+				B1767D791E93DA520095859B /* UbuntuLightSoftOrangeLabel.swift */,
 				B112036D1E8EDD5D0036001A /* UbuntuLightVeryDarkGrayishBlueLabel.swift */,
 				B1FBC9201E6D923E00D86429 /* UbuntuLightVeryLightGrayLabel.swift */,
 				B1FBC9221E6D940D00D86429 /* UbuntuLightVeryLightOrangeLabel.swift */,
@@ -2175,6 +2178,7 @@
 				B1EC9F461E8C13FE00F2E342 /* Services+CoreDataClass.swift in Sources */,
 				B1BEEDEF1E63687500F1DE8A /* OrganizationShowConfigurator.swift in Sources */,
 				B1FFF7151E5F017A00A075D8 /* OrganizationsMapShowRouter.swift in Sources */,
+				B1767D7A1E93DA520095859B /* UbuntuLightSoftOrangeLabel.swift in Sources */,
 				B1D8832C1E8E8D63006F4831 /* NewsActionsShowModels.swift in Sources */,
 				B122F2281DD35CC80018A701 /* SlideMenuShowWorker.swift in Sources */,
 				B122F2071DD35BEB0018A701 /* CategoriesShowModels.swift in Sources */,

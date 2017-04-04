@@ -48,7 +48,7 @@
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
                                 <userDefinedRuntimeAttribute type="number" keyPath="circleRadius">
-                                    <real key="value" value="568"/>
+                                    <real key="value" value="268"/>
                                 </userDefinedRuntimeAttribute>
                                 <userDefinedRuntimeAttribute type="color" keyPath="circleFillColor">
                                     <color key="value" red="0.0" green="0.57647058819999997" blue="0.58431372550000005" alpha="1" colorSpace="calibratedRGB"/>
