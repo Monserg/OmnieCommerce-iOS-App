@@ -17,6 +17,7 @@ enum RequestType {
     case userAutorization([String: Any], Bool)
     case userRegistration([String: Any], Bool)
     case userForgotPassword([String: Any], Bool)
+    case userGetActionsList([String: Any], Bool)
     case userGetNewsDataByID([String: Any], Bool)
     case userGetNewsDataList([String: Any], Bool)
     case userGetCategoriesList([String: Any], Bool)
@@ -68,6 +69,13 @@ enum RequestType {
                                                                             body: (isBodyParams ? params : nil),
                                                                             bodyType: .Default,
                                                                             headers: headers,
+                                                                            parameters: (isBodyParams ? nil : params))
+
+        case .userGetActionsList(let params, let isBodyParams):     return (method: .post,
+                                                                            apiStringURL: "/user/promotion/",
+                                                                            body: (isBodyParams ? params : nil),
+                                                                            bodyType: .ItemsArray,
+                                                                            headers: headersExtended,
                                                                             parameters: (isBodyParams ? nil : params))
 
         // TODO: ADD REQUEST VIP-CYCLE WITH ISBODYPARAMS = FALSE

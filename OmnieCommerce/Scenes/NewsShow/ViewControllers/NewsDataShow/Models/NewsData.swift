@@ -16,6 +16,7 @@ class NewsData: NSObject, NSCoding, NSCopying, InitCellParameters, SearchObject,
     var title: String!
     var logoStringURL: String?
     var activeDate: Date!
+    var isAction: Bool = false
     
     // Confirm InitCellParameters Protocol
     var cellIdentifier: String = "NewsDataTableViewCell"

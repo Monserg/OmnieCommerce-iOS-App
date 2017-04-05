@@ -38,6 +38,7 @@ class NewsDataShowPresenter: NewsDataShowPresenterInput {
         // Format the response from the Interactor and pass the result back to the View Controller
         responseModel.responseAPI!.itemsDidLoad(fromItemsArray: responseModel.responseAPI!.body as! [Any], withItem: NewsData.init(), completion: { newsData in
             // Prepare to save NewsDataList in CoreData
+            let _ = newsData.map { $0.isAction = false }
             let entityNews = CoreDataManager.instance.entityDidLoad(byName: keyNewsData) as! News
             let newsDataData = NSKeyedArchiver.archivedData(withRootObject: newsData) as NSData?
             entityNews.list = newsDataData!

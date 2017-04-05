@@ -13,12 +13,12 @@ import UIKit
 
 // MARK: - Input protocols for current Interactor component VIP-cicle
 protocol NewsActionsShowInteractorInput {
-    func doSomething(requestModel: NewsActionsShowModels.Something.RequestModel)
+    func actionsDidLoad(withRequestModel requestModel: NewsActionsShowModels.Actions.RequestModel)
 }
 
 // MARK: - Output protocols for Presenter component VIP-cicle
 protocol NewsActionsShowInteractorOutput {
-    func presentSomething(responseModel: NewsActionsShowModels.Something.ResponseModel)
+    func actionsDidPrepareToShowLoad(fromResponseModel responseModel: NewsActionsShowModels.Actions.ResponseModel)
 }
 
 class NewsActionsShowInteractor: NewsActionsShowInteractorInput {
@@ -28,13 +28,15 @@ class NewsActionsShowInteractor: NewsActionsShowInteractorInput {
     
     
     // MARK: - Custom Functions. Business logic
-    func doSomething(requestModel: NewsActionsShowModels.Something.RequestModel) {
+    func actionsDidLoad(withRequestModel requestModel: NewsActionsShowModels.Actions.RequestModel) {
         // NOTE: Create some Worker to do the work
         worker = NewsActionsShowWorker()
         worker.doSomeWork()
         
         // NOTE: Pass the result to the Presenter
-        let responseModel = NewsActionsShowModels.Something.ResponseModel()
-        presenter.presentSomething(responseModel: responseModel)
+        MSMRestApiManager.instance.userRequestDidRun(.userGetActionsList(requestModel.parameters, true), withHandlerResponseAPICompletion:  { responseAPI in
+            let actionsResponseModel = NewsActionsShowModels.Actions.ResponseModel(responseAPI: responseAPI)
+            self.presenter.actionsDidPrepareToShowLoad(fromResponseModel: actionsResponseModel)
+        })
     }
 }

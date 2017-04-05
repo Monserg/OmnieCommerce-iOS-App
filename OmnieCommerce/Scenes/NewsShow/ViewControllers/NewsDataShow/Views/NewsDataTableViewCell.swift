@@ -43,7 +43,7 @@ extension NewsDataTableViewCell: ConfigureCell {
         
         if let imagePath = newsData.logoStringURL {
             logoImageView.kf.setImage(with: ImageResource(downloadURL: URL(string: imagePath)!, cacheKey: "imagePath-\(indexPath.row)"),
-                                      placeholder: UIImage.init(named: "image-no-photo"),
+                                      placeholder: UIImage.init(named: "image-no-organization"),
                                       options: [.transition(ImageTransition.fade(1)),
                                                 .processor(ResizingImageProcessor(targetSize: logoImageView.frame.size))],
                                       completionHandler: { image, error, cacheType, imageURL in

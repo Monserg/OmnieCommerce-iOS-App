@@ -13,12 +13,12 @@ import UIKit
 
 // MARK: - Input protocols for current Presenter component VIP-cicle
 protocol NewsActionsShowPresenterInput {
-    func presentSomething(responseModel: NewsActionsShowModels.Something.ResponseModel)
+    func actionsDidPrepareToShowLoad(fromResponseModel responseModel: NewsActionsShowModels.Actions.ResponseModel)
 }
 
 // MARK: - Output protocols for ViewController component VIP-cicle
 protocol NewsActionsShowPresenterOutput: class {
-    func displaySomething(viewModel: NewsActionsShowModels.Something.ViewModel)
+    func actionsDidShowLoad(fromViewModel viewModel: NewsActionsShowModels.Actions.ViewModel)
 }
 
 class NewsActionsShowPresenter: NewsActionsShowPresenterInput {
@@ -27,9 +27,24 @@ class NewsActionsShowPresenter: NewsActionsShowPresenterInput {
     
     
     // MARK: - Custom Functions. Presentation logic
-    func presentSomething(responseModel: NewsActionsShowModels.Something.ResponseModel) {
-        // NOTE: Format the response from the Interactor and pass the result back to the View Controller
-        let viewModel = NewsActionsShowModels.Something.ViewModel()
-        viewController.displaySomething(viewModel: viewModel)
+    func actionsDidPrepareToShowLoad(fromResponseModel responseModel: NewsActionsShowModels.Actions.ResponseModel) {
+        guard responseModel.responseAPI?.body != nil else {
+            let actionsViewModel = NewsActionsShowModels.Actions.ViewModel(actions: nil, status: (responseModel.responseAPI?.status)!)
+            viewController.actionsDidShowLoad(fromViewModel: actionsViewModel)
+            
+            return
+        }
+        
+        // Format the response from the Interactor and pass the result back to the View Controller
+        responseModel.responseAPI!.itemsDidLoad(fromItemsArray: responseModel.responseAPI!.body as! [Any], withItem: NewsData.init(), completion: { actions in
+            // Prepare to save NewsDataList in CoreData
+            let _ = actions.map { $0.isAction = true }
+            let entityActions = CoreDataManager.instance.entityDidLoad(byName: keyNewsActions) as! Actions
+            let actionsData = NSKeyedArchiver.archivedData(withRootObject: actions) as NSData?
+            entityActions.list = actionsData!
+            
+            let actionsViewModel = NewsActionsShowModels.Actions.ViewModel(actions: actions, status: (responseModel.responseAPI?.status)!)
+            self.viewController.actionsDidShowLoad(fromViewModel: actionsViewModel)
+        })
     }
 }

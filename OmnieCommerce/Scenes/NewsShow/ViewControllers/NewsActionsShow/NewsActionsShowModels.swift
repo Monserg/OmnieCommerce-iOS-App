@@ -13,14 +13,18 @@ import UIKit
 
 // MARK: - Data models
 struct NewsActionsShowModels {
-    struct Something {
+    struct Actions {
         struct RequestModel {
+            let parameters: [String: Any]
         }
         
         struct ResponseModel {
+            let responseAPI: ResponseAPI?
         }
         
         struct ViewModel {
+            var actions: [NewsData]?
+            let status: String
         }
     }
 }
