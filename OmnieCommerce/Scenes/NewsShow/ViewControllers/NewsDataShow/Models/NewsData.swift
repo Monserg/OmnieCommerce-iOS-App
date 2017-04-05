@@ -12,12 +12,10 @@ class NewsData: NSObject, NSCoding, NSCopying, InitCellParameters, SearchObject,
     // MARK: - Properties
     var codeID: String!
     var organizationID: String!
-    var actionServices: [String]?
-    var name: String!
-    var text: String!
+    var name: String!   // organizationName
+    var title: String!
     var logoStringURL: String?
     var activeDate: Date!
-    var isAction = false
     
     // Confirm InitCellParameters Protocol
     var cellIdentifier: String = "NewsDataTableViewCell"
@@ -29,36 +27,33 @@ class NewsData: NSObject, NSCoding, NSCopying, InitCellParameters, SearchObject,
         super.init()
     }
     
-    init(codeID: String, organizationID: String, title: String, text: String, logoStringURL: String?, activeDate: Date, isAction: Bool) {
+    init(codeID: String, organizationID: String, organizationName: String, title: String, logoStringURL: String?, activeDate: Date) {
         self.codeID = codeID
         self.organizationID = organizationID
-        self.name = title
-        self.text = text
+        self.name = organizationName
+        self.title = title
         self.logoStringURL = logoStringURL
         self.activeDate = activeDate
-        self.isAction = isAction
     }
     
     required convenience init(coder aDecoder: NSCoder) {
         let codeID = aDecoder.decodeObject(forKey: "uuid") as! String
         let organizationID = aDecoder.decodeObject(forKey: "organization") as! String
         let title = aDecoder.decodeObject(forKey: "title") as! String
-        let text = aDecoder.decodeObject(forKey: "text") as! String
+        let name = aDecoder.decodeObject(forKey: "organizationName") as! String
         let logoStringURL = aDecoder.decodeObject(forKey: "imageUrl") as? String
         let activeDate = aDecoder.decodeObject(forKey: "date") as! Date
-        let isAction = aDecoder.decodeBool(forKey: "promotion")
         
-        self.init(codeID: codeID, organizationID: organizationID, title: title, text: text, logoStringURL: logoStringURL, activeDate: activeDate, isAction: isAction)
+        self.init(codeID: codeID, organizationID: organizationID, organizationName: name, title: title, logoStringURL: logoStringURL, activeDate: activeDate)
     }
     
     func encode(with aCoder: NSCoder){
         aCoder.encode(codeID, forKey: "uuid")
         aCoder.encode(organizationID, forKey: "organization")
-        aCoder.encode(name, forKey: "title")
-        aCoder.encode(text, forKey: "text")
+        aCoder.encode(title, forKey: "title")
+        aCoder.encode(name, forKey: "orgName")
         aCoder.encode(logoStringURL, forKey: "imageUrl")
         aCoder.encode(activeDate, forKey: "date")
-        aCoder.encode(isAction, forKey: "promotion")
     }
     
     
@@ -72,10 +67,9 @@ class NewsData: NSObject, NSCoding, NSCopying, InitCellParameters, SearchObject,
     func didMap(fromDictionary dictionary: [String: Any], completion: @escaping (() -> ())) {
         self.codeID = dictionary["uuid"] as! String
         self.organizationID = dictionary["organization"] as! String
-        self.name = dictionary["title"] as! String
-        self.text = dictionary["text"] as! String
+        self.title = dictionary["title"] as! String
+        self.name = dictionary["orgName"] as! String
         self.activeDate = (dictionary["date"] as! String).convertToDate(withDateFormat: .NewsDate) as Date
-        self.isAction = dictionary["promotion"] as! Bool
 
         if (dictionary["imageUrl"] as? String != nil) {
             self.logoStringURL = "\(MSMRestApiManager.instance.appHostURL.absoluteString)\(dictionary["imageUrl"] as! String)"

@@ -123,6 +123,8 @@
 		B137EC951E7D19FB006F0184 /* MSMCollectionViewControllerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B137EC941E7D19FB006F0184 /* MSMCollectionViewControllerManager.swift */; };
 		B1390FFC1E8D1E4B00BD9219 /* FavoriteServiceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1390FFA1E8D1E4B00BD9219 /* FavoriteServiceTableViewCell.swift */; };
 		B1390FFD1E8D1E4B00BD9219 /* FavoriteServiceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1390FFB1E8D1E4B00BD9219 /* FavoriteServiceTableViewCell.xib */; };
+		B13FE1A11E94C59C000DD416 /* BlackListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B13FE1A01E94C59C000DD416 /* BlackListView.xib */; };
+		B13FE1A31E94C5A4000DD416 /* BlackListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13FE1A21E94C5A4000DD416 /* BlackListView.swift */; };
 		B14107C41DFEA73900F79CF9 /* CalendarDayCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14107C21DFEA73900F79CF9 /* CalendarDayCellView.swift */; };
 		B14107C51DFEA73900F79CF9 /* CalendarDayCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B14107C31DFEA73900F79CF9 /* CalendarDayCellView.xib */; };
 		B14107C71DFEB1D700F79CF9 /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14107C61DFEB1D700F79CF9 /* CustomView.swift */; };
@@ -541,6 +543,8 @@
 		B137EC941E7D19FB006F0184 /* MSMCollectionViewControllerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSMCollectionViewControllerManager.swift; sourceTree = "<group>"; };
 		B1390FFA1E8D1E4B00BD9219 /* FavoriteServiceTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteServiceTableViewCell.swift; sourceTree = "<group>"; };
 		B1390FFB1E8D1E4B00BD9219 /* FavoriteServiceTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FavoriteServiceTableViewCell.xib; sourceTree = "<group>"; };
+		B13FE1A01E94C59C000DD416 /* BlackListView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BlackListView.xib; sourceTree = "<group>"; };
+		B13FE1A21E94C5A4000DD416 /* BlackListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlackListView.swift; sourceTree = "<group>"; };
 		B14107C21DFEA73900F79CF9 /* CalendarDayCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarDayCellView.swift; sourceTree = "<group>"; };
 		B14107C31DFEA73900F79CF9 /* CalendarDayCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CalendarDayCellView.xib; sourceTree = "<group>"; };
 		B14107C61DFEB1D700F79CF9 /* CustomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
@@ -1426,12 +1430,14 @@
 		B155DE8F1E65C3DC00683384 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				B13FE1A21E94C5A4000DD416 /* BlackListView.swift */,
+				B13FE1A01E94C59C000DD416 /* BlackListView.xib */,
 				B155DE921E65C41500683384 /* PhonesView.swift */,
 				B155DE901E65C3F900683384 /* PhonesView.xib */,
-				B10CF5291E684B9700811DC1 /* ScheduleView.swift */,
-				B10CF52B1E684BA000811DC1 /* ScheduleView.xib */,
 				B1D738411E9382C300A764F4 /* ReviewsView.swift */,
 				B1D7384D1E93B0B200A764F4 /* ReviewsView.xib */,
+				B10CF5291E684B9700811DC1 /* ScheduleView.swift */,
+				B10CF52B1E684BA000811DC1 /* ScheduleView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -2034,6 +2040,7 @@
 				B1BF92731DD6516C00BECBBB /* helveticaneuecyr-roman.otf in Resources */,
 				B1EC9F321E8B7FEF00F2E342 /* FavoriteOrganizationTableViewCell.xib in Resources */,
 				B1BF92741DD6516C00BECBBB /* helveticaneuecyr-thin.otf in Resources */,
+				B13FE1A11E94C59C000DD416 /* BlackListView.xib in Resources */,
 				B1BF92751DD6516C00BECBBB /* helveticaneuecyr-thinitalic.otf in Resources */,
 				B1152FB01E6E9FD8007999B9 /* UserTemplateTableViewCell.xib in Resources */,
 				B122DF6B1DF804CD003823AD /* SegmentedControlViewLandscape.xib in Resources */,
@@ -2206,6 +2213,7 @@
 				B1D57E901E87CB7500CA6243 /* MSMTableViewFooterView.swift in Sources */,
 				B1FFF7111E5F017A00A075D8 /* OrganizationsMapShowConfigurator.swift in Sources */,
 				B1A9ACD21E7C7CE00010FF05 /* Category.swift in Sources */,
+				B13FE1A31E94C5A4000DD416 /* BlackListView.swift in Sources */,
 				B1C94BC21E37825E00122933 /* BarCodeView.swift in Sources */,
 				B14107C71DFEB1D700F79CF9 /* CustomView.swift in Sources */,
 				B10B48CC1E8A5AEC007DDD81 /* FavoriteServicesShowInteractor.swift in Sources */,

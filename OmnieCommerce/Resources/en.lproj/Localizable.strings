@@ -56,6 +56,9 @@
 "Loading Data"                  =   "Loading data...";
 "Loading More"                  =   "Loading more...";
 "Reviews"                       =   "Reviews";
+"Black List"                    =   "Black List";
+"Black List Text 1"             =   "This organization has added you\nto the Black List.";
+"Black List Text 2"             =   "In connection with this, unfortunately, you can not\norder the services\nof this organization.";
 
 
 // Buttons

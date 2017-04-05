@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BlackListView">
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+            </userDefinedRuntimeAttributes>
+            <connections>
+                <outlet property="view" destination="iN0-l3-epB" id="q1n-Wa-t3S"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="345" height="185"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x9q-S6-aPm" userLabel="Content View" customClass="CustomView" customModule="OmnieCommerce" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="345" height="185"/>
+                    <subviews>
+                        <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kua-6E-eDr" userLabel="Left View" customClass="CustomView" customModule="OmnieCommerce" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="103" height="185"/>
+                            <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image-black-list-half" translatesAutoresizingMaskIntoConstraints="NO" id="P1y-Dc-awR">
+                                    <rect key="frame" x="21.5" y="53.5" width="50" height="77"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                    </userDefinedRuntimeAttributes>
+                                </imageView>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="P1y-Dc-awR" firstAttribute="centerX" secondItem="Kua-6E-eDr" secondAttribute="centerX" multiplier="0.9" id="w0U-zq-sof"/>
+                                <constraint firstItem="P1y-Dc-awR" firstAttribute="centerY" secondItem="Kua-6E-eDr" secondAttribute="centerY" id="zbu-JB-UEB"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="circleRadius">
+                                    <real key="value" value="268"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="circleFillColor">
+                                    <color key="value" red="0.0" green="0.57647058823529407" blue="0.58431372549019611" alpha="1" colorSpace="calibratedRGB"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="string" keyPath="style" value="LeftCircle"/>
+                                <userDefinedRuntimeAttribute type="color" keyPath="circleLineColor">
+                                    <color key="value" red="0.18431372549019609" green="0.23529411764705882" blue="0.28627450980392155" alpha="1" colorSpace="calibratedRGB"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="5"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                        <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2X5-g3-cVe" userLabel="Cancel Button">
+                            <rect key="frame" x="315" y="0.0" width="30" height="30"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="2X5-g3-cVe" secondAttribute="height" multiplier="1:1" id="wmd-Tm-rdG"/>
+                            </constraints>
+                            <state key="normal" image="icon-cancel-gold-normal"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="handlerCancelButtonTap:" destination="-1" eventType="touchUpInside" id="VS3-6I-Xc7"/>
+                            </connections>
+                        </button>
+                        <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CCz-ci-QUk" userLabel="Right View">
+                            <rect key="frame" x="138" y="25" width="167" height="160"/>
+                            <subviews>
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Black List" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fs6-mN-Rrh" userLabel="Title Label" customClass="HelveticaNeueCyrLightVeryLightGrayLabel" customModule="OmnieCommerce" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="167" height="25.5"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                    </userDefinedRuntimeAttributes>
+                                </label>
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Black List Text 1" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N5G-D5-L92" userLabel="Text Label 1" customClass="UbuntuLightVeryLightGrayLabel" customModule="OmnieCommerce" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="45.5" width="167" height="14.5"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                    </userDefinedRuntimeAttributes>
+                                </label>
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Black List Text 2" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cYD-Oj-4s0" userLabel="Text Label 2" customClass="UbuntuLightVeryLightGrayLabel" customModule="OmnieCommerce" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="75" width="167" height="14.5"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                    </userDefinedRuntimeAttributes>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="N5G-D5-L92" secondAttribute="trailing" id="1uV-BJ-U36"/>
+                                <constraint firstItem="N5G-D5-L92" firstAttribute="top" secondItem="fs6-mN-Rrh" secondAttribute="bottom" constant="20" id="F1n-vd-kim"/>
+                                <constraint firstAttribute="trailing" secondItem="cYD-Oj-4s0" secondAttribute="trailing" id="Geb-Xl-jFS"/>
+                                <constraint firstItem="cYD-Oj-4s0" firstAttribute="top" secondItem="N5G-D5-L92" secondAttribute="bottom" constant="15" id="IPg-Nj-gY0"/>
+                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="cYD-Oj-4s0" secondAttribute="bottom" constant="25" id="m7F-cw-lZ2"/>
+                                <constraint firstItem="N5G-D5-L92" firstAttribute="leading" secondItem="CCz-ci-QUk" secondAttribute="leading" id="mh1-50-4d4"/>
+                                <constraint firstItem="cYD-Oj-4s0" firstAttribute="leading" secondItem="CCz-ci-QUk" secondAttribute="leading" id="mo3-Ud-VgK"/>
+                                <constraint firstItem="fs6-mN-Rrh" firstAttribute="centerX" secondItem="CCz-ci-QUk" secondAttribute="centerX" id="rsc-16-YqP"/>
+                                <constraint firstItem="fs6-mN-Rrh" firstAttribute="leading" secondItem="CCz-ci-QUk" secondAttribute="leading" id="vYV-DP-sPJ"/>
+                                <constraint firstItem="fs6-mN-Rrh" firstAttribute="top" secondItem="CCz-ci-QUk" secondAttribute="top" id="wMF-9k-aFI"/>
+                                <constraint firstAttribute="trailing" secondItem="fs6-mN-Rrh" secondAttribute="trailing" id="zwj-8z-9E3"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" red="0.14117647058823529" green="0.19607843137254902" blue="0.24705882352941178" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="CCz-ci-QUk" secondAttribute="trailing" constant="40" id="2WJ-5w-stb"/>
+                        <constraint firstItem="2X5-g3-cVe" firstAttribute="top" secondItem="x9q-S6-aPm" secondAttribute="top" id="4Z9-gg-45h"/>
+                        <constraint firstAttribute="trailing" secondItem="2X5-g3-cVe" secondAttribute="trailing" id="8xf-a3-bhp"/>
+                        <constraint firstItem="CCz-ci-QUk" firstAttribute="leading" secondItem="Kua-6E-eDr" secondAttribute="trailing" constant="35" id="AHX-It-Nwn"/>
+                        <constraint firstAttribute="bottom" secondItem="Kua-6E-eDr" secondAttribute="bottom" id="Vov-Bu-NUB"/>
+                        <constraint firstItem="CCz-ci-QUk" firstAttribute="top" secondItem="x9q-S6-aPm" secondAttribute="top" constant="25" id="ZsK-Ku-Ksk"/>
+                        <constraint firstItem="Kua-6E-eDr" firstAttribute="top" secondItem="x9q-S6-aPm" secondAttribute="top" id="eHs-Po-mmq"/>
+                        <constraint firstItem="Kua-6E-eDr" firstAttribute="leading" secondItem="x9q-S6-aPm" secondAttribute="leading" id="eIU-hS-kt9"/>
+                        <constraint firstAttribute="bottom" secondItem="CCz-ci-QUk" secondAttribute="bottom" id="t8y-04-vLg"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="5"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="x9q-S6-aPm" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="0ov-XD-K9s"/>
+                <constraint firstAttribute="bottom" secondItem="x9q-S6-aPm" secondAttribute="bottom" id="2o1-Sc-9jj"/>
+                <constraint firstItem="2X5-g3-cVe" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="30:185" id="7SP-dw-Fq5"/>
+                <constraint firstItem="Kua-6E-eDr" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="103:345" id="YGS-P0-wpw"/>
+                <constraint firstItem="P1y-Dc-awR" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="50:345" id="dJP-1S-nMD"/>
+                <constraint firstItem="x9q-S6-aPm" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="hDd-P8-pHT"/>
+                <constraint firstItem="P1y-Dc-awR" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="77:185" id="n7w-eZ-rWh"/>
+                <constraint firstAttribute="trailing" secondItem="x9q-S6-aPm" secondAttribute="trailing" id="tMn-Xc-AOS"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="NO"/>
+            </userDefinedRuntimeAttributes>
+            <point key="canvasLocation" x="102.5" y="53.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="icon-cancel-gold-normal" width="12" height="12"/>
+        <image name="image-black-list-half" width="48" height="77"/>
+    </resources>
+</document>

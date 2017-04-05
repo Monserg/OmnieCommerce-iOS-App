@@ -80,7 +80,7 @@ class NewsShowViewController: BaseViewController {
 
         // Config smallTopBarView
         navigationBarView = smallTopBarView
-        smallTopBarView.type = "ParentSearch"
+        smallTopBarView.type = "Parent"
         haveMenuItem = true
     }
     
@@ -91,9 +91,11 @@ class NewsShowViewController: BaseViewController {
             switch sender.tag {
             case 1:
                 self.activeViewController = self.newsActionsVC
+                self.smallTopBarView.titleText = "Actions".localized()
                 
             default:
                 self.activeViewController = self.newsDataVC
+                self.smallTopBarView.titleText = "News".localized()
             }
         }
     }

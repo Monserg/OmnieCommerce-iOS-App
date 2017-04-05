@@ -11,9 +11,9 @@ import Kingfisher
 
 class NewsDataTableViewCell: UITableViewCell, DottedBorderViewBinding {
     // MARK: - Properties
-    @IBOutlet weak var titleLabel: UbuntuLightVeryLightGrayLabel!
+    @IBOutlet weak var organizationNameLabel: UbuntuLightVeryLightGrayLabel!
     @IBOutlet weak var dateLabel: UbuntuLightVeryDarkGrayishBlueLabel!
-    @IBOutlet weak var noteLabel: UbuntuLightVeryLightGrayLabel!
+    @IBOutlet weak var titleLabel: UbuntuLightVeryLightGrayLabel!
 
     @IBOutlet weak var logoImageView: CustomImageView!
     @IBOutlet weak var dottedBorderView: DottedBorderView!
@@ -34,11 +34,11 @@ class NewsDataTableViewCell: UITableViewCell, DottedBorderViewBinding {
 extension NewsDataTableViewCell: ConfigureCell {
     func setup(withItem item: Any, andIndexPath indexPath: IndexPath) {
         let newsData = item as! NewsData
-        titleLabel.text = newsData.name
+        organizationNameLabel.text = newsData.name
         dateLabel.text = newsData.activeDate.convertToString(withStyle: .Date)
-        noteLabel.numberOfLines = 2
-        noteLabel.text = newsData.text
-        noteLabel.clipsToBounds = false
+        titleLabel.numberOfLines = 2
+        titleLabel.text = newsData.title
+        titleLabel.clipsToBounds = false
         selectionStyle = .none
         
         if let imagePath = newsData.logoStringURL {

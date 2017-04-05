@@ -36,6 +36,7 @@ class OrganizationShowViewController: BaseViewController {
     var phonesView: PhonesView?
     var scheduleView: ScheduleView?
     var previewsView: ReviewsView?
+    var blackListView: BlackListView?
     
     @IBOutlet var scrollView: MXScrollView! {
         didSet {
@@ -233,11 +234,14 @@ class OrganizationShowViewController: BaseViewController {
         self.blackoutView = MSMBlackoutView.init(inView: view)
         blackoutView!.didShow()
         
-        previewsView = ReviewsView.init(inView: blackoutView!)
+//        previewsView = ReviewsView.init(inView: blackoutView!)
+        blackListView = BlackListView.init(inView: blackoutView!)
         
         // Handler Cancel button tap
-        previewsView!.handlerCancelButtonCompletion = { _ in
-            self.previewsView = nil
+        blackListView!.handlerCancelButtonCompletion = { _ in
+//            previewsView!.handlerCancelButtonCompletion = { _ in
+//            self.previewsView = nil
+            self.blackListView = nil
             self.blackoutView!.didHide()
         }
     }
