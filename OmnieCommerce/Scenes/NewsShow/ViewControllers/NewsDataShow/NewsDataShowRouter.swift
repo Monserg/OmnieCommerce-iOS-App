@@ -14,6 +14,7 @@ import UIKit
 // MARK: - Input & Output protocols
 protocol NewsDataShowRouterInput {
     func navigateToSomewhere()
+    func navigateToNewsItemShowScene(_ item: NewsData)
 }
 
 class NewsDataShowRouter: NewsDataShowRouterInput {
@@ -22,6 +23,14 @@ class NewsDataShowRouter: NewsDataShowRouterInput {
     
     
     // MARK: - Custom Functions. Navigation
+    func navigateToNewsItemShowScene(_ item: NewsData) {
+        let storyboard = UIStoryboard(name: "NewsShow", bundle: nil)
+        let newsItemShowVC = storyboard.instantiateViewController(withIdentifier: "NewsItemShowVC") as! NewsItemShowViewController
+        newsItemShowVC.newsItem = item
+        
+        viewController.navigationController?.pushViewController(newsItemShowVC, animated: true)
+    }
+
     func navigateToSomewhere() {
         // NOTE: Teach the router how to navigate to another scene. Some examples follow:
         // 1. Trigger a storyboard segue

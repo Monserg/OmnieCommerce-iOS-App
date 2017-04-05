@@ -130,6 +130,8 @@
 "Pet No"                        =   "Pet No";
 "Pet Yes"                       =   "Pet has";
 "Map"                           =   "Map";
+"ActionItem"                    =   "Action";
+"NewsItem"                      =   "News";
 
 
 // Alert actions

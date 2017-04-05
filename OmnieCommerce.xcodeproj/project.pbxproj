@@ -125,6 +125,8 @@
 		B1390FFD1E8D1E4B00BD9219 /* FavoriteServiceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1390FFB1E8D1E4B00BD9219 /* FavoriteServiceTableViewCell.xib */; };
 		B13FE1A11E94C59C000DD416 /* BlackListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B13FE1A01E94C59C000DD416 /* BlackListView.xib */; };
 		B13FE1A31E94C5A4000DD416 /* BlackListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13FE1A21E94C5A4000DD416 /* BlackListView.swift */; };
+		B13FE1A81E95121B000DD416 /* NewsItemShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13FE1A71E95121B000DD416 /* NewsItemShowViewController.swift */; };
+		B13FE1AA1E956D70000DD416 /* BorderVeryDarkDesaturatedBlueButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13FE1A91E956D70000DD416 /* BorderVeryDarkDesaturatedBlueButton.swift */; };
 		B14107C41DFEA73900F79CF9 /* CalendarDayCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14107C21DFEA73900F79CF9 /* CalendarDayCellView.swift */; };
 		B14107C51DFEA73900F79CF9 /* CalendarDayCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B14107C31DFEA73900F79CF9 /* CalendarDayCellView.xib */; };
 		B14107C71DFEB1D700F79CF9 /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14107C61DFEB1D700F79CF9 /* CustomView.swift */; };
@@ -545,6 +547,8 @@
 		B1390FFB1E8D1E4B00BD9219 /* FavoriteServiceTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FavoriteServiceTableViewCell.xib; sourceTree = "<group>"; };
 		B13FE1A01E94C59C000DD416 /* BlackListView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BlackListView.xib; sourceTree = "<group>"; };
 		B13FE1A21E94C5A4000DD416 /* BlackListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlackListView.swift; sourceTree = "<group>"; };
+		B13FE1A71E95121B000DD416 /* NewsItemShowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsItemShowViewController.swift; sourceTree = "<group>"; };
+		B13FE1A91E956D70000DD416 /* BorderVeryDarkDesaturatedBlueButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BorderVeryDarkDesaturatedBlueButton.swift; sourceTree = "<group>"; };
 		B14107C21DFEA73900F79CF9 /* CalendarDayCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarDayCellView.swift; sourceTree = "<group>"; };
 		B14107C31DFEA73900F79CF9 /* CalendarDayCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CalendarDayCellView.xib; sourceTree = "<group>"; };
 		B14107C61DFEB1D700F79CF9 /* CustomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
@@ -1303,6 +1307,7 @@
 				B149A7B91E5D8DD3009BF8C7 /* AnimatedButton.swift */,
 				B149A7BB1E5D8E24009BF8C7 /* AnimatedButton.xib */,
 				B122A58F1E6BF23E00C39B67 /* BorderVeryLightOrangeButton.swift */,
+				B13FE1A91E956D70000DD416 /* BorderVeryDarkDesaturatedBlueButton.swift */,
 				B1CF54631DDAE78200E98049 /* CustomButton.swift */,
 				B1C13D861DEF2743002B494A /* DropDownButton.swift */,
 				B122A58D1E6BE10F00C39B67 /* FillVeryLightOrangeButton.swift */,
@@ -1374,6 +1379,14 @@
 				B137EC921E7D19B0006F0184 /* MSMCollectionView.swift */,
 			);
 			name = UICollectionView;
+			sourceTree = "<group>";
+		};
+		B13FE1A61E9511A9000DD416 /* NewsItemShow */ = {
+			isa = PBXGroup;
+			children = (
+				B13FE1A71E95121B000DD416 /* NewsItemShowViewController.swift */,
+			);
+			path = NewsItemShow;
 			sourceTree = "<group>";
 		};
 		B149A7BD1E5DD52C009BF8C7 /* Models */ = {
@@ -1794,6 +1807,7 @@
 		B1D882FA1E8E8789006F4831 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				B13FE1A61E9511A9000DD416 /* NewsItemShow */,
 				B1D883091E8E883D006F4831 /* NewsDataShow */,
 				B1D8830A1E8E8847006F4831 /* NewsActionsShow */,
 			);
@@ -2161,6 +2175,7 @@
 				B122F1DB1DD35B760018A701 /* OrdersShowConfigurator.swift in Sources */,
 				B10672FA1E71BE8100DB2AE0 /* MSMPickerViewManager.swift in Sources */,
 				B177E5471E54AC7F004F1390 /* EnterCodeShowConfigurator.swift in Sources */,
+				B13FE1AA1E956D70000DD416 /* BorderVeryDarkDesaturatedBlueButton.swift in Sources */,
 				B14E97691DD8B05E001E1DE2 /* ForgotPasswordShowViewController.swift in Sources */,
 				B1CF54B01DDB516E00E98049 /* OmnieCardsShowModels.swift in Sources */,
 				B1CF54971DDB512000E98049 /* DiscountCardsShowViewController.swift in Sources */,
@@ -2394,6 +2409,7 @@
 				B177E53A1E5475EC004F1390 /* SignInContainerShowWorker.swift in Sources */,
 				B15ED1F41E68433200039737 /* Schedule.swift in Sources */,
 				B122F2061DD35BEB0018A701 /* CategoriesShowInteractor.swift in Sources */,
+				B13FE1A81E95121B000DD416 /* NewsItemShowViewController.swift in Sources */,
 				B1FBC91D1E6D902C00D86429 /* HelveticaNeueCyrLightVeryLightGrayLabel.swift in Sources */,
 				B1CF54931DDB512000E98049 /* DiscountCardsShowInteractor.swift in Sources */,
 				B1D883221E8E8C98006F4831 /* NewsDataShowWorker.swift in Sources */,

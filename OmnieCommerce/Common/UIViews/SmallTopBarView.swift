@@ -57,6 +57,7 @@ enum ViewType: String {
     // MARK: - Class Functions
     override func draw(_ rect: CGRect) {
         print(object: "\(type(of: self)): \(#function) run. Rect = \(rect)")
+        circleView.setNeedsDisplay()
     }
     
     
@@ -86,16 +87,18 @@ enum ViewType: String {
         switch ViewType(rawValue: type ?? "Parent")! {
         case .Child:
             actionButton.setImage(UIImage.init(named: "icon-back-bar-button-normal"), for: .normal)
+            actionButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: -16, bottom: 0, right: 0)
+            actionButton.addTarget(self, action: #selector(handlerLeftActionButtonTap), for: .touchUpInside)
             
         case .ChildSearch:
-            searchButton.alpha              =   1
+            searchButton.alpha = 1
 
             actionButton.setImage(UIImage.init(named: "icon-back-bar-button-normal"), for: .normal)
-            actionButton.imageEdgeInsets    =   UIEdgeInsets(top: 0, left: -16, bottom: 0, right: 0)
+            actionButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: -16, bottom: 0, right: 0)
             actionButton.addTarget(self, action: #selector(handlerLeftActionButtonTap), for: .touchUpInside)
             
         case .ParentSearch:
-            searchButton.alpha              =   1
+            searchButton.alpha = 1
             
         case .Parent:
             actionButton.setImage(UIImage.init(named: "icon-menu-normal"), for: .normal)
@@ -112,16 +115,16 @@ enum ViewType: String {
                 }
                 
                 if let textField = innerSubViews as? UITextField {
-                    textField.backgroundColor           =   UIColor.darkCyan
-                    textField.textColor                 =   UIColor.veryLightGray
-                    textField.tintColor                 =   UIColor.veryLightGray
+                    textField.backgroundColor = UIColor.darkCyan
+                    textField.textColor = UIColor.veryLightGray
+                    textField.tintColor = UIColor.veryLightGray
                     
-                    textField.attributedPlaceholder     =   NSAttributedString.init(string: "Enter search text".localized(),
-                                                                                    attributes: UIFont.ubuntuLightItalicVeryLightGray16)
+                    textField.attributedPlaceholder = NSAttributedString.init(string: "Enter search text".localized(),
+                                                                              attributes: UIFont.ubuntuLightItalicVeryLightGray16)
                     
                     if let iconView = textField.leftView as? UIImageView {
-                        iconView.image                  =   iconView.image?.withRenderingMode(.alwaysTemplate)
-                        iconView.tintColor              =   UIColor.veryLightGray
+                        iconView.image = iconView.image?.withRenderingMode(.alwaysTemplate)
+                        iconView.tintColor = UIColor.veryLightGray
                     }
                     
                     textField.changeClearButtonColor()
@@ -129,17 +132,17 @@ enum ViewType: String {
             }
         }
         
-        searchBar.transform                             =   CGAffineTransform(translationX: 800, y: 0)
+        searchBar.transform = CGAffineTransform(translationX: 800, y: 0)
     }
     
     func searchBarDidHide() {
         UIView.animate(withDuration: 0.3, animations: {
-            self.searchBar.alpha                        =   0
-            self.searchBar.transform                    =   CGAffineTransform(translationX: 800, y: 0)
+            self.searchBar.alpha = 0
+            self.searchBar.transform = CGAffineTransform(translationX: 800, y: 0)
         }, completion: { success in
             UIView.animate(withDuration: 0.5, animations: {
-                self.searchButton.alpha                 =   1
-                self.titleLabel.alpha                   =   1
+                self.searchButton.alpha = 1
+                self.titleLabel.alpha = 1
             })
             
             self.searchBar.resignFirstResponder()
@@ -154,12 +157,12 @@ enum ViewType: String {
     
     @IBAction func handlerSearchButtonTap(_ sender: UIButton) {
         UIView.animate(withDuration: 0.5, animations: {
-            sender.alpha                                =   0
-            self.titleLabel.alpha                       =   0
+            sender.alpha = 0
+            self.titleLabel.alpha = 0
         }, completion: { success in
             UIView.animate(withDuration: 0.3, animations: {
-                self.searchBar.alpha                    =   1
-                self.searchBar.transform                =   CGAffineTransform(translationX: 0, y: 0)
+                self.searchBar.alpha = 1
+                self.searchBar.transform = CGAffineTransform(translationX: 0, y: 0)
 
                 self.searchBar.becomeFirstResponder()
             })

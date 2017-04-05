@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina4_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -19,11 +19,11 @@
                         <viewControllerLayoutGuide type="bottom" id="Ncm-dv-5NH"/>
                     </layoutGuides>
                     <view key="view" opaque="NO" contentMode="scaleToFill" id="kfe-de-o53">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KMj-II-PyU" customClass="SmallTopBarView" customModule="OmnieCommerce" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="95"/>
+                                <rect key="frame" x="0.0" y="0.0" width="667" height="80"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="titleText" value="News"/>
@@ -31,10 +31,10 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="10M-FJ-LCe" userLabel="Segmented Control View">
-                                <rect key="frame" x="0.0" y="95" width="375" height="50"/>
+                                <rect key="frame" x="0.0" y="80" width="667" height="50"/>
                                 <subviews>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QEZ-zG-MDi" userLabel="Content View" customClass="SegmentedControlView" customModule="OmnieCommerce" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="35"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="667" height="35"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="string" keyPath="segmentedControlViewStyle" value="News"/>
@@ -51,7 +51,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Copyright" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="krF-Rc-3FU" customClass="UbuntuLightDarkCyanLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                                <rect key="frame" x="8" y="647" width="359" height="11"/>
+                                <rect key="frame" x="8" y="355" width="651" height="11"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="9"/>
                                 <nil key="textColor"/>
@@ -61,7 +61,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <containerView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yPG-gu-zm3" customClass="CustomView" customModule="OmnieCommerce" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="145" width="375" height="493"/>
+                                <rect key="frame" x="0.0" y="130" width="667" height="216"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
@@ -129,11 +129,11 @@
                         <viewControllerLayoutGuide type="bottom" id="gfO-BQ-LUo"/>
                     </layoutGuides>
                     <view key="view" clipsSubviews="YES" tag="1" contentMode="scaleToFill" id="ifC-ZK-xUt">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" tag="1" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="k4R-nE-6Gi" customClass="MSMTableView" customModule="OmnieCommerce" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
@@ -160,6 +160,242 @@
             </objects>
             <point key="canvasLocation" x="1982" y="179"/>
         </scene>
+        <!--News Item Show View Controller-->
+        <scene sceneID="jW0-cF-TSP">
+            <objects>
+                <viewController storyboardIdentifier="NewsItemShowVC" automaticallyAdjustsScrollViewInsets="NO" id="fX1-U5-utC" customClass="NewsItemShowViewController" customModule="OmnieCommerce" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="i8u-pe-a9f"/>
+                        <viewControllerLayoutGuide type="bottom" id="g6h-vw-ID4"/>
+                    </layoutGuides>
+                    <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="1Ta-5U-KoV">
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="30c-Ya-zTW">
+                                <rect key="frame" x="8" y="40" width="651" height="306"/>
+                                <subviews>
+                                    <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="E8J-dB-22q" userLabel="Top Left Stack View">
+                                        <rect key="frame" x="0.0" y="0.0" width="222" height="306"/>
+                                        <subviews>
+                                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zzd-vs-dOv" userLabel="Empty Top View">
+                                                <rect key="frame" x="0.0" y="0.0" width="222" height="50"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view clipsSubviews="YES" contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="oQx-AA-cxs" userLabel="Top Left View">
+                                                <rect key="frame" x="0.0" y="50" width="222" height="105"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image-no-organization" translatesAutoresizingMaskIntoConstraints="NO" id="quN-na-7ti" userLabel="Logo Image View" customClass="CustomImageView" customModule="OmnieCommerce" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="222" height="105"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isCircle" value="NO"/>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="5"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </imageView>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="bottom" secondItem="quN-na-7ti" secondAttribute="bottom" id="OGK-BL-JQk"/>
+                                                    <constraint firstItem="quN-na-7ti" firstAttribute="top" secondItem="oQx-AA-cxs" secondAttribute="top" id="UOP-N8-PRA"/>
+                                                    <constraint firstAttribute="trailing" secondItem="quN-na-7ti" secondAttribute="trailing" id="uaz-qv-ACZ"/>
+                                                    <constraint firstItem="quN-na-7ti" firstAttribute="leading" secondItem="oQx-AA-cxs" secondAttribute="leading" id="v7A-2I-fni"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e8g-RN-oxg" userLabel="Data View">
+                                                <rect key="frame" x="0.0" y="155" width="222" height="30"/>
+                                                <subviews>
+                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o3s-FE-K1t" userLabel="Date Label" customClass="UbuntuLightItalicVeryDarkGrayishBlueLabel" customModule="OmnieCommerce" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="9.5" width="24" height="11"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </label>
+                                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="4fB-vI-cJk" userLabel="Organization Button" customClass="BorderVeryDarkDesaturatedBlueButton" customModule="OmnieCommerce" customModuleProvider="target">
+                                                        <rect key="frame" x="44" y="5" width="30" height="20"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="handlerOrganizationButtonTap:" destination="fX1-U5-utC" eventType="touchUpInside" id="Ljn-9w-GGK"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstItem="4fB-vI-cJk" firstAttribute="leading" secondItem="o3s-FE-K1t" secondAttribute="trailing" constant="20" id="LYc-al-55b"/>
+                                                    <constraint firstItem="o3s-FE-K1t" firstAttribute="leading" secondItem="e8g-RN-oxg" secondAttribute="leading" id="YZC-cM-e9n"/>
+                                                    <constraint firstItem="4fB-vI-cJk" firstAttribute="centerY" secondItem="e8g-RN-oxg" secondAttribute="centerY" id="ZNt-jp-UPd"/>
+                                                    <constraint firstItem="o3s-FE-K1t" firstAttribute="centerY" secondItem="e8g-RN-oxg" secondAttribute="centerY" id="xfH-yY-4hk"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YmA-Cp-lbX">
+                                                <rect key="frame" x="0.0" y="185" width="222" height="121"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </stackView>
+                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="szB-7v-Ggv">
+                                        <rect key="frame" x="222" y="0.0" width="429" height="306"/>
+                                        <subviews>
+                                            <textView contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" bounces="NO" showsHorizontalScrollIndicator="NO" delaysContentTouches="NO" canCancelContentTouches="NO" bouncesZoom="NO" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pvh-xD-20U">
+                                                <rect key="frame" x="0.0" y="40" width="429" height="266"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <attributedString key="attributedText">
+                                                    <fragment>
+                                                        <string key="content">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda. Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda. Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda. Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                                        <attributes>
+                                                            <color key="NSColor" red="0.87058823529411766" green="0.87058823529411766" blue="0.87058823529411766" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <font key="NSFont" metaFont="cellTitle"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="NO"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </textView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="pvh-xD-20U" secondAttribute="trailing" id="0ej-z2-Lud"/>
+                                            <constraint firstItem="pvh-xD-20U" firstAttribute="leading" secondItem="szB-7v-Ggv" secondAttribute="leading" id="GkR-Of-3tc"/>
+                                            <constraint firstItem="pvh-xD-20U" firstAttribute="top" secondItem="szB-7v-Ggv" secondAttribute="top" id="qle-0v-qVF">
+                                                <variation key="heightClass=compact-widthClass=compact" constant="40"/>
+                                                <variation key="heightClass=compact-widthClass=regular" constant="50"/>
+                                            </constraint>
+                                            <constraint firstAttribute="bottom" secondItem="pvh-xD-20U" secondAttribute="bottom" id="rhO-5Z-dJP"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <variation key="heightClass=compact-widthClass=compact" axis="horizontal"/>
+                                <variation key="heightClass=compact-widthClass=regular" axis="horizontal"/>
+                            </stackView>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uac-VS-0kU" customClass="SmallTopBarView" customModule="OmnieCommerce" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="667" height="80"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="titleText" value="News"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="type" value="Child"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Copyright" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DGi-jV-EAc" customClass="UbuntuLightDarkCyanLabel" customModule="OmnieCommerce" customModuleProvider="target">
+                                <rect key="frame" x="8" y="355" width="651" height="11"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="11" id="hGg-kb-jEL"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="30c-Ya-zTW" firstAttribute="leading" secondItem="1Ta-5U-KoV" secondAttribute="leading" constant="8" id="0u6-Zo-8YS"/>
+                            <constraint firstItem="e8g-RN-oxg" firstAttribute="height" secondItem="1Ta-5U-KoV" secondAttribute="height" multiplier="30:375" id="6AN-9j-0gk"/>
+                            <constraint firstItem="E8J-dB-22q" firstAttribute="height" secondItem="1Ta-5U-KoV" secondAttribute="height" multiplier="190:375" id="8c0-l3-IZe"/>
+                            <constraint firstItem="oQx-AA-cxs" firstAttribute="height" secondItem="1Ta-5U-KoV" secondAttribute="height" multiplier="105:375" id="9pb-yd-FNx"/>
+                            <constraint firstItem="DGi-jV-EAc" firstAttribute="leading" secondItem="1Ta-5U-KoV" secondAttribute="leading" constant="8" id="DUO-sL-vI2"/>
+                            <constraint firstItem="E8J-dB-22q" firstAttribute="width" secondItem="1Ta-5U-KoV" secondAttribute="width" multiplier="222:667" id="GNC-Pa-YTX"/>
+                            <constraint firstItem="uac-VS-0kU" firstAttribute="height" secondItem="1Ta-5U-KoV" secondAttribute="height" multiplier="95:667" id="JpO-xJ-huf"/>
+                            <constraint firstItem="e8g-RN-oxg" firstAttribute="height" secondItem="1Ta-5U-KoV" secondAttribute="height" multiplier="30:667" id="L6Q-6B-u33"/>
+                            <constraint firstItem="DGi-jV-EAc" firstAttribute="top" secondItem="30c-Ya-zTW" secondAttribute="bottom" constant="9" id="NV4-aE-ImU"/>
+                            <constraint firstAttribute="bottom" secondItem="DGi-jV-EAc" secondAttribute="bottom" constant="9" id="Okr-bg-W4e"/>
+                            <constraint firstItem="uac-VS-0kU" firstAttribute="leading" secondItem="1Ta-5U-KoV" secondAttribute="leading" id="QBI-hm-iWG"/>
+                            <constraint firstItem="oQx-AA-cxs" firstAttribute="height" secondItem="1Ta-5U-KoV" secondAttribute="height" multiplier="170:667" id="Vx6-iU-b4f"/>
+                            <constraint firstItem="uac-VS-0kU" firstAttribute="height" secondItem="1Ta-5U-KoV" secondAttribute="height" multiplier="80:375" id="bBe-Uf-dgH"/>
+                            <constraint firstItem="30c-Ya-zTW" firstAttribute="top" secondItem="uac-VS-0kU" secondAttribute="bottom" constant="-30" id="bNS-IU-IN3">
+                                <variation key="heightClass=compact-widthClass=compact" constant="-40"/>
+                                <variation key="heightClass=compact-widthClass=regular" constant="-40"/>
+                            </constraint>
+                            <constraint firstItem="E8J-dB-22q" firstAttribute="height" secondItem="1Ta-5U-KoV" secondAttribute="height" multiplier="230:667" id="bnn-xo-o0Z"/>
+                            <constraint firstItem="4fB-vI-cJk" firstAttribute="height" secondItem="1Ta-5U-KoV" secondAttribute="height" multiplier="20:667" id="d8K-b9-rZ6"/>
+                            <constraint firstItem="uac-VS-0kU" firstAttribute="top" secondItem="1Ta-5U-KoV" secondAttribute="top" id="jvb-Vf-w0D"/>
+                            <constraint firstItem="zzd-vs-dOv" firstAttribute="height" secondItem="1Ta-5U-KoV" secondAttribute="height" multiplier="50:375" id="mLP-L5-636"/>
+                            <constraint firstItem="zzd-vs-dOv" firstAttribute="height" secondItem="1Ta-5U-KoV" secondAttribute="height" multiplier="30:667" id="oP9-a8-qx1"/>
+                            <constraint firstItem="4fB-vI-cJk" firstAttribute="height" secondItem="1Ta-5U-KoV" secondAttribute="height" multiplier="20:375" id="onQ-EV-mH6"/>
+                            <constraint firstAttribute="trailing" secondItem="DGi-jV-EAc" secondAttribute="trailing" constant="8" id="qBr-3Y-9yI"/>
+                            <constraint firstAttribute="trailing" secondItem="uac-VS-0kU" secondAttribute="trailing" id="rZH-k5-2wR"/>
+                            <constraint firstAttribute="trailing" secondItem="30c-Ya-zTW" secondAttribute="trailing" constant="8" id="rst-qA-s2a"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="JpO-xJ-huf"/>
+                                <exclude reference="8c0-l3-IZe"/>
+                                <exclude reference="bnn-xo-o0Z"/>
+                                <exclude reference="oP9-a8-qx1"/>
+                                <exclude reference="Vx6-iU-b4f"/>
+                                <exclude reference="L6Q-6B-u33"/>
+                                <exclude reference="d8K-b9-rZ6"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="constraints">
+                                <include reference="JpO-xJ-huf"/>
+                                <exclude reference="bBe-Uf-dgH"/>
+                                <exclude reference="8c0-l3-IZe"/>
+                                <exclude reference="GNC-Pa-YTX"/>
+                                <include reference="bnn-xo-o0Z"/>
+                                <exclude reference="mLP-L5-636"/>
+                                <include reference="oP9-a8-qx1"/>
+                                <exclude reference="9pb-yd-FNx"/>
+                                <include reference="Vx6-iU-b4f"/>
+                                <exclude reference="6AN-9j-0gk"/>
+                                <include reference="L6Q-6B-u33"/>
+                                <include reference="d8K-b9-rZ6"/>
+                                <exclude reference="onQ-EV-mH6"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="dateLabel" destination="o3s-FE-K1t" id="ufv-bZ-Hjq"/>
+                        <outlet property="logoImageView" destination="quN-na-7ti" id="6wZ-L6-83L"/>
+                        <outlet property="organizationButton" destination="4fB-vI-cJk" id="nek-1H-Uis"/>
+                        <outlet property="smallTopBarView" destination="uac-VS-0kU" id="uwY-df-2dz"/>
+                        <outlet property="textView" destination="pvh-xD-20U" id="RcM-c8-iu3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="t19-9e-QvX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1982" y="904"/>
+        </scene>
         <!--News Actions Show View Controller-->
         <scene sceneID="sAx-fG-xSk">
             <objects>
@@ -169,11 +405,11 @@
                         <viewControllerLayoutGuide type="bottom" id="Cbj-Q9-SRe"/>
                     </layoutGuides>
                     <view key="view" clipsSubviews="YES" tag="2" contentMode="scaleToFill" id="QbX-Hq-wZJ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" tag="2" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vxL-xW-4a1" customClass="MSMTableView" customModule="OmnieCommerce" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
@@ -205,7 +441,7 @@
             <objects>
                 <navigationController storyboardIdentifier="NewsShowNC" automaticallyAdjustsScrollViewInsets="NO" id="y4G-zF-e55" customClass="BaseNavigationController" customModule="OmnieCommerce" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="GUk-oy-T9T">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="GUk-oy-T9T">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -219,4 +455,7 @@
             <point key="canvasLocation" x="325.60000000000002" y="178.56071964017991"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="image-no-organization" width="24" height="20"/>
+    </resources>
 </document>

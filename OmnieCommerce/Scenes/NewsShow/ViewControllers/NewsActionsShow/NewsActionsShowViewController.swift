@@ -109,9 +109,8 @@ class NewsActionsShowViewController: BaseViewController {
         tableView.reloadData()
         
         // Handler select cell
-        tableView.tableViewControllerManager!.handlerSelectRowCompletion = { actions in
-            // TODO: - UNCOMMENT
-            //            self.router.navigateToServiceShowScene(service as! Service)
+        tableView.tableViewControllerManager!.handlerSelectRowCompletion = { action in
+            self.router.navigateToNewsItemShowScene(action as! NewsData)
         }
         
         // Handler PullRefresh

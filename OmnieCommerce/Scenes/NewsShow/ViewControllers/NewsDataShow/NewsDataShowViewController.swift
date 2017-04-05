@@ -110,8 +110,7 @@ class NewsDataShowViewController: BaseViewController {
         
         // Handler select cell
         tableView.tableViewControllerManager!.handlerSelectRowCompletion = { newsData in
-            // TODO: - UNCOMMENT
-            //            self.router.navigateToServiceShowScene(service as! Service)
+            self.router.navigateToNewsItemShowScene(newsData as! NewsData)
         }
         
         // Handler PullRefresh
