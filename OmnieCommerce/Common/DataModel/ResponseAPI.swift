@@ -68,18 +68,8 @@ class ResponseAPI {
             self.body = json["body"].dictionaryObject!
             CoreDataManager.instance.appUser.additionalDataDidMap(fromDictionary: self.body as! [String: Any])
 
-//        case .CategoriesArray:
-//            let responseCategories = json["body"].arrayObject!
-//            var categories = [Category]()
-//            
-//            for dictionary in responseCategories {
-//                let category = Category.init()
-//                category.didMap(fromDictionary: dictionary as! [String : Any])
-//                
-//                categories.append(category)
-//            }
-//            
-//            self.body = categories
+        case .ItemsDictionary:
+            self.body = json["body"].dictionaryObject!
             
         case .ItemsArray:
             self.body = json["body"].arrayObject

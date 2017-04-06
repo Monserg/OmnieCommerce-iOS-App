@@ -24,11 +24,23 @@ class NewsActionsShowRouter: NewsActionsShowRouterInput {
     
     // MARK: - Custom Functions. Navigation
     func navigateToNewsItemShowScene(_ item: NewsData) {
-        let storyboard = UIStoryboard(name: "NewsShow", bundle: nil)
-        let newsItemShowVC = storyboard.instantiateViewController(withIdentifier: "NewsItemShowVC") as! NewsItemShowViewController
-        newsItemShowVC.newsItem = item
-        
-        viewController.navigationController?.pushViewController(newsItemShowVC, animated: true)
+        MSMRestApiManager.instance.userRequestDidRun(.userGetActionByID(["id": item.codeID], false), withHandlerResponseAPICompletion: { responseAPI in
+            // Check for errors
+            guard responseAPI?.code == 200 else {
+                self.viewController.alertViewDidShow(withTitle: "Error", andMessage: String(responseAPI!.status), completion: { _ in })
+                return
+            }
+            
+            // Mapping Action
+            let action = NewsData.init()
+            action.didMap(fromDictionary: responseAPI!.body as! [String: Any], completion: { _ in
+                let storyboard = UIStoryboard(name: "NewsShow", bundle: nil)
+                let newsItemShowVC = storyboard.instantiateViewController(withIdentifier: "NewsItemShowVC") as! NewsItemShowViewController
+                newsItemShowVC.newsItem = action
+                
+                self.viewController.navigationController?.pushViewController(newsItemShowVC, animated: true)
+            })
+        })
     }
     
     func navigateToSomewhere() {

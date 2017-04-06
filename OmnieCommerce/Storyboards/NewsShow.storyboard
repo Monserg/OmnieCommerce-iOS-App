@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="landscape">
+    <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -19,11 +19,11 @@
                         <viewControllerLayoutGuide type="bottom" id="Ncm-dv-5NH"/>
                     </layoutGuides>
                     <view key="view" opaque="NO" contentMode="scaleToFill" id="kfe-de-o53">
-                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KMj-II-PyU" customClass="SmallTopBarView" customModule="OmnieCommerce" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="667" height="80"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="95"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="titleText" value="News"/>
@@ -31,10 +31,10 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="10M-FJ-LCe" userLabel="Segmented Control View">
-                                <rect key="frame" x="0.0" y="80" width="667" height="50"/>
+                                <rect key="frame" x="0.0" y="95" width="375" height="50"/>
                                 <subviews>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QEZ-zG-MDi" userLabel="Content View" customClass="SegmentedControlView" customModule="OmnieCommerce" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="667" height="35"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="35"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="string" keyPath="segmentedControlViewStyle" value="News"/>
@@ -51,7 +51,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Copyright" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="krF-Rc-3FU" customClass="UbuntuLightDarkCyanLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                                <rect key="frame" x="8" y="355" width="651" height="11"/>
+                                <rect key="frame" x="8" y="647" width="359" height="11"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="9"/>
                                 <nil key="textColor"/>
@@ -61,7 +61,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <containerView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yPG-gu-zm3" customClass="CustomView" customModule="OmnieCommerce" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="130" width="667" height="216"/>
+                                <rect key="frame" x="0.0" y="145" width="375" height="493"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
@@ -129,11 +129,11 @@
                         <viewControllerLayoutGuide type="bottom" id="gfO-BQ-LUo"/>
                     </layoutGuides>
                     <view key="view" clipsSubviews="YES" tag="1" contentMode="scaleToFill" id="ifC-ZK-xUt">
-                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" tag="1" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="k4R-nE-6Gi" customClass="MSMTableView" customModule="OmnieCommerce" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
@@ -169,27 +169,27 @@
                         <viewControllerLayoutGuide type="bottom" id="g6h-vw-ID4"/>
                     </layoutGuides>
                     <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="1Ta-5U-KoV">
-                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="30c-Ya-zTW">
-                                <rect key="frame" x="8" y="40" width="651" height="306"/>
+                                <rect key="frame" x="8" y="65" width="359" height="573"/>
                                 <subviews>
                                     <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="E8J-dB-22q" userLabel="Top Left Stack View">
-                                        <rect key="frame" x="0.0" y="0.0" width="222" height="306"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="359" height="230"/>
                                         <subviews>
                                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zzd-vs-dOv" userLabel="Empty Top View">
-                                                <rect key="frame" x="0.0" y="0.0" width="222" height="50"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="359" height="30"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view clipsSubviews="YES" contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="oQx-AA-cxs" userLabel="Top Left View">
-                                                <rect key="frame" x="0.0" y="50" width="222" height="105"/>
+                                                <rect key="frame" x="0.0" y="30" width="359" height="170"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image-no-organization" translatesAutoresizingMaskIntoConstraints="NO" id="quN-na-7ti" userLabel="Logo Image View" customClass="CustomImageView" customModule="OmnieCommerce" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="222" height="105"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="359" height="170"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="isCircle" value="NO"/>
@@ -212,7 +212,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e8g-RN-oxg" userLabel="Data View">
-                                                <rect key="frame" x="0.0" y="155" width="222" height="30"/>
+                                                <rect key="frame" x="0.0" y="200" width="359" height="30"/>
                                                 <subviews>
                                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o3s-FE-K1t" userLabel="Date Label" customClass="UbuntuLightItalicVeryDarkGrayishBlueLabel" customModule="OmnieCommerce" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="9.5" width="24" height="11"/>
@@ -247,7 +247,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YmA-Cp-lbX">
-                                                <rect key="frame" x="0.0" y="185" width="222" height="121"/>
+                                                <rect key="frame" x="0.0" y="230" width="359" height="0.0"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
@@ -257,24 +257,19 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </stackView>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="szB-7v-Ggv">
-                                        <rect key="frame" x="222" y="0.0" width="429" height="306"/>
+                                        <rect key="frame" x="0.0" y="230" width="359" height="343"/>
                                         <subviews>
-                                            <textView contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" bounces="NO" showsHorizontalScrollIndicator="NO" delaysContentTouches="NO" canCancelContentTouches="NO" bouncesZoom="NO" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pvh-xD-20U">
-                                                <rect key="frame" x="0.0" y="40" width="429" height="266"/>
+                                            <textView clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" bounces="NO" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pvh-xD-20U">
+                                                <rect key="frame" x="0.0" y="0.0" width="359" height="343"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                <attributedString key="attributedText">
-                                                    <fragment>
-                                                        <string key="content">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda. Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda. Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda. Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                                        <attributes>
-                                                            <color key="NSColor" red="0.87058823529411766" green="0.87058823529411766" blue="0.87058823529411766" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <font key="NSFont" metaFont="cellTitle"/>
-                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                        </attributes>
-                                                    </fragment>
-                                                </attributedString>
+                                                <accessibility key="accessibilityConfiguration">
+                                                    <accessibilityTraits key="traits" link="YES"/>
+                                                </accessibility>
+                                                <color key="textColor" red="0.87058823529411766" green="0.87058823529411766" blue="0.87058823529411766" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="12"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="NO"/>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
                                                 </userDefinedRuntimeAttributes>
                                             </textView>
                                         </subviews>
@@ -301,7 +296,7 @@
                                 <variation key="heightClass=compact-widthClass=regular" axis="horizontal"/>
                             </stackView>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uac-VS-0kU" customClass="SmallTopBarView" customModule="OmnieCommerce" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="667" height="80"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="95"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="titleText" value="News"/>
@@ -310,7 +305,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Copyright" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DGi-jV-EAc" customClass="UbuntuLightDarkCyanLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                                <rect key="frame" x="8" y="355" width="651" height="11"/>
+                                <rect key="frame" x="8" y="647" width="359" height="11"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="11" id="hGg-kb-jEL"/>
@@ -405,11 +400,11 @@
                         <viewControllerLayoutGuide type="bottom" id="Cbj-Q9-SRe"/>
                     </layoutGuides>
                     <view key="view" clipsSubviews="YES" tag="2" contentMode="scaleToFill" id="QbX-Hq-wZJ">
-                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" tag="2" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vxL-xW-4a1" customClass="MSMTableView" customModule="OmnieCommerce" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>

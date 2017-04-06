@@ -16,11 +16,13 @@ enum RequestType {
     case userCheckEmail([String: Any], Bool)
     case userAutorization([String: Any], Bool)
     case userRegistration([String: Any], Bool)
+    case userGetActionByID([String: Any], Bool)
     case userForgotPassword([String: Any], Bool)
     case userGetActionsList([String: Any], Bool)
     case userGetNewsDataByID([String: Any], Bool)
     case userGetNewsDataList([String: Any], Bool)
     case userGetCategoriesList([String: Any], Bool)
+    case userGetOrganizationByID([String: Any], Bool)
     case userGetFavoriteServicesList([String: Any], Bool)
     case userGetServicesListByCategory([String: Any], Bool)
     case userAddRemoveServiceToFavorite([String: Any], Bool)
@@ -64,6 +66,13 @@ enum RequestType {
                                                                         headers: headers,
                                                                         parameters: (isBodyParams ? nil : params))
             
+        case .userGetActionByID(let params, let isBodyParams):  return (method: .get,
+                                                                        apiStringURL: "/user/promotion/",
+                                                                        body: (isBodyParams ? params : nil),
+                                                                        bodyType: .ItemsDictionary,
+                                                                        headers: headersExtended,
+                                                                        parameters: (isBodyParams ? nil : params))
+
         case .userForgotPassword(let params, let isBodyParams):     return (method: .get,
                                                                             apiStringURL: "/forgot/",
                                                                             body: (isBodyParams ? params : nil),
@@ -78,11 +87,10 @@ enum RequestType {
                                                                             headers: headersExtended,
                                                                             parameters: (isBodyParams ? nil : params))
 
-        // TODO: ADD REQUEST VIP-CYCLE WITH ISBODYPARAMS = FALSE
         case .userGetNewsDataByID(let params, let isBodyParams):    return (method: .get,
                                                                             apiStringURL: "/user/news/",
                                                                             body: (isBodyParams ? params : nil),
-                                                                            bodyType: .ItemsArray,
+                                                                            bodyType: .ItemsDictionary,
                                                                             headers: headersExtended,
                                                                             parameters: (isBodyParams ? nil : params))
             
@@ -100,6 +108,15 @@ enum RequestType {
                                                                             headers: headers,
                                                                             parameters: (isBodyParams ? nil : params))
             
+
+        
+        case .userGetOrganizationByID(let params, let isBodyParams):        return (method: .get,
+                                                                                    apiStringURL: "/user/organization/",
+                                                                                    body: (isBodyParams ? params : nil),
+                                                                                    bodyType: .ItemsDictionary,
+                                                                                    headers: headersExtended,
+                                                                                    parameters: (isBodyParams ? nil : params))
+
         case .userGetFavoriteServicesList(let params, let isBodyParams):    return (method: .post,
                                                                                     apiStringURL: "/user/service/favorite/",
                                                                                     body: (isBodyParams ? params : nil),

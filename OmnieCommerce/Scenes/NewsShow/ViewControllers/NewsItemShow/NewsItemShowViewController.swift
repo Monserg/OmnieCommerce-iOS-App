@@ -12,6 +12,7 @@ import Kingfisher
 class NewsItemShowViewController: BaseViewController {
     // MARK: - Properties
     var newsItem: NewsData!
+    var services: [Service]?
     var isRotate: Bool = false
     
     @IBOutlet weak var smallTopBarView: SmallTopBarView!
@@ -35,6 +36,22 @@ class NewsItemShowViewController: BaseViewController {
         super.viewDidLoad()
         
         viewSettingsDidLoad()
+
+//        spinnerDidStart(view)
+//        
+//        MSMRestApiManager.instance.userRequestDidRun(.userGetActionByID(["id": newsItem.codeID], false), withHandlerResponseAPICompletion: { responseAPI in
+//            // Check for errors
+//            guard responseAPI?.code == 200 else {
+//                self.alertViewDidShow(withTitle: "Error", andMessage: String(responseAPI!.status), completion: { _ in })
+//                return
+//            }
+//            
+//            // Mapping Action 
+//            self.action = Action.init()
+//            self.action.didMap(fromDictionary: responseAPI!.body as! [String: Any], completion: { _ in
+//                self.viewSettingsDidLoad()
+//            })
+//        })
     }
 
     override func didReceiveMemoryWarning() {
@@ -80,6 +97,80 @@ class NewsItemShowViewController: BaseViewController {
             })
         }
 
+        // Merge title + text + actions
+        let combination = NSMutableAttributedString()
+        let emptyString = NSMutableAttributedString.init(string: "\n")
+        
+        // News title
+        let paragraph = NSMutableParagraphStyle()
+        paragraph.alignment = .center
+        
+        let newsTitle = NSMutableAttributedString(string: newsItem.title,
+                                                  attributes:   [
+                                                                    NSFontAttributeName: UIFont.ubuntuLight16,
+                                                                    NSForegroundColorAttributeName: UIColor.veryLightGray,
+                                                                    NSTextEffectAttributeName: NSTextEffectLetterpressStyle,
+                                                                    NSParagraphStyleAttributeName: paragraph
+                                                                ])
+        
+        combination.append(newsTitle)
+
+        // News text
+        let newsText = NSMutableAttributedString(string: newsItem.text,
+                                                 attributes:    [
+                                                                    NSFontAttributeName: UIFont.ubuntuLight12,
+                                                                    NSForegroundColorAttributeName: UIColor.veryLightGray
+                                                                ])
+        
+        combination.append(emptyString)
+        combination.append(emptyString)
+        combination.append(newsText)
+        
+        // Action services title
+        if (newsItem.isAction && newsItem.services != nil) {
+            let actionServicesTitle = NSMutableAttributedString(string: "Action valid".localized(),
+                                                                attributes: [
+                                                                                NSFontAttributeName: UIFont.ubuntuLightItalic12,
+                                                                                NSForegroundColorAttributeName: UIColor.lightGrayishCyan
+                                                                            ])
+            
+            combination.append(emptyString)
+            combination.append(actionServicesTitle)
+            
+            // Add action services targets
+            for (index, service) in newsItem.services!.enumerated() {
+                let serviceName = service.name + ((index < newsItem.services!.count) ? "," : "")
+                
+                let serviceTarget = NSMutableAttributedString(string: serviceName,
+                                                              attributes:   [
+                                                                                NSFontAttributeName: UIFont.ubuntuLightItalic12,
+                                                                                NSForegroundColorAttributeName: UIColor.lightGrayishCyan,
+                                                                                NSUnderlineStyleAttributeName: 1
+                                                                            ])
+                
+                serviceTarget.addAttribute(NSLinkAttributeName, value: "cs://\(serviceName)", range: NSMakeRange(0, serviceName.characters.count))
+
+                combination.append(serviceTarget)
+
+//                let serviceRange = textView.text.range(of: name)
+//                textView.selectedRange = serviceRange
+//                let textRange = textView.selectedRange
+//                let textRect = textView.firstRect(for: textRange)
+//                let convertedRect = view.convert(textRect, from: textView)
+//                
+//                let serviceButton = UIButton.init(frame: convertedRect)
+//                serviceButton.backg
+//                [button setBackgroundColor:[UIColor clearColor]];
+//                [button addTarget:self action:@selector(textTapped:) forControlEvents:UIControlEventTouchUpInside];
+//                [self.view addSubview:button];
+//                [self.view bringSubviewToFront:button];
+                
+            }
+        }
+    
+        textView.attributedText = combination
+        spinnerDidFinish()
+        
         // Handler Back button tap
         smallTopBarView.handlerSendButtonCompletion = { _ in
             _ = self.navigationController?.popViewController(animated: true)
@@ -95,11 +186,30 @@ class NewsItemShowViewController: BaseViewController {
     
     // MARK: - Actions
     @IBAction func handlerOrganizationButtonTap(_ sender: BorderVeryDarkDesaturatedBlueButton) {
+        MSMRestApiManager.instance.userRequestDidRun(.userGetOrganizationByID(["id": newsItem.organizationID], false), withHandlerResponseAPICompletion: { responseAPI in
+            // Check for errors
+            guard responseAPI?.code == 200 else {
+                self.alertViewDidShow(withTitle: "Error", andMessage: String(responseAPI!.status), completion: { _ in })
+                return
+            }
+
+            let storyboard = UIStoryboard(name: "OrganizationShow", bundle: nil)
+            let organizationShowVC = storyboard.instantiateViewController(withIdentifier: "OrganizationShowVC") as! OrganizationShowViewController
+            
+            let organization = Organization()
+            organization.didMap(fromDictionary: responseAPI!.body as! [String: Any], completion: { _ in
+                organizationShowVC.organization = organization
+                self.navigationController!.pushViewController(organizationShowVC, animated: true)
+            })
+        })
     }
 }
 
 
 // MARK: - UITextViewDelegate
 extension NewsItemShowViewController: UITextViewDelegate {
-    
+    func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange) -> Bool {
+        alertViewDidShow(withTitle: "URRA", andMessage: URL.absoluteString, completion: {_ in })
+        return true
+    }
 }
