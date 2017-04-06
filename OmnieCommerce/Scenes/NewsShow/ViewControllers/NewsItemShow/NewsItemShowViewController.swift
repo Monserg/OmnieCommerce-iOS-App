@@ -36,22 +36,6 @@ class NewsItemShowViewController: BaseViewController {
         super.viewDidLoad()
         
         viewSettingsDidLoad()
-
-//        spinnerDidStart(view)
-//        
-//        MSMRestApiManager.instance.userRequestDidRun(.userGetActionByID(["id": newsItem.codeID], false), withHandlerResponseAPICompletion: { responseAPI in
-//            // Check for errors
-//            guard responseAPI?.code == 200 else {
-//                self.alertViewDidShow(withTitle: "Error", andMessage: String(responseAPI!.status), completion: { _ in })
-//                return
-//            }
-//            
-//            // Mapping Action 
-//            self.action = Action.init()
-//            self.action.didMap(fromDictionary: responseAPI!.body as! [String: Any], completion: { _ in
-//                self.viewSettingsDidLoad()
-//            })
-//        })
     }
 
     override func didReceiveMemoryWarning() {
@@ -100,6 +84,11 @@ class NewsItemShowViewController: BaseViewController {
         // Merge title + text + actions
         let combination = NSMutableAttributedString()
         let emptyString = NSMutableAttributedString.init(string: "\n")
+        let commaString = NSMutableAttributedString.init(string: ", ",
+                                                         attributes:    [
+                                                                            NSFontAttributeName: UIFont.ubuntuLightItalic12,
+                                                                            NSForegroundColorAttributeName: UIColor.lightGrayishCyan
+                                                                        ])
         
         // News title
         let paragraph = NSMutableParagraphStyle()
@@ -139,32 +128,22 @@ class NewsItemShowViewController: BaseViewController {
             
             // Add action services targets
             for (index, service) in newsItem.services!.enumerated() {
-                let serviceName = service.name + ((index < newsItem.services!.count) ? "," : "")
+                let serviceName = service.name
                 
-                let serviceTarget = NSMutableAttributedString(string: serviceName,
-                                                              attributes:   [
-                                                                                NSFontAttributeName: UIFont.ubuntuLightItalic12,
-                                                                                NSForegroundColorAttributeName: UIColor.lightGrayishCyan,
-                                                                                NSUnderlineStyleAttributeName: 1
-                                                                            ])
+                let serviceTarget = NSMutableAttributedString(string: serviceName!)
+                serviceTarget.addAttribute(NSLinkAttributeName,
+                                           value: "promotionServiceID" + service.codeID,
+                                           range: (serviceTarget.string as NSString).range(of: serviceName!))
                 
-                serviceTarget.addAttribute(NSLinkAttributeName, value: "cs://\(serviceName)", range: NSMakeRange(0, serviceName.characters.count))
-
+                serviceTarget.addAttributes([ NSFontAttributeName: UIFont.ubuntuLightItalic12, NSForegroundColorAttributeName: UIColor.lightGrayishCyan,
+                                              NSUnderlineStyleAttributeName: 1],
+                                            range: (serviceTarget.string as NSString).range(of: serviceName!))
+                
                 combination.append(serviceTarget)
-
-//                let serviceRange = textView.text.range(of: name)
-//                textView.selectedRange = serviceRange
-//                let textRange = textView.selectedRange
-//                let textRect = textView.firstRect(for: textRange)
-//                let convertedRect = view.convert(textRect, from: textView)
-//                
-//                let serviceButton = UIButton.init(frame: convertedRect)
-//                serviceButton.backg
-//                [button setBackgroundColor:[UIColor clearColor]];
-//                [button addTarget:self action:@selector(textTapped:) forControlEvents:UIControlEventTouchUpInside];
-//                [self.view addSubview:button];
-//                [self.view bringSubviewToFront:button];
                 
+                if (index < newsItem.services!.count) {
+                    combination.append(commaString)
+                }
             }
         }
     
@@ -209,7 +188,12 @@ class NewsItemShowViewController: BaseViewController {
 // MARK: - UITextViewDelegate
 extension NewsItemShowViewController: UITextViewDelegate {
     func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange) -> Bool {
-        alertViewDidShow(withTitle: "URRA", andMessage: URL.absoluteString, completion: {_ in })
+        if (URL.absoluteString.hasPrefix("promotionServiceID")) {
+            // Navigate to selected Service
+            handlerOrganizationButtonTap(organizationButton)
+            return false
+        }
+        
         return true
     }
 }

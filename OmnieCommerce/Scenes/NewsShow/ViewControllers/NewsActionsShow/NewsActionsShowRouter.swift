@@ -34,6 +34,7 @@ class NewsActionsShowRouter: NewsActionsShowRouterInput {
             // Mapping Action
             let action = NewsData.init()
             action.didMap(fromDictionary: responseAPI!.body as! [String: Any], completion: { _ in
+                action.isAction = true
                 let storyboard = UIStoryboard(name: "NewsShow", bundle: nil)
                 let newsItemShowVC = storyboard.instantiateViewController(withIdentifier: "NewsItemShowVC") as! NewsItemShowViewController
                 newsItemShowVC.newsItem = action
