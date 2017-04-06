@@ -181,6 +181,7 @@
 		B15ED1F41E68433200039737 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15ED1F31E68433200039737 /* Schedule.swift */; };
 		B15FD40A1DD1DD8C00782324 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15FD4091DD1DD8C00782324 /* AppDelegate.swift */; };
 		B163FE711E6FE039004AF42E /* UbuntuLightItalicDarkCyanButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B163FE701E6FE039004AF42E /* UbuntuLightItalicDarkCyanButton.swift */; };
+		B16AD9411E9672E600A51E73 /* NewsItemShowRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16AD9401E9672E600A51E73 /* NewsItemShowRouter.swift */; };
 		B16E966F1DE6C94000147CEF /* BigTopBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16E966E1DE6C94000147CEF /* BigTopBarView.swift */; };
 		B16E96711DE6C94D00147CEF /* BigTopBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B16E96701DE6C94D00147CEF /* BigTopBarView.xib */; };
 		B16E96731DE717E400147CEF /* BigCirleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16E96721DE717E400147CEF /* BigCirleView.swift */; };
@@ -608,6 +609,7 @@
 		B15FD4151DD1DD8C00782324 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Info.plist; sourceTree = "<group>"; };
 		B163FE6F1E6FB4E3004AF42E /* OmnieCommerceUser v.2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "OmnieCommerceUser v.2.xcdatamodel"; sourceTree = "<group>"; };
 		B163FE701E6FE039004AF42E /* UbuntuLightItalicDarkCyanButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UbuntuLightItalicDarkCyanButton.swift; sourceTree = "<group>"; };
+		B16AD9401E9672E600A51E73 /* NewsItemShowRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsItemShowRouter.swift; sourceTree = "<group>"; };
 		B16E966E1DE6C94000147CEF /* BigTopBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BigTopBarView.swift; sourceTree = "<group>"; };
 		B16E96701DE6C94D00147CEF /* BigTopBarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BigTopBarView.xib; sourceTree = "<group>"; };
 		B16E96721DE717E400147CEF /* BigCirleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BigCirleView.swift; sourceTree = "<group>"; };
@@ -1384,6 +1386,7 @@
 		B13FE1A61E9511A9000DD416 /* NewsItemShow */ = {
 			isa = PBXGroup;
 			children = (
+				B16AD9401E9672E600A51E73 /* NewsItemShowRouter.swift */,
 				B13FE1A71E95121B000DD416 /* NewsItemShowViewController.swift */,
 			);
 			path = NewsItemShow;
@@ -2243,6 +2246,7 @@
 				B1D883201E8E8C98006F4831 /* NewsDataShowRouter.swift in Sources */,
 				B10874691E5B07A6004A4FB6 /* OmnieCommerceUser.xcdatamodeld in Sources */,
 				B1FFF7341E5F0F9E00A075D8 /* PointAnnotation.swift in Sources */,
+				B16AD9411E9672E600A51E73 /* NewsItemShowRouter.swift in Sources */,
 				B1CF54781DDB50D900E98049 /* AboutShowModels.swift in Sources */,
 				B14E97561DD8B052001E1DE2 /* SignUpShowConfigurator.swift in Sources */,
 				B1D883131E8E8995006F4831 /* NewsDataTableViewCell.swift in Sources */,

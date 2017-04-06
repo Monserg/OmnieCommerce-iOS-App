@@ -15,6 +15,8 @@ class NewsItemShowViewController: BaseViewController {
     var services: [Service]?
     var isRotate: Bool = false
     
+    var router: NewsItemShowRouter!
+
     @IBOutlet weak var smallTopBarView: SmallTopBarView!
     
     @IBOutlet weak var dateLabel: UbuntuLightItalicVeryDarkGrayishBlueLabel!
@@ -26,6 +28,7 @@ class NewsItemShowViewController: BaseViewController {
             textView.font = UIFont.ubuntuLight12
             textView.textColor = UIColor.veryLightGray
             textView.textContainerInset = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
+            textView.linkTextAttributes = [ NSForegroundColorAttributeName: UIColor.lightGrayishCyan ]
             textView.delegate = self
         }
     }
@@ -135,13 +138,14 @@ class NewsItemShowViewController: BaseViewController {
                                            value: "promotionServiceID" + service.codeID,
                                            range: (serviceTarget.string as NSString).range(of: serviceName!))
                 
-                serviceTarget.addAttributes([ NSFontAttributeName: UIFont.ubuntuLightItalic12, NSForegroundColorAttributeName: UIColor.lightGrayishCyan,
+                serviceTarget.addAttributes([ NSFontAttributeName: UIFont.ubuntuLightItalic12,
+                                              NSForegroundColorAttributeName: UIColor.lightGrayishCyan,
                                               NSUnderlineStyleAttributeName: 1],
                                             range: (serviceTarget.string as NSString).range(of: serviceName!))
                 
                 combination.append(serviceTarget)
                 
-                if (index < newsItem.services!.count) {
+                if (index < newsItem.services!.count - 1) {
                     combination.append(commaString)
                 }
             }
@@ -165,22 +169,11 @@ class NewsItemShowViewController: BaseViewController {
     
     // MARK: - Actions
     @IBAction func handlerOrganizationButtonTap(_ sender: BorderVeryDarkDesaturatedBlueButton) {
-        MSMRestApiManager.instance.userRequestDidRun(.userGetOrganizationByID(["id": newsItem.organizationID], false), withHandlerResponseAPICompletion: { responseAPI in
-            // Check for errors
-            guard responseAPI?.code == 200 else {
-                self.alertViewDidShow(withTitle: "Error", andMessage: String(responseAPI!.status), completion: { _ in })
-                return
-            }
-
-            let storyboard = UIStoryboard(name: "OrganizationShow", bundle: nil)
-            let organizationShowVC = storyboard.instantiateViewController(withIdentifier: "OrganizationShowVC") as! OrganizationShowViewController
-            
-            let organization = Organization()
-            organization.didMap(fromDictionary: responseAPI!.body as! [String: Any], completion: { _ in
-                organizationShowVC.organization = organization
-                self.navigationController!.pushViewController(organizationShowVC, animated: true)
-            })
-        })
+        if (router == nil) {
+            router = NewsItemShowRouter()
+        }
+        
+        router.navigateToOrganizationShowScene(newsItem.organizationID, fromViewController: self)
     }
 }
 
