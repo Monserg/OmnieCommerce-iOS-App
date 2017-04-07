@@ -10,7 +10,7 @@ import UIKit
 
 @IBDesignable class UbuntuLightVeryLightOrangeButton: UIButton {
     // MARK: - Properties
-    @IBInspectable var isTitleUnderlined = false {
+    @IBInspectable var isTitleUnderlined: Bool = false {
         didSet {
             self.setNeedsDisplay()
         }
@@ -19,8 +19,8 @@ import UIKit
     
     // MARK: - Class Functions
     override func draw(_ rect: CGRect) {
-        tintColor           =   UIColor.veryLightOrange
-        let titleText       =   (titleLabel?.text != nil) ? (titleLabel?.text!.localized())! : String()
+        tintColor       =   UIColor.veryLightOrange
+        let titleText   =   (isTitleUnderlined) ? attributedTitle(for: .normal)!.string : (titleLabel?.text!.localized())!
         
         setAttributedTitle(NSAttributedString(string: titleText,
                                               attributes:   [ NSFontAttributeName: (isAppThemeDark ? UIFont.systemFont(ofSize: 9) : UIFont(name: "Ubuntu-Light", size: titleLabel!.font!.pointSize)!),
@@ -29,8 +29,8 @@ import UIKit
                                                             ]),
                            for: .normal)
         
-        borderColor         =   UIColor.clear
-        borderWidth         =   0
-        clipsToBounds       =   true
+        borderColor     =   UIColor.clear
+        borderWidth     =   0
+        clipsToBounds   =   true
     }
 }

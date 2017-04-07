@@ -33,6 +33,7 @@ class PhotosGalleryView: CustomView {
         self.backgroundColor = UIColor.clear
         self.layer.cornerRadius = 5
         self.clipsToBounds = true
+        self.serviceButton.setAttributedTitle(NSAttributedString.init(string: "Current page: 0"), for: .normal)
 
         view.addSubview(self)
         self.didShow()
@@ -79,6 +80,7 @@ class PhotosGalleryView: CustomView {
         
         imageSlideShow.currentPageChanged = { page in
             self.serviceButton.setAttributedTitle(NSAttributedString.init(string: "Current page: \(page)"), for: .normal)
+            self.serviceButton.isTitleUnderlined = true
         }
         
         // Load images
