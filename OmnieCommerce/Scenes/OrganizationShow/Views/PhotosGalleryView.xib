@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PhotosGalleryView" customModule="OmnieCommerce" customModuleProvider="target">
+            <connections>
+                <outlet property="imageSlideShow" destination="dq0-hI-lu0" id="aJI-bq-BV3"/>
+                <outlet property="serviceButton" destination="f8u-G2-mYK" id="sLh-lE-fwM"/>
+                <outlet property="view" destination="iN0-l3-epB" id="do5-T4-HxW"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="345" height="365"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FDh-E8-FRj" userLabel="Content View" customClass="CustomView" customModule="OmnieCommerce" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="345" height="365"/>
+                    <subviews>
+                        <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IZ5-WG-LTn" userLabel="Image View">
+                            <rect key="frame" x="0.0" y="0.0" width="345" height="265"/>
+                            <subviews>
+                                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dq0-hI-lu0" customClass="ImageSlideshow" customModule="ImageSlideshow">
+                                    <rect key="frame" x="0.0" y="0.0" width="345" height="265"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                    </userDefinedRuntimeAttributes>
+                                </view>
+                                <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jZw-x4-foH" userLabel="Cancel Button">
+                                    <rect key="frame" x="315" y="0.0" width="30" height="30"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="jZw-x4-foH" secondAttribute="height" multiplier="1:1" id="KJD-OO-xqI"/>
+                                    </constraints>
+                                    <state key="normal" image="icon-cancel-gold-normal"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <real key="value" value="5"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                    </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="handlerCancelButtonTap:" destination="-1" eventType="touchUpInside" id="jfE-41-7xC"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="center" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gpX-Y5-NnQ" userLabel="Left Button">
+                                    <rect key="frame" x="8" y="103.5" width="17" height="58"/>
+                                    <state key="normal" title="Button" image="icon-left-arrow-normal"/>
+                                    <connections>
+                                        <action selector="handlerLeftPageButtonTap:" destination="-1" eventType="touchUpInside" id="9ZF-Qn-jKi"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="center" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bEJ-Pn-LYH" userLabel="Right Button">
+                                    <rect key="frame" x="320" y="103.5" width="17" height="58"/>
+                                    <state key="normal" title="Button" image="icon-right-arrow-normal"/>
+                                    <connections>
+                                        <action selector="handlerRightPageButtonTap:" destination="-1" eventType="touchUpInside" id="OAG-wc-wEP"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="jZw-x4-foH" secondAttribute="trailing" id="2s6-9k-Jik"/>
+                                <constraint firstAttribute="bottom" secondItem="dq0-hI-lu0" secondAttribute="bottom" id="Nay-EK-ux0"/>
+                                <constraint firstItem="gpX-Y5-NnQ" firstAttribute="leading" secondItem="IZ5-WG-LTn" secondAttribute="leading" constant="8" id="Qbw-GY-SR6"/>
+                                <constraint firstItem="dq0-hI-lu0" firstAttribute="leading" secondItem="IZ5-WG-LTn" secondAttribute="leading" id="Sk4-pg-3D4"/>
+                                <constraint firstItem="bEJ-Pn-LYH" firstAttribute="width" secondItem="gpX-Y5-NnQ" secondAttribute="width" id="SkL-uk-dRP"/>
+                                <constraint firstItem="gpX-Y5-NnQ" firstAttribute="centerY" secondItem="IZ5-WG-LTn" secondAttribute="centerY" id="TBf-t3-eY2"/>
+                                <constraint firstItem="jZw-x4-foH" firstAttribute="top" secondItem="IZ5-WG-LTn" secondAttribute="top" id="Zhe-sr-ZpB"/>
+                                <constraint firstAttribute="trailing" secondItem="dq0-hI-lu0" secondAttribute="trailing" id="amu-zh-4me"/>
+                                <constraint firstAttribute="trailing" secondItem="bEJ-Pn-LYH" secondAttribute="trailing" constant="8" id="niS-cE-e3V"/>
+                                <constraint firstItem="dq0-hI-lu0" firstAttribute="top" secondItem="IZ5-WG-LTn" secondAttribute="top" id="oiS-3C-X3Z"/>
+                                <constraint firstItem="bEJ-Pn-LYH" firstAttribute="height" secondItem="gpX-Y5-NnQ" secondAttribute="height" id="oo4-24-Xow"/>
+                                <constraint firstItem="bEJ-Pn-LYH" firstAttribute="centerY" secondItem="IZ5-WG-LTn" secondAttribute="centerY" id="vaE-sw-pUF"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="5"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                        <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZcR-Vq-UZl" userLabel="Scroll View">
+                            <rect key="frame" x="0.0" y="235" width="345" height="130"/>
+                            <subviews>
+                                <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f8u-G2-mYK" userLabel="Service Button" customClass="UbuntuLightVeryLightOrangeButton" customModule="OmnieCommerce" customModuleProvider="target">
+                                    <rect key="frame" x="10" y="0.0" width="325" height="27"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                    <state key="normal" title="Service"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                    </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="handlerServiceButtonTap:" destination="-1" eventType="touchUpInside" id="1xQ-yq-kpC"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" red="0.16470588235294117" green="0.20784313725490194" blue="0.24705882352941178" alpha="0.5" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstItem="f8u-G2-mYK" firstAttribute="centerX" secondItem="ZcR-Vq-UZl" secondAttribute="centerX" id="H4z-96-Oqk"/>
+                                <constraint firstAttribute="trailing" secondItem="f8u-G2-mYK" secondAttribute="trailing" constant="10" id="IZ6-T1-Bcz"/>
+                                <constraint firstItem="f8u-G2-mYK" firstAttribute="top" secondItem="ZcR-Vq-UZl" secondAttribute="top" id="Yge-64-Uut"/>
+                                <constraint firstItem="f8u-G2-mYK" firstAttribute="leading" secondItem="ZcR-Vq-UZl" secondAttribute="leading" constant="10" id="xNB-4m-FWb"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="IZ5-WG-LTn" firstAttribute="leading" secondItem="FDh-E8-FRj" secondAttribute="leading" id="KOE-GQ-gG4"/>
+                        <constraint firstItem="IZ5-WG-LTn" firstAttribute="top" secondItem="FDh-E8-FRj" secondAttribute="top" id="Qpz-Xx-Z3m"/>
+                        <constraint firstItem="ZcR-Vq-UZl" firstAttribute="leading" secondItem="FDh-E8-FRj" secondAttribute="leading" id="Z9B-iN-81t"/>
+                        <constraint firstAttribute="bottom" secondItem="ZcR-Vq-UZl" secondAttribute="bottom" id="a3I-q5-dM1"/>
+                        <constraint firstAttribute="trailing" secondItem="ZcR-Vq-UZl" secondAttribute="trailing" id="ayR-iM-fuf"/>
+                        <constraint firstAttribute="trailing" secondItem="IZ5-WG-LTn" secondAttribute="trailing" id="bSU-6z-e8D"/>
+                        <constraint firstAttribute="width" constant="345" id="hrn-tg-MYG"/>
+                        <constraint firstAttribute="height" constant="365" id="nSo-wk-sJc"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="5"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="gpX-Y5-NnQ" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="17:345" id="9H4-o6-eES"/>
+                <constraint firstAttribute="bottom" secondItem="FDh-E8-FRj" secondAttribute="bottom" id="A2Z-2s-0fp"/>
+                <constraint firstItem="FDh-E8-FRj" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="FEg-OY-UZN"/>
+                <constraint firstItem="jZw-x4-foH" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="30:365" id="OEL-SV-BkK"/>
+                <constraint firstItem="IZ5-WG-LTn" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="265:365" id="PBo-h6-Z3o"/>
+                <constraint firstItem="FDh-E8-FRj" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="aUj-2B-qbJ"/>
+                <constraint firstItem="ZcR-Vq-UZl" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="130:365" id="f7U-In-EH4"/>
+                <constraint firstItem="gpX-Y5-NnQ" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="58:365" id="onV-O0-hcZ"/>
+                <constraint firstAttribute="trailing" secondItem="FDh-E8-FRj" secondAttribute="trailing" id="vuG-9D-feP"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+            </userDefinedRuntimeAttributes>
+        </view>
+    </objects>
+    <resources>
+        <image name="icon-cancel-gold-normal" width="12" height="12"/>
+        <image name="icon-left-arrow-normal" width="17" height="57"/>
+        <image name="icon-right-arrow-normal" width="17" height="57"/>
+    </resources>
+</document>

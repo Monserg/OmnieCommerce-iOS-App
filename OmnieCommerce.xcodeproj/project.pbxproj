@@ -385,6 +385,10 @@
 		B1EC9F471E8C13FE00F2E342 /* Services+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1EC9F431E8C13FE00F2E342 /* Services+CoreDataProperties.swift */; };
 		B1EC9F481E8C13FE00F2E342 /* FavoriteServices+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1EC9F441E8C13FE00F2E342 /* FavoriteServices+CoreDataClass.swift */; };
 		B1EC9F491E8C13FE00F2E342 /* FavoriteServices+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1EC9F451E8C13FE00F2E342 /* FavoriteServices+CoreDataProperties.swift */; };
+		B1F3CD541E97AA7900ECAC35 /* PhotosGalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F3CD531E97AA7900ECAC35 /* PhotosGalleryView.swift */; };
+		B1F3CD561E97AA7F00ECAC35 /* PhotosGalleryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1F3CD551E97AA7F00ECAC35 /* PhotosGalleryView.xib */; };
+		B1F3CD581E97DCB600ECAC35 /* ModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F3CD571E97DCB600ECAC35 /* ModalView.swift */; };
+		B1F3CD601E9806AD00ECAC35 /* ImageSlideshow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1F3CD5F1E9806AD00ECAC35 /* ImageSlideshow.framework */; };
 		B1F7EDB81DF54878003B36AD /* SegmentedControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F7EDB71DF54878003B36AD /* SegmentedControlView.swift */; };
 		B1F7EDBA1DF54886003B36AD /* SegmentedControlView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1F7EDB91DF54886003B36AD /* SegmentedControlView.xib */; };
 		B1FBC9161E6D474400D86429 /* LTHRadioButton.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1FBC9151E6D474400D86429 /* LTHRadioButton.framework */; };
@@ -820,6 +824,10 @@
 		B1EC9F431E8C13FE00F2E342 /* Services+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Services+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		B1EC9F441E8C13FE00F2E342 /* FavoriteServices+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FavoriteServices+CoreDataClass.swift"; sourceTree = "<group>"; };
 		B1EC9F451E8C13FE00F2E342 /* FavoriteServices+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FavoriteServices+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		B1F3CD531E97AA7900ECAC35 /* PhotosGalleryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotosGalleryView.swift; sourceTree = "<group>"; };
+		B1F3CD551E97AA7F00ECAC35 /* PhotosGalleryView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotosGalleryView.xib; sourceTree = "<group>"; };
+		B1F3CD571E97DCB600ECAC35 /* ModalView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalView.swift; sourceTree = "<group>"; };
+		B1F3CD5F1E9806AD00ECAC35 /* ImageSlideshow.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageSlideshow.framework; path = "../../../../../Library/Developer/Xcode/DerivedData/OmnieCommerce-enpckymiymzhiuhdgnbmlxbwmhew/Build/Products/Debug-iphonesimulator/ImageSlideshow/ImageSlideshow.framework"; sourceTree = "<group>"; };
 		B1F7EDB71DF54878003B36AD /* SegmentedControlView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentedControlView.swift; sourceTree = "<group>"; };
 		B1F7EDB91DF54886003B36AD /* SegmentedControlView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SegmentedControlView.xib; sourceTree = "<group>"; };
 		B1FBC9151E6D474400D86429 /* LTHRadioButton.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LTHRadioButton.framework; path = "../../../../../Library/Developer/Xcode/DerivedData/OmnieCommerce-enpckymiymzhiuhdgnbmlxbwmhew/Build/Products/Debug-iphonesimulator/LTHRadioButton/LTHRadioButton.framework"; sourceTree = "<group>"; };
@@ -871,6 +879,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1F3CD601E9806AD00ECAC35 /* ImageSlideshow.framework in Frameworks */,
 				B1131A961E768F2900DAF90A /* Alamofire.framework in Frameworks */,
 				B1131A971E768F2900DAF90A /* AlamofireImage.framework in Frameworks */,
 				B1FBC9161E6D474400D86429 /* LTHRadioButton.framework in Frameworks */,
@@ -898,6 +907,7 @@
 		A4A33B8C6849A99639A17A3F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B1F3CD5F1E9806AD00ECAC35 /* ImageSlideshow.framework */,
 				B1131A941E768F2900DAF90A /* Alamofire.framework */,
 				B1131A951E768F2900DAF90A /* AlamofireImage.framework */,
 				B1FBC9151E6D474400D86429 /* LTHRadioButton.framework */,
@@ -1039,6 +1049,7 @@
 				B18A45C71DEC23B2003EBD2F /* SmallTopBarView.swift */,
 				B18A45C51DEC21BA003EBD2F /* SmallTopBarView.xib */,
 				B19DFABC1E64AF3100599073 /* UMParallaxView.swift */,
+				B1F3CD571E97DCB600ECAC35 /* ModalView.swift */,
 			);
 			path = UIViews;
 			sourceTree = "<group>";
@@ -1450,6 +1461,8 @@
 				B13FE1A01E94C59C000DD416 /* BlackListView.xib */,
 				B155DE921E65C41500683384 /* PhonesView.swift */,
 				B155DE901E65C3F900683384 /* PhonesView.xib */,
+				B1F3CD531E97AA7900ECAC35 /* PhotosGalleryView.swift */,
+				B1F3CD551E97AA7F00ECAC35 /* PhotosGalleryView.xib */,
 				B1D738411E9382C300A764F4 /* ReviewsView.swift */,
 				B1D7384D1E93B0B200A764F4 /* ReviewsView.xib */,
 				B10CF5291E684B9700811DC1 /* ScheduleView.swift */,
@@ -2057,6 +2070,7 @@
 				B1C94BBE1E37823C00122933 /* BarCodeView.xib in Resources */,
 				B1BF92781DD6516C00BECBBB /* UBUNTU-B.TTF in Resources */,
 				B1BF92791DD6516C00BECBBB /* UBUNTU-BI.TTF in Resources */,
+				B1F3CD561E97AA7F00ECAC35 /* PhotosGalleryView.xib in Resources */,
 				B1CF54EA1DDB56BD00E98049 /* BusinessCardsShow.storyboard in Resources */,
 				B14D1D601E5CB60600D33435 /* GoogleService-Info.plist in Resources */,
 				B1CF54E21DDB529300E98049 /* AboutShow.storyboard in Resources */,
@@ -2190,6 +2204,7 @@
 				B1767D7A1E93DA520095859B /* UbuntuLightSoftOrangeLabel.swift in Sources */,
 				B1D8832C1E8E8D63006F4831 /* NewsActionsShowModels.swift in Sources */,
 				B122F2281DD35CC80018A701 /* SlideMenuShowWorker.swift in Sources */,
+				B1F3CD541E97AA7900ECAC35 /* PhotosGalleryView.swift in Sources */,
 				B122F2071DD35BEB0018A701 /* CategoriesShowModels.swift in Sources */,
 				B10B48DC1E8A5B2E007DDD81 /* FavoriteOrganizationsShowPresenter.swift in Sources */,
 				B1CF54CD1DDB51A500E98049 /* PersonalPageShowPresenter.swift in Sources */,
@@ -2246,6 +2261,7 @@
 				B1D883201E8E8C98006F4831 /* NewsDataShowRouter.swift in Sources */,
 				B10874691E5B07A6004A4FB6 /* OmnieCommerceUser.xcdatamodeld in Sources */,
 				B1FFF7341E5F0F9E00A075D8 /* PointAnnotation.swift in Sources */,
+				B1F3CD581E97DCB600ECAC35 /* ModalView.swift in Sources */,
 				B16AD9411E9672E600A51E73 /* NewsItemShowRouter.swift in Sources */,
 				B1CF54781DDB50D900E98049 /* AboutShowModels.swift in Sources */,
 				B14E97561DD8B052001E1DE2 /* SignUpShowConfigurator.swift in Sources */,

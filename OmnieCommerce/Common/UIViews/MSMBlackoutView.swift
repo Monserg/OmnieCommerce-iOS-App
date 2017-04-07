@@ -27,6 +27,7 @@ class MSMBlackoutView: UIView {
     
     // MARK: - Custom Functions
     private func setDesignOn(_ view: UIView) {
+        self.center = view.center
         view.addSubview(self)
         
         translatesAutoresizingMaskIntoConstraints   =   false

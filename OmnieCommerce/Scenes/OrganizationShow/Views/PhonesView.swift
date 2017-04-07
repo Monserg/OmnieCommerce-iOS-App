@@ -12,10 +12,8 @@ import PhoneNumberKit
 class PhonesView: CustomView {
     // MARK: - Properties
     var phones: [String]?
-    var isShow: Bool    =   false
-    let phoneNumberKit  =   PhoneNumberKit()
-    
-    var handlerCancelButtonCompletion: HandlerCancelButtonCompletion?
+    var isShow: Bool = false
+    let phoneNumberKit = PhoneNumberKit()
     
     @IBOutlet var view: UIView!
     @IBOutlet var phoneButtonsCollection: [CustomButton]!
@@ -23,37 +21,26 @@ class PhonesView: CustomView {
 
     // MARK: - Class Initialization
     init(inView view: UIView) {
-        super.init(frame: view.frame)
+        let newFrame = CGRect.init(origin: .zero, size: view.frame.size)
+        super.init(frame: newFrame)
         
         createFromXIB()
 
-        let widthRatio          =   ((UIApplication.shared.statusBarOrientation.isPortrait) ? 375 : 667) / view.frame.width
-        let heightRatio         =   ((UIApplication.shared.statusBarOrientation.isPortrait) ? 667 : 375) / view.frame.height
-        self.frame              =   CGRect.init(x: 0, y: 0, width: 345 * widthRatio, height: 185 * heightRatio)
-        self.alpha              =   0
-        self.backgroundColor    =   UIColor.clear
-        self.layer.cornerRadius =   5
-        self.clipsToBounds      =   true
+        self.alpha = 0
+        self.backgroundColor = UIColor.clear
+        self.layer.cornerRadius = 5
+        self.clipsToBounds = true
         
         view.addSubview(self)
-        self.translatesAutoresizingMaskIntoConstraints   =   false
-        
-        self.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive  =   true
-        self.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive  =   true
-        
         self.didShow()
     }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
-        createFromXIB()
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        
-        createFromXIB()
     }
     
     
@@ -64,31 +51,30 @@ class PhonesView: CustomView {
         }
         
         // Prepare phones stack view
-        var phoneNumbers        =   phoneNumberKit.parse(phones!)
+        var phoneNumbers = phoneNumberKit.parse(phones!)
 
-        if let countryCode      =   (Locale.current as NSLocale).object(forKey: .countryCode) as? String {
-            phoneNumbers        =   phoneNumberKit.parse(phones!, withRegion: countryCode,  ignoreType: true)
+        if let countryCode = (Locale.current as NSLocale).object(forKey: .countryCode) as? String {
+            phoneNumbers = phoneNumberKit.parse(phones!, withRegion: countryCode,  ignoreType: true)
         }
 
         for (index, button) in phoneButtonsCollection.enumerated() {
             if (index <= (phones?.count)! - 1) {
                 // Phone format: +61 2 3661 8300
-                let phoneNumber =   phoneNumberKit.format(phoneNumbers[index], toType: .international)
+                let phoneNumber = phoneNumberKit.format(phoneNumbers[index], toType: .international)
 
                 button.setAttributedTitle(NSAttributedString(string: phoneNumber, attributes: UIFont.ubuntuRegularSoftOrange21), for: .normal)
                 button.setAttributedTitle(NSAttributedString(string: phoneNumber, attributes: UIFont.ubuntuRegularSoftOrange21Alpha30), for: .highlighted)
             } else {
-                button.alpha    =   0
+                button.alpha = 0
             }
         }
     }
     
     override func didHide() {
         UIView.animate(withDuration: 0.5, animations: {
-            self.alpha          =   0
+            self.alpha = 0
         }, completion: { success in
             self.removeFromSuperview()
-            
             self.handlerCancelButtonCompletion!()
         })
     }
@@ -98,15 +84,15 @@ class PhonesView: CustomView {
     func createFromXIB() {
         UINib(nibName: String(describing: PhonesView.self), bundle: Bundle(for: PhonesView.self)).instantiate(withOwner: self, options: nil)
         addSubview(view)
-        view.frame  =   frame
+        view.frame = frame
     }
     
     
     // MARK: - Actions
     @IBAction func handlerPhoneButtonTap(_ sender: CustomButton) {
-        let phone   =   "tel://";
-        let str     =   sender.attributedTitle(for: .normal)?.string
-        let url     =   URL(string: phone + str!)
+        let phone = "tel://";
+        let str = sender.attributedTitle(for: .normal)?.string
+        let url = URL(string: phone + str!)
         
         if #available(iOS 10, *) {
             UIApplication.shared.open(url!, options: [:], completionHandler: nil)

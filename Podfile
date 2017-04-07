@@ -23,5 +23,7 @@ target 'OmnieCommerce' do
     pod 'SwiftyJSON', '~> 3.1'
     pod 'Kingfisher', '~> 3.5'
     pod 'Toucan', '~> 0.6'
+    pod 'ImageSlideshow', '~> 1.2'
+    pod 'ImageSlideshow/Kingfisher'
 
 end

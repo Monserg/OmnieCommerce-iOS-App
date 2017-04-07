@@ -16,6 +16,10 @@ import UIKit
         case LeftCircle     =   "LeftCircle"
     }
     
+    var values: [Any]?
+
+    var handlerCancelButtonCompletion: HandlerCancelButtonCompletion?
+
     @IBInspectable var circleRadius: CGFloat = 0 {
         didSet {
             setNeedsDisplay()

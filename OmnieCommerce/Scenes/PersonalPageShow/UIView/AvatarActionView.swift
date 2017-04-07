@@ -17,7 +17,6 @@ enum ActionType: Int {
 class AvatarActionView: CustomView {
     // MARK: - Properties
     var handlerViewDismissCompletion: HandlerViewDismissCompletion?
-    var handlerCancelButtonCompletion: HandlerCancelButtonCompletion?
     
     @IBOutlet var view: UIView!
     @IBOutlet weak var cancelButton: UIButton!

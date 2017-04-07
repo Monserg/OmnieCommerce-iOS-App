@@ -23,7 +23,7 @@ PODS:
     - FirebaseCore (~> 3.5)
     - FirebaseInstanceID (~> 1.0)
     - GoogleToolboxForMac/NSData+zlib (~> 2.1)
-  - FirebaseCore (3.5.1):
+  - FirebaseCore (3.5.2):
     - GoogleToolboxForMac/NSData+zlib (~> 2.1)
   - FirebaseInstanceID (1.0.9)
   - Google/Core (3.0.3):
@@ -56,8 +56,14 @@ PODS:
   - GTMSessionFetcher/Core (1.1.9)
   - GTMSessionFetcher/Full (1.1.9):
     - GTMSessionFetcher/Core (= 1.1.9)
-  - JTAppleCalendar (6.1.5)
-  - Kingfisher (3.5.2)
+  - ImageSlideshow (1.2.0):
+    - ImageSlideshow/Core (= 1.2.0)
+  - ImageSlideshow/Core (1.2.0)
+  - ImageSlideshow/Kingfisher (1.2.0):
+    - ImageSlideshow/Core
+    - Kingfisher (~> 3.0)
+  - JTAppleCalendar (6.1.6)
+  - Kingfisher (3.6.1)
   - Localize-Swift (1.7.1)
   - LTHRadioButton (1.1.1)
   - MXParallaxHeader (0.6.1)
@@ -69,7 +75,7 @@ PODS:
   - PhoneNumberKit/UIKit (1.2.2):
     - PhoneNumberKit/PhoneNumberKitCore
   - SwiftyJSON (3.1.4)
-  - SwiftyVK (2.0.6)
+  - SwiftyVK (2.0.7)
   - SWRevealViewController (2.3.0)
   - Toucan (0.6.0)
 
@@ -81,6 +87,8 @@ DEPENDENCIES:
   - Device (~> 2.0.0)
   - Google/SignIn
   - GooglePlaces
+  - ImageSlideshow (~> 1.2)
+  - ImageSlideshow/Kingfisher
   - JTAppleCalendar (~> 6.0)
   - Kingfisher (~> 3.5)
   - Localize-Swift (~> 1.6)
@@ -100,7 +108,7 @@ SPEC CHECKSUMS:
   Cosmos: 2c8299147138758f6ebbb247cf1aeed77998bdf9
   Device: 7dd12a4fc8a72a90211f2c9ac8975a728322a148
   FirebaseAnalytics: 0d1b7d81d5021155be37702a94ba1ec16d45365d
-  FirebaseCore: 225d40532489835a034b8f4e2c9c87fbf4f615a2
+  FirebaseCore: a024587e43778508700af8c6b1209f7c4516ba02
   FirebaseInstanceID: 2d0518b1378fe9d685ef40cbdd63d2fdc1125339
   Google: 813c467362eabc11385f5a5cc9ad0cb651a58f4e
   GoogleMaps: 104c418d61ab8a05dff06ed0784c25ea9d37da45
@@ -109,18 +117,19 @@ SPEC CHECKSUMS:
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
   GTMOAuth2: 7fc9c10f5c745f4d9850419ea88889fe3baa6b7d
   GTMSessionFetcher: 5c046c76a1f859bc9c187e918f18e4fc7bb57b5e
-  JTAppleCalendar: 7fe18d6b7c26b8095f714ff089d4c0cbd9d6a632
-  Kingfisher: 9950e382c500b6834ce004c7c4131c444e90c3a1
+  ImageSlideshow: c1395dcf33f7dba407fd21df0e8c315e8941e209
+  JTAppleCalendar: 560fb46421880f53ad54123295072de24bca2b18
+  Kingfisher: 2f31cb75f3e98d3d4c406cbdcd9b263e956cfa67
   Localize-Swift: 6cabc1087c0e910e77bfa87c2ed3f65c80c0b2df
   LTHRadioButton: 6d54db446b2edba0eafcb65b28deedb09dad8a47
   MXParallaxHeader: 858c403532ed933b381556a81ce333d7065ad182
   Navajo-Swift: b5ccdf31f5b21e4944a418c5dfe891c8e571f7c7
   PhoneNumberKit: ffae8f18fb78c1425c7af973711b0b0fd4f4104f
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
-  SwiftyVK: 548e77e9d49ed4f46c66786544c38776b394b14c
+  SwiftyVK: e7bb6f2d51cdfaeed4fda8166cf7e3503d1bf843
   SWRevealViewController: 6d3fd97f70112fd7cef9de14df4260eacce4c63a
   Toucan: 47485bbc9cb4541ef6318d6886103e6eaf16e919
 
-PODFILE CHECKSUM: f15f9386d752d61ff07d58043f05dfb26c1428f2
+PODFILE CHECKSUM: f6ccd22b32782ddf3d94481ff7b1793411c932f6
 
 COCOAPODS: 1.2.0.beta.1

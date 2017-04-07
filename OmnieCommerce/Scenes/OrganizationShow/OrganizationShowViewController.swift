@@ -33,11 +33,6 @@ class OrganizationShowViewController: BaseViewController {
     var headerView: UIImageView?
     var backButton: UIButton?
     var wasLaunchedAPI = false
-
-    var phonesView: PhonesView?
-    var scheduleView: ScheduleView?
-    var previewsView: ReviewsView?
-    var blackListView: BlackListView?
     
     @IBOutlet var scrollView: MXScrollView! {
         didSet {
@@ -46,6 +41,7 @@ class OrganizationShowViewController: BaseViewController {
     }
     
     @IBOutlet weak var smallTopBarView: SmallTopBarView!
+    @IBOutlet var modalView: ModalView?
     
     // Info view
     @IBOutlet weak var infoView: UIView!
@@ -69,6 +65,14 @@ class OrganizationShowViewController: BaseViewController {
     
 
     // MARK: - Class Functions
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+
+        if (blackoutView != nil) {
+            modalView?.center = blackoutView!.center
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -91,8 +95,8 @@ class OrganizationShowViewController: BaseViewController {
         haveMenuItem = false
         
         // Load data
-        let requestModel = OrganizationShowModels.Something.RequestModel()
-        interactor.doSomething(requestModel: requestModel)
+//        let requestModel = OrganizationShowModels.Organization.RequestModel()
+//        interactor.doSomething(requestModel: requestModel)
         
         // Handler Back button tap
         smallTopBarView.handlerSendButtonCompletion = { _ in
@@ -161,6 +165,46 @@ class OrganizationShowViewController: BaseViewController {
         }
     }
     
+    func modalViewDidShow(withHeight height: CGFloat, customSubview subView: CustomView, andValues values: [Any]?) {
+        var popupView = subView
+        
+        if (blackoutView == nil) {
+            blackoutView = MSMBlackoutView.init(inView: view)
+            blackoutView!.didShow()
+        }
+        
+        modalView = ModalView.init(inView: blackoutView!, withHeight: height)
+        
+        switch subView {
+        case subView as PhonesView:
+            popupView = PhonesView.init(inView: modalView!)
+            popupView.values = values as! [String]
+            
+        case subView as ScheduleView:
+            popupView = ScheduleView.init(inView: modalView!)
+            popupView.values = values as! [Schedule]
+            
+        case subView as ReviewsView:
+            popupView = ReviewsView.init(inView: modalView!)
+            
+        case subView as BlackListView:
+            popupView = BlackListView.init(inView: modalView!)
+            
+        case subView as PhotosGalleryView:
+            popupView = PhotosGalleryView.init(inView: modalView!)
+            
+        default:
+            break
+        }
+        
+        
+        // Handler Cancel button tap
+        popupView.handlerCancelButtonCompletion = { _ in
+            self.blackoutView!.didHide()
+            self.blackoutView = nil
+        }
+    }
+
     
     // MARK: - Transition
     override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -196,36 +240,12 @@ class OrganizationShowViewController: BaseViewController {
         }
         
         if (organization.phones!.count > 0) {
-            self.blackoutView = MSMBlackoutView.init(inView: view)
-
-            blackoutView!.didShow()
-      
-            phonesView = PhonesView.init(inView: view)
-            phonesView!.phones = organization.phones!
-            
-            // Handler Cancel button tap
-            phonesView!.handlerCancelButtonCompletion = { _ in
-                self.phonesView = nil
-                
-                self.blackoutView!.didHide()
-            }
+            modalViewDidShow(withHeight: 185, customSubview: PhonesView(), andValues: organization.phones!)
         }
     }
     
     @IBAction func handlerScheduleButtonTap(_ sender: CustomButton) {
-        self.blackoutView = MSMBlackoutView.init(inView: view)
-
-        blackoutView!.didShow()
-        
-        scheduleView = ScheduleView.init(inView: view)
-        scheduleView!.schedule = organization.schedule
-        
-        // Handler Cancel button tap
-        scheduleView!.handlerCancelButtonCompletion = { _ in
-            self.scheduleView = nil
-            
-            self.blackoutView!.didHide()
-        }
+        modalViewDidShow(withHeight: 185, customSubview: ScheduleView(), andValues: [organization.schedule!])
     }
     
     @IBAction func handlerFavoriteButtonTap(_ sender: UIButton) {
@@ -234,43 +254,32 @@ class OrganizationShowViewController: BaseViewController {
         sender.setImage(UIImage.init(named: (sender.tag == 0) ? "image-favorite-star-normal" : "image-favorite-star-selected"), for: .normal)
         
         // TODO: - ADD API TO POST FAVORITE STATE & CHANGE ORGANIZATION PROFILE
-        isFavorite = !isFavorite
-        
-        MSMRestApiManager.instance.userAddRemoveOrganizationToFavorite(["organization" : organizationID], withHandlerResponseAPICompletion: { responseAPI in
-            if (responseAPI?.code == 200) {
-                self.favoriteButton.setImage((self.isFavorite) ?    UIImage(named: "image-favorite-star-selected") :
-                    UIImage(named: "image-favorite-star-normal"), for: .normal)
-                
-                self.handlerFavoriteButtonTapCompletion!(self.organizationID)
-            }
-        })
+//        isFavorite = !isFavorite
+//        
+//        MSMRestApiManager.instance.userAddRemoveOrganizationToFavorite(["organization" : organizationID], withHandlerResponseAPICompletion: { responseAPI in
+//            if (responseAPI?.code == 200) {
+//                self.favoriteButton.setImage((self.isFavorite) ?    UIImage(named: "image-favorite-star-selected") :
+//                    UIImage(named: "image-favorite-star-normal"), for: .normal)
+//                
+//                self.handlerFavoriteButtonTapCompletion!(self.organizationID)
+//            }
+//        })
 
     }
     
     // TESTED
     @IBAction func handlerShowPopupView(_ sender: UIButton) {
-        self.blackoutView = MSMBlackoutView.init(inView: view)
-        blackoutView!.didShow()
-        
-//        previewsView = ReviewsView.init(inView: blackoutView!)
-        blackListView = BlackListView.init(inView: blackoutView!)
-        
-        // Handler Cancel button tap
-        blackListView!.handlerCancelButtonCompletion = { _ in
-//            previewsView!.handlerCancelButtonCompletion = { _ in
-//            self.previewsView = nil
-            self.blackListView = nil
-            self.blackoutView!.didHide()
-        }
+//        modalViewDidShow(withHeight: 285, customSubview: ReviewsView(), andValues: nil)
+//        modalViewDidShow(withHeight: 185, customSubview: BlackListView(), andValues: nil)
+        modalViewDidShow(withHeight: 365, customSubview: PhotosGalleryView(), andValues: nil)
     }
 }
 
 
 // MARK: - OrganizationShowViewControllerInput
 extension OrganizationShowViewController: OrganizationShowViewControllerInput {
-    func displaySomething(viewModel: OrganizationShowModels.Something.ViewModel) {
-        // NOTE: Display the result from the Presenter
-        // nameTextField.text = viewModel.name
+    func organizationDidShowLoad(fromViewModel: OrganizationShowModels.Organization.ViewModel) {
+        
     }
 }
 
