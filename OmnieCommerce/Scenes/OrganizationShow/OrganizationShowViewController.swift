@@ -16,12 +16,12 @@ import MXParallaxHeader
 
 // MARK: - Input protocols for current ViewController component VIP-cicle
 protocol OrganizationShowViewControllerInput {
-    func displaySomething(viewModel: OrganizationShowModels.Something.ViewModel)
+    func organizationDidShowLoad(fromViewModel: OrganizationShowModels.Organization.ViewModel)
 }
 
 // MARK: - Output protocols for Interactor component VIP-cicle
 protocol OrganizationShowViewControllerOutput {
-    func doSomething(requestModel: OrganizationShowModels.Something.RequestModel)
+    func organizationDidLoad(requestModel: OrganizationShowModels.Organization.RequestModel)
 }
 
 class OrganizationShowViewController: BaseViewController {
@@ -32,7 +32,8 @@ class OrganizationShowViewController: BaseViewController {
     var organization: Organization!
     var headerView: UIImageView?
     var backButton: UIButton?
-    
+    var wasLaunchedAPI = false
+
     var phonesView: PhonesView?
     var scheduleView: ScheduleView?
     var previewsView: ReviewsView?
@@ -70,10 +71,16 @@ class OrganizationShowViewController: BaseViewController {
     // MARK: - Class Functions
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        viewSettingsDidLoad()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
+        if (!wasLaunchedAPI) {
+            viewSettingsDidLoad()
+        }
+    }
+
 
     // MARK: - Custom Functions
     func viewSettingsDidLoad() {
@@ -227,6 +234,17 @@ class OrganizationShowViewController: BaseViewController {
         sender.setImage(UIImage.init(named: (sender.tag == 0) ? "image-favorite-star-normal" : "image-favorite-star-selected"), for: .normal)
         
         // TODO: - ADD API TO POST FAVORITE STATE & CHANGE ORGANIZATION PROFILE
+        isFavorite = !isFavorite
+        
+        MSMRestApiManager.instance.userAddRemoveOrganizationToFavorite(["organization" : organizationID], withHandlerResponseAPICompletion: { responseAPI in
+            if (responseAPI?.code == 200) {
+                self.favoriteButton.setImage((self.isFavorite) ?    UIImage(named: "image-favorite-star-selected") :
+                    UIImage(named: "image-favorite-star-normal"), for: .normal)
+                
+                self.handlerFavoriteButtonTapCompletion!(self.organizationID)
+            }
+        })
+
     }
     
     // TESTED
