@@ -37,8 +37,8 @@ class NewsItemShowRouter: NewsItemShowRouterInput {
             
             let storyboard = UIStoryboard(name: "OrganizationShow", bundle: nil)
             let organizationShowVC = storyboard.instantiateViewController(withIdentifier: "OrganizationShowVC") as! OrganizationShowViewController
+            let organization = Organization(withCommonProfile: true)
             
-            let organization = Organization()
             organization.didMap(fromDictionary: responseAPI!.body as! [String: Any], completion: { _ in
                 organizationShowVC.organization = organization
                 self.viewController.navigationController!.pushViewController(organizationShowVC, animated: true)

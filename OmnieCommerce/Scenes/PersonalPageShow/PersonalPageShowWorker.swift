@@ -14,31 +14,6 @@ import CoreLocation
 
 class PersonalPageShowWorker {
     // MARK: - Custom Functions. Business Logic
-    func userAppTemplatesDidLoad(forUserApp userAppCode: String) -> [Organization]? {
-        guard arc4random_uniform(2) == 1 else {
-            return nil
-        }
-        
-        var items = [Organization]()
-        
-        for index in 0..<11 {
-            let organization = Organization(codeID: "\(index)",
-                                            name: "Organization \(index)",
-                                            category: Category.init(),
-                                            rating: Double(arc4random_uniform(6)),
-                                            isFavorite: false,
-                                            logoURL: "http://vignette2.wikia.nocookie.net/logopedia/images/2/25/BMW_logo.png/revision/latest?cb=20150410110027",
-                                            city: "Lviv",
-                                            street: "Svobody Ave, 28",
-                                            latitude: 49.84402978414681,
-                                            longitude: 24.026198387145996)
-            
-            items.append(organization)
-        }
-
-        return items
-    }
-
     func userAppDidUpdateOnServer(withParameters parameters: [String: String]) -> AppUser {
         // NOTE: Do the work
         return CoreDataManager.instance.appUser

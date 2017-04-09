@@ -10,24 +10,36 @@
 import Foundation
 import CoreLocation
 
-class Service: NSObject, NSCoding, NSCopying, InitCellParameters, SearchObject, PointAnnotationBinding, MapObjectBinding {
+class Service: NSObject, NSCoding, InitCellParameters, SearchObject, PointAnnotationBinding {
     // MARK: - Properties
-    var codeID: String!
-    var name: String!
-    var organizationName: String?
     var category: Category?
-    var latitude: CLLocationDegrees?
-    var longitude: CLLocationDegrees?
-    var addressCity: String?
-    var addressStreet: String?
+
+    // From common API response
+    var codeID: String!
+    var organizationName: String?
     var logoURL: String?
     var headerURL: String?
     var rating: Double?
     var isFavorite: Bool = false
     
+    // Confirm SearchObject Protocol
+    var name: String!
+
+    // Confirm PointAnnotationBinding Protocol
+    var latitude: CLLocationDegrees?
+    var longitude: CLLocationDegrees?
+    var addressCity: String?
+    var addressStreet: String?
+
     // Confirm InitCellParameters Protocol
     var cellIdentifier: String = "ServiceTableViewCell"
     var cellHeight: CGFloat = 96.0
+    
+    // From full API response
+    
+    
+    
+    
     
     
     // MARK: - Class Initialization
@@ -84,9 +96,11 @@ class Service: NSObject, NSCoding, NSCopying, InitCellParameters, SearchObject, 
     deinit {
         print("\(type(of: self)) deinit")
     }
-    
-    
-    // Confirm MapObjectBinding Protocol
+}
+
+
+// MARK: - MapObjectBinding
+extension Service: MapObjectBinding {
     func didMap(fromDictionary dictionary: [String: Any], completion: @escaping (() -> ())) {
         self.codeID = dictionary["uuid"] as! String
         self.name = dictionary["name"] as! String
@@ -123,8 +137,11 @@ class Service: NSObject, NSCoding, NSCopying, InitCellParameters, SearchObject, 
             completion()
         }
     }
-    
-    // Confirm NSCopying Protocol
+}
+
+
+// MARK: - NSCopying
+extension Service: NSCopying {
     func copy(with zone: NSZone? = nil) -> Any {
         let copy = Service()
         return copy

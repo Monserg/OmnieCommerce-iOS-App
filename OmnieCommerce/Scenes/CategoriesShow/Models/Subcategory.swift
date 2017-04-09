@@ -7,14 +7,15 @@
 //
 
 import Foundation
-import CoreData
 
-class Subcategory: NSObject, NSCoding, DropDownItem, InitCellParameters, MapObjectBinding {
+class Subcategory: NSObject, NSCoding, DropDownItem, InitCellParameters {
     // MARK: - Properties
+    // Confirm DropDownItem Protocol
     var codeID: String!
     var name: String!
     var type: DropDownItemType! = .Subcategory
     
+    // Confirm InitCellParameters Protocol
     var cellIdentifier: String = "DropDownTableViewCell"
     var cellHeight: CGFloat = Config.Constants.dropDownCellHeight
 
@@ -46,9 +47,11 @@ class Subcategory: NSObject, NSCoding, DropDownItem, InitCellParameters, MapObje
     deinit {
         print("\(type(of: self)) deinit")
     }
-    
-    
-    // Confirm MapObjectBinding Protocol
+}
+
+
+// MARK: - MapObjectBinding
+extension Subcategory: MapObjectBinding {
     func didMap(fromDictionary dictionary: [String: Any], completion: @escaping (() -> ())) {
         self.codeID = dictionary["uuid"] as! String
         self.name = dictionary["name"] as! String

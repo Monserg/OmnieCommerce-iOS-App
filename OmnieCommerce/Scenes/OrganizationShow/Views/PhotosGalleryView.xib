@@ -14,6 +14,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PhotosGalleryView" customModule="OmnieCommerce" customModuleProvider="target">
             <connections>
                 <outlet property="imageSlideShow" destination="dq0-hI-lu0" id="aJI-bq-BV3"/>
+                <outlet property="imagesCollectionView" destination="JFI-03-IiI" id="U3U-Vt-gIm"/>
                 <outlet property="serviceButton" destination="f8u-G2-mYK" id="sLh-lE-fwM"/>
                 <outlet property="view" destination="iN0-l3-epB" id="do5-T4-HxW"/>
             </connections>
@@ -105,12 +106,31 @@
                                         <action selector="handlerServiceButtonTap:" destination="-1" eventType="touchUpInside" id="1xQ-yq-kpC"/>
                                     </connections>
                                 </button>
+                                <collectionView clipsSubviews="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="JFI-03-IiI" userLabel="Images Collection View">
+                                    <rect key="frame" x="0.0" y="45" width="345" height="85"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="lQs-gc-ptX">
+                                        <size key="itemSize" width="50" height="50"/>
+                                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    </collectionViewFlowLayout>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                            <color key="value" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </collectionView>
                             </subviews>
                             <color key="backgroundColor" red="0.16470588235294117" green="0.20784313725490194" blue="0.24705882352941178" alpha="0.5" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstItem="f8u-G2-mYK" firstAttribute="centerX" secondItem="ZcR-Vq-UZl" secondAttribute="centerX" id="H4z-96-Oqk"/>
                                 <constraint firstAttribute="trailing" secondItem="f8u-G2-mYK" secondAttribute="trailing" constant="10" id="IZ6-T1-Bcz"/>
+                                <constraint firstAttribute="bottom" secondItem="JFI-03-IiI" secondAttribute="bottom" id="P0b-PU-eOu"/>
                                 <constraint firstItem="f8u-G2-mYK" firstAttribute="top" secondItem="ZcR-Vq-UZl" secondAttribute="top" id="Yge-64-Uut"/>
+                                <constraint firstAttribute="trailing" secondItem="JFI-03-IiI" secondAttribute="trailing" id="fOE-m0-7JC"/>
+                                <constraint firstItem="JFI-03-IiI" firstAttribute="leading" secondItem="ZcR-Vq-UZl" secondAttribute="leading" id="rgV-ab-WqM"/>
                                 <constraint firstItem="f8u-G2-mYK" firstAttribute="leading" secondItem="ZcR-Vq-UZl" secondAttribute="leading" constant="10" id="xNB-4m-FWb"/>
                             </constraints>
                             <userDefinedRuntimeAttributes>
@@ -144,6 +164,7 @@
                 <constraint firstItem="FDh-E8-FRj" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="FEg-OY-UZN"/>
                 <constraint firstItem="jZw-x4-foH" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="30:365" id="OEL-SV-BkK"/>
                 <constraint firstItem="IZ5-WG-LTn" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="265:365" id="PBo-h6-Z3o"/>
+                <constraint firstItem="JFI-03-IiI" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="85:365" id="XE9-vS-Eeb"/>
                 <constraint firstItem="FDh-E8-FRj" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="aUj-2B-qbJ"/>
                 <constraint firstItem="ZcR-Vq-UZl" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="130:365" id="f7U-In-EH4"/>
                 <constraint firstItem="gpX-Y5-NnQ" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="58:365" id="onV-O0-hcZ"/>

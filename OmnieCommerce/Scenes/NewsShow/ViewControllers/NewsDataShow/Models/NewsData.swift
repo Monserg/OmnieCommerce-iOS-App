@@ -8,18 +8,20 @@
 
 import Foundation
 
-class NewsData: NSObject, NSCoding, NSCopying, InitCellParameters, SearchObject, MapObjectBinding {
+class NewsData: NSObject, NSCoding, InitCellParameters, SearchObject {
     // MARK: - Properties
     var codeID: String!
     var organizationID: String!
-    var name: String!   // organizationName
     var title: String!
     var text: String!
     var logoStringURL: String?
     var activeDate: Date!
     var services: [Service]?
     var isAction: Bool = false
-    
+
+    // Confirm SearchObject Protocol
+    var name: String!   // organizationName
+
     // Confirm InitCellParameters Protocol
     var cellIdentifier: String = "NewsDataTableViewCell"
     var cellHeight: CGFloat = 96.0
@@ -70,9 +72,11 @@ class NewsData: NSObject, NSCoding, NSCopying, InitCellParameters, SearchObject,
     deinit {
         print("\(type(of: self)) deinit")
     }
-    
-    
-    // Confirm MapObjectBinding Protocol
+}
+
+
+// MARK: - MapObjectBinding
+extension NewsData: MapObjectBinding {
     func didMap(fromDictionary dictionary: [String: Any], completion: @escaping (() -> ())) {
         self.codeID = dictionary["uuid"] as! String
         self.organizationID = dictionary["organization"] as! String
@@ -108,8 +112,11 @@ class NewsData: NSObject, NSCoding, NSCopying, InitCellParameters, SearchObject,
 
         completion()
     }
-    
-    // Confirm NSCopying Protocol
+}
+
+
+// MARK: - NSCopying
+extension NewsData: NSCopying {
     func copy(with zone: NSZone? = nil) -> Any {
         let copy = NewsData()
         return copy

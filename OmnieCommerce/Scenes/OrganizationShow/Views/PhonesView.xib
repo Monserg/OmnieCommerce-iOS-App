@@ -29,7 +29,20 @@
                     <subviews>
                         <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FwR-Eb-Cpz" userLabel="Left View" customClass="CustomView" customModule="OmnieCommerce" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="0.0" width="100" height="185"/>
+                            <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image-phone-half" translatesAutoresizingMaskIntoConstraints="NO" id="6Cw-s9-rcH">
+                                    <rect key="frame" x="0.0" y="7" width="50" height="170"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                    </userDefinedRuntimeAttributes>
+                                </imageView>
+                            </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="6Cw-s9-rcH" firstAttribute="centerY" secondItem="FwR-Eb-Cpz" secondAttribute="centerY" id="Tpq-pt-Io5"/>
+                                <constraint firstItem="6Cw-s9-rcH" firstAttribute="leading" secondItem="FwR-Eb-Cpz" secondAttribute="leading" id="uz5-KT-69P"/>
+                            </constraints>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
                                 <userDefinedRuntimeAttribute type="number" keyPath="circleRadius">
@@ -153,6 +166,8 @@
                 <constraint firstAttribute="trailing" secondItem="0Id-ez-8qm" secondAttribute="trailing" id="6ri-5Y-gDW"/>
                 <constraint firstItem="0Id-ez-8qm" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="KZd-lB-4eO"/>
                 <constraint firstItem="0Id-ez-8qm" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="aIC-cQ-7IO"/>
+                <constraint firstItem="6Cw-s9-rcH" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="170:185" id="hcv-28-P4L"/>
+                <constraint firstItem="6Cw-s9-rcH" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="50:345" id="vbL-a4-wrI"/>
                 <constraint firstItem="FwR-Eb-Cpz" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="100:345" id="xdE-0L-fKX"/>
                 <constraint firstAttribute="bottom" secondItem="0Id-ez-8qm" secondAttribute="bottom" id="z87-q7-Sdg"/>
             </constraints>
@@ -163,5 +178,6 @@
     </objects>
     <resources>
         <image name="icon-cancel-gold-normal" width="12" height="12"/>
+        <image name="image-phone-half" width="56" height="167"/>
     </resources>
 </document>

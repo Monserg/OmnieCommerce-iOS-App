@@ -37,7 +37,7 @@ class OrganizationsShowPresenter: OrganizationsShowPresenterInput {
         }
         
         // Convert Google Place ID to address strings
-        responseModel.responseAPI!.itemsDidLoad(fromItemsArray: responseModel.responseAPI!.body as! [Any], withItem: Organization.init(), completion: { organizations in
+        responseModel.responseAPI!.itemsDidLoad(fromItemsArray: responseModel.responseAPI!.body as! [Any], withItem: Organization.init(withCommonProfile: true), completion: { organizations in
             // Prepare to save Organizations in CoreData
             let _ = organizations.map { $0.category = responseModel.category }
             let entityOrganizations = CoreDataManager.instance.entityDidLoad(byName: keyOrganizations) as! Organizations

@@ -6,11 +6,10 @@
 //  Copyright © 2017 Omniesoft. All rights reserved.
 //
 
-import CoreData
-import SwiftyJSON
 import Foundation
+import SwiftyJSON
 
-class Category: NSObject, NSCoding, NSCopying, InitCellParameters, MapObjectBinding {
+class Category: NSObject, NSCoding, InitCellParameters {
     // MARK: - Properties
     var codeID: String!
     var name: String!
@@ -55,9 +54,11 @@ class Category: NSObject, NSCoding, NSCopying, InitCellParameters, MapObjectBind
     deinit {
         print("\(type(of: self)) deinit")
     }
+}
 
-    
-    // Confirm MapObjectBinding Protocol
+
+// MARK: - MapObjectBinding
+extension Category: MapObjectBinding {
     func didMap(fromDictionary dictionary: [String: Any], completion: @escaping (() -> ())) {
         self.codeID = dictionary["uuid"] as! String
         self.name = dictionary["name"] as! String
@@ -83,8 +84,12 @@ class Category: NSObject, NSCoding, NSCopying, InitCellParameters, MapObjectBind
 
         completion()
     }
-    
-    // Confirm NSCopying Protocol
+}
+
+
+
+// MARK: - NSCopying
+extension Category: NSCopying {
     func copy(with zone: NSZone? = nil) -> Any {
         let copy = Category()
         return copy

@@ -13,11 +13,12 @@ import UIKit
 
 // MARK: - Input protocols for current Interactor component VIP-cicle
 protocol OrganizationShowInteractorInput {
-    func organizationDidLoad(requestModel: OrganizationShowModels.Organization.RequestModel)
+    func organizationDidLoad(withRequestModel requestModel: OrganizationShowModels.OrganizationItem.RequestModel)
 }
 
 // MARK: - Output protocols for Presenter component VIP-cicle
 protocol OrganizationShowInteractorOutput {
+    func organizationDidPrepareToShowLoad(fromResponseModel responseModel: OrganizationShowModels.OrganizationItem.ResponseModel)
 }
 
 class OrganizationShowInteractor: OrganizationShowInteractorInput {
@@ -27,7 +28,11 @@ class OrganizationShowInteractor: OrganizationShowInteractorInput {
     
     
     // MARK: - Custom Functions. Business logic
-    func organizationDidLoad(requestModel: OrganizationShowModels.Organization.RequestModel) {
-        
+    func organizationDidLoad(withRequestModel requestModel: OrganizationShowModels.OrganizationItem.RequestModel) {
+        MSMRestApiManager.instance.userRequestDidRun(.userGetOrganizationByID(requestModel.parameters, false), withHandlerResponseAPICompletion: { responseAPI in
+            // Pass the result to the Presenter
+            let organizationResponseModel = OrganizationShowModels.OrganizationItem.ResponseModel(responseAPI: responseAPI)
+            self.presenter.organizationDidPrepareToShowLoad(fromResponseModel: organizationResponseModel)
+        })
     }
 }

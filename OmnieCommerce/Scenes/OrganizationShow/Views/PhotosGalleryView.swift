@@ -19,7 +19,7 @@ class PhotosGalleryView: CustomView {
     @IBOutlet var view: UIView!
     @IBOutlet var imageSlideShow: ImageSlideshow!
     @IBOutlet weak var serviceButton: UbuntuLightVeryLightOrangeButton!
-    
+    @IBOutlet weak var imagesCollectionView: UICollectionView!
     
     // MARK: - Class Initialization
     init(inView view: UIView) {
@@ -28,6 +28,7 @@ class PhotosGalleryView: CustomView {
         
         createFromXIB()
         imagesDidLoad()
+        imagesCollectionView.register(UINib(nibName: "CirclePhotoCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CirclePhotoCollectionViewCell")
         
         self.alpha = 0
         self.backgroundColor = UIColor.clear

@@ -36,7 +36,7 @@ class FavoriteOrganizationsShowPresenter: FavoriteOrganizationsShowPresenterInpu
         }
         
         // Format the response from the Interactor and pass the result back to the View Controller
-        responseModel.responseAPI!.itemsDidLoad(fromItemsArray: responseModel.responseAPI!.body as! [Any], withItem: Organization.init(), completion: { favoriteOrganizations in
+        responseModel.responseAPI!.itemsDidLoad(fromItemsArray: responseModel.responseAPI!.body as! [Any], withItem: Organization.init(withCommonProfile: true), completion: { favoriteOrganizations in
             // Prepare to save Favorite Organizations in CoreData
             let _ = favoriteOrganizations.map { $0.cellHeight = 60.0; $0.cellIdentifier = "FavoriteOrganizationTableViewCell" }
             let entityFavoriteOrganizations = CoreDataManager.instance.entityDidLoad(byName: keyFavoriteOrganizations) as! FavoriteOrganizations

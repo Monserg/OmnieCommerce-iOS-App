@@ -93,10 +93,10 @@ class PersonalPageShowInteractor: PersonalPageShowInteractorInput {
 
     func userAppTemplatesDidLoad(withRequestModel requestModel: PersonalPageShowModels.Templates.RequestModel) {
         worker = PersonalPageShowWorker()
-        let items = worker.userAppTemplatesDidLoad(forUserApp: requestModel.userID)
-        
-        // Pass the result to the Presenter
-        let responseModel = PersonalPageShowModels.Templates.ResponseModel(items: items)
-        presenter.userAppTemplatesDidPrepareToShowLoad(fromResponseModel: responseModel)
+//        let items = worker.userAppTemplatesDidLoad(forUserApp: requestModel.userID)
+//        
+//        // Pass the result to the Presenter
+//        let responseModel = PersonalPageShowModels.Templates.ResponseModel(items: items)
+//        presenter.userAppTemplatesDidPrepareToShowLoad(fromResponseModel: responseModel)
     }
 }

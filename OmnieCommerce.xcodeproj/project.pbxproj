@@ -389,6 +389,11 @@
 		B1F3CD561E97AA7F00ECAC35 /* PhotosGalleryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1F3CD551E97AA7F00ECAC35 /* PhotosGalleryView.xib */; };
 		B1F3CD581E97DCB600ECAC35 /* ModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F3CD571E97DCB600ECAC35 /* ModalView.swift */; };
 		B1F3CD601E9806AD00ECAC35 /* ImageSlideshow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1F3CD5F1E9806AD00ECAC35 /* ImageSlideshow.framework */; };
+		B1F3CD641E988ADA00ECAC35 /* CirclePhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F3CD621E988ADA00ECAC35 /* CirclePhotoCollectionViewCell.swift */; };
+		B1F3CD651E988ADA00ECAC35 /* CirclePhotoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1F3CD631E988ADA00ECAC35 /* CirclePhotoCollectionViewCell.xib */; };
+		B1F3CD671E98927400ECAC35 /* GalleryImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F3CD661E98927400ECAC35 /* GalleryImage.swift */; };
+		B1F3CD691E98A3BE00ECAC35 /* ServicePrice.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F3CD681E98A3BE00ECAC35 /* ServicePrice.swift */; };
+		B1F3CD6B1E98AB4300ECAC35 /* Discount.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F3CD6A1E98AB4300ECAC35 /* Discount.swift */; };
 		B1F7EDB81DF54878003B36AD /* SegmentedControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F7EDB71DF54878003B36AD /* SegmentedControlView.swift */; };
 		B1F7EDBA1DF54886003B36AD /* SegmentedControlView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1F7EDB91DF54886003B36AD /* SegmentedControlView.xib */; };
 		B1FBC9161E6D474400D86429 /* LTHRadioButton.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1FBC9151E6D474400D86429 /* LTHRadioButton.framework */; };
@@ -828,6 +833,11 @@
 		B1F3CD551E97AA7F00ECAC35 /* PhotosGalleryView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotosGalleryView.xib; sourceTree = "<group>"; };
 		B1F3CD571E97DCB600ECAC35 /* ModalView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalView.swift; sourceTree = "<group>"; };
 		B1F3CD5F1E9806AD00ECAC35 /* ImageSlideshow.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageSlideshow.framework; path = "../../../../../Library/Developer/Xcode/DerivedData/OmnieCommerce-enpckymiymzhiuhdgnbmlxbwmhew/Build/Products/Debug-iphonesimulator/ImageSlideshow/ImageSlideshow.framework"; sourceTree = "<group>"; };
+		B1F3CD621E988ADA00ECAC35 /* CirclePhotoCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CirclePhotoCollectionViewCell.swift; sourceTree = "<group>"; };
+		B1F3CD631E988ADA00ECAC35 /* CirclePhotoCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CirclePhotoCollectionViewCell.xib; sourceTree = "<group>"; };
+		B1F3CD661E98927400ECAC35 /* GalleryImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryImage.swift; sourceTree = "<group>"; };
+		B1F3CD681E98A3BE00ECAC35 /* ServicePrice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServicePrice.swift; sourceTree = "<group>"; };
+		B1F3CD6A1E98AB4300ECAC35 /* Discount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Discount.swift; sourceTree = "<group>"; };
 		B1F7EDB71DF54878003B36AD /* SegmentedControlView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentedControlView.swift; sourceTree = "<group>"; };
 		B1F7EDB91DF54886003B36AD /* SegmentedControlView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SegmentedControlView.xib; sourceTree = "<group>"; };
 		B1FBC9151E6D474400D86429 /* LTHRadioButton.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LTHRadioButton.framework; path = "../../../../../Library/Developer/Xcode/DerivedData/OmnieCommerce-enpckymiymzhiuhdgnbmlxbwmhew/Build/Products/Debug-iphonesimulator/LTHRadioButton/LTHRadioButton.framework"; sourceTree = "<group>"; };
@@ -1292,6 +1302,7 @@
 				B12FE6421E57321500A4FBA4 /* Managers */,
 				B122F2391DD36F220018A701 /* UIButtons */,
 				B137EC911E7D1998006F0184 /* UICollectionView */,
+				B1F3CD611E988A8A00ECAC35 /* UICollectionViewCell */,
 				B11B9ADB1DF0537A009A4AA1 /* UIImageView */,
 				B1228FBB1DD4BDE600A90FBB /* UILabels */,
 				B122F23F1DD371830018A701 /* UINavigationControllers */,
@@ -1496,6 +1507,7 @@
 		B15ED1F21E68431C00039737 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				B1F3CD661E98927400ECAC35 /* GalleryImage.swift */,
 				B15ED1F31E68433200039737 /* Schedule.swift */,
 			);
 			path = Models;
@@ -1895,6 +1907,15 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		B1F3CD611E988A8A00ECAC35 /* UICollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				B1F3CD621E988ADA00ECAC35 /* CirclePhotoCollectionViewCell.swift */,
+				B1F3CD631E988ADA00ECAC35 /* CirclePhotoCollectionViewCell.xib */,
+			);
+			path = UICollectionViewCell;
+			sourceTree = "<group>";
+		};
 		B1FBC9171E6D493200D86429 /* RadioButton */ = {
 			isa = PBXGroup;
 			children = (
@@ -1939,8 +1960,10 @@
 		B1FFF71D1E5F037100A075D8 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				B1F3CD6A1E98AB4300ECAC35 /* Discount.swift */,
 				B1FFF71E1E5F038400A075D8 /* Organization.swift */,
 				B1EC9F401E8C133800F2E342 /* Service.swift */,
+				B1F3CD681E98A3BE00ECAC35 /* ServicePrice.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -2060,6 +2083,7 @@
 				B122DF6B1DF804CD003823AD /* SegmentedControlViewLandscape.xib in Resources */,
 				B1C13D8D1DEF3385002B494A /* DropDown.storyboard in Resources */,
 				B1D738501E93B23300A764F4 /* Assets.xcassets in Resources */,
+				B1F3CD651E988ADA00ECAC35 /* CirclePhotoCollectionViewCell.xib in Resources */,
 				B18A45C61DEC21BA003EBD2F /* SmallTopBarView.xib in Resources */,
 				B1BF92761DD6516C00BECBBB /* helveticaneuecyr-ultralight.otf in Resources */,
 				B1FFF7191E5F01A000A075D8 /* OrganizationsMapShow.storyboard in Resources */,
@@ -2235,6 +2259,7 @@
 				B14107C71DFEB1D700F79CF9 /* CustomView.swift in Sources */,
 				B10B48CC1E8A5AEC007DDD81 /* FavoriteServicesShowInteractor.swift in Sources */,
 				B1D883351E8E9150006F4831 /* Actions+CoreDataClass.swift in Sources */,
+				B1F3CD691E98A3BE00ECAC35 /* ServicePrice.swift in Sources */,
 				B1CF54771DDB50D900E98049 /* AboutShowInteractor.swift in Sources */,
 				B16E96731DE717E400147CEF /* BigCirleView.swift in Sources */,
 				B177E5491E54AC7F004F1390 /* EnterCodeShowModels.swift in Sources */,
@@ -2287,6 +2312,7 @@
 				B122DF691DF7F957003823AD /* CalendarShowWorker.swift in Sources */,
 				B122F1ED1DD35BA70018A701 /* MessagesShowRouter.swift in Sources */,
 				B19E01B01E78217500B53E02 /* NewPhoneView.swift in Sources */,
+				B1F3CD641E988ADA00ECAC35 /* CirclePhotoCollectionViewCell.swift in Sources */,
 				B1FFF7131E5F017A00A075D8 /* OrganizationsMapShowModels.swift in Sources */,
 				B1D883301E8E8D63006F4831 /* NewsActionsShowWorker.swift in Sources */,
 				B14E97491DD8B042001E1DE2 /* SignInShowInteractor.swift in Sources */,
@@ -2294,6 +2320,7 @@
 				B1CF54B21DDB516E00E98049 /* OmnieCardsShowRouter.swift in Sources */,
 				B1CF54C21DDB519000E98049 /* OnmieSoftShowWorker.swift in Sources */,
 				B11B9AD61DF00CC5009A4AA1 /* BaseTableViewCell.swift in Sources */,
+				B1F3CD6B1E98AB4300ECAC35 /* Discount.swift in Sources */,
 				B149A7BA1E5D8DD3009BF8C7 /* AnimatedButton.swift in Sources */,
 				B122F2161DD35C2C0018A701 /* NewsShowPresenter.swift in Sources */,
 				B1CF54A51DDB515000E98049 /* HandbookShowViewController.swift in Sources */,
@@ -2484,6 +2511,7 @@
 				B10B48CE1E8A5AEC007DDD81 /* FavoriteServicesShowPresenter.swift in Sources */,
 				B177E54D1E54AC7F004F1390 /* EnterCodeShowWorker.swift in Sources */,
 				B1D8831E1E8E8C98006F4831 /* NewsDataShowModels.swift in Sources */,
+				B1F3CD671E98927400ECAC35 /* GalleryImage.swift in Sources */,
 				B122F1F81DD35BC70018A701 /* FavoriteShowInteractor.swift in Sources */,
 				B14E976A1DD8B05E001E1DE2 /* ForgotPasswordShowWorker.swift in Sources */,
 				B1CF54DE1DDB51BE00E98049 /* SettingsShowWorker.swift in Sources */,

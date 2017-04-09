@@ -11,7 +11,6 @@ import PhoneNumberKit
 
 class PhonesView: CustomView {
     // MARK: - Properties
-    var phones: [String]?
     var isShow: Bool = false
     let phoneNumberKit = PhoneNumberKit()
     
@@ -46,19 +45,19 @@ class PhonesView: CustomView {
     
     // MARK: - Class Functions
     override func draw(_ rect: CGRect) {
-        guard (phones?.count)! > 0 else {
+        guard (values?.count)! > 0 else {
             return
         }
         
         // Prepare phones stack view
-        var phoneNumbers = phoneNumberKit.parse(phones!)
+        var phoneNumbers = phoneNumberKit.parse(values as! [String])
 
         if let countryCode = (Locale.current as NSLocale).object(forKey: .countryCode) as? String {
-            phoneNumbers = phoneNumberKit.parse(phones!, withRegion: countryCode,  ignoreType: true)
+            phoneNumbers = phoneNumberKit.parse(values as! [String], withRegion: countryCode,  ignoreType: true)
         }
 
         for (index, button) in phoneButtonsCollection.enumerated() {
-            if (index <= (phones?.count)! - 1) {
+            if (index <= (values?.count)! - 1) {
                 // Phone format: +61 2 3661 8300
                 let phoneNumber = phoneNumberKit.format(phoneNumbers[index], toType: .international)
 
@@ -92,7 +91,11 @@ class PhonesView: CustomView {
     @IBAction func handlerPhoneButtonTap(_ sender: CustomButton) {
         let phone = "tel://";
         let str = sender.attributedTitle(for: .normal)?.string
-        let url = URL(string: phone + str!)
+        let url = URL(string: phone + str!.trimmingCharacters(in: .whitespaces))
+        
+        guard url != nil else {
+            return
+        }
         
         if #available(iOS 10, *) {
             UIApplication.shared.open(url!, options: [:], completionHandler: nil)

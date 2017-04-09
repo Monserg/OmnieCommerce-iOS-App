@@ -13,7 +13,7 @@ import UIKit
 
 // MARK: - Data models
 struct OrganizationShowModels {
-    struct Organization {
+    struct OrganizationItem {
         struct RequestModel {
             let parameters: [String: Any]
         }
@@ -23,8 +23,8 @@ struct OrganizationShowModels {
         }
         
         struct ViewModel {
-            let organization: Organization?
             let status: String
+            let organizationItem: Organization?
         }
     }
 }

@@ -13,11 +13,12 @@ import UIKit
 
 // MARK: - Input protocols for current Presenter component VIP-cicle
 protocol OrganizationShowPresenterInput {
+    func organizationDidPrepareToShowLoad(fromResponseModel responseModel: OrganizationShowModels.OrganizationItem.ResponseModel)
 }
 
 // MARK: - Output protocols for ViewController component VIP-cicle
 protocol OrganizationShowPresenterOutput: class {
-    func organizationDidShowLoad(fromViewModel: OrganizationShowModels.Organization.ViewModel)
+    func organizationDidShowLoad(fromViewModel viewModel: OrganizationShowModels.OrganizationItem.ViewModel)
 }
 
 class OrganizationShowPresenter: OrganizationShowPresenterInput {
@@ -26,7 +27,26 @@ class OrganizationShowPresenter: OrganizationShowPresenterInput {
     
     
     // MARK: - Custom Functions. Presentation logic
-    func organizationDidShowLoad(fromViewModel: OrganizationShowModels.Organization.ViewModel) {
+    func organizationDidPrepareToShowLoad(fromResponseModel responseModel: OrganizationShowModels.OrganizationItem.ResponseModel) {
+        guard responseModel.responseAPI != nil else {
+            let organizationViewModel = OrganizationShowModels.OrganizationItem.ViewModel(status: (responseModel.responseAPI?.status)!,
+                                                                                          organizationItem: nil)
+
+            viewController.organizationDidShowLoad(fromViewModel: organizationViewModel)
+            return
+        }
         
+        // Prepare to save Organization profile in CoreData
+        let organization = Organization.init(withCommonProfile: false)
+  
+        organization.didMap(fromDictionary: responseModel.responseAPI?.body as! [String: Any], completion: { _ in
+//            var entityOrganization = CoreDataManager.instance.entityDidLoad(byName: keyOrganization) as? Organization
+//            entityOrganization = organization
+        
+            let organizationViewModel = OrganizationShowModels.OrganizationItem.ViewModel(status: responseModel.responseAPI!.status,
+                                                                                          organizationItem: organization)
+
+            self.viewController.organizationDidShowLoad(fromViewModel: organizationViewModel)
+        })
     }
 }

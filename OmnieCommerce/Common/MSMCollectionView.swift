@@ -18,6 +18,21 @@ class MSMCollectionView: UICollectionView {
     }
     
     
+    // MARK: - Class Initialization
+    override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
+        super.init(frame: frame, collectionViewLayout: layout)
+        
+        self.backgroundColor = UIColor.clear
+        self.showsVerticalScrollIndicator = true
+        self.showsHorizontalScrollIndicator = false
+        self.setScrollIndicatorColor(color: UIColor.veryLightOrange)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+
+    
     // MARK: - Class Functions
     override func draw(_ rect: CGRect) {
         // Drawing code
