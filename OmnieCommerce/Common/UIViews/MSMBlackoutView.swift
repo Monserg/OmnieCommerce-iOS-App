@@ -30,14 +30,14 @@ class MSMBlackoutView: UIView {
         self.center = view.center
         view.addSubview(self)
         
-        translatesAutoresizingMaskIntoConstraints   =   false
+        translatesAutoresizingMaskIntoConstraints = false
         
-        topAnchor.constraint(equalTo: view.topAnchor, constant: 0).isActive         =   true
-        bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0).isActive   =   true
-        leftAnchor.constraint(equalTo: view.leftAnchor, constant: 0).isActive       =   true
-        rightAnchor.constraint(equalTo: view.rightAnchor, constant: 0).isActive     =   true
+        topAnchor.constraint(equalTo: view.topAnchor, constant: 0).isActive = true
+        bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0).isActive = true
+        leftAnchor.constraint(equalTo: view.leftAnchor, constant: 0).isActive = true
+        rightAnchor.constraint(equalTo: view.rightAnchor, constant: 0).isActive = true
         
-        backgroundColor     =   UIColor(hexString: "#1a232c", withAlpha: 0.85)
-        isOpaque            =   false
+        backgroundColor = UIColor(hexString: "#1a232c", withAlpha: 0.95)
+        isOpaque = false
     }
 }

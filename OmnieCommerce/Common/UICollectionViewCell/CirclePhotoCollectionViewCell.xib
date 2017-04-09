@@ -11,14 +11,14 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CirclePhotoCollectionViewCell" id="gTV-IL-0wX" customClass="CirclePhotoCollectionViewCell" customModule="OmnieCommerce" customModuleProvider="target">
+        <collectionViewCell opaque="NO" clipsSubviews="YES" contentMode="center" reuseIdentifier="CirclePhotoCollectionViewCell" id="gTV-IL-0wX" customClass="CirclePhotoCollectionViewCell" customModule="OmnieCommerce" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="85" height="85"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                 <rect key="frame" x="0.0" y="0.0" width="85" height="85"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1zE-XT-WJ9" userLabel="Image Button" customClass="BorderVeryDarkDesaturatedBlueButton" customModule="OmnieCommerce" customModuleProvider="target">
+                    <button opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1zE-XT-WJ9" userLabel="Image Button" customClass="BorderVeryDarkDesaturatedBlueButton" customModule="OmnieCommerce" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="85" height="85"/>
                         <color key="backgroundColor" red="0.15686274509803921" green="0.21176470588235294" blue="0.2627450980392157" alpha="1" colorSpace="calibratedRGB"/>
                         <state key="normal" image="image-no-photo"/>

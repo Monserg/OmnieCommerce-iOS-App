@@ -29,11 +29,11 @@ class CirclePhotoCollectionViewCell: UICollectionViewCell {
 // MARK: - ConfigureCell
 extension CirclePhotoCollectionViewCell: ConfigureCell {
     func setup(withItem item: Any, andIndexPath indexPath: IndexPath) {
-        let organization = item as! Organization
+        let galleryImage = item as! GalleryImage
 
-        if let imagePath = organization.logoURL {
+        if let imagePath = galleryImage.imagePath {
             imageButton.kf.setImage(with: ImageResource(downloadURL: URL(string: imagePath)!, cacheKey: "imagePath-\(indexPath.row)"), for: .normal,
-                                    placeholder: UIImage.init(named: "image-no-organization"),
+                                    placeholder: UIImage.init(named: "image-no-photo"),
                                     options: [.transition(ImageTransition.fade(1)),
                                               .processor(ResizingImageProcessor(targetSize: imageButton.frame.size))],
                                     completionHandler: { image, error, cacheType, imageURL in

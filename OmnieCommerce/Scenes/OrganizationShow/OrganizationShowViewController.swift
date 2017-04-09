@@ -132,6 +132,7 @@ class OrganizationShowViewController: BaseViewController {
             
         case subView as PhotosGalleryView:
             popupView = PhotosGalleryView.init(inView: modalView!)
+            popupView.values = values as! [GalleryImage]
             
         default:
             break
@@ -289,7 +290,7 @@ class OrganizationShowViewController: BaseViewController {
     @IBAction func handlerShowPopupView(_ sender: UIButton) {
 //        modalViewDidShow(withHeight: 285, customSubview: ReviewsView(), andValues: nil)
 //        modalViewDidShow(withHeight: 185, customSubview: BlackListView(), andValues: nil)
-        modalViewDidShow(withHeight: 365, customSubview: PhotosGalleryView(), andValues: nil)
+        modalViewDidShow(withHeight: 365, customSubview: PhotosGalleryView(), andValues: organization.gallery)
     }
 }
 

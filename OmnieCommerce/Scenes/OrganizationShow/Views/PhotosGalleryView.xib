@@ -106,10 +106,10 @@
                                         <action selector="handlerServiceButtonTap:" destination="-1" eventType="touchUpInside" id="1xQ-yq-kpC"/>
                                     </connections>
                                 </button>
-                                <collectionView clipsSubviews="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="JFI-03-IiI" userLabel="Images Collection View">
+                                <collectionView clipsSubviews="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="JFI-03-IiI" userLabel="Images Collection View" customClass="MSMCollectionView" customModule="OmnieCommerce" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="45" width="345" height="85"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="lQs-gc-ptX">
+                                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="o2i-9v-XAY">
                                         <size key="itemSize" width="50" height="50"/>
                                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                         <size key="footerReferenceSize" width="0.0" height="0.0"/>

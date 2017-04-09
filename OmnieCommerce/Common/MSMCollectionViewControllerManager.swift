@@ -142,6 +142,10 @@ extension MSMCollectionViewControllerManager: UICollectionViewDelegateFlowLayout
             return (UIApplication.shared.statusBarOrientation.isPortrait) ? CGSize.init(width: (collectionView.frame.width - 16.0) / 2, height: cellHeight) :
                                                                             CGSize.init(width: (collectionView.frame.width - 16 * 2) / 3, height: cellHeight)
             
+        case "CirclePhotoCollectionViewCell":
+            let cellHeight: CGFloat = 85.0 * self.collectionView.heightRatio
+            return CGSize.init(width: cellHeight, height: cellHeight)
+
         default:
             break
         }

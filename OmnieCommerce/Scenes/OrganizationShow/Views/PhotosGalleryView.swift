@@ -13,13 +13,21 @@ import ImageSlideshow
 class PhotosGalleryView: CustomView {
     // MARK: - Properties
     var isShow: Bool = false
-    var photos: [UIImage]!
     var currentPage: Int = 0
+    
+    override var values: [Any]? {
+        didSet {
+            imagesDidLoad()
+
+            imagesCollectionView.collectionViewControllerManager!.dataSource = values as! [GalleryImage]
+            imagesCollectionView.reloadData()
+        }
+    }
     
     @IBOutlet var view: UIView!
     @IBOutlet var imageSlideShow: ImageSlideshow!
     @IBOutlet weak var serviceButton: UbuntuLightVeryLightOrangeButton!
-    @IBOutlet weak var imagesCollectionView: UICollectionView!
+    @IBOutlet weak var imagesCollectionView: MSMCollectionView!
     
     // MARK: - Class Initialization
     init(inView view: UIView) {
@@ -27,8 +35,6 @@ class PhotosGalleryView: CustomView {
         super.init(frame: newFrame)
         
         createFromXIB()
-        imagesDidLoad()
-        imagesCollectionView.register(UINib(nibName: "CirclePhotoCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CirclePhotoCollectionViewCell")
         
         self.alpha = 0
         self.backgroundColor = UIColor.clear
@@ -37,6 +43,20 @@ class PhotosGalleryView: CustomView {
         self.serviceButton.setAttributedTitle(NSAttributedString.init(string: "Current page: 0"), for: .normal)
 
         view.addSubview(self)
+        
+        // Set scroll images collection view
+        imagesCollectionView.collectionViewControllerManager = MSMCollectionViewControllerManager(withCollectionView: self.imagesCollectionView)
+        imagesCollectionView.collectionViewControllerManager!.sectionsCount = 1
+        
+        // Handler Image select
+        imagesCollectionView.collectionViewControllerManager!.handlerCellSelectCompletion = { item in
+            if let galleryImage = item as? GalleryImage {
+                // Show selected image
+                self.currentPage = (self.values as! [GalleryImage]).index(where: { $0 == galleryImage })!
+                self.imageSlideShow.setCurrentPage(self.currentPage, animated: true)
+            }
+        }
+
         self.didShow()
     }
     
@@ -85,19 +105,13 @@ class PhotosGalleryView: CustomView {
         }
         
         // Load images
-//        var images = [UIImage]()
-//            
-//        for imageURL in values! {
-//            if let imagePath = imageURL as? String {
-//                images.append(KingfisherSource(urlString: "https://images.unsplash.com/photo-1432679963831-2dab49187847?w=1080")!)
-//            }
-//        }
-            
-            
+        var kingfisherSource = [KingfisherSource]()
         
-        let kingfisherSource = [KingfisherSource(urlString: "https://images.unsplash.com/photo-1432679963831-2dab49187847?w=1080")!,
-                                KingfisherSource(urlString: "https://images.unsplash.com/photo-1447746249824-4be4e1b76d66?w=1080")!,
-                                KingfisherSource(urlString: "https://images.unsplash.com/photo-1463595373836-6e0b0a8ee322?w=1080")!]
+        for galleryImage in (values as! [GalleryImage]) {
+            if let imagePath = galleryImage.imagePath {
+                kingfisherSource.append(KingfisherSource(urlString: imagePath)!)
+            }
+        }
 
         imageSlideShow.setImageInputs(kingfisherSource)
     }
