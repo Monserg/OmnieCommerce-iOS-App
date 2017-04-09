@@ -8,7 +8,6 @@
 
 import UIKit
 import Cosmos
-import AlamofireImage
 
 enum CellStyle: String {
     case Avatar         =   "Avatar"
@@ -73,9 +72,9 @@ enum CellStyle: String {
             
             favoriteButton.setImage((isFavorite) ? UIImage(named: "image-favorite-star-selected") : UIImage(named: "image-favorite-star-normal"), for: .normal)
 
-            logoImageView.af_setImage(withURL: URL(string: organization.logoURL ?? "https://blog.testfort.com/wp-content/uploads/2015/07/apple_logo.png")!,
-                                      placeholderImage: UIImage.init(named: "image-no-organization"),
-                                      filter: AspectScaledToFillSizeWithRoundedCornersFilter(size: logoImageView.frame.size, radius: logoImageView.frame.size.width / 2))
+//            logoImageView.af_setImage(withURL: URL(string: organization.logoURL ?? "https://blog.testfort.com/wp-content/uploads/2015/07/apple_logo.png")!,
+//                                      placeholderImage: UIImage.init(named: "image-no-organization"),
+//                                      filter: AspectScaledToFillSizeWithRoundedCornersFilter(size: logoImageView.frame.size, radius: logoImageView.frame.size.width / 2))
             
             dottedBorderView.style              =   (indexPath.row <= 1) ? .AroundDottedRectangleColor : .AroundDottedRectangle
             

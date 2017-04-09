@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import AlamofireImage
+import Kingfisher
 
 @IBDesignable class MessageTableViewCell: UITableViewCell {
     // MARK: - Properties    
@@ -35,15 +35,24 @@ import AlamofireImage
 // MARK: - ConfigureCell
 extension MessageTableViewCell: ConfigureCell {
     func setup(withItem item: Any, andIndexPath indexPath: IndexPath) {
-        let message         =   item as! Message
-        nameLabel.text      =   message.name
-        messageLabel.text   =   message.text
-        dateLabel.text      =   message.activeDate.convertToString(withStyle: (message.activeDate.isActiveToday()) ? .Time : .Date)
-        selectionStyle      =   .none
+        let message = item as! Message
+        nameLabel.text = message.name
+        messageLabel.text = message.text
+        dateLabel.text = message.activeDate.convertToString(withStyle: (message.activeDate.isActiveToday()) ? .Time : .Date)
+        selectionStyle = .none
 
-        logoImageView.af_setImage(withURL: URL(string: message.logoStringURL ?? "https://blog.testfort.com/wp-content/uploads/2015/07/apple_logo.png")!,
-                                  placeholderImage: UIImage.init(named: "image-no-photo"),
-                                  filter: AspectScaledToFillSizeWithRoundedCornersFilter(size: logoImageView.frame.size, radius: logoImageView.frame.size.width / 2))
+        if let imagePath = message.logoStringURL {
+            logoImageView.kf.setImage(with: ImageResource(downloadURL: URL(string: imagePath)!, cacheKey: imagePath),
+                                      placeholder: UIImage.init(named: "image-no-photo"),
+                                      options: [.transition(ImageTransition.fade(1)),
+                                                .processor(ResizingImageProcessor(targetSize: logoImageView.frame.size,
+                                                                                  contentMode: .aspectFit))],
+                                      completionHandler: { image, error, cacheType, imageURL in
+                                        self.logoImageView.kf.cancelDownloadTask()
+            })
+        } else {
+            logoImageView.image = UIImage.init(named: "image-no-photo")
+        }
         
         dottedBorderView.style = .AroundDottedRectangle
         
@@ -51,9 +60,18 @@ extension MessageTableViewCell: ConfigureCell {
             userAvatarImageView.isHidden = false
             userAvatarImageView.frame = CGRect.init(origin: .zero, size: CGSize.init(width: 20, height: 20))
             
-            userAvatarImageView.af_setImage(withURL: URL(string: message.userAvatarStringURL ?? "http://static1.milkcapmania.co.uk/Img/Other/TV%20Story%20Vedettos/300DPI/Sylvester-Stallone.png")!,
-                                            placeholderImage: UIImage.init(named: "image-no-user"),
-                                            filter: AspectScaledToFillSizeWithRoundedCornersFilter(size: userAvatarImageView.frame.size, radius: userAvatarImageView.frame.height / 2))
+            if let imagePath = message.logoStringURL {
+                logoImageView.kf.setImage(with: ImageResource(downloadURL: URL(string: imagePath)!, cacheKey: imagePath),
+                                          placeholder: UIImage.init(named: "image-no-user"),
+                                          options: [.transition(ImageTransition.fade(1)),
+                                                    .processor(ResizingImageProcessor(targetSize: logoImageView.frame.size,
+                                                                                      contentMode: .aspectFit))],
+                                          completionHandler: { image, error, cacheType, imageURL in
+                                            self.logoImageView.kf.cancelDownloadTask()
+                })
+            } else {
+                logoImageView.image = UIImage.init(named: "image-no-user")
+            }
         } else {
             userAvatarImageView.isHidden = true
         }

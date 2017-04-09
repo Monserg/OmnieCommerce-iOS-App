@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import AlamofireImage
+import Kingfisher
 
 class UserTemplateTableViewCell: UITableViewCell {
     // MARK: - Properties
@@ -80,9 +80,18 @@ extension UserTemplateTableViewCell: ConfigureCell {
         commentTextLabel.text = "dasd as das asd asdhasgdh  ashhd gahg ha ajhgd hagd haghs  ajhgdhasgd gags"
         selectionStyle = .none
         
-        logoImageView.af_setImage(withURL: URL(string: organization.logoURL ?? "https://blog.testfort.com/wp-content/uploads/2015/07/apple_logo.png")!,
-                                  placeholderImage: UIImage.init(named: "image-no-photo"),
-                                  filter: AspectScaledToFillSizeWithRoundedCornersFilter(size: logoImageView.frame.size, radius: logoImageView.frame.size.width / 2))
+        if let imagePath = organization.logoURL {
+            logoImageView.kf.setImage(with: ImageResource(downloadURL: URL(string: imagePath)!, cacheKey: imagePath),
+                                      placeholder: UIImage.init(named: "image-no-photo"),
+                                      options: [.transition(ImageTransition.fade(1)),
+                                                .processor(ResizingImageProcessor(targetSize: logoImageView.frame.size,
+                                                                                  contentMode: .aspectFit))],
+                                      completionHandler: { image, error, cacheType, imageURL in
+                                        self.logoImageView.kf.cancelDownloadTask()
+            })
+        } else {
+            logoImageView.image = UIImage.init(named: "image-no-photo")
+        }
         
         dottedBorderView.style = .AroundDottedRectangle
     }

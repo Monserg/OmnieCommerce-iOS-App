@@ -14,11 +14,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>AlamofireImage.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Cosmos.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -122,7 +117,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>0E282E540A0A9ABD9C573844FEA748F7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>107A9565F9DF88517DFD3E28C05B2B96</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>16384817C34954D5DBDEDF245923D6FF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>1FC48F44DEDD8FCABC6AFA485DDE8473</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -132,12 +142,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>301B35BFAA549C0959BD74D6FC8652B4</key>
+		<key>4D5B8B1BE64F80268007C79821DDDC20</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4D5B8B1BE64F80268007C79821DDDC20</key>
+		<key>5B24416CA939F89A5678DEBC07C44E68</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -148,11 +158,6 @@
 			<true/>
 		</dict>
 		<key>681BE6E3D02A43F9BA63777AC435C8FD</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>79EB599A9436F125B51F52AC01D78A08</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -172,11 +177,6 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9EFE4C70245EE2857D336B8B9FA4E825</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>B1C4AAFAF49036C7007633DAA3C806AD</key>
 		<dict>
 			<key>primary</key>
@@ -187,17 +187,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>CA22078DE0BD55F31FBF104451951EA3</key>
+		<key>CA693254AB55ED6132EBCA8FCE67E44F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>CF671F7E57B92905F1CC91D036D6B4A7</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>DDF85A55196C80F4BDE7B35184A7731D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -218,11 +213,6 @@
 			<true/>
 		</dict>
 		<key>FC00A2B118650C6C90D34FB24F60280D</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>FEE4AB864EBC32A3F455B6E772144A5B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
