@@ -33,12 +33,16 @@ extension CategoryCollectionViewCell: ConfigureCell {
         self.name.text = category.name!
         
         if let imagePath = category.imagePath {
-            self.imageView.kf.setImage(with: ImageResource(downloadURL: URL(string: imagePath)!, cacheKey: category.codeID),
-                                       placeholder: UIImage.init(named: "image-no-organization"),
-                                       options: [.transition(ImageTransition.fade(1))],
-                                       completionHandler: { image, error, cacheType, imageURL in
-                                           self.imageView.kf.cancelDownloadTask()
+            imageView.kf.setImage(with: ImageResource(downloadURL: URL(string: imagePath)!, cacheKey: category.codeID),
+                                  placeholder: UIImage.init(named: "image-no-photo"),
+                                  options: [.transition(ImageTransition.fade(1)),
+                                            .processor(ResizingImageProcessor(targetSize: imageView.frame.size,
+                                                                              contentMode: .aspectFit))],
+                                  completionHandler: { image, error, cacheType, imageURL in
+                                    self.imageView.kf.cancelDownloadTask()
             })
+        } else {
+            imageView.image = UIImage.init(named: "image-no-photo")
         }
         
         // Set selected color

@@ -165,7 +165,8 @@ class OrganizationShowViewController: BaseViewController {
                 headerView!.kf.setImage(with: ImageResource(downloadURL: URL(string: imagePath)!, cacheKey: "imagePath-\(organization.codeID)"),
                                         placeholder: UIImage.init(named: "image-no-photo"),
                                         options: [.transition(ImageTransition.fade(1)),
-                                                  .processor(ResizingImageProcessor(targetSize: headerView!.frame.size))],
+                                                  .processor(ResizingImageProcessor(targetSize: headerView!.frame.size,
+                                                                                    contentMode: .aspectFit))],
                                         completionHandler: { image, error, cacheType, imageURL in
                                             self.headerView!.kf.cancelDownloadTask()
                 })
@@ -216,7 +217,8 @@ class OrganizationShowViewController: BaseViewController {
             logoImageView!.kf.setImage(with: ImageResource(downloadURL: URL(string: imagePath)!, cacheKey: "imagePath"),
                                        placeholder: UIImage.init(named: "image-no-photo"),
                                        options: [.transition(ImageTransition.fade(1)),
-                                                 .processor(ResizingImageProcessor(targetSize: logoImageView!.frame.size))],
+                                                 .processor(ResizingImageProcessor(targetSize: logoImageView!.frame.size,
+                                                                                   contentMode: .aspectFit))],
                                        completionHandler: { image, error, cacheType, imageURL in
                                         self.logoImageView!.kf.cancelDownloadTask()
             })

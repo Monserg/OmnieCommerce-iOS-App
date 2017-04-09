@@ -75,14 +75,18 @@ class PersonalDataViewController: BaseViewController, EmailErrorMessageView, Pho
             }
             
             // Set User Image by URL
-            avatarButton.kf.setImage(with: ImageResource(downloadURL: URL(string: CoreDataManager.instance.appUser.imagePath!)!, cacheKey: CoreDataManager.instance.appUser.imagePath!),
-                                     for: .normal,
-                                     placeholder: UIImage.init(named: "image-no-user"),
-                                     options: [.transition(ImageTransition.fade(1)),
-                                               .processor(ResizingImageProcessor(targetSize: avatarButton.frame.size))],
-                                     completionHandler: { image, error, cacheType, imageURL in
-                                        self.avatarButton.imageView!.kf.cancelDownloadTask()
-            })
+            if let imagePath = CoreDataManager.instance.appUser.imagePath {
+                avatarButton.kf.setImage(with: ImageResource(downloadURL: URL(string: imagePath)!, cacheKey: imagePath), for: .normal,
+                                         placeholder: UIImage.init(named: "image-no-user"),
+                                         options: [.transition(ImageTransition.fade(1)),
+                                                   .processor(ResizingImageProcessor(targetSize: avatarButton.frame.size,
+                                                                                     contentMode: .aspectFit))],
+                                         completionHandler: { image, error, cacheType, imageURL in
+                                            self.avatarButton.imageView!.kf.cancelDownloadTask()
+                })
+            } else {
+                avatarButton.setImage(UIImage.init(named: "image-no-user"), for: .normal)
+            }
         }
     }
 

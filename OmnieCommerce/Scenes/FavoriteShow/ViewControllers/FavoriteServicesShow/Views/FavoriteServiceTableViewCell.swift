@@ -67,10 +67,13 @@ extension FavoriteServiceTableViewCell: ConfigureCell {
             logoImageView.kf.setImage(with: ImageResource(downloadURL: URL(string: imagePath)!, cacheKey: "imagePath-\(indexPath.row)"),
                                       placeholder: UIImage.init(named: "image-no-service"),
                                       options: [.transition(ImageTransition.fade(1)),
-                                                .processor(ResizingImageProcessor(targetSize: logoImageView.frame.size))],
+                                                .processor(ResizingImageProcessor(targetSize: logoImageView.frame.size,
+                                                                                  contentMode: .aspectFit))],
                                       completionHandler: { image, error, cacheType, imageURL in
                                         self.logoImageView.kf.cancelDownloadTask()
             })
+        } else {
+            logoImageView.image = UIImage.init(named: "image-no-service")
         }
         
         dottedBorderView.style = .AroundDottedRectangle

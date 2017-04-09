@@ -134,17 +134,18 @@ extension MSMCollectionViewControllerManager {
 extension MSMCollectionViewControllerManager: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let cellIdentifier = (dataSource[indexPath.row] as! InitCellParameters).cellIdentifier
+        let cellHeight = (dataSource[indexPath.row] as! InitCellParameters).cellHeight
         
         switch cellIdentifier {
         case "CategoryCollectionViewCell":
-            let cellHeight: CGFloat = 102.0 * self.collectionView.heightRatio
+            let height: CGFloat = cellHeight * self.collectionView.heightRatio
             
-            return (UIApplication.shared.statusBarOrientation.isPortrait) ? CGSize.init(width: (collectionView.frame.width - 16.0) / 2, height: cellHeight) :
-                                                                            CGSize.init(width: (collectionView.frame.width - 16 * 2) / 3, height: cellHeight)
+            return (UIApplication.shared.statusBarOrientation.isPortrait) ? CGSize.init(width: (collectionView.frame.width - 16.0) / 2, height: height) :
+                                                                            CGSize.init(width: (collectionView.frame.width - 16 * 2) / 3, height: height)
             
         case "CirclePhotoCollectionViewCell":
-            let cellHeight: CGFloat = 85.0 * self.collectionView.heightRatio
-            return CGSize.init(width: cellHeight, height: cellHeight)
+            let height: CGFloat = cellHeight * self.collectionView.heightRatio
+            return CGSize.init(width: height, height: height)
 
         default:
             break
