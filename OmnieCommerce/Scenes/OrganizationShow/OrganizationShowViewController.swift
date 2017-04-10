@@ -10,6 +10,7 @@
 //
 
 import UIKit
+import Cosmos
 import Kingfisher
 import MXParallaxHeader
 
@@ -101,6 +102,13 @@ class OrganizationShowViewController: BaseViewController {
         }
     }
 
+    // Reviews view
+    @IBOutlet weak var reviewsView: UIView!
+    
+    // Rating view
+    @IBOutlet weak var ratingView: UIView!
+    @IBOutlet weak var userNameLabel: UbuntuLightVeryLightOrangeLabel!
+    @IBOutlet weak var userAvatarImageView: CustomImageView!
     
     
     // MARK: - Class initialization
@@ -368,6 +376,36 @@ class OrganizationShowViewController: BaseViewController {
             }
         } else {
             servicesView.isHidden = true
+        }
+        
+        // Reviews view
+//        if (organizationProfile.) {
+//            reviewsView.isHidden = false
+//
+//        } else {
+//            reviewsView.isHidden = true
+//        }
+        
+        // Rating view
+        if (!(organizationProfile?.canUserSendReview)!) {
+            ratingView.isHidden = false
+            
+            userNameLabel.text = "\(String(describing: CoreDataManager.instance.appUser.firstName)) \(String(describing: CoreDataManager.instance.appUser.surName))"
+            
+            if let imagePath = CoreDataManager.instance.appUser.imagePath {
+                userAvatarImageView.kf.setImage(with: ImageResource(downloadURL: URL(string: imagePath)!, cacheKey: imagePath),
+                                                placeholder: UIImage.init(named: "image-no-photo"),
+                                                options: [.transition(ImageTransition.fade(1)),
+                                                          .processor(ResizingImageProcessor(targetSize: userAvatarImageView.frame.size,
+                                                                                            contentMode: .aspectFit))],
+                                                completionHandler: { image, error, cacheType, imageURL in
+                                                    self.userAvatarImageView.kf.cancelDownloadTask()
+                })
+            } else {
+                userAvatarImageView.image = UIImage.init(named: "image-no-photo")
+            }
+        } else {
+            ratingView.isHidden = true
         }
     }
 

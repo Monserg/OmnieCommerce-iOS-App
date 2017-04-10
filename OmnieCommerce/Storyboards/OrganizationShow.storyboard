@@ -27,10 +27,10 @@
                                 <rect key="frame" x="0.0" y="-20" width="375" height="658"/>
                                 <subviews>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U9J-wo-NbD" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="2405"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="2432"/>
                                         <subviews>
                                             <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="7hu-c0-ss3" userLabel="Main Stack View">
-                                                <rect key="frame" x="8" y="0.0" width="359" height="2405"/>
+                                                <rect key="frame" x="8" y="0.0" width="359" height="2432"/>
                                                 <subviews>
                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F2J-Sj-SOC" userLabel="Info View">
                                                         <rect key="frame" x="0.0" y="0.0" width="359" height="110"/>
@@ -206,7 +206,7 @@
                                                         <rect key="frame" x="0.0" y="110" width="359" height="596.5"/>
                                                         <subviews>
                                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tBt-WZ-m6j" userLabel="Title Label" customClass="UbuntuLightSoftCyanLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                                                                <rect key="frame" x="15" y="20" width="324" height="530"/>
+                                                                <rect key="frame" x="15" y="20" width="324" height="19.5"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                                 <nil key="textColor"/>
@@ -216,7 +216,7 @@
                                                                 </userDefinedRuntimeAttributes>
                                                             </label>
                                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="if6-5e-NiS" userLabel="Content Label" customClass="UbuntuLightVeryLightGrayLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                                                                <rect key="frame" x="15" y="563" width="324" height="14.5"/>
+                                                                <rect key="frame" x="15" y="52.5" width="324" height="525"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                 <nil key="textColor"/>
@@ -253,10 +253,10 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sen-dV-9fD" userLabel="Discounts View">
-                                                        <rect key="frame" x="0.0" y="706.5" width="359" height="527.5"/>
+                                                        <rect key="frame" x="0.0" y="706.5" width="359" height="554.5"/>
                                                         <subviews>
                                                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wSr-jk-eDi" customClass="DottedBorderView" customModule="OmnieCommerce" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="-0.5" width="359" height="527.5"/>
+                                                                <rect key="frame" x="0.0" y="-0.5" width="359" height="554.5"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="string" keyPath="viewStyle" value="BottomDottedLine"/>
@@ -264,10 +264,10 @@
                                                                 </userDefinedRuntimeAttributes>
                                                             </view>
                                                             <stackView clipsSubviews="YES" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="yp3-Gv-3vU" userLabel="Main Discounts Stack View">
-                                                                <rect key="frame" x="15" y="0.0" width="324" height="527.5"/>
+                                                                <rect key="frame" x="15" y="0.0" width="324" height="554.5"/>
                                                                 <subviews>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="xlY-UI-ggP" userLabel="Common Stack View">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="324" height="173"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="324" height="179"/>
                                                                         <subviews>
                                                                             <view clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EK6-FS-ifc" userLabel="Top Empty View">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="324" height="50"/>
@@ -280,10 +280,10 @@
                                                                                 </userDefinedRuntimeAttributes>
                                                                             </view>
                                                                             <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Discounts common" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XeX-iV-HuI" userLabel="Common Discounts Label" customClass="HelveticaNeueCyrLightVeryLightGrayLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                                                                                <rect key="frame" x="0.0" y="50" width="324" height="15"/>
+                                                                                <rect key="frame" x="0.0" y="50" width="324" height="21"/>
                                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                                 <constraints>
-                                                                                    <constraint firstAttribute="height" priority="750" constant="15" id="OYM-Dv-5o9"/>
+                                                                                    <constraint firstAttribute="height" constant="21" id="OYM-Dv-5o9"/>
                                                                                 </constraints>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                                                                 <nil key="textColor"/>
@@ -293,7 +293,7 @@
                                                                                 </userDefinedRuntimeAttributes>
                                                                             </label>
                                                                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bqw-w5-mRj" userLabel="Middle Empty View">
-                                                                                <rect key="frame" x="0.0" y="65" width="324" height="50"/>
+                                                                                <rect key="frame" x="0.0" y="71" width="324" height="50"/>
                                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="height" priority="750" constant="15" id="Y7I-f7-2aR"/>
@@ -303,7 +303,7 @@
                                                                                 </userDefinedRuntimeAttributes>
                                                                             </view>
                                                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bJ9-GT-jar" userLabel="Discount Common Table View" customClass="MSMTableView" customModule="OmnieCommerce" customModuleProvider="target">
-                                                                                <rect key="frame" x="0.0" y="115" width="324" height="58"/>
+                                                                                <rect key="frame" x="0.0" y="121" width="324" height="58"/>
                                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="height" priority="750" constant="58" id="zsR-84-bJp"/>
@@ -315,11 +315,14 @@
                                                                         </subviews>
                                                                     </stackView>
                                                                     <stackView clipsSubviews="YES" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="hEE-6b-wjA" userLabel="User Stack View">
-                                                                        <rect key="frame" x="0.0" y="173" width="324" height="354.5"/>
+                                                                        <rect key="frame" x="0.0" y="179" width="324" height="375.5"/>
                                                                         <subviews>
                                                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Discounts user" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dzo-DE-36b" userLabel="User Discount Label" customClass="UbuntuLightVeryLightGrayLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="324" height="0.0"/>
+                                                                                <rect key="frame" x="0.0" y="0.0" width="324" height="21"/>
                                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                                                <constraints>
+                                                                                    <constraint firstAttribute="height" constant="21" id="q2n-Xe-PoC"/>
+                                                                                </constraints>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
@@ -328,14 +331,14 @@
                                                                                 </userDefinedRuntimeAttributes>
                                                                             </label>
                                                                             <view clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3UY-4T-Apk" userLabel="Middle Empty View">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="324" height="226.5"/>
+                                                                                <rect key="frame" x="0.0" y="21" width="324" height="226.5"/>
                                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                                 <userDefinedRuntimeAttributes>
                                                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
                                                                                 </userDefinedRuntimeAttributes>
                                                                             </view>
                                                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="K2X-Gp-NmD" userLabel="Discounts User Table View" customClass="MSMTableView" customModule="OmnieCommerce" customModuleProvider="target">
-                                                                                <rect key="frame" x="0.0" y="226.5" width="324" height="128"/>
+                                                                                <rect key="frame" x="0.0" y="247.5" width="324" height="128"/>
                                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="height" priority="750" constant="58" id="etz-rV-HaC"/>
@@ -370,7 +373,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xn5-Pp-dGs" userLabel="Gallery View">
-                                                        <rect key="frame" x="0.0" y="1234" width="359" height="144"/>
+                                                        <rect key="frame" x="0.0" y="1261" width="359" height="144"/>
                                                         <subviews>
                                                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tys-bQ-5qx" customClass="DottedBorderView" customModule="OmnieCommerce" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="359" height="144"/>
@@ -409,7 +412,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EQM-tZ-7ax" userLabel="Services View">
-                                                        <rect key="frame" x="0.0" y="1378" width="359" height="337"/>
+                                                        <rect key="frame" x="0.0" y="1405" width="359" height="337"/>
                                                         <subviews>
                                                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cxl-Uc-1ST" customClass="DottedBorderView" customModule="OmnieCommerce" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="359" height="337"/>
@@ -451,7 +454,7 @@
                                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
                                                                         </userDefinedRuntimeAttributes>
                                                                     </tableView>
-                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sig-WZ-mo7" userLabel="Services Button View">
+                                                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sig-WZ-mo7" userLabel="Services Button View">
                                                                         <rect key="frame" x="0.0" y="169" width="359" height="128"/>
                                                                         <subviews>
                                                                             <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="skf-5r-lsZ" customClass="FillVeryLightOrangeButton" customModule="OmnieCommerce" customModuleProvider="target">
@@ -466,10 +469,13 @@
                                                                                 </connections>
                                                                             </button>
                                                                         </subviews>
-                                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="bottom" secondItem="skf-5r-lsZ" secondAttribute="bottom" id="fuT-4Q-GSR"/>
                                                                         </constraints>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                                                        </userDefinedRuntimeAttributes>
                                                                     </view>
                                                                 </subviews>
                                                                 <constraints>
@@ -495,16 +501,99 @@
                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
-                                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E5n-6w-mcc">
-                                                        <rect key="frame" x="0.0" y="1715" width="359" height="190"/>
-                                                        <color key="backgroundColor" red="0.0" green="0.57647058819999997" blue="0.58431372550000005" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E5n-6w-mcc" userLabel="Reviews View">
+                                                        <rect key="frame" x="0.0" y="1742" width="359" height="190"/>
+                                                        <subviews>
+                                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reviews" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WlE-io-6eX">
+                                                                <rect key="frame" x="8" y="20" width="335" height="21"/>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="21" id="sS7-n1-IWp"/>
+                                                                </constraints>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </label>
+                                                        </subviews>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <constraints>
+                                                            <constraint firstAttribute="trailing" secondItem="WlE-io-6eX" secondAttribute="trailing" constant="16" id="0rf-L3-k2g"/>
+                                                            <constraint firstItem="WlE-io-6eX" firstAttribute="top" secondItem="E5n-6w-mcc" secondAttribute="top" constant="20" id="K5W-hf-0RL"/>
                                                             <constraint firstAttribute="height" priority="750" constant="190" id="LHG-u1-Bbo"/>
+                                                            <constraint firstItem="WlE-io-6eX" firstAttribute="leading" secondItem="E5n-6w-mcc" secondAttribute="leading" constant="8" id="eVW-0W-EOo"/>
                                                         </constraints>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                                        </userDefinedRuntimeAttributes>
                                                     </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yzx-yh-fce">
-                                                        <rect key="frame" x="0.0" y="1905" width="359" height="500"/>
-                                                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yzx-yh-fce" userLabel="Rating View">
+                                                        <rect key="frame" x="0.0" y="1932" width="359" height="500"/>
+                                                        <subviews>
+                                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="POv-O9-0Dr" userLabel="User Name Label" customClass="UbuntuLightVeryLightOrangeLabel" customModule="OmnieCommerce" customModuleProvider="target">
+                                                                <rect key="frame" x="8" y="20" width="335" height="21"/>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="21" id="tL5-tB-eB6"/>
+                                                                </constraints>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </label>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image-no-photo" translatesAutoresizingMaskIntoConstraints="NO" id="KmR-yM-231" userLabel="User Avatar Image View" customClass="CustomImageView" customModule="OmnieCommerce" customModuleProvider="target">
+                                                                <rect key="frame" x="59" y="51" width="240" height="85"/>
+                                                                <color key="backgroundColor" red="0.15686274509803921" green="0.21176470588235294" blue="0.2627450980392157" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isCircle" value="YES"/>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                        <real key="value" value="1"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                        <color key="value" red="0.11372549019607843" green="0.16470588235294117" blue="0.21568627450980393" alpha="1" colorSpace="calibratedRGB"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </imageView>
+                                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rate Organization" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gZm-8c-FVq" userLabel="Text Label" customClass="UbuntuLightItalicVeryLightGrayLabel" customModule="OmnieCommerce" customModuleProvider="target">
+                                                                <rect key="frame" x="8" y="151" width="335" height="21"/>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="21" id="Z7e-QB-5D8"/>
+                                                                </constraints>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </label>
+                                                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gAo-MP-7EF" customClass="CosmosView">
+                                                                <rect key="frame" x="91.5" y="186" width="175" height="128"/>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </view>
+                                                        </subviews>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        <constraints>
+                                                            <constraint firstItem="POv-O9-0Dr" firstAttribute="leading" secondItem="yzx-yh-fce" secondAttribute="leading" constant="8" id="6Pf-0k-zcK"/>
+                                                            <constraint firstAttribute="trailing" secondItem="gZm-8c-FVq" secondAttribute="trailing" constant="16" id="Kxy-7T-Xvg"/>
+                                                            <constraint firstAttribute="trailing" secondItem="POv-O9-0Dr" secondAttribute="trailing" constant="16" id="Lba-kr-7YN"/>
+                                                            <constraint firstItem="gZm-8c-FVq" firstAttribute="top" secondItem="KmR-yM-231" secondAttribute="bottom" constant="15" id="bMo-Y0-ahU"/>
+                                                            <constraint firstItem="POv-O9-0Dr" firstAttribute="top" secondItem="yzx-yh-fce" secondAttribute="top" constant="20" id="l0s-wd-RP1"/>
+                                                            <constraint firstItem="gAo-MP-7EF" firstAttribute="centerX" secondItem="yzx-yh-fce" secondAttribute="centerX" id="nUy-pn-HxI"/>
+                                                            <constraint firstItem="gZm-8c-FVq" firstAttribute="leading" secondItem="yzx-yh-fce" secondAttribute="leading" constant="8" id="tPq-EP-le4"/>
+                                                            <constraint firstItem="KmR-yM-231" firstAttribute="top" secondItem="POv-O9-0Dr" secondAttribute="bottom" constant="10" id="vQt-ir-1mv"/>
+                                                        </constraints>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                                        </userDefinedRuntimeAttributes>
                                                     </view>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -517,6 +606,7 @@
                                         <constraints>
                                             <constraint firstItem="7hu-c0-ss3" firstAttribute="leading" secondItem="U9J-wo-NbD" secondAttribute="leading" constant="8" id="0Ln-BN-jcR"/>
                                             <constraint firstAttribute="trailing" secondItem="7hu-c0-ss3" secondAttribute="trailing" constant="8" id="SjE-YZ-IOn"/>
+                                            <constraint firstAttribute="bottom" secondItem="yzx-yh-fce" secondAttribute="bottom" id="ecO-8I-YGs"/>
                                             <constraint firstItem="7hu-c0-ss3" firstAttribute="top" secondItem="U9J-wo-NbD" secondAttribute="top" id="lhf-hc-NCQ"/>
                                             <constraint firstAttribute="bottom" secondItem="7hu-c0-ss3" secondAttribute="bottom" id="yqn-0X-aTg"/>
                                         </constraints>
@@ -575,17 +665,23 @@
                             <constraint firstItem="qNN-cv-qQQ" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="60:375" priority="750" id="N1i-gU-Q2u"/>
                             <constraint firstItem="skf-5r-lsZ" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="36:667" id="NvY-mV-g0H"/>
                             <constraint firstItem="HjZ-of-5Js" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="20:667" id="SAZ-lg-4fR"/>
-                            <constraint firstItem="yzx-yh-fce" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="500:667" priority="750" id="T89-wI-buP"/>
+                            <constraint firstItem="yzx-yh-fce" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="200:667" id="T89-wI-buP"/>
                             <constraint firstItem="F2J-Sj-SOC" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="110:667" id="TTV-wR-bZb"/>
                             <constraint firstAttribute="trailing" secondItem="3d9-Qt-0Tr" secondAttribute="trailing" constant="8" id="Tdg-4A-3Gn"/>
                             <constraint firstItem="sig-WZ-mo7" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="56:375" priority="750" id="ULx-WY-fds"/>
+                            <constraint firstItem="KmR-yM-231" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="85:375" id="Vfj-P3-Vcg"/>
                             <constraint firstItem="sen-dV-9fD" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="60:667" priority="750" id="VzZ-WN-7dC"/>
                             <constraint firstItem="xn5-Pp-dGs" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="144:667" id="YvF-eG-G8g"/>
                             <constraint firstItem="F2J-Sj-SOC" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="110:375" id="ZGB-O6-CgW"/>
+                            <constraint firstItem="gAo-MP-7EF" firstAttribute="width" secondItem="tP1-Vk-hMS" secondAttribute="width" multiplier="175:375" id="ZgM-I3-qr7"/>
                             <constraint firstItem="Fg2-g7-Pmf" firstAttribute="top" secondItem="tP1-Vk-hMS" secondAttribute="top" id="d5x-CQ-SAe"/>
                             <constraint firstItem="4G7-UZ-bMP" firstAttribute="top" secondItem="tP1-Vk-hMS" secondAttribute="top" constant="-20" id="dda-Jb-3l1"/>
                             <constraint firstItem="5kB-hm-mY3" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="85:375" id="hLt-S7-dSS"/>
                             <constraint firstItem="qNN-cv-qQQ" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="60:667" priority="750" id="jVT-rI-af9"/>
+                            <constraint firstItem="KmR-yM-231" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="85:667" id="kNH-0I-Va8"/>
+                            <constraint firstItem="gAo-MP-7EF" firstAttribute="width" secondItem="tP1-Vk-hMS" secondAttribute="width" multiplier="175:667" id="ks1-7a-JLK"/>
+                            <constraint firstItem="gAo-MP-7EF" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="27:667" id="ohH-eQ-I2T"/>
+                            <constraint firstItem="gAo-MP-7EF" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="27:375" id="pxw-oR-e8Z"/>
                             <constraint firstItem="EKb-ci-h91" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="30:375" id="qsL-f4-Sr7"/>
                             <constraint firstItem="5kB-hm-mY3" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="85:667" id="slx-hc-ia6"/>
                             <constraint firstItem="3d9-Qt-0Tr" firstAttribute="top" secondItem="4G7-UZ-bMP" secondAttribute="bottom" constant="9" id="tWB-H0-tnk"/>
@@ -606,6 +702,9 @@
                                 <exclude reference="9Mg-av-88Y"/>
                                 <exclude reference="K6y-gl-YsT"/>
                                 <exclude reference="NvY-mV-g0H"/>
+                                <exclude reference="kNH-0I-Va8"/>
+                                <exclude reference="ZgM-I3-qr7"/>
+                                <exclude reference="ohH-eQ-I2T"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -634,6 +733,12 @@
                                 <exclude reference="Gct-W3-pMP"/>
                                 <include reference="K6y-gl-YsT"/>
                                 <include reference="NvY-mV-g0H"/>
+                                <exclude reference="Vfj-P3-Vcg"/>
+                                <include reference="kNH-0I-Va8"/>
+                                <include reference="ZgM-I3-qr7"/>
+                                <exclude reference="ks1-7a-JLK"/>
+                                <include reference="ohH-eQ-I2T"/>
+                                <exclude reference="pxw-oR-e8Z"/>
                             </mask>
                         </variation>
                     </view>
@@ -656,6 +761,8 @@
                         <outlet property="logoImageView" destination="5kB-hm-mY3" id="TBa-UZ-Fqg"/>
                         <outlet property="modalView" destination="1SW-5w-LhH" id="5Eq-MR-aCv"/>
                         <outlet property="nameLabel" destination="o4I-uK-Byn" id="9IJ-Jf-bL7"/>
+                        <outlet property="ratingView" destination="yzx-yh-fce" id="tH9-aC-kBu"/>
+                        <outlet property="reviewsView" destination="E5n-6w-mcc" id="UIh-HW-dRN"/>
                         <outlet property="scrollView" destination="4G7-UZ-bMP" id="Var-lP-9cV"/>
                         <outlet property="servicesButtonView" destination="sig-WZ-mo7" id="j0Q-aS-OhO"/>
                         <outlet property="servicesTableView" destination="n8Y-9T-VbL" id="jSc-uS-bUf"/>
@@ -664,6 +771,8 @@
                         <outlet property="smallTopBarView" destination="Fg2-g7-Pmf" id="9Gx-15-g59"/>
                         <outlet property="titleLabel" destination="tBt-WZ-m6j" id="Wkp-7Q-3So"/>
                         <outlet property="titleView" destination="qNN-cv-qQQ" id="DrU-S6-Dea"/>
+                        <outlet property="userAvatarImageView" destination="KmR-yM-231" id="0VE-GK-KUf"/>
+                        <outlet property="userNameLabel" destination="POv-O9-0Dr" id="NEQ-lE-7c1"/>
                         <outletCollection property="dottedBorderViewsCollection" destination="7Xd-am-Thy" collectionClass="NSMutableArray" id="upO-sk-dxx"/>
                         <outletCollection property="dottedBorderViewsCollection" destination="ebM-Lf-K5Q" collectionClass="NSMutableArray" id="dVg-eQ-z6t"/>
                         <outletCollection property="dottedBorderViewsCollection" destination="wSr-jk-eDi" collectionClass="NSMutableArray" id="lek-Nf-aTD"/>
@@ -691,5 +800,6 @@
         <image name="icon-schedule-orange-normal" width="9" height="9"/>
         <image name="image-favorite-star-normal" width="13" height="12"/>
         <image name="image-no-organization" width="24" height="20"/>
+        <image name="image-no-photo" width="24" height="21"/>
     </resources>
 </document>

@@ -181,6 +181,7 @@
 		B15FD40A1DD1DD8C00782324 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15FD4091DD1DD8C00782324 /* AppDelegate.swift */; };
 		B163FE711E6FE039004AF42E /* UbuntuLightItalicDarkCyanButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B163FE701E6FE039004AF42E /* UbuntuLightItalicDarkCyanButton.swift */; };
 		B16AD9411E9672E600A51E73 /* NewsItemShowRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16AD9401E9672E600A51E73 /* NewsItemShowRouter.swift */; };
+		B16D5D6C1E9B993200FCA885 /* UbuntuLightItalicVeryLightGrayLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16D5D6B1E9B993200FCA885 /* UbuntuLightItalicVeryLightGrayLabel.swift */; };
 		B16E966F1DE6C94000147CEF /* BigTopBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16E966E1DE6C94000147CEF /* BigTopBarView.swift */; };
 		B16E96711DE6C94D00147CEF /* BigTopBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B16E96701DE6C94D00147CEF /* BigTopBarView.xib */; };
 		B16E96731DE717E400147CEF /* BigCirleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16E96721DE717E400147CEF /* BigCirleView.swift */; };
@@ -621,6 +622,7 @@
 		B163FE6F1E6FB4E3004AF42E /* OmnieCommerceUser v.2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "OmnieCommerceUser v.2.xcdatamodel"; sourceTree = "<group>"; };
 		B163FE701E6FE039004AF42E /* UbuntuLightItalicDarkCyanButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UbuntuLightItalicDarkCyanButton.swift; sourceTree = "<group>"; };
 		B16AD9401E9672E600A51E73 /* NewsItemShowRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsItemShowRouter.swift; sourceTree = "<group>"; };
+		B16D5D6B1E9B993200FCA885 /* UbuntuLightItalicVeryLightGrayLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UbuntuLightItalicVeryLightGrayLabel.swift; sourceTree = "<group>"; };
 		B16E966E1DE6C94000147CEF /* BigTopBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BigTopBarView.swift; sourceTree = "<group>"; };
 		B16E96701DE6C94D00147CEF /* BigTopBarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BigTopBarView.xib; sourceTree = "<group>"; };
 		B16E96721DE717E400147CEF /* BigCirleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BigCirleView.swift; sourceTree = "<group>"; };
@@ -1106,6 +1108,7 @@
 				B1FBC91C1E6D902B00D86429 /* HelveticaNeueCyrLightVeryLightGrayLabel.swift */,
 				B1FBC92C1E6DD86500D86429 /* UbuntuLightDarkCyanLabel.swift */,
 				B1FBC9261E6D974300D86429 /* UbuntuLightItalicLightGrayishCyanLabel.swift */,
+				B16D5D6B1E9B993200FCA885 /* UbuntuLightItalicVeryLightGrayLabel.swift */,
 				B17D92DA1E6FFC290028967E /* UbuntuLightItalicModerateRedLabel.swift */,
 				B1FBC91E1E6D904700D86429 /* UbuntuLightItalicVeryDarkGrayishBlueLabel.swift */,
 				B1767D791E93DA520095859B /* UbuntuLightSoftOrangeLabel.swift */,
@@ -2348,6 +2351,7 @@
 				B1CF54881DDB50F100E98049 /* BusinessCardsShowRouter.swift in Sources */,
 				B122F2221DD35CC80018A701 /* SlideMenuShowConfigurator.swift in Sources */,
 				B177E5581E54B739004F1390 /* RepetitionPasswordShowModels.swift in Sources */,
+				B16D5D6C1E9B993200FCA885 /* UbuntuLightItalicVeryLightGrayLabel.swift in Sources */,
 				B105D1B81E76B90800FCDC73 /* ResponseAPI.swift in Sources */,
 				B1FFF7051E5ECDF900A075D8 /* OrganizationsShowViewController.swift in Sources */,
 				B1597AD01E3F42B600123CB5 /* AvatarActionView.swift in Sources */,

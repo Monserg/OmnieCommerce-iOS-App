@@ -56,13 +56,16 @@
 "Loading Data"                  =   "Loading data...";
 "Loading More"                  =   "Loading more...";
 "Reviews"                       =   "Reviews";
+"Write Review"                  =   "Write Review";
 "Black List"                    =   "Black List";
 "Black List Text 1"             =   "This organization has added you\nto the Black List.";
 "Black List Text 2"             =   "In connection with this, unfortunately, you can not\norder the services\nof this organization.";
 "Action valid"                  =   "\nThe promotion applies to:\n";
 "Discounts common"              =   "Discounts";
 "Discounts user"                =   "User discounts";
+"Discount period"               =   "Discount period:";
 "Our services"                  =   "Our services";
+"Rate Organization"             =   "Rate Organization";
 
 
 // Buttons

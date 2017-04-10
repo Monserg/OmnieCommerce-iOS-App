@@ -55,14 +55,17 @@
 "Comment"                       =   "Комментарий:";
 "Loading Data"                  =   "Загрузить...";
 "Loading More"                  =   "Загрузить ещё...";
-"Reviews"                       =   "Оставить отзыв";
+"Reviews"                       =   "Отзывы";
+"Write Review"                  =   "Оставить отзыв";
 "Black List"                    =   "Чёрный список";
 "Black List Text 1"             =   "Данная организация добавила Вас\nв чёрный список.";
 "Black List Text 2"             =   "В связи с этим, к сожалению, Вы не\nможете заказывать услуги\nэтой организации.";
 "Action valid"                  =   "\nАкция распространяется на:\n";
 "Discounts common"              =   "Скидки";
 "Discounts user"                =   "Персональные скидки";
+"Discount period"               =   "Срок действия:";
 "Our services"                  =   "Наши услуги";
+"Rate Organization"             =   "Оцените организацию";
 
 
 // Buttons
