@@ -85,6 +85,9 @@ class OrganizationShowViewController: BaseViewController {
         }
     }
 
+    // Gallery view
+    @IBOutlet weak var galleryView: UIView!
+    @IBOutlet weak var galleryCollectionView: MSMCollectionView!
     
     
     // MARK: - Class initialization
@@ -298,6 +301,27 @@ class OrganizationShowViewController: BaseViewController {
         } else {
             discountsView.isHidden = true
         }
+        
+        // Gallery view
+        if ((organizationProfile?.gallery?.count)! > 0) {
+            galleryView.isHidden = false
+            
+            galleryCollectionView.collectionViewControllerManager = MSMCollectionViewControllerManager(withCollectionView: galleryCollectionView)
+            galleryCollectionView.collectionViewControllerManager!.sectionsCount = 1
+            _ = organizationProfile!.gallery!.map { $0.cellHeight = 102.0 }
+            galleryCollectionView.collectionViewControllerManager!.dataSource = organizationProfile!.gallery!
+            galleryCollectionView.reloadData()
+            
+            // Handler Image select
+            galleryCollectionView.collectionViewControllerManager!.handlerCellSelectCompletion = { item in
+                if item is GalleryImage {
+                    self.modalViewDidShow(withHeight: 365, customSubview: PhotosGalleryView(), andValues: organizationProfile!.gallery!)
+                }
+            }
+
+        } else {
+            galleryView.isHidden = true
+        }
     }
 
     
@@ -365,7 +389,6 @@ class OrganizationShowViewController: BaseViewController {
     @IBAction func handlerShowPopupView(_ sender: UIButton) {
 //        modalViewDidShow(withHeight: 285, customSubview: ReviewsView(), andValues: nil)
 //        modalViewDidShow(withHeight: 185, customSubview: BlackListView(), andValues: nil)
-        modalViewDidShow(withHeight: 365, customSubview: PhotosGalleryView(), andValues: organization.gallery)
     }
 }
 
