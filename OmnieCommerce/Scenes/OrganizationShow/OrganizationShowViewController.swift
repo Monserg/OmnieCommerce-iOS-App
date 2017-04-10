@@ -104,6 +104,7 @@ class OrganizationShowViewController: BaseViewController {
 
     // Reviews view
     @IBOutlet weak var reviewsView: UIView!
+    @IBOutlet weak var reviewsCollectionView: MSMCollectionView!
     
     // Rating view
     @IBOutlet weak var ratingView: UIView!
@@ -385,6 +386,17 @@ class OrganizationShowViewController: BaseViewController {
 //        } else {
 //            reviewsView.isHidden = true
 //        }
+        
+//        reviewsCollectionView.collectionViewControllerManager = MSMCollectionViewControllerManager(withCollectionView: reviewsCollectionView)
+//        reviewsCollectionView.collectionViewControllerManager!.sectionsCount = 1
+////        _ = organizationProfile!.gallery!.map { $0.cellHeight = 143.0 }
+//        reviewsCollectionView.collectionViewControllerManager!.dataSource = Array.init(repeating: "hhhhhh", count: 6)
+//        reviewsCollectionView.reloadData()
+//        
+//        // Handler Image select
+//        reviewsCollectionView.collectionViewControllerManager!.handlerCellSelectCompletion = { item in }
+        
+        
         
         // Rating view
         if (!(organizationProfile?.canUserSendReview)!) {

@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ReviewCollectionViewCell" id="gTV-IL-0wX" customClass="ReviewCollectionViewCell" customModule="OmnieCommerce" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="351" height="143"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="351" height="143"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EQX-yN-EmO" userLabel="Content View">
+                        <rect key="frame" x="0.0" y="0.0" width="351" height="143"/>
+                        <subviews>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DsI-a0-7bc" userLabel="Data View">
+                                <rect key="frame" x="0.0" y="0.0" width="351" height="143"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image-no-user" translatesAutoresizingMaskIntoConstraints="NO" id="MVe-AP-rnt" customClass="CustomImageView" customModule="OmnieCommerce" customModuleProvider="target">
+                                        <rect key="frame" x="55" y="15" width="45" height="45"/>
+                                        <color key="backgroundColor" red="0.14117647058823529" green="0.19607843137254902" blue="0.24705882352941178" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="MVe-AP-rnt" secondAttribute="height" multiplier="1:1" id="u3x-uV-BqK"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isCircle" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </imageView>
+                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fd8-Mj-qKX" userLabel="Left Button">
+                                        <rect key="frame" x="9" y="42.5" width="17" height="58"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <state key="normal" image="icon-left-arrow-normal"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="handlerPageButtonTap:" destination="gTV-IL-0wX" eventType="touchUpInside" id="VNQ-0H-8rg"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ayj-7F-p8N" userLabel="Right Button">
+                                        <rect key="frame" x="325" y="42.5" width="17" height="58"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <state key="normal" image="icon-right-arrow-normal"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="handlerPageButtonTap:" destination="gTV-IL-0wX" eventType="touchUpInside" id="Ugg-PX-Pfk"/>
+                                        </connections>
+                                    </button>
+                                    <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xtz-wl-bK3" userLabel="Name Label" customClass="UbuntuLightVeryLightGrayLabel" customModule="OmnieCommerce" customModuleProvider="target">
+                                        <rect key="frame" x="108" y="24" width="205" height="21"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="21" id="WcO-tj-7Sy"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
+                                    <view clipsSubviews="YES" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="277-XF-kJ7" userLabel="Rating View" customClass="CosmosView">
+                                        <rect key="frame" x="108" y="54" width="49" height="9"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="rating">
+                                                <real key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="totalStars">
+                                                <integer key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="starSize">
+                                                <real key="value" value="9"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Apf-Qh-jRv" userLabel="Date Label">
+                                        <rect key="frame" x="172" y="51.5" width="31" height="14.5"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
+                                    <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KPj-IR-ubz" userLabel="Note Label" customClass="UbuntuLightItalicVeryLightGrayLabel" customModule="OmnieCommerce" customModuleProvider="target">
+                                        <rect key="frame" x="38" y="69" width="275" height="14.5"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.15294117647058825" green="0.21568627450980393" blue="0.27058823529411763" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="KPj-IR-ubz" firstAttribute="top" secondItem="MVe-AP-rnt" secondAttribute="bottom" constant="9" id="0ns-NS-mXK"/>
+                                    <constraint firstItem="Apf-Qh-jRv" firstAttribute="leading" secondItem="277-XF-kJ7" secondAttribute="trailing" constant="15" id="5fO-KB-sHi"/>
+                                    <constraint firstItem="Fd8-Mj-qKX" firstAttribute="leading" secondItem="DsI-a0-7bc" secondAttribute="leading" constant="9" id="7JW-Qy-te5"/>
+                                    <constraint firstItem="Fd8-Mj-qKX" firstAttribute="centerY" secondItem="DsI-a0-7bc" secondAttribute="centerY" id="99l-bp-ujT"/>
+                                    <constraint firstItem="Ayj-7F-p8N" firstAttribute="height" secondItem="Fd8-Mj-qKX" secondAttribute="height" id="9Xn-rq-5Os"/>
+                                    <constraint firstItem="Ayj-7F-p8N" firstAttribute="width" secondItem="Fd8-Mj-qKX" secondAttribute="width" id="BFp-Cr-04n"/>
+                                    <constraint firstAttribute="trailing" secondItem="KPj-IR-ubz" secondAttribute="trailing" constant="38" id="Blw-sS-gn9"/>
+                                    <constraint firstItem="Apf-Qh-jRv" firstAttribute="baseline" secondItem="277-XF-kJ7" secondAttribute="baseline" id="IDc-Af-XIX"/>
+                                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="KPj-IR-ubz" secondAttribute="bottom" constant="14" id="MQw-co-9jt"/>
+                                    <constraint firstAttribute="trailing" secondItem="xtz-wl-bK3" secondAttribute="trailing" constant="38" id="NJ0-Ui-3X4"/>
+                                    <constraint firstItem="xtz-wl-bK3" firstAttribute="leading" secondItem="MVe-AP-rnt" secondAttribute="trailing" constant="8" id="QV1-sY-2IL"/>
+                                    <constraint firstItem="KPj-IR-ubz" firstAttribute="leading" secondItem="DsI-a0-7bc" secondAttribute="leading" constant="38" id="TRu-sM-buz"/>
+                                    <constraint firstItem="Ayj-7F-p8N" firstAttribute="centerY" secondItem="DsI-a0-7bc" secondAttribute="centerY" id="Tup-Ws-se9"/>
+                                    <constraint firstItem="MVe-AP-rnt" firstAttribute="top" secondItem="DsI-a0-7bc" secondAttribute="top" constant="15" id="WUA-KY-R0s"/>
+                                    <constraint firstItem="277-XF-kJ7" firstAttribute="top" secondItem="xtz-wl-bK3" secondAttribute="bottom" constant="9" id="dHJ-6Y-S8R"/>
+                                    <constraint firstAttribute="trailing" secondItem="Ayj-7F-p8N" secondAttribute="trailing" constant="9" id="dbk-YZ-1UU"/>
+                                    <constraint firstItem="MVe-AP-rnt" firstAttribute="leading" secondItem="DsI-a0-7bc" secondAttribute="leading" constant="55" id="oFg-Gh-Sqp"/>
+                                    <constraint firstItem="277-XF-kJ7" firstAttribute="leading" secondItem="xtz-wl-bK3" secondAttribute="leading" id="r32-0k-5Jp"/>
+                                    <constraint firstItem="xtz-wl-bK3" firstAttribute="top" secondItem="DsI-a0-7bc" secondAttribute="top" constant="24" id="vLU-nH-LhA"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="DsI-a0-7bc" firstAttribute="leading" secondItem="EQX-yN-EmO" secondAttribute="leading" id="6xk-Ol-5rx"/>
+                            <constraint firstAttribute="bottom" secondItem="DsI-a0-7bc" secondAttribute="bottom" id="Heh-W2-oiu"/>
+                            <constraint firstItem="DsI-a0-7bc" firstAttribute="top" secondItem="EQX-yN-EmO" secondAttribute="top" id="eXn-lO-vE9"/>
+                            <constraint firstAttribute="trailing" secondItem="DsI-a0-7bc" secondAttribute="trailing" id="pkZ-5E-r30"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+            </view>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="EQX-yN-EmO" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="15O-4j-VUz"/>
+                <constraint firstItem="MVe-AP-rnt" firstAttribute="height" secondItem="gTV-IL-0wX" secondAttribute="height" multiplier="45:143" id="1qS-i3-hbT"/>
+                <constraint firstAttribute="trailing" secondItem="EQX-yN-EmO" secondAttribute="trailing" id="5BR-9M-MoV"/>
+                <constraint firstItem="Fd8-Mj-qKX" firstAttribute="height" secondItem="gTV-IL-0wX" secondAttribute="height" multiplier="58:143" id="7ez-Cw-TyF"/>
+                <constraint firstItem="EQX-yN-EmO" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Mv1-Gk-D7E"/>
+                <constraint firstItem="Fd8-Mj-qKX" firstAttribute="width" secondItem="gTV-IL-0wX" secondAttribute="width" multiplier="17:351" id="Tlr-iR-Nha"/>
+                <constraint firstAttribute="bottom" secondItem="EQX-yN-EmO" secondAttribute="bottom" id="eRo-iJ-3sd"/>
+                <constraint firstItem="277-XF-kJ7" firstAttribute="width" secondItem="gTV-IL-0wX" secondAttribute="width" multiplier="49:351" id="fNR-rO-qVC"/>
+                <constraint firstItem="277-XF-kJ7" firstAttribute="height" secondItem="gTV-IL-0wX" secondAttribute="height" multiplier="9:143" id="yrQ-Yb-FD1"/>
+            </constraints>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+            </userDefinedRuntimeAttributes>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="7ez-Cw-TyF"/>
+                    <exclude reference="Tlr-iR-Nha"/>
+                </mask>
+            </variation>
+            <variation key="heightClass=regular-widthClass=compact">
+                <mask key="constraints">
+                    <include reference="7ez-Cw-TyF"/>
+                    <include reference="Tlr-iR-Nha"/>
+                </mask>
+            </variation>
+            <connections>
+                <outlet property="dateLabel" destination="Apf-Qh-jRv" id="cN2-aA-ARc"/>
+                <outlet property="noteLabel" destination="KPj-IR-ubz" id="Hcr-uG-19Z"/>
+                <outlet property="userNameLabel" destination="xtz-wl-bK3" id="o1E-Iq-Jn5"/>
+                <outlet property="userRatingView" destination="277-XF-kJ7" id="DFN-MC-7Qt"/>
+            </connections>
+            <point key="canvasLocation" x="49.5" y="54"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="icon-left-arrow-normal" width="17" height="57"/>
+        <image name="icon-right-arrow-normal" width="17" height="57"/>
+        <image name="image-no-user" width="37" height="33"/>
+    </resources>
+</document>

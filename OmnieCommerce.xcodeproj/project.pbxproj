@@ -218,6 +218,8 @@
 		B17EBF181E9B5286000E61AA /* UbuntuLightSoftCyanLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17EBF171E9B5286000E61AA /* UbuntuLightSoftCyanLabel.swift */; };
 		B17EBF1B1E9B69A4000E61AA /* DiscountTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17EBF191E9B69A4000E61AA /* DiscountTableViewCell.swift */; };
 		B17EBF1C1E9B69A4000E61AA /* DiscountTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B17EBF1A1E9B69A4000E61AA /* DiscountTableViewCell.xib */; };
+		B184A9581E9BE9F9005B3A10 /* ReviewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B184A9561E9BE9F9005B3A10 /* ReviewCollectionViewCell.swift */; };
+		B184A9591E9BE9F9005B3A10 /* ReviewCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B184A9571E9BE9F9005B3A10 /* ReviewCollectionViewCell.xib */; };
 		B18A45C61DEC21BA003EBD2F /* SmallTopBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B18A45C51DEC21BA003EBD2F /* SmallTopBarView.xib */; };
 		B18A45C81DEC23B2003EBD2F /* SmallTopBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18A45C71DEC23B2003EBD2F /* SmallTopBarView.swift */; };
 		B18A45CA1DEC282B003EBD2F /* DotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18A45C91DEC282B003EBD2F /* DotView.swift */; };
@@ -661,6 +663,8 @@
 		B17EBF171E9B5286000E61AA /* UbuntuLightSoftCyanLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UbuntuLightSoftCyanLabel.swift; sourceTree = "<group>"; };
 		B17EBF191E9B69A4000E61AA /* DiscountTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscountTableViewCell.swift; sourceTree = "<group>"; };
 		B17EBF1A1E9B69A4000E61AA /* DiscountTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DiscountTableViewCell.xib; sourceTree = "<group>"; };
+		B184A9561E9BE9F9005B3A10 /* ReviewCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewCollectionViewCell.swift; sourceTree = "<group>"; };
+		B184A9571E9BE9F9005B3A10 /* ReviewCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReviewCollectionViewCell.xib; sourceTree = "<group>"; };
 		B18A45C51DEC21BA003EBD2F /* SmallTopBarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SmallTopBarView.xib; sourceTree = "<group>"; };
 		B18A45C71DEC23B2003EBD2F /* SmallTopBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmallTopBarView.swift; sourceTree = "<group>"; };
 		B18A45C91DEC282B003EBD2F /* DotView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DotView.swift; sourceTree = "<group>"; };
@@ -1922,6 +1926,8 @@
 			children = (
 				B1F3CD621E988ADA00ECAC35 /* CirclePhotoCollectionViewCell.swift */,
 				B1F3CD631E988ADA00ECAC35 /* CirclePhotoCollectionViewCell.xib */,
+				B184A9561E9BE9F9005B3A10 /* ReviewCollectionViewCell.swift */,
+				B184A9571E9BE9F9005B3A10 /* ReviewCollectionViewCell.xib */,
 			);
 			path = UICollectionViewCell;
 			sourceTree = "<group>";
@@ -2078,6 +2084,7 @@
 				B1BF926C1DD6516C00BECBBB /* helveticaneuecyr-heavy.otf in Resources */,
 				B1BF926D1DD6516C00BECBBB /* helveticaneuecyr-heavyitalic.otf in Resources */,
 				B14107C51DFEA73900F79CF9 /* CalendarDayCellView.xib in Resources */,
+				B184A9591E9BE9F9005B3A10 /* ReviewCollectionViewCell.xib in Resources */,
 				B1BF926E1DD6516C00BECBBB /* helveticaneuecyr-italic.otf in Resources */,
 				B1BF926F1DD6516C00BECBBB /* helveticaneuecyr-light.otf in Resources */,
 				B152915D1DDE44B700BBA1E0 /* MenuSectionFooterView.xib in Resources */,
@@ -2387,6 +2394,7 @@
 				B122F2151DD35C2C0018A701 /* NewsShowModels.swift in Sources */,
 				B1CF547A1DDB50D900E98049 /* AboutShowRouter.swift in Sources */,
 				B1C13D8F1DEF5736002B494A /* DropDownTableViewCell.swift in Sources */,
+				B184A9581E9BE9F9005B3A10 /* ReviewCollectionViewCell.swift in Sources */,
 				B177E55B1E54B739004F1390 /* RepetitionPasswordShowViewController.swift in Sources */,
 				B177E5371E5475EC004F1390 /* SignInContainerShowPresenter.swift in Sources */,
 				B19A24261E8625DE0070841F /* Organizations+CoreDataProperties.swift in Sources */,

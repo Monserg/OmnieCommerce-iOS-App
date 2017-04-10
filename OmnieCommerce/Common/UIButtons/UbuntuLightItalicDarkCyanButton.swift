@@ -11,15 +11,15 @@ import UIKit
 @IBDesignable class UbuntuLightItalicDarkCyanButton: UIButton {
     // MARK: - Class Functions
     override func draw(_ rect: CGRect) {
-        tintColor           =   UIColor.darkCyan
-        let titleText       =   (titleLabel?.text != nil) ? (titleLabel?.text!.localized())! : String()
-        titleLabel?.font    =   (isAppThemeDark) ? UIFont.systemFont(ofSize: 9) : UIFont(name: "Ubuntu-LightItalic", size: (titleLabel?.font!.pointSize)!)
+        tintColor = UIColor.darkCyan
+        let titleText = (titleLabel?.text != nil) ? (titleLabel?.text!.localized())! : String()
+        titleLabel?.font = (isAppThemeDark) ? UIFont.systemFont(ofSize: 9) : UIFont(name: "Ubuntu-LightItalic", size: (titleLabel?.font!.pointSize)!)
         
         setTitle(titleText, for: .normal)
         setTitleColor(UIColor.darkCyan, for: .normal)
 
-        borderColor         =   UIColor.clear
-        borderWidth         =   0
-        clipsToBounds       =   true
+        borderColor = UIColor.clear
+        borderWidth = 0
+        clipsToBounds = true
     }
 }
