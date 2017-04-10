@@ -63,6 +63,29 @@ class OrganizationShowViewController: BaseViewController {
         }
     }
     
+    // Discounts view
+    @IBOutlet weak var discountsView: UIView!
+    @IBOutlet weak var discountCommonStackView: UIStackView!
+    @IBOutlet weak var discountCommonTableViewHeightConstraint: NSLayoutConstraint!
+    
+    @IBOutlet weak var discountsCommonTableView: MSMTableView! {
+        didSet {
+            discountsCommonTableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0)
+            discountsCommonTableView.scrollIndicatorInsets = UIEdgeInsetsMake(0, 0, 0, 0)
+        }
+    }
+
+    @IBOutlet weak var discountUserStackView: UIStackView!
+    @IBOutlet weak var discountsUserTableViewHeightConstraint: NSLayoutConstraint!
+    
+    @IBOutlet weak var discountsUserTableView: MSMTableView!  {
+        didSet {
+            discountsUserTableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0)
+            discountsUserTableView.scrollIndicatorInsets = UIEdgeInsetsMake(0, 0, 0, 0)
+        }
+    }
+
+    
     
     // MARK: - Class initialization
     override func awakeFromNib() {
@@ -241,6 +264,39 @@ class OrganizationShowViewController: BaseViewController {
             titleLabel.text = organizationProfile?.descriptionTitle!
             contentLabel.text = organizationProfile?.descriptionContent!
             contentLabel.sizeToFit()
+        } else {
+            titleView.isHidden = true
+        }
+        
+        // Discounts view 
+        if (organizationProfile?.discountsCommon != nil && organizationProfile?.discountsUser != nil) {
+            if ((organizationProfile?.discountsCommon?.count)! > 0) {
+                discountCommonStackView.isHidden = false
+                let discountCommonTableManager = MSMTableViewControllerManager.init(withTableView: discountsCommonTableView, andSectionsCount: 1, andEmptyMessageText: "Common discounts list is empty")
+                discountsCommonTableView.tableViewControllerManager = discountCommonTableManager
+                discountsCommonTableView.tableViewControllerManager!.dataSource = organizationProfile!.discountsCommon
+                discountsCommonTableView.tableFooterView!.isHidden = true
+                discountCommonTableViewHeightConstraint.constant = CGFloat(50.0 + 58.0 * Double(organizationProfile!.discountsCommon!.count)) * view.heightRatio
+                self.view.layoutIfNeeded()
+                discountsCommonTableView.reloadData()
+            } else {
+                discountCommonStackView.isHidden = true
+            }
+            
+            if ((organizationProfile?.discountsUser?.count)! > 0) {
+                discountUserStackView.isHidden = false
+                let discountsUserTableManager = MSMTableViewControllerManager.init(withTableView: discountsUserTableView, andSectionsCount: 1, andEmptyMessageText: "User discounts list is empty")
+                discountsUserTableView.tableViewControllerManager = discountsUserTableManager
+                discountsUserTableView.tableViewControllerManager!.dataSource = organizationProfile!.discountsUser
+                discountsUserTableView.tableFooterView!.isHidden = true
+                discountsUserTableViewHeightConstraint.constant = CGFloat(50.0 + 58.0 * Double(organizationProfile!.discountsUser!.count)) * view.heightRatio
+                self.view.layoutIfNeeded()
+                discountsUserTableView.reloadData()
+            } else {
+                discountUserStackView.isHidden = true
+            }
+        } else {
+            discountsView.isHidden = true
         }
     }
 

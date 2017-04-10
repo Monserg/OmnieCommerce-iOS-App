@@ -19,8 +19,8 @@ class Discount: NSObject, NSCoding, InitCellParameters {
     var dateEnd: Date!
     
     // Confirm InitCellParameters Protocol
-    var cellIdentifier: String = "XXX"
-    var cellHeight: CGFloat = 96.0
+    var cellIdentifier: String = "DiscountTableViewCell"
+    var cellHeight: CGFloat = 58.0
     
     
     // MARK: - Class Initialization

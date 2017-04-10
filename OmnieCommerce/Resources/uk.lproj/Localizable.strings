@@ -60,7 +60,9 @@
 "Black List Text 1"             =   "Дана організація додала Вас\nв чорний список.";
 "Black List Text 2"             =   "У зв`язку з цим, нажаль, Ви не\nможете замовляти послуги\nцієї організації.";
 "Action valid"                  =   "\nАкція діє на:\n";
-
+"Discounts common"              =   "Знижки";
+"Discounts user"                =   "Персональні знижки";
+"Discount period"               =   "Термін дії:";
 
 // Buttons
 "Register"                      =   "Зареєструватись";

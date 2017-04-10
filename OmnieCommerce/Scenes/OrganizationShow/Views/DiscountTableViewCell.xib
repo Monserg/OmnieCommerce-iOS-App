@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DiscountTableViewCell" rowHeight="58" id="KGk-i7-Jjw" customClass="DiscountTableViewCell" customModule="OmnieCommerce" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="58"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="57.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-confirm-gold-normal" translatesAutoresizingMaskIntoConstraints="NO" id="2hn-NE-Ea5">
+                        <rect key="frame" x="0.0" y="6.5" width="6" height="3"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="3" id="BmG-XJ-IC4"/>
+                            <constraint firstAttribute="width" constant="6" id="s8d-nR-hDv"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </imageView>
+                    <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TSl-zc-f0w" userLabel="Name Label" customClass="UbuntuLightVeryLightGrayLabel" customModule="OmnieCommerce" customModuleProvider="target">
+                        <rect key="frame" x="13" y="0.0" width="307" height="14.5"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="14.5" id="IpG-N8-2Vd"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </label>
+                    <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D19-Wp-PrE" userLabel="Date Label" customClass="UbuntuLightItalicLightGrayishCyanLabel" customModule="OmnieCommerce" customModuleProvider="target">
+                        <rect key="frame" x="13" y="23.5" width="307" height="14.5"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="14.5" id="Tkq-3F-XTQ"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </label>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                <constraints>
+                    <constraint firstItem="TSl-zc-f0w" firstAttribute="leading" secondItem="2hn-NE-Ea5" secondAttribute="trailing" constant="7" id="9az-m2-Lpi"/>
+                    <constraint firstItem="D19-Wp-PrE" firstAttribute="top" secondItem="TSl-zc-f0w" secondAttribute="bottom" constant="9" id="WfP-9Q-oKm"/>
+                    <constraint firstAttribute="trailing" secondItem="D19-Wp-PrE" secondAttribute="trailing" id="e5j-P1-W9G"/>
+                    <constraint firstItem="TSl-zc-f0w" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="f8W-2j-72J"/>
+                    <constraint firstItem="D19-Wp-PrE" firstAttribute="leading" secondItem="TSl-zc-f0w" secondAttribute="leading" id="ffM-Qp-9Ka"/>
+                    <constraint firstAttribute="trailing" secondItem="TSl-zc-f0w" secondAttribute="trailing" id="ntN-fc-fNT"/>
+                    <constraint firstItem="2hn-NE-Ea5" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="qCU-65-AGc"/>
+                    <constraint firstItem="TSl-zc-f0w" firstAttribute="centerY" secondItem="2hn-NE-Ea5" secondAttribute="centerY" id="v1S-98-fHF"/>
+                </constraints>
+                <userDefinedRuntimeAttributes>
+                    <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                </userDefinedRuntimeAttributes>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+            </userDefinedRuntimeAttributes>
+            <connections>
+                <outlet property="dateLabel" destination="D19-Wp-PrE" id="rg8-aJ-tTI"/>
+                <outlet property="nameLabel" destination="TSl-zc-f0w" id="dbr-1Z-U2T"/>
+            </connections>
+            <point key="canvasLocation" x="-203" y="-38"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="icon-confirm-gold-normal" width="5" height="3"/>
+    </resources>
+</document>
