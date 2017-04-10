@@ -15,8 +15,6 @@ PODS:
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
   - Alamofire (4.4.0)
-  - AlamofireImage (3.2.0):
-    - Alamofire (~> 4.1)
   - Cosmos (7.0.0)
   - Device (2.0.1)
   - FirebaseAnalytics (3.7.0):
@@ -82,7 +80,6 @@ PODS:
 DEPENDENCIES:
   - AFNetworking (~> 3.1)
   - Alamofire (~> 4.4)
-  - AlamofireImage (~> 3.2)
   - Cosmos (~> 7.0)
   - Device (~> 2.0.0)
   - Google/SignIn
@@ -104,7 +101,6 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
-  AlamofireImage: 157ed682cc81d3b9db4fb90c1f12180ac552d93b
   Cosmos: 2c8299147138758f6ebbb247cf1aeed77998bdf9
   Device: 7dd12a4fc8a72a90211f2c9ac8975a728322a148
   FirebaseAnalytics: 0d1b7d81d5021155be37702a94ba1ec16d45365d
@@ -130,6 +126,6 @@ SPEC CHECKSUMS:
   SWRevealViewController: 6d3fd97f70112fd7cef9de14df4260eacce4c63a
   Toucan: 47485bbc9cb4541ef6318d6886103e6eaf16e919
 
-PODFILE CHECKSUM: f6ccd22b32782ddf3d94481ff7b1793411c932f6
+PODFILE CHECKSUM: 62e14854d13a1a3b86e899e49f7e5299043c10fc
 
 COCOAPODS: 1.2.0.beta.1

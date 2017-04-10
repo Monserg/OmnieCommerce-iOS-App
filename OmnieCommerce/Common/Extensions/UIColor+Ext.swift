@@ -81,6 +81,16 @@ extension UIColor {
         }
     }
     
+    open class var softCyan: UIColor {
+        set {
+            self.softOrange = UIColor(hexString: "#6edadb")!
+        }
+        
+        get {
+            return UIColor(hexString: "#6edadb")!
+        }
+    }
+
     open class var grayishBlue: UIColor {
         set {
             self.grayishBlue = UIColor(hexString: "#d5d5d6")!

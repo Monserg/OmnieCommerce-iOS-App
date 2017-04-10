@@ -48,12 +48,21 @@ class OrganizationShowViewController: BaseViewController {
     @IBOutlet weak var nameLabel: CustomLabel!
     @IBOutlet weak var favoriteButton: CustomButton!
     
-    @IBOutlet weak var dottedBorderView: DottedBorderView! {
+    @IBOutlet var dottedBorderViewsCollection: [DottedBorderView]! {
         didSet {
-            dottedBorderView.style = .BottomDottedLine
+            _ = dottedBorderViewsCollection.map { $0.style = .BottomDottedLine }
         }
     }
 
+    // Title view
+    @IBOutlet weak var titleView: UIView!
+    @IBOutlet weak var titleLabel: UbuntuLightSoftCyanLabel!
+    @IBOutlet weak var contentLabel: UbuntuLightVeryLightGrayLabel! {
+        didSet {
+            contentLabel.numberOfLines = 0
+        }
+    }
+    
     
     // MARK: - Class initialization
     override func awakeFromNib() {
@@ -225,12 +234,20 @@ class OrganizationShowViewController: BaseViewController {
         } else {
             logoImageView!.image = UIImage.init(named: "image-no-photo")
         }
+        
+        // Title view
+        if (organizationProfile?.descriptionTitle != nil && organizationProfile?.descriptionContent != nil) {
+            titleView.isHidden = false
+            titleLabel.text = organizationProfile?.descriptionTitle!
+            contentLabel.text = organizationProfile?.descriptionContent!
+            contentLabel.sizeToFit()
+        }
     }
 
     
     // MARK: - Transition
     override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
-        dottedBorderView.setNeedsDisplay()
+        _ = dottedBorderViewsCollection.map { $0.setNeedsDisplay() }
 
         guard headerView != nil else {
             return

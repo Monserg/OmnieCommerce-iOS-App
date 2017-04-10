@@ -61,36 +61,31 @@ enum ViewStyle: String {
     
     // MARK: - Custom Functions
     private func drawDottedLine(withColor isColor: Bool) {
-        let dottes: [CGFloat]           =   [0.0, 4.0]
-        let dottedLinePath              =   UIBezierPath()
-        let lineWidth                   =   CGFloat((borderWidth as NSString).floatValue)
-        
-//        self.alpha                      =   0
-        self.viewStyle                  =   (isColor) ? "BottomDottedLineColor" : "BottomDottedLine"
+        let dottes: [CGFloat] = [0.0, 4.0]
+        let dottedLinePath = UIBezierPath()
+        let lineWidth = CGFloat((borderWidth as NSString).floatValue)
+        self.viewStyle = (isColor) ? "BottomDottedLineColor" : "BottomDottedLine"
         
         // Create line path around frame as single line
         dottedLinePath.removeAllPoints()
         
         dottedLinePath.move(to: CGPoint.init(x: self.frame.minX + lineWidth, y: self.frame.maxY - lineWidth))
         dottedLinePath.addLine(to: CGPoint.init(x: self.frame.maxX + lineWidth, y: self.frame.maxY - lineWidth))
-        
-        dottedLinePath.lineWidth        =   lineWidth
+        dottedLinePath.lineWidth = lineWidth
         dottedLinePath.setLineDash(dottes, count: dottes.count, phase: 0.0)
-        dottedLinePath.lineCapStyle     =   .round
+        dottedLinePath.lineCapStyle = .round
         
         (isColor) ? ((isAppThemeDark) ? UIColor.black.set() : UIColor.veryLightOrangeAlpha60.set()) :
                     ((isAppThemeDark) ? UIColor.black.set() : UIColor.lightGrayAlpha20.set())
         
         dottedLinePath.stroke()
-//        self.alpha                      =   1
     }
 
     private func drawDottedRectangle(withColor isColor: Bool) {
-        let dottes: [CGFloat]           =   [0.0, 4.0]
-        let dottedLinePath              =   UIBezierPath()
-        let lineWidth                   =   CGFloat((borderWidth as NSString).floatValue)
-        
-        self.viewStyle                  =   (isColor) ? "AroundDottedRectangleColor" : "AroundDottedRectangle"
+        let dottes: [CGFloat] = [0.0, 4.0]
+        let dottedLinePath = UIBezierPath()
+        let lineWidth = CGFloat((borderWidth as NSString).floatValue)
+        self.viewStyle = (isColor) ? "AroundDottedRectangleColor" : "AroundDottedRectangle"
 
         // Create line path around frame as rectangle
         dottedLinePath.removeAllPoints()
@@ -100,9 +95,9 @@ enum ViewStyle: String {
                                                                width: self.frame.width - 2 * (self.frame.minX + lineWidth),
                                                                height: self.frame.height - 2 * (self.frame.minY + lineWidth)), cornerRadius: cornerRadius))
         
-        dottedLinePath.lineWidth        =   lineWidth
+        dottedLinePath.lineWidth = lineWidth
         dottedLinePath.setLineDash(dottes, count: dottes.count, phase: 0.0)
-        dottedLinePath.lineCapStyle     =   .round
+        dottedLinePath.lineCapStyle = .round
         
         (isColor) ? ((isAppThemeDark) ? UIColor.black.set() : UIColor.veryLightOrangeAlpha60.set()) :
                     ((isAppThemeDark) ? UIColor.black.set() : UIColor.lightGrayAlpha20.set())

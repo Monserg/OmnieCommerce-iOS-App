@@ -99,7 +99,7 @@
             <objects>
                 <navigationController storyboardIdentifier="MessagesShowNC" automaticallyAdjustsScrollViewInsets="NO" id="YAB-jH-ZBO" customClass="BaseNavigationController" customModule="OmnieCommerce" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="gPT-Va-oc5">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="gPT-Va-oc5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
