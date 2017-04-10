@@ -62,6 +62,7 @@
 "Action valid"                  =   "\nThe promotion applies to:\n";
 "Discounts common"              =   "Discounts";
 "Discounts user"                =   "User discounts";
+"Our services"                  =   "Our services";
 
 
 // Buttons
@@ -89,6 +90,7 @@
 "Use Template"                  =   "Use Template";
 "Delete Template"               =   "Delete Template";
 "Change"                        =   "Change";
+"All services"                  =   "All services";
 
 
 // TextField Placeholders

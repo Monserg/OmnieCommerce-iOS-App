@@ -226,6 +226,6 @@
     </objects>
     <resources>
         <image name="image-favorite-star-normal" width="13" height="12"/>
-        <image name="image-no-service" width="60" height="84"/>
+        <image name="image-no-service" width="16" height="22"/>
     </resources>
 </document>

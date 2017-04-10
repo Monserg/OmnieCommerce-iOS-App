@@ -56,9 +56,23 @@ extension FavoriteServiceTableViewCell: ConfigureCell {
         let service = item as! Service
         serviceID = service.codeID
         serviceLabel.text = service.name
-        nameLabel.text = service.organizationName
         isFavorite = service.isFavorite
         selectionStyle = .none
+
+        if (service.isNameNeedHide) {
+            nameLabel.isHidden = true
+            dottedBorderView.isHidden = true
+            favoriteButton.isUserInteractionEnabled = false
+        } else {
+            nameLabel.isHidden = false
+            nameLabel.text = service.organizationName
+            dottedBorderView.isHidden = false
+            favoriteButton.isUserInteractionEnabled = true
+        }
+        
+        if (service.needBackgroundColorSet && indexPath.row % 2 == 0) {
+            backgroundColor = UIColor.init(hexString: "#283643")
+        }
         
         favoriteButton.setImage((isFavorite) ?  UIImage(named: "image-favorite-star-selected") :
                                                 UIImage(named: "image-favorite-star-normal"), for: .normal)

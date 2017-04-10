@@ -62,6 +62,7 @@
 "Action valid"                  =   "\nАкция распространяется на:\n";
 "Discounts common"              =   "Скидки";
 "Discounts user"                =   "Персональные скидки";
+"Our services"                  =   "Наши услуги";
 
 
 // Buttons
@@ -89,6 +90,7 @@
 "Use Template"                  =   "Использовать шаблон";
 "Delete Template"               =   "Удалить шаблон";
 "Change"                        =   "Изменить";
+"All services"                  =   "Все услуги";
 
 
 // TextField Placeholders

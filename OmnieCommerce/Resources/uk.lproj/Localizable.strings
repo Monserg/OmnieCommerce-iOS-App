@@ -63,6 +63,8 @@
 "Discounts common"              =   "Знижки";
 "Discounts user"                =   "Персональні знижки";
 "Discount period"               =   "Термін дії:";
+"Our services"                  =   "Наші послуги";
+
 
 // Buttons
 "Register"                      =   "Зареєструватись";
@@ -89,6 +91,7 @@
 "Use Template"                  =   "Використати шаблон";
 "Delete Template"               =   "Видалити шаблон";
 "Change"                        =   "Змінити";
+"All services"                  =   "Усі послуги";
 
 
 // TextField Placeholders

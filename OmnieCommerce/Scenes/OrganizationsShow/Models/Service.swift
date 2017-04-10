@@ -13,7 +13,9 @@ import CoreLocation
 class Service: NSObject, NSCoding, InitCellParameters, SearchObject, PointAnnotationBinding {
     // MARK: - Properties
     var category: Category?
-
+    var needBackgroundColorSet: Bool = false
+    var isNameNeedHide: Bool = false
+    
     // From common API response
     var codeID: String!
     var organizationName: String?

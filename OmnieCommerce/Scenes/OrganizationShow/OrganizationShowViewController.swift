@@ -89,6 +89,19 @@ class OrganizationShowViewController: BaseViewController {
     @IBOutlet weak var galleryView: UIView!
     @IBOutlet weak var galleryCollectionView: MSMCollectionView!
     
+    // Service view
+    @IBOutlet weak var servicesView: UIView!
+    @IBOutlet weak var servicesButtonView: UIView!
+    @IBOutlet weak var servicesViewHeightConstraint: NSLayoutConstraint!
+    
+    @IBOutlet weak var servicesTableView: MSMTableView! {
+        didSet {
+            servicesTableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0)
+            servicesTableView.scrollIndicatorInsets = UIEdgeInsetsMake(0, 0, 0, 0)
+        }
+    }
+
+    
     
     // MARK: - Class initialization
     override func awakeFromNib() {
@@ -318,9 +331,43 @@ class OrganizationShowViewController: BaseViewController {
                     self.modalViewDidShow(withHeight: 365, customSubview: PhotosGalleryView(), andValues: organizationProfile!.gallery!)
                 }
             }
-
         } else {
             galleryView.isHidden = true
+        }
+        
+        // Services view
+        if ((organizationProfile!.services?.count)! > 0) {
+            servicesView.isHidden = false
+            let servicesTableManager = MSMTableViewControllerManager.init(withTableView: servicesTableView, andSectionsCount: 1, andEmptyMessageText: "Services list is empty")
+            servicesTableView.tableViewControllerManager = servicesTableManager
+            _ = organizationProfile!.services!.map {    $0.cellIdentifier = "FavoriteServiceTableViewCell";
+                                                        $0.cellHeight = 60.0;
+                                                        $0.isNameNeedHide = true;
+                                                        $0.needBackgroundColorSet = true;
+                                                    }
+            servicesTableView.tableViewControllerManager!.dataSource = organizationProfile!.services!
+            servicesTableView.tableFooterView!.isHidden = true
+            
+            if (organizationProfile!.services!.count >= 3) {
+                servicesButtonView.isHidden = false
+                servicesViewHeightConstraint.constant = CGFloat(137.0 + 60.0 * Double(organizationProfile!.services!.count)) * view.heightRatio
+            } else {
+                servicesButtonView.isHidden = true
+                servicesViewHeightConstraint.constant = CGFloat(81.0 + 60.0 * Double(organizationProfile!.services!.count)) * view.heightRatio
+            }
+            
+            self.view.layoutIfNeeded()
+            servicesTableView.reloadData()
+            
+            // Handler Service select
+            servicesTableView.tableViewControllerManager!.handlerSelectRowCompletion = { item in
+                if item is Service {
+                    // TODO: - ADD TRANSITION TO SERVICE PROFILE SCENE
+                    
+                }
+            }
+        } else {
+            servicesView.isHidden = true
         }
     }
 
@@ -389,6 +436,10 @@ class OrganizationShowViewController: BaseViewController {
     @IBAction func handlerShowPopupView(_ sender: UIButton) {
 //        modalViewDidShow(withHeight: 285, customSubview: ReviewsView(), andValues: nil)
 //        modalViewDidShow(withHeight: 185, customSubview: BlackListView(), andValues: nil)
+    }
+    
+    @IBAction func handlerAllServicesButtonTap(_ sender: FillVeryLightOrangeButton) {
+        // TODO: - ADD TRANSITION TO ALL SERVICES SCENE
     }
 }
 
