@@ -99,6 +99,7 @@ class OrganizationShowViewController: BaseViewController {
     @IBOutlet weak var servicesView: UIView!
     @IBOutlet weak var servicesButtonView: UIView!
     @IBOutlet weak var servicesViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var servicesTableViewHeightConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var servicesTableView: MSMTableView! {
         didSet {
@@ -347,9 +348,6 @@ class OrganizationShowViewController: BaseViewController {
         */
         
         // Gallery view
-        galleryView.isHidden = true
-        
-        /*
         if ((organizationProfile?.gallery?.count)! > 0) {
             galleryView.isHidden = false
             
@@ -368,10 +366,11 @@ class OrganizationShowViewController: BaseViewController {
         } else {
             galleryView.isHidden = true
         }
-        */
-        
         
         // Services view
+        servicesView.isHidden = true
+        
+        /*
         if ((organizationProfile!.services?.count)! > 0) {
             servicesView.isHidden = false
             let servicesTableManager = MSMTableViewControllerManager.init(withTableView: servicesTableView, andSectionsCount: 1, andEmptyMessageText: "Services list is empty")
@@ -383,13 +382,16 @@ class OrganizationShowViewController: BaseViewController {
                                                     }
             servicesTableView.tableViewControllerManager!.dataSource = organizationProfile!.services!
             servicesTableView.tableFooterView!.isHidden = true
+            self.view.layoutIfNeeded()
             
             if (organizationProfile!.services!.count >= 3) {
                 servicesButtonView.isHidden = false
-                servicesViewHeightConstraint.constant = CGFloat(137.0 + 60.0 * Double(organizationProfile!.services!.count)) * view.heightRatio
+                servicesTableViewHeightConstraint.constant = CGFloat(60.0 * 3.0) * view.heightRatio
+                servicesViewHeightConstraint.constant = 20.0 + servicesTableView.frame.minY + servicesTableViewHeightConstraint.constant + servicesButtonView.frame.height + 20.0
             } else {
                 servicesButtonView.isHidden = true
-                servicesViewHeightConstraint.constant = CGFloat(81.0 + 60.0 * Double(organizationProfile!.services!.count)) * view.heightRatio
+                servicesTableViewHeightConstraint.constant = CGFloat(60.0 * Double(organizationProfile!.services!.count)) * view.heightRatio
+                servicesViewHeightConstraint.constant = 20.0 + servicesTableView.frame.minY + servicesTableViewHeightConstraint.constant + 20.0
             }
             
             self.view.layoutIfNeeded()
@@ -402,11 +404,18 @@ class OrganizationShowViewController: BaseViewController {
                     
                 }
             }
+            
+//            servicesViewHeightConstraint.constant = 
         } else {
             servicesView.isHidden = true
         }
+         */
+        
         
         // Reviews view
+        reviewsView.isHidden = true
+        
+        /*
 //        if (organizationProfile.) {
 //            reviewsView.isHidden = false
 //
@@ -422,14 +431,14 @@ class OrganizationShowViewController: BaseViewController {
         
         // Handler Image select
         reviewsCollectionView.collectionViewControllerManager!.handlerCellSelectCompletion = { item in }
-        
+        */
         
         
         // Rating view
         if (!(organizationProfile?.canUserSendReview)!) {
             ratingView.isHidden = false
             
-            userNameLabel.text = "\(String(describing: CoreDataManager.instance.appUser.firstName)) \(String(describing: CoreDataManager.instance.appUser.surName))"
+            userNameLabel.text = "\(String(describing: CoreDataManager.instance.appUser.firstName!)) \(String(describing: CoreDataManager.instance.appUser.surName!))"
             
             if let imagePath = CoreDataManager.instance.appUser.imagePath {
                 userAvatarImageView.kf.setImage(with: ImageResource(downloadURL: URL(string: imagePath)!, cacheKey: imagePath),
