@@ -27,7 +27,6 @@ class FavoriteOrganizationsShowViewController: BaseViewController {
     var router: FavoriteOrganizationsShowRouter!
     
     var organizations = [Organization]()
-    var wasLaunchedAPI = false
     
     @IBOutlet weak var tableView: MSMTableView! {
         didSet {
@@ -53,9 +52,7 @@ class FavoriteOrganizationsShowViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
 
-        if (!wasLaunchedAPI) {
-            viewSettingsDidLoad()
-        }
+        viewSettingsDidLoad()
     }
 
     
@@ -75,7 +72,6 @@ class FavoriteOrganizationsShowViewController: BaseViewController {
         if (isNetworkAvailable) {
             organizations = [Organization]()
             favoriteOrganizationsListDidLoad(withOffset: 0, scrollingData: false)
-            wasLaunchedAPI = true
         } else {
             spinnerDidFinish()
         }
