@@ -13,8 +13,16 @@ class ScheduleView: CustomView {
     var schedule: Schedule!
     var isShow: Bool = false
     
+    override var values: [Any]? {
+        didSet {
+//            weekdaysWorkLabel.text = (values as! Schedule).day.convertToScheduleString()
+//            weekdaysWorkTimeLabel.text = (values as? Schedule).workTimeStart + " - " + (values as? Schedule).workTimeEnd
+        }
+    }
+
     @IBOutlet var view: UIView!
-    @IBOutlet weak var mondayLabel: CustomLabel!
+    @IBOutlet weak var weekdaysWorkLabel: UbuntuLightSoftOrangeLabel!
+    @IBOutlet weak var weekdaysWorkTimeLabel: UbuntuLightVeryLightGrayLabel!
     @IBOutlet weak var saturdayLabel: CustomLabel!
     @IBOutlet weak var sundayLabel: CustomLabel!
     @IBOutlet weak var launchLabel: CustomLabel!

@@ -42,6 +42,7 @@ class OrganizationShowViewController: BaseViewController {
     
     @IBOutlet weak var smallTopBarView: SmallTopBarView!
     @IBOutlet var modalView: ModalView?
+    @IBOutlet weak var mainStackView: UIStackView!
     
     // Info view
     @IBOutlet weak var infoView: UIView!
@@ -58,6 +59,8 @@ class OrganizationShowViewController: BaseViewController {
     // Title view
     @IBOutlet weak var titleView: UIView!
     @IBOutlet weak var titleLabel: UbuntuLightSoftCyanLabel!
+    @IBOutlet weak var titleViewHeightConstraint: NSLayoutConstraint!
+    
     @IBOutlet weak var contentLabel: UbuntuLightVeryLightGrayLabel! {
         didSet {
             contentLabel.numberOfLines = 0
@@ -131,14 +134,16 @@ class OrganizationShowViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        viewSettingsDidLoad()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
-        if (!wasLaunchedAPI) {
-            viewSettingsDidLoad()
-        }
+//        if (!wasLaunchedAPI) {
+//            viewSettingsDidLoad()
+//        }
     }
 
 
@@ -236,7 +241,10 @@ class OrganizationShowViewController: BaseViewController {
             scrollView.parallaxHeader.minimumHeight = smallTopBarView.frame.height
             scrollView.parallaxHeader.delegate = self
             scrollView.showsVerticalScrollIndicator = true
-            smallTopBarView.alpha = 0
+            
+            UIView.animate(withDuration: 0.3, animations: { _ in
+                self.smallTopBarView.alpha = 0
+            })
             
             // Add Back button
             backButton = UIButton.init(frame: CGRect.init(origin: CGPoint.zero, size: CGSize.zero))
@@ -260,8 +268,8 @@ class OrganizationShowViewController: BaseViewController {
             scrollView.scrollIndicatorInsets = UIEdgeInsets(top: smallTopBarView.frame.maxY, left: 0, bottom: 0, right: 0)
         }
         
-        // Initial Info view
-        nameLabel.text = organization.name + " jashdjk hjahdjahs hahd asd asdgag dgahd ghasg hgash dgashjgd ags dgasdaseyqteyqu  i slasldklaskdasklaskdlask"
+        // Info view
+        nameLabel.text = organization.name
         nameLabel.lineBreakMode = .byTruncatingTail
         nameLabel.numberOfLines = 2
         nameLabel.adjustsFontSizeToFitWidth = false
@@ -289,6 +297,8 @@ class OrganizationShowViewController: BaseViewController {
             titleLabel.text = organizationProfile?.descriptionTitle!
             contentLabel.text = organizationProfile?.descriptionContent!
             contentLabel.sizeToFit()
+            titleViewHeightConstraint.constant = contentLabel.frame.maxY + 19.0
+            view.layoutIfNeeded()
         } else {
             titleView.isHidden = true
         }
@@ -419,6 +429,10 @@ class OrganizationShowViewController: BaseViewController {
         } else {
             ratingView.isHidden = true
         }
+        
+        UIView.animate(withDuration: 0.3, animations: { _ in
+            self.mainStackView.isHidden = false
+        })
     }
 
     

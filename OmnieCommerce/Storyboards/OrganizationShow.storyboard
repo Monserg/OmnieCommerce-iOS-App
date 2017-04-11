@@ -29,7 +29,7 @@
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U9J-wo-NbD" userLabel="Content View">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="1482.6666666666667"/>
                                         <subviews>
-                                            <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="7hu-c0-ss3" userLabel="Main Stack View">
+                                            <stackView hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="7hu-c0-ss3" userLabel="Main Stack View">
                                                 <rect key="frame" x="8" y="0.0" width="398" height="1482.6666666666667"/>
                                                 <subviews>
                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F2J-Sj-SOC" userLabel="Info View">
@@ -244,6 +244,7 @@
                                                             <constraint firstItem="tBt-WZ-m6j" firstAttribute="leading" secondItem="qNN-cv-qQQ" secondAttribute="leading" constant="15" id="HcT-oY-hwf"/>
                                                             <constraint firstItem="7Xd-am-Thy" firstAttribute="top" secondItem="qNN-cv-qQQ" secondAttribute="top" id="Hwa-ls-8e8"/>
                                                             <constraint firstAttribute="trailing" secondItem="7Xd-am-Thy" secondAttribute="trailing" id="L9k-L5-Spt"/>
+                                                            <constraint firstAttribute="height" constant="87.329999999999998" id="TJ7-l5-CVa"/>
                                                             <constraint firstAttribute="bottom" secondItem="7Xd-am-Thy" secondAttribute="bottom" id="iCq-ne-p3t"/>
                                                             <constraint firstAttribute="trailing" secondItem="if6-5e-NiS" secondAttribute="trailing" constant="20" id="me2-Gs-Oev"/>
                                                             <constraint firstItem="if6-5e-NiS" firstAttribute="leading" secondItem="qNN-cv-qQQ" secondAttribute="leading" constant="15" id="pGk-Z9-5JS"/>
@@ -767,6 +768,7 @@
                         <outlet property="galleryView" destination="xn5-Pp-dGs" id="o11-04-wg9"/>
                         <outlet property="infoView" destination="F2J-Sj-SOC" id="tHX-fc-L0E"/>
                         <outlet property="logoImageView" destination="5kB-hm-mY3" id="TBa-UZ-Fqg"/>
+                        <outlet property="mainStackView" destination="7hu-c0-ss3" id="ChQ-Za-dlY"/>
                         <outlet property="modalView" destination="1SW-5w-LhH" id="5Eq-MR-aCv"/>
                         <outlet property="nameLabel" destination="o4I-uK-Byn" id="9IJ-Jf-bL7"/>
                         <outlet property="ratingView" destination="yzx-yh-fce" id="tH9-aC-kBu"/>
@@ -780,6 +782,7 @@
                         <outlet property="smallTopBarView" destination="Fg2-g7-Pmf" id="9Gx-15-g59"/>
                         <outlet property="titleLabel" destination="tBt-WZ-m6j" id="Wkp-7Q-3So"/>
                         <outlet property="titleView" destination="qNN-cv-qQQ" id="DrU-S6-Dea"/>
+                        <outlet property="titleViewHeightConstraint" destination="TJ7-l5-CVa" id="3Yi-uB-fxE"/>
                         <outlet property="userAvatarImageView" destination="KmR-yM-231" id="0VE-GK-KUf"/>
                         <outlet property="userNameLabel" destination="POv-O9-0Dr" id="NEQ-lE-7c1"/>
                         <outletCollection property="dottedBorderViewsCollection" destination="7Xd-am-Thy" collectionClass="NSMutableArray" id="upO-sk-dxx"/>

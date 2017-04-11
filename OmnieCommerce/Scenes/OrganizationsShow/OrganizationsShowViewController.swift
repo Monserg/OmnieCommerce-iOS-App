@@ -85,12 +85,12 @@ class OrganizationsShowViewController: BaseViewController {
     // MARK: - Class Functions
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        viewSettingsDidLoad()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        
+        viewSettingsDidLoad()
     }
 
     
@@ -123,6 +123,7 @@ class OrganizationsShowViewController: BaseViewController {
         }
         
         // Load Organizations list from API
+        organizations = [Organization]()
         organizationsListDidLoad(withOffset: 0, subCategory: self.subcategoryCode, filter: "", scrollingData: false)
     }
     
@@ -336,6 +337,7 @@ class OrganizationsShowViewController: BaseViewController {
     
     // MARK: - Transition
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        smallTopBarView.setNeedsDisplay()
         subcategoriesButton.setNeedsDisplay()
         organizationServiceButton.setNeedsDisplay()
         _ = tableView.visibleCells.map { ($0 as! DottedBorderViewBinding).dottedBorderView.setNeedsDisplay() }

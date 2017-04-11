@@ -13,7 +13,7 @@ class Schedule: NSObject, NSCoding, InitCellParameters {
     // MARK: - Properties
     var codeID: String!
     var organizationID: String!
-    var day: Int32!
+    var day: UInt8!
     var workTimeStart: String!
     var workTimeEnd: String!
     var launchTimeStart: String?
@@ -37,7 +37,7 @@ class Schedule: NSObject, NSCoding, InitCellParameters {
         super.init()
     }
     
-    init(codeID: String, organizationID: String, day: Int32!, workTimeStart: String!, workTimeEnd: String!, launchTimeStart: String?, launchTimeEnd: String?) {
+    init(codeID: String, organizationID: String, day: UInt8!, workTimeStart: String!, workTimeEnd: String!, launchTimeStart: String?, launchTimeEnd: String?) {
         self.codeID = codeID
         self.organizationID = organizationID
         self.day = day
@@ -50,7 +50,7 @@ class Schedule: NSObject, NSCoding, InitCellParameters {
     required convenience init(coder aDecoder: NSCoder) {
         let codeID = aDecoder.decodeObject(forKey: "codeID") as! String
         let organizationID = aDecoder.decodeObject(forKey: "organizationID") as! String
-        let day = aDecoder.decodeInt32(forKey: "day")
+        let day = aDecoder.decodeObject(forKey: "day") as! UInt8
         let workTimeStart = aDecoder.decodeObject(forKey: "workTimeStart") as! String
         let workTimeEnd = aDecoder.decodeObject(forKey: "workTimeEnd") as! String
         let launchTimeStart = aDecoder.decodeObject(forKey: "launchTimeStart") as? String
@@ -82,7 +82,7 @@ extension Schedule: MapObjectBinding {
     func didMap(fromDictionary dictionary: [String: Any], completion: @escaping (() -> ())) {
         self.codeID = dictionary["uuid"] as! String
         self.organizationID = dictionary["orgUuid"] as! String
-        self.day = dictionary["day"] as! Int32
+        self.day = dictionary["day"] as! UInt8
         self.workTimeStart = dictionary["workStart"] as! String
         self.workTimeEnd = dictionary["workEnd"] as! String
         
