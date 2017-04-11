@@ -387,14 +387,14 @@ class OrganizationShowViewController: BaseViewController {
 //            reviewsView.isHidden = true
 //        }
         
-//        reviewsCollectionView.collectionViewControllerManager = MSMCollectionViewControllerManager(withCollectionView: reviewsCollectionView)
-//        reviewsCollectionView.collectionViewControllerManager!.sectionsCount = 1
-////        _ = organizationProfile!.gallery!.map { $0.cellHeight = 143.0 }
-//        reviewsCollectionView.collectionViewControllerManager!.dataSource = Array.init(repeating: "hhhhhh", count: 6)
-//        reviewsCollectionView.reloadData()
-//        
-//        // Handler Image select
-//        reviewsCollectionView.collectionViewControllerManager!.handlerCellSelectCompletion = { item in }
+        reviewsCollectionView.collectionViewControllerManager = MSMCollectionViewControllerManager(withCollectionView: reviewsCollectionView)
+        reviewsCollectionView.collectionViewControllerManager!.sectionsCount = 1
+//        _ = organizationProfile!.gallery!.map { $0.cellHeight = 143.0 }
+        reviewsCollectionView.collectionViewControllerManager!.dataSource = organizationProfile?.services!
+        reviewsCollectionView.reloadData()
+        
+        // Handler Image select
+        reviewsCollectionView.collectionViewControllerManager!.handlerCellSelectCompletion = { item in }
         
         
         
@@ -465,21 +465,15 @@ class OrganizationShowViewController: BaseViewController {
     
     @IBAction func handlerFavoriteButtonTap(_ sender: UIButton) {
         sender.tag = (sender.tag == 0) ? 1 : 0
-        
+        organization.isFavorite = !organization.isFavorite
         sender.setImage(UIImage.init(named: (sender.tag == 0) ? "image-favorite-star-normal" : "image-favorite-star-selected"), for: .normal)
         
-        // TODO: - ADD API TO POST FAVORITE STATE & CHANGE ORGANIZATION PROFILE
-//        isFavorite = !isFavorite
-//        
-//        MSMRestApiManager.instance.userAddRemoveOrganizationToFavorite(["organization" : organizationID], withHandlerResponseAPICompletion: { responseAPI in
-//            if (responseAPI?.code == 200) {
-//                self.favoriteButton.setImage((self.isFavorite) ?    UIImage(named: "image-favorite-star-selected") :
-//                    UIImage(named: "image-favorite-star-normal"), for: .normal)
-//                
-//                self.handlerFavoriteButtonTapCompletion!(self.organizationID)
-//            }
-//        })
-
+        MSMRestApiManager.instance.userAddRemoveOrganizationToFavorite(["organization" : organization.codeID], withHandlerResponseAPICompletion: { responseAPI in
+            if (responseAPI?.code == 200) {
+                self.favoriteButton.setImage((self.organization.isFavorite) ?   UIImage(named: "image-favorite-star-selected") :
+                                                                                UIImage(named: "image-favorite-star-normal"), for: .normal)
+            }
+        })
     }
     
     // TESTED
