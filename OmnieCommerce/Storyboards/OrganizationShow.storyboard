@@ -27,10 +27,10 @@
                                 <rect key="frame" x="0.0" y="-20" width="414" height="727"/>
                                 <subviews>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U9J-wo-NbD" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1482.6666666666667"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1028.3333333333335"/>
                                         <subviews>
                                             <stackView hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="7hu-c0-ss3" userLabel="Main Stack View">
-                                                <rect key="frame" x="8" y="0.0" width="398" height="1482.6666666666667"/>
+                                                <rect key="frame" x="8" y="0.0" width="398" height="1028.3333333333335"/>
                                                 <subviews>
                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F2J-Sj-SOC" userLabel="Info View">
                                                         <rect key="frame" x="0.0" y="0.0" width="398" height="121.33333333333333"/>
@@ -257,10 +257,10 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sen-dV-9fD" userLabel="Discounts View">
-                                                        <rect key="frame" x="0.0" y="208.66666666666669" width="398" height="554.33333333333326"/>
+                                                        <rect key="frame" x="0.0" y="208.66666666666666" width="398" height="208"/>
                                                         <subviews>
                                                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wSr-jk-eDi" customClass="DottedBorderView" customModule="OmnieCommerce" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="-0.66666666666668561" width="398" height="554.66666666666674"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="398" height="208"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="string" keyPath="viewStyle" value="BottomDottedLine"/>
@@ -268,23 +268,23 @@
                                                                 </userDefinedRuntimeAttributes>
                                                             </view>
                                                             <stackView clipsSubviews="YES" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="yp3-Gv-3vU" userLabel="Main Discounts Stack View">
-                                                                <rect key="frame" x="15" y="0.0" width="363" height="554.33333333333337"/>
+                                                                <rect key="frame" x="15" y="0.0" width="363" height="100.00000000000003"/>
                                                                 <subviews>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="xlY-UI-ggP" userLabel="Common Stack View">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="363" height="179.00000000000003"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="363" height="100.00000000000003"/>
                                                                         <subviews>
                                                                             <view clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EK6-FS-ifc" userLabel="Top Empty View">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="363" height="50"/>
+                                                                                <rect key="frame" x="0.0" y="0.0" width="363" height="20"/>
                                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                                 <constraints>
-                                                                                    <constraint firstAttribute="height" priority="750" constant="20" id="ftW-uS-ZgT"/>
+                                                                                    <constraint firstAttribute="height" constant="20" id="ftW-uS-ZgT"/>
                                                                                 </constraints>
                                                                                 <userDefinedRuntimeAttributes>
                                                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
                                                                                 </userDefinedRuntimeAttributes>
                                                                             </view>
                                                                             <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Discounts common" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XeX-iV-HuI" userLabel="Common Discounts Label" customClass="HelveticaNeueCyrLightVeryLightGrayLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                                                                                <rect key="frame" x="0.0" y="50" width="363" height="21.000000000000028"/>
+                                                                                <rect key="frame" x="0.0" y="20" width="363" height="21"/>
                                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="height" constant="21" id="OYM-Dv-5o9"/>
@@ -297,32 +297,45 @@
                                                                                 </userDefinedRuntimeAttributes>
                                                                             </label>
                                                                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bqw-w5-mRj" userLabel="Middle Empty View">
-                                                                                <rect key="frame" x="0.0" y="71.000000000000028" width="363" height="50"/>
+                                                                                <rect key="frame" x="0.0" y="41" width="363" height="1"/>
                                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                                 <constraints>
-                                                                                    <constraint firstAttribute="height" priority="750" constant="15" id="Y7I-f7-2aR"/>
+                                                                                    <constraint firstAttribute="height" constant="15" id="Y7I-f7-2aR"/>
                                                                                 </constraints>
                                                                                 <userDefinedRuntimeAttributes>
                                                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
                                                                                 </userDefinedRuntimeAttributes>
                                                                             </view>
                                                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bJ9-GT-jar" userLabel="Discount Common Table View" customClass="MSMTableView" customModule="OmnieCommerce" customModuleProvider="target">
-                                                                                <rect key="frame" x="0.0" y="121.00000000000003" width="363" height="58"/>
+                                                                                <rect key="frame" x="0.0" y="42" width="363" height="58.000000000000028"/>
                                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                                 <constraints>
-                                                                                    <constraint firstAttribute="height" priority="750" constant="58" id="zsR-84-bJp"/>
+                                                                                    <constraint firstAttribute="height" constant="58" id="zsR-84-bJp"/>
                                                                                 </constraints>
                                                                                 <userDefinedRuntimeAttributes>
                                                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
                                                                                 </userDefinedRuntimeAttributes>
                                                                             </tableView>
                                                                         </subviews>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="height" constant="114" id="qo2-5J-G6b"/>
+                                                                        </constraints>
                                                                     </stackView>
                                                                     <stackView clipsSubviews="YES" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="hEE-6b-wjA" userLabel="User Stack View">
-                                                                        <rect key="frame" x="0.0" y="179.00000000000003" width="363" height="375.33333333333337"/>
+                                                                        <rect key="frame" x="0.0" y="100.00000000000003" width="363" height="0.0"/>
                                                                         <subviews>
+                                                                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MCz-mE-Kgk" userLabel="Top Empty View">
+                                                                                <rect key="frame" x="61" y="-64.666666666666686" width="240" height="128"/>
+                                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                                                <constraints>
+                                                                                    <constraint firstAttribute="height" constant="25" id="qmb-hm-cEq"/>
+                                                                                </constraints>
+                                                                                <userDefinedRuntimeAttributes>
+                                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                                                                </userDefinedRuntimeAttributes>
+                                                                            </view>
                                                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Discounts user" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dzo-DE-36b" userLabel="User Discount Label" customClass="UbuntuLightVeryLightGrayLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="363" height="21"/>
+                                                                                <rect key="frame" x="0.0" y="0.0" width="363" height="0.0"/>
                                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="height" constant="21" id="q2n-Xe-PoC"/>
@@ -335,17 +348,20 @@
                                                                                 </userDefinedRuntimeAttributes>
                                                                             </label>
                                                                             <view clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3UY-4T-Apk" userLabel="Middle Empty View">
-                                                                                <rect key="frame" x="0.0" y="21" width="363" height="226.33333333333331"/>
+                                                                                <rect key="frame" x="0.0" y="0.0" width="363" height="0.0"/>
                                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                                                <constraints>
+                                                                                    <constraint firstAttribute="height" constant="15" id="VkN-iI-gcY"/>
+                                                                                </constraints>
                                                                                 <userDefinedRuntimeAttributes>
                                                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
                                                                                 </userDefinedRuntimeAttributes>
                                                                             </view>
                                                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="K2X-Gp-NmD" userLabel="Discounts User Table View" customClass="MSMTableView" customModule="OmnieCommerce" customModuleProvider="target">
-                                                                                <rect key="frame" x="0.0" y="247.33333333333331" width="363" height="128"/>
+                                                                                <rect key="frame" x="0.0" y="0.0" width="363" height="0.0"/>
                                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                                 <constraints>
-                                                                                    <constraint firstAttribute="height" priority="750" constant="58" id="etz-rV-HaC"/>
+                                                                                    <constraint firstAttribute="height" constant="58" id="etz-rV-HaC"/>
                                                                                 </constraints>
                                                                                 <userDefinedRuntimeAttributes>
                                                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
@@ -353,6 +369,9 @@
                                                                             </tableView>
                                                                         </subviews>
                                                                         <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="height" constant="119" id="UhK-Rb-hRL"/>
+                                                                        </constraints>
                                                                     </stackView>
                                                                 </subviews>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -369,6 +388,7 @@
                                                             <constraint firstAttribute="trailing" secondItem="wSr-jk-eDi" secondAttribute="trailing" id="XlF-1y-y2M"/>
                                                             <constraint firstAttribute="bottom" secondItem="yp3-Gv-3vU" secondAttribute="bottom" id="epV-cL-3f0"/>
                                                             <constraint firstItem="yp3-Gv-3vU" firstAttribute="top" secondItem="sen-dV-9fD" secondAttribute="top" id="gKS-KJ-Jvi"/>
+                                                            <constraint firstAttribute="height" constant="233" id="hg8-vo-d2j"/>
                                                             <constraint firstItem="yp3-Gv-3vU" firstAttribute="leading" secondItem="sen-dV-9fD" secondAttribute="leading" constant="15" id="pc4-X5-tXh"/>
                                                             <constraint firstItem="wSr-jk-eDi" firstAttribute="leading" secondItem="sen-dV-9fD" secondAttribute="leading" id="vxB-pO-Kzw"/>
                                                         </constraints>
@@ -377,7 +397,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xn5-Pp-dGs" userLabel="Gallery View">
-                                                        <rect key="frame" x="0.0" y="763" width="398" height="159"/>
+                                                        <rect key="frame" x="0.0" y="308.66666666666669" width="398" height="159"/>
                                                         <subviews>
                                                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tys-bQ-5qx" customClass="DottedBorderView" customModule="OmnieCommerce" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="398" height="159"/>
@@ -387,7 +407,7 @@
                                                                 </userDefinedRuntimeAttributes>
                                                             </view>
                                                             <collectionView clipsSubviews="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="W3J-L4-StC" customClass="MSMCollectionView" customModule="OmnieCommerce" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="23.333333333333371" width="398" height="112.33333333333326"/>
+                                                                <rect key="frame" x="0.0" y="23.333333333333314" width="398" height="112.33333333333331"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="15" minimumInteritemSpacing="15" id="Ue3-7N-5PG">
                                                                     <size key="itemSize" width="102" height="102"/>
@@ -416,17 +436,17 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EQM-tZ-7ax" userLabel="Services View">
-                                                        <rect key="frame" x="0.0" y="922" width="398" height="150"/>
+                                                        <rect key="frame" x="0.0" y="467.66666666666663" width="398" height="149.99999999999989"/>
                                                         <subviews>
                                                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cxl-Uc-1ST" customClass="DottedBorderView" customModule="OmnieCommerce" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="0.0" width="398" height="150"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="398" height="149.99999999999994"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
                                                                 </userDefinedRuntimeAttributes>
                                                             </view>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="LDi-pa-YAa" userLabel="Services Stack View">
-                                                                <rect key="frame" x="0.0" y="20" width="398" height="110"/>
+                                                                <rect key="frame" x="0.0" y="20" width="398" height="109.99999999999994"/>
                                                                 <subviews>
                                                                     <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Our services" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XJc-es-7ma" customClass="HelveticaNeueCyrLightVeryLightGrayLabel" customModule="OmnieCommerce" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="0.0" width="398" height="21"/>
@@ -452,14 +472,14 @@
                                                                         </userDefinedRuntimeAttributes>
                                                                     </view>
                                                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="n8Y-9T-VbL" customClass="MSMTableView" customModule="OmnieCommerce" customModuleProvider="target">
-                                                                        <rect key="frame" x="0.0" y="41" width="398" height="7.3333333333333712"/>
+                                                                        <rect key="frame" x="0.0" y="41" width="398" height="7.3333333333333144"/>
                                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                         <userDefinedRuntimeAttributes>
                                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
                                                                         </userDefinedRuntimeAttributes>
                                                                     </tableView>
                                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sig-WZ-mo7" userLabel="Services Button View">
-                                                                        <rect key="frame" x="0.0" y="48.333333333333371" width="398" height="61.666666666666629"/>
+                                                                        <rect key="frame" x="0.0" y="48.333333333333314" width="398" height="61.666666666666629"/>
                                                                         <subviews>
                                                                             <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="skf-5r-lsZ" customClass="FillVeryLightOrangeButton" customModule="OmnieCommerce" customModuleProvider="target">
                                                                                 <rect key="frame" x="127" y="22" width="104" height="39.666666666666629"/>
@@ -506,7 +526,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E5n-6w-mcc" userLabel="Reviews View">
-                                                        <rect key="frame" x="0.0" y="1072" width="398" height="190"/>
+                                                        <rect key="frame" x="0.0" y="617.66666666666663" width="398" height="190"/>
                                                         <subviews>
                                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reviews" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WlE-io-6eX">
                                                                 <rect key="frame" x="0.0" y="20" width="398" height="21"/>
@@ -549,7 +569,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yzx-yh-fce" userLabel="Rating View">
-                                                        <rect key="frame" x="0.0" y="1262" width="398" height="220.66666666666674"/>
+                                                        <rect key="frame" x="0.0" y="807.66666666666663" width="398" height="220.66666666666686"/>
                                                         <subviews>
                                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="POv-O9-0Dr" userLabel="User Name Label" customClass="UbuntuLightVeryLightOrangeLabel" customModule="OmnieCommerce" customModuleProvider="target">
                                                                 <rect key="frame" x="8" y="20" width="374" height="21"/>
@@ -763,6 +783,7 @@
                         <outlet property="discountsUserTableView" destination="K2X-Gp-NmD" id="uvU-V6-gf7"/>
                         <outlet property="discountsUserTableViewHeightConstraint" destination="etz-rV-HaC" id="DYA-fb-7cq"/>
                         <outlet property="discountsView" destination="sen-dV-9fD" id="xsP-j2-ey4"/>
+                        <outlet property="discountsViewHeightConstraint" destination="hg8-vo-d2j" id="Rcq-CQ-XWk"/>
                         <outlet property="favoriteButton" destination="EKb-ci-h91" id="JtL-Yy-SuX"/>
                         <outlet property="galleryCollectionView" destination="W3J-L4-StC" id="6oj-kb-du8"/>
                         <outlet property="galleryView" destination="xn5-Pp-dGs" id="o11-04-wg9"/>

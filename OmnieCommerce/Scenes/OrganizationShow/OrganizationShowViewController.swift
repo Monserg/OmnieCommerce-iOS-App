@@ -70,7 +70,10 @@ class OrganizationShowViewController: BaseViewController {
     // Discounts view
     @IBOutlet weak var discountsView: UIView!
     @IBOutlet weak var discountCommonStackView: UIStackView!
+    
+    @IBOutlet weak var discountsViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var discountCommonTableViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var discountsUserTableViewHeightConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var discountsCommonTableView: MSMTableView! {
         didSet {
@@ -80,7 +83,6 @@ class OrganizationShowViewController: BaseViewController {
     }
 
     @IBOutlet weak var discountUserStackView: UIStackView!
-    @IBOutlet weak var discountsUserTableViewHeightConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var discountsUserTableView: MSMTableView!  {
         didSet {
@@ -304,6 +306,9 @@ class OrganizationShowViewController: BaseViewController {
         }
         
         // Discounts view 
+        discountsView.isHidden = true
+        
+        /*
         if (organizationProfile?.discountsCommon != nil && organizationProfile?.discountsUser != nil) {
             if ((organizationProfile?.discountsCommon?.count)! > 0) {
                 discountCommonStackView.isHidden = false
@@ -330,9 +335,13 @@ class OrganizationShowViewController: BaseViewController {
             } else {
                 discountUserStackView.isHidden = true
             }
+            
+            discountsViewHeightConstraint.constant = discountCommonStackView.frame.height + discountUserStackView.frame.height
+            self.view.layoutIfNeeded()
         } else {
             discountsView.isHidden = true
         }
+        */
         
         // Gallery view
         if ((organizationProfile?.gallery?.count)! > 0) {
