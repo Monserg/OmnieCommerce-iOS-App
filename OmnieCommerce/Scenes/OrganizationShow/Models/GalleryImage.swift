@@ -18,7 +18,7 @@ class GalleryImage: NSObject, NSCoding, InitCellParameters {
     
     // Confirm InitCellParameters Protocol
     var cellIdentifier: String = "CirclePhotoCollectionViewCell"
-    var cellHeight: CGFloat = 85.0
+    var cellHeight: CGFloat = 102.0
     
     
     // MARK: - Class Initialization

@@ -294,6 +294,9 @@ class OrganizationShowViewController: BaseViewController {
         }
         
         // Title view
+        titleView.isHidden = true
+        
+        /*
         if (organizationProfile?.descriptionTitle != nil && organizationProfile?.descriptionContent != nil) {
             titleView.isHidden = false
             titleLabel.text = organizationProfile?.descriptionTitle!
@@ -304,10 +307,10 @@ class OrganizationShowViewController: BaseViewController {
         } else {
             titleView.isHidden = true
         }
+        */
         
         // Discounts view 
         discountsView.isHidden = true
-        
         /*
         if (organizationProfile?.discountsCommon != nil && organizationProfile?.discountsUser != nil) {
             if ((organizationProfile?.discountsCommon?.count)! > 0) {
@@ -344,6 +347,9 @@ class OrganizationShowViewController: BaseViewController {
         */
         
         // Gallery view
+        galleryView.isHidden = true
+        
+        /*
         if ((organizationProfile?.gallery?.count)! > 0) {
             galleryView.isHidden = false
             
@@ -362,6 +368,8 @@ class OrganizationShowViewController: BaseViewController {
         } else {
             galleryView.isHidden = true
         }
+        */
+        
         
         // Services view
         if ((organizationProfile!.services?.count)! > 0) {
@@ -441,6 +449,8 @@ class OrganizationShowViewController: BaseViewController {
         
         UIView.animate(withDuration: 0.3, animations: { _ in
             self.mainStackView.isHidden = false
+        }, completion: { success in
+            self.scrollView.contentOffset = CGPoint.init(x: 0, y: self.titleViewHeightConstraint.constant + self.discountsViewHeightConstraint.constant + self.galleryView.frame.height + self.servicesViewHeightConstraint.constant + self.reviewsView.frame.height + self.ratingView.frame.height)
         })
     }
 
