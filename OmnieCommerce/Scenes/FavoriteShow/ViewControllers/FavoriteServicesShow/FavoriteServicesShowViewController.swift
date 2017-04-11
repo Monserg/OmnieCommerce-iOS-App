@@ -27,7 +27,6 @@ class FavoriteServicesShowViewController: BaseViewController {
     var router: FavoriteServicesShowRouter!
     
     var services = [Service]()
-    var wasLaunchedAPI = false
     
     @IBOutlet weak var tableView: MSMTableView! {
         didSet {
@@ -53,9 +52,7 @@ class FavoriteServicesShowViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
-        if (!wasLaunchedAPI) {
-            viewSettingsDidLoad()
-        }
+        viewSettingsDidLoad()
     }
 
 
@@ -75,7 +72,6 @@ class FavoriteServicesShowViewController: BaseViewController {
         if (isNetworkAvailable) {
             services = [Service]()
             favoriteServicesListDidLoad(withOffset: 0, scrollingData: false)
-            wasLaunchedAPI = true
         } else {
             spinnerDidFinish()
         }
