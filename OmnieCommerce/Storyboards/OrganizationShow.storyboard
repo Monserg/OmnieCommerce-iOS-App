@@ -640,12 +640,12 @@
                                                                         <real key="value" value="10"/>
                                                                     </userDefinedRuntimeAttribute>
                                                                     <userDefinedRuntimeAttribute type="number" keyPath="fillMode">
-                                                                        <integer key="value" value="1"/>
+                                                                        <integer key="value" value="2"/>
                                                                     </userDefinedRuntimeAttribute>
                                                                     <userDefinedRuntimeAttribute type="number" keyPath="emptyBorderWidth">
                                                                         <real key="value" value="0.0"/>
                                                                     </userDefinedRuntimeAttribute>
-                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="updateOnTouch" value="YES"/>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="updateOnTouch" value="NO"/>
                                                                     <userDefinedRuntimeAttribute type="color" keyPath="emptyColor">
                                                                         <color key="value" red="0.0" green="0.57647058823529407" blue="0.58431372549019611" alpha="1" colorSpace="calibratedRGB"/>
                                                                     </userDefinedRuntimeAttribute>
@@ -814,6 +814,7 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="contentLabel" destination="if6-5e-NiS" id="AuJ-vv-dvB"/>
+                        <outlet property="cosmosView" destination="gAo-MP-7EF" id="oJs-zT-6xp"/>
                         <outlet property="discountCommonStackView" destination="xlY-UI-ggP" id="ouc-UY-FJN"/>
                         <outlet property="discountCommonTableViewHeightConstraint" destination="zsR-84-bJp" id="Glj-Bd-rNB"/>
                         <outlet property="discountUserStackView" destination="hEE-6b-wjA" id="Vyd-Qw-jzX"/>

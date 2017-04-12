@@ -116,6 +116,7 @@ class OrganizationShowViewController: BaseViewController {
     @IBOutlet weak var ratingView: UIView!
     @IBOutlet weak var userNameLabel: UbuntuLightVeryLightOrangeLabel!
     @IBOutlet weak var userAvatarImageView: CustomImageView!
+    @IBOutlet weak var cosmosView: CosmosView!
     
     
     // MARK: - Class initialization
@@ -437,8 +438,8 @@ class OrganizationShowViewController: BaseViewController {
         // Rating view
         if (!(organizationProfile?.canUserSendReview)!) {
             ratingView.isHidden = false
-            
             userNameLabel.text = "\(String(describing: CoreDataManager.instance.appUser.firstName!)) \(String(describing: CoreDataManager.instance.appUser.surName!))"
+            cosmosView.rating = organization.rating ?? 0
             
             if let imagePath = CoreDataManager.instance.appUser.imagePath {
                 userAvatarImageView.kf.setImage(with: ImageResource(downloadURL: URL(string: imagePath)!, cacheKey: imagePath),
@@ -452,14 +453,21 @@ class OrganizationShowViewController: BaseViewController {
             } else {
                 userAvatarImageView.image = UIImage.init(named: "image-no-photo")
             }
+            
+            cosmosView.didFinishTouchingCosmos = { _ in
+                self.modalViewDidShow(withHeight: 285, customSubview: ReviewsView(), andValues: nil)
+            }
+            
         } else {
             ratingView.isHidden = true
         }
         
         UIView.animate(withDuration: 0.3, animations: { _ in
+            self.scrollView.scrollsToTop = true
             self.mainStackView.isHidden = false
         }, completion: { success in
-            self.scrollView.contentOffset = CGPoint.init(x: 0, y: self.titleViewHeightConstraint.constant + self.discountsViewHeightConstraint.constant + self.galleryView.frame.height + self.servicesViewHeightConstraint.constant + self.reviewsView.frame.height + self.ratingView.frame.height)
+            
+//            contentOffset = CGPoint.init(x: 0, y: self.titleViewHeightConstraint.constant + self.discountsViewHeightConstraint.constant + self.galleryView.frame.height + self.servicesViewHeightConstraint.constant + self.reviewsView.frame.height + self.ratingView.frame.height)
         })
     }
 
@@ -520,7 +528,6 @@ class OrganizationShowViewController: BaseViewController {
     
     // TESTED
     @IBAction func handlerShowPopupView(_ sender: UIButton) {
-//        modalViewDidShow(withHeight: 285, customSubview: ReviewsView(), andValues: nil)
 //        modalViewDidShow(withHeight: 185, customSubview: BlackListView(), andValues: nil)
     }
     
