@@ -45,6 +45,8 @@
 		B11B9ADA1DF02F5C009A4AA1 /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11B9AD91DF02F5C009A4AA1 /* Date+Ext.swift */; };
 		B11B9ADD1DF053BA009A4AA1 /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11B9ADC1DF053BA009A4AA1 /* CustomImageView.swift */; };
 		B11CCAF21DEEEBB200AA7942 /* DropDownTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11CCAF11DEEEBB200AA7942 /* DropDownTableViewController.swift */; };
+		B11DCAF41E9E234200180375 /* GalleryImage+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11DCAF21E9E234200180375 /* GalleryImage+CoreDataClass.swift */; };
+		B11DCAF51E9E234200180375 /* GalleryImage+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11DCAF31E9E234200180375 /* GalleryImage+CoreDataProperties.swift */; };
 		B11E074E1DE032D90052AFC5 /* DottedBorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11E074D1DE032D90052AFC5 /* DottedBorderView.swift */; };
 		B1228FB21DD47C9F00A90FBB /* MenuViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1228FB11DD47C9F00A90FBB /* MenuViewCell.swift */; };
 		B1228FB51DD4856A00A90FBB /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1228FB41DD4856A00A90FBB /* MenuItem.swift */; };
@@ -483,6 +485,8 @@
 		B11B9AD91DF02F5C009A4AA1 /* Date+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
 		B11B9ADC1DF053BA009A4AA1 /* CustomImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
 		B11CCAF11DEEEBB200AA7942 /* DropDownTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DropDownTableViewController.swift; sourceTree = "<group>"; };
+		B11DCAF21E9E234200180375 /* GalleryImage+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GalleryImage+CoreDataClass.swift"; sourceTree = "<group>"; };
+		B11DCAF31E9E234200180375 /* GalleryImage+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GalleryImage+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		B11E074D1DE032D90052AFC5 /* DottedBorderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DottedBorderView.swift; sourceTree = "<group>"; };
 		B1228FB11DD47C9F00A90FBB /* MenuViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewCell.swift; sourceTree = "<group>"; };
 		B1228FB41DD4856A00A90FBB /* MenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
@@ -980,6 +984,8 @@
 				B1EC9F2B1E8AE31500F2E342 /* FavoriteOrganizations+CoreDataProperties.swift */,
 				B1EC9F441E8C13FE00F2E342 /* FavoriteServices+CoreDataClass.swift */,
 				B1EC9F451E8C13FE00F2E342 /* FavoriteServices+CoreDataProperties.swift */,
+				B11DCAF21E9E234200180375 /* GalleryImage+CoreDataClass.swift */,
+				B11DCAF31E9E234200180375 /* GalleryImage+CoreDataProperties.swift */,
 				B1D883331E8E9150006F4831 /* News+CoreDataClass.swift */,
 				B1D883341E8E9150006F4831 /* News+CoreDataProperties.swift */,
 				B19A24231E8625DE0070841F /* Organizations+CoreDataClass.swift */,
@@ -2294,6 +2300,7 @@
 				B1131A931E76744300DAF90A /* MSMRestApiManager.swift in Sources */,
 				B1EC9F3D1E8BBDBD00F2E342 /* DropDownItem.swift in Sources */,
 				B122F1DD1DD35B760018A701 /* OrdersShowModels.swift in Sources */,
+				B11DCAF41E9E234200180375 /* GalleryImage+CoreDataClass.swift in Sources */,
 				B10B48DD1E8A5B2E007DDD81 /* FavoriteOrganizationsShowRouter.swift in Sources */,
 				B1FFF7021E5ECDF900A075D8 /* OrganizationsShowModels.swift in Sources */,
 				B1CF54CC1DDB51A500E98049 /* PersonalPageShowModels.swift in Sources */,
@@ -2508,6 +2515,7 @@
 				B1BEEDE61E63402000F1DE8A /* ListTableViewController.swift in Sources */,
 				B1FBC92D1E6DD86500D86429 /* UbuntuLightDarkCyanLabel.swift in Sources */,
 				B1CF54BE1DDB519000E98049 /* OnmieSoftShowModels.swift in Sources */,
+				B11DCAF51E9E234200180375 /* GalleryImage+CoreDataProperties.swift in Sources */,
 				B1CF54DC1DDB51BE00E98049 /* SettingsShowRouter.swift in Sources */,
 				B122F2411DD371B30018A701 /* BaseNavigationController.swift in Sources */,
 				B122DF671DF7F957003823AD /* CalendarShowRouter.swift in Sources */,

@@ -19,6 +19,7 @@ class PhotosGalleryView: CustomView {
         didSet {
             imagesDidLoad()
 
+            _ = (values as! [GalleryImage]).map { $0.cellHeight = 85.0 }
             imagesCollectionView.collectionViewControllerManager!.dataSource = values as! [GalleryImage]
             imagesCollectionView.reloadData()
         }
