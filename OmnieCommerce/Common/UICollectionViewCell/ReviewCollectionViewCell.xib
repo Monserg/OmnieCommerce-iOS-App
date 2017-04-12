@@ -216,6 +216,6 @@
     <resources>
         <image name="icon-left-arrow-normal" width="17" height="57"/>
         <image name="icon-right-arrow-normal" width="17" height="57"/>
-        <image name="image-no-user" width="37" height="33"/>
+        <image name="image-no-user" width="18" height="16"/>
     </resources>
 </document>
