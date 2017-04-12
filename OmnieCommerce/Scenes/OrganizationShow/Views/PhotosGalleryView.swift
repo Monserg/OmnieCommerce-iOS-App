@@ -20,6 +20,7 @@ class PhotosGalleryView: CustomView {
             imagesDidLoad()
 
             _ = (values as! [GalleryImage]).map { $0.cellHeight = 85.0 }
+            serviceButtonTitleDidUpload(forPage: 0)
             imagesCollectionView.collectionViewControllerManager!.dataSource = values as! [GalleryImage]
             imagesCollectionView.reloadData()
         }
@@ -41,7 +42,6 @@ class PhotosGalleryView: CustomView {
         self.backgroundColor = UIColor.clear
         self.layer.cornerRadius = 5
         self.clipsToBounds = true
-        self.serviceButton.setAttributedTitle(NSAttributedString.init(string: "Current page: 0"), for: .normal)
 
         view.addSubview(self)
         
@@ -101,8 +101,7 @@ class PhotosGalleryView: CustomView {
         imageSlideShow.contentScaleMode = UIViewContentMode.scaleAspectFill
         
         imageSlideShow.currentPageChanged = { page in
-            self.serviceButton.setAttributedTitle(NSAttributedString.init(string: "Current page: \(page)"), for: .normal)
-            self.serviceButton.isTitleUnderlined = true
+            self.serviceButtonTitleDidUpload(forPage: page)
         }
         
         // Load images
@@ -115,6 +114,13 @@ class PhotosGalleryView: CustomView {
         }
 
         imageSlideShow.setImageInputs(kingfisherSource)
+    }
+    
+    func serviceButtonTitleDidUpload(forPage currentPage: Int) {
+        let item = self.values?[currentPage] as! GalleryImage
+        
+        self.serviceButton.setAttributedTitle(NSAttributedString.init(string: item.serviceName ?? ""), for: .normal)
+        self.serviceButton.isTitleUnderlined = true
     }
     
     

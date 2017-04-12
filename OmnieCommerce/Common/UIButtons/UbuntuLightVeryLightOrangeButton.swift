@@ -19,6 +19,10 @@ import UIKit
     
     // MARK: - Class Functions
     override func draw(_ rect: CGRect) {
+        guard attributedTitle(for: .normal) != nil else {
+            return
+        }
+        
         tintColor = UIColor.veryLightOrange
         let titleText = (isTitleUnderlined) ? attributedTitle(for: .normal)!.string : (titleLabel?.text!.localized())!
         
