@@ -47,6 +47,8 @@
 		B11CCAF21DEEEBB200AA7942 /* DropDownTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11CCAF11DEEEBB200AA7942 /* DropDownTableViewController.swift */; };
 		B11DCAF41E9E234200180375 /* GalleryImage+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11DCAF21E9E234200180375 /* GalleryImage+CoreDataClass.swift */; };
 		B11DCAF51E9E234200180375 /* GalleryImage+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11DCAF31E9E234200180375 /* GalleryImage+CoreDataProperties.swift */; };
+		B11DCAF71E9E49B100180375 /* HeaderImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11DCAF61E9E49B100180375 /* HeaderImageView.swift */; };
+		B11DCAF91E9E49C200180375 /* HeaderImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B11DCAF81E9E49C200180375 /* HeaderImageView.xib */; };
 		B11E074E1DE032D90052AFC5 /* DottedBorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11E074D1DE032D90052AFC5 /* DottedBorderView.swift */; };
 		B1228FB21DD47C9F00A90FBB /* MenuViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1228FB11DD47C9F00A90FBB /* MenuViewCell.swift */; };
 		B1228FB51DD4856A00A90FBB /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1228FB41DD4856A00A90FBB /* MenuItem.swift */; };
@@ -487,6 +489,8 @@
 		B11CCAF11DEEEBB200AA7942 /* DropDownTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DropDownTableViewController.swift; sourceTree = "<group>"; };
 		B11DCAF21E9E234200180375 /* GalleryImage+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GalleryImage+CoreDataClass.swift"; sourceTree = "<group>"; };
 		B11DCAF31E9E234200180375 /* GalleryImage+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GalleryImage+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		B11DCAF61E9E49B100180375 /* HeaderImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderImageView.swift; sourceTree = "<group>"; };
+		B11DCAF81E9E49C200180375 /* HeaderImageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderImageView.xib; sourceTree = "<group>"; };
 		B11E074D1DE032D90052AFC5 /* DottedBorderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DottedBorderView.swift; sourceTree = "<group>"; };
 		B1228FB11DD47C9F00A90FBB /* MenuViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewCell.swift; sourceTree = "<group>"; };
 		B1228FB41DD4856A00A90FBB /* MenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
@@ -1494,6 +1498,8 @@
 				B13FE1A01E94C59C000DD416 /* BlackListView.xib */,
 				B17EBF191E9B69A4000E61AA /* DiscountTableViewCell.swift */,
 				B17EBF1A1E9B69A4000E61AA /* DiscountTableViewCell.xib */,
+				B11DCAF61E9E49B100180375 /* HeaderImageView.swift */,
+				B11DCAF81E9E49C200180375 /* HeaderImageView.xib */,
 				B155DE921E65C41500683384 /* PhonesView.swift */,
 				B155DE901E65C3F900683384 /* PhonesView.xib */,
 				B1F3CD531E97AA7900ECAC35 /* PhotosGalleryView.swift */,
@@ -2090,6 +2096,7 @@
 				B1BF926A1DD6516C00BECBBB /* helveticaneuecyr-bold.otf in Resources */,
 				B15291571DDE3FEF00BBA1E0 /* MenuSectionHeaderView.xib in Resources */,
 				B1CF54E81DDB55E300E98049 /* HandbookShow.storyboard in Resources */,
+				B11DCAF91E9E49C200180375 /* HeaderImageView.xib in Resources */,
 				B122A5941E6C56E600C39B67 /* MessageTableViewCell.xib in Resources */,
 				B10CF52C1E684BA000811DC1 /* ScheduleView.xib in Resources */,
 				B1BF926B1DD6516C00BECBBB /* helveticaneuecyr-bolditalic.otf in Resources */,
@@ -2349,6 +2356,7 @@
 				B1D883301E8E8D63006F4831 /* NewsActionsShowWorker.swift in Sources */,
 				B14E97491DD8B042001E1DE2 /* SignInShowInteractor.swift in Sources */,
 				B15FD40A1DD1DD8C00782324 /* AppDelegate.swift in Sources */,
+				B11DCAF71E9E49B100180375 /* HeaderImageView.swift in Sources */,
 				B17EBF1B1E9B69A4000E61AA /* DiscountTableViewCell.swift in Sources */,
 				B1CF54B21DDB516E00E98049 /* OmnieCardsShowRouter.swift in Sources */,
 				B1CF54C21DDB519000E98049 /* OnmieSoftShowWorker.swift in Sources */,

@@ -30,7 +30,8 @@ class OrganizationShowViewController: BaseViewController {
     var router: OrganizationShowRouter!
     
     var organization: Organization!
-    var headerView: UIImageView?
+    var headerView: HeaderImageView?
+//    var headerView: UIImageView?
     var backButton: UIButton?
     var wasLaunchedAPI = false
     
@@ -221,20 +222,20 @@ class OrganizationShowViewController: BaseViewController {
         }
         
         // Setting Organization profile info
-        // Parallax
+        // Parallax Header view
         if (organization.headerURL != nil) {
-            headerView = UIImageView.init(frame: CGRect.init(origin: CGPoint.zero, size: CGSize.init(width: view.frame.width, height: 150)))
-            headerView!.contentMode = .scaleAspectFill
+            headerView = HeaderImageView.init(frame: CGRect.init(origin: CGPoint.zero, size: CGSize.init(width: view.frame.width, height: 150)))
+            smallTopBarView.actionButton.isHidden = true
             
             // Set Header image
             if let imagePath = organization.headerURL {
-                headerView!.kf.setImage(with: ImageResource(downloadURL: URL(string: imagePath)!, cacheKey: "imagePath-\(organization.codeID)"),
-                                        placeholder: UIImage.init(named: "image-no-photo"),
-                                        options: [.transition(ImageTransition.fade(1)),
-                                                  .processor(ResizingImageProcessor(targetSize: headerView!.frame.size,
-                                                                                    contentMode: .aspectFit))],
-                                        completionHandler: { image, error, cacheType, imageURL in
-                                            self.headerView!.kf.cancelDownloadTask()
+                headerView!.imageView.kf.setImage(with: ImageResource(downloadURL: URL(string: imagePath)!, cacheKey: "imagePath-\(organization.codeID)"),
+                                                  placeholder: UIImage.init(named: "image-no-photo"),
+                                                  options: [.transition(ImageTransition.fade(1)),
+                                                            .processor(ResizingImageProcessor(targetSize: headerView!.frame.size,
+                                                                                              contentMode: .aspectFit))],
+                                                  completionHandler: { image, error, cacheType, imageURL in
+                                                    self.headerView!.kf.cancelDownloadTask()
                 })
             }
             
@@ -245,25 +246,10 @@ class OrganizationShowViewController: BaseViewController {
             scrollView.parallaxHeader.minimumHeight = smallTopBarView.frame.height
             scrollView.parallaxHeader.delegate = self
             scrollView.showsVerticalScrollIndicator = true
-            
+         
             UIView.animate(withDuration: 0.3, animations: { _ in
                 self.smallTopBarView.alpha = 0
             })
-            
-            // Add Back button
-            backButton = UIButton.init(frame: CGRect.init(origin: CGPoint.zero, size: CGSize.zero))
-            backButton!.imageEdgeInsets = UIEdgeInsets(top: 0, left: -16, bottom: 0, right: 0)
-            
-            backButton!.setImage(UIImage.init(named: "icon-back-bar-button-normal"), for: .normal)
-            backButton!.addTarget(self, action: #selector(handlerBackButtonTap), for: .touchUpInside)
-            
-            view.addSubview(backButton!)
-            backButton!.translatesAutoresizingMaskIntoConstraints = false
-            
-            backButton!.topAnchor.constraint(equalTo: view.topAnchor, constant: (UIApplication.shared.statusBarOrientation.isPortrait) ? 20 : 4).isActive = true
-            backButton!.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 4).isActive = true
-            backButton!.heightAnchor.constraint(equalToConstant: 44).isActive = true
-            backButton!.widthAnchor.constraint(equalToConstant: 44).isActive = true
             
             scrollView.scrollIndicatorInsets = UIEdgeInsets(top: scrollView.parallaxHeader.view!.frame.maxY, left: 0, bottom: 0, right: 0)
         } else {
@@ -271,6 +257,7 @@ class OrganizationShowViewController: BaseViewController {
             scrollView.contentOffset = CGPoint.init(x: 0, y: smallTopBarView.frame.maxY + 70)
             scrollView.scrollIndicatorInsets = UIEdgeInsets(top: smallTopBarView.frame.maxY, left: 0, bottom: 0, right: 0)
         }
+        
         
         // Info view
         nameLabel.text = organization.name
@@ -369,9 +356,6 @@ class OrganizationShowViewController: BaseViewController {
         }
         
         // Services view
-        servicesView.isHidden = true
-        
-        /*
         if ((organizationProfile!.services?.count)! > 0) {
             servicesView.isHidden = false
             let servicesTableManager = MSMTableViewControllerManager.init(withTableView: servicesTableView, andSectionsCount: 1, andEmptyMessageText: "Services list is empty")
@@ -402,15 +386,11 @@ class OrganizationShowViewController: BaseViewController {
             servicesTableView.tableViewControllerManager!.handlerSelectRowCompletion = { item in
                 if item is Service {
                     // TODO: - ADD TRANSITION TO SERVICE PROFILE SCENE
-                    
                 }
             }
-            
-//            servicesViewHeightConstraint.constant = 
         } else {
             servicesView.isHidden = true
         }
-         */
         
         
         // Reviews view
@@ -468,11 +448,15 @@ class OrganizationShowViewController: BaseViewController {
         }
         
         UIView.animate(withDuration: 0.3, animations: { _ in
-            self.scrollView.scrollsToTop = true
+//            self.scrollView.scrollsToTop = true
             self.mainStackView.isHidden = false
         }, completion: { success in
+//            self.scrollView.contentSize = CGSize.init(width: self.scrollView.frame.width,
+//                                                      height: self.mainStackView.frame.height)
             
-//            contentOffset = CGPoint.init(x: 0, y: self.titleViewHeightConstraint.constant + self.discountsViewHeightConstraint.constant + self.galleryView.frame.height + self.servicesViewHeightConstraint.constant + self.reviewsView.frame.height + self.ratingView.frame.height)
+//            self.scrollView.contentSize = CGSize.init(width: self.scrollView.frame.width, height: self.titleViewHeightConstraint.constant + self.discountsViewHeightConstraint.constant + self.galleryView.frame.height + self.servicesViewHeightConstraint.constant + self.reviewsView.frame.height + self.ratingView.frame.height)
+            
+//            self.scrollView.contentOffset = CGPoint.init(x: 0, y: self.titleViewHeightConstraint.constant + self.discountsViewHeightConstraint.constant + self.galleryView.frame.height + self.servicesViewHeightConstraint.constant + self.reviewsView.frame.height + self.ratingView.frame.height)
         })
     }
 
@@ -480,22 +464,12 @@ class OrganizationShowViewController: BaseViewController {
     // MARK: - Transition
     override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
         _ = dottedBorderViewsCollection.map { $0.setNeedsDisplay() }
-
-        guard headerView != nil else {
-            return
-        }
-        
-        // Portrait
-        if newCollection.containsTraits(in: UITraitCollection(verticalSizeClass: .regular)) {
-            backButton!.topAnchor.constraint(equalTo: view.topAnchor, constant: 20).isActive = true
-        } else {
-            backButton!.topAnchor.constraint(equalTo: view.topAnchor, constant: 4).isActive = true
-        }
+        smallTopBarView.setNeedsDisplay()
     }
 
     
     // MARK: - Actions
-    func handlerBackButtonTap(_ sender: UIButton) {
+    @IBAction func handlerBackButtonTap(_ sender: UIButton) {
         _ = self.navigationController?.popViewController(animated: true)
     }
     
