@@ -9,6 +9,16 @@
 import UIKit
 
 @IBDesignable class BorderVeryDarkDesaturatedBlueButton: UIButton {
+    // MARK: - Class Initialization
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+    }
+    
+    required init(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)!
+    }
+
+    
     // MARK: - Class Functions
     override func draw(_ rect: CGRect) {
         let titleText = (titleLabel?.text != nil) ? (titleLabel?.text!.localized())! : String()

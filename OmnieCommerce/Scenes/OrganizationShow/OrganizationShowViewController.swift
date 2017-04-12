@@ -416,7 +416,7 @@ class OrganizationShowViewController: BaseViewController {
         // Reviews view
         reviewsView.isHidden = true
         
-        /*
+        
 //        if (organizationProfile.) {
 //            reviewsView.isHidden = false
 //
@@ -430,9 +430,14 @@ class OrganizationShowViewController: BaseViewController {
         reviewsCollectionView.collectionViewControllerManager!.dataSource = organizationProfile?.services!
         reviewsCollectionView.reloadData()
         
-        // Handler Image select
+        // Handler Review select
         reviewsCollectionView.collectionViewControllerManager!.handlerCellSelectCompletion = { item in }
-        */
+        
+        // Handler Navigation button tap
+        reviewsCollectionView.collectionViewControllerManager.handlerNavigationButtonTapCompletion = { item in
+            self.view.layoutIfNeeded()
+            self.reviewsCollectionView.scrollToItem(at: IndexPath(item: item as! Int, section: 0), at: .centeredHorizontally, animated: true)
+        }
         
         
         // Rating view

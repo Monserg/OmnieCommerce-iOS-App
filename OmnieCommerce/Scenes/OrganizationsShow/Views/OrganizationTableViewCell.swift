@@ -27,6 +27,16 @@ class OrganizationTableViewCell: UITableViewCell, DottedBorderViewBinding {
     @IBOutlet weak var favoriteButton: UIButton!
 
     
+    // MARK: - Class Initialization
+    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+    }
+    
+    required init(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)!
+    }
+
+    
     // MARK: - Class Functions
     override func awakeFromNib() {
         super.awakeFromNib()

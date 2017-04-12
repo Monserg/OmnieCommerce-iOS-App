@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Alamofire
 
 @IBDesignable class CustomImageView: UIImageView {
     // MARK: - Properties

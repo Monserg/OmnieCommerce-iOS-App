@@ -25,6 +25,7 @@ class MSMCollectionViewControllerManager: BaseViewController {
     
     // Handlers
     var handlerCellSelectCompletion: HandlerPassDataCompletion?
+    var handlerNavigationButtonTapCompletion: HandlerPassDataCompletion?
     
     
     // MARK: - Class Initialization
@@ -86,6 +87,20 @@ extension MSMCollectionViewControllerManager: UICollectionViewDataSource {
         case cell as CategoryCollectionViewCell:
             print(object: "")
             
+        case cell as ReviewCollectionViewCell:
+            // Handler tap on data source navigation buttons
+            (cell as! ReviewCollectionViewCell).handlerPageButtonTapCompletion = { button in
+                var item = indexPath.row
+                
+                if ((button as! UIButton).tag == 0) {
+                    item = (item == 0) ? (self.dataSource.count - 1) : (item - 1)
+                } else {
+                    item = (item == self.dataSource.count - 1) ? 0 : (item + 1)
+                }
+                
+                self.handlerNavigationButtonTapCompletion!(item)
+            }
+        
         default:
             break
         }
