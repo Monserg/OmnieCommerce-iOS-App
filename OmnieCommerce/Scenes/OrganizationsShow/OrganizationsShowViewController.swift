@@ -33,6 +33,7 @@ class OrganizationsShowViewController: BaseViewController {
     var services = [Service]()
     var subcategoryCode: String = ""
     var wasByOrganizationSelected = true
+    var limit: Int!
     
     var subcategoriesDropDownTableView: MSMTableView! {
         didSet {
@@ -90,6 +91,13 @@ class OrganizationsShowViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
+        if (tableView.tableViewControllerManager == nil) {
+            limit = Config.Constants.paginationLimit
+        } else {
+            limit = (tableView.tableViewControllerManager.dataSource?.count == 0) ? Config.Constants.paginationLimit :
+                                                                                    tableView.tableViewControllerManager.dataSource!.count
+        }
+        
         viewSettingsDidLoad()
     }
 
@@ -136,7 +144,7 @@ class OrganizationsShowViewController: BaseViewController {
                                                 "category": self.category!.codeID,
                                                 "subCategory": subCategory,
                                                 "filter": filter,
-                                                "limit": Config.Constants.paginationLimit,
+                                                "limit": limit,
                                                 "offset": offset
                                             ]
 
@@ -190,6 +198,7 @@ class OrganizationsShowViewController: BaseViewController {
         tableView.tableViewControllerManager!.handlerPullRefreshCompletion = { _ in
             // Reload Organizations list from API
             self.organizations = [Organization]()
+            self.limit = Config.Constants.paginationLimit
             self.organizationsListDidLoad(withOffset: 0, subCategory: self.subcategoryCode, filter: "", scrollingData: true)
         }
         
@@ -211,7 +220,7 @@ class OrganizationsShowViewController: BaseViewController {
                                                 "category": self.category!.codeID,
                                                 "subCategory": subCategory,
                                                 "filter": filter,
-                                                "limit": Config.Constants.paginationLimit,
+                                                "limit": limit,
                                                 "offset": offset
                                             ]
         
@@ -264,6 +273,7 @@ class OrganizationsShowViewController: BaseViewController {
         tableView.tableViewControllerManager!.handlerPullRefreshCompletion = { _ in
             // Reload Organizations list from API
             self.services = [Service]()
+            self.limit = Config.Constants.paginationLimit
             self.servicesListDidLoad(withOffset: 0, subCategory: self.subcategoryCode, filter: "", scrollingData: true)
         }
         
@@ -317,6 +327,7 @@ class OrganizationsShowViewController: BaseViewController {
         organizationServiceDropDownTableView.tableViewControllerManager!.handlerSelectRowCompletion = { item in
             sender.changeTitle(newValue: (item as! DropDownItem).name)
             sender.itemsListDidHide(self.organizationServiceDropDownTableView, inView: self.view)
+            self.limit = Config.Constants.paginationLimit
             
             if ((item as! DropDownItem).codeID == keyOrganization) {
                 self.organizations = [Organization]()

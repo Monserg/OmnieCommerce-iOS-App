@@ -175,6 +175,7 @@
 "User register successful"      =   "Користувач зареєстрований.\nБудь ласка, перевірте email";
 "Authentication failure"        =   "Помилка перевірки автентичності";
 "Wrong input data"              =   "Неправильні вхідні дані";
+"Wrong phones format"           =   "Неправильні формати телефонів";
 "User is already exist"         =   "Користувач вже існує";
 "Retry request succeeded"       =   "Повторний запит успішно виконаний";
 "Categories list is empty"      =   "Список категорій порожній";

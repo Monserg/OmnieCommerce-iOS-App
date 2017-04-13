@@ -175,6 +175,7 @@
 "User register successful"      =   "User registered.\nPlease check email";
 "Authentication failure"        =   "Authentication failed";
 "Wrong input data"              =   "Wrong input data";
+"Wrong phones format"           =   "Wrong phones format";
 "User is already exist"         =   "User is already exist";
 "Retry request succeeded"       =   "Retry request succeeded";
 "Categories list is empty"      =   "Categories list is empty";

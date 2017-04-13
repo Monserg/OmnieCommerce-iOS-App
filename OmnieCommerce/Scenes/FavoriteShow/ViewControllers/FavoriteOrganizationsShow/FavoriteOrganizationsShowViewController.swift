@@ -27,6 +27,7 @@ class FavoriteOrganizationsShowViewController: BaseViewController {
     var router: FavoriteOrganizationsShowRouter!
     
     var organizations = [Organization]()
+    var limit: Int!
     
     @IBOutlet weak var tableView: MSMTableView! {
         didSet {
@@ -52,6 +53,7 @@ class FavoriteOrganizationsShowViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
 
+        limit = (organizations.count == 0) ? Config.Constants.paginationLimit : organizations.count
         viewSettingsDidLoad()
     }
 
@@ -82,7 +84,7 @@ class FavoriteOrganizationsShowViewController: BaseViewController {
             spinnerDidStart(view)
         }
         
-        let bodyParameters: [String: Any] = [ "limit": Config.Constants.paginationLimit, "offset": offset ]
+        let bodyParameters: [String: Any] = [ "limit": limit, "offset": offset ]
         let organizationsRequestModel = FavoriteOrganizationsShowModels.Organizations.RequestModel(parameters: bodyParameters)
         interactor.favoriteOrganizationsDidLoad(withRequestModel: organizationsRequestModel)
     }
@@ -113,6 +115,7 @@ class FavoriteOrganizationsShowViewController: BaseViewController {
         tableView.tableViewControllerManager!.handlerPullRefreshCompletion = { _ in
             // Reload Organizations list from API
             self.organizations = [Organization]()
+            self.limit = Config.Constants.paginationLimit
             self.favoriteOrganizationsListDidLoad(withOffset: 0, scrollingData: true)
         }
         

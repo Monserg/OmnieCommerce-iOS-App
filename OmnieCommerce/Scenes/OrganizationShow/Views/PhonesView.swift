@@ -14,6 +14,8 @@ class PhonesView: CustomView {
     var isShow: Bool = false
     let phoneNumberKit = PhoneNumberKit()
     
+    var handlerPhonesFormatErrorCompletion: HandlerCancelButtonCompletion?
+    
     @IBOutlet var view: UIView!
     @IBOutlet var phoneButtonsCollection: [CustomButton]!
     
@@ -52,20 +54,25 @@ class PhonesView: CustomView {
         // Prepare phones stack view
         var phoneNumbers = phoneNumberKit.parse(values as! [String])
 
-        if let countryCode = (Locale.current as NSLocale).object(forKey: .countryCode) as? String {
-            phoneNumbers = phoneNumberKit.parse(values as! [String], withRegion: countryCode,  ignoreType: true)
-        }
-
-        for (index, button) in phoneButtonsCollection.enumerated() {
-            if (index <= (values?.count)! - 1) {
-                // Phone format: +61 2 3661 8300
-                let phoneNumber = phoneNumberKit.format(phoneNumbers[index], toType: .international)
-
-                button.setAttributedTitle(NSAttributedString(string: phoneNumber, attributes: UIFont.ubuntuRegularSoftOrange21), for: .normal)
-                button.setAttributedTitle(NSAttributedString(string: phoneNumber, attributes: UIFont.ubuntuRegularSoftOrange21Alpha30), for: .highlighted)
-            } else {
-                button.alpha = 0
+        if (phoneNumbers.count > 0) {
+            if let countryCode = (Locale.current as NSLocale).object(forKey: .countryCode) as? String {
+                phoneNumbers = phoneNumberKit.parse(values as! [String], withRegion: countryCode,  ignoreType: true)
             }
+            
+            for (index, button) in phoneButtonsCollection.enumerated() {
+                if (index <= (values?.count)! - 1) {
+                    // Phone format: +61 2 3661 8300
+                    let phoneNumber = phoneNumberKit.format(phoneNumbers[index], toType: .international)
+                    
+                    button.setAttributedTitle(NSAttributedString(string: phoneNumber, attributes: UIFont.ubuntuRegularSoftOrange21), for: .normal)
+                    button.setAttributedTitle(NSAttributedString(string: phoneNumber, attributes: UIFont.ubuntuRegularSoftOrange21Alpha30), for: .highlighted)
+                } else {
+                    button.alpha = 0
+                }
+            }
+        } else {
+            didHide()
+            handlerPhonesFormatErrorCompletion!()
         }
     }
     

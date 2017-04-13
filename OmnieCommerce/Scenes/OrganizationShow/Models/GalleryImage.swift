@@ -11,8 +11,8 @@ import SwiftyJSON
 
 class GalleryImage: NSObject, NSCoding, InitCellParameters {
     // MARK: - Properties
-    var imageID: String!
-    var imagePath: String!
+    var imageID: String?
+    var imagePath: String?
     var serviceID: String?
     var serviceName: String?
     
@@ -26,7 +26,7 @@ class GalleryImage: NSObject, NSCoding, InitCellParameters {
         super.init()
     }
     
-    init(imageID: String, imagePath: String, serviceID: String?, serviceName: String?) {
+    init(imageID: String?, imagePath: String?, serviceID: String?, serviceName: String?) {
         self.imageID = imageID
         self.imagePath = imagePath
         self.serviceID = serviceID
@@ -34,8 +34,8 @@ class GalleryImage: NSObject, NSCoding, InitCellParameters {
     }
     
     required convenience init(coder aDecoder: NSCoder) {
-        let imageID = aDecoder.decodeObject(forKey: "imageID") as! String
-        let imagePath = aDecoder.decodeObject(forKey: "imagePath") as! String
+        let imageID = aDecoder.decodeObject(forKey: "imageID") as? String
+        let imagePath = aDecoder.decodeObject(forKey: "imagePath") as? String
         let serviceID = aDecoder.decodeObject(forKey: "serviceID") as? String
         let serviceName = aDecoder.decodeObject(forKey: "serviceName") as? String
         
@@ -60,10 +60,14 @@ class GalleryImage: NSObject, NSCoding, InitCellParameters {
 // MARK: - MapObjectBinding
 extension GalleryImage: MapObjectBinding {
     func didMap(fromDictionary dictionary: [String: Any], completion: @escaping (() -> ())) {
-        self.imageID = dictionary["imageId"] as! String
+        if (dictionary["imageId"] as? String != nil) {
+            self.imageID = dictionary["imageId"] as? String
+        }
         
         if (dictionary["staticUrl"] as? String != nil) {
-            self.imagePath = "\(MSMRestApiManager.instance.appHostURL.absoluteString)\(dictionary["staticUrl"] as! String)"
+            if let imagePathURL = dictionary["staticUrl"] as? String, imagePathURL.contains("/images/") {
+                self.imagePath = "\(MSMRestApiManager.instance.appHostURL.absoluteString)\(imagePathURL)"
+            }
         }
         
         if (dictionary["serviceId"] as? String != nil) {

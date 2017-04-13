@@ -27,7 +27,8 @@ class FavoriteServicesShowViewController: BaseViewController {
     var router: FavoriteServicesShowRouter!
     
     var services = [Service]()
-    
+    var limit: Int!
+
     @IBOutlet weak var tableView: MSMTableView! {
         didSet {
             tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0)
@@ -52,6 +53,7 @@ class FavoriteServicesShowViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
+        limit = (services.count == 0) ? Config.Constants.paginationLimit : services.count
         viewSettingsDidLoad()
     }
 
@@ -82,7 +84,7 @@ class FavoriteServicesShowViewController: BaseViewController {
             spinnerDidStart(view)
         }
         
-        let bodyParameters: [String: Any] = [ "limit": Config.Constants.paginationLimit, "offset": offset ]
+        let bodyParameters: [String: Any] = [ "limit": limit, "offset": offset ]
         let servicesRequestModel = FavoriteServicesShowModels.Services.RequestModel(parameters: bodyParameters)
         interactor.favoriteServicesDidLoad(withRequestModel: servicesRequestModel)
     }

@@ -51,6 +51,10 @@ class OrganizationShowViewController: BaseViewController {
     @IBOutlet weak var logoImageView: CustomImageView!
     @IBOutlet weak var nameLabel: CustomLabel!
     @IBOutlet weak var favoriteButton: CustomButton!
+    @IBOutlet weak var phonesImageView: UIImageView!
+    @IBOutlet weak var phonesButton: CustomButton!
+    @IBOutlet weak var scheduleImageView: UIImageView!
+    @IBOutlet weak var scheduleButton: CustomButton!
     
     @IBOutlet var dottedBorderViewsCollection: [DottedBorderView]! {
         didSet {
@@ -188,6 +192,11 @@ class OrganizationShowViewController: BaseViewController {
             popupView = PhonesView.init(inView: modalView!)
             popupView.values = values as! [String]
             
+            // Handler Phones format error
+            (popupView as! PhonesView).handlerPhonesFormatErrorCompletion = { _ in
+                self.alertViewDidShow(withTitle: "Error", andMessage: "Wrong phones format", completion: { _ in })
+            }
+            
         case subView as ScheduleView:
             popupView = ScheduleView.init(inView: modalView!)
             popupView.values = values as! [Schedule]
@@ -200,7 +209,7 @@ class OrganizationShowViewController: BaseViewController {
             
         case subView as PhotosGalleryView:
             popupView = PhotosGalleryView.init(inView: modalView!)
-            popupView.values = values as! [GalleryImage]
+            popupView.values = (values as! [GalleryImage]).filter({ $0.imagePath != nil })
             
         default:
             break
@@ -211,6 +220,10 @@ class OrganizationShowViewController: BaseViewController {
         popupView.handlerCancelButtonCompletion = { _ in
             self.blackoutView!.didHide()
             self.blackoutView = nil
+            
+            if ((popupView as? PhotosGalleryView) != nil) {
+                _ = self.organization.gallery!.map { $0.cellHeight = 102.0 }
+            }
         }
     }
 
@@ -271,13 +284,23 @@ class OrganizationShowViewController: BaseViewController {
         nameLabel.numberOfLines = 2
         nameLabel.adjustsFontSizeToFitWidth = false
         
+        if ((organizationProfile!.phones?.count)! == 0) {
+            phonesImageView.isHidden = true
+            phonesButton.isHidden = true
+        }
+        
+        if ((organizationProfile!.schedules?.count)! == 0) {
+            scheduleImageView.isHidden = true
+            scheduleButton.isHidden = true
+        }
+        
         favoriteButton.tag = (organization.isFavorite) ? 1 : 0
         favoriteButton.setImage(UIImage.init(named: (favoriteButton.tag == 0) ? "image-favorite-star-normal" : "image-favorite-star-selected"), for: .normal)
         
         // Set Avatar image
         if let imagePath = organization.logoURL {
             logoImageView!.kf.setImage(with: ImageResource(downloadURL: URL(string: imagePath)!, cacheKey: "imagePath"),
-                                       placeholder: UIImage.init(named: "image-no-photo"),
+                                       placeholder: UIImage.init(named: "image-no-organization"),
                                        options: [.transition(ImageTransition.fade(1)),
                                                  .processor(ResizingImageProcessor(targetSize: logoImageView!.frame.size,
                                                                                    contentMode: .aspectFit))],
@@ -285,24 +308,24 @@ class OrganizationShowViewController: BaseViewController {
                                         self.logoImageView!.kf.cancelDownloadTask()
             })
         } else {
-            logoImageView!.image = UIImage.init(named: "image-no-photo")
+            logoImageView!.image = UIImage.init(named: "image-no-organization")
         }
         
         // Title view
-        titleView.isHidden = true
-        
-        /*
         if (organizationProfile?.descriptionTitle != nil && organizationProfile?.descriptionContent != nil) {
-            titleView.isHidden = false
-            titleLabel.text = organizationProfile?.descriptionTitle!
-            contentLabel.text = organizationProfile?.descriptionContent!
-            contentLabel.sizeToFit()
-            titleViewHeightConstraint.constant = contentLabel.frame.maxY + 19.0
-            view.layoutIfNeeded()
+            if (organizationProfile!.descriptionTitle!.isEmpty && organizationProfile!.descriptionContent!.isEmpty) {
+                titleView.isHidden = true
+            } else {
+                titleView.isHidden = false
+                titleLabel.text = organizationProfile?.descriptionTitle!
+                contentLabel.text = organizationProfile?.descriptionContent!
+                contentLabel.sizeToFit()
+                titleViewHeightConstraint.constant = contentLabel.frame.maxY + 19.0
+                view.layoutIfNeeded()
+            }
         } else {
             titleView.isHidden = true
         }
-        */
         
         // Discounts view 
         discountsView.isHidden = true
@@ -434,7 +457,7 @@ class OrganizationShowViewController: BaseViewController {
             
             if let imagePath = CoreDataManager.instance.appUser.imagePath {
                 userAvatarImageView.kf.setImage(with: ImageResource(downloadURL: URL(string: imagePath)!, cacheKey: imagePath),
-                                                placeholder: UIImage.init(named: "image-no-photo"),
+                                                placeholder: UIImage.init(named: "image-no-user"),
                                                 options: [.transition(ImageTransition.fade(1)),
                                                           .processor(ResizingImageProcessor(targetSize: userAvatarImageView.frame.size,
                                                                                             contentMode: .aspectFit))],
@@ -442,7 +465,7 @@ class OrganizationShowViewController: BaseViewController {
                                                     self.userAvatarImageView.kf.cancelDownloadTask()
                 })
             } else {
-                userAvatarImageView.image = UIImage.init(named: "image-no-photo")
+                userAvatarImageView.image = UIImage.init(named: "image-no-user")
             }
             
             cosmosView.didFinishTouchingCosmos = { _ in

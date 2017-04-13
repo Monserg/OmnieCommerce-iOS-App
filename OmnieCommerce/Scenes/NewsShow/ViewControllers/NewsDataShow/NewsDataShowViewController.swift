@@ -27,7 +27,7 @@ class NewsDataShowViewController: BaseViewController {
     var router: NewsDataShowRouter!
     
     var newsData = [NewsData]()
-    var wasLaunchedAPI = false
+    var limit: Int!
 
     @IBOutlet weak var tableView: MSMTableView! {
         didSet {
@@ -53,9 +53,8 @@ class NewsDataShowViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
-        if (!wasLaunchedAPI) {
-            viewSettingsDidLoad()
-        }
+        limit = (newsData.count == 0) ? Config.Constants.paginationLimit : newsData.count
+        viewSettingsDidLoad()
     }
 
 
@@ -75,7 +74,6 @@ class NewsDataShowViewController: BaseViewController {
         if (isNetworkAvailable) {
             newsData = [NewsData]()
             newsDataListDidLoad(withOffset: 0, scrollingData: false)
-            wasLaunchedAPI = true
         } else {
             spinnerDidFinish()
         }
@@ -86,7 +84,7 @@ class NewsDataShowViewController: BaseViewController {
             spinnerDidStart(view)
         }
         
-        let bodyParameters: [String: Any] = [ "limit": Config.Constants.paginationLimit, "offset": offset ]
+        let bodyParameters: [String: Any] = [ "limit": limit, "offset": offset ]
         let newsDataRequestModel = NewsDataShowModels.Data.RequestModel(parameters: bodyParameters)
         interactor.newsDataDidLoad(withRequestModel: newsDataRequestModel)
     }

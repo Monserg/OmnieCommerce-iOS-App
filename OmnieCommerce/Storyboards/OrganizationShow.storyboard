@@ -23,7 +23,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" placeholderIntrinsicWidth="375" placeholderIntrinsicHeight="658" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4G7-UZ-bMP" customClass="MXScrollView" customModule="OmnieCommerce" customModuleProvider="target">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="375" placeholderIntrinsicHeight="658" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4G7-UZ-bMP" customClass="MXScrollView" customModule="OmnieCommerce" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="668"/>
                                 <subviews>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="375" placeholderIntrinsicHeight="1175.5" translatesAutoresizingMaskIntoConstraints="NO" id="U9J-wo-NbD" userLabel="Content View">
@@ -84,7 +84,7 @@
                                                                 </connections>
                                                             </button>
                                                             <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HjZ-of-5Js" userLabel="Data Stack View">
-                                                                <rect key="frame" x="95" y="60" width="214" height="20"/>
+                                                                <rect key="frame" x="95" y="60" width="224" height="20"/>
                                                                 <subviews>
                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-address-orange-normal" translatesAutoresizingMaskIntoConstraints="NO" id="UhE-97-n5e" userLabel="Address Image View">
                                                                         <rect key="frame" x="0.0" y="0.0" width="20.5" height="20"/>
@@ -160,7 +160,7 @@
                                                                         </constraints>
                                                                     </imageView>
                                                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UDa-VG-95i" userLabel="Schedule Button" customClass="CustomButton" customModule="OmnieCommerce" customModuleProvider="target">
-                                                                        <rect key="frame" x="164.5" y="0.0" width="49.5" height="20"/>
+                                                                        <rect key="frame" x="164.5" y="0.0" width="59.5" height="20"/>
                                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                         <state key="normal" title="Schedule"/>
                                                                         <userDefinedRuntimeAttributes>
@@ -195,7 +195,7 @@
                                                             <constraint firstAttribute="bottom" secondItem="ebM-Lf-K5Q" secondAttribute="bottom" id="QeL-dq-kiv"/>
                                                             <constraint firstAttribute="trailing" secondItem="ebM-Lf-K5Q" secondAttribute="trailing" id="S5f-xn-iI7"/>
                                                             <constraint firstAttribute="trailing" secondItem="o4I-uK-Byn" secondAttribute="trailing" constant="50" id="XaR-W6-4ZO"/>
-                                                            <constraint firstAttribute="trailing" secondItem="HjZ-of-5Js" secondAttribute="trailing" constant="50" id="YRL-iJ-R6w"/>
+                                                            <constraint firstAttribute="trailing" secondItem="HjZ-of-5Js" secondAttribute="trailing" constant="40" id="YRL-iJ-R6w"/>
                                                             <constraint firstItem="HjZ-of-5Js" firstAttribute="leading" secondItem="5kB-hm-mY3" secondAttribute="trailing" constant="10" id="bRk-hw-iKd"/>
                                                             <constraint firstAttribute="trailing" secondItem="EKb-ci-h91" secondAttribute="trailing" constant="10" id="efj-gU-7YO"/>
                                                             <constraint firstItem="o4I-uK-Byn" firstAttribute="top" secondItem="F2J-Sj-SOC" secondAttribute="top" constant="15" id="nN1-Ek-SAa"/>
@@ -718,7 +718,7 @@
                                     <action selector="handlerBackButtonTap:" destination="9s1-kT-Mzo" eventType="touchUpInside" id="an8-QH-vl6"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Copyright" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3d9-Qt-0Tr" userLabel="Copyright Label" customClass="UbuntuLightDarkCyanLabel" customModule="OmnieCommerce" customModuleProvider="target">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Copyright" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3d9-Qt-0Tr" userLabel="Copyright Label" customClass="UbuntuLightDarkCyanLabel" customModule="OmnieCommerce" customModuleProvider="target">
                                 <rect key="frame" x="8" y="647" width="359" height="11"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="9"/>
@@ -850,9 +850,13 @@
                         <outlet property="mainStackView" destination="7hu-c0-ss3" id="ChQ-Za-dlY"/>
                         <outlet property="modalView" destination="1SW-5w-LhH" id="5Eq-MR-aCv"/>
                         <outlet property="nameLabel" destination="o4I-uK-Byn" id="9IJ-Jf-bL7"/>
+                        <outlet property="phonesButton" destination="8WP-Kt-kqi" id="4nY-Ou-HrJ"/>
+                        <outlet property="phonesImageView" destination="1hR-W7-POI" id="iJk-wx-Egj"/>
                         <outlet property="ratingView" destination="yzx-yh-fce" id="tH9-aC-kBu"/>
                         <outlet property="reviewsCollectionView" destination="UhX-rh-GrB" id="wRV-Er-n8f"/>
                         <outlet property="reviewsView" destination="E5n-6w-mcc" id="UIh-HW-dRN"/>
+                        <outlet property="scheduleButton" destination="UDa-VG-95i" id="Sae-W4-HCN"/>
+                        <outlet property="scheduleImageView" destination="k28-Ea-thl" id="agP-re-nWg"/>
                         <outlet property="scrollView" destination="4G7-UZ-bMP" id="Var-lP-9cV"/>
                         <outlet property="scrollViewTopConstraint" destination="dda-Jb-3l1" id="GeJ-Ly-fYt"/>
                         <outlet property="servicesButtonView" destination="sig-WZ-mo7" id="j0Q-aS-OhO"/>
