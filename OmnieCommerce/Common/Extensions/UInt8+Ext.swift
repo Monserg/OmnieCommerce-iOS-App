@@ -11,24 +11,29 @@ import Foundation
 extension UInt8 {
     func convertToScheduleString() -> String {
         let dateFormatter = DateFormatter()
-        dateFormatter.locale = Locale.init(identifier: Locale.current.currencyCode!)
+        dateFormatter.locale = Locale.init(identifier: Locale.current.languageCode!.lowercased())
         var weekdayShort = dateFormatter.shortStandaloneWeekdaySymbols.map { $0.uppercaseFirst }
         let element = weekdayShort.remove(at: 0)
         weekdayShort.insert(element, at: weekdayShort.count)
         let counts: [UInt8] = [1, 2, 4, 8, 16, 32, 64]
         var result = String()
+        var ones = [String]()
+        var zeros = [String]()
         
         for (index, count) in counts.enumerated() {
             let dayCode = self & count
-
-            if (dayCode > 0 && index == 0) {
-                result = weekdayShort[index]
-            } else if (dayCode > 0 && index > 0 && !result.hasSuffix(" - ")) {
-                result = result + " - "
-            } else if (dayCode == 0 && index > 0) {
-                result = result + ", "
-            }
+            (dayCode > 0) ? ones.append(weekdayShort[index]) : zeros.append(weekdayShort[index])
         }
+        
+        if (ones.count == 1) {
+            result = ones.first!
+        } else if (ones.count > 1) {
+            result = ones.first! + " - " + ones.last!
+        }
+        
+//        else if (zeros.count > 0) {
+//            result =
+//        }
         
         return result
     }

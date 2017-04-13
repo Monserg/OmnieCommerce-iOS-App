@@ -198,6 +198,17 @@ extension Organization: MapObjectBinding {
                     let schedule = Schedule()
                     schedule.didMap(fromDictionary: dictionary as! [String : Any], completion: { _ in })
                     items.append(schedule)
+                    
+                    if (schedule.launchTimeStart != nil) {
+                        let launchSchedule = Schedule.init(codeID: schedule.codeID,
+                                                           name: "Lunch break".localized(),
+                                                           day: 0,
+                                                           workTimeStart: schedule.launchTimeStart!,
+                                                           workTimeEnd: schedule.launchTimeEnd!,
+                                                           launchTimeStart: nil,
+                                                           launchTimeEnd: nil)
+                        items.append(launchSchedule)
+                    }
                 }
                 
                 self.schedules = items

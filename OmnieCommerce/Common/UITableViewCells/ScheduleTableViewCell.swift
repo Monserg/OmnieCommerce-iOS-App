@@ -23,3 +23,16 @@ class ScheduleTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }    
 }
+
+
+// MARK: - ConfigureCell
+extension ScheduleTableViewCell: ConfigureCell {
+    func setup(withItem item: Any, andIndexPath indexPath: IndexPath) {
+        let schedule = item as! Schedule
+        
+        nameLabel.numberOfLines = 2
+        nameLabel.text = schedule.name
+        nameLabel.sizeToFit()
+        workTimeLabel.text = "\(schedule.workTimeStart!) - \(schedule.workTimeEnd!)"
+    }
+}

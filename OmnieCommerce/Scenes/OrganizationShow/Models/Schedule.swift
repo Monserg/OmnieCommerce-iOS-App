@@ -21,7 +21,7 @@ class Schedule: NSObject, NSCoding, InitCellParameters {
     
     // Confirm InitCellParameters Protocol
     var cellIdentifier: String = "ScheduleTableViewCell"
-    var cellHeight: CGFloat = 44.0
+    var cellHeight: CGFloat = 31.0
     
     
     // MARK: - Class Initialization
