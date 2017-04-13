@@ -31,7 +31,6 @@ class OrganizationShowViewController: BaseViewController {
     
     var organization: Organization!
     var headerView: HeaderImageView?
-//    var headerView: UIImageView?
     var backButton: UIButton?
     var wasLaunchedAPI = false
     
@@ -40,6 +39,8 @@ class OrganizationShowViewController: BaseViewController {
             scrollView.delegate = self
         }
     }
+    
+    @IBOutlet weak var scrollViewTopConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var smallTopBarView: SmallTopBarView!
     @IBOutlet var modalView: ModalView?
@@ -223,7 +224,7 @@ class OrganizationShowViewController: BaseViewController {
         
         // Setting Organization profile info
         // Parallax Header view
-        if (organization.headerURL != nil) {
+        if (organizationProfile!.headerURL != nil) {
             headerView = HeaderImageView.init(frame: CGRect.init(origin: CGPoint.zero, size: CGSize.init(width: view.frame.width, height: 150)))
             smallTopBarView.actionButton.isHidden = true
             
@@ -248,14 +249,19 @@ class OrganizationShowViewController: BaseViewController {
             scrollView.showsVerticalScrollIndicator = true
          
             UIView.animate(withDuration: 0.3, animations: { _ in
-                self.smallTopBarView.alpha = 0
+                self.smallTopBarView.didHide()
             })
             
             scrollView.scrollIndicatorInsets = UIEdgeInsets(top: scrollView.parallaxHeader.view!.frame.maxY, left: 0, bottom: 0, right: 0)
         } else {
-            scrollView.transform = CGAffineTransform(translationX: 0, y: smallTopBarView.frame.maxY)
-            scrollView.contentOffset = CGPoint.init(x: 0, y: smallTopBarView.frame.maxY + 70)
-            scrollView.scrollIndicatorInsets = UIEdgeInsets(top: smallTopBarView.frame.maxY, left: 0, bottom: 0, right: 0)
+            scrollViewTopConstraint.constant = smallTopBarView.frame.height - ((UIApplication.shared.statusBarOrientation.isPortrait) ? 30.0 : 30.0)
+            self.view.layoutIfNeeded()
+            scrollView.scrollsToTop = true
+            scrollView.scrollIndicatorInsets = UIEdgeInsets(top: 15, left: 0, bottom: 0, right: 0)
+            
+            UIView.animate(withDuration: 0.3, animations: { _ in
+                self.smallTopBarView.didShow()
+            })
         }
         
         
@@ -448,15 +454,7 @@ class OrganizationShowViewController: BaseViewController {
         }
         
         UIView.animate(withDuration: 0.3, animations: { _ in
-//            self.scrollView.scrollsToTop = true
             self.mainStackView.isHidden = false
-        }, completion: { success in
-//            self.scrollView.contentSize = CGSize.init(width: self.scrollView.frame.width,
-//                                                      height: self.mainStackView.frame.height)
-            
-//            self.scrollView.contentSize = CGSize.init(width: self.scrollView.frame.width, height: self.titleViewHeightConstraint.constant + self.discountsViewHeightConstraint.constant + self.galleryView.frame.height + self.servicesViewHeightConstraint.constant + self.reviewsView.frame.height + self.ratingView.frame.height)
-            
-//            self.scrollView.contentOffset = CGPoint.init(x: 0, y: self.titleViewHeightConstraint.constant + self.discountsViewHeightConstraint.constant + self.galleryView.frame.height + self.servicesViewHeightConstraint.constant + self.reviewsView.frame.height + self.ratingView.frame.height)
         })
     }
 
@@ -465,6 +463,15 @@ class OrganizationShowViewController: BaseViewController {
     override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
         _ = dottedBorderViewsCollection.map { $0.setNeedsDisplay() }
         smallTopBarView.setNeedsDisplay()
+        
+        // Album
+        if newCollection.verticalSizeClass == .compact {
+            scrollViewTopConstraint.constant = smallTopBarView.frame.height + 20.0 - 50.0
+        } else {
+            scrollViewTopConstraint.constant = smallTopBarView.frame.height + 20.0 - 30.0
+        }
+        
+        self.view.layoutIfNeeded()
     }
 
     

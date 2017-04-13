@@ -45,6 +45,8 @@
 		B11B9ADA1DF02F5C009A4AA1 /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11B9AD91DF02F5C009A4AA1 /* Date+Ext.swift */; };
 		B11B9ADD1DF053BA009A4AA1 /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11B9ADC1DF053BA009A4AA1 /* CustomImageView.swift */; };
 		B11CCAF21DEEEBB200AA7942 /* DropDownTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11CCAF11DEEEBB200AA7942 /* DropDownTableViewController.swift */; };
+		B11CDCC91E9F5DC400E52FDE /* ScheduleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11CDCC71E9F5DC400E52FDE /* ScheduleTableViewCell.swift */; };
+		B11CDCCA1E9F5DC400E52FDE /* ScheduleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B11CDCC81E9F5DC400E52FDE /* ScheduleTableViewCell.xib */; };
 		B11DCAF41E9E234200180375 /* GalleryImage+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11DCAF21E9E234200180375 /* GalleryImage+CoreDataClass.swift */; };
 		B11DCAF51E9E234200180375 /* GalleryImage+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11DCAF31E9E234200180375 /* GalleryImage+CoreDataProperties.swift */; };
 		B11DCAF71E9E49B100180375 /* HeaderImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11DCAF61E9E49B100180375 /* HeaderImageView.swift */; };
@@ -487,6 +489,8 @@
 		B11B9AD91DF02F5C009A4AA1 /* Date+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
 		B11B9ADC1DF053BA009A4AA1 /* CustomImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
 		B11CCAF11DEEEBB200AA7942 /* DropDownTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DropDownTableViewController.swift; sourceTree = "<group>"; };
+		B11CDCC71E9F5DC400E52FDE /* ScheduleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleTableViewCell.swift; sourceTree = "<group>"; };
+		B11CDCC81E9F5DC400E52FDE /* ScheduleTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScheduleTableViewCell.xib; sourceTree = "<group>"; };
 		B11DCAF21E9E234200180375 /* GalleryImage+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GalleryImage+CoreDataClass.swift"; sourceTree = "<group>"; };
 		B11DCAF31E9E234200180375 /* GalleryImage+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GalleryImage+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		B11DCAF61E9E49B100180375 /* HeaderImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderImageView.swift; sourceTree = "<group>"; };
@@ -1376,6 +1380,8 @@
 				B1C13D8E1DEF5736002B494A /* DropDownTableViewCell.swift */,
 				B1EC9F3E1E8BC80B00F2E342 /* DropDownTableViewCell.xib */,
 				B1228FB11DD47C9F00A90FBB /* MenuViewCell.swift */,
+				B11CDCC71E9F5DC400E52FDE /* ScheduleTableViewCell.swift */,
+				B11CDCC81E9F5DC400E52FDE /* ScheduleTableViewCell.xib */,
 			);
 			path = UITableViewCells;
 			sourceTree = "<group>";
@@ -2155,6 +2161,7 @@
 				B19E01B21E78217F00B53E02 /* NewPhoneView.xib in Resources */,
 				B122F22A1DD35D6F0018A701 /* OrdersShow.storyboard in Resources */,
 				B122F22C1DD35E550018A701 /* MessagesShow.storyboard in Resources */,
+				B11CDCCA1E9F5DC400E52FDE /* ScheduleTableViewCell.xib in Resources */,
 				B1CF54E61DDB552300E98049 /* PersonalPageShow.storyboard in Resources */,
 				B122F2481DD393330018A701 /* Localizable.strings in Resources */,
 				B1390FFD1E8D1E4B00BD9219 /* FavoriteServiceTableViewCell.xib in Resources */,
@@ -2237,6 +2244,7 @@
 				B1FFF7011E5ECDF900A075D8 /* OrganizationsShowInteractor.swift in Sources */,
 				B1739D161DE314C70029BCCA /* UIButton+Ext.swift in Sources */,
 				B122F2171DD35C2C0018A701 /* NewsShowRouter.swift in Sources */,
+				B11CDCC91E9F5DC400E52FDE /* ScheduleTableViewCell.swift in Sources */,
 				B19DFAC11E64B9F100599073 /* UITextField+Ext.swift in Sources */,
 				B177E55A1E54B739004F1390 /* RepetitionPasswordShowRouter.swift in Sources */,
 				B1CF547B1DDB50D900E98049 /* AboutShowViewController.swift in Sources */,
