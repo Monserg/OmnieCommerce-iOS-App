@@ -24,7 +24,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="375" placeholderIntrinsicHeight="658" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4G7-UZ-bMP" customClass="MXScrollView" customModule="OmnieCommerce" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="668"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="290"/>
                                 <subviews>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="375" placeholderIntrinsicHeight="1175.5" translatesAutoresizingMaskIntoConstraints="NO" id="U9J-wo-NbD" userLabel="Content View">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="1175.5"/>
@@ -128,7 +128,7 @@
                                                                         </constraints>
                                                                     </imageView>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8WP-Kt-kqi" userLabel="Phones Button" customClass="CustomButton" customModule="OmnieCommerce" customModuleProvider="target">
-                                                                        <rect key="frame" x="84" y="0.0" width="60.5" height="20"/>
+                                                                        <rect key="frame" x="84" y="0.0" width="60" height="20"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" secondItem="8WP-Kt-kqi" secondAttribute="height" multiplier="3:1" id="bpB-xi-Ge9"/>
                                                                             <constraint firstAttribute="width" secondItem="8WP-Kt-kqi" secondAttribute="height" multiplier="9:1" id="e0Y-Iw-mre"/>
@@ -153,14 +153,14 @@
                                                                         </connections>
                                                                     </button>
                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-schedule-orange-normal" translatesAutoresizingMaskIntoConstraints="NO" id="k28-Ea-thl" userLabel="Schedule Image View">
-                                                                        <rect key="frame" x="144.5" y="0.0" width="20" height="20"/>
+                                                                        <rect key="frame" x="144" y="0.0" width="20" height="20"/>
                                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" secondItem="k28-Ea-thl" secondAttribute="height" multiplier="1:1" id="shH-Ck-Hfn"/>
                                                                         </constraints>
                                                                     </imageView>
                                                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UDa-VG-95i" userLabel="Schedule Button" customClass="CustomButton" customModule="OmnieCommerce" customModuleProvider="target">
-                                                                        <rect key="frame" x="164.5" y="0.0" width="59.5" height="20"/>
+                                                                        <rect key="frame" x="164" y="0.0" width="60" height="20"/>
                                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                         <state key="normal" title="Schedule"/>
                                                                         <userDefinedRuntimeAttributes>
@@ -719,7 +719,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Copyright" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3d9-Qt-0Tr" userLabel="Copyright Label" customClass="UbuntuLightDarkCyanLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                                <rect key="frame" x="8" y="647" width="359" height="11"/>
+                                <rect key="frame" x="8" y="299" width="359" height="359"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="9"/>
                                 <nil key="textColor"/>
@@ -728,54 +728,162 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </label>
+                            <button clipsSubviews="YES" tag="3" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kz0-de-aEy" userLabel="Message Button" customClass="FillColorButton" customModule="OmnieCommerce" customModuleProvider="target">
+                                <rect key="frame" x="314" y="574" width="35" height="35"/>
+                                <color key="backgroundColor" red="1" green="0.84313725490196079" blue="0.42352941176470588" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Kz0-de-aEy" secondAttribute="height" multiplier="1:1" id="GQB-3C-4qr"/>
+                                </constraints>
+                                <state key="normal" image="icon-message-black-normal"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="handlerActionButtonsTap:" destination="9s1-kT-Mzo" eventType="touchUpInside" id="9wl-uc-dnR"/>
+                                </connections>
+                            </button>
+                            <label hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Organization message" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2MG-9N-ISZ" userLabel="Message Label" customClass="UbuntuLightVeryLightGrayLabel" customModule="OmnieCommerce" customModuleProvider="target">
+                                <rect key="frame" x="173" y="584.5" width="126" height="14.5"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <button clipsSubviews="YES" tag="2" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1zS-nj-a2d" userLabel="Price Button" customClass="FillColorButton" customModule="OmnieCommerce" customModuleProvider="target">
+                                <rect key="frame" x="314" y="574" width="35" height="35"/>
+                                <color key="backgroundColor" red="1" green="0.84313725490196079" blue="0.42352941176470588" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="1zS-nj-a2d" secondAttribute="height" multiplier="1:1" id="p1x-ar-3fP"/>
+                                </constraints>
+                                <state key="normal" image="icon-price-black-normal"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="handlerActionButtonsTap:" destination="9s1-kT-Mzo" eventType="touchUpInside" id="wmi-QZ-lhj"/>
+                                </connections>
+                            </button>
+                            <label hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Organization price list" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="71u-GJ-2oE" userLabel="Price Label" customClass="UbuntuLightVeryLightGrayLabel" customModule="OmnieCommerce" customModuleProvider="target">
+                                <rect key="frame" x="175" y="584.5" width="124" height="14.5"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <button clipsSubviews="YES" tag="1" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="adz-yc-dyV" userLabel="Card Button" customClass="FillColorButton" customModule="OmnieCommerce" customModuleProvider="target">
+                                <rect key="frame" x="314" y="574" width="35" height="35"/>
+                                <color key="backgroundColor" red="1" green="0.84313725490196079" blue="0.42352941176470588" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="adz-yc-dyV" secondAttribute="height" multiplier="1:1" id="6WE-Ft-mGK"/>
+                                </constraints>
+                                <state key="normal" image="icon-bussiness-card-black-normal"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="handlerActionButtonsTap:" destination="9s1-kT-Mzo" eventType="touchUpInside" id="dz6-vb-i0n"/>
+                                </connections>
+                            </button>
+                            <label hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Organization add card" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dOa-1v-QfJ" userLabel="Card Label" customClass="UbuntuLightVeryLightGrayLabel" customModule="OmnieCommerce" customModuleProvider="target">
+                                <rect key="frame" x="173.5" y="584.5" width="125.5" height="14.5"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yCN-N1-cuS" userLabel="Animation Button" customClass="FillColorButton" customModule="OmnieCommerce" customModuleProvider="target">
+                                <rect key="frame" x="303" y="563" width="57" height="57"/>
+                                <color key="backgroundColor" red="0.85098039215686272" green="0.72941176470588232" blue="0.40784313725490196" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="yCN-N1-cuS" secondAttribute="height" multiplier="1:1" id="bOW-6W-3As"/>
+                                </constraints>
+                                <state key="normal" image="icon-plus-white-normal"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="handlerAnimationButtonTap:" destination="9s1-kT-Mzo" eventType="touchUpInside" id="Kxb-Lz-Yqn"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="W3J-L4-StC" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="102:667" id="1jC-bb-4US"/>
                             <constraint firstItem="xn5-Pp-dGs" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="144:375" id="2t6-c3-5oD"/>
                             <constraint firstItem="3d9-Qt-0Tr" firstAttribute="leading" secondItem="tP1-Vk-hMS" secondAttribute="leading" constant="8" id="4AF-wA-xbg"/>
+                            <constraint firstItem="adz-yc-dyV" firstAttribute="centerY" secondItem="dOa-1v-QfJ" secondAttribute="centerY" id="4je-V9-p8t"/>
                             <constraint firstItem="Fg2-g7-Pmf" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="95:667" id="4vO-JT-3lO"/>
                             <constraint firstItem="Fg2-g7-Pmf" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="80:375" id="5IP-Ew-d7q"/>
                             <constraint firstItem="W3J-L4-StC" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="102:375" id="5dx-De-fgN"/>
                             <constraint firstItem="skf-5r-lsZ" firstAttribute="width" secondItem="tP1-Vk-hMS" secondAttribute="width" multiplier="185:667" id="610-ua-NrZ"/>
+                            <constraint firstItem="1zS-nj-a2d" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="35:375" id="8Tv-nl-KEZ"/>
                             <constraint firstItem="sig-WZ-mo7" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="56:667" id="9Mg-av-88Y"/>
+                            <constraint firstItem="Kz0-de-aEy" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="35:375" id="9n8-cZ-dWg"/>
+                            <constraint firstItem="Kz0-de-aEy" firstAttribute="centerY" secondItem="yCN-N1-cuS" secondAttribute="centerY" id="9yW-o6-grT"/>
                             <constraint firstItem="HjZ-of-5Js" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="20:375" id="A5z-2k-miD"/>
+                            <constraint firstItem="71u-GJ-2oE" firstAttribute="centerY" secondItem="1zS-nj-a2d" secondAttribute="centerY" id="AEH-Hw-6a9"/>
                             <constraint firstAttribute="bottom" secondItem="3d9-Qt-0Tr" secondAttribute="bottom" constant="9" id="BFR-aI-yAf"/>
                             <constraint firstItem="U9J-wo-NbD" firstAttribute="width" secondItem="tP1-Vk-hMS" secondAttribute="width" id="Bvh-8y-4o0"/>
                             <constraint firstItem="4G7-UZ-bMP" firstAttribute="leading" secondItem="tP1-Vk-hMS" secondAttribute="leading" id="CFY-bO-VlK"/>
+                            <constraint firstItem="adz-yc-dyV" firstAttribute="leading" secondItem="dOa-1v-QfJ" secondAttribute="trailing" constant="15" id="CPh-44-jHI"/>
                             <constraint firstItem="Fg2-g7-Pmf" firstAttribute="leading" secondItem="tP1-Vk-hMS" secondAttribute="leading" id="FK5-9j-qgm"/>
                             <constraint firstItem="skf-5r-lsZ" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="36:375" id="Gct-W3-pMP"/>
                             <constraint firstItem="3d9-Qt-0Tr" firstAttribute="centerX" secondItem="tP1-Vk-hMS" secondAttribute="centerX" id="Gzt-F7-6yk"/>
                             <constraint firstAttribute="trailing" secondItem="4G7-UZ-bMP" secondAttribute="trailing" id="HrN-ZB-UXi"/>
+                            <constraint firstItem="adz-yc-dyV" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="35:375" id="Icv-YF-JYl"/>
                             <constraint firstItem="skf-5r-lsZ" firstAttribute="width" secondItem="tP1-Vk-hMS" secondAttribute="width" multiplier="185:375" id="K6y-gl-YsT"/>
                             <constraint firstItem="U9J-wo-NbD" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" priority="250" id="KfT-zc-GUv"/>
                             <constraint firstItem="skf-5r-lsZ" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="36:667" id="NvY-mV-g0H"/>
+                            <constraint firstItem="yCN-N1-cuS" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="57:667" id="Ob0-yk-cGM"/>
+                            <constraint firstItem="adz-yc-dyV" firstAttribute="centerY" secondItem="yCN-N1-cuS" secondAttribute="centerY" id="PKW-qX-gAk"/>
+                            <constraint firstItem="Kz0-de-aEy" firstAttribute="leading" secondItem="2MG-9N-ISZ" secondAttribute="trailing" constant="15" id="QsM-UJ-tqs"/>
                             <constraint firstItem="HjZ-of-5Js" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="20:667" id="SAZ-lg-4fR"/>
                             <constraint firstItem="yzx-yh-fce" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="214:667" id="T89-wI-buP"/>
                             <constraint firstItem="F2J-Sj-SOC" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="110:667" id="TTV-wR-bZb"/>
                             <constraint firstAttribute="trailing" secondItem="3d9-Qt-0Tr" secondAttribute="trailing" constant="8" id="Tdg-4A-3Gn"/>
                             <constraint firstItem="sig-WZ-mo7" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="56:375" id="ULx-WY-fds"/>
                             <constraint firstItem="KmR-yM-231" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="85:375" id="Vfj-P3-Vcg"/>
+                            <constraint firstItem="1zS-nj-a2d" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="35:667" id="Wk6-yB-BiG"/>
+                            <constraint firstAttribute="bottom" secondItem="yCN-N1-cuS" secondAttribute="bottom" constant="47" id="Ww6-1C-na4"/>
                             <constraint firstItem="xn5-Pp-dGs" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="144:667" id="YvF-eG-G8g"/>
+                            <constraint firstItem="1zS-nj-a2d" firstAttribute="centerX" secondItem="yCN-N1-cuS" secondAttribute="centerX" id="Z7D-bK-aLB"/>
                             <constraint firstItem="F2J-Sj-SOC" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="110:375" id="ZGB-O6-CgW"/>
                             <constraint firstItem="gAo-MP-7EF" firstAttribute="width" secondItem="tP1-Vk-hMS" secondAttribute="width" multiplier="175:375" id="ZgM-I3-qr7"/>
+                            <constraint firstItem="yCN-N1-cuS" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="57:375" id="alG-na-POa"/>
                             <constraint firstItem="Fg2-g7-Pmf" firstAttribute="top" secondItem="tP1-Vk-hMS" secondAttribute="top" id="d5x-CQ-SAe"/>
                             <constraint firstItem="4G7-UZ-bMP" firstAttribute="top" secondItem="tP1-Vk-hMS" secondAttribute="top" id="dda-Jb-3l1"/>
+                            <constraint firstItem="adz-yc-dyV" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="35:667" id="e5K-k9-DGK"/>
+                            <constraint firstItem="Kz0-de-aEy" firstAttribute="centerX" secondItem="yCN-N1-cuS" secondAttribute="centerX" id="fQn-JR-1VU"/>
+                            <constraint firstItem="1zS-nj-a2d" firstAttribute="centerY" secondItem="yCN-N1-cuS" secondAttribute="centerY" id="gSO-BD-mMb"/>
+                            <constraint firstItem="2MG-9N-ISZ" firstAttribute="centerY" secondItem="Kz0-de-aEy" secondAttribute="centerY" id="hHY-aC-uhc"/>
                             <constraint firstItem="5kB-hm-mY3" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="85:375" id="hLt-S7-dSS"/>
                             <constraint firstItem="KmR-yM-231" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="85:667" id="kNH-0I-Va8"/>
                             <constraint firstItem="gAo-MP-7EF" firstAttribute="width" secondItem="tP1-Vk-hMS" secondAttribute="width" multiplier="175:667" id="ks1-7a-JLK"/>
                             <constraint firstItem="ZU5-ze-b9v" firstAttribute="leading" secondItem="tP1-Vk-hMS" secondAttribute="leading" constant="14" id="oPZ-ya-VFj"/>
                             <constraint firstItem="gAo-MP-7EF" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="27:667" id="ohH-eQ-I2T"/>
+                            <constraint firstItem="1zS-nj-a2d" firstAttribute="leading" secondItem="71u-GJ-2oE" secondAttribute="trailing" constant="15" id="p5L-nZ-uOx"/>
                             <constraint firstItem="gAo-MP-7EF" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="27:375" id="pxw-oR-e8Z"/>
                             <constraint firstItem="EKb-ci-h91" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="30:375" id="qsL-f4-Sr7"/>
                             <constraint firstItem="5kB-hm-mY3" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="85:667" id="slx-hc-ia6"/>
                             <constraint firstItem="3d9-Qt-0Tr" firstAttribute="top" secondItem="4G7-UZ-bMP" secondAttribute="bottom" constant="9" id="tWB-H0-tnk"/>
                             <constraint firstItem="yzx-yh-fce" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="214:375" id="tax-2V-FR4"/>
+                            <constraint firstItem="Kz0-de-aEy" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="35:667" id="tqn-02-D9m"/>
+                            <constraint firstItem="adz-yc-dyV" firstAttribute="centerX" secondItem="yCN-N1-cuS" secondAttribute="centerX" id="vBR-A6-FvT"/>
                             <constraint firstItem="ZU5-ze-b9v" firstAttribute="top" secondItem="HJY-HG-h1S" secondAttribute="bottom" constant="4" id="vk8-XH-4TP">
                                 <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
                             </constraint>
                             <constraint firstItem="EKb-ci-h91" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="30:667" id="w5e-3c-B7K"/>
                             <constraint firstAttribute="trailing" secondItem="Fg2-g7-Pmf" secondAttribute="trailing" id="x1k-Kj-01b"/>
+                            <constraint firstAttribute="trailing" secondItem="yCN-N1-cuS" secondAttribute="trailing" constant="15" id="zew-50-ris"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -786,6 +894,10 @@
                                 <exclude reference="w5e-3c-B7K"/>
                                 <exclude reference="YvF-eG-G8g"/>
                                 <exclude reference="1jC-bb-4US"/>
+                                <exclude reference="Ob0-yk-cGM"/>
+                                <exclude reference="Wk6-yB-BiG"/>
+                                <exclude reference="tqn-02-D9m"/>
+                                <exclude reference="e5K-k9-DGK"/>
                                 <exclude reference="9Mg-av-88Y"/>
                                 <exclude reference="K6y-gl-YsT"/>
                                 <exclude reference="NvY-mV-g0H"/>
@@ -811,6 +923,14 @@
                                 <include reference="YvF-eG-G8g"/>
                                 <include reference="1jC-bb-4US"/>
                                 <exclude reference="5dx-De-fgN"/>
+                                <include reference="Ob0-yk-cGM"/>
+                                <exclude reference="alG-na-POa"/>
+                                <exclude reference="8Tv-nl-KEZ"/>
+                                <include reference="Wk6-yB-BiG"/>
+                                <exclude reference="9n8-cZ-dWg"/>
+                                <include reference="tqn-02-D9m"/>
+                                <exclude reference="Icv-YF-JYl"/>
+                                <include reference="e5K-k9-DGK"/>
                                 <include reference="9Mg-av-88Y"/>
                                 <exclude reference="ULx-WY-fds"/>
                                 <exclude reference="610-ua-NrZ"/>
@@ -832,6 +952,9 @@
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="animationButton" destination="yCN-N1-cuS" id="Chl-iV-Ohh"/>
+                        <outlet property="cardButton" destination="adz-yc-dyV" id="u6g-gN-fqm"/>
+                        <outlet property="cardLabel" destination="dOa-1v-QfJ" id="zba-AD-rV7"/>
                         <outlet property="contentLabel" destination="if6-5e-NiS" id="AuJ-vv-dvB"/>
                         <outlet property="cosmosView" destination="gAo-MP-7EF" id="oJs-zT-6xp"/>
                         <outlet property="discountCommonStackView" destination="xlY-UI-ggP" id="ouc-UY-FJN"/>
@@ -848,10 +971,14 @@
                         <outlet property="infoView" destination="F2J-Sj-SOC" id="tHX-fc-L0E"/>
                         <outlet property="logoImageView" destination="5kB-hm-mY3" id="TBa-UZ-Fqg"/>
                         <outlet property="mainStackView" destination="7hu-c0-ss3" id="ChQ-Za-dlY"/>
+                        <outlet property="messageButton" destination="Kz0-de-aEy" id="PNT-s8-MK0"/>
+                        <outlet property="messageLabel" destination="2MG-9N-ISZ" id="Lkg-LM-BNz"/>
                         <outlet property="modalView" destination="1SW-5w-LhH" id="5Eq-MR-aCv"/>
                         <outlet property="nameLabel" destination="o4I-uK-Byn" id="9IJ-Jf-bL7"/>
                         <outlet property="phonesButton" destination="8WP-Kt-kqi" id="4nY-Ou-HrJ"/>
                         <outlet property="phonesImageView" destination="1hR-W7-POI" id="iJk-wx-Egj"/>
+                        <outlet property="priceButton" destination="1zS-nj-a2d" id="8bo-ZP-axE"/>
+                        <outlet property="priceLabel" destination="71u-GJ-2oE" id="lUm-gm-rao"/>
                         <outlet property="ratingView" destination="yzx-yh-fce" id="tH9-aC-kBu"/>
                         <outlet property="reviewsCollectionView" destination="UhX-rh-GrB" id="wRV-Er-n8f"/>
                         <outlet property="reviewsView" destination="E5n-6w-mcc" id="UIh-HW-dRN"/>
@@ -894,7 +1021,11 @@
         <image name="icon-address-orange-normal" width="6" height="9"/>
         <image name="icon-all-services-normal" width="12" height="12"/>
         <image name="icon-back-bar-button-normal" width="8" height="14"/>
+        <image name="icon-bussiness-card-black-normal" width="19" height="13"/>
+        <image name="icon-message-black-normal" width="16" height="11"/>
         <image name="icon-phones-orange-normal" width="5" height="9"/>
+        <image name="icon-plus-white-normal" width="21" height="21"/>
+        <image name="icon-price-black-normal" width="15" height="15"/>
         <image name="icon-schedule-orange-normal" width="9" height="9"/>
         <image name="image-favorite-star-normal" width="13" height="12"/>
         <image name="image-no-organization" width="24" height="20"/>

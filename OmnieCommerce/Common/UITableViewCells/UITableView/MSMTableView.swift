@@ -10,6 +10,9 @@ import UIKit
 
 class MSMTableView: UITableView {
     // MARK: - Properties
+    var headears: [String]?
+    var hasHeaders = false
+    
     var tableViewControllerManager: MSMTableViewControllerManager! {
         didSet {
             self.delegate = tableViewControllerManager

@@ -146,6 +146,10 @@
 		B14C07231EA0993800556866 /* ServicesShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14C071C1EA0993800556866 /* ServicesShowViewController.swift */; };
 		B14C07241EA0993800556866 /* ServicesShowWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14C071D1EA0993800556866 /* ServicesShowWorker.swift */; };
 		B14C07261EA09C4200556866 /* ServicesShow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B14C07251EA09C4200556866 /* ServicesShow.storyboard */; };
+		B14C07291EA0AA7700556866 /* ExpandedHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14C07281EA0AA7700556866 /* ExpandedHeaderCell.swift */; };
+		B14C072C1EA0AB2500556866 /* ExpandedTableViewHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14C072B1EA0AB2500556866 /* ExpandedTableViewHeaderView.swift */; };
+		B14C072E1EA0AB2D00556866 /* ExpandedTableViewHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B14C072D1EA0AB2D00556866 /* ExpandedTableViewHeaderView.xib */; };
+		B14C07521EA0E0BC00556866 /* FillColorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14C07511EA0E0BC00556866 /* FillColorButton.swift */; };
 		B14CD91A1E57C058005F8BF6 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14CD9191E57C058005F8BF6 /* Protocols.swift */; };
 		B14D1D601E5CB60600D33435 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B14D1D5E1E5CB60600D33435 /* GoogleService-Info.plist */; };
 		B14D1D671E5CB6D500D33435 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B14D1D611E5CB6D500D33435 /* Bolts.framework */; };
@@ -600,6 +604,10 @@
 		B14C071C1EA0993800556866 /* ServicesShowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServicesShowViewController.swift; sourceTree = "<group>"; };
 		B14C071D1EA0993800556866 /* ServicesShowWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServicesShowWorker.swift; sourceTree = "<group>"; };
 		B14C07251EA09C4200556866 /* ServicesShow.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ServicesShow.storyboard; sourceTree = "<group>"; };
+		B14C07281EA0AA7700556866 /* ExpandedHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpandedHeaderCell.swift; sourceTree = "<group>"; };
+		B14C072B1EA0AB2500556866 /* ExpandedTableViewHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpandedTableViewHeaderView.swift; sourceTree = "<group>"; };
+		B14C072D1EA0AB2D00556866 /* ExpandedTableViewHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExpandedTableViewHeaderView.xib; sourceTree = "<group>"; };
+		B14C07511EA0E0BC00556866 /* FillColorButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FillColorButton.swift; sourceTree = "<group>"; };
 		B14CD9191E57C058005F8BF6 /* Protocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		B14D1D5E1E5CB60600D33435 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B14D1D5F1E5CB60600D33435 /* OmnieCommerce-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "OmnieCommerce-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -1378,10 +1386,11 @@
 				B1FBC9171E6D493200D86429 /* RadioButton */,
 				B149A7B91E5D8DD3009BF8C7 /* AnimatedButton.swift */,
 				B149A7BB1E5D8E24009BF8C7 /* AnimatedButton.xib */,
-				B122A58F1E6BF23E00C39B67 /* BorderVeryLightOrangeButton.swift */,
 				B13FE1A91E956D70000DD416 /* BorderVeryDarkDesaturatedBlueButton.swift */,
+				B122A58F1E6BF23E00C39B67 /* BorderVeryLightOrangeButton.swift */,
 				B1CF54631DDAE78200E98049 /* CustomButton.swift */,
 				B1C13D861DEF2743002B494A /* DropDownButton.swift */,
+				B14C07511EA0E0BC00556866 /* FillColorButton.swift */,
 				B122A58D1E6BE10F00C39B67 /* FillVeryLightOrangeButton.swift */,
 				B163FE701E6FE039004AF42E /* UbuntuLightItalicDarkCyanButton.swift */,
 				B1FBC9241E6D948B00D86429 /* UbuntuLightVeryLightOrangeButton.swift */,
@@ -1476,6 +1485,8 @@
 		B14C07161EA098EE00556866 /* ServicesShow */ = {
 			isa = PBXGroup;
 			children = (
+				B14C07271EA0AA3B00556866 /* Models */,
+				B14C072A1EA0AAD200556866 /* Views */,
 				B14C07171EA0993800556866 /* ServicesShowConfigurator.swift */,
 				B14C07181EA0993800556866 /* ServicesShowInteractor.swift */,
 				B14C07191EA0993800556866 /* ServicesShowModels.swift */,
@@ -1485,6 +1496,23 @@
 				B14C071D1EA0993800556866 /* ServicesShowWorker.swift */,
 			);
 			path = ServicesShow;
+			sourceTree = "<group>";
+		};
+		B14C07271EA0AA3B00556866 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B14C07281EA0AA7700556866 /* ExpandedHeaderCell.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B14C072A1EA0AAD200556866 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B14C072B1EA0AB2500556866 /* ExpandedTableViewHeaderView.swift */,
+				B14C072D1EA0AB2D00556866 /* ExpandedTableViewHeaderView.xib */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 		B14E973E1DD8AFCF001E1DE2 /* SignInShow */ = {
@@ -2155,6 +2183,7 @@
 				B1BF92751DD6516C00BECBBB /* helveticaneuecyr-thinitalic.otf in Resources */,
 				B1152FB01E6E9FD8007999B9 /* UserTemplateTableViewCell.xib in Resources */,
 				B122DF6B1DF804CD003823AD /* SegmentedControlViewLandscape.xib in Resources */,
+				B14C072E1EA0AB2D00556866 /* ExpandedTableViewHeaderView.xib in Resources */,
 				B1C13D8D1DEF3385002B494A /* DropDown.storyboard in Resources */,
 				B1D738501E93B23300A764F4 /* Assets.xcassets in Resources */,
 				B1F3CD651E988ADA00ECAC35 /* CirclePhotoCollectionViewCell.xib in Resources */,
@@ -2277,6 +2306,7 @@
 				B1FFF7011E5ECDF900A075D8 /* OrganizationsShowInteractor.swift in Sources */,
 				B1739D161DE314C70029BCCA /* UIButton+Ext.swift in Sources */,
 				B122F2171DD35C2C0018A701 /* NewsShowRouter.swift in Sources */,
+				B14C07521EA0E0BC00556866 /* FillColorButton.swift in Sources */,
 				B11CDCC91E9F5DC400E52FDE /* ScheduleTableViewCell.swift in Sources */,
 				B19DFAC11E64B9F100599073 /* UITextField+Ext.swift in Sources */,
 				B177E55A1E54B739004F1390 /* RepetitionPasswordShowRouter.swift in Sources */,
@@ -2391,6 +2421,7 @@
 				B1FFF71F1E5F038400A075D8 /* Organization.swift in Sources */,
 				B122F2191DD35C2C0018A701 /* NewsShowWorker.swift in Sources */,
 				B1597AC61E3F12BF00123CB5 /* PersonalDataViewController.swift in Sources */,
+				B14C072C1EA0AB2500556866 /* ExpandedTableViewHeaderView.swift in Sources */,
 				B1CF54641DDAE78200E98049 /* CustomButton.swift in Sources */,
 				B122DF691DF7F957003823AD /* CalendarShowWorker.swift in Sources */,
 				B122F1ED1DD35BA70018A701 /* MessagesShowRouter.swift in Sources */,
@@ -2554,6 +2585,7 @@
 				B1D883221E8E8C98006F4831 /* NewsDataShowWorker.swift in Sources */,
 				B1D8832B1E8E8D63006F4831 /* NewsActionsShowInteractor.swift in Sources */,
 				B1CF54C01DDB519000E98049 /* OnmieSoftShowRouter.swift in Sources */,
+				B14C07291EA0AA7700556866 /* ExpandedHeaderCell.swift in Sources */,
 				B10874A61E5B3D7E004A4FB6 /* AppUser+CoreDataClass.swift in Sources */,
 				B1CF54BC1DDB519000E98049 /* OnmieSoftShowConfigurator.swift in Sources */,
 				B122F1EF1DD35BA70018A701 /* MessagesShowWorker.swift in Sources */,

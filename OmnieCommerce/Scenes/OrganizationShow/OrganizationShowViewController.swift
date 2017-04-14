@@ -34,6 +34,15 @@ class OrganizationShowViewController: BaseViewController {
     var backButton: UIButton?
     var wasLaunchedAPI = false
     
+    // Action buttons
+    @IBOutlet weak var animationButton: FillColorButton!
+    @IBOutlet weak var cardButton: FillColorButton!
+    @IBOutlet weak var cardLabel: UbuntuLightVeryLightGrayLabel!    
+    @IBOutlet weak var priceButton: FillColorButton!
+    @IBOutlet weak var priceLabel: UbuntuLightVeryLightGrayLabel!
+    @IBOutlet weak var messageButton: FillColorButton!
+    @IBOutlet weak var messageLabel: UbuntuLightVeryLightGrayLabel!
+    
     @IBOutlet var scrollView: MXScrollView! {
         didSet {
             scrollView.delegate = self
@@ -235,6 +244,7 @@ class OrganizationShowViewController: BaseViewController {
 //            self.organization = NSKeyedUnarchiver.unarchiveObject(with: organizationData.list! as Data) as! Organization
         }
         
+
         // Setting Organization profile info
         // Parallax Header view
         if (organizationProfile!.headerURL != nil) {
@@ -246,8 +256,8 @@ class OrganizationShowViewController: BaseViewController {
                 headerView!.imageView.kf.setImage(with: ImageResource(downloadURL: URL(string: imagePath)!, cacheKey: "imagePath-\(organization.codeID)"),
                                                   placeholder: UIImage.init(named: "image-no-photo"),
                                                   options: [.transition(ImageTransition.fade(1)),
-                                                            .processor(ResizingImageProcessor(targetSize: headerView!.frame.size,
-                                                                                              contentMode: .aspectFit))],
+                                                            .processor(ResizingImageProcessor(referenceSize: headerView!.frame.size,
+                                                                                              mode: .aspectFit))],
                                                   completionHandler: { image, error, cacheType, imageURL in
                                                     self.headerView!.kf.cancelDownloadTask()
                 })
@@ -302,8 +312,8 @@ class OrganizationShowViewController: BaseViewController {
             logoImageView!.kf.setImage(with: ImageResource(downloadURL: URL(string: imagePath)!, cacheKey: "imagePath"),
                                        placeholder: UIImage.init(named: "image-no-organization"),
                                        options: [.transition(ImageTransition.fade(1)),
-                                                 .processor(ResizingImageProcessor(targetSize: logoImageView!.frame.size,
-                                                                                   contentMode: .aspectFit))],
+                                                 .processor(ResizingImageProcessor(referenceSize: logoImageView!.frame.size,
+                                                                                   mode: .aspectFit))],
                                        completionHandler: { image, error, cacheType, imageURL in
                                         self.logoImageView!.kf.cancelDownloadTask()
             })
@@ -459,8 +469,8 @@ class OrganizationShowViewController: BaseViewController {
                 userAvatarImageView.kf.setImage(with: ImageResource(downloadURL: URL(string: imagePath)!, cacheKey: imagePath),
                                                 placeholder: UIImage.init(named: "image-no-user"),
                                                 options: [.transition(ImageTransition.fade(1)),
-                                                          .processor(ResizingImageProcessor(targetSize: userAvatarImageView.frame.size,
-                                                                                            contentMode: .aspectFit))],
+                                                          .processor(ResizingImageProcessor(referenceSize: userAvatarImageView.frame.size,
+                                                                                            mode: .aspectFit))],
                                                 completionHandler: { image, error, cacheType, imageURL in
                                                     self.userAvatarImageView.kf.cancelDownloadTask()
                 })
@@ -543,6 +553,95 @@ class OrganizationShowViewController: BaseViewController {
     @IBAction func handlerAllServicesButtonTap(_ sender: FillVeryLightOrangeButton) {
         router.navigateToServicesShowScene(organization.services!)
     }
+    
+    @IBAction func handlerAnimationButtonTap(_ sender: FillColorButton) {
+        UIView.animate(withDuration: 0.3, animations: {
+            sender.transform = (sender.tag == 0) ? CGAffineTransform.init(rotationAngle: .pi/4) : CGAffineTransform.identity
+            
+            if (sender.tag == 1) {
+                self.blackoutView!.didHide()
+                self.blackoutView = nil
+            } else if (self.blackoutView == nil) {
+                self.blackoutView = MSMBlackoutView.init(inView: self.view)
+                self.blackoutView!.didShow()
+                self.view.bringSubview(toFront: self.messageButton)
+                self.view.bringSubview(toFront: self.messageLabel)
+                self.view.bringSubview(toFront: self.priceButton)
+                self.view.bringSubview(toFront: self.priceLabel)
+                self.view.bringSubview(toFront: self.cardButton)
+                self.view.bringSubview(toFront: self.cardLabel)
+                self.view.bringSubview(toFront: sender)
+            }
+            
+            UIView.animate(withDuration: 0.5, animations: {
+                self.cardButton.transform = (sender.tag == 0) ?     CGAffineTransform.init(translationX: 0, y: -(sender.frame.height / 2 + 15.0 * self.view.heightRatio)) :
+                                                                    CGAffineTransform.identity
+                
+                self.cardLabel.isHidden = (sender.tag == 0) ? false : true
+                self.cardLabel.transform = self.cardButton.transform
+                
+                self.priceButton.transform = (sender.tag == 0) ?    CGAffineTransform.init(translationX: 0, y: -(sender.frame.height / 2 + self.cardButton.frame.height + (15.0 + 10.0) * self.view.heightRatio)) :
+                                                                    CGAffineTransform.identity
+                
+                self.priceLabel.isHidden = (sender.tag == 0) ? false : true
+                self.priceLabel.transform = self.priceButton.transform
+
+                self.messageButton.transform = (sender.tag == 0) ?  CGAffineTransform.init(translationX: 0, y: -(sender.frame.height / 2 + self.cardButton.frame.height + self.priceButton.frame.height + (15.0 + 10.0 + 8.0) * self.view.heightRatio)) :
+                                                                    CGAffineTransform.identity
+                
+                self.messageLabel.isHidden = (sender.tag == 0) ? false : true
+                self.messageLabel.transform = self.messageButton.transform
+            })
+        }, completion: { _ in
+            sender.tag = (sender.tag == 0) ? 1 : 0
+        })
+    }
+    
+    @IBAction func handlerActionButtonsTap(_ sender: FillColorButton) {
+        UIView.animate(withDuration: 0.3, animations: { _ in
+            self.animationButton.transform = CGAffineTransform.identity
+            
+            UIView.animate(withDuration: 0.5, animations: {
+                self.cardButton.transform = CGAffineTransform.identity
+                self.cardLabel.transform = self.cardButton.transform
+                self.cardLabel.isHidden = true
+                
+                self.priceButton.transform = CGAffineTransform.identity
+                self.priceLabel.transform = self.priceButton.transform
+                self.priceLabel.isHidden = true
+                
+                self.messageButton.transform = CGAffineTransform.identity
+                self.messageLabel.transform = self.messageButton.transform
+                self.messageLabel.isHidden = true
+            })
+        }, completion: { _ in
+            self.animationButton.tag = 0
+            self.blackoutView!.didHide()
+            self.blackoutView = nil
+        })
+
+        // Handler action button tap
+        switch sender.tag {
+        // Card
+        case 1:
+            // TODO: - ADD TRANSITION TO ...
+            break
+            
+        // Price
+        case 2:
+            // TODO: - ADD TRANSITION TO ...
+            break
+            
+        // Message
+        case 3:
+            // TODO: - ADD TRANSITION TO ...
+            break
+            
+        default:
+            break
+        }
+    }
+    
 }
 
 

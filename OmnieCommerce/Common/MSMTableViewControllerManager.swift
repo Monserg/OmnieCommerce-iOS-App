@@ -301,6 +301,39 @@ extension MSMTableViewControllerManager: UITableViewDelegate {
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if (self.tableView!.hasHeaders) {
+            let label = UILabel()
+            label.textAlignment = .left
+            label.text = "I'm a test label"
+            label.tag = section
+            
+            let tap = UITapGestureRecognizer(target: self, action: #selector(handlerExpandeSection))
+            label.isUserInteractionEnabled = true
+            label.addGestureRecognizer(tap)
+            
+            return label
+        }
+        
+        return nil
+    }
+    
+    func handlerExpandeSection(_ sender: UITapGestureRecognizer) {
+//        let section = sender.view!.tag
+//        let indexPaths = (0..<3).map { i in return IndexPath(item: i, section: section) }
+//        hidden[section] = !hidden[section]
+//        
+//        self.tableView!.beginUpdates()
+//        
+//        if hidden[section] {
+//            tableView?.deleteRows(at: indexPaths, with: .fade)
+//        } else {
+//            tableView?.insertRows(at: indexPaths, with: .fade)
+//        }
+//        
+//        self.tableView!.endUpdates()
+    }
 }
 
 

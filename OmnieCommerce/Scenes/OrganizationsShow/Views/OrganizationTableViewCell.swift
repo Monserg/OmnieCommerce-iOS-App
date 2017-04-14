@@ -80,8 +80,8 @@ extension OrganizationTableViewCell: ConfigureCell {
             logoImageView.kf.setImage(with: ImageResource(downloadURL: URL(string: imagePath)!, cacheKey: organizationID),
                                       placeholder: UIImage.init(named: "image-no-organization"),
                                       options: [.transition(ImageTransition.fade(1)),
-                                                .processor(ResizingImageProcessor(targetSize: logoImageView.frame.size,
-                                                                                  contentMode: .aspectFit))],
+                                                .processor(ResizingImageProcessor(referenceSize: logoImageView.frame.size,
+                                                                                  mode: .aspectFit))],
                                       completionHandler: { image, error, cacheType, imageURL in
                                         self.logoImageView.kf.cancelDownloadTask()
             })

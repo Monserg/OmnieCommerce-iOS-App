@@ -79,8 +79,8 @@ class PersonalDataViewController: BaseViewController, EmailErrorMessageView, Pho
                 avatarButton.kf.setImage(with: ImageResource(downloadURL: URL(string: imagePath)!, cacheKey: imagePath), for: .normal,
                                          placeholder: UIImage.init(named: "image-no-user"),
                                          options: [.transition(ImageTransition.fade(1)),
-                                                   .processor(ResizingImageProcessor(targetSize: avatarButton.frame.size,
-                                                                                     contentMode: .aspectFit))],
+                                                   .processor(ResizingImageProcessor(referenceSize: avatarButton.frame.size,
+                                                                                     mode: .aspectFit))],
                                          completionHandler: { image, error, cacheType, imageURL in
                                             self.avatarButton.imageView!.kf.cancelDownloadTask()
                 })
