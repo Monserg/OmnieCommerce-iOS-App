@@ -46,8 +46,7 @@ extension CirclePhotoCollectionViewCell: ConfigureCell {
             imageButton.kf.setImage(with: ImageResource(downloadURL: URL(string: imagePath)!, cacheKey: "imagePath-\(indexPath.row)"), for: .normal,
                                     placeholder: UIImage.init(named: "image-no-photo"),
                                     options: [.transition(ImageTransition.fade(1)),
-                                              .processor(ResizingImageProcessor(referenceSize: imageButton.frame.size,
-                                                                                mode: .aspectFit))],
+                                              .processor(ResizingImageProcessor(referenceSize: imageButton.frame.size, mode: .aspectFit))],
                                     completionHandler: { image, error, cacheType, imageURL in
                                         self.imageButton.imageView?.kf.cancelDownloadTask()
             })
