@@ -15,7 +15,8 @@ class Service: NSObject, NSCoding, InitCellParameters, SearchObject, PointAnnota
     var category: Category?
     var needBackgroundColorSet: Bool = false
     var isNameNeedHide: Bool = false
-    
+    var isCommonProfile: Bool = true
+
     // From common API response
     var codeID: String!
     var organizationName: String?
@@ -38,18 +39,21 @@ class Service: NSObject, NSCoding, InitCellParameters, SearchObject, PointAnnota
     var cellHeight: CGFloat = 96.0
     
     // From full API response
-    
+    var prices: [ServicePrice]?
     
     
     
     
     
     // MARK: - Class Initialization
-    override init() {
+    init(withCommonProfile isCommonProfile: Bool) {
         super.init()
+        
+        self.isCommonProfile = isCommonProfile
     }
-    
-    init(codeID: String, name: String, organizationName: String?, category: Category?, rating: Double?, isFavorite: Bool, logoURL: String?, city: String?, street: String?, latitude: CLLocationDegrees?, longitude: CLLocationDegrees?) {
+        
+    init(codeID: String, name: String, organizationName: String?, category: Category?, rating: Double?, isFavorite: Bool, logoURL: String?, city: String?, street: String?, latitude: CLLocationDegrees?, longitude: CLLocationDegrees?, prices: [ServicePrice]?) {
+        // Common profile
         self.codeID = codeID
         self.name = name
         self.organizationName = organizationName
@@ -61,9 +65,13 @@ class Service: NSObject, NSCoding, InitCellParameters, SearchObject, PointAnnota
         self.longitude = longitude
         self.addressCity = city
         self.addressStreet = street
+        
+        // Full profile
+        self.prices = prices
     }
     
     required convenience init(coder aDecoder: NSCoder) {
+        // Common profile
         let codeID = aDecoder.decodeObject(forKey: "codeID") as! String
         let name = aDecoder.decodeObject(forKey: "name") as! String
         let organizationName = aDecoder.decodeObject(forKey: "orgName") as? String
@@ -75,11 +83,15 @@ class Service: NSObject, NSCoding, InitCellParameters, SearchObject, PointAnnota
         let longitude = aDecoder.decodeObject(forKey: "longitude") as? CLLocationDegrees
         let addressCity = aDecoder.decodeObject(forKey: "addressCity") as? String
         let addressStreet = aDecoder.decodeObject(forKey: "addressStreet") as? String
+        
+        // Full profile
+        let prices = aDecoder.decodeObject(forKey: "prices") as? [ServicePrice]
 
-        self.init(codeID: codeID, name: name, organizationName: organizationName, category: category, rating: rating, isFavorite: isFavorite, logoURL: logoURL, city: addressCity, street: addressStreet, latitude: latitude, longitude: longitude)
+        self.init(codeID: codeID, name: name, organizationName: organizationName, category: category, rating: rating, isFavorite: isFavorite, logoURL: logoURL, city: addressCity, street: addressStreet, latitude: latitude, longitude: longitude, prices: prices)
     }
     
-    func encode(with aCoder: NSCoder){
+    func encode(with aCoder: NSCoder) {
+        // Common profile
         aCoder.encode(codeID, forKey: "codeID")
         aCoder.encode(name, forKey: "name")
         aCoder.encode(organizationName, forKey: "orgName")
@@ -91,6 +103,9 @@ class Service: NSObject, NSCoding, InitCellParameters, SearchObject, PointAnnota
         aCoder.encode(addressStreet, forKey: "addressStreet")
         aCoder.encode(latitude, forKey: "latitude")
         aCoder.encode(longitude, forKey: "longitude")
+        
+        // Full profile
+        aCoder.encode(prices, forKey: "prices")
     }
     
     
@@ -104,6 +119,7 @@ class Service: NSObject, NSCoding, InitCellParameters, SearchObject, PointAnnota
 // MARK: - MapObjectBinding
 extension Service: MapObjectBinding {
     func didMap(fromDictionary dictionary: [String: Any], completion: @escaping (() -> ())) {
+        // Common profile
         self.codeID = dictionary["uuid"] as! String
         self.name = dictionary["name"] as! String
         
@@ -123,6 +139,22 @@ extension Service: MapObjectBinding {
             self.logoURL = "\(MSMRestApiManager.instance.appHostURL.absoluteString)\(dictionary["staticUrl"] as! String)"
         }
 
+        // Full profile
+        if (!isCommonProfile) {
+            if let priceItems = dictionary["servicePrices"] as? NSArray {
+                var items = [ServicePrice]()
+                
+                for dictionary in priceItems {
+                    let price = ServicePrice()
+                    price.didMap(fromDictionary: dictionary as! [String : Any], completion: { _ in })
+                    items.append(price)
+                }
+                
+                self.prices = items
+            }
+        }
+        
+        // Position from Common profile
         if (dictionary["placeId"] as? String != nil) {
             // Get Location
             let locationManager = LocationManager()
@@ -145,7 +177,7 @@ extension Service: MapObjectBinding {
 // MARK: - NSCopying
 extension Service: NSCopying {
     func copy(with zone: NSZone? = nil) -> Any {
-        let copy = Service()
+        let copy = Service.init(withCommonProfile: self.isCommonProfile)
         return copy
     }
 }

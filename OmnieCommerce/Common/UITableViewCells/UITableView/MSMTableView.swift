@@ -10,7 +10,7 @@ import UIKit
 
 class MSMTableView: UITableView {
     // MARK: - Properties
-    var headears: [String]?
+    var headears: [ExpandedHeaderCell]?
     var hasHeaders = false
     
     var tableViewControllerManager: MSMTableViewControllerManager! {

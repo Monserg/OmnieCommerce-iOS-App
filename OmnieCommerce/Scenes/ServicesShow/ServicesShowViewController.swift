@@ -28,13 +28,32 @@ class ServicesShowViewController: BaseViewController {
     
     @IBOutlet weak var tableView: MSMTableView! {
         didSet {
-            tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0)
+            tableView.contentInset = UIEdgeInsetsMake((UIApplication.shared.statusBarOrientation.isPortrait) ? -10 : 10, 0, 0, 0)
             tableView.scrollIndicatorInsets = UIEdgeInsetsMake(0, 0, 0, 0)
+            var headers = [ExpandedHeaderCell]()
+            var priceDataSource = [[ServicePrice]]()
+            
+            // Create sections array
+            for service in services.filter({ ($0.prices?.count)! > 0 }) {
+                headers.append(ExpandedHeaderCell.init(withName: service.name))
+                var prices = [ServicePrice]()
+                
+                for price in service.prices! {
+                    prices.append(price)
+                }
+                
+                priceDataSource.append(prices)
+            }
             
             // Create MSMTableViewControllerManager
-            let servicesTableManager = MSMTableViewControllerManager.init(withTableView: self.tableView, andSectionsCount: 1, andEmptyMessageText: "Services list is empty")
+            self.tableView.hasHeaders = true
+            self.tableView.headears = headers
+            let servicesTableManager = MSMTableViewControllerManager.init(withTableView: self.tableView,
+                                                                          andSectionsCount: headers.count,
+                                                                          andEmptyMessageText: "Services list is empty")
+            
             tableView.tableViewControllerManager = servicesTableManager
-            tableView.tableViewControllerManager.dataSource = services
+            tableView.tableViewControllerManager.dataSource = priceDataSource
             tableView.reloadData()
         }
     }
@@ -61,13 +80,27 @@ class ServicesShowViewController: BaseViewController {
         // Config smallTopBarView
         navigationBarView = smallTopBarView
         smallTopBarView.type = "Child"
-        smallTopBarView.titleLabel.text = "All services".localized()
         haveMenuItem = false
         
         // Handler Back button tap
         smallTopBarView.handlerSendButtonCompletion = { _ in
             _ = self.navigationController?.popViewController(animated: true)
         }
+    }
+    
+    
+    // MARK: - Transition
+    override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
+        smallTopBarView.setNeedsDisplay()
+        
+        // Album
+        if newCollection.verticalSizeClass == .compact {
+            tableView.contentInset = UIEdgeInsetsMake(30, 0, 0, 0)
+        } else {
+            tableView.contentInset = UIEdgeInsetsMake(-10, 0, 0, 0)
+        }
+        
+        self.view.layoutIfNeeded()
     }
 }
 

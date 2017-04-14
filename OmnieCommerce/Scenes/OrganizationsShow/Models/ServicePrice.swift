@@ -13,17 +13,18 @@ class ServicePrice: NSObject, NSCoding, InitCellParameters {
     
     // From common API response
     var codeID: String!
-    var day: Int32!
+    var name: String!
+    var day: UInt8!
     var price: Double!
-    var unit: Int32!
+    var unit: UInt8!
     var serviceID: String!
     var dateCreated: Date!
     var ruleTimeStart: String!
     var ruleTimeEnd: String!
     
     // Confirm InitCellParameters Protocol
-    var cellIdentifier: String = "XXX"
-    var cellHeight: CGFloat = 96.0
+    var cellIdentifier: String = "ServicePriceTableViewCell"
+    var cellHeight: CGFloat = 44.0
     
     
     // MARK: - Class Initialization
@@ -31,8 +32,9 @@ class ServicePrice: NSObject, NSCoding, InitCellParameters {
         super.init()
     }
     
-    init(codeID: String, day: Int32, price: Double, unit: Int32, serviceID: String, dateCreated: Date, ruleTimeStart: String, ruleTimeEnd: String) {
+    init(codeID: String, name: String, day: UInt8, price: Double, unit: UInt8, serviceID: String, dateCreated: Date, ruleTimeStart: String, ruleTimeEnd: String) {
         self.codeID = codeID
+        self.name = name
         self.day = day
         self.price = price
         self.unit = unit
@@ -44,19 +46,21 @@ class ServicePrice: NSObject, NSCoding, InitCellParameters {
     
     required convenience init(coder aDecoder: NSCoder) {
         let codeID = aDecoder.decodeObject(forKey: "codeID") as! String
-        let day = aDecoder.decodeObject(forKey: "day") as! Int32
+        let name = aDecoder.decodeObject(forKey: "name") as! String
+        let day = aDecoder.decodeObject(forKey: "day") as! UInt8
         let price = aDecoder.decodeObject(forKey: "price") as! Double
-        let unit = aDecoder.decodeObject(forKey: "unit") as! Int32
+        let unit = aDecoder.decodeObject(forKey: "unit") as! UInt8
         let serviceID = aDecoder.decodeObject(forKey: "serviceID") as! String
         let dateCreated = aDecoder.decodeObject(forKey: "dateCreated") as! Date
         let ruleTimeStart = aDecoder.decodeObject(forKey: "ruleTimeStart") as! String
         let ruleTimeEnd = aDecoder.decodeObject(forKey: "ruleTimeEnd") as! String
         
-        self.init(codeID: codeID, day: day, price: price, unit: unit, serviceID: serviceID, dateCreated: dateCreated, ruleTimeStart: ruleTimeStart, ruleTimeEnd: ruleTimeEnd)
+        self.init(codeID: codeID, name: name, day: day, price: price, unit: unit, serviceID: serviceID, dateCreated: dateCreated, ruleTimeStart: ruleTimeStart, ruleTimeEnd: ruleTimeEnd)
     }
     
     func encode(with aCoder: NSCoder){
         aCoder.encode(codeID, forKey: "codeID")
+        aCoder.encode(name, forKey: "name")
         aCoder.encode(day, forKey: "day")
         aCoder.encode(price, forKey: "price")
         aCoder.encode(unit, forKey: "unit")
@@ -78,9 +82,11 @@ class ServicePrice: NSObject, NSCoding, InitCellParameters {
 extension ServicePrice: MapObjectBinding {
     func didMap(fromDictionary dictionary: [String: Any], completion: @escaping (() -> ())) {
         self.codeID = dictionary["uuid"] as! String
-        self.day = dictionary["day"] as! Int32
+//        self.name = dictionary["name"] as! String
+        self.name = "Tested name"
+        self.day = dictionary["day"] as! UInt8
         self.price = dictionary["price"] as! Double
-        self.unit = dictionary["unit"] as! Int32
+        self.unit = dictionary["unit"] as! UInt8
         self.serviceID = dictionary["serviceId"] as! String
         self.dateCreated = (dictionary["createDate"] as! String).convertToDate(withDateFormat: .ResponseDate)
         self.ruleTimeStart = dictionary["startRule"] as! String
@@ -94,7 +100,7 @@ extension ServicePrice: MapObjectBinding {
 // MARK: - NSCopying
 extension ServicePrice: NSCopying {
     func copy(with zone: NSZone? = nil) -> Any {
-        let copy = Service()
+        let copy = ServicePrice()
         return copy
     }
 }

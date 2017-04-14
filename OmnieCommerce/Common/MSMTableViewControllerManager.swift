@@ -45,6 +45,12 @@ class MSMTableViewControllerManager: BaseViewController {
         if (emptyText != "DropDownList") {
             self.pullRefreshDidCreate()
         }
+        
+        if (tableView.hasHeaders) {
+            // Register the Nib header/footer section views
+            let headerIdentifier = tableView.headears!.first!.cellIdentifier
+            tableView.register(UINib(nibName: headerIdentifier, bundle: nil), forHeaderFooterViewReuseIdentifier: headerIdentifier)
+        }
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -67,40 +73,44 @@ class MSMTableViewControllerManager: BaseViewController {
         self.tableView!.setScrollIndicatorColor(color: UIColor.veryLightOrange)
         
         // Set Infinite Scroll
-        if (emptyText != "DropDownList") {
-            if (scrollView.contentOffset.y >= footerViewHeight && !isLoadMore) {
-                isLoadMore = !isLoadMore
-                
-                // Refresh FooterView
-                self.tableView!.beginUpdates()
-                self.tableView!.tableFooterView?.isHidden = false
-                (self.tableView!.tableFooterView as! MSMTableViewFooterView).didUpload(forItemsCount: (dataSource?.count)!,
-                                                                                       andEmptyText: "Services list is empty")
-                self.tableView!.endUpdates()
-                
-                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
-                    self.handlerInfiniteScrollCompletion!()
+        if (!self.tableView!.hasHeaders) {
+            if (emptyText != "DropDownList") {
+                if (scrollView.contentOffset.y >= footerViewHeight && !isLoadMore) {
+                    isLoadMore = !isLoadMore
+                    
+                    // Refresh FooterView
+                    self.tableView!.beginUpdates()
+                    self.tableView!.tableFooterView?.isHidden = false
+                    (self.tableView!.tableFooterView as! MSMTableViewFooterView).didUpload(forItemsCount: (dataSource?.count)!,
+                                                                                           andEmptyText: "Services list is empty")
+                    self.tableView!.endUpdates()
+                    
+                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
+                        self.handlerInfiniteScrollCompletion!()
+                    }
                 }
-            }
+            }            
         }
     }
     
     
     // MARK: - Custom Functions
     private func pullRefreshDidCreate() {
-        refreshControl = UIRefreshControl()
-        refreshControl!.tintColor = UIColor.init(hexString: "#dedede", withAlpha: 1.0)
-        refreshControl!.attributedTitle = NSAttributedString(string: "Loading Data".localized(),
-                                                             attributes: [NSFontAttributeName:  UIFont(name: "Ubuntu-Light", size: 12.0)!,
-                                                                          NSForegroundColorAttributeName: UIColor.veryLightGray])
-        
-        if #available(iOS 10.0, *) {
-            tableView!.refreshControl = refreshControl!
-        } else {
-            tableView!.addSubview(refreshControl!)
+        if (!tableView!.hasHeaders) {
+            refreshControl = UIRefreshControl()
+            refreshControl!.tintColor = UIColor.init(hexString: "#dedede", withAlpha: 1.0)
+            refreshControl!.attributedTitle = NSAttributedString(string: "Loading Data".localized(),
+                                                                 attributes: [NSFontAttributeName:  UIFont(name: "Ubuntu-Light", size: 12.0)!,
+                                                                              NSForegroundColorAttributeName: UIColor.veryLightGray])
+            
+            if #available(iOS 10.0, *) {
+                tableView!.refreshControl = refreshControl!
+            } else {
+                tableView!.addSubview(refreshControl!)
+            }
+            
+            refreshControl!.addTarget(self, action: #selector(handlerPullRefresh), for: .valueChanged)
         }
-        
-        refreshControl!.addTarget(self, action: #selector(handlerPullRefresh), for: .valueChanged)
     }
     
     func pullRefreshDidFinish() {
@@ -128,15 +138,32 @@ extension MSMTableViewControllerManager: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if (self.tableView!.hasHeaders) {
+            return (self.tableView!.headears![section].isExpanded) ? (dataSource as! [[Any]])[section].count : 0
+        }
+        
         return ((isSearchBarActive) ? dataSourceFiltered?.count ?? 0 : dataSource?.count ?? 0)!
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cellIdentifier = (dataSource![indexPath.row] as! InitCellParameters).cellIdentifier
+        var cellIdentifier: String!
+
+        if (self.tableView!.hasHeaders) {
+            cellIdentifier = ((dataSource![indexPath.section] as! [ServicePrice])[indexPath.row] as InitCellParameters).cellIdentifier
+        } else {
+            cellIdentifier = (dataSource![indexPath.row] as! InitCellParameters).cellIdentifier
+        }
+        
         self.tableView!.register(UINib(nibName: cellIdentifier, bundle: nil), forCellReuseIdentifier: cellIdentifier)
 
         let cell = self.tableView!.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
-        let item = (isSearchBarActive) ? dataSourceFiltered![indexPath.row] : dataSource![indexPath.row]
+        var item: Any!
+        
+        if (self.tableView!.hasHeaders) {
+            item = (dataSource![indexPath.section] as! [ServicePrice])[indexPath.row]
+        } else {
+            item = (isSearchBarActive) ? dataSourceFiltered![indexPath.row] : dataSource![indexPath.row]
+        }
         
         switch cell {
         case cell as UserTemplateTableViewCell:
@@ -270,13 +297,26 @@ extension MSMTableViewControllerManager: UITableViewDataSource {
 extension MSMTableViewControllerManager: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        
-        handlerSelectRowCompletion!((isSearchBarActive) ? dataSourceFiltered![indexPath.row] : dataSource![indexPath.row])
+
+        if (self.tableView!.hasHeaders) {
+            // TODO: - ADD HANDLERS
+            
+        } else {
+            handlerSelectRowCompletion!((isSearchBarActive) ? dataSourceFiltered![indexPath.row] : dataSource![indexPath.row])
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        let height = (dataSource?[indexPath.row] as! InitCellParameters).cellHeight
-        let cellIdentifier = (dataSource?[indexPath.row] as! InitCellParameters).cellIdentifier
+        var height: CGFloat!
+        var cellIdentifier: String!
+        
+        if (self.tableView!.hasHeaders) {
+            height = ((dataSource![indexPath.section] as! [ServicePrice])[indexPath.row] as InitCellParameters).cellHeight
+            cellIdentifier = ((dataSource![indexPath.section] as! [ServicePrice])[indexPath.row] as InitCellParameters).cellIdentifier
+        } else {
+            height = (dataSource?[indexPath.row] as! InitCellParameters).cellHeight
+            cellIdentifier = (dataSource?[indexPath.row] as! InitCellParameters).cellIdentifier
+        }
 
         if (cellIdentifier == "UserTemplateTableViewCell") {
             self.tableView!.estimatedRowHeight = 290.0
@@ -289,50 +329,53 @@ extension MSMTableViewControllerManager: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
-        let cell = tableView.cellForRow(at: indexPath)!
-        cell.contentView.backgroundColor = .veryDarkGrayishBlue38
+        if (!self.tableView!.hasHeaders) {
+            let cell = tableView.cellForRow(at: indexPath)!
+            cell.contentView.backgroundColor = .veryDarkGrayishBlue38
+        }
     }
     
     func tableView(_ tableView: UITableView, didUnhighlightRowAt indexPath: IndexPath) {
-        let cell = tableView.cellForRow(at: indexPath)!
-        cell.contentView.backgroundColor = .clear
+        if (!self.tableView!.hasHeaders) {
+            let cell = tableView.cellForRow(at: indexPath)!
+            cell.contentView.backgroundColor = .clear
+        }
     }
         
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
     
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return (self.tableView!.hasHeaders) ? self.tableView!.headears!.first!.cellHeight : 0.0
+    }
+    
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if (self.tableView!.hasHeaders) {
-            let label = UILabel()
-            label.textAlignment = .left
-            label.text = "I'm a test label"
-            label.tag = section
+            let headerIdentifier = self.tableView!.headears!.first!.cellIdentifier
+            var headerView: UITableViewHeaderFooterView?
             
-            let tap = UITapGestureRecognizer(target: self, action: #selector(handlerExpandeSection))
-            label.isUserInteractionEnabled = true
-            label.addGestureRecognizer(tap)
-            
-            return label
+            switch headerIdentifier {
+            case "ExpandedTableViewHeaderView":
+                headerView = self.tableView!.dequeueReusableHeaderFooterView(withIdentifier: headerIdentifier)
+                
+                let item = self.tableView!.headears![section]
+                (headerView as! ExpandedTableViewHeaderView).setup(withItem: item, andIndexPath: IndexPath(item: 0, section: section))
+
+                // Handler Header view tap
+                (headerView as! ExpandedTableViewHeaderView).handlerExpandButtonTapCompletion = { isExpanded in
+                    _ = self.tableView!.headears!.filter({ $0.name == item.name }).map { $0.isExpanded = isExpanded as! Bool }
+                    self.tableView!.reloadSections(NSIndexSet(index: section) as IndexSet, with: .fade)
+                }
+                
+                return headerView!
+                
+            default:
+                break
+            }
         }
         
         return nil
-    }
-    
-    func handlerExpandeSection(_ sender: UITapGestureRecognizer) {
-//        let section = sender.view!.tag
-//        let indexPaths = (0..<3).map { i in return IndexPath(item: i, section: section) }
-//        hidden[section] = !hidden[section]
-//        
-//        self.tableView!.beginUpdates()
-//        
-//        if hidden[section] {
-//            tableView?.deleteRows(at: indexPaths, with: .fade)
-//        } else {
-//            tableView?.insertRows(at: indexPaths, with: .fade)
-//        }
-//        
-//        self.tableView!.endUpdates()
     }
 }
 

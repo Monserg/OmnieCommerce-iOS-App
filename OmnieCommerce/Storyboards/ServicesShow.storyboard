@@ -22,8 +22,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="96" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Fjh-QA-ScC" customClass="MSMTableView" customModule="OmnieCommerce" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="70" width="375" height="543"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="Fjh-QA-ScC" customClass="MSMTableView" customModule="OmnieCommerce" customModuleProvider="target">
+                                <rect key="frame" x="8" y="70" width="359" height="543"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <inset key="scrollIndicatorInsets" minX="0.0" minY="5" maxX="0.0" maxY="0.0"/>
                                 <userDefinedRuntimeAttributes>
@@ -34,7 +34,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="95"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="titleText" value="Messages"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="titleText" value="All services"/>
                                     <userDefinedRuntimeAttribute type="string" keyPath="type" value="ParentSearch"/>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
@@ -66,9 +66,9 @@
                                 <variation key="heightClass=compact-widthClass=regular" constant="0.0"/>
                             </constraint>
                             <constraint firstAttribute="bottom" secondItem="yRT-UB-sdK" secondAttribute="bottom" constant="9" id="lNo-b0-I4k"/>
-                            <constraint firstItem="Fjh-QA-ScC" firstAttribute="leading" secondItem="OX1-0c-Jwt" secondAttribute="leading" id="thg-dF-vLS"/>
+                            <constraint firstItem="Fjh-QA-ScC" firstAttribute="leading" secondItem="OX1-0c-Jwt" secondAttribute="leading" constant="8" id="thg-dF-vLS"/>
                             <constraint firstItem="RAq-Mj-VNq" firstAttribute="height" secondItem="OX1-0c-Jwt" secondAttribute="height" multiplier="80:375" id="vNH-VP-mNO"/>
-                            <constraint firstAttribute="trailing" secondItem="Fjh-QA-ScC" secondAttribute="trailing" id="vXp-X1-vHE"/>
+                            <constraint firstAttribute="trailing" secondItem="Fjh-QA-ScC" secondAttribute="trailing" constant="8" id="vXp-X1-vHE"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>

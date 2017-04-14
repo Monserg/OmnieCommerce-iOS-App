@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -19,10 +20,10 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                     <subviews>
                         <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5U0-VN-6R1" userLabel="Background View">
-                            <rect key="frame" x="8" y="0.0" width="349" height="42"/>
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="42"/>
                             <subviews>
                                 <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4V5-Vh-iqk" userLabel="Name Label" customClass="UbuntuLightVeryLightGrayLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="14" width="31" height="14.5"/>
+                                    <rect key="frame" x="8" y="14" width="31" height="14.5"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                     <nil key="textColor"/>
@@ -32,11 +33,10 @@
                                     </userDefinedRuntimeAttributes>
                                 </label>
                                 <button clipsSubviews="YES" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bvb-AP-Q0W" userLabel="Expand Button">
-                                    <rect key="frame" x="329" y="18" width="12" height="7"/>
+                                    <rect key="frame" x="333" y="0.0" width="42" height="42"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <constraints>
-                                        <constraint firstAttribute="width" constant="12" id="ihY-tD-aCT"/>
-                                        <constraint firstAttribute="height" constant="7" id="vcW-6s-fOu"/>
+                                        <constraint firstAttribute="width" secondItem="bvb-AP-Q0W" secondAttribute="height" multiplier="1:1" id="D8U-hO-OsU"/>
                                     </constraints>
                                     <state key="normal" image="icon-top-item-normal"/>
                                     <userDefinedRuntimeAttributes>
@@ -49,9 +49,11 @@
                             </subviews>
                             <color key="backgroundColor" red="0.15686274509803921" green="0.21176470588235294" blue="0.2627450980392157" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
+                                <constraint firstAttribute="bottom" secondItem="bvb-AP-Q0W" secondAttribute="bottom" id="4Bw-1o-UXD"/>
+                                <constraint firstItem="bvb-AP-Q0W" firstAttribute="top" secondItem="5U0-VN-6R1" secondAttribute="top" id="ATZ-Ya-NF3"/>
                                 <constraint firstItem="bvb-AP-Q0W" firstAttribute="centerY" secondItem="5U0-VN-6R1" secondAttribute="centerY" id="Bu3-BI-Ujt"/>
-                                <constraint firstItem="4V5-Vh-iqk" firstAttribute="leading" secondItem="5U0-VN-6R1" secondAttribute="leading" id="ceN-F6-bfx"/>
-                                <constraint firstAttribute="trailing" secondItem="bvb-AP-Q0W" secondAttribute="trailing" constant="8" id="cnr-3J-9Ak"/>
+                                <constraint firstItem="4V5-Vh-iqk" firstAttribute="leading" secondItem="5U0-VN-6R1" secondAttribute="leading" constant="8" id="ceN-F6-bfx"/>
+                                <constraint firstAttribute="trailing" secondItem="bvb-AP-Q0W" secondAttribute="trailing" id="cnr-3J-9Ak"/>
                                 <constraint firstItem="4V5-Vh-iqk" firstAttribute="centerY" secondItem="5U0-VN-6R1" secondAttribute="centerY" id="nHu-Vm-RWB"/>
                             </constraints>
                             <userDefinedRuntimeAttributes>
@@ -62,9 +64,9 @@
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="bottom" secondItem="5U0-VN-6R1" secondAttribute="bottom" constant="2" id="exa-C7-l2o"/>
-                        <constraint firstAttribute="trailing" secondItem="5U0-VN-6R1" secondAttribute="trailing" constant="18" id="oQ3-hg-vNz"/>
+                        <constraint firstAttribute="trailing" secondItem="5U0-VN-6R1" secondAttribute="trailing" id="oQ3-hg-vNz"/>
                         <constraint firstItem="5U0-VN-6R1" firstAttribute="top" secondItem="qpH-VZ-5Bm" secondAttribute="top" id="ofN-rI-Lc0"/>
-                        <constraint firstItem="5U0-VN-6R1" firstAttribute="leading" secondItem="qpH-VZ-5Bm" secondAttribute="leading" constant="8" id="yLd-r9-UvY"/>
+                        <constraint firstItem="5U0-VN-6R1" firstAttribute="leading" secondItem="qpH-VZ-5Bm" secondAttribute="leading" id="yLd-r9-UvY"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>

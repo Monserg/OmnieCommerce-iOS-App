@@ -104,7 +104,7 @@ extension NewsData: MapObjectBinding {
             services = [Service]()
             
             for dictionary in responseServices! {
-                let service = Service.init()
+                let service = Service.init(withCommonProfile: true)
                 service.didMap(fromDictionary: dictionary as! [String : Any], completion: { _ in })
                 services!.append(service)
             }

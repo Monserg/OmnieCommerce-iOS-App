@@ -55,6 +55,7 @@ class Organization: NSObject, NSCoding, InitCellParameters, SearchObject, PointA
     }
     
     init(category: Category?, name: String, canUserSendReview: Bool, codeID: String, logoURL: String?, rating: Double?, isFavorite: Bool, latitude: CLLocationDegrees?, longitude: CLLocationDegrees?, city: String?, street: String?, email: String?, headerURL: String?, descriptionTitle: String?, descriptionContent: String?, gallery: [GalleryImage]?, phones: [String]?, schedules: [Schedule]?, services: [Service]?, discountsCommon: [Discount]?, discountsUser: [Discount]?) {
+        // Common profile
         self.category = category
         self.name = name
         self.canUserSendReview = canUserSendReview
@@ -66,6 +67,8 @@ class Organization: NSObject, NSCoding, InitCellParameters, SearchObject, PointA
         self.longitude = longitude
         self.addressCity = city
         self.addressStreet = street
+        
+        // Full profile
         self.email = email
         self.headerURL = headerURL
         self.descriptionTitle = descriptionTitle
@@ -79,6 +82,7 @@ class Organization: NSObject, NSCoding, InitCellParameters, SearchObject, PointA
     }
     
     required convenience init(coder aDecoder: NSCoder) {
+        // Common profile
         let category = aDecoder.decodeObject(forKey: "category") as? Category
         let name = aDecoder.decodeObject(forKey: "name") as! String
         let canUserSendReview = aDecoder.decodeBool(forKey: "canUserSendReview")
@@ -90,6 +94,8 @@ class Organization: NSObject, NSCoding, InitCellParameters, SearchObject, PointA
         let longitude = aDecoder.decodeObject(forKey: "longitude") as? CLLocationDegrees
         let addressCity = aDecoder.decodeObject(forKey: "addressCity") as? String
         let addressStreet = aDecoder.decodeObject(forKey: "addressStreet") as? String
+        
+        // Full profile
         let email = aDecoder.decodeObject(forKey: "email") as? String
         let headerURL = aDecoder.decodeObject(forKey: "headerURL") as? String
         let descriptionTitle = aDecoder.decodeObject(forKey: "descriptionTitle") as? String
@@ -105,6 +111,7 @@ class Organization: NSObject, NSCoding, InitCellParameters, SearchObject, PointA
     }
     
     func encode(with aCoder: NSCoder) {
+        // Common profile
         aCoder.encode(category, forKey: "category")
         aCoder.encode(name, forKey: "name")
         aCoder.encode(canUserSendReview, forKey: "canUserSendReview")
@@ -116,6 +123,8 @@ class Organization: NSObject, NSCoding, InitCellParameters, SearchObject, PointA
         aCoder.encode(longitude, forKey: "longitude")
         aCoder.encode(addressCity, forKey: "addressCity")
         aCoder.encode(addressStreet, forKey: "addressStreet")
+
+        // Full profile
         aCoder.encode(email, forKey: "orgEmail")
         aCoder.encode(headerURL, forKey: "headerURL")
         aCoder.encode(descriptionTitle, forKey: "descriptionTitle")
@@ -218,7 +227,7 @@ extension Organization: MapObjectBinding {
                 var items = [Service]()
                 
                 for dictionary in serviceItems {
-                    let service = Service()
+                    let service = Service.init(withCommonProfile: false)
                     service.didMap(fromDictionary: dictionary as! [String : Any], completion: { _ in })
                     items.append(service)
                 }

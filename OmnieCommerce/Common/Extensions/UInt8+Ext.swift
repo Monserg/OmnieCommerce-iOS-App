@@ -47,4 +47,16 @@ extension UInt8 {
         
         return result
     }
+    
+    func convertToUnitString() -> String? {
+        switch self {
+        case 0:
+            return "грн/год"
+        
+        default:
+            break
+        }
+        
+        return nil
+    }
 }

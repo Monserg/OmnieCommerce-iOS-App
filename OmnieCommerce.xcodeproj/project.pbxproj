@@ -150,6 +150,8 @@
 		B14C072C1EA0AB2500556866 /* ExpandedTableViewHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14C072B1EA0AB2500556866 /* ExpandedTableViewHeaderView.swift */; };
 		B14C072E1EA0AB2D00556866 /* ExpandedTableViewHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B14C072D1EA0AB2D00556866 /* ExpandedTableViewHeaderView.xib */; };
 		B14C07521EA0E0BC00556866 /* FillColorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14C07511EA0E0BC00556866 /* FillColorButton.swift */; };
+		B14C07551EA1082F00556866 /* ServicePriceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14C07531EA1082F00556866 /* ServicePriceTableViewCell.swift */; };
+		B14C07561EA1082F00556866 /* ServicePriceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B14C07541EA1082F00556866 /* ServicePriceTableViewCell.xib */; };
 		B14CD91A1E57C058005F8BF6 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14CD9191E57C058005F8BF6 /* Protocols.swift */; };
 		B14D1D601E5CB60600D33435 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B14D1D5E1E5CB60600D33435 /* GoogleService-Info.plist */; };
 		B14D1D671E5CB6D500D33435 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B14D1D611E5CB6D500D33435 /* Bolts.framework */; };
@@ -608,6 +610,8 @@
 		B14C072B1EA0AB2500556866 /* ExpandedTableViewHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpandedTableViewHeaderView.swift; sourceTree = "<group>"; };
 		B14C072D1EA0AB2D00556866 /* ExpandedTableViewHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExpandedTableViewHeaderView.xib; sourceTree = "<group>"; };
 		B14C07511EA0E0BC00556866 /* FillColorButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FillColorButton.swift; sourceTree = "<group>"; };
+		B14C07531EA1082F00556866 /* ServicePriceTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServicePriceTableViewCell.swift; sourceTree = "<group>"; };
+		B14C07541EA1082F00556866 /* ServicePriceTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ServicePriceTableViewCell.xib; sourceTree = "<group>"; };
 		B14CD9191E57C058005F8BF6 /* Protocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		B14D1D5E1E5CB60600D33435 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B14D1D5F1E5CB60600D33435 /* OmnieCommerce-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "OmnieCommerce-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -1511,6 +1515,8 @@
 			children = (
 				B14C072B1EA0AB2500556866 /* ExpandedTableViewHeaderView.swift */,
 				B14C072D1EA0AB2D00556866 /* ExpandedTableViewHeaderView.xib */,
+				B14C07531EA1082F00556866 /* ServicePriceTableViewCell.swift */,
+				B14C07541EA1082F00556866 /* ServicePriceTableViewCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -2204,6 +2210,7 @@
 				B1CF54E21DDB529300E98049 /* AboutShow.storyboard in Resources */,
 				B1BF927A1DD6516C00BECBBB /* UBUNTU-C.TTF in Resources */,
 				B1E52AD31DDDDEC600C3B24D /* Main.storyboard in Resources */,
+				B14C07561EA1082F00556866 /* ServicePriceTableViewCell.xib in Resources */,
 				B1BEEDF71E6368F000F1DE8A /* OrganizationShow.storyboard in Resources */,
 				B1D57E921E87CB7F00CA6243 /* MSMTableViewFooterView.xib in Resources */,
 				B1BF927B1DD6516C00BECBBB /* UBUNTU-I.TTF in Resources */,
@@ -2317,6 +2324,7 @@
 				B177E54A1E54AC7F004F1390 /* EnterCodeShowPresenter.swift in Sources */,
 				B1CF54B41DDB516E00E98049 /* OmnieCardsShowWorker.swift in Sources */,
 				B122F2091DD35BEB0018A701 /* CategoriesShowRouter.swift in Sources */,
+				B14C07551EA1082F00556866 /* ServicePriceTableViewCell.swift in Sources */,
 				B1EC9F2C1E8AE31500F2E342 /* FavoriteOrganizations+CoreDataClass.swift in Sources */,
 				B122F1EB1DD35BA70018A701 /* MessagesShowModels.swift in Sources */,
 				B122F2261DD35CC80018A701 /* SlideMenuShowRouter.swift in Sources */,

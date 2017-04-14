@@ -8,8 +8,20 @@
 
 import Foundation
 
-class ExpandedHeaderCell: NSObject {
+class ExpandedHeaderCell: NSObject, InitCellParameters {
     // MARK: - Properties
     var name: String!
     var isExpanded: Bool = false
+    
+    // Confirm InitCellParameters Protocol
+    var cellIdentifier: String = "ExpandedTableViewHeaderView"
+    var cellHeight: CGFloat = 37.0
+    
+    
+    // MARK: - Class Initialization
+    init(withName name: String) {
+        super.init()
+        
+        self.name = name
+    }
 }
