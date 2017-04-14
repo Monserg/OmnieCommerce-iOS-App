@@ -20,8 +20,16 @@
                 <subviews>
                     <button opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1zE-XT-WJ9" userLabel="Image Button" customClass="BorderVeryDarkDesaturatedBlueButton" customModule="OmnieCommerce" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="85" height="85"/>
-                        <color key="backgroundColor" red="0.15686274509803921" green="0.21176470588235294" blue="0.2627450980392157" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.15294117647058825" green="0.21568627450980393" blue="0.27058823529411763" alpha="1" colorSpace="calibratedRGB"/>
                         <state key="normal" image="image-no-photo"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                <real key="value" value="1"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                <color key="value" red="0.12156862745098039" green="0.1764705882352941" blue="0.22352941176470587" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                         <connections>
                             <action selector="handlerImageButtonTap:" destination="gTV-IL-0wX" eventType="touchUpInside" id="JQq-Hf-biJ"/>
                         </connections>
