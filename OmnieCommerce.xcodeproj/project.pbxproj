@@ -138,6 +138,14 @@
 		B145D9861E9DD0CC004CD92B /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = B145D9851E9DD0CC004CD92B /* Review.swift */; };
 		B149A7BA1E5D8DD3009BF8C7 /* AnimatedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B149A7B91E5D8DD3009BF8C7 /* AnimatedButton.swift */; };
 		B149A7BC1E5D8E24009BF8C7 /* AnimatedButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = B149A7BB1E5D8E24009BF8C7 /* AnimatedButton.xib */; };
+		B14C071E1EA0993800556866 /* ServicesShowConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14C07171EA0993800556866 /* ServicesShowConfigurator.swift */; };
+		B14C071F1EA0993800556866 /* ServicesShowInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14C07181EA0993800556866 /* ServicesShowInteractor.swift */; };
+		B14C07201EA0993800556866 /* ServicesShowModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14C07191EA0993800556866 /* ServicesShowModels.swift */; };
+		B14C07211EA0993800556866 /* ServicesShowPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14C071A1EA0993800556866 /* ServicesShowPresenter.swift */; };
+		B14C07221EA0993800556866 /* ServicesShowRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14C071B1EA0993800556866 /* ServicesShowRouter.swift */; };
+		B14C07231EA0993800556866 /* ServicesShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14C071C1EA0993800556866 /* ServicesShowViewController.swift */; };
+		B14C07241EA0993800556866 /* ServicesShowWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14C071D1EA0993800556866 /* ServicesShowWorker.swift */; };
+		B14C07261EA09C4200556866 /* ServicesShow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B14C07251EA09C4200556866 /* ServicesShow.storyboard */; };
 		B14CD91A1E57C058005F8BF6 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14CD9191E57C058005F8BF6 /* Protocols.swift */; };
 		B14D1D601E5CB60600D33435 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B14D1D5E1E5CB60600D33435 /* GoogleService-Info.plist */; };
 		B14D1D671E5CB6D500D33435 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B14D1D611E5CB6D500D33435 /* Bolts.framework */; };
@@ -584,6 +592,14 @@
 		B145D9851E9DD0CC004CD92B /* Review.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
 		B149A7B91E5D8DD3009BF8C7 /* AnimatedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimatedButton.swift; sourceTree = "<group>"; };
 		B149A7BB1E5D8E24009BF8C7 /* AnimatedButton.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AnimatedButton.xib; sourceTree = "<group>"; };
+		B14C07171EA0993800556866 /* ServicesShowConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServicesShowConfigurator.swift; sourceTree = "<group>"; };
+		B14C07181EA0993800556866 /* ServicesShowInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServicesShowInteractor.swift; sourceTree = "<group>"; };
+		B14C07191EA0993800556866 /* ServicesShowModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServicesShowModels.swift; sourceTree = "<group>"; };
+		B14C071A1EA0993800556866 /* ServicesShowPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServicesShowPresenter.swift; sourceTree = "<group>"; };
+		B14C071B1EA0993800556866 /* ServicesShowRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServicesShowRouter.swift; sourceTree = "<group>"; };
+		B14C071C1EA0993800556866 /* ServicesShowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServicesShowViewController.swift; sourceTree = "<group>"; };
+		B14C071D1EA0993800556866 /* ServicesShowWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServicesShowWorker.swift; sourceTree = "<group>"; };
+		B14C07251EA09C4200556866 /* ServicesShow.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ServicesShow.storyboard; sourceTree = "<group>"; };
 		B14CD9191E57C058005F8BF6 /* Protocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		B14D1D5E1E5CB60600D33435 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B14D1D5F1E5CB60600D33435 /* OmnieCommerce-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "OmnieCommerce-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -1195,6 +1211,7 @@
 				B1FFF7181E5F01A000A075D8 /* OrganizationsMapShow.storyboard */,
 				B1FFF7071E5ECE4800A075D8 /* OrganizationsShow.storyboard */,
 				B1CF54E51DDB552300E98049 /* PersonalPageShow.storyboard */,
+				B14C07251EA09C4200556866 /* ServicesShow.storyboard */,
 				B1CF54E31DDB543300E98049 /* SettingsShow.storyboard */,
 				B14E976B1DD8B8CB001E1DE2 /* SignInShow.storyboard */,
 				B122F1BE1DD3575E0018A701 /* SlideMenuShow.storyboard */,
@@ -1224,6 +1241,7 @@
 				B1FFF6F81E5ECDCF00A075D8 /* OrganizationsShow */,
 				B1CF546A1DDB505800E98049 /* PersonalPageShow */,
 				B177E54E1E54B709004F1390 /* RepetitionPasswordShow */,
+				B14C07161EA098EE00556866 /* ServicesShow */,
 				B1CF54691DDB504600E98049 /* SettingsShow */,
 				B177E52C1E5475C5004F1390 /* SignInContainerShow */,
 				B14E973E1DD8AFCF001E1DE2 /* SignInShow */,
@@ -1453,6 +1471,20 @@
 				B1A9ACD31E7C7E1C0010FF05 /* Subcategory.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		B14C07161EA098EE00556866 /* ServicesShow */ = {
+			isa = PBXGroup;
+			children = (
+				B14C07171EA0993800556866 /* ServicesShowConfigurator.swift */,
+				B14C07181EA0993800556866 /* ServicesShowInteractor.swift */,
+				B14C07191EA0993800556866 /* ServicesShowModels.swift */,
+				B14C071A1EA0993800556866 /* ServicesShowPresenter.swift */,
+				B14C071B1EA0993800556866 /* ServicesShowRouter.swift */,
+				B14C071C1EA0993800556866 /* ServicesShowViewController.swift */,
+				B14C071D1EA0993800556866 /* ServicesShowWorker.swift */,
+			);
+			path = ServicesShow;
 			sourceTree = "<group>";
 		};
 		B14E973E1DD8AFCF001E1DE2 /* SignInShow */ = {
@@ -2154,6 +2186,7 @@
 				B1BF927E1DD6516C00BECBBB /* UBUNTU-M.TTF in Resources */,
 				B1BF927F1DD6516C00BECBBB /* UBUNTU-MI.TTF in Resources */,
 				B1BF92801DD6516C00BECBBB /* UBUNTU-R.TTF in Resources */,
+				B14C07261EA09C4200556866 /* ServicesShow.storyboard in Resources */,
 				B1B761CA1E62D0030067339F /* OrganizationTableViewCell.xib in Resources */,
 				B122F2321DD35EF10018A701 /* NewsShow.storyboard in Resources */,
 				B1EC9F3F1E8BC80B00F2E342 /* DropDownTableViewCell.xib in Resources */,
@@ -2262,6 +2295,7 @@
 				B10672FA1E71BE8100DB2AE0 /* MSMPickerViewManager.swift in Sources */,
 				B177E5471E54AC7F004F1390 /* EnterCodeShowConfigurator.swift in Sources */,
 				B13FE1AA1E956D70000DD416 /* BorderVeryDarkDesaturatedBlueButton.swift in Sources */,
+				B14C071F1EA0993800556866 /* ServicesShowInteractor.swift in Sources */,
 				B14E97691DD8B05E001E1DE2 /* ForgotPasswordShowViewController.swift in Sources */,
 				B1CF54B01DDB516E00E98049 /* OmnieCardsShowModels.swift in Sources */,
 				B1CF54971DDB512000E98049 /* DiscountCardsShowViewController.swift in Sources */,
@@ -2274,6 +2308,7 @@
 				B1D8832C1E8E8D63006F4831 /* NewsActionsShowModels.swift in Sources */,
 				B122F2281DD35CC80018A701 /* SlideMenuShowWorker.swift in Sources */,
 				B1F3CD541E97AA7900ECAC35 /* PhotosGalleryView.swift in Sources */,
+				B14C07231EA0993800556866 /* ServicesShowViewController.swift in Sources */,
 				B122F2071DD35BEB0018A701 /* CategoriesShowModels.swift in Sources */,
 				B10B48DC1E8A5B2E007DDD81 /* FavoriteOrganizationsShowPresenter.swift in Sources */,
 				B1CF54CD1DDB51A500E98049 /* PersonalPageShowPresenter.swift in Sources */,
@@ -2288,6 +2323,7 @@
 				B10B48D91E8A5B2E007DDD81 /* FavoriteOrganizationsShowConfigurator.swift in Sources */,
 				B1DA01B11DF1CB2F00E6DD46 /* UIFont+Ext.swift in Sources */,
 				B1CF54B31DDB516E00E98049 /* OmnieCardsShowViewController.swift in Sources */,
+				B14C07241EA0993800556866 /* ServicesShowWorker.swift in Sources */,
 				B1CF54D01DDB51A500E98049 /* PersonalPageShowWorker.swift in Sources */,
 				B1597AD41E3FA91400123CB5 /* EllipseView.swift in Sources */,
 				B1D8831C1E8E8C98006F4831 /* NewsDataShowConfigurator.swift in Sources */,
@@ -2486,6 +2522,7 @@
 				B1CF54BF1DDB519000E98049 /* OnmieSoftShowPresenter.swift in Sources */,
 				B1BEEDF51E63687500F1DE8A /* OrganizationShowWorker.swift in Sources */,
 				B1BEEDF41E63687500F1DE8A /* OrganizationShowViewController.swift in Sources */,
+				B14C07221EA0993800556866 /* ServicesShowRouter.swift in Sources */,
 				B1FBC9311E6DFC0E00D86429 /* UIViewController+Ext.swift in Sources */,
 				B14E97571DD8B052001E1DE2 /* SignUpShowInteractor.swift in Sources */,
 				B177E5481E54AC7F004F1390 /* EnterCodeShowInteractor.swift in Sources */,
@@ -2495,6 +2532,7 @@
 				B177E5561E54B739004F1390 /* RepetitionPasswordShowConfigurator.swift in Sources */,
 				B122F1E91DD35BA70018A701 /* MessagesShowConfigurator.swift in Sources */,
 				B1BF92441DD5FC8000BECBBB /* Config.swift in Sources */,
+				B14C071E1EA0993800556866 /* ServicesShowConfigurator.swift in Sources */,
 				B122F2231DD35CC80018A701 /* SlideMenuShowInteractor.swift in Sources */,
 				B122DF681DF7F957003823AD /* CalendarShowViewController.swift in Sources */,
 				B11E074E1DE032D90052AFC5 /* DottedBorderView.swift in Sources */,
@@ -2504,6 +2542,7 @@
 				B1CF547C1DDB50D900E98049 /* AboutShowWorker.swift in Sources */,
 				B1CF54DA1DDB51BE00E98049 /* SettingsShowModels.swift in Sources */,
 				B1EC9F311E8B7FEF00F2E342 /* FavoriteOrganizationTableViewCell.swift in Sources */,
+				B14C07201EA0993800556866 /* ServicesShowModels.swift in Sources */,
 				B1CF54791DDB50D900E98049 /* AboutShowPresenter.swift in Sources */,
 				B122F1F71DD35BC70018A701 /* FavoriteShowConfigurator.swift in Sources */,
 				B177E53A1E5475EC004F1390 /* SignInContainerShowWorker.swift in Sources */,
@@ -2557,6 +2596,7 @@
 				B14E975A1DD8B052001E1DE2 /* SignUpShowRouter.swift in Sources */,
 				B19DF2841DF94DCD000AFC92 /* CalendarViewController.swift in Sources */,
 				B19A24251E8625DE0070841F /* Organizations+CoreDataClass.swift in Sources */,
+				B14C07211EA0993800556866 /* ServicesShowPresenter.swift in Sources */,
 				B11B9ADD1DF053BA009A4AA1 /* CustomImageView.swift in Sources */,
 				B1C13D871DEF2743002B494A /* DropDownButton.swift in Sources */,
 				B10B48CF1E8A5AEC007DDD81 /* FavoriteServicesShowRouter.swift in Sources */,

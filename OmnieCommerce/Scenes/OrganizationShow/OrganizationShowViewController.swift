@@ -541,7 +541,7 @@ class OrganizationShowViewController: BaseViewController {
     }
     
     @IBAction func handlerAllServicesButtonTap(_ sender: FillVeryLightOrangeButton) {
-        // TODO: - ADD TRANSITION TO ALL SERVICES SCENE
+        router.navigateToServicesShowScene(organization.services!)
     }
 }
 

@@ -14,6 +14,7 @@ import UIKit
 // MARK: - Input & Output protocols
 protocol OrganizationShowRouterInput {
     func navigateToOrganizationsMapShowScene(_ organization: Organization)
+    func navigateToServicesShowScene(_ services: [Service])
 }
 
 class OrganizationShowRouter: OrganizationShowRouterInput {
@@ -23,12 +24,21 @@ class OrganizationShowRouter: OrganizationShowRouterInput {
     
     // MARK: - Custom Functions. Navigation
     func navigateToOrganizationsMapShowScene(_ organization: Organization) {
-        let storyboard                  =   UIStoryboard(name: "OrganizationsMapShow", bundle: nil)
-        let organizationsMapShowVC      =   storyboard.instantiateViewController(withIdentifier: "OrganizationsMapShowVC") as! OrganizationsMapShowViewController
-        organizationsMapShowVC.items    =   [organization]
+        let storyboard = UIStoryboard(name: "OrganizationsMapShow", bundle: nil)
+        let organizationsMapShowVC = storyboard.instantiateViewController(withIdentifier: "OrganizationsMapShowVC") as! OrganizationsMapShowViewController
+        organizationsMapShowVC.items = [organization]
         
         viewController.navigationController?.pushViewController(organizationsMapShowVC, animated: true)
     }
+
+    func navigateToServicesShowScene(_ services: [Service]) {
+        let storyboard = UIStoryboard(name: "ServicesShow", bundle: nil)
+        let servicesShowVC = storyboard.instantiateViewController(withIdentifier: "ServicesShowVC") as! ServicesShowViewController
+        servicesShowVC.services = services
+        
+        viewController.navigationController?.pushViewController(servicesShowVC, animated: true)
+    }
+
     
     // Communication
     func passDataToNextScene(segue: UIStoryboardSegue) {
