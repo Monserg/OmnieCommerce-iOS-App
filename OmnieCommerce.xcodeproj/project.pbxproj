@@ -199,6 +199,8 @@
 		B1597AD21E3F42BD00123CB5 /* AvatarActionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1597AD11E3F42BD00123CB5 /* AvatarActionView.xib */; };
 		B1597AD41E3FA91400123CB5 /* EllipseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1597AD31E3FA91400123CB5 /* EllipseView.swift */; };
 		B15ED1F41E68433200039737 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15ED1F31E68433200039737 /* Schedule.swift */; };
+		B15F95B01EA1D4230009AD28 /* Subcategory+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15F95AE1EA1D4230009AD28 /* Subcategory+CoreDataClass.swift */; };
+		B15F95B11EA1D4230009AD28 /* Subcategory+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15F95AF1EA1D4230009AD28 /* Subcategory+CoreDataProperties.swift */; };
 		B15FD40A1DD1DD8C00782324 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15FD4091DD1DD8C00782324 /* AppDelegate.swift */; };
 		B163FE711E6FE039004AF42E /* UbuntuLightItalicDarkCyanButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B163FE701E6FE039004AF42E /* UbuntuLightItalicDarkCyanButton.swift */; };
 		B16AD9411E9672E600A51E73 /* NewsItemShowRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16AD9401E9672E600A51E73 /* NewsItemShowRouter.swift */; };
@@ -263,7 +265,6 @@
 		B1A9ACCE1E7C6FE60010FF05 /* Categories+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A9ACCC1E7C6FE60010FF05 /* Categories+CoreDataClass.swift */; };
 		B1A9ACCF1E7C6FE60010FF05 /* Categories+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A9ACCD1E7C6FE60010FF05 /* Categories+CoreDataProperties.swift */; };
 		B1A9ACD21E7C7CE00010FF05 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A9ACD11E7C7CE00010FF05 /* Category.swift */; };
-		B1A9ACD41E7C7E1C0010FF05 /* Subcategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A9ACD31E7C7E1C0010FF05 /* Subcategory.swift */; };
 		B1B761CA1E62D0030067339F /* OrganizationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1B761C91E62D0030067339F /* OrganizationTableViewCell.xib */; };
 		B1BEEDE61E63402000F1DE8A /* ListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1BEEDE51E63402000F1DE8A /* ListTableViewController.swift */; };
 		B1BEEDEF1E63687500F1DE8A /* OrganizationShowConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1BEEDE81E63687500F1DE8A /* OrganizationShowConfigurator.swift */; };
@@ -661,6 +662,8 @@
 		B1597AD31E3FA91400123CB5 /* EllipseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EllipseView.swift; sourceTree = "<group>"; };
 		B15E32C41E7FC6930040EDD9 /* OmnieCommerceUser v.10.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "OmnieCommerceUser v.10.xcdatamodel"; sourceTree = "<group>"; };
 		B15ED1F31E68433200039737 /* Schedule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
+		B15F95AE1EA1D4230009AD28 /* Subcategory+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Subcategory+CoreDataClass.swift"; sourceTree = "<group>"; };
+		B15F95AF1EA1D4230009AD28 /* Subcategory+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Subcategory+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		B15FD4061DD1DD8C00782324 /* OmnieCommerce.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OmnieCommerce.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B15FD4091DD1DD8C00782324 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B15FD4151DD1DD8C00782324 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Info.plist; sourceTree = "<group>"; };
@@ -733,7 +736,6 @@
 		B1A9ACCD1E7C6FE60010FF05 /* Categories+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Categories+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		B1A9ACD01E7C70330010FF05 /* OmnieCommerceUser v.9.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "OmnieCommerceUser v.9.xcdatamodel"; sourceTree = "<group>"; };
 		B1A9ACD11E7C7CE00010FF05 /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
-		B1A9ACD31E7C7E1C0010FF05 /* Subcategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Subcategory.swift; sourceTree = "<group>"; };
 		B1B4E4831E77161B00EAECB0 /* OmnieCommerceUser v.5.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "OmnieCommerceUser v.5.xcdatamodel"; sourceTree = "<group>"; };
 		B1B761C91E62D0030067339F /* OrganizationTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OrganizationTableViewCell.xib; sourceTree = "<group>"; };
 		B1BEEDE51E63402000F1DE8A /* ListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListTableViewController.swift; sourceTree = "<group>"; };
@@ -1028,6 +1030,8 @@
 				B19A24241E8625DE0070841F /* Organizations+CoreDataProperties.swift */,
 				B1EC9F421E8C13FE00F2E342 /* Services+CoreDataClass.swift */,
 				B1EC9F431E8C13FE00F2E342 /* Services+CoreDataProperties.swift */,
+				B15F95AE1EA1D4230009AD28 /* Subcategory+CoreDataClass.swift */,
+				B15F95AF1EA1D4230009AD28 /* Subcategory+CoreDataProperties.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1481,7 +1485,6 @@
 			isa = PBXGroup;
 			children = (
 				B1A9ACD11E7C7CE00010FF05 /* Category.swift */,
-				B1A9ACD31E7C7E1C0010FF05 /* Subcategory.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -2301,6 +2304,7 @@
 			files = (
 				B11203701E8F6A420036001A /* Dictionary+Ext.swift in Sources */,
 				B1BEEDF11E63687500F1DE8A /* OrganizationShowModels.swift in Sources */,
+				B15F95B11EA1D4230009AD28 /* Subcategory+CoreDataProperties.swift in Sources */,
 				B1A9ACCF1E7C6FE60010FF05 /* Categories+CoreDataProperties.swift in Sources */,
 				B16E966F1DE6C94000147CEF /* BigTopBarView.swift in Sources */,
 				B10874801E5B0DC9004A4FB6 /* AppSettings+CoreDataProperties.swift in Sources */,
@@ -2433,6 +2437,7 @@
 				B1CF54641DDAE78200E98049 /* CustomButton.swift in Sources */,
 				B122DF691DF7F957003823AD /* CalendarShowWorker.swift in Sources */,
 				B122F1ED1DD35BA70018A701 /* MessagesShowRouter.swift in Sources */,
+				B15F95B01EA1D4230009AD28 /* Subcategory+CoreDataClass.swift in Sources */,
 				B19E01B01E78217500B53E02 /* NewPhoneView.swift in Sources */,
 				B1F3CD641E988ADA00ECAC35 /* CirclePhotoCollectionViewCell.swift in Sources */,
 				B1FFF7131E5F017A00A075D8 /* OrganizationsMapShowModels.swift in Sources */,
@@ -2495,7 +2500,6 @@
 				B17EBF181E9B5286000E61AA /* UbuntuLightSoftCyanLabel.swift in Sources */,
 				B14D1D741E5CB8B000D33435 /* SocialNetworkManager.swift in Sources */,
 				B1CF54AF1DDB516E00E98049 /* OmnieCardsShowInteractor.swift in Sources */,
-				B1A9ACD41E7C7E1C0010FF05 /* Subcategory.swift in Sources */,
 				B122F2151DD35C2C0018A701 /* NewsShowModels.swift in Sources */,
 				B1CF547A1DDB50D900E98049 /* AboutShowRouter.swift in Sources */,
 				B1C13D8F1DEF5736002B494A /* DropDownTableViewCell.swift in Sources */,
