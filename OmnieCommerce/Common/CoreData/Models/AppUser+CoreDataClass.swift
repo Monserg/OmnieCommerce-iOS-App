@@ -19,7 +19,7 @@ public class AppUser: NSManagedObject, InitCellParameters {
     
     // MARK: - Class Initialization
     convenience init() {
-        self.init(entity: CoreDataManager.instance.entityForName("AppUser"), insertInto: CoreDataManager.instance.managedObjectContext)
+        self.init(entity: CoreDataManager.instance.entityForName("AppUser")!, insertInto: CoreDataManager.instance.managedObjectContext)
     }
     
     deinit {

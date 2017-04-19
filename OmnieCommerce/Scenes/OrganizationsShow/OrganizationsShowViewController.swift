@@ -41,7 +41,9 @@ class OrganizationsShowViewController: BaseViewController {
             subcategoriesDropDownTableView.tableViewControllerManager = subcategoriesTableManager
             subcategoriesDropDownTableView.alpha = 0
            
-            subcategoriesDropDownTableView.tableViewControllerManager.dataSource = category!.subcategories!
+//            let subcategoriesData = category!.subcategories
+//            subcategoriesDropDownTableView.tableViewControllerManager.dataSource = category!.subcategories.allObjects as! [Subcategory]
+//                NSKeyedUnarchiver.unarchiveObject(with: subcategoriesData as Data) as! [Subcategory]
         }
     }
 
@@ -111,7 +113,7 @@ class OrganizationsShowViewController: BaseViewController {
         // Config smallTopBarView
         navigationBarView = smallTopBarView
         smallTopBarView.type = "ChildSearch"
-        smallTopBarView.titleLabel.text = category!.name!
+        smallTopBarView.titleLabel.text = category!.name
         haveMenuItem = false
         mapButton.isUserInteractionEnabled = false
         

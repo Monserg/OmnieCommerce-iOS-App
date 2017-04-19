@@ -98,7 +98,7 @@ class CategoriesShowViewController: BaseViewController {
         
         // Load Categories list from CoreData
         guard isNetworkAvailable else {
-            self.categoriesListDidShow(nil, fromAPI: false)
+            self.categoriesListDidShow()
             
             // TODO: - ADD LOAD CITIES LIST FROM COREDATA
             return
@@ -111,25 +111,20 @@ class CategoriesShowViewController: BaseViewController {
         interactor.categoriesDidLoad(withRequestModel: categoriesRequestModel)
     }
 
-    func categoriesListDidShow(_ categories: [Category]?, fromAPI: Bool) {
-        var categoriesList = [Category]()
-        
-        if (fromAPI) {
-            categoriesList = categories!
-        } else {
-            let categoriesData = CoreDataManager.instance.entityDidLoad(byName: keyCategories) as! Categories
-            categoriesList = NSKeyedUnarchiver.unarchiveObject(with: categoriesData.list! as Data) as! [Category]
-        }
-        
+    func categoriesListDidShow() {
         // Setting MSMCollectionViewControllerManager
         collectionView.collectionViewControllerManager = MSMCollectionViewControllerManager(withCollectionView: self.collectionView)
         collectionView.collectionViewControllerManager!.sectionsCount = 1
-        collectionView.collectionViewControllerManager!.dataSource = categoriesList
-        dataSourceEmptyView.isHidden = (categoriesList.count == 0) ? false : true
-
-        collectionView.reloadData()
-                
-        self.collectionViewCellDidSelect()
+        let categoriesList = CoreDataManager.instance.entitiesDidLoad(byName: "Category")
+        
+        if let categories = categoriesList as? [Category] {
+            collectionView.collectionViewControllerManager!.dataSource = categories
+            dataSourceEmptyView.isHidden = (categories.count == 0) ? false : true
+            collectionView.reloadData()
+            self.collectionViewCellDidSelect()
+        }
+        
+        spinnerDidFinish()
     }
     
     private func collectionViewCellDidSelect() {
@@ -150,17 +145,6 @@ class CategoriesShowViewController: BaseViewController {
 // MARK: - CategoriesShowViewControllerInput
 extension CategoriesShowViewController: CategoriesShowViewControllerInput {
     func categoriesDidShowLoad(fromViewModel viewModel: CategoriesShowModels.Categories.ViewModel) {
-        spinnerDidFinish()
-        CoreDataManager.instance.didSaveContext()
-        
-        // Load Categories list from CoreData
-        guard isNetworkAvailable else {
-            self.categoriesListDidShow(nil, fromAPI: false)
-            return
-        }        
-        
-        // Load categories list from API
-        let categories = viewModel.categories!
-        self.categoriesListDidShow(categories, fromAPI: true)
+        self.categoriesListDidShow()
     }
 }

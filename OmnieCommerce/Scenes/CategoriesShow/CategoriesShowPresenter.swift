@@ -29,21 +29,37 @@ class CategoriesShowPresenter: CategoriesShowPresenterInput {
     // MARK: - Custom Functions. Presentation logic
     func categoriesDidPrepareToShowLoad(fromResponseModel responseModel: CategoriesShowModels.Categories.ResponseModel) {
         guard responseModel.responseAPI != nil else {
-            let categoriesViewModel = CategoriesShowModels.Categories.ViewModel(categories: nil)
+            let categoriesViewModel = CategoriesShowModels.Categories.ViewModel()
             viewController.categoriesDidShowLoad(fromViewModel: categoriesViewModel)
+            
             return
         }
 
-        // Convert responseAPI body to Categories list
-        responseModel.responseAPI!.itemsDidLoad(fromItemsArray: responseModel.responseAPI!.body as! [Any], withItem: Category.init(), completion: { categories in
-            // Prepare to save Categories in CoreData
-            let _ = categories.map { $0.cellHeight = 102.0; $0.cellIdentifier = "CategoryCollectionViewCell" }
-            let entityCategories = CoreDataManager.instance.entityDidLoad(byName: keyCategories) as! Categories
-            let categoriesData = NSKeyedArchiver.archivedData(withRootObject: categories) as NSData?
-            entityCategories.list = categoriesData!
+        // Convert responseAPI body to Category CoreData objects
+        for json in responseModel.responseAPI!.body as! [Any] {
+            let item = Category.init(json: json as! [String: AnyObject])
             
-            let categoriesViewModel = CategoriesShowModels.Categories.ViewModel(categories: categories)
-            self.viewController.categoriesDidShowLoad(fromViewModel: categoriesViewModel)
-        })
+            if let category = item {
+                category.cellHeight = 102.0
+                category.cellIdentifier = "CategoryCollectionViewCell"
+
+                CoreDataManager.instance.didSaveContext()
+            }
+        }
+        
+        let categoriesViewModel = CategoriesShowModels.Categories.ViewModel()
+        self.viewController.categoriesDidShowLoad(fromViewModel: categoriesViewModel)
+        
+        
+//        responseModel.responseAPI!.itemsDidLoad(fromItemsArray: responseModel.responseAPI!.body as! [Any], withItem: Category.init(), completion: { categories in
+//            // Prepare to save Categories in CoreData
+//            let _ = categories.map { $0.cellHeight = 102.0; $0.cellIdentifier = "CategoryCollectionViewCell" }
+////            let entityCategories = CoreDataManager.instance.entityDidLoad(byName: keyCategories) as! Categories
+////            let categoriesData = NSKeyedArchiver.archivedData(withRootObject: categories) as NSData?
+////            entityCategories.list = categoriesData!
+//            
+//            let categoriesViewModel = CategoriesShowModels.Categories.ViewModel(categories: categories)
+//            self.viewController.categoriesDidShowLoad(fromViewModel: categoriesViewModel)
+//        })
     }
 }

@@ -30,7 +30,7 @@ import Kingfisher
 extension CategoryCollectionViewCell: ConfigureCell {
     func setup(withItem item: Any, andIndexPath indexPath: IndexPath) {
         let category = item as! Category
-        self.name.text = category.name!
+        self.name.text = category.name
         
         if let imagePath = category.imagePath {
             imageView.kf.setImage(with: ImageResource(downloadURL: URL(string: imagePath)!, cacheKey: category.codeID),

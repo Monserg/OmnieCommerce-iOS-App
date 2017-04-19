@@ -13,7 +13,7 @@ import CoreData
 public class FavoriteServices: NSManagedObject {
     // MARK: - Class Initialization
     convenience init() {
-        self.init(entity: CoreDataManager.instance.entityForName("FavoriteServices"), insertInto: CoreDataManager.instance.managedObjectContext)
+        self.init(entity: CoreDataManager.instance.entityForName("FavoriteServices")!, insertInto: CoreDataManager.instance.managedObjectContext)
     }
     
     deinit {

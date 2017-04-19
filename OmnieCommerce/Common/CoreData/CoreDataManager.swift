@@ -70,29 +70,31 @@ class CoreDataManager {
     }()
     
     lazy var managedObjectContext: NSManagedObjectContext = {
-        let coordinator             =   self.persistentStoreCoordinator
-        var managedObjectContext    =   NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
+        let coordinator = self.persistentStoreCoordinator
+        var managedObjectContext = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
         managedObjectContext.persistentStoreCoordinator = coordinator
+        managedObjectContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
         
         return managedObjectContext
     }()
 
     
     // MARK: - Class Initialization. Singleton
-    static let instance     =   CoreDataManager(modelName:  "OmnieCommerceUser",
-                                                sqliteName: "OmnieCommerceUser",
-                                                options:    [NSMigratePersistentStoresAutomaticallyOption: true, NSInferMappingModelAutomaticallyOption: true])
+    static let instance = CoreDataManager(modelName:  "OmnieCommerceUser",
+                                          sqliteName: "OmnieCommerceUser",
+                                          options:    [NSMigratePersistentStoresAutomaticallyOption: true,
+                                                       NSInferMappingModelAutomaticallyOption: true])
     
     private init(modelName: String, sqliteName: String, options: NSDictionary? = nil) {
-        self.modelName      =   modelName
-        self.sqliteName     =   sqliteName
-        self.options        =   options
+        self.modelName = modelName
+        self.sqliteName = sqliteName
+        self.options = options
     }
     
     
     // MARK: - Class Functions
-    func entityForName(_ entityName: String) -> NSEntityDescription {
-        return NSEntityDescription.entity(forEntityName: entityName, in: self.managedObjectContext)!
+    func entityForName(_ entityName: String) -> NSEntityDescription? {
+        return NSEntityDescription.entity(forEntityName: entityName, in: self.managedObjectContext)
     }
     
     func fetchedResultsController(_ entityName: String, keyForSort: String) -> NSFetchedResultsController<NSFetchRequestResult> {
@@ -156,6 +158,17 @@ class CoreDataManager {
         }
     }
     
+    func entitiesDidLoad(byName name: String) -> [NSManagedObject]? {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: name)
+        
+        do {
+            return try CoreDataManager.instance.managedObjectContext.fetch(fetchRequest) as? [NSManagedObject]
+        } catch {
+            print(error)
+            return nil
+        }
+    }
+    
     func entityDidCreate(byName name: String) -> NSManagedObject? {
         let newEntity = NSEntityDescription.insertNewObject(forEntityName: name, into: self.managedObjectContext)
         
@@ -170,5 +183,30 @@ class CoreDataManager {
         self.didSaveContext()
         
         return newEntity
+    }
+    
+    func entityDidRemove(byName name: String) {
+        var predicate: NSPredicate!
+
+        switch name {
+        case "XXX":
+            predicate = NSPredicate(format: "codeID == %@", "XXX")
+
+        default:
+            break
+        }
+        
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: name)
+        fetchRequest.predicate = predicate
+        
+        do {
+            let fetchedEntities = try self.managedObjectContext.fetch(fetchRequest)
+            
+            if let entityToRemove = fetchedEntities.first {
+                self.managedObjectContext.delete(entityToRemove as! NSManagedObject)
+            }
+        } catch {
+            print(error)
+        }
     }
 }

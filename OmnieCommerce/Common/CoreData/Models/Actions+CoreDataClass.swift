@@ -13,7 +13,7 @@ import CoreData
 public class Actions: NSManagedObject {
     // MARK: - Class Initialization
     convenience init() {
-        self.init(entity: CoreDataManager.instance.entityForName("Actions"), insertInto: CoreDataManager.instance.managedObjectContext)
+        self.init(entity: CoreDataManager.instance.entityForName("Actions")!, insertInto: CoreDataManager.instance.managedObjectContext)
     }
     
     deinit {

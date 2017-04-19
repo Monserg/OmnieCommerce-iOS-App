@@ -2,7 +2,7 @@
 //  Subcategory+CoreDataProperties.swift
 //  OmnieCommerce
 //
-//  Created by msm72 on 15.04.17.
+//  Created by msm72 on 18.04.17.
 //  Copyright © 2017 Omniesoft. All rights reserved.
 //
 

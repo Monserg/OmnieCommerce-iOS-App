@@ -13,7 +13,7 @@ import CoreData
 public class News: NSManagedObject {
     // MARK: - Class Initialization
     convenience init() {
-        self.init(entity: CoreDataManager.instance.entityForName("News"), insertInto: CoreDataManager.instance.managedObjectContext)
+        self.init(entity: CoreDataManager.instance.entityForName("News")!, insertInto: CoreDataManager.instance.managedObjectContext)
     }
     
     deinit {

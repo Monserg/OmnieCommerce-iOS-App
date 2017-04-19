@@ -49,19 +49,21 @@ public class Subcategory: NSManagedObject, DropDownItem, InitCellParameters {
 
     
     // MARK: - Class Initialization
-    convenience init() {
-        self.init(entity: CoreDataManager.instance.entityForName("Subcategory"), insertInto: CoreDataManager.instance.managedObjectContext)
+    convenience init(withType type: DropDownItemType) {
+        self.init(entity: CoreDataManager.instance.entityForName("Subcategory")!, insertInto: CoreDataManager.instance.managedObjectContext)
         
-        self.type = .Subcategory
+        self.type = type
     }
-    
-    convenience init(codeID: String, name: String) {
-        self.init(entity: CoreDataManager.instance.entityForName("Subcategory"), insertInto: CoreDataManager.instance.managedObjectContext)
 
-        self.codeID = codeID
-        self.name = name
-        self.type = .Subcategory
-    }
+    
+//    convenience init(codeID: String, name: String, category: Category) {
+//        self.init(entity: CoreDataManager.instance.entityForName("Subcategory"), insertInto: CoreDataManager.instance.managedObjectContext)
+//        
+//        self.codeID = codeID
+//        self.name = name
+//        self.type = .Subcategory
+////        self.category = category
+//    }
 
     deinit {
         print("\(type(of: self)) deinit")

@@ -9,7 +9,7 @@
 import Foundation
 import SwiftyJSON
 
-class Category: NSObject, NSCoding, InitCellParameters {
+class CategoryOld: NSObject, NSCoding, InitCellParameters {
     // MARK: - Properties
     var codeID: String!
     var name: String!
@@ -58,7 +58,7 @@ class Category: NSObject, NSCoding, InitCellParameters {
 
 
 // MARK: - MapObjectBinding
-extension Category: MapObjectBinding {
+extension CategoryOld: MapObjectBinding {
     func didMap(fromDictionary dictionary: [String: Any], completion: @escaping (() -> ())) {
         self.codeID = dictionary["uuid"] as! String
         self.name = dictionary["name"] as! String
@@ -69,7 +69,7 @@ extension Category: MapObjectBinding {
         
         // Map Subcategory list
         let responseSubcategories = dictionary["subCategories"] as! NSArray
-        subcategories = [Subcategory.init(codeID: "All-Subcategories-ID", name: "By all subcategories".localized())]
+//        subcategories = [Subcategory.init(codeID: "All-Subcategories-ID", name: "By all subcategories".localized(), category: Category.init())]
         
         guard responseSubcategories.count > 0 else {
             completion()
@@ -88,10 +88,10 @@ extension Category: MapObjectBinding {
 
 
 
-// MARK: - NSCopying
-extension Category: NSCopying {
-    func copy(with zone: NSZone? = nil) -> Any {
-        let copy = Category()
-        return copy
-    }
-}
+//// MARK: - NSCopying
+//extension CategoryOld: NSCopying {
+//    func copy(with zone: NSZone? = nil) -> Any {
+//        let copy = Category()
+//        return copy
+//    }
+//}

@@ -19,7 +19,7 @@ public class GalleryImage1: NSManagedObject, InitCellParameters {
     
     // MARK: - Class Initialization
     convenience init() {
-        self.init(entity: CoreDataManager.instance.entityForName("GalleryImage1"), insertInto: CoreDataManager.instance.managedObjectContext)
+        self.init(entity: CoreDataManager.instance.entityForName("GalleryImage1")!, insertInto: CoreDataManager.instance.managedObjectContext)
     }
     
     deinit {

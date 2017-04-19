@@ -13,6 +13,6 @@ import CoreData
 public class AppSettings: NSManagedObject {
     // MARK: - Class Initialization
     convenience init() {
-        self.init(entity: CoreDataManager.instance.entityForName("AppSettings"), insertInto: CoreDataManager.instance.managedObjectContext)
+        self.init(entity: CoreDataManager.instance.entityForName("AppSettings")!, insertInto: CoreDataManager.instance.managedObjectContext)
     }
 }

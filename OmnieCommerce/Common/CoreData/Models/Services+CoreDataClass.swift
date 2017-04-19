@@ -13,7 +13,7 @@ import CoreData
 public class Services: NSManagedObject {
     // MARK: - Class Initialization
     convenience init() {
-        self.init(entity: CoreDataManager.instance.entityForName("Services"), insertInto: CoreDataManager.instance.managedObjectContext)
+        self.init(entity: CoreDataManager.instance.entityForName("Services")!, insertInto: CoreDataManager.instance.managedObjectContext)
     }
     
     deinit {
