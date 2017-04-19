@@ -19,7 +19,7 @@ public class Category: NSManagedObject, InitCellParameters {
     
     // MARK: - Class Initialization
     convenience init?(json: [String: AnyObject]) {
-        guard let codeID = json["uuid"] as? String, let name = json["name"] as? String else {
+        guard let codeID = json["uuid"] as? String, let name = json["name"] as? String, let subcategoriesList = json["subCategories"] as? [Any] else {
             return nil
         }
         
@@ -34,59 +34,21 @@ public class Category: NSManagedObject, InitCellParameters {
         // Prepare to save data
         self.codeID = codeID
         self.name = name
+        self.subcategories = NSSet()
 
         if let imageURL = json["logo"] as? String {
             self.imagePath = "http://\(imageURL)"
+        }
+        
+        for json in subcategoriesList {
+            let subcategory = Subcategory.init(json: json as! [String: AnyObject], andType: .Subcategory)
+            subcategory!.category = self
+            
+            self.subcategories!.adding(subcategory!)
         }
     }
 
     deinit {
         print("\(type(of: self)) deinit")
-    }
-}
-
-
-// MARK: - MapObjectBinding
-extension Category: MapObjectBinding {
-    func didMap(fromDictionary dictionary: [String: Any], completion: @escaping (() -> ())) {
-//        let codeID = dictionary["uuid"] as! String
-//        let name = dictionary["name"] as! String
-//        var imagePath: String?
-//        
-//        if (dictionary["logo"] as? String != nil) {
-//            imagePath = "http://\(dictionary["logo"] as! String)"
-//        }
-        
-//        // Create CoreData Entity
-//        let categoryEntity = NSManagedObject.init(entity: CoreDataManager.instance.entityForName("Category"), insertInto: CoreDataManager.instance.managedObjectContext) as! Category
-//
-//        // Map Subcategory list
-//        let responseSubcategories = dictionary["subCategories"] as! NSArray
-//        var items: [Subcategory]!
-//        
-//        guard responseSubcategories.count > 0 else {
-//            completion()
-//            return
-//        }
-//        
-//        for dictionary in responseSubcategories {
-//            let subcategory = Subcategory.init(withType: .Subcategory)
-//            subcategory.didMap(fromDictionary: dictionary as! [String : Any], completion: { _ in })
-//            
-//            if (items == nil) {
-//                items = [subcategory]
-//            } else {
-//                items.append(subcategory)
-//            }
-//        }
-//        
-//        let subcategories = NSKeyedArchiver.archivedData(withRootObject: items) as NSData
-//
-//        // Prepare to save in CoreData
-//        categoryEntity.codeID = codeID
-//        categoryEntity.name = name
-//        categoryEntity.imagePath = imagePath
-        
-        completion()
     }
 }

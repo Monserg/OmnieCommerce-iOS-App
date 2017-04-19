@@ -2,7 +2,7 @@
 //  Subcategory+CoreDataProperties.swift
 //  OmnieCommerce
 //
-//  Created by msm72 on 18.04.17.
+//  Created by msm72 on 19.04.17.
 //  Copyright © 2017 Omniesoft. All rights reserved.
 //
 
@@ -16,8 +16,9 @@ extension Subcategory {
         return NSFetchRequest<Subcategory>(entityName: "Subcategory")
     }
 
-    @NSManaged public var codeIDValue: String
-    @NSManaged public var nameValue: String
+    @NSManaged public var codeID: String
+    @NSManaged public var name: String
     @NSManaged public var typeValue: String
+    @NSManaged public var category: Category?
 
 }

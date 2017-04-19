@@ -264,7 +264,6 @@
 		B19DFAC11E64B9F100599073 /* UITextField+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19DFAC01E64B9F100599073 /* UITextField+Ext.swift */; };
 		B19E01B01E78217500B53E02 /* NewPhoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19E01AF1E78217500B53E02 /* NewPhoneView.swift */; };
 		B19E01B21E78217F00B53E02 /* NewPhoneView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B19E01B11E78217F00B53E02 /* NewPhoneView.xib */; };
-		B1A9ACD21E7C7CE00010FF05 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A9ACD11E7C7CE00010FF05 /* Category.swift */; };
 		B1B761CA1E62D0030067339F /* OrganizationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1B761C91E62D0030067339F /* OrganizationTableViewCell.xib */; };
 		B1BEEDE61E63402000F1DE8A /* ListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1BEEDE51E63402000F1DE8A /* ListTableViewController.swift */; };
 		B1BEEDEF1E63687500F1DE8A /* OrganizationShowConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1BEEDE81E63687500F1DE8A /* OrganizationShowConfigurator.swift */; };
@@ -735,7 +734,6 @@
 		B19E01B11E78217F00B53E02 /* NewPhoneView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewPhoneView.xib; sourceTree = "<group>"; };
 		B1A9ACCB1E7C23F00010FF05 /* OmnieCommerceUser v.8.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "OmnieCommerceUser v.8.xcdatamodel"; sourceTree = "<group>"; };
 		B1A9ACD01E7C70330010FF05 /* OmnieCommerceUser v.9.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "OmnieCommerceUser v.9.xcdatamodel"; sourceTree = "<group>"; };
-		B1A9ACD11E7C7CE00010FF05 /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		B1B4E4831E77161B00EAECB0 /* OmnieCommerceUser v.5.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "OmnieCommerceUser v.5.xcdatamodel"; sourceTree = "<group>"; };
 		B1B761C91E62D0030067339F /* OrganizationTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OrganizationTableViewCell.xib; sourceTree = "<group>"; };
 		B1BEEDE51E63402000F1DE8A /* ListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListTableViewController.swift; sourceTree = "<group>"; };
@@ -1287,7 +1285,6 @@
 			isa = PBXGroup;
 			children = (
 				B137EC881E7D030C006F0184 /* Views */,
-				B149A7BD1E5DD52C009BF8C7 /* Models */,
 				B122F1FE1DD35BEB0018A701 /* CategoriesShowConfigurator.swift */,
 				B122F1FF1DD35BEB0018A701 /* CategoriesShowInteractor.swift */,
 				B122F2001DD35BEB0018A701 /* CategoriesShowModels.swift */,
@@ -1479,14 +1476,6 @@
 				B13FE1A71E95121B000DD416 /* NewsItemShowViewController.swift */,
 			);
 			path = NewsItemShow;
-			sourceTree = "<group>";
-		};
-		B149A7BD1E5DD52C009BF8C7 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				B1A9ACD11E7C7CE00010FF05 /* Category.swift */,
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 		B14C07161EA098EE00556866 /* ServicesShow */ = {
@@ -2376,7 +2365,6 @@
 				B10871541E379A9A00374DD5 /* OmnieCardViewModel.swift in Sources */,
 				B1D57E901E87CB7500CA6243 /* MSMTableViewFooterView.swift in Sources */,
 				B1FFF7111E5F017A00A075D8 /* OrganizationsMapShowConfigurator.swift in Sources */,
-				B1A9ACD21E7C7CE00010FF05 /* Category.swift in Sources */,
 				B13FE1A31E94C5A4000DD416 /* BlackListView.swift in Sources */,
 				B1C94BC21E37825E00122933 /* BarCodeView.swift in Sources */,
 				B14107C71DFEB1D700F79CF9 /* CustomView.swift in Sources */,

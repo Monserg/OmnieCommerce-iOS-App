@@ -106,7 +106,7 @@ class CategoriesShowViewController: BaseViewController {
         
         // Load Categories list from API
         spinnerDidStart(nil)        
-        let categoriesParameters: [String: Any] = [ "locale": Locale.current.regionCode!.lowercased() ]
+        let categoriesParameters: [String: Any] = [ "locale": Locale.current.languageCode!.lowercased() ]
         let categoriesRequestModel = CategoriesShowModels.Categories.RequestModel(parameters: categoriesParameters)
         interactor.categoriesDidLoad(withRequestModel: categoriesRequestModel)
     }

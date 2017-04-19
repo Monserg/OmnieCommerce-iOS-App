@@ -10,29 +10,8 @@ import Foundation
 import CoreData
 
 @objc(Subcategory)
-public class Subcategory: NSManagedObject, DropDownItem, InitCellParameters {
+public class Subcategory: NSManagedObject, InitCellParameters {
     // MARK: - Properties
-    // Confirm DropDownItem Protocol
-    var codeID: String! {
-        get {
-            return self.codeIDValue
-        }
-        
-        set {
-            self.codeIDValue = newValue
-        }
-    }
-    
-    var name: String! {
-        get {
-            return self.nameValue
-        }
-        
-        set {
-            self.nameValue = newValue
-        }
-    }
-    
     var type: DropDownItemType! {
         get {
             return DropDownItemType(rawValue: self.typeValue)
@@ -49,34 +28,26 @@ public class Subcategory: NSManagedObject, DropDownItem, InitCellParameters {
 
     
     // MARK: - Class Initialization
-    convenience init(withType type: DropDownItemType) {
-        self.init(entity: CoreDataManager.instance.entityForName("Subcategory")!, insertInto: CoreDataManager.instance.managedObjectContext)
+    convenience init?(json: [String: AnyObject], andType type: DropDownItemType) {
+        guard let codeID = json["uuid"] as? String, let name = json["name"] as? String else {
+            return nil
+        }
         
+        // Check Entity available in CoreData
+        guard let subcategoryEntity = CoreDataManager.instance.entityForName("Subcategory") else {
+            return nil
+        }
+        
+        // Create Entity
+        self.init(entity: subcategoryEntity, insertInto: CoreDataManager.instance.managedObjectContext)
+        
+        // Prepare to save data
+        self.codeID = codeID
+        self.name = name
         self.type = type
     }
 
-    
-//    convenience init(codeID: String, name: String, category: Category) {
-//        self.init(entity: CoreDataManager.instance.entityForName("Subcategory"), insertInto: CoreDataManager.instance.managedObjectContext)
-//        
-//        self.codeID = codeID
-//        self.name = name
-//        self.type = .Subcategory
-////        self.category = category
-//    }
-
     deinit {
         print("\(type(of: self)) deinit")
-    }
-}
-
-
-// MARK: - MapObjectBinding
-extension Subcategory: MapObjectBinding {
-    func didMap(fromDictionary dictionary: [String: Any], completion: @escaping (() -> ())) {
-        self.codeID = dictionary["uuid"] as? String ?? "XXX"
-        self.name = dictionary["name"] as? String ?? "XXX"
-        
-        completion()
     }
 }
