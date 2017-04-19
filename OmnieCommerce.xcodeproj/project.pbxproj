@@ -264,8 +264,6 @@
 		B19DFAC11E64B9F100599073 /* UITextField+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19DFAC01E64B9F100599073 /* UITextField+Ext.swift */; };
 		B19E01B01E78217500B53E02 /* NewPhoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19E01AF1E78217500B53E02 /* NewPhoneView.swift */; };
 		B19E01B21E78217F00B53E02 /* NewPhoneView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B19E01B11E78217F00B53E02 /* NewPhoneView.xib */; };
-		B1A9ACCE1E7C6FE60010FF05 /* Categories+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A9ACCC1E7C6FE60010FF05 /* Categories+CoreDataClass.swift */; };
-		B1A9ACCF1E7C6FE60010FF05 /* Categories+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A9ACCD1E7C6FE60010FF05 /* Categories+CoreDataProperties.swift */; };
 		B1A9ACD21E7C7CE00010FF05 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A9ACD11E7C7CE00010FF05 /* Category.swift */; };
 		B1B761CA1E62D0030067339F /* OrganizationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1B761C91E62D0030067339F /* OrganizationTableViewCell.xib */; };
 		B1BEEDE61E63402000F1DE8A /* ListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1BEEDE51E63402000F1DE8A /* ListTableViewController.swift */; };
@@ -736,8 +734,6 @@
 		B19E01AF1E78217500B53E02 /* NewPhoneView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPhoneView.swift; sourceTree = "<group>"; };
 		B19E01B11E78217F00B53E02 /* NewPhoneView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewPhoneView.xib; sourceTree = "<group>"; };
 		B1A9ACCB1E7C23F00010FF05 /* OmnieCommerceUser v.8.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "OmnieCommerceUser v.8.xcdatamodel"; sourceTree = "<group>"; };
-		B1A9ACCC1E7C6FE60010FF05 /* Categories+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Categories+CoreDataClass.swift"; sourceTree = "<group>"; };
-		B1A9ACCD1E7C6FE60010FF05 /* Categories+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Categories+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		B1A9ACD01E7C70330010FF05 /* OmnieCommerceUser v.9.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "OmnieCommerceUser v.9.xcdatamodel"; sourceTree = "<group>"; };
 		B1A9ACD11E7C7CE00010FF05 /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		B1B4E4831E77161B00EAECB0 /* OmnieCommerceUser v.5.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "OmnieCommerceUser v.5.xcdatamodel"; sourceTree = "<group>"; };
@@ -1020,8 +1016,6 @@
 				B108747C1E5B0DC9004A4FB6 /* AppSettings+CoreDataProperties.swift */,
 				B10874A41E5B3D7E004A4FB6 /* AppUser+CoreDataClass.swift */,
 				B10874A51E5B3D7E004A4FB6 /* AppUser+CoreDataProperties.swift */,
-				B1A9ACCC1E7C6FE60010FF05 /* Categories+CoreDataClass.swift */,
-				B1A9ACCD1E7C6FE60010FF05 /* Categories+CoreDataProperties.swift */,
 				B15F95B21EA1E1C50009AD28 /* Category+CoreDataClass.swift */,
 				B15F95B31EA1E1C50009AD28 /* Category+CoreDataProperties.swift */,
 				B1EC9F2A1E8AE31500F2E342 /* FavoriteOrganizations+CoreDataClass.swift */,
@@ -2311,7 +2305,6 @@
 				B11203701E8F6A420036001A /* Dictionary+Ext.swift in Sources */,
 				B1BEEDF11E63687500F1DE8A /* OrganizationShowModels.swift in Sources */,
 				B15F95B11EA1D4230009AD28 /* Subcategory+CoreDataProperties.swift in Sources */,
-				B1A9ACCF1E7C6FE60010FF05 /* Categories+CoreDataProperties.swift in Sources */,
 				B16E966F1DE6C94000147CEF /* BigTopBarView.swift in Sources */,
 				B10874801E5B0DC9004A4FB6 /* AppSettings+CoreDataProperties.swift in Sources */,
 				B1D883211E8E8C98006F4831 /* NewsDataShowViewController.swift in Sources */,
@@ -2486,7 +2479,6 @@
 				B1CF54A01DDB515000E98049 /* HandbookShowConfigurator.swift in Sources */,
 				B122DF661DF7F957003823AD /* CalendarShowPresenter.swift in Sources */,
 				B1D883371E8E9150006F4831 /* News+CoreDataClass.swift in Sources */,
-				B1A9ACCE1E7C6FE60010FF05 /* Categories+CoreDataClass.swift in Sources */,
 				B1CF54981DDB512000E98049 /* DiscountCardsShowWorker.swift in Sources */,
 				B122F1FD1DD35BC70018A701 /* FavoriteShowWorker.swift in Sources */,
 				B14E974D1DD8B042001E1DE2 /* SignInShowViewController.swift in Sources */,
