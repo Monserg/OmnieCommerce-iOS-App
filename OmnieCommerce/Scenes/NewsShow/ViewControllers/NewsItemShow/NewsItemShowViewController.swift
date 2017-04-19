@@ -71,8 +71,8 @@ class NewsItemShowViewController: BaseViewController {
         haveMenuItem = false
         
         // Setting News values
-        dateLabel.text = newsItem.activeDate.convertToString(withStyle: .Date)
-        organizationButton.setTitle("          \(newsItem.name!)          ", for: .normal)
+        dateLabel.text = (newsItem.activeDate as Date).convertToString(withStyle: .Date)
+        organizationButton.setTitle("          \(newsItem.name)          ", for: .normal)
 
         if let imagePath = newsItem.logoStringURL {
             logoImageView.kf.setImage(with: ImageResource(downloadURL: URL(string: imagePath)!, cacheKey: newsItem.codeID),
@@ -110,7 +110,7 @@ class NewsItemShowViewController: BaseViewController {
         combination.append(newsTitle)
 
         // News text
-        let newsText = NSMutableAttributedString(string: newsItem.text,
+        let newsText = NSMutableAttributedString(string: newsItem.text!,
                                                  attributes:    [
                                                                     NSFontAttributeName: UIFont.ubuntuLight12,
                                                                     NSForegroundColorAttributeName: UIColor.veryLightGray

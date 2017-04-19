@@ -158,8 +158,21 @@ class CoreDataManager {
         }
     }
     
-    func entitiesDidLoad(byName name: String) -> [NSManagedObject]? {
+    func entitiesDidLoad(byName name: String, andPredicateParameter parameter: Any?) -> [NSManagedObject]? {
+        self.didSaveContext()
+        var predicate: NSPredicate!
+        
+        switch name {
+        case "NewsData":
+            let isAction = parameter as! Bool
+            predicate = NSPredicate(format: "isAction == \(isAction)")
+
+        default:
+            break
+        }
+        
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: name)
+        fetchRequest.predicate = predicate
         
         do {
             return try CoreDataManager.instance.managedObjectContext.fetch(fetchRequest) as? [NSManagedObject]
@@ -204,7 +217,36 @@ class CoreDataManager {
             
             if let entityToRemove = fetchedEntities.first {
                 self.managedObjectContext.delete(entityToRemove as! NSManagedObject)
+                self.didSaveContext()
             }
+        } catch {
+            print(error)
+        }
+    }
+    
+    func entitiesDidRemove(byName name: String, andPredicateParameter parameter: Any?) {
+        var predicate: NSPredicate!
+        
+        switch name {
+        case "NewsData":
+            let isAction = parameter as! Bool
+            predicate = NSPredicate(format: "isAction == \(isAction)")
+            
+        default:
+            break
+        }
+        
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: name)
+        fetchRequest.predicate = predicate
+        
+        do {
+            let fetchedEntities = try self.managedObjectContext.fetch(fetchRequest)
+            
+            for entity in fetchedEntities {
+                self.managedObjectContext.delete(entity as! NSManagedObject)
+            }
+
+            self.didSaveContext()
         } catch {
             print(error)
         }

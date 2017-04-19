@@ -26,7 +26,7 @@ class NewsActionsShowViewController: BaseViewController {
     var interactor: NewsActionsShowViewControllerOutput!
     var router: NewsActionsShowRouter!
 
-    var actions = [NewsData]()
+    var actionsData = [NewsData]()
     var limit: Int!
     
     @IBOutlet weak var tableView: MSMTableView! {
@@ -53,7 +53,7 @@ class NewsActionsShowViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
-        limit = (actions.count == 0) ? Config.Constants.paginationLimit : actions.count
+        limit = (actionsData.count == 0) ? Config.Constants.paginationLimit : actionsData.count
         viewSettingsDidLoad()
     }
     
@@ -66,13 +66,14 @@ class NewsActionsShowViewController: BaseViewController {
         
         // Load Actions list from Core Data
         guard isNetworkAvailable else {
-            actionsListDidShow(nil, fromAPI: false)
+            actionsListDidShow()
             return
         }
         
         // Load Actions list from API
         if (isNetworkAvailable) {
-            actions = [NewsData]()
+            actionsData = [NewsData]()
+            CoreDataManager.instance.entitiesDidRemove(byName: "NewsData", andPredicateParameter: true)
             actionsListDidLoad(withOffset: 0, scrollingData: false)
         } else {
             spinnerDidFinish()
@@ -89,23 +90,21 @@ class NewsActionsShowViewController: BaseViewController {
         interactor.actionsDidLoad(withRequestModel: actionsRequestModel)
     }
 
-    func actionsListDidShow(_ actions: [NewsData]?, fromAPI: Bool) {
-        var actionsList = [NewsData]()
-        
-        if (fromAPI) {
-            actionsList = actions!
-        } else {
-            let actionsData = CoreDataManager.instance.entityDidLoad(byName: keyNewsData) as! Actions
-            actionsList = NSKeyedUnarchiver.unarchiveObject(with: actionsData.list! as Data) as! [NewsData]
-        }
-        
+    func actionsListDidShow() {
         // Setting MSMTableViewControllerManager
-        tableView.tableViewControllerManager!.dataSource = actionsList
-        tableView!.tableFooterView!.isHidden = (actionsList.count > 0) ? true : false
-        (tableView!.tableFooterView as! MSMTableViewFooterView).didUpload(forItemsCount: actionsList.count,
-                                                                          andEmptyText: "NewsActions list is empty")
-        tableView.reloadData()
+        let newsDataList = CoreDataManager.instance.entitiesDidLoad(byName: "NewsData", andPredicateParameter: true)
         
+        if let actions = newsDataList as? [NewsData] {
+            actionsData = actions
+            tableView.tableViewControllerManager!.dataSource = actions
+            tableView!.tableFooterView!.isHidden = (actions.count > 0) ? true : false
+            
+            (tableView!.tableFooterView as! MSMTableViewFooterView).didUpload(forItemsCount: actions.count,
+                                                                              andEmptyText: "NewsActions list is empty")
+            
+            tableView.reloadData()
+        }
+      
         // Handler select cell
         tableView.tableViewControllerManager!.handlerSelectRowCompletion = { action in
             self.router.navigateToNewsItemShowScene(action as! NewsData)
@@ -114,17 +113,19 @@ class NewsActionsShowViewController: BaseViewController {
         // Handler PullRefresh
         tableView.tableViewControllerManager!.handlerPullRefreshCompletion = { _ in
             // Reload Actions list from API
-            self.actions = [NewsData]()
+            self.actionsData = [NewsData]()
+            CoreDataManager.instance.entitiesDidRemove(byName: "NewsData", andPredicateParameter: true)
             self.actionsListDidLoad(withOffset: 0, scrollingData: true)
         }
         
         // Handler InfiniteScroll
         tableView.tableViewControllerManager.handlerInfiniteScrollCompletion = { _ in
-            // Load More NewsData from API
-            self.actionsListDidLoad(withOffset: actions!.count, scrollingData: true)
+            // Load More Actions from API
+            self.actionsListDidLoad(withOffset: self.actionsData.count, scrollingData: true)
         }
         
         tableView.tableViewControllerManager.pullRefreshDidFinish()
+        spinnerDidFinish()
     }
 }
 
@@ -132,29 +133,15 @@ class NewsActionsShowViewController: BaseViewController {
 // MARK: - NewsActionsShowViewControllerInput
 extension NewsActionsShowViewController: NewsActionsShowViewControllerInput {
     func actionsDidShowLoad(fromViewModel viewModel: NewsActionsShowModels.Actions.ViewModel) {
-        spinnerDidFinish()
-        
         // Check for errors
-        guard viewModel.actions != nil else {
+        guard viewModel.status == "SUCCESS" else {
             self.alertViewDidShow(withTitle: "Error", andMessage: viewModel.status, completion: {
-                self.actionsListDidShow(self.actions, fromAPI: true)
+                self.actionsListDidShow()
             })
             
             return
         }
         
-        // Save Actions list to CoreData
-        CoreDataManager.instance.didSaveContext()
-        
-        // Check network connection
-        guard isNetworkAvailable else {
-            // Load Actions list from CoreData
-            self.actionsListDidShow(nil, fromAPI: false)
-            return
-        }
-        
-        // Load NewsData list from API
-        self.actions.append(contentsOf: viewModel.actions!)
-        self.actionsListDidShow(self.actions, fromAPI: true)
+        self.actionsListDidShow()
     }
 }

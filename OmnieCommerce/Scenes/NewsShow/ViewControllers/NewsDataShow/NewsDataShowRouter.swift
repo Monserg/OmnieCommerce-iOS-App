@@ -24,6 +24,7 @@ class NewsDataShowRouter: NewsDataShowRouterInput {
     
     // MARK: - Custom Functions. Navigation
     func navigateToNewsItemShowScene(_ item: NewsData) {
+        // Get full info about NewsData by ID
         MSMRestApiManager.instance.userRequestDidRun(.userGetNewsDataByID(["id": item.codeID], false), withHandlerResponseAPICompletion: { responseAPI in
             // Check for errors
             guard responseAPI?.code == 200 else {
@@ -31,15 +32,22 @@ class NewsDataShowRouter: NewsDataShowRouterInput {
                 return
             }
             
-            // Mapping Action
-            let newsData = NewsData.init()
-            newsData.didMap(fromDictionary: responseAPI!.body as! [String: Any], completion: { _ in
-                let storyboard = UIStoryboard(name: "NewsShow", bundle: nil)
-                let newsItemShowVC = storyboard.instantiateViewController(withIdentifier: "NewsItemShowVC") as! NewsItemShowViewController
-                newsItemShowVC.newsItem = newsData
-                
-                self.viewController.navigationController?.pushViewController(newsItemShowVC, animated: true)
-            })
+            // Create News
+            let news = NewsData.init(json: responseAPI!.body as! [String: AnyObject])
+            let storyboard = UIStoryboard(name: "NewsShow", bundle: nil)
+            let newsItemShowVC = storyboard.instantiateViewController(withIdentifier: "NewsItemShowVC") as! NewsItemShowViewController
+            newsItemShowVC.newsItem = news
+            
+            self.viewController.navigationController?.pushViewController(newsItemShowVC, animated: true)
+
+            
+//            newsData.didMap(fromDictionary: responseAPI!.body as! [String: Any], completion: { _ in
+//                let storyboard = UIStoryboard(name: "NewsShow", bundle: nil)
+//                let newsItemShowVC = storyboard.instantiateViewController(withIdentifier: "NewsItemShowVC") as! NewsItemShowViewController
+//                newsItemShowVC.newsItem = newsData
+//                
+//                self.viewController.navigationController?.pushViewController(newsItemShowVC, animated: true)
+//            })
         })
     }
 

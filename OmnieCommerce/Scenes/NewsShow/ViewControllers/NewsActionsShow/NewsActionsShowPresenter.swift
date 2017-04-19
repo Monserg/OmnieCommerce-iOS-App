@@ -29,22 +29,37 @@ class NewsActionsShowPresenter: NewsActionsShowPresenterInput {
     // MARK: - Custom Functions. Presentation logic
     func actionsDidPrepareToShowLoad(fromResponseModel responseModel: NewsActionsShowModels.Actions.ResponseModel) {
         guard responseModel.responseAPI?.body != nil else {
-            let actionsViewModel = NewsActionsShowModels.Actions.ViewModel(actions: nil, status: (responseModel.responseAPI?.status)!)
+            let actionsViewModel = NewsActionsShowModels.Actions.ViewModel(status: (responseModel.responseAPI?.status)!)
             viewController.actionsDidShowLoad(fromViewModel: actionsViewModel)
             
             return
         }
         
-        // Format the response from the Interactor and pass the result back to the View Controller
-        responseModel.responseAPI!.itemsDidLoad(fromItemsArray: responseModel.responseAPI!.body as! [Any], withItem: NewsData.init(), completion: { actions in
-            // Prepare to save NewsDataList in CoreData
-            let _ = actions.map { $0.isAction = true }
-            let entityActions = CoreDataManager.instance.entityDidLoad(byName: keyNewsActions) as! Actions
-            let actionsData = NSKeyedArchiver.archivedData(withRootObject: actions) as NSData?
-            entityActions.list = actionsData!
+        // Convert responseAPI body to NewsData CoreData action objects
+        for json in responseModel.responseAPI!.body as! [Any] {
+            let item = NewsData.init(json: json as! [String: AnyObject])
             
-            let actionsViewModel = NewsActionsShowModels.Actions.ViewModel(actions: actions, status: (responseModel.responseAPI?.status)!)
-            self.viewController.actionsDidShowLoad(fromViewModel: actionsViewModel)
-        })
+            if let action = item {
+                action.isAction = true                
+                CoreDataManager.instance.didSaveContext()
+            }
+        }
+        
+        let actionsViewModel = NewsActionsShowModels.Actions.ViewModel(status: (responseModel.responseAPI?.status)!)
+        self.viewController.actionsDidShowLoad(fromViewModel: actionsViewModel)
+
+//        
+//        
+//        // Format the response from the Interactor and pass the result back to the View Controller
+//        responseModel.responseAPI!.itemsDidLoad(fromItemsArray: responseModel.responseAPI!.body as! [Any], withItem: NewsData.init(), completion: { actions in
+//            // Prepare to save NewsDataList in CoreData
+//            let _ = actions.map { $0.isAction = true }
+//            let entityActions = CoreDataManager.instance.entityDidLoad(byName: keyNewsActions) as! Actions
+//            let actionsData = NSKeyedArchiver.archivedData(withRootObject: actions) as NSData?
+//            entityActions.list = actionsData!
+//            
+//            let actionsViewModel = NewsActionsShowModels.Actions.ViewModel(actions: actions, status: (responseModel.responseAPI?.status)!)
+//            self.viewController.actionsDidShowLoad(fromViewModel: actionsViewModel)
+//        })
     }
 }

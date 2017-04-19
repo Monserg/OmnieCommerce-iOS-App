@@ -52,8 +52,20 @@
         <attribute name="serviceID" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="serviceName" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
-    <entity name="News" representedClassName="News" syncable="YES">
-        <attribute name="list" optional="YES" attributeType="Binary" syncable="YES"/>
+    <entity name="NewsData" representedClassName="NewsData" syncable="YES">
+        <attribute name="activeDate" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="codeID" attributeType="String" syncable="YES"/>
+        <attribute name="isAction" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="logoStringURL" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" attributeType="String" syncable="YES"/>
+        <attribute name="organizationID" attributeType="String" syncable="YES"/>
+        <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" attributeType="String" syncable="YES"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="codeID"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
     </entity>
     <entity name="Organization" representedClassName="Organization" syncable="YES"/>
     <entity name="Organizations" representedClassName="Organizations" syncable="YES">
@@ -81,7 +93,7 @@
         <element name="FavoriteOrganizations" positionX="-45" positionY="108" width="128" height="60"/>
         <element name="FavoriteServices" positionX="-18" positionY="126" width="128" height="60"/>
         <element name="GalleryImage" positionX="-36" positionY="99" width="128" height="105"/>
-        <element name="News" positionX="-36" positionY="99" width="128" height="60"/>
+        <element name="NewsData" positionX="-36" positionY="99" width="128" height="165"/>
         <element name="Organization" positionX="-36" positionY="99" width="128" height="45"/>
         <element name="Organizations" positionX="-54" positionY="99" width="128" height="60"/>
         <element name="Services" positionX="-36" positionY="117" width="128" height="60"/>

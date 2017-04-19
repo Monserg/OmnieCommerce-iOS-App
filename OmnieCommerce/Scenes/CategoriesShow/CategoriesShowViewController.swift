@@ -115,7 +115,7 @@ class CategoriesShowViewController: BaseViewController {
         // Setting MSMCollectionViewControllerManager
         collectionView.collectionViewControllerManager = MSMCollectionViewControllerManager(withCollectionView: self.collectionView)
         collectionView.collectionViewControllerManager!.sectionsCount = 1
-        let categoriesList = CoreDataManager.instance.entitiesDidLoad(byName: "Category")
+        let categoriesList = CoreDataManager.instance.entitiesDidLoad(byName: "Category", andPredicateParameter: nil)
         
         if let categories = categoriesList as? [Category] {
             collectionView.collectionViewControllerManager!.dataSource = categories

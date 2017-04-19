@@ -24,6 +24,7 @@ class NewsActionsShowRouter: NewsActionsShowRouterInput {
     
     // MARK: - Custom Functions. Navigation
     func navigateToNewsItemShowScene(_ item: NewsData) {
+        // Get full info about NewsAction by ID
         MSMRestApiManager.instance.userRequestDidRun(.userGetActionByID(["id": item.codeID], false), withHandlerResponseAPICompletion: { responseAPI in
             // Check for errors
             guard responseAPI?.code == 200 else {
@@ -31,16 +32,25 @@ class NewsActionsShowRouter: NewsActionsShowRouterInput {
                 return
             }
             
-            // Mapping Action
-            let action = NewsData.init()
-            action.didMap(fromDictionary: responseAPI!.body as! [String: Any], completion: { _ in
-                action.isAction = true
-                let storyboard = UIStoryboard(name: "NewsShow", bundle: nil)
-                let newsItemShowVC = storyboard.instantiateViewController(withIdentifier: "NewsItemShowVC") as! NewsItemShowViewController
-                newsItemShowVC.newsItem = action
-                
-                self.viewController.navigationController?.pushViewController(newsItemShowVC, animated: true)
-            })
+            // Create Action
+            let action = NewsData.init(json: responseAPI!.body as! [String: AnyObject])
+            let storyboard = UIStoryboard(name: "NewsShow", bundle: nil)
+            let newsItemShowVC = storyboard.instantiateViewController(withIdentifier: "NewsItemShowVC") as! NewsItemShowViewController
+            newsItemShowVC.newsItem = action
+            
+            self.viewController.navigationController?.pushViewController(newsItemShowVC, animated: true)
+//
+//            
+//            
+//            let action = NewsData.init()
+//            action.didMap(fromDictionary: responseAPI!.body as! [String: Any], completion: { _ in
+//                action.isAction = true
+//                let storyboard = UIStoryboard(name: "NewsShow", bundle: nil)
+//                let newsItemShowVC = storyboard.instantiateViewController(withIdentifier: "NewsItemShowVC") as! NewsItemShowViewController
+//                newsItemShowVC.newsItem = action
+//                
+//                self.viewController.navigationController?.pushViewController(newsItemShowVC, animated: true)
+//            })
         })
     }
     

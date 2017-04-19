@@ -135,6 +135,8 @@
 		B14107C41DFEA73900F79CF9 /* CalendarDayCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14107C21DFEA73900F79CF9 /* CalendarDayCellView.swift */; };
 		B14107C51DFEA73900F79CF9 /* CalendarDayCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B14107C31DFEA73900F79CF9 /* CalendarDayCellView.xib */; };
 		B14107C71DFEB1D700F79CF9 /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14107C61DFEB1D700F79CF9 /* CustomView.swift */; };
+		B14172051EA7969B006120A1 /* NewsData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14172031EA7969B006120A1 /* NewsData+CoreDataClass.swift */; };
+		B14172061EA7969B006120A1 /* NewsData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14172041EA7969B006120A1 /* NewsData+CoreDataProperties.swift */; };
 		B145D9861E9DD0CC004CD92B /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = B145D9851E9DD0CC004CD92B /* Review.swift */; };
 		B149A7BA1E5D8DD3009BF8C7 /* AnimatedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B149A7B91E5D8DD3009BF8C7 /* AnimatedButton.swift */; };
 		B149A7BC1E5D8E24009BF8C7 /* AnimatedButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = B149A7BB1E5D8E24009BF8C7 /* AnimatedButton.xib */; };
@@ -377,7 +379,6 @@
 		B1D738421E9382C300A764F4 /* ReviewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D738411E9382C300A764F4 /* ReviewsView.swift */; };
 		B1D7384E1E93B0B200A764F4 /* ReviewsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1D7384D1E93B0B200A764F4 /* ReviewsView.xib */; };
 		B1D738501E93B23300A764F4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1D7384F1E93B23300A764F4 /* Assets.xcassets */; };
-		B1D883101E8E8971006F4831 /* NewsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D8830F1E8E8971006F4831 /* NewsData.swift */; };
 		B1D883131E8E8995006F4831 /* NewsDataTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D883111E8E8995006F4831 /* NewsDataTableViewCell.swift */; };
 		B1D883141E8E8995006F4831 /* NewsDataTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1D883121E8E8995006F4831 /* NewsDataTableViewCell.xib */; };
 		B1D8831C1E8E8C98006F4831 /* NewsDataShowConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D883151E8E8C98006F4831 /* NewsDataShowConfigurator.swift */; };
@@ -595,6 +596,8 @@
 		B14107C21DFEA73900F79CF9 /* CalendarDayCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarDayCellView.swift; sourceTree = "<group>"; };
 		B14107C31DFEA73900F79CF9 /* CalendarDayCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CalendarDayCellView.xib; sourceTree = "<group>"; };
 		B14107C61DFEB1D700F79CF9 /* CustomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
+		B14172031EA7969B006120A1 /* NewsData+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NewsData+CoreDataClass.swift"; sourceTree = "<group>"; };
+		B14172041EA7969B006120A1 /* NewsData+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NewsData+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		B145D9851E9DD0CC004CD92B /* Review.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
 		B149A7B91E5D8DD3009BF8C7 /* AnimatedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimatedButton.swift; sourceTree = "<group>"; };
 		B149A7BB1E5D8E24009BF8C7 /* AnimatedButton.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AnimatedButton.xib; sourceTree = "<group>"; };
@@ -849,7 +852,6 @@
 		B1D738411E9382C300A764F4 /* ReviewsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewsView.swift; sourceTree = "<group>"; };
 		B1D7384D1E93B0B200A764F4 /* ReviewsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReviewsView.xib; sourceTree = "<group>"; };
 		B1D7384F1E93B23300A764F4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		B1D8830F1E8E8971006F4831 /* NewsData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsData.swift; sourceTree = "<group>"; };
 		B1D883111E8E8995006F4831 /* NewsDataTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsDataTableViewCell.swift; sourceTree = "<group>"; };
 		B1D883121E8E8995006F4831 /* NewsDataTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsDataTableViewCell.xib; sourceTree = "<group>"; };
 		B1D883151E8E8C98006F4831 /* NewsDataShowConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsDataShowConfigurator.swift; sourceTree = "<group>"; };
@@ -1024,6 +1026,8 @@
 				B11DCAF31E9E234200180375 /* GalleryImage+CoreDataProperties.swift */,
 				B1D883331E8E9150006F4831 /* News+CoreDataClass.swift */,
 				B1D883341E8E9150006F4831 /* News+CoreDataProperties.swift */,
+				B14172031EA7969B006120A1 /* NewsData+CoreDataClass.swift */,
+				B14172041EA7969B006120A1 /* NewsData+CoreDataProperties.swift */,
 				B19A24231E8625DE0070841F /* Organizations+CoreDataClass.swift */,
 				B19A24241E8625DE0070841F /* Organizations+CoreDataProperties.swift */,
 				B1EC9F421E8C13FE00F2E342 /* Services+CoreDataClass.swift */,
@@ -1941,7 +1945,6 @@
 		B1D883091E8E883D006F4831 /* NewsDataShow */ = {
 			isa = PBXGroup;
 			children = (
-				B1D8830B1E8E88DF006F4831 /* Models */,
 				B1D8830C1E8E8909006F4831 /* Views */,
 				B1D883151E8E8C98006F4831 /* NewsDataShowConfigurator.swift */,
 				B1D883161E8E8C98006F4831 /* NewsDataShowInteractor.swift */,
@@ -1966,14 +1969,6 @@
 				B1D883291E8E8D63006F4831 /* NewsActionsShowWorker.swift */,
 			);
 			path = NewsActionsShow;
-			sourceTree = "<group>";
-		};
-		B1D8830B1E8E88DF006F4831 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				B1D8830F1E8E8971006F4831 /* NewsData.swift */,
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 		B1D8830C1E8E8909006F4831 /* Views */ = {
@@ -2312,7 +2307,6 @@
 				B1CF547B1DDB50D900E98049 /* AboutShowViewController.swift in Sources */,
 				B1F7EDB81DF54878003B36AD /* SegmentedControlView.swift in Sources */,
 				B122F2051DD35BEB0018A701 /* CategoriesShowConfigurator.swift in Sources */,
-				B1D883101E8E8971006F4831 /* NewsData.swift in Sources */,
 				B177E54A1E54AC7F004F1390 /* EnterCodeShowPresenter.swift in Sources */,
 				B1CF54B41DDB516E00E98049 /* OmnieCardsShowWorker.swift in Sources */,
 				B122F2091DD35BEB0018A701 /* CategoriesShowRouter.swift in Sources */,
@@ -2429,6 +2423,7 @@
 				B19E01B01E78217500B53E02 /* NewPhoneView.swift in Sources */,
 				B1F3CD641E988ADA00ECAC35 /* CirclePhotoCollectionViewCell.swift in Sources */,
 				B1FFF7131E5F017A00A075D8 /* OrganizationsMapShowModels.swift in Sources */,
+				B14172061EA7969B006120A1 /* NewsData+CoreDataProperties.swift in Sources */,
 				B1D883301E8E8D63006F4831 /* NewsActionsShowWorker.swift in Sources */,
 				B14E97491DD8B042001E1DE2 /* SignInShowInteractor.swift in Sources */,
 				B15FD40A1DD1DD8C00782324 /* AppDelegate.swift in Sources */,
@@ -2466,6 +2461,7 @@
 				B1D738421E9382C300A764F4 /* ReviewsView.swift in Sources */,
 				B1CF54A01DDB515000E98049 /* HandbookShowConfigurator.swift in Sources */,
 				B122DF661DF7F957003823AD /* CalendarShowPresenter.swift in Sources */,
+				B14172051EA7969B006120A1 /* NewsData+CoreDataClass.swift in Sources */,
 				B1D883371E8E9150006F4831 /* News+CoreDataClass.swift in Sources */,
 				B1CF54981DDB512000E98049 /* DiscountCardsShowWorker.swift in Sources */,
 				B122F1FD1DD35BC70018A701 /* FavoriteShowWorker.swift in Sources */,

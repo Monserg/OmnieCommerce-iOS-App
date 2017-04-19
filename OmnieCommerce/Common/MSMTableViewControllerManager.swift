@@ -75,7 +75,7 @@ class MSMTableViewControllerManager: BaseViewController {
         // Set Infinite Scroll
         if (!self.tableView!.hasHeaders) {
             if (emptyText != "DropDownList") {
-                if (scrollView.contentOffset.y >= footerViewHeight && !isLoadMore) {
+                if (scrollView.contentOffset.y >= footerViewHeight && !isLoadMore && isNetworkAvailable) {
                     isLoadMore = !isLoadMore
                     
                     // Refresh FooterView

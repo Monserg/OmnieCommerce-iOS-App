@@ -49,17 +49,5 @@ class CategoriesShowPresenter: CategoriesShowPresenterInput {
         
         let categoriesViewModel = CategoriesShowModels.Categories.ViewModel()
         self.viewController.categoriesDidShowLoad(fromViewModel: categoriesViewModel)
-        
-        
-//        responseModel.responseAPI!.itemsDidLoad(fromItemsArray: responseModel.responseAPI!.body as! [Any], withItem: Category.init(), completion: { categories in
-//            // Prepare to save Categories in CoreData
-//            let _ = categories.map { $0.cellHeight = 102.0; $0.cellIdentifier = "CategoryCollectionViewCell" }
-////            let entityCategories = CoreDataManager.instance.entityDidLoad(byName: keyCategories) as! Categories
-////            let categoriesData = NSKeyedArchiver.archivedData(withRootObject: categories) as NSData?
-////            entityCategories.list = categoriesData!
-//            
-//            let categoriesViewModel = CategoriesShowModels.Categories.ViewModel(categories: categories)
-//            self.viewController.categoriesDidShowLoad(fromViewModel: categoriesViewModel)
-//        })
     }
 }

@@ -64,15 +64,16 @@ class NewsDataShowViewController: BaseViewController {
         let newsDataTableManager = MSMTableViewControllerManager.init(withTableView: self.tableView, andSectionsCount: 1, andEmptyMessageText: "NewsData list is empty")
         tableView.tableViewControllerManager = newsDataTableManager
         
-        // Load Services list from Core Data
+        // Load NewsData list from CoreData
         guard isNetworkAvailable else {
-            newsDataListDidShow(nil, fromAPI: false)
+            newsDataListDidShow()
             return
         }
         
         // Load NewsData list from API
         if (isNetworkAvailable) {
             newsData = [NewsData]()
+            CoreDataManager.instance.entitiesDidRemove(byName: "NewsData", andPredicateParameter: false)
             newsDataListDidLoad(withOffset: 0, scrollingData: false)
         } else {
             spinnerDidFinish()
@@ -89,22 +90,20 @@ class NewsDataShowViewController: BaseViewController {
         interactor.newsDataDidLoad(withRequestModel: newsDataRequestModel)
     }
     
-    func newsDataListDidShow(_ newsData: [NewsData]?, fromAPI: Bool) {
-        var newsDataList = [NewsData]()
-        
-        if (fromAPI) {
-            newsDataList = newsData!
-        } else {
-            let newsDataData = CoreDataManager.instance.entityDidLoad(byName: keyNewsData) as! News
-            newsDataList = NSKeyedUnarchiver.unarchiveObject(with: newsDataData.list! as Data) as! [NewsData]
-        }
-        
+    func newsDataListDidShow() {
         // Setting MSMTableViewControllerManager
-        tableView.tableViewControllerManager!.dataSource = newsDataList
-        tableView!.tableFooterView!.isHidden = (newsDataList.count > 0) ? true : false
-        (tableView!.tableFooterView as! MSMTableViewFooterView).didUpload(forItemsCount: newsDataList.count,
-                                                                          andEmptyText: "NewsData list is empty")
-        tableView.reloadData()
+        let newsDataList = CoreDataManager.instance.entitiesDidLoad(byName: "NewsData", andPredicateParameter: false)
+        
+        if let news = newsDataList as? [NewsData] {
+            newsData = news
+            tableView.tableViewControllerManager!.dataSource = news
+            tableView!.tableFooterView!.isHidden = (news.count > 0) ? true : false
+            
+            (tableView!.tableFooterView as! MSMTableViewFooterView).didUpload(forItemsCount: news.count,
+                                                                              andEmptyText: "NewsData list is empty")
+            
+            tableView.reloadData()
+        }
         
         // Handler select cell
         tableView.tableViewControllerManager!.handlerSelectRowCompletion = { newsData in
@@ -115,16 +114,18 @@ class NewsDataShowViewController: BaseViewController {
         tableView.tableViewControllerManager!.handlerPullRefreshCompletion = { _ in
             // Reload NewsData list from API
             self.newsData = [NewsData]()
+            CoreDataManager.instance.entitiesDidRemove(byName: "NewsData", andPredicateParameter: false)
             self.newsDataListDidLoad(withOffset: 0, scrollingData: true)
         }
         
         // Handler InfiniteScroll
         tableView.tableViewControllerManager.handlerInfiniteScrollCompletion = { _ in
             // Load More NewsData from API
-            self.newsDataListDidLoad(withOffset: newsData!.count, scrollingData: true)
+            self.newsDataListDidLoad(withOffset: self.newsData.count, scrollingData: true)
         }
         
         tableView.tableViewControllerManager.pullRefreshDidFinish()
+        spinnerDidFinish()
     }
 }
 
@@ -132,29 +133,15 @@ class NewsDataShowViewController: BaseViewController {
 // MARK: - NewsDataShowViewControllerInput
 extension NewsDataShowViewController: NewsDataShowViewControllerInput {
     func newsDataDidShowLoad(fromViewModel viewModel: NewsDataShowModels.Data.ViewModel) {
-        spinnerDidFinish()
-        
         // Check for errors
-        guard viewModel.newsData != nil else {
+        guard viewModel.status == "SUCCESS" else {
             self.alertViewDidShow(withTitle: "Error", andMessage: viewModel.status, completion: {
-                self.newsDataListDidShow(self.newsData, fromAPI: true)
+                self.newsDataListDidShow()
             })
             
             return
         }
         
-        // Save Favorite Services to CoreData
-        CoreDataManager.instance.didSaveContext()
-        
-        // Check network connection
-        guard isNetworkAvailable else {
-            // Load NewsData list from CoreData
-            self.newsDataListDidShow(nil, fromAPI: false)
-            return
-        }
-        
-        // Load NewsData list from API
-        self.newsData.append(contentsOf: viewModel.newsData!)
-        self.newsDataListDidShow(self.newsData, fromAPI: true)
+        self.newsDataListDidShow()
     }
 }
