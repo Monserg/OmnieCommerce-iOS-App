@@ -13,7 +13,7 @@ import UIKit
 
 // MARK: - Input & Output protocols
 protocol PersonalPageShowRouterInput {
-    func navigateToCategoriesShowScene()
+    func navigateToNewsShowScene()
 }
 
 class PersonalPageShowRouter: PersonalPageShowRouterInput {
@@ -66,11 +66,10 @@ class PersonalPageShowRouter: PersonalPageShowRouterInput {
 
     
     // MARK: - Custom Functions. Navigation
-    func navigateToCategoriesShowScene() {
-        let categoriesNC = UIStoryboard(name: "CategoriesShow", bundle: nil).instantiateViewController(withIdentifier: "CategoriesShowNC") as! BaseNavigationController
-
+    func navigateToNewsShowScene() {
+        let newsShowNC = UIStoryboard(name: "NewsShow", bundle: nil).instantiateViewController(withIdentifier: "NewsShowNC") as! BaseNavigationController
         viewController.revealViewController().revealToggle(animated: true)
-        viewController.revealViewController().setFront(categoriesNC, animated: true)
+        viewController.revealViewController().setFront(newsShowNC, animated: true)
         viewController.revealViewController().rightRevealToggle(animated: true)
     }
     

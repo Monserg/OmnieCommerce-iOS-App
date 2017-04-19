@@ -155,7 +155,7 @@ class PersonalPageShowViewController: BaseViewController {
         }
         
         personalDataVC!.handlerCancelButtonCompletion = { _ in
-            self.router.navigateToCategoriesShowScene()
+            self.router.navigateToNewsShowScene()
         }
 
         personalTemplatesVC = UIStoryboard(name: "PersonalPageShow", bundle: nil).instantiateViewController(withIdentifier: "PersonalTemplatesVC") as? PersonalTemplatesViewController
@@ -302,7 +302,7 @@ extension PersonalPageShowViewController: PersonalPageShowViewControllerInput {
         }
         
         CoreDataManager.instance.didSaveContext()
-        router.navigateToCategoriesShowScene()
+        router.navigateToNewsShowScene()
         
         if (viewModel.passwordsParams != nil) {
             let passwordChangeRequestModel = PersonalPageShowModels.UploadData.RequestModel(parameters: viewModel.passwordsParams!)
