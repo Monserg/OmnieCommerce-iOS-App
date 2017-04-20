@@ -37,16 +37,16 @@ class OrganizationShowPresenter: OrganizationShowPresenterInput {
         }
         
         // Prepare to save Organization profile in CoreData
-        let organization = Organization.init(withCommonProfile: false)
-  
-        organization.didMap(fromDictionary: responseModel.responseAPI?.body as! [String: Any], completion: { _ in
-//            var entityOrganization = CoreDataManager.instance.entityDidLoad(byName: keyOrganization) as? Organization
-//            entityOrganization = organization
-        
-            let organizationViewModel = OrganizationShowModels.OrganizationItem.ViewModel(status: responseModel.responseAPI!.status,
-                                                                                          organizationItem: organization)
-
-            self.viewController.organizationDidShowLoad(fromViewModel: organizationViewModel)
-        })
+////        let organization = Organization.init(withCommonProfile: false)
+//  
+//        organization.didMap(fromDictionary: responseModel.responseAPI?.body as! [String: Any], completion: { _ in
+////            var entityOrganization = CoreDataManager.instance.entityDidLoad(byName: keyOrganization) as? Organization
+////            entityOrganization = organization
+//        
+//            let organizationViewModel = OrganizationShowModels.OrganizationItem.ViewModel(status: responseModel.responseAPI!.status,
+//                                                                                          organizationItem: organization)
+//
+//            self.viewController.organizationDidShowLoad(fromViewModel: organizationViewModel)
+//        })
     }
 }

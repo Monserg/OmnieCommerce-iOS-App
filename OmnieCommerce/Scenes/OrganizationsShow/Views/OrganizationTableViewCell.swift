@@ -67,9 +67,9 @@ extension OrganizationTableViewCell: ConfigureCell {
         let organization = item as! Organization
         organizationID = organization.codeID
         nameLabel.text = organization.name
-        cityLabel.text = organization.addressCity!
-        streetLabel.text = organization.addressStreet!
-        ratingView.rating = organization.rating!
+//        cityLabel.text = organization.addressCity!
+//        streetLabel.text = organization.addressStreet!
+//        ratingView.rating = organization.rating!
         isFavorite = organization.isFavorite
         selectionStyle = .none
         

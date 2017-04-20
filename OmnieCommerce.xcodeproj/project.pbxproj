@@ -12,7 +12,6 @@
 		B10672FA1E71BE8100DB2AE0 /* MSMPickerViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10672F91E71BE8100DB2AE0 /* MSMPickerViewManager.swift */; };
 		B10871521E379A4800374DD5 /* OmnieCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10871511E379A4800374DD5 /* OmnieCard.swift */; };
 		B10871541E379A9A00374DD5 /* OmnieCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10871531E379A9A00374DD5 /* OmnieCardViewModel.swift */; };
-		B10874691E5B07A6004A4FB6 /* OmnieCommerceUser.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B10874671E5B07A6004A4FB6 /* OmnieCommerceUser.xcdatamodeld */; };
 		B108746C1E5B07D3004A4FB6 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B108746B1E5B07D3004A4FB6 /* CoreDataManager.swift */; };
 		B108747F1E5B0DC9004A4FB6 /* AppSettings+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B108747B1E5B0DC9004A4FB6 /* AppSettings+CoreDataClass.swift */; };
 		B10874801E5B0DC9004A4FB6 /* AppSettings+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B108747C1E5B0DC9004A4FB6 /* AppSettings+CoreDataProperties.swift */; };
@@ -253,8 +252,6 @@
 		B18A45CA1DEC282B003EBD2F /* DotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18A45C91DEC282B003EBD2F /* DotView.swift */; };
 		B18A45CC1DEC3918003EBD2F /* SmallCirleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18A45CB1DEC3918003EBD2F /* SmallCirleView.swift */; };
 		B19668601E73098600B9C9AE /* OrganizationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B196685F1E73098600B9C9AE /* OrganizationTableViewCell.swift */; };
-		B19A24251E8625DE0070841F /* Organizations+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19A24231E8625DE0070841F /* Organizations+CoreDataClass.swift */; };
-		B19A24261E8625DE0070841F /* Organizations+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19A24241E8625DE0070841F /* Organizations+CoreDataProperties.swift */; };
 		B19B51401E8C1BD200353CCB /* ServiceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19B513E1E8C1BD200353CCB /* ServiceTableViewCell.swift */; };
 		B19B51411E8C1BD200353CCB /* ServiceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B19B513F1E8C1BD200353CCB /* ServiceTableViewCell.xib */; };
 		B19BB61F1E6ABB690081533C /* MSMTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19BB61E1E6ABB690081533C /* MSMTableView.swift */; };
@@ -399,6 +396,9 @@
 		B1D883361E8E9150006F4831 /* Actions+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D883321E8E9150006F4831 /* Actions+CoreDataProperties.swift */; };
 		B1D883371E8E9150006F4831 /* News+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D883331E8E9150006F4831 /* News+CoreDataClass.swift */; };
 		B1D883381E8E9150006F4831 /* News+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D883341E8E9150006F4831 /* News+CoreDataProperties.swift */; };
+		B1D9AD7E1EA8A3BD006A3852 /* OmnieCommerceUser.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B1D9AD731EA8A3BD006A3852 /* OmnieCommerceUser.xcdatamodeld */; };
+		B1D9AD811EA8A40E006A3852 /* Organization+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D9AD7F1EA8A40E006A3852 /* Organization+CoreDataClass.swift */; };
+		B1D9AD821EA8A40E006A3852 /* Organization+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D9AD801EA8A40E006A3852 /* Organization+CoreDataProperties.swift */; };
 		B1DA01B11DF1CB2F00E6DD46 /* UIFont+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DA01B01DF1CB2F00E6DD46 /* UIFont+Ext.swift */; };
 		B1E52AB11DDDD0EA00C3B24D /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E52AB01DDDD0EA00C3B24D /* LaunchScreenViewController.swift */; };
 		B1E52AD31DDDDEC600C3B24D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1E52AD21DDDDEC600C3B24D /* Main.storyboard */; };
@@ -465,12 +465,9 @@
 /* Begin PBXFileReference section */
 		796E69C2BE10D1D43C710949 /* Pods-OmnieCommerce.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OmnieCommerce.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OmnieCommerce/Pods-OmnieCommerce.debug.xcconfig"; sourceTree = "<group>"; };
 		B105D1B71E76B90800FCDC73 /* ResponseAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseAPI.swift; sourceTree = "<group>"; };
-		B105D1B91E77095900FCDC73 /* OmnieCommerceUser v. 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "OmnieCommerceUser v. 3.xcdatamodel"; sourceTree = "<group>"; };
-		B105D1BA1E770C5F00FCDC73 /* OmnieCommerceUser v.4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "OmnieCommerceUser v.4.xcdatamodel"; sourceTree = "<group>"; };
 		B10672F91E71BE8100DB2AE0 /* MSMPickerViewManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSMPickerViewManager.swift; sourceTree = "<group>"; };
 		B10871511E379A4800374DD5 /* OmnieCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OmnieCard.swift; sourceTree = "<group>"; };
 		B10871531E379A9A00374DD5 /* OmnieCardViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OmnieCardViewModel.swift; sourceTree = "<group>"; };
-		B10874681E5B07A6004A4FB6 /* OmnieCommerceUser.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = OmnieCommerceUser.xcdatamodel; sourceTree = "<group>"; };
 		B108746B1E5B07D3004A4FB6 /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		B108747B1E5B0DC9004A4FB6 /* AppSettings+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AppSettings+CoreDataClass.swift"; sourceTree = "<group>"; };
 		B108747C1E5B0DC9004A4FB6 /* AppSettings+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AppSettings+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -662,7 +659,6 @@
 		B1597ACF1E3F42B600123CB5 /* AvatarActionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvatarActionView.swift; sourceTree = "<group>"; };
 		B1597AD11E3F42BD00123CB5 /* AvatarActionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AvatarActionView.xib; sourceTree = "<group>"; };
 		B1597AD31E3FA91400123CB5 /* EllipseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EllipseView.swift; sourceTree = "<group>"; };
-		B15E32C41E7FC6930040EDD9 /* OmnieCommerceUser v.10.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "OmnieCommerceUser v.10.xcdatamodel"; sourceTree = "<group>"; };
 		B15ED1F31E68433200039737 /* Schedule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
 		B15F95AE1EA1D4230009AD28 /* Subcategory+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Subcategory+CoreDataClass.swift"; sourceTree = "<group>"; };
 		B15F95AF1EA1D4230009AD28 /* Subcategory+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Subcategory+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -671,7 +667,6 @@
 		B15FD4061DD1DD8C00782324 /* OmnieCommerce.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OmnieCommerce.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B15FD4091DD1DD8C00782324 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B15FD4151DD1DD8C00782324 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Info.plist; sourceTree = "<group>"; };
-		B163FE6F1E6FB4E3004AF42E /* OmnieCommerceUser v.2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "OmnieCommerceUser v.2.xcdatamodel"; sourceTree = "<group>"; };
 		B163FE701E6FE039004AF42E /* UbuntuLightItalicDarkCyanButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UbuntuLightItalicDarkCyanButton.swift; sourceTree = "<group>"; };
 		B16AD9401E9672E600A51E73 /* NewsItemShowRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsItemShowRouter.swift; sourceTree = "<group>"; };
 		B16D5D6B1E9B993200FCA885 /* UbuntuLightItalicVeryLightGrayLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UbuntuLightItalicVeryLightGrayLabel.swift; sourceTree = "<group>"; };
@@ -709,7 +704,6 @@
 		B177E55D1E54B8F6004F1390 /* PasswordStrengthLevelView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordStrengthLevelView.swift; sourceTree = "<group>"; };
 		B17D92DA1E6FFC290028967E /* UbuntuLightItalicModerateRedLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UbuntuLightItalicModerateRedLabel.swift; sourceTree = "<group>"; };
 		B17D92DC1E701D750028967E /* MSMTextFieldManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSMTextFieldManager.swift; sourceTree = "<group>"; };
-		B17E49081E7BA5A10008A463 /* OmnieCommerceUser v.6.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "OmnieCommerceUser v.6.xcdatamodel"; sourceTree = "<group>"; };
 		B17EBF171E9B5286000E61AA /* UbuntuLightSoftCyanLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UbuntuLightSoftCyanLabel.swift; sourceTree = "<group>"; };
 		B17EBF191E9B69A4000E61AA /* DiscountTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscountTableViewCell.swift; sourceTree = "<group>"; };
 		B17EBF1A1E9B69A4000E61AA /* DiscountTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DiscountTableViewCell.xib; sourceTree = "<group>"; };
@@ -721,8 +715,6 @@
 		B18A45C91DEC282B003EBD2F /* DotView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DotView.swift; sourceTree = "<group>"; };
 		B18A45CB1DEC3918003EBD2F /* SmallCirleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmallCirleView.swift; sourceTree = "<group>"; };
 		B196685F1E73098600B9C9AE /* OrganizationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrganizationTableViewCell.swift; sourceTree = "<group>"; };
-		B19A24231E8625DE0070841F /* Organizations+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Organizations+CoreDataClass.swift"; sourceTree = "<group>"; };
-		B19A24241E8625DE0070841F /* Organizations+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Organizations+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		B19B513E1E8C1BD200353CCB /* ServiceTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceTableViewCell.swift; sourceTree = "<group>"; };
 		B19B513F1E8C1BD200353CCB /* ServiceTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ServiceTableViewCell.xib; sourceTree = "<group>"; };
 		B19BB61E1E6ABB690081533C /* MSMTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSMTableView.swift; sourceTree = "<group>"; };
@@ -735,9 +727,6 @@
 		B19DFAC01E64B9F100599073 /* UITextField+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+Ext.swift"; sourceTree = "<group>"; };
 		B19E01AF1E78217500B53E02 /* NewPhoneView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPhoneView.swift; sourceTree = "<group>"; };
 		B19E01B11E78217F00B53E02 /* NewPhoneView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewPhoneView.xib; sourceTree = "<group>"; };
-		B1A9ACCB1E7C23F00010FF05 /* OmnieCommerceUser v.8.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "OmnieCommerceUser v.8.xcdatamodel"; sourceTree = "<group>"; };
-		B1A9ACD01E7C70330010FF05 /* OmnieCommerceUser v.9.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "OmnieCommerceUser v.9.xcdatamodel"; sourceTree = "<group>"; };
-		B1B4E4831E77161B00EAECB0 /* OmnieCommerceUser v.5.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "OmnieCommerceUser v.5.xcdatamodel"; sourceTree = "<group>"; };
 		B1B761C91E62D0030067339F /* OrganizationTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OrganizationTableViewCell.xib; sourceTree = "<group>"; };
 		B1BEEDE51E63402000F1DE8A /* ListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListTableViewController.swift; sourceTree = "<group>"; };
 		B1BEEDE81E63687500F1DE8A /* OrganizationShowConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrganizationShowConfigurator.swift; sourceTree = "<group>"; };
@@ -780,7 +769,6 @@
 		B1C6F35C1DD9C718004695C2 /* MenuItemsList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = MenuItemsList.plist; sourceTree = "<group>"; };
 		B1C94BBD1E37823C00122933 /* BarCodeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BarCodeView.xib; sourceTree = "<group>"; };
 		B1C94BC11E37825E00122933 /* BarCodeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarCodeView.swift; sourceTree = "<group>"; };
-		B1CDA7401E7C11FC00467E4F /* OmnieCommerceUser v.7.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "OmnieCommerceUser v.7.xcdatamodel"; sourceTree = "<group>"; };
 		B1CF54631DDAE78200E98049 /* CustomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		B1CF546F1DDB50D900E98049 /* AboutShowConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutShowConfigurator.swift; sourceTree = "<group>"; };
 		B1CF54701DDB50D900E98049 /* AboutShowInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutShowInteractor.swift; sourceTree = "<group>"; };
@@ -872,6 +860,18 @@
 		B1D883321E8E9150006F4831 /* Actions+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Actions+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		B1D883331E8E9150006F4831 /* News+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "News+CoreDataClass.swift"; sourceTree = "<group>"; };
 		B1D883341E8E9150006F4831 /* News+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "News+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		B1D9AD741EA8A3BD006A3852 /* OmnieCommerceUser v. 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "OmnieCommerceUser v. 3.xcdatamodel"; sourceTree = "<group>"; };
+		B1D9AD751EA8A3BD006A3852 /* OmnieCommerceUser v.10.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "OmnieCommerceUser v.10.xcdatamodel"; sourceTree = "<group>"; };
+		B1D9AD761EA8A3BD006A3852 /* OmnieCommerceUser v.2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "OmnieCommerceUser v.2.xcdatamodel"; sourceTree = "<group>"; };
+		B1D9AD771EA8A3BD006A3852 /* OmnieCommerceUser v.4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "OmnieCommerceUser v.4.xcdatamodel"; sourceTree = "<group>"; };
+		B1D9AD781EA8A3BD006A3852 /* OmnieCommerceUser v.5.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "OmnieCommerceUser v.5.xcdatamodel"; sourceTree = "<group>"; };
+		B1D9AD791EA8A3BD006A3852 /* OmnieCommerceUser v.6.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "OmnieCommerceUser v.6.xcdatamodel"; sourceTree = "<group>"; };
+		B1D9AD7A1EA8A3BD006A3852 /* OmnieCommerceUser v.7.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "OmnieCommerceUser v.7.xcdatamodel"; sourceTree = "<group>"; };
+		B1D9AD7B1EA8A3BD006A3852 /* OmnieCommerceUser v.8.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "OmnieCommerceUser v.8.xcdatamodel"; sourceTree = "<group>"; };
+		B1D9AD7C1EA8A3BD006A3852 /* OmnieCommerceUser v.9.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "OmnieCommerceUser v.9.xcdatamodel"; sourceTree = "<group>"; };
+		B1D9AD7D1EA8A3BD006A3852 /* OmnieCommerceUser.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = OmnieCommerceUser.xcdatamodel; sourceTree = "<group>"; };
+		B1D9AD7F1EA8A40E006A3852 /* Organization+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Organization+CoreDataClass.swift"; sourceTree = "<group>"; };
+		B1D9AD801EA8A40E006A3852 /* Organization+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Organization+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		B1DA01B01DF1CB2F00E6DD46 /* UIFont+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+Ext.swift"; sourceTree = "<group>"; };
 		B1E52AB01DDDD0EA00C3B24D /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewController.swift; sourceTree = "<group>"; };
 		B1E52AD21DDDDEC600C3B24D /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -1002,7 +1002,7 @@
 			children = (
 				B108746A1E5B07B2004A4FB6 /* Models */,
 				B108746B1E5B07D3004A4FB6 /* CoreDataManager.swift */,
-				B10874671E5B07A6004A4FB6 /* OmnieCommerceUser.xcdatamodeld */,
+				B1D9AD731EA8A3BD006A3852 /* OmnieCommerceUser.xcdatamodeld */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -1028,8 +1028,8 @@
 				B1D883341E8E9150006F4831 /* News+CoreDataProperties.swift */,
 				B14172031EA7969B006120A1 /* NewsData+CoreDataClass.swift */,
 				B14172041EA7969B006120A1 /* NewsData+CoreDataProperties.swift */,
-				B19A24231E8625DE0070841F /* Organizations+CoreDataClass.swift */,
-				B19A24241E8625DE0070841F /* Organizations+CoreDataProperties.swift */,
+				B1D9AD7F1EA8A40E006A3852 /* Organization+CoreDataClass.swift */,
+				B1D9AD801EA8A40E006A3852 /* Organization+CoreDataProperties.swift */,
 				B1EC9F421E8C13FE00F2E342 /* Services+CoreDataClass.swift */,
 				B1EC9F431E8C13FE00F2E342 /* Services+CoreDataProperties.swift */,
 				B15F95AE1EA1D4230009AD28 /* Subcategory+CoreDataClass.swift */,
@@ -2377,6 +2377,7 @@
 				B122F1DD1DD35B760018A701 /* OrdersShowModels.swift in Sources */,
 				B11DCAF41E9E234200180375 /* GalleryImage+CoreDataClass.swift in Sources */,
 				B10B48DD1E8A5B2E007DDD81 /* FavoriteOrganizationsShowRouter.swift in Sources */,
+				B1D9AD821EA8A40E006A3852 /* Organization+CoreDataProperties.swift in Sources */,
 				B1FFF7021E5ECDF900A075D8 /* OrganizationsShowModels.swift in Sources */,
 				B1CF54CC1DDB51A500E98049 /* PersonalPageShowModels.swift in Sources */,
 				B1739D1A1DE314DF0029BCCA /* UIColor+Ext.swift in Sources */,
@@ -2390,7 +2391,6 @@
 				B10B48DE1E8A5B2E007DDD81 /* FavoriteOrganizationsShowViewController.swift in Sources */,
 				B10B48DF1E8A5B2E007DDD81 /* FavoriteOrganizationsShowWorker.swift in Sources */,
 				B1D883201E8E8C98006F4831 /* NewsDataShowRouter.swift in Sources */,
-				B10874691E5B07A6004A4FB6 /* OmnieCommerceUser.xcdatamodeld in Sources */,
 				B1FFF7341E5F0F9E00A075D8 /* PointAnnotation.swift in Sources */,
 				B1F3CD581E97DCB600ECAC35 /* ModalView.swift in Sources */,
 				B16AD9411E9672E600A51E73 /* NewsItemShowRouter.swift in Sources */,
@@ -2423,6 +2423,7 @@
 				B19E01B01E78217500B53E02 /* NewPhoneView.swift in Sources */,
 				B1F3CD641E988ADA00ECAC35 /* CirclePhotoCollectionViewCell.swift in Sources */,
 				B1FFF7131E5F017A00A075D8 /* OrganizationsMapShowModels.swift in Sources */,
+				B1D9AD7E1EA8A3BD006A3852 /* OmnieCommerceUser.xcdatamodeld in Sources */,
 				B14172061EA7969B006120A1 /* NewsData+CoreDataProperties.swift in Sources */,
 				B1D883301E8E8D63006F4831 /* NewsActionsShowWorker.swift in Sources */,
 				B14E97491DD8B042001E1DE2 /* SignInShowInteractor.swift in Sources */,
@@ -2489,8 +2490,8 @@
 				B184A9581E9BE9F9005B3A10 /* ReviewCollectionViewCell.swift in Sources */,
 				B177E55B1E54B739004F1390 /* RepetitionPasswordShowViewController.swift in Sources */,
 				B177E5371E5475EC004F1390 /* SignInContainerShowPresenter.swift in Sources */,
-				B19A24261E8625DE0070841F /* Organizations+CoreDataProperties.swift in Sources */,
 				B14E974C1DD8B042001E1DE2 /* SignInShowRouter.swift in Sources */,
+				B1D9AD811EA8A40E006A3852 /* Organization+CoreDataClass.swift in Sources */,
 				B137EC931E7D19B0006F0184 /* MSMCollectionView.swift in Sources */,
 				B1FBC9251E6D948B00D86429 /* UbuntuLightVeryLightOrangeButton.swift in Sources */,
 				B14E97651DD8B05E001E1DE2 /* ForgotPasswordShowInteractor.swift in Sources */,
@@ -2623,7 +2624,6 @@
 				B1BEEDF31E63687500F1DE8A /* OrganizationShowRouter.swift in Sources */,
 				B14E975A1DD8B052001E1DE2 /* SignUpShowRouter.swift in Sources */,
 				B19DF2841DF94DCD000AFC92 /* CalendarViewController.swift in Sources */,
-				B19A24251E8625DE0070841F /* Organizations+CoreDataClass.swift in Sources */,
 				B14C07211EA0993800556866 /* ServicesShowPresenter.swift in Sources */,
 				B11B9ADD1DF053BA009A4AA1 /* CustomImageView.swift in Sources */,
 				B1C13D871DEF2743002B494A /* DropDownButton.swift in Sources */,
@@ -2841,21 +2841,21 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		B10874671E5B07A6004A4FB6 /* OmnieCommerceUser.xcdatamodeld */ = {
+		B1D9AD731EA8A3BD006A3852 /* OmnieCommerceUser.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				B15E32C41E7FC6930040EDD9 /* OmnieCommerceUser v.10.xcdatamodel */,
-				B1A9ACD01E7C70330010FF05 /* OmnieCommerceUser v.9.xcdatamodel */,
-				B1A9ACCB1E7C23F00010FF05 /* OmnieCommerceUser v.8.xcdatamodel */,
-				B1CDA7401E7C11FC00467E4F /* OmnieCommerceUser v.7.xcdatamodel */,
-				B17E49081E7BA5A10008A463 /* OmnieCommerceUser v.6.xcdatamodel */,
-				B1B4E4831E77161B00EAECB0 /* OmnieCommerceUser v.5.xcdatamodel */,
-				B105D1BA1E770C5F00FCDC73 /* OmnieCommerceUser v.4.xcdatamodel */,
-				B105D1B91E77095900FCDC73 /* OmnieCommerceUser v. 3.xcdatamodel */,
-				B163FE6F1E6FB4E3004AF42E /* OmnieCommerceUser v.2.xcdatamodel */,
-				B10874681E5B07A6004A4FB6 /* OmnieCommerceUser.xcdatamodel */,
+				B1D9AD741EA8A3BD006A3852 /* OmnieCommerceUser v. 3.xcdatamodel */,
+				B1D9AD751EA8A3BD006A3852 /* OmnieCommerceUser v.10.xcdatamodel */,
+				B1D9AD761EA8A3BD006A3852 /* OmnieCommerceUser v.2.xcdatamodel */,
+				B1D9AD771EA8A3BD006A3852 /* OmnieCommerceUser v.4.xcdatamodel */,
+				B1D9AD781EA8A3BD006A3852 /* OmnieCommerceUser v.5.xcdatamodel */,
+				B1D9AD791EA8A3BD006A3852 /* OmnieCommerceUser v.6.xcdatamodel */,
+				B1D9AD7A1EA8A3BD006A3852 /* OmnieCommerceUser v.7.xcdatamodel */,
+				B1D9AD7B1EA8A3BD006A3852 /* OmnieCommerceUser v.8.xcdatamodel */,
+				B1D9AD7C1EA8A3BD006A3852 /* OmnieCommerceUser v.9.xcdatamodel */,
+				B1D9AD7D1EA8A3BD006A3852 /* OmnieCommerceUser.xcdatamodel */,
 			);
-			currentVersion = B15E32C41E7FC6930040EDD9 /* OmnieCommerceUser v.10.xcdatamodel */;
+			currentVersion = B1D9AD751EA8A3BD006A3852 /* OmnieCommerceUser v.10.xcdatamodel */;
 			path = OmnieCommerceUser.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

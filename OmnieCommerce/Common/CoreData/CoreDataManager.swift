@@ -231,7 +231,11 @@ class CoreDataManager {
         case "NewsData":
             let isAction = parameter as! Bool
             predicate = NSPredicate(format: "isAction == \(isAction)")
-            
+
+        case "Organization":
+            let catalog = parameter as! String
+            predicate = NSPredicate(format: "catalog == %@", catalog)
+
         default:
             break
         }

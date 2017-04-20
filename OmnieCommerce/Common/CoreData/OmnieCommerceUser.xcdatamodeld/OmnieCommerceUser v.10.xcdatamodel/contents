@@ -33,6 +33,7 @@
         <attribute name="codeID" attributeType="String" syncable="YES"/>
         <attribute name="imagePath" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" attributeType="String" syncable="YES"/>
+        <relationship name="organization" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Organization" inverseName="category" inverseEntity="Organization" syncable="YES"/>
         <relationship name="subcategories" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Subcategory" inverseName="category" inverseEntity="Subcategory" syncable="YES"/>
         <uniquenessConstraints>
             <uniquenessConstraint>
@@ -67,9 +68,18 @@
             </uniquenessConstraint>
         </uniquenessConstraints>
     </entity>
-    <entity name="Organization" representedClassName="Organization" syncable="YES"/>
-    <entity name="Organizations" representedClassName="Organizations" syncable="YES">
-        <attribute name="list" optional="YES" attributeType="Binary" syncable="YES"/>
+    <entity name="Organization" representedClassName="Organization" syncable="YES">
+        <attribute name="catalog" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="codeID" attributeType="String" syncable="YES"/>
+        <attribute name="isFavorite" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="logoURL" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="nameValue" attributeType="String" syncable="YES"/>
+        <relationship name="category" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Category" inverseName="organization" inverseEntity="Category" syncable="YES"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="codeID"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
     </entity>
     <entity name="Services" representedClassName="Services" syncable="YES">
         <attribute name="list" optional="YES" attributeType="Binary" syncable="YES"/>
@@ -89,13 +99,12 @@
         <element name="Actions" positionX="-27" positionY="108" width="128" height="60"/>
         <element name="AppSettings" positionX="-54" positionY="-9" width="128" height="60"/>
         <element name="AppUser" positionX="-63" positionY="-18" width="128" height="285"/>
-        <element name="Category" positionX="270" positionY="-72" width="128" height="103"/>
+        <element name="Category" positionX="270" positionY="-72" width="128" height="120"/>
         <element name="FavoriteOrganizations" positionX="-45" positionY="108" width="128" height="60"/>
         <element name="FavoriteServices" positionX="-18" positionY="126" width="128" height="60"/>
         <element name="GalleryImage" positionX="-36" positionY="99" width="128" height="105"/>
         <element name="NewsData" positionX="-36" positionY="99" width="128" height="165"/>
-        <element name="Organization" positionX="-36" positionY="99" width="128" height="45"/>
-        <element name="Organizations" positionX="-54" positionY="99" width="128" height="60"/>
+        <element name="Organization" positionX="-36" positionY="99" width="128" height="135"/>
         <element name="Services" positionX="-36" positionY="117" width="128" height="60"/>
         <element name="Subcategory" positionX="475" positionY="-69" width="128" height="103"/>
     </elements>

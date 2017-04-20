@@ -66,13 +66,14 @@ class FavoriteOrganizationsShowViewController: BaseViewController {
 
         // Load Organizations list from Core Data
         guard isNetworkAvailable else {
-            favoriteOrganizationsListDidShow(nil, fromAPI: false)
+            favoriteOrganizationsListDidShow()
             return
         }
         
         // Load Organizations list from API
         if (isNetworkAvailable) {
             organizations = [Organization]()
+            CoreDataManager.instance.entitiesDidRemove(byName: "Organization", andPredicateParameter: keyFavoriteOrganizations)
             favoriteOrganizationsListDidLoad(withOffset: 0, scrollingData: false)
         } else {
             spinnerDidFinish()
@@ -89,22 +90,21 @@ class FavoriteOrganizationsShowViewController: BaseViewController {
         interactor.favoriteOrganizationsDidLoad(withRequestModel: organizationsRequestModel)
     }
     
-    func favoriteOrganizationsListDidShow(_ organizations: [Organization]?, fromAPI: Bool) {
-        var organizationsList = [Organization]()
-        
-        if (fromAPI) {
-            organizationsList = organizations!
-        } else {
-            let organizationsData = CoreDataManager.instance.entityDidLoad(byName: keyFavoriteOrganizations) as! Organizations
-            organizationsList = NSKeyedUnarchiver.unarchiveObject(with: organizationsData.list! as Data) as! [Organization]
-        }
-        
+    func favoriteOrganizationsListDidShow() {
         // Setting MSMTableViewControllerManager
-        tableView.tableViewControllerManager!.dataSource = organizationsList
-        tableView!.tableFooterView!.isHidden = (organizationsList.count > 0) ? true : false
-        (tableView!.tableFooterView as! MSMTableViewFooterView).didUpload(forItemsCount: organizationsList.count,
-                                                                          andEmptyText: "Organizations list is empty")
-        tableView.reloadData()
+        let organizationsList = CoreDataManager.instance.entitiesDidLoad(byName: "Organization", andPredicateParameter: keyFavoriteOrganizations)
+        
+        if let organizations = organizationsList as? [Organization] {
+            self.organizations = organizations
+            
+            tableView.tableViewControllerManager!.dataSource = organizations
+            tableView!.tableFooterView!.isHidden = (organizations.count > 0) ? true : false
+           
+            (tableView!.tableFooterView as! MSMTableViewFooterView).didUpload(forItemsCount: organizations.count,
+                                                                              andEmptyText: "Organizations list is empty")
+            
+            tableView.reloadData()
+        }
         
         // Handler select cell
         tableView.tableViewControllerManager!.handlerSelectRowCompletion = { organization in
@@ -115,6 +115,7 @@ class FavoriteOrganizationsShowViewController: BaseViewController {
         tableView.tableViewControllerManager!.handlerPullRefreshCompletion = { _ in
             // Reload Organizations list from API
             self.organizations = [Organization]()
+            CoreDataManager.instance.entitiesDidRemove(byName: "Organization", andPredicateParameter: keyFavoriteOrganizations)
             self.limit = Config.Constants.paginationLimit
             self.favoriteOrganizationsListDidLoad(withOffset: 0, scrollingData: true)
         }
@@ -122,10 +123,11 @@ class FavoriteOrganizationsShowViewController: BaseViewController {
         // Handler InfiniteScroll
         tableView.tableViewControllerManager.handlerInfiniteScrollCompletion = { _ in
             // Load More Organizations from API
-            self.favoriteOrganizationsListDidLoad(withOffset: organizations!.count, scrollingData: true)
+            self.favoriteOrganizationsListDidLoad(withOffset: self.organizations.count, scrollingData: true)
         }
         
         tableView.tableViewControllerManager.pullRefreshDidFinish()
+        spinnerDidFinish()
     }
 }
 
@@ -133,29 +135,15 @@ class FavoriteOrganizationsShowViewController: BaseViewController {
 // MARK: - FavoriteOrganizationsShowViewControllerInput
 extension FavoriteOrganizationsShowViewController: FavoriteOrganizationsShowViewControllerInput {
     func favoriteOrganizationsDidShowLoad(fromViewModel viewModel: FavoriteOrganizationsShowModels.Organizations.ViewModel) {
-        spinnerDidFinish()
-        
         // Check for errors
-        guard viewModel.organizations != nil else {
+        guard viewModel.status == "SUCCESS" else {
             self.alertViewDidShow(withTitle: "Error", andMessage: viewModel.status, completion: {
-                self.favoriteOrganizationsListDidShow(self.organizations, fromAPI: true)
+                self.favoriteOrganizationsListDidShow()
             })
 
             return
         }
         
-        // Save Favorite Organizations to CoreData
-        CoreDataManager.instance.didSaveContext()
-        
-        // Check network connection
-        guard isNetworkAvailable else {
-            // Load Favorite Organizations list from CoreData
-            self.favoriteOrganizationsListDidShow(nil, fromAPI: false)
-            return
-        }
-        
-        // Load Favorite Organizations list from API
-        self.organizations.append(contentsOf: viewModel.organizations!)
-        self.favoriteOrganizationsListDidShow(organizations, fromAPI: true)
+        self.favoriteOrganizationsListDidShow()
     }
 }

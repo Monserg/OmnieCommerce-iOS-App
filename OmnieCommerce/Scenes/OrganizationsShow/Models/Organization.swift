@@ -10,7 +10,7 @@
 import Foundation
 import CoreLocation
 
-class Organization: NSObject, NSCoding, InitCellParameters, SearchObject, PointAnnotationBinding {
+class OrganizationOld: NSObject, NSCoding, InitCellParameters, SearchObject, PointAnnotationBinding {
     // MARK: - Properties
     var category: Category?
     var canUserSendReview: Bool = false
@@ -19,7 +19,6 @@ class Organization: NSObject, NSCoding, InitCellParameters, SearchObject, PointA
     // From common API response
     var codeID: String!
     var logoURL: String?
-    var rating: Double?
     var isFavorite: Bool = false
 
     // Confirm SearchObject Protocol
@@ -36,6 +35,7 @@ class Organization: NSObject, NSCoding, InitCellParameters, SearchObject, PointA
     var cellHeight: CGFloat = 96.0
     
     // From full API response
+    var rating: Double?
     var email: String?
     var headerURL: String?
     var descriptionTitle: String?
@@ -146,7 +146,7 @@ class Organization: NSObject, NSCoding, InitCellParameters, SearchObject, PointA
 
 
 // MARK: - MapObjectBinding
-extension Organization: MapObjectBinding {
+extension OrganizationOld: MapObjectBinding {
     func didMap(fromDictionary dictionary: [String: Any], completion: @escaping (() -> ())) {
         // Common profile
         self.name = dictionary["orgName"] as! String
@@ -281,9 +281,9 @@ extension Organization: MapObjectBinding {
 
 
 // MARK: - NSCopying
-extension Organization: NSCopying {
-    func copy(with zone: NSZone? = nil) -> Any {
-        let copy = Organization.init(withCommonProfile: self.isCommonProfile)
-        return copy
-    }
-}
+//extension OrganizationOld: NSCopying {
+////    func copy(with zone: NSZone? = nil) -> Any {
+////        let copy = Organization.init(withCommonProfile: self.isCommonProfile)
+////        return copy
+////    }
+//}

@@ -23,7 +23,6 @@ struct FavoriteOrganizationsShowModels {
         }
         
         struct ViewModel {
-            let organizations: [Organization]?
             let status: String
         }
     }    

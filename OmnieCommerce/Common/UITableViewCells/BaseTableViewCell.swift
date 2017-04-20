@@ -65,9 +65,9 @@ enum CellStyle: String {
         case is Organization:
             let organization                    =   item as! Organization
             nameLabel.text                      =   organization.name
-            cityLabel.text                      =   organization.addressCity!
-            streetLabel.text                    =   organization.addressStreet!
-            ratingView.rating                   =   organization.rating!
+//            cityLabel.text                      =   organization.addressCity!
+//            streetLabel.text                    =   organization.addressStreet!
+//            ratingView.rating                   =   organization.rating!
             isFavorite                          =   organization.isFavorite
             
             favoriteButton.setImage((isFavorite) ? UIImage(named: "image-favorite-star-selected") : UIImage(named: "image-favorite-star-normal"), for: .normal)

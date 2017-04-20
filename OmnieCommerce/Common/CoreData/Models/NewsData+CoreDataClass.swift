@@ -41,12 +41,12 @@ public class NewsData: NSManagedObject, InitCellParameters {
         self.activeDate = date.convertToDate(withDateFormat: .NewsDate) as NSDate
         self.organizationID = organizationID
         
-        if (json["text"] as? String != nil) {
-            self.text = json["text"] as? String
+        if let message = json["text"] as? String {
+            self.text = message
         }
         
-        if (json["imageUrl"] as? String != nil) {
-            self.logoStringURL = "\(MSMRestApiManager.instance.appHostURL.absoluteString)\(json["imageUrl"] as! String)"
+        if let imageURL = json["imageUrl"] as? String {
+            self.logoStringURL = "\(MSMRestApiManager.instance.appHostURL.absoluteString)\(imageURL)"
         }
         
         // Map Services list

@@ -134,6 +134,7 @@ class OrganizationsShowViewController: BaseViewController {
         
         // Load Organizations list from API
         organizations = [Organization]()
+        CoreDataManager.instance.entitiesDidRemove(byName: "Organization", andPredicateParameter: nil)
         organizationsListDidLoad(withOffset: 0, subCategory: self.subcategoryCode, filter: "", scrollingData: false)
     }
     
@@ -160,8 +161,8 @@ class OrganizationsShowViewController: BaseViewController {
         if (fromAPI) {
             organizationsList = organizations!
         } else {
-            let organizationsData = CoreDataManager.instance.entityDidLoad(byName: keyOrganizations) as! Organizations
-            organizationsList = NSKeyedUnarchiver.unarchiveObject(with: organizationsData.list! as Data) as! [Organization]
+//            let organizationsData = CoreDataManager.instance.entityDidLoad(byName: keyOrganizations) as! Organizations
+//            organizationsList = NSKeyedUnarchiver.unarchiveObject(with: organizationsData.list! as Data) as! [Organization]
         }
 
         // Setting MSMTableViewControllerManager

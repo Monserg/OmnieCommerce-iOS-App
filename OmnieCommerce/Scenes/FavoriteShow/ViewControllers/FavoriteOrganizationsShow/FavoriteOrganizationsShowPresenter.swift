@@ -29,22 +29,23 @@ class FavoriteOrganizationsShowPresenter: FavoriteOrganizationsShowPresenterInpu
     // MARK: - Custom Functions. Presentation logic
     func favoriteOrganizationsDidPrepareToShowLoad(fromResponseModel responseModel: FavoriteOrganizationsShowModels.Organizations.ResponseModel) {
         guard responseModel.responseAPI?.body != nil else {
-            let organizationsViewModel = FavoriteOrganizationsShowModels.Organizations.ViewModel(organizations: nil, status: (responseModel.responseAPI?.status)!)
+            let organizationsViewModel = FavoriteOrganizationsShowModels.Organizations.ViewModel(status: (responseModel.responseAPI?.status)!)
             self.viewController.favoriteOrganizationsDidShowLoad(fromViewModel: organizationsViewModel)
 
             return
         }
         
-        // Format the response from the Interactor and pass the result back to the View Controller
-        responseModel.responseAPI!.itemsDidLoad(fromItemsArray: responseModel.responseAPI!.body as! [Any], withItem: Organization.init(withCommonProfile: true), completion: { favoriteOrganizations in
-            // Prepare to save Favorite Organizations in CoreData
-            let _ = favoriteOrganizations.map { $0.cellHeight = 60.0; $0.cellIdentifier = "FavoriteOrganizationTableViewCell" }
-            let entityFavoriteOrganizations = CoreDataManager.instance.entityDidLoad(byName: keyFavoriteOrganizations) as! FavoriteOrganizations
-            let favoriteOrganizationsData = NSKeyedArchiver.archivedData(withRootObject: favoriteOrganizations) as NSData?
-            entityFavoriteOrganizations.list = favoriteOrganizationsData!
+        // Convert responseAPI body to Organization CoreData objects
+        for json in responseModel.responseAPI!.body as! [Any] {
+            let item = Organization.init(json: json as! [String: AnyObject])
             
-            let organizationsViewModel = FavoriteOrganizationsShowModels.Organizations.ViewModel(organizations: favoriteOrganizations, status: (responseModel.responseAPI?.status)!)
+            if let organization = item {
+                organization.catalog = keyFavoriteOrganizations
+                CoreDataManager.instance.didSaveContext()
+            }
+            
+            let organizationsViewModel = FavoriteOrganizationsShowModels.Organizations.ViewModel(status: (responseModel.responseAPI?.status)!)
             self.viewController.favoriteOrganizationsDidShowLoad(fromViewModel: organizationsViewModel)
-        })
+        }
     }
 }
