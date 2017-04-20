@@ -41,6 +41,9 @@ class FavoriteOrganizationsShowPresenter: FavoriteOrganizationsShowPresenterInpu
             
             if let organization = item {
                 organization.catalog = keyFavoriteOrganizations
+                organization.cellIdentifier = "FavoriteOrganizationTableViewCell"
+                organization.cellHeight = 60.0
+                
                 CoreDataManager.instance.didSaveContext()
             }
             

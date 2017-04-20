@@ -69,15 +69,20 @@
         </uniquenessConstraints>
     </entity>
     <entity name="Organization" representedClassName="Organization" syncable="YES">
+        <attribute name="addressCityValue" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="addressStreetValue" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="catalog" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="codeID" attributeType="String" syncable="YES"/>
         <attribute name="isFavorite" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="latitudeValue" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="logoURL" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="longitudeValue" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="nameValue" attributeType="String" syncable="YES"/>
         <relationship name="category" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Category" inverseName="organization" inverseEntity="Category" syncable="YES"/>
         <uniquenessConstraints>
             <uniquenessConstraint>
                 <constraint value="codeID"/>
+                <constraint value="catalog"/>
             </uniquenessConstraint>
         </uniquenessConstraints>
     </entity>
@@ -95,6 +100,7 @@
             </uniquenessConstraint>
         </uniquenessConstraints>
     </entity>
+    <fetchRequest name="OrganizationsByCategory" entity="Organization" predicateString="catalog == &quot;FavoriteOrganizations&quot;"/>
     <elements>
         <element name="Actions" positionX="-27" positionY="108" width="128" height="60"/>
         <element name="AppSettings" positionX="-54" positionY="-9" width="128" height="60"/>
@@ -104,7 +110,7 @@
         <element name="FavoriteServices" positionX="-18" positionY="126" width="128" height="60"/>
         <element name="GalleryImage" positionX="-36" positionY="99" width="128" height="105"/>
         <element name="NewsData" positionX="-36" positionY="99" width="128" height="165"/>
-        <element name="Organization" positionX="-36" positionY="99" width="128" height="135"/>
+        <element name="Organization" positionX="-36" positionY="99" width="128" height="195"/>
         <element name="Services" positionX="-36" positionY="117" width="128" height="60"/>
         <element name="Subcategory" positionX="475" positionY="-69" width="128" height="103"/>
     </elements>

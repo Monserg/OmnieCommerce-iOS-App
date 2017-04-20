@@ -31,10 +31,37 @@ class OrganizationsShowPresenter: OrganizationsShowPresenterInput {
     // MARK: - Custom Functions. Presentation logic
     func organizationsDidPrepareToShowLoad(fromResponseModel responseModel: OrganizationsShowModels.Organizations.ResponseModel) {
         guard responseModel.responseAPI?.body != nil else {
-            let organizationsViewModel = OrganizationsShowModels.Organizations.ViewModel(organizations: nil, status: (responseModel.responseAPI?.status)!)
+            let organizationsViewModel = OrganizationsShowModels.Organizations.ViewModel(status: (responseModel.responseAPI?.status)!)
             self.viewController.organizationsDidShowLoad(fromViewModel: organizationsViewModel)
             return
         }
+        
+        // Convert responseAPI body to Organization CoreData objects
+        var counter: Int = 0
+        
+        for json in responseModel.responseAPI!.body as! [Any] {
+            counter += 1
+            let item = Organization.init(json: json as! [String: AnyObject])
+            
+            if let organization = item {
+                organization.category = NSSet.init(object: responseModel.category)
+                organization.catalog = keyOrganizations + responseModel.category.codeID
+                organization.cellIdentifier = "OrganizationTableViewCell"
+                organization.cellHeight = 96.0
+                
+                if let googlePlaceID = (json as! [String: AnyObject])["placeId"] as? String {
+                    organization.googlePlaceDidLoad(positionID: googlePlaceID, completion: {
+                        if (counter == (responseModel.responseAPI!.body as! [Any]).count) {
+                            CoreDataManager.instance.didSaveContext()
+
+                            let organizationsViewModel = OrganizationsShowModels.Organizations.ViewModel(status: (responseModel.responseAPI?.status)!)
+                            self.viewController.organizationsDidShowLoad(fromViewModel: organizationsViewModel)
+                        }
+                    })
+                }
+            }
+        }
+
         
         // Convert Google Place ID to address strings
 //        responseModel.responseAPI!.itemsDidLoad(fromItemsArray: responseModel.responseAPI!.body as! [Any], withItem: Organization.init(withCommonProfile: true), completion: { organizations in

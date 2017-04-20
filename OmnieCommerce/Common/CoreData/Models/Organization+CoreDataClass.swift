@@ -33,10 +33,45 @@ public class Organization: NSManagedObject, InitCellParameters, PointAnnotationB
         }
     }
     
-    var latitude: CLLocationDegrees?
-    var longitude: CLLocationDegrees?
-    var addressCity: String?
-    var addressStreet: String?
+    var latitude: CLLocationDegrees? {
+        set {
+            self.latitudeValue = newValue!
+        }
+        
+        get {
+            return self.latitudeValue
+        }
+    }
+    
+    var longitude: CLLocationDegrees? {
+        set {
+            self.longitudeValue = newValue!
+        }
+        
+        get {
+            return self.longitudeValue
+        }
+    }
+    
+    var addressCity: String? {
+        set {
+            self.addressCityValue = newValue
+        }
+        
+        get {
+            return self.addressCityValue
+        }
+    }
+    
+    var addressStreet: String? {
+        set {
+            self.addressStreetValue = newValue
+        }
+        
+        get {
+            return self.addressStreetValue
+        }
+    }
     
     
     // From full API response
@@ -84,6 +119,8 @@ public class Organization: NSManagedObject, InitCellParameters, PointAnnotationB
         // Prepare to save full data
         
 
+        
+        
 //        for json in subcategoriesList {
 //            let subcategory = Subcategory.init(json: json as! [String: AnyObject], andType: .Subcategory)
 //            subcategory!.category = self
@@ -94,5 +131,21 @@ public class Organization: NSManagedObject, InitCellParameters, PointAnnotationB
     
     deinit {
         print("\(type(of: self)) deinit")
+    }
+    
+    
+    // MARK: - Custom Functions
+    func googlePlaceDidLoad(positionID: String, completion: @escaping HandlerSendButtonCompletion) {
+        // Get Location
+        let locationManager = LocationManager()
+        
+        locationManager.geocodingAddress(byGoogleID: positionID, completion: { coordinate, city, street in
+            self.latitude = coordinate?.latitude
+            self.longitude = coordinate?.longitude
+            self.addressCity = city
+            self.addressStreet = street
+            
+            completion()
+        })
     }
 }

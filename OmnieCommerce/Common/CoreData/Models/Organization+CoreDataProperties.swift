@@ -21,6 +21,10 @@ extension Organization {
     @NSManaged public var logoURL: String?
     @NSManaged public var nameValue: String?
     @NSManaged public var catalog: String?
+    @NSManaged public var latitudeValue: Double
+    @NSManaged public var longitudeValue: Double
+    @NSManaged public var addressCityValue: String?
+    @NSManaged public var addressStreetValue: String?
     @NSManaged public var category: NSSet?
 
 }

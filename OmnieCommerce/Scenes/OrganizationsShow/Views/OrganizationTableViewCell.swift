@@ -66,9 +66,9 @@ extension OrganizationTableViewCell: ConfigureCell {
     func setup(withItem item: Any, andIndexPath indexPath: IndexPath) {
         let organization = item as! Organization
         organizationID = organization.codeID
-        nameLabel.text = organization.name
-//        cityLabel.text = organization.addressCity!
-//        streetLabel.text = organization.addressStreet!
+        nameLabel.text = organization.name ?? "XXX"
+        cityLabel.text = organization.addressCity ?? "XXX"
+        streetLabel.text = organization.addressStreet ?? "XXX"
 //        ratingView.rating = organization.rating!
         isFavorite = organization.isFavorite
         selectionStyle = .none

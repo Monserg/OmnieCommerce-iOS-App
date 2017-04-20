@@ -128,13 +128,13 @@ class OrganizationsShowViewController: BaseViewController {
 
         // Load Organizations list from Core Data
         guard isNetworkAvailable else {
-            self.organizationsListDidShow(nil, fromAPI: false)
+            self.organizationsListDidShow()
             return
         }
         
         // Load Organizations list from API
         organizations = [Organization]()
-        CoreDataManager.instance.entitiesDidRemove(byName: "Organization", andPredicateParameter: nil)
+        CoreDataManager.instance.entitiesDidRemove(byName: "Organization", andPredicateParameter: keyOrganizations)
         organizationsListDidLoad(withOffset: 0, subCategory: self.subcategoryCode, filter: "", scrollingData: false)
     }
     
@@ -155,25 +155,22 @@ class OrganizationsShowViewController: BaseViewController {
         interactor.organizationsDidLoad(withRequestModel: organizationsRequestModel)
     }
     
-    func organizationsListDidShow(_ organizations: [Organization]?, fromAPI: Bool) {
-        var organizationsList = [Organization]()
-        
-        if (fromAPI) {
-            organizationsList = organizations!
-        } else {
-//            let organizationsData = CoreDataManager.instance.entityDidLoad(byName: keyOrganizations) as! Organizations
-//            organizationsList = NSKeyedUnarchiver.unarchiveObject(with: organizationsData.list! as Data) as! [Organization]
-        }
-
+    func organizationsListDidShow() {
         // Setting MSMTableViewControllerManager
-        tableView!.tableViewControllerManager!.dataSource = organizationsList
-        tableView!.tableFooterView!.isHidden = (organizationsList.count > 0) ? true : false
-        smallTopBarView.searchButton.isHidden = (organizationsList.count == 0) ? true : false
-        mapButton.isUserInteractionEnabled = true
-
-        (tableView!.tableFooterView as! MSMTableViewFooterView).didUpload(forItemsCount: organizationsList.count,
-                                                                          andEmptyText: "Organizations list is empty")
-        tableView.reloadData()
+        let organizationsEntities = CoreDataManager.instance.entitiesDidLoad(byName: "Organization", andPredicateParameter: keyOrganizations + category!.codeID)
+        
+        if let organizationsList = organizationsEntities as? [Organization] {
+            organizations = organizationsList
+            
+            tableView.tableViewControllerManager!.dataSource = organizations
+            tableView!.tableFooterView!.isHidden = (organizations.count > 0) ? true : false
+            mapButton.isUserInteractionEnabled = (organizations.count > 0) ? true : false
+            
+            (tableView!.tableFooterView as! MSMTableViewFooterView).didUpload(forItemsCount: organizations.count,
+                                                                              andEmptyText: "Organizations list is empty")
+            
+            tableView.reloadData()
+        }
         
         // Search Manager
         smallTopBarView.searchBar.placeholder = "Enter Organization name".localized()
@@ -181,8 +178,6 @@ class OrganizationsShowViewController: BaseViewController {
         
         // Handler select cell
         tableView.tableViewControllerManager!.handlerSelectRowCompletion = { organization in
-            self.print(object: "transition to Organization profile scene")
-            
             self.router.navigateToOrganizationShowScene(organization as! Organization)
         }
         
@@ -201,6 +196,7 @@ class OrganizationsShowViewController: BaseViewController {
         tableView.tableViewControllerManager!.handlerPullRefreshCompletion = { _ in
             // Reload Organizations list from API
             self.organizations = [Organization]()
+            CoreDataManager.instance.entitiesDidRemove(byName: "Organization", andPredicateParameter: keyOrganizations)
             self.limit = Config.Constants.paginationLimit
             self.organizationsListDidLoad(withOffset: 0, subCategory: self.subcategoryCode, filter: "", scrollingData: true)
         }
@@ -208,10 +204,11 @@ class OrganizationsShowViewController: BaseViewController {
         // Handler InfiniteScroll
         tableView.tableViewControllerManager.handlerInfiniteScrollCompletion = { _ in
             // Load More Organizations from API
-            self.organizationsListDidLoad(withOffset: organizations!.count, subCategory: self.subcategoryCode, filter: "", scrollingData: true)
+            self.organizationsListDidLoad(withOffset: self.organizations.count, subCategory: self.subcategoryCode, filter: "", scrollingData: true)
         }
         
         tableView.tableViewControllerManager.pullRefreshDidFinish()
+        spinnerDidFinish()
     }
     
     func servicesListDidLoad(withOffset offset: Int, subCategory: String, filter: String, scrollingData: Bool) {
@@ -245,9 +242,11 @@ class OrganizationsShowViewController: BaseViewController {
         tableView!.tableViewControllerManager!.dataSource = servicesList
         tableView!.tableFooterView!.isHidden = (servicesList.count > 0) ? true : false
         smallTopBarView.searchButton.isHidden = (servicesList.count == 0) ? true : false
-        mapButton.isUserInteractionEnabled = true
+        mapButton.isUserInteractionEnabled = (servicesList.count > 0) ? true : false
+        
         (tableView!.tableFooterView as! MSMTableViewFooterView).didUpload(forItemsCount: servicesList.count,
                                                                           andEmptyText: "Services list is empty")
+        
         tableView.reloadData()
 
         // Search Manager
@@ -362,37 +361,21 @@ class OrganizationsShowViewController: BaseViewController {
 // MARK: - OrganizationsShowViewControllerInput
 extension OrganizationsShowViewController: OrganizationsShowViewControllerInput {
     func organizationsDidShowLoad(fromViewModel viewModel: OrganizationsShowModels.Organizations.ViewModel) {
-        spinnerDidFinish()
-        
         // Check for errors
-        guard viewModel.organizations != nil else {
+        guard viewModel.status == "SUCCESS" else {
             self.alertViewDidShow(withTitle: "Error", andMessage: viewModel.status, completion: { _ in
-                self.organizationsListDidShow(self.organizations, fromAPI: true)
+                self.organizationsListDidShow()
             })
 
             return
         }
         
-        // Save Organizations to CoreData
-        CoreDataManager.instance.didSaveContext()
-
-        // Check network connection
-        guard isNetworkAvailable else {
-            // Load Organizations list from CoreData
-            self.organizationsListDidShow(nil, fromAPI: false)
-            return
-        }
-        
-        // Load Organizations list from API
-        self.organizations.append(contentsOf: viewModel.organizations!)
-        self.organizationsListDidShow(organizations, fromAPI: true)
+        self.organizationsListDidShow()
     }
     
     func servicesDidShowLoad(fromViewModel viewModel: OrganizationsShowModels.Services.ViewModel) {
-        spinnerDidFinish()
-        
         // Check for errors
-        guard viewModel.services != nil else {
+        guard viewModel.status == "SUCCESS" else {
             self.alertViewDidShow(withTitle: "Error", andMessage: viewModel.status, completion: { _ in
                 self.servicesListDidShow(self.services, fromAPI: true)
             })
