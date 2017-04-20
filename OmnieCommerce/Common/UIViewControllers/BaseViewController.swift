@@ -43,11 +43,6 @@ class BaseViewController: UIViewController {
     }
     
     var scrollViewBase: UIScrollView?
-//    {
-//        didSet {
-//            self.scrollViewBase!.delegate = self
-//        }
-//    }
 
     var handlerImagePickerControllerCompletion: HandlerImagePickerControllerCompletion?
     var handlerChangeNetworkConnectionStateCompletion: HandlerPassDataCompletion?
