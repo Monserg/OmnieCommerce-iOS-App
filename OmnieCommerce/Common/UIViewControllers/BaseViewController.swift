@@ -31,10 +31,9 @@ class BaseViewController: UIViewController {
         
         get {
             let status = AFNetworkReachabilityManager.shared().networkReachabilityStatus
-            let result = (status != .reachableViaWWAN && status != .reachableViaWiFi) ? false : true
+            let result = (status == .notReachable) ? false : true
             
             guard result else {
-                alertViewDidShow(withTitle: "Not Reachable", andMessage: "Disconnected from Network", completion: { _ in })
                 return result
             }
             
@@ -74,14 +73,17 @@ class BaseViewController: UIViewController {
         // Set status bar color
         UIApplication.shared.statusBarStyle = .lightContent
 
-        // Start network monitoring
-        didStartMonitoringNetwork()
+        // Network start monitoring
+        networkDidStartMonitoring()
     }
 
     override func viewDidAppear(_ animated: Bool) {
         print(object: "\(type(of: self)): \(#function) run in [line \(#line)]")
         
         super.viewDidAppear(true)
+        
+        // Network stop monitoring
+        networkDidStopMonitoring()
     }
 
     override func didReceiveMemoryWarning() {
@@ -236,9 +238,7 @@ extension BaseViewController: UIImagePickerControllerDelegate {
 // MARK: - Network monitoring
 extension BaseViewController {
     // MARK: - Custom Functions
-    func didStartMonitoringNetwork() {
-        AFNetworkReachabilityManager.shared().startMonitoring()
-        
+    func networkDidStartMonitoring() {
         AFNetworkReachabilityManager.shared().setReachabilityStatusChange { status in
             var reachableOrNot = ""
             var networkSummary = ""
@@ -258,7 +258,7 @@ extension BaseViewController {
             }
             
             // Any class which has observer for this notification will be able to report loss of network connection successfully
-            if ((self.previousNetworkReachabilityStatus != .unknown && status != self.previousNetworkReachabilityStatus) || status == .notReachable) {
+            if (self.previousNetworkReachabilityStatus != status) {
                 self.alertViewDidShow(withTitle: reachableOrNot, andMessage: networkSummary, completion: { _ in })
                 
                 if (self.isKind(of: PersonalDataViewController.self)) {
@@ -270,12 +270,8 @@ extension BaseViewController {
         }
     }
     
-    func didCheckNetworkConnection() {
-        guard isNetworkAvailable else {
-            alertViewDidShow(withTitle: "Not Reachable", andMessage: "Disconnected from Network", completion: { _ in })
-            
-            return
-        }
+    func networkDidStopMonitoring() {
+        AFNetworkReachabilityManager.shared().stopMonitoring()
     }
 }
  
@@ -288,13 +284,12 @@ extension BaseViewController {
         switch position {
         case .right, .rightMost, .rightMostRemoved:
             // Create blackOutView
-            blackoutView    =   MSMBlackoutView.init(inView: view)
+            blackoutView = MSMBlackoutView.init(inView: view)
 
-            let menuButton  =   UIButton.init(frame: CGRect.init(origin: .zero, size: CGSize.init(width: 80, height: 80)))
+            let menuButton = UIButton.init(frame: CGRect.init(origin: .zero, size: CGSize.init(width: 80, height: 80)))
             menuButton.addTarget(revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), for: .touchUpInside)
             
             blackoutView?.addSubview(menuButton)
-            
             blackoutView!.didShow()
             
         default:

@@ -19,9 +19,10 @@ import AFNetworking
 class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: - Properties
     var window: UIWindow?
-
+    
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        //
         AFNetworkReachabilityManager.shared().startMonitoring()
 
         // Get stored value
