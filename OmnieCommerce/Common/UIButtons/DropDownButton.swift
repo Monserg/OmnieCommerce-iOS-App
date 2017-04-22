@@ -35,7 +35,7 @@ import UIKit
     func itemsListDidShow(_ itemListView: MSMTableView, inView view: UIView) {
         // Create DropDownListView from Nib-file
         let senderFrame = self.convert(self.frame, to: view)
-        let count: CGFloat = (itemListView.tableViewControllerManager!.dataSource!.count >= 5) ? 5.0 : CGFloat(itemListView.tableViewControllerManager!.dataSource!.count)
+        let count: CGFloat = (itemListView.tableViewControllerManager!.dataSource.count >= 5) ? 5.0 : CGFloat(itemListView.tableViewControllerManager!.dataSource.count)
         
         itemListView.frame = CGRect.init(x: self.frame.minX + self.superview!.frame.minX,
                                          y: senderFrame.minY - self.frame.minY,

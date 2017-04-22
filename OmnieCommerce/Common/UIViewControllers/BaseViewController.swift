@@ -25,19 +25,13 @@ class BaseViewController: UIViewController {
     }
 
     // Network monitoring
-    var previousNetworkReachabilityStatus: AFNetworkReachabilityStatus = .unknown
+    var previousNetworkReachabilityStatus: Bool = true
     var isNetworkAvailable: Bool {
-        set{}
+        set { }
         
         get {
-            let status = AFNetworkReachabilityManager.shared().networkReachabilityStatus
-            let result = (status == .notReachable) ? false : true
-            
-            guard result else {
-                return result
-            }
-            
-            return result
+            print(object: "XXX = \(AFNetworkReachabilityManager.shared().isReachable)")
+            return AFNetworkReachabilityManager.shared().isReachable
         }
     }
     
@@ -74,13 +68,13 @@ class BaseViewController: UIViewController {
         UIApplication.shared.statusBarStyle = .lightContent
 
         // Network start monitoring
-        networkDidStartMonitoring()
+        if (haveMenuItem) {
+            networkDidStartMonitoring()
+        }
     }
 
-    override func viewDidAppear(_ animated: Bool) {
-        print(object: "\(type(of: self)): \(#function) run in [line \(#line)]")
-        
-        super.viewDidAppear(true)
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(true)
         
         // Network stop monitoring
         networkDidStopMonitoring()
@@ -171,10 +165,10 @@ class BaseViewController: UIViewController {
     func spinnerDidStart(_ view: UIView?) {
         self.view.isUserInteractionEnabled = false
         spinner.color = UIColor.veryDarkCyan
-        spinner.center = (view == nil) ? self.view.center : view!.center
         
         (view == nil) ? self.view.addSubview(spinner) : view!.addSubview(spinner)
         (view == nil) ? self.view.bringSubview(toFront: spinner) : view!.bringSubview(toFront: spinner)
+        spinner.center = (view == nil) ? self.view.center : view!.center
         spinner.startAnimating()
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
     }
@@ -239,6 +233,8 @@ extension BaseViewController: UIImagePickerControllerDelegate {
 extension BaseViewController {
     // MARK: - Custom Functions
     func networkDidStartMonitoring() {
+        AFNetworkReachabilityManager.shared().startMonitoring()
+
         AFNetworkReachabilityManager.shared().setReachabilityStatusChange { status in
             var reachableOrNot = ""
             var networkSummary = ""
@@ -248,30 +244,29 @@ extension BaseViewController {
                 // Reachable.
                 reachableOrNot = "Reachable"
                 networkSummary = "Connected to Network"
-                self.isNetworkAvailable = true
             
             default:
                 // Not reachable.
                 reachableOrNot = "Not Reachable"
                 networkSummary = "Disconnected from Network"
-                self.isNetworkAvailable = false
             }
             
             // Any class which has observer for this notification will be able to report loss of network connection successfully
-            if (self.previousNetworkReachabilityStatus != status) {
+            if (self.previousNetworkReachabilityStatus != self.isNetworkAvailable) {
                 self.alertViewDidShow(withTitle: reachableOrNot, andMessage: networkSummary, completion: { _ in })
+                self.previousNetworkReachabilityStatus = self.isNetworkAvailable
                 
                 if (self.isKind(of: PersonalDataViewController.self)) {
                     self.handlerChangeNetworkConnectionStateCompletion!(self.isNetworkAvailable)
                 }
             }
-            
-            self.previousNetworkReachabilityStatus = status
         }
     }
     
     func networkDidStopMonitoring() {
-        AFNetworkReachabilityManager.shared().stopMonitoring()
+        if (haveMenuItem) {
+            AFNetworkReachabilityManager.shared().stopMonitoring()
+        }
     }
 }
  

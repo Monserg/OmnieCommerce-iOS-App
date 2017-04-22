@@ -11,13 +11,13 @@ import UIKit
 class MSMTableViewControllerManager: BaseViewController {
     // MARK: - Properties
     var sectionsCount = 0
-    var dataSourceFiltered: [Any]?
+    var dataSourceFiltered = [Any]()
     var expandedCells = [IndexPath]()
     var isSearchBarActive: Bool = false
     var refreshControl: UIRefreshControl?
     var footerViewHeight: CGFloat = 60.0
     var isLoadMore = false
-    var dataSource: [Any]?
+    var dataSource = [Any]()
     var emptyText: String!
     
     weak var tableView: MSMTableView? {
@@ -73,16 +73,22 @@ class MSMTableViewControllerManager: BaseViewController {
         self.tableView!.setScrollIndicatorColor(color: UIColor.veryLightOrange)
         
         // Set Infinite Scroll
-        if (!self.tableView!.hasHeaders) {
+        guard isNetworkAvailable else {
+            return
+        }
+        
+        if (!self.tableView!.hasHeaders && (self.dataSource.count + self.dataSourceFiltered.count > 0)) {
             if (emptyText != "DropDownList") {
-                if (scrollView.contentOffset.y >= footerViewHeight && !isLoadMore && isNetworkAvailable) {
+                if (scrollView.contentOffset.y >= footerViewHeight && !isLoadMore) {
                     isLoadMore = !isLoadMore
                     
                     // Refresh FooterView
                     self.tableView!.beginUpdates()
                     self.tableView!.tableFooterView?.isHidden = false
-                    (self.tableView!.tableFooterView as! MSMTableViewFooterView).didUpload(forItemsCount: (dataSource?.count)!,
+                    
+                    (self.tableView!.tableFooterView as! MSMTableViewFooterView).didUpload(forItemsCount: dataSource.count,
                                                                                            andEmptyText: "Services list is empty")
+                    
                     self.tableView!.endUpdates()
                     
                     DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
@@ -142,16 +148,16 @@ extension MSMTableViewControllerManager: UITableViewDataSource {
             return (self.tableView!.headears![section].isExpanded) ? (dataSource as! [[Any]])[section].count : 0
         }
         
-        return ((isSearchBarActive) ? dataSourceFiltered?.count ?? 0 : dataSource?.count ?? 0)!
+        return ((isSearchBarActive) ? dataSourceFiltered.count ?? 0 : dataSource.count ?? 0)!
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cellIdentifier: String!
 
         if (self.tableView!.hasHeaders) {
-            cellIdentifier = ((dataSource![indexPath.section] as! [ServicePrice])[indexPath.row] as InitCellParameters).cellIdentifier
+            cellIdentifier = ((dataSource[indexPath.section] as! [ServicePrice])[indexPath.row] as InitCellParameters).cellIdentifier
         } else {
-            cellIdentifier = (dataSource![indexPath.row] as! InitCellParameters).cellIdentifier
+            cellIdentifier = (dataSource[indexPath.row] as! InitCellParameters).cellIdentifier
         }
         
         self.tableView!.register(UINib(nibName: cellIdentifier, bundle: nil), forCellReuseIdentifier: cellIdentifier)
@@ -160,9 +166,9 @@ extension MSMTableViewControllerManager: UITableViewDataSource {
         var item: Any!
         
         if (self.tableView!.hasHeaders) {
-            item = (dataSource![indexPath.section] as! [ServicePrice])[indexPath.row]
+            item = (dataSource[indexPath.section] as! [ServicePrice])[indexPath.row]
         } else {
-            item = (isSearchBarActive) ? dataSourceFiltered![indexPath.row] : dataSource![indexPath.row]
+            item = (isSearchBarActive) ? dataSourceFiltered[indexPath.row] : dataSource[indexPath.row]
         }
         
         switch cell {
@@ -223,7 +229,7 @@ extension MSMTableViewControllerManager: UITableViewDataSource {
                 self.dataSource = organizationsList
                 self.tableView!.beginUpdates()
 
-                if (self.dataSource?.count == 0) {
+                if (self.dataSource.count == 0) {
                     self.tableView!.tableFooterView?.isHidden = false
                     (self.tableView!.tableFooterView as! MSMTableViewFooterView).didUpload(forItemsCount: 0,
                                                                                            andEmptyText: "Organizations list is empty")
@@ -246,7 +252,7 @@ extension MSMTableViewControllerManager: UITableViewDataSource {
                 servicesList.remove(at: serviceIndex)
                 self.dataSource = servicesList
                 
-                if (self.dataSource?.count == 0) {
+                if (self.dataSource.count == 0) {
                     self.tableView!.tableFooterView?.isHidden = false
                     (self.tableView!.tableFooterView as! MSMTableViewFooterView).didUpload(forItemsCount: 0,
                                                                                            andEmptyText: "Services list is empty")
@@ -302,7 +308,7 @@ extension MSMTableViewControllerManager: UITableViewDelegate {
             // TODO: - ADD HANDLERS
             
         } else {
-            handlerSelectRowCompletion!((isSearchBarActive) ? dataSourceFiltered![indexPath.row] : dataSource![indexPath.row])
+            handlerSelectRowCompletion!((isSearchBarActive) ? dataSourceFiltered[indexPath.row] : dataSource[indexPath.row])
         }
     }
     
@@ -311,11 +317,11 @@ extension MSMTableViewControllerManager: UITableViewDelegate {
         var cellIdentifier: String!
         
         if (self.tableView!.hasHeaders) {
-            height = ((dataSource![indexPath.section] as! [ServicePrice])[indexPath.row] as InitCellParameters).cellHeight
-            cellIdentifier = ((dataSource![indexPath.section] as! [ServicePrice])[indexPath.row] as InitCellParameters).cellIdentifier
+            height = ((dataSource[indexPath.section] as! [ServicePrice])[indexPath.row] as InitCellParameters).cellHeight
+            cellIdentifier = ((dataSource[indexPath.section] as! [ServicePrice])[indexPath.row] as InitCellParameters).cellIdentifier
         } else {
-            height = (dataSource?[indexPath.row] as! InitCellParameters).cellHeight
-            cellIdentifier = (dataSource?[indexPath.row] as! InitCellParameters).cellIdentifier
+            height = (dataSource[indexPath.row] as! InitCellParameters).cellHeight
+            cellIdentifier = (dataSource[indexPath.row] as! InitCellParameters).cellIdentifier
         }
 
         if (cellIdentifier == "UserTemplateTableViewCell") {
@@ -408,7 +414,7 @@ extension MSMTableViewControllerManager: UISearchBarDelegate {
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        dataSourceFiltered = (searchText.isEmpty) ? dataSource! : dataSource!.filter{ ($0 as! SearchObject).name.contains(searchBar.text!) }
+        dataSourceFiltered = (searchText.isEmpty) ? dataSource : dataSource.filter{ ($0 as! SearchObject).name.contains(searchBar.text!) }
         
         tableView!.reloadData()
     }

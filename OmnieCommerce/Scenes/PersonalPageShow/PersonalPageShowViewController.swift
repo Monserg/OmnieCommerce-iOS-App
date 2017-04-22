@@ -371,6 +371,6 @@ extension PersonalPageShowViewController: PersonalPageShowViewControllerInput {
             return
         }
         
-        personalTemplatesVC!.organizations = viewModel.organizations        
+        personalTemplatesVC!.organizations = viewModel.organizations!
     }
 }

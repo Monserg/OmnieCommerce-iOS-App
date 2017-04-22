@@ -96,8 +96,8 @@ class OrganizationsShowViewController: BaseViewController {
         if (tableView.tableViewControllerManager == nil) {
             limit = Config.Constants.paginationLimit
         } else {
-            limit = (tableView.tableViewControllerManager.dataSource?.count == 0) ? Config.Constants.paginationLimit :
-                                                                                    tableView.tableViewControllerManager.dataSource!.count
+            limit = (tableView.tableViewControllerManager.dataSource.count == 0) ?  Config.Constants.paginationLimit :
+                                                                                    tableView.tableViewControllerManager.dataSource.count
         }
         
         viewSettingsDidLoad()
@@ -292,7 +292,7 @@ class OrganizationsShowViewController: BaseViewController {
     
     // MARK: - Actions
     @IBAction func handlerMapButtonTap(_ sender: CustomButton) {
-        if ((tableView.tableViewControllerManager!.dataSource?.count)! > 0) {
+        if (tableView.tableViewControllerManager!.dataSource.count > 0) {
             router.navigateToOrganizationsMapShowScene(withItems: (tableView.tableViewControllerManager!.dataSource as! [PointAnnotationBinding]))
         }
     }

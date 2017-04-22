@@ -47,17 +47,5 @@ class NewsDataShowPresenter: NewsDataShowPresenterInput {
         
         let newsDataViewModel = NewsDataShowModels.Data.ViewModel(status: (responseModel.responseAPI?.status)!)
         self.viewController.newsDataDidShowLoad(fromViewModel: newsDataViewModel)
-        
-        
-//        responseModel.responseAPI!.itemsDidLoad(fromItemsArray: responseModel.responseAPI!.body as! [Any], withItem: NewsData.init(), completion: { newsData in
-//            // Prepare to save NewsDataList in CoreData
-//            let _ = newsData.map { $0.isAction = false }
-//            let entityNews = CoreDataManager.instance.entityDidLoad(byName: keyNewsData) as! News
-//            let newsDataData = NSKeyedArchiver.archivedData(withRootObject: newsData) as NSData?
-//            entityNews.list = newsDataData!
-//            
-//            let newsDataViewModel = NewsDataShowModels.Data.ViewModel(newsData: newsData, status: (responseModel.responseAPI?.status)!)
-//            self.viewController.newsDataDidShowLoad(fromViewModel: newsDataViewModel)
-//        })
     }
 }

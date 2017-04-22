@@ -10,7 +10,7 @@ import UIKit
 
 class PersonalTemplatesViewController: BaseViewController {
     // MARK: - Properties
-    var organizations: [Organization]?
+    var organizations = [Organization]()
     
     @IBOutlet weak var tableView: MSMTableView! {
         didSet {

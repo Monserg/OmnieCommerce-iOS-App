@@ -61,19 +61,6 @@ class OrganizationsShowPresenter: OrganizationsShowPresenterInput {
                 }
             }
         }
-
-        
-        // Convert Google Place ID to address strings
-//        responseModel.responseAPI!.itemsDidLoad(fromItemsArray: responseModel.responseAPI!.body as! [Any], withItem: Organization.init(withCommonProfile: true), completion: { organizations in
-//            // Prepare to save Organizations in CoreData
-//            let _ = organizations.map { $0.category = responseModel.category }
-//            let entityOrganizations = CoreDataManager.instance.entityDidLoad(byName: keyOrganizations) as! Organizations
-//            let organizationsData = NSKeyedArchiver.archivedData(withRootObject: organizations) as NSData?
-//            entityOrganizations.list = organizationsData!
-//            
-//            let organizationsViewModel = OrganizationsShowModels.Organizations.ViewModel(organizations: organizations, status: (responseModel.responseAPI?.status)!)
-//            self.viewController.organizationsDidShowLoad(fromViewModel: organizationsViewModel)
-//        })
     }
 
     func servicesDidPrepareToShowLoad(fromResponseModel responseModel: OrganizationsShowModels.Services.ResponseModel) {

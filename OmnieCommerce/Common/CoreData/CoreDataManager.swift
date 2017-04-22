@@ -159,7 +159,6 @@ class CoreDataManager {
     }
     
     func entitiesDidLoad(byName name: String, andPredicateParameter parameter: Any?) -> [NSManagedObject]? {
-        self.didSaveContext()
         var predicate: NSPredicate!
         
         switch name {

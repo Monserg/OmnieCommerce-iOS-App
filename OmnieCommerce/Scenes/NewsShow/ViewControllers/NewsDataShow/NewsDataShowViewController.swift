@@ -50,13 +50,13 @@ class NewsDataShowViewController: BaseViewController {
         super.viewDidLoad()
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
         
         limit = (newsData.count == 0) ? Config.Constants.paginationLimit : newsData.count
         viewSettingsDidLoad()
     }
-
+    
 
     // MARK: - Custom Functions
     func viewSettingsDidLoad() {
@@ -81,6 +81,11 @@ class NewsDataShowViewController: BaseViewController {
     }
     
     func newsDataListDidLoad(withOffset offset: Int, scrollingData: Bool) {
+        guard isNetworkAvailable else {
+            self.newsDataListDidShow()
+            return
+        }
+        
         if (!scrollingData) {
             spinnerDidStart(view)
         }

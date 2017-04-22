@@ -40,26 +40,12 @@ class NewsActionsShowPresenter: NewsActionsShowPresenterInput {
             let item = NewsData.init(json: json as! [String: AnyObject])
             
             if let action = item {
-                action.isAction = true                
+                action.isAction = true              
                 CoreDataManager.instance.didSaveContext()
             }
         }
         
         let actionsViewModel = NewsActionsShowModels.Actions.ViewModel(status: (responseModel.responseAPI?.status)!)
         self.viewController.actionsDidShowLoad(fromViewModel: actionsViewModel)
-
-//        
-//        
-//        // Format the response from the Interactor and pass the result back to the View Controller
-//        responseModel.responseAPI!.itemsDidLoad(fromItemsArray: responseModel.responseAPI!.body as! [Any], withItem: NewsData.init(), completion: { actions in
-//            // Prepare to save NewsDataList in CoreData
-//            let _ = actions.map { $0.isAction = true }
-//            let entityActions = CoreDataManager.instance.entityDidLoad(byName: keyNewsActions) as! Actions
-//            let actionsData = NSKeyedArchiver.archivedData(withRootObject: actions) as NSData?
-//            entityActions.list = actionsData!
-//            
-//            let actionsViewModel = NewsActionsShowModels.Actions.ViewModel(actions: actions, status: (responseModel.responseAPI?.status)!)
-//            self.viewController.actionsDidShowLoad(fromViewModel: actionsViewModel)
-//        })
     }
 }
