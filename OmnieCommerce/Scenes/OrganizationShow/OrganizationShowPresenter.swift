@@ -36,9 +36,13 @@ class OrganizationShowPresenter: OrganizationShowPresenterInput {
         }
         
         // Convert responseAPI body to Organization CoreData news objects
-        let _ = Organization.init(json: responseModel.responseAPI?.body as! [String: AnyObject])
-        CoreDataManager.instance.didSaveContext()
-        let organizationViewModel = OrganizationShowModels.OrganizationItem.ViewModel(status: responseModel.responseAPI!.status)
-        self.viewController.organizationDidShowLoad(fromViewModel: organizationViewModel)
+        let organization = Organization.init(json: responseModel.responseAPI?.body as! [String: AnyObject])
+        
+        if let placeID = organization!.placeID {
+            organization!.googlePlaceDidLoad(positionID: placeID, completion: { _ in
+                let organizationViewModel = OrganizationShowModels.OrganizationItem.ViewModel(status: responseModel.responseAPI!.status)
+                self.viewController.organizationDidShowLoad(fromViewModel: organizationViewModel)
+            })
+        }
     }
 }

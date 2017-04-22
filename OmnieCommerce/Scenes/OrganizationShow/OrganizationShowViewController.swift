@@ -305,7 +305,7 @@ class OrganizationShowViewController: BaseViewController {
         
         // Set Avatar image
         if let imagePath = organization.logoURL {
-            logoImageView!.kf.setImage(with: ImageResource(downloadURL: URL(string: imagePath)!, cacheKey: "imagePath"),
+            logoImageView!.kf.setImage(with: ImageResource(downloadURL: URL(string: imagePath)!, cacheKey: imagePath),
                                        placeholder: UIImage.init(named: "image-no-organization"),
                                        options: [.transition(ImageTransition.fade(1)),
                                                  .processor(ResizingImageProcessor(referenceSize: logoImageView!.frame.size,
@@ -478,6 +478,9 @@ class OrganizationShowViewController: BaseViewController {
             ratingView.isHidden = true
         }
         */
+        
+        _ = dottedBorderViewsCollection.map { $0.setNeedsDisplay() }
+
         UIView.animate(withDuration: 0.3, animations: { _ in
             self.mainStackView.isHidden = false
         })
@@ -642,7 +645,15 @@ class OrganizationShowViewController: BaseViewController {
 // MARK: - OrganizationShowViewControllerInput
 extension OrganizationShowViewController: OrganizationShowViewControllerInput {
     func organizationDidShowLoad(fromViewModel viewModel: OrganizationShowModels.OrganizationItem.ViewModel) {
-        
+        // Check for errors
+        guard viewModel.status == "SUCCESS" else {
+            self.alertViewDidShow(withTitle: "Error", andMessage: viewModel.status, completion: {
+                self.organizationProfileDidShow()
+            })
+            
+            return
+        }
+
         self.organizationProfileDidShow()
     }
 }

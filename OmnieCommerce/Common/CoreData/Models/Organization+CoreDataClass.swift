@@ -78,8 +78,6 @@ public class Organization: NSManagedObject, InitCellParameters, PointAnnotationB
     var rating: Double?
     var email: String?
     var headerURL: String?
-    var descriptionTitle: String?
-    var descriptionContent: String?
     var gallery: [GalleryImage]?
     var services: [Service]?
     var discountsCommon: [Discount]?
@@ -115,31 +113,25 @@ public class Organization: NSManagedObject, InitCellParameters, PointAnnotationB
         }
         
         if let scheduleItems = json["timeSheets"] as? NSArray {
-//            var items = [Schedule]()
-            
             for dictionary in scheduleItems {
                 let _ = Schedule.init(json: dictionary as! [String : AnyObject], andOrganization: self)
             }
-//            
-//                items.append(schedule!)
-//                
-//                if (schedule!.launchTimeStart != nil) {
-//                    let launchSchedule = Schedule.init(codeID: schedule!.codeID,
-//                                                       name: "Lunch break".localized(),
-//                                                       day: 0,
-//                                                       workTimeStart: schedule!.launchTimeStart!,
-//                                                       workTimeEnd: schedule!.launchTimeEnd!,
-//                                                       launchTimeStart: nil,
-//                                                       launchTimeEnd: nil)
-//                    
-//                    items.append(launchSchedule)
-//                }
-//            }
             
             self.schedules = NSSet.init(array: CoreDataManager.instance.entitiesDidLoad(byName: "Schedule", andPredicateParameter: self.codeID)!)
         }
+
+        if let positionID = json["placeId"] as? String {
+            self.placeID = positionID
+        }
         
-        
+        if let describeTitle = json["descriptionTitle"] as? String {
+            self.descriptionTitle = describeTitle
+        }
+
+        if let describeContent = json["descriptionContent"] as? String {
+            self.descriptionContent = describeContent
+        }
+
 //        @NSManaged public var phones: [String]?
 
 
@@ -152,7 +144,6 @@ public class Organization: NSManagedObject, InitCellParameters, PointAnnotationB
 //            self.subcategories!.adding(subcategory!)
 //        }
         
-//        CoreDataManager.instance.didSaveContext()
     }
     
     deinit {
@@ -166,11 +157,12 @@ public class Organization: NSManagedObject, InitCellParameters, PointAnnotationB
         let locationManager = LocationManager()
         
         locationManager.geocodingAddress(byGoogleID: positionID, completion: { coordinate, city, street in
-            self.latitude = coordinate?.latitude
-            self.longitude = coordinate?.longitude
-            self.addressCity = city
-            self.addressStreet = street
+            self.latitude = (coordinate?.latitude)!
+            self.longitude = (coordinate?.longitude)!
+            self.addressCity = city!
+            self.addressStreet = street!
             
+            CoreDataManager.instance.didSaveContext()
             completion()
         })
     }

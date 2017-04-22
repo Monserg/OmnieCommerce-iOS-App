@@ -399,8 +399,6 @@
 		B1D883301E8E8D63006F4831 /* NewsActionsShowWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D883291E8E8D63006F4831 /* NewsActionsShowWorker.swift */; };
 		B1D883351E8E9150006F4831 /* Actions+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D883311E8E9150006F4831 /* Actions+CoreDataClass.swift */; };
 		B1D883361E8E9150006F4831 /* Actions+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D883321E8E9150006F4831 /* Actions+CoreDataProperties.swift */; };
-		B1D883371E8E9150006F4831 /* News+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D883331E8E9150006F4831 /* News+CoreDataClass.swift */; };
-		B1D883381E8E9150006F4831 /* News+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D883341E8E9150006F4831 /* News+CoreDataProperties.swift */; };
 		B1D9AD811EA8A40E006A3852 /* Organization+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D9AD7F1EA8A40E006A3852 /* Organization+CoreDataClass.swift */; };
 		B1D9AD821EA8A40E006A3852 /* Organization+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D9AD801EA8A40E006A3852 /* Organization+CoreDataProperties.swift */; };
 		B1DA01B11DF1CB2F00E6DD46 /* UIFont+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DA01B01DF1CB2F00E6DD46 /* UIFont+Ext.swift */; };
@@ -876,8 +874,6 @@
 		B1D883291E8E8D63006F4831 /* NewsActionsShowWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsActionsShowWorker.swift; sourceTree = "<group>"; };
 		B1D883311E8E9150006F4831 /* Actions+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Actions+CoreDataClass.swift"; sourceTree = "<group>"; };
 		B1D883321E8E9150006F4831 /* Actions+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Actions+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		B1D883331E8E9150006F4831 /* News+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "News+CoreDataClass.swift"; sourceTree = "<group>"; };
-		B1D883341E8E9150006F4831 /* News+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "News+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		B1D9AD7F1EA8A40E006A3852 /* Organization+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Organization+CoreDataClass.swift"; sourceTree = "<group>"; };
 		B1D9AD801EA8A40E006A3852 /* Organization+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Organization+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		B1DA01B01DF1CB2F00E6DD46 /* UIFont+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+Ext.swift"; sourceTree = "<group>"; };
@@ -1032,8 +1028,6 @@
 				B1EC9F451E8C13FE00F2E342 /* FavoriteServices+CoreDataProperties.swift */,
 				B11DCAF21E9E234200180375 /* GalleryImage+CoreDataClass.swift */,
 				B11DCAF31E9E234200180375 /* GalleryImage+CoreDataProperties.swift */,
-				B1D883331E8E9150006F4831 /* News+CoreDataClass.swift */,
-				B1D883341E8E9150006F4831 /* News+CoreDataProperties.swift */,
 				B14172031EA7969B006120A1 /* NewsData+CoreDataClass.swift */,
 				B14172041EA7969B006120A1 /* NewsData+CoreDataProperties.swift */,
 				B1D9AD7F1EA8A40E006A3852 /* Organization+CoreDataClass.swift */,
@@ -2477,7 +2471,6 @@
 				B1CF54A01DDB515000E98049 /* HandbookShowConfigurator.swift in Sources */,
 				B122DF661DF7F957003823AD /* CalendarShowPresenter.swift in Sources */,
 				B14172051EA7969B006120A1 /* NewsData+CoreDataClass.swift in Sources */,
-				B1D883371E8E9150006F4831 /* News+CoreDataClass.swift in Sources */,
 				B1CF54981DDB512000E98049 /* DiscountCardsShowWorker.swift in Sources */,
 				B122F1FD1DD35BC70018A701 /* FavoriteShowWorker.swift in Sources */,
 				B14E974D1DD8B042001E1DE2 /* SignInShowViewController.swift in Sources */,
@@ -2643,7 +2636,6 @@
 				B11B9ADD1DF053BA009A4AA1 /* CustomImageView.swift in Sources */,
 				B1C13D871DEF2743002B494A /* DropDownButton.swift in Sources */,
 				B10B48CF1E8A5AEC007DDD81 /* FavoriteServicesShowRouter.swift in Sources */,
-				B1D883381E8E9150006F4831 /* News+CoreDataProperties.swift in Sources */,
 				B122F2181DD35C2C0018A701 /* NewsShowViewController.swift in Sources */,
 				B10B48CE1E8A5AEC007DDD81 /* FavoriteServicesShowPresenter.swift in Sources */,
 				B177E54D1E54AC7F004F1390 /* EnterCodeShowWorker.swift in Sources */,

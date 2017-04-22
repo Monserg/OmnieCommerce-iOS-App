@@ -28,6 +28,9 @@ extension Organization {
     @NSManaged public var phones: [String]?
     @NSManaged public var category: NSSet?
     @NSManaged public var schedules: NSSet?
+    @NSManaged public var placeID: String?
+    @NSManaged public var descriptionTitle: String?
+    @NSManaged public var descriptionContent: String?
 
 }
 
