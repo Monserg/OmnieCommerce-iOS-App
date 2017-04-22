@@ -159,7 +159,11 @@ class CoreDataManager {
             case "Schedule":
                 let codeID = parameter as! String
                 predicate = NSPredicate(format: "organization.codeID == %@", codeID)
-
+                
+            case "Review":
+                let typeValue = parameter as! String
+                predicate = NSPredicate(format: "typeValue == %@", typeValue)
+                
             default:
                 break
             }

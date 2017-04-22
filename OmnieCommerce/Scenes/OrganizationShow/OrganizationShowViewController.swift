@@ -462,12 +462,13 @@ class OrganizationShowViewController: BaseViewController {
             self.view.layoutIfNeeded()
             self.reviewsCollectionView.scrollToItem(at: IndexPath(item: item as! Int, section: 0), at: .centeredHorizontally, animated: true)
         }
-        
+        */
         // Rating view
         if (organizationProfile.canUserSendReview) {
             ratingView.isHidden = false
-            userNameLabel.text = "\(String(describing: CoreDataManager.instance.appUser.firstName!)) \(String(describing: CoreDataManager.instance.appUser.surName!))"
-            cosmosView.rating = organization.rating ?? 0
+            let userReview = CoreDataManager.instance.entityDidLoad(byName: "Review", andPredicateParameter: "UserReview") as! Review
+            userNameLabel.text = userReview.userName ?? "Zorro"
+            cosmosView.rating = userReview.rating
             
             if let imagePath = CoreDataManager.instance.appUser.imagePath {
                 userAvatarImageView.kf.setImage(with: ImageResource(downloadURL: URL(string: imagePath)!, cacheKey: imagePath),
@@ -489,7 +490,6 @@ class OrganizationShowViewController: BaseViewController {
         } else {
             ratingView.isHidden = true
         }
-        */
         
         _ = dottedBorderViewsCollection.map { $0.setNeedsDisplay() }
 
@@ -555,7 +555,7 @@ class OrganizationShowViewController: BaseViewController {
     }
     
     @IBAction func handlerAllServicesButtonTap(_ sender: FillVeryLightOrangeButton) {
-        router.navigateToServicesShowScene(organization.services!)
+//        router.navigateToServicesShowScene(organization.services!)
     }
     
     @IBAction func handlerAnimationButtonTap(_ sender: FillColorButton) {

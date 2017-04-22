@@ -9,7 +9,7 @@
 import Foundation
 import SwiftyJSON
 
-class Review: NSObject, NSCoding, InitCellParameters {
+class ReviewOld: NSObject, NSCoding, InitCellParameters {
     // MARK: - Properties
     var codeID: String!
     var name: String!
@@ -66,7 +66,7 @@ class Review: NSObject, NSCoding, InitCellParameters {
 
 
 // MARK: - MapObjectBinding
-extension Review: MapObjectBinding {
+extension ReviewOld: MapObjectBinding {
     func didMap(fromDictionary dictionary: [String: Any], completion: @escaping (() -> ())) {
         self.codeID = dictionary["uuid"] as! String
         self.name = dictionary["name"] as! String
@@ -84,9 +84,9 @@ extension Review: MapObjectBinding {
 
 
 // MARK: - NSCopying
-extension Review: NSCopying {
+extension ReviewOld: NSCopying {
     func copy(with zone: NSZone? = nil) -> Any {
-        let copy = Review()
+        let copy = ReviewOld()
         return copy
     }
 }

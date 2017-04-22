@@ -10,7 +10,7 @@
 import Foundation
 import CoreLocation
 
-class Service: NSObject, NSCoding, InitCellParameters, SearchObject, PointAnnotationBinding {
+class ServiceOld: NSObject, NSCoding, InitCellParameters, SearchObject, PointAnnotationBinding {
     // MARK: - Properties
     var category: Category?
     var needBackgroundColorSet: Bool = false
@@ -117,7 +117,7 @@ class Service: NSObject, NSCoding, InitCellParameters, SearchObject, PointAnnota
 
 
 // MARK: - MapObjectBinding
-extension Service: MapObjectBinding {
+extension ServiceOld: MapObjectBinding {
     func didMap(fromDictionary dictionary: [String: Any], completion: @escaping (() -> ())) {
         // Common profile
         self.codeID = dictionary["uuid"] as! String
@@ -174,10 +174,10 @@ extension Service: MapObjectBinding {
 }
 
 
-// MARK: - NSCopying
-extension Service: NSCopying {
-    func copy(with zone: NSZone? = nil) -> Any {
-        let copy = Service.init(withCommonProfile: self.isCommonProfile)
-        return copy
-    }
-}
+//// MARK: - NSCopying
+//extension ServiceOld: NSCopying {
+//    func copy(with zone: NSZone? = nil) -> Any {
+////        let copy = Service.init(withCommonProfile: self.isCommonProfile)
+////        return copy
+//    }
+//}

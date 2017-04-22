@@ -15,6 +15,10 @@
 		B10189BF1EAB4E0A00C1AD2F /* UInt16+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10189BE1EAB4E0A00C1AD2F /* UInt16+Ext.swift */; };
 		B10189C21EAB71B400C1AD2F /* Discount+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10189C01EAB71B400C1AD2F /* Discount+CoreDataClass.swift */; };
 		B10189C31EAB71B400C1AD2F /* Discount+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10189C11EAB71B400C1AD2F /* Discount+CoreDataProperties.swift */; };
+		B10189C61EABB69000C1AD2F /* Review+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10189C41EABB69000C1AD2F /* Review+CoreDataClass.swift */; };
+		B10189C71EABB69000C1AD2F /* Review+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10189C51EABB69000C1AD2F /* Review+CoreDataProperties.swift */; };
+		B10189CA1EABBD3B00C1AD2F /* Service+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10189C81EABBD3B00C1AD2F /* Service+CoreDataClass.swift */; };
+		B10189CB1EABBD3B00C1AD2F /* Service+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10189C91EABBD3B00C1AD2F /* Service+CoreDataProperties.swift */; };
 		B105D1B81E76B90800FCDC73 /* ResponseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B105D1B71E76B90800FCDC73 /* ResponseAPI.swift */; };
 		B10672FA1E71BE8100DB2AE0 /* MSMPickerViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10672F91E71BE8100DB2AE0 /* MSMPickerViewManager.swift */; };
 		B10871521E379A4800374DD5 /* OmnieCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10871511E379A4800374DD5 /* OmnieCard.swift */; };
@@ -412,8 +416,6 @@
 		B1EC9F3D1E8BBDBD00F2E342 /* DropDownItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1EC9F3C1E8BBDBD00F2E342 /* DropDownItem.swift */; };
 		B1EC9F3F1E8BC80B00F2E342 /* DropDownTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1EC9F3E1E8BC80B00F2E342 /* DropDownTableViewCell.xib */; };
 		B1EC9F411E8C133800F2E342 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1EC9F401E8C133800F2E342 /* Service.swift */; };
-		B1EC9F461E8C13FE00F2E342 /* Services+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1EC9F421E8C13FE00F2E342 /* Services+CoreDataClass.swift */; };
-		B1EC9F471E8C13FE00F2E342 /* Services+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1EC9F431E8C13FE00F2E342 /* Services+CoreDataProperties.swift */; };
 		B1EC9F481E8C13FE00F2E342 /* FavoriteServices+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1EC9F441E8C13FE00F2E342 /* FavoriteServices+CoreDataClass.swift */; };
 		B1EC9F491E8C13FE00F2E342 /* FavoriteServices+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1EC9F451E8C13FE00F2E342 /* FavoriteServices+CoreDataProperties.swift */; };
 		B1F3CD541E97AA7900ECAC35 /* PhotosGalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F3CD531E97AA7900ECAC35 /* PhotosGalleryView.swift */; };
@@ -423,7 +425,6 @@
 		B1F3CD641E988ADA00ECAC35 /* CirclePhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F3CD621E988ADA00ECAC35 /* CirclePhotoCollectionViewCell.swift */; };
 		B1F3CD651E988ADA00ECAC35 /* CirclePhotoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1F3CD631E988ADA00ECAC35 /* CirclePhotoCollectionViewCell.xib */; };
 		B1F3CD691E98A3BE00ECAC35 /* ServicePrice.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F3CD681E98A3BE00ECAC35 /* ServicePrice.swift */; };
-		B1F3CD6B1E98AB4300ECAC35 /* Discount.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F3CD6A1E98AB4300ECAC35 /* Discount.swift */; };
 		B1F7EDB81DF54878003B36AD /* SegmentedControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F7EDB71DF54878003B36AD /* SegmentedControlView.swift */; };
 		B1F7EDBA1DF54886003B36AD /* SegmentedControlView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1F7EDB91DF54886003B36AD /* SegmentedControlView.xib */; };
 		B1FBC9161E6D474400D86429 /* LTHRadioButton.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1FBC9151E6D474400D86429 /* LTHRadioButton.framework */; };
@@ -454,7 +455,6 @@
 		B1FFF7161E5F017A00A075D8 /* OrganizationsMapShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FFF70F1E5F017A00A075D8 /* OrganizationsMapShowViewController.swift */; };
 		B1FFF7171E5F017A00A075D8 /* OrganizationsMapShowWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FFF7101E5F017A00A075D8 /* OrganizationsMapShowWorker.swift */; };
 		B1FFF7191E5F01A000A075D8 /* OrganizationsMapShow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1FFF7181E5F01A000A075D8 /* OrganizationsMapShow.storyboard */; };
-		B1FFF71F1E5F038400A075D8 /* Organization.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FFF71E1E5F038400A075D8 /* Organization.swift */; };
 		B1FFF7211E5F0D7E00A075D8 /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1FFF7201E5F0D7E00A075D8 /* SafariServices.framework */; };
 		B1FFF7231E5F0D8D00A075D8 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1FFF7221E5F0D8D00A075D8 /* StoreKit.framework */; };
 		B1FFF7251E5F0DA100A075D8 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1FFF7241E5F0DA100A075D8 /* MapKit.framework */; };
@@ -473,6 +473,10 @@
 		B10189BE1EAB4E0A00C1AD2F /* UInt16+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UInt16+Ext.swift"; sourceTree = "<group>"; };
 		B10189C01EAB71B400C1AD2F /* Discount+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Discount+CoreDataClass.swift"; sourceTree = "<group>"; };
 		B10189C11EAB71B400C1AD2F /* Discount+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Discount+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		B10189C41EABB69000C1AD2F /* Review+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Review+CoreDataClass.swift"; sourceTree = "<group>"; };
+		B10189C51EABB69000C1AD2F /* Review+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Review+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		B10189C81EABBD3B00C1AD2F /* Service+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Service+CoreDataClass.swift"; sourceTree = "<group>"; };
+		B10189C91EABBD3B00C1AD2F /* Service+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Service+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		B105D1B71E76B90800FCDC73 /* ResponseAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseAPI.swift; sourceTree = "<group>"; };
 		B10672F91E71BE8100DB2AE0 /* MSMPickerViewManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSMPickerViewManager.swift; sourceTree = "<group>"; };
 		B10871511E379A4800374DD5 /* OmnieCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OmnieCard.swift; sourceTree = "<group>"; };
@@ -887,8 +891,6 @@
 		B1EC9F3C1E8BBDBD00F2E342 /* DropDownItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DropDownItem.swift; sourceTree = "<group>"; };
 		B1EC9F3E1E8BC80B00F2E342 /* DropDownTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DropDownTableViewCell.xib; sourceTree = "<group>"; };
 		B1EC9F401E8C133800F2E342 /* Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
-		B1EC9F421E8C13FE00F2E342 /* Services+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Services+CoreDataClass.swift"; sourceTree = "<group>"; };
-		B1EC9F431E8C13FE00F2E342 /* Services+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Services+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		B1EC9F441E8C13FE00F2E342 /* FavoriteServices+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FavoriteServices+CoreDataClass.swift"; sourceTree = "<group>"; };
 		B1EC9F451E8C13FE00F2E342 /* FavoriteServices+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FavoriteServices+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		B1F3CD531E97AA7900ECAC35 /* PhotosGalleryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotosGalleryView.swift; sourceTree = "<group>"; };
@@ -898,7 +900,6 @@
 		B1F3CD621E988ADA00ECAC35 /* CirclePhotoCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CirclePhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		B1F3CD631E988ADA00ECAC35 /* CirclePhotoCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CirclePhotoCollectionViewCell.xib; sourceTree = "<group>"; };
 		B1F3CD681E98A3BE00ECAC35 /* ServicePrice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServicePrice.swift; sourceTree = "<group>"; };
-		B1F3CD6A1E98AB4300ECAC35 /* Discount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Discount.swift; sourceTree = "<group>"; };
 		B1F7EDB71DF54878003B36AD /* SegmentedControlView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentedControlView.swift; sourceTree = "<group>"; };
 		B1F7EDB91DF54886003B36AD /* SegmentedControlView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SegmentedControlView.xib; sourceTree = "<group>"; };
 		B1FBC9151E6D474400D86429 /* LTHRadioButton.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LTHRadioButton.framework; path = "../../../../../Library/Developer/Xcode/DerivedData/OmnieCommerce-enpckymiymzhiuhdgnbmlxbwmhew/Build/Products/Debug-iphonesimulator/LTHRadioButton/LTHRadioButton.framework"; sourceTree = "<group>"; };
@@ -930,7 +931,6 @@
 		B1FFF70F1E5F017A00A075D8 /* OrganizationsMapShowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrganizationsMapShowViewController.swift; sourceTree = "<group>"; };
 		B1FFF7101E5F017A00A075D8 /* OrganizationsMapShowWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrganizationsMapShowWorker.swift; sourceTree = "<group>"; };
 		B1FFF7181E5F01A000A075D8 /* OrganizationsMapShow.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = OrganizationsMapShow.storyboard; sourceTree = "<group>"; };
-		B1FFF71E1E5F038400A075D8 /* Organization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Organization.swift; sourceTree = "<group>"; };
 		B1FFF7201E5F0D7E00A075D8 /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
 		B1FFF7221E5F0D8D00A075D8 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		B1FFF7241E5F0DA100A075D8 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -1036,10 +1036,12 @@
 				B1D9AD801EA8A40E006A3852 /* Organization+CoreDataProperties.swift */,
 				B10189B61EAB40E700C1AD2F /* Phone+CoreDataClass.swift */,
 				B10189B71EAB40E700C1AD2F /* Phone+CoreDataProperties.swift */,
+				B10189C41EABB69000C1AD2F /* Review+CoreDataClass.swift */,
+				B10189C51EABB69000C1AD2F /* Review+CoreDataProperties.swift */,
 				B10189BA1EAB4C3900C1AD2F /* Schedule+CoreDataClass.swift */,
 				B10189BB1EAB4C3900C1AD2F /* Schedule+CoreDataProperties.swift */,
-				B1EC9F421E8C13FE00F2E342 /* Services+CoreDataClass.swift */,
-				B1EC9F431E8C13FE00F2E342 /* Services+CoreDataProperties.swift */,
+				B10189C81EABBD3B00C1AD2F /* Service+CoreDataClass.swift */,
+				B10189C91EABBD3B00C1AD2F /* Service+CoreDataProperties.swift */,
 				B15F95AE1EA1D4230009AD28 /* Subcategory+CoreDataClass.swift */,
 				B15F95AF1EA1D4230009AD28 /* Subcategory+CoreDataProperties.swift */,
 			);
@@ -2059,8 +2061,6 @@
 		B1FFF71D1E5F037100A075D8 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				B1F3CD6A1E98AB4300ECAC35 /* Discount.swift */,
-				B1FFF71E1E5F038400A075D8 /* Organization.swift */,
 				B1EC9F401E8C133800F2E342 /* Service.swift */,
 				B1F3CD681E98A3BE00ECAC35 /* ServicePrice.swift */,
 			);
@@ -2333,7 +2333,6 @@
 				B1CF54971DDB512000E98049 /* DiscountCardsShowViewController.swift in Sources */,
 				B15291591DDE3FFA00BBA1E0 /* MenuSectionHeaderView.swift in Sources */,
 				B1EC9F481E8C13FE00F2E342 /* FavoriteServices+CoreDataClass.swift in Sources */,
-				B1EC9F461E8C13FE00F2E342 /* Services+CoreDataClass.swift in Sources */,
 				B1BEEDEF1E63687500F1DE8A /* OrganizationShowConfigurator.swift in Sources */,
 				B1FFF7151E5F017A00A075D8 /* OrganizationsMapShowRouter.swift in Sources */,
 				B1767D7A1E93DA520095859B /* UbuntuLightSoftOrangeLabel.swift in Sources */,
@@ -2421,17 +2420,18 @@
 				B1390FFC1E8D1E4B00BD9219 /* FavoriteServiceTableViewCell.swift in Sources */,
 				B1FFF7061E5ECDF900A075D8 /* OrganizationsShowWorker.swift in Sources */,
 				B10189B91EAB40E700C1AD2F /* Phone+CoreDataProperties.swift in Sources */,
-				B1FFF71F1E5F038400A075D8 /* Organization.swift in Sources */,
 				B122F2191DD35C2C0018A701 /* NewsShowWorker.swift in Sources */,
 				B1597AC61E3F12BF00123CB5 /* PersonalDataViewController.swift in Sources */,
 				B14C072C1EA0AB2500556866 /* ExpandedTableViewHeaderView.swift in Sources */,
 				B1CF54641DDAE78200E98049 /* CustomButton.swift in Sources */,
 				B122DF691DF7F957003823AD /* CalendarShowWorker.swift in Sources */,
 				B122F1ED1DD35BA70018A701 /* MessagesShowRouter.swift in Sources */,
+				B10189CB1EABBD3B00C1AD2F /* Service+CoreDataProperties.swift in Sources */,
 				B15F95B01EA1D4230009AD28 /* Subcategory+CoreDataClass.swift in Sources */,
 				B19E01B01E78217500B53E02 /* NewPhoneView.swift in Sources */,
 				B1F3CD641E988ADA00ECAC35 /* CirclePhotoCollectionViewCell.swift in Sources */,
 				B1FFF7131E5F017A00A075D8 /* OrganizationsMapShowModels.swift in Sources */,
+				B10189C61EABB69000C1AD2F /* Review+CoreDataClass.swift in Sources */,
 				B14172061EA7969B006120A1 /* NewsData+CoreDataProperties.swift in Sources */,
 				B1D883301E8E8D63006F4831 /* NewsActionsShowWorker.swift in Sources */,
 				B14E97491DD8B042001E1DE2 /* SignInShowInteractor.swift in Sources */,
@@ -2441,7 +2441,6 @@
 				B1CF54B21DDB516E00E98049 /* OmnieCardsShowRouter.swift in Sources */,
 				B1CF54C21DDB519000E98049 /* OnmieSoftShowWorker.swift in Sources */,
 				B11B9AD61DF00CC5009A4AA1 /* BaseTableViewCell.swift in Sources */,
-				B1F3CD6B1E98AB4300ECAC35 /* Discount.swift in Sources */,
 				B149A7BA1E5D8DD3009BF8C7 /* AnimatedButton.swift in Sources */,
 				B122F2161DD35C2C0018A701 /* NewsShowPresenter.swift in Sources */,
 				B1CF54A51DDB515000E98049 /* HandbookShowViewController.swift in Sources */,
@@ -2512,7 +2511,6 @@
 				B14E974E1DD8B042001E1DE2 /* SignInShowWorker.swift in Sources */,
 				B122F2251DD35CC80018A701 /* SlideMenuShowPresenter.swift in Sources */,
 				B14E975C1DD8B052001E1DE2 /* SignUpShowWorker.swift in Sources */,
-				B1EC9F471E8C13FE00F2E342 /* Services+CoreDataProperties.swift in Sources */,
 				B1CF54D81DDB51BE00E98049 /* SettingsShowConfigurator.swift in Sources */,
 				B112036E1E8EDD5D0036001A /* UbuntuLightVeryDarkGrayishBlueLabel.swift in Sources */,
 				B122F1EC1DD35BA70018A701 /* MessagesShowPresenter.swift in Sources */,
@@ -2554,6 +2552,7 @@
 				B1FFF7311E5F0F0F00A075D8 /* LocationManager.swift in Sources */,
 				B1D8832F1E8E8D63006F4831 /* NewsActionsShowViewController.swift in Sources */,
 				B122F2141DD35C2C0018A701 /* NewsShowInteractor.swift in Sources */,
+				B10189C71EABB69000C1AD2F /* Review+CoreDataProperties.swift in Sources */,
 				B1CF54AE1DDB516E00E98049 /* OmnieCardsShowConfigurator.swift in Sources */,
 				B1CF54BF1DDB519000E98049 /* OnmieSoftShowPresenter.swift in Sources */,
 				B1BEEDF51E63687500F1DE8A /* OrganizationShowWorker.swift in Sources */,
@@ -2561,6 +2560,7 @@
 				B14C07221EA0993800556866 /* ServicesShowRouter.swift in Sources */,
 				B1FBC9311E6DFC0E00D86429 /* UIViewController+Ext.swift in Sources */,
 				B14E97571DD8B052001E1DE2 /* SignUpShowInteractor.swift in Sources */,
+				B10189CA1EABBD3B00C1AD2F /* Service+CoreDataClass.swift in Sources */,
 				B177E5481E54AC7F004F1390 /* EnterCodeShowInteractor.swift in Sources */,
 				B137EC8E1E7D059B006F0184 /* UbuntuRegularVeryDarkGrayLabel.swift in Sources */,
 				B122F1FC1DD35BC70018A701 /* FavoriteShowViewController.swift in Sources */,

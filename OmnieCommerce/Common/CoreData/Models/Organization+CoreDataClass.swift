@@ -13,14 +13,11 @@ import CoreLocation
 @objc(Organization)
 public class Organization: NSManagedObject, InitCellParameters, PointAnnotationBinding {
     // MARK: - Properties
+    var canUserSendReview: Bool = false
+
     // Confirm InitCellParameters Protocol
     var cellIdentifier: String = "OrganizationTableViewCell"
     var cellHeight: CGFloat = 96.0
-
-    
-    var canUserSendReview: Bool = false
-    var isCommonProfile: Bool = true
-    
     
     // Confirm PointAnnotationBinding Protocol
     var name: String! {
@@ -72,17 +69,7 @@ public class Organization: NSManagedObject, InitCellParameters, PointAnnotationB
             return self.addressStreetValue
         }
     }
-    
-    
-    // From full API response
-    var rating: Double?
-    var email: String?
-    var headerURL: String?
-    var gallery: [GalleryImage]?
-    var services: [Service]?
-    var discountsCommon: [Discount]?
-    var discountsUser: [Discount]?
-    
+
 
     // MARK: - Class Initialization
     convenience init?(json: [String: AnyObject]) {
@@ -111,6 +98,35 @@ public class Organization: NSManagedObject, InitCellParameters, PointAnnotationB
         // Phones
         if let phones = json["phones"] as? [String] {
             self.phones = phones
+        }
+        
+        // Reviews
+        self.reviews = [Review]()
+        
+        // Organization reviews
+        if let canSendReview = json["canSendReview"] as? Bool {
+            self.canSendReview = canSendReview
+        }
+        
+        if let organizationReviews = json["organizationReviews"] as? [Any] {
+            for dictionaryReview in organizationReviews {
+                let organizationReview = Review.init(json: dictionaryReview as! [String: AnyObject], andType: .OrganizationReview)!
+                self.reviews!.append(organizationReview)
+            }
+        }
+        
+        // Services reviews
+        if let serviceReviews = json["serviceReviews"] as? [Any] {
+            for dictionaryReview in serviceReviews {
+                let serviceReview = Review.init(json: dictionaryReview as! [String: AnyObject], andType: .ServiceReview)!
+                self.reviews!.append(serviceReview)
+            }
+        }
+        
+        // User reviews
+        if let userDictionary = json["ownReview"] as? [String: AnyObject] {
+            let userReview = Review.init(json: userDictionary, andType: .UserReview)!
+            self.reviews!.append(userReview)
         }
         
         // Schedules
@@ -160,7 +176,7 @@ public class Organization: NSManagedObject, InitCellParameters, PointAnnotationB
         
         // Gallery images
         if let galleryImages = json["gallery"] as? NSArray {
-//            self.images = NSSet()
+            self.images = NSSet()
             
             for dictionary in galleryImages {
                 let image = GalleryImage.init(json: dictionary as! [String : AnyObject], andRelationshipObject: self)

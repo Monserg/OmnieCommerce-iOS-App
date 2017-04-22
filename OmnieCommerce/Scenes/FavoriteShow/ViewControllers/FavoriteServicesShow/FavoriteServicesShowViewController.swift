@@ -90,20 +90,11 @@ class FavoriteServicesShowViewController: BaseViewController {
     }
     
     func favoriteServicesListDidShow(_ services: [Service]?, fromAPI: Bool) {
-        var servicesList = [Service]()
-        
-        if (fromAPI) {
-            servicesList = services!
-        } else {
-            let servicesData = CoreDataManager.instance.entityDidLoad(byName: keyFavoriteServices, andPredicateParameter: nil) as! Services
-            servicesList = NSKeyedUnarchiver.unarchiveObject(with: servicesData.list! as Data) as! [Service]
-        }
-        
         // Setting MSMTableViewControllerManager
-        tableView.tableViewControllerManager!.dataSource = servicesList
-        tableView!.tableFooterView!.isHidden = (servicesList.count > 0) ? true : false
-        (tableView!.tableFooterView as! MSMTableViewFooterView).didUpload(forItemsCount: servicesList.count,
-                                                                          andEmptyText: "Services list is empty")
+//        tableView.tableViewControllerManager!.dataSource = servicesList
+//        tableView!.tableFooterView!.isHidden = (servicesList.count > 0) ? true : false
+//        (tableView!.tableFooterView as! MSMTableViewFooterView).didUpload(forItemsCount: servicesList.count,
+//                                                                          andEmptyText: "Services list is empty")
         tableView.reloadData()
         
         // Handler select cell

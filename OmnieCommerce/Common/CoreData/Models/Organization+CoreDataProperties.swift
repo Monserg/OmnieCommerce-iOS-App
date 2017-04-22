@@ -18,8 +18,11 @@ extension Organization {
 
     @NSManaged public var addressCityValue: String?
     @NSManaged public var addressStreetValue: String?
+    @NSManaged public var canSendReview: Bool
     @NSManaged public var catalog: String?
     @NSManaged public var codeID: String
+    @NSManaged public var descriptionContent: String?
+    @NSManaged public var descriptionTitle: String?
     @NSManaged public var isFavorite: Bool
     @NSManaged public var latitudeValue: Double
     @NSManaged public var logoURL: String?
@@ -27,12 +30,15 @@ extension Organization {
     @NSManaged public var nameValue: String?
     @NSManaged public var phones: [String]?
     @NSManaged public var placeID: String?
-    @NSManaged public var descriptionTitle: String?
-    @NSManaged public var descriptionContent: String?
+    @NSManaged public var rating: Double
+    @NSManaged public var reviews: [Review]?
+    @NSManaged public var email: String?
+    @NSManaged public var headerURL: String?
     @NSManaged public var category: NSSet?
-    @NSManaged public var schedules: NSSet?
     @NSManaged public var discounts: NSSet?
+    @NSManaged public var schedules: NSSet?
     @NSManaged public var images: NSSet?
+    @NSManaged public var services: NSSet?
 
 }
 
@@ -101,5 +107,22 @@ extension Organization {
 
     @objc(removeImages:)
     @NSManaged public func removeFromImages(_ values: NSSet)
+
+}
+
+// MARK: Generated accessors for services
+extension Organization {
+
+    @objc(addServicesObject:)
+    @NSManaged public func addToServices(_ value: Service)
+
+    @objc(removeServicesObject:)
+    @NSManaged public func removeFromServices(_ value: Service)
+
+    @objc(addServices:)
+    @NSManaged public func addToServices(_ values: NSSet)
+
+    @objc(removeServices:)
+    @NSManaged public func removeFromServices(_ values: NSSet)
 
 }
