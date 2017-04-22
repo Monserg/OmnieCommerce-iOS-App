@@ -48,10 +48,14 @@ class NewsActionsShowViewController: BaseViewController {
     // MARK: - Class Functions
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Create MSMTableViewControllerManager
+        let actionsTableManager = MSMTableViewControllerManager.init(withTableView: self.tableView, andSectionsCount: 1, andEmptyMessageText: "NewsActions list is empty")
+        tableView.tableViewControllerManager = actionsTableManager
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
         
         limit = (actionsData.count == 0) ? Config.Constants.paginationLimit : actionsData.count
         viewSettingsDidLoad()
@@ -60,10 +64,6 @@ class NewsActionsShowViewController: BaseViewController {
 
     // MARK: - Custom Functions
     func viewSettingsDidLoad() {
-        // Create MSMTableViewControllerManager
-        let actionsTableManager = MSMTableViewControllerManager.init(withTableView: self.tableView, andSectionsCount: 1, andEmptyMessageText: "NewsActions list is empty")
-        tableView.tableViewControllerManager = actionsTableManager
-        
         // Load Actions list from Core Data
         guard isNetworkAvailable else {
             actionsListDidShow()
@@ -81,6 +81,11 @@ class NewsActionsShowViewController: BaseViewController {
     }
     
     func actionsListDidLoad(withOffset offset: Int, scrollingData: Bool) {
+        guard isNetworkAvailable else {
+            self.actionsListDidShow()
+            return
+        }
+
         if (!scrollingData) {
             spinnerDidStart(view)
         }

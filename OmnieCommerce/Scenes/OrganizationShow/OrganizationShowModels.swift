@@ -24,7 +24,6 @@ struct OrganizationShowModels {
         
         struct ViewModel {
             let status: String
-            let organizationItem: Organization?
         }
     }
 }

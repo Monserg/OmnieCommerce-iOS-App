@@ -29,24 +29,15 @@ class OrganizationShowPresenter: OrganizationShowPresenterInput {
     // MARK: - Custom Functions. Presentation logic
     func organizationDidPrepareToShowLoad(fromResponseModel responseModel: OrganizationShowModels.OrganizationItem.ResponseModel) {
         guard responseModel.responseAPI != nil else {
-            let organizationViewModel = OrganizationShowModels.OrganizationItem.ViewModel(status: (responseModel.responseAPI?.status)!,
-                                                                                          organizationItem: nil)
-
+            let organizationViewModel = OrganizationShowModels.OrganizationItem.ViewModel(status: (responseModel.responseAPI?.status)!)
             viewController.organizationDidShowLoad(fromViewModel: organizationViewModel)
+            
             return
         }
         
-        // Prepare to save Organization profile in CoreData
-////        let organization = Organization.init(withCommonProfile: false)
-//  
-//        organization.didMap(fromDictionary: responseModel.responseAPI?.body as! [String: Any], completion: { _ in
-////            var entityOrganization = CoreDataManager.instance.entityDidLoad(byName: keyOrganization) as? Organization
-////            entityOrganization = organization
-//        
-//            let organizationViewModel = OrganizationShowModels.OrganizationItem.ViewModel(status: responseModel.responseAPI!.status,
-//                                                                                          organizationItem: organization)
-//
-//            self.viewController.organizationDidShowLoad(fromViewModel: organizationViewModel)
-//        })
+        // Convert responseAPI body to Organization CoreData news objects
+        let _ = Organization.init(json: responseModel.responseAPI?.body as! [String: AnyObject])
+        let organizationViewModel = OrganizationShowModels.OrganizationItem.ViewModel(status: responseModel.responseAPI!.status)
+        self.viewController.organizationDidShowLoad(fromViewModel: organizationViewModel)
     }
 }

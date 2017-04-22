@@ -76,7 +76,9 @@ public class NewsData: NSManagedObject, InitCellParameters {
 //            subcategory!.category = self
 //            
 //            self.subcategories!.adding(subcategory!)
-//        }
+//        }     
+        
+        CoreDataManager.instance.didSaveContext()
     }
     
     deinit {

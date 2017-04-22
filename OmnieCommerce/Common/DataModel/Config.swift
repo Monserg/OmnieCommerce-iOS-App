@@ -11,6 +11,7 @@
 
 import UIKit
 import MapKit
+import AFNetworking
 
 enum ThemeDesign: String {
     case LightForUser   =   "LightForUser"
@@ -59,6 +60,15 @@ typealias OrganizationData                          =   (name: String, rating: I
 // Public Constants
 var isAppThemeDark                                  =   false
 let NetworkReachabilityChanged                      =   NSNotification.Name("NetworkReachabilityChanged")
+
+var isNetworkAvailable: Bool {
+    set { }
+    
+    get {
+        print("ZZZ = \(AFNetworkReachabilityManager.shared().isReachable)")
+        return AFNetworkReachabilityManager.shared().isReachable
+    }
+}
 
 
 // Public Constans as Struct's

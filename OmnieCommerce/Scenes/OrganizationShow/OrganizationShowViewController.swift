@@ -159,10 +159,6 @@ class OrganizationShowViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        
-//        if (!wasLaunchedAPI) {
-//            viewSettingsDidLoad()
-//        }
     }
 
 
@@ -236,18 +232,12 @@ class OrganizationShowViewController: BaseViewController {
         }
     }
 
-    func organizationProfileDidShow(_ organizationProfile: Organization?, fromAPI: Bool) {
-        if (fromAPI) {
-            self.organization = organizationProfile!
-        } else {
-//            let organizationData = CoreDataManager.instance.entityDidLoad(byName: keyOrganization) as! Organization
-//            self.organization = NSKeyedUnarchiver.unarchiveObject(with: organizationData.list! as Data) as! Organization
-        }
-        
-
+    func organizationProfileDidShow() {
         // Setting Organization profile info
+        let organizationProfile = CoreDataManager.instance.entityDidLoad(byName: "Organization", andPredicateParameter: organization.codeID) as! Organization
+        
         // Parallax Header view
-        if (organizationProfile!.headerURL != nil) {
+        if (organizationProfile.headerURL != nil) {
             headerView = HeaderImageView.init(frame: CGRect.init(origin: CGPoint.zero, size: CGSize.init(width: view.frame.width, height: 150)))
             smallTopBarView.actionButton.isHidden = true
             
@@ -294,12 +284,12 @@ class OrganizationShowViewController: BaseViewController {
         nameLabel.numberOfLines = 2
         nameLabel.adjustsFontSizeToFitWidth = false
         
-        if ((organizationProfile!.phones?.count)! == 0) {
+        if ((organizationProfile.phones?.count)! == 0) {
             phonesImageView.isHidden = true
             phonesButton.isHidden = true
         }
         
-        if ((organizationProfile!.schedules?.count)! == 0) {
+        if ((organizationProfile.schedules?.count)! == 0) {
             scheduleImageView.isHidden = true
             scheduleButton.isHidden = true
         }
@@ -322,13 +312,13 @@ class OrganizationShowViewController: BaseViewController {
         }
         
         // Title view
-        if (organizationProfile?.descriptionTitle != nil && organizationProfile?.descriptionContent != nil) {
-            if (organizationProfile!.descriptionTitle!.isEmpty && organizationProfile!.descriptionContent!.isEmpty) {
+        if (organizationProfile.descriptionTitle != nil && organizationProfile.descriptionContent != nil) {
+            if (organizationProfile.descriptionTitle!.isEmpty && organizationProfile.descriptionContent!.isEmpty) {
                 titleView.isHidden = true
             } else {
                 titleView.isHidden = false
-                titleLabel.text = organizationProfile?.descriptionTitle!
-                contentLabel.text = organizationProfile?.descriptionContent!
+                titleLabel.text = organizationProfile.descriptionTitle!
+                contentLabel.text = organizationProfile.descriptionContent!
                 contentLabel.sizeToFit()
                 titleViewHeightConstraint.constant = contentLabel.frame.maxY + 19.0
                 view.layoutIfNeeded()
@@ -338,29 +328,27 @@ class OrganizationShowViewController: BaseViewController {
         }
         
         // Discounts view 
-        discountsView.isHidden = true
-        /*
-        if (organizationProfile?.discountsCommon != nil && organizationProfile?.discountsUser != nil) {
-            if ((organizationProfile?.discountsCommon?.count)! > 0) {
+        if (organizationProfile.discountsCommon != nil && organizationProfile.discountsUser != nil) {
+            if ((organizationProfile.discountsCommon?.count)! > 0) {
                 discountCommonStackView.isHidden = false
                 let discountCommonTableManager = MSMTableViewControllerManager.init(withTableView: discountsCommonTableView, andSectionsCount: 1, andEmptyMessageText: "Common discounts list is empty")
                 discountsCommonTableView.tableViewControllerManager = discountCommonTableManager
-                discountsCommonTableView.tableViewControllerManager!.dataSource = organizationProfile!.discountsCommon
+                discountsCommonTableView.tableViewControllerManager!.dataSource = organizationProfile.discountsCommon!
                 discountsCommonTableView.tableFooterView!.isHidden = true
-                discountCommonTableViewHeightConstraint.constant = CGFloat(50.0 + 58.0 * Double(organizationProfile!.discountsCommon!.count)) * view.heightRatio
+                discountCommonTableViewHeightConstraint.constant = CGFloat(50.0 + 58.0 * Double(organizationProfile.discountsCommon!.count)) * view.heightRatio
                 self.view.layoutIfNeeded()
                 discountsCommonTableView.reloadData()
             } else {
                 discountCommonStackView.isHidden = true
             }
             
-            if ((organizationProfile?.discountsUser?.count)! > 0) {
+            if ((organizationProfile.discountsUser?.count)! > 0) {
                 discountUserStackView.isHidden = false
                 let discountsUserTableManager = MSMTableViewControllerManager.init(withTableView: discountsUserTableView, andSectionsCount: 1, andEmptyMessageText: "User discounts list is empty")
                 discountsUserTableView.tableViewControllerManager = discountsUserTableManager
-                discountsUserTableView.tableViewControllerManager!.dataSource = organizationProfile!.discountsUser
+                discountsUserTableView.tableViewControllerManager!.dataSource = organizationProfile.discountsUser!
                 discountsUserTableView.tableFooterView!.isHidden = true
-                discountsUserTableViewHeightConstraint.constant = CGFloat(50.0 + 58.0 * Double(organizationProfile!.discountsUser!.count)) * view.heightRatio
+                discountsUserTableViewHeightConstraint.constant = CGFloat(50.0 + 58.0 * Double(organizationProfile.discountsUser!.count)) * view.heightRatio
                 self.view.layoutIfNeeded()
                 discountsUserTableView.reloadData()
             } else {
@@ -372,22 +360,21 @@ class OrganizationShowViewController: BaseViewController {
         } else {
             discountsView.isHidden = true
         }
-        */
         
         // Gallery view
-        if ((organizationProfile?.gallery?.count)! > 0) {
+        if ((organizationProfile.gallery?.count)! > 0) {
             galleryView.isHidden = false
             
             galleryCollectionView.collectionViewControllerManager = MSMCollectionViewControllerManager(withCollectionView: galleryCollectionView)
             galleryCollectionView.collectionViewControllerManager!.sectionsCount = 1
-            _ = organizationProfile!.gallery!.map { $0.cellHeight = 102.0 }
-            galleryCollectionView.collectionViewControllerManager!.dataSource = organizationProfile!.gallery!
+            _ = organizationProfile.gallery!.map { $0.cellHeight = 102.0 }
+            galleryCollectionView.collectionViewControllerManager!.dataSource = organizationProfile.gallery!
             galleryCollectionView.reloadData()
             
             // Handler Image select
             galleryCollectionView.collectionViewControllerManager!.handlerCellSelectCompletion = { item in
                 if item is GalleryImage {
-                    self.modalViewDidShow(withHeight: 365, customSubview: PhotosGalleryView(), andValues: organizationProfile!.gallery!)
+                    self.modalViewDidShow(withHeight: 365, customSubview: PhotosGalleryView(), andValues: organizationProfile.gallery!)
                 }
             }
         } else {
@@ -395,26 +382,28 @@ class OrganizationShowViewController: BaseViewController {
         }
         
         // Services view
-        if ((organizationProfile!.services?.count)! > 0) {
+        if ((organizationProfile.services?.count)! > 0) {
             servicesView.isHidden = false
             let servicesTableManager = MSMTableViewControllerManager.init(withTableView: servicesTableView, andSectionsCount: 1, andEmptyMessageText: "Services list is empty")
+           
             servicesTableView.tableViewControllerManager = servicesTableManager
-            _ = organizationProfile!.services!.map {    $0.cellIdentifier = "FavoriteServiceTableViewCell";
-                                                        $0.cellHeight = 60.0;
-                                                        $0.isNameNeedHide = true;
-                                                        $0.needBackgroundColorSet = true;
-                                                    }
-            servicesTableView.tableViewControllerManager!.dataSource = organizationProfile!.services!
+            
+            _ = organizationProfile.services!.map { $0.cellIdentifier = "FavoriteServiceTableViewCell";
+                                                    $0.cellHeight = 60.0;
+                                                    $0.isNameNeedHide = true;
+                                                    $0.needBackgroundColorSet = true;
+                                                }
+            servicesTableView.tableViewControllerManager!.dataSource = organizationProfile.services!
             servicesTableView.tableFooterView!.isHidden = true
             self.view.layoutIfNeeded()
             
-            if (organizationProfile!.services!.count >= 3) {
+            if (organizationProfile.services!.count >= 3) {
                 servicesButtonView.isHidden = false
                 servicesTableViewHeightConstraint.constant = CGFloat(60.0 * 3.0) * view.heightRatio
                 servicesViewHeightConstraint.constant = 20.0 + servicesTableView.frame.minY + servicesTableViewHeightConstraint.constant + servicesButtonView.frame.height + 20.0
             } else {
                 servicesButtonView.isHidden = true
-                servicesTableViewHeightConstraint.constant = CGFloat(60.0 * Double(organizationProfile!.services!.count)) * view.heightRatio
+                servicesTableViewHeightConstraint.constant = CGFloat(60.0 * Double(organizationProfile.services!.count)) * view.heightRatio
                 servicesViewHeightConstraint.constant = 20.0 + servicesTableView.frame.minY + servicesTableViewHeightConstraint.constant + 20.0
             }
             
@@ -433,12 +422,8 @@ class OrganizationShowViewController: BaseViewController {
         
         
         // Reviews view
-        reviewsView.isHidden = true
-        
-        
 //        if (organizationProfile.) {
 //            reviewsView.isHidden = false
-//
 //        } else {
 //            reviewsView.isHidden = true
 //        }
@@ -446,7 +431,7 @@ class OrganizationShowViewController: BaseViewController {
         reviewsCollectionView.collectionViewControllerManager = MSMCollectionViewControllerManager(withCollectionView: reviewsCollectionView)
         reviewsCollectionView.collectionViewControllerManager!.sectionsCount = 1
 //        _ = organizationProfile!.gallery!.map { $0.cellHeight = 143.0 }
-        reviewsCollectionView.collectionViewControllerManager!.dataSource = organizationProfile?.services!
+        reviewsCollectionView.collectionViewControllerManager!.dataSource = organizationProfile.services!
         reviewsCollectionView.reloadData()
         
         // Handler Review select
@@ -458,9 +443,8 @@ class OrganizationShowViewController: BaseViewController {
             self.reviewsCollectionView.scrollToItem(at: IndexPath(item: item as! Int, section: 0), at: .centeredHorizontally, animated: true)
         }
         
-        
         // Rating view
-        if (!(organizationProfile?.canUserSendReview)!) {
+        if (organizationProfile.canUserSendReview) {
             ratingView.isHidden = false
             userNameLabel.text = "\(String(describing: CoreDataManager.instance.appUser.firstName!)) \(String(describing: CoreDataManager.instance.appUser.surName!))"
             cosmosView.rating = organization.rating ?? 0
@@ -489,6 +473,8 @@ class OrganizationShowViewController: BaseViewController {
         UIView.animate(withDuration: 0.3, animations: { _ in
             self.mainStackView.isHidden = false
         })
+        
+        spinnerDidFinish()
     }
 
     
@@ -648,18 +634,8 @@ class OrganizationShowViewController: BaseViewController {
 // MARK: - OrganizationShowViewControllerInput
 extension OrganizationShowViewController: OrganizationShowViewControllerInput {
     func organizationDidShowLoad(fromViewModel viewModel: OrganizationShowModels.OrganizationItem.ViewModel) {
-        spinnerDidFinish()
-        CoreDataManager.instance.didSaveContext()
         
-        // Load Organization profile from CoreData
-        guard isNetworkAvailable else {
-            organizationProfileDidShow(nil, fromAPI: false)
-            return
-        }
-        
-        // Load Organization profile from API
-        let organizationProfile = viewModel.organizationItem!
-        self.organizationProfileDidShow(organizationProfile, fromAPI: true)
+        self.organizationProfileDidShow()
     }
 }
 
@@ -678,44 +654,9 @@ extension OrganizationShowViewController: MXParallaxHeaderDelegate {
         if (0...0.4 ~= parallaxHeader.progress) {
             parallaxHeader.view?.didHide()
             smallTopBarView.didShow()
-            
-//            scrollView.scrollIndicatorInsets    =   UIEdgeInsets(top: smallTopBarView.frame.height, left: 0, bottom: 0, right: 0)
-
         } else {
             parallaxHeader.view?.didShow()
             smallTopBarView.didHide()
-
-//            scrollView.scrollIndicatorInsets    =   UIEdgeInsets(top: scrollView.parallaxHeader.height, left: 0, bottom: 0, right: 0)
         }
-        
-        //        guard headerView != nil else {
-        //            scrollView.transform        =   CGAffineTransform(translationX: 0, y: smallTopBarView.frame.height - 30)
-        //            scrollView.contentInset     =   UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 0)
-        //
-        //            return
-        //        }
-        //
-        //        headerView!.scrollViewDidScroll(scrollView)
-        //
-        //        if smallTopBarView.frame.height...(headerView!.maxHeight + 20) ~= headerView!.frame.height {
-        //            scrollView.scrollIndicatorInsets    =   UIEdgeInsets(top: abs(scrollView.contentOffset.y), left: 0, bottom: 0, right: 0)
-        //        }
-        //
-        ////        if headerView!.minHeight...smallTopBarView.frame.height ~= headerView!.frame.height {
-        ////            scrollView.scrollIndicatorInsets    =   UIEdgeInsets(top: smallTopBarView.frame.height, left: 0, bottom: 0, right: 0)
-        ////        }
-        //
-        //        if (headerView!.frame.height == headerView!.minHeight && smallTopBarView.alpha == 0) {
-        //            UIView.animate(withDuration: 0.7, animations: {
-        //                self.smallTopBarView.alpha      =   1
-        //                self.headerView!.alpha          =   0
-        //            })
-        //        } else if (headerView!.frame.height != headerView!.minHeight && headerView!.alpha == 0) {
-        //            UIView.animate(withDuration: 0.7, animations: {
-        //                self.smallTopBarView.alpha      =   0
-        //                self.headerView!.alpha          =   1
-        //            })
-        //        }
-
     }
 }

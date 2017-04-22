@@ -74,7 +74,7 @@ class OrganizationsShowPresenter: OrganizationsShowPresenterInput {
         responseModel.responseAPI!.itemsDidLoad(fromItemsArray: responseModel.responseAPI!.body as! [Any], withItem: Service.init(withCommonProfile: true), completion: { services in
             // Prepare to save Services in CoreData
             let _ = services.map { $0.category = responseModel.category }
-            let entityServices = CoreDataManager.instance.entityDidLoad(byName: keyServices) as! Services
+            let entityServices = CoreDataManager.instance.entityDidLoad(byName: keyServices, andPredicateParameter: nil) as! Services
             let servicesData = NSKeyedArchiver.archivedData(withRootObject: services) as NSData?
             entityServices.list = servicesData!
             

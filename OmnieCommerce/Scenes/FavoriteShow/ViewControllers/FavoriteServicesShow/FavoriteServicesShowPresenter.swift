@@ -39,7 +39,7 @@ class FavoriteServicesShowPresenter: FavoriteServicesShowPresenterInput {
         responseModel.responseAPI!.itemsDidLoad(fromItemsArray: responseModel.responseAPI!.body as! [Any], withItem: Service.init(withCommonProfile: true), completion: { favoriteServices in
             // Prepare to save Services in CoreData
             let _ = favoriteServices.map { $0.cellHeight = 60.0; $0.cellIdentifier = "FavoriteServiceTableViewCell" }
-            let entityFavoriteServices = CoreDataManager.instance.entityDidLoad(byName: keyFavoriteServices) as! FavoriteServices
+            let entityFavoriteServices = CoreDataManager.instance.entityDidLoad(byName: keyFavoriteServices, andPredicateParameter: nil) as! FavoriteServices
             let favoriteServicesData = NSKeyedArchiver.archivedData(withRootObject: favoriteServices) as NSData?
             entityFavoriteServices.list = favoriteServicesData!
             

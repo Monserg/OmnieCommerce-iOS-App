@@ -144,8 +144,25 @@ class CoreDataManager {
     }
     
     // Get Entity by name
-    func entityDidLoad(byName name: String) -> NSManagedObject? {
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: name)
+    func entityDidLoad(byName name: String, andPredicateParameter parameter: Any?) -> NSManagedObject? {
+        let fetchRequest: NSFetchRequest<NSFetchRequestResult>!
+        var predicate: NSPredicate!
+        
+        if (parameter == nil) {
+            fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: name)
+        } else {
+            switch name {
+            case "NewsData", "Organization":
+                let codeID = parameter as! String
+                predicate = NSPredicate(format: "codeID == %@", codeID)
+                                
+            default:
+                break
+            }
+            
+            fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: name)
+            fetchRequest.predicate = predicate
+        }
         
         do {
             let results = try CoreDataManager.instance.managedObjectContext.fetch(fetchRequest)

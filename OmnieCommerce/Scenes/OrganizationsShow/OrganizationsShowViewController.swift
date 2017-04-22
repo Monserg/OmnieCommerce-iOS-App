@@ -234,7 +234,7 @@ class OrganizationsShowViewController: BaseViewController {
         if (fromAPI) {
             servicesList = services!
         } else {
-            let servicesData = CoreDataManager.instance.entityDidLoad(byName: keyServices) as! Services
+            let servicesData = CoreDataManager.instance.entityDidLoad(byName: keyServices, andPredicateParameter: nil) as! Services
             servicesList = NSKeyedUnarchiver.unarchiveObject(with: servicesData.list! as Data) as! [Service]
         }
         

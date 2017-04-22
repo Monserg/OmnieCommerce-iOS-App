@@ -127,6 +127,8 @@ public class Organization: NSManagedObject, InitCellParameters, PointAnnotationB
 //            
 //            self.subcategories!.adding(subcategory!)
 //        }
+        
+        CoreDataManager.instance.didSaveContext()
     }
     
     deinit {

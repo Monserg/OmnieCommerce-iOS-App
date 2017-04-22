@@ -95,7 +95,7 @@ class FavoriteServicesShowViewController: BaseViewController {
         if (fromAPI) {
             servicesList = services!
         } else {
-            let servicesData = CoreDataManager.instance.entityDidLoad(byName: keyFavoriteServices) as! Services
+            let servicesData = CoreDataManager.instance.entityDidLoad(byName: keyFavoriteServices, andPredicateParameter: nil) as! Services
             servicesList = NSKeyedUnarchiver.unarchiveObject(with: servicesData.list! as Data) as! [Service]
         }
         

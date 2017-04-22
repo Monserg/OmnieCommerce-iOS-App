@@ -145,7 +145,7 @@ class PersonalPageShowViewController: BaseViewController {
         
         // Handler Action Buttons
         personalDataVC!.handlerSaveButtonCompletion = { parameters in
-            guard self.isNetworkAvailable else {
+            guard isNetworkAvailable else {
                 return
             }
             
@@ -223,7 +223,7 @@ class PersonalPageShowViewController: BaseViewController {
                                 .resize(avatarButton.frame.size, fitMode: Toucan.Resize.FitMode.crop)
                                 .maskWithEllipse().image
 
-            if (self.isNetworkAvailable) {
+            if (isNetworkAvailable) {
                 // Upload Image API
                 self.spinnerDidStart(self.blackoutView!)
                 let imageUploadRequestModel = PersonalPageShowModels.UploadImage.RequestModel(image: uploadedImage)

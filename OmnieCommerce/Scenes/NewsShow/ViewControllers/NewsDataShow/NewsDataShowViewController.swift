@@ -48,6 +48,10 @@ class NewsDataShowViewController: BaseViewController {
     // MARK: - Class Functions
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Create MSMTableViewControllerManager
+        let newsDataTableManager = MSMTableViewControllerManager.init(withTableView: self.tableView, andSectionsCount: 1, andEmptyMessageText: "NewsData list is empty")
+        tableView.tableViewControllerManager = newsDataTableManager
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -60,10 +64,6 @@ class NewsDataShowViewController: BaseViewController {
 
     // MARK: - Custom Functions
     func viewSettingsDidLoad() {
-        // Create MSMTableViewControllerManager
-        let newsDataTableManager = MSMTableViewControllerManager.init(withTableView: self.tableView, andSectionsCount: 1, andEmptyMessageText: "NewsData list is empty")
-        tableView.tableViewControllerManager = newsDataTableManager
-        
         // Load NewsData list from CoreData
         guard isNetworkAvailable else {
             newsDataListDidShow()

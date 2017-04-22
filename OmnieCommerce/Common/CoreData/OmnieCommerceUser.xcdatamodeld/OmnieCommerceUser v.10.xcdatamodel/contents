@@ -82,7 +82,6 @@
         <uniquenessConstraints>
             <uniquenessConstraint>
                 <constraint value="codeID"/>
-                <constraint value="catalog"/>
             </uniquenessConstraint>
         </uniquenessConstraints>
     </entity>

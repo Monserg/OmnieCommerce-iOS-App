@@ -110,15 +110,17 @@ class NewsItemShowViewController: BaseViewController {
         combination.append(newsTitle)
 
         // News text
-        let newsText = NSMutableAttributedString(string: newsItem.text!,
-                                                 attributes:    [
-                                                                    NSFontAttributeName: UIFont.ubuntuLight12,
-                                                                    NSForegroundColorAttributeName: UIColor.veryLightGray
-                                                                ])
-        
-        combination.append(emptyString)
-        combination.append(emptyString)
-        combination.append(newsText)
+        if let text = newsItem.text {
+            let newsText = NSMutableAttributedString(string: text,
+                                                     attributes:    [
+                                                                        NSFontAttributeName: UIFont.ubuntuLight12,
+                                                                        NSForegroundColorAttributeName: UIColor.veryLightGray
+                                                                    ])
+            
+            combination.append(emptyString)
+            combination.append(emptyString)
+            combination.append(newsText)
+        }
         
         // Action services title
         if (newsItem.isAction && newsItem.services != nil) {
