@@ -9,7 +9,7 @@
 import Foundation
 import SwiftyJSON
 
-class Schedule: NSObject, NSCoding, InitCellParameters {
+class ScheduleOld: NSObject, NSCoding, InitCellParameters {
     // MARK: - Properties
     var codeID: String!
     var name: String!
@@ -71,11 +71,11 @@ class Schedule: NSObject, NSCoding, InitCellParameters {
 
 
 // MARK: - MapObjectBinding
-extension Schedule: MapObjectBinding {
+extension ScheduleOld: MapObjectBinding {
     func didMap(fromDictionary dictionary: [String: Any], completion: @escaping (() -> ())) {
         self.codeID = dictionary["uuid"] as! String
         self.day = dictionary["day"] as! UInt8
-        self.name = (dictionary["day"] as! UInt8).convertToScheduleString()
+//        self.name = (dictionary["day"] as! UInt8).convertToScheduleString()
         self.workTimeStart = dictionary["workStart"] as! String
         self.workTimeEnd = dictionary["workEnd"] as! String
         
@@ -93,7 +93,7 @@ extension Schedule: MapObjectBinding {
 
 
 // MARK: - NSCopying
-extension Schedule: NSCopying {
+extension ScheduleOld: NSCopying {
     func copy(with zone: NSZone? = nil) -> Any {
         let copy = Schedule()
         return copy

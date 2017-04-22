@@ -2,7 +2,7 @@
 //  Organization+CoreDataProperties.swift
 //  OmnieCommerce
 //
-//  Created by msm72 on 20.04.17.
+//  Created by msm72 on 22.04.17.
 //  Copyright © 2017 Omniesoft. All rights reserved.
 //
 
@@ -16,16 +16,18 @@ extension Organization {
         return NSFetchRequest<Organization>(entityName: "Organization")
     }
 
-    @NSManaged public var codeID: String?
-    @NSManaged public var isFavorite: Bool
-    @NSManaged public var logoURL: String?
-    @NSManaged public var nameValue: String?
-    @NSManaged public var catalog: String?
-    @NSManaged public var latitudeValue: Double
-    @NSManaged public var longitudeValue: Double
     @NSManaged public var addressCityValue: String?
     @NSManaged public var addressStreetValue: String?
+    @NSManaged public var catalog: String?
+    @NSManaged public var codeID: String
+    @NSManaged public var isFavorite: Bool
+    @NSManaged public var latitudeValue: Double
+    @NSManaged public var logoURL: String?
+    @NSManaged public var longitudeValue: Double
+    @NSManaged public var nameValue: String?
+    @NSManaged public var phones: [String]?
     @NSManaged public var category: NSSet?
+    @NSManaged public var schedules: NSSet?
 
 }
 
@@ -43,5 +45,22 @@ extension Organization {
 
     @objc(removeCategory:)
     @NSManaged public func removeFromCategory(_ values: NSSet)
+
+}
+
+// MARK: Generated accessors for schedules
+extension Organization {
+
+    @objc(addSchedulesObject:)
+    @NSManaged public func addToSchedules(_ value: Schedule)
+
+    @objc(removeSchedulesObject:)
+    @NSManaged public func removeFromSchedules(_ value: Schedule)
+
+    @objc(addSchedules:)
+    @NSManaged public func addToSchedules(_ values: NSSet)
+
+    @objc(removeSchedules:)
+    @NSManaged public func removeFromSchedules(_ values: NSSet)
 
 }

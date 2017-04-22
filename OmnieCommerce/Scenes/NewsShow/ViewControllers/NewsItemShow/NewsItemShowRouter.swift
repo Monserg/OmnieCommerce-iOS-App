@@ -28,6 +28,15 @@ class NewsItemShowRouter: NewsItemShowRouterInput {
             self.viewController = viewController
         }
         
+        guard isNetworkAvailable else {
+            let storyboard = UIStoryboard(name: "OrganizationShow", bundle: nil)
+            let organizationShowVC = storyboard.instantiateViewController(withIdentifier: "OrganizationShowVC") as! OrganizationShowViewController
+            organizationShowVC.organization = CoreDataManager.instance.entityDidLoad(byName: "Organization", andPredicateParameter: organizationID) as! Organization
+            
+            self.viewController.navigationController!.pushViewController(organizationShowVC, animated: true)
+            return
+        }
+        
         MSMRestApiManager.instance.userRequestDidRun(.userGetOrganizationByID(["id": organizationID], false), withHandlerResponseAPICompletion: { responseAPI in
             // Check for errors
             guard responseAPI?.code == 200 else {
@@ -38,6 +47,7 @@ class NewsItemShowRouter: NewsItemShowRouterInput {
             let storyboard = UIStoryboard(name: "OrganizationShow", bundle: nil)
             let organizationShowVC = storyboard.instantiateViewController(withIdentifier: "OrganizationShowVC") as! OrganizationShowViewController
             let _ = Organization.init(json: responseAPI!.body as! [String: AnyObject])
+            CoreDataManager.instance.didSaveContext()
             organizationShowVC.organization = CoreDataManager.instance.entityDidLoad(byName: "Organization", andPredicateParameter: organizationID) as! Organization
             
             self.viewController.navigationController!.pushViewController(organizationShowVC, animated: true)

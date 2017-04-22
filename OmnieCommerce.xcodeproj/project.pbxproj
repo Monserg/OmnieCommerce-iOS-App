@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		4B80CBB54BC2985E0EDC5A94 /* Pods_OmnieCommerce.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9EA988F3F694011D76FF246 /* Pods_OmnieCommerce.framework */; };
+		B10189B81EAB40E700C1AD2F /* Phone+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10189B61EAB40E700C1AD2F /* Phone+CoreDataClass.swift */; };
+		B10189B91EAB40E700C1AD2F /* Phone+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10189B71EAB40E700C1AD2F /* Phone+CoreDataProperties.swift */; };
+		B10189BC1EAB4C3900C1AD2F /* Schedule+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10189BA1EAB4C3900C1AD2F /* Schedule+CoreDataClass.swift */; };
+		B10189BD1EAB4C3900C1AD2F /* Schedule+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10189BB1EAB4C3900C1AD2F /* Schedule+CoreDataProperties.swift */; };
+		B10189BF1EAB4E0A00C1AD2F /* UInt16+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10189BE1EAB4E0A00C1AD2F /* UInt16+Ext.swift */; };
 		B105D1B81E76B90800FCDC73 /* ResponseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B105D1B71E76B90800FCDC73 /* ResponseAPI.swift */; };
 		B10672FA1E71BE8100DB2AE0 /* MSMPickerViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10672F91E71BE8100DB2AE0 /* MSMPickerViewManager.swift */; };
 		B10871521E379A4800374DD5 /* OmnieCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10871511E379A4800374DD5 /* OmnieCard.swift */; };
@@ -246,7 +251,6 @@
 		B17EBF1C1E9B69A4000E61AA /* DiscountTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B17EBF1A1E9B69A4000E61AA /* DiscountTableViewCell.xib */; };
 		B184A9581E9BE9F9005B3A10 /* ReviewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B184A9561E9BE9F9005B3A10 /* ReviewCollectionViewCell.swift */; };
 		B184A9591E9BE9F9005B3A10 /* ReviewCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B184A9571E9BE9F9005B3A10 /* ReviewCollectionViewCell.xib */; };
-		B184A95B1E9CC82F005B3A10 /* UInt8+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B184A95A1E9CC82F005B3A10 /* UInt8+Ext.swift */; };
 		B18A45C61DEC21BA003EBD2F /* SmallTopBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B18A45C51DEC21BA003EBD2F /* SmallTopBarView.xib */; };
 		B18A45C81DEC23B2003EBD2F /* SmallTopBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18A45C71DEC23B2003EBD2F /* SmallTopBarView.swift */; };
 		B18A45CA1DEC282B003EBD2F /* DotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18A45C91DEC282B003EBD2F /* DotView.swift */; };
@@ -464,6 +468,11 @@
 
 /* Begin PBXFileReference section */
 		796E69C2BE10D1D43C710949 /* Pods-OmnieCommerce.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OmnieCommerce.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OmnieCommerce/Pods-OmnieCommerce.debug.xcconfig"; sourceTree = "<group>"; };
+		B10189B61EAB40E700C1AD2F /* Phone+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Phone+CoreDataClass.swift"; sourceTree = "<group>"; };
+		B10189B71EAB40E700C1AD2F /* Phone+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Phone+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		B10189BA1EAB4C3900C1AD2F /* Schedule+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Schedule+CoreDataClass.swift"; sourceTree = "<group>"; };
+		B10189BB1EAB4C3900C1AD2F /* Schedule+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Schedule+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		B10189BE1EAB4E0A00C1AD2F /* UInt16+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UInt16+Ext.swift"; sourceTree = "<group>"; };
 		B105D1B71E76B90800FCDC73 /* ResponseAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseAPI.swift; sourceTree = "<group>"; };
 		B10672F91E71BE8100DB2AE0 /* MSMPickerViewManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSMPickerViewManager.swift; sourceTree = "<group>"; };
 		B10871511E379A4800374DD5 /* OmnieCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OmnieCard.swift; sourceTree = "<group>"; };
@@ -709,7 +718,6 @@
 		B17EBF1A1E9B69A4000E61AA /* DiscountTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DiscountTableViewCell.xib; sourceTree = "<group>"; };
 		B184A9561E9BE9F9005B3A10 /* ReviewCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewCollectionViewCell.swift; sourceTree = "<group>"; };
 		B184A9571E9BE9F9005B3A10 /* ReviewCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReviewCollectionViewCell.xib; sourceTree = "<group>"; };
-		B184A95A1E9CC82F005B3A10 /* UInt8+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UInt8+Ext.swift"; sourceTree = "<group>"; };
 		B18A45C51DEC21BA003EBD2F /* SmallTopBarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SmallTopBarView.xib; sourceTree = "<group>"; };
 		B18A45C71DEC23B2003EBD2F /* SmallTopBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmallTopBarView.swift; sourceTree = "<group>"; };
 		B18A45C91DEC282B003EBD2F /* DotView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DotView.swift; sourceTree = "<group>"; };
@@ -1030,6 +1038,10 @@
 				B14172041EA7969B006120A1 /* NewsData+CoreDataProperties.swift */,
 				B1D9AD7F1EA8A40E006A3852 /* Organization+CoreDataClass.swift */,
 				B1D9AD801EA8A40E006A3852 /* Organization+CoreDataProperties.swift */,
+				B10189B61EAB40E700C1AD2F /* Phone+CoreDataClass.swift */,
+				B10189B71EAB40E700C1AD2F /* Phone+CoreDataProperties.swift */,
+				B10189BA1EAB4C3900C1AD2F /* Schedule+CoreDataClass.swift */,
+				B10189BB1EAB4C3900C1AD2F /* Schedule+CoreDataProperties.swift */,
 				B1EC9F421E8C13FE00F2E342 /* Services+CoreDataClass.swift */,
 				B1EC9F431E8C13FE00F2E342 /* Services+CoreDataProperties.swift */,
 				B15F95AE1EA1D4230009AD28 /* Subcategory+CoreDataClass.swift */,
@@ -1654,7 +1666,7 @@
 				B1739D191DE314DF0029BCCA /* UIColor+Ext.swift */,
 				B1DA01B01DF1CB2F00E6DD46 /* UIFont+Ext.swift */,
 				B1739D171DE314D50029BCCA /* UILabel+Ext.swift */,
-				B184A95A1E9CC82F005B3A10 /* UInt8+Ext.swift */,
+				B10189BE1EAB4E0A00C1AD2F /* UInt16+Ext.swift */,
 				B19DFABE1E64B98E00599073 /* UIScrollView+Ext.swift */,
 				B19DFAC01E64B9F100599073 /* UITextField+Ext.swift */,
 				B1739D1B1DE314E80029BCCA /* UIView+Ext.swift */,
@@ -2413,6 +2425,7 @@
 				B17D92DD1E701D750028967E /* MSMTextFieldManager.swift in Sources */,
 				B1390FFC1E8D1E4B00BD9219 /* FavoriteServiceTableViewCell.swift in Sources */,
 				B1FFF7061E5ECDF900A075D8 /* OrganizationsShowWorker.swift in Sources */,
+				B10189B91EAB40E700C1AD2F /* Phone+CoreDataProperties.swift in Sources */,
 				B1FFF71F1E5F038400A075D8 /* Organization.swift in Sources */,
 				B122F2191DD35C2C0018A701 /* NewsShowWorker.swift in Sources */,
 				B1597AC61E3F12BF00123CB5 /* PersonalDataViewController.swift in Sources */,
@@ -2442,6 +2455,7 @@
 				B122DF641DF7F957003823AD /* CalendarShowInteractor.swift in Sources */,
 				B1CF54DD1DDB51BE00E98049 /* SettingsShowViewController.swift in Sources */,
 				B18A45CC1DEC3918003EBD2F /* SmallCirleView.swift in Sources */,
+				B10189BD1EAB4C3900C1AD2F /* Schedule+CoreDataProperties.swift in Sources */,
 				B177E54C1E54AC7F004F1390 /* EnterCodeShowViewController.swift in Sources */,
 				B1EC9F411E8C133800F2E342 /* Service.swift in Sources */,
 				B1FFF7141E5F017A00A075D8 /* OrganizationsMapShowPresenter.swift in Sources */,
@@ -2503,7 +2517,6 @@
 				B14E974E1DD8B042001E1DE2 /* SignInShowWorker.swift in Sources */,
 				B122F2251DD35CC80018A701 /* SlideMenuShowPresenter.swift in Sources */,
 				B14E975C1DD8B052001E1DE2 /* SignUpShowWorker.swift in Sources */,
-				B184A95B1E9CC82F005B3A10 /* UInt8+Ext.swift in Sources */,
 				B1EC9F471E8C13FE00F2E342 /* Services+CoreDataProperties.swift in Sources */,
 				B1CF54D81DDB51BE00E98049 /* SettingsShowConfigurator.swift in Sources */,
 				B112036E1E8EDD5D0036001A /* UbuntuLightVeryDarkGrayishBlueLabel.swift in Sources */,
@@ -2535,6 +2548,7 @@
 				B1CF54DB1DDB51BE00E98049 /* SettingsShowPresenter.swift in Sources */,
 				B1FBC91F1E6D904700D86429 /* UbuntuLightItalicVeryDarkGrayishBlueLabel.swift in Sources */,
 				B122DF631DF7F957003823AD /* CalendarShowConfigurator.swift in Sources */,
+				B10189BF1EAB4E0A00C1AD2F /* UInt16+Ext.swift in Sources */,
 				B14E97481DD8B042001E1DE2 /* SignInShowConfigurator.swift in Sources */,
 				B1D8831D1E8E8C98006F4831 /* NewsDataShowInteractor.swift in Sources */,
 				B177E53C1E5489A2004F1390 /* ErrorMessageView.swift in Sources */,
@@ -2560,6 +2574,7 @@
 				B122F1E91DD35BA70018A701 /* MessagesShowConfigurator.swift in Sources */,
 				B1BF92441DD5FC8000BECBBB /* Config.swift in Sources */,
 				B14C071E1EA0993800556866 /* ServicesShowConfigurator.swift in Sources */,
+				B10189B81EAB40E700C1AD2F /* Phone+CoreDataClass.swift in Sources */,
 				B122F2231DD35CC80018A701 /* SlideMenuShowInteractor.swift in Sources */,
 				B122DF681DF7F957003823AD /* CalendarShowViewController.swift in Sources */,
 				B11E074E1DE032D90052AFC5 /* DottedBorderView.swift in Sources */,
@@ -2636,6 +2651,7 @@
 				B1F3CD671E98927400ECAC35 /* GalleryImage.swift in Sources */,
 				B122F1F81DD35BC70018A701 /* FavoriteShowInteractor.swift in Sources */,
 				B14E976A1DD8B05E001E1DE2 /* ForgotPasswordShowWorker.swift in Sources */,
+				B10189BC1EAB4C3900C1AD2F /* Schedule+CoreDataClass.swift in Sources */,
 				B1CF54DE1DDB51BE00E98049 /* SettingsShowWorker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

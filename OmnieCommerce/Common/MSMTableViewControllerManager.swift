@@ -148,7 +148,7 @@ extension MSMTableViewControllerManager: UITableViewDataSource {
             return (self.tableView!.headears![section].isExpanded) ? (dataSource as! [[Any]])[section].count : 0
         }
         
-        return ((isSearchBarActive) ? dataSourceFiltered.count ?? 0 : dataSource.count ?? 0)!
+        return (isSearchBarActive) ? dataSourceFiltered.count : dataSource.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

@@ -81,18 +81,11 @@ public class Organization: NSManagedObject, InitCellParameters, PointAnnotationB
     var descriptionTitle: String?
     var descriptionContent: String?
     var gallery: [GalleryImage]?
-    var phones: [String]?
-    var schedules: [Schedule]?
     var services: [Service]?
     var discountsCommon: [Discount]?
     var discountsUser: [Discount]?
     
-    // MARK: - Class Initialization
 
-    
-    
-    
-    
     // MARK: - Class Initialization
     convenience init?(json: [String: AnyObject]) {
         guard let codeID = json["uuid"] as? String, let name = json["orgName"] as? String, let isFavorite = json["isFavorite"] as? Bool else {
@@ -117,7 +110,38 @@ public class Organization: NSManagedObject, InitCellParameters, PointAnnotationB
         }
 
         // Prepare to save full data
+        if let phones = json["phones"] as? [String] {
+            self.phones = phones
+        }
         
+        if let scheduleItems = json["timeSheets"] as? NSArray {
+//            var items = [Schedule]()
+            
+            for dictionary in scheduleItems {
+                let _ = Schedule.init(json: dictionary as! [String : AnyObject], andOrganization: self)
+            }
+//            
+//                items.append(schedule!)
+//                
+//                if (schedule!.launchTimeStart != nil) {
+//                    let launchSchedule = Schedule.init(codeID: schedule!.codeID,
+//                                                       name: "Lunch break".localized(),
+//                                                       day: 0,
+//                                                       workTimeStart: schedule!.launchTimeStart!,
+//                                                       workTimeEnd: schedule!.launchTimeEnd!,
+//                                                       launchTimeStart: nil,
+//                                                       launchTimeEnd: nil)
+//                    
+//                    items.append(launchSchedule)
+//                }
+//            }
+            
+            self.schedules = NSSet.init(array: CoreDataManager.instance.entitiesDidLoad(byName: "Schedule", andPredicateParameter: self.codeID)!)
+        }
+        
+        
+//        @NSManaged public var phones: [String]?
+
 
         
         
@@ -128,7 +152,7 @@ public class Organization: NSManagedObject, InitCellParameters, PointAnnotationB
 //            self.subcategories!.adding(subcategory!)
 //        }
         
-        CoreDataManager.instance.didSaveContext()
+//        CoreDataManager.instance.didSaveContext()
     }
     
     deinit {

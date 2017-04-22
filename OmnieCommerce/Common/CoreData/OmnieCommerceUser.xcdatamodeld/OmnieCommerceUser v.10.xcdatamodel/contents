@@ -78,7 +78,24 @@
         <attribute name="logoURL" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="longitudeValue" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="nameValue" attributeType="String" syncable="YES"/>
+        <attribute name="phones" optional="YES" attributeType="Transformable" syncable="YES"/>
         <relationship name="category" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Category" inverseName="organization" inverseEntity="Category" syncable="YES"/>
+        <relationship name="schedules" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Schedule" inverseName="organization" inverseEntity="Schedule" syncable="YES"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="codeID"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
+    </entity>
+    <entity name="Schedule" representedClassName="Schedule" syncable="YES">
+        <attribute name="codeID" attributeType="String" syncable="YES"/>
+        <attribute name="day" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="launchTimeEnd" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="launchTimeStart" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" attributeType="String" syncable="YES"/>
+        <attribute name="workTimeEnd" attributeType="String" syncable="YES"/>
+        <attribute name="workTimeStart" attributeType="String" syncable="YES"/>
+        <relationship name="organization" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Organization" inverseName="schedules" inverseEntity="Organization" syncable="YES"/>
         <uniquenessConstraints>
             <uniquenessConstraint>
                 <constraint value="codeID"/>
@@ -108,8 +125,9 @@
         <element name="FavoriteServices" positionX="-18" positionY="126" width="128" height="60"/>
         <element name="GalleryImage" positionX="-36" positionY="99" width="128" height="105"/>
         <element name="NewsData" positionX="-36" positionY="99" width="128" height="165"/>
-        <element name="Organization" positionX="-36" positionY="99" width="128" height="195"/>
+        <element name="Organization" positionX="-36" positionY="99" width="128" height="225"/>
         <element name="Services" positionX="-36" positionY="117" width="128" height="60"/>
         <element name="Subcategory" positionX="475" positionY="-69" width="128" height="103"/>
+        <element name="Schedule" positionX="153" positionY="90" width="128" height="165"/>
     </elements>
 </model>

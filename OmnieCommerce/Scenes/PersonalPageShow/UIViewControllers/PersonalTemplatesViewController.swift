@@ -39,7 +39,7 @@ class PersonalTemplatesViewController: BaseViewController {
         tableView.tableViewControllerManager = userTemplatesTableManager
         tableView.tableViewControllerManager!.dataSource = organizations
         
-        tableView.isScrollEnabled = (organizations == nil) ? false : true
+        tableView.isScrollEnabled = (organizations.count == 0) ? false : true
         tableView.tableViewControllerManager!.tableView = tableView
         
         tableView.reloadData()

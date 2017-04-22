@@ -35,7 +35,7 @@ extension ServicePriceTableViewCell: ConfigureCell {
         nameLabel.numberOfLines = 1
         nameLabel.text = servicePrice.name
         nameLabel.sizeToFit()
-        priceLabel.text = "\(servicePrice.price!) \(servicePrice.unit!.convertToUnitString() ?? "???")"
+//        priceLabel.text = "\(servicePrice.price!) \(servicePrice.unit!.convertToUnitString() ?? "???")"
         
         // Set selected color
         let selectedView = UIView.init(frame: self.frame)

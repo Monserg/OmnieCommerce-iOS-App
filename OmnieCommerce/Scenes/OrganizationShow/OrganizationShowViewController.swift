@@ -170,16 +170,22 @@ class OrganizationShowViewController: BaseViewController {
         smallTopBarView.titleText = organization.name
         haveMenuItem = false
         
-        // Load Organization profile data
-        spinnerDidStart(view)
-        let organizationRequestModel = OrganizationShowModels.OrganizationItem.RequestModel(parameters: ["id": organization.codeID])
-        interactor.organizationDidLoad(withRequestModel: organizationRequestModel)
-        wasLaunchedAPI = true
-
         // Handler Back button tap
         smallTopBarView.handlerSendButtonCompletion = { _ in
             _ = self.navigationController?.popViewController(animated: true)
         }
+
+        spinnerDidStart(view)
+        wasLaunchedAPI = true
+
+        guard isNetworkAvailable else {
+            organizationProfileDidShow()
+            return
+        }
+        
+        // Load Organization profile data
+        let organizationRequestModel = OrganizationShowModels.OrganizationItem.RequestModel(parameters: ["id": organization.codeID])
+        interactor.organizationDidLoad(withRequestModel: organizationRequestModel)
     }
     
     func modalViewDidShow(withHeight height: CGFloat, customSubview subView: CustomView, andValues values: [Any]?) {
@@ -293,7 +299,7 @@ class OrganizationShowViewController: BaseViewController {
             scheduleImageView.isHidden = true
             scheduleButton.isHidden = true
         }
-        
+
         favoriteButton.tag = (organization.isFavorite) ? 1 : 0
         favoriteButton.setImage(UIImage.init(named: (favoriteButton.tag == 0) ? "image-favorite-star-normal" : "image-favorite-star-selected"), for: .normal)
         
@@ -328,6 +334,8 @@ class OrganizationShowViewController: BaseViewController {
         }
         
         // Discounts view 
+        discountUserStackView.isHidden = false
+        /*
         if (organizationProfile.discountsCommon != nil && organizationProfile.discountsUser != nil) {
             if ((organizationProfile.discountsCommon?.count)! > 0) {
                 discountCommonStackView.isHidden = false
@@ -469,11 +477,11 @@ class OrganizationShowViewController: BaseViewController {
         } else {
             ratingView.isHidden = true
         }
-        
+        */
         UIView.animate(withDuration: 0.3, animations: { _ in
             self.mainStackView.isHidden = false
         })
-        
+
         spinnerDidFinish()
     }
 
@@ -510,12 +518,12 @@ class OrganizationShowViewController: BaseViewController {
         }
         
         if (organization.phones!.count > 0) {
-            modalViewDidShow(withHeight: 185, customSubview: PhonesView(), andValues: organization.phones!)
+            modalViewDidShow(withHeight: 185, customSubview: PhonesView(), andValues: Array(organization.phones!))
         }
     }
     
     @IBAction func handlerScheduleButtonTap(_ sender: CustomButton) {
-        modalViewDidShow(withHeight: 185, customSubview: ScheduleView(), andValues: organization.schedules!)
+        modalViewDidShow(withHeight: 185, customSubview: ScheduleView(), andValues: Array(organization.schedules!))
     }
     
     @IBAction func handlerFavoriteButtonTap(_ sender: UIButton) {

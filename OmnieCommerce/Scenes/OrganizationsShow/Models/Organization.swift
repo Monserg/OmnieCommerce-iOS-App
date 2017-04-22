@@ -200,28 +200,27 @@ extension OrganizationOld: MapObjectBinding {
                 self.phones = dictionary["phones"] as? [String]
             }
             
-            if let scheduleItems = dictionary["timeSheets"] as? NSArray {
-                var items = [Schedule]()
-                
-                for dictionary in scheduleItems {
-                    let schedule = Schedule()
-                    schedule.didMap(fromDictionary: dictionary as! [String : Any], completion: { _ in })
-                    items.append(schedule)
-                    
-                    if (schedule.launchTimeStart != nil) {
-                        let launchSchedule = Schedule.init(codeID: schedule.codeID,
-                                                           name: "Lunch break".localized(),
-                                                           day: 0,
-                                                           workTimeStart: schedule.launchTimeStart!,
-                                                           workTimeEnd: schedule.launchTimeEnd!,
-                                                           launchTimeStart: nil,
-                                                           launchTimeEnd: nil)
-                        items.append(launchSchedule)
-                    }
-                }
-                
-                self.schedules = items
-            }
+//            if let scheduleItems = dictionary["timeSheets"] as? NSArray {
+//                var items = [Schedule]()
+//                
+//                for dictionary in scheduleItems {
+//                    let schedule = Schedule.init(json: dictionary as! [String : AnyObject])
+//                    items.append(schedule)
+//                    
+//                    if (schedule.launchTimeStart != nil) {
+//                        let launchSchedule = Schedule.init(codeID: schedule.codeID,
+//                                                           name: "Lunch break".localized(),
+//                                                           day: 0,
+//                                                           workTimeStart: schedule.launchTimeStart!,
+//                                                           workTimeEnd: schedule.launchTimeEnd!,
+//                                                           launchTimeStart: nil,
+//                                                           launchTimeEnd: nil)
+//                        items.append(launchSchedule)
+//                    }
+//                }
+//                
+//                self.schedules = items
+//            }
             
             if let serviceItems = dictionary["services"] as? NSArray {
                 var items = [Service]()

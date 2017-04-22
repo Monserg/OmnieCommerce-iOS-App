@@ -37,6 +37,7 @@ class OrganizationShowPresenter: OrganizationShowPresenterInput {
         
         // Convert responseAPI body to Organization CoreData news objects
         let _ = Organization.init(json: responseModel.responseAPI?.body as! [String: AnyObject])
+        CoreDataManager.instance.didSaveContext()
         let organizationViewModel = OrganizationShowModels.OrganizationItem.ViewModel(status: responseModel.responseAPI!.status)
         self.viewController.organizationDidShowLoad(fromViewModel: organizationViewModel)
     }
