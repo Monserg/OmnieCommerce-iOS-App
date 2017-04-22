@@ -157,19 +157,17 @@ public class Organization: NSManagedObject, InitCellParameters, PointAnnotationB
                 self.addToDiscounts(discountUser)
             }
         }
-
-//        @NSManaged public var phones: [String]?
-
-
         
-        
-//        for json in subcategoriesList {
-//            let subcategory = Subcategory.init(json: json as! [String: AnyObject], andType: .Subcategory)
-//            subcategory!.category = self
-//            
-//            self.subcategories!.adding(subcategory!)
-//        }
-        
+        // Gallery images
+        if let galleryImages = json["gallery"] as? NSArray {
+//            self.images = NSSet()
+            
+            for dictionary in galleryImages {
+                let image = GalleryImage.init(json: dictionary as! [String : AnyObject], andRelationshipObject: self)
+                self.addToImages(image!)
+            }
+        }
+
     }
     
     deinit {

@@ -2,7 +2,7 @@
 //  GalleryImage+CoreDataProperties.swift
 //  OmnieCommerce
 //
-//  Created by msm72 on 12.04.17.
+//  Created by msm72 on 22.04.17.
 //  Copyright © 2017 Omniesoft. All rights reserved.
 //
 
@@ -10,15 +10,16 @@ import Foundation
 import CoreData
 
 
-extension GalleryImage1 {
+extension GalleryImage {
 
-    @nonobjc public class func fetchRequest() -> NSFetchRequest<GalleryImage1> {
-        return NSFetchRequest<GalleryImage1>(entityName: "GalleryImage1")
+    @nonobjc public class func fetchRequest() -> NSFetchRequest<GalleryImage> {
+        return NSFetchRequest<GalleryImage>(entityName: "GalleryImage")
     }
 
-    @NSManaged public var imageID: String?
+    @NSManaged public var imageID: String
     @NSManaged public var imagePath: String?
     @NSManaged public var serviceID: String?
     @NSManaged public var serviceName: String?
+    @NSManaged public var organization: Organization?
 
 }

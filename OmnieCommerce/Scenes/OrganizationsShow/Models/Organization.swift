@@ -184,17 +184,17 @@ extension OrganizationOld: MapObjectBinding {
                 self.descriptionContent = dictionary["descriptionContent"] as? String
             }
             
-            if let galleryImages = dictionary["gallery"] as? NSArray {
-                var items = [GalleryImage]()
-                
-                for dictionary in galleryImages {
-                    let image = GalleryImage()
-                    image.didMap(fromDictionary: dictionary as! [String : Any], completion: { _ in })
-                    items.append(image)
-                }
-                
-                self.gallery = items
-            }
+//            if let galleryImages = dictionary["gallery"] as? NSArray {
+//                var items = [GalleryImage]()
+//                
+//                for dictionary in galleryImages {
+//                    let image = GalleryImage()
+//                    image.didMap(fromDictionary: dictionary as! [String : Any], completion: { _ in })
+//                    items.append(image)
+//                }
+//                
+//                self.gallery = items
+//            }
             
             if (dictionary["phones"] as? [String] != nil) {
                 self.phones = dictionary["phones"] as? [String]

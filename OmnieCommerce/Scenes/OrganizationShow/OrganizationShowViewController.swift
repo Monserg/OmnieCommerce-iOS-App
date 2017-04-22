@@ -233,7 +233,7 @@ class OrganizationShowViewController: BaseViewController {
             self.blackoutView = nil
             
             if ((popupView as? PhotosGalleryView) != nil) {
-                _ = self.organization.gallery!.map { $0.cellHeight = 102.0 }
+                _ = self.organization.images!.map { ($0 as! GalleryImage).cellHeight = 102.0 }
             }
         }
     }
@@ -380,27 +380,27 @@ class OrganizationShowViewController: BaseViewController {
         } else {
             discountsView.isHidden = true
         }
-        /*
+
         // Gallery view
-        if ((organizationProfile.gallery?.count)! > 0) {
+        if ((organizationProfile.images?.count)! > 0) {
             galleryView.isHidden = false
             
             galleryCollectionView.collectionViewControllerManager = MSMCollectionViewControllerManager(withCollectionView: galleryCollectionView)
             galleryCollectionView.collectionViewControllerManager!.sectionsCount = 1
-            _ = organizationProfile.gallery!.map { $0.cellHeight = 102.0 }
-            galleryCollectionView.collectionViewControllerManager!.dataSource = organizationProfile.gallery!
+            _ = organizationProfile.images!.map { ($0 as! GalleryImage).cellHeight = 102.0 }
+            galleryCollectionView.collectionViewControllerManager!.dataSource = Array(organizationProfile.images!)
             galleryCollectionView.reloadData()
             
             // Handler Image select
             galleryCollectionView.collectionViewControllerManager!.handlerCellSelectCompletion = { item in
                 if item is GalleryImage {
-                    self.modalViewDidShow(withHeight: 365, customSubview: PhotosGalleryView(), andValues: organizationProfile.gallery!)
+                    self.modalViewDidShow(withHeight: 365, customSubview: PhotosGalleryView(), andValues: Array(organizationProfile.images!))
                 }
             }
         } else {
             galleryView.isHidden = true
         }
-        
+        /*
         // Services view
         if ((organizationProfile.services?.count)! > 0) {
             servicesView.isHidden = false
@@ -450,7 +450,7 @@ class OrganizationShowViewController: BaseViewController {
         
         reviewsCollectionView.collectionViewControllerManager = MSMCollectionViewControllerManager(withCollectionView: reviewsCollectionView)
         reviewsCollectionView.collectionViewControllerManager!.sectionsCount = 1
-//        _ = organizationProfile!.gallery!.map { $0.cellHeight = 143.0 }
+//        _ = organizationProfile!.images!.map { ($0 as! GalleryImage).cellHeight = 143.0 }
         reviewsCollectionView.collectionViewControllerManager!.dataSource = organizationProfile.services!
         reviewsCollectionView.reloadData()
         
@@ -552,11 +552,6 @@ class OrganizationShowViewController: BaseViewController {
                                                                                 UIImage(named: "image-favorite-star-normal"), for: .normal)
             }
         })
-    }
-    
-    // TESTED
-    @IBAction func handlerShowPopupView(_ sender: UIButton) {
-//        modalViewDidShow(withHeight: 185, customSubview: BlackListView(), andValues: nil)
     }
     
     @IBAction func handlerAllServicesButtonTap(_ sender: FillVeryLightOrangeButton) {

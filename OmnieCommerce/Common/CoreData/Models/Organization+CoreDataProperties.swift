@@ -19,7 +19,7 @@ extension Organization {
     @NSManaged public var addressCityValue: String?
     @NSManaged public var addressStreetValue: String?
     @NSManaged public var catalog: String?
-    @NSManaged public var codeID: String?
+    @NSManaged public var codeID: String
     @NSManaged public var isFavorite: Bool
     @NSManaged public var latitudeValue: Double
     @NSManaged public var logoURL: String?
@@ -32,6 +32,7 @@ extension Organization {
     @NSManaged public var category: NSSet?
     @NSManaged public var schedules: NSSet?
     @NSManaged public var discounts: NSSet?
+    @NSManaged public var images: NSSet?
 
 }
 
@@ -52,6 +53,23 @@ extension Organization {
 
 }
 
+// MARK: Generated accessors for discounts
+extension Organization {
+
+    @objc(addDiscountsObject:)
+    @NSManaged public func addToDiscounts(_ value: Discount)
+
+    @objc(removeDiscountsObject:)
+    @NSManaged public func removeFromDiscounts(_ value: Discount)
+
+    @objc(addDiscounts:)
+    @NSManaged public func addToDiscounts(_ values: NSSet)
+
+    @objc(removeDiscounts:)
+    @NSManaged public func removeFromDiscounts(_ values: NSSet)
+
+}
+
 // MARK: Generated accessors for schedules
 extension Organization {
 
@@ -69,19 +87,19 @@ extension Organization {
 
 }
 
-// MARK: Generated accessors for discounts
+// MARK: Generated accessors for images
 extension Organization {
 
-    @objc(addDiscountsObject:)
-    @NSManaged public func addToDiscounts(_ value: Discount)
+    @objc(addImagesObject:)
+    @NSManaged public func addToImages(_ value: GalleryImage)
 
-    @objc(removeDiscountsObject:)
-    @NSManaged public func removeFromDiscounts(_ value: Discount)
+    @objc(removeImagesObject:)
+    @NSManaged public func removeFromImages(_ value: GalleryImage)
 
-    @objc(addDiscounts:)
-    @NSManaged public func addToDiscounts(_ values: NSSet)
+    @objc(addImages:)
+    @NSManaged public func addToImages(_ values: NSSet)
 
-    @objc(removeDiscounts:)
-    @NSManaged public func removeFromDiscounts(_ values: NSSet)
+    @objc(removeImages:)
+    @NSManaged public func removeFromImages(_ values: NSSet)
 
 }

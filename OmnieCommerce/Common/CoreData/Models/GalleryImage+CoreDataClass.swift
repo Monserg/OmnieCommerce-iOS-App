@@ -10,16 +10,44 @@ import Foundation
 import CoreData
 
 @objc(GalleryImage)
-public class GalleryImage1: NSManagedObject, InitCellParameters {
-    // MARK: - Properties
+public class GalleryImage: NSManagedObject, InitCellParameters {
     // Confirm InitCellParameters Protocol
     var cellIdentifier: String = "CirclePhotoCollectionViewCell"
     var cellHeight: CGFloat = 102.0
 
     
     // MARK: - Class Initialization
-    convenience init() {
-        self.init(entity: CoreDataManager.instance.entityForName("GalleryImage1")!, insertInto: CoreDataManager.instance.managedObjectContext)
+    convenience init?(json: [String: AnyObject], andRelationshipObject managedObject: NSManagedObject?) {
+        guard let imageID = json["imageId"] as? String, let imagePath = json["staticUrl"] as? String else {
+            return nil
+        }
+        
+        // Check Entity available in CoreData
+        guard let galleryImageEntity = CoreDataManager.instance.entityForName("GalleryImage") else {
+            return nil
+        }
+        
+        // Create Entity
+        self.init(entity: galleryImageEntity, insertInto: CoreDataManager.instance.managedObjectContext)
+        
+        // Prepare to save common data
+        self.imageID = imageID
+        
+        if (imagePath.contains("/images/")) {
+            self.imagePath = "\(MSMRestApiManager.instance.appHostURL.absoluteString)\(imagePath)"
+        }
+        
+        if let serviceID = json["serviceId"] as? String {
+            self.serviceID = serviceID
+        }
+        
+        if let seviceName = json["serviceName"] as? String {
+            self.serviceName = seviceName
+        }
+        
+        if let organization = managedObject as? Organization {
+            self.organization = organization
+        }
     }
     
     deinit {
