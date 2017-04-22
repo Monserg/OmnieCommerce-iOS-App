@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Discount: NSObject, NSCoding, InitCellParameters {
+class DiscountOld: NSObject, NSCoding, InitCellParameters {
     // MARK: - Properties
     var codeID: String!
     var name: String!
@@ -69,7 +69,7 @@ class Discount: NSObject, NSCoding, InitCellParameters {
 
 
 // MARK: - MapObjectBinding
-extension Discount: MapObjectBinding {
+extension DiscountOld: MapObjectBinding {
     func didMap(fromDictionary dictionary: [String: Any], completion: @escaping (() -> ())) {
         self.codeID = dictionary["uuid"] as! String
         self.name = dictionary["name"] as! String
@@ -85,7 +85,7 @@ extension Discount: MapObjectBinding {
 
 
 // MARK: - NSCopying
-extension Discount: NSCopying {
+extension DiscountOld: NSCopying {
     func copy(with zone: NSZone? = nil) -> Any {
         let copy = Discount()
         return copy

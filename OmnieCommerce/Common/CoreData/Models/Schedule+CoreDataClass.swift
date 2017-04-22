@@ -72,4 +72,8 @@ public class Schedule: NSManagedObject, InitCellParameters {
                                   organization: organization)
         }
     }
+    
+    deinit {
+        print("\(type(of: self)) deinit")
+    }
 }

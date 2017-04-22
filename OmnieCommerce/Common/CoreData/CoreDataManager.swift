@@ -195,6 +195,10 @@ class CoreDataManager {
             let codeID = parameter as! String
             predicate = NSPredicate(format: "organization.codeID == %@", codeID)
 
+        case "Discount":
+            let isUserDiscount = parameter as! Bool
+            predicate = NSPredicate(format: "isUserDiscount == \(isUserDiscount)")
+
         default:
             break
         }

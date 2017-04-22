@@ -234,29 +234,29 @@ extension OrganizationOld: MapObjectBinding {
                 self.services = items
             }
             
-            if let commonDiscounts = dictionary["discountsCommon"] as? NSArray {
-                var items = [Discount]()
-                
-                for dictionary in commonDiscounts {
-                    let discount = Discount()
-                    discount.didMap(fromDictionary: dictionary as! [String : Any], completion: { _ in })
-                    items.append(discount)
-                }
-                
-                self.discountsCommon = items
-            }
-            
-            if let userDiscounts = dictionary["discountsForUser"] as? NSArray {
-                var items = [Discount]()
-                
-                for dictionary in userDiscounts {
-                    let discount = Discount()
-                    discount.didMap(fromDictionary: dictionary as! [String : Any], completion: { _ in })
-                    items.append(discount)
-                }
-                
-                self.discountsUser = items
-            }
+//            if let commonDiscounts = dictionary["discountsCommon"] as? NSArray {
+//                var items = [Discount]()
+//                
+//                for dictionary in commonDiscounts {
+//                    let discount = Discount()
+//                    discount.didMap(fromDictionary: dictionary as! [String : Any], completion: { _ in })
+//                    items.append(discount)
+//                }
+//                
+//                self.discountsCommon = items
+//            }
+//            
+//            if let userDiscounts = dictionary["discountsForUser"] as? NSArray {
+//                var items = [Discount]()
+//                
+//                for dictionary in userDiscounts {
+//                    let discount = Discount()
+//                    discount.didMap(fromDictionary: dictionary as! [String : Any], completion: { _ in })
+//                    items.append(discount)
+//                }
+//                
+//                self.discountsUser = items
+//            }
         }
         
         // Position from Common profile

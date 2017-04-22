@@ -13,6 +13,8 @@
 		B10189BC1EAB4C3900C1AD2F /* Schedule+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10189BA1EAB4C3900C1AD2F /* Schedule+CoreDataClass.swift */; };
 		B10189BD1EAB4C3900C1AD2F /* Schedule+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10189BB1EAB4C3900C1AD2F /* Schedule+CoreDataProperties.swift */; };
 		B10189BF1EAB4E0A00C1AD2F /* UInt16+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10189BE1EAB4E0A00C1AD2F /* UInt16+Ext.swift */; };
+		B10189C21EAB71B400C1AD2F /* Discount+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10189C01EAB71B400C1AD2F /* Discount+CoreDataClass.swift */; };
+		B10189C31EAB71B400C1AD2F /* Discount+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10189C11EAB71B400C1AD2F /* Discount+CoreDataProperties.swift */; };
 		B105D1B81E76B90800FCDC73 /* ResponseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B105D1B71E76B90800FCDC73 /* ResponseAPI.swift */; };
 		B10672FA1E71BE8100DB2AE0 /* MSMPickerViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10672F91E71BE8100DB2AE0 /* MSMPickerViewManager.swift */; };
 		B10871521E379A4800374DD5 /* OmnieCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10871511E379A4800374DD5 /* OmnieCard.swift */; };
@@ -471,6 +473,8 @@
 		B10189BA1EAB4C3900C1AD2F /* Schedule+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Schedule+CoreDataClass.swift"; sourceTree = "<group>"; };
 		B10189BB1EAB4C3900C1AD2F /* Schedule+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Schedule+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		B10189BE1EAB4E0A00C1AD2F /* UInt16+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UInt16+Ext.swift"; sourceTree = "<group>"; };
+		B10189C01EAB71B400C1AD2F /* Discount+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Discount+CoreDataClass.swift"; sourceTree = "<group>"; };
+		B10189C11EAB71B400C1AD2F /* Discount+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Discount+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		B105D1B71E76B90800FCDC73 /* ResponseAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseAPI.swift; sourceTree = "<group>"; };
 		B10672F91E71BE8100DB2AE0 /* MSMPickerViewManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSMPickerViewManager.swift; sourceTree = "<group>"; };
 		B10871511E379A4800374DD5 /* OmnieCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OmnieCard.swift; sourceTree = "<group>"; };
@@ -1022,6 +1026,8 @@
 				B10874A51E5B3D7E004A4FB6 /* AppUser+CoreDataProperties.swift */,
 				B15F95B21EA1E1C50009AD28 /* Category+CoreDataClass.swift */,
 				B15F95B31EA1E1C50009AD28 /* Category+CoreDataProperties.swift */,
+				B10189C01EAB71B400C1AD2F /* Discount+CoreDataClass.swift */,
+				B10189C11EAB71B400C1AD2F /* Discount+CoreDataProperties.swift */,
 				B1EC9F2A1E8AE31500F2E342 /* FavoriteOrganizations+CoreDataClass.swift */,
 				B1EC9F2B1E8AE31500F2E342 /* FavoriteOrganizations+CoreDataProperties.swift */,
 				B1EC9F441E8C13FE00F2E342 /* FavoriteServices+CoreDataClass.swift */,
@@ -2300,6 +2306,7 @@
 				B1D883211E8E8C98006F4831 /* NewsDataShowViewController.swift in Sources */,
 				B122F1F91DD35BC70018A701 /* FavoriteShowModels.swift in Sources */,
 				B10CF52A1E684B9700811DC1 /* ScheduleView.swift in Sources */,
+				B10189C21EAB71B400C1AD2F /* Discount+CoreDataClass.swift in Sources */,
 				B19BB6211E6ABF560081533C /* MSMTableViewControllerManager.swift in Sources */,
 				B122F1FB1DD35BC70018A701 /* FavoriteShowRouter.swift in Sources */,
 				B152915B1DDE44A200BBA1E0 /* MenuSectionFooterView.swift in Sources */,
@@ -2449,6 +2456,7 @@
 				B122DF641DF7F957003823AD /* CalendarShowInteractor.swift in Sources */,
 				B1CF54DD1DDB51BE00E98049 /* SettingsShowViewController.swift in Sources */,
 				B18A45CC1DEC3918003EBD2F /* SmallCirleView.swift in Sources */,
+				B10189C31EAB71B400C1AD2F /* Discount+CoreDataProperties.swift in Sources */,
 				B10189BD1EAB4C3900C1AD2F /* Schedule+CoreDataProperties.swift in Sources */,
 				B177E54C1E54AC7F004F1390 /* EnterCodeShowViewController.swift in Sources */,
 				B1EC9F411E8C133800F2E342 /* Service.swift in Sources */,

@@ -108,10 +108,12 @@ public class Organization: NSManagedObject, InitCellParameters, PointAnnotationB
         }
 
         // Prepare to save full data
+        // Phones
         if let phones = json["phones"] as? [String] {
             self.phones = phones
         }
         
+        // Schedules
         if let scheduleItems = json["timeSheets"] as? NSArray {
             for dictionary in scheduleItems {
                 let _ = Schedule.init(json: dictionary as! [String : AnyObject], andOrganization: self)
@@ -120,16 +122,40 @@ public class Organization: NSManagedObject, InitCellParameters, PointAnnotationB
             self.schedules = NSSet.init(array: CoreDataManager.instance.entitiesDidLoad(byName: "Schedule", andPredicateParameter: self.codeID)!)
         }
 
+        // Google place
         if let positionID = json["placeId"] as? String {
             self.placeID = positionID
         }
         
+        // Descriptions
         if let describeTitle = json["descriptionTitle"] as? String {
             self.descriptionTitle = describeTitle
         }
 
         if let describeContent = json["descriptionContent"] as? String {
             self.descriptionContent = describeContent
+        }
+
+        // Common discounts
+        self.discounts = NSSet()
+
+        if let commonDiscounts = json["discountsCommon"] as? NSArray {
+            for dictionary in commonDiscounts {
+                let discountCommon = Discount.init(json: dictionary as! [String : AnyObject], andRelationshipObject: self)!
+                discountCommon.isUserDiscount = false
+                
+                self.addToDiscounts(discountCommon)
+            }
+        }
+        
+        // User discounts
+        if let userDiscounts = json["discountsForUser"] as? NSArray {
+            for dictionary in userDiscounts {
+                let discountUser = Discount.init(json: dictionary as! [String : AnyObject], andRelationshipObject: self)!
+                discountUser.isUserDiscount = true
+                
+                self.addToDiscounts(discountUser)
+            }
         }
 
 //        @NSManaged public var phones: [String]?

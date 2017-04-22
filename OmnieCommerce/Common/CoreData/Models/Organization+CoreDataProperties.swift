@@ -19,18 +19,19 @@ extension Organization {
     @NSManaged public var addressCityValue: String?
     @NSManaged public var addressStreetValue: String?
     @NSManaged public var catalog: String?
-    @NSManaged public var codeID: String
+    @NSManaged public var codeID: String?
     @NSManaged public var isFavorite: Bool
     @NSManaged public var latitudeValue: Double
     @NSManaged public var logoURL: String?
     @NSManaged public var longitudeValue: Double
     @NSManaged public var nameValue: String?
     @NSManaged public var phones: [String]?
-    @NSManaged public var category: NSSet?
-    @NSManaged public var schedules: NSSet?
     @NSManaged public var placeID: String?
     @NSManaged public var descriptionTitle: String?
     @NSManaged public var descriptionContent: String?
+    @NSManaged public var category: NSSet?
+    @NSManaged public var schedules: NSSet?
+    @NSManaged public var discounts: NSSet?
 
 }
 
@@ -65,5 +66,22 @@ extension Organization {
 
     @objc(removeSchedules:)
     @NSManaged public func removeFromSchedules(_ values: NSSet)
+
+}
+
+// MARK: Generated accessors for discounts
+extension Organization {
+
+    @objc(addDiscountsObject:)
+    @NSManaged public func addToDiscounts(_ value: Discount)
+
+    @objc(removeDiscountsObject:)
+    @NSManaged public func removeFromDiscounts(_ value: Discount)
+
+    @objc(addDiscounts:)
+    @NSManaged public func addToDiscounts(_ values: NSSet)
+
+    @objc(removeDiscounts:)
+    @NSManaged public func removeFromDiscounts(_ values: NSSet)
 
 }

@@ -30,9 +30,9 @@ extension DiscountTableViewCell: ConfigureCell {
     func setup(withItem item: Any, andIndexPath indexPath: IndexPath) {
         let discount = item as! Discount
         nameLabel.numberOfLines = 0
-        nameLabel.text = "\(discount.name!), \(discount.percent!)%"
+        nameLabel.text = "\(discount.name), \(discount.percent)%"
         nameLabel.sizeToFit()
-        dateLabel.text = "\("Discount period".localized()) \(discount.dateStart.convertToString(withStyle: .Date)) - \(discount.dateEnd.convertToString(withStyle: .Date))"
+        dateLabel.text = "\("Discount period".localized()) \((discount.dateStart as Date).convertToString(withStyle: .Date)) - \((discount.dateEnd as Date).convertToString(withStyle: .Date))"
         
 //        // Set selected color
 //        let selectedView = UIView.init(frame: self.frame)
