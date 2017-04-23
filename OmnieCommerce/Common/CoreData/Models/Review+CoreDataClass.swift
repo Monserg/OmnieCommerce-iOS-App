@@ -20,14 +20,14 @@ public class Review: NSManagedObject, InitCellParameters {
     // Confirm InitCellParameters Protocol
     var cellIdentifier: String = "ReviewCollectionViewCell"
     var cellHeight: CGFloat = 143.0
-    
+        
     var type: ReviewType! {
         set {
             self.typeValue = newValue.rawValue
         }
         
         get {
-            return ReviewType.init(rawValue: self.typeValue!)
+            return ReviewType.init(rawValue: self.typeValue)
         }
     }
     
@@ -47,9 +47,9 @@ public class Review: NSManagedObject, InitCellParameters {
         self.init(entity: reviewEntity, insertInto: CoreDataManager.instance.managedObjectContext)
         
         // Prepare to save common data
-        self.type = type
         self.dateCreate = dateCreate.convertToDate(withDateFormat: .ResponseDate) as NSDate
         self.rating = rating
+        self.type = type
         
         if let userName = json["userName"] as? String {
             self.userName = userName
@@ -59,12 +59,24 @@ public class Review: NSManagedObject, InitCellParameters {
             self.content = content
         }
         
-        if let organizationID = json["organizationId"] as? String {
-            self.organizationID = organizationID
-        }
-        
-        if let serviceID = json["serviceId"] as? String {
-            self.serviceID = serviceID
+        switch type {
+        case .UserReview:
+            if let userID = json["userId"] as? String {
+                let user = CoreDataManager.instance.entityDidLoad(byName: "User", andPredicateParameter: userID) as! AppUser
+//                self.user = user
+            }
+            
+        case .OrganizationReview:
+            if let organizationID = json["organizationId"] as? String {
+                let organization = CoreDataManager.instance.entityDidLoad(byName: "Organization", andPredicateParameter: organizationID) as! Organization
+                self.organizationReview = organization
+            }
+
+        case .ServiceReview:
+            if let serviceID = json["serviceId"] as? String {
+                let service = CoreDataManager.instance.entityDidLoad(byName: "Service", andPredicateParameter: serviceID) as! Service
+//                self.service = service
+            }
         }
     }
     

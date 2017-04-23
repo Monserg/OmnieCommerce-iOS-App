@@ -101,32 +101,17 @@ public class Organization: NSManagedObject, InitCellParameters, PointAnnotationB
         }
         
         // Reviews
-        self.reviews = [Review]()
-        
         // Organization reviews
         if let canSendReview = json["canSendReview"] as? Bool {
             self.canSendReview = canSendReview
         }
         
-        if let organizationReviews = json["organizationReviews"] as? [Any] {
-            for dictionaryReview in organizationReviews {
-                let organizationReview = Review.init(json: dictionaryReview as! [String: AnyObject], andType: .OrganizationReview)!
-                self.reviews!.append(organizationReview)
+        if let reviewsOrganization = json["organizationReviews"] as? [Any] {
+            self.organizationReviews = NSSet()
+            
+            for dictionary in reviewsOrganization {
+                self.addToOrganizationReviews(Review.init(json: dictionary as! [String: AnyObject], andType: .OrganizationReview)!)
             }
-        }
-        
-        // Services reviews
-        if let serviceReviews = json["serviceReviews"] as? [Any] {
-            for dictionaryReview in serviceReviews {
-                let serviceReview = Review.init(json: dictionaryReview as! [String: AnyObject], andType: .ServiceReview)!
-                self.reviews!.append(serviceReview)
-            }
-        }
-        
-        // User reviews
-        if let userDictionary = json["ownReview"] as? [String: AnyObject] {
-            let userReview = Review.init(json: userDictionary, andType: .UserReview)!
-            self.reviews!.append(userReview)
         }
         
         // Schedules
@@ -183,7 +168,6 @@ public class Organization: NSManagedObject, InitCellParameters, PointAnnotationB
                 self.addToImages(image!)
             }
         }
-
     }
     
     deinit {

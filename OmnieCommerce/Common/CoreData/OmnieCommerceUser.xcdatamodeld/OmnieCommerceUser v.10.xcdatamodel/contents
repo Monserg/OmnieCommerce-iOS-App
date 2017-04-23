@@ -108,10 +108,10 @@
         <attribute name="phones" optional="YES" attributeType="Transformable" syncable="YES"/>
         <attribute name="placeID" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="rating" optional="YES" attributeType="Double" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="reviews" optional="YES" attributeType="Transformable" syncable="YES"/>
         <relationship name="category" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Category" inverseName="organization" inverseEntity="Category" syncable="YES"/>
         <relationship name="discounts" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Discount" inverseName="organization" inverseEntity="Discount" syncable="YES"/>
         <relationship name="images" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="GalleryImage" inverseName="organization" inverseEntity="GalleryImage" syncable="YES"/>
+        <relationship name="organizationReviews" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Review" inverseName="organizationReview" inverseEntity="Review" syncable="YES"/>
         <relationship name="schedules" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Schedule" inverseName="organization" inverseEntity="Schedule" syncable="YES"/>
         <relationship name="services" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Service" inverseName="organization" inverseEntity="Service" syncable="YES"/>
         <uniquenessConstraints>
@@ -123,11 +123,11 @@
     <entity name="Review" representedClassName="Review" syncable="YES">
         <attribute name="content" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="dateCreate" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
-        <attribute name="organizationID" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="rating" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="serviceID" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="typeValue" attributeType="String" syncable="YES"/>
         <attribute name="userName" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="organizationReview" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Organization" inverseName="organizationReviews" inverseEntity="Organization" syncable="YES"/>
     </entity>
     <entity name="Schedule" representedClassName="Schedule" syncable="YES">
         <attribute name="codeID" attributeType="String" syncable="YES"/>

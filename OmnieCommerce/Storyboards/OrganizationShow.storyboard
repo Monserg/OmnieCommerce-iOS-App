@@ -27,10 +27,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="290"/>
                                 <subviews>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="375" placeholderIntrinsicHeight="1175.5" translatesAutoresizingMaskIntoConstraints="NO" id="U9J-wo-NbD" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="1166.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="1191.5"/>
                                         <subviews>
                                             <stackView hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="7hu-c0-ss3" userLabel="Main Stack View">
-                                                <rect key="frame" x="8" y="0.0" width="359" height="1166.5"/>
+                                                <rect key="frame" x="8" y="0.0" width="359" height="1191.5"/>
                                                 <subviews>
                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F2J-Sj-SOC" userLabel="Info View">
                                                         <rect key="frame" x="0.0" y="0.0" width="359" height="110"/>
@@ -525,13 +525,13 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E5n-6w-mcc" userLabel="Reviews View">
-                                                        <rect key="frame" x="0.0" y="762.5" width="359" height="190"/>
+                                                        <rect key="frame" x="0.0" y="762.5" width="359" height="215"/>
                                                         <subviews>
-                                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reviews" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WlE-io-6eX">
-                                                                <rect key="frame" x="0.0" y="20" width="359" height="21"/>
+                                                            <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reviews" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WlE-io-6eX" customClass="HelveticaNeueCyrLightVeryLightGrayLabel" customModule="OmnieCommerce" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="20" width="359" height="20"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="height" constant="21" id="sS7-n1-IWp"/>
+                                                                    <constraint firstAttribute="height" constant="20" id="sS7-n1-IWp"/>
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                                                 <nil key="textColor"/>
@@ -540,16 +540,19 @@
                                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
                                                                 </userDefinedRuntimeAttributes>
                                                             </label>
-                                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="UhX-rh-GrB" customClass="MSMCollectionView" customModule="OmnieCommerce" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="20" width="359" height="170"/>
-                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Zw1-fZ-O0w">
+                                                            <collectionView clipsSubviews="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="UhX-rh-GrB" customClass="MSMCollectionView" customModule="OmnieCommerce" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="70" width="359" height="145"/>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Zw1-fZ-O0w">
                                                                     <size key="itemSize" width="50" height="50"/>
                                                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                                 </collectionViewFlowLayout>
                                                                 <cells/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                                                </userDefinedRuntimeAttributes>
                                                             </collectionView>
                                                         </subviews>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -557,18 +560,18 @@
                                                             <constraint firstAttribute="trailing" secondItem="WlE-io-6eX" secondAttribute="trailing" id="0rf-L3-k2g"/>
                                                             <constraint firstAttribute="bottom" secondItem="UhX-rh-GrB" secondAttribute="bottom" id="Cqs-29-B9s"/>
                                                             <constraint firstItem="WlE-io-6eX" firstAttribute="top" secondItem="E5n-6w-mcc" secondAttribute="top" constant="20" id="K5W-hf-0RL"/>
-                                                            <constraint firstAttribute="height" constant="190" id="LHG-u1-Bbo"/>
+                                                            <constraint firstItem="UhX-rh-GrB" firstAttribute="top" secondItem="WlE-io-6eX" secondAttribute="bottom" constant="30" id="KeS-OW-jB8"/>
+                                                            <constraint firstAttribute="height" constant="215" id="LHG-u1-Bbo"/>
                                                             <constraint firstAttribute="trailing" secondItem="UhX-rh-GrB" secondAttribute="trailing" id="Rrj-KR-wZt"/>
                                                             <constraint firstItem="WlE-io-6eX" firstAttribute="leading" secondItem="E5n-6w-mcc" secondAttribute="leading" id="eVW-0W-EOo"/>
                                                             <constraint firstItem="UhX-rh-GrB" firstAttribute="leading" secondItem="E5n-6w-mcc" secondAttribute="leading" id="irL-eg-Lsx"/>
-                                                            <constraint firstItem="UhX-rh-GrB" firstAttribute="top" secondItem="E5n-6w-mcc" secondAttribute="top" constant="20" id="pnA-Zj-Svb"/>
                                                         </constraints>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yzx-yh-fce" userLabel="Rating View">
-                                                        <rect key="frame" x="0.0" y="952.5" width="359" height="214"/>
+                                                        <rect key="frame" x="0.0" y="977.5" width="359" height="214"/>
                                                         <subviews>
                                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="POv-O9-0Dr" userLabel="User Name Label" customClass="UbuntuLightVeryLightOrangeLabel" customModule="OmnieCommerce" customModuleProvider="target">
                                                                 <rect key="frame" x="8" y="20" width="335" height="21"/>

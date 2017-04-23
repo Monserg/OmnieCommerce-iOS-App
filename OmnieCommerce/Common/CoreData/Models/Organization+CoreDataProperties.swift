@@ -31,7 +31,6 @@ extension Organization {
     @NSManaged public var phones: [String]?
     @NSManaged public var placeID: String?
     @NSManaged public var rating: Double
-    @NSManaged public var reviews: [Review]?
     @NSManaged public var email: String?
     @NSManaged public var headerURL: String?
     @NSManaged public var category: NSSet?
@@ -39,6 +38,7 @@ extension Organization {
     @NSManaged public var schedules: NSSet?
     @NSManaged public var images: NSSet?
     @NSManaged public var services: NSSet?
+    @NSManaged public var organizationReviews: NSSet?
 
 }
 
@@ -124,5 +124,22 @@ extension Organization {
 
     @objc(removeServices:)
     @NSManaged public func removeFromServices(_ values: NSSet)
+
+}
+
+// MARK: Generated accessors for organizationReviews
+extension Organization {
+
+    @objc(addOrganizationReviewsObject:)
+    @NSManaged public func addToOrganizationReviews(_ value: Review)
+
+    @objc(removeOrganizationReviewsObject:)
+    @NSManaged public func removeFromOrganizationReviews(_ value: Review)
+
+    @objc(addOrganizationReviews:)
+    @NSManaged public func addToOrganizationReviews(_ values: NSSet)
+
+    @objc(removeOrganizationReviews:)
+    @NSManaged public func removeFromOrganizationReviews(_ values: NSSet)
 
 }

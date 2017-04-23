@@ -149,6 +149,13 @@ class OrganizationShowViewController: BaseViewController {
         if (blackoutView != nil) {
             modalView?.center = blackoutView!.center
         }
+        
+        guard let flowLayout = reviewsCollectionView.collectionViewLayout as? UICollectionViewFlowLayout else {
+            return
+        }
+        
+        flowLayout.itemSize = reviewsCollectionView.frame.size
+        flowLayout.invalidateLayout()
     }
     
     override func viewDidLoad() {
@@ -385,7 +392,8 @@ class OrganizationShowViewController: BaseViewController {
         if ((organizationProfile.images?.count)! > 0) {
             galleryView.isHidden = false
             
-            galleryCollectionView.collectionViewControllerManager = MSMCollectionViewControllerManager(withCollectionView: galleryCollectionView)
+            let galleryManager = MSMCollectionViewControllerManager(withCollectionView: galleryCollectionView)
+            galleryCollectionView.collectionViewControllerManager = galleryManager
             galleryCollectionView.collectionViewControllerManager!.sectionsCount = 1
             _ = organizationProfile.images!.map { ($0 as! GalleryImage).cellHeight = 102.0 }
             galleryCollectionView.collectionViewControllerManager!.dataSource = Array(organizationProfile.images!)
@@ -400,6 +408,7 @@ class OrganizationShowViewController: BaseViewController {
         } else {
             galleryView.isHidden = true
         }
+
         /*
         // Services view
         if ((organizationProfile.services?.count)! > 0) {
@@ -439,21 +448,25 @@ class OrganizationShowViewController: BaseViewController {
         } else {
             servicesView.isHidden = true
         }
+        */
         
+        // Organization reviews
+        var reviews = [Any]()
         
-        // Reviews view
-//        if (organizationProfile.) {
-//            reviewsView.isHidden = false
-//        } else {
-//            reviewsView.isHidden = true
-//        }
+        if let organizationReviews = organizationProfile.organizationReviews {
+            reviews.append(contentsOf: organizationReviews)
+        }
         
-        reviewsCollectionView.collectionViewControllerManager = MSMCollectionViewControllerManager(withCollectionView: reviewsCollectionView)
+//        let serviceReviews = CoreDataManager.instance.entitiesDidLoad(byName: "Review", andPredicateParameter: "ServiceReview")
+//        organizationReviews!.append(contentsOf: serviceReviews!)
+        reviewsView.isHidden = (reviews.count > 0) ? false : true
+        
+        let reviewsManager = MSMCollectionViewControllerManager(withCollectionView: reviewsCollectionView)
+        reviewsCollectionView.collectionViewControllerManager = reviewsManager
         reviewsCollectionView.collectionViewControllerManager!.sectionsCount = 1
-//        _ = organizationProfile!.images!.map { ($0 as! GalleryImage).cellHeight = 143.0 }
-        reviewsCollectionView.collectionViewControllerManager!.dataSource = organizationProfile.services!
-        reviewsCollectionView.reloadData()
-        
+        reviewsCollectionView.collectionViewControllerManager!.dataSource = reviews
+        reviewsCollectionView.collectionViewControllerManager.collectionView.reloadData()
+                
         // Handler Review select
         reviewsCollectionView.collectionViewControllerManager!.handlerCellSelectCompletion = { item in }
         
@@ -462,7 +475,7 @@ class OrganizationShowViewController: BaseViewController {
             self.view.layoutIfNeeded()
             self.reviewsCollectionView.scrollToItem(at: IndexPath(item: item as! Int, section: 0), at: .centeredHorizontally, animated: true)
         }
-        */
+
         // Rating view
         if (organizationProfile.canUserSendReview) {
             ratingView.isHidden = false
@@ -505,7 +518,8 @@ class OrganizationShowViewController: BaseViewController {
     override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
         _ = dottedBorderViewsCollection.map { $0.setNeedsDisplay() }
         smallTopBarView.setNeedsDisplay()
-        
+        galleryCollectionView.reloadData()
+
         // Album
         if newCollection.verticalSizeClass == .compact {
             scrollViewTopConstraint.constant = smallTopBarView.frame.height + 20.0 - 50.0

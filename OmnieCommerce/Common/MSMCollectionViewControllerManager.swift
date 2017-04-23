@@ -162,6 +162,9 @@ extension MSMCollectionViewControllerManager: UICollectionViewDelegateFlowLayout
             let height: CGFloat = cellHeight * self.collectionView.heightRatio
             return CGSize.init(width: height, height: height)
 
+        case "ReviewCollectionViewCell":
+            return collectionView.frame.size
+            
         default:
             break
         }

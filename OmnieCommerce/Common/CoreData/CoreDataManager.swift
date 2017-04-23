@@ -147,12 +147,13 @@ class CoreDataManager {
     func entityDidLoad(byName name: String, andPredicateParameter parameter: Any?) -> NSManagedObject? {
         let fetchRequest: NSFetchRequest<NSFetchRequestResult>!
         var predicate: NSPredicate!
+//        self.didSaveContext()
         
         if (parameter == nil) {
             fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: name)
         } else {
             switch name {
-            case "NewsData", "Organization":
+            case "NewsData", "Organization", "Service":
                 let codeID = parameter as! String
                 predicate = NSPredicate(format: "codeID == %@", codeID)
 
@@ -202,6 +203,10 @@ class CoreDataManager {
         case "Discount":
             let isUserDiscount = parameter as! Bool
             predicate = NSPredicate(format: "isUserDiscount == \(isUserDiscount)")
+
+        case "Review":
+            let typeValue = parameter as! String
+            predicate = NSPredicate(format: "typeValue == %@", typeValue)
 
         default:
             break

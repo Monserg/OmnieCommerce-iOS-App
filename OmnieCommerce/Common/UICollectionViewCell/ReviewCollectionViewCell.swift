@@ -16,7 +16,8 @@ class ReviewCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var userNameLabel: UbuntuLightVeryLightGrayLabel!
     @IBOutlet weak var userRatingView: CosmosView!
-    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var dateLabel: UbuntuLightItalicVeryDarkGrayishBlueLabel!
+    @IBOutlet weak var userImage: CustomImageView!
     
     @IBOutlet weak var noteLabel: UbuntuLightItalicVeryLightGrayLabel! {
         didSet {
@@ -53,10 +54,15 @@ class ReviewCollectionViewCell: UICollectionViewCell {
 // MARK: - ConfigureCell
 extension ReviewCollectionViewCell: ConfigureCell {
     func setup(withItem item: Any, andIndexPath indexPath: IndexPath) {
-        let value = item as! String
-        userNameLabel.text = "\(value) \(indexPath.row)"
-//        let galleryImage = item as! GalleryImage
-//        
+        let review = item as! Review
+        userNameLabel.text = review.userName ?? "Zorro"
+        userRatingView.rating = review.rating
+        dateLabel.text = (review.dateCreate as Date).convertToString(withStyle: .Date)
+        noteLabel.text = review.content ?? "Empty"
+
+//        @IBOutlet weak var userImage: CustomImageView!
+        
+
 //        if let imagePath = galleryImage.imagePath {
 //            imageButton.kf.setImage(with: ImageResource(downloadURL: URL(string: imagePath)!, cacheKey: "imagePath-\(indexPath.row)"), for: .normal,
 //                                    placeholder: UIImage.init(named: "image-no-photo"),

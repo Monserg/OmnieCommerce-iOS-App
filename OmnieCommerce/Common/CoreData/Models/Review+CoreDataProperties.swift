@@ -16,12 +16,12 @@ extension Review {
         return NSFetchRequest<Review>(entityName: "Review")
     }
 
-    @NSManaged public var organizationID: String?
     @NSManaged public var serviceID: String?
     @NSManaged public var userName: String?
     @NSManaged public var rating: Double
     @NSManaged public var content: String?
     @NSManaged public var dateCreate: NSDate
-    @NSManaged public var typeValue: String?
+    @NSManaged public var typeValue: String
+    @NSManaged public var organizationReview: Organization?
 
 }
