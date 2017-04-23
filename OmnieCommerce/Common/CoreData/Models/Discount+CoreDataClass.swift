@@ -42,9 +42,20 @@ public class Discount: NSManagedObject, InitCellParameters {
             self.organization = organization
         }
 
-//        if let service = managedObject as? Service {
-//            self.service = service
-//        }
+        if let service = managedObject as? Service {
+            self.service = service
+        } else if let serviceID = json["serviceId"] as? String {
+            let serviceEntity = CoreDataManager.instance.entityDidLoad(byName: "Service", andPredicateParameter: serviceID) as! Service
+            
+            if (!serviceEntity.codeID.isEmpty) {
+                if (serviceEntity.discounts?.count == 0) {
+                    serviceEntity.discounts = NSSet()
+                }
+                
+                serviceEntity.addToDiscounts(self)
+                self.service = serviceEntity
+            }
+        }
     }
 
     deinit {

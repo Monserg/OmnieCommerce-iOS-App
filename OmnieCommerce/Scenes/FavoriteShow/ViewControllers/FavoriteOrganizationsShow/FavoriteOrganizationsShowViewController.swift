@@ -48,6 +48,10 @@ class FavoriteOrganizationsShowViewController: BaseViewController {
     // MARK: - Class Functions
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Create MSMTableViewControllerManager
+        let organizationsTableManager = MSMTableViewControllerManager.init(withTableView: self.tableView, andSectionsCount: 1, andEmptyMessageText: "Organizations list is empty")
+        tableView.tableViewControllerManager = organizationsTableManager
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -60,10 +64,6 @@ class FavoriteOrganizationsShowViewController: BaseViewController {
     
     // MARK: - Custom Functions
     func viewSettingsDidLoad() {
-        // Create MSMTableViewControllerManager
-        let organizationsTableManager = MSMTableViewControllerManager.init(withTableView: self.tableView, andSectionsCount: 1, andEmptyMessageText: "Organizations list is empty")
-        tableView.tableViewControllerManager = organizationsTableManager
-
         // Load Organizations list from Core Data
         guard isNetworkAvailable else {
             favoriteOrganizationsListDidShow()
@@ -95,6 +95,7 @@ class FavoriteOrganizationsShowViewController: BaseViewController {
         let organizationsList = CoreDataManager.instance.entitiesDidLoad(byName: "Organization", andPredicateParameter: keyFavoriteOrganizations)
         
         if let organizations = organizationsList as? [Organization] {
+            let _ = organizations.map({ $0.cellIdentifier = "FavoriteOrganizationTableViewCell"; $0.cellHeight = 60.0 })
             self.organizations = organizations
             
             tableView.tableViewControllerManager!.dataSource = organizations

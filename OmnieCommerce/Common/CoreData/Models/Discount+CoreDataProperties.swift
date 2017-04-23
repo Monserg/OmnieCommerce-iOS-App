@@ -24,6 +24,6 @@ extension Discount {
     @NSManaged public var dateStart: NSDate
     @NSManaged public var dateEnd: NSDate
     @NSManaged public var organization: Organization?
-//    @NSManaged public var service: Service?
+    @NSManaged public var service: Service?
 
 }

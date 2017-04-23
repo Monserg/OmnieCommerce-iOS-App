@@ -59,7 +59,7 @@ extension ServiceTableViewCell: ConfigureCell {
         nameLabel.text = service.name
         cityLabel.text = service.addressCity!
         streetLabel.text = service.addressStreet!
-        ratingView.rating = service.rating!
+        ratingView.rating = service.rating
         isFavorite = service.isFavorite
         selectionStyle = .none
         

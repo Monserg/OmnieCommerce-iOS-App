@@ -51,8 +51,11 @@ extension UInt16 {
     func convertToUnitString() -> String? {
         switch self {
         case 0:
-            return "грн/год"
+            return "Unit 0".localized()
         
+        case 1:
+            return "Unit 1".localized()
+
         default:
             break
         }

@@ -155,7 +155,7 @@ extension MSMTableViewControllerManager: UITableViewDataSource {
         var cellIdentifier: String!
 
         if (self.tableView!.hasHeaders) {
-            cellIdentifier = ((dataSource[indexPath.section] as! [ServicePrice])[indexPath.row] as InitCellParameters).cellIdentifier
+            cellIdentifier = ((dataSource[indexPath.section] as! [Price])[indexPath.row] as InitCellParameters).cellIdentifier
         } else {
             cellIdentifier = (dataSource[indexPath.row] as! InitCellParameters).cellIdentifier
         }
@@ -166,7 +166,7 @@ extension MSMTableViewControllerManager: UITableViewDataSource {
         var item: Any!
         
         if (self.tableView!.hasHeaders) {
-            item = (dataSource[indexPath.section] as! [ServicePrice])[indexPath.row]
+            item = (dataSource[indexPath.section] as! [Price])[indexPath.row]
         } else {
             item = (isSearchBarActive) ? dataSourceFiltered[indexPath.row] : dataSource[indexPath.row]
         }
@@ -317,8 +317,8 @@ extension MSMTableViewControllerManager: UITableViewDelegate {
         var cellIdentifier: String!
         
         if (self.tableView!.hasHeaders) {
-            height = ((dataSource[indexPath.section] as! [ServicePrice])[indexPath.row] as InitCellParameters).cellHeight
-            cellIdentifier = ((dataSource[indexPath.section] as! [ServicePrice])[indexPath.row] as InitCellParameters).cellIdentifier
+            height = ((dataSource[indexPath.section] as! [Price])[indexPath.row] as InitCellParameters).cellHeight
+            cellIdentifier = ((dataSource[indexPath.section] as! [Price])[indexPath.row] as InitCellParameters).cellIdentifier
         } else {
             height = (dataSource[indexPath.row] as! InitCellParameters).cellHeight
             cellIdentifier = (dataSource[indexPath.row] as! InitCellParameters).cellIdentifier

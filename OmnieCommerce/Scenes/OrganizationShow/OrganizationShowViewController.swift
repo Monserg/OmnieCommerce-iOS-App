@@ -250,22 +250,20 @@ class OrganizationShowViewController: BaseViewController {
         let organizationProfile = CoreDataManager.instance.entityDidLoad(byName: "Organization", andPredicateParameter: organization.codeID) as! Organization
         
         // Parallax Header view
-        if (organizationProfile.headerURL != nil) {
+        if let headerURL = organizationProfile.headerURL {
             headerView = HeaderImageView.init(frame: CGRect.init(origin: CGPoint.zero, size: CGSize.init(width: view.frame.width, height: 150)))
             smallTopBarView.actionButton.isHidden = true
             
             // Set Header image
-            if let imagePath = organization.headerURL {
-                headerView!.imageView.kf.setImage(with: ImageResource(downloadURL: URL(string: imagePath)!, cacheKey: "imagePath-\(organization.codeID)"),
-                                                  placeholder: UIImage.init(named: "image-no-photo"),
-                                                  options: [.transition(ImageTransition.fade(1)),
-                                                            .processor(ResizingImageProcessor(referenceSize: headerView!.frame.size,
-                                                                                              mode: .aspectFit))],
-                                                  completionHandler: { image, error, cacheType, imageURL in
-                                                    self.headerView!.kf.cancelDownloadTask()
-                })
-            }
-            
+            headerView!.imageView.kf.setImage(with: ImageResource(downloadURL: URL(string: headerURL)!, cacheKey: "imagePath-\(organization.codeID)"),
+                                              placeholder: UIImage.init(named: "image-no-photo"),
+                                              options: [.transition(ImageTransition.fade(1)),
+                                                        .processor(ResizingImageProcessor(referenceSize: headerView!.frame.size,
+                                                                                          mode: .aspectFit))],
+                                              completionHandler: { image, error, cacheType, imageURL in
+                                                self.headerView!.kf.cancelDownloadTask()
+            })
+        
             // Settings
             scrollView.parallaxHeader.view = headerView
             scrollView.parallaxHeader.height = 150
@@ -290,19 +288,24 @@ class OrganizationShowViewController: BaseViewController {
             })
         }
         
-        
         // Info view
         nameLabel.text = organization.name
         nameLabel.lineBreakMode = .byTruncatingTail
         nameLabel.numberOfLines = 2
         nameLabel.adjustsFontSizeToFitWidth = false
         
-        if ((organizationProfile.phones?.count)! == 0) {
+        if let phones = organizationProfile.phones, phones.count > 0 {
+            phonesImageView.isHidden = false
+            phonesButton.isHidden = false
+        } else {
             phonesImageView.isHidden = true
             phonesButton.isHidden = true
         }
         
-        if ((organizationProfile.schedules?.count)! == 0) {
+        if let schedules = organizationProfile.schedules, schedules.count > 0 {
+            scheduleImageView.isHidden = false
+            scheduleButton.isHidden = false
+        } else {
             scheduleImageView.isHidden = true
             scheduleButton.isHidden = true
         }
@@ -311,7 +314,7 @@ class OrganizationShowViewController: BaseViewController {
         favoriteButton.setImage(UIImage.init(named: (favoriteButton.tag == 0) ? "image-favorite-star-normal" : "image-favorite-star-selected"), for: .normal)
         
         // Set Avatar image
-        if let imagePath = organization.logoURL {
+        if let imagePath = organizationProfile.logoURL {
             logoImageView!.kf.setImage(with: ImageResource(downloadURL: URL(string: imagePath)!, cacheKey: imagePath),
                                        placeholder: UIImage.init(named: "image-no-organization"),
                                        options: [.transition(ImageTransition.fade(1)),
@@ -325,13 +328,13 @@ class OrganizationShowViewController: BaseViewController {
         }
         
         // Title view
-        if (organizationProfile.descriptionTitle != nil && organizationProfile.descriptionContent != nil) {
-            if (organizationProfile.descriptionTitle!.isEmpty && organizationProfile.descriptionContent!.isEmpty) {
+        if let descriptionTitle = organizationProfile.descriptionTitle, let descriptionContent = organizationProfile.descriptionContent {
+            if (descriptionTitle.isEmpty && descriptionContent.isEmpty) {
                 titleView.isHidden = true
             } else {
                 titleView.isHidden = false
-                titleLabel.text = organizationProfile.descriptionTitle!
-                contentLabel.text = organizationProfile.descriptionContent!
+                titleLabel.text = descriptionTitle
+                contentLabel.text = descriptionContent
                 contentLabel.sizeToFit()
                 titleViewHeightConstraint.constant = contentLabel.frame.maxY + 19.0
                 view.layoutIfNeeded()
@@ -341,7 +344,7 @@ class OrganizationShowViewController: BaseViewController {
         }
         
         // Discounts view 
-        if ((organizationProfile.discounts?.count)! > 0) {
+        if let discounts = organizationProfile.discounts, discounts.count > 0 {
             // Show/Hide Common discounts
             let discountsCommon = CoreDataManager.instance.entitiesDidLoad(byName: "Discount", andPredicateParameter: false)
             
@@ -376,7 +379,7 @@ class OrganizationShowViewController: BaseViewController {
                 discountsUserTableView.tableViewControllerManager!.dataSource = discountsUser!
                 discountsUserTableView.tableFooterView!.isHidden = true
                 discountsUserTableViewHeightConstraint.constant = CGFloat(61.0 + 50.0 * Double(discountsUser!.count)) * view.heightRatio
-
+                
                 discountsUserTableView.reloadData()
             } else {
                 discountUserStackView.isHidden = true
@@ -389,7 +392,7 @@ class OrganizationShowViewController: BaseViewController {
         }
 
         // Gallery view
-        if ((organizationProfile.images?.count)! > 0) {
+        if let images = organizationProfile.images, images.count > 0 {
             galleryView.isHidden = false
             
             let galleryManager = MSMCollectionViewControllerManager(withCollectionView: galleryCollectionView)
@@ -409,20 +412,23 @@ class OrganizationShowViewController: BaseViewController {
             galleryView.isHidden = true
         }
 
-        /*
         // Services view
-        if ((organizationProfile.services?.count)! > 0) {
+        if let servicesList = organizationProfile.services, servicesList.count > 0 {
             servicesView.isHidden = false
-            let servicesTableManager = MSMTableViewControllerManager.init(withTableView: servicesTableView, andSectionsCount: 1, andEmptyMessageText: "Services list is empty")
+            
+            let servicesTableManager = MSMTableViewControllerManager.init(withTableView: servicesTableView,
+                                                                          andSectionsCount: 1,
+                                                                          andEmptyMessageText: "Services list is empty")
            
             servicesTableView.tableViewControllerManager = servicesTableManager
             
-            _ = organizationProfile.services!.map { $0.cellIdentifier = "FavoriteServiceTableViewCell";
-                                                    $0.cellHeight = 60.0;
-                                                    $0.isNameNeedHide = true;
-                                                    $0.needBackgroundColorSet = true;
-                                                }
-            servicesTableView.tableViewControllerManager!.dataSource = organizationProfile.services!
+            _ = servicesList.map {  ($0 as! Service).cellIdentifier = "FavoriteServiceTableViewCell";
+                                    ($0 as! Service).cellHeight = 60.0;
+                                    ($0 as! Service).isNameNeedHide = true;
+                                    ($0 as! Service).needBackgroundColorSet = true;
+                                }
+            
+            servicesTableView.tableViewControllerManager!.dataSource = Array(servicesList)
             servicesTableView.tableFooterView!.isHidden = true
             self.view.layoutIfNeeded()
             
@@ -448,7 +454,6 @@ class OrganizationShowViewController: BaseViewController {
         } else {
             servicesView.isHidden = true
         }
-        */
         
         // Organization reviews
         var reviews = [Any]()
@@ -556,6 +561,10 @@ class OrganizationShowViewController: BaseViewController {
     }
     
     @IBAction func handlerFavoriteButtonTap(_ sender: UIButton) {
+        guard isNetworkAvailable else {
+            return
+        }
+        
         sender.tag = (sender.tag == 0) ? 1 : 0
         organization.isFavorite = !organization.isFavorite
         sender.setImage(UIImage.init(named: (sender.tag == 0) ? "image-favorite-star-normal" : "image-favorite-star-selected"), for: .normal)

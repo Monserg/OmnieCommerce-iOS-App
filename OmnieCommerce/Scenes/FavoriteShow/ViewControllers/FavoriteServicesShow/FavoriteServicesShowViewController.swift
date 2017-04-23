@@ -48,6 +48,10 @@ class FavoriteServicesShowViewController: BaseViewController {
     // MARK: - Class Functions
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Create MSMTableViewControllerManager
+        let servicesTableManager = MSMTableViewControllerManager.init(withTableView: self.tableView, andSectionsCount: 1, andEmptyMessageText: "Services list is empty")
+        tableView.tableViewControllerManager = servicesTableManager
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -60,19 +64,16 @@ class FavoriteServicesShowViewController: BaseViewController {
 
     // MARK: - Custom Functions
     func viewSettingsDidLoad() {
-        // Create MSMTableViewControllerManager
-        let servicesTableManager = MSMTableViewControllerManager.init(withTableView: self.tableView, andSectionsCount: 1, andEmptyMessageText: "Services list is empty")
-        tableView.tableViewControllerManager = servicesTableManager
-        
         // Load Services list from Core Data
         guard isNetworkAvailable else {
-            favoriteServicesListDidShow(nil, fromAPI: false)
+            favoriteServicesListDidShow()
             return
         }
         
         // Load Services list from API
         if (isNetworkAvailable) {
             services = [Service]()
+            CoreDataManager.instance.entitiesDidRemove(byName: "Service", andPredicateParameter: keyFavoriteServices)
             favoriteServicesListDidLoad(withOffset: 0, scrollingData: false)
         } else {
             spinnerDidFinish()
@@ -89,13 +90,22 @@ class FavoriteServicesShowViewController: BaseViewController {
         interactor.favoriteServicesDidLoad(withRequestModel: servicesRequestModel)
     }
     
-    func favoriteServicesListDidShow(_ services: [Service]?, fromAPI: Bool) {
+    func favoriteServicesListDidShow() {
         // Setting MSMTableViewControllerManager
-//        tableView.tableViewControllerManager!.dataSource = servicesList
-//        tableView!.tableFooterView!.isHidden = (servicesList.count > 0) ? true : false
-//        (tableView!.tableFooterView as! MSMTableViewFooterView).didUpload(forItemsCount: servicesList.count,
-//                                                                          andEmptyText: "Services list is empty")
-        tableView.reloadData()
+        let servicesList = CoreDataManager.instance.entitiesDidLoad(byName: "Service", andPredicateParameter: keyFavoriteServices)
+        
+        if let services = servicesList as? [Service] {
+            let _ = services.map({ $0.cellIdentifier = "FavoriteServiceTableViewCell"; $0.cellHeight = 60.0 })
+            self.services = services
+            
+            tableView.tableViewControllerManager!.dataSource = services
+            tableView!.tableFooterView!.isHidden = (services.count > 0) ? true : false
+            
+            (tableView!.tableFooterView as! MSMTableViewFooterView).didUpload(forItemsCount: services.count,
+                                                                              andEmptyText: "Services list is empty")
+            
+            tableView.reloadData()
+        }
         
         // Handler select cell
         tableView.tableViewControllerManager!.handlerSelectRowCompletion = { service in
@@ -107,16 +117,19 @@ class FavoriteServicesShowViewController: BaseViewController {
         tableView.tableViewControllerManager!.handlerPullRefreshCompletion = { _ in
             // Reload Services list from API
             self.services = [Service]()
+            CoreDataManager.instance.entitiesDidRemove(byName: "Service", andPredicateParameter: keyFavoriteServices)
+            self.limit = Config.Constants.paginationLimit
             self.favoriteServicesListDidLoad(withOffset: 0, scrollingData: true)
         }
         
         // Handler InfiniteScroll
         tableView.tableViewControllerManager.handlerInfiniteScrollCompletion = { _ in
             // Load More Services from API
-            self.favoriteServicesListDidLoad(withOffset: services!.count, scrollingData: true)
+            self.favoriteServicesListDidLoad(withOffset: self.services.count, scrollingData: true)
         }
         
         tableView.tableViewControllerManager.pullRefreshDidFinish()
+        spinnerDidFinish()
     }
 }
 
@@ -124,29 +137,15 @@ class FavoriteServicesShowViewController: BaseViewController {
 // MARK: - FavoriteServicesShowViewControllerInput
 extension FavoriteServicesShowViewController: FavoriteServicesShowViewControllerInput {
     func favoriteServicesDidShowLoad(fromViewModel viewModel: FavoriteServicesShowModels.Services.ViewModel) {
-        spinnerDidFinish()
-        
         // Check for errors
-        guard viewModel.services != nil else {
+        guard viewModel.status == "SUCCESS" else {
             self.alertViewDidShow(withTitle: "Error", andMessage: viewModel.status, completion: {
-                self.favoriteServicesListDidShow(self.services, fromAPI: true)
+                self.favoriteServicesListDidShow()
             })
             
             return
         }
         
-        // Save Favorite Services to CoreData
-        CoreDataManager.instance.didSaveContext()
-        
-        // Check network connection
-        guard isNetworkAvailable else {
-            // Load Favorite Services list from CoreData
-            self.favoriteServicesListDidShow(nil, fromAPI: false)
-            return
-        }
-        
-        // Load Favorite Services list from API
-        self.services.append(contentsOf: viewModel.services!)
-        self.favoriteServicesListDidShow(self.services, fromAPI: true)
+        self.favoriteServicesListDidShow()
     }
 }

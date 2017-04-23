@@ -137,6 +137,16 @@ public class Organization: NSManagedObject, InitCellParameters, PointAnnotationB
             self.descriptionContent = describeContent
         }
 
+        // Services
+        if let services = json["services"] as? NSArray, services.count > 0 {
+            self.services = NSSet()
+            
+            for json in services {
+                let service = Service.init(json: json as! [String: AnyObject], andOrganization: self)
+                self.addToServices(service!)
+            }
+        }
+
         // Common discounts
         self.discounts = NSSet()
 
@@ -186,7 +196,6 @@ public class Organization: NSManagedObject, InitCellParameters, PointAnnotationB
             self.addressCity = city!
             self.addressStreet = street!
             
-            CoreDataManager.instance.didSaveContext()
             completion()
         })
     }

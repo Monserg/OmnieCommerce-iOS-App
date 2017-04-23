@@ -66,6 +66,8 @@
 "Discount period"               =   "Срок действия:";
 "Our services"                  =   "Наши услуги";
 "Rate Organization"             =   "Оцените организацию";
+"Unit 0"                        =   "грн/час";
+"Unit 1"                        =   "грн/мин";
 
 
 // Buttons

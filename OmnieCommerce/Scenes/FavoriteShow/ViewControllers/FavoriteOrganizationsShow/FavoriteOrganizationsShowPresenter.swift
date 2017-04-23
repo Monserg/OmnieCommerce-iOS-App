@@ -36,17 +36,19 @@ class FavoriteOrganizationsShowPresenter: FavoriteOrganizationsShowPresenterInpu
         }
         
         // Convert responseAPI body to Organization CoreData objects
-        for json in responseModel.responseAPI!.body as! [Any] {
-            let item = Organization.init(json: json as! [String: AnyObject])
-            
-            if let organization = item {
-                organization.catalog = keyFavoriteOrganizations
-                organization.cellIdentifier = "FavoriteOrganizationTableViewCell"
-                organization.cellHeight = 60.0
+        if let organizationsList = responseModel.responseAPI!.body as? [Any], organizationsList.count > 0 {
+            for json in organizationsList {
+                let item = Organization.init(json: json as! [String: AnyObject])
                 
-                CoreDataManager.instance.didSaveContext()
+                if let organization = item {
+                    organization.catalog = keyFavoriteOrganizations
+                    CoreDataManager.instance.didSaveContext()
+                }
+                
+                let organizationsViewModel = FavoriteOrganizationsShowModels.Organizations.ViewModel(status: (responseModel.responseAPI?.status)!)
+                self.viewController.favoriteOrganizationsDidShowLoad(fromViewModel: organizationsViewModel)
             }
-            
+        } else {
             let organizationsViewModel = FavoriteOrganizationsShowModels.Organizations.ViewModel(status: (responseModel.responseAPI?.status)!)
             self.viewController.favoriteOrganizationsDidShowLoad(fromViewModel: organizationsViewModel)
         }

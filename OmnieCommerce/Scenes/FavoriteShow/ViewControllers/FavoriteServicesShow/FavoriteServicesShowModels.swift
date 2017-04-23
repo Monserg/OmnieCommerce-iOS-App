@@ -23,7 +23,6 @@ struct FavoriteServicesShowModels {
         }
         
         struct ViewModel {
-            let services: [Service]?
             let status: String
         }
     }

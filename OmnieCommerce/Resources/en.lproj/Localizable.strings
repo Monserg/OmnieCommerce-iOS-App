@@ -66,6 +66,8 @@
 "Discount period"               =   "Discount period:";
 "Our services"                  =   "Our services";
 "Rate Organization"             =   "Rate Organization";
+"Unit 0"                        =   "grn/hour";
+"Unit 1"                        =   "grn/min";
 
 
 // Buttons

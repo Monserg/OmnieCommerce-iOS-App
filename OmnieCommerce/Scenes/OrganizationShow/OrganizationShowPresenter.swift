@@ -40,6 +40,8 @@ class OrganizationShowPresenter: OrganizationShowPresenterInput {
         
         if let placeID = organization!.placeID {
             organization!.googlePlaceDidLoad(positionID: placeID, completion: { _ in
+                CoreDataManager.instance.didSaveContext()
+
                 let organizationViewModel = OrganizationShowModels.OrganizationItem.ViewModel(status: responseModel.responseAPI!.status)
                 self.viewController.organizationDidShowLoad(fromViewModel: organizationViewModel)
             })

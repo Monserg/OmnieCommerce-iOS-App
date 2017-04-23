@@ -39,7 +39,7 @@ class ServiceOld: NSObject, NSCoding, InitCellParameters, SearchObject, PointAnn
     var cellHeight: CGFloat = 96.0
     
     // From full API response
-    var prices: [ServicePrice]?
+//    var prices: [ServicePrice]?
     
     
     
@@ -52,7 +52,7 @@ class ServiceOld: NSObject, NSCoding, InitCellParameters, SearchObject, PointAnn
         self.isCommonProfile = isCommonProfile
     }
         
-    init(codeID: String, name: String, organizationName: String?, category: Category?, rating: Double?, isFavorite: Bool, logoURL: String?, city: String?, street: String?, latitude: CLLocationDegrees?, longitude: CLLocationDegrees?, prices: [ServicePrice]?) {
+    init(codeID: String, name: String, organizationName: String?, category: Category?, rating: Double?, isFavorite: Bool, logoURL: String?, city: String?, street: String?, latitude: CLLocationDegrees?, longitude: CLLocationDegrees?, prices: [ServicePriceOld]?) {
         // Common profile
         self.codeID = codeID
         self.name = name
@@ -67,7 +67,7 @@ class ServiceOld: NSObject, NSCoding, InitCellParameters, SearchObject, PointAnn
         self.addressStreet = street
         
         // Full profile
-        self.prices = prices
+//        self.prices = prices
     }
     
     required convenience init(coder aDecoder: NSCoder) {
@@ -85,7 +85,7 @@ class ServiceOld: NSObject, NSCoding, InitCellParameters, SearchObject, PointAnn
         let addressStreet = aDecoder.decodeObject(forKey: "addressStreet") as? String
         
         // Full profile
-        let prices = aDecoder.decodeObject(forKey: "prices") as? [ServicePrice]
+        let prices = aDecoder.decodeObject(forKey: "prices") as? [ServicePriceOld]
 
         self.init(codeID: codeID, name: name, organizationName: organizationName, category: category, rating: rating, isFavorite: isFavorite, logoURL: logoURL, city: addressCity, street: addressStreet, latitude: latitude, longitude: longitude, prices: prices)
     }
@@ -105,7 +105,7 @@ class ServiceOld: NSObject, NSCoding, InitCellParameters, SearchObject, PointAnn
         aCoder.encode(longitude, forKey: "longitude")
         
         // Full profile
-        aCoder.encode(prices, forKey: "prices")
+//        aCoder.encode(prices, forKey: "prices")
     }
     
     
@@ -142,15 +142,15 @@ extension ServiceOld: MapObjectBinding {
         // Full profile
         if (!isCommonProfile) {
             if let priceItems = dictionary["servicePrices"] as? NSArray {
-                var items = [ServicePrice]()
+                var items = [ServicePriceOld]()
                 
                 for dictionary in priceItems {
-                    let price = ServicePrice()
+                    let price = ServicePriceOld()
                     price.didMap(fromDictionary: dictionary as! [String : Any], completion: { _ in })
                     items.append(price)
                 }
                 
-                self.prices = items
+//                self.prices = items
             }
         }
         

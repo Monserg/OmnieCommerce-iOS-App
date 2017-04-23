@@ -24,9 +24,9 @@ class FavoriteOrganizationsShowRouter: FavoriteOrganizationsShowRouterInput {
     
     // MARK: - Custom Functions. Navigation
     func navigateToOrganizationShowScene(_ organization: Organization) {
-        let storyboard                          =   UIStoryboard(name: "OrganizationShow", bundle: nil)
-        let organizationShowVC                  =   storyboard.instantiateViewController(withIdentifier: "OrganizationShowVC") as! OrganizationShowViewController
-        organizationShowVC.organization         =   organization
+        let storyboard = UIStoryboard(name: "OrganizationShow", bundle: nil)
+        let organizationShowVC = storyboard.instantiateViewController(withIdentifier: "OrganizationShowVC") as! OrganizationShowViewController
+        organizationShowVC.organization = organization
         
         viewController.navigationController?.pushViewController(organizationShowVC, animated: true)
     }

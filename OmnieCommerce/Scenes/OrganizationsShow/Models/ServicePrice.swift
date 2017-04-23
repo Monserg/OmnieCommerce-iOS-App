@@ -8,7 +8,7 @@
 
 import Foundation
 
-class ServicePrice: NSObject, NSCoding, InitCellParameters {
+class ServicePriceOld: NSObject, NSCoding, InitCellParameters {
     // MARK: - Properties
     
     // From common API response
@@ -79,7 +79,7 @@ class ServicePrice: NSObject, NSCoding, InitCellParameters {
 
 
 // MARK: - MapObjectBinding
-extension ServicePrice: MapObjectBinding {
+extension ServicePriceOld: MapObjectBinding {
     func didMap(fromDictionary dictionary: [String: Any], completion: @escaping (() -> ())) {
         self.codeID = dictionary["uuid"] as! String
 //        self.name = dictionary["name"] as! String
@@ -98,9 +98,9 @@ extension ServicePrice: MapObjectBinding {
 
 
 // MARK: - NSCopying
-extension ServicePrice: NSCopying {
+extension ServicePriceOld: NSCopying {
     func copy(with zone: NSZone? = nil) -> Any {
-        let copy = ServicePrice()
+        let copy = ServicePriceOld()
         return copy
     }
 }

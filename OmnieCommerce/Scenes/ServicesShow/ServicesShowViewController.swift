@@ -31,15 +31,15 @@ class ServicesShowViewController: BaseViewController {
             tableView.contentInset = UIEdgeInsetsMake((UIApplication.shared.statusBarOrientation.isPortrait) ? -10 : 10, 0, 0, 0)
             tableView.scrollIndicatorInsets = UIEdgeInsetsMake(0, 0, 0, 0)
             var headers = [ExpandedHeaderCell]()
-            var priceDataSource = [[ServicePrice]]()
+            var priceDataSource = [[Price]]()
             
             // Create sections array
             for service in services.filter({ ($0.prices?.count)! > 0 }) {
                 headers.append(ExpandedHeaderCell.init(withName: service.name))
-                var prices = [ServicePrice]()
+                var prices = [Price]()
                 
                 for price in service.prices! {
-                    prices.append(price)
+                    prices.append(price as! Price)
                 }
                 
                 priceDataSource.append(prices)

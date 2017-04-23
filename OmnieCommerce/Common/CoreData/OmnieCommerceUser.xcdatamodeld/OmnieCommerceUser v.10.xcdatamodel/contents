@@ -50,18 +50,12 @@
         <attribute name="percent" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="status" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="organization" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Organization" inverseName="discounts" inverseEntity="Organization" syncable="YES"/>
-        <relationship name="service" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Service" syncable="YES"/>
+        <relationship name="service" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Service" inverseName="discounts" inverseEntity="Service" syncable="YES"/>
         <uniquenessConstraints>
             <uniquenessConstraint>
                 <constraint value="codeID"/>
             </uniquenessConstraint>
         </uniquenessConstraints>
-    </entity>
-    <entity name="FavoriteOrganizations" representedClassName="FavoriteOrganizations" syncable="YES">
-        <attribute name="list" optional="YES" attributeType="Binary" syncable="YES"/>
-    </entity>
-    <entity name="FavoriteServices" representedClassName="FavoriteServices" syncable="YES">
-        <attribute name="list" optional="YES" attributeType="Binary" syncable="YES"/>
     </entity>
     <entity name="GalleryImage" representedClassName="GalleryImage" syncable="YES">
         <attribute name="imageID" optional="YES" attributeType="String" syncable="YES"/>
@@ -120,6 +114,23 @@
             </uniquenessConstraint>
         </uniquenessConstraints>
     </entity>
+    <entity name="Price" representedClassName="Price" syncable="YES">
+        <attribute name="codeID" attributeType="String" syncable="YES"/>
+        <attribute name="dateCreated" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="day" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="dayName" attributeType="String" syncable="YES"/>
+        <attribute name="price" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="ruleTimeEnd" attributeType="String" syncable="YES"/>
+        <attribute name="ruleTimeStart" attributeType="String" syncable="YES"/>
+        <attribute name="unit" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="unitName" attributeType="String" syncable="YES"/>
+        <relationship name="service" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Service" inverseName="prices" inverseEntity="Service" syncable="YES"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="codeID"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
+    </entity>
     <entity name="Review" representedClassName="Review" syncable="YES">
         <attribute name="content" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="dateCreate" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
@@ -145,7 +156,28 @@
         </uniquenessConstraints>
     </entity>
     <entity name="Service" representedClassName="Service" syncable="YES">
+        <attribute name="addressCityValue" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="addressStreetValue" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="catalog" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="codeID" attributeType="String" syncable="YES"/>
+        <attribute name="headerURL" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="isFavorite" attributeType="Boolean" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="isNameNeedHide" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="latitudeValue" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="logoURL" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="longitudeValue" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="nameValue" attributeType="String" syncable="YES"/>
+        <attribute name="needBackgroundColorSet" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="organizationName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="rating" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="discounts" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Discount" inverseName="service" inverseEntity="Discount" syncable="YES"/>
         <relationship name="organization" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Organization" inverseName="services" inverseEntity="Organization" syncable="YES"/>
+        <relationship name="prices" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Price" inverseName="service" inverseEntity="Price" syncable="YES"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="codeID"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
     </entity>
     <entity name="Subcategory" representedClassName="Subcategory" syncable="YES">
         <attribute name="codeID" attributeType="String" syncable="YES"/>
@@ -164,14 +196,13 @@
         <element name="AppUser" positionX="-63" positionY="-18" width="128" height="285"/>
         <element name="Category" positionX="270" positionY="-72" width="128" height="120"/>
         <element name="Discount" positionX="162" positionY="99" width="128" height="180"/>
-        <element name="FavoriteOrganizations" positionX="-45" positionY="108" width="128" height="60"/>
-        <element name="FavoriteServices" positionX="-18" positionY="126" width="128" height="60"/>
         <element name="GalleryImage" positionX="-36" positionY="99" width="128" height="120"/>
         <element name="NewsData" positionX="-36" positionY="99" width="128" height="165"/>
         <element name="Organization" positionX="-36" positionY="99" width="128" height="390"/>
-        <element name="Schedule" positionX="153" positionY="90" width="128" height="165"/>
-        <element name="Service" positionX="-36" positionY="117" width="128" height="60"/>
-        <element name="Subcategory" positionX="475" positionY="-69" width="128" height="103"/>
         <element name="Review" positionX="171" positionY="108" width="128" height="150"/>
+        <element name="Schedule" positionX="153" positionY="90" width="128" height="165"/>
+        <element name="Service" positionX="-36" positionY="117" width="128" height="300"/>
+        <element name="Subcategory" positionX="475" positionY="-69" width="128" height="103"/>
+        <element name="Price" positionX="180" positionY="117" width="128" height="195"/>
     </elements>
 </model>

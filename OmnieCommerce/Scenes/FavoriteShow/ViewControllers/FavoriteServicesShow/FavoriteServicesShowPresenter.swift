@@ -29,22 +29,28 @@ class FavoriteServicesShowPresenter: FavoriteServicesShowPresenterInput {
     // MARK: - Custom Functions. Presentation logic
     func favoriteServicesDidPrepareToShowLoad(fromResponseModel responseModel: FavoriteServicesShowModels.Services.ResponseModel) {
         guard responseModel.responseAPI?.body != nil else {
-            let servicesViewModel = FavoriteServicesShowModels.Services.ViewModel(services: nil, status: (responseModel.responseAPI?.status)!)
+            let servicesViewModel = FavoriteServicesShowModels.Services.ViewModel(status: (responseModel.responseAPI?.status)!)
             viewController.favoriteServicesDidShowLoad(fromViewModel: servicesViewModel)
             
             return
         }
         
-        // Format the response from the Interactor and pass the result back to the View Controller
-//        responseModel.responseAPI!.itemsDidLoad(fromItemsArray: responseModel.responseAPI!.body as! [Any], withItem: Service.init(withCommonProfile: true), completion: { favoriteServices in
-//            // Prepare to save Services in CoreData
-//            let _ = favoriteServices.map { $0.cellHeight = 60.0; $0.cellIdentifier = "FavoriteServiceTableViewCell" }
-//            let entityFavoriteServices = CoreDataManager.instance.entityDidLoad(byName: keyFavoriteServices, andPredicateParameter: nil) as! FavoriteServices
-//            let favoriteServicesData = NSKeyedArchiver.archivedData(withRootObject: favoriteServices) as NSData?
-//            entityFavoriteServices.list = favoriteServicesData!
-//            
-//            let servicesViewModel = FavoriteServicesShowModels.Services.ViewModel(services: favoriteServices, status: (responseModel.responseAPI?.status)!)
-//            self.viewController.favoriteServicesDidShowLoad(fromViewModel: servicesViewModel)
-//        })
+        // Convert responseAPI body to Service CoreData objects
+        if let servicesList = responseModel.responseAPI!.body as? [Any], servicesList.count > 0 {
+            for json in servicesList {
+                let item = Service.init(json: json as! [String: AnyObject], andOrganization: nil)
+                
+                if let service = item {
+                    service.catalog = keyFavoriteServices
+                    CoreDataManager.instance.didSaveContext()
+                }
+                
+                let servicesViewModel = FavoriteServicesShowModels.Services.ViewModel(status: (responseModel.responseAPI?.status)!)
+                self.viewController.favoriteServicesDidShowLoad(fromViewModel: servicesViewModel)
+            }
+        } else {
+            let servicesViewModel = FavoriteServicesShowModels.Services.ViewModel(status: (responseModel.responseAPI?.status)!)
+            self.viewController.favoriteServicesDidShowLoad(fromViewModel: servicesViewModel)
+        }
     }
 }

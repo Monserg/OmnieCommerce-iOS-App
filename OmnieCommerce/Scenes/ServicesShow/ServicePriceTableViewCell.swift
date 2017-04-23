@@ -30,11 +30,12 @@ class ServicePriceTableViewCell: UITableViewCell {
 // MARK: - ConfigureCell
 extension ServicePriceTableViewCell: ConfigureCell {
     func setup(withItem item: Any, andIndexPath indexPath: IndexPath) {
-        let servicePrice = item as! ServicePrice
+        let price = item as! Price
         
         nameLabel.numberOfLines = 1
-        nameLabel.text = servicePrice.name
+        nameLabel.text = price.service?.name
         nameLabel.sizeToFit()
+        
 //        priceLabel.text = "\(servicePrice.price!) \(servicePrice.unit!.convertToUnitString() ?? "???")"
         
         // Set selected color

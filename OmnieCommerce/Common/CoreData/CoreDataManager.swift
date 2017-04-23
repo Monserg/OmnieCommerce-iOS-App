@@ -147,7 +147,6 @@ class CoreDataManager {
     func entityDidLoad(byName name: String, andPredicateParameter parameter: Any?) -> NSManagedObject? {
         let fetchRequest: NSFetchRequest<NSFetchRequestResult>!
         var predicate: NSPredicate!
-//        self.didSaveContext()
         
         if (parameter == nil) {
             fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: name)
@@ -234,7 +233,7 @@ class CoreDataManager {
 //            break
 //        }
         
-        self.didSaveContext()
+//        self.didSaveContext()
         
         return newEntity
     }
@@ -273,7 +272,7 @@ class CoreDataManager {
             let isAction = parameter as! Bool
             predicate = NSPredicate(format: "isAction == \(isAction)")
 
-        case "Organization":
+        case "Organization", "Service":
             let catalog = parameter as! String
             predicate = NSPredicate(format: "catalog == %@", catalog)
 
