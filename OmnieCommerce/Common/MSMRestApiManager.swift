@@ -19,6 +19,7 @@ enum RequestType {
     case userGetActionByID([String: Any], Bool)
     case userForgotPassword([String: Any], Bool)
     case userGetActionsList([String: Any], Bool)
+    case userGetServiceByID([String: Any], Bool)
     case userGetNewsDataByID([String: Any], Bool)
     case userGetNewsDataList([String: Any], Bool)
     case userGetCategoriesList([String: Any], Bool)
@@ -73,6 +74,13 @@ enum RequestType {
                                                                         headers: headersExtended,
                                                                         parameters: (isBodyParams ? nil : params))
 
+        case .userGetServiceByID(let params, let isBodyParams): return (method: .get,
+                                                                        apiStringURL: "/user/service/",
+                                                                        body: (isBodyParams ? params : nil),
+                                                                        bodyType: .ItemsDictionary,
+                                                                        headers: headersExtended,
+                                                                        parameters: (isBodyParams ? nil : params))
+        
         case .userForgotPassword(let params, let isBodyParams):     return (method: .get,
                                                                             apiStringURL: "/forgot/",
                                                                             body: (isBodyParams ? params : nil),

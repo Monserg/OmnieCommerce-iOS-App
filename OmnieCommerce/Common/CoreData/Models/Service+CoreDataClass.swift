@@ -12,6 +12,9 @@ import CoreLocation
 
 @objc(Service)
 public class Service: NSManagedObject, InitCellParameters, PointAnnotationBinding {
+    // MARK: - Properties
+    var category: Category?
+
     // Confirm SearchObject Protocol
     var name: String! {
         set {
@@ -67,12 +70,6 @@ public class Service: NSManagedObject, InitCellParameters, PointAnnotationBindin
     // Confirm InitCellParameters Protocol
     var cellIdentifier: String = "ServiceTableViewCell"
     var cellHeight: CGFloat = 96.0
-
-    
-    
-    
-    // MARK: - Properties
-    var category: Category?
     
     
     // MARK: - Class Initialization
@@ -100,10 +97,22 @@ public class Service: NSManagedObject, InitCellParameters, PointAnnotationBindin
             self.organizationName = organizationName
         }
         
+        if let descriptionContent = json["description"] as? String {
+            self.descriptionContent = descriptionContent
+        }
+        
         if let isFavorite = json["isFavorite"] as? Bool {
             self.isFavorite = isFavorite
         }
+        
+        if let minDuration = json["minDuration"] as? Bool {
+            self.minDuration = minDuration
+        }
     
+        if let duration = json["duration"] as? Int64 {
+            self.duration = duration
+        }
+
         if let rating = json["rating"] as? Double {
             self.rating = rating
         }
@@ -125,10 +134,40 @@ public class Service: NSManagedObject, InitCellParameters, PointAnnotationBindin
 //        if let discounts = json[""] as? [AnyObject] {
 //            
 //        }
+        
+        // Google place
+        if let positionID = json["placeId"] as? String {
+            self.placeID = positionID
+        }
+        
+        // Additional services
+        if let additionalServices = json["subServiceList"] as? [Any] {
+            self.additionalServices = NSSet()
+            
+            for json in additionalServices {
+                self.addToAdditionalServices(AdditionalService.init(json: json as! [String: AnyObject], andRelationshipObject: self)!)
+            }
+        }
+        
     }
 
     deinit {
         print("\(type(of: self)) deinit")
     }
 
+    
+    // MARK: - Custom Functions
+    func googlePlaceDidLoad(positionID: String, completion: @escaping HandlerSendButtonCompletion) {
+        // Get Location
+        let locationManager = LocationManager()
+        
+        locationManager.geocodingAddress(byGoogleID: positionID, completion: { coordinate, city, street in
+            self.latitude = (coordinate?.latitude)!
+            self.longitude = (coordinate?.longitude)!
+            self.addressCity = city!
+            self.addressStreet = street!
+            
+            completion()
+        })
+    }
 }

@@ -51,8 +51,9 @@
 "Sat"                           =   "Sat";
 "Sun"                           =   "Sun";
 "Mon-Fri"                       =   "Mon-Fri";
-"Additional Services"           =   "Additional Services:";
+"Additional Services"           =   "Additional Services";
 "Comment"                       =   "Comment:";
+"Leave a Comment"               =   "Leave a Comment";
 "Loading Data"                  =   "Loading data...";
 "Loading More"                  =   "Loading more...";
 "Reviews"                       =   "Reviews";
@@ -66,6 +67,9 @@
 "Discount period"               =   "Discount period:";
 "Our services"                  =   "Our services";
 "Rate Organization"             =   "Rate Organization";
+"Rate Service"                  =   "Rate Service";
+"View Order"                    =   "View Order";
+"Turn the Date"                 =   "Turn the Date";
 "Unit 0"                        =   "grn/hour";
 "Unit 1"                        =   "grn/min";
 

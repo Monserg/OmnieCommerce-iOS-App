@@ -199,6 +199,18 @@
 		B14E97691DD8B05E001E1DE2 /* ForgotPasswordShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14E97621DD8B05E001E1DE2 /* ForgotPasswordShowViewController.swift */; };
 		B14E976A1DD8B05E001E1DE2 /* ForgotPasswordShowWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14E97631DD8B05E001E1DE2 /* ForgotPasswordShowWorker.swift */; };
 		B14E976C1DD8B8CB001E1DE2 /* SignInShow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B14E976B1DD8B8CB001E1DE2 /* SignInShow.storyboard */; };
+		B151250C1EADC619009A6A44 /* ServiceShowConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15125051EADC619009A6A44 /* ServiceShowConfigurator.swift */; };
+		B151250D1EADC619009A6A44 /* ServiceShowInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15125061EADC619009A6A44 /* ServiceShowInteractor.swift */; };
+		B151250E1EADC619009A6A44 /* ServiceShowModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15125071EADC619009A6A44 /* ServiceShowModels.swift */; };
+		B151250F1EADC619009A6A44 /* ServiceShowPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15125081EADC619009A6A44 /* ServiceShowPresenter.swift */; };
+		B15125101EADC619009A6A44 /* ServiceShowRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15125091EADC619009A6A44 /* ServiceShowRouter.swift */; };
+		B15125111EADC619009A6A44 /* ServiceShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B151250A1EADC619009A6A44 /* ServiceShowViewController.swift */; };
+		B15125121EADC619009A6A44 /* ServiceShowWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B151250B1EADC619009A6A44 /* ServiceShowWorker.swift */; };
+		B15125151EAE0341009A6A44 /* AdditionalServiceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15125131EAE0341009A6A44 /* AdditionalServiceTableViewCell.swift */; };
+		B15125161EAE0341009A6A44 /* AdditionalServiceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B15125141EAE0341009A6A44 /* AdditionalServiceTableViewCell.xib */; };
+		B15125191EAE0DD0009A6A44 /* AdditionalService+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15125171EAE0DD0009A6A44 /* AdditionalService+CoreDataClass.swift */; };
+		B151251A1EAE0DD0009A6A44 /* AdditionalService+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15125181EAE0DD0009A6A44 /* AdditionalService+CoreDataProperties.swift */; };
+		B151251C1EAE1126009A6A44 /* ServiceShow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B151251B1EAE1126009A6A44 /* ServiceShow.storyboard */; };
 		B15291571DDE3FEF00BBA1E0 /* MenuSectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B15291561DDE3FEF00BBA1E0 /* MenuSectionHeaderView.xib */; };
 		B15291591DDE3FFA00BBA1E0 /* MenuSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15291581DDE3FFA00BBA1E0 /* MenuSectionHeaderView.swift */; };
 		B152915B1DDE44A200BBA1E0 /* MenuSectionFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B152915A1DDE44A200BBA1E0 /* MenuSectionFooterView.swift */; };
@@ -658,6 +670,18 @@
 		B14E97621DD8B05E001E1DE2 /* ForgotPasswordShowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordShowViewController.swift; sourceTree = "<group>"; };
 		B14E97631DD8B05E001E1DE2 /* ForgotPasswordShowWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordShowWorker.swift; sourceTree = "<group>"; };
 		B14E976B1DD8B8CB001E1DE2 /* SignInShow.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SignInShow.storyboard; sourceTree = "<group>"; };
+		B15125051EADC619009A6A44 /* ServiceShowConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceShowConfigurator.swift; sourceTree = "<group>"; };
+		B15125061EADC619009A6A44 /* ServiceShowInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceShowInteractor.swift; sourceTree = "<group>"; };
+		B15125071EADC619009A6A44 /* ServiceShowModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceShowModels.swift; sourceTree = "<group>"; };
+		B15125081EADC619009A6A44 /* ServiceShowPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceShowPresenter.swift; sourceTree = "<group>"; };
+		B15125091EADC619009A6A44 /* ServiceShowRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceShowRouter.swift; sourceTree = "<group>"; };
+		B151250A1EADC619009A6A44 /* ServiceShowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceShowViewController.swift; sourceTree = "<group>"; };
+		B151250B1EADC619009A6A44 /* ServiceShowWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceShowWorker.swift; sourceTree = "<group>"; };
+		B15125131EAE0341009A6A44 /* AdditionalServiceTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdditionalServiceTableViewCell.swift; sourceTree = "<group>"; };
+		B15125141EAE0341009A6A44 /* AdditionalServiceTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AdditionalServiceTableViewCell.xib; sourceTree = "<group>"; };
+		B15125171EAE0DD0009A6A44 /* AdditionalService+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AdditionalService+CoreDataClass.swift"; sourceTree = "<group>"; };
+		B15125181EAE0DD0009A6A44 /* AdditionalService+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AdditionalService+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		B151251B1EAE1126009A6A44 /* ServiceShow.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ServiceShow.storyboard; sourceTree = "<group>"; };
 		B15291561DDE3FEF00BBA1E0 /* MenuSectionHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuSectionHeaderView.xib; sourceTree = "<group>"; };
 		B15291581DDE3FFA00BBA1E0 /* MenuSectionHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuSectionHeaderView.swift; sourceTree = "<group>"; };
 		B152915A1DDE44A200BBA1E0 /* MenuSectionFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuSectionFooterView.swift; sourceTree = "<group>"; };
@@ -1010,6 +1034,8 @@
 			children = (
 				B1D883311E8E9150006F4831 /* Actions+CoreDataClass.swift */,
 				B1D883321E8E9150006F4831 /* Actions+CoreDataProperties.swift */,
+				B15125171EAE0DD0009A6A44 /* AdditionalService+CoreDataClass.swift */,
+				B15125181EAE0DD0009A6A44 /* AdditionalService+CoreDataProperties.swift */,
 				B108747B1E5B0DC9004A4FB6 /* AppSettings+CoreDataClass.swift */,
 				B108747C1E5B0DC9004A4FB6 /* AppSettings+CoreDataProperties.swift */,
 				B10874A41E5B3D7E004A4FB6 /* AppUser+CoreDataClass.swift */,
@@ -1231,6 +1257,7 @@
 				B1FFF7181E5F01A000A075D8 /* OrganizationsMapShow.storyboard */,
 				B1FFF7071E5ECE4800A075D8 /* OrganizationsShow.storyboard */,
 				B1CF54E51DDB552300E98049 /* PersonalPageShow.storyboard */,
+				B151251B1EAE1126009A6A44 /* ServiceShow.storyboard */,
 				B14C07251EA09C4200556866 /* ServicesShow.storyboard */,
 				B1CF54E31DDB543300E98049 /* SettingsShow.storyboard */,
 				B14E976B1DD8B8CB001E1DE2 /* SignInShow.storyboard */,
@@ -1261,6 +1288,7 @@
 				B1FFF6F81E5ECDCF00A075D8 /* OrganizationsShow */,
 				B1CF546A1DDB505800E98049 /* PersonalPageShow */,
 				B177E54E1E54B709004F1390 /* RepetitionPasswordShow */,
+				B15125031EADC5DB009A6A44 /* ServiceShow */,
 				B14C07161EA098EE00556866 /* ServicesShow */,
 				B1CF54691DDB504600E98049 /* SettingsShow */,
 				B177E52C1E5475C5004F1390 /* SignInContainerShow */,
@@ -1559,6 +1587,30 @@
 				B14E97631DD8B05E001E1DE2 /* ForgotPasswordShowWorker.swift */,
 			);
 			path = ForgotPasswordShow;
+			sourceTree = "<group>";
+		};
+		B15125031EADC5DB009A6A44 /* ServiceShow */ = {
+			isa = PBXGroup;
+			children = (
+				B15125041EADC5FD009A6A44 /* Views */,
+				B15125051EADC619009A6A44 /* ServiceShowConfigurator.swift */,
+				B15125061EADC619009A6A44 /* ServiceShowInteractor.swift */,
+				B15125071EADC619009A6A44 /* ServiceShowModels.swift */,
+				B15125081EADC619009A6A44 /* ServiceShowPresenter.swift */,
+				B15125091EADC619009A6A44 /* ServiceShowRouter.swift */,
+				B151250A1EADC619009A6A44 /* ServiceShowViewController.swift */,
+				B151250B1EADC619009A6A44 /* ServiceShowWorker.swift */,
+			);
+			path = ServiceShow;
+			sourceTree = "<group>";
+		};
+		B15125041EADC5FD009A6A44 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B15125131EAE0341009A6A44 /* AdditionalServiceTableViewCell.swift */,
+				B15125141EAE0341009A6A44 /* AdditionalServiceTableViewCell.xib */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		B155DE8F1E65C3DC00683384 /* Views */ = {
@@ -2134,6 +2186,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B1D7384E1E93B0B200A764F4 /* ReviewsView.xib in Resources */,
+				B151251C1EAE1126009A6A44 /* ServiceShow.storyboard in Resources */,
 				B1BF92681DD6516C00BECBBB /* helveticaneuecyr-black.otf in Resources */,
 				B1FFF72A1E5F0DFB00A075D8 /* InfoPlist.strings in Resources */,
 				B1D883141E8E8995006F4831 /* NewsDataTableViewCell.xib in Resources */,
@@ -2155,6 +2208,7 @@
 				B1BF926E1DD6516C00BECBBB /* helveticaneuecyr-italic.otf in Resources */,
 				B1BF926F1DD6516C00BECBBB /* helveticaneuecyr-light.otf in Resources */,
 				B152915D1DDE44B700BBA1E0 /* MenuSectionFooterView.xib in Resources */,
+				B15125161EAE0341009A6A44 /* AdditionalServiceTableViewCell.xib in Resources */,
 				B1BF92701DD6516C00BECBBB /* helveticaneuecyr-lightitalic.otf in Resources */,
 				B1BF92711DD6516C00BECBBB /* helveticaneuecyr-medium.otf in Resources */,
 				B1BF92721DD6516C00BECBBB /* helveticaneuecyr-mediumitaicl.otf in Resources */,
@@ -2278,6 +2332,7 @@
 				B11203701E8F6A420036001A /* Dictionary+Ext.swift in Sources */,
 				B1BEEDF11E63687500F1DE8A /* OrganizationShowModels.swift in Sources */,
 				B15F95B11EA1D4230009AD28 /* Subcategory+CoreDataProperties.swift in Sources */,
+				B15125111EADC619009A6A44 /* ServiceShowViewController.swift in Sources */,
 				B16E966F1DE6C94000147CEF /* BigTopBarView.swift in Sources */,
 				B10874801E5B0DC9004A4FB6 /* AppSettings+CoreDataProperties.swift in Sources */,
 				B1D883211E8E8C98006F4831 /* NewsDataShowViewController.swift in Sources */,
@@ -2294,6 +2349,7 @@
 				B11CDCC91E9F5DC400E52FDE /* ScheduleTableViewCell.swift in Sources */,
 				B19DFAC11E64B9F100599073 /* UITextField+Ext.swift in Sources */,
 				B177E55A1E54B739004F1390 /* RepetitionPasswordShowRouter.swift in Sources */,
+				B15125101EADC619009A6A44 /* ServiceShowRouter.swift in Sources */,
 				B1CF547B1DDB50D900E98049 /* AboutShowViewController.swift in Sources */,
 				B1F7EDB81DF54878003B36AD /* SegmentedControlView.swift in Sources */,
 				B122F2051DD35BEB0018A701 /* CategoriesShowConfigurator.swift in Sources */,
@@ -2315,6 +2371,7 @@
 				B1CF54971DDB512000E98049 /* DiscountCardsShowViewController.swift in Sources */,
 				B15291591DDE3FFA00BBA1E0 /* MenuSectionHeaderView.swift in Sources */,
 				B1BEEDEF1E63687500F1DE8A /* OrganizationShowConfigurator.swift in Sources */,
+				B151251A1EAE0DD0009A6A44 /* AdditionalService+CoreDataProperties.swift in Sources */,
 				B1FFF7151E5F017A00A075D8 /* OrganizationsMapShowRouter.swift in Sources */,
 				B1767D7A1E93DA520095859B /* UbuntuLightSoftOrangeLabel.swift in Sources */,
 				B1D8832C1E8E8D63006F4831 /* NewsActionsShowModels.swift in Sources */,
@@ -2495,6 +2552,7 @@
 				B1CF54D81DDB51BE00E98049 /* SettingsShowConfigurator.swift in Sources */,
 				B112036E1E8EDD5D0036001A /* UbuntuLightVeryDarkGrayishBlueLabel.swift in Sources */,
 				B122F1EC1DD35BA70018A701 /* MessagesShowPresenter.swift in Sources */,
+				B15125121EADC619009A6A44 /* ServiceShowWorker.swift in Sources */,
 				B1FFF7121E5F017A00A075D8 /* OrganizationsMapShowInteractor.swift in Sources */,
 				B137EC8B1E7D0334006F0184 /* CategoryCollectionViewCell.swift in Sources */,
 				B1D883361E8E9150006F4831 /* Actions+CoreDataProperties.swift in Sources */,
@@ -2554,6 +2612,7 @@
 				B122F2231DD35CC80018A701 /* SlideMenuShowInteractor.swift in Sources */,
 				B122DF681DF7F957003823AD /* CalendarShowViewController.swift in Sources */,
 				B11E074E1DE032D90052AFC5 /* DottedBorderView.swift in Sources */,
+				B151250F1EADC619009A6A44 /* ServiceShowPresenter.swift in Sources */,
 				B122F1EE1DD35BA70018A701 /* MessagesShowViewController.swift in Sources */,
 				B1CF54891DDB50F100E98049 /* BusinessCardsShowViewController.swift in Sources */,
 				B1CF54D91DDB51BE00E98049 /* SettingsShowInteractor.swift in Sources */,
@@ -2598,6 +2657,7 @@
 				B122F1DC1DD35B760018A701 /* OrdersShowInteractor.swift in Sources */,
 				B10B48CD1E8A5AEC007DDD81 /* FavoriteServicesShowModels.swift in Sources */,
 				B177E54B1E54AC7F004F1390 /* EnterCodeShowRouter.swift in Sources */,
+				B151250D1EADC619009A6A44 /* ServiceShowInteractor.swift in Sources */,
 				B1FBC9291E6D9FEB00D86429 /* MSMBlackoutView.swift in Sources */,
 				B14E97681DD8B05E001E1DE2 /* ForgotPasswordShowRouter.swift in Sources */,
 				B1CF54B11DDB516E00E98049 /* OmnieCardsShowPresenter.swift in Sources */,
@@ -2608,13 +2668,17 @@
 				B15F95B51EA1E1C50009AD28 /* Category+CoreDataProperties.swift in Sources */,
 				B1D8832E1E8E8D63006F4831 /* NewsActionsShowRouter.swift in Sources */,
 				B177E5571E54B739004F1390 /* RepetitionPasswordShowInteractor.swift in Sources */,
+				B15125151EAE0341009A6A44 /* AdditionalServiceTableViewCell.swift in Sources */,
 				B10871521E379A4800374DD5 /* OmnieCard.swift in Sources */,
 				B122A5981E6C728300C39B67 /* Message.swift in Sources */,
 				B1BEEDF31E63687500F1DE8A /* OrganizationShowRouter.swift in Sources */,
 				B14E975A1DD8B052001E1DE2 /* SignUpShowRouter.swift in Sources */,
 				B19DF2841DF94DCD000AFC92 /* CalendarViewController.swift in Sources */,
+				B151250E1EADC619009A6A44 /* ServiceShowModels.swift in Sources */,
 				B14C07211EA0993800556866 /* ServicesShowPresenter.swift in Sources */,
 				B11B9ADD1DF053BA009A4AA1 /* CustomImageView.swift in Sources */,
+				B151250C1EADC619009A6A44 /* ServiceShowConfigurator.swift in Sources */,
+				B15125191EAE0DD0009A6A44 /* AdditionalService+CoreDataClass.swift in Sources */,
 				B1C13D871DEF2743002B494A /* DropDownButton.swift in Sources */,
 				B10B48CF1E8A5AEC007DDD81 /* FavoriteServicesShowRouter.swift in Sources */,
 				B122F2181DD35C2C0018A701 /* NewsShowViewController.swift in Sources */,

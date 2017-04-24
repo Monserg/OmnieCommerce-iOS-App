@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="52" id="KGk-i7-Jjw" customClass="AdditionalServiceTableViewCell" customModule="OmnieCommerce" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="359" height="52"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="359" height="51.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dHo-5U-Tzi" userLabel="Background View">
+                        <rect key="frame" x="0.0" y="0.0" width="359" height="49.5"/>
+                        <subviews>
+                            <stackView clipsSubviews="YES" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Ehz-mK-F76" userLabel="Labels Stack View">
+                                <rect key="frame" x="7" y="10" width="204" height="29"/>
+                                <subviews>
+                                    <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FsN-Rf-5bD" userLabel="Name Label" customClass="UbuntuLightVeryLightGrayLabel" customModule="OmnieCommerce" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="204" height="14.5"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="oIh-i2-kmP">
+                                        <rect key="frame" x="0.0" y="14.5" width="204" height="14.5"/>
+                                        <subviews>
+                                            <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tSQ-e6-pYL" userLabel="Price Label" customClass="UbuntuLightVeryLightOrangeLabel" customModule="OmnieCommerce" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="50" height="14.5"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </label>
+                                            <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Duration" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bD5-GF-qhr" userLabel="Duration  Label" customClass="UbuntuLightItalicLightGrayishCyanLabel" customModule="OmnieCommerce" customModuleProvider="target">
+                                                <rect key="frame" x="60" y="0.0" width="144" height="14.5"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </stackView>
+                            <pickerView clipsSubviews="YES" contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="NtU-PD-iFw">
+                                <rect key="frame" x="226" y="0.0" width="25" height="50"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </pickerView>
+                            <switch clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gQ7-tC-5qK" userLabel="State Switch">
+                                <rect key="frame" x="301" y="13" width="51" height="23.5"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="gQ7-tC-5qK" secondAttribute="height" multiplier="40:19" id="SLb-Ug-gST"/>
+                                </constraints>
+                                <color key="onTintColor" red="0.0" green="0.57647058823529407" blue="0.58431372549019611" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="thumbTintColor" red="1" green="0.84313725490196079" blue="0.42352941176470588" alpha="1" colorSpace="calibratedRGB"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="handlerChangeSwitchState:" destination="KGk-i7-Jjw" eventType="valueChanged" id="mfB-O0-36i"/>
+                                </connections>
+                            </switch>
+                        </subviews>
+                        <color key="backgroundColor" red="0.15686274509803921" green="0.21176470588235294" blue="0.2627450980392157" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="gQ7-tC-5qK" firstAttribute="leading" secondItem="NtU-PD-iFw" secondAttribute="trailing" constant="50" id="52B-T2-BJv"/>
+                            <constraint firstItem="Ehz-mK-F76" firstAttribute="centerY" secondItem="dHo-5U-Tzi" secondAttribute="centerY" id="AKR-TM-LF6"/>
+                            <constraint firstItem="NtU-PD-iFw" firstAttribute="top" secondItem="dHo-5U-Tzi" secondAttribute="top" id="BmP-H0-Dcr"/>
+                            <constraint firstItem="Ehz-mK-F76" firstAttribute="leading" secondItem="dHo-5U-Tzi" secondAttribute="leading" constant="7" id="P1o-cX-p4o"/>
+                            <constraint firstItem="gQ7-tC-5qK" firstAttribute="centerY" secondItem="dHo-5U-Tzi" secondAttribute="centerY" id="S9Q-Kh-rBU"/>
+                            <constraint firstAttribute="bottom" secondItem="NtU-PD-iFw" secondAttribute="bottom" id="XZJ-zZ-9hH"/>
+                            <constraint firstAttribute="trailing" secondItem="gQ7-tC-5qK" secondAttribute="trailing" constant="9" id="eDH-uI-zkp"/>
+                            <constraint firstItem="NtU-PD-iFw" firstAttribute="leading" secondItem="Ehz-mK-F76" secondAttribute="trailing" constant="15" id="jdv-wS-A8p"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" red="0.15686274509803921" green="0.21176470588235294" blue="0.2627450980392157" alpha="0.0" colorSpace="calibratedRGB"/>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="dHo-5U-Tzi" secondAttribute="trailing" id="1BY-qI-USn"/>
+                    <constraint firstItem="dHo-5U-Tzi" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="3JP-et-zUt"/>
+                    <constraint firstAttribute="bottom" secondItem="dHo-5U-Tzi" secondAttribute="bottom" constant="2" id="T5p-9A-Rhg"/>
+                    <constraint firstItem="dHo-5U-Tzi" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="p16-A0-p71"/>
+                </constraints>
+                <userDefinedRuntimeAttributes>
+                    <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                </userDefinedRuntimeAttributes>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="NtU-PD-iFw" firstAttribute="width" secondItem="KGk-i7-Jjw" secondAttribute="width" multiplier="1:26" id="9Sq-x7-6Tm"/>
+                <constraint firstItem="tSQ-e6-pYL" firstAttribute="width" secondItem="KGk-i7-Jjw" secondAttribute="width" multiplier="1:13" id="ge5-Rc-kj8"/>
+                <constraint firstItem="NtU-PD-iFw" firstAttribute="width" secondItem="KGk-i7-Jjw" secondAttribute="width" multiplier="1:14.4" id="ixc-vE-NkB"/>
+                <constraint firstItem="tSQ-e6-pYL" firstAttribute="width" secondItem="KGk-i7-Jjw" secondAttribute="width" multiplier="1:7.2" id="vzJ-zR-jWl"/>
+            </constraints>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+            </userDefinedRuntimeAttributes>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="vzJ-zR-jWl"/>
+                    <exclude reference="ixc-vE-NkB"/>
+                </mask>
+            </variation>
+            <variation key="heightClass=regular-widthClass=compact">
+                <mask key="constraints">
+                    <exclude reference="ge5-Rc-kj8"/>
+                    <include reference="vzJ-zR-jWl"/>
+                    <exclude reference="9Sq-x7-6Tm"/>
+                    <include reference="ixc-vE-NkB"/>
+                </mask>
+            </variation>
+            <connections>
+                <outlet property="durationLabel" destination="bD5-GF-qhr" id="21f-W9-Ili"/>
+                <outlet property="nameLabel" destination="FsN-Rf-5bD" id="YYL-O8-3sd"/>
+                <outlet property="pickerView" destination="NtU-PD-iFw" id="MQa-V8-7br"/>
+                <outlet property="priceLabel" destination="tSQ-e6-pYL" id="t62-Ei-1al"/>
+                <outlet property="stateSwitch" destination="gQ7-tC-5qK" id="KcS-Q1-RTp"/>
+                <outletCollection property="labelsCollection" destination="tSQ-e6-pYL" collectionClass="NSMutableArray" id="eWh-C3-Tty"/>
+                <outletCollection property="labelsCollection" destination="bD5-GF-qhr" collectionClass="NSMutableArray" id="rmF-2Y-YZM"/>
+                <outletCollection property="labelsCollection" destination="FsN-Rf-5bD" collectionClass="NSMutableArray" id="RsQ-nR-ynp"/>
+            </connections>
+            <point key="canvasLocation" x="33.5" y="54"/>
+        </tableViewCell>
+    </objects>
+</document>

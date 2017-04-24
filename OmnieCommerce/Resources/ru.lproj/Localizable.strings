@@ -51,8 +51,9 @@
 "Sat"                           =   "Сб";
 "Sun"                           =   "Вс";
 "Mon-Fri"                       =   "Пн-Пт";
-"Additional Services"           =   "Дополнительные услуги:";
+"Additional Services"           =   "Дополнительные услуги";
 "Comment"                       =   "Комментарий:";
+"Leave a Comment"               =   "Оставить комментарий";
 "Loading Data"                  =   "Загрузить...";
 "Loading More"                  =   "Загрузить ещё...";
 "Reviews"                       =   "Отзывы";
@@ -66,6 +67,9 @@
 "Discount period"               =   "Срок действия:";
 "Our services"                  =   "Наши услуги";
 "Rate Organization"             =   "Оцените организацию";
+"Rate Service"                  =   "Оцените услугу";
+"View Order"                    =   "Посмотреть заказ";
+"Turn the Date"                 =   "Выбрать дату";
 "Unit 0"                        =   "грн/час";
 "Unit 1"                        =   "грн/мин";
 

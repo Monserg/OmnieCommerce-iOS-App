@@ -51,8 +51,9 @@
 "Sat"                           =   "Сб";
 "Sun"                           =   "Нд";
 "Mon-Fri"                       =   "Пн-Пт";
-"Additional Services"           =   "Додаткові послуги:";
+"Additional Services"           =   "Додаткові послуги";
 "Comment"                       =   "Коментар:";
+"Leave a Comment"               =   "Залишити коментар";
 "Loading Data"                  =   "Завантажити...";
 "Loading More"                  =   "Завантажити ще...";
 "Reviews"                       =   "Відгуки";
@@ -66,6 +67,9 @@
 "Discount period"               =   "Термін дії:";
 "Our services"                  =   "Наші послуги";
 "Rate Organization"             =   "Оцініть організацію";
+"Rate Service"                  =   "Оцініть послугу";
+"View Order"                    =   "Переглянути замовлення";
+"Turn the Date"                 =   "Обрати дату";
 "Unit 0"                        =   "грн/год";
 "Unit 1"                        =   "грн/хв";
 

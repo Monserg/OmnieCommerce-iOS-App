@@ -42,6 +42,10 @@ public class Discount: NSManagedObject, InitCellParameters {
             self.organization = organization
         }
 
+        if let additionalService = managedObject as? AdditionalService {
+            self.additionalService = additionalService
+        }
+
         if let service = managedObject as? Service {
             self.service = service
         } else if let serviceID = json["serviceId"] as? String {

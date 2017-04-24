@@ -3,6 +3,23 @@
     <entity name="Actions" representedClassName="Actions" syncable="YES">
         <attribute name="list" optional="YES" attributeType="Binary" syncable="YES"/>
     </entity>
+    <entity name="AdditionalService" representedClassName="AdditionalService" syncable="YES">
+        <attribute name="codeID" attributeType="String" syncable="YES"/>
+        <attribute name="duration" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="maxValue" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="minValue" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="name" attributeType="String" syncable="YES"/>
+        <attribute name="price" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="unit" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="unitName" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="discounts" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Discount" inverseName="additionalService" inverseEntity="Discount" syncable="YES"/>
+        <relationship name="service" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Service" inverseName="additionalServices" inverseEntity="Service" syncable="YES"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="codeID"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
+    </entity>
     <entity name="AppSettings" representedClassName="AppSettings" syncable="YES">
         <attribute name="isThemeDark" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
     </entity>
@@ -49,6 +66,7 @@
         <attribute name="name" attributeType="String" syncable="YES"/>
         <attribute name="percent" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="status" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="additionalService" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="AdditionalService" inverseName="discounts" inverseEntity="AdditionalService" syncable="YES"/>
         <relationship name="organization" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Organization" inverseName="discounts" inverseEntity="Organization" syncable="YES"/>
         <relationship name="service" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Service" inverseName="discounts" inverseEntity="Service" syncable="YES"/>
         <uniquenessConstraints>
@@ -63,6 +81,7 @@
         <attribute name="serviceID" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="serviceName" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="organization" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Organization" inverseName="images" inverseEntity="Organization" syncable="YES"/>
+        <relationship name="service" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Service" inverseName="images" inverseEntity="Service" syncable="YES"/>
         <uniquenessConstraints>
             <uniquenessConstraint>
                 <constraint value="imageID"/>
@@ -158,19 +177,27 @@
     <entity name="Service" representedClassName="Service" syncable="YES">
         <attribute name="addressCityValue" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="addressStreetValue" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="canSendReview" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="catalog" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="categories" optional="YES" attributeType="Transformable" syncable="YES"/>
         <attribute name="codeID" attributeType="String" syncable="YES"/>
+        <attribute name="descriptionContent" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="duration" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="headerURL" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="isFavorite" attributeType="Boolean" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="isNameNeedHide" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="latitudeValue" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="logoURL" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="longitudeValue" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="minDuration" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="nameValue" attributeType="String" syncable="YES"/>
         <attribute name="needBackgroundColorSet" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="organizationName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="placeID" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="rating" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="additionalServices" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="AdditionalService" inverseName="service" inverseEntity="AdditionalService" syncable="YES"/>
         <relationship name="discounts" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Discount" inverseName="service" inverseEntity="Discount" syncable="YES"/>
+        <relationship name="images" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="GalleryImage" inverseName="service" inverseEntity="GalleryImage" syncable="YES"/>
         <relationship name="organization" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Organization" inverseName="services" inverseEntity="Organization" syncable="YES"/>
         <relationship name="prices" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Price" inverseName="service" inverseEntity="Price" syncable="YES"/>
         <uniquenessConstraints>
@@ -195,14 +222,15 @@
         <element name="AppSettings" positionX="-54" positionY="-9" width="128" height="60"/>
         <element name="AppUser" positionX="-63" positionY="-18" width="128" height="285"/>
         <element name="Category" positionX="270" positionY="-72" width="128" height="120"/>
-        <element name="Discount" positionX="162" positionY="99" width="128" height="180"/>
-        <element name="GalleryImage" positionX="-36" positionY="99" width="128" height="120"/>
+        <element name="Discount" positionX="162" positionY="99" width="128" height="195"/>
+        <element name="GalleryImage" positionX="-36" positionY="99" width="128" height="135"/>
         <element name="NewsData" positionX="-36" positionY="99" width="128" height="165"/>
         <element name="Organization" positionX="-36" positionY="99" width="128" height="390"/>
+        <element name="Price" positionX="180" positionY="117" width="128" height="195"/>
         <element name="Review" positionX="171" positionY="108" width="128" height="150"/>
         <element name="Schedule" positionX="153" positionY="90" width="128" height="165"/>
-        <element name="Service" positionX="-36" positionY="117" width="128" height="300"/>
+        <element name="Service" positionX="-36" positionY="117" width="128" height="420"/>
         <element name="Subcategory" positionX="475" positionY="-69" width="128" height="103"/>
-        <element name="Price" positionX="180" positionY="117" width="128" height="195"/>
+        <element name="AdditionalService" positionX="144" positionY="81" width="128" height="195"/>
     </elements>
 </model>

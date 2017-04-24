@@ -2,7 +2,7 @@
 //  Discount+CoreDataProperties.swift
 //  OmnieCommerce
 //
-//  Created by msm72 on 22.04.17.
+//  Created by msm72 on 24.04.17.
 //  Copyright © 2017 Omniesoft. All rights reserved.
 //
 
@@ -17,13 +17,14 @@ extension Discount {
     }
 
     @NSManaged public var codeID: String
+    @NSManaged public var dateEnd: NSDate
+    @NSManaged public var dateStart: NSDate
+    @NSManaged public var isUserDiscount: Bool
     @NSManaged public var name: String
     @NSManaged public var percent: Int32
     @NSManaged public var status: Bool
-    @NSManaged public var isUserDiscount: Bool
-    @NSManaged public var dateStart: NSDate
-    @NSManaged public var dateEnd: NSDate
     @NSManaged public var organization: Organization?
     @NSManaged public var service: Service?
+    @NSManaged public var additionalService: AdditionalService?
 
 }

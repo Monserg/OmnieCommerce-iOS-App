@@ -578,7 +578,7 @@ class OrganizationShowViewController: BaseViewController {
     }
     
     @IBAction func handlerAllServicesButtonTap(_ sender: FillVeryLightOrangeButton) {
-//        router.navigateToServicesShowScene(organization.services!)
+        router.navigateToServicesShowScene(Array(organization.services!) as! [Service])
     }
     
     @IBAction func handlerAnimationButtonTap(_ sender: FillColorButton) {
