@@ -54,26 +54,26 @@ public class AdditionalService: NSManagedObject, InitCellParameters {
         }
         
         // Common discounts
-        self.discounts = NSSet()
-        
-        if let commonDiscounts = json["discountsCommon"] as? NSArray {
-            for dictionary in commonDiscounts {
-                let discountCommon = Discount.init(json: dictionary as! [String : AnyObject], andRelationshipObject: self)!
-                discountCommon.isUserDiscount = false
-                
-                self.addToDiscounts(discountCommon)
-            }
-        }
-        
-        // User discounts
-        if let userDiscounts = json["discountsForUser"] as? NSArray {
-            for dictionary in userDiscounts {
-                let discountUser = Discount.init(json: dictionary as! [String : AnyObject], andRelationshipObject: self)!
-                discountUser.isUserDiscount = true
-                
-                self.addToDiscounts(discountUser)
-            }
-        }
+//        self.discounts = NSSet()
+//        
+//        if let commonDiscounts = json["discountsCommon"] as? NSArray {
+//            for dictionary in commonDiscounts {
+//                let discountCommon = Discount.init(json: dictionary as! [String : AnyObject], andRelationshipObject: self)!
+//                discountCommon.isUserDiscount = false
+//                
+//                self.addToDiscounts(discountCommon)
+//            }
+//        }
+//        
+//        // User discounts
+//        if let userDiscounts = json["discountsForUser"] as? NSArray {
+//            for dictionary in userDiscounts {
+//                let discountUser = Discount.init(json: dictionary as! [String : AnyObject], andRelationshipObject: self)!
+//                discountUser.isUserDiscount = true
+//                
+//                self.addToDiscounts(discountUser)
+//            }
+//        }
     }
     
     deinit {

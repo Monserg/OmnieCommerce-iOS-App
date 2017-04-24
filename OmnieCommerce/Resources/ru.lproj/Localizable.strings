@@ -146,6 +146,7 @@
 "Map"                           =   "Карта";
 "ActionItem"                    =   "Акция";
 "NewsItem"                      =   "Новость";
+"Service"                       =   "Услуга";
 
 
 // Alert actions

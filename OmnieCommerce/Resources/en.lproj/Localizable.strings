@@ -146,6 +146,7 @@
 "Map"                           =   "Map";
 "ActionItem"                    =   "Action";
 "NewsItem"                      =   "News";
+"Service"                       =   "Service";
 
 
 // Alert actions

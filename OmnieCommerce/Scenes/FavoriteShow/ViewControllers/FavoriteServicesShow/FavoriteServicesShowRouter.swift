@@ -14,7 +14,7 @@ import UIKit
 // MARK: - Input & Output protocols
 protocol FavoriteServicesShowRouterInput {
     func navigateToSomewhere()
-    func navigateToServiceShowScene()
+    func navigateToServiceShowScene(_ service: Service)
 }
 
 class FavoriteServicesShowRouter: FavoriteServicesShowRouterInput {
@@ -23,13 +23,12 @@ class FavoriteServicesShowRouter: FavoriteServicesShowRouterInput {
     
     
     // MARK: - Custom Functions. Navigation
-    func navigateToServiceShowScene() {
-        // TODO: - UNCOMMENT
-//        let storyboard          =   UIStoryboard(name: "ServiceShow", bundle: nil)
-//        let serviceShowVC       =   storyboard.instantiateViewController(withIdentifier: "ServiceShowVC") as! ServiceShowViewController
-//        serviceShowVC.service   =   organization
-//        
-//        viewController.navigationController?.pushViewController(serviceShowVC, animated: true)
+    func navigateToServiceShowScene(_ service: Service) {
+        let storyboard = UIStoryboard(name: "ServiceShow", bundle: nil)
+        let serviceShowVC = storyboard.instantiateViewController(withIdentifier: "ServiceShowVC") as! ServiceShowViewController
+        serviceShowVC.service = service
+        
+        viewController.navigationController?.pushViewController(serviceShowVC, animated: true)
     }
     
     func navigateToSomewhere() {

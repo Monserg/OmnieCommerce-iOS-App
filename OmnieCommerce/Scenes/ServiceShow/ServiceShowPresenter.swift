@@ -36,15 +36,15 @@ class ServiceShowPresenter: ServiceShowPresenterInput {
         }
         
         // Convert responseAPI body to Service CoreData news objects
-//        let service = Service.init(json: responseModel.responseAPI?.body as! [String: AnyObject], andOrganization: nil)
+        let service = Service.init(json: responseModel.responseAPI?.body as! [String: AnyObject], andOrganization: nil)
         
-//        if let placeID = service!.placeID {
-//            service!.googlePlaceDidLoad(positionID: placeID, completion: { _ in
-//                CoreDataManager.instance.didSaveContext()
-//                
-//                let serviceViewModel = ServiceShowModels.ServiceItem.ViewModel(status: responseModel.responseAPI!.status)
-//                self.viewController.serviceDidShowLoad(fromViewModel: serviceViewModel)
-//            })
-//        }
+        if let placeID = service!.placeID {
+            service!.googlePlaceDidLoad(positionID: placeID, completion: { _ in
+                CoreDataManager.instance.didSaveContext()
+                
+                let serviceViewModel = ServiceShowModels.ServiceItem.ViewModel(status: responseModel.responseAPI!.status)
+                self.viewController.serviceDidShowLoad(fromViewModel: serviceViewModel)
+            })
+        }
     }
 }

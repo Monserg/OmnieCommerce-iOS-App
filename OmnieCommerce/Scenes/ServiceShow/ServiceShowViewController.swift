@@ -21,12 +21,14 @@ protocol ServiceShowViewControllerOutput {
     func serviceDidLoad(withRequestModel requestModel: ServiceShowModels.ServiceItem.RequestModel)
 }
 
-class ServiceShowViewController: UIViewController {
+class ServiceShowViewController: BaseViewController {
     // MARK: - Properties
     var interactor: ServiceShowViewControllerOutput!
     var router: ServiceShowRouter!
     
-    
+    var service: Service!
+    var wasLaunchedAPI = false
+
     // Outlets
     @IBOutlet weak var smallTopBarView: SmallTopBarView!
 
@@ -49,14 +51,81 @@ class ServiceShowViewController: UIViewController {
 
     // MARK: - Custom Functions
     func viewSettingsDidLoad() {
-
+        // Config smallTopBarView
+        navigationBarView = smallTopBarView
+        smallTopBarView.type = "Child"
+        smallTopBarView.titleText = "Service".localized()
+        haveMenuItem = false
+        
+        // Handler Back button tap
+        smallTopBarView.handlerSendButtonCompletion = { _ in
+            _ = self.navigationController?.popViewController(animated: true)
+        }
+        
+        spinnerDidStart(view)
+        wasLaunchedAPI = true
+        
+        guard isNetworkAvailable else {
+            serviceProfileDidShow()
+            return
+        }
+        
+        // Load Service profile data
+        let serviceRequestModel = ServiceShowModels.ServiceItem.RequestModel(parameters: ["id": service.codeID])
+        interactor.serviceDidLoad(withRequestModel: serviceRequestModel)
     }
+    
+    func serviceProfileDidShow() {
+        // Setting Service profile info
+        let serviceProfile = CoreDataManager.instance.entityDidLoad(byName: "Service", andPredicateParameter: service.codeID) as! Service
+        print(object: serviceProfile)
+        
+        smallTopBarView.actionButton.isHidden = false
+
+    //        _ = dottedBorderViewsCollection.map { $0.setNeedsDisplay() }
+        
+        UIView.animate(withDuration: 0.3, animations: { _ in
+//            self.mainStackView.isHidden = false
+        })
+        
+        spinnerDidFinish()
+    }
+    
+    
+    // MARK: - Transition
+    override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
+//        _ = dottedBorderViewsCollection.map { $0.setNeedsDisplay() }
+//        smallTopBarView.setNeedsDisplay()
+//        galleryCollectionView.reloadData()
+//        
+//        // Album
+//        if newCollection.verticalSizeClass == .compact {
+//            scrollViewTopConstraint.constant = smallTopBarView.frame.height + 20.0 - 50.0
+//        } else {
+//            scrollViewTopConstraint.constant = smallTopBarView.frame.height + 20.0 - 30.0
+//        }
+//        
+//        self.view.layoutIfNeeded()
+    }
+    
+    
+    // MARK: - Actions
+
 }
 
 
 // MARK: - ServiceShowViewControllerInput
 extension ServiceShowViewController: ServiceShowViewControllerInput {
     func serviceDidShowLoad(fromViewModel viewModel: ServiceShowModels.ServiceItem.ViewModel) {
+        // Check for errors
+        guard viewModel.status == "SUCCESS" else {
+            self.alertViewDidShow(withTitle: "Error", andMessage: viewModel.status, completion: {
+                self.serviceProfileDidShow()
+            })
+            
+            return
+        }
         
+        self.serviceProfileDidShow()
     }
 }

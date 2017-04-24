@@ -29,7 +29,7 @@ class ServiceShowInteractor: ServiceShowInteractorInput {
     
     // MARK: - Custom Functions. Business logic
     func serviceDidLoad(withRequestModel requestModel: ServiceShowModels.ServiceItem.RequestModel) {
-        MSMRestApiManager.instance.userRequestDidRun(.userGetOrganizationByID(requestModel.parameters, false), withHandlerResponseAPICompletion: { responseAPI in
+        MSMRestApiManager.instance.userRequestDidRun(.userGetServiceByID(requestModel.parameters, false), withHandlerResponseAPICompletion: { responseAPI in
             // Pass the result to the Presenter
             let serviceResponseModel = ServiceShowModels.ServiceItem.ResponseModel(responseAPI: responseAPI)
             self.presenter.serviceDidPrepareToShowLoad(fromResponseModel: serviceResponseModel)
