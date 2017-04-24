@@ -10,8 +10,29 @@ import Foundation
 import CoreData
 
 @objc(Subcategory)
-public class Subcategory: NSManagedObject, InitCellParameters {
+public class Subcategory: NSManagedObject, InitCellParameters, DropDownItem {
     // MARK: - Properties
+    // Confirm DropDownItem protocol
+    var codeID: String! {
+        set {
+            self.codeIDValue = newValue
+        }
+        
+        get {
+            return self.codeIDValue
+        }
+    }
+    
+    var name: String! {
+        set {
+            self.nameValue = newValue
+        }
+        
+        get {
+            return self.nameValue
+        }
+    }
+    
     var type: DropDownItemType! {
         get {
             return DropDownItemType(rawValue: self.typeValue)

@@ -37,13 +37,15 @@ class OrganizationsShowViewController: BaseViewController {
     
     var subcategoriesDropDownTableView: MSMTableView! {
         didSet {
-            let subcategoriesTableManager = MSMTableViewControllerManager.init(withTableView: subcategoriesDropDownTableView, andSectionsCount: 1, andEmptyMessageText: "DropDownList")
+            let subcategoriesTableManager = MSMTableViewControllerManager.init(withTableView: subcategoriesDropDownTableView,
+                                                                               andSectionsCount: 1,
+                                                                               andEmptyMessageText: "DropDownList")
+            
             subcategoriesDropDownTableView.tableViewControllerManager = subcategoriesTableManager
             subcategoriesDropDownTableView.alpha = 0
            
-//            let subcategoriesData = category!.subcategories
-//            subcategoriesDropDownTableView.tableViewControllerManager.dataSource = category!.subcategories.allObjects as! [Subcategory]
-//                NSKeyedUnarchiver.unarchiveObject(with: subcategoriesData as Data) as! [Subcategory]
+            let subcategories = CoreDataManager.instance.entitiesDidLoad(byName: "Subcategory", andPredicateParameter: category!.codeID) as! [Subcategory]
+            subcategoriesDropDownTableView.tableViewControllerManager.dataSource = subcategories
         }
     }
 

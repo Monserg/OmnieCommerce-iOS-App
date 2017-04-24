@@ -207,18 +207,19 @@
         </uniquenessConstraints>
     </entity>
     <entity name="Subcategory" representedClassName="Subcategory" syncable="YES">
-        <attribute name="codeID" attributeType="String" syncable="YES"/>
-        <attribute name="name" attributeType="String" syncable="YES"/>
+        <attribute name="codeIDValue" attributeType="String" syncable="YES"/>
+        <attribute name="nameValue" attributeType="String" syncable="YES"/>
         <attribute name="typeValue" attributeType="String" syncable="YES"/>
         <relationship name="category" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Category" inverseName="subcategories" inverseEntity="Category" syncable="YES"/>
         <uniquenessConstraints>
             <uniquenessConstraint>
-                <constraint value="codeID"/>
+                <constraint value="codeIDValue"/>
             </uniquenessConstraint>
         </uniquenessConstraints>
     </entity>
     <elements>
         <element name="Actions" positionX="-27" positionY="108" width="128" height="60"/>
+        <element name="AdditionalService" positionX="144" positionY="81" width="128" height="195"/>
         <element name="AppSettings" positionX="-54" positionY="-9" width="128" height="60"/>
         <element name="AppUser" positionX="-63" positionY="-18" width="128" height="285"/>
         <element name="Category" positionX="270" positionY="-72" width="128" height="120"/>
@@ -230,7 +231,6 @@
         <element name="Review" positionX="171" positionY="108" width="128" height="150"/>
         <element name="Schedule" positionX="153" positionY="90" width="128" height="165"/>
         <element name="Service" positionX="-36" positionY="117" width="128" height="420"/>
-        <element name="Subcategory" positionX="475" positionY="-69" width="128" height="103"/>
-        <element name="AdditionalService" positionX="144" positionY="81" width="128" height="195"/>
+        <element name="Subcategory" positionX="475" positionY="-69" width="128" height="105"/>
     </elements>
 </model>

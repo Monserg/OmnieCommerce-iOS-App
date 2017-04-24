@@ -34,6 +34,7 @@ import UIKit
 extension DropDownTableViewCell: ConfigureCell {
     func setup(withItem item: Any, andIndexPath indexPath: IndexPath) {
         let dropDownValue = item as! DropDownItem
+        
         itemCode = dropDownValue.codeID
         nameLabel.text = dropDownValue.name
         selectionStyle = .none

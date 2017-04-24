@@ -206,6 +206,10 @@ class CoreDataManager {
         case "Review":
             let typeValue = parameter as! String
             predicate = NSPredicate(format: "typeValue == %@", typeValue)
+            
+            case "Subcategory":
+            let categoryCodeID = parameter as! String
+            predicate = NSPredicate(format: "category.codeID == %@", categoryCodeID)
 
         default:
             break

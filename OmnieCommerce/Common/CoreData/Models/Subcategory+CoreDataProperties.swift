@@ -16,8 +16,8 @@ extension Subcategory {
         return NSFetchRequest<Subcategory>(entityName: "Subcategory")
     }
 
-    @NSManaged public var codeID: String
-    @NSManaged public var name: String
+    @NSManaged public var codeIDValue: String
+    @NSManaged public var nameValue: String
     @NSManaged public var typeValue: String
     @NSManaged public var category: Category?
 
