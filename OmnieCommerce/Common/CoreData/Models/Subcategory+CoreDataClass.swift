@@ -49,6 +49,16 @@ public class Subcategory: NSManagedObject, InitCellParameters, DropDownItem {
 
     
     // MARK: - Class Initialization
+    convenience init(codeID: String, name: String, type: DropDownItemType, category: Category) {
+        // Create Entity
+        self.init(entity: CoreDataManager.instance.entityForName("Subcategory")!, insertInto: CoreDataManager.instance.managedObjectContext)
+        
+        self.codeID = codeID
+        self.name = name
+        self.type = type
+        self.category = category
+    }
+    
     convenience init?(json: [String: AnyObject], andType type: DropDownItemType) {
         guard let codeID = json["uuid"] as? String, let name = json["name"] as? String else {
             return nil

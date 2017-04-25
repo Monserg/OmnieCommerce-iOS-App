@@ -130,6 +130,11 @@ public class Service: NSManagedObject, InitCellParameters, PointAnnotationBindin
             }
         }
         
+        // Categories
+        if let categories = json["categories"] as? [String] {
+            self.categories = categories
+        }
+        
         // Discounts
 //        if let discounts = json[""] as? [AnyObject] {
 //            

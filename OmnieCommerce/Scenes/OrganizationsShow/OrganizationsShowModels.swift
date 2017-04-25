@@ -21,6 +21,7 @@ struct OrganizationsShowModels {
         
         struct ResponseModel {
             let responseAPI: ResponseAPI?
+            let parameters: [String: Any]
             let category: Category
         }
         
@@ -37,11 +38,11 @@ struct OrganizationsShowModels {
         
         struct ResponseModel {
             let responseAPI: ResponseAPI?
+            let parameters: [String: Any]
             let category: Category
         }
         
         struct ViewModel {
-            let services: [Service]?
             let status: String
         }
     }

@@ -346,7 +346,7 @@ class OrganizationShowViewController: BaseViewController {
         // Discounts view 
         if let discounts = organizationProfile.discounts, discounts.count > 0 {
             // Show/Hide Common discounts
-            let discountsCommon = CoreDataManager.instance.entitiesDidLoad(byName: "Discount", andPredicateParameter: false)
+            let discountsCommon = CoreDataManager.instance.entitiesDidLoad(byName: "Discount", andPredicateParameter: ["isUserDiscount": false])
             
             if (discountsCommon!.count > 0) {
                 discountCommonStackView.isHidden = false
@@ -366,7 +366,7 @@ class OrganizationShowViewController: BaseViewController {
             }
             
             // Show/Hide User discounts
-            let discountsUser = CoreDataManager.instance.entitiesDidLoad(byName: "Discount", andPredicateParameter: true)
+            let discountsUser = CoreDataManager.instance.entitiesDidLoad(byName: "Discount", andPredicateParameter: ["isUserDiscount": true])
             
             if (discountsUser!.count > 0) {
                 discountUserStackView.isHidden = false

@@ -55,10 +55,11 @@ class ServiceTableViewCell: UITableViewCell, DottedBorderViewBinding {
 extension ServiceTableViewCell: ConfigureCell {
     func setup(withItem item: Any, andIndexPath indexPath: IndexPath) {
         let service = item as! Service
+        
         serviceID = service.codeID
-        nameLabel.text = service.name
-        cityLabel.text = service.addressCity!
-        streetLabel.text = service.addressStreet!
+        nameLabel.text = service.name ?? "XXX"
+        cityLabel.text = service.addressCity ?? "XXX"
+        streetLabel.text = service.addressStreet ?? "XXX"
         ratingView.rating = service.rating
         isFavorite = service.isFavorite
         selectionStyle = .none

@@ -20,7 +20,7 @@ extension Service {
     @NSManaged public var addressStreetValue: String?
     @NSManaged public var canSendReview: Bool
     @NSManaged public var catalog: String?
-    @NSManaged public var categories: NSObject?
+    @NSManaged public var categories: [String]?
     @NSManaged public var codeID: String
     @NSManaged public var descriptionContent: String?
     @NSManaged public var duration: Int64

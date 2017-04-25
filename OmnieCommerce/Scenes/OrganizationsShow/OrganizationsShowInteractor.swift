@@ -32,14 +32,14 @@ class OrganizationsShowInteractor: OrganizationsShowInteractorInput {
     // MARK: - Custom Functions. Business logic
     func organizationsDidLoad(withRequestModel requestModel: OrganizationsShowModels.Organizations.RequestModel) {
         MSMRestApiManager.instance.userRequestDidRun(.userGetOrganizationsListByCategory(requestModel.parameters, true), withHandlerResponseAPICompletion: { responseAPI in
-            let organizationsResponseModel = OrganizationsShowModels.Organizations.ResponseModel(responseAPI: responseAPI, category: requestModel.category)
+            let organizationsResponseModel = OrganizationsShowModels.Organizations.ResponseModel(responseAPI: responseAPI, parameters: requestModel.parameters, category: requestModel.category)
             self.presenter.organizationsDidPrepareToShowLoad(fromResponseModel: organizationsResponseModel)
         })
     }
     
     func servicesDidLoad(withRequestModel requestModel: OrganizationsShowModels.Services.RequestModel) {
         MSMRestApiManager.instance.userRequestDidRun(.userGetServicesListByCategory(requestModel.parameters, true), withHandlerResponseAPICompletion: { responseAPI in
-            let servicesResponseModel = OrganizationsShowModels.Services.ResponseModel(responseAPI: responseAPI, category: requestModel.category)
+            let servicesResponseModel = OrganizationsShowModels.Services.ResponseModel(responseAPI: responseAPI, parameters: requestModel.parameters, category: requestModel.category)
             self.presenter.servicesDidPrepareToShowLoad(fromResponseModel: servicesResponseModel)
         })
     }

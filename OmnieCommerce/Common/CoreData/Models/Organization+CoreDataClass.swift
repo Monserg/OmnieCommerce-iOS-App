@@ -120,7 +120,7 @@ public class Organization: NSManagedObject, InitCellParameters, PointAnnotationB
                 let _ = Schedule.init(json: dictionary as! [String : AnyObject], andOrganization: self)
             }
             
-            self.schedules = NSSet.init(array: CoreDataManager.instance.entitiesDidLoad(byName: "Schedule", andPredicateParameter: self.codeID)!)
+            self.schedules = NSSet.init(array: CoreDataManager.instance.entitiesDidLoad(byName: "Schedule", andPredicateParameter: ["organization.codeID": self.codeID])!)
         }
 
         // Google place

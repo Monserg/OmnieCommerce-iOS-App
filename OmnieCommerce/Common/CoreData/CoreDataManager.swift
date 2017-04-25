@@ -183,33 +183,45 @@ class CoreDataManager {
         }
     }
     
-    func entitiesDidLoad(byName name: String, andPredicateParameter parameter: Any?) -> [NSManagedObject]? {
+    func entitiesDidLoad(byName name: String, andPredicateParameter parameter: [String: Any]?) -> [NSManagedObject]? {
         var predicate: NSPredicate!
         
         switch name {
         case "NewsData":
-            let isAction = parameter as! Bool
-            predicate = NSPredicate(format: "isAction == \(isAction)")
-
+            // isAction
+            if let dictionary = parameter {
+                predicate = NSPredicate(format: "%K == %@", dictionary.keys.first!, NSNumber.init(booleanLiteral: dictionary.values.first as! Bool))
+            }
+            
         case "Organization", "Service":
-            let catalog = parameter as! String
-            predicate = NSPredicate(format: "catalog == %@", catalog)
-
+            // catalog, filter, subcategory
+            if let dictionary = parameter {
+                predicate = NSPredicate(format: "%K == %@", dictionary.keys.first!, dictionary.values.first as! String)
+            }
+            
         case "Schedule":
-            let codeID = parameter as! String
-            predicate = NSPredicate(format: "organization.codeID == %@", codeID)
+            // organization.codeID
+            if let dictionary = parameter {
+                predicate = NSPredicate(format: "%K == %@", dictionary.keys.first!, dictionary.values.first as! String)
+            }
 
         case "Discount":
-            let isUserDiscount = parameter as! Bool
-            predicate = NSPredicate(format: "isUserDiscount == \(isUserDiscount)")
+            // isUserDiscount
+            if let dictionary = parameter {
+                predicate = NSPredicate(format: "%K == %@", dictionary.keys.first!, NSNumber.init(booleanLiteral: dictionary.values.first as! Bool))
+            }
 
         case "Review":
-            let typeValue = parameter as! String
-            predicate = NSPredicate(format: "typeValue == %@", typeValue)
+            // typeValue
+            if let dictionary = parameter {
+                predicate = NSPredicate(format: "%K == %@", dictionary.keys.first!, dictionary.values.first as! String)
+            }
             
-            case "Subcategory":
-            let categoryCodeID = parameter as! String
-            predicate = NSPredicate(format: "category.codeID == %@", categoryCodeID)
+        case "Subcategory":
+            // category.codeID
+            if let dictionary = parameter {
+                predicate = NSPredicate(format: "%K == %@", dictionary.keys.first!, dictionary.values.first as! String)
+            }
 
         default:
             break
@@ -269,6 +281,10 @@ class CoreDataManager {
     }
     
     func entitiesDidRemove(byName name: String, andPredicateParameter parameter: Any?) {
+        guard isNetworkAvailable else {
+            return
+        }
+        
         var predicate: NSPredicate!
         
         switch name {

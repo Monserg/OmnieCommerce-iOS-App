@@ -50,7 +50,10 @@ class FavoriteServicesShowViewController: BaseViewController {
         super.viewDidLoad()
         
         // Create MSMTableViewControllerManager
-        let servicesTableManager = MSMTableViewControllerManager.init(withTableView: self.tableView, andSectionsCount: 1, andEmptyMessageText: "Services list is empty")
+        let servicesTableManager = MSMTableViewControllerManager.init(withTableView: self.tableView,
+                                                                      andSectionsCount: 1,
+                                                                      andEmptyMessageText: "Services list is empty")
+        
         tableView.tableViewControllerManager = servicesTableManager
     }
     
@@ -92,7 +95,7 @@ class FavoriteServicesShowViewController: BaseViewController {
     
     func favoriteServicesListDidShow() {
         // Setting MSMTableViewControllerManager
-        let servicesList = CoreDataManager.instance.entitiesDidLoad(byName: "Service", andPredicateParameter: keyFavoriteServices)
+        let servicesList = CoreDataManager.instance.entitiesDidLoad(byName: "Service", andPredicateParameter: ["catalog": keyFavoriteServices])
         
         if let services = servicesList as? [Service] {
             let _ = services.map({ $0.cellIdentifier = "FavoriteServiceTableViewCell"; $0.cellHeight = 60.0 })

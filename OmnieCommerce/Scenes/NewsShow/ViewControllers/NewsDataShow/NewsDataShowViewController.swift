@@ -97,7 +97,7 @@ class NewsDataShowViewController: BaseViewController {
     
     func newsDataListDidShow() {
         // Setting MSMTableViewControllerManager
-        let newsDataList = CoreDataManager.instance.entitiesDidLoad(byName: "NewsData", andPredicateParameter: false)
+        let newsDataList = CoreDataManager.instance.entitiesDidLoad(byName: "NewsData", andPredicateParameter: ["isAction": false])
         
         if let news = newsDataList as? [NewsData] {
             newsData = news

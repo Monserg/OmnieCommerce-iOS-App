@@ -44,14 +44,23 @@ class OrganizationsShowViewController: BaseViewController {
             subcategoriesDropDownTableView.tableViewControllerManager = subcategoriesTableManager
             subcategoriesDropDownTableView.alpha = 0
            
-            let subcategories = CoreDataManager.instance.entitiesDidLoad(byName: "Subcategory", andPredicateParameter: category!.codeID) as! [Subcategory]
-            subcategoriesDropDownTableView.tableViewControllerManager.dataSource = subcategories
+            var subcategories = CoreDataManager.instance.entitiesDidLoad(byName: "Subcategory",
+                                                                         andPredicateParameter: ["category.codeID": category!.codeID])
+            
+            if !(subcategories?.contains(where: { ($0 as! Subcategory).codeID == "0000-\(category!.codeID)-All" }))! {
+                subcategories!.insert(Subcategory.init(codeID: "0000-\(category!.codeID)-All", name: "By all subcategories".localized(), type: .Subcategory, category: category!), at: 0)
+            }
+            
+            subcategoriesDropDownTableView.tableViewControllerManager.dataSource = subcategories!.sorted(by: { ($0 as! Subcategory).codeID < ($1 as! Subcategory).codeID })
         }
     }
 
     var organizationServiceDropDownTableView: MSMTableView! {
         didSet {
-            let organizationServiceTableManager = MSMTableViewControllerManager.init(withTableView: organizationServiceDropDownTableView, andSectionsCount: 1, andEmptyMessageText: "DropDownList")
+            let organizationServiceTableManager = MSMTableViewControllerManager.init(withTableView: organizationServiceDropDownTableView,
+                                                                                     andSectionsCount: 1,
+                                                                                     andEmptyMessageText: "DropDownList")
+            
             organizationServiceDropDownTableView.tableViewControllerManager = organizationServiceTableManager
             organizationServiceDropDownTableView.alpha = 0
             
@@ -90,6 +99,10 @@ class OrganizationsShowViewController: BaseViewController {
     // MARK: - Class Functions
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Create MSMTableViewControllerManager
+        let organizationsTableManager = MSMTableViewControllerManager.init(withTableView: tableView, andSectionsCount: 1, andEmptyMessageText: "Organizations list is empty")
+        tableView.tableViewControllerManager = organizationsTableManager
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -108,10 +121,6 @@ class OrganizationsShowViewController: BaseViewController {
     
     // MARK: - Custom Functions
     func viewSettingsDidLoad() {
-        // Create MSMTableViewControllerManager
-        let organizationsTableManager = MSMTableViewControllerManager.init(withTableView: tableView, andSectionsCount: 1, andEmptyMessageText: "Organizations list is empty")
-        tableView.tableViewControllerManager = organizationsTableManager
-
         // Config smallTopBarView
         navigationBarView = smallTopBarView
         smallTopBarView.type = "ChildSearch"
@@ -136,7 +145,7 @@ class OrganizationsShowViewController: BaseViewController {
         
         // Load Organizations list from API
         organizations = [Organization]()
-        CoreDataManager.instance.entitiesDidRemove(byName: "Organization", andPredicateParameter: keyOrganizations)
+        CoreDataManager.instance.entitiesDidRemove(byName: "Organization", andPredicateParameter: "\(keyOrganizations)-\(category!.codeID)-\(subcategoryCode)")
         organizationsListDidLoad(withOffset: 0, subCategory: self.subcategoryCode, filter: "", scrollingData: false)
     }
     
@@ -153,13 +162,19 @@ class OrganizationsShowViewController: BaseViewController {
                                                 "offset": offset
                                             ]
 
+        guard isNetworkAvailable else {
+            organizationsListDidShow()
+            return
+        }
+
         let organizationsRequestModel = OrganizationsShowModels.Organizations.RequestModel(parameters: bodyParameters, category: category!)
         interactor.organizationsDidLoad(withRequestModel: organizationsRequestModel)
     }
     
     func organizationsListDidShow() {
         // Setting MSMTableViewControllerManager
-        let organizationsEntities = CoreDataManager.instance.entitiesDidLoad(byName: "Organization", andPredicateParameter: keyOrganizations + category!.codeID)
+        let organizationsEntities = CoreDataManager.instance.entitiesDidLoad(byName: "Organization",
+                                                                             andPredicateParameter: ["catalog": "\(keyOrganizations)-\(category!.codeID)-\(subcategoryCode)"])
         
         if let organizationsList = organizationsEntities as? [Organization] {
             organizations = organizationsList
@@ -181,6 +196,14 @@ class OrganizationsShowViewController: BaseViewController {
         // Handler select cell
         tableView.tableViewControllerManager!.handlerSelectRowCompletion = { organization in
             self.router.navigateToOrganizationShowScene(organization as! Organization)
+
+            if (self.organizationServiceButton.isDropDownListShow) {
+                self.organizationServiceButton.itemsListDidHide(self.organizationServiceDropDownTableView, inView: self.view)
+            }
+            
+            if (self.subcategoriesButton.isDropDownListShow) {
+                self.subcategoriesButton.itemsListDidHide(self.subcategoriesDropDownTableView, inView: self.view)
+            }
         }
         
         // Handler Search keyboard button tap
@@ -198,7 +221,7 @@ class OrganizationsShowViewController: BaseViewController {
         tableView.tableViewControllerManager!.handlerPullRefreshCompletion = { _ in
             // Reload Organizations list from API
             self.organizations = [Organization]()
-            CoreDataManager.instance.entitiesDidRemove(byName: "Organization", andPredicateParameter: keyOrganizations)
+            CoreDataManager.instance.entitiesDidRemove(byName: "Organization", andPredicateParameter: "\(keyOrganizations)-\(self.category!.codeID)-\(self.subcategoryCode)")
             self.limit = Config.Constants.paginationLimit
             self.organizationsListDidLoad(withOffset: 0, subCategory: self.subcategoryCode, filter: "", scrollingData: true)
         }
@@ -226,21 +249,32 @@ class OrganizationsShowViewController: BaseViewController {
                                                 "offset": offset
                                             ]
         
+        guard isNetworkAvailable else {
+            servicesListDidShow()
+            return
+        }
+        
         let servicesRequestModel = OrganizationsShowModels.Services.RequestModel(parameters: bodyParameters, category: category!)
         interactor.servicesDidLoad(withRequestModel: servicesRequestModel)
     }
     
-    func servicesListDidShow(_ services: [Service]?, fromAPI: Bool) {
+    func servicesListDidShow() {
         // Setting MSMTableViewControllerManager
-//        tableView!.tableViewControllerManager!.dataSource = servicesList
-//        tableView!.tableFooterView!.isHidden = (servicesList.count > 0) ? true : false
-//        smallTopBarView.searchButton.isHidden = (servicesList.count == 0) ? true : false
-//        mapButton.isUserInteractionEnabled = (servicesList.count > 0) ? true : false
-//        
-//        (tableView!.tableFooterView as! MSMTableViewFooterView).didUpload(forItemsCount: servicesList.count,
-//                                                                          andEmptyText: "Services list is empty")
+        let servicesEntities = CoreDataManager.instance.entitiesDidLoad(byName: "Service",
+                                                                        andPredicateParameter: ["catalog": "\(keyServices)-\(category!.codeID)-\(subcategoryCode)"])
         
-        tableView.reloadData()
+        if let servicesList = servicesEntities as? [Service] {
+            services = servicesList
+            
+            tableView.tableViewControllerManager!.dataSource = services
+            tableView!.tableFooterView!.isHidden = (services.count > 0) ? true : false
+            mapButton.isUserInteractionEnabled = (services.count > 0) ? true : false
+            
+            (tableView!.tableFooterView as! MSMTableViewFooterView).didUpload(forItemsCount: services.count,
+                                                                              andEmptyText: "Services list is empty")
+            
+            tableView.reloadData()
+        }
 
         // Search Manager
         smallTopBarView.searchBar.placeholder = "Enter Service name".localized()
@@ -248,9 +282,15 @@ class OrganizationsShowViewController: BaseViewController {
         
         // Handler select cell
         tableView.tableViewControllerManager!.handlerSelectRowCompletion = { service in
-            self.print(object: "transition to Service profile scene")
-            
             self.router.navigateToServiceShowScene(service as! Service)
+
+            if (self.organizationServiceButton.isDropDownListShow) {
+                self.organizationServiceButton.itemsListDidHide(self.organizationServiceDropDownTableView, inView: self.view)
+            }
+
+            if (self.subcategoriesButton.isDropDownListShow) {
+                self.subcategoriesButton.itemsListDidHide(self.subcategoriesDropDownTableView, inView: self.view)
+            }
         }
         
         // Handler Search keyboard button tap
@@ -266,21 +306,22 @@ class OrganizationsShowViewController: BaseViewController {
         
         // Handler PullRefresh
         tableView.tableViewControllerManager!.handlerPullRefreshCompletion = { _ in
-            // Reload Organizations list from API
+            // Reload Services list from API
             self.services = [Service]()
+            CoreDataManager.instance.entitiesDidRemove(byName: "Service", andPredicateParameter: "\(keyServices)-\(self.category!.codeID)-\(self.subcategoryCode)")
             self.limit = Config.Constants.paginationLimit
             self.servicesListDidLoad(withOffset: 0, subCategory: self.subcategoryCode, filter: "", scrollingData: true)
         }
         
         // Handler InfiniteScroll
         tableView.tableViewControllerManager.handlerInfiniteScrollCompletion = { _ in
-            // Load More Organizations from API
-            self.servicesListDidLoad(withOffset: services!.count, subCategory: self.subcategoryCode, filter: "", scrollingData: true)
+            // Load More Services from API
+            self.servicesListDidLoad(withOffset: self.services.count, subCategory: self.subcategoryCode, filter: "", scrollingData: true)
         }
         
         tableView.tableViewControllerManager.pullRefreshDidFinish()
+        spinnerDidFinish()
     }
-
 
     
     // MARK: - Actions
@@ -298,13 +339,16 @@ class OrganizationsShowViewController: BaseViewController {
         subcategoriesDropDownTableView.tableViewControllerManager!.handlerSelectRowCompletion = { subcategory in
             sender.changeTitle(newValue: (subcategory as! DropDownItem).name)
             sender.itemsListDidHide(self.subcategoriesDropDownTableView, inView: self.view)
-            self.subcategoryCode = ((subcategory as! DropDownItem).codeID == "All-Subcategories-ID") ? "" : (subcategory as! DropDownItem).codeID
+            self.subcategoryCode = ((subcategory as! DropDownItem).codeID == "0000-\(self.category!.codeID)-All") ? "" : (subcategory as! DropDownItem).codeID
+            self.limit = Config.Constants.paginationLimit
             
             if (self.wasByOrganizationSelected) {
                 self.organizations = [Organization]()
+                CoreDataManager.instance.entitiesDidRemove(byName: "Organization", andPredicateParameter: "\(keyOrganizations)-\(self.category!.codeID)-\(self.subcategoryCode)")
                 self.organizationsListDidLoad(withOffset: 0, subCategory: self.subcategoryCode, filter: "", scrollingData: false)
             } else {
                 self.services = [Service]()
+                CoreDataManager.instance.entitiesDidRemove(byName: "Service", andPredicateParameter: "\(keyServices)-\(self.category!.codeID)-\(self.subcategoryCode)")
                 self.servicesListDidLoad(withOffset: 0, subCategory: self.subcategoryCode, filter: "", scrollingData: false)
             }
         }
@@ -326,10 +370,12 @@ class OrganizationsShowViewController: BaseViewController {
             
             if ((item as! DropDownItem).codeID == keyOrganization) {
                 self.organizations = [Organization]()
+                CoreDataManager.instance.entitiesDidRemove(byName: "Organization", andPredicateParameter: "\(keyOrganizations)-\(self.category!.codeID)-\(self.subcategoryCode)")
                 self.organizationsListDidLoad(withOffset: 0, subCategory: self.subcategoryCode, filter: "", scrollingData: false)
                 self.wasByOrganizationSelected = true
             } else {
                 self.services = [Service]()
+                CoreDataManager.instance.entitiesDidRemove(byName: "Service", andPredicateParameter: "\(keyServices)-\(self.category!.codeID)-\(self.subcategoryCode)")
                 self.servicesListDidLoad(withOffset: 0, subCategory: self.subcategoryCode, filter: "", scrollingData: false)
                 self.wasByOrganizationSelected = false
             }
@@ -370,24 +416,12 @@ extension OrganizationsShowViewController: OrganizationsShowViewControllerInput 
         // Check for errors
         guard viewModel.status == "SUCCESS" else {
             self.alertViewDidShow(withTitle: "Error", andMessage: viewModel.status, completion: { _ in
-                self.servicesListDidShow(self.services, fromAPI: true)
+                self.servicesListDidShow()
             })
             
             return
         }
         
-        // Save Services to CoreData
-        CoreDataManager.instance.didSaveContext()
-        
-        // Check network connection
-        guard isNetworkAvailable else {
-            // Load Services list from CoreData
-            self.servicesListDidShow(nil, fromAPI: false)
-            return
-        }
-        
-        // Load Services list from API
-        self.services.append(contentsOf: viewModel.services!)
-        self.servicesListDidShow(services, fromAPI: true)
+        self.servicesListDidShow()
     }
 }

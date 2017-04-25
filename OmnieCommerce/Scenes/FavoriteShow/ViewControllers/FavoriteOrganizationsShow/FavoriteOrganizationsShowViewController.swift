@@ -92,7 +92,7 @@ class FavoriteOrganizationsShowViewController: BaseViewController {
     
     func favoriteOrganizationsListDidShow() {
         // Setting MSMTableViewControllerManager
-        let organizationsList = CoreDataManager.instance.entitiesDidLoad(byName: "Organization", andPredicateParameter: keyFavoriteOrganizations)
+        let organizationsList = CoreDataManager.instance.entitiesDidLoad(byName: "Organization", andPredicateParameter: ["catalog": keyFavoriteOrganizations])
         
         if let organizations = organizationsList as? [Organization] {
             let _ = organizations.map({ $0.cellIdentifier = "FavoriteOrganizationTableViewCell"; $0.cellHeight = 60.0 })
