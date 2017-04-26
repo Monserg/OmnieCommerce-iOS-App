@@ -426,6 +426,7 @@ class OrganizationShowViewController: BaseViewController {
                                     ($0 as! Service).cellHeight = 60.0;
                                     ($0 as! Service).isNameNeedHide = true;
                                     ($0 as! Service).needBackgroundColorSet = true;
+                                    ($0 as! Service).organizationName = organization.name;
                                 }
             
             servicesTableView.tableViewControllerManager!.dataSource = Array(servicesList)
@@ -448,7 +449,7 @@ class OrganizationShowViewController: BaseViewController {
             // Handler Service select
             servicesTableView.tableViewControllerManager!.handlerSelectRowCompletion = { item in
                 if item is Service {
-                    // TODO: - ADD TRANSITION TO SERVICE PROFILE SCENE
+                    self.router.navigateToServiceShowScene(item as! Service)
                 }
             }
         } else {

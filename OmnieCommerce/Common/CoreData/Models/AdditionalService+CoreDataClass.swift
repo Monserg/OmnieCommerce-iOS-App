@@ -37,15 +37,15 @@ public class AdditionalService: NSManagedObject, InitCellParameters {
         self.unitName = unit.convertToUnitString() ?? "XXX"
         self.price = price
         
-        if let minValue = json["minValue"] as? Int16 {
+        if let minValue = json["minValue"] as? Double {
             self.minValue = minValue
         }
 
-        if let maxValue = json["maxValue"] as? Int16 {
+        if let maxValue = json["maxValue"] as? Double {
             self.maxValue = maxValue
         }
 
-        if let duration = json["duration"] as? Int64 {
+        if let duration = json["duration"] as? Double {
             self.duration = duration
         }
         

@@ -20,10 +20,10 @@ extension AdditionalService {
     @NSManaged public var name: String
     @NSManaged public var unit: UInt16
     @NSManaged public var unitName: String
-    @NSManaged public var minValue: Int16
-    @NSManaged public var maxValue: Int16
+    @NSManaged public var minValue: Double
+    @NSManaged public var maxValue: Double
     @NSManaged public var price: Double
-    @NSManaged public var duration: Int64
+    @NSManaged public var duration: Double
     @NSManaged public var service: Service?
     @NSManaged public var discounts: NSSet?
 

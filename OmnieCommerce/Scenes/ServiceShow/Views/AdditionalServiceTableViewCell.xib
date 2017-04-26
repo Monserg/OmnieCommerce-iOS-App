@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -23,7 +22,7 @@
                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dHo-5U-Tzi" userLabel="Background View">
                         <rect key="frame" x="0.0" y="0.0" width="359" height="49.5"/>
                         <subviews>
-                            <stackView clipsSubviews="YES" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Ehz-mK-F76" userLabel="Labels Stack View">
+                            <stackView clipsSubviews="YES" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Ehz-mK-F76" userLabel="Labels Stack View">
                                 <rect key="frame" x="7" y="10" width="204" height="29"/>
                                 <subviews>
                                     <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FsN-Rf-5bD" userLabel="Name Label" customClass="UbuntuLightVeryLightGrayLabel" customModule="OmnieCommerce" customModuleProvider="target">
@@ -40,7 +39,7 @@
                                         <rect key="frame" x="0.0" y="14.5" width="204" height="14.5"/>
                                         <subviews>
                                             <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tSQ-e6-pYL" userLabel="Price Label" customClass="UbuntuLightVeryLightOrangeLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="50" height="14.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="60" height="14.5"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <nil key="textColor"/>
@@ -50,7 +49,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Duration" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bD5-GF-qhr" userLabel="Duration  Label" customClass="UbuntuLightItalicLightGrayishCyanLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                                                <rect key="frame" x="60" y="0.0" width="144" height="14.5"/>
+                                                <rect key="frame" x="70" y="0.0" width="134" height="14.5"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <nil key="textColor"/>
@@ -67,6 +66,43 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </stackView>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EaD-DU-p6V">
+                                <rect key="frame" x="226" y="14.5" width="25" height="21"/>
+                                <subviews>
+                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fxo-Te-r9G" userLabel="Top Line View">
+                                        <rect key="frame" x="0.0" y="0.0" width="25" height="1"/>
+                                        <color key="backgroundColor" red="0.0" green="0.57647058823529407" blue="0.58431372549019611" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="d1H-Ue-sdP"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k2h-Pf-3eg" userLabel="Bottom Line View">
+                                        <rect key="frame" x="0.0" y="20" width="25" height="1"/>
+                                        <color key="backgroundColor" red="0.0" green="0.57647058819999997" blue="0.58431372550000005" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="chg-FB-Vmx"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="k2h-Pf-3eg" secondAttribute="bottom" id="3pg-zp-TZe"/>
+                                    <constraint firstItem="fxo-Te-r9G" firstAttribute="top" secondItem="EaD-DU-p6V" secondAttribute="top" id="ICm-7f-rEW"/>
+                                    <constraint firstItem="fxo-Te-r9G" firstAttribute="leading" secondItem="EaD-DU-p6V" secondAttribute="leading" id="Nxx-tX-y9e"/>
+                                    <constraint firstAttribute="trailing" secondItem="k2h-Pf-3eg" secondAttribute="trailing" id="faI-Ag-g2u"/>
+                                    <constraint firstAttribute="trailing" secondItem="fxo-Te-r9G" secondAttribute="trailing" id="jzP-Fy-Afc"/>
+                                    <constraint firstItem="k2h-Pf-3eg" firstAttribute="leading" secondItem="EaD-DU-p6V" secondAttribute="leading" id="ugp-1U-KG2"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                             <pickerView clipsSubviews="YES" contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="NtU-PD-iFw">
                                 <rect key="frame" x="226" y="0.0" width="25" height="50"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -75,11 +111,9 @@
                                 </userDefinedRuntimeAttributes>
                             </pickerView>
                             <switch clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gQ7-tC-5qK" userLabel="State Switch">
-                                <rect key="frame" x="301" y="13" width="51" height="23.5"/>
+                                <rect key="frame" x="301" y="9.5" width="51" height="31"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="gQ7-tC-5qK" secondAttribute="height" multiplier="40:19" id="SLb-Ug-gST"/>
-                                </constraints>
+                                <color key="tintColor" red="0.58431372549019611" green="0.60784313725490191" blue="0.62745098039215685" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="onTintColor" red="0.0" green="0.57647058823529407" blue="0.58431372549019611" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="thumbTintColor" red="1" green="0.84313725490196079" blue="0.42352941176470588" alpha="1" colorSpace="calibratedRGB"/>
                                 <userDefinedRuntimeAttributes>
@@ -93,11 +127,14 @@
                         <color key="backgroundColor" red="0.15686274509803921" green="0.21176470588235294" blue="0.2627450980392157" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="gQ7-tC-5qK" firstAttribute="leading" secondItem="NtU-PD-iFw" secondAttribute="trailing" constant="50" id="52B-T2-BJv"/>
+                            <constraint firstItem="EaD-DU-p6V" firstAttribute="centerY" secondItem="NtU-PD-iFw" secondAttribute="centerY" id="901-JI-ym6"/>
                             <constraint firstItem="Ehz-mK-F76" firstAttribute="centerY" secondItem="dHo-5U-Tzi" secondAttribute="centerY" id="AKR-TM-LF6"/>
+                            <constraint firstItem="EaD-DU-p6V" firstAttribute="centerX" secondItem="NtU-PD-iFw" secondAttribute="centerX" id="BDq-Fo-A7m"/>
                             <constraint firstItem="NtU-PD-iFw" firstAttribute="top" secondItem="dHo-5U-Tzi" secondAttribute="top" id="BmP-H0-Dcr"/>
                             <constraint firstItem="Ehz-mK-F76" firstAttribute="leading" secondItem="dHo-5U-Tzi" secondAttribute="leading" constant="7" id="P1o-cX-p4o"/>
                             <constraint firstItem="gQ7-tC-5qK" firstAttribute="centerY" secondItem="dHo-5U-Tzi" secondAttribute="centerY" id="S9Q-Kh-rBU"/>
                             <constraint firstAttribute="bottom" secondItem="NtU-PD-iFw" secondAttribute="bottom" id="XZJ-zZ-9hH"/>
+                            <constraint firstItem="EaD-DU-p6V" firstAttribute="width" secondItem="NtU-PD-iFw" secondAttribute="width" id="buE-AM-mPd"/>
                             <constraint firstAttribute="trailing" secondItem="gQ7-tC-5qK" secondAttribute="trailing" constant="9" id="eDH-uI-zkp"/>
                             <constraint firstItem="NtU-PD-iFw" firstAttribute="leading" secondItem="Ehz-mK-F76" secondAttribute="trailing" constant="15" id="jdv-wS-A8p"/>
                         </constraints>
@@ -120,9 +157,10 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="NtU-PD-iFw" firstAttribute="width" secondItem="KGk-i7-Jjw" secondAttribute="width" multiplier="1:26" id="9Sq-x7-6Tm"/>
-                <constraint firstItem="tSQ-e6-pYL" firstAttribute="width" secondItem="KGk-i7-Jjw" secondAttribute="width" multiplier="1:13" id="ge5-Rc-kj8"/>
+                <constraint firstItem="tSQ-e6-pYL" firstAttribute="width" secondItem="KGk-i7-Jjw" secondAttribute="width" multiplier="1:11" id="ge5-Rc-kj8"/>
                 <constraint firstItem="NtU-PD-iFw" firstAttribute="width" secondItem="KGk-i7-Jjw" secondAttribute="width" multiplier="1:14.4" id="ixc-vE-NkB"/>
-                <constraint firstItem="tSQ-e6-pYL" firstAttribute="width" secondItem="KGk-i7-Jjw" secondAttribute="width" multiplier="1:7.2" id="vzJ-zR-jWl"/>
+                <constraint firstItem="EaD-DU-p6V" firstAttribute="height" secondItem="KGk-i7-Jjw" secondAttribute="height" multiplier="1:2.5" id="oL6-O9-twf"/>
+                <constraint firstItem="tSQ-e6-pYL" firstAttribute="width" secondItem="KGk-i7-Jjw" secondAttribute="width" multiplier="1:6" id="vzJ-zR-jWl"/>
             </constraints>
             <userDefinedRuntimeAttributes>
                 <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>

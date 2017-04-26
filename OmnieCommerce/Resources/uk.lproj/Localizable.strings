@@ -72,6 +72,7 @@
 "Turn the Date"                 =   "Обрати дату";
 "Unit 0"                        =   "грн/год";
 "Unit 1"                        =   "грн/хв";
+"Minutes short"                 =   "хв.";
 
 
 // Buttons

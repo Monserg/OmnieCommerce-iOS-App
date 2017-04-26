@@ -148,7 +148,7 @@ public class Service: NSManagedObject, InitCellParameters, PointAnnotationBindin
         }
         
         // User discounts
-        if let userDiscounts = json["discountsForUser"] as? NSArray {
+        if let userDiscounts = json["discountsUser"] as? NSArray {
             for dictionary in userDiscounts {
                 let discountUser = Discount.init(json: dictionary as! [String : AnyObject], andRelationshipObject: self)!
                 discountUser.isUserDiscount = true

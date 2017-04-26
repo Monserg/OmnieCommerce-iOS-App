@@ -87,6 +87,23 @@ class ServiceShowViewController: BaseViewController {
     @IBOutlet weak var galleryView: UIView!
     @IBOutlet weak var galleryCollectionView: MSMCollectionView!
 
+    // Additional Services view
+    @IBOutlet weak var additionalServicesView: UIView!
+    @IBOutlet weak var additionalServicesViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var additionalServicesTableViewHeightConstraint: NSLayoutConstraint!
+    
+    @IBOutlet weak var additionalServicesTableView: MSMTableView! {
+        didSet {
+            additionalServicesTableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0)
+            additionalServicesTableView.scrollIndicatorInsets = UIEdgeInsetsMake(0, 0, 0, 0)
+        }
+    }
+
+    // Calendar view
+    @IBOutlet weak var calendarView: UIView!
+    @IBOutlet weak var calendarButton: UbuntuLightVeryLightOrangeButton!
+    @IBOutlet weak var calendarStartTimeButton: UbuntuLightVeryLightOrangeButton!
+    @IBOutlet weak var calendarEndTimeButton: UbuntuLightVeryLightOrangeButton!
     
     
     
@@ -161,7 +178,7 @@ class ServiceShowViewController: BaseViewController {
             titleView.isHidden = false
             
             titleLabel.text = serviceProfile.name
-            contentLabel.text = serviceProfile.descriptionContent!
+            contentLabel.text = serviceProfile.descriptionContent ?? ""
             contentLabel.sizeToFit()
             
             favoriteButton.tag = (service.isFavorite) ? 1 : 0
@@ -253,6 +270,36 @@ class ServiceShowViewController: BaseViewController {
             galleryView.isHidden = true
         }
 
+        // Additional Services view
+        if let additionalServicesList = serviceProfile.additionalServices, additionalServicesList.count > 0 {
+            additionalServicesView.isHidden = false
+            
+            let additionalServicesTableManager = MSMTableViewControllerManager.init(withTableView: additionalServicesTableView,
+                                                                                    andSectionsCount: 1,
+                                                                                    andEmptyMessageText: "Services list is empty")
+            
+            additionalServicesTableView.tableViewControllerManager = additionalServicesTableManager
+            additionalServicesTableView.tableViewControllerManager!.dataSource = Array(additionalServicesList)
+            additionalServicesTableView.tableFooterView!.isHidden = true
+            self.view.layoutIfNeeded()
+            
+            additionalServicesTableViewHeightConstraint.constant = CGFloat(52.0 * Double(serviceProfile.additionalServices!.count)) * view.heightRatio
+            additionalServicesViewHeightConstraint.constant = 20.0 + additionalServicesTableView.frame.minY + additionalServicesTableViewHeightConstraint.constant + 20.0
+
+            self.view.layoutIfNeeded()
+            additionalServicesTableView.reloadData()            
+        } else {
+            additionalServicesView.isHidden = true
+        }
+
+        // Calendar view
+        calendarView.isHidden = false
+//        calendarButton.setAttributedTitle(NSAttributedString.init(string: serviceProfile., attributes: <#T##[String : Any]?#>), for: .normal)
+//        calendarStartTimeButton.setAttributedTitle(<#T##title: NSAttributedString?##NSAttributedString?#>, for: .normal)
+//        calendarEndTimeButton.setAttributedTitle(<#T##title: NSAttributedString?##NSAttributedString?#>, for: .normal)
+
+        
+        
         
         
         smallTopBarView.actionButton.isHidden = false
@@ -302,8 +349,8 @@ class ServiceShowViewController: BaseViewController {
     override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
         _ = dottedBorderViewsCollection.map { $0.setNeedsDisplay() }
         smallTopBarView.setNeedsDisplay()
-//        galleryCollectionView.reloadData()
-//        
+        galleryCollectionView.reloadData()
+
 //        // Album
 //        if newCollection.verticalSizeClass == .compact {
 //            scrollViewTopConstraint.constant = smallTopBarView.frame.height + 20.0 - 50.0
@@ -332,7 +379,13 @@ class ServiceShowViewController: BaseViewController {
             }
         })
     }
-
+    
+    @IBAction func handlerCalendarButtonTap(_ sender: UbuntuLightVeryLightOrangeButton) {
+    }
+    
+    @IBAction func handlerSchedulerButtonTap(_ sender: UbuntuLightVeryLightOrangeButton) {
+    }
+    
 }
 
 

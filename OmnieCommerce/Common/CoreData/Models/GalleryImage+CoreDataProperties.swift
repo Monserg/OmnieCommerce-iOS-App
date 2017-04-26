@@ -21,5 +21,6 @@ extension GalleryImage {
     @NSManaged public var serviceID: String?
     @NSManaged public var serviceName: String?
     @NSManaged public var organization: Organization?
+    @NSManaged public var service: Service?
 
 }

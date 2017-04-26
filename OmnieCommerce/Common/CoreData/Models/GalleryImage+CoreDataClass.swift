@@ -48,6 +48,10 @@ public class GalleryImage: NSManagedObject, InitCellParameters {
         if let organization = managedObject as? Organization {
             self.organization = organization
         }
+
+        if let service = managedObject as? Service {
+            self.service = service
+        }
     }
     
     deinit {
