@@ -18,7 +18,7 @@ extension Service {
 
     @NSManaged public var addressCityValue: String?
     @NSManaged public var addressStreetValue: String?
-    @NSManaged public var canSendReview: Bool
+    @NSManaged public var canUserSendReview: Bool
     @NSManaged public var catalog: String?
     @NSManaged public var categories: [String]?
     @NSManaged public var codeID: String

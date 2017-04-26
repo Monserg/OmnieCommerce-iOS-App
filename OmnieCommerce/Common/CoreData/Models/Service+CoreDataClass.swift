@@ -93,6 +93,10 @@ public class Service: NSManagedObject, InitCellParameters, PointAnnotationBindin
         self.isNameNeedHide = false
         self.needBackgroundColorSet = false
 
+        if let canUserSendReview = json["canSendReview"] as? Bool {
+                self.canUserSendReview = canUserSendReview
+        }
+        
         if let organizationName = json["orgName"] as? String {
             self.organizationName = organizationName
         }

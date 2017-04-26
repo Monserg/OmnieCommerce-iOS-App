@@ -10,6 +10,8 @@
 //
 
 import UIKit
+import Cosmos
+import Kingfisher
 
 // MARK: - Input protocols for current ViewController component VIP-cicle
 protocol ServiceShowViewControllerInput {
@@ -105,10 +107,19 @@ class ServiceShowViewController: BaseViewController {
     @IBOutlet weak var calendarStartTimeButton: UbuntuLightVeryLightOrangeButton!
     @IBOutlet weak var calendarEndTimeButton: UbuntuLightVeryLightOrangeButton!
     
+    // Comment view
     
     
+    // Reviews view
+    @IBOutlet weak var reviewsView: UIView!
+    @IBOutlet weak var reviewsCollectionView: MSMCollectionView!
     
-    
+    // Rating view
+    @IBOutlet weak var ratingView: UIView!
+    @IBOutlet weak var userNameLabel: UbuntuLightVeryLightOrangeLabel!
+    @IBOutlet weak var userAvatarImageView: CustomImageView!
+    @IBOutlet weak var cosmosView: CosmosView!
+
     
     // MARK: - Class initialization
     override func awakeFromNib() {
@@ -298,10 +309,63 @@ class ServiceShowViewController: BaseViewController {
 //        calendarStartTimeButton.setAttributedTitle(<#T##title: NSAttributedString?##NSAttributedString?#>, for: .normal)
 //        calendarEndTimeButton.setAttributedTitle(<#T##title: NSAttributedString?##NSAttributedString?#>, for: .normal)
 
+        // Comment view
         
         
+        // Service reviews
+        var reviews = [Any]()
         
+//        if let serviceReviews = serviceProfile.revi {
+//            reviews.append(contentsOf: organizationReviews)
+//        }
+//        
+//        //        let serviceReviews = CoreDataManager.instance.entitiesDidLoad(byName: "Review", andPredicateParameter: "ServiceReview")
+//        //        organizationReviews!.append(contentsOf: serviceReviews!)
+//        reviewsView.isHidden = (reviews.count > 0) ? false : true
+//        
+//        let reviewsManager = MSMCollectionViewControllerManager(withCollectionView: reviewsCollectionView)
+//        reviewsCollectionView.collectionViewControllerManager = reviewsManager
+//        reviewsCollectionView.collectionViewControllerManager!.sectionsCount = 1
+//        reviewsCollectionView.collectionViewControllerManager!.dataSource = reviews
+//        reviewsCollectionView.collectionViewControllerManager.collectionView.reloadData()
+//        
+//        // Handler Review select
+//        reviewsCollectionView.collectionViewControllerManager!.handlerCellSelectCompletion = { item in }
+//        
+//        // Handler Navigation button tap
+//        reviewsCollectionView.collectionViewControllerManager.handlerNavigationButtonTapCompletion = { item in
+//            self.view.layoutIfNeeded()
+//            self.reviewsCollectionView.scrollToItem(at: IndexPath(item: item as! Int, section: 0), at: .centeredHorizontally, animated: true)
+//        }
         
+        // Rating view
+        if !(serviceProfile.canUserSendReview) {
+            ratingView.isHidden = false
+            let userReview = CoreDataManager.instance.entityDidLoad(byName: "Review", andPredicateParameter: "UserReview") as! Review
+            userNameLabel.text = userReview.userName ?? "Zorro"
+            cosmosView.rating = userReview.rating
+            
+            if let imagePath = CoreDataManager.instance.appUser.imagePath {
+                userAvatarImageView.kf.setImage(with: ImageResource(downloadURL: URL(string: imagePath)!, cacheKey: imagePath),
+                                                placeholder: UIImage.init(named: "image-no-user"),
+                                                options: [.transition(ImageTransition.fade(1)),
+                                                          .processor(ResizingImageProcessor(referenceSize: userAvatarImageView.frame.size,
+                                                                                            mode: .aspectFit))],
+                                                completionHandler: { image, error, cacheType, imageURL in
+                                                    self.userAvatarImageView.kf.cancelDownloadTask()
+                })
+            } else {
+                userAvatarImageView.image = UIImage.init(named: "image-no-user")
+            }
+            
+            cosmosView.didFinishTouchingCosmos = { _ in
+                self.modalViewDidShow(withHeight: 285, customSubview: ReviewsView(), andValues: nil)
+            }
+            
+        } else {
+            ratingView.isHidden = true
+        }
+
         smallTopBarView.actionButton.isHidden = false
 
         _ = dottedBorderViewsCollection.map { $0.setNeedsDisplay() }
@@ -328,6 +392,9 @@ class ServiceShowViewController: BaseViewController {
             popupView = PhotosGalleryView.init(inView: modalView!)
             popupView.values = (values as! [GalleryImage]).filter({ $0.imagePath != nil })
             
+        case subView as ReviewsView:
+            popupView = ReviewsView.init(inView: modalView!)
+
         default:
             break
         }

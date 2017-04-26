@@ -178,7 +178,7 @@
     <entity name="Service" representedClassName="Service" syncable="YES">
         <attribute name="addressCityValue" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="addressStreetValue" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="canSendReview" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="canUserSendReview" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="catalog" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="categories" optional="YES" attributeType="Transformable" syncable="YES"/>
         <attribute name="codeID" attributeType="String" syncable="YES"/>

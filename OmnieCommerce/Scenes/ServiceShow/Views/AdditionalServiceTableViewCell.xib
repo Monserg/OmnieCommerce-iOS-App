@@ -23,7 +23,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="359" height="49.5"/>
                         <subviews>
                             <stackView clipsSubviews="YES" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Ehz-mK-F76" userLabel="Labels Stack View">
-                                <rect key="frame" x="7" y="10" width="204" height="29"/>
+                                <rect key="frame" x="7" y="8" width="204" height="33"/>
                                 <subviews>
                                     <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FsN-Rf-5bD" userLabel="Name Label" customClass="UbuntuLightVeryLightGrayLabel" customModule="OmnieCommerce" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="204" height="14.5"/>
@@ -36,7 +36,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="oIh-i2-kmP">
-                                        <rect key="frame" x="0.0" y="14.5" width="204" height="14.5"/>
+                                        <rect key="frame" x="0.0" y="18.5" width="204" height="14.5"/>
                                         <subviews>
                                             <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tSQ-e6-pYL" userLabel="Price Label" customClass="UbuntuLightVeryLightOrangeLabel" customModule="OmnieCommerce" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="60" height="14.5"/>
