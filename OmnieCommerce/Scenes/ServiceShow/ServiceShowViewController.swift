@@ -58,6 +58,36 @@ class ServiceShowViewController: BaseViewController {
         }
     }
 
+    // Discounts view
+    @IBOutlet weak var discountsView: UIView!
+    @IBOutlet weak var discountCommonStackView: UIStackView!
+    
+    @IBOutlet weak var discountsViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var discountCommonTableViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var discountsUserTableViewHeightConstraint: NSLayoutConstraint!
+    
+    @IBOutlet weak var discountsCommonTableView: MSMTableView! {
+        didSet {
+            discountsCommonTableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0)
+            discountsCommonTableView.scrollIndicatorInsets = UIEdgeInsetsMake(0, 0, 0, 0)
+        }
+    }
+    
+    @IBOutlet weak var discountUserStackView: UIStackView!
+    
+    @IBOutlet weak var discountsUserTableView: MSMTableView!  {
+        didSet {
+            discountsUserTableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0)
+            discountsUserTableView.scrollIndicatorInsets = UIEdgeInsetsMake(0, 0, 0, 0)
+        }
+    }
+
+    
+    
+    
+    
+    
+    
     
     // MARK: - Class initialization
     override func awakeFromNib() {
@@ -135,7 +165,54 @@ class ServiceShowViewController: BaseViewController {
             view.setNeedsLayout()
         }
 
-        
+        // Discounts view
+        if let discounts = serviceProfile.discounts, discounts.count > 0 {
+            // Show/Hide Common discounts
+            let discountsCommon = CoreDataManager.instance.entitiesDidLoad(byName: "Discount", andPredicateParameter: ["isUserDiscount": false])
+            
+            if (discountsCommon!.count > 0) {
+                discountCommonStackView.isHidden = false
+                
+                let discountCommonTableManager = MSMTableViewControllerManager.init(withTableView: discountsCommonTableView,
+                                                                                    andSectionsCount: 1,
+                                                                                    andEmptyMessageText: "Common discounts list is empty")
+                
+                discountsCommonTableView.tableViewControllerManager = discountCommonTableManager
+                discountsCommonTableView.tableViewControllerManager!.dataSource = discountsCommon!
+                discountsCommonTableView.tableFooterView!.isHidden = true
+                discountCommonTableViewHeightConstraint.constant = CGFloat(50.0 + 50.0 * Double(discountsCommon!.count)) * view.heightRatio
+                
+                discountsCommonTableView.reloadData()
+            } else {
+                discountCommonStackView.isHidden = true
+            }
+            
+            // Show/Hide User discounts
+            let discountsUser = CoreDataManager.instance.entitiesDidLoad(byName: "Discount", andPredicateParameter: ["isUserDiscount": true])
+            
+            if (discountsUser!.count > 0) {
+                discountUserStackView.isHidden = false
+                
+                let discountsUserTableManager = MSMTableViewControllerManager.init(withTableView: discountsUserTableView,
+                                                                                   andSectionsCount: 1,
+                                                                                   andEmptyMessageText: "User discounts list is empty")
+                
+                discountsUserTableView.tableViewControllerManager = discountsUserTableManager
+                discountsUserTableView.tableViewControllerManager!.dataSource = discountsUser!
+                discountsUserTableView.tableFooterView!.isHidden = true
+                discountsUserTableViewHeightConstraint.constant = CGFloat(61.0 + 50.0 * Double(discountsUser!.count)) * view.heightRatio
+                
+                discountsUserTableView.reloadData()
+            } else {
+                discountUserStackView.isHidden = true
+            }
+            
+            discountsViewHeightConstraint.constant = discountCommonTableViewHeightConstraint.constant + discountsUserTableViewHeightConstraint.constant
+            self.discountsView.layoutIfNeeded()
+        } else {
+            discountsView.isHidden = true
+        }
+
         
         
         

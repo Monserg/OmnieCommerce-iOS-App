@@ -623,6 +623,14 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="contentLabel" destination="TjG-LK-AbA" id="2Va-h6-Ycz"/>
+                        <outlet property="discountCommonStackView" destination="0BL-ob-R5l" id="Afw-Aa-Eh4"/>
+                        <outlet property="discountCommonTableViewHeightConstraint" destination="2xS-3z-ECa" id="74Y-zE-j5t"/>
+                        <outlet property="discountUserStackView" destination="0tE-da-FtV" id="bvg-AF-mkH"/>
+                        <outlet property="discountsCommonTableView" destination="Dfj-FN-XPO" id="7bg-2G-3AI"/>
+                        <outlet property="discountsUserTableView" destination="e5a-4k-VOZ" id="iJH-Ri-2fs"/>
+                        <outlet property="discountsUserTableViewHeightConstraint" destination="LOl-vv-kot" id="Te5-nL-FP5"/>
+                        <outlet property="discountsView" destination="rUT-4I-gDz" id="lKC-Lj-bWV"/>
+                        <outlet property="discountsViewHeightConstraint" destination="2My-1b-6Qx" id="NV6-p5-Fj4"/>
                         <outlet property="favoriteButton" destination="vt0-so-xg2" id="DKc-i9-lug"/>
                         <outlet property="mainStackView" destination="wMy-S2-qYv" id="eCb-ld-Jw7"/>
                         <outlet property="smallTopBarView" destination="Fg2-g7-Pmf" id="ChD-wO-NQW"/>
@@ -631,6 +639,7 @@
                         <outlet property="titleTableViewHeightConstraint" destination="M6q-dp-aj1" id="OXY-pX-ZMe"/>
                         <outlet property="titleView" destination="ZW0-cu-1Gq" id="7Sc-wc-MXX"/>
                         <outletCollection property="dottedBorderViewsCollection" destination="Snz-nj-ibg" collectionClass="NSMutableArray" id="u7Z-ct-kMO"/>
+                        <outletCollection property="dottedBorderViewsCollection" destination="zbY-Su-x7P" collectionClass="NSMutableArray" id="4PT-LX-bLS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Otj-fC-KTJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
