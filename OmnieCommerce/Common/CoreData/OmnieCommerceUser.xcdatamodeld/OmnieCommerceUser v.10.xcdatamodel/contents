@@ -81,7 +81,7 @@
         <attribute name="serviceID" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="serviceName" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="organization" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Organization" inverseName="images" inverseEntity="Organization" syncable="YES"/>
-        <relationship name="service" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Service" inverseName="images" inverseEntity="Service" syncable="YES"/>
+        <relationship name="service" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Service" inverseName="images" inverseEntity="Service" syncable="YES"/>
         <uniquenessConstraints>
             <uniquenessConstraint>
                 <constraint value="imageID"/>
@@ -198,7 +198,7 @@
         <attribute name="rating" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="additionalServices" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="AdditionalService" inverseName="service" inverseEntity="AdditionalService" syncable="YES"/>
         <relationship name="discounts" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Discount" inverseName="service" inverseEntity="Discount" syncable="YES"/>
-        <relationship name="images" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="GalleryImage" inverseName="service" inverseEntity="GalleryImage" syncable="YES"/>
+        <relationship name="images" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="GalleryImage" inverseName="service" inverseEntity="GalleryImage" syncable="YES"/>
         <relationship name="organization" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Organization" inverseName="services" inverseEntity="Organization" syncable="YES"/>
         <relationship name="prices" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Price" inverseName="service" inverseEntity="Price" syncable="YES"/>
         <uniquenessConstraints>

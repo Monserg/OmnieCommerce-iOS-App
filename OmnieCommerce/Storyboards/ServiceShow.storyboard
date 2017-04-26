@@ -27,10 +27,10 @@
                                 <rect key="frame" x="0.0" y="65" width="375" height="575"/>
                                 <subviews>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Xu-pO-JDx" userLabel="Content View">
-                                        <rect key="frame" x="8" y="5" width="359" height="1149"/>
+                                        <rect key="frame" x="8" y="5" width="359" height="1261.5"/>
                                         <subviews>
                                             <stackView hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="wMy-S2-qYv" userLabel="Main Stack View">
-                                                <rect key="frame" x="0.0" y="0.0" width="359" height="1149"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="359" height="1261.5"/>
                                                 <subviews>
                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZW0-cu-1Gq" userLabel="Title View">
                                                         <rect key="frame" x="0.0" y="0.0" width="359" height="155"/>
@@ -79,7 +79,7 @@
                                                                 </userDefinedRuntimeAttributes>
                                                             </label>
                                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nCF-9A-SNv" userLabel="Title Table View" customClass="MSMTableView" customModule="OmnieCommerce" customModuleProvider="target">
-                                                                <rect key="frame" x="45.5" y="91" width="268" height="44"/>
+                                                                <rect key="frame" x="46" y="91" width="267" height="44"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="44" id="M6q-dp-aj1"/>
@@ -252,17 +252,17 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FQL-Qq-Kqg" userLabel="Gallery View">
-                                                        <rect key="frame" x="0.0" y="379" width="359" height="144"/>
+                                                        <rect key="frame" x="0.0" y="379" width="359" height="256.5"/>
                                                         <subviews>
                                                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bL0-db-UzL" userLabel="Gallery Dotted Border View" customClass="DottedBorderView" customModule="OmnieCommerce" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="0.0" width="359" height="144"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="359" height="256.5"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
                                                                 </userDefinedRuntimeAttributes>
                                                             </view>
                                                             <collectionView clipsSubviews="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Cu4-ag-tyk" customClass="MSMCollectionView" customModule="OmnieCommerce" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="21" width="359" height="102"/>
+                                                                <rect key="frame" x="0.0" y="77.5" width="359" height="102"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="15" minimumInteritemSpacing="15" id="DaC-i6-HOu">
                                                                     <size key="itemSize" width="102" height="102"/>
@@ -291,7 +291,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oGd-Wu-fih" userLabel="Services View">
-                                                        <rect key="frame" x="0.0" y="523" width="359" height="197"/>
+                                                        <rect key="frame" x="0.0" y="635.5" width="359" height="197"/>
                                                         <subviews>
                                                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S3Y-tF-2BK" userLabel="Services Dotted Border View" customClass="DottedBorderView" customModule="OmnieCommerce" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="359" height="197"/>
@@ -377,7 +377,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ntr-z4-Dg4" userLabel="Reviews View">
-                                                        <rect key="frame" x="0.0" y="720" width="359" height="215"/>
+                                                        <rect key="frame" x="0.0" y="832.5" width="359" height="215"/>
                                                         <subviews>
                                                             <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reviews" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tRu-1t-ZOo" customClass="HelveticaNeueCyrLightVeryLightGrayLabel" customModule="OmnieCommerce" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="20" width="359" height="20"/>
@@ -423,7 +423,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dA6-sL-Tdg" userLabel="Rating View">
-                                                        <rect key="frame" x="0.0" y="935" width="359" height="214"/>
+                                                        <rect key="frame" x="0.0" y="1047.5" width="359" height="214"/>
                                                         <subviews>
                                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hbu-NN-VOL" userLabel="User Name Label" customClass="UbuntuLightVeryLightOrangeLabel" customModule="OmnieCommerce" customModuleProvider="target">
                                                                 <rect key="frame" x="8" y="20" width="335" height="21"/>
@@ -580,6 +580,7 @@
                             <constraint firstItem="3d9-Qt-0Tr" firstAttribute="leading" secondItem="tP1-Vk-hMS" secondAttribute="leading" constant="8" id="4AF-wA-xbg"/>
                             <constraint firstItem="Fg2-g7-Pmf" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="95:667" id="4vO-JT-3lO"/>
                             <constraint firstItem="Fg2-g7-Pmf" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="80:375" id="5IP-Ew-d7q"/>
+                            <constraint firstItem="FQL-Qq-Kqg" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="1:4.63" id="5VN-VS-aQe"/>
                             <constraint firstItem="nCF-9A-SNv" firstAttribute="width" secondItem="tP1-Vk-hMS" secondAttribute="width" multiplier="1:2.5" id="AJ4-59-see"/>
                             <constraint firstAttribute="bottom" secondItem="3d9-Qt-0Tr" secondAttribute="bottom" constant="9" id="BFR-aI-yAf"/>
                             <constraint firstItem="WlN-sc-b1w" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="1:1.16" id="Cnu-qi-hkQ"/>
@@ -596,14 +597,19 @@
                                 <variation key="heightClass=compact-widthClass=compact" constant="-25"/>
                                 <variation key="heightClass=compact-widthClass=regular" constant="-25"/>
                             </constraint>
+                            <constraint firstItem="FQL-Qq-Kqg" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="1:2.6" id="pyo-bL-0f6"/>
+                            <constraint firstItem="Cu4-ag-tyk" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="1:3.68" id="qdX-J0-Xyv"/>
                             <constraint firstItem="vt0-so-xg2" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="30:375" id="rZy-X8-st9"/>
                             <constraint firstItem="WlN-sc-b1w" firstAttribute="width" secondItem="tP1-Vk-hMS" secondAttribute="width" id="wat-aL-lSx"/>
                             <constraint firstAttribute="trailing" secondItem="Fg2-g7-Pmf" secondAttribute="trailing" id="x1k-Kj-01b"/>
+                            <constraint firstItem="Cu4-ag-tyk" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="1:6.54" id="x9U-Ux-cwx"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="4vO-JT-3lO"/>
                                 <exclude reference="Tpd-Kw-2pc"/>
+                                <exclude reference="5VN-VS-aQe"/>
+                                <exclude reference="x9U-Ux-cwx"/>
                                 <exclude reference="Lf0-zY-sVA"/>
                             </mask>
                         </variation>
@@ -613,6 +619,9 @@
                                 <exclude reference="5IP-Ew-d7q"/>
                                 <exclude reference="AJ4-59-see"/>
                                 <include reference="Tpd-Kw-2pc"/>
+                                <include reference="5VN-VS-aQe"/>
+                                <exclude reference="qdX-J0-Xyv"/>
+                                <include reference="x9U-Ux-cwx"/>
                                 <include reference="Lf0-zY-sVA"/>
                                 <exclude reference="rZy-X8-st9"/>
                             </mask>
@@ -632,7 +641,10 @@
                         <outlet property="discountsView" destination="rUT-4I-gDz" id="lKC-Lj-bWV"/>
                         <outlet property="discountsViewHeightConstraint" destination="2My-1b-6Qx" id="NV6-p5-Fj4"/>
                         <outlet property="favoriteButton" destination="vt0-so-xg2" id="DKc-i9-lug"/>
+                        <outlet property="galleryCollectionView" destination="Cu4-ag-tyk" id="BJA-i8-Dn1"/>
+                        <outlet property="galleryView" destination="FQL-Qq-Kqg" id="2fb-bC-PXI"/>
                         <outlet property="mainStackView" destination="wMy-S2-qYv" id="eCb-ld-Jw7"/>
+                        <outlet property="modalView" destination="1SW-5w-LhH" id="bvI-cH-TsU"/>
                         <outlet property="smallTopBarView" destination="Fg2-g7-Pmf" id="ChD-wO-NQW"/>
                         <outlet property="titleLabel" destination="xGZ-jD-kNw" id="R9c-V2-9Kc"/>
                         <outlet property="titleTableView" destination="nCF-9A-SNv" id="UJe-Eo-nyv"/>
@@ -640,6 +652,7 @@
                         <outlet property="titleView" destination="ZW0-cu-1Gq" id="7Sc-wc-MXX"/>
                         <outletCollection property="dottedBorderViewsCollection" destination="Snz-nj-ibg" collectionClass="NSMutableArray" id="u7Z-ct-kMO"/>
                         <outletCollection property="dottedBorderViewsCollection" destination="zbY-Su-x7P" collectionClass="NSMutableArray" id="4PT-LX-bLS"/>
+                        <outletCollection property="dottedBorderViewsCollection" destination="bL0-db-UzL" collectionClass="NSMutableArray" id="0uQ-vO-iam"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Otj-fC-KTJ" userLabel="First Responder" sceneMemberID="firstResponder"/>

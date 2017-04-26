@@ -154,6 +154,15 @@ public class Service: NSManagedObject, InitCellParameters, PointAnnotationBindin
             }
         }
         
+        // Gallery images
+        if let galleryImages = json["serviceGallery"] as? NSArray {
+            self.images = NSSet()
+            
+            for dictionary in galleryImages {
+                let image = GalleryImage.init(json: dictionary as! [String : AnyObject], andRelationshipObject: self)
+                self.addToImages(image!)
+            }
+        }
     }
 
     deinit {

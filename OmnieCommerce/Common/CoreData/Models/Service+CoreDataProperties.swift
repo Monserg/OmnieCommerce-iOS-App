@@ -37,7 +37,7 @@ extension Service {
     @NSManaged public var placeID: String?
     @NSManaged public var rating: Double
     @NSManaged public var discounts: NSSet?
-    @NSManaged public var images: GalleryImage?
+    @NSManaged public var images: NSSet?
     @NSManaged public var organization: Organization?
     @NSManaged public var prices: NSSet?
     @NSManaged public var additionalServices: NSSet?
@@ -94,3 +94,21 @@ extension Service {
     @NSManaged public func removeFromAdditionalServices(_ values: NSSet)
 
 }
+
+// MARK: Generated accessors for images
+extension Service {
+    
+    @objc(addImagesObject:)
+    @NSManaged public func addToImages(_ value: GalleryImage)
+    
+    @objc(removeImagesObject:)
+    @NSManaged public func removeFromImages(_ value: GalleryImage)
+    
+    @objc(addImages:)
+    @NSManaged public func addToImages(_ values: NSSet)
+    
+    @objc(removeImages:)
+    @NSManaged public func removeFromImages(_ values: NSSet)
+    
+}
+

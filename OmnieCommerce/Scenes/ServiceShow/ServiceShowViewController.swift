@@ -32,6 +32,7 @@ class ServiceShowViewController: BaseViewController {
     // Outlets
     @IBOutlet weak var smallTopBarView: SmallTopBarView!
     @IBOutlet weak var mainStackView: UIStackView!
+    @IBOutlet var modalView: ModalView?
 
     @IBOutlet var dottedBorderViewsCollection: [DottedBorderView]! {
         didSet {
@@ -82,7 +83,10 @@ class ServiceShowViewController: BaseViewController {
         }
     }
 
-    
+    // Gallery view
+    @IBOutlet weak var galleryView: UIView!
+    @IBOutlet weak var galleryCollectionView: MSMCollectionView!
+
     
     
     
@@ -98,6 +102,21 @@ class ServiceShowViewController: BaseViewController {
     
 
     // MARK: - Class Functions
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        if (blackoutView != nil) {
+            modalView?.center = blackoutView!.center
+        }
+        
+//        guard let flowLayout = reviewsCollectionView.collectionViewLayout as? UICollectionViewFlowLayout else {
+//            return
+//        }
+//        
+//        flowLayout.itemSize = reviewsCollectionView.frame.size
+//        flowLayout.invalidateLayout()
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -213,7 +232,27 @@ class ServiceShowViewController: BaseViewController {
             discountsView.isHidden = true
         }
 
-        
+        // Gallery view
+        if let images = serviceProfile.images, images.count > 0 {
+            galleryView.isHidden = false
+            
+            let galleryManager = MSMCollectionViewControllerManager(withCollectionView: galleryCollectionView)
+            galleryCollectionView.collectionViewControllerManager = galleryManager
+            galleryCollectionView.collectionViewControllerManager!.sectionsCount = 1
+            _ = serviceProfile.images!.map { ($0 as! GalleryImage).cellHeight = 102.0 }
+            galleryCollectionView.collectionViewControllerManager!.dataSource = Array(serviceProfile.images!)
+            galleryCollectionView.reloadData()
+            
+            // Handler Image select
+            galleryCollectionView.collectionViewControllerManager!.handlerCellSelectCompletion = { item in
+                if item is GalleryImage {
+                    self.modalViewDidShow(withHeight: 365, customSubview: PhotosGalleryView(), andValues: Array(serviceProfile.images!))
+                }
+            }
+        } else {
+            galleryView.isHidden = true
+        }
+
         
         
         smallTopBarView.actionButton.isHidden = false
@@ -227,6 +266,37 @@ class ServiceShowViewController: BaseViewController {
         spinnerDidFinish()
     }
     
+    func modalViewDidShow(withHeight height: CGFloat, customSubview subView: CustomView, andValues values: [Any]?) {
+        var popupView = subView
+        
+        if (blackoutView == nil) {
+            blackoutView = MSMBlackoutView.init(inView: view)
+            blackoutView!.didShow()
+        }
+        
+        modalView = ModalView.init(inView: blackoutView!, withHeight: height)
+        
+        switch subView {
+        case subView as PhotosGalleryView:
+            popupView = PhotosGalleryView.init(inView: modalView!)
+            popupView.values = (values as! [GalleryImage]).filter({ $0.imagePath != nil })
+            
+        default:
+            break
+        }
+        
+        
+        // Handler Cancel button tap
+        popupView.handlerCancelButtonCompletion = { _ in
+            self.blackoutView!.didHide()
+            self.blackoutView = nil
+            
+            if ((popupView as? PhotosGalleryView) != nil) {
+                _ = self.service.images!.map { ($0 as! GalleryImage).cellHeight = 102.0 }
+            }
+        }
+    }
+
     
     // MARK: - Transition
     override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
