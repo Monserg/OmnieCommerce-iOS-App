@@ -234,6 +234,8 @@
 		B16E966F1DE6C94000147CEF /* BigTopBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16E966E1DE6C94000147CEF /* BigTopBarView.swift */; };
 		B16E96711DE6C94D00147CEF /* BigTopBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B16E96701DE6C94D00147CEF /* BigTopBarView.xib */; };
 		B16E96731DE717E400147CEF /* BigCirleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16E96721DE717E400147CEF /* BigCirleView.swift */; };
+		B16F5A491EB0752300CC0859 /* PriceServiceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16F5A471EB0752300CC0859 /* PriceServiceTableViewCell.swift */; };
+		B16F5A4A1EB0752300CC0859 /* PriceServiceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B16F5A481EB0752300CC0859 /* PriceServiceTableViewCell.xib */; };
 		B1739D161DE314C70029BCCA /* UIButton+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1739D151DE314C70029BCCA /* UIButton+Ext.swift */; };
 		B1739D181DE314D50029BCCA /* UILabel+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1739D171DE314D50029BCCA /* UILabel+Ext.swift */; };
 		B1739D1A1DE314DF0029BCCA /* UIColor+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1739D191DE314DF0029BCCA /* UIColor+Ext.swift */; };
@@ -707,6 +709,8 @@
 		B16E966E1DE6C94000147CEF /* BigTopBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BigTopBarView.swift; sourceTree = "<group>"; };
 		B16E96701DE6C94D00147CEF /* BigTopBarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BigTopBarView.xib; sourceTree = "<group>"; };
 		B16E96721DE717E400147CEF /* BigCirleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BigCirleView.swift; sourceTree = "<group>"; };
+		B16F5A471EB0752300CC0859 /* PriceServiceTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PriceServiceTableViewCell.swift; sourceTree = "<group>"; };
+		B16F5A481EB0752300CC0859 /* PriceServiceTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PriceServiceTableViewCell.xib; sourceTree = "<group>"; };
 		B1739D151DE314C70029BCCA /* UIButton+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Ext.swift"; sourceTree = "<group>"; };
 		B1739D171DE314D50029BCCA /* UILabel+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+Ext.swift"; sourceTree = "<group>"; };
 		B1739D191DE314DF0029BCCA /* UIColor+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Ext.swift"; sourceTree = "<group>"; };
@@ -1609,6 +1613,8 @@
 			children = (
 				B15125131EAE0341009A6A44 /* AdditionalServiceTableViewCell.swift */,
 				B15125141EAE0341009A6A44 /* AdditionalServiceTableViewCell.xib */,
+				B16F5A471EB0752300CC0859 /* PriceServiceTableViewCell.swift */,
+				B16F5A481EB0752300CC0859 /* PriceServiceTableViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -2187,6 +2193,7 @@
 			files = (
 				B1D7384E1E93B0B200A764F4 /* ReviewsView.xib in Resources */,
 				B151251C1EAE1126009A6A44 /* ServiceShow.storyboard in Resources */,
+				B16F5A4A1EB0752300CC0859 /* PriceServiceTableViewCell.xib in Resources */,
 				B1BF92681DD6516C00BECBBB /* helveticaneuecyr-black.otf in Resources */,
 				B1FFF72A1E5F0DFB00A075D8 /* InfoPlist.strings in Resources */,
 				B1D883141E8E8995006F4831 /* NewsDataTableViewCell.xib in Resources */,
@@ -2525,6 +2532,7 @@
 				B108746C1E5B07D3004A4FB6 /* CoreDataManager.swift in Sources */,
 				B1D8831F1E8E8C98006F4831 /* NewsDataShowPresenter.swift in Sources */,
 				B19DF2861DF94DED000AFC92 /* SchedulerViewController.swift in Sources */,
+				B16F5A491EB0752300CC0859 /* PriceServiceTableViewCell.swift in Sources */,
 				B1CF54CE1DDB51A500E98049 /* PersonalPageShowRouter.swift in Sources */,
 				B18A45CA1DEC282B003EBD2F /* DotView.swift in Sources */,
 				B17EBF181E9B5286000E61AA /* UbuntuLightSoftCyanLabel.swift in Sources */,

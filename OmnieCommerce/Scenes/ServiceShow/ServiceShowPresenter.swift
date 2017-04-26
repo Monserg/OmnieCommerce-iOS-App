@@ -38,6 +38,12 @@ class ServiceShowPresenter: ServiceShowPresenterInput {
         // Convert responseAPI body to Service CoreData news objects
         let service = Service.init(json: responseModel.responseAPI?.body as! [String: AnyObject], andOrganization: nil)
         
+        if let pricesList = service?.prices, pricesList.count > 0 {
+            let pricesArray = Array(pricesList)
+            _ = pricesArray.map({ ($0 as! Price).cellHeight = 20.0; ($0 as! Price).cellIdentifier = "PriceServiceTableViewCell" })
+            service!.prices = NSSet.init(array: pricesArray)
+        }
+
         if let placeID = service!.placeID {
             service!.googlePlaceDidLoad(positionID: placeID, completion: { _ in
                 CoreDataManager.instance.didSaveContext()

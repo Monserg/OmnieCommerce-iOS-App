@@ -42,16 +42,23 @@ class ServiceShowViewController: BaseViewController {
     // Title view
     @IBOutlet weak var titleView: UIView!
     @IBOutlet weak var favoriteButton: CustomButton!
-    @IBOutlet weak var titleLabel: UbuntuLightSoftCyanLabel!
+    @IBOutlet weak var titleLabel: UbuntuLightVeryLightOrangeLabel!
     @IBOutlet weak var titleViewHeightConstraint: NSLayoutConstraint!
-    
+    @IBOutlet weak var titleTableViewHeightConstraint: NSLayoutConstraint!
+
     @IBOutlet weak var contentLabel: UbuntuLightVeryLightGrayLabel! {
         didSet {
             contentLabel.numberOfLines = 0
         }
     }
     
+    @IBOutlet weak var titleTableView: MSMTableView! {
+        didSet {
+            titleTableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0)
+        }
+    }
 
+    
     // MARK: - Class initialization
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -73,7 +80,7 @@ class ServiceShowViewController: BaseViewController {
         // Config smallTopBarView
         navigationBarView = smallTopBarView
         smallTopBarView.type = "Child"
-        smallTopBarView.titleText = "Service".localized()
+        smallTopBarView.titleText = service.organizationName!
         haveMenuItem = false
         
         // Handler Back button tap
@@ -97,11 +104,44 @@ class ServiceShowViewController: BaseViewController {
     func serviceProfileDidShow() {
         // Setting Service profile info
         let serviceProfile = CoreDataManager.instance.entityDidLoad(byName: "Service", andPredicateParameter: service.codeID) as! Service
-        print(object: serviceProfile)
+        
+        // Title view
+        if let contentDescription = serviceProfile.descriptionContent, contentDescription.isEmpty {
+            titleView.isHidden = true
+        } else {
+            titleView.isHidden = false
+            
+            titleLabel.text = serviceProfile.name
+            contentLabel.text = serviceProfile.descriptionContent!
+            contentLabel.sizeToFit()
+            
+            favoriteButton.tag = (service.isFavorite) ? 1 : 0
+            favoriteButton.setImage(UIImage.init(named: (favoriteButton.tag == 0) ? "image-favorite-star-normal" : "image-favorite-star-selected"), for: .normal)
+
+            if ((serviceProfile.prices?.count)! > 0) {
+                let titleTableManager = MSMTableViewControllerManager.init(withTableView: titleTableView,
+                                                                           andSectionsCount: 1,
+                                                                           andEmptyMessageText: "Service prices list is empty")
+                
+                titleTableView.tableViewControllerManager = titleTableManager
+                titleTableView.tableViewControllerManager!.dataSource = Array(serviceProfile.prices!)
+                titleTableView.tableFooterView!.isHidden = true
+                titleTableViewHeightConstraint.constant = CGFloat(20.0 * Double(serviceProfile.prices!.count)) * view.heightRatio
+                titleTableView.layoutIfNeeded()
+
+                titleTableView.reloadData()
+            }
+            
+            view.setNeedsLayout()
+        }
+
+        
+        
+        
         
         smallTopBarView.actionButton.isHidden = false
 
-    //        _ = dottedBorderViewsCollection.map { $0.setNeedsDisplay() }
+        _ = dottedBorderViewsCollection.map { $0.setNeedsDisplay() }
         
         UIView.animate(withDuration: 0.3, animations: { _ in
             self.mainStackView.isHidden = false
@@ -113,8 +153,8 @@ class ServiceShowViewController: BaseViewController {
     
     // MARK: - Transition
     override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
-//        _ = dottedBorderViewsCollection.map { $0.setNeedsDisplay() }
-//        smallTopBarView.setNeedsDisplay()
+        _ = dottedBorderViewsCollection.map { $0.setNeedsDisplay() }
+        smallTopBarView.setNeedsDisplay()
 //        galleryCollectionView.reloadData()
 //        
 //        // Album
@@ -138,7 +178,7 @@ class ServiceShowViewController: BaseViewController {
         service.isFavorite = !service.isFavorite
         sender.setImage(UIImage.init(named: (sender.tag == 0) ? "image-favorite-star-normal" : "image-favorite-star-selected"), for: .normal)
         
-        MSMRestApiManager.instance.userAddRemoveOrganizationToFavorite(["service" : service.codeID], withHandlerResponseAPICompletion: { responseAPI in
+        MSMRestApiManager.instance.userRequestDidRun(.userAddRemoveServiceToFavorite(["service": service.codeID], true), withHandlerResponseAPICompletion: { responseAPI in
             if (responseAPI?.code == 200) {
                 self.favoriteButton.setImage((self.service.isFavorite) ?    UIImage(named: "image-favorite-star-selected") :
                                                                             UIImage(named: "image-favorite-star-normal"), for: .normal)

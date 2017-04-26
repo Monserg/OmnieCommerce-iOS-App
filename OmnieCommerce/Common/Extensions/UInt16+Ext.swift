@@ -25,7 +25,12 @@ extension UInt16 {
             let dayCode = self & count
             
             if (dayCode > 0) {
-                (index - lastIndex == 1) ? hitch.append(weekdayShort[index]) : comma.append(weekdayShort[index] + ", ")
+                if (index == 0) {
+                    hitch.append(weekdayShort[index])
+                } else {
+                    (index - lastIndex == 1) ? hitch.append(weekdayShort[index]) : comma.append(weekdayShort[index] + ", ")
+                }
+                
                 lastIndex = index
             }
         }

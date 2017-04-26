@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="20" id="KGk-i7-Jjw" customClass="PriceServiceTableViewCell" customModule="OmnieCommerce" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="255" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="255" height="43.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Day Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GPI-NQ-y2C" userLabel="Day" customClass="UbuntuLightSoftOrangeLabel" customModule="OmnieCommerce" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="14.5" width="58" height="14.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </label>
+                    <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Period Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wp4-3W-LVO" userLabel="Period" customClass="UbuntuLightVeryLightGrayLabel" customModule="OmnieCommerce" customModuleProvider="target">
+                        <rect key="frame" x="60" y="15" width="70.5" height="14.5"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </label>
+                    <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WaK-dA-3Qp" customClass="UbuntuLightVeryLightGrayLabel" customModule="OmnieCommerce" customModuleProvider="target">
+                        <rect key="frame" x="132.5" y="14.5" width="6" height="14.5"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="6" id="LA7-Yv-ZdO"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </label>
+                    <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="is9-5C-ayF" userLabel="Price" customClass="UbuntuLightVeryLightGrayLabel" customModule="OmnieCommerce" customModuleProvider="target">
+                        <rect key="frame" x="140.5" y="15" width="63" height="14.5"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </label>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                <constraints>
+                    <constraint firstItem="WaK-dA-3Qp" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="0tl-pP-Xra"/>
+                    <constraint firstItem="wp4-3W-LVO" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="0v9-JM-xjf"/>
+                    <constraint firstItem="GPI-NQ-y2C" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="9tw-fh-BUA"/>
+                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="is9-5C-ayF" secondAttribute="trailing" id="CTd-kx-PXc"/>
+                    <constraint firstItem="is9-5C-ayF" firstAttribute="leading" secondItem="WaK-dA-3Qp" secondAttribute="trailing" constant="2" id="Nb8-B4-COT"/>
+                    <constraint firstItem="wp4-3W-LVO" firstAttribute="leading" secondItem="GPI-NQ-y2C" secondAttribute="trailing" constant="2" id="NcO-To-f7G"/>
+                    <constraint firstItem="GPI-NQ-y2C" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="qaK-nq-TEs"/>
+                    <constraint firstItem="WaK-dA-3Qp" firstAttribute="leading" secondItem="wp4-3W-LVO" secondAttribute="trailing" constant="2" id="rW6-iN-Q4u"/>
+                    <constraint firstItem="is9-5C-ayF" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="zOo-Pb-x1m"/>
+                </constraints>
+                <userDefinedRuntimeAttributes>
+                    <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                </userDefinedRuntimeAttributes>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="GPI-NQ-y2C" firstAttribute="width" secondItem="KGk-i7-Jjw" secondAttribute="width" multiplier="1:4.4" id="TXK-LJ-GOH"/>
+            </constraints>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+            </userDefinedRuntimeAttributes>
+            <connections>
+                <outlet property="dayNameLabel" destination="GPI-NQ-y2C" id="HXg-it-Vsz"/>
+                <outlet property="periodLabel" destination="wp4-3W-LVO" id="z9y-B9-6Be"/>
+                <outlet property="priceLabel" destination="is9-5C-ayF" id="XYY-na-NFy"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+</document>
