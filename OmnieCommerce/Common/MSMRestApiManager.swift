@@ -29,6 +29,7 @@ enum RequestType {
     case userAddRemoveServiceToFavorite([String: Any], Bool)
     case userGetFavoriteOrganizationsList([String: Any], Bool)
     case userGetOrganizationsListByCategory([String: Any], Bool)
+    case userAddRemoveOrganizationToFavorite([String: Any], Bool)
     
     
     
@@ -159,6 +160,21 @@ enum RequestType {
                                                                                         bodyType: .ItemsArray,
                                                                                         headers: headersExtended,
                                                                                         parameters: (isBodyParams ? nil : params))
+            
+        case .userAddRemoveOrganizationToFavorite(let params, let isBodyParams):    return (method: .put,
+                                                                                            apiStringURL: "/user/organization/",
+                                                                                            body: (isBodyParams ? params : nil),
+                                                                                            bodyType: .Default,
+                                                                                            headers: headersExtended,
+                                                                                            parameters: (isBodyParams ? nil : params))
+        
+            
+            
+            
+            
+            
+            
+            
             
             
 //        case .(let params, let isBodyParams): return (method: .,
@@ -405,29 +421,6 @@ final class MSMRestApiManager {
         headers["Authorization"] = CoreDataManager.instance.appUser.accessToken!
         
         Alamofire.request(appURL, method: .delete, parameters: nil, encoding: JSONEncoding.default, headers: headers).responseJSON { dataResponse -> Void in
-            if (dataResponse.result.value != nil) {
-                let json = JSON(dataResponse.result.value!)
-                let responseAPI = ResponseAPI.init(fromJSON: json, withBodyType: .Default)
-                
-                handlerResponseAPICompletion(responseAPI)
-                return
-            } else {
-                handlerResponseAPICompletion(nil)
-                return
-            }
-        }
-    }
-    
-    func userAddRemoveOrganizationToFavorite(_ organizationID: [String: Any], withHandlerResponseAPICompletion handlerResponseAPICompletion: @escaping (ResponseAPI?) -> Void) {
-        guard CoreDataManager.instance.appUser.accessToken != nil else {
-//            handlerResponseAPICompletion(ResponseAPI.init(withErrorMessage: .Default))
-            return
-        }
-        
-        headers["Authorization"] = CoreDataManager.instance.appUser.accessToken!
-        appApiString = "/user/organization/"
-        
-        Alamofire.request(appURL, method: .put, parameters: organizationID, encoding: JSONEncoding.default, headers: headers).responseJSON { dataResponse -> Void in
             if (dataResponse.result.value != nil) {
                 let json = JSON(dataResponse.result.value!)
                 let responseAPI = ResponseAPI.init(fromJSON: json, withBodyType: .Default)

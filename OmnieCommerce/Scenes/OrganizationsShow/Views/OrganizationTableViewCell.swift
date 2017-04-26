@@ -51,7 +51,7 @@ class OrganizationTableViewCell: UITableViewCell, DottedBorderViewBinding {
     @IBAction func handlerFavoriteButtonTap(_ sender: UIButton) {
         isFavorite = !isFavorite
         
-        MSMRestApiManager.instance.userAddRemoveOrganizationToFavorite(["organization" : organizationID], withHandlerResponseAPICompletion: { responseAPI in
+        MSMRestApiManager.instance.userRequestDidRun(.userAddRemoveOrganizationToFavorite(["organization" : organizationID], true), withHandlerResponseAPICompletion: { responseAPI in
             if (responseAPI?.code == 200) {
                 self.favoriteButton.setImage((self.isFavorite) ?    UIImage(named: "image-favorite-star-selected") :
                                                                     UIImage(named: "image-favorite-star-normal"), for: .normal)
