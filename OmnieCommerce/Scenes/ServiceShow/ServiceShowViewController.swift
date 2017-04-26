@@ -31,7 +31,26 @@ class ServiceShowViewController: BaseViewController {
 
     // Outlets
     @IBOutlet weak var smallTopBarView: SmallTopBarView!
+    @IBOutlet weak var mainStackView: UIStackView!
 
+    @IBOutlet var dottedBorderViewsCollection: [DottedBorderView]! {
+        didSet {
+            _ = dottedBorderViewsCollection.map { $0.style = .BottomDottedLine }
+        }
+    }
+    
+    // Title view
+    @IBOutlet weak var titleView: UIView!
+    @IBOutlet weak var favoriteButton: CustomButton!
+    @IBOutlet weak var titleLabel: UbuntuLightSoftCyanLabel!
+    @IBOutlet weak var titleViewHeightConstraint: NSLayoutConstraint!
+    
+    @IBOutlet weak var contentLabel: UbuntuLightVeryLightGrayLabel! {
+        didSet {
+            contentLabel.numberOfLines = 0
+        }
+    }
+    
 
     // MARK: - Class initialization
     override func awakeFromNib() {
@@ -85,7 +104,7 @@ class ServiceShowViewController: BaseViewController {
     //        _ = dottedBorderViewsCollection.map { $0.setNeedsDisplay() }
         
         UIView.animate(withDuration: 0.3, animations: { _ in
-//            self.mainStackView.isHidden = false
+            self.mainStackView.isHidden = false
         })
         
         spinnerDidFinish()
@@ -110,6 +129,22 @@ class ServiceShowViewController: BaseViewController {
     
     
     // MARK: - Actions
+    @IBAction func handlerFavoriteButtonTap(_ sender: UIButton) {
+        guard isNetworkAvailable else {
+            return
+        }
+        
+        sender.tag = (sender.tag == 0) ? 1 : 0
+        service.isFavorite = !service.isFavorite
+        sender.setImage(UIImage.init(named: (sender.tag == 0) ? "image-favorite-star-normal" : "image-favorite-star-selected"), for: .normal)
+        
+        MSMRestApiManager.instance.userAddRemoveOrganizationToFavorite(["service" : service.codeID], withHandlerResponseAPICompletion: { responseAPI in
+            if (responseAPI?.code == 200) {
+                self.favoriteButton.setImage((self.service.isFavorite) ?    UIImage(named: "image-favorite-star-selected") :
+                                                                            UIImage(named: "image-favorite-star-normal"), for: .normal)
+            }
+        })
+    }
 
 }
 
