@@ -32,9 +32,9 @@ class ServiceShowViewController: BaseViewController {
     var wasLaunchedAPI = false
 
     // Outlets
-    @IBOutlet weak var smallTopBarView: SmallTopBarView!
-    @IBOutlet weak var mainStackView: UIStackView!
     @IBOutlet var modalView: ModalView?
+    @IBOutlet weak var mainStackView: UIStackView!
+    @IBOutlet weak var smallTopBarView: SmallTopBarView!
 
     @IBOutlet var dottedBorderViewsCollection: [DottedBorderView]! {
         didSet {
@@ -108,6 +108,14 @@ class ServiceShowViewController: BaseViewController {
     @IBOutlet weak var calendarEndTimeButton: UbuntuLightVeryLightOrangeButton!
     
     // Comment view
+    @IBOutlet weak var commentTextView: UITextView! {
+        didSet {
+            commentTextView.delegate = self
+            commentTextView.text = commentTextView.text.localized()
+            textViewPlaceholderDidUpload(commentTextView.text)
+        }
+    }
+    
     @IBOutlet weak var aroundDottedBorderView: DottedBorderView! {
         didSet {
             aroundDottedBorderView.style = .AroundDottedRectangle
@@ -153,6 +161,9 @@ class ServiceShowViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTapGestureRecognizer))
+        view.addGestureRecognizer(tapGesture)
+
         viewSettingsDidLoad()
     }
     
@@ -310,9 +321,9 @@ class ServiceShowViewController: BaseViewController {
 
         // Calendar view
         calendarView.isHidden = false
-//        calendarButton.setAttributedTitle(NSAttributedString.init(string: serviceProfile., attributes: <#T##[String : Any]?#>), for: .normal)
-//        calendarStartTimeButton.setAttributedTitle(<#T##title: NSAttributedString?##NSAttributedString?#>, for: .normal)
-//        calendarEndTimeButton.setAttributedTitle(<#T##title: NSAttributedString?##NSAttributedString?#>, for: .normal)
+        calendarButton.setAttributedTitle(NSAttributedString.init(string: Date().convertToString(withStyle: .Date), attributes: UIFont.ubuntuLightVeryLightOrange16), for: .normal)
+        calendarStartTimeButton.setAttributedTitle(NSAttributedString.init(string: Date().convertToString(withStyle: .Time), attributes: UIFont.ubuntuLightVeryLightOrange16), for: .normal)
+        calendarEndTimeButton.setAttributedTitle(NSAttributedString.init(string: Calendar.current.date(byAdding: .hour, value: 1, to: Date())!.convertToString(withStyle: .Time), attributes: UIFont.ubuntuLightVeryLightOrange16), for: .normal)
 
         // Comment view
         
@@ -417,6 +428,21 @@ class ServiceShowViewController: BaseViewController {
         }
     }
 
+    func textViewPlaceholderDidUpload(_ text: String?) {
+        if (text == nil) {
+            commentTextView.text = ""
+            commentTextView.font = UIFont.ubuntuLight12
+            commentTextView.textColor = UIColor.veryLightGray
+        } else if (text == "Comment".localized() || text!.isEmpty) {
+            commentTextView.text = "Comment".localized()
+            commentTextView.font = UIFont.ubuntuLightItalic12
+            commentTextView.textColor = UIColor.darkCyan
+        } else {
+            commentTextView.font = UIFont.ubuntuLight12
+            commentTextView.textColor = UIColor.veryLightGray
+        }
+    }
+
     
     // MARK: - Transition
     override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -462,6 +488,10 @@ class ServiceShowViewController: BaseViewController {
     
     @IBAction func handlerViewOrderButtonTap(_ sender: FillVeryLightOrangeButton) {
     }
+    
+    func handleTapGestureRecognizer(_ sender: UITapGestureRecognizer) {
+        view.endEditing(true)
+    }
 }
 
 
@@ -478,5 +508,32 @@ extension ServiceShowViewController: ServiceShowViewControllerInput {
         }
         
         self.serviceProfileDidShow()
+    }
+}
+
+
+// MARK: - UITextFieldDelegate
+extension ServiceShowViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+}
+
+
+// MARK: - UITextViewDelegate
+extension ServiceShowViewController: UITextViewDelegate {
+    func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
+        textViewPlaceholderDidUpload((textView.text == "Comment".localized()) ? nil : textView.text)
+        return true
+    }
+    
+    func textViewShouldEndEditing(_ textView: UITextView) -> Bool {
+        textViewPlaceholderDidUpload(textView.text)
+        return true
+    }
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        return true
     }
 }

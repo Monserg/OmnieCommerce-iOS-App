@@ -27,10 +27,10 @@
                                 <rect key="frame" x="0.0" y="65" width="375" height="575"/>
                                 <subviews>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Xu-pO-JDx" userLabel="Content View">
-                                        <rect key="frame" x="8" y="5" width="359" height="1727.5"/>
+                                        <rect key="frame" x="8" y="5" width="359" height="1540"/>
                                         <subviews>
                                             <stackView hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="wMy-S2-qYv" userLabel="Main Stack View">
-                                                <rect key="frame" x="0.0" y="0.0" width="359" height="1727.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="359" height="1540"/>
                                                 <subviews>
                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZW0-cu-1Gq" userLabel="Title View">
                                                         <rect key="frame" x="0.0" y="0.0" width="359" height="155"/>
@@ -496,10 +496,10 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UAT-uf-hhb" userLabel="Comment View">
-                                                        <rect key="frame" x="0.0" y="815" width="359" height="427.5"/>
+                                                        <rect key="frame" x="0.0" y="815" width="359" height="240"/>
                                                         <subviews>
                                                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gK4-bI-ZO0" userLabel="Comment Dotted Border View" customClass="DottedBorderView" customModule="OmnieCommerce" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="0.0" width="359" height="427.5"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="359" height="240"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
@@ -518,14 +518,47 @@
                                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
                                                                 </userDefinedRuntimeAttributes>
                                                             </label>
-                                                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rRM-sQ-upV" userLabel="Around Dotted Border View" customClass="DottedBorderView" customModule="OmnieCommerce" customModuleProvider="target">
+                                                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Eik-qA-8KL">
                                                                 <rect key="frame" x="0.0" y="61" width="359" height="103"/>
+                                                                <subviews>
+                                                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rRM-sQ-upV" userLabel="Around Dotted Border View" customClass="DottedBorderView" customModule="OmnieCommerce" customModuleProvider="target">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="359" height="103"/>
+                                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                                <real key="value" value="5"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                            <userDefinedRuntimeAttribute type="string" keyPath="viewStyle" value="AroundDottedRectangle"/>
+                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                                                        </userDefinedRuntimeAttributes>
+                                                                    </view>
+                                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" text="Comment" translatesAutoresizingMaskIntoConstraints="NO" id="amn-Yg-6nb" userLabel="Comment Text View">
+                                                                        <rect key="frame" x="6" y="8" width="347" height="87"/>
+                                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                                        <color key="tintColor" red="0.87058823529411766" green="0.87058823529411766" blue="0.87058823529411766" alpha="1" colorSpace="calibratedRGB"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no" enablesReturnKeyAutomatically="YES"/>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                                <color key="value" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                                                        </userDefinedRuntimeAttributes>
+                                                                    </textView>
+                                                                </subviews>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="trailing" secondItem="rRM-sQ-upV" secondAttribute="trailing" id="6HI-82-Ztb"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="rRM-sQ-upV" secondAttribute="bottom" id="6qh-HK-2xl"/>
+                                                                    <constraint firstItem="amn-Yg-6nb" firstAttribute="leading" secondItem="Eik-qA-8KL" secondAttribute="leading" constant="6" id="U0Q-2i-J2k"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="amn-Yg-6nb" secondAttribute="bottom" constant="8" id="Wy8-hm-jst"/>
+                                                                    <constraint firstItem="rRM-sQ-upV" firstAttribute="top" secondItem="Eik-qA-8KL" secondAttribute="top" id="dfV-fE-4y5"/>
+                                                                    <constraint firstItem="amn-Yg-6nb" firstAttribute="top" secondItem="Eik-qA-8KL" secondAttribute="top" constant="8" id="g9i-6D-hIh"/>
+                                                                    <constraint firstItem="rRM-sQ-upV" firstAttribute="leading" secondItem="Eik-qA-8KL" secondAttribute="leading" id="k89-wH-960"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="amn-Yg-6nb" secondAttribute="trailing" constant="6" id="ykl-r9-CjD"/>
+                                                                </constraints>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
-                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                        <real key="value" value="5"/>
-                                                                    </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
                                                             </view>
                                                             <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pza-G2-fnH" userLabel="Order Button" customClass="FillVeryLightOrangeButton" customModule="OmnieCommerce" customModuleProvider="target">
@@ -543,16 +576,16 @@
                                                         </subviews>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <constraints>
-                                                            <constraint firstItem="rRM-sQ-upV" firstAttribute="leading" secondItem="UAT-uf-hhb" secondAttribute="leading" id="42U-4x-juW"/>
+                                                            <constraint firstItem="pza-G2-fnH" firstAttribute="top" secondItem="Eik-qA-8KL" secondAttribute="bottom" constant="20" id="3Pz-LI-WKX"/>
                                                             <constraint firstItem="gK4-bI-ZO0" firstAttribute="top" secondItem="UAT-uf-hhb" secondAttribute="top" id="5TJ-2m-tfs"/>
-                                                            <constraint firstItem="rRM-sQ-upV" firstAttribute="top" secondItem="RYl-TN-LnQ" secondAttribute="bottom" constant="20" id="5yl-b6-6Pc"/>
                                                             <constraint firstAttribute="trailing" secondItem="gK4-bI-ZO0" secondAttribute="trailing" id="K4d-30-VUz"/>
-                                                            <constraint firstAttribute="trailing" secondItem="rRM-sQ-upV" secondAttribute="trailing" id="bWL-rp-edG"/>
+                                                            <constraint firstAttribute="trailing" secondItem="Eik-qA-8KL" secondAttribute="trailing" id="LLc-EA-8oy"/>
+                                                            <constraint firstItem="Eik-qA-8KL" firstAttribute="leading" secondItem="UAT-uf-hhb" secondAttribute="leading" id="MDY-CW-jNf"/>
+                                                            <constraint firstItem="Eik-qA-8KL" firstAttribute="top" secondItem="RYl-TN-LnQ" secondAttribute="bottom" constant="20" id="Nbv-LE-pPg"/>
                                                             <constraint firstItem="pza-G2-fnH" firstAttribute="centerX" secondItem="UAT-uf-hhb" secondAttribute="centerX" id="buG-EU-ddu"/>
                                                             <constraint firstItem="gK4-bI-ZO0" firstAttribute="leading" secondItem="UAT-uf-hhb" secondAttribute="leading" id="bwZ-Dg-d1h"/>
                                                             <constraint firstItem="RYl-TN-LnQ" firstAttribute="leading" secondItem="UAT-uf-hhb" secondAttribute="leading" id="cMC-Tj-u6y"/>
                                                             <constraint firstAttribute="trailing" secondItem="RYl-TN-LnQ" secondAttribute="trailing" id="hZu-7o-rA5"/>
-                                                            <constraint firstItem="pza-G2-fnH" firstAttribute="top" secondItem="rRM-sQ-upV" secondAttribute="bottom" constant="20" id="iwv-AQ-zP4"/>
                                                             <constraint firstAttribute="bottom" secondItem="gK4-bI-ZO0" secondAttribute="bottom" id="jYQ-bW-t7e"/>
                                                             <constraint firstItem="RYl-TN-LnQ" firstAttribute="top" secondItem="UAT-uf-hhb" secondAttribute="top" constant="20" id="qqb-tU-HvV"/>
                                                             <constraint firstAttribute="bottom" secondItem="pza-G2-fnH" secondAttribute="bottom" constant="20" id="vmR-Ke-xR3"/>
@@ -562,7 +595,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ntr-z4-Dg4" userLabel="Reviews View">
-                                                        <rect key="frame" x="0.0" y="1242.5" width="359" height="250"/>
+                                                        <rect key="frame" x="0.0" y="1055" width="359" height="250"/>
                                                         <subviews>
                                                             <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reviews" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tRu-1t-ZOo" customClass="HelveticaNeueCyrLightVeryLightGrayLabel" customModule="OmnieCommerce" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="20" width="359" height="20"/>
@@ -607,7 +640,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dA6-sL-Tdg" userLabel="Rating View">
-                                                        <rect key="frame" x="0.0" y="1492.5" width="359" height="235"/>
+                                                        <rect key="frame" x="0.0" y="1305" width="359" height="235"/>
                                                         <subviews>
                                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hbu-NN-VOL" userLabel="User Name Label" customClass="UbuntuLightVeryLightOrangeLabel" customModule="OmnieCommerce" customModuleProvider="target">
                                                                 <rect key="frame" x="8" y="20" width="343" height="21"/>
@@ -766,7 +799,6 @@
                             <constraint firstItem="pF1-SM-b4v" firstAttribute="width" secondItem="tP1-Vk-hMS" secondAttribute="width" multiplier="1:8" id="5EZ-T7-nkg"/>
                             <constraint firstItem="Fg2-g7-Pmf" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="80:375" id="5IP-Ew-d7q"/>
                             <constraint firstItem="FQL-Qq-Kqg" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="1:4.63" id="5VN-VS-aQe"/>
-                            <constraint firstItem="rRM-sQ-upV" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="1:3.64" id="7bP-Dm-32E"/>
                             <constraint firstItem="UAT-uf-hhb" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="1:1.56" id="7jH-OQ-VhB"/>
                             <constraint firstItem="2yL-5u-hZb" firstAttribute="width" secondItem="tP1-Vk-hMS" secondAttribute="width" multiplier="1:22" id="8Sr-Fu-BOy"/>
                             <constraint firstItem="pF1-SM-b4v" firstAttribute="width" secondItem="tP1-Vk-hMS" secondAttribute="width" multiplier="1:14" id="8mK-Vj-e5e"/>
@@ -785,6 +817,7 @@
                             <constraint firstItem="pza-G2-fnH" firstAttribute="width" secondItem="tP1-Vk-hMS" secondAttribute="width" multiplier="1:2.52" id="OEv-8g-nxA"/>
                             <constraint firstAttribute="trailing" secondItem="3d9-Qt-0Tr" secondAttribute="trailing" constant="8" id="Tdg-4A-3Gn"/>
                             <constraint firstItem="nCF-9A-SNv" firstAttribute="width" secondItem="tP1-Vk-hMS" secondAttribute="width" multiplier="1:1.4" id="Tpd-Kw-2pc"/>
+                            <constraint firstItem="Eik-qA-8KL" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="1:3.64" id="U0o-jd-EXR"/>
                             <constraint firstAttribute="trailing" secondItem="WlN-sc-b1w" secondAttribute="trailing" id="Vbq-HR-wl8"/>
                             <constraint firstItem="dA6-sL-Tdg" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="1:1.6" id="Y1O-1O-tgW"/>
                             <constraint firstItem="Ntr-z4-Dg4" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="1:1.5" id="bd0-Ag-lh8"/>
@@ -795,6 +828,7 @@
                                 <variation key="heightClass=compact-widthClass=compact" constant="-25"/>
                                 <variation key="heightClass=compact-widthClass=regular" constant="-25"/>
                             </constraint>
+                            <constraint firstItem="Eik-qA-8KL" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="1:6.48" id="gOO-Je-8dP"/>
                             <constraint firstItem="l7U-6q-qdR" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="1:4.42" id="l1b-0Y-UK2"/>
                             <constraint firstItem="3rV-A0-EdC" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="1:7.84" id="p8C-Hr-pl9"/>
                             <constraint firstItem="dA6-sL-Tdg" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="1:2.84" id="pol-Hw-6zs"/>
@@ -802,7 +836,6 @@
                             <constraint firstItem="l7U-6q-qdR" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="1:2.48" id="qEP-xj-EuX"/>
                             <constraint firstItem="Cu4-ag-tyk" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="1:3.68" id="qdX-J0-Xyv"/>
                             <constraint firstItem="vt0-so-xg2" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="30:375" id="rZy-X8-st9"/>
-                            <constraint firstItem="rRM-sQ-upV" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="1:6.48" id="uzH-Hy-tXx"/>
                             <constraint firstItem="WlN-sc-b1w" firstAttribute="width" secondItem="tP1-Vk-hMS" secondAttribute="width" id="wat-aL-lSx"/>
                             <constraint firstAttribute="trailing" secondItem="Fg2-g7-Pmf" secondAttribute="trailing" id="x1k-Kj-01b"/>
                             <constraint firstItem="Cu4-ag-tyk" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="1:6.54" id="x9U-Ux-cwx"/>
@@ -819,7 +852,7 @@
                                 <exclude reference="5EZ-T7-nkg"/>
                                 <exclude reference="xyg-pN-S81"/>
                                 <exclude reference="GcA-MV-EIp"/>
-                                <exclude reference="uzH-Hy-tXx"/>
+                                <exclude reference="gOO-Je-8dP"/>
                                 <exclude reference="DkE-Vg-kTZ"/>
                                 <exclude reference="Ji9-cp-T7l"/>
                                 <exclude reference="IQn-n8-fhD"/>
@@ -847,8 +880,8 @@
                                 <include reference="xyg-pN-S81"/>
                                 <exclude reference="7jH-OQ-VhB"/>
                                 <include reference="GcA-MV-EIp"/>
-                                <exclude reference="7bP-Dm-32E"/>
-                                <include reference="uzH-Hy-tXx"/>
+                                <exclude reference="U0o-jd-EXR"/>
+                                <include reference="gOO-Je-8dP"/>
                                 <exclude reference="Bla-Lq-UFF"/>
                                 <include reference="DkE-Vg-kTZ"/>
                                 <include reference="Ji9-cp-T7l"/>
@@ -875,6 +908,7 @@
                         <outlet property="calendarEndTimeButton" destination="zXq-a6-dry" id="DY0-tb-XFA"/>
                         <outlet property="calendarStartTimeButton" destination="pF1-SM-b4v" id="ecT-2v-8FN"/>
                         <outlet property="calendarView" destination="l7U-6q-qdR" id="NV1-6y-Kqv"/>
+                        <outlet property="commentTextView" destination="amn-Yg-6nb" id="naI-Ef-HV4"/>
                         <outlet property="contentLabel" destination="TjG-LK-AbA" id="2Va-h6-Ycz"/>
                         <outlet property="cosmosView" destination="Pts-8X-bsg" id="iBg-bE-FDC"/>
                         <outlet property="discountCommonStackView" destination="0BL-ob-R5l" id="Afw-Aa-Eh4"/>
