@@ -108,6 +108,11 @@ class ServiceShowViewController: BaseViewController {
     @IBOutlet weak var calendarEndTimeButton: UbuntuLightVeryLightOrangeButton!
     
     // Comment view
+    @IBOutlet weak var aroundDottedBorderView: DottedBorderView! {
+        didSet {
+            aroundDottedBorderView.style = .AroundDottedRectangle
+        }
+    }
     
     
     // Reviews view
@@ -369,7 +374,8 @@ class ServiceShowViewController: BaseViewController {
         smallTopBarView.actionButton.isHidden = false
 
         _ = dottedBorderViewsCollection.map { $0.setNeedsDisplay() }
-        
+        aroundDottedBorderView.setNeedsDisplay()
+
         UIView.animate(withDuration: 0.3, animations: { _ in
             self.mainStackView.isHidden = false
         })
@@ -415,6 +421,7 @@ class ServiceShowViewController: BaseViewController {
     // MARK: - Transition
     override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
         _ = dottedBorderViewsCollection.map { $0.setNeedsDisplay() }
+        aroundDottedBorderView.setNeedsDisplay()
         smallTopBarView.setNeedsDisplay()
         galleryCollectionView.reloadData()
 
@@ -453,6 +460,8 @@ class ServiceShowViewController: BaseViewController {
     @IBAction func handlerSchedulerButtonTap(_ sender: UbuntuLightVeryLightOrangeButton) {
     }
     
+    @IBAction func handlerViewOrderButtonTap(_ sender: FillVeryLightOrangeButton) {
+    }
 }
 
 

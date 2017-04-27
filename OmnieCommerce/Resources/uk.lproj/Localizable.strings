@@ -68,7 +68,6 @@
 "Our services"                  =   "Наші послуги";
 "Rate Organization"             =   "Оцініть організацію";
 "Rate Service"                  =   "Оцініть послугу";
-"View Order"                    =   "Переглянути замовлення";
 "Turn the Date"                 =   "Обрати дату";
 "Unit 0"                        =   "грн/год";
 "Unit 1"                        =   "грн/хв";
@@ -101,6 +100,7 @@
 "Delete Template"               =   "Видалити шаблон";
 "Change"                        =   "Змінити";
 "All services"                  =   "Усі послуги";
+"View Order"                    =   "Переглянути замовлення";
 
 
 // TextField Placeholders

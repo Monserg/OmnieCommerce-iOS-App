@@ -68,7 +68,6 @@
 "Our services"                  =   "Our services";
 "Rate Organization"             =   "Rate Organization";
 "Rate Service"                  =   "Rate Service";
-"View Order"                    =   "View Order";
 "Turn the Date"                 =   "Turn the Date";
 "Unit 0"                        =   "grn/hour";
 "Unit 1"                        =   "grn/min";
@@ -101,6 +100,7 @@
 "Delete Template"               =   "Delete Template";
 "Change"                        =   "Change";
 "All services"                  =   "All services";
+"View Order"                    =   "View Order";
 
 
 // TextField Placeholders
