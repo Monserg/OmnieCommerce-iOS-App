@@ -26,7 +26,6 @@ class AboutShowViewController: BaseViewController {
     var interactor: AboutShowViewControllerOutput!
     var router: AboutShowRouter!
     
-    @IBOutlet weak var copyrightLabel: CustomLabel!
     @IBOutlet weak var smallTopBarView: SmallTopBarView!
  
     

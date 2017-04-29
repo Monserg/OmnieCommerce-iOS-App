@@ -924,6 +924,7 @@
                         <outlet property="galleryView" destination="FQL-Qq-Kqg" id="2fb-bC-PXI"/>
                         <outlet property="mainStackView" destination="wMy-S2-qYv" id="eCb-ld-Jw7"/>
                         <outlet property="modalView" destination="1SW-5w-LhH" id="bvI-cH-TsU"/>
+                        <outlet property="orderButton" destination="pza-G2-fnH" id="8JA-wS-eyK"/>
                         <outlet property="ratingView" destination="dA6-sL-Tdg" id="Toi-jS-jQC"/>
                         <outlet property="reviewsCollectionView" destination="xhf-Wr-0bV" id="5t8-CX-fJE"/>
                         <outlet property="reviewsView" destination="tRu-1t-ZOo" id="6PU-QF-HRq"/>

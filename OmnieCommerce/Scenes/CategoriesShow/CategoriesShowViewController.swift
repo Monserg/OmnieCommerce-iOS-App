@@ -27,7 +27,6 @@ class CategoriesShowViewController: BaseViewController {
     var router: CategoriesShowRouter!
     
     @IBOutlet weak var cityView: UIView!
-    @IBOutlet weak var copyrightLabel: CustomLabel!
     @IBOutlet weak var smallTopBarView: SmallTopBarView!
     @IBOutlet weak var dataSourceEmptyView: UIView!
     

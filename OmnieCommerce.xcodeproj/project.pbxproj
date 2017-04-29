@@ -8,6 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		4B80CBB54BC2985E0EDC5A94 /* Pods_OmnieCommerce.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9EA988F3F694011D76FF246 /* Pods_OmnieCommerce.framework */; };
+		B100405D1EB4903200161073 /* OrderShow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B100405C1EB4903200161073 /* OrderShow.storyboard */; };
+		B10040661EB4912400161073 /* OrderShowConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100405F1EB4912400161073 /* OrderShowConfigurator.swift */; };
+		B10040671EB4912400161073 /* OrderShowInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10040601EB4912400161073 /* OrderShowInteractor.swift */; };
+		B10040681EB4912400161073 /* OrderShowModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10040611EB4912400161073 /* OrderShowModels.swift */; };
+		B10040691EB4912400161073 /* OrderShowPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10040621EB4912400161073 /* OrderShowPresenter.swift */; };
+		B100406A1EB4912400161073 /* OrderShowRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10040631EB4912400161073 /* OrderShowRouter.swift */; };
+		B100406B1EB4912400161073 /* OrderShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10040641EB4912400161073 /* OrderShowViewController.swift */; };
+		B100406C1EB4912400161073 /* OrderShowWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10040651EB4912400161073 /* OrderShowWorker.swift */; };
+		B100406F1EB4980D00161073 /* Order+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100406D1EB4980D00161073 /* Order+CoreDataClass.swift */; };
+		B10040701EB4980D00161073 /* Order+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100406E1EB4980D00161073 /* Order+CoreDataProperties.swift */; };
 		B10189B81EAB40E700C1AD2F /* Phone+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10189B61EAB40E700C1AD2F /* Phone+CoreDataClass.swift */; };
 		B10189B91EAB40E700C1AD2F /* Phone+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10189B71EAB40E700C1AD2F /* Phone+CoreDataProperties.swift */; };
 		B10189BC1EAB4C3900C1AD2F /* Schedule+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10189BA1EAB4C3900C1AD2F /* Schedule+CoreDataClass.swift */; };
@@ -477,6 +487,16 @@
 
 /* Begin PBXFileReference section */
 		796E69C2BE10D1D43C710949 /* Pods-OmnieCommerce.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OmnieCommerce.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OmnieCommerce/Pods-OmnieCommerce.debug.xcconfig"; sourceTree = "<group>"; };
+		B100405C1EB4903200161073 /* OrderShow.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = OrderShow.storyboard; sourceTree = "<group>"; };
+		B100405F1EB4912400161073 /* OrderShowConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderShowConfigurator.swift; sourceTree = "<group>"; };
+		B10040601EB4912400161073 /* OrderShowInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderShowInteractor.swift; sourceTree = "<group>"; };
+		B10040611EB4912400161073 /* OrderShowModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderShowModels.swift; sourceTree = "<group>"; };
+		B10040621EB4912400161073 /* OrderShowPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderShowPresenter.swift; sourceTree = "<group>"; };
+		B10040631EB4912400161073 /* OrderShowRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderShowRouter.swift; sourceTree = "<group>"; };
+		B10040641EB4912400161073 /* OrderShowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderShowViewController.swift; sourceTree = "<group>"; };
+		B10040651EB4912400161073 /* OrderShowWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderShowWorker.swift; sourceTree = "<group>"; };
+		B100406D1EB4980D00161073 /* Order+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Order+CoreDataClass.swift"; sourceTree = "<group>"; };
+		B100406E1EB4980D00161073 /* Order+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Order+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		B10189B61EAB40E700C1AD2F /* Phone+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Phone+CoreDataClass.swift"; sourceTree = "<group>"; };
 		B10189B71EAB40E700C1AD2F /* Phone+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Phone+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		B10189BA1EAB4C3900C1AD2F /* Schedule+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Schedule+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -1023,6 +1043,20 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		B100405E1EB4910400161073 /* OrderShow */ = {
+			isa = PBXGroup;
+			children = (
+				B100405F1EB4912400161073 /* OrderShowConfigurator.swift */,
+				B10040601EB4912400161073 /* OrderShowInteractor.swift */,
+				B10040611EB4912400161073 /* OrderShowModels.swift */,
+				B10040621EB4912400161073 /* OrderShowPresenter.swift */,
+				B10040631EB4912400161073 /* OrderShowRouter.swift */,
+				B10040641EB4912400161073 /* OrderShowViewController.swift */,
+				B10040651EB4912400161073 /* OrderShowWorker.swift */,
+			);
+			path = OrderShow;
+			sourceTree = "<group>";
+		};
 		B10874661E5B077D004A4FB6 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
@@ -1052,6 +1086,8 @@
 				B11DCAF31E9E234200180375 /* GalleryImage+CoreDataProperties.swift */,
 				B14172031EA7969B006120A1 /* NewsData+CoreDataClass.swift */,
 				B14172041EA7969B006120A1 /* NewsData+CoreDataProperties.swift */,
+				B100406D1EB4980D00161073 /* Order+CoreDataClass.swift */,
+				B100406E1EB4980D00161073 /* Order+CoreDataProperties.swift */,
 				B1D9AD7F1EA8A40E006A3852 /* Organization+CoreDataClass.swift */,
 				B1D9AD801EA8A40E006A3852 /* Organization+CoreDataProperties.swift */,
 				B10189B61EAB40E700C1AD2F /* Phone+CoreDataClass.swift */,
@@ -1256,6 +1292,7 @@
 				B122F22B1DD35E550018A701 /* MessagesShow.storyboard */,
 				B122F2311DD35EF10018A701 /* NewsShow.storyboard */,
 				B1CF54EB1DDB57C300E98049 /* OmnieCardsShow.storyboard */,
+				B100405C1EB4903200161073 /* OrderShow.storyboard */,
 				B122F2291DD35D6F0018A701 /* OrdersShow.storyboard */,
 				B1BEEDF61E6368F000F1DE8A /* OrganizationShow.storyboard */,
 				B1FFF7181E5F01A000A075D8 /* OrganizationsMapShow.storyboard */,
@@ -1286,6 +1323,7 @@
 				B122F1D21DD35B320018A701 /* NewsShow */,
 				B1CF546D1DDB508A00E98049 /* OmnieCardsShow */,
 				B1CF54671DDB501900E98049 /* OnmieSoftShow */,
+				B100405E1EB4910400161073 /* OrderShow */,
 				B122F1D31DD35B3B0018A701 /* OrdersShow */,
 				B1BEEDE71E63684A00F1DE8A /* OrganizationShow */,
 				B1FFF7091E5F015D00A075D8 /* OrganizationsMapShow */,
@@ -2191,6 +2229,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B100405D1EB4903200161073 /* OrderShow.storyboard in Resources */,
 				B1D7384E1E93B0B200A764F4 /* ReviewsView.xib in Resources */,
 				B151251C1EAE1126009A6A44 /* ServiceShow.storyboard in Resources */,
 				B16F5A4A1EB0752300CC0859 /* PriceServiceTableViewCell.xib in Resources */,
@@ -2378,6 +2417,7 @@
 				B1CF54971DDB512000E98049 /* DiscountCardsShowViewController.swift in Sources */,
 				B15291591DDE3FFA00BBA1E0 /* MenuSectionHeaderView.swift in Sources */,
 				B1BEEDEF1E63687500F1DE8A /* OrganizationShowConfigurator.swift in Sources */,
+				B10040701EB4980D00161073 /* Order+CoreDataProperties.swift in Sources */,
 				B151251A1EAE0DD0009A6A44 /* AdditionalService+CoreDataProperties.swift in Sources */,
 				B1FFF7151E5F017A00A075D8 /* OrganizationsMapShowRouter.swift in Sources */,
 				B1767D7A1E93DA520095859B /* UbuntuLightSoftOrangeLabel.swift in Sources */,
@@ -2436,6 +2476,7 @@
 				B1739D1C1DE314E80029BCCA /* UIView+Ext.swift in Sources */,
 				B1CF54A41DDB515000E98049 /* HandbookShowRouter.swift in Sources */,
 				B1CF54A31DDB515000E98049 /* HandbookShowPresenter.swift in Sources */,
+				B10040661EB4912400161073 /* OrderShowConfigurator.swift in Sources */,
 				B1FFF7161E5F017A00A075D8 /* OrganizationsMapShowViewController.swift in Sources */,
 				B14CD91A1E57C058005F8BF6 /* Protocols.swift in Sources */,
 				B137EC951E7D19FB006F0184 /* MSMCollectionViewControllerManager.swift in Sources */,
@@ -2492,6 +2533,7 @@
 				B122F20B1DD35BEB0018A701 /* CategoriesShowWorker.swift in Sources */,
 				B1FBC9231E6D940D00D86429 /* UbuntuLightVeryLightOrangeLabel.swift in Sources */,
 				B122DF641DF7F957003823AD /* CalendarShowInteractor.swift in Sources */,
+				B10040671EB4912400161073 /* OrderShowInteractor.swift in Sources */,
 				B1CF54DD1DDB51BE00E98049 /* SettingsShowViewController.swift in Sources */,
 				B18A45CC1DEC3918003EBD2F /* SmallCirleView.swift in Sources */,
 				B10189C31EAB71B400C1AD2F /* Discount+CoreDataProperties.swift in Sources */,
@@ -2517,6 +2559,8 @@
 				B1CF54A01DDB515000E98049 /* HandbookShowConfigurator.swift in Sources */,
 				B122DF661DF7F957003823AD /* CalendarShowPresenter.swift in Sources */,
 				B14172051EA7969B006120A1 /* NewsData+CoreDataClass.swift in Sources */,
+				B10040691EB4912400161073 /* OrderShowPresenter.swift in Sources */,
+				B100406B1EB4912400161073 /* OrderShowViewController.swift in Sources */,
 				B1CF54981DDB512000E98049 /* DiscountCardsShowWorker.swift in Sources */,
 				B122F1FD1DD35BC70018A701 /* FavoriteShowWorker.swift in Sources */,
 				B14E974D1DD8B042001E1DE2 /* SignInShowViewController.swift in Sources */,
@@ -2627,6 +2671,7 @@
 				B1CF547C1DDB50D900E98049 /* AboutShowWorker.swift in Sources */,
 				B1CF54DA1DDB51BE00E98049 /* SettingsShowModels.swift in Sources */,
 				B1EC9F311E8B7FEF00F2E342 /* FavoriteOrganizationTableViewCell.swift in Sources */,
+				B100406A1EB4912400161073 /* OrderShowRouter.swift in Sources */,
 				B14C07201EA0993800556866 /* ServicesShowModels.swift in Sources */,
 				B1CF54791DDB50D900E98049 /* AboutShowPresenter.swift in Sources */,
 				B122F1F71DD35BC70018A701 /* FavoriteShowConfigurator.swift in Sources */,
@@ -2635,12 +2680,14 @@
 				B13FE1A81E95121B000DD416 /* NewsItemShowViewController.swift in Sources */,
 				B1FBC91D1E6D902C00D86429 /* HelveticaNeueCyrLightVeryLightGrayLabel.swift in Sources */,
 				B1CF54931DDB512000E98049 /* DiscountCardsShowInteractor.swift in Sources */,
+				B10040681EB4912400161073 /* OrderShowModels.swift in Sources */,
 				B1D883221E8E8C98006F4831 /* NewsDataShowWorker.swift in Sources */,
 				B1D8832B1E8E8D63006F4831 /* NewsActionsShowInteractor.swift in Sources */,
 				B1CF54C01DDB519000E98049 /* OnmieSoftShowRouter.swift in Sources */,
 				B14C07291EA0AA7700556866 /* ExpandedHeaderCell.swift in Sources */,
 				B10874A61E5B3D7E004A4FB6 /* AppUser+CoreDataClass.swift in Sources */,
 				B1CF54BC1DDB519000E98049 /* OnmieSoftShowConfigurator.swift in Sources */,
+				B100406C1EB4912400161073 /* OrderShowWorker.swift in Sources */,
 				B122F1EF1DD35BA70018A701 /* MessagesShowWorker.swift in Sources */,
 				B122F2241DD35CC80018A701 /* SlideMenuShowModels.swift in Sources */,
 				B1CF54CB1DDB51A500E98049 /* PersonalPageShowInteractor.swift in Sources */,
@@ -2678,6 +2725,7 @@
 				B177E5571E54B739004F1390 /* RepetitionPasswordShowInteractor.swift in Sources */,
 				B15125151EAE0341009A6A44 /* AdditionalServiceTableViewCell.swift in Sources */,
 				B10871521E379A4800374DD5 /* OmnieCard.swift in Sources */,
+				B100406F1EB4980D00161073 /* Order+CoreDataClass.swift in Sources */,
 				B122A5981E6C728300C39B67 /* Message.swift in Sources */,
 				B1BEEDF31E63687500F1DE8A /* OrganizationShowRouter.swift in Sources */,
 				B14E975A1DD8B052001E1DE2 /* SignUpShowRouter.swift in Sources */,

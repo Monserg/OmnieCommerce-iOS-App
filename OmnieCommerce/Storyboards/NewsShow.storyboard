@@ -111,7 +111,6 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="containerView" destination="yPG-gu-zm3" id="q4b-P0-IiW"/>
-                        <outlet property="copyrightLabel" destination="krF-Rc-3FU" id="GIf-FF-rYt"/>
                         <outlet property="segmentedControlView" destination="QEZ-zG-MDi" id="ye3-yD-hY5"/>
                         <outlet property="smallTopBarView" destination="KMj-II-PyU" id="ZE4-9S-C7d"/>
                     </connections>

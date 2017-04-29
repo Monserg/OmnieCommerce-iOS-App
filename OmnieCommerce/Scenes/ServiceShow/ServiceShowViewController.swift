@@ -29,6 +29,7 @@ class ServiceShowViewController: BaseViewController {
     var router: ServiceShowRouter!
     
     var service: Service!
+    var order: Order?
     var wasLaunchedAPI = false
 
     // Outlets
@@ -122,6 +123,12 @@ class ServiceShowViewController: BaseViewController {
         }
     }
     
+    @IBOutlet weak var orderButton: FillVeryLightOrangeButton! {
+        didSet {
+            // FIXME: - SET DEFAULT = FALSE
+            orderButton.isEnabled = true
+        }
+    }
     
     // Reviews view
     @IBOutlet weak var reviewsView: UIView!
@@ -484,9 +491,17 @@ class ServiceShowViewController: BaseViewController {
     }
     
     @IBAction func handlerSchedulerButtonTap(_ sender: UbuntuLightVeryLightOrangeButton) {
+        // TODO: - ADD ENABLE ORDER BUTTON AFTER MAKE ORDER!!!
+        
     }
     
     @IBAction func handlerViewOrderButtonTap(_ sender: FillVeryLightOrangeButton) {
+        if let orderItem = self.order {
+            self.router.navigateToOrder(orderItem)
+        } else {
+            // TODO: - DELETE AFTER CREATE ORDER
+            self.router.navigateToOrderNil()
+        }
     }
     
     func handleTapGestureRecognizer(_ sender: UITapGestureRecognizer) {

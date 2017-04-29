@@ -25,7 +25,6 @@ class DiscountCardsShowViewController: BaseViewController {
     var output: DiscountCardsShowViewControllerOutput!
     var router: DiscountCardsShowRouter!
     
-    @IBOutlet weak var copyrightLabel: CustomLabel!
     @IBOutlet weak var smallTopBarView: SmallTopBarView!
 
     

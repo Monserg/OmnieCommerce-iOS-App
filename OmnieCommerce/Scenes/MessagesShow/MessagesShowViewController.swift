@@ -26,7 +26,6 @@ class MessagesShowViewController: BaseViewController {
     var interactor: MessagesShowViewControllerOutput!
     var router:     MessagesShowRouter!
     
-    @IBOutlet weak var copyrightLabel: CustomLabel!
     @IBOutlet weak var smallTopBarView: SmallTopBarView!
 
     @IBOutlet weak var tableView: MSMTableView! {

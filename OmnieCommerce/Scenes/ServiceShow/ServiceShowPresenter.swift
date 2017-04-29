@@ -35,7 +35,7 @@ class ServiceShowPresenter: ServiceShowPresenterInput {
             return
         }
         
-        // Convert responseAPI body to Service CoreData news objects
+        // Convert responseAPI body to Service CoreData object
         let service = Service.init(json: responseModel.responseAPI?.body as! [String: AnyObject], andOrganization: nil)
         
         if let pricesList = service?.prices, pricesList.count > 0 {

@@ -27,7 +27,6 @@ class OmnieCardsShowViewController: BaseViewController {
     let barcodeViewModel = OmnieCardViewModel()
     
     @IBOutlet weak var barcodeView: BarCodeView!
-    @IBOutlet weak var copyrightLabel: CustomLabel!
     @IBOutlet weak var smallTopBarView: SmallTopBarView!
 
     

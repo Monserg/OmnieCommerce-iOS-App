@@ -25,7 +25,6 @@ class HandbookShowViewController: BaseViewController {
     var output: HandbookShowViewControllerOutput!
     var router: HandbookShowRouter!
     
-    @IBOutlet weak var copyrightLabel: CustomLabel!
     @IBOutlet weak var smallTopBarView: SmallTopBarView!
     
     

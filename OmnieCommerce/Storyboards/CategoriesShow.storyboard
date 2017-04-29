@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -14,7 +14,7 @@
         <scene sceneID="rjz-Lj-cwH">
             <objects>
                 <navigationController storyboardIdentifier="CategoriesShowNC" navigationBarHidden="YES" id="24b-G7-hfs" customClass="BaseNavigationController" customModule="OmnieCommerce" customModuleProvider="target" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="PI4-fx-hmq">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="PI4-fx-hmq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -177,7 +177,6 @@
                         <outlet property="cityButton" destination="b7l-X1-Tog" id="9RM-0c-KEc"/>
                         <outlet property="cityView" destination="oTC-Vw-t0Y" id="64U-N3-qX5"/>
                         <outlet property="collectionView" destination="YeW-Nj-fIe" id="1gN-Ft-XR8"/>
-                        <outlet property="copyrightLabel" destination="3d9-Qt-0Tr" id="zEn-bA-QNI"/>
                         <outlet property="dataSourceEmptyView" destination="p82-i2-HMJ" id="tIb-zs-PjR"/>
                         <outlet property="smallTopBarView" destination="Fg2-g7-Pmf" id="riy-IY-my1"/>
                     </connections>

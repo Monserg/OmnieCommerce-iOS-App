@@ -148,6 +148,7 @@
 "ActionItem"                    =   "Акция";
 "NewsItem"                      =   "Новость";
 "Service"                       =   "Услуга";
+"Order"                         =   "Заказ";
 
 
 // Alert actions

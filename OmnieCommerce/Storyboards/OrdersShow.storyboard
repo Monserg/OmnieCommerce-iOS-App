@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -80,7 +80,6 @@
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" title="Orders" id="5Gb-Un-bfT"/>
                     <connections>
-                        <outlet property="copyrightLabel" destination="EBq-Ba-TWn" id="9Op-AH-kSN"/>
                         <outlet property="smallTopBarView" destination="0nN-5h-FmO" id="Xmu-1G-Ez6"/>
                     </connections>
                 </viewController>
@@ -127,7 +126,7 @@
                     </userDefinedRuntimeAttributes>
                 </view>
             </objects>
-            <point key="canvasLocation" x="1621.7391304347827" y="147.55434782608697"/>
+            <point key="canvasLocation" x="-5689" y="170"/>
         </scene>
         <!--CalendarShowVC-->
         <scene sceneID="XE4-EO-mMt">
@@ -135,7 +134,7 @@
                 <viewControllerPlaceholder storyboardName="CalendarShow" referencedIdentifier="CalendarShowVC" id="seO-We-1VM" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7AS-RO-pqL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2309" y="148"/>
+            <point key="canvasLocation" x="-5017" y="169"/>
         </scene>
         <!--Base Navigation Controller-->
         <scene sceneID="yqS-Bc-pCM">
@@ -143,7 +142,7 @@
                 <navigationController storyboardIdentifier="OrdersShowNC" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="g2I-y5-hYL" customClass="BaseNavigationController" customModule="OmnieCommerce" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="RsX-5O-ea1">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="RsX-5O-ea1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -154,7 +153,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zbx-xR-Fvn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="604" y="147.97601199400302"/>
+            <point key="canvasLocation" x="-6508" y="169"/>
         </scene>
     </scenes>
 </document>

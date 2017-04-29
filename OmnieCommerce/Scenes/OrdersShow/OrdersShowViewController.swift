@@ -25,7 +25,6 @@ class OrdersShowViewController: BaseViewController {
     var output: OrdersShowViewControllerOutput!
     var router: OrdersShowRouter!
     
-    @IBOutlet weak var copyrightLabel: CustomLabel!
     @IBOutlet weak var smallTopBarView: SmallTopBarView!
 
 

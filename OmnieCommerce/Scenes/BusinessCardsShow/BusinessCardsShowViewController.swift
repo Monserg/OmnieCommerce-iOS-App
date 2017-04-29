@@ -25,7 +25,6 @@ class BusinessCardsShowViewController: BaseViewController {
     var output: BusinessCardsShowViewControllerOutput!
     var router: BusinessCardsShowRouter!
     
-    @IBOutlet weak var copyrightLabel: CustomLabel!
     @IBOutlet weak var smallTopBarView: SmallTopBarView!
     
     

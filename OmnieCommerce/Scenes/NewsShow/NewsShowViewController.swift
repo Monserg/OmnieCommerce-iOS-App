@@ -42,7 +42,6 @@ class NewsShowViewController: BaseViewController {
         }
     }
 
-    @IBOutlet weak var copyrightLabel: CustomLabel!
     @IBOutlet weak var smallTopBarView: SmallTopBarView!
     @IBOutlet weak var segmentedControlView: SegmentedControlView!
     @IBOutlet weak var containerView: CustomView!

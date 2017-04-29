@@ -25,7 +25,6 @@ class SettingsShowViewController: BaseViewController {
     var output: SettingsShowViewControllerOutput!
     var router: SettingsShowRouter!
     
-    @IBOutlet weak var copyrightLabel: CustomLabel!
     @IBOutlet weak var smallTopBarView: SmallTopBarView!
 
     
