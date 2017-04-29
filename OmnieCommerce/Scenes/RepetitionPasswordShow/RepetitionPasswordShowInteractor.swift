@@ -29,9 +29,10 @@ class RepetitionPasswordShowInteractor: RepetitionPasswordShowInteractorInput {
     
     // MARK: - Custom Functions. Business logic
     func newPasswordDidChange(withRequestModel requestModel: RepetitionPasswordShowModels.Password.RequestModel) {
-        MSMRestApiManager.instance.userChangePasswordFromLogin(requestModel.email, withNewPassword: requestModel.newPassword, withResetToken: requestModel.resetToken) { responseAPI in
+        let parameters = [ "email": requestModel.email, "password": requestModel.newPassword, "resetToken": requestModel.resetToken]
+        MSMRestApiManager.instance.userRequestDidRun(.userChangePasswordFromLogin(parameters, true), withHandlerResponseAPICompletion: { responseAPI in
             let responseModel = RepetitionPasswordShowModels.Password.ResponseModel(response: responseAPI)
             self.presenter.newPasswordDidPrepareToShowChange(fromResponseModel: responseModel)
-        }
+        })
     }
 }

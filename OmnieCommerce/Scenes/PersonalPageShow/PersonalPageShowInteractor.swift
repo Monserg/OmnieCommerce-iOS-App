@@ -41,18 +41,18 @@ class PersonalPageShowInteractor: PersonalPageShowInteractorInput {
     
     // MARK: - Custom Functions. Business logic
     func userAppDataDidLoad(withRequestModel requestModel: PersonalPageShowModels.LoadData.RequestModel) {
-        MSMRestApiManager.instance.userGetProfileData { responseAPI in
+        MSMRestApiManager.instance.userRequestDidRun(.userGetProfileData(nil, false), withHandlerResponseAPICompletion: { responseAPI in
             // Pass the result to the Presenter
             let loadResponseModel = PersonalPageShowModels.LoadData.ResponseModel(responseAPI: responseAPI)
             self.presenter.userAppDataDidPrepareToShowLoad(fromResponseModel: loadResponseModel)
-        }
+        })
     }
     
     func userAppDataDidUpload(withRequestModel requestModel: PersonalPageShowModels.UploadData.RequestModel) {
         let profileParameters = (requestModel.parameters as! [[String: Any]]).first!
         let passwordsParameters: [String: Any]? = ((requestModel.parameters as! [[String: Any]]).count > 1) ? (requestModel.parameters as! [[String: Any]]).last : nil
         
-        MSMRestApiManager.instance.userUploadProfileData(profileParameters, withHandlerResponseAPICompletion: { responseAPI in
+        MSMRestApiManager.instance.userRequestDidRun(.userUploadProfileData(profileParameters, true), withHandlerResponseAPICompletion: { responseAPI in
             // Pass the result to the Presenter
             let responseModel = PersonalPageShowModels.UploadData.ResponseModel(responseAPI: responseAPI, passwordsParams: passwordsParameters)
             self.presenter.userAppDataDidPrepareToShowUpload(fromResponseModel: responseModel)
@@ -68,7 +68,7 @@ class PersonalPageShowInteractor: PersonalPageShowInteractorInput {
     }
 
     func userAppImageDidDelete(withRequestModel requestModel: PersonalPageShowModels.LoadData.RequestModel) {
-        MSMRestApiManager.instance.userDeleteImage(withHandlerResponseAPICompletion: { responseAPI in
+        MSMRestApiManager.instance.userRequestDidRun(.userDeleteImage(nil, true), withHandlerResponseAPICompletion: { responseAPI in
             // Pass the result to the Presenter
             let imageDeleteResponseModel = PersonalPageShowModels.LoadData.ResponseModel(responseAPI: responseAPI)
             self.presenter.userAppImageDidPrepareToShowDelete(fromResponseModel: imageDeleteResponseModel)
@@ -76,7 +76,7 @@ class PersonalPageShowInteractor: PersonalPageShowInteractorInput {
     }
     
     func userAppPasswordDidChange(withRequestModel requestModel: PersonalPageShowModels.UploadData.RequestModel) {
-        MSMRestApiManager.instance.userChangePasswordFromProfile(requestModel.parameters as! [String: Any], withHandlerResponseAPICompletion: { responseAPI in
+        MSMRestApiManager.instance.userRequestDidRun(.userChangePasswordFromProfile(requestModel.parameters as! [String: Any], true), withHandlerResponseAPICompletion: { responseAPI in
             // Pass the result to the Presenter
             let passwordChangeResponseModel = PersonalPageShowModels.UploadData.ResponseModel(responseAPI: responseAPI, passwordsParams: nil)
             self.presenter.userAppPasswordDidPrepareToShowChange(fromResponseModel: passwordChangeResponseModel)
@@ -84,7 +84,7 @@ class PersonalPageShowInteractor: PersonalPageShowInteractorInput {
     }
 
     func userAppEmailDidChange(withRequestModel requestModel: PersonalPageShowModels.ChangeEmail.RequestModel) {
-        MSMRestApiManager.instance.userChangeEmail(requestModel.email, withHandlerResponseAPICompletion: { responseAPI in
+        MSMRestApiManager.instance.userRequestDidRun(.userChangeEmail(["email": requestModel.email], false), withHandlerResponseAPICompletion: { responseAPI in
             // Pass the result to the Presenter
             let emailChangeResponseModel = PersonalPageShowModels.ChangeEmail.ResponseModel(responseAPI: responseAPI)
             self.presenter.userAppEmailDidPrepareToShowChange(fromResponseModel: emailChangeResponseModel)

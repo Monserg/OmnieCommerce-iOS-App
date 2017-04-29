@@ -568,9 +568,9 @@ class OrganizationShowViewController: BaseViewController {
         
         sender.tag = (sender.tag == 0) ? 1 : 0
         organization.isFavorite = !organization.isFavorite
-        sender.setImage(UIImage.init(named: (sender.tag == 0) ? "image-favorite-star-normal" : "image-favorite-star-selected"), for: .normal)
+        sender.setImage(UIImage.init(named: (sender.tag == 0) ? "image-favorite-star-normal": "image-favorite-star-selected"), for: .normal)
         
-        MSMRestApiManager.instance.userRequestDidRun(.userAddRemoveOrganizationToFavorite(["organization" : organization.codeID], true), withHandlerResponseAPICompletion: { responseAPI in
+        MSMRestApiManager.instance.userRequestDidRun(.userAddRemoveFavoriteOrganization(["organization": organization.codeID], true), withHandlerResponseAPICompletion: { responseAPI in
             if (responseAPI?.code == 200) {
                 self.favoriteButton.setImage((self.organization.isFavorite) ?   UIImage(named: "image-favorite-star-selected") :
                                                                                 UIImage(named: "image-favorite-star-normal"), for: .normal)

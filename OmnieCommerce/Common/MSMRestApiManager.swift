@@ -13,49 +13,78 @@ import SwiftyJSON
 typealias RequestParametersType = (method: HTTPMethod, apiStringURL: String, body: [String: Any]?, bodyType: BodyType, headers: [String: String]?, parameters: [String: Any]?)
 
 enum RequestType {
-    case userCheckEmail([String: Any], Bool)
-    case userAutorization([String: Any], Bool)
+    // Security
+    case userCheckEmail([String: Any], Bool)                // Forgot password. Step 2
     case userRegistration([String: Any], Bool)
-    case userGetActionByID([String: Any], Bool)
-    case userForgotPassword([String: Any], Bool)
-    case userGetActionsList([String: Any], Bool)
+    case userAutorization([String: Any], Bool)
+    case userForgotPassword([String: Any], Bool)            // Forgot password. Step 1
+    case userChangePasswordFromLogin([String: Any], Bool)   // Forgot password. Step 3
+    
+    
+    // Categories
+    case userGetCategoriesList([String: Any], Bool)
+    
+    
+    // Handbook
+    
+    
+    
+    // Order
+    case userMakeNewOrder([String: Any], Bool)
+    case userGetOrderByID([String: Any], Bool)
+    case userGetOrdersList([String: Any], Bool)
+    case userCancelOrderByID([String: Any], Bool)
+    case userGetOrderTimeSheetForDay([String: Any], Bool)
+    case userGetOrderPriceWithoutDiscount([String: Any], Bool)
+    
+    
+    // Organization
+    case userGetOrganizationByID([String: Any], Bool)
+    case userGetOrganizationsListByName([String: Any], Bool)
+    case userGetFavoriteOrganizationsList([String: Any], Bool)
+    case userAddRemoveFavoriteOrganization([String: Any], Bool)
+    case userGetOrganizationsListByCategory([String: Any], Bool)
+    case userGetOrganizationsListBySubcategory([String: Any], Bool)
+    
+    
+    // Service
     case userGetServiceByID([String: Any], Bool)
+    case userGetServicesListByName([String: Any], Bool)
+    case userGetFavoriteServicesList([String: Any], Bool)
+    case userAddRemoveFavoriteService([String: Any], Bool)
+    case userGetServicesListByCategory([String: Any], Bool)
+    case userGetServicesListBySubcategory([String: Any], Bool)
+    
+    
+    
+    // News
+    case userGetActionByID([String: Any], Bool)
+    case userGetActionsList([String: Any], Bool)
     case userGetNewsDataByID([String: Any], Bool)
     case userGetNewsDataList([String: Any], Bool)
-    case userGetCategoriesList([String: Any], Bool)
-    case userGetOrganizationByID([String: Any], Bool)
-    case userGetFavoriteServicesList([String: Any], Bool)
-    case userGetServicesListByCategory([String: Any], Bool)
-    case userAddRemoveServiceToFavorite([String: Any], Bool)
-    case userGetFavoriteOrganizationsList([String: Any], Bool)
-    case userGetOrganizationsListByCategory([String: Any], Bool)
-    case userAddRemoveOrganizationToFavorite([String: Any], Bool)
     
     
+    // Profile
+    case userDeleteImage([String: Any]?, Bool)
+    case userChangeEmail([String: Any], Bool)
+    case userGetProfileData([String: Any]?, Bool)
+    case userUploadProfileData([String: Any], Bool)
+    case userGetProfileSettings([String: Any], Bool)
+    case userUploadProfileSettings([String: Any], Bool)
+    case userChangePasswordFromProfile([String: Any], Bool)
     
-//    case ([String: Any], Bool)
-//    case ([String: Any], Bool)
-//    case ([String: Any], Bool)
-//    case ([String: Any], Bool)
-//    case ([String: Any], Bool)
-
+    
     func introduced() -> RequestParametersType {
         let headers = [ "Content-Type": "application/json" ]
         let userAccessToken = CoreDataManager.instance.appUser.accessToken
-        let headersExtended = (userAccessToken != nil) ? [ "Content-Type": "application/json", "Authorization" : userAccessToken! ] : nil
+        var headersExtended = (userAccessToken != nil) ? [ "Content-Type": "application/json", "Authorization": userAccessToken! ] : nil
         
         // Body & Parametes named such as in Postman
         switch self {
+            // Security
         // Forgot password, step 2
         case .userCheckEmail(let params, let isBodyParams):     return (method: .post,
                                                                         apiStringURL: "/forgot/",
-                                                                        body: (isBodyParams ? params : nil),
-                                                                        bodyType: .Default,
-                                                                        headers: headers,
-                                                                        parameters: (isBodyParams ? nil : params))
-            
-        case .userAutorization(let params, let isBodyParams):   return (method: .post,
-                                                                        apiStringURL: "/auth/",
                                                                         body: (isBodyParams ? params : nil),
                                                                         bodyType: .Default,
                                                                         headers: headers,
@@ -68,34 +97,191 @@ enum RequestType {
                                                                         headers: headers,
                                                                         parameters: (isBodyParams ? nil : params))
             
-        case .userGetActionByID(let params, let isBodyParams):  return (method: .get,
-                                                                        apiStringURL: "/user/promotion/",
+        case .userAutorization(let params, let isBodyParams):   return (method: .post,
+                                                                        apiStringURL: "/auth/",
                                                                         body: (isBodyParams ? params : nil),
-                                                                        bodyType: .ItemsDictionary,
-                                                                        headers: headersExtended,
+                                                                        bodyType: .Default,
+                                                                        headers: headers,
                                                                         parameters: (isBodyParams ? nil : params))
-
-        case .userGetServiceByID(let params, let isBodyParams): return (method: .get,
-                                                                        apiStringURL: "/user/service/",
-                                                                        body: (isBodyParams ? params : nil),
-                                                                        bodyType: .ItemsDictionary,
-                                                                        headers: headersExtended,
-                                                                        parameters: (isBodyParams ? nil : params))
-        
+            
+        // Forgot password. Step 1
         case .userForgotPassword(let params, let isBodyParams):     return (method: .get,
                                                                             apiStringURL: "/forgot/",
                                                                             body: (isBodyParams ? params : nil),
                                                                             bodyType: .Default,
                                                                             headers: headers,
                                                                             parameters: (isBodyParams ? nil : params))
-
+            
+        // Forgot password. Step 3
+        case .userChangePasswordFromLogin(let params, let isBodyParams):    return (method: .get,
+                                                                                    apiStringURL: "/change-password/",
+                                                                                    body: (isBodyParams ? params : nil),
+                                                                                    bodyType: .Default,
+                                                                                    headers: headers,
+                                                                                    parameters: (isBodyParams ? nil : params))
+            
+            
+        // Categories
+        case .userGetCategoriesList(let params, let isBodyParams):  return (method: .get,
+                                                                            apiStringURL: "/categories/",
+                                                                            body: (isBodyParams ? params : nil),
+                                                                            bodyType: .ItemsArray,
+                                                                            headers: headers,
+                                                                            parameters: (isBodyParams ? nil : params))
+            
+            // Handbook
+            
+            
+            
+        // Order
+        case .userMakeNewOrder(let params, let isBodyParams):   return (method: .put,
+                                                                        apiStringURL: "/user/order/",
+                                                                        body: (isBodyParams ? params : nil),
+                                                                        bodyType: .ItemsDictionary,
+                                                                        headers: headersExtended,
+                                                                        parameters: (isBodyParams ? nil : params))
+            
+        case .userGetOrderByID(let params, let isBodyParams):   return (method: .get,
+                                                                        apiStringURL: "/user/order/",
+                                                                        body: (isBodyParams ? params : nil),
+                                                                        bodyType: .ItemsDictionary,
+                                                                        headers: headersExtended,
+                                                                        parameters: (isBodyParams ? nil : params))
+            
+        case .userGetOrdersList(let params, let isBodyParams):  return (method: .post,
+                                                                        apiStringURL: "/user/order/",
+                                                                        body: (isBodyParams ? params : nil),
+                                                                        bodyType: .ItemsArray,
+                                                                        headers: headersExtended,
+                                                                        parameters: (isBodyParams ? nil : params))
+            
+        case .userCancelOrderByID(let params, let isBodyParams):    return (method: .get,
+                                                                            apiStringURL: "/user/order/",
+                                                                            body: (isBodyParams ? params : nil),
+                                                                            bodyType: .ItemsDictionary,
+                                                                            headers: headersExtended,
+                                                                            parameters: (isBodyParams ? nil : params))
+            
+        case .userGetOrderTimeSheetForDay(let params, let isBodyParams):    return (method: .get,
+                                                                                    apiStringURL: "/user/order/timesheet/",
+                                                                                    body: (isBodyParams ? params : nil),
+                                                                                    bodyType: .ItemsDictionary,
+                                                                                    headers: headersExtended,
+                                                                                    parameters: (isBodyParams ? nil : params))
+            
+        case .userGetOrderPriceWithoutDiscount(let params, let isBodyParams):   return (method: .post,
+                                                                                        apiStringURL: "/user/order/price/",
+                                                                                        body: (isBodyParams ? params : nil),
+                                                                                        bodyType: .Default,
+                                                                                        headers: headersExtended,
+                                                                                        parameters: (isBodyParams ? nil : params))
+            
+            
+        // Organization
+        case .userGetOrganizationByID(let params, let isBodyParams):    return (method: .get,
+                                                                                apiStringURL: "/user/organization/",
+                                                                                body: (isBodyParams ? params : nil),
+                                                                                bodyType: .ItemsDictionary,
+                                                                                headers: headersExtended,
+                                                                                parameters: (isBodyParams ? nil : params))
+            
+        case .userGetOrganizationsListByName(let params, let isBodyParams):     return (method: .post,
+                                                                                        apiStringURL: "/user/organization/",
+                                                                                        body: (isBodyParams ? params : nil),
+                                                                                        bodyType: .ItemsArray,
+                                                                                        headers: headersExtended,
+                                                                                        parameters: (isBodyParams ? nil : params))
+            
+        case .userGetFavoriteOrganizationsList(let params, let isBodyParams):   return (method: .post,
+                                                                                        apiStringURL: "/user/organization/favorite/",
+                                                                                        body: (isBodyParams ? params : nil),
+                                                                                        bodyType: .ItemsArray,
+                                                                                        headers: headersExtended,
+                                                                                        parameters: (isBodyParams ? nil : params))
+            
+        case .userAddRemoveFavoriteOrganization(let params, let isBodyParams):  return (method: .put,
+                                                                                        apiStringURL: "/user/organization/",
+                                                                                        body: (isBodyParams ? params : nil),
+                                                                                        bodyType: .Default,
+                                                                                        headers: headersExtended,
+                                                                                        parameters: (isBodyParams ? nil : params))
+            
+        case .userGetOrganizationsListByCategory(let params, let isBodyParams):     return (method: .post,
+                                                                                            apiStringURL: "/user/organization/",
+                                                                                            body: (isBodyParams ? params : nil),
+                                                                                            bodyType: .ItemsArray,
+                                                                                            headers: headersExtended,
+                                                                                            parameters: (isBodyParams ? nil : params))
+            
+        case .userGetOrganizationsListBySubcategory(let params, let isBodyParams):  return (method: .post,
+                                                                                            apiStringURL: "/user/organization/",
+                                                                                            body: (isBodyParams ? params : nil),
+                                                                                            bodyType: .ItemsArray,
+                                                                                            headers: headersExtended,
+                                                                                            parameters: (isBodyParams ? nil : params))
+            
+            
+        // Service
+        case .userGetServiceByID(let params, let isBodyParams):     return (method: .get,
+                                                                            apiStringURL: "/user/service/",
+                                                                            body: (isBodyParams ? params : nil),
+                                                                            bodyType: .ItemsDictionary,
+                                                                            headers: headersExtended,
+                                                                            parameters: (isBodyParams ? nil : params))
+            
+        case .userGetServicesListByName(let params, let isBodyParams):      return (method: .post,
+                                                                                    apiStringURL: "/user/service/",
+                                                                                    body: (isBodyParams ? params : nil),
+                                                                                    bodyType: .ItemsArray,
+                                                                                    headers: headersExtended,
+                                                                                    parameters: (isBodyParams ? nil : params))
+            
+        case .userGetFavoriteServicesList(let params, let isBodyParams):    return (method: .post,
+                                                                                    apiStringURL: "/user/service/favorite/",
+                                                                                    body: (isBodyParams ? params : nil),
+                                                                                    bodyType: .ItemsArray,
+                                                                                    headers: headersExtended,
+                                                                                    parameters: (isBodyParams ? nil : params))
+            
+        case .userAddRemoveFavoriteService(let params, let isBodyParams):   return (method: .put,
+                                                                                    apiStringURL: "/user/service/",
+                                                                                    body: (isBodyParams ? params : nil),
+                                                                                    bodyType: .Default,
+                                                                                    headers: headersExtended,
+                                                                                    parameters: (isBodyParams ? nil : params))
+            
+        case .userGetServicesListByCategory(let params, let isBodyParams):  return (method: .post,
+                                                                                    apiStringURL: "/user/service/",
+                                                                                    body: (isBodyParams ? params : nil),
+                                                                                    bodyType: .ItemsArray,
+                                                                                    headers: headersExtended,
+                                                                                    parameters: (isBodyParams ? nil : params))
+            
+        case .userGetServicesListBySubcategory(let params, let isBodyParams):   return (method: .post,
+                                                                                        apiStringURL: "/user/service/",
+                                                                                        body: (isBodyParams ? params : nil),
+                                                                                        bodyType: .ItemsArray,
+                                                                                        headers: headersExtended,
+                                                                                        parameters: (isBodyParams ? nil : params))
+            
+            
+        // News
+        case .userGetActionByID(let params, let isBodyParams):  return (method: .get,
+                                                                        apiStringURL: "/user/promotion/",
+                                                                        body: (isBodyParams ? params : nil),
+                                                                        bodyType: .ItemsDictionary,
+                                                                        headers: headersExtended,
+                                                                        parameters: (isBodyParams ? nil : params))
+            
+            
+            
         case .userGetActionsList(let params, let isBodyParams):     return (method: .post,
                                                                             apiStringURL: "/user/promotion/",
                                                                             body: (isBodyParams ? params : nil),
                                                                             bodyType: .ItemsArray,
                                                                             headers: headersExtended,
                                                                             parameters: (isBodyParams ? nil : params))
-
+            
         case .userGetNewsDataByID(let params, let isBodyParams):    return (method: .get,
                                                                             apiStringURL: "/user/news/",
                                                                             body: (isBodyParams ? params : nil),
@@ -110,96 +296,62 @@ enum RequestType {
                                                                             headers: headersExtended,
                                                                             parameters: (isBodyParams ? nil : params))
             
-        case .userGetCategoriesList(let params, let isBodyParams):  return (method: .get,
-                                                                            apiStringURL: "/categories/",
+            
+        // Profile
+        case .userDeleteImage(let params, let isBodyParams):    return (method: .delete,
+                                                                        apiStringURL: "/user/profile/image/",
+                                                                        body: (isBodyParams ? params : nil),
+                                                                        bodyType: .Default,
+                                                                        headers: headersExtended,
+                                                                        parameters: (isBodyParams ? nil : params))
+            
+        case .userChangeEmail(let params, let isBodyParams):    return (method: .get,
+                                                                        apiStringURL: "/user/email/",
+                                                                        body: (isBodyParams ? params : nil),
+                                                                        bodyType: .Default,
+                                                                        headers: headersExtended,
+                                                                        parameters: (isBodyParams ? nil : params))
+            
+        case .userGetProfileData(let params, let isBodyParams):     return (method: .get,
+                                                                            apiStringURL: "/user/profile/",
                                                                             body: (isBodyParams ? params : nil),
-                                                                            bodyType: .ItemsArray,
-                                                                            headers: headers,
+                                                                            bodyType: .UserDataDictionary,
+                                                                            headers: headersExtended,
                                                                             parameters: (isBodyParams ? nil : params))
             
-
-        
-        case .userGetOrganizationByID(let params, let isBodyParams):        return (method: .get,
-                                                                                    apiStringURL: "/user/organization/",
-                                                                                    body: (isBodyParams ? params : nil),
-                                                                                    bodyType: .ItemsDictionary,
-                                                                                    headers: headersExtended,
-                                                                                    parameters: (isBodyParams ? nil : params))
-
-        case .userGetFavoriteServicesList(let params, let isBodyParams):    return (method: .post,
-                                                                                    apiStringURL: "/user/service/favorite/",
-                                                                                    body: (isBodyParams ? params : nil),
-                                                                                    bodyType: .ItemsArray,
-                                                                                    headers: headersExtended,
-                                                                                    parameters: (isBodyParams ? nil : params))
+        case .userUploadProfileData(let params, let isBodyParams):
+            headersExtended!["Role"] = "admin"
             
-        case .userGetServicesListByCategory(let params, let isBodyParams):  return (method: .post,
-                                                                                    apiStringURL: "/user/service/",
-                                                                                    body: (isBodyParams ? params : nil),
-                                                                                    bodyType: .ItemsArray,
-                                                                                    headers: headersExtended,
-                                                                                    parameters: (isBodyParams ? nil : params))
+            return (method: .post,
+                    apiStringURL: "/user/profile/",
+                    body: (isBodyParams ? params : nil),
+                    bodyType: .UserDataDictionary,
+                    headers: headersExtended!,
+                    parameters: (isBodyParams ? nil : params))
             
-        case .userAddRemoveServiceToFavorite(let params, let isBodyParams):     return (method: .put,
-                                                                                        apiStringURL: "/user/service/",
+        case .userGetProfileSettings(let params, let isBodyParams):     return (method: .get,
+                                                                                apiStringURL: "/user/config/",
+                                                                                body: (isBodyParams ? params : nil),
+                                                                                bodyType: .UserDataDictionary,
+                                                                                headers: headersExtended,
+                                                                                parameters: (isBodyParams ? nil : params))
+            
+        case .userUploadProfileSettings(let params, let isBodyParams):  return (method: .post,
+                                                                                apiStringURL: "/user/config/",
+                                                                                body: (isBodyParams ? params : nil),
+                                                                                bodyType: .Default,
+                                                                                headers: headersExtended,
+                                                                                parameters: (isBodyParams ? nil : params))
+            
+        case .userChangePasswordFromProfile(let params, let isBodyParams):      return (method: .put,
+                                                                                        apiStringURL: "/user/password/",
                                                                                         body: (isBodyParams ? params : nil),
                                                                                         bodyType: .Default,
                                                                                         headers: headersExtended,
                                                                                         parameters: (isBodyParams ? nil : params))
-
-        case .userGetFavoriteOrganizationsList(let params, let isBodyParams):   return (method: .post,
-                                                                                        apiStringURL: "/user/organization/favorite/",
-                                                                                        body: (isBodyParams ? params : nil),
-                                                                                        bodyType: .ItemsArray,
-                                                                                        headers: headersExtended,
-                                                                                        parameters: (isBodyParams ? nil : params))
-            
-        case .userGetOrganizationsListByCategory(let params, let isBodyParams): return (method: .post,
-                                                                                        apiStringURL: "/user/organization/",
-                                                                                        body: (isBodyParams ? params : nil),
-                                                                                        bodyType: .ItemsArray,
-                                                                                        headers: headersExtended,
-                                                                                        parameters: (isBodyParams ? nil : params))
-            
-        case .userAddRemoveOrganizationToFavorite(let params, let isBodyParams):    return (method: .put,
-                                                                                            apiStringURL: "/user/organization/",
-                                                                                            body: (isBodyParams ? params : nil),
-                                                                                            bodyType: .Default,
-                                                                                            headers: headersExtended,
-                                                                                            parameters: (isBodyParams ? nil : params))
-        
-            
-            
-            
-            
-            
-            
-            
-            
-            
-//        case .(let params, let isBodyParams): return (method: .,
-//                                                                                        apiStringURL: "",
-//                                                                                        body: (isBodyParams ? params : nil),
-//                                                                                        bodyType: .ItemsArray,
-//                                                                                        headers: headersExtended,
-//                                                                                        parameters: (isBodyParams ? nil : params))
-
         }
     }
 }
-
-
-// REMOVED!!!
-//news by id
-
-
-
-
-
-
-
-
-
 
 final class MSMRestApiManager {
     // MARK: - Properties
@@ -209,7 +361,7 @@ final class MSMRestApiManager {
     let appHostURL = URL.init(string: "http://omniecom.com:9333")!
     let appApiVersionString = "api/v1/omnie/webservice"
     var headers = [ "Content-Type": "application/json" ]
-
+    
     var appApiString: String! {
         didSet {
             appURL = (appHostURL.appendingPathComponent(appApiVersionString)).appendingPathComponent(appApiString)
@@ -240,151 +392,35 @@ final class MSMRestApiManager {
             }
             
             let json = JSON(dataResponse.result.value!)
-            let responseAPI = ResponseAPI.init(fromJSON: json, withBodyType: requestParameters.bodyType)
+            var responseAPI: ResponseAPI!
             
-            // Save headers
-            if (dataResponse.response?.statusCode == 200 && requestParameters.bodyType == .Default) {
-                let responseHeaders = dataResponse.response!.allHeaderFields
-                UserDefaults.standard.set(responseHeaders["Authorization"] as? String, forKey: keyAccessToken)
-            }
-
-            handlerResponseAPICompletion(responseAPI)
-            return
-        }
-    }
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-
-    // Change current E-mail
-    func userChangeEmail(_ email: String, withHandlerResponseAPICompletion handlerResponseAPICompletion: @escaping (ResponseAPI?) -> Void) {
-        appApiString = "/user/email/"
-        appURL = URL.init(string: appURL.absoluteString.appending("?email=\(email)"))
-        headers["Authorization"] = CoreDataManager.instance.appUser.accessToken!
-        
-        Alamofire.request(appURL, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers).responseJSON { dataResponse -> Void in
-            if (dataResponse.result.value != nil) {
-                let json = JSON(dataResponse.result.value!)
-                let responseAPI = ResponseAPI.init(fromJSON: json, withBodyType: .Default)
+            switch requestType {
+            case .userGetProfileData:
+                responseAPI = ResponseAPI.init(fromJSON: json,
+                                               withBodyType: ((dataResponse.response!.statusCode == 200) ? .UserDataDictionary : .UserAdditionalDataDictionary))
+                
+            default:
+                responseAPI = ResponseAPI.init(fromJSON: json, withBodyType: requestParameters.bodyType)
+                
+                // Save headers
+                if (dataResponse.response?.statusCode == 200 && requestParameters.bodyType == .Default) {
+                    let responseHeaders = dataResponse.response!.allHeaderFields
+                    UserDefaults.standard.set(responseHeaders["Authorization"] as? String, forKey: keyAccessToken)
+                }
                 
                 handlerResponseAPICompletion(responseAPI)
                 return
-            } else {
-                handlerResponseAPICompletion(nil)
-                return
             }
         }
     }
     
-    // Change Password during Authorization
-    func userChangePasswordFromLogin(_ email: String, withNewPassword password: String, withResetToken resetToken: String, andWithHandlerResponseAPICompletion handlerResponseAPICompletion: @escaping (ResponseAPI?) -> Void) {
-        let saveParameters = [ "email": email, "password": password, "resetToken": resetToken ]
-        appApiString = "/change-password/"
-        
-        Alamofire.request(appURL, method: .post, parameters: saveParameters, encoding: JSONEncoding.default, headers: headers).responseJSON { dataResponse -> Void in
-            if (dataResponse.result.value != nil) {
-                let json = JSON(dataResponse.result.value!)
-                let responseAPI = ResponseAPI.init(fromJSON: json, withBodyType: .Default)
-                
-                handlerResponseAPICompletion(responseAPI)
-                return
-            } else {
-                handlerResponseAPICompletion(nil)
-                return
-            }
-        }
-    }
-    
-    // Change Password from Profile
-    func userChangePasswordFromProfile(_ parameters: [String: Any], withHandlerResponseAPICompletion handlerResponseAPICompletion: @escaping (ResponseAPI?) -> Void) {
-        guard CoreDataManager.instance.appUser.accessToken != nil else {
-//            handlerResponseAPICompletion(ResponseAPI.init(withErrorMessage: .Default))
-            return
-        }
-        
-        var params = parameters
-        params["currentPassword"] = CoreDataManager.instance.appUser.password!
-        headers["Authorization"] = CoreDataManager.instance.appUser.accessToken!
-        appApiString = "/user/password/"
-        
-        Alamofire.request(appURL, method: .put, parameters: params, encoding: JSONEncoding.default, headers: headers).responseJSON { dataResponse -> Void in
-            if (dataResponse.result.value != nil) {
-                let json = JSON(dataResponse.result.value!)
-                let responseAPI = ResponseAPI.init(fromJSON: json, withBodyType: .Default)
-                
-                handlerResponseAPICompletion(responseAPI)
-                return
-            } else {
-                handlerResponseAPICompletion(nil)
-                return
-            }
-        }
-    }
-    
-    func userGetProfileData(_ handlerResponseAPICompletion: @escaping (ResponseAPI?) -> Void) {
-        guard CoreDataManager.instance.appUser.accessToken != nil else {
-//            handlerResponseAPICompletion(ResponseAPI.init(withErrorMessage: .UserDataDictionary))
-            return
-        }
-        
-        headers["Authorization"] = CoreDataManager.instance.appUser.accessToken!
-        appApiString = "/user/profile/"
-        
-        Alamofire.request(appURL, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers).responseJSON { dataResponse -> Void in
-            if (dataResponse.result.value != nil) {
-                let json = JSON(dataResponse.result.value!)
-                let responseAPI = ResponseAPI.init(fromJSON: json,
-                                                   withBodyType: ((dataResponse.response!.statusCode == 200) ? .UserDataDictionary : .UserAdditionalDataDictionary))
-                
-                handlerResponseAPICompletion(responseAPI)
-                return
-            } else {
-                handlerResponseAPICompletion(nil)
-                return
-            }
-        }
-    }
-
-    func userUploadProfileData(_ parameters: [String: Any], withHandlerResponseAPICompletion handlerResponseAPICompletion: @escaping (ResponseAPI?) -> Void) {
-        guard CoreDataManager.instance.appUser.accessToken != nil else {
-//            handlerResponseAPICompletion(ResponseAPI.init(withErrorMessage: .UserDataDictionary))
-            return
-        }
-        
-        headers["Authorization"] = CoreDataManager.instance.appUser.accessToken!
-        headers["Role"] = "admin"
-        appApiString = "/user/profile/"
-        
-        Alamofire.request(appURL, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { dataResponse -> Void in
-            if (dataResponse.result.value != nil && dataResponse.response!.statusCode == 200) {
-                let json = JSON(dataResponse.result.value!)
-                let responseAPI = ResponseAPI.init(fromJSON: json, withBodyType: .UserDataDictionary)
-                
-                handlerResponseAPICompletion(responseAPI)
-                return
-            } else {
-                handlerResponseAPICompletion(nil)
-                return
-            }
-        }
-    }
-
+    // User upload image
     func userUploadImage(_ image: UIImage, withHandlerResponseAPICompletion handlerResponseAPICompletion: @escaping (ResponseAPI?) -> Void) {
         let imageData = UIImagePNGRepresentation(image)
         appApiString = "/user/profile/image/"
         headers["Authorization"] = CoreDataManager.instance.appUser.accessToken!
         headers["Content-Type"] = "multipart/form-data"
-       
+        
         let uploadURL = try! URLRequest(url: appURL, method: .post, headers: headers)
         
         guard imageData != nil else {
@@ -405,7 +441,7 @@ final class MSMRestApiManager {
                     handlerResponseAPICompletion(responseAPI)
                     return
                 })
-
+                
             case .failure(let encodingError):
                 print(encodingError)
                 
@@ -415,23 +451,4 @@ final class MSMRestApiManager {
             
         })
     }
-
-    func userDeleteImage(withHandlerResponseAPICompletion handlerResponseAPICompletion: @escaping (ResponseAPI?) -> Void) {
-        appApiString = "/user/profile/image/"
-        headers["Authorization"] = CoreDataManager.instance.appUser.accessToken!
-        
-        Alamofire.request(appURL, method: .delete, parameters: nil, encoding: JSONEncoding.default, headers: headers).responseJSON { dataResponse -> Void in
-            if (dataResponse.result.value != nil) {
-                let json = JSON(dataResponse.result.value!)
-                let responseAPI = ResponseAPI.init(fromJSON: json, withBodyType: .Default)
-                
-                handlerResponseAPICompletion(responseAPI)
-                return
-            } else {
-                handlerResponseAPICompletion(nil)
-                return
-            }
-        }
-    }
-    
 }
