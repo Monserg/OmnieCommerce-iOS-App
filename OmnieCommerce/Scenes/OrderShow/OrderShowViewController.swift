@@ -30,6 +30,13 @@ class OrderShowViewController: BaseViewController {
     
     // Outlets
     @IBOutlet weak var smallTopBarView: SmallTopBarView!
+    @IBOutlet var modalView: ModalView!
+    
+    @IBOutlet weak var scrollView: UIScrollView! {
+        didSet {
+            scrollView.delegate = self
+        }
+    }
     
     @IBOutlet var dottedBorderViewsCollection: [DottedBorderView]! {
         didSet {
@@ -37,6 +44,21 @@ class OrderShowViewController: BaseViewController {
         }
     }
 
+    // Info view
+    
+    
+    // Price view
+    @IBOutlet weak var priceLabel: UbuntuLightVeryLightOrangeLabel!
+    
+    
+    // Action view
+    @IBOutlet weak var checkButton: DLRadioButton! {
+        didSet {
+            checkButton.setTitle("Save as template".localized(), for: .normal)
+        }
+    }
+    
+    
     
     // MARK: - Class initialization
     override func awakeFromNib() {
@@ -52,7 +74,7 @@ class OrderShowViewController: BaseViewController {
         
         viewSettingsDidLoad()
     }
-    
+
 
     // MARK: - Custom Functions
     func viewSettingsDidLoad() {
@@ -83,7 +105,49 @@ class OrderShowViewController: BaseViewController {
     }
     
     func orderProfileDidShow() {
+        // Info view
+        
+        
+        // Price view
+        priceLabel.text = "\(420) грн."
+        
+        // Action view
+        checkButton.sizeToFit()
         spinnerDidFinish()
+    }
+    
+    func modalViewDidShow(withHeight height: CGFloat, customSubview subView: CustomView, andValues values: [Any]?) {
+        if (blackoutView == nil) {
+            blackoutView = MSMBlackoutView.init(inView: view)
+            blackoutView!.didShow()
+        }
+        
+        modalView = ModalView.init(inView: blackoutView!, withHeight: height)
+        _ = ConfirmView.init(inView: modalView!)
+    }
+    
+    
+    // MARK: - Transition
+    override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
+        _ = dottedBorderViewsCollection.map { $0.setNeedsDisplay() }
+    }
+
+    
+    // MARK: - Actions
+    @IBAction func handlerConfirmButtonTap(_ sender: FillVeryLightOrangeButton) {
+    }
+    
+    @IBAction func handlerCancelButtonTap(_ sender: BorderVeryLightOrangeButton) {
+    }
+    
+    @IBAction func handlerCheckButtonTap(_ sender: DLRadioButton) {
+        sender.tag = (sender.tag == 0) ? 1 : 0
+        
+        if (sender.tag == 1) {
+            sender.isSelected = true
+        } else {
+            sender.isSelected = false
+        }
     }
 }
 
@@ -101,5 +165,13 @@ extension OrderShowViewController: OrderShowViewControllerInput {
         }
         
         self.orderProfileDidShow()
+    }
+}
+
+
+// MARK: - UIScrollViewDelegate
+extension OrderShowViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        scrollView.indicatorDidChange(UIColor.veryLightOrange)
     }
 }

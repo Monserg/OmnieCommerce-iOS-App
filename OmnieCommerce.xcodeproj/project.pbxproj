@@ -285,6 +285,8 @@
 		B18A45C81DEC23B2003EBD2F /* SmallTopBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18A45C71DEC23B2003EBD2F /* SmallTopBarView.swift */; };
 		B18A45CA1DEC282B003EBD2F /* DotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18A45C91DEC282B003EBD2F /* DotView.swift */; };
 		B18A45CC1DEC3918003EBD2F /* SmallCirleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18A45CB1DEC3918003EBD2F /* SmallCirleView.swift */; };
+		B19375521EB4CB9B00B48399 /* ConfirmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19375511EB4CB9B00B48399 /* ConfirmView.swift */; };
+		B19375541EB4CBA300B48399 /* ConfirmView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B19375531EB4CBA300B48399 /* ConfirmView.xib */; };
 		B19668601E73098600B9C9AE /* OrganizationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B196685F1E73098600B9C9AE /* OrganizationTableViewCell.swift */; };
 		B19B51401E8C1BD200353CCB /* ServiceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19B513E1E8C1BD200353CCB /* ServiceTableViewCell.swift */; };
 		B19B51411E8C1BD200353CCB /* ServiceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B19B513F1E8C1BD200353CCB /* ServiceTableViewCell.xib */; };
@@ -771,6 +773,8 @@
 		B18A45C71DEC23B2003EBD2F /* SmallTopBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmallTopBarView.swift; sourceTree = "<group>"; };
 		B18A45C91DEC282B003EBD2F /* DotView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DotView.swift; sourceTree = "<group>"; };
 		B18A45CB1DEC3918003EBD2F /* SmallCirleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmallCirleView.swift; sourceTree = "<group>"; };
+		B19375511EB4CB9B00B48399 /* ConfirmView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmView.swift; sourceTree = "<group>"; };
+		B19375531EB4CBA300B48399 /* ConfirmView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConfirmView.xib; sourceTree = "<group>"; };
 		B196685F1E73098600B9C9AE /* OrganizationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrganizationTableViewCell.swift; sourceTree = "<group>"; };
 		B19B513E1E8C1BD200353CCB /* ServiceTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceTableViewCell.swift; sourceTree = "<group>"; };
 		B19B513F1E8C1BD200353CCB /* ServiceTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ServiceTableViewCell.xib; sourceTree = "<group>"; };
@@ -1046,6 +1050,7 @@
 		B100405E1EB4910400161073 /* OrderShow */ = {
 			isa = PBXGroup;
 			children = (
+				B19375501EB4CB6200B48399 /* Views */,
 				B100405F1EB4912400161073 /* OrderShowConfigurator.swift */,
 				B10040601EB4912400161073 /* OrderShowInteractor.swift */,
 				B10040611EB4912400161073 /* OrderShowModels.swift */,
@@ -1793,6 +1798,15 @@
 			path = RepetitionPasswordShow;
 			sourceTree = "<group>";
 		};
+		B19375501EB4CB6200B48399 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B19375511EB4CB9B00B48399 /* ConfirmView.swift */,
+				B19375531EB4CBA300B48399 /* ConfirmView.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		B19BB61D1E6ABB390081533C /* UITableView */ = {
 			isa = PBXGroup;
 			children = (
@@ -2241,6 +2255,7 @@
 				B1C6F35D1DD9C718004695C2 /* MenuItemsList.plist in Resources */,
 				B1BF92691DD6516C00BECBBB /* helveticaneuecyr-blackitalic.otf in Resources */,
 				B1BF926A1DD6516C00BECBBB /* helveticaneuecyr-bold.otf in Resources */,
+				B19375541EB4CBA300B48399 /* ConfirmView.xib in Resources */,
 				B15291571DDE3FEF00BBA1E0 /* MenuSectionHeaderView.xib in Resources */,
 				B1CF54E81DDB55E300E98049 /* HandbookShow.storyboard in Resources */,
 				B11DCAF91E9E49C200180375 /* HeaderImageView.xib in Resources */,
@@ -2686,6 +2701,7 @@
 				B1CF54C01DDB519000E98049 /* OnmieSoftShowRouter.swift in Sources */,
 				B14C07291EA0AA7700556866 /* ExpandedHeaderCell.swift in Sources */,
 				B10874A61E5B3D7E004A4FB6 /* AppUser+CoreDataClass.swift in Sources */,
+				B19375521EB4CB9B00B48399 /* ConfirmView.swift in Sources */,
 				B1CF54BC1DDB519000E98049 /* OnmieSoftShowConfigurator.swift in Sources */,
 				B100406C1EB4912400161073 /* OrderShowWorker.swift in Sources */,
 				B122F1EF1DD35BA70018A701 /* MessagesShowWorker.swift in Sources */,

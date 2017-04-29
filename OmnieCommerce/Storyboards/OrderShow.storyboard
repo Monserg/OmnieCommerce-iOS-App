@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina4_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -9,6 +9,11 @@
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="UBUNTU-L.TTF">
+            <string>Ubuntu-Light</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Order Show View Controller-->
         <scene sceneID="lE2-Uj-zfZ">
@@ -22,6 +27,230 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hfh-VF-vjs">
+                                <rect key="frame" x="0.0" y="95" width="375" height="544"/>
+                                <subviews>
+                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UTx-4c-86N" userLabel="Content View">
+                                        <rect key="frame" x="8" y="0.0" width="358" height="385"/>
+                                        <subviews>
+                                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yVn-6g-nBJ" userLabel="Info View">
+                                                <rect key="frame" x="0.0" y="0.0" width="358" height="128"/>
+                                                <subviews>
+                                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4VI-FV-fWE" userLabel="Info Dotted Border View" customClass="DottedBorderView" customModule="OmnieCommerce" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="358" height="128"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </view>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="4VI-FV-fWE" secondAttribute="trailing" id="6QO-ez-8R5"/>
+                                                    <constraint firstAttribute="bottom" secondItem="4VI-FV-fWE" secondAttribute="bottom" id="Z5k-TU-ZyJ"/>
+                                                    <constraint firstItem="4VI-FV-fWE" firstAttribute="leading" secondItem="yVn-6g-nBJ" secondAttribute="leading" id="hrR-0T-unr"/>
+                                                    <constraint firstItem="4VI-FV-fWE" firstAttribute="top" secondItem="yVn-6g-nBJ" secondAttribute="top" id="tz9-ch-p4K"/>
+                                                    <constraint firstAttribute="height" constant="128" id="wwX-8P-w0F"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3OQ-pK-yeT" userLabel="Price View">
+                                                <rect key="frame" x="0.0" y="128" width="358" height="141"/>
+                                                <subviews>
+                                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uFl-Lv-gVE" userLabel="Price Dotted Border View" customClass="DottedBorderView" customModule="OmnieCommerce" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="358" height="141"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </view>
+                                                    <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Price" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tg6-D4-mUc" userLabel="Title Label" customClass="HelveticaNeueCyrLightVeryLightGrayLabel" customModule="OmnieCommerce" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="20" width="358" height="21"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="21" id="sK4-Eq-39g"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </label>
+                                                    <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x1T-hN-PiE" userLabel="Price Label" customClass="UbuntuLightVeryLightOrangeLabel" customModule="OmnieCommerce" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="56" width="358" height="20"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="20" id="WVF-3q-VOA"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </label>
+                                                    <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Discount available" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WRg-9L-vTM" userLabel="Note Label" customClass="UbuntuLightVeryDarkGrayishBlueLabel" customModule="OmnieCommerce" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="86" width="358" height="20"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="20" id="QPT-7P-8RW"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstItem="x1T-hN-PiE" firstAttribute="top" secondItem="tg6-D4-mUc" secondAttribute="bottom" constant="15" id="1Qr-NU-OUs"/>
+                                                    <constraint firstItem="WRg-9L-vTM" firstAttribute="top" secondItem="x1T-hN-PiE" secondAttribute="bottom" constant="10" id="3Fy-1f-lOD"/>
+                                                    <constraint firstItem="WRg-9L-vTM" firstAttribute="centerX" secondItem="3OQ-pK-yeT" secondAttribute="centerX" id="43E-py-iAz"/>
+                                                    <constraint firstItem="WRg-9L-vTM" firstAttribute="leading" secondItem="3OQ-pK-yeT" secondAttribute="leading" id="8tX-Q9-91R"/>
+                                                    <constraint firstAttribute="trailing" secondItem="tg6-D4-mUc" secondAttribute="trailing" id="D64-4j-hMJ"/>
+                                                    <constraint firstItem="uFl-Lv-gVE" firstAttribute="top" secondItem="3OQ-pK-yeT" secondAttribute="top" id="DCq-s2-Cx3"/>
+                                                    <constraint firstItem="uFl-Lv-gVE" firstAttribute="leading" secondItem="3OQ-pK-yeT" secondAttribute="leading" id="L5K-W1-Sls"/>
+                                                    <constraint firstItem="x1T-hN-PiE" firstAttribute="leading" secondItem="3OQ-pK-yeT" secondAttribute="leading" id="P41-8T-d5N"/>
+                                                    <constraint firstAttribute="trailing" secondItem="uFl-Lv-gVE" secondAttribute="trailing" id="dNr-g3-pQP"/>
+                                                    <constraint firstAttribute="trailing" secondItem="WRg-9L-vTM" secondAttribute="trailing" id="deF-6Y-NKO"/>
+                                                    <constraint firstItem="tg6-D4-mUc" firstAttribute="top" secondItem="3OQ-pK-yeT" secondAttribute="top" constant="20" id="ji5-l4-d5h"/>
+                                                    <constraint firstAttribute="trailing" secondItem="x1T-hN-PiE" secondAttribute="trailing" id="kNb-kR-meB"/>
+                                                    <constraint firstItem="tg6-D4-mUc" firstAttribute="leading" secondItem="3OQ-pK-yeT" secondAttribute="leading" id="uhJ-q4-8i1"/>
+                                                    <constraint firstAttribute="bottom" secondItem="uFl-Lv-gVE" secondAttribute="bottom" id="zJe-ba-jqv"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gv5-jF-yHH" userLabel="Action View">
+                                                <rect key="frame" x="0.0" y="269" width="358" height="116"/>
+                                                <subviews>
+                                                    <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wLY-ah-PEE" userLabel="Check Button" customClass="DLRadioButton">
+                                                        <rect key="frame" x="104" y="20" width="150" height="20"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="150" id="lha-bj-ap8"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="Ubuntu-Light" family="Ubuntu" pointSize="12"/>
+                                                        <state key="normal" title="Save as template"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="iconSquare" value="YES"/>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="2"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="iconSize">
+                                                                <real key="value" value="11"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="iconColor">
+                                                                <color key="value" red="1" green="0.84313725490196079" blue="0.42352941176470588" alpha="1" colorSpace="calibratedRGB"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="indicatorSize">
+                                                                <real key="value" value="4"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="indicatorColor">
+                                                                <color key="value" red="1" green="0.84313725490196079" blue="0.42352941176470588" alpha="1" colorSpace="calibratedRGB"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="marginWidth">
+                                                                <real key="value" value="13"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="handlerCheckButtonTap:" destination="QMv-PU-zAE" eventType="touchUpInside" id="KCw-F3-SFQ"/>
+                                                        </connections>
+                                                    </button>
+                                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aEB-CW-Tz4" userLabel="Buttons View">
+                                                        <rect key="frame" x="11.5" y="60" width="335" height="36"/>
+                                                        <subviews>
+                                                            <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2R6-v1-lKb" userLabel="Confirm Button" customClass="FillVeryLightOrangeButton" customModule="OmnieCommerce" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="0.0" width="165" height="36"/>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                                <state key="normal" title="Confirm" image="icon-confirm-normal"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                                                </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <action selector="handlerConfirmButtonTap:" destination="QMv-PU-zAE" eventType="touchUpInside" id="XkQ-zr-zpS"/>
+                                                                </connections>
+                                                            </button>
+                                                            <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e45-Ad-iYc" userLabel="Cancel Button" customClass="BorderVeryLightOrangeButton" customModule="OmnieCommerce" customModuleProvider="target">
+                                                                <rect key="frame" x="171" y="0.0" width="164" height="36"/>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                                <state key="normal" title="Cancel" image="icon-confirm-cancel-white-normal"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                                                </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <action selector="handlerCancelButtonTap:" destination="QMv-PU-zAE" eventType="touchUpInside" id="ES7-Ou-uiq"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="bottom" secondItem="e45-Ad-iYc" secondAttribute="bottom" id="Au4-Mf-geQ"/>
+                                                            <constraint firstItem="e45-Ad-iYc" firstAttribute="top" secondItem="aEB-CW-Tz4" secondAttribute="top" id="AuN-WN-1SX"/>
+                                                            <constraint firstItem="2R6-v1-lKb" firstAttribute="top" secondItem="aEB-CW-Tz4" secondAttribute="top" id="dkx-Z4-Soc"/>
+                                                            <constraint firstAttribute="bottom" secondItem="2R6-v1-lKb" secondAttribute="bottom" id="m4e-No-6T3"/>
+                                                            <constraint firstAttribute="trailing" secondItem="e45-Ad-iYc" secondAttribute="trailing" id="nLd-Pg-rwn"/>
+                                                            <constraint firstItem="2R6-v1-lKb" firstAttribute="leading" secondItem="aEB-CW-Tz4" secondAttribute="leading" id="oAQ-ml-nly"/>
+                                                            <constraint firstItem="e45-Ad-iYc" firstAttribute="leading" secondItem="2R6-v1-lKb" secondAttribute="trailing" constant="6" id="sIH-ey-vYe"/>
+                                                        </constraints>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </view>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="bottom" secondItem="aEB-CW-Tz4" secondAttribute="bottom" constant="20" id="Mtm-I6-bav"/>
+                                                    <constraint firstItem="aEB-CW-Tz4" firstAttribute="top" secondItem="wLY-ah-PEE" secondAttribute="bottom" constant="20" id="QYc-xv-0wc"/>
+                                                    <constraint firstItem="wLY-ah-PEE" firstAttribute="centerX" secondItem="gv5-jF-yHH" secondAttribute="centerX" id="nxh-Qg-gsh"/>
+                                                    <constraint firstItem="aEB-CW-Tz4" firstAttribute="centerX" secondItem="gv5-jF-yHH" secondAttribute="centerX" id="r9Y-d4-cha"/>
+                                                    <constraint firstItem="wLY-ah-PEE" firstAttribute="top" secondItem="gv5-jF-yHH" secondAttribute="top" constant="20" id="syr-9t-Zim"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="gv5-jF-yHH" firstAttribute="leading" secondItem="UTx-4c-86N" secondAttribute="leading" id="1v7-FU-5ZT"/>
+                                            <constraint firstAttribute="trailing" secondItem="yVn-6g-nBJ" secondAttribute="trailing" id="BBa-Ie-ePP"/>
+                                            <constraint firstItem="3OQ-pK-yeT" firstAttribute="leading" secondItem="UTx-4c-86N" secondAttribute="leading" id="LoB-8D-Ggw"/>
+                                            <constraint firstAttribute="bottom" secondItem="gv5-jF-yHH" secondAttribute="bottom" id="O0s-YA-akU"/>
+                                            <constraint firstAttribute="height" priority="250" constant="544" id="PVn-aY-zRH"/>
+                                            <constraint firstItem="3OQ-pK-yeT" firstAttribute="top" secondItem="yVn-6g-nBJ" secondAttribute="bottom" id="Rh7-O4-l1O"/>
+                                            <constraint firstItem="yVn-6g-nBJ" firstAttribute="leading" secondItem="UTx-4c-86N" secondAttribute="leading" id="WAO-kZ-1y6"/>
+                                            <constraint firstAttribute="trailing" secondItem="3OQ-pK-yeT" secondAttribute="trailing" id="X9f-yS-TUx"/>
+                                            <constraint firstItem="yVn-6g-nBJ" firstAttribute="top" secondItem="UTx-4c-86N" secondAttribute="top" id="dgP-2W-lpP"/>
+                                            <constraint firstAttribute="trailing" secondItem="gv5-jF-yHH" secondAttribute="trailing" id="djV-0v-3Uy"/>
+                                            <constraint firstItem="gv5-jF-yHH" firstAttribute="top" secondItem="3OQ-pK-yeT" secondAttribute="bottom" id="sSE-t0-Sgf"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="UTx-4c-86N" secondAttribute="bottom" id="3hS-Ja-GnC"/>
+                                    <constraint firstAttribute="trailing" secondItem="UTx-4c-86N" secondAttribute="trailing" constant="8" id="YTk-St-fh9"/>
+                                    <constraint firstItem="UTx-4c-86N" firstAttribute="leading" secondItem="Hfh-VF-vjs" secondAttribute="leading" constant="8" id="d0e-jI-EhL"/>
+                                    <constraint firstItem="UTx-4c-86N" firstAttribute="centerX" secondItem="Hfh-VF-vjs" secondAttribute="centerX" id="fgt-Bs-Ppi"/>
+                                    <constraint firstItem="UTx-4c-86N" firstAttribute="top" secondItem="Hfh-VF-vjs" secondAttribute="top" id="jK7-1f-PXi"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </scrollView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TOJ-4o-BWv" customClass="SmallTopBarView" customModule="OmnieCommerce" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="95"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -46,16 +275,30 @@
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="Wtk-iH-4Z6" secondAttribute="bottom" constant="8" id="0Po-Xd-B17"/>
                             <constraint firstAttribute="trailing" secondItem="Wtk-iH-4Z6" secondAttribute="trailing" constant="8" id="4Ep-W1-gSe"/>
+                            <constraint firstItem="Hfh-VF-vjs" firstAttribute="top" secondItem="TOJ-4o-BWv" secondAttribute="bottom" id="4uJ-NS-Kw4"/>
+                            <constraint firstItem="gv5-jF-yHH" firstAttribute="height" secondItem="Eo6-85-ajl" secondAttribute="height" multiplier="1:5.75" id="BGt-nB-FFB"/>
+                            <constraint firstItem="gv5-jF-yHH" firstAttribute="height" secondItem="Eo6-85-ajl" secondAttribute="height" multiplier="1:3.23" id="G45-iL-uHi"/>
                             <constraint firstAttribute="trailing" secondItem="TOJ-4o-BWv" secondAttribute="trailing" id="H7m-tW-2tk"/>
                             <constraint firstItem="Wtk-iH-4Z6" firstAttribute="centerX" secondItem="Eo6-85-ajl" secondAttribute="centerX" id="IQk-uV-KGR"/>
+                            <constraint firstItem="Hfh-VF-vjs" firstAttribute="leading" secondItem="Eo6-85-ajl" secondAttribute="leading" id="LDE-ia-dea"/>
                             <constraint firstItem="TOJ-4o-BWv" firstAttribute="height" secondItem="Eo6-85-ajl" secondAttribute="height" multiplier="95:667" id="LWc-Pe-Crl"/>
+                            <constraint firstItem="3OQ-pK-yeT" firstAttribute="height" secondItem="Eo6-85-ajl" secondAttribute="height" multiplier="1:5.29" id="Rcy-Ap-OG4"/>
+                            <constraint firstItem="aEB-CW-Tz4" firstAttribute="height" secondItem="Eo6-85-ajl" secondAttribute="height" multiplier="1:18.53" id="Tit-Ok-TGI"/>
+                            <constraint firstItem="aEB-CW-Tz4" firstAttribute="width" secondItem="Eo6-85-ajl" secondAttribute="width" multiplier="1:1.12" id="U40-kM-7bZ"/>
                             <constraint firstItem="TOJ-4o-BWv" firstAttribute="height" secondItem="Eo6-85-ajl" secondAttribute="height" multiplier="80:375" id="XmP-SG-Pci"/>
+                            <constraint firstItem="2R6-v1-lKb" firstAttribute="width" secondItem="Eo6-85-ajl" secondAttribute="width" multiplier="1:2.27" id="bmj-k9-kjG"/>
+                            <constraint firstItem="2R6-v1-lKb" firstAttribute="width" secondItem="Eo6-85-ajl" secondAttribute="width" multiplier="1:4.04" id="dFZ-JM-uXx"/>
                             <constraint firstItem="TOJ-4o-BWv" firstAttribute="top" secondItem="Eo6-85-ajl" secondAttribute="top" id="fs8-SN-DTN">
                                 <variation key="heightClass=compact-widthClass=compact" constant="0.0"/>
                                 <variation key="heightClass=compact-widthClass=regular" constant="0.0"/>
                             </constraint>
+                            <constraint firstItem="Wtk-iH-4Z6" firstAttribute="top" secondItem="Hfh-VF-vjs" secondAttribute="bottom" constant="9" id="iJL-oh-mVM"/>
+                            <constraint firstItem="aEB-CW-Tz4" firstAttribute="width" secondItem="Eo6-85-ajl" secondAttribute="width" multiplier="1:1.99" id="ktn-VW-wk0"/>
                             <constraint firstItem="TOJ-4o-BWv" firstAttribute="leading" secondItem="Eo6-85-ajl" secondAttribute="leading" id="nM2-Vh-zkR"/>
+                            <constraint firstItem="aEB-CW-Tz4" firstAttribute="height" secondItem="Eo6-85-ajl" secondAttribute="height" multiplier="1:10.42" id="oaB-5E-Ocs"/>
                             <constraint firstItem="Wtk-iH-4Z6" firstAttribute="leading" secondItem="Eo6-85-ajl" secondAttribute="leading" constant="8" id="rd0-Cf-hfE"/>
+                            <constraint firstItem="3OQ-pK-yeT" firstAttribute="height" secondItem="Eo6-85-ajl" secondAttribute="height" multiplier="1:2.98" id="zJl-l6-viK"/>
+                            <constraint firstAttribute="trailing" secondItem="Hfh-VF-vjs" secondAttribute="trailing" id="zh6-5l-n35"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
@@ -63,23 +306,58 @@
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="LWc-Pe-Crl"/>
+                                <exclude reference="Rcy-Ap-OG4"/>
+                                <exclude reference="BGt-nB-FFB"/>
+                                <exclude reference="bmj-k9-kjG"/>
+                                <exclude reference="Tit-Ok-TGI"/>
+                                <exclude reference="U40-kM-7bZ"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="constraints">
                                 <include reference="LWc-Pe-Crl"/>
                                 <exclude reference="XmP-SG-Pci"/>
+                                <include reference="Rcy-Ap-OG4"/>
+                                <exclude reference="zJl-l6-viK"/>
+                                <include reference="BGt-nB-FFB"/>
+                                <exclude reference="G45-iL-uHi"/>
+                                <include reference="bmj-k9-kjG"/>
+                                <exclude reference="dFZ-JM-uXx"/>
+                                <include reference="Tit-Ok-TGI"/>
+                                <include reference="U40-kM-7bZ"/>
+                                <exclude reference="ktn-VW-wk0"/>
+                                <exclude reference="oaB-5E-Ocs"/>
                             </mask>
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" id="kbe-i3-cl2"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="667"/>
                     <connections>
+                        <outlet property="checkButton" destination="wLY-ah-PEE" id="RZ6-ow-6LX"/>
+                        <outlet property="modalView" destination="Cfk-FK-QZa" id="gcf-yZ-ogo"/>
+                        <outlet property="priceLabel" destination="x1T-hN-PiE" id="rJI-aO-1vd"/>
+                        <outlet property="scrollView" destination="Hfh-VF-vjs" id="M2H-Hg-F2H"/>
                         <outlet property="smallTopBarView" destination="TOJ-4o-BWv" id="nDS-d3-AdL"/>
+                        <outletCollection property="dottedBorderViewsCollection" destination="4VI-FV-fWE" collectionClass="NSMutableArray" id="0mP-ye-PCr"/>
+                        <outletCollection property="dottedBorderViewsCollection" destination="uFl-Lv-gVE" collectionClass="NSMutableArray" id="NvF-et-eXE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FK6-Ce-3ch" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <view clipsSubviews="YES" contentMode="scaleToFill" id="Cfk-FK-QZa" userLabel="Modal View" customClass="ModalView" customModule="OmnieCommerce" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                </view>
             </objects>
             <point key="canvasLocation" x="-13858" y="158"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="icon-confirm-cancel-white-normal" width="7" height="7"/>
+        <image name="icon-confirm-normal" width="10" height="6"/>
+    </resources>
 </document>

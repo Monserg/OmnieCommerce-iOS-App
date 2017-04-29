@@ -77,8 +77,9 @@
 "Additional Services:"          =   "Additional Services:";
 "Order Date:"                   =   "Order Date:";
 "Total Price"                   =   "Total Price";
-"Save as template"              =   "Save as template";
 "Discount available"            =   "* The amount of discount available";
+"Thanks!"                       =   "Thanks!";
+"Your order send"               =   "Your order is sent \n on processing.";
 
 
 // Buttons
@@ -108,6 +109,7 @@
 "Change"                        =   "Change";
 "All services"                  =   "All services";
 "View Order"                    =   "View Order";
+"Save as template"              =   "Save as template";
 
 
 // TextField Placeholders

@@ -77,8 +77,9 @@
 "Additional Services:"          =   "Дополнительные услуги:";
 "Order Date:"                   =   "Дата услуги:";
 "Total Price"                   =   "Общая сумма";
-"Save as template"              =   "Сохранить как шаблон";
 "Discount available"            =   "* Сумма указана с учётом скидки";
+"Thanks!"                       =   "Спасибо!";
+"Your order send"               =   "Ваш заказ отправлен \nна обработку.";
 
 
 // Buttons
@@ -108,6 +109,7 @@
 "Change"                        =   "Изменить";
 "All services"                  =   "Все услуги";
 "View Order"                    =   "Посмотреть заказ";
+"Save as template"              =   "Сохранить как шаблон";
 
 
 // TextField Placeholders
