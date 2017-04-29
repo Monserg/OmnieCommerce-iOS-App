@@ -52,7 +52,7 @@
 "Sun"                           =   "Нд";
 "Mon-Fri"                       =   "Пн-Пт";
 "Additional Services"           =   "Додаткові послуги";
-"Comment"                       =   "Коментар:";
+"Comment:"                      =   "Коментар:";
 "Leave a Comment"               =   "Залишити коментар";
 "Loading Data"                  =   "Завантажити...";
 "Loading More"                  =   "Завантажити ще...";
@@ -72,6 +72,13 @@
 "Unit 0"                        =   "грн/год";
 "Unit 1"                        =   "грн/хв";
 "Minutes short"                 =   "хв.";
+"Organization:"                 =   "Організація:";
+"Service:"                      =   "Послуга:";
+"Additional Services:"          =   "Додаткові послуги:";
+"Order Date:"                   =   "Дата замовлення:";
+"Total Price"                   =   "Загальна сума";
+"Save as template"              =   "Зберегти як шаблон";
+"Discount available"            =   "* Сума вказана з урахуваннями знижки";
 
 
 // Buttons

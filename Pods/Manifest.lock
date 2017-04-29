@@ -17,7 +17,7 @@ PODS:
   - Alamofire (4.4.0)
   - Cosmos (7.0.0)
   - Device (2.0.1)
-  - FirebaseAnalytics (3.8.0):
+  - FirebaseAnalytics (3.9.0):
     - FirebaseCore (~> 3.6)
     - FirebaseInstanceID (~> 1.0)
     - GoogleToolboxForMac/NSData+zlib (~> 2.1)
@@ -104,7 +104,7 @@ SPEC CHECKSUMS:
   Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
   Cosmos: 2c8299147138758f6ebbb247cf1aeed77998bdf9
   Device: 7dd12a4fc8a72a90211f2c9ac8975a728322a148
-  FirebaseAnalytics: 920e46455f27b0a52a80907a6d9b73ee4bd1c635
+  FirebaseAnalytics: e5fe8486efc01bec33f6bf82e2fa9fce4b124052
   FirebaseCore: 9691ee2ade70c098d7cf92440f4303f16d83ca75
   FirebaseInstanceID: b9eedd6846fb5e1f0f7279e1deaa7a7e4cf8392e
   Google: 813c467362eabc11385f5a5cc9ad0cb651a58f4e

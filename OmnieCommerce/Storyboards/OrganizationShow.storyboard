@@ -23,7 +23,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="375" placeholderIntrinsicHeight="658" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4G7-UZ-bMP" customClass="MXScrollView" customModule="OmnieCommerce" customModuleProvider="target">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" placeholderIntrinsicWidth="375" placeholderIntrinsicHeight="658" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4G7-UZ-bMP" customClass="MXScrollView" customModule="OmnieCommerce" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="290"/>
                                 <subviews>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="375" placeholderIntrinsicHeight="1175.5" translatesAutoresizingMaskIntoConstraints="NO" id="U9J-wo-NbD" userLabel="Content View">
@@ -721,7 +721,7 @@
                                     <action selector="handlerBackButtonTap:" destination="9s1-kT-Mzo" eventType="touchUpInside" id="an8-QH-vl6"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Copyright" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3d9-Qt-0Tr" userLabel="Copyright Label" customClass="UbuntuLightDarkCyanLabel" customModule="OmnieCommerce" customModuleProvider="target">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Copyright" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3d9-Qt-0Tr" userLabel="Copyright Label" customClass="UbuntuLightDarkCyanLabel" customModule="OmnieCommerce" customModuleProvider="target">
                                 <rect key="frame" x="8" y="299" width="359" height="359"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="9"/>

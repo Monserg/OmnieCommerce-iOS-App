@@ -52,7 +52,7 @@
 "Sun"                           =   "Sun";
 "Mon-Fri"                       =   "Mon-Fri";
 "Additional Services"           =   "Additional Services";
-"Comment"                       =   "Comment:";
+"Comment:"                      =   "Comment:";
 "Leave a Comment"               =   "Leave a Comment";
 "Loading Data"                  =   "Loading data...";
 "Loading More"                  =   "Loading more...";
@@ -72,6 +72,13 @@
 "Unit 0"                        =   "grn/hour";
 "Unit 1"                        =   "grn/min";
 "Minutes short"                 =   "min.";
+"Organization:"                 =   "Organization:";
+"Service:"                      =   "Service:";
+"Additional Services:"          =   "Additional Services:";
+"Order Date:"                   =   "Order Date:";
+"Total Price"                   =   "Total Price";
+"Save as template"              =   "Save as template";
+"Discount available"            =   "* The amount of discount available";
 
 
 // Buttons

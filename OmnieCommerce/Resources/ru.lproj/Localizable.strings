@@ -52,7 +52,7 @@
 "Sun"                           =   "Вс";
 "Mon-Fri"                       =   "Пн-Пт";
 "Additional Services"           =   "Дополнительные услуги";
-"Comment"                       =   "Комментарий:";
+"Comment:"                      =   "Комментарий:";
 "Leave a Comment"               =   "Оставить комментарий";
 "Loading Data"                  =   "Загрузить...";
 "Loading More"                  =   "Загрузить ещё...";
@@ -72,6 +72,13 @@
 "Unit 0"                        =   "грн/час";
 "Unit 1"                        =   "грн/мин";
 "Minutes short"                 =   "мин.";
+"Organization:"                 =   "Организация:";
+"Service:"                      =   "Услуга:";
+"Additional Services:"          =   "Дополнительные услуги:";
+"Order Date:"                   =   "Дата услуги:";
+"Total Price"                   =   "Общая сумма";
+"Save as template"              =   "Сохранить как шаблон";
+"Discount available"            =   "* Сумма указана с учётом скидки";
 
 
 // Buttons
