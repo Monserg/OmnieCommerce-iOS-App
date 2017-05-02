@@ -207,7 +207,7 @@
         <attribute name="logoURL" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="longitudeValue" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="minDuration" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="nameValue" attributeType="String" syncable="YES"/>
+        <attribute name="nameValue" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="needBackgroundColorSet" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="organizationName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="placeID" optional="YES" attributeType="String" syncable="YES"/>
