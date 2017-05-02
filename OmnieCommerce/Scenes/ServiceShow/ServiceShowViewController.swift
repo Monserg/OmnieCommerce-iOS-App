@@ -16,11 +16,13 @@ import Kingfisher
 // MARK: - Input protocols for current ViewController component VIP-cicle
 protocol ServiceShowViewControllerInput {
     func serviceDidShowLoad(fromViewModel viewModel: ServiceShowModels.ServiceItem.ViewModel)
+    func orderDidShowLoad(fromViewModel viewModel: ServiceShowModels.OrderItem.ViewModel)
 }
 
 // MARK: - Output protocols for Interactor component VIP-cicle
 protocol ServiceShowViewControllerOutput {
     func serviceDidLoad(withRequestModel requestModel: ServiceShowModels.ServiceItem.RequestModel)
+    func orderDidLoad(withRequestModel requestModel: ServiceShowModels.OrderItem.RequestModel)
 }
 
 class ServiceShowViewController: BaseViewController {
@@ -29,7 +31,9 @@ class ServiceShowViewController: BaseViewController {
     var router: ServiceShowRouter!
     
     var service: Service!
-    var order: Order?
+    var orderDateComponents: DateComponents?
+    var orderStartTimeComponents: DateComponents?
+    var orderEndTimeComponents: DateComponents?
     var wasLaunchedAPI = false
 
     // Outlets
@@ -171,10 +175,14 @@ class ServiceShowViewController: BaseViewController {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTapGestureRecognizer))
         view.addGestureRecognizer(tapGesture)
 
+        orderDateComponents = Calendar.current.dateComponents([.month, .day, .year, .hour, .minute], from: Date())
+        orderStartTimeComponents = Calendar.current.dateComponents([.hour, .minute], from: Date())
+        orderEndTimeComponents = Calendar.current.dateComponents([.hour, .minute], from: Date().addingTimeInterval(TimeInterval(service.duration / 1_000)))
+       
         viewSettingsDidLoad()
     }
     
-
+    
     // MARK: - Custom Functions
     func viewSettingsDidLoad() {
         // Config smallTopBarView
@@ -328,10 +336,8 @@ class ServiceShowViewController: BaseViewController {
 
         // Calendar view
         calendarView.isHidden = false
-        calendarButton.setAttributedTitle(NSAttributedString.init(string: Date().convertToString(withStyle: .Date), attributes: UIFont.ubuntuLightVeryLightOrange16), for: .normal)
-        calendarStartTimeButton.setAttributedTitle(NSAttributedString.init(string: Date().convertToString(withStyle: .Time), attributes: UIFont.ubuntuLightVeryLightOrange16), for: .normal)
-        calendarEndTimeButton.setAttributedTitle(NSAttributedString.init(string: Calendar.current.date(byAdding: .hour, value: 1, to: Date())!.convertToString(withStyle: .Time), attributes: UIFont.ubuntuLightVeryLightOrange16), for: .normal)
-
+        orderDateComponentsDidShow()
+        
         // Comment view
         
         
@@ -435,6 +441,13 @@ class ServiceShowViewController: BaseViewController {
         }
     }
 
+    func orderProfileDidShow(withOrderID orderID: String) {
+        let orderProfile = CoreDataManager.instance.entityDidLoad(byName: "Order", andPredicateParameter: orderID) as! Order
+        
+        router.navigateToOrder(orderProfile)
+        spinnerDidFinish()
+    }
+    
     func textViewPlaceholderDidUpload(_ text: String?) {
         if (text == nil) {
             commentTextView.text = ""
@@ -448,6 +461,42 @@ class ServiceShowViewController: BaseViewController {
             commentTextView.font = UIFont.ubuntuLight12
             commentTextView.textColor = UIColor.veryLightGray
         }
+    }
+    
+    func requestParametersDidPrepare() -> [String: Any] {
+        var parameters = [String: Any]()
+        var subservices = [[String: Any]]()
+        
+        parameters["serviceId"] = service.codeID
+        parameters["start"] = "\(calendarButton.titleLabel!.text!.replacingOccurrences(of: ".", with: "-")) \(calendarEndTimeButton.titleLabel!.text!)"
+        parameters["duration"] = "7200000"
+            //(Double(calendarEndTimeButton.titleLabel!.text!)! - Double(calendarStartTimeButton.titleLabel!.text!)!) / 60.0 / 1000.0
+        let subservicesList: [AdditionalService] = additionalServicesTableView.tableViewControllerManager.dataSource.filter({ ($0 as! AdditionalService).isAvailable == true }) as! [AdditionalService]
+        
+        if (subservicesList.count > 0) {
+            for subservice in subservicesList {
+                let additionalString = ["subServiceId": subservice.codeID, "quantity": 2] as [String : Any]
+                subservices.append(additionalString)
+            }
+            
+            parameters["subServiceOrders"] = subservices
+        }
+        
+        if let commentText = commentTextView.text {
+            parameters["comment"] = commentText
+        }
+        
+        return parameters
+    }
+    
+    func orderDateComponentsDidShow() {
+        let orderDate = Calendar.current.date(from: orderDateComponents!)
+        let startTimeDate = Calendar.current.date(from: orderStartTimeComponents!)
+        let endTimeDate = Calendar.current.date(from: orderEndTimeComponents!)
+        
+        calendarButton.setAttributedTitle(NSAttributedString.init(string: orderDate!.convertToString(withStyle: .Date), attributes: UIFont.ubuntuLightVeryLightOrange16), for: .normal)
+        calendarStartTimeButton.setAttributedTitle(NSAttributedString.init(string: startTimeDate!.convertToString(withStyle: .Time), attributes: UIFont.ubuntuLightVeryLightOrange16), for: .normal)
+        calendarEndTimeButton.setAttributedTitle(NSAttributedString.init(string: endTimeDate!.convertToString(withStyle: .Time), attributes: UIFont.ubuntuLightVeryLightOrange16), for: .normal)
     }
 
     
@@ -488,6 +537,7 @@ class ServiceShowViewController: BaseViewController {
     }
     
     @IBAction func handlerCalendarButtonTap(_ sender: UbuntuLightVeryLightOrangeButton) {
+        self.router.navigateToCalendar(orderDateComponents!)
     }
     
     @IBAction func handlerSchedulerButtonTap(_ sender: UbuntuLightVeryLightOrangeButton) {
@@ -496,12 +546,11 @@ class ServiceShowViewController: BaseViewController {
     }
     
     @IBAction func handlerViewOrderButtonTap(_ sender: FillVeryLightOrangeButton) {
-        if let orderItem = self.order {
-            self.router.navigateToOrder(orderItem)
-        } else {
-            // TODO: - DELETE AFTER CREATE ORDER
-            self.router.navigateToOrderNil()
-        }
+        // API
+        spinnerDidStart(view)
+        
+        let orderRequest = ServiceShowModels.OrderItem.RequestModel(parameters: requestParametersDidPrepare())
+        interactor.orderDidLoad(withRequestModel: orderRequest)
     }
     
     func handleTapGestureRecognizer(_ sender: UITapGestureRecognizer) {
@@ -523,6 +572,17 @@ extension ServiceShowViewController: ServiceShowViewControllerInput {
         }
         
         self.serviceProfileDidShow()
+    }
+    
+    func orderDidShowLoad(fromViewModel viewModel: ServiceShowModels.OrderItem.ViewModel) {
+        // Check for errors
+        guard viewModel.status == "SUCCESS" else {
+            self.alertViewDidShow(withTitle: "Error", andMessage: viewModel.status, completion: { })
+            
+            return
+        }
+        
+        self.orderProfileDidShow(withOrderID: viewModel.orderID!)
     }
 }
 

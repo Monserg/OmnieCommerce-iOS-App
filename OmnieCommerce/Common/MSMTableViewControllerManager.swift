@@ -265,6 +265,14 @@ extension MSMTableViewControllerManager: UITableViewDataSource {
                 self.tableView!.reloadData()
             }
 
+        case cell as AdditionalServiceTableViewCell:
+            let additionalServiceCell = cell as! AdditionalServiceTableViewCell
+            
+            // Handler Switch change state
+            additionalServiceCell.handlerSwitchChangeStateCompletion = { isSwithStateOn in
+                (item as! AdditionalService).isAvailable = isSwithStateOn as! Bool
+//                CoreDataManager.instance.didSaveContext()
+            }
             
 //        case cell as AvatarTableViewCell:
 //            let avatarCell  =   (cell as! AvatarTableViewCell)

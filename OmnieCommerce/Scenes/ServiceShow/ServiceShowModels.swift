@@ -26,4 +26,19 @@ struct ServiceShowModels {
             let status: String
         }
     }
+    
+    struct OrderItem {
+        struct RequestModel {
+            let parameters: [String: Any]
+        }
+        
+        struct ResponseModel {
+            let responseAPI: ResponseAPI?
+        }
+        
+        struct ViewModel {
+            let status: String
+            let orderID: String?
+        }
+    }
 }

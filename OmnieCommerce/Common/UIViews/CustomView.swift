@@ -59,7 +59,7 @@ import UIKit
             }
         }
     }
-    
+
     
     // MARK: - Class Initialization
     override init(frame: CGRect) {

@@ -15,13 +15,13 @@ class CalendarViewController: UIViewController {
 
     var handlerSelectNewDateCompletion: HandlerSelectNewDateCompletion?
 
-    let firstDayOfWeek: DaysOfWeek = .saturday
+    let firstDayOfWeek: DaysOfWeek = .monday
     var selectedDate: Date?
     var calculatedDate = Date()
     
     @IBOutlet weak var calendarView: JTAppleCalendarView!
-    @IBOutlet weak var titleLabel: CustomLabel!
-    @IBOutlet var weekdayLabelsCollection: [CustomLabel]!
+    @IBOutlet weak var titleLabel: UbuntuLightVeryLightGrayLabel!
+    @IBOutlet var weekdayLabelsCollection: [UbuntuLightDarkCyanLabel]!
     
     
     // MARK: - Class Functions
@@ -91,12 +91,6 @@ class CalendarViewController: UIViewController {
     }
     
     func setupSelectedDate() {
-        selectedDate = (arc4random_uniform(2) == 1) ? Calendar.current.date(byAdding: .day, value: 5, to: Date())! : nil
-        
-        guard selectedDate != nil else {
-            return
-        }
-        
         calendarView.selectDates([selectedDate!], triggerSelectionDelegate: false)
         handlerSelectNewDateCompletion!(selectedDate!)
     }

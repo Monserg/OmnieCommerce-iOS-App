@@ -29,6 +29,9 @@ class CalendarShowViewController: BaseViewController, CalendarShowViewController
     
     var calendarVC: CalendarViewController?
     var schedulerVC: SchedulerViewController?
+    var orderDateComponents: DateComponents!
+    var orderStartTimeComponents: DateComponents?
+    var orderEndTimeComponents: DateComponents?
     
     private var activeViewController: UIViewController? {
         didSet {
@@ -38,26 +41,34 @@ class CalendarShowViewController: BaseViewController, CalendarShowViewController
         
         willSet {
             if (newValue == calendarVC) {
-                calendarVC?.handlerSelectNewDateCompletion = { newDate in
+                calendarVC!.handlerSelectNewDateCompletion = { newDate in
                     self.dateStackView.isHidden = false
                     self.setupDateLabel(withDate: newDate)
+                    self.orderDateComponents = Calendar.current.dateComponents([.month, .day, .year, .hour, .minute], from: newDate)
                 }
             }
         }
     }
     
+    @IBOutlet weak var bottomDottedBorderView: DottedBorderView! {
+        didSet {
+            bottomDottedBorderView.style = .AroundDottedRectangle
+        }
+    }
+    
     @IBOutlet weak var segmentedControlView: SegmentedControlView!
-    @IBOutlet weak var bottomDottedBorderView: DottedBorderView!
-    @IBOutlet weak var confirmButton: CustomButton!
+    @IBOutlet weak var confirmButton: FillColorButton!
     @IBOutlet weak var containerView: UIView!
     
-    @IBOutlet weak var dateLabel: CustomLabel!
-    @IBOutlet weak var fromTimeLabel: CustomLabel!
-    @IBOutlet weak var toTimeLabel: CustomLabel!
+    @IBOutlet weak var dateLabel: UbuntuLightVeryLightGrayLabel!
+    @IBOutlet weak var fromTimeLabel: UbuntuLightVeryLightGrayLabel!
+    @IBOutlet weak var toTimeLabel: UbuntuLightVeryLightGrayLabel!
     @IBOutlet weak var dateStackView: UIView!
     
     @IBOutlet weak var containerLeadingConstraint: NSLayoutConstraint!
     @IBOutlet weak var containerTrailingConstraint: NSLayoutConstraint!
+    
+    var handlerConfirmButtonCompletion: HandlerPassDataCompletion?
     
     
     // MARK: - Class Initialization
@@ -73,15 +84,17 @@ class CalendarShowViewController: BaseViewController, CalendarShowViewController
         super.viewDidLoad()
         
         calendarVC = UIStoryboard(name: "CalendarShow", bundle: nil).instantiateViewController(withIdentifier: "CalendarVC") as? CalendarViewController
+        calendarVC!.selectedDate = Calendar.current.date(from: orderDateComponents)
         schedulerVC = UIStoryboard(name: "CalendarShow", bundle: nil).instantiateViewController(withIdentifier: "SchedulerVC") as? SchedulerViewController
         
         activeViewController = calendarVC
         view.backgroundColor = UIColor.veryDarkDesaturatedBlue24
-        dateStackView.isHidden = true
+        dateStackView.isHidden = false
         
         setupScene(withSize: view.frame.size)
         setupSegmentedControlView()
         setupContainerView(withSize: view.frame.size)
+        setupDateLabel(withDate: Calendar.current.date(from: orderDateComponents)!)
         
         viewSettingsDidLoad()
     }
@@ -168,10 +181,13 @@ class CalendarShowViewController: BaseViewController, CalendarShowViewController
     // MARK: - Actions
     @IBAction func handlerConfirmButtonTap(_ sender: CustomButton) {
         print(object: "\(type(of: self)): \(#function) run.")
+        self.navigationController?.popViewController(animated: true)
+        handlerConfirmButtonCompletion!(orderDateComponents)
     }
     
     @IBAction func handlerCancelButtonTap(_ sender: CustomButton) {
         print(object: "\(type(of: self)): \(#function) run.")
+        self.navigationController?.popViewController(animated: true)
     }
     
     

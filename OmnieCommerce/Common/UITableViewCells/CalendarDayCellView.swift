@@ -12,8 +12,18 @@ import JTAppleCalendar
 class CalendarDayCellView: JTAppleDayCellView {
     // MARK: - Properties
     @IBOutlet var dayLabel: UILabel!
-    @IBOutlet var selectedView: CustomView!
-    @IBOutlet weak var currentDayView: CustomView!
+    
+    @IBOutlet var selectedView: CustomView! {
+        didSet {
+            selectedView.style = "Fill"
+        }
+    }
+    
+    @IBOutlet weak var currentDayView: CustomView! {
+        didSet {
+            currentDayView.style = "Border"
+        }
+    }
     
     
     // MARK: - Class Initialization

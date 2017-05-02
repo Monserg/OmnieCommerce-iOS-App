@@ -116,9 +116,7 @@ extension Date {
         if dateComponents.month == 0 {
             dateComponents.month = 11
             dateComponents.year! -= 1
-        } else {
-            dateComponents.month! -= 1
-        }
+        } 
         
         return Calendar.current.date(from: dateComponents)!
     }
@@ -129,9 +127,7 @@ extension Date {
         if dateComponents.month == 11 {
             dateComponents.month = 0
             dateComponents.year! += 1
-        } else {
-            dateComponents.month! += 1
-        }
+        } 
         
         return Calendar.current.date(from: dateComponents)!
     }

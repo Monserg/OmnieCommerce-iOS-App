@@ -28,10 +28,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hfh-VF-vjs">
-                                <rect key="frame" x="0.0" y="95" width="375" height="544"/>
+                                <rect key="frame" x="0.0" y="142.5" width="375" height="496.5"/>
                                 <subviews>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UTx-4c-86N" userLabel="Content View">
-                                        <rect key="frame" x="8" y="0.0" width="358" height="385"/>
+                                        <rect key="frame" x="8" y="0.0" width="358" height="558"/>
                                         <subviews>
                                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yVn-6g-nBJ" userLabel="Info View">
                                                 <rect key="frame" x="0.0" y="0.0" width="358" height="128"/>
@@ -57,10 +57,10 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3OQ-pK-yeT" userLabel="Price View">
-                                                <rect key="frame" x="0.0" y="128" width="358" height="141"/>
+                                                <rect key="frame" x="0.0" y="128" width="358" height="223.5"/>
                                                 <subviews>
                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uFl-Lv-gVE" userLabel="Price Dotted Border View" customClass="DottedBorderView" customModule="OmnieCommerce" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="358" height="141"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="358" height="223.5"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
@@ -128,10 +128,10 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gv5-jF-yHH" userLabel="Action View">
-                                                <rect key="frame" x="0.0" y="269" width="358" height="116"/>
+                                                <rect key="frame" x="0.0" y="351.5" width="358" height="206.5"/>
                                                 <subviews>
                                                     <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wLY-ah-PEE" userLabel="Check Button" customClass="DLRadioButton">
-                                                        <rect key="frame" x="104" y="20" width="150" height="20"/>
+                                                        <rect key="frame" x="104" y="20" width="150" height="82.5"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="150" id="lha-bj-ap8"/>
@@ -165,10 +165,10 @@
                                                         </connections>
                                                     </button>
                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aEB-CW-Tz4" userLabel="Buttons View">
-                                                        <rect key="frame" x="11.5" y="60" width="335" height="36"/>
+                                                        <rect key="frame" x="85" y="122.5" width="188" height="64"/>
                                                         <subviews>
                                                             <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2R6-v1-lKb" userLabel="Confirm Button" customClass="FillVeryLightOrangeButton" customModule="OmnieCommerce" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="0.0" width="165" height="36"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="92.5" height="64"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                                 <state key="normal" title="Confirm" image="icon-confirm-normal"/>
@@ -180,7 +180,7 @@
                                                                 </connections>
                                                             </button>
                                                             <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e45-Ad-iYc" userLabel="Cancel Button" customClass="BorderVeryLightOrangeButton" customModule="OmnieCommerce" customModuleProvider="target">
-                                                                <rect key="frame" x="171" y="0.0" width="164" height="36"/>
+                                                                <rect key="frame" x="98.5" y="0.0" width="89.5" height="64"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                                 <state key="normal" title="Cancel" image="icon-confirm-cancel-white-normal"/>
@@ -252,7 +252,7 @@
                                 </userDefinedRuntimeAttributes>
                             </scrollView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TOJ-4o-BWv" customClass="SmallTopBarView" customModule="OmnieCommerce" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="95"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="142.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="titleText" value="Order"/>

@@ -6,13 +6,13 @@
     <entity name="AdditionalService" representedClassName="AdditionalService" syncable="YES">
         <attribute name="codeID" attributeType="String" syncable="YES"/>
         <attribute name="duration" optional="YES" attributeType="Double" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="isAvailable" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="maxValue" optional="YES" attributeType="Double" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="minValue" optional="YES" attributeType="Double" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="name" attributeType="String" syncable="YES"/>
         <attribute name="price" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="unit" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="unitName" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="discounts" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Discount" inverseName="additionalService" inverseEntity="Discount" syncable="YES"/>
         <relationship name="service" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Service" inverseName="additionalServices" inverseEntity="Service" syncable="YES"/>
         <uniquenessConstraints>
             <uniquenessConstraint>
@@ -66,7 +66,7 @@
         <attribute name="name" attributeType="String" syncable="YES"/>
         <attribute name="percent" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="status" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
-        <relationship name="additionalService" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="AdditionalService" inverseName="discounts" inverseEntity="AdditionalService" syncable="YES"/>
+        <relationship name="additionalService" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="AdditionalService" syncable="YES"/>
         <relationship name="organization" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Organization" inverseName="discounts" inverseEntity="Organization" syncable="YES"/>
         <relationship name="service" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Service" inverseName="discounts" inverseEntity="Service" syncable="YES"/>
         <uniquenessConstraints>
@@ -109,6 +109,7 @@
         <attribute name="dateEnd" attributeType="String" syncable="YES"/>
         <attribute name="dateStart" attributeType="String" syncable="YES"/>
         <attribute name="discount" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="isAvailable" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="price" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="priceTotal" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="status" attributeType="String" syncable="YES"/>
@@ -242,7 +243,7 @@
         <element name="Discount" positionX="162" positionY="99" width="128" height="195"/>
         <element name="GalleryImage" positionX="-36" positionY="99" width="128" height="135"/>
         <element name="NewsData" positionX="-36" positionY="99" width="128" height="165"/>
-        <element name="Order" positionX="144" positionY="81" width="128" height="165"/>
+        <element name="Order" positionX="144" positionY="81" width="128" height="180"/>
         <element name="Organization" positionX="-36" positionY="99" width="128" height="390"/>
         <element name="Price" positionX="180" positionY="117" width="128" height="195"/>
         <element name="Review" positionX="171" positionY="108" width="128" height="150"/>

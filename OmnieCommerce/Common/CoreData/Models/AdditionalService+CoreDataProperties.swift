@@ -26,6 +26,7 @@ extension AdditionalService {
     @NSManaged public var duration: Double
     @NSManaged public var service: Service?
     @NSManaged public var discounts: NSSet?
+    @NSManaged public var isAvailable: Bool
 
 }
 

@@ -1270,6 +1270,7 @@
 		B122DF5B1DF7F919003823AD /* CalendarShow */ = {
 			isa = PBXGroup;
 			children = (
+				B19DF2821DF94D94000AFC92 /* UIViewControllers */,
 				B122DF5C1DF7F957003823AD /* CalendarShowConfigurator.swift */,
 				B122DF5D1DF7F957003823AD /* CalendarShowInteractor.swift */,
 				B122DF5E1DF7F957003823AD /* CalendarShowModels.swift */,
@@ -1277,7 +1278,6 @@
 				B122DF601DF7F957003823AD /* CalendarShowRouter.swift */,
 				B122DF611DF7F957003823AD /* CalendarShowViewController.swift */,
 				B122DF621DF7F957003823AD /* CalendarShowWorker.swift */,
-				B19DF2821DF94D94000AFC92 /* UIViewControllers */,
 			);
 			path = CalendarShow;
 			sourceTree = "<group>";

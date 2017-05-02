@@ -36,6 +36,7 @@ public class AdditionalService: NSManagedObject, InitCellParameters {
         self.unit = unit
         self.unitName = unit.convertToUnitString() ?? "XXX"
         self.price = price
+        self.isAvailable = true
         
         if let minValue = json["minValue"] as? Double {
             self.minValue = minValue

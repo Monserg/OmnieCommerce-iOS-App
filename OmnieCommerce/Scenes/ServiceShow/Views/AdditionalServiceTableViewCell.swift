@@ -10,6 +10,7 @@ import UIKit
 
 class AdditionalServiceTableViewCell: UITableViewCell {
     // MARK: - Properties
+    var handlerSwitchChangeStateCompletion: HandlerPassDataCompletion?
     var handlerPickerChangeValueCompletion: HandlerPassDataCompletion?
 
     var pickerData: [Int]! {
@@ -51,6 +52,8 @@ class AdditionalServiceTableViewCell: UITableViewCell {
         let _ = labelsCollection.map { $0.isEnabled = sender.isOn }
         pickerView.isUserInteractionEnabled = sender.isOn
 //        stateSwitch.thumbTintColor = (stateSwitch.isOn) ? UIColor.veryLightOrange : UIColor.init(hexString: "#acaeb0")
+        
+        handlerSwitchChangeStateCompletion!(sender.isOn)
     }
 }
 
