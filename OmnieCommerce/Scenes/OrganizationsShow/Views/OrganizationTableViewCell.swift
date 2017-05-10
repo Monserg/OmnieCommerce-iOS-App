@@ -81,7 +81,7 @@ extension OrganizationTableViewCell: ConfigureCell {
                                       placeholder: UIImage.init(named: "image-no-organization"),
                                       options: [.transition(ImageTransition.fade(1)),
                                                 .processor(ResizingImageProcessor(referenceSize: logoImageView.frame.size,
-                                                                                  mode: .aspectFit))],
+                                                                                  mode: .aspectFill))],
                                       completionHandler: { image, error, cacheType, imageURL in
                                         self.logoImageView.kf.cancelDownloadTask()
             })

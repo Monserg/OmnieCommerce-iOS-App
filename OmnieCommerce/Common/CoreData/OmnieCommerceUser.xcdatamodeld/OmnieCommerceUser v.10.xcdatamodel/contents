@@ -26,7 +26,6 @@
     <entity name="AppUser" representedClassName="AppUser" syncable="YES">
         <attribute name="accessToken" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="additionalData" optional="YES" attributeType="Binary" syncable="YES"/>
-        <attribute name="appName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="birthday" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="codeID" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
@@ -40,6 +39,7 @@
         <attribute name="password" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="phone" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="surName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="userName" attributeType="String" syncable="YES"/>
         <uniquenessConstraints>
             <uniquenessConstraint>
                 <constraint value="isAuthorized"/>
@@ -234,6 +234,26 @@
             </uniquenessConstraint>
         </uniquenessConstraints>
     </entity>
+    <entity name="TimeSheet" representedClassName="TimeSheet" syncable="YES">
+        <attribute name="breakDuration" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="date" attributeType="String" syncable="YES"/>
+        <attribute name="minDuration" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="slotsCount" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="workTimeEnd" attributeType="String" syncable="YES"/>
+        <attribute name="workTimeStart" attributeType="String" syncable="YES"/>
+        <relationship name="timesheets" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="TimeSheetItem" inverseName="timesheet" inverseEntity="TimeSheetItem" syncable="YES"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="date"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
+    </entity>
+    <entity name="TimeSheetItem" representedClassName="TimeSheetItem" syncable="YES">
+        <attribute name="end" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="start" attributeType="String" syncable="YES"/>
+        <attribute name="typeValue" attributeType="String" syncable="YES"/>
+        <relationship name="timesheet" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TimeSheet" inverseName="timesheets" inverseEntity="TimeSheet" syncable="YES"/>
+    </entity>
     <elements>
         <element name="Actions" positionX="-27" positionY="108" width="128" height="60"/>
         <element name="AdditionalService" positionX="144" positionY="81" width="128" height="195"/>
@@ -250,5 +270,7 @@
         <element name="Schedule" positionX="153" positionY="90" width="128" height="165"/>
         <element name="Service" positionX="-36" positionY="117" width="128" height="420"/>
         <element name="Subcategory" positionX="475" positionY="-69" width="128" height="105"/>
+        <element name="TimeSheet" positionX="144" positionY="81" width="128" height="150"/>
+        <element name="TimeSheetItem" positionX="153" positionY="90" width="128" height="105"/>
     </elements>
 </model>

@@ -146,17 +146,17 @@ extension SignInContainerShowViewController: SignInContainerShowViewControllerIn
         spinnerDidFinish()
 
         // Check for errors
-        guard viewModel.responseAPI?.code == 200 else {
+        guard viewModel.responseAPI?.code == 200 || viewModel.responseAPI?.code == 2201 else {
             self.alertViewDidShow(withTitle: "Error", andMessage: String(viewModel.responseAPI!.status), completion: { _ in })
             return
         }
 
         // Mofidy AppUser properties
-        CoreDataManager.instance.didUpdateAppUser(state: true)
         CoreDataManager.instance.appUser.codeID = String.init(describing: viewModel.responseAPI?.code)
-        CoreDataManager.instance.appUser.appName = textFieldsCollection.first?.text!
+        CoreDataManager.instance.appUser.userName = (textFieldsCollection.first?.text)!
         CoreDataManager.instance.appUser.password = textFieldsCollection.last?.text!
         CoreDataManager.instance.appUser.accessToken = UserDefaults.standard.value(forKey: keyAccessToken) as? String
+        CoreDataManager.instance.appUser.isAuthorized = true
         CoreDataManager.instance.didSaveContext()
         
         handlerPassDataCompletion!(viewModel.responseAPI!.code!)

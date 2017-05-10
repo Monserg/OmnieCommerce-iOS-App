@@ -29,30 +29,62 @@ public class AppUser: NSManagedObject, InitCellParameters {
     
     // MARK: - Custom Functions
     func dataDidMap(fromDictionary dictionary: [String: Any]) {
-        self.firstName      =   dictionary["firstName"] as? String          // Ivan
-        self.surName        =   dictionary["surName"] as? String            // Ivanov
-        self.gender         =   dictionary["sex"] as! Int16
-        self.familyStatus   =   dictionary["familyStatus"] as! Int16
-        self.hasChildren    =   dictionary["hasChildren"] as! Int16
-        self.hasPet         =   dictionary["hasPet"] as! Int16
-        self.birthday       =   (dictionary["birthDay"] as! String).convertToDate(withDateFormat: .ResponseDate) as NSDate?
-        self.phone          =   dictionary["userPhone"] as? String
-        self.email          =   dictionary["userEmail"] as? String
+        // Set common data
+        self.userName = dictionary["userName"] as! String
+
+        // Set additional data
+        // Ivan
+        if let firstName = dictionary["firstName"] as? String {
+            self.firstName = firstName
+        }
+        
+        // Ivanov
+        if let surName = dictionary["surName"] as? String {
+            self.surName = surName
+        }
+        
+        if let gender = dictionary["sex"] as? Int16 {
+            self.gender = gender
+        }
+
+        if let familyStatus = dictionary["familyStatus"] as? Int16 {
+            self.familyStatus = familyStatus
+        }
+        
+        if let hasChildren = dictionary["hasChildren"] as? Int16 {
+            self.hasChildren = hasChildren
+        }
+        
+        if let hasPet = dictionary["hasPet"] as? Int16 {
+            self.hasPet = hasPet
+        }
+        
+        if let birthday = dictionary["birthDay"] as? String {
+            self.birthday = birthday.convertToDate(withDateFormat: .ResponseDate) as NSDate?
+        }
+        
+        if let phone = dictionary["userPhone"] as? String {
+            self.phone = phone
+        }
+        
+        if let email = dictionary["userEmail"] as? String {
+            self.email = email
+        }
         
         guard (dictionary["userEmail"] as? String) != nil && (dictionary["image"] as? String) != nil else {
             return
         }
         
-        self.imagePath      =   "http://\(dictionary["image"] as! String)"
+        self.imagePath = "http://\(dictionary["image"] as! String)"
         
         guard dictionary["additionalData"] != nil else {
             return
         }
         
-        self.additionalData =   NSKeyedArchiver.archivedData(withRootObject: dictionary["additionalData"] as! [String: String]) as NSData?
+        self.additionalData = NSKeyedArchiver.archivedData(withRootObject: dictionary["additionalData"] as! [String: String]) as NSData?
     }
     
     func additionalDataDidMap(fromDictionary dictionary: [String: Any]) {
-        self.additionalData =   NSKeyedArchiver.archivedData(withRootObject: dictionary) as NSData?
+        self.additionalData = NSKeyedArchiver.archivedData(withRootObject: dictionary) as NSData?
     }
 }

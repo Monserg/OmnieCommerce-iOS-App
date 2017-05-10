@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TimeSheetTableViewCell" rowHeight="90" id="nys-hm-hBJ" customClass="TimeSheetTableViewCell" customModule="OmnieCommerce" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="440" height="90"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" autoresizesSubviews="NO" opaque="NO" clearsContextBeforeDrawing="NO" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nys-hm-hBJ" id="4KM-0u-qp9">
+                <rect key="frame" x="0.0" y="0.0" width="440" height="89.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7NY-2Y-TLO" userLabel="Background View">
+                        <rect key="frame" x="0.0" y="0.0" width="440" height="89.5"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uKz-KB-wIU" userLabel="Dotted View">
+                        <rect key="frame" x="66" y="8" width="366" height="1"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="LuI-FG-doz"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4yb-uQ-m57" userLabel="Start Time Label">
+                        <rect key="frame" x="8" y="-2" width="38" height="21"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="7NY-2Y-TLO" secondAttribute="trailing" id="7SD-H5-QmZ"/>
+                    <constraint firstAttribute="bottom" secondItem="7NY-2Y-TLO" secondAttribute="bottom" id="9ia-Ao-JgK"/>
+                    <constraint firstItem="4yb-uQ-m57" firstAttribute="centerY" secondItem="uKz-KB-wIU" secondAttribute="centerY" id="Gnf-DH-jzm"/>
+                    <constraint firstItem="uKz-KB-wIU" firstAttribute="leading" secondItem="4yb-uQ-m57" secondAttribute="trailing" constant="20" id="ShQ-jW-iRd"/>
+                    <constraint firstItem="uKz-KB-wIU" firstAttribute="top" secondItem="4KM-0u-qp9" secondAttribute="top" constant="8" id="UyF-xq-ZSv"/>
+                    <constraint firstItem="7NY-2Y-TLO" firstAttribute="leading" secondItem="4KM-0u-qp9" secondAttribute="leading" id="YE4-Eo-6D8"/>
+                    <constraint firstItem="7NY-2Y-TLO" firstAttribute="top" secondItem="4KM-0u-qp9" secondAttribute="top" id="enW-RN-osw"/>
+                    <constraint firstItem="4yb-uQ-m57" firstAttribute="leading" secondItem="4KM-0u-qp9" secondAttribute="leading" constant="8" id="qnP-rf-Wbq"/>
+                    <constraint firstAttribute="trailing" secondItem="uKz-KB-wIU" secondAttribute="trailing" constant="8" id="u4F-NW-JrB"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+            </userDefinedRuntimeAttributes>
+            <connections>
+                <outlet property="dottedLineView" destination="uKz-KB-wIU" id="pa7-PY-aik"/>
+                <outlet property="timeLabel" destination="4yb-uQ-m57" id="bll-Pg-y2u"/>
+            </connections>
+            <point key="canvasLocation" x="67" y="77"/>
+        </tableViewCell>
+    </objects>
+</document>

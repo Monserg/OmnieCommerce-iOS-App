@@ -41,6 +41,12 @@ class ServiceShowViewController: BaseViewController {
     @IBOutlet weak var mainStackView: UIStackView!
     @IBOutlet weak var smallTopBarView: SmallTopBarView!
 
+    @IBOutlet weak var scrollView: UIScrollView! {
+        didSet {
+            scrollView.delegate = self
+        }
+    }
+    
     @IBOutlet var dottedBorderViewsCollection: [DottedBorderView]! {
         didSet {
             _ = dottedBorderViewsCollection.map { $0.style = .BottomDottedLine }
@@ -182,13 +188,17 @@ class ServiceShowViewController: BaseViewController {
         viewSettingsDidLoad()
     }
     
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        scrollView.indicatorDidChange(UIColor.veryLightOrange)
+    }
+
     
     // MARK: - Custom Functions
     func viewSettingsDidLoad() {
         // Config smallTopBarView
         navigationBarView = smallTopBarView
         smallTopBarView.type = "Child"
-        smallTopBarView.titleText = service.organizationName!
+        smallTopBarView.titleText = service.organizationName ?? "Zorro"
         haveMenuItem = false
         
         // Handler Back button tap
@@ -205,7 +215,7 @@ class ServiceShowViewController: BaseViewController {
         }
         
         // Load Service profile data
-        let serviceRequestModel = ServiceShowModels.ServiceItem.RequestModel(parameters: ["id": service.codeID])
+        let serviceRequestModel = ServiceShowModels.ServiceItem.RequestModel(parameters: [ "id": service.codeID, "locale": Locale.current.languageCode!.lowercased() ])
         interactor.serviceDidLoad(withRequestModel: serviceRequestModel)
     }
     
@@ -379,7 +389,7 @@ class ServiceShowViewController: BaseViewController {
                                                 placeholder: UIImage.init(named: "image-no-user"),
                                                 options: [.transition(ImageTransition.fade(1)),
                                                           .processor(ResizingImageProcessor(referenceSize: userAvatarImageView.frame.size,
-                                                                                            mode: .aspectFit))],
+                                                                                            mode: .aspectFill))],
                                                 completionHandler: { image, error, cacheType, imageURL in
                                                     self.userAvatarImageView.kf.cancelDownloadTask()
                 })
@@ -396,6 +406,7 @@ class ServiceShowViewController: BaseViewController {
         }
 
         smallTopBarView.actionButton.isHidden = false
+        self.view.layoutIfNeeded()
 
         _ = dottedBorderViewsCollection.map { $0.setNeedsDisplay() }
         aroundDottedBorderView.setNeedsDisplay()
@@ -494,7 +505,7 @@ class ServiceShowViewController: BaseViewController {
         let startTimeDate = Calendar.current.date(from: orderStartTimeComponents!)
         let endTimeDate = Calendar.current.date(from: orderEndTimeComponents!)
         
-        calendarButton.setAttributedTitle(NSAttributedString.init(string: orderDate!.convertToString(withStyle: .Date), attributes: UIFont.ubuntuLightVeryLightOrange16), for: .normal)
+        calendarButton.setAttributedTitle(NSAttributedString.init(string: orderDate!.convertToString(withStyle: .DateDot), attributes: UIFont.ubuntuLightVeryLightOrange16), for: .normal)
         calendarStartTimeButton.setAttributedTitle(NSAttributedString.init(string: startTimeDate!.convertToString(withStyle: .Time), attributes: UIFont.ubuntuLightVeryLightOrange16), for: .normal)
         calendarEndTimeButton.setAttributedTitle(NSAttributedString.init(string: endTimeDate!.convertToString(withStyle: .Time), attributes: UIFont.ubuntuLightVeryLightOrange16), for: .normal)
     }

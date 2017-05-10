@@ -57,7 +57,7 @@ extension ReviewCollectionViewCell: ConfigureCell {
         let review = item as! Review
         userNameLabel.text = review.userName ?? "Zorro"
         userRatingView.rating = review.rating
-        dateLabel.text = (review.dateCreate as Date).convertToString(withStyle: .Date)
+        dateLabel.text = (review.dateCreate as Date).convertToString(withStyle: .DateDot)
         noteLabel.text = review.content ?? "Empty"
 
 //        @IBOutlet weak var userImage: CustomImageView!
@@ -68,7 +68,7 @@ extension ReviewCollectionViewCell: ConfigureCell {
 //                                    placeholder: UIImage.init(named: "image-no-photo"),
 //                                    options: [.transition(ImageTransition.fade(1)),
 //                                              .processor(ResizingImageProcessor(targetSize: imageButton.frame.size,
-//                                                                                contentMode: .aspectFit))],
+//                                                                                contentMode: .aspectFill))],
 //                                    completionHandler: { image, error, cacheType, imageURL in
 //                                        self.imageButton.imageView?.kf.cancelDownloadTask()
 //            })

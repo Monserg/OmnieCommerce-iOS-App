@@ -14,7 +14,7 @@
         <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FavoriteOrganizationTableViewCell" rowHeight="60" id="QIs-hN-DjD" customClass="FavoriteOrganizationTableViewCell" customModule="OmnieCommerce" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="493" height="60"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QIs-hN-DjD" id="mwA-pi-hdj">
+            <tableViewCellContentView key="contentView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QIs-hN-DjD" id="mwA-pi-hdj">
                 <rect key="frame" x="0.0" y="0.0" width="493" height="59.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>

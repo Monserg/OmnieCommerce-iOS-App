@@ -24,18 +24,20 @@ enum BodyType {
 }
 
 public enum StatusCodeNote: Int {
-    case SUCCESS                    =   200     // GET or DELETE result is successful
-    case CONTINUE                   =   2201    // POST result is successful & need continue
-    case CREATED                    =   201     // POST or PUT is successful
-    case NOT_MODIFIED               =   304     // If caching is enabled and etag matches with the server
+    case SUCCESS                    =   200     //  GET or DELETE result is successful
+    case CONTINUE                   =   2201    //  POST result is successful & need continue
+    case CREATED                    =   201     //  POST or PUT is successful
+    case NOT_MODIFIED               =   304     //  If caching is enabled and etag matches with the server
     case SOMETHING_WRONG_3894       =   3894
-    case BAD_REQUEST                =   400     // Possibly the parameters are invalid
-    case INVALID_CREDENTIAL         =   401     // INVALID CREDENTIAL, possible invalid token
-    case NOT_FOUND                  =   404     // The item you looked for is not found
-    case CONFLICT                   =   409     // Conflict - means already exist
-    case AUTHENTICATION_EXPIRED     =   419     // Expired
-    case BAD_AUTHORIZATION          =   4401    // BAD AUTHORIZATION
-    case WRONG_INPUT_DATA           =   4500    // WRONG INPUT DATA
+    case BAD_REQUEST                =   400     //  Possibly the parameters are invalid
+    case INVALID_CREDENTIAL         =   401     //  INVALID CREDENTIAL, possible invalid token
+    case NOT_FOUND                  =   404     //  The item you looked for is not found
+    case CONFLICT                   =   409     //  Conflict - means already exist
+    case AUTHENTICATION_EXPIRED     =   419     //  Expired
+    case WRONG_SHOW_INFO            =   4200    //  Failed on showing info
+    case BAD_AUTHORIZATION          =   4401    //  BAD AUTHORIZATION
+    case INCORRECT_PASSWORD         =   4402    //  PASSWORD IS INCORRECT
+    case WRONG_INPUT_DATA           =   4500    //  WRONG INPUT DATA
     case USER_EXIST                 =   4670
 
     var name: String {

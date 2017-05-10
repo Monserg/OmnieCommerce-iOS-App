@@ -81,7 +81,8 @@ extension FavoriteServiceTableViewCell: ConfigureCell {
             logoImageView.kf.setImage(with: ImageResource(downloadURL: URL(string: imagePath)!, cacheKey: "imagePath-\(indexPath.row)"),
                                       placeholder: UIImage.init(named: "image-no-service"),
                                       options: [.transition(ImageTransition.fade(1)),
-                                                .processor(ResizingImageProcessor.init(referenceSize: logoImageView.frame.size, mode: .aspectFit))],
+                                                .processor(ResizingImageProcessor.init(referenceSize: logoImageView.frame.size,
+                                                                                       mode: .aspectFill))],
                                       completionHandler: { image, error, cacheType, imageURL in
                                         self.logoImageView.kf.cancelDownloadTask()
             })

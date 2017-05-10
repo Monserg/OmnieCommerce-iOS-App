@@ -80,7 +80,7 @@ class PersonalDataViewController: BaseViewController, EmailErrorMessageView, Pho
                                          placeholder: UIImage.init(named: "image-no-user"),
                                          options: [.transition(ImageTransition.fade(1)),
                                                    .processor(ResizingImageProcessor(referenceSize: avatarButton.frame.size,
-                                                                                     mode: .aspectFit))],
+                                                                                     mode: .aspectFill))],
                                          completionHandler: { image, error, cacheType, imageURL in
                                             self.avatarButton.imageView!.kf.cancelDownloadTask()
                 })
@@ -93,7 +93,7 @@ class PersonalDataViewController: BaseViewController, EmailErrorMessageView, Pho
     @IBOutlet weak var emailTextField: CustomTextField! {
         didSet {
             if (CoreDataManager.instance.appUser.email != nil) {
-                self.emailTextField.text = CoreDataManager.instance.appUser!.email!
+                self.emailTextField.text = CoreDataManager.instance.appUser!.email
             } else {
                 let dictionary = NSKeyedUnarchiver.unarchiveObject(with: CoreDataManager.instance.appUser!.additionalData! as Data) as! [String : Any]
                 self.emailTextField.text = dictionary["userEmail"] as? String

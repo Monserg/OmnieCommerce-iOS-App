@@ -17,7 +17,7 @@ extension AppUser {
     }
 
     @NSManaged public var accessToken: String?
-    @NSManaged public var appName: String?
+    @NSManaged public var userName: String
     @NSManaged public var birthday: NSDate?
     @NSManaged public var codeID: String?
     @NSManaged public var email: String?

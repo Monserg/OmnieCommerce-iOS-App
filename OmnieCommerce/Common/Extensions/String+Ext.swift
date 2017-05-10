@@ -15,6 +15,7 @@ enum DateFormatType: String {
     case Default                =   "dd.MM.yyyy"                        // "17.03.2017"
     case ResponseDate           =   "yyyy-MM-dd"                        // "2017-03-17"
     case NewsDate               =   "yyyy-MM-dd HH:mm"                  // "2017-03-31 01:03"
+    case PriceDate              =   "MMM dd, yyyy HH:mm:ss a"           // "May 9, 2017 12:01:14 PM"
 }
 
 extension String {
@@ -51,5 +52,16 @@ extension String {
         dateFormatter.dateFormat = dateFormatType.rawValue
         
         return dateFormatter.date(from: self)!
+    }
+    
+    // For Schedule
+    func twoNumberFormat() -> String {
+        switch Int(self)! {
+        case 0...9:
+            return "0\(Int(self)!)"
+            
+        default:
+            return self
+        }
     }
 }

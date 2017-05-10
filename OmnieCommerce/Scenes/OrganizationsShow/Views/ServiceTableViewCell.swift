@@ -72,7 +72,7 @@ extension ServiceTableViewCell: ConfigureCell {
                                       placeholder: UIImage.init(named: "image-no-service"),
                                       options: [.transition(ImageTransition.fade(1)),
                                                 .processor(ResizingImageProcessor(referenceSize: logoImageView.frame.size,
-                                                                                  mode: .aspectFit))],
+                                                                                  mode: .aspectFill))],
                                       completionHandler: { image, error, cacheType, imageURL in
                                         self.logoImageView.kf.cancelDownloadTask()
             })

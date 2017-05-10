@@ -38,14 +38,15 @@ extension MessageTableViewCell: ConfigureCell {
         let message = item as! Message
         nameLabel.text = message.name
         messageLabel.text = message.text
-        dateLabel.text = message.activeDate.convertToString(withStyle: (message.activeDate.isActiveToday()) ? .Time : .Date)
+        dateLabel.text = message.activeDate.convertToString(withStyle: (message.activeDate.isActiveToday()) ? .Time : .DateDot)
         selectionStyle = .none
 
         if let imagePath = message.logoStringURL {
             logoImageView.kf.setImage(with: ImageResource(downloadURL: URL(string: imagePath)!, cacheKey: imagePath),
                                       placeholder: UIImage.init(named: "image-no-photo"),
                                       options: [.transition(ImageTransition.fade(1)),
-                                                .processor(ResizingImageProcessor.init(referenceSize: logoImageView.frame.size, mode: .aspectFit))],
+                                                .processor(ResizingImageProcessor.init(referenceSize: logoImageView.frame.size,
+                                                                                       mode: .aspectFill))],
                                       completionHandler: { image, error, cacheType, imageURL in
                                         self.logoImageView.kf.cancelDownloadTask()
             })
@@ -64,7 +65,7 @@ extension MessageTableViewCell: ConfigureCell {
                                           placeholder: UIImage.init(named: "image-no-user"),
                                           options: [.transition(ImageTransition.fade(1)),
                                                     .processor(ResizingImageProcessor(referenceSize: logoImageView.frame.size,
-                                                                                      mode: .aspectFit))],
+                                                                                      mode: .aspectFill))],
                                           completionHandler: { image, error, cacheType, imageURL in
                                             self.logoImageView.kf.cancelDownloadTask()
                 })

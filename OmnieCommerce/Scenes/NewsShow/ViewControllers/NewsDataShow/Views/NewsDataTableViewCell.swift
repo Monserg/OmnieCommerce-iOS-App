@@ -35,7 +35,7 @@ extension NewsDataTableViewCell: ConfigureCell {
     func setup(withItem item: Any, andIndexPath indexPath: IndexPath) {
         let newsData = item as! NewsData
         organizationNameLabel.text = newsData.name
-        dateLabel.text = (newsData.activeDate as Date).convertToString(withStyle: .Date)
+        dateLabel.text = (newsData.activeDate as Date).convertToString(withStyle: .DateDot)
         titleLabel.numberOfLines = 2
         titleLabel.text = newsData.title
         titleLabel.clipsToBounds = false
@@ -46,7 +46,7 @@ extension NewsDataTableViewCell: ConfigureCell {
                                       placeholder: UIImage.init(named: "image-no-organization"),
                                       options: [.transition(ImageTransition.fade(1)),
                                                 .processor(ResizingImageProcessor.init(referenceSize: logoImageView.frame.size,
-                                                                                       mode: .aspectFit))],
+                                                                                       mode: .aspectFill))],
                                       completionHandler: { image, error, cacheType, imageURL in
                                         self.logoImageView.kf.cancelDownloadTask()
             })

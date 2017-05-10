@@ -106,6 +106,10 @@ extension UIView {
             }
         }
     }
+    
+    func draw(fromPoint startPoint: CGFloat, withFinishOffset finishOffset: CGFloat, andNewSize size: CGSize) {
+        frame = CGRect.init(origin: frame.origin, size: CGSize.init(width: size.width - (startPoint + finishOffset), height: frame.height))
+    }
 }
 
 

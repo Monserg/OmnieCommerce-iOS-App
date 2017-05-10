@@ -9,7 +9,8 @@
 import UIKit
 
 enum StringDateStyle: String {
-    case Date               =   "Date"
+    case DateDot            =   "DateDot"
+    case DateHyphen         =   "DateHyphen"
     case Time               =   "Time"
     case MonthYear          =   "MonthYear"
     case WeekdayMonthYear   =   "WeekdayMonthYear"
@@ -73,9 +74,12 @@ extension Date {
         dateFormatter.locale    =   NSLocale.current
         
         switch dateStyle {
-        case .Date:
+        case .DateDot:
             dateFormatter.dateFormat    =   "dd.MM.yyyy"
-            
+
+        case .DateHyphen:
+            dateFormatter.dateFormat    =   "yyyy-MM-dd"
+
         case .Time:
             dateFormatter.dateFormat    =   "HH:mm"
             
@@ -104,8 +108,8 @@ extension Date {
     }
     
     func globalTime() -> Date {
-        let timeZone    =   TimeZone.current
-        let seconds     =   TimeInterval(timeZone.secondsFromGMT(for: self))
+        let timeZone = TimeZone.current
+        let seconds = TimeInterval(timeZone.secondsFromGMT(for: self))
         
         return Date(timeInterval: seconds, since: self)
     }
@@ -139,6 +143,42 @@ extension Date {
         let isLeapYear  =   ((year % 4 == 0) && (year % 100 != 0) || (year % 400 == 0))
         
         return isLeapYear
+    }
+    
+    // For Schedule
+    func timeForSchedule(startDateTime: Date, currentDateTime: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "HH:mm"
+        let startTime = dateFormatter.string(from: startDateTime).twoNumberFormat()
+        let currentTime = dateFormatter.string(from: currentDateTime).twoNumberFormat()
+        
+        return startTime + " - " + currentTime
+    }
+    
+    func didShow(timePointer: TimePointer, forOrganization organization: Organization, inTableView tableView: UITableView, withCellHeight cellHeight: CGFloat) -> Bool {
+        let dateComponents = Calendar.current.dateComponents([.hour], from: self)
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "HH dd.MM.yyyy"
+        
+        if (dateFormatter.string(from: self) == dateFormatter.string(from: Date())) {
+            if (organization.workStartTime...(organization.workStartTime + tableView.visibleCells.count) ~= dateComponents.hour!) {
+                // Initialization
+                if (timePointer.frame.minY == 0) {
+                    tableView.addSubview(timePointer)
+                    timePointer.didMoveToNewPosition(forOrganization: organization, inTableView: tableView, withCellHeight: cellHeight, andAnimation: false)
+                } else {
+                    timePointer.didMoveToNewPosition(forOrganization: organization, inTableView: tableView, withCellHeight: cellHeight, andAnimation: true)
+                }
+                
+                return true
+            }
+        }
+        
+        return false
+    }
+    
+    func dateComponents() -> DateComponents {
+        return Calendar.current.dateComponents([.year, .month, .hour, .minute], from: self)
     }
 }
 

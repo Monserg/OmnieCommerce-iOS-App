@@ -71,14 +71,15 @@ class NewsItemShowViewController: BaseViewController {
         haveMenuItem = false
         
         // Setting News values
-        dateLabel.text = (newsItem.activeDate as Date).convertToString(withStyle: .Date)
+        dateLabel.text = (newsItem.activeDate as Date).convertToString(withStyle: .DateDot)
         organizationButton.setTitle("          \(newsItem.name)          ", for: .normal)
 
         if let imagePath = newsItem.logoStringURL {
             logoImageView.kf.setImage(with: ImageResource(downloadURL: URL(string: imagePath)!, cacheKey: newsItem.codeID),
                                       placeholder: UIImage.init(named: "image-no-organization"),
                                       options: [.transition(ImageTransition.fade(1)),
-                                                .processor(ResizingImageProcessor.init(referenceSize: logoImageView.frame.size, mode: .aspectFit))],
+                                                .processor(ResizingImageProcessor.init(referenceSize: logoImageView.frame.size,
+                                                                                       mode: .aspectFill))],
                                       completionHandler: { image, error, cacheType, imageURL in
                                         self.logoImageView.kf.cancelDownloadTask()
             })

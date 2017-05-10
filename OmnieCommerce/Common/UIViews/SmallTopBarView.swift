@@ -119,7 +119,7 @@ enum ViewType: String {
                     textField.textColor = UIColor.veryLightGray
                     textField.tintColor = UIColor.veryLightGray
                     
-                    textField.attributedPlaceholder = NSAttributedString.init(string: "Enter search text".localized(),
+                    textField.attributedPlaceholder = NSAttributedString.init(string: "Enter Search text".localized(),
                                                                               attributes: UIFont.ubuntuLightItalicVeryLightGray16)
                     
                     if let iconView = textField.leftView as? UIImageView {

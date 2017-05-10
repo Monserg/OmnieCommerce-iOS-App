@@ -259,7 +259,7 @@ class OrganizationShowViewController: BaseViewController {
                                               placeholder: UIImage.init(named: "image-no-photo"),
                                               options: [.transition(ImageTransition.fade(1)),
                                                         .processor(ResizingImageProcessor(referenceSize: headerView!.frame.size,
-                                                                                          mode: .aspectFit))],
+                                                                                          mode: .aspectFill))],
                                               completionHandler: { image, error, cacheType, imageURL in
                                                 self.headerView!.kf.cancelDownloadTask()
             })
@@ -319,7 +319,7 @@ class OrganizationShowViewController: BaseViewController {
                                        placeholder: UIImage.init(named: "image-no-organization"),
                                        options: [.transition(ImageTransition.fade(1)),
                                                  .processor(ResizingImageProcessor(referenceSize: logoImageView!.frame.size,
-                                                                                   mode: .aspectFit))],
+                                                                                   mode: .aspectFill))],
                                        completionHandler: { image, error, cacheType, imageURL in
                                         self.logoImageView!.kf.cancelDownloadTask()
             })
@@ -494,7 +494,7 @@ class OrganizationShowViewController: BaseViewController {
                                                 placeholder: UIImage.init(named: "image-no-user"),
                                                 options: [.transition(ImageTransition.fade(1)),
                                                           .processor(ResizingImageProcessor(referenceSize: userAvatarImageView.frame.size,
-                                                                                            mode: .aspectFit))],
+                                                                                            mode: .aspectFill))],
                                                 completionHandler: { image, error, cacheType, imageURL in
                                                     self.userAvatarImageView.kf.cancelDownloadTask()
                 })

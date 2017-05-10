@@ -129,7 +129,7 @@ enum RequestType {
                                                                             headers: headers,
                                                                             parameters: (isBodyParams ? nil : params))
             
-            // Handbook
+        // Handbook
             
             
             
@@ -358,9 +358,9 @@ final class MSMRestApiManager {
     static let instance = MSMRestApiManager()
     
     var appURL: URL!
-    let appHostURL = URL.init(string: "http://omniecom.com:9333")!
+    let appHostURL = URL.init(string: "http://omniecom.com:9009")!
     let appApiVersionString = "api/v1/omnie/webservice"
-    var headers = [ "Content-Type": "application/json" ]
+    var headers = ["Content-Type": "application/json"]
     
     var appApiString: String! {
         didSet {
@@ -380,9 +380,20 @@ final class MSMRestApiManager {
         appApiString = requestParameters.apiStringURL
         
         if (requestParameters.parameters != nil) {
-            let key = requestParameters.parameters!.keys.first!
-            let value = requestParameters.parameters![key] as! String
-            appURL = URL.init(string: appURL.absoluteString.appending("?\(key)=\(value)"))
+//            let key = requestParameters.parameters!.keys.first!
+//            let value = requestParameters.parameters![key] as! String
+//            appURL = URL.init(string: appURL.absoluteString.appending("?\(key)=\(value)"))
+            
+            for (index, dictionary) in requestParameters.parameters!.enumerated() {
+                let key = dictionary.key
+                let value = dictionary.value
+                
+                if (index) == 0 {
+                    appURL = URL.init(string: appURL.absoluteString.appending("?\(key)=\(value)"))
+                } else {
+                    appURL = URL.init(string: appURL.absoluteString.appending("&\(key)=\(value)"))
+                }
+            }
         }
         
         Alamofire.request(appURL, method: requestParameters.method, parameters: requestParameters.body, encoding: JSONEncoding.default, headers: requestParameters.headers).responseJSON { dataResponse -> Void in
@@ -391,26 +402,26 @@ final class MSMRestApiManager {
                 return
             }
             
-            let json = JSON(dataResponse.result.value!)
             var responseAPI: ResponseAPI!
+            let json = JSON(dataResponse.result.value!)
+            let statusCode = (dataResponse.result.value as! [String: Any])["code"] as! Int
             
             switch requestType {
             case .userGetProfileData:
-                responseAPI = ResponseAPI.init(fromJSON: json,
-                                               withBodyType: ((dataResponse.response!.statusCode == 200) ? .UserDataDictionary : .UserAdditionalDataDictionary))
+                responseAPI = ResponseAPI.init(fromJSON: json, withBodyType: (statusCode == 200) ? .UserDataDictionary : .UserAdditionalDataDictionary)
                 
             default:
                 responseAPI = ResponseAPI.init(fromJSON: json, withBodyType: requestParameters.bodyType)
-                
-                // Save headers
-                if (dataResponse.response?.statusCode == 200 && requestParameters.bodyType == .Default) {
-                    let responseHeaders = dataResponse.response!.allHeaderFields
-                    UserDefaults.standard.set(responseHeaders["Authorization"] as? String, forKey: keyAccessToken)
-                }
-                
-                handlerResponseAPICompletion(responseAPI)
-                return
             }
+
+            // Save headers
+            if (dataResponse.response?.statusCode == 200 && requestParameters.bodyType == .Default) {
+                let responseHeaders = dataResponse.response!.allHeaderFields
+                UserDefaults.standard.set(responseHeaders["Authorization"] as? String, forKey: keyAccessToken)
+            }
+            
+            handlerResponseAPICompletion(responseAPI)
+            return
         }
     }
     

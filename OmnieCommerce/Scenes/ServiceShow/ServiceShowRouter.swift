@@ -35,6 +35,7 @@ class ServiceShowRouter: ServiceShowRouterInput {
         let storyboard = UIStoryboard(name: "CalendarShow", bundle: nil)
         let calendarShowVC = storyboard.instantiateViewController(withIdentifier: "CalendarShowVC") as! CalendarShowViewController
         calendarShowVC.orderDateComponents = orderDateComponents
+        calendarShowVC.service = viewController.service
         
         viewController.navigationController?.pushViewController(calendarShowVC, animated: true)
         

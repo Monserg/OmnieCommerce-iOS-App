@@ -12,6 +12,9 @@ import CoreLocation
 
 @objc(Organization)
 public class Organization: NSManagedObject, InitCellParameters, PointAnnotationBinding {
+    var workStartTime = 9
+    var workTimeDuration = 18
+
     // MARK: - Properties
     var canUserSendReview: Bool = false
 

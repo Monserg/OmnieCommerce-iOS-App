@@ -25,21 +25,25 @@ class OrganizationsShowRouter: OrganizationsShowRouterInput {
     
     // MARK: - Custom Functions. Navigation
     func navigateToOrganizationShowScene(_ organization: Organization) {
-        let storyboard                  =   UIStoryboard(name: "OrganizationShow", bundle: nil)
-        let organizationShowVC          =   storyboard.instantiateViewController(withIdentifier: "OrganizationShowVC") as! OrganizationShowViewController
-        organizationShowVC.organization =   organization
+        let storyboard = UIStoryboard(name: "OrganizationShow", bundle: nil)
+        let organizationShowVC = storyboard.instantiateViewController(withIdentifier: "OrganizationShowVC") as! OrganizationShowViewController
+        organizationShowVC.organization = organization
         
         viewController.navigationController?.pushViewController(organizationShowVC, animated: true)
     }
     
     func navigateToServiceShowScene(_ service: Service) {
-        // TODO: - ADD TRANSITION TO SERVICE SCENE
+        let storyboard = UIStoryboard(name: "ServiceShow", bundle: nil)
+        let serviceShowVC = storyboard.instantiateViewController(withIdentifier: "ServiceShowVC") as! ServiceShowViewController
+        serviceShowVC.service = service
+        
+        viewController.navigationController?.pushViewController(serviceShowVC, animated: true)
     }
 
     func navigateToOrganizationsMapShowScene(withItems items: [PointAnnotationBinding]) {
-        let storyboard                  =   UIStoryboard(name: "OrganizationsMapShow", bundle: nil)
-        let organizationsMapShowVC      =   storyboard.instantiateViewController(withIdentifier: "OrganizationsMapShowVC") as! OrganizationsMapShowViewController
-        organizationsMapShowVC.items    =   items
+        let storyboard = UIStoryboard(name: "OrganizationsMapShow", bundle: nil)
+        let organizationsMapShowVC = storyboard.instantiateViewController(withIdentifier: "OrganizationsMapShowVC") as! OrganizationsMapShowViewController
+        organizationsMapShowVC.items = items
         
         viewController.navigationController?.pushViewController(organizationsMapShowVC, animated: true)
     }

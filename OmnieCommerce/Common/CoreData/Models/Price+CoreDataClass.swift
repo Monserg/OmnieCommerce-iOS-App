@@ -37,7 +37,7 @@ public class Price: NSManagedObject, InitCellParameters {
         self.price = price
         self.unit = unit
         self.unitName = unit.convertToUnitString() ?? "ZZZ"
-        self.dateCreated = dateCreated.convertToDate(withDateFormat: .ResponseDate) as NSDate
+        self.dateCreated = dateCreated.convertToDate(withDateFormat: .PriceDate) as NSDate
         self.ruleTimeStart = ruleTimeStart
         self.ruleTimeEnd = ruleTimeEnd
         

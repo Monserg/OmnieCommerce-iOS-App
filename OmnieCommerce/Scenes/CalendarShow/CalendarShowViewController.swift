@@ -27,8 +27,9 @@ class CalendarShowViewController: BaseViewController, CalendarShowViewController
     var output: CalendarShowViewControllerOutput!
     var router: CalendarShowRouter!
     
+    var service: Service!
     var calendarVC: CalendarViewController?
-    var schedulerVC: SchedulerViewController?
+    var timesheetVC: TimeSheetViewController?
     var orderDateComponents: DateComponents!
     var orderStartTimeComponents: DateComponents?
     var orderEndTimeComponents: DateComponents?
@@ -45,6 +46,13 @@ class CalendarShowViewController: BaseViewController, CalendarShowViewController
                     self.dateStackView.isHidden = false
                     self.setupDateLabel(withDate: newDate)
                     self.orderDateComponents = Calendar.current.dateComponents([.month, .day, .year, .hour, .minute], from: newDate)
+                    
+                    // API "Get timesheet for one day"
+                    MSMRestApiManager.instance.userRequestDidRun(.userGetOrderTimeSheetForDay(["date": newDate.convertToString(withStyle: .DateHyphen), "service": self.service.codeID], false), withHandlerResponseAPICompletion: { responseAPI in
+                        if let json = responseAPI?.body as? [String: Any] {
+                            self.timesheetVC!.timesheet = TimeSheet.init(json: json as [String: AnyObject], forDate: newDate.convertToString(withStyle: .DateDot))
+                        }
+                    })
                 }
             }
         }
@@ -85,7 +93,7 @@ class CalendarShowViewController: BaseViewController, CalendarShowViewController
         
         calendarVC = UIStoryboard(name: "CalendarShow", bundle: nil).instantiateViewController(withIdentifier: "CalendarVC") as? CalendarViewController
         calendarVC!.selectedDate = Calendar.current.date(from: orderDateComponents)
-        schedulerVC = UIStoryboard(name: "CalendarShow", bundle: nil).instantiateViewController(withIdentifier: "SchedulerVC") as? SchedulerViewController
+        timesheetVC = UIStoryboard(name: "CalendarShow", bundle: nil).instantiateViewController(withIdentifier: "TimeSheetVC") as? TimeSheetViewController
         
         activeViewController = calendarVC
         view.backgroundColor = UIColor.veryDarkDesaturatedBlue24
@@ -133,7 +141,7 @@ class CalendarShowViewController: BaseViewController, CalendarShowViewController
     }
     
     func setupDateLabel(withDate date: Date) {
-        dateLabel.text = date.convertToString(withStyle: .Date)
+        dateLabel.text = date.convertToString(withStyle: .DateDot)
     }
     
     func setupSegmentedControlView() {
@@ -142,7 +150,7 @@ class CalendarShowViewController: BaseViewController, CalendarShowViewController
             
             switch sender.tag {
             case 1:
-                self.activeViewController = self.schedulerVC
+                self.activeViewController = self.timesheetVC
                 
             default:
                 self.activeViewController = self.calendarVC

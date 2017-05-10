@@ -26,7 +26,7 @@ class CoreDataManager {
 
     var appUser: AppUser! {
         didSet {
-            didSaveContext()
+//            didSaveContext()
         }
     }
 
@@ -121,19 +121,20 @@ class CoreDataManager {
     }
     
     func didUpdateAppUser(state: Bool) {
-        appUser.isAuthorized        =   state
+        appUser.isAuthorized = state
         
         if (!state) {
-            appUser.accessToken     =   nil
-            appUser.birthday        =   nil
-            appUser.codeID          =   nil
-            appUser.email           =   nil
-            appUser.firstName       =   nil
-            appUser.imagePath       =   nil
-            appUser.surName         =   nil
-            appUser.password        =   nil
-            appUser.appName         =   nil
-            appUser.phone           =   nil
+            appUser.userName = String()
+
+            appUser.accessToken = nil
+            appUser.birthday = nil
+            appUser.codeID = nil
+            appUser.firstName = nil
+            appUser.imagePath = nil
+            appUser.surName = nil
+            appUser.password = nil
+            appUser.phone = nil
+            appUser.email = nil
             
             // Clean Image Cache
             KingfisherManager.shared.cache.clearMemoryCache()

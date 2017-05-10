@@ -36,7 +36,8 @@ extension CategoryCollectionViewCell: ConfigureCell {
             imageView.kf.setImage(with: ImageResource(downloadURL: URL(string: imagePath)!, cacheKey: category.codeID),
                                   placeholder: UIImage.init(named: "image-no-photo"),
                                   options: [.transition(ImageTransition.fade(1)),
-                                            .processor(ResizingImageProcessor(referenceSize: imageView.frame.size, mode: .aspectFit))],
+                                            .processor(ResizingImageProcessor(referenceSize: imageView.frame.size,
+                                                                              mode: .aspectFill))],
                                   completionHandler: { image, error, cacheType, imageURL in
                                     self.imageView.kf.cancelDownloadTask()
             })

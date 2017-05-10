@@ -12,6 +12,9 @@ import CoreLocation
 
 @objc(Service)
 public class Service: NSManagedObject, InitCellParameters, PointAnnotationBinding {
+    let durationMin: CGFloat = 30.0
+    var durationMinRate: CGFloat = 60.0
+
     // MARK: - Properties
     var category: Category?
 
@@ -180,8 +183,9 @@ public class Service: NSManagedObject, InitCellParameters, PointAnnotationBindin
             self.images = NSSet()
             
             for dictionary in galleryImages {
-                let image = GalleryImage.init(json: dictionary as! [String : AnyObject], andRelationshipObject: self)
-                self.addToImages(image!)
+                if let image = GalleryImage.init(json: dictionary as! [String : AnyObject], andRelationshipObject: self) {
+                    self.addToImages(image)
+                }
             }
         }
     }
