@@ -154,6 +154,9 @@
 		B13FE1A31E94C5A4000DD416 /* BlackListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13FE1A21E94C5A4000DD416 /* BlackListView.swift */; };
 		B13FE1A81E95121B000DD416 /* NewsItemShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13FE1A71E95121B000DD416 /* NewsItemShowViewController.swift */; };
 		B13FE1AA1E956D70000DD416 /* BorderVeryDarkDesaturatedBlueButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13FE1A91E956D70000DD416 /* BorderVeryDarkDesaturatedBlueButton.swift */; };
+		B140F1A11EC48287003CFF4A /* OrderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B140F1A01EC48287003CFF4A /* OrderTableViewCell.xib */; };
+		B140F1A31EC482C2003CFF4A /* OrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B140F1A21EC482C2003CFF4A /* OrderTableViewCell.swift */; };
+		B140F1A71EC48BC6003CFF4A /* BorderTitleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B140F1A61EC48BC6003CFF4A /* BorderTitleButton.swift */; };
 		B14107C41DFEA73900F79CF9 /* CalendarDayCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14107C21DFEA73900F79CF9 /* CalendarDayCellView.swift */; };
 		B14107C51DFEA73900F79CF9 /* CalendarDayCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B14107C31DFEA73900F79CF9 /* CalendarDayCellView.xib */; };
 		B14107C71DFEB1D700F79CF9 /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14107C61DFEB1D700F79CF9 /* CustomView.swift */; };
@@ -648,6 +651,9 @@
 		B13FE1A21E94C5A4000DD416 /* BlackListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlackListView.swift; sourceTree = "<group>"; };
 		B13FE1A71E95121B000DD416 /* NewsItemShowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsItemShowViewController.swift; sourceTree = "<group>"; };
 		B13FE1A91E956D70000DD416 /* BorderVeryDarkDesaturatedBlueButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BorderVeryDarkDesaturatedBlueButton.swift; sourceTree = "<group>"; };
+		B140F1A01EC48287003CFF4A /* OrderTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = OrderTableViewCell.xib; path = OmnieCommerce/Scenes/OrdersShow/Views/OrderTableViewCell.xib; sourceTree = SOURCE_ROOT; };
+		B140F1A21EC482C2003CFF4A /* OrderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderTableViewCell.swift; sourceTree = "<group>"; };
+		B140F1A61EC48BC6003CFF4A /* BorderTitleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BorderTitleButton.swift; sourceTree = "<group>"; };
 		B14107C21DFEA73900F79CF9 /* CalendarDayCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarDayCellView.swift; sourceTree = "<group>"; };
 		B14107C31DFEA73900F79CF9 /* CalendarDayCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CalendarDayCellView.xib; sourceTree = "<group>"; };
 		B14107C61DFEB1D700F79CF9 /* CustomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
@@ -1435,6 +1441,7 @@
 		B122F1D31DD35B3B0018A701 /* OrdersShow */ = {
 			isa = PBXGroup;
 			children = (
+				B140F19F1EC4824E003CFF4A /* Views */,
 				B122F1D41DD35B760018A701 /* OrdersShowConfigurator.swift */,
 				B122F1D51DD35B760018A701 /* OrdersShowInteractor.swift */,
 				B122F1D61DD35B760018A701 /* OrdersShowModels.swift */,
@@ -1497,6 +1504,7 @@
 				B1FBC9171E6D493200D86429 /* RadioButton */,
 				B149A7B91E5D8DD3009BF8C7 /* AnimatedButton.swift */,
 				B149A7BB1E5D8E24009BF8C7 /* AnimatedButton.xib */,
+				B140F1A61EC48BC6003CFF4A /* BorderTitleButton.swift */,
 				B13FE1A91E956D70000DD416 /* BorderVeryDarkDesaturatedBlueButton.swift */,
 				B122A58F1E6BF23E00C39B67 /* BorderVeryLightOrangeButton.swift */,
 				B1CF54631DDAE78200E98049 /* CustomButton.swift */,
@@ -1582,6 +1590,15 @@
 				B13FE1A71E95121B000DD416 /* NewsItemShowViewController.swift */,
 			);
 			path = NewsItemShow;
+			sourceTree = "<group>";
+		};
+		B140F19F1EC4824E003CFF4A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B140F1A21EC482C2003CFF4A /* OrderTableViewCell.swift */,
+				B140F1A01EC48287003CFF4A /* OrderTableViewCell.xib */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		B14B8DDC1EBB720700B29511 /* Views */ = {
@@ -2351,6 +2368,7 @@
 				B1597AD21E3F42BD00123CB5 /* AvatarActionView.xib in Resources */,
 				B1BF927E1DD6516C00BECBBB /* UBUNTU-M.TTF in Resources */,
 				B1BF927F1DD6516C00BECBBB /* UBUNTU-MI.TTF in Resources */,
+				B140F1A11EC48287003CFF4A /* OrderTableViewCell.xib in Resources */,
 				B1BF92801DD6516C00BECBBB /* UBUNTU-R.TTF in Resources */,
 				B14C07261EA09C4200556866 /* ServicesShow.storyboard in Resources */,
 				B1B761CA1E62D0030067339F /* OrganizationTableViewCell.xib in Resources */,
@@ -2476,6 +2494,7 @@
 				B1BEEDEF1E63687500F1DE8A /* OrganizationShowConfigurator.swift in Sources */,
 				B10040701EB4980D00161073 /* Order+CoreDataProperties.swift in Sources */,
 				B151251A1EAE0DD0009A6A44 /* AdditionalService+CoreDataProperties.swift in Sources */,
+				B140F1A31EC482C2003CFF4A /* OrderTableViewCell.swift in Sources */,
 				B1FFF7151E5F017A00A075D8 /* OrganizationsMapShowRouter.swift in Sources */,
 				B1767D7A1E93DA520095859B /* UbuntuLightSoftOrangeLabel.swift in Sources */,
 				B1D8832C1E8E8D63006F4831 /* NewsActionsShowModels.swift in Sources */,
@@ -2675,6 +2694,7 @@
 				B1CF54A11DDB515000E98049 /* HandbookShowInteractor.swift in Sources */,
 				B10B48DA1E8A5B2E007DDD81 /* FavoriteOrganizationsShowInteractor.swift in Sources */,
 				B1FBC9271E6D974300D86429 /* UbuntuLightItalicLightGrayishCyanLabel.swift in Sources */,
+				B140F1A71EC48BC6003CFF4A /* BorderTitleButton.swift in Sources */,
 				B17D92DB1E6FFC290028967E /* UbuntuLightItalicModerateRedLabel.swift in Sources */,
 				B19DFABD1E64AF3100599073 /* UMParallaxView.swift in Sources */,
 				B19B51401E8C1BD200353CCB /* ServiceTableViewCell.swift in Sources */,

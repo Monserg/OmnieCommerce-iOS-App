@@ -24,6 +24,7 @@ class ServicesShowViewController: BaseViewController {
     
     var services = [Service]()
     
+    // Outlets
     @IBOutlet weak var smallTopBarView: SmallTopBarView!
     
     @IBOutlet weak var tableView: MSMTableView! {

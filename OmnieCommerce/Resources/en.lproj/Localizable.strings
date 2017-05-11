@@ -188,6 +188,7 @@
 "NewsActions list is empty"     =   "Actions list is empty";
 "Phones list is empty"          =   "Phones list is empty";
 "Templates list is empty"       =   "Templates list is empty";
+"Orders list is empty"          =   "Orders list is empty";
 "Incorrect User name"           =   "Enter the correct user name";
 "Incorrect User password"       =   "Enter the correct user password";
 "User not register"             =   "The user is not registered";
@@ -231,3 +232,14 @@
 "Khmelnytskyi"                  =   "Khmelnytskyi";
 "Zhitomir"                      =   "Zhitomir";
 "Poltava"                       =   "Poltava";
+
+
+// Order states
+"PENDING FOR USER"              =   "Pending for user";
+"PENDING FOR ADMIN"             =   "Pending for admin";
+"CONFIRMED BY USER"             =   "Confirmed by user";
+"CONFIRMED BY ADMIN"            =   "Confirmed by admin";
+"CANCELED BY USER"              =   "Canceled by user";
+"CANCELED BY ADMIN"             =   "Canceled by admin";
+"FAILED BY USER"                =   "Failed by user";
+"DONE"                          =   "Done";

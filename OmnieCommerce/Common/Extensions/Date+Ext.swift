@@ -13,7 +13,8 @@ enum StringDateStyle: String {
     case DateHyphen         =   "DateHyphen"
     case Time               =   "Time"
     case MonthYear          =   "MonthYear"
-    case WeekdayMonthYear   =   "WeekdayMonthYear"
+    case WeekdayMonthYear   =   "WeekdayMonthYear"          //  "Четвер 19 Серпня 2016"
+    case DayMonthYear       =   "DayMonthYear"              //  "19 Серпня 2016"
 }
 
 extension Date {
@@ -90,6 +91,9 @@ extension Date {
 
         case .WeekdayMonthYear:
             dateFormatter.dateFormat    =   "EEEE dd MMMM YYYY"
+
+        case .DayMonthYear:
+            dateFormatter.dateFormat = "dd MMMM YYYY"
         }
         
         return dateFormatter.string(from: self).capitalized

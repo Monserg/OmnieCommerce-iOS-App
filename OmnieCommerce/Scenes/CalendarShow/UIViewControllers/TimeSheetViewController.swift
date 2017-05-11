@@ -23,12 +23,18 @@ class TimeSheetViewController: BaseViewController {
     var timer = CustomTimer.init(withTimeInterval: 60)
     var currentScheduleView: TimeSheetView?
     var service: Service!
-        var organization = Organization()
-    var selectedDate = Date().addingTimeInterval(TimeInterval(0))
+    var organization = Organization()
     var timesheet: TimeSheet!
-    
+
+    var selectedDate: Date! {
+        willSet {
+            setupTitleLabel(withDate: newValue)
+        }
+    }
+
     // Outlets
     @IBOutlet var currentTimeLine: TimePointer!
+    @IBOutlet weak var titleLabel: UbuntuLightVeryLightGrayLabel!
 
     @IBOutlet weak var tableView: MSMTableView! {
         didSet {
@@ -41,6 +47,12 @@ class TimeSheetViewController: BaseViewController {
     // MARK: - Class Functions
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if (selectedDate == nil) {
+            selectedDate = Date()
+        } else {
+            setupTitleLabel(withDate: selectedDate)
+        }
         
         // Setup PinchGesture Recognizer
         let pinchGesture: UIPinchGestureRecognizer = UIPinchGestureRecognizer(target: self, action: #selector(handlerPinchGesture(_:)))
@@ -105,6 +117,12 @@ class TimeSheetViewController: BaseViewController {
         }
     }
     
+    func setupTitleLabel(withDate date: Date) {
+        if (titleLabel != nil) {
+            titleLabel.text = date.convertToString(withStyle: .DayMonthYear)
+        }
+    }
+
     
     // MARK: - Actions
     func handlerLongPressedGesture(_ sender: UILongPressGestureRecognizer) {
@@ -175,13 +193,11 @@ class TimeSheetViewController: BaseViewController {
     }
     
     @IBAction func handlerPreviuosButtonTap(_ sender: UIButton) {
-        print(object: "\(#file): \(#function) run in [line \(#line)]")
-        
+        selectedDate = Calendar.current.date(byAdding: .day, value: -1, to: selectedDate)!
     }
     
     @IBAction func handlerNextButtonTap(_ sender: UIButton) {
-        print(object: "\(#file): \(#function) run in [line \(#line)]")
-        
+        selectedDate = Calendar.current.date(byAdding: .day, value: 1, to: selectedDate)!
     }
 
     

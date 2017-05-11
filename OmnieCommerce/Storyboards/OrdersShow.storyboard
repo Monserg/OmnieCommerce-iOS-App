@@ -44,6 +44,9 @@
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="handlerPreviousButtonTap:" destination="EDW-bL-Rz6" eventType="touchUpInside" id="6hx-B5-uc0"/>
+                                        </connections>
                                     </button>
                                     <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7xU-cG-ctA" userLabel="Title Label" customClass="UbuntuLightVeryLightGrayLabel" customModule="OmnieCommerce" customModuleProvider="target">
                                         <rect key="frame" x="52" y="11" width="255" height="19.5"/>
@@ -74,6 +77,9 @@
                                                 <real key="value" value="0.0"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="handlerNextButtonTap:" destination="EDW-bL-Rz6" eventType="touchUpInside" id="ykt-Xg-399"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -133,11 +139,19 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1Gy-qL-gk8" customClass="MSMTableView" customModule="OmnieCommerce" customModuleProvider="target">
+                                <rect key="frame" x="8" y="188" width="359" height="450"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="TQL-4N-Iiv" firstAttribute="top" secondItem="0nN-5h-FmO" secondAttribute="bottom" id="29d-AI-l9J"/>
                             <constraint firstAttribute="trailing" secondItem="0nN-5h-FmO" secondAttribute="trailing" id="3D8-nk-ofk"/>
+                            <constraint firstItem="EBq-Ba-TWn" firstAttribute="top" secondItem="1Gy-qL-gk8" secondAttribute="bottom" constant="9" id="6BA-sx-fkp"/>
                             <constraint firstItem="wP5-F1-w12" firstAttribute="height" secondItem="oKk-pR-n0g" secondAttribute="height" multiplier="44:667" id="7gi-1d-3Nw"/>
                             <constraint firstAttribute="trailing" secondItem="EBq-Ba-TWn" secondAttribute="trailing" constant="8" id="8x8-8v-8nr"/>
                             <constraint firstAttribute="bottom" secondItem="EBq-Ba-TWn" secondAttribute="bottom" constant="9" id="9rE-uP-SSh"/>
@@ -145,6 +159,7 @@
                             <constraint firstItem="bC8-3d-R9C" firstAttribute="top" secondItem="TQL-4N-Iiv" secondAttribute="bottom" id="Atu-qY-BN4"/>
                             <constraint firstItem="EBq-Ba-TWn" firstAttribute="centerX" secondItem="oKk-pR-n0g" secondAttribute="centerX" id="Bo8-FN-hGj"/>
                             <constraint firstItem="0nN-5h-FmO" firstAttribute="leading" secondItem="oKk-pR-n0g" secondAttribute="leading" id="CjR-yb-X9A"/>
+                            <constraint firstItem="1Gy-qL-gk8" firstAttribute="top" secondItem="bC8-3d-R9C" secondAttribute="bottom" constant="8" id="Gse-gx-r52"/>
                             <constraint firstItem="0nN-5h-FmO" firstAttribute="height" secondItem="oKk-pR-n0g" secondAttribute="height" multiplier="80:375" id="Hz7-6D-6Nh"/>
                             <constraint firstItem="0nN-5h-FmO" firstAttribute="top" secondItem="oKk-pR-n0g" secondAttribute="top" id="PKg-An-nEH">
                                 <variation key="heightClass=compact-widthClass=compact" constant="0.0"/>
@@ -157,8 +172,10 @@
                             <constraint firstItem="0nN-5h-FmO" firstAttribute="height" secondItem="oKk-pR-n0g" secondAttribute="height" multiplier="95:667" id="Wob-hC-eFE"/>
                             <constraint firstItem="EBq-Ba-TWn" firstAttribute="leading" secondItem="oKk-pR-n0g" secondAttribute="leading" constant="8" id="mjY-xP-tWi"/>
                             <constraint firstItem="bC8-3d-R9C" firstAttribute="leading" secondItem="oKk-pR-n0g" secondAttribute="leading" constant="8" id="noa-dW-8au"/>
+                            <constraint firstAttribute="trailing" secondItem="1Gy-qL-gk8" secondAttribute="trailing" constant="8" id="uuP-Tr-zmJ"/>
                             <constraint firstItem="wP5-F1-w12" firstAttribute="height" secondItem="oKk-pR-n0g" secondAttribute="height" multiplier="44:375" id="vfr-3H-nIm"/>
                             <constraint firstItem="bC8-3d-R9C" firstAttribute="height" secondItem="oKk-pR-n0g" secondAttribute="height" multiplier="45:667" id="xIQ-6w-eft"/>
+                            <constraint firstItem="1Gy-qL-gk8" firstAttribute="leading" secondItem="oKk-pR-n0g" secondAttribute="leading" constant="8" id="zap-6N-9N1"/>
                             <constraint firstItem="TQL-4N-Iiv" firstAttribute="height" secondItem="oKk-pR-n0g" secondAttribute="height" multiplier="40:667" id="zhu-x6-45M"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
@@ -188,7 +205,9 @@
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" title="Orders" id="5Gb-Un-bfT"/>
                     <connections>
+                        <outlet property="calendarTitleLabel" destination="7xU-cG-ctA" id="inP-MA-cHa"/>
                         <outlet property="smallTopBarView" destination="0nN-5h-FmO" id="Xmu-1G-Ez6"/>
+                        <outlet property="tableView" destination="1Gy-qL-gk8" id="Hmh-Wq-ojj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x1J-23-oc8" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -242,7 +261,7 @@
                 <navigationController storyboardIdentifier="OrdersShowNC" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="g2I-y5-hYL" customClass="BaseNavigationController" customModule="OmnieCommerce" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="RsX-5O-ea1">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="RsX-5O-ea1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

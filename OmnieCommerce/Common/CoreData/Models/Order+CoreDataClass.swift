@@ -13,7 +13,7 @@ import CoreData
 public class Order: NSManagedObject {
     // MARK: - Class Initialization
     convenience init?(json: [String: AnyObject], andOrganization organization: Organization?) {
-        guard let codeID = json["uuid"] as? String, let dateStart = json["start"] as? String, let dateEnd = json["end"] as? String, let status = json["status"] as? String, let discount = json["discount"] as? Float, let price = json["price"] as? Float, let priceTotal = json["totalPrice"] as? Float else {
+        guard let codeID = json["uuid"] as? String, let orgName = json["orgName"] as? String, let serviceName = json["serviceName"] as? String, let dateStart = json["start"] as? String, let status = json["status"] as? String, let priceTotal = json["totalPrice"] as? Float else {
             return nil
         }
         
@@ -27,11 +27,23 @@ public class Order: NSManagedObject {
         
         // Prepare to save common data
         self.codeID = codeID
+        self.organizationName = orgName
+        self.serviceName = serviceName
         self.dateStart = dateStart
-        self.dateEnd = dateEnd
         self.status = status
-        self.discount = discount
-        self.price = price
         self.priceTotal = priceTotal
+
+        // Prepare to save additional data
+        if let dateEnd = json["end"] as? String {
+            self.dateEnd = dateEnd
+        }
+        
+        if let discount = json["discount"] as? Float {
+            self.discount = discount
+        }
+        
+        if let price = json["price"] as? Float {
+            self.price = price
+        }
     }
 }

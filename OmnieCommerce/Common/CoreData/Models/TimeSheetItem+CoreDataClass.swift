@@ -12,6 +12,7 @@ import CoreData
 enum TimeSheetItemType: String {
     case Close  =   "CLOSE"
     case Order  =   "ORDER"
+    case Free   =   "FREE"
 }
 
 @objc(TimeSheetItem)

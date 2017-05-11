@@ -25,7 +25,54 @@ class OrdersShowViewController: BaseViewController {
     var output: OrdersShowViewControllerOutput!
     var router: OrdersShowRouter!
     
+    var orders = [Order]()
+    var statusCode: String = ""
+    var limit: Int!
+    
+    var currentDate: Date! {
+        didSet {
+            setupTitleLabel(withDate: currentDate)
+        }
+    }
+
+    var orderStatesDropDownTableView: MSMTableView! {
+        didSet {
+            let orderStatesTableManager = MSMTableViewControllerManager.init(withTableView: orderStatesDropDownTableView,
+                                                                             andSectionsCount: 1,
+                                                                             andEmptyMessageText: "DropDownList")
+            
+            orderStatesDropDownTableView.tableViewControllerManager = orderStatesTableManager
+            orderStatesDropDownTableView.alpha = 0
+            
+//            var orderStates = CoreDataManager.instance.entitiesDidLoad(byName: "OrderState",
+//                                                                       andPredicateParameter: ["order.codeID": order!.codeID])
+//            
+//            orderStatesDropDownTableView.tableViewControllerManager.dataSource = orderStates!.sorted(by: { ($0 as! OrderState).codeID < ($1 as! OrderState).codeID })
+        }
+    }
+
+    // Outlets
     @IBOutlet weak var smallTopBarView: SmallTopBarView!
+    @IBOutlet weak var calendarTitleLabel: UbuntuLightVeryLightGrayLabel!
+    
+    @IBOutlet weak var tableView: MSMTableView! {
+        didSet {
+            tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0)
+            tableView.scrollIndicatorInsets = UIEdgeInsetsMake(0, 0, 0, 0)
+            
+            // Create MSMTableViewControllerManager
+            self.tableView.hasHeaders = false
+            self.tableView.headears = nil
+            
+            let ordersTableManager = MSMTableViewControllerManager.init(withTableView: self.tableView,
+                                                                        andSectionsCount: 1,
+                                                                        andEmptyMessageText: "Orders list is empty")
+            
+            tableView.tableViewControllerManager = ordersTableManager
+            tableView.tableViewControllerManager.dataSource = orders
+            tableView.reloadData()
+        }
+    }
 
 
     // MARK: - Class Initialization
@@ -49,15 +96,20 @@ class OrdersShowViewController: BaseViewController {
         print(object: "\(type(of: self)): \(#function) run.")
         
         // Config smallTopBarView
-        navigationBarView       =   smallTopBarView
-        smallTopBarView.type    =   "ParentSearch"
-        haveMenuItem            =   true
+        navigationBarView = smallTopBarView
+        smallTopBarView.type = "ParentSearch"
+        haveMenuItem = true
+        currentDate = Date()
         
         // Load data
-        let requestModel        =   OrdersShow.Something.Request()
-        output.doSomething(request: requestModel)
+        let ordersRequestModel = OrdersShow.Something.Request()
+        output.doSomething(request: ordersRequestModel)
     }
     
+    func setupTitleLabel(withDate date: Date) {
+        calendarTitleLabel.text = date.convertToString(withStyle: .WeekdayMonthYear)
+    }
+
     
     // MARK: - Transition
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -66,15 +118,22 @@ class OrdersShowViewController: BaseViewController {
         smallTopBarView.setNeedsDisplay()
         smallTopBarView.circleView.setNeedsDisplay()
     }
+    
+    
+    // MARK: - Actions
+    @IBAction func handlerPreviousButtonTap(_ sender: UIButton) {
+        currentDate = Calendar.current.date(byAdding: .day, value: -1, to: currentDate)!
+    }
+    
+    @IBAction func handlerNextButtonTap(_ sender: UIButton) {
+        currentDate = Calendar.current.date(byAdding: .day, value: 1, to: currentDate)!
+    }
 }
 
 
 // MARK: - OrdersShowViewControllerInput
 extension OrdersShowViewController: OrdersShowViewControllerInput {
     func displaySomething(viewModel: OrdersShow.Something.ViewModel) {
-        print(object: "\(type(of: self)): \(#function) run.")
-        
-        // Display the result from the Presenter
-        // nameTextField.text = viewModel.name
+
     }
 }

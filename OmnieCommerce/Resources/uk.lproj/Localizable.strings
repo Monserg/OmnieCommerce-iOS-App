@@ -188,6 +188,7 @@
 "NewsActions list is empty"     =   "Список акцій порожній";
 "Phones list is empty"          =   "Список телефонів порожній";
 "Templates list is empty"       =   "Список шаблонів порожній";
+"Orders list is empty"          =   "Список замовлень порожній";
 "Incorrect User name"           =   "Введіть чинне ім'я користувача";
 "Incorrect User password"       =   "Введіть чинний пароль користувача";
 "User not register"             =   "Користувач не зареєстрований";
@@ -232,3 +233,13 @@
 "Zhitomir"                      =   "Житомир";
 "Poltava"                       =   "Полтава";
 
+
+// Order states
+"PENDING FOR USER"              =   "Очікування для користувача";
+"PENDING FOR ADMIN"             =   "Очікування для адміністратора";
+"CONFIRMED BY USER"             =   "Підтверджено користувачем";
+"CONFIRMED BY ADMIN"            =   "Підтверджено адміністратором";
+"CANCELED BY USER"              =   "Скасовано користувачем";
+"CANCELED BY ADMIN"             =   "Скасовано адміністратором";
+"FAILED BY USER"                =   "Помилка користувача";
+"DONE"                          =   "Готово";

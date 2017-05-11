@@ -51,6 +51,7 @@ class CalendarShowViewController: BaseViewController, CalendarShowViewController
                     MSMRestApiManager.instance.userRequestDidRun(.userGetOrderTimeSheetForDay(["date": newDate.convertToString(withStyle: .DateHyphen), "service": self.service.codeID], false), withHandlerResponseAPICompletion: { responseAPI in
                         if let json = responseAPI?.body as? [String: Any] {
                             self.timesheetVC!.timesheet = TimeSheet.init(json: json as [String: AnyObject], forDate: newDate.convertToString(withStyle: .DateDot))
+                            self.timesheetVC!.selectedDate = newDate
                         }
                     })
                 }
