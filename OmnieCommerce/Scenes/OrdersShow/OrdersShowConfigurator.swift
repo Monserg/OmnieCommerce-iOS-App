@@ -38,13 +38,13 @@ class OrdersShowConfigurator {
         let router = OrdersShowRouter()
         router.viewController = viewController
         
-        let presenter = OrdersShowPresenter()
-        presenter.output = viewController
+        let presenter               =   OrdersShowPresenter()
+        presenter.viewController    =   viewController
         
-        let interactor = OrdersShowInteractor()
-        interactor.output = presenter
+        let interactor              =   OrdersShowInteractor()
+        interactor.presenter        =   presenter
         
-        viewController.output = interactor
-        viewController.router = router
+        viewController.interactor   =   interactor
+        viewController.router       =   router
     }
 }

@@ -13,22 +13,43 @@ import UIKit
 
 // MARK: - Input & Output protocols
 protocol OrdersShowPresenterInput {
-    func presentSomething(response: OrdersShow.Something.Response)
+    func ordersDidPrepareToShowLoad(fromResponseModel responseModel: OrdersShowModels.Orders.ResponseModel)
 }
 
 protocol OrdersShowPresenterOutput: class {
-    func displaySomething(viewModel: OrdersShow.Something.ViewModel)
+    func ordersDidShowLoad(fromViewModel viewModel: OrdersShowModels.Orders.ViewModel)
 }
 
 class OrdersShowPresenter: OrdersShowPresenterInput {
     // MARK: - Properties
-    weak var output: OrdersShowPresenterOutput!
+    weak var viewController: OrdersShowPresenterOutput!
     
     
     // MARK: - Custom Functions. Presentation logic
-    func presentSomething(response: OrdersShow.Something.Response) {
-        // NOTE: Format the response from the Interactor and pass the result back to the View Controller
-        let viewModel = OrdersShow.Something.ViewModel()
-        output.displaySomething(viewModel: viewModel)
+    func ordersDidPrepareToShowLoad(fromResponseModel responseModel: OrdersShowModels.Orders.ResponseModel) {
+        guard responseModel.responseAPI?.body != nil else {
+            let ordersViewModel = OrdersShowModels.Orders.ViewModel(status: (responseModel.responseAPI?.status)!)
+            self.viewController.ordersDidShowLoad(fromViewModel: ordersViewModel)
+            
+            return
+        }
+        
+        // Convert responseAPI body to Order CoreData objects
+        if let ordersList = responseModel.responseAPI!.body as? [Any], ordersList.count > 0 {
+            for json in ordersList {
+                let item = Order.init(json: json as! [String: AnyObject])
+                
+                if let order = item {
+                    order.catalog = keyOrders
+                    CoreDataManager.instance.didSaveContext()
+                }
+                
+                let ordersViewModel = OrdersShowModels.Orders.ViewModel(status: (responseModel.responseAPI?.status)!)
+                self.viewController.ordersDidShowLoad(fromViewModel: ordersViewModel)
+            }
+        } else {
+            let ordersViewModel = OrdersShowModels.Orders.ViewModel(status: (responseModel.responseAPI?.status)!)
+            self.viewController.ordersDidShowLoad(fromViewModel: ordersViewModel)
+        }
     }
 }

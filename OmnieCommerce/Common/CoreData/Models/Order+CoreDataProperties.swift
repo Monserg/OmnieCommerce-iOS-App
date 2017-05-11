@@ -17,9 +17,10 @@ extension Order {
     }
 
     @NSManaged public var codeID: String
+    @NSManaged public var catalog: String?
     @NSManaged public var comment: String?
     @NSManaged public var dateEnd: String?
-    @NSManaged public var dateStart: String
+    @NSManaged public var dateStart: NSDate
     @NSManaged public var discount: Float
     @NSManaged public var isAvailable: Bool
     @NSManaged public var price: Float
@@ -27,5 +28,6 @@ extension Order {
     @NSManaged public var status: String
     @NSManaged public var organizationName: String
     @NSManaged public var serviceName: String
+    @NSManaged public var logoURL: String?
 
 }

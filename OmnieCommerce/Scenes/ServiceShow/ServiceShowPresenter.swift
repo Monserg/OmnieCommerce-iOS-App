@@ -65,7 +65,7 @@ class ServiceShowPresenter: ServiceShowPresenterInput {
         }
         
         // Convert responseAPI body to Order CoreData object
-        let order = Order.init(json: responseModel.responseAPI?.body as! [String: AnyObject], andOrganization: nil)
+        let order = Order.init(json: responseModel.responseAPI?.body as! [String: AnyObject])
         let orderID = order!.codeID
         CoreDataManager.instance.didSaveContext()
         

@@ -50,7 +50,10 @@ class FavoriteOrganizationsShowViewController: BaseViewController {
         super.viewDidLoad()
         
         // Create MSMTableViewControllerManager
-        let organizationsTableManager = MSMTableViewControllerManager.init(withTableView: self.tableView, andSectionsCount: 1, andEmptyMessageText: "Organizations list is empty")
+        let organizationsTableManager = MSMTableViewControllerManager.init(withTableView: self.tableView,
+                                                                           andSectionsCount: 1,
+                                                                           andEmptyMessageText: "Organizations list is empty")
+        
         tableView.tableViewControllerManager = organizationsTableManager
     }
     

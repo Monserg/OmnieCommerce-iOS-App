@@ -9,10 +9,10 @@
 import UIKit
 
 enum StringDateStyle: String {
-    case DateDot            =   "DateDot"
-    case DateHyphen         =   "DateHyphen"
-    case Time               =   "Time"
-    case MonthYear          =   "MonthYear"
+    case DateDot            =   "DateDot"                   //  "10.05.2017"
+    case DateHyphen         =   "DateHyphen"                //  "2017-05-10"
+    case Time               =   "Time"                      //  "07:56"
+    case MonthYear          =   "MonthYear"                 //  "Feb 2017"
     case WeekdayMonthYear   =   "WeekdayMonthYear"          //  "Четвер 19 Серпня 2016"
     case DayMonthYear       =   "DayMonthYear"              //  "19 Серпня 2016"
 }

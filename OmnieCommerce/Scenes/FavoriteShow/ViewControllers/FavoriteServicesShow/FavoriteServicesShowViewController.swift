@@ -55,13 +55,13 @@ class FavoriteServicesShowViewController: BaseViewController {
                                                                       andEmptyMessageText: "Services list is empty")
         
         tableView.tableViewControllerManager = servicesTableManager
-        limit = (services.count == 0) ? Config.Constants.paginationLimit : services.count
-        viewSettingsDidLoad()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
+        limit = (services.count == 0) ? Config.Constants.paginationLimit : services.count
+        viewSettingsDidLoad()
     }
 
 

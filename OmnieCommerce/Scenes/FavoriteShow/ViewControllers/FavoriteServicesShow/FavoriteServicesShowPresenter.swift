@@ -44,10 +44,10 @@ class FavoriteServicesShowPresenter: FavoriteServicesShowPresenterInput {
                     service.catalog = keyFavoriteServices
                     CoreDataManager.instance.didSaveContext()
                 }
-                
-                let servicesViewModel = FavoriteServicesShowModels.Services.ViewModel(status: (responseModel.responseAPI?.status)!)
-                self.viewController.favoriteServicesDidShowLoad(fromViewModel: servicesViewModel)
             }
+            
+            let servicesViewModel = FavoriteServicesShowModels.Services.ViewModel(status: (responseModel.responseAPI?.status)!)
+            self.viewController.favoriteServicesDidShowLoad(fromViewModel: servicesViewModel)
         } else {
             let servicesViewModel = FavoriteServicesShowModels.Services.ViewModel(status: (responseModel.responseAPI?.status)!)
             self.viewController.favoriteServicesDidShowLoad(fromViewModel: servicesViewModel)

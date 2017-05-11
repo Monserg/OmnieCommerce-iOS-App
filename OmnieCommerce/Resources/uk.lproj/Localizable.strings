@@ -241,5 +241,5 @@
 "CONFIRMED BY ADMIN"            =   "Підтверджено адміністратором";
 "CANCELED BY USER"              =   "Скасовано користувачем";
 "CANCELED BY ADMIN"             =   "Скасовано адміністратором";
-"FAILED BY USER"                =   "Помилка користувача";
-"DONE"                          =   "Готово";
+"FAILED BY USER"                =   "Не виконано";
+"DONE"                          =   "Виконано";

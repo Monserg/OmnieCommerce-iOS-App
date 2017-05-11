@@ -102,7 +102,7 @@ public class Organization: NSManagedObject, InitCellParameters, PointAnnotationB
         if let phones = json["phones"] as? [String] {
             self.phones = phones
         }
-        
+ 
         // Reviews
         // Organization reviews
         if let canSendReview = json["canSendReview"] as? Bool {

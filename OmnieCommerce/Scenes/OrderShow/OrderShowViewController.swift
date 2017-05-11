@@ -21,12 +21,18 @@ protocol OrderShowViewControllerOutput {
     func orderDidLoad(withRequestModel requestModel: OrderShowModels.OrderItem.RequestModel)
 }
 
+enum OrderMode {
+    case Edit
+    case Preview
+}
+
 class OrderShowViewController: BaseViewController {
     // MARK: - Properties
     var interactor: OrderShowViewControllerOutput!
     var router: OrderShowRouter!
     
     var order: Order!
+    var orderMode: OrderMode = .Edit
     
     // Outlets
     @IBOutlet weak var smallTopBarView: SmallTopBarView!

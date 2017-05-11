@@ -10,9 +10,15 @@ import Foundation
 import CoreData
 
 @objc(Order)
-public class Order: NSManagedObject {
+public class Order: NSManagedObject, InitCellParameters {
+    // MARK: - Properties
+    // Confirm InitCellParameters Protocol
+    var cellIdentifier: String = "OrderTableViewCell"
+    var cellHeight: CGFloat = 96.0
+
+    
     // MARK: - Class Initialization
-    convenience init?(json: [String: AnyObject], andOrganization organization: Organization?) {
+    convenience init?(json: [String: AnyObject]) {
         guard let codeID = json["uuid"] as? String, let orgName = json["orgName"] as? String, let serviceName = json["serviceName"] as? String, let dateStart = json["start"] as? String, let status = json["status"] as? String, let priceTotal = json["totalPrice"] as? Float else {
             return nil
         }
@@ -29,11 +35,15 @@ public class Order: NSManagedObject {
         self.codeID = codeID
         self.organizationName = orgName
         self.serviceName = serviceName
-        self.dateStart = dateStart
+        self.dateStart = dateStart.convertToDate(withDateFormat: .Default) as NSDate
         self.status = status
         self.priceTotal = priceTotal
 
         // Prepare to save additional data
+        if let logoURL = json["logoURL"] as? String {
+            self.logoURL = logoURL
+        }
+
         if let dateEnd = json["end"] as? String {
             self.dateEnd = dateEnd
         }

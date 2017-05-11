@@ -47,7 +47,7 @@ public class Review: NSManagedObject, InitCellParameters {
         self.init(entity: reviewEntity, insertInto: CoreDataManager.instance.managedObjectContext)
         
         // Prepare to save common data
-        self.dateCreate = dateCreate.convertToDate(withDateFormat: .ResponseDate) as NSDate
+        self.dateCreate = dateCreate.convertToDate(withDateFormat: .PriceDate) as NSDate
         self.rating = rating
         self.type = type
         

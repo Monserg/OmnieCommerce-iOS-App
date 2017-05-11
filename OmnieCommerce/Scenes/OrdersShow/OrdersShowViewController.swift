@@ -13,21 +13,24 @@ import UIKit
 
 // MARK: - Input & Output protocols
 protocol OrdersShowViewControllerInput {
-    func displaySomething(viewModel: OrdersShow.Something.ViewModel)
+    func ordersDidShowLoad(fromViewModel viewModel: OrdersShowModels.Orders.ViewModel)
 }
 
 protocol OrdersShowViewControllerOutput {
-    func doSomething(request: OrdersShow.Something.Request)
+    func ordersDidLoad(withRequestModel requestModel: OrdersShowModels.Orders.RequestModel)
 }
 
 class OrdersShowViewController: BaseViewController {
     // MARK: - Properties
-    var output: OrdersShowViewControllerOutput!
+    var interactor: OrdersShowViewControllerOutput!
     var router: OrdersShowRouter!
     
     var orders = [Order]()
-    var statusCode: String = ""
+
     var limit: Int!
+    var dateEnd: String!
+    var dateStart: String!
+    var orderStatus: String = ""
     
     var currentDate: Date! {
         didSet {
@@ -63,14 +66,6 @@ class OrdersShowViewController: BaseViewController {
             // Create MSMTableViewControllerManager
             self.tableView.hasHeaders = false
             self.tableView.headears = nil
-            
-            let ordersTableManager = MSMTableViewControllerManager.init(withTableView: self.tableView,
-                                                                        andSectionsCount: 1,
-                                                                        andEmptyMessageText: "Orders list is empty")
-            
-            tableView.tableViewControllerManager = ordersTableManager
-            tableView.tableViewControllerManager.dataSource = orders
-            tableView.reloadData()
         }
     }
 
@@ -87,27 +82,103 @@ class OrdersShowViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        viewSettingsDidLoad()
-    }
-    
-    
-    // MARK: - Custom Functions
-    func viewSettingsDidLoad() {
-        print(object: "\(type(of: self)): \(#function) run.")
+        // Create MSMTableViewControllerManager
+        let ordersTableManager = MSMTableViewControllerManager.init(withTableView: self.tableView,
+                                                                    andSectionsCount: 1,
+                                                                    andEmptyMessageText: "Orders list is empty")
+        
+        tableView.tableViewControllerManager = ordersTableManager
         
         // Config smallTopBarView
         navigationBarView = smallTopBarView
-        smallTopBarView.type = "ParentSearch"
+        smallTopBarView.type = "Parent"
         haveMenuItem = true
         currentDate = Date()
+        dateStart = currentDate.convertToString(withStyle: .DateHyphen)
+        dateEnd = dateStart
+        orderStatus = "DONE"
+    }
+
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
         
-        // Load data
-        let ordersRequestModel = OrdersShow.Something.Request()
-        output.doSomething(request: ordersRequestModel)
+        limit = (orders.count == 0) ? Config.Constants.paginationLimit : orders.count
+        viewSettingsDidLoad()
+    }
+
+    
+    // MARK: - Custom Functions
+    func viewSettingsDidLoad() {
+        // Load Orders list from CoreData
+        guard isNetworkAvailable else {
+            ordersListDidShow()
+            return
+        }
+        
+        // Load Orders list from API
+        if (isNetworkAvailable) {
+            orders = [Order]()
+            CoreDataManager.instance.entitiesDidRemove(byName: "Order", andPredicateParameter: keyOrders)
+            ordersListDidLoad(withOffset: 0, scrollingData: false)
+        } else {
+            spinnerDidFinish()
+        }
     }
     
     func setupTitleLabel(withDate date: Date) {
-        calendarTitleLabel.text = date.convertToString(withStyle: .WeekdayMonthYear)
+        calendarTitleLabel.text = date.convertToString(withStyle: .DayMonthYear)
+    }
+
+    func ordersListDidLoad(withOffset offset: Int, scrollingData: Bool) {
+        if (!scrollingData) {
+            spinnerDidStart(view)
+        }
+        
+        let bodyParameters: [String: Any] = [ "limit": limit, "offset": offset, "status": orderStatus, "start": dateStart, "end": dateEnd ]
+        let ordersRequestModel = OrdersShowModels.Orders.RequestModel(parameters: bodyParameters)
+        interactor.ordersDidLoad(withRequestModel: ordersRequestModel)
+    }
+
+    func ordersListDidShow() {
+        // Setting MSMTableViewControllerManager
+        let ordersList = CoreDataManager.instance.entitiesDidLoad(byName: "Order", andPredicateParameter: ["catalog": keyOrders])
+        
+        if let orders = ordersList as? [Order] {
+            let _ = orders.map({ $0.cellIdentifier = "OrderTableViewCell"; $0.cellHeight = 96.0 })
+            self.orders = orders
+            
+            tableView.tableViewControllerManager!.dataSource = orders
+            tableView!.tableFooterView!.isHidden = (orders.count > 0) ? true : false
+            
+            (tableView!.tableFooterView as! MSMTableViewFooterView).didUpload(forItemsCount: orders.count,
+                                                                              andEmptyText: "Orders list is empty")
+            
+            tableView.reloadData()
+        }
+        
+        // Handler select cell
+        tableView.tableViewControllerManager!.handlerSelectRowCompletion = { order in
+            self.router.navigateToOrderShowScene(order as! Order)
+        }
+        
+        // Handler PullRefresh
+        tableView.tableViewControllerManager!.handlerPullRefreshCompletion = { _ in
+            // Reload Orders list from API
+            self.orders = [Order]()
+            CoreDataManager.instance.entitiesDidRemove(byName: "Order", andPredicateParameter: keyOrders)
+            self.limit = Config.Constants.paginationLimit
+            self.ordersListDidLoad(withOffset: 0, scrollingData: true)
+        }
+        
+        // Handler InfiniteScroll
+        tableView.tableViewControllerManager.handlerInfiniteScrollCompletion = { _ in
+            // Load More Orders from API
+            self.ordersListDidLoad(withOffset: self.orders.count, scrollingData: true)
+        }
+        
+        tableView.tableViewControllerManager.pullRefreshDidFinish()
+        spinnerDidFinish()
     }
 
     
@@ -123,17 +194,38 @@ class OrdersShowViewController: BaseViewController {
     // MARK: - Actions
     @IBAction func handlerPreviousButtonTap(_ sender: UIButton) {
         currentDate = Calendar.current.date(byAdding: .day, value: -1, to: currentDate)!
+        dateStart = currentDate.convertToString(withStyle: .DateHyphen)
+        dateEnd = dateStart
+        
+        orders = [Order]()
+        CoreDataManager.instance.entitiesDidRemove(byName: "Order", andPredicateParameter: keyOrders)
+        ordersListDidLoad(withOffset: 0, scrollingData: false)
     }
     
     @IBAction func handlerNextButtonTap(_ sender: UIButton) {
         currentDate = Calendar.current.date(byAdding: .day, value: 1, to: currentDate)!
+        dateStart = currentDate.convertToString(withStyle: .DateHyphen)
+        dateEnd = dateStart
+
+        orders = [Order]()
+        CoreDataManager.instance.entitiesDidRemove(byName: "Order", andPredicateParameter: keyOrders)
+        ordersListDidLoad(withOffset: 0, scrollingData: false)
     }
 }
 
 
 // MARK: - OrdersShowViewControllerInput
 extension OrdersShowViewController: OrdersShowViewControllerInput {
-    func displaySomething(viewModel: OrdersShow.Something.ViewModel) {
-
+    func ordersDidShowLoad(fromViewModel viewModel: OrdersShowModels.Orders.ViewModel) {
+        // Check for errors
+        guard viewModel.status == "SUCCESS" else {
+            self.alertViewDidShow(withTitle: "Error", andMessage: viewModel.status, completion: {
+                self.ordersListDidShow()
+            })
+            
+            return
+        }
+        
+        self.ordersListDidShow()
     }
 }

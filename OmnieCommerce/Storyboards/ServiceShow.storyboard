@@ -27,10 +27,10 @@
                                 <rect key="frame" x="0.0" y="55" width="667" height="323.5"/>
                                 <subviews>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Xu-pO-JDx" userLabel="Content View">
-                                        <rect key="frame" x="8" y="5" width="651" height="1540"/>
+                                        <rect key="frame" x="8" y="5" width="651" height="1290"/>
                                         <subviews>
                                             <stackView hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="wMy-S2-qYv" userLabel="Main Stack View">
-                                                <rect key="frame" x="0.0" y="0.0" width="651" height="1540"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="651" height="1290"/>
                                                 <subviews>
                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZW0-cu-1Gq" userLabel="Title View">
                                                         <rect key="frame" x="0.0" y="0.0" width="651" height="155"/>
@@ -594,8 +594,8 @@
                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
-                                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ntr-z4-Dg4" userLabel="Reviews View">
-                                                        <rect key="frame" x="0.0" y="1055" width="651" height="250"/>
+                                                    <view hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ntr-z4-Dg4" userLabel="Reviews View">
+                                                        <rect key="frame" x="0.0" y="1055" width="651" height="0.0"/>
                                                         <subviews>
                                                             <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reviews" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tRu-1t-ZOo" customClass="HelveticaNeueCyrLightVeryLightGrayLabel" customModule="OmnieCommerce" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="20" width="651" height="20"/>
@@ -640,7 +640,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dA6-sL-Tdg" userLabel="Rating View">
-                                                        <rect key="frame" x="0.0" y="1305" width="651" height="235"/>
+                                                        <rect key="frame" x="0.0" y="1055" width="651" height="235"/>
                                                         <subviews>
                                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hbu-NN-VOL" userLabel="User Name Label" customClass="UbuntuLightVeryLightOrangeLabel" customModule="OmnieCommerce" customModuleProvider="target">
                                                                 <rect key="frame" x="8" y="20" width="635" height="21"/>
@@ -816,7 +816,7 @@
                             <constraint firstItem="UAT-uf-hhb" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="1:2.78" id="GcA-MV-EIp"/>
                             <constraint firstItem="3d9-Qt-0Tr" firstAttribute="centerX" secondItem="tP1-Vk-hMS" secondAttribute="centerX" id="Gzt-F7-6yk"/>
                             <constraint firstItem="WlN-sc-b1w" firstAttribute="leading" secondItem="tP1-Vk-hMS" secondAttribute="leading" id="HFq-Ey-e2P"/>
-                            <constraint firstItem="Ntr-z4-Dg4" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="1:2.67" id="IQn-n8-fhD"/>
+                            <constraint firstItem="Ntr-z4-Dg4" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="1:2.67" priority="750" id="IQn-n8-fhD"/>
                             <constraint firstItem="pza-G2-fnH" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="1:18.53" id="Ji9-cp-T7l"/>
                             <constraint firstItem="vt0-so-xg2" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="30:667" id="Lf0-zY-sVA"/>
                             <constraint firstItem="pza-G2-fnH" firstAttribute="width" secondItem="tP1-Vk-hMS" secondAttribute="width" multiplier="1:2.52" id="OEv-8g-nxA"/>
@@ -825,7 +825,7 @@
                             <constraint firstItem="Eik-qA-8KL" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="1:3.64" id="U0o-jd-EXR"/>
                             <constraint firstAttribute="trailing" secondItem="WlN-sc-b1w" secondAttribute="trailing" id="Vbq-HR-wl8"/>
                             <constraint firstItem="dA6-sL-Tdg" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="1:1.6" id="Y1O-1O-tgW"/>
-                            <constraint firstItem="Ntr-z4-Dg4" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="1:1.5" id="bd0-Ag-lh8"/>
+                            <constraint firstItem="Ntr-z4-Dg4" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="1:1.5" priority="750" id="bd0-Ag-lh8"/>
                             <constraint firstItem="Fg2-g7-Pmf" firstAttribute="top" secondItem="tP1-Vk-hMS" secondAttribute="top" id="d5x-CQ-SAe"/>
                             <constraint firstItem="3d9-Qt-0Tr" firstAttribute="top" secondItem="WlN-sc-b1w" secondAttribute="bottom" constant="9" id="egP-AK-B6Z"/>
                             <constraint firstItem="3rV-A0-EdC" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="1:4.41" id="fhr-mq-Apk"/>
@@ -851,13 +851,13 @@
                             <mask key="constraints">
                                 <exclude reference="4vO-JT-3lO"/>
                                 <exclude reference="Tpd-Kw-2pc"/>
-                                <exclude reference="Lf0-zY-sVA"/>
                                 <exclude reference="5VN-VS-aQe"/>
                                 <exclude reference="x9U-Ux-cwx"/>
+                                <exclude reference="Lf0-zY-sVA"/>
                                 <exclude reference="l1b-0Y-UK2"/>
                                 <exclude reference="5EZ-T7-nkg"/>
-                                <exclude reference="xyg-pN-S81"/>
                                 <exclude reference="GcA-MV-EIp"/>
+                                <exclude reference="xyg-pN-S81"/>
                                 <exclude reference="gOO-Je-8dP"/>
                                 <exclude reference="DkE-Vg-kTZ"/>
                                 <exclude reference="Ji9-cp-T7l"/>
@@ -872,20 +872,20 @@
                                 <exclude reference="5IP-Ew-d7q"/>
                                 <exclude reference="AJ4-59-see"/>
                                 <include reference="Tpd-Kw-2pc"/>
-                                <include reference="Lf0-zY-sVA"/>
-                                <exclude reference="rZy-X8-st9"/>
                                 <include reference="5VN-VS-aQe"/>
                                 <exclude reference="pyo-bL-0f6"/>
                                 <exclude reference="qdX-J0-Xyv"/>
                                 <include reference="x9U-Ux-cwx"/>
+                                <include reference="Lf0-zY-sVA"/>
+                                <exclude reference="rZy-X8-st9"/>
                                 <include reference="l1b-0Y-UK2"/>
                                 <exclude reference="qEP-xj-EuX"/>
                                 <include reference="5EZ-T7-nkg"/>
                                 <exclude reference="8mK-Vj-e5e"/>
-                                <exclude reference="8Sr-Fu-BOy"/>
-                                <include reference="xyg-pN-S81"/>
                                 <exclude reference="7jH-OQ-VhB"/>
                                 <include reference="GcA-MV-EIp"/>
+                                <exclude reference="8Sr-Fu-BOy"/>
+                                <include reference="xyg-pN-S81"/>
                                 <exclude reference="U0o-jd-EXR"/>
                                 <include reference="gOO-Je-8dP"/>
                                 <exclude reference="Bla-Lq-UFF"/>

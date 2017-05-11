@@ -2,7 +2,7 @@
 //  Organization+CoreDataProperties.swift
 //  OmnieCommerce
 //
-//  Created by msm72 on 22.04.17.
+//  Created by msm72 on 11.05.17.
 //  Copyright © 2017 Omniesoft. All rights reserved.
 //
 
@@ -23,6 +23,8 @@ extension Organization {
     @NSManaged public var codeID: String
     @NSManaged public var descriptionContent: String?
     @NSManaged public var descriptionTitle: String?
+    @NSManaged public var email: String?
+    @NSManaged public var headerURL: String?
     @NSManaged public var isFavorite: Bool
     @NSManaged public var latitudeValue: Double
     @NSManaged public var logoURL: String?
@@ -31,14 +33,12 @@ extension Organization {
     @NSManaged public var phones: [String]?
     @NSManaged public var placeID: String?
     @NSManaged public var rating: Double
-    @NSManaged public var email: String?
-    @NSManaged public var headerURL: String?
     @NSManaged public var category: NSSet?
     @NSManaged public var discounts: NSSet?
-    @NSManaged public var schedules: NSSet?
     @NSManaged public var images: NSSet?
-    @NSManaged public var services: NSSet?
     @NSManaged public var organizationReviews: NSSet?
+    @NSManaged public var schedules: NSSet?
+    @NSManaged public var services: NSSet?
 
 }
 
@@ -76,23 +76,6 @@ extension Organization {
 
 }
 
-// MARK: Generated accessors for schedules
-extension Organization {
-
-    @objc(addSchedulesObject:)
-    @NSManaged public func addToSchedules(_ value: Schedule)
-
-    @objc(removeSchedulesObject:)
-    @NSManaged public func removeFromSchedules(_ value: Schedule)
-
-    @objc(addSchedules:)
-    @NSManaged public func addToSchedules(_ values: NSSet)
-
-    @objc(removeSchedules:)
-    @NSManaged public func removeFromSchedules(_ values: NSSet)
-
-}
-
 // MARK: Generated accessors for images
 extension Organization {
 
@@ -110,23 +93,6 @@ extension Organization {
 
 }
 
-// MARK: Generated accessors for services
-extension Organization {
-
-    @objc(addServicesObject:)
-    @NSManaged public func addToServices(_ value: Service)
-
-    @objc(removeServicesObject:)
-    @NSManaged public func removeFromServices(_ value: Service)
-
-    @objc(addServices:)
-    @NSManaged public func addToServices(_ values: NSSet)
-
-    @objc(removeServices:)
-    @NSManaged public func removeFromServices(_ values: NSSet)
-
-}
-
 // MARK: Generated accessors for organizationReviews
 extension Organization {
 
@@ -141,5 +107,39 @@ extension Organization {
 
     @objc(removeOrganizationReviews:)
     @NSManaged public func removeFromOrganizationReviews(_ values: NSSet)
+
+}
+
+// MARK: Generated accessors for schedules
+extension Organization {
+
+    @objc(addSchedulesObject:)
+    @NSManaged public func addToSchedules(_ value: Schedule)
+
+    @objc(removeSchedulesObject:)
+    @NSManaged public func removeFromSchedules(_ value: Schedule)
+
+    @objc(addSchedules:)
+    @NSManaged public func addToSchedules(_ values: NSSet)
+
+    @objc(removeSchedules:)
+    @NSManaged public func removeFromSchedules(_ values: NSSet)
+
+}
+
+// MARK: Generated accessors for services
+extension Organization {
+
+    @objc(addServicesObject:)
+    @NSManaged public func addToServices(_ value: Service)
+
+    @objc(removeServicesObject:)
+    @NSManaged public func removeFromServices(_ value: Service)
+
+    @objc(addServices:)
+    @NSManaged public func addToServices(_ values: NSSet)
+
+    @objc(removeServices:)
+    @NSManaged public func removeFromServices(_ values: NSSet)
 
 }

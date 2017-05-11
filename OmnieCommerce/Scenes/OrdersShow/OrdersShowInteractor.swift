@@ -13,27 +13,29 @@ import UIKit
 
 // MARK: - Input & Output protocols
 protocol OrdersShowInteractorInput {
-    func doSomething(request: OrdersShow.Something.Request)
+    func ordersDidLoad(withRequestModel requestModel: OrdersShowModels.Orders.RequestModel)
 }
 
 protocol OrdersShowInteractorOutput {
-    func presentSomething(response: OrdersShow.Something.Response)
+    func ordersDidPrepareToShowLoad(fromResponseModel responseModel: OrdersShowModels.Orders.ResponseModel)
 }
 
 class OrdersShowInteractor: OrdersShowInteractorInput {
     // MARK: - Properties
-    var output: OrdersShowInteractorOutput!
+    var presenter: OrdersShowInteractorOutput!
     var worker: OrdersShowWorker!
     
     
     // MARK: - Custom Functions. Business logic
-    func doSomething(request: OrdersShow.Something.Request) {
+    func ordersDidLoad(withRequestModel requestModel: OrdersShowModels.Orders.RequestModel) {
         // NOTE: Create some Worker to do the work
         worker = OrdersShowWorker()
         worker.doSomeWork()
         
-        // NOTE: Pass the result to the Presenter
-        let response = OrdersShow.Something.Response()
-        output.presentSomething(response: response)
+        // MARK: - Custom Functions. Business logic
+        MSMRestApiManager.instance.userRequestDidRun(.userGetOrdersList(requestModel.parameters, true), withHandlerResponseAPICompletion: { responseAPI in
+            let ordersResponseModel = OrdersShowModels.Orders.ResponseModel(responseAPI: responseAPI)
+            self.presenter.ordersDidPrepareToShowLoad(fromResponseModel: ordersResponseModel)
+        })
     }
 }

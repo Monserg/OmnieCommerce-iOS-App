@@ -201,10 +201,10 @@ public class Service: NSManagedObject, InitCellParameters, PointAnnotationBindin
         let locationManager = LocationManager()
         
         locationManager.geocodingAddress(byGoogleID: positionID, completion: { coordinate, city, street in
-            self.latitude = (coordinate?.latitude)!
-            self.longitude = (coordinate?.longitude)!
-            self.addressCity = city!
-            self.addressStreet = street!
+            self.latitude = coordinate?.latitude ?? 0.0
+            self.longitude = coordinate?.longitude ?? 0.0
+            self.addressCity = city ?? "Zorro"
+            self.addressStreet = street ?? "Zorro"
             
             completion()
         })
