@@ -2,7 +2,7 @@
 //  Organization+CoreDataProperties.swift
 //  OmnieCommerce
 //
-//  Created by msm72 on 11.05.17.
+//  Created by msm72 on 12.05.17.
 //  Copyright © 2017 Omniesoft. All rights reserved.
 //
 

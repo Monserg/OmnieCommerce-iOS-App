@@ -824,7 +824,7 @@
                             <constraint firstItem="nCF-9A-SNv" firstAttribute="width" secondItem="tP1-Vk-hMS" secondAttribute="width" multiplier="1:1.4" id="Tpd-Kw-2pc"/>
                             <constraint firstItem="Eik-qA-8KL" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="1:3.64" id="U0o-jd-EXR"/>
                             <constraint firstAttribute="trailing" secondItem="WlN-sc-b1w" secondAttribute="trailing" id="Vbq-HR-wl8"/>
-                            <constraint firstItem="dA6-sL-Tdg" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="1:1.6" id="Y1O-1O-tgW"/>
+                            <constraint firstItem="dA6-sL-Tdg" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="1:1.6" priority="750" id="Y1O-1O-tgW"/>
                             <constraint firstItem="Ntr-z4-Dg4" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="1:1.5" priority="750" id="bd0-Ag-lh8"/>
                             <constraint firstItem="Fg2-g7-Pmf" firstAttribute="top" secondItem="tP1-Vk-hMS" secondAttribute="top" id="d5x-CQ-SAe"/>
                             <constraint firstItem="3d9-Qt-0Tr" firstAttribute="top" secondItem="WlN-sc-b1w" secondAttribute="bottom" constant="9" id="egP-AK-B6Z"/>
@@ -837,7 +837,7 @@
                             <constraint firstItem="l7U-6q-qdR" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="1:4.42" id="l1b-0Y-UK2"/>
                             <constraint firstAttribute="bottom" secondItem="3d9-Qt-0Tr" secondAttribute="bottom" constant="9" id="p4p-16-Gqe"/>
                             <constraint firstItem="3rV-A0-EdC" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="1:7.84" id="p8C-Hr-pl9"/>
-                            <constraint firstItem="dA6-sL-Tdg" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="1:2.84" id="pol-Hw-6zs"/>
+                            <constraint firstItem="dA6-sL-Tdg" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="1:2.84" priority="750" id="pol-Hw-6zs"/>
                             <constraint firstItem="FQL-Qq-Kqg" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="1:2.6" priority="750" id="pyo-bL-0f6"/>
                             <constraint firstItem="l7U-6q-qdR" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="1:2.48" id="qEP-xj-EuX"/>
                             <constraint firstItem="Cu4-ag-tyk" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="1:3.68" priority="750" id="qdX-J0-Xyv"/>

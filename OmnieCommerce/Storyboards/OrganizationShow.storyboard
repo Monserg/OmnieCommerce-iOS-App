@@ -388,7 +388,7 @@
                                                             <constraint firstAttribute="trailing" secondItem="wSr-jk-eDi" secondAttribute="trailing" id="XlF-1y-y2M"/>
                                                             <constraint firstAttribute="bottom" secondItem="yp3-Gv-3vU" secondAttribute="bottom" id="epV-cL-3f0"/>
                                                             <constraint firstItem="yp3-Gv-3vU" firstAttribute="top" secondItem="sen-dV-9fD" secondAttribute="top" id="gKS-KJ-Jvi"/>
-                                                            <constraint firstAttribute="height" constant="224" id="hg8-vo-d2j"/>
+                                                            <constraint firstAttribute="height" priority="750" constant="224" id="hg8-vo-d2j"/>
                                                             <constraint firstItem="yp3-Gv-3vU" firstAttribute="leading" secondItem="sen-dV-9fD" secondAttribute="leading" constant="15" id="pc4-X5-tXh"/>
                                                             <constraint firstItem="wSr-jk-eDi" firstAttribute="leading" secondItem="sen-dV-9fD" secondAttribute="leading" id="vxB-pO-Kzw"/>
                                                         </constraints>
@@ -561,7 +561,7 @@
                                                             <constraint firstAttribute="bottom" secondItem="UhX-rh-GrB" secondAttribute="bottom" id="Cqs-29-B9s"/>
                                                             <constraint firstItem="WlE-io-6eX" firstAttribute="top" secondItem="E5n-6w-mcc" secondAttribute="top" constant="20" id="K5W-hf-0RL"/>
                                                             <constraint firstItem="UhX-rh-GrB" firstAttribute="top" secondItem="WlE-io-6eX" secondAttribute="bottom" constant="30" id="KeS-OW-jB8"/>
-                                                            <constraint firstAttribute="height" constant="215" id="LHG-u1-Bbo"/>
+                                                            <constraint firstAttribute="height" priority="750" constant="215" id="LHG-u1-Bbo"/>
                                                             <constraint firstAttribute="trailing" secondItem="UhX-rh-GrB" secondAttribute="trailing" id="Rrj-KR-wZt"/>
                                                             <constraint firstItem="WlE-io-6eX" firstAttribute="leading" secondItem="E5n-6w-mcc" secondAttribute="leading" id="eVW-0W-EOo"/>
                                                             <constraint firstItem="UhX-rh-GrB" firstAttribute="leading" secondItem="E5n-6w-mcc" secondAttribute="leading" id="irL-eg-Lsx"/>
@@ -821,7 +821,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="W3J-L4-StC" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="102:667" id="1jC-bb-4US"/>
-                            <constraint firstItem="xn5-Pp-dGs" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="144:375" id="2t6-c3-5oD"/>
+                            <constraint firstItem="xn5-Pp-dGs" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="144:375" priority="750" id="2t6-c3-5oD"/>
                             <constraint firstItem="3d9-Qt-0Tr" firstAttribute="leading" secondItem="tP1-Vk-hMS" secondAttribute="leading" constant="8" id="4AF-wA-xbg"/>
                             <constraint firstItem="adz-yc-dyV" firstAttribute="centerY" secondItem="dOa-1v-QfJ" secondAttribute="centerY" id="4je-V9-p8t"/>
                             <constraint firstItem="Fg2-g7-Pmf" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="95:667" id="4vO-JT-3lO"/>
@@ -850,14 +850,14 @@
                             <constraint firstItem="adz-yc-dyV" firstAttribute="centerY" secondItem="yCN-N1-cuS" secondAttribute="centerY" id="PKW-qX-gAk"/>
                             <constraint firstItem="Kz0-de-aEy" firstAttribute="leading" secondItem="2MG-9N-ISZ" secondAttribute="trailing" constant="15" id="QsM-UJ-tqs"/>
                             <constraint firstItem="HjZ-of-5Js" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="20:667" id="SAZ-lg-4fR"/>
-                            <constraint firstItem="yzx-yh-fce" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="214:667" id="T89-wI-buP"/>
+                            <constraint firstItem="yzx-yh-fce" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="214:667" priority="750" id="T89-wI-buP"/>
                             <constraint firstItem="F2J-Sj-SOC" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="110:667" id="TTV-wR-bZb"/>
                             <constraint firstAttribute="trailing" secondItem="3d9-Qt-0Tr" secondAttribute="trailing" constant="8" id="Tdg-4A-3Gn"/>
                             <constraint firstItem="sig-WZ-mo7" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="56:375" id="ULx-WY-fds"/>
                             <constraint firstItem="KmR-yM-231" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="85:375" id="Vfj-P3-Vcg"/>
                             <constraint firstItem="1zS-nj-a2d" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="35:667" id="Wk6-yB-BiG"/>
                             <constraint firstAttribute="bottom" secondItem="yCN-N1-cuS" secondAttribute="bottom" constant="47" id="Ww6-1C-na4"/>
-                            <constraint firstItem="xn5-Pp-dGs" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="144:667" id="YvF-eG-G8g"/>
+                            <constraint firstItem="xn5-Pp-dGs" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="144:667" priority="750" id="YvF-eG-G8g"/>
                             <constraint firstItem="1zS-nj-a2d" firstAttribute="centerX" secondItem="yCN-N1-cuS" secondAttribute="centerX" id="Z7D-bK-aLB"/>
                             <constraint firstItem="F2J-Sj-SOC" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="110:375" id="ZGB-O6-CgW"/>
                             <constraint firstItem="gAo-MP-7EF" firstAttribute="width" secondItem="tP1-Vk-hMS" secondAttribute="width" multiplier="175:375" id="ZgM-I3-qr7"/>
@@ -878,7 +878,7 @@
                             <constraint firstItem="EKb-ci-h91" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="30:375" id="qsL-f4-Sr7"/>
                             <constraint firstItem="5kB-hm-mY3" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="85:667" id="slx-hc-ia6"/>
                             <constraint firstItem="3d9-Qt-0Tr" firstAttribute="top" secondItem="4G7-UZ-bMP" secondAttribute="bottom" constant="9" id="tWB-H0-tnk"/>
-                            <constraint firstItem="yzx-yh-fce" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="214:375" id="tax-2V-FR4"/>
+                            <constraint firstItem="yzx-yh-fce" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="214:375" priority="750" id="tax-2V-FR4"/>
                             <constraint firstItem="Kz0-de-aEy" firstAttribute="height" secondItem="tP1-Vk-hMS" secondAttribute="height" multiplier="35:667" id="tqn-02-D9m"/>
                             <constraint firstItem="adz-yc-dyV" firstAttribute="centerX" secondItem="yCN-N1-cuS" secondAttribute="centerX" id="vBR-A6-FvT"/>
                             <constraint firstItem="ZU5-ze-b9v" firstAttribute="top" secondItem="HJY-HG-h1S" secondAttribute="bottom" constant="4" id="vk8-XH-4TP">

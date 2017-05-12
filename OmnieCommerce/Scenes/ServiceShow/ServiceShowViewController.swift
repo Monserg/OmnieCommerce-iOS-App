@@ -190,8 +190,6 @@ class ServiceShowViewController: BaseViewController {
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(true)
-        
-        CoreDataManager.instance.didSaveContext()
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -358,32 +356,42 @@ class ServiceShowViewController: BaseViewController {
         
         
         // Service reviews
+        // TODO: - ADD SHOW REVIEWS AFTER CHANGE API
+        reviewsView.isHidden = true
+
+        /*
         var reviews = [Any]()
         
-//        if let serviceReviews = serviceProfile.revi {
-//            reviews.append(contentsOf: organizationReviews)
-//        }
-//        
-//        //        let serviceReviews = CoreDataManager.instance.entitiesDidLoad(byName: "Review", andPredicateParameter: "ServiceReview")
-//        //        organizationReviews!.append(contentsOf: serviceReviews!)
-//        reviewsView.isHidden = (reviews.count > 0) ? false : true
-//        
-//        let reviewsManager = MSMCollectionViewControllerManager(withCollectionView: reviewsCollectionView)
-//        reviewsCollectionView.collectionViewControllerManager = reviewsManager
-//        reviewsCollectionView.collectionViewControllerManager!.sectionsCount = 1
-//        reviewsCollectionView.collectionViewControllerManager!.dataSource = reviews
-//        reviewsCollectionView.collectionViewControllerManager.collectionView.reloadData()
-//        
-//        // Handler Review select
-//        reviewsCollectionView.collectionViewControllerManager!.handlerCellSelectCompletion = { item in }
-//        
-//        // Handler Navigation button tap
-//        reviewsCollectionView.collectionViewControllerManager.handlerNavigationButtonTapCompletion = { item in
-//            self.view.layoutIfNeeded()
-//            self.reviewsCollectionView.scrollToItem(at: IndexPath(item: item as! Int, section: 0), at: .centeredHorizontally, animated: true)
-//        }
+        if let serviceReviews = serviceProfile.revi {
+            reviews.append(contentsOf: organizationReviews)
+        }
+        
+        //        let serviceReviews = CoreDataManager.instance.entitiesDidLoad(byName: "Review", andPredicateParameter: "ServiceReview")
+        //        organizationReviews!.append(contentsOf: serviceReviews!)
+        reviewsView.isHidden = (reviews.count > 0) ? false : true
+        
+        let reviewsManager = MSMCollectionViewControllerManager(withCollectionView: reviewsCollectionView)
+        reviewsCollectionView.collectionViewControllerManager = reviewsManager
+        reviewsCollectionView.collectionViewControllerManager!.sectionsCount = 1
+        reviewsCollectionView.collectionViewControllerManager!.dataSource = reviews
+        reviewsCollectionView.collectionViewControllerManager.collectionView.reloadData()
+        
+        // Handler Review select
+        reviewsCollectionView.collectionViewControllerManager!.handlerCellSelectCompletion = { item in }
+        
+        // Handler Navigation button tap
+        reviewsCollectionView.collectionViewControllerManager.handlerNavigationButtonTapCompletion = { item in
+            self.view.layoutIfNeeded()
+            self.reviewsCollectionView.scrollToItem(at: IndexPath(item: item as! Int, section: 0), at: .centeredHorizontally, animated: true)
+        }
+        */
+        
         
         // Rating view
+        // TODO: - MODIFY AFTER CHANGE REVIEW API
+        ratingView.isHidden = true
+        
+        /*
         if !(serviceProfile.canUserSendReview) {
             ratingView.isHidden = false
             let userReview = CoreDataManager.instance.entityDidLoad(byName: "Review", andPredicateParameter: "UserReview") as! Review
@@ -410,7 +418,9 @@ class ServiceShowViewController: BaseViewController {
         } else {
             ratingView.isHidden = true
         }
-
+        */
+        
+        
         smallTopBarView.actionButton.isHidden = false
         self.view.layoutIfNeeded()
 

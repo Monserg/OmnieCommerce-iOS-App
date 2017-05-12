@@ -99,16 +99,18 @@ public class Organization: NSManagedObject, InitCellParameters, PointAnnotationB
 
         // Prepare to save full data
         // Phones
-        if let phones = json["phones"] as? [String] {
+        if let phones = json["phones"] as? [String], phones.count > 0 {
             self.phones = phones
         }
  
         // Reviews
         // Organization reviews
+        // TODO: - ADD MAPPING REVIEWS AFTER CHANGE API
         if let canSendReview = json["canSendReview"] as? Bool {
             self.canSendReview = canSendReview
         }
         
+        /*
         if let reviewsOrganization = json["organizationReviews"] as? [Any] {
             self.organizationReviews = NSSet()
             
@@ -116,16 +118,17 @@ public class Organization: NSManagedObject, InitCellParameters, PointAnnotationB
                 self.addToOrganizationReviews(Review.init(json: dictionary as! [String: AnyObject], andType: .OrganizationReview)!)
             }
         }
+        */
         
         // Schedules
-        if let scheduleItems = json["timeSheets"] as? NSArray {
+        if let scheduleItems = json["timeSheets"] as? NSArray, scheduleItems.count > 0 {
             for dictionary in scheduleItems {
                 let _ = Schedule.init(json: dictionary as! [String : AnyObject], andOrganization: self)
             }
             
             self.schedules = NSSet.init(array: CoreDataManager.instance.entitiesDidLoad(byName: "Schedule", andPredicateParameter: ["organization.codeID": self.codeID])!)
         }
-
+        
         // Google place
         if let positionID = json["placeId"] as? String {
             self.placeID = positionID
@@ -151,9 +154,9 @@ public class Organization: NSManagedObject, InitCellParameters, PointAnnotationB
         }
 
         // Common discounts
-        self.discounts = NSSet()
-
-        if let commonDiscounts = json["discountsCommon"] as? NSArray {
+        if let commonDiscounts = json["discountsCommon"] as? NSArray, commonDiscounts.count > 0 {
+            self.discounts = NSSet()
+            
             for dictionary in commonDiscounts {
                 let discountCommon = Discount.init(json: dictionary as! [String : AnyObject], andRelationshipObject: self)!
                 discountCommon.isUserDiscount = false
@@ -163,7 +166,7 @@ public class Organization: NSManagedObject, InitCellParameters, PointAnnotationB
         }
         
         // User discounts
-        if let userDiscounts = json["discountsForUser"] as? NSArray {
+        if let userDiscounts = json["discountsForUser"] as? NSArray, userDiscounts.count > 0 {
             for dictionary in userDiscounts {
                 let discountUser = Discount.init(json: dictionary as! [String : AnyObject], andRelationshipObject: self)!
                 discountUser.isUserDiscount = true
@@ -173,7 +176,7 @@ public class Organization: NSManagedObject, InitCellParameters, PointAnnotationB
         }
         
         // Gallery images
-        if let galleryImages = json["gallery"] as? NSArray {
+        if let galleryImages = json["gallery"] as? NSArray, galleryImages.count > 0 {
             self.images = NSSet()
             
             for dictionary in galleryImages {

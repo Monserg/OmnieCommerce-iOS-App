@@ -188,6 +188,9 @@ public class Service: NSManagedObject, InitCellParameters, PointAnnotationBindin
                 }
             }
         }
+        
+        // Reviews
+        // TODO: - ADD MAPPING REVIEWS AFTER CHANGE API
     }
 
     deinit {

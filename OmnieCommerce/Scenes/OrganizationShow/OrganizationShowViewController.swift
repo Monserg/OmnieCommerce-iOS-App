@@ -457,6 +457,10 @@ class OrganizationShowViewController: BaseViewController {
         }
         
         // Organization reviews
+        // TODO: - ADD SHOW REVIEWS AFTER CHANGE API
+        reviewsView.isHidden = true
+
+        /*
         var reviews = [Any]()
         
         if let organizationReviews = organizationProfile.organizationReviews {
@@ -481,8 +485,14 @@ class OrganizationShowViewController: BaseViewController {
             self.view.layoutIfNeeded()
             self.reviewsCollectionView.scrollToItem(at: IndexPath(item: item as! Int, section: 0), at: .centeredHorizontally, animated: true)
         }
-
+        */
+        
+        
         // Rating view
+        // TODO: - ADD SHOW REVIEWS AFTER CHANGE API
+        ratingView.isHidden = true
+
+        /*
         if (organizationProfile.canUserSendReview) {
             ratingView.isHidden = false
             let userReview = CoreDataManager.instance.entityDidLoad(byName: "Review", andPredicateParameter: "UserReview") as! Review
@@ -509,6 +519,8 @@ class OrganizationShowViewController: BaseViewController {
         } else {
             ratingView.isHidden = true
         }
+        */
+        
         
         _ = dottedBorderViewsCollection.map { $0.setNeedsDisplay() }
 
@@ -547,13 +559,10 @@ class OrganizationShowViewController: BaseViewController {
     }
     
     @IBAction func handlerPhonesButtonTap(_ sender: CustomButton) {
-        guard (organization.phones?.count)! > 0 else {
-            alertViewDidShow(withTitle: "Info", andMessage: "Phones list is empty", completion: { _ in })
-            return
-        }
-        
-        if (organization.phones!.count > 0) {
+        if let phones = organization.phones, phones.count > 0 {
             modalViewDidShow(withHeight: 185, customSubview: PhonesView(), andValues: Array(organization.phones!))
+        } else {
+            alertViewDidShow(withTitle: "Info", andMessage: "Phones list is empty", completion: { _ in })
         }
     }
     
