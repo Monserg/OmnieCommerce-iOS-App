@@ -28,23 +28,23 @@ class NewsActionsShowPresenter: NewsActionsShowPresenterInput {
     
     // MARK: - Custom Functions. Presentation logic
     func actionsDidPrepareToShowLoad(fromResponseModel responseModel: NewsActionsShowModels.Actions.ResponseModel) {
-        guard responseModel.responseAPI?.body != nil else {
+        guard responseModel.responseAPI != nil else {
             let actionsViewModel = NewsActionsShowModels.Actions.ViewModel(status: (responseModel.responseAPI?.status)!)
             viewController.actionsDidShowLoad(fromViewModel: actionsViewModel)
             
             return
         }
         
-        // Convert responseAPI body to NewsData CoreData action objects
+        // Convert responseAPI body to NewsData action & Lists CoreData objects
+        var items = [NewsData]()
+
         for json in responseModel.responseAPI!.body as! [Any] {
-            let item = NewsData.init(json: json as! [String: AnyObject])
-            
-            if let action = item {
-                action.isAction = true              
-                CoreDataManager.instance.didSaveContext()
-            }
+            let action = NewsData.init(json: json as! [String: AnyObject], isAction: true)
+            items.append(action!)
         }
-        
+
+        CoreDataManager.instance.didSaveContext()
+
         let actionsViewModel = NewsActionsShowModels.Actions.ViewModel(status: (responseModel.responseAPI?.status)!)
         self.viewController.actionsDidShowLoad(fromViewModel: actionsViewModel)
     }

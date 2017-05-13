@@ -42,7 +42,7 @@ class NewsDataShowRouter: NewsDataShowRouterInput {
             }
             
             // Create News
-            let _ = NewsData.init(json: responseAPI!.body as! [String: AnyObject])
+            let _ = NewsData.init(json: responseAPI!.body as! [String: AnyObject], isAction: false)
             let storyboard = UIStoryboard(name: "NewsShow", bundle: nil)
             let newsItemShowVC = storyboard.instantiateViewController(withIdentifier: "NewsItemShowVC") as! NewsItemShowViewController
             newsItemShowVC.newsItem = CoreDataManager.instance.entityDidLoad(byName: "NewsData", andPredicateParameter: item.codeID) as! NewsData

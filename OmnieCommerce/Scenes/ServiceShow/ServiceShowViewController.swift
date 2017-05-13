@@ -30,7 +30,8 @@ class ServiceShowViewController: BaseViewController {
     var interactor: ServiceShowViewControllerOutput!
     var router: ServiceShowRouter!
     
-    var service: Service!
+    var serviceID: String!
+    var serviceProfile: Service!
     var orderDateComponents: DateComponents?
     var orderStartTimeComponents: DateComponents?
     var orderEndTimeComponents: DateComponents?
@@ -180,10 +181,6 @@ class ServiceShowViewController: BaseViewController {
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTapGestureRecognizer))
         view.addGestureRecognizer(tapGesture)
-
-        orderDateComponents = Calendar.current.dateComponents([.month, .day, .year, .hour, .minute], from: Date())
-        orderStartTimeComponents = Calendar.current.dateComponents([.hour, .minute], from: Date())
-        orderEndTimeComponents = Calendar.current.dateComponents([.hour, .minute], from: Date().addingTimeInterval(TimeInterval(service.duration / 1_000)))
        
         viewSettingsDidLoad()
     }
@@ -202,7 +199,6 @@ class ServiceShowViewController: BaseViewController {
         // Config smallTopBarView
         navigationBarView = smallTopBarView
         smallTopBarView.type = "Child"
-        smallTopBarView.titleText = service.organizationName ?? "Zorro"
         haveMenuItem = false
         
         // Handler Back button tap
@@ -219,14 +215,20 @@ class ServiceShowViewController: BaseViewController {
         }
         
         // Load Service profile data
-        let serviceRequestModel = ServiceShowModels.ServiceItem.RequestModel(parameters: [ "id": service.codeID, "locale": Locale.current.languageCode!.lowercased() ])
+        let serviceRequestModel = ServiceShowModels.ServiceItem.RequestModel(parameters: [ "id": serviceID, "locale": Locale.current.languageCode!.lowercased() ])
         interactor.serviceDidLoad(withRequestModel: serviceRequestModel)
     }
     
     func serviceProfileDidShow() {
         // Setting Service profile info
-        let serviceProfile = CoreDataManager.instance.entityDidLoad(byName: "Service", andPredicateParameter: service.codeID) as! Service
+        let predicate = NSPredicate(format: "codeID == %@ AND catalog == %@", serviceID, "ServiceItem")
+        serviceProfile = CoreDataManager.instance.entityDidLoad(byName: "Service", andPredicateParameters: predicate) as! Service
         
+        smallTopBarView.titleText = serviceProfile.organizationName ?? "Zorro"
+        orderDateComponents = Calendar.current.dateComponents([.month, .day, .year, .hour, .minute], from: Date())
+        orderStartTimeComponents = Calendar.current.dateComponents([.hour, .minute], from: Date())
+        orderEndTimeComponents = Calendar.current.dateComponents([.hour, .minute], from: Date().addingTimeInterval(TimeInterval(serviceProfile.duration / 1_000)))
+
         // Title view
         if let contentDescription = serviceProfile.descriptionContent, contentDescription.isEmpty {
             titleView.isHidden = true
@@ -237,7 +239,7 @@ class ServiceShowViewController: BaseViewController {
             contentLabel.text = serviceProfile.descriptionContent ?? ""
             contentLabel.sizeToFit()
             
-            favoriteButton.tag = (service.isFavorite) ? 1 : 0
+            favoriteButton.tag = (serviceProfile.isFavorite) ? 1 : 0
             favoriteButton.setImage(UIImage.init(named: (favoriteButton.tag == 0) ? "image-favorite-star-normal" : "image-favorite-star-selected"), for: .normal)
 
             if ((serviceProfile.prices?.count)! > 0) {
@@ -319,7 +321,7 @@ class ServiceShowViewController: BaseViewController {
             // Handler Image select
             galleryCollectionView.collectionViewControllerManager!.handlerCellSelectCompletion = { item in
                 if item is GalleryImage {
-                    self.modalViewDidShow(withHeight: 365, customSubview: PhotosGalleryView(), andValues: Array(serviceProfile.images!))
+                    self.modalViewDidShow(withHeight: 365, customSubview: PhotosGalleryView(), andValues: Array(self.serviceProfile.images!))
                 }
             }
         } else {
@@ -463,7 +465,7 @@ class ServiceShowViewController: BaseViewController {
             self.blackoutView = nil
             
             if ((popupView as? PhotosGalleryView) != nil) {
-                _ = self.service.images!.map { ($0 as! GalleryImage).cellHeight = 102.0 }
+                _ = self.serviceProfile.images!.map { ($0 as! GalleryImage).cellHeight = 102.0 }
             }
         }
     }
@@ -494,7 +496,7 @@ class ServiceShowViewController: BaseViewController {
         var parameters = [String: Any]()
         var subservices = [[String: Any]]()
         
-        parameters["serviceId"] = service.codeID
+        parameters["serviceId"] = serviceID
         parameters["start"] = "\(calendarButton.titleLabel!.text!.replacingOccurrences(of: ".", with: "-")) \(calendarEndTimeButton.titleLabel!.text!)"
         parameters["duration"] = "7200000"
             //(Double(calendarEndTimeButton.titleLabel!.text!)! - Double(calendarStartTimeButton.titleLabel!.text!)!) / 60.0 / 1000.0
@@ -552,13 +554,13 @@ class ServiceShowViewController: BaseViewController {
         }
         
         sender.tag = (sender.tag == 0) ? 1 : 0
-        service.isFavorite = !service.isFavorite
+        serviceProfile.isFavorite = !serviceProfile.isFavorite
         sender.setImage(UIImage.init(named: (sender.tag == 0) ? "image-favorite-star-normal": "image-favorite-star-selected"), for: .normal)
         
-        MSMRestApiManager.instance.userRequestDidRun(.userAddRemoveFavoriteService(["service": service.codeID], true), withHandlerResponseAPICompletion: { responseAPI in
+        MSMRestApiManager.instance.userRequestDidRun(.userAddRemoveFavoriteService(["service": serviceProfile.codeID], true), withHandlerResponseAPICompletion: { responseAPI in
             if (responseAPI?.code == 200) {
-                self.favoriteButton.setImage((self.service.isFavorite) ?    UIImage(named: "image-favorite-star-selected") :
-                                                                            UIImage(named: "image-favorite-star-normal"), for: .normal)
+                self.favoriteButton.setImage((self.serviceProfile.isFavorite) ? UIImage(named: "image-favorite-star-selected") :
+                                                                                UIImage(named: "image-favorite-star-normal"), for: .normal)
             }
         })
     }

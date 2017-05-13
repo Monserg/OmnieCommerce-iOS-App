@@ -29,7 +29,8 @@ class OrganizationShowViewController: BaseViewController {
     var interactor: OrganizationShowViewControllerOutput!
     var router: OrganizationShowRouter!
     
-    var organization: Organization!
+    var organizationID: String!
+    var organizationProfile: Organization!
     var headerView: HeaderImageView?
     var backButton: UIButton?
     var wasLaunchedAPI = false
@@ -174,7 +175,6 @@ class OrganizationShowViewController: BaseViewController {
         // Config smallTopBarView
         navigationBarView = smallTopBarView
         smallTopBarView.type = "Child"
-        smallTopBarView.titleText = organization.name
         haveMenuItem = false
         
         // Handler Back button tap
@@ -191,7 +191,7 @@ class OrganizationShowViewController: BaseViewController {
         }
         
         // Load Organization profile data
-        let organizationRequestModel = OrganizationShowModels.OrganizationItem.RequestModel(parameters: ["id": organization.codeID])
+        let organizationRequestModel = OrganizationShowModels.OrganizationItem.RequestModel(parameters: ["id": organizationID])
         interactor.organizationDidLoad(withRequestModel: organizationRequestModel)
     }
     
@@ -240,22 +240,25 @@ class OrganizationShowViewController: BaseViewController {
             self.blackoutView = nil
             
             if ((popupView as? PhotosGalleryView) != nil) {
-                _ = self.organization.images!.map { ($0 as! GalleryImage).cellHeight = 102.0 }
+                _ = self.organizationProfile.images!.map { ($0 as! GalleryImage).cellHeight = 102.0 }
             }
         }
     }
 
     func organizationProfileDidShow() {
         // Setting Organization profile info
-        let organizationProfile = CoreDataManager.instance.entityDidLoad(byName: "Organization", andPredicateParameter: organization.codeID) as! Organization
-        
+        let predicate = NSPredicate(format: "codeID == %@ AND catalog == %@", organizationID, "OrganizationItem")
+        organizationProfile = CoreDataManager.instance.entityDidLoad(byName: "Organization", andPredicateParameters: predicate) as! Organization
+
+        smallTopBarView.titleText = organizationProfile.name
+
         // Parallax Header view
         if let headerURL = organizationProfile.headerURL {
             headerView = HeaderImageView.init(frame: CGRect.init(origin: CGPoint.zero, size: CGSize.init(width: view.frame.width, height: 150)))
             smallTopBarView.actionButton.isHidden = true
             
             // Set Header image
-            headerView!.imageView.kf.setImage(with: ImageResource(downloadURL: URL(string: headerURL)!, cacheKey: "imagePath-\(organization.codeID)"),
+            headerView!.imageView.kf.setImage(with: ImageResource(downloadURL: URL(string: headerURL)!, cacheKey: "imagePath-\(organizationID)"),
                                               placeholder: UIImage.init(named: "image-no-photo"),
                                               options: [.transition(ImageTransition.fade(1)),
                                                         .processor(ResizingImageProcessor(referenceSize: headerView!.frame.size,
@@ -289,7 +292,7 @@ class OrganizationShowViewController: BaseViewController {
         }
         
         // Info view
-        nameLabel.text = organization.name
+        nameLabel.text = organizationProfile.name
         nameLabel.lineBreakMode = .byTruncatingTail
         nameLabel.numberOfLines = 2
         nameLabel.adjustsFontSizeToFitWidth = false
@@ -310,7 +313,7 @@ class OrganizationShowViewController: BaseViewController {
             scheduleButton.isHidden = true
         }
 
-        favoriteButton.tag = (organization.isFavorite) ? 1 : 0
+        favoriteButton.tag = (organizationProfile.isFavorite) ? 1 : 0
         favoriteButton.setImage(UIImage.init(named: (favoriteButton.tag == 0) ? "image-favorite-star-normal" : "image-favorite-star-selected"), for: .normal)
         
         // Set Avatar image
@@ -405,7 +408,7 @@ class OrganizationShowViewController: BaseViewController {
             // Handler Image select
             galleryCollectionView.collectionViewControllerManager!.handlerCellSelectCompletion = { item in
                 if item is GalleryImage {
-                    self.modalViewDidShow(withHeight: 365, customSubview: PhotosGalleryView(), andValues: Array(organizationProfile.images!))
+                    self.modalViewDidShow(withHeight: 365, customSubview: PhotosGalleryView(), andValues: Array(self.organizationProfile.images!))
                 }
             }
         } else {
@@ -426,7 +429,7 @@ class OrganizationShowViewController: BaseViewController {
                                     ($0 as! Service).cellHeight = 60.0;
                                     ($0 as! Service).isNameNeedHide = true;
                                     ($0 as! Service).needBackgroundColorSet = true;
-                                    ($0 as! Service).organizationName = organization.name;
+                                    ($0 as! Service).organizationName = organizationProfile.name;
                                 }
             
             servicesTableView.tableViewControllerManager!.dataSource = Array(servicesList)
@@ -555,19 +558,19 @@ class OrganizationShowViewController: BaseViewController {
     }
     
     @IBAction func handlerAddressButtonTap(_ sender: CustomButton) {
-        router.navigateToOrganizationsMapShowScene(organization)
+        router.navigateToOrganizationsMapShowScene(organizationProfile)
     }
     
     @IBAction func handlerPhonesButtonTap(_ sender: CustomButton) {
-        if let phones = organization.phones, phones.count > 0 {
-            modalViewDidShow(withHeight: 185, customSubview: PhonesView(), andValues: Array(organization.phones!))
+        if let phones = organizationProfile.phones, phones.count > 0 {
+            modalViewDidShow(withHeight: 185, customSubview: PhonesView(), andValues: Array(organizationProfile.phones!))
         } else {
             alertViewDidShow(withTitle: "Info", andMessage: "Phones list is empty", completion: { _ in })
         }
     }
     
     @IBAction func handlerScheduleButtonTap(_ sender: CustomButton) {
-        modalViewDidShow(withHeight: 185, customSubview: ScheduleView(), andValues: Array(organization.schedules!))
+        modalViewDidShow(withHeight: 185, customSubview: ScheduleView(), andValues: Array(organizationProfile.schedules!))
     }
     
     @IBAction func handlerFavoriteButtonTap(_ sender: UIButton) {
@@ -576,19 +579,19 @@ class OrganizationShowViewController: BaseViewController {
         }
         
         sender.tag = (sender.tag == 0) ? 1 : 0
-        organization.isFavorite = !organization.isFavorite
+        organizationProfile.isFavorite = !organizationProfile.isFavorite
         sender.setImage(UIImage.init(named: (sender.tag == 0) ? "image-favorite-star-normal": "image-favorite-star-selected"), for: .normal)
         
-        MSMRestApiManager.instance.userRequestDidRun(.userAddRemoveFavoriteOrganization(["organization": organization.codeID], true), withHandlerResponseAPICompletion: { responseAPI in
+        MSMRestApiManager.instance.userRequestDidRun(.userAddRemoveFavoriteOrganization(["organization": organizationProfile.codeID], true), withHandlerResponseAPICompletion: { responseAPI in
             if (responseAPI?.code == 200) {
-                self.favoriteButton.setImage((self.organization.isFavorite) ?   UIImage(named: "image-favorite-star-selected") :
-                                                                                UIImage(named: "image-favorite-star-normal"), for: .normal)
+                self.favoriteButton.setImage((self.organizationProfile.isFavorite) ?    UIImage(named: "image-favorite-star-selected") :
+                                                                                        UIImage(named: "image-favorite-star-normal"), for: .normal)
             }
         })
     }
     
     @IBAction func handlerAllServicesButtonTap(_ sender: FillVeryLightOrangeButton) {
-        router.navigateToServicesShowScene(Array(organization.services!) as! [Service])
+        router.navigateToServicesShowScene(Array(organizationProfile.services!) as! [Service])
     }
     
     @IBAction func handlerAnimationButtonTap(_ sender: FillColorButton) {

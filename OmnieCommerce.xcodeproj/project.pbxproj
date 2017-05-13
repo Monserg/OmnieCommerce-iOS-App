@@ -31,6 +31,8 @@
 		B10189CB1EABBD3B00C1AD2F /* Service+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10189C91EABBD3B00C1AD2F /* Service+CoreDataProperties.swift */; };
 		B10189CE1EACB34C00C1AD2F /* Price+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10189CC1EACB34C00C1AD2F /* Price+CoreDataClass.swift */; };
 		B10189CF1EACB34C00C1AD2F /* Price+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10189CD1EACB34C00C1AD2F /* Price+CoreDataProperties.swift */; };
+		B1032BC61EC7068D00AEB661 /* Lists+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1032BC41EC7068D00AEB661 /* Lists+CoreDataClass.swift */; };
+		B1032BC71EC7068D00AEB661 /* Lists+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1032BC51EC7068D00AEB661 /* Lists+CoreDataProperties.swift */; };
 		B105D1B81E76B90800FCDC73 /* ResponseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B105D1B71E76B90800FCDC73 /* ResponseAPI.swift */; };
 		B10672FA1E71BE8100DB2AE0 /* MSMPickerViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10672F91E71BE8100DB2AE0 /* MSMPickerViewManager.swift */; };
 		B10871521E379A4800374DD5 /* OmnieCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10871511E379A4800374DD5 /* OmnieCard.swift */; };
@@ -525,6 +527,8 @@
 		B10189C91EABBD3B00C1AD2F /* Service+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Service+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		B10189CC1EACB34C00C1AD2F /* Price+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Price+CoreDataClass.swift"; sourceTree = "<group>"; };
 		B10189CD1EACB34C00C1AD2F /* Price+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Price+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		B1032BC41EC7068D00AEB661 /* Lists+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Lists+CoreDataClass.swift"; sourceTree = "<group>"; };
+		B1032BC51EC7068D00AEB661 /* Lists+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Lists+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		B105D1B71E76B90800FCDC73 /* ResponseAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseAPI.swift; sourceTree = "<group>"; };
 		B10672F91E71BE8100DB2AE0 /* MSMPickerViewManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSMPickerViewManager.swift; sourceTree = "<group>"; };
 		B10871511E379A4800374DD5 /* OmnieCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OmnieCard.swift; sourceTree = "<group>"; };
@@ -1115,6 +1119,8 @@
 				B10189C11EAB71B400C1AD2F /* Discount+CoreDataProperties.swift */,
 				B11DCAF21E9E234200180375 /* GalleryImage+CoreDataClass.swift */,
 				B11DCAF31E9E234200180375 /* GalleryImage+CoreDataProperties.swift */,
+				B1032BC41EC7068D00AEB661 /* Lists+CoreDataClass.swift */,
+				B1032BC51EC7068D00AEB661 /* Lists+CoreDataProperties.swift */,
 				B14172031EA7969B006120A1 /* NewsData+CoreDataClass.swift */,
 				B14172041EA7969B006120A1 /* NewsData+CoreDataProperties.swift */,
 				B100406D1EB4980D00161073 /* Order+CoreDataClass.swift */,
@@ -2457,6 +2463,7 @@
 				B10874801E5B0DC9004A4FB6 /* AppSettings+CoreDataProperties.swift in Sources */,
 				B1D883211E8E8C98006F4831 /* NewsDataShowViewController.swift in Sources */,
 				B122F1F91DD35BC70018A701 /* FavoriteShowModels.swift in Sources */,
+				B1032BC71EC7068D00AEB661 /* Lists+CoreDataProperties.swift in Sources */,
 				B10CF52A1E684B9700811DC1 /* ScheduleView.swift in Sources */,
 				B10189C21EAB71B400C1AD2F /* Discount+CoreDataClass.swift in Sources */,
 				B19BB6211E6ABF560081533C /* MSMTableViewControllerManager.swift in Sources */,
@@ -2669,6 +2676,7 @@
 				B14E974C1DD8B042001E1DE2 /* SignInShowRouter.swift in Sources */,
 				B1D9AD811EA8A40E006A3852 /* Organization+CoreDataClass.swift in Sources */,
 				B137EC931E7D19B0006F0184 /* MSMCollectionView.swift in Sources */,
+				B1032BC61EC7068D00AEB661 /* Lists+CoreDataClass.swift in Sources */,
 				B1FBC9251E6D948B00D86429 /* UbuntuLightVeryLightOrangeButton.swift in Sources */,
 				B14E97651DD8B05E001E1DE2 /* ForgotPasswordShowInteractor.swift in Sources */,
 				B1CF54961DDB512000E98049 /* DiscountCardsShowRouter.swift in Sources */,

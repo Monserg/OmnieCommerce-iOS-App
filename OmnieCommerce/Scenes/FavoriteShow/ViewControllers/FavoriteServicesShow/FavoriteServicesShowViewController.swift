@@ -76,7 +76,7 @@ class FavoriteServicesShowViewController: BaseViewController {
         // Load Services list from API
         if (isNetworkAvailable) {
             services = [Service]()
-            CoreDataManager.instance.entitiesDidRemove(byName: "Service", andPredicateParameter: keyFavoriteServices)
+//            CoreDataManager.instance.entitiesDidRemove(byName: "Service", andPredicateParameter: keyFavoriteServices)
             favoriteServicesListDidLoad(withOffset: 0, scrollingData: false)
         } else {
             spinnerDidFinish()
@@ -119,7 +119,7 @@ class FavoriteServicesShowViewController: BaseViewController {
         tableView.tableViewControllerManager!.handlerPullRefreshCompletion = { _ in
             // Reload Services list from API
             self.services = [Service]()
-            CoreDataManager.instance.entitiesDidRemove(byName: "Service", andPredicateParameter: keyFavoriteServices)
+//            CoreDataManager.instance.entitiesDidRemove(byName: "Service", andPredicateParameter: keyFavoriteServices)
             self.limit = Config.Constants.paginationLimit
             self.favoriteServicesListDidLoad(withOffset: 0, scrollingData: true)
         }

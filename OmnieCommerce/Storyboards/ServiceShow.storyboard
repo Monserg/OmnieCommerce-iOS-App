@@ -27,10 +27,10 @@
                                 <rect key="frame" x="0.0" y="55" width="667" height="323.5"/>
                                 <subviews>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Xu-pO-JDx" userLabel="Content View">
-                                        <rect key="frame" x="8" y="5" width="651" height="1290"/>
+                                        <rect key="frame" x="8" y="5" width="651" height="1540"/>
                                         <subviews>
                                             <stackView hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="wMy-S2-qYv" userLabel="Main Stack View">
-                                                <rect key="frame" x="0.0" y="0.0" width="651" height="1290"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="651" height="1540"/>
                                                 <subviews>
                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZW0-cu-1Gq" userLabel="Title View">
                                                         <rect key="frame" x="0.0" y="0.0" width="651" height="155"/>
@@ -595,7 +595,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <view hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ntr-z4-Dg4" userLabel="Reviews View">
-                                                        <rect key="frame" x="0.0" y="1055" width="651" height="0.0"/>
+                                                        <rect key="frame" x="0.0" y="1055" width="651" height="250"/>
                                                         <subviews>
                                                             <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reviews" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tRu-1t-ZOo" customClass="HelveticaNeueCyrLightVeryLightGrayLabel" customModule="OmnieCommerce" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="20" width="651" height="20"/>
@@ -640,7 +640,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dA6-sL-Tdg" userLabel="Rating View">
-                                                        <rect key="frame" x="0.0" y="1055" width="651" height="235"/>
+                                                        <rect key="frame" x="0.0" y="1305" width="651" height="235"/>
                                                         <subviews>
                                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hbu-NN-VOL" userLabel="User Name Label" customClass="UbuntuLightVeryLightOrangeLabel" customModule="OmnieCommerce" customModuleProvider="target">
                                                                 <rect key="frame" x="8" y="20" width="635" height="21"/>

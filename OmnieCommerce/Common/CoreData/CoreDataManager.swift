@@ -145,6 +145,27 @@ class CoreDataManager {
     }
     
     // Get Entity by name
+    func entityDidLoad(byName name: String, andPredicateParameters predicate: NSPredicate?) -> NSManagedObject? {
+        let fetchRequest: NSFetchRequest<NSFetchRequestResult>!
+        
+        if (predicate == nil) {
+            fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: name)
+        } else {
+            fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: name)
+            fetchRequest.predicate = predicate
+        }
+        
+        do {
+            let results = try CoreDataManager.instance.managedObjectContext.fetch(fetchRequest)
+            
+            return (results.count == 0) ? self.entityDidCreate(byName: name) : results.first as? NSManagedObject
+        } catch {
+            print(error)
+            
+            return nil
+        }
+    }
+
     func entityDidLoad(byName name: String, andPredicateParameter parameter: Any?) -> NSManagedObject? {
         let fetchRequest: NSFetchRequest<NSFetchRequestResult>!
         var predicate: NSPredicate!
@@ -184,6 +205,68 @@ class CoreDataManager {
         }
     }
     
+    func entitiesDidLoad(byName name: String, andPredicateParameters predicate: NSPredicate?) -> [NSManagedObject]? {
+        let fetchRequest: NSFetchRequest<NSFetchRequestResult>!
+
+        if (predicate == nil) {
+            fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: name)
+        } else {
+            fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: name)
+            fetchRequest.predicate = predicate
+        }
+        
+//        switch name {
+//        case "NewsData":
+//            // isAction
+//            if let dictionary = parameter {
+//                predicate = NSPredicate(format: "%K == %@", dictionary.keys.first!, NSNumber.init(booleanLiteral: dictionary.values.first as! Bool))
+//            }
+//            
+//        case "Organization", "Service":
+//            // catalog, filter, subcategory
+//            if let dictionary = parameter {
+//                predicate = NSPredicate(format: "%K == %@", dictionary.keys.first!, dictionary.values.first as! String)
+//            }
+//            
+//        case "Schedule":
+//            // organization.codeID
+//            if let dictionary = parameter {
+//                predicate = NSPredicate(format: "%K == %@", dictionary.keys.first!, dictionary.values.first as! String)
+//            }
+//            
+//        case "Discount":
+//            // isUserDiscount
+//            if let dictionary = parameter {
+//                predicate = NSPredicate(format: "%K == %@", dictionary.keys.first!, NSNumber.init(booleanLiteral: dictionary.values.first as! Bool))
+//            }
+//            
+//        case "Review":
+//            // typeValue
+//            if let dictionary = parameter {
+//                predicate = NSPredicate(format: "%K == %@", dictionary.keys.first!, dictionary.values.first as! String)
+//            }
+//            
+//        case "Subcategory":
+//            // category.codeID
+//            if let dictionary = parameter {
+//                predicate = NSPredicate(format: "%K == %@", dictionary.keys.first!, dictionary.values.first as! String)
+//            }
+//            
+//        default:
+//            break
+//        }
+        
+        
+        do {
+            return try CoreDataManager.instance.managedObjectContext.fetch(fetchRequest) as? [NSManagedObject]
+        } catch {
+            print(error)
+            return nil
+        }
+    }
+
+    
+    // TODO: - DELETE WHEN USE ONLY NEW FUNC
     func entitiesDidLoad(byName name: String, andPredicateParameter parameter: [String: Any]?) -> [NSManagedObject]? {
         var predicate: NSPredicate!
         
@@ -281,28 +364,38 @@ class CoreDataManager {
         }
     }
     
-    func entitiesDidRemove(byName name: String, andPredicateParameter parameter: Any?) {
+    func entitiesDidRemove(byName name: String, andPredicateParameters predicate: NSPredicate?) {
         guard isNetworkAvailable else {
             return
         }
         
-        var predicate: NSPredicate!
-        
-        switch name {
-        case "NewsData":
-            let isAction = parameter as! Bool
-            predicate = NSPredicate(format: "isAction == \(isAction)")
+        let fetchRequest: NSFetchRequest<NSFetchRequestResult>!
 
-        case "Organization", "Service":
-            let catalog = parameter as! String
-            predicate = NSPredicate(format: "catalog == %@", catalog)
-
-        default:
-            break
+        if (predicate == nil) {
+            fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: name)
+        } else {
+            fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: name)
+            fetchRequest.predicate = predicate
         }
+
+//        var predicate: NSPredicate!
         
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: name)
-        fetchRequest.predicate = predicate
+//        switch name {
+//        case "Lists":
+//            
+//        case "NewsData":
+//            let isAction = parameter as! Bool
+//            predicate = NSPredicate(format: "isAction == \(isAction)")
+//
+//        case "Organization", "Service":
+//            let catalog = parameter as! String
+//            predicate = NSPredicate(format: "catalog == %@", catalog)
+//
+//        default:
+//            break
+//        }
+        
+//        fetchRequest.predicate = predicate
         
         do {
             let fetchedEntities = try self.managedObjectContext.fetch(fetchRequest)
@@ -311,7 +404,7 @@ class CoreDataManager {
                 self.managedObjectContext.delete(entity as! NSManagedObject)
             }
 
-            self.didSaveContext()
+//            self.didSaveContext()
         } catch {
             print(error)
         }

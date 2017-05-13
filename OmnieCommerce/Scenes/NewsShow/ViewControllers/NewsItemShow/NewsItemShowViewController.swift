@@ -72,9 +72,9 @@ class NewsItemShowViewController: BaseViewController {
         
         // Setting News values
         dateLabel.text = (newsItem.activeDate as Date).convertToString(withStyle: .DateDot)
-        organizationButton.setTitle("          \(newsItem.name)          ", for: .normal)
+        organizationButton.setTitle("          \(newsItem.organizationName)          ", for: .normal)
 
-        if let imagePath = newsItem.logoStringURL {
+        if let imagePath = newsItem.imageID {
             logoImageView.kf.setImage(with: ImageResource(downloadURL: URL(string: imagePath)!, cacheKey: newsItem.codeID),
                                       placeholder: UIImage.init(named: "image-no-organization"),
                                       options: [.transition(ImageTransition.fade(1)),

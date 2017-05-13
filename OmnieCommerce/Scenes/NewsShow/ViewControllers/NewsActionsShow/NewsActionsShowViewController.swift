@@ -50,7 +50,10 @@ class NewsActionsShowViewController: BaseViewController {
         super.viewDidLoad()
         
         // Create MSMTableViewControllerManager
-        let actionsTableManager = MSMTableViewControllerManager.init(withTableView: self.tableView, andSectionsCount: 1, andEmptyMessageText: "NewsActions list is empty")
+        let actionsTableManager = MSMTableViewControllerManager.init(withTableView: self.tableView,
+                                                                     andSectionsCount: 1,
+                                                                     andEmptyMessageText: "NewsActions list is empty")
+        
         tableView.tableViewControllerManager = actionsTableManager
     }
     
@@ -73,7 +76,7 @@ class NewsActionsShowViewController: BaseViewController {
         // Load Actions list from API
         if (isNetworkAvailable) {
             actionsData = [NewsData]()
-            CoreDataManager.instance.entitiesDidRemove(byName: "NewsData", andPredicateParameter: true)
+            CoreDataManager.instance.entitiesDidRemove(byName: "Lists", andPredicateParameters: NSPredicate(format: "name == %@", keyNewsActions))
             actionsListDidLoad(withOffset: 0, scrollingData: false)
         } else {
             spinnerDidFinish()
@@ -97,9 +100,10 @@ class NewsActionsShowViewController: BaseViewController {
 
     func actionsListDidShow() {
         // Setting MSMTableViewControllerManager
-        let newsDataList = CoreDataManager.instance.entitiesDidLoad(byName: "NewsData", andPredicateParameter: ["isAction": true])
+        let actionsLists = CoreDataManager.instance.entitiesDidLoad(byName: "NewsData",
+                                                                    andPredicateParameters: NSPredicate(format: "newsList.name == %@", keyNewsActions))
         
-        if let actions = newsDataList as? [NewsData] {
+        if let actions = actionsLists as? [NewsData] {
             actionsData = actions
             tableView.tableViewControllerManager!.dataSource = actions
             tableView!.tableFooterView!.isHidden = (actions.count > 0) ? true : false
@@ -119,7 +123,7 @@ class NewsActionsShowViewController: BaseViewController {
         tableView.tableViewControllerManager!.handlerPullRefreshCompletion = { _ in
             // Reload Actions list from API
             self.actionsData = [NewsData]()
-            CoreDataManager.instance.entitiesDidRemove(byName: "NewsData", andPredicateParameter: true)
+            CoreDataManager.instance.entitiesDidRemove(byName: "Lists", andPredicateParameters: NSPredicate(format: "name == %@", keyNewsActions))
             self.actionsListDidLoad(withOffset: 0, scrollingData: true)
         }
         

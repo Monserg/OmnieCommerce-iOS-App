@@ -34,15 +34,18 @@ class NewsDataTableViewCell: UITableViewCell, DottedBorderViewBinding {
 extension NewsDataTableViewCell: ConfigureCell {
     func setup(withItem item: Any, andIndexPath indexPath: IndexPath) {
         let newsData = item as! NewsData
-        organizationNameLabel.text = newsData.name
+        
+        organizationNameLabel.text = newsData.organizationName
         dateLabel.text = (newsData.activeDate as Date).convertToString(withStyle: .DateDot)
         titleLabel.numberOfLines = 2
         titleLabel.text = newsData.title
         titleLabel.clipsToBounds = false
         selectionStyle = .none
         
-        if let imagePath = newsData.logoStringURL {
-            logoImageView.kf.setImage(with: ImageResource(downloadURL: URL(string: imagePath)!, cacheKey: "imagePath-\(indexPath.row)"),
+        if let imageID = newsData.imageID {
+            let imageURL = URL.init(string: MSMRestApiManager.instance.imageHostURL.absoluteString.appending("/retriew/?objectId=\(imageID)&imageType='SMALL'"))
+
+            logoImageView.kf.setImage(with: ImageResource(downloadURL: imageURL!, cacheKey: "imagePath-\(indexPath.row)"),
                                       placeholder: UIImage.init(named: "image-no-organization"),
                                       options: [.transition(ImageTransition.fade(1)),
                                                 .processor(ResizingImageProcessor.init(referenceSize: logoImageView.frame.size,

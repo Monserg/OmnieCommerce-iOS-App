@@ -26,7 +26,7 @@ class FavoriteOrganizationsShowRouter: FavoriteOrganizationsShowRouterInput {
     func navigateToOrganizationShowScene(_ organization: Organization) {
         let storyboard = UIStoryboard(name: "OrganizationShow", bundle: nil)
         let organizationShowVC = storyboard.instantiateViewController(withIdentifier: "OrganizationShowVC") as! OrganizationShowViewController
-        organizationShowVC.organization = organization
+        organizationShowVC.organizationID = organization.codeID
         
         viewController.navigationController?.pushViewController(organizationShowVC, animated: true)
     }

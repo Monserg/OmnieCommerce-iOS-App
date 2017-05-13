@@ -119,7 +119,7 @@ class OrdersShowViewController: BaseViewController {
         // Load Orders list from API
         if (isNetworkAvailable) {
             orders = [Order]()
-            CoreDataManager.instance.entitiesDidRemove(byName: "Order", andPredicateParameter: keyOrders)
+//            CoreDataManager.instance.entitiesDidRemove(byName: "Order", andPredicateParameter: keyOrders)
             ordersListDidLoad(withOffset: 0, scrollingData: false)
         } else {
             spinnerDidFinish()
@@ -166,7 +166,7 @@ class OrdersShowViewController: BaseViewController {
         tableView.tableViewControllerManager!.handlerPullRefreshCompletion = { _ in
             // Reload Orders list from API
             self.orders = [Order]()
-            CoreDataManager.instance.entitiesDidRemove(byName: "Order", andPredicateParameter: keyOrders)
+//            CoreDataManager.instance.entitiesDidRemove(byName: "Order", andPredicateParameter: keyOrders)
             self.limit = Config.Constants.paginationLimit
             self.ordersListDidLoad(withOffset: 0, scrollingData: true)
         }
@@ -198,7 +198,7 @@ class OrdersShowViewController: BaseViewController {
         dateEnd = dateStart
         
         orders = [Order]()
-        CoreDataManager.instance.entitiesDidRemove(byName: "Order", andPredicateParameter: keyOrders)
+//        CoreDataManager.instance.entitiesDidRemove(byName: "Order", andPredicateParameter: keyOrders)
         ordersListDidLoad(withOffset: 0, scrollingData: false)
     }
     
@@ -208,7 +208,7 @@ class OrdersShowViewController: BaseViewController {
         dateEnd = dateStart
 
         orders = [Order]()
-        CoreDataManager.instance.entitiesDidRemove(byName: "Order", andPredicateParameter: keyOrders)
+//        CoreDataManager.instance.entitiesDidRemove(byName: "Order", andPredicateParameter: keyOrders)
         ordersListDidLoad(withOffset: 0, scrollingData: false)
     }
 }

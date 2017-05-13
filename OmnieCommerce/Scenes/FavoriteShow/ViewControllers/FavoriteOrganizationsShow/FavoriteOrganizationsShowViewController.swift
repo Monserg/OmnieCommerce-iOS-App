@@ -76,7 +76,7 @@ class FavoriteOrganizationsShowViewController: BaseViewController {
         // Load Organizations list from API
         if (isNetworkAvailable) {
             organizations = [Organization]()
-            CoreDataManager.instance.entitiesDidRemove(byName: "Organization", andPredicateParameter: keyFavoriteOrganizations)
+//            CoreDataManager.instance.entitiesDidRemove(byName: "Organization", andPredicateParameter: keyFavoriteOrganizations)
             favoriteOrganizationsListDidLoad(withOffset: 0, scrollingData: false)
         } else {
             spinnerDidFinish()
@@ -119,7 +119,7 @@ class FavoriteOrganizationsShowViewController: BaseViewController {
         tableView.tableViewControllerManager!.handlerPullRefreshCompletion = { _ in
             // Reload Organizations list from API
             self.organizations = [Organization]()
-            CoreDataManager.instance.entitiesDidRemove(byName: "Organization", andPredicateParameter: keyFavoriteOrganizations)
+//            CoreDataManager.instance.entitiesDidRemove(byName: "Organization", andPredicateParameter: keyFavoriteOrganizations)
             self.limit = Config.Constants.paginationLimit
             self.favoriteOrganizationsListDidLoad(withOffset: 0, scrollingData: true)
         }

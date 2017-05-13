@@ -35,7 +35,7 @@ class OrganizationShowRouter: OrganizationShowRouterInput {
     func navigateToServiceShowScene(_ service: Service) {
         let storyboard = UIStoryboard(name: "ServiceShow", bundle: nil)
         let serviceShowVC = storyboard.instantiateViewController(withIdentifier: "ServiceShowVC") as! ServiceShowViewController
-        serviceShowVC.service = service
+        serviceShowVC.serviceID = service.codeID
         
         viewController.navigationController?.pushViewController(serviceShowVC, animated: true)        
     }

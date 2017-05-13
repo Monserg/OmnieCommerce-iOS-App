@@ -359,6 +359,7 @@ final class MSMRestApiManager {
     
     var appURL: URL!
     let appHostURL = URL.init(string: "http://omniecom.com:9009")!
+    let imageHostURL = URL.init(string: "http://omniecom.com:9000/omnie/api/image/v1")!
     let appApiVersionString = "api/v1/omnie/webservice"
     var headers = ["Content-Type": "application/json"]
     

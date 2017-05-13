@@ -16,13 +16,12 @@ public class NewsData: NSManagedObject, InitCellParameters {
     var cellIdentifier: String = "NewsDataTableViewCell"
     var cellHeight: CGFloat = 96.0
 
-    
     var services: [Service]?
     
     
     // MARK: - Class Initialization
-    convenience init?(json: [String: AnyObject]) {
-        guard let codeID = json["uuid"] as? String, let name = json["orgName"] as? String, let title = json["title"] as? String, let date = json["date"] as? String, let organizationID = json["organization"] as? String else {
+    convenience init?(json: [String: AnyObject], isAction: Bool) {
+        guard let codeID = json["uuid"] as? String, let organizationName = json["orgName"] as? String, let title = json["title"] as? String, let date = json["date"] as? String, let organizationID = json["organization"] as? String else {
             return nil
         }
         
@@ -34,20 +33,27 @@ public class NewsData: NSManagedObject, InitCellParameters {
         // Create Entity
         self.init(entity: newsDataEntity, insertInto: CoreDataManager.instance.managedObjectContext)
         
-        // Prepare to save data
-        self.codeID = codeID
-        self.name = name
+        // Prepare to save common data
         self.title = title
-        self.activeDate = date.convertToDate(withDateFormat: .NewsDate) as NSDate
+        self.codeID = codeID
+        self.isAction = isAction
         self.organizationID = organizationID
+        self.organizationName = organizationName
+        self.activeDate = date.convertToDate(withDateFormat: .NewsDate) as NSDate
         
+        if let imageID = json["imageUrl"] as? String {
+            self.imageID = imageID
+        }
+        
+        // Add to NewsData list
+        self.newsList = Lists.init(name: (isAction) ? keyNewsActions : keyNewsData, item: self)
+
+        // Prepare to save additional data
         if let message = json["text"] as? String {
             self.text = message
         }
+
         
-        if let imageURL = json["imageUrl"] as? String {
-            self.logoStringURL = "\(MSMRestApiManager.instance.appHostURL.absoluteString)\(imageURL)"
-        }
         
         // Map Services list
 //        let responseServices = json["services"] as? NSArray
@@ -76,9 +82,7 @@ public class NewsData: NSManagedObject, InitCellParameters {
 //            subcategory!.category = self
 //            
 //            self.subcategories!.adding(subcategory!)
-//        }     
-        
-        CoreDataManager.instance.didSaveContext()
+//        }             
     }
     
     deinit {

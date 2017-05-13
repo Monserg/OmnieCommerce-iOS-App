@@ -50,7 +50,10 @@ class NewsDataShowViewController: BaseViewController {
         super.viewDidLoad()
         
         // Create MSMTableViewControllerManager
-        let newsDataTableManager = MSMTableViewControllerManager.init(withTableView: self.tableView, andSectionsCount: 1, andEmptyMessageText: "NewsData list is empty")
+        let newsDataTableManager = MSMTableViewControllerManager.init(withTableView: self.tableView,
+                                                                      andSectionsCount: 1,
+                                                                      andEmptyMessageText: "NewsData list is empty")
+        
         tableView.tableViewControllerManager = newsDataTableManager
     }
 
@@ -73,7 +76,7 @@ class NewsDataShowViewController: BaseViewController {
         // Load NewsData list from API
         if (isNetworkAvailable) {
             newsData = [NewsData]()
-            CoreDataManager.instance.entitiesDidRemove(byName: "NewsData", andPredicateParameter: false)
+            CoreDataManager.instance.entitiesDidRemove(byName: "Lists", andPredicateParameters: NSPredicate(format: "name == %@", keyNewsData))
             newsDataListDidLoad(withOffset: 0, scrollingData: false)
         } else {
             spinnerDidFinish()
@@ -97,9 +100,10 @@ class NewsDataShowViewController: BaseViewController {
     
     func newsDataListDidShow() {
         // Setting MSMTableViewControllerManager
-        let newsDataList = CoreDataManager.instance.entitiesDidLoad(byName: "NewsData", andPredicateParameter: ["isAction": false])
+        let newsLists = CoreDataManager.instance.entitiesDidLoad(byName: "NewsData",
+                                                                 andPredicateParameters: NSPredicate(format: "newsList.name == %@", keyNewsData))
         
-        if let news = newsDataList as? [NewsData] {
+        if let news = newsLists as? [NewsData] {
             newsData = news
             tableView.tableViewControllerManager!.dataSource = news
             tableView!.tableFooterView!.isHidden = (news.count > 0) ? true : false
@@ -119,7 +123,7 @@ class NewsDataShowViewController: BaseViewController {
         tableView.tableViewControllerManager!.handlerPullRefreshCompletion = { _ in
             // Reload NewsData list from API
             self.newsData = [NewsData]()
-            CoreDataManager.instance.entitiesDidRemove(byName: "NewsData", andPredicateParameter: false)
+            CoreDataManager.instance.entitiesDidRemove(byName: "Lists", andPredicateParameters: NSPredicate(format: "name == %@", keyNewsData))
             self.newsDataListDidLoad(withOffset: 0, scrollingData: true)
         }
         
