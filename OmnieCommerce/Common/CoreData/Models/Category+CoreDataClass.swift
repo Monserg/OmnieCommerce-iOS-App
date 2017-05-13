@@ -19,7 +19,7 @@ public class Category: NSManagedObject, InitCellParameters {
     
     // MARK: - Class Initialization
     convenience init?(json: [String: AnyObject]) {
-        guard let codeID = json["uuid"] as? String, let name = json["name"] as? String, let subcategoriesList = json["subCategories"] as? [Any] else {
+        guard let codeID = json["uuid"] as? String, let name = json["name"] as? String, let subCategoriesList = json["subCategories"] as? [Any] else {
             return nil
         }
         
@@ -31,21 +31,24 @@ public class Category: NSManagedObject, InitCellParameters {
         // Create Entity
         self.init(entity: categoryEntity, insertInto: CoreDataManager.instance.managedObjectContext)
         
-        // Prepare to save data
+        // Prepare to save common data
         self.codeID = codeID
         self.name = name
-        self.subcategories = NSSet()
 
-        if let imageURL = json["logo"] as? String {
-            self.imagePath = "http://\(imageURL)"
+        if let imageID = json["logo"] as? String {
+            self.imageID = imageID
         }
         
-        for json in subcategoriesList {
-            let subcategory = Subcategory.init(json: json as! [String: AnyObject], andType: .Subcategory)
-            subcategory!.category = self
-            
-            self.subcategories!.adding(subcategory!)
+        // Create SubCategories
+        if (subCategoriesList.count > 0) {
+            for json in subCategoriesList {
+                let subCategory = Subcategory.init(json: json as! [String: AnyObject], category: self, andType: .Subcategory)
+                self.addToSubCategories(subCategory!)
+            }
         }
+        
+        // Add to Categories list
+        self.categoriesList = Lists.init(name: keyCategories, item: self)
     }
 
     deinit {

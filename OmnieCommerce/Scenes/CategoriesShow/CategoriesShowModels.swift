@@ -23,7 +23,7 @@ struct CategoriesShowModels {
         }
         
         struct ViewModel {
-//            let categories: [Category]?
+            let status: String
         }
     }
 }

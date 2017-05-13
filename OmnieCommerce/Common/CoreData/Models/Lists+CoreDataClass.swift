@@ -23,5 +23,9 @@ public class Lists: NSManagedObject {
         if let news = item as? NewsData {
             self.addToNews(news)
         }
+        
+        if let category = item as? Category {
+            self.addToCategories(category)
+        }
     }
 }

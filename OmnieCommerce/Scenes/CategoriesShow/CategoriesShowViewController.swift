@@ -58,17 +58,20 @@ class CategoriesShowViewController: BaseViewController {
     
     // MARK: - Actions
     @IBAction func handlerCityButtonTap(_ sender: DropDownButton) {
-//        print(object: "\(type(of: self)): \(#function) run.")
-//        
-//        (sender.isDropDownListShow) ? sender.itemsListDidHide(inView: view) : sender.itemsListDidShow(inView: view)
-//        (sender.dropDownTableVC.tableView as! CustomTableView).setScrollIndicatorColor(color: UIColor.veryLightOrange)
-//        
-//        // Handler DropDownList selection
-//        sender.dropDownTableVC.completionHandler = ({ selectedObject in
-//            sender.changeTitle(newValue: selectedObject.name)
-//            
-//            sender.itemsListDidHide(inView: self.view)
-//        })
+        print(object: "\(type(of: self)): \(#function) run.")
+        
+        // TODO: - UNCOMMENT WHEN USE CITY DROPDOWN LIST
+        /*
+        (sender.isDropDownListShow) ? sender.itemsListDidHide(inView: view) : sender.itemsListDidShow(inView: view)
+        (sender.dropDownTableVC.tableView as! CustomTableView).setScrollIndicatorColor(color: UIColor.veryLightOrange)
+        
+        // Handler DropDownList selection
+        sender.dropDownTableVC.completionHandler = ({ selectedObject in
+            sender.changeTitle(newValue: selectedObject.name)
+            
+            sender.itemsListDidHide(inView: self.view)
+        })
+         */
     }
     
     
@@ -76,11 +79,15 @@ class CategoriesShowViewController: BaseViewController {
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         smallTopBarView.setNeedsDisplay()
         smallTopBarView.circleView.setNeedsDisplay()
-//        cityButton.setNeedsDisplay()
-//        
-//        if (cityButton.isDropDownListShow) {
-//            cityButton.itemsListDidHide(inView: view)
-//        }
+        
+        // TODO: - UNCOMMENT WHEN USE CITY DROPDOWN LIST
+        /*
+        cityButton.setNeedsDisplay()
+        
+        if (cityButton.isDropDownListShow) {
+            cityButton.itemsListDidHide(inView: view)
+        }
+        */
         
         collectionView.reloadData()
     }
@@ -104,7 +111,8 @@ class CategoriesShowViewController: BaseViewController {
         }
         
         // Load Categories list from API
-        spinnerDidStart(nil)        
+        spinnerDidStart(nil)
+        
         let categoriesParameters: [String: Any] = [ "locale": Locale.current.languageCode!.lowercased() ]
         let categoriesRequestModel = CategoriesShowModels.Categories.RequestModel(parameters: categoriesParameters)
         interactor.categoriesDidLoad(withRequestModel: categoriesRequestModel)
@@ -114,11 +122,14 @@ class CategoriesShowViewController: BaseViewController {
         // Setting MSMCollectionViewControllerManager
         collectionView.collectionViewControllerManager = MSMCollectionViewControllerManager(withCollectionView: self.collectionView)
         collectionView.collectionViewControllerManager!.sectionsCount = 1
-        let categoriesList = CoreDataManager.instance.entitiesDidLoad(byName: "Category", andPredicateParameter: nil)
+        
+        let categoriesList = CoreDataManager.instance.entitiesDidLoad(byName: "Category",
+                                                                      andPredicateParameters: NSPredicate(format: "categoriesList.name == %@", keyCategories))
         
         if let categories = categoriesList as? [Category] {
             collectionView.collectionViewControllerManager!.dataSource = categories
             dataSourceEmptyView.isHidden = (categories.count == 0) ? false : true
+            
             collectionView.reloadData()
             self.collectionViewCellDidSelect()
         }
@@ -144,6 +155,15 @@ class CategoriesShowViewController: BaseViewController {
 // MARK: - CategoriesShowViewControllerInput
 extension CategoriesShowViewController: CategoriesShowViewControllerInput {
     func categoriesDidShowLoad(fromViewModel viewModel: CategoriesShowModels.Categories.ViewModel) {
+        // Check for errors
+        guard viewModel.status == "SUCCESS" else {
+            self.alertViewDidShow(withTitle: "Error", andMessage: viewModel.status, completion: {
+                self.categoriesListDidShow()
+            })
+            
+            return
+        }
+        
         self.categoriesListDidShow()
     }
 }

@@ -2,7 +2,7 @@
 //  Category+CoreDataProperties.swift
 //  OmnieCommerce
 //
-//  Created by msm72 on 19.04.17.
+//  Created by msm72 on 13.05.17.
 //  Copyright © 2017 Omniesoft. All rights reserved.
 //
 
@@ -17,25 +17,44 @@ extension Category {
     }
 
     @NSManaged public var codeID: String
-    @NSManaged public var imagePath: String?
+    @NSManaged public var imageID: String?
     @NSManaged public var name: String
-    @NSManaged public var subcategories: NSSet?
+    @NSManaged public var categoriesList: Lists?
+    @NSManaged public var subCategories: NSSet?
+    @NSManaged public var organizations: NSSet?
 
 }
 
-// MARK: Generated accessors for subcategories
+// MARK: Generated accessors for subCategories
 extension Category {
 
-    @objc(addSubcategoriesObject:)
-    @NSManaged public func addToSubcategories(_ value: Subcategory)
+    @objc(addSubCategoriesObject:)
+    @NSManaged public func addToSubCategories(_ value: Subcategory)
 
-    @objc(removeSubcategoriesObject:)
-    @NSManaged public func removeFromSubcategories(_ value: Subcategory)
+    @objc(removeSubCategoriesObject:)
+    @NSManaged public func removeFromSubCategories(_ value: Subcategory)
 
-    @objc(addSubcategories:)
-    @NSManaged public func addToSubcategories(_ values: NSSet)
+    @objc(addSubCategories:)
+    @NSManaged public func addToSubCategories(_ values: NSSet)
 
-    @objc(removeSubcategories:)
-    @NSManaged public func removeFromSubcategories(_ values: NSSet)
+    @objc(removeSubCategories:)
+    @NSManaged public func removeFromSubCategories(_ values: NSSet)
+
+}
+
+// MARK: Generated accessors for organizations
+extension Category {
+
+    @objc(addOrganizationsObject:)
+    @NSManaged public func addToOrganizations(_ value: Organization)
+
+    @objc(removeOrganizationsObject:)
+    @NSManaged public func removeFromOrganizations(_ value: Organization)
+
+    @objc(addOrganizations:)
+    @NSManaged public func addToOrganizations(_ values: NSSet)
+
+    @objc(removeOrganizations:)
+    @NSManaged public func removeFromOrganizations(_ values: NSSet)
 
 }

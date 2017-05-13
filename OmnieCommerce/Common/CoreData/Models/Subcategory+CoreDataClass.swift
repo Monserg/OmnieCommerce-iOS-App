@@ -59,23 +59,24 @@ public class Subcategory: NSManagedObject, InitCellParameters, DropDownItem {
         self.category = category
     }
     
-    convenience init?(json: [String: AnyObject], andType type: DropDownItemType) {
+    convenience init?(json: [String: AnyObject], category: Category, andType type: DropDownItemType) {
         guard let codeID = json["uuid"] as? String, let name = json["name"] as? String else {
             return nil
         }
         
         // Check Entity available in CoreData
-        guard let subcategoryEntity = CoreDataManager.instance.entityForName("Subcategory") else {
+        guard let subCategoryEntity = CoreDataManager.instance.entityForName("Subcategory") else {
             return nil
         }
         
         // Create Entity
-        self.init(entity: subcategoryEntity, insertInto: CoreDataManager.instance.managedObjectContext)
+        self.init(entity: subCategoryEntity, insertInto: CoreDataManager.instance.managedObjectContext)
         
-        // Prepare to save data
+        // Prepare to save common data
         self.codeID = codeID
         self.name = name
         self.type = type
+        self.category = category
     }
 
     deinit {

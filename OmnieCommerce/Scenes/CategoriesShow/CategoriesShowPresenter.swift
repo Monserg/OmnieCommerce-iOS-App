@@ -29,7 +29,7 @@ class CategoriesShowPresenter: CategoriesShowPresenterInput {
     // MARK: - Custom Functions. Presentation logic
     func categoriesDidPrepareToShowLoad(fromResponseModel responseModel: CategoriesShowModels.Categories.ResponseModel) {
         guard responseModel.responseAPI != nil else {
-            let categoriesViewModel = CategoriesShowModels.Categories.ViewModel()
+            let categoriesViewModel = CategoriesShowModels.Categories.ViewModel(status: (responseModel.responseAPI?.status)!)
             viewController.categoriesDidShowLoad(fromViewModel: categoriesViewModel)
             
             return
@@ -37,17 +37,12 @@ class CategoriesShowPresenter: CategoriesShowPresenterInput {
 
         // Convert responseAPI body to Category CoreData objects
         for json in responseModel.responseAPI!.body as! [Any] {
-            let item = Category.init(json: json as! [String: AnyObject])
-            
-            if let category = item {
-                category.cellHeight = 102.0
-                category.cellIdentifier = "CategoryCollectionViewCell"
-
-                CoreDataManager.instance.didSaveContext()
-            }
+            _ = Category.init(json: json as! [String: AnyObject])
         }
         
-        let categoriesViewModel = CategoriesShowModels.Categories.ViewModel()
+        CoreDataManager.instance.didSaveContext()
+
+        let categoriesViewModel = CategoriesShowModels.Categories.ViewModel(status: (responseModel.responseAPI?.status)!)
         self.viewController.categoriesDidShowLoad(fromViewModel: categoriesViewModel)
     }
 }

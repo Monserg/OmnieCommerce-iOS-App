@@ -36,11 +36,8 @@ class NewsDataShowPresenter: NewsDataShowPresenterInput {
         }
         
         // Convert responseAPI body to NewsData news & Lists CoreData objects
-        var items = [NewsData]()
-        
         for json in responseModel.responseAPI!.body as! [Any] {
-            let newsData = NewsData.init(json: json as! [String: AnyObject], isAction: false)
-            items.append(newsData!)
+            _ = NewsData.init(json: json as! [String: AnyObject], isAction: false)
         }
         
         CoreDataManager.instance.didSaveContext()
