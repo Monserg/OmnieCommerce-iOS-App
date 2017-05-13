@@ -55,13 +55,13 @@ class NewsDataShowViewController: BaseViewController {
                                                                       andEmptyMessageText: "NewsData list is empty")
         
         tableView.tableViewControllerManager = newsDataTableManager
+        
+        limit = (newsData.count == 0) ? Config.Constants.paginationLimit : newsData.count
+        viewSettingsDidLoad()
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-        
-        limit = (newsData.count == 0) ? Config.Constants.paginationLimit : newsData.count
-        viewSettingsDidLoad()
     }
     
 

@@ -28,7 +28,7 @@ class NewsDataShowRouter: NewsDataShowRouterInput {
         guard isNetworkAvailable else {
             let storyboard = UIStoryboard(name: "NewsShow", bundle: nil)
             let newsItemShowVC = storyboard.instantiateViewController(withIdentifier: "NewsItemShowVC") as! NewsItemShowViewController
-            newsItemShowVC.newsItem = item
+            newsItemShowVC.newsID = item.codeID
             
             self.viewController.navigationController?.pushViewController(newsItemShowVC, animated: true)
             return
@@ -42,10 +42,13 @@ class NewsDataShowRouter: NewsDataShowRouterInput {
             }
             
             // Create News
-            let _ = NewsData.init(json: responseAPI!.body as! [String: AnyObject], isAction: false)
+            _ = NewsData.init(json: responseAPI!.body as! [String: AnyObject], isAction: false)
+            CoreDataManager.instance.didSaveContext()
+
+            // Transition to NewsData profile scene
             let storyboard = UIStoryboard(name: "NewsShow", bundle: nil)
             let newsItemShowVC = storyboard.instantiateViewController(withIdentifier: "NewsItemShowVC") as! NewsItemShowViewController
-            newsItemShowVC.newsItem = CoreDataManager.instance.entityDidLoad(byName: "NewsData", andPredicateParameter: item.codeID) as! NewsData
+            newsItemShowVC.newsID = item.codeID
             
             self.viewController.navigationController?.pushViewController(newsItemShowVC, animated: true)
         })

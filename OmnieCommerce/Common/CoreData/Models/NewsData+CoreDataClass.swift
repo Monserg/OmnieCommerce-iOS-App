@@ -24,7 +24,7 @@ public class NewsData: NSManagedObject, InitCellParameters {
         guard let codeID = json["uuid"] as? String, let organizationName = json["orgName"] as? String, let title = json["title"] as? String, let date = json["date"] as? String, let organizationID = json["organization"] as? String else {
             return nil
         }
-        
+
         // Check Entity available in CoreData
         guard let newsDataEntity = CoreDataManager.instance.entityForName("NewsData") else {
             return nil
@@ -52,37 +52,6 @@ public class NewsData: NSManagedObject, InitCellParameters {
         if let message = json["text"] as? String {
             self.text = message
         }
-
-        
-        
-        // Map Services list
-//        let responseServices = json["services"] as? NSArray
-//        
-//        guard responseServices != nil else {
-//            return
-//        }
-//        
-//        if (responseServices!.count > 0) {
-//            services = [Service]()
-//            
-//            for dictionary in responseServices! {
-//                let service = Service.init(withCommonProfile: true)
-//                service.didMap(fromDictionary: dictionary as! [String : Any], completion: { _ in })
-//                services!.append(service)
-//            }
-//        }
-
-        
-        
-        
-//        self.subcategories = NSSet()
-
-        //        for json in subcategoriesList {
-//            let subcategory = Subcategory.init(json: json as! [String: AnyObject], andType: .Subcategory)
-//            subcategory!.category = self
-//            
-//            self.subcategories!.adding(subcategory!)
-//        }             
     }
     
     deinit {

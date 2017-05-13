@@ -28,7 +28,7 @@ class NewsActionsShowRouter: NewsActionsShowRouterInput {
         guard isNetworkAvailable else {
             let storyboard = UIStoryboard(name: "NewsShow", bundle: nil)
             let newsItemShowVC = storyboard.instantiateViewController(withIdentifier: "NewsItemShowVC") as! NewsItemShowViewController
-            newsItemShowVC.newsItem = item
+            newsItemShowVC.newsID = item.codeID
             
             self.viewController.navigationController?.pushViewController(newsItemShowVC, animated: true)
             return
@@ -47,7 +47,7 @@ class NewsActionsShowRouter: NewsActionsShowRouterInput {
             action!.isAction = true
             let storyboard = UIStoryboard(name: "NewsShow", bundle: nil)
             let newsItemShowVC = storyboard.instantiateViewController(withIdentifier: "NewsItemShowVC") as! NewsItemShowViewController
-            newsItemShowVC.newsItem = action
+            newsItemShowVC.newsID = action?.codeID
 
             self.viewController.navigationController?.pushViewController(newsItemShowVC, animated: true)
         })

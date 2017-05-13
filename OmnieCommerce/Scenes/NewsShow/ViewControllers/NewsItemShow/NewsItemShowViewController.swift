@@ -11,14 +11,16 @@ import Kingfisher
 
 class NewsItemShowViewController: BaseViewController {
     // MARK: - Properties
-    var newsItem: NewsData!
+    var newsID: String!
+    private var newsProfile: NewsData!
+    
     var services: [Service]?
     var isRotate: Bool = false
     
     var router: NewsItemShowRouter!
 
+    // Outlets
     @IBOutlet weak var smallTopBarView: SmallTopBarView!
-    
     @IBOutlet weak var dateLabel: UbuntuLightItalicVeryDarkGrayishBlueLabel!
     @IBOutlet weak var organizationButton: BorderVeryDarkDesaturatedBlueButton!
     @IBOutlet weak var logoImageView: CustomImageView!
@@ -38,6 +40,7 @@ class NewsItemShowViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        newsProfile = CoreDataManager.instance.entityDidLoad(byName: "NewsData", andPredicateParameters: NSPredicate.init(format: "codeID == %@", newsID)) as! NewsData
         viewSettingsDidLoad()
     }
 
@@ -67,15 +70,15 @@ class NewsItemShowViewController: BaseViewController {
         // Config smallTopBarView
         navigationBarView = smallTopBarView
         smallTopBarView.type = "Child"
-        smallTopBarView.titleText = (newsItem.isAction) ? "ActionItem".localized() : "NewsItem".localized()
+        smallTopBarView.titleText = (newsProfile.isAction) ? "ActionItem".localized() : "NewsItem".localized()
         haveMenuItem = false
         
         // Setting News values
-        dateLabel.text = (newsItem.activeDate as Date).convertToString(withStyle: .DateDot)
-        organizationButton.setTitle("          \(newsItem.organizationName)          ", for: .normal)
+        dateLabel.text = (newsProfile.activeDate as Date).convertToString(withStyle: .DateDot)
+        organizationButton.setTitle("          \(newsProfile.organizationName)          ", for: .normal)
 
-        if let imagePath = newsItem.imageID {
-            logoImageView.kf.setImage(with: ImageResource(downloadURL: URL(string: imagePath)!, cacheKey: newsItem.codeID),
+        if let imageID = newsProfile.imageID {
+            logoImageView.kf.setImage(with: ImageResource(downloadURL: imageID.convertToURL(withSize: .Medium, inMode: .Get), cacheKey: newsProfile.codeID),
                                       placeholder: UIImage.init(named: "image-no-organization"),
                                       options: [.transition(ImageTransition.fade(1)),
                                                 .processor(ResizingImageProcessor.init(referenceSize: logoImageView.frame.size,
@@ -100,7 +103,7 @@ class NewsItemShowViewController: BaseViewController {
         let paragraph = NSMutableParagraphStyle()
         paragraph.alignment = .center
         
-        let newsTitle = NSMutableAttributedString(string: newsItem.title,
+        let newsTitle = NSMutableAttributedString(string: newsProfile.title,
                                                   attributes:   [
                                                                     NSFontAttributeName: UIFont.ubuntuLight16,
                                                                     NSForegroundColorAttributeName: UIColor.veryLightGray,
@@ -111,7 +114,7 @@ class NewsItemShowViewController: BaseViewController {
         combination.append(newsTitle)
 
         // News text
-        if let text = newsItem.text {
+        if let text = newsProfile.text {
             let newsText = NSMutableAttributedString(string: text,
                                                      attributes:    [
                                                                         NSFontAttributeName: UIFont.ubuntuLight12,
@@ -124,7 +127,7 @@ class NewsItemShowViewController: BaseViewController {
         }
         
         // Action services title
-        if (newsItem.isAction && newsItem.services != nil) {
+        if (newsProfile.isAction && newsProfile.services != nil) {
             let actionServicesTitle = NSMutableAttributedString(string: "Action valid".localized(),
                                                                 attributes: [
                                                                                 NSFontAttributeName: UIFont.ubuntuLightItalic12,
@@ -135,7 +138,7 @@ class NewsItemShowViewController: BaseViewController {
             combination.append(actionServicesTitle)
             
             // Add action services targets
-            for (index, service) in newsItem.services!.enumerated() {
+            for (index, service) in newsProfile.services!.enumerated() {
                 let serviceName = service.name
                 
                 let serviceTarget = NSMutableAttributedString(string: serviceName!)
@@ -150,7 +153,7 @@ class NewsItemShowViewController: BaseViewController {
                 
                 combination.append(serviceTarget)
                 
-                if (index < newsItem.services!.count - 1) {
+                if (index < newsProfile.services!.count - 1) {
                     combination.append(commaString)
                 }
             }
@@ -165,6 +168,7 @@ class NewsItemShowViewController: BaseViewController {
         }
     }
     
+    
     // MARK: - Transition
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         isRotate = true
@@ -178,7 +182,7 @@ class NewsItemShowViewController: BaseViewController {
             router = NewsItemShowRouter()
         }
         
-        router.navigateToOrganizationShowScene(newsItem.organizationID, fromViewController: self)
+        router.navigateToOrganizationShowScene(newsProfile.organizationID, fromViewController: self)
     }
 }
 
