@@ -18,6 +18,18 @@ enum DateFormatType: String {
     case PriceDate              =   "MMM dd, yyyy HH:mm:ss a"           // "May 9, 2017 12:01:14 PM"
 }
 
+enum ImageSize: String {
+    case Small                  =   "SMALL"
+    case Medium                 =   "MEDIUM"
+    case Original               =   "ORIGINAL"
+}
+
+enum ImageMode: String {
+    case Get                    =   "/retriew/"
+    case Upload                 =   "/upload/"
+    case Delete                 =   "/delete/"
+}
+
 extension String {
     // MARK: - Properties
     var first: String {
@@ -52,6 +64,19 @@ extension String {
         dateFormatter.dateFormat = dateFormatType.rawValue
         
         return dateFormatter.date(from: self)!
+    }
+    
+    func convertToURL(withSize size: ImageSize, inMode mode: ImageMode) -> URL {
+        switch mode {
+        case .Get:
+            return URL.init(string: MSMRestApiManager.instance.imageHostURL.absoluteString.appending("\(mode.rawValue)?objectId=\(self)&imageType=SMALL"))!
+
+        case .Upload:
+            return URL.init(string: MSMRestApiManager.instance.imageHostURL.absoluteString.appending(mode.rawValue))!
+
+        case .Delete:
+            return URL.init(string: MSMRestApiManager.instance.imageHostURL.absoluteString.appending("\(mode.rawValue)?objectId=\(self)"))!
+        }
     }
     
     // For Schedule

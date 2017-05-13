@@ -43,9 +43,7 @@ extension NewsDataTableViewCell: ConfigureCell {
         selectionStyle = .none
         
         if let imageID = newsData.imageID {
-            let imageURL = URL.init(string: MSMRestApiManager.instance.imageHostURL.absoluteString.appending("/retriew/?objectId=\(imageID)&imageType='SMALL'"))
-
-            logoImageView.kf.setImage(with: ImageResource(downloadURL: imageURL!, cacheKey: "imagePath-\(indexPath.row)"),
+            logoImageView.kf.setImage(with: ImageResource(downloadURL: imageID.convertToURL(withSize: .Small, inMode: .Get), cacheKey: "imagePath-\(indexPath.row)"),
                                       placeholder: UIImage.init(named: "image-no-organization"),
                                       options: [.transition(ImageTransition.fade(1)),
                                                 .processor(ResizingImageProcessor.init(referenceSize: logoImageView.frame.size,
