@@ -39,32 +39,43 @@ class OrganizationsShowPresenter: OrganizationsShowPresenterInput {
         // Convert responseAPI body to Organization CoreData objects
         var counter: Int = 0
         
-        if let organizationsList = responseModel.responseAPI!.body as? [Any], organizationsList.count > 0 {
-            for json in organizationsList {
-                let item = Organization.init(json: json as! [String: AnyObject], forList: keyOrganizations)
-                
-                if let organization = item {
-                    organization.category = NSSet.init(object: responseModel.category)
-                    organization.cellIdentifier = "OrganizationTableViewCell"
-                    organization.cellHeight = 96.0
+        if let organizationsList = responseModel.responseAPI!.body as? [Any] {
+            if (organizationsList.count > 0) {
+                for json in organizationsList {
+                    var subCategoryID: String!
                     
-                    if let googlePlaceID = (json as! [String: AnyObject])["placeId"] as? String {
-                        organization.googlePlaceDidLoad(positionID: googlePlaceID, completion: {
-                            counter += 1
-
-                            if (counter == (responseModel.responseAPI!.body as! [Any]).count) {
-                                CoreDataManager.instance.didSaveContext()
+                    if let code = responseModel.parameters["subCategory"] as? String, code.isEmpty {
+                        subCategoryID = "All"
+                    } else {
+                        subCategoryID = responseModel.parameters["subCategory"] as! String
+                    }
+                        
+                    let keyList = "\(keyOrganizations)-\(responseModel.category.codeID)-\(subCategoryID!)"
+                    let item = Organization.init(json: json as! [String: AnyObject], forList: keyList)
+                    
+                    if let organization = item {
+                        organization.category = NSSet.init(object: responseModel.category)
+                        organization.cellIdentifier = "OrganizationTableViewCell"
+                        organization.cellHeight = 96.0
+                        
+                        if let googlePlaceID = (json as! [String: AnyObject])["placeId"] as? String {
+                            organization.googlePlaceDidLoad(positionID: googlePlaceID, completion: {
+                                counter += 1
                                 
-                                let organizationsViewModel = OrganizationsShowModels.Organizations.ViewModel(status: (responseModel.responseAPI?.status)!)
-                                self.viewController.organizationsDidShowLoad(fromViewModel: organizationsViewModel)
-                            }
-                        })
+                                if (counter == (responseModel.responseAPI!.body as! [Any]).count) {
+                                    CoreDataManager.instance.didSaveContext()
+                                    
+                                    let organizationsViewModel = OrganizationsShowModels.Organizations.ViewModel(status: (responseModel.responseAPI?.status)!)
+                                    self.viewController.organizationsDidShowLoad(fromViewModel: organizationsViewModel)
+                                }
+                            })
+                        }
                     }
                 }
+            } else {
+                let organizationsViewModel = OrganizationsShowModels.Organizations.ViewModel(status: (responseModel.responseAPI?.status)!)
+                self.viewController.organizationsDidShowLoad(fromViewModel: organizationsViewModel)
             }
-        } else {
-            let organizationsViewModel = OrganizationsShowModels.Organizations.ViewModel(status: (responseModel.responseAPI?.status)!)
-            self.viewController.organizationsDidShowLoad(fromViewModel: organizationsViewModel)
         }
     }
 

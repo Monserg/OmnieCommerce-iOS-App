@@ -51,7 +51,7 @@
         <attribute name="imageID" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" attributeType="String" syncable="YES"/>
         <relationship name="categoriesList" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Lists" inverseName="categories" inverseEntity="Lists" syncable="YES"/>
-        <relationship name="organizations" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Organization" inverseName="category" inverseEntity="Organization" syncable="YES"/>
+        <relationship name="organizations" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Organization" inverseName="category" inverseEntity="Organization" syncable="YES"/>
         <relationship name="subCategories" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Subcategory" inverseName="category" inverseEntity="Subcategory" syncable="YES"/>
         <uniquenessConstraints>
             <uniquenessConstraint>

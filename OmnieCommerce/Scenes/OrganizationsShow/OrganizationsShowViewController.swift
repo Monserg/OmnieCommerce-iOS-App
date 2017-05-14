@@ -34,6 +34,7 @@ class OrganizationsShowViewController: BaseViewController {
     var subcategoryCode: String = ""
     var wasByOrganizationSelected = true
     var limit: Int!
+    var keyList: String!
     
     var subcategoriesDropDownTableView: MSMTableView! {
         didSet {
@@ -101,7 +102,10 @@ class OrganizationsShowViewController: BaseViewController {
         super.viewDidLoad()
         
         // Create MSMTableViewControllerManager
-        let organizationsTableManager = MSMTableViewControllerManager.init(withTableView: tableView, andSectionsCount: 1, andEmptyMessageText: "Organizations list is empty")
+        let organizationsTableManager = MSMTableViewControllerManager.init(withTableView: tableView,
+                                                                           andSectionsCount: 1,
+                                                                           andEmptyMessageText: "Organizations list is empty")
+        
         tableView.tableViewControllerManager = organizationsTableManager
     }
     
@@ -127,7 +131,8 @@ class OrganizationsShowViewController: BaseViewController {
         smallTopBarView.titleLabel.text = category!.name
         haveMenuItem = false
         mapButton.isUserInteractionEnabled = false
-        
+        keyList = (subcategoryCode.isEmpty) ? "All" : subcategoryCode
+
         // Handler Back button tap
         smallTopBarView.handlerSendButtonCompletion = { _ in
             _ = self.navigationController?.popViewController(animated: true)
@@ -145,7 +150,7 @@ class OrganizationsShowViewController: BaseViewController {
         
         // Load Organizations list from API
         organizations = [Organization]()
-//        CoreDataManager.instance.entitiesDidRemove(byName: "Organization", andPredicateParameter: "\(keyOrganizations)-\(category!.codeID)-\(subcategoryCode)")
+        CoreDataManager.instance.entitiesDidRemove(byName: "Lists", andPredicateParameters: NSPredicate(format: "name == %@", "\(keyOrganizations)-\(category!.codeID)-\(subcategoryCode)"))
         organizationsListDidLoad(withOffset: 0, subCategory: self.subcategoryCode, filter: "", scrollingData: false)
     }
     
@@ -174,8 +179,8 @@ class OrganizationsShowViewController: BaseViewController {
     func organizationsListDidShow() {
         // Setting MSMTableViewControllerManager
         let organizationsEntities = CoreDataManager.instance.entitiesDidLoad(byName: "Organization",
-                                                                             andPredicateParameter: ["catalog": "\(keyOrganizations)-\(category!.codeID)-\(subcategoryCode)"])
-        
+                                                                             andPredicateParameters: NSPredicate(format: "ANY lists.name == %@", "\(keyOrganizations)-\(category!.codeID)-\(keyList!)"))
+                
         if let organizationsList = organizationsEntities as? [Organization] {
             organizations = organizationsList
             
@@ -221,7 +226,7 @@ class OrganizationsShowViewController: BaseViewController {
         tableView.tableViewControllerManager!.handlerPullRefreshCompletion = { _ in
             // Reload Organizations list from API
             self.organizations = [Organization]()
-//            CoreDataManager.instance.entitiesDidRemove(byName: "Organization", andPredicateParameter: "\(keyOrganizations)-\(self.category!.codeID)-\(self.subcategoryCode)")
+            CoreDataManager.instance.entitiesDidRemove(byName: "Lists", andPredicateParameters: NSPredicate(format: "name == %@", "\(keyOrganizations)-\(self.category!.codeID)-\(self.keyList!)"))
             self.limit = Config.Constants.paginationLimit
             self.organizationsListDidLoad(withOffset: 0, subCategory: self.subcategoryCode, filter: "", scrollingData: true)
         }
@@ -341,10 +346,11 @@ class OrganizationsShowViewController: BaseViewController {
             sender.itemsListDidHide(self.subcategoriesDropDownTableView, inView: self.view)
             self.subcategoryCode = ((subcategory as! DropDownItem).codeID == "0000-\(self.category!.codeID)-All") ? "" : (subcategory as! DropDownItem).codeID
             self.limit = Config.Constants.paginationLimit
+            self.keyList = (self.subcategoryCode.isEmpty) ? "All" : self.subcategoryCode
             
             if (self.wasByOrganizationSelected) {
                 self.organizations = [Organization]()
-//                CoreDataManager.instance.entitiesDidRemove(byName: "Organization", andPredicateParameter: "\(keyOrganizations)-\(self.category!.codeID)-\(self.subcategoryCode)")
+                CoreDataManager.instance.entitiesDidRemove(byName: "Lists", andPredicateParameters: NSPredicate(format: "name == %@", "\(keyOrganizations)-\(self.category!.codeID)-\(self.keyList!)"))
                 self.organizationsListDidLoad(withOffset: 0, subCategory: self.subcategoryCode, filter: "", scrollingData: false)
             } else {
                 self.services = [Service]()
@@ -370,7 +376,7 @@ class OrganizationsShowViewController: BaseViewController {
             
             if ((item as! DropDownItem).codeID == keyOrganization) {
                 self.organizations = [Organization]()
-//                CoreDataManager.instance.entitiesDidRemove(byName: "Organization", andPredicateParameter: "\(keyOrganizations)-\(self.category!.codeID)-\(self.subcategoryCode)")
+                CoreDataManager.instance.entitiesDidRemove(byName: "Lists", andPredicateParameters: NSPredicate(format: "name == %@", "\(keyOrganizations)-\(self.category!.codeID)-\(self.keyList!)"))
                 self.organizationsListDidLoad(withOffset: 0, subCategory: self.subcategoryCode, filter: "", scrollingData: false)
                 self.wasByOrganizationSelected = true
             } else {
