@@ -266,8 +266,8 @@ class OrganizationsShowViewController: BaseViewController {
     func servicesListDidShow() {
         // Setting MSMTableViewControllerManager
         let servicesEntities = CoreDataManager.instance.entitiesDidLoad(byName: "Service",
-                                                                        andPredicateParameter: ["catalog": "\(keyServices)-\(category!.codeID)-\(subcategoryCode)"])
-        
+                                                                        andPredicateParameters: NSPredicate(format: "ANY lists.name == %@", "\(keyServices)-\(category!.codeID)-\(keyList!)"))
+                
         if let servicesList = servicesEntities as? [Service] {
             services = servicesList
             
@@ -313,7 +313,7 @@ class OrganizationsShowViewController: BaseViewController {
         tableView.tableViewControllerManager!.handlerPullRefreshCompletion = { _ in
             // Reload Services list from API
             self.services = [Service]()
-//            CoreDataManager.instance.entitiesDidRemove(byName: "Service", andPredicateParameter: "\(keyServices)-\(self.category!.codeID)-\(self.subcategoryCode)")
+            CoreDataManager.instance.entitiesDidRemove(byName: "Lists", andPredicateParameters: NSPredicate(format: "name == %@", "\(keyServices)-\(self.category!.codeID)-\(self.keyList!)"))
             self.limit = Config.Constants.paginationLimit
             self.servicesListDidLoad(withOffset: 0, subCategory: self.subcategoryCode, filter: "", scrollingData: true)
         }
@@ -354,7 +354,7 @@ class OrganizationsShowViewController: BaseViewController {
                 self.organizationsListDidLoad(withOffset: 0, subCategory: self.subcategoryCode, filter: "", scrollingData: false)
             } else {
                 self.services = [Service]()
-//                CoreDataManager.instance.entitiesDidRemove(byName: "Service", andPredicateParameter: "\(keyServices)-\(self.category!.codeID)-\(self.subcategoryCode)")
+                CoreDataManager.instance.entitiesDidRemove(byName: "Lists", andPredicateParameters: NSPredicate(format: "name == %@", "\(keyServices)-\(self.category!.codeID)-\(self.keyList!)"))
                 self.servicesListDidLoad(withOffset: 0, subCategory: self.subcategoryCode, filter: "", scrollingData: false)
             }
         }
@@ -381,7 +381,7 @@ class OrganizationsShowViewController: BaseViewController {
                 self.wasByOrganizationSelected = true
             } else {
                 self.services = [Service]()
-//                CoreDataManager.instance.entitiesDidRemove(byName: "Service", andPredicateParameter: "\(keyServices)-\(self.category!.codeID)-\(self.subcategoryCode)")
+                CoreDataManager.instance.entitiesDidRemove(byName: "Lists", andPredicateParameters: NSPredicate(format: "name == %@", "\(keyServices)-\(self.category!.codeID)-\(self.keyList!)"))
                 self.servicesListDidLoad(withOffset: 0, subCategory: self.subcategoryCode, filter: "", scrollingData: false)
                 self.wasByOrganizationSelected = false
             }

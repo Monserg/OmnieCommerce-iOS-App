@@ -90,31 +90,42 @@ class OrganizationsShowPresenter: OrganizationsShowPresenterInput {
         // Convert responseAPI body to Service CoreData objects
         var counter: Int = 0
         
-        if let servicesList = responseModel.responseAPI!.body as? [Any], servicesList.count > 0 {
-            for json in servicesList {
-                let item = Service.init(json: json as! [String: AnyObject], forOrganization: nil, forList: keyService)
-                
-                if let service = item {
-                    service.cellIdentifier = "ServiceTableViewCell"
-                    service.cellHeight = 96.0
+        if let servicesList = responseModel.responseAPI!.body as? [Any] {
+            if (servicesList.count > 0) {
+                for json in servicesList {
+                    var subCategoryID: String!
                     
-                    if let googlePlaceID = (json as! [String: AnyObject])["placeId"] as? String {
-                        service.googlePlaceDidLoad(positionID: googlePlaceID, completion: {
-                            counter += 1
-
-                            if (counter == (responseModel.responseAPI!.body as! [Any]).count) {
-                                CoreDataManager.instance.didSaveContext()
+                    if let code = responseModel.parameters["subCategory"] as? String, code.isEmpty {
+                        subCategoryID = "All"
+                    } else {
+                        subCategoryID = responseModel.parameters["subCategory"] as! String
+                    }
+                    
+                    let keyList = "\(keyServices)-\(responseModel.category.codeID)-\(subCategoryID!)"
+                    let item = Service.init(json: json as! [String: AnyObject], forOrganization: nil, forList: keyList)
+                    
+                    if let service = item {
+                        service.cellIdentifier = "ServiceTableViewCell"
+                        service.cellHeight = 96.0
+                        
+                        if let googlePlaceID = (json as! [String: AnyObject])["placeId"] as? String {
+                            service.googlePlaceDidLoad(positionID: googlePlaceID, completion: {
+                                counter += 1
                                 
-                                let servicesViewModel = OrganizationsShowModels.Services.ViewModel(status: (responseModel.responseAPI?.status)!)
-                                self.viewController.servicesDidShowLoad(fromViewModel: servicesViewModel)
-                            }
-                        })
+                                if (counter == (responseModel.responseAPI!.body as! [Any]).count) {
+                                    CoreDataManager.instance.didSaveContext()
+                                    
+                                    let servicesViewModel = OrganizationsShowModels.Services.ViewModel(status: (responseModel.responseAPI?.status)!)
+                                    self.viewController.servicesDidShowLoad(fromViewModel: servicesViewModel)
+                                }
+                            })
+                        }
                     }
                 }
+            } else {
+                let servicesViewModel = OrganizationsShowModels.Services.ViewModel(status: (responseModel.responseAPI?.status)!)
+                self.viewController.servicesDidShowLoad(fromViewModel: servicesViewModel)
             }
-        } else {
-            let servicesViewModel = OrganizationsShowModels.Services.ViewModel(status: (responseModel.responseAPI?.status)!)
-            self.viewController.servicesDidShowLoad(fromViewModel: servicesViewModel)            
         }
     }
 }
