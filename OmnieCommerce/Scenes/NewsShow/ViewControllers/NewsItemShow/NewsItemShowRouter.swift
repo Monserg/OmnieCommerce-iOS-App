@@ -46,7 +46,7 @@ class NewsItemShowRouter: NewsItemShowRouterInput {
             
             let storyboard = UIStoryboard(name: "OrganizationShow", bundle: nil)
             let organizationShowVC = storyboard.instantiateViewController(withIdentifier: "OrganizationShowVC") as! OrganizationShowViewController
-            let _ = Organization.init(json: responseAPI!.body as! [String: AnyObject])
+            let _ = Organization.init(json: responseAPI!.body as! [String: AnyObject], forList: keyOrganization)
             CoreDataManager.instance.didSaveContext()
             organizationShowVC.organizationID = (CoreDataManager.instance.entityDidLoad(byName: "Organization", andPredicateParameter: organizationID) as! Organization).codeID
             

@@ -77,8 +77,8 @@ extension FavoriteServiceTableViewCell: ConfigureCell {
         favoriteButton.setImage((isFavorite) ?  UIImage(named: "image-favorite-star-selected") :
                                                 UIImage(named: "image-favorite-star-normal"), for: .normal)
         
-        if let imagePath = service.logoURL {
-            logoImageView.kf.setImage(with: ImageResource(downloadURL: URL(string: imagePath)!, cacheKey: "imagePath-\(indexPath.row)"),
+        if let imageID = service.imageID {
+            logoImageView.kf.setImage(with: ImageResource(downloadURL: imageID.convertToURL(withSize: .Small, inMode: .Get), cacheKey: "imageID-\(indexPath.row)"),
                                       placeholder: UIImage.init(named: "image-no-service"),
                                       options: [.transition(ImageTransition.fade(1)),
                                                 .processor(ResizingImageProcessor.init(referenceSize: logoImageView.frame.size,

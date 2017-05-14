@@ -101,7 +101,7 @@ class NewsActionsShowViewController: BaseViewController {
     func actionsListDidShow() {
         // Setting MSMTableViewControllerManager
         let actionsLists = CoreDataManager.instance.entitiesDidLoad(byName: "NewsData",
-                                                                    andPredicateParameters: NSPredicate(format: "newsList.name == %@", keyNewsActions))
+                                                                    andPredicateParameters: NSPredicate(format: "ANY newsList.name == %@", keyNewsActions))
         
         if let actions = actionsLists as? [NewsData] {
             actionsData = actions

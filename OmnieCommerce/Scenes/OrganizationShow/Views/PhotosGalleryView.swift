@@ -108,9 +108,7 @@ class PhotosGalleryView: CustomView {
         var kingfisherSource = [KingfisherSource]()
         
         for galleryImage in (values as! [GalleryImage]) {
-            if let imagePath = galleryImage.imagePath {
-                kingfisherSource.append(KingfisherSource(urlString: imagePath)!)
-            }
+            kingfisherSource.append(KingfisherSource(urlString: galleryImage.imageID.convertToURL(withSize: .Small, inMode: .Get).absoluteString)!)
         }
 
         imageSlideShow.setImageInputs(kingfisherSource)

@@ -124,8 +124,8 @@ public class Service: NSManagedObject, InitCellParameters, PointAnnotationBindin
             self.rating = rating
         }
     
-        if let logoURL = json["staticUrl"] as? String {
-            self.logoURL = "\(MSMRestApiManager.instance.appHostURL.absoluteString)\(logoURL)"
+        if let imageID = json["staticUrl"] as? String {
+            self.imageID = imageID
         }
         
         // Prices
@@ -179,9 +179,7 @@ public class Service: NSManagedObject, InitCellParameters, PointAnnotationBindin
         }
         
         // Gallery images
-        if let galleryImages = json["serviceGallery"] as? NSArray {
-            self.images = NSSet()
-            
+        if let galleryImages = json["serviceGallery"] as? NSArray, galleryImages.count > 0 {
             for dictionary in galleryImages {
                 if let image = GalleryImage.init(json: dictionary as! [String : AnyObject], andRelationshipObject: self) {
                     self.addToImages(image)

@@ -227,7 +227,7 @@ class OrganizationShowViewController: BaseViewController {
             
         case subView as PhotosGalleryView:
             popupView = PhotosGalleryView.init(inView: modalView!)
-            popupView.values = (values as! [GalleryImage]).filter({ $0.imagePath != nil })
+            popupView.values = (values as! [GalleryImage]).filter({ $0.imageID != nil })
             
         default:
             break
@@ -253,12 +253,12 @@ class OrganizationShowViewController: BaseViewController {
         smallTopBarView.titleText = organizationProfile.name
 
         // Parallax Header view
-        if let headerURL = organizationProfile.headerURL {
+        if let headerID = organizationProfile.headerID {
             headerView = HeaderImageView.init(frame: CGRect.init(origin: CGPoint.zero, size: CGSize.init(width: view.frame.width, height: 150)))
             smallTopBarView.actionButton.isHidden = true
             
             // Set Header image
-            headerView!.imageView.kf.setImage(with: ImageResource(downloadURL: URL(string: headerURL)!, cacheKey: "imagePath-\(organizationID)"),
+            headerView!.imageView.kf.setImage(with: ImageResource(downloadURL: headerID.convertToURL(withSize: .Original, inMode: .Get), cacheKey: "imagePath-\(organizationID)"),
                                               placeholder: UIImage.init(named: "image-no-photo"),
                                               options: [.transition(ImageTransition.fade(1)),
                                                         .processor(ResizingImageProcessor(referenceSize: headerView!.frame.size,
@@ -317,8 +317,8 @@ class OrganizationShowViewController: BaseViewController {
         favoriteButton.setImage(UIImage.init(named: (favoriteButton.tag == 0) ? "image-favorite-star-normal" : "image-favorite-star-selected"), for: .normal)
         
         // Set Avatar image
-        if let imagePath = organizationProfile.logoURL {
-            logoImageView!.kf.setImage(with: ImageResource(downloadURL: URL(string: imagePath)!, cacheKey: imagePath),
+        if let imageID = organizationProfile.imageID {
+            logoImageView!.kf.setImage(with: ImageResource(downloadURL: imageID.convertToURL(withSize: .Small, inMode: .Get), cacheKey: imageID),
                                        placeholder: UIImage.init(named: "image-no-organization"),
                                        options: [.transition(ImageTransition.fade(1)),
                                                  .processor(ResizingImageProcessor(referenceSize: logoImageView!.frame.size,

@@ -2,7 +2,7 @@
 //  Lists+CoreDataProperties.swift
 //  OmnieCommerce
 //
-//  Created by msm72 on 13.05.17.
+//  Created by msm72 on 14.05.17.
 //  Copyright © 2017 Omniesoft. All rights reserved.
 //
 
@@ -16,9 +16,27 @@ extension Lists {
         return NSFetchRequest<Lists>(entityName: "Lists")
     }
 
-    @NSManaged public var name: String?
-    @NSManaged public var news: NSSet?
+    @NSManaged public var name: String
     @NSManaged public var categories: NSSet?
+    @NSManaged public var news: NSSet?
+    @NSManaged public var organizations: NSSet?
+
+}
+
+// MARK: Generated accessors for categories
+extension Lists {
+
+    @objc(addCategoriesObject:)
+    @NSManaged public func addToCategories(_ value: Category)
+
+    @objc(removeCategoriesObject:)
+    @NSManaged public func removeFromCategories(_ value: Category)
+
+    @objc(addCategories:)
+    @NSManaged public func addToCategories(_ values: NSSet)
+
+    @objc(removeCategories:)
+    @NSManaged public func removeFromCategories(_ values: NSSet)
 
 }
 
@@ -39,19 +57,19 @@ extension Lists {
 
 }
 
-// MARK: Generated accessors for categories
+// MARK: Generated accessors for organizations
 extension Lists {
 
-    @objc(addCategoriesObject:)
-    @NSManaged public func addToCategories(_ value: Category)
+    @objc(addOrganizationsObject:)
+    @NSManaged public func addToOrganizations(_ value: Organization)
 
-    @objc(removeCategoriesObject:)
-    @NSManaged public func removeFromCategories(_ value: Category)
+    @objc(removeOrganizationsObject:)
+    @NSManaged public func removeFromOrganizations(_ value: Organization)
 
-    @objc(addCategories:)
-    @NSManaged public func addToCategories(_ values: NSSet)
+    @objc(addOrganizations:)
+    @NSManaged public func addToOrganizations(_ values: NSSet)
 
-    @objc(removeCategories:)
-    @NSManaged public func removeFromCategories(_ values: NSSet)
+    @objc(removeOrganizations:)
+    @NSManaged public func removeFromOrganizations(_ values: NSSet)
 
 }

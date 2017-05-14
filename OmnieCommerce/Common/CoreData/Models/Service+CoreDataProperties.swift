@@ -24,11 +24,11 @@ extension Service {
     @NSManaged public var codeID: String
     @NSManaged public var descriptionContent: String?
     @NSManaged public var duration: Int64
-    @NSManaged public var headerURL: String?
+    @NSManaged public var headerID: String?
     @NSManaged public var isFavorite: Bool
     @NSManaged public var isNameNeedHide: Bool
     @NSManaged public var latitudeValue: Double
-    @NSManaged public var logoURL: String?
+    @NSManaged public var imageID: String?
     @NSManaged public var longitudeValue: Double
     @NSManaged public var minDuration: Bool
     @NSManaged public var nameValue: String?

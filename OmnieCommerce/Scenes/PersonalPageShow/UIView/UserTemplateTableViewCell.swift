@@ -75,13 +75,14 @@ class UserTemplateTableViewCell: UITableViewCell {
 extension UserTemplateTableViewCell: ConfigureCell {
     func setup(withItem item: Any, andIndexPath indexPath: IndexPath) {
         let organization = item as! Organization
+        
         nameLabel.text = organization.name
         categoryLabel.text = "Tested" //organization.category.name!
         commentTextLabel.text = "dasd as das asd asdhasgdh  ashhd gahg ha ajhgd hagd haghs  ajhgdhasgd gags"
         selectionStyle = .none
         
-        if let imagePath = organization.logoURL {
-            logoImageView.kf.setImage(with: ImageResource(downloadURL: URL(string: imagePath)!, cacheKey: imagePath),
+        if let imageID = organization.imageID {
+            logoImageView.kf.setImage(with: ImageResource(downloadURL: imageID.convertToURL(withSize: .Small, inMode: .Get), cacheKey: imageID),
                                       placeholder: UIImage.init(named: "image-no-photo"),
                                       options: [.transition(ImageTransition.fade(1)),
                                                 .processor(ResizingImageProcessor(referenceSize: logoImageView.frame.size,

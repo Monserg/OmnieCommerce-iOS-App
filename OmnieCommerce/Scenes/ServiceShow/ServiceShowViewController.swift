@@ -449,7 +449,7 @@ class ServiceShowViewController: BaseViewController {
         switch subView {
         case subView as PhotosGalleryView:
             popupView = PhotosGalleryView.init(inView: modalView!)
-            popupView.values = (values as! [GalleryImage]).filter({ $0.imagePath != nil })
+            popupView.values = (values as! [GalleryImage]).filter({ $0.imageID != nil })
             
         case subView as ReviewsView:
             popupView = ReviewsView.init(inView: modalView!)

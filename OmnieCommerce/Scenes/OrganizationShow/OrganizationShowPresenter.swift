@@ -36,7 +36,7 @@ class OrganizationShowPresenter: OrganizationShowPresenterInput {
         }
         
         // Convert responseAPI body to Organization CoreData news objects
-        let organization = Organization.init(json: responseModel.responseAPI?.body as! [String: AnyObject])
+        let organization = Organization.init(json: responseModel.responseAPI?.body as! [String: AnyObject], forList: keyOrganization)
         
         if let placeID = organization!.placeID {
             organization!.googlePlaceDidLoad(positionID: placeID, completion: { _ in

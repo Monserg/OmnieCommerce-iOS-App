@@ -54,6 +54,7 @@ class FavoriteOrganizationTableViewCell: UITableViewCell, DottedBorderViewBindin
 extension FavoriteOrganizationTableViewCell: ConfigureCell {
     func setup(withItem item: Any, andIndexPath indexPath: IndexPath) {
         let organization = item as! Organization
+        
         organizationID = organization.codeID
         nameLabel.text = organization.name
         isFavorite = organization.isFavorite
@@ -62,11 +63,12 @@ extension FavoriteOrganizationTableViewCell: ConfigureCell {
         favoriteButton.setImage((isFavorite) ?  UIImage(named: "image-favorite-star-selected") :
                                                 UIImage(named: "image-favorite-star-normal"), for: .normal)
         
-        if let imagePath = organization.logoURL {
-            logoImageView.kf.setImage(with: ImageResource(downloadURL: URL(string: imagePath)!, cacheKey: organizationID),
+        if let imageID = organization.imageID {
+            logoImageView.kf.setImage(with: ImageResource(downloadURL: imageID.convertToURL(withSize: .Small, inMode: .Get), cacheKey: organizationID),
                                       placeholder: UIImage.init(named: "image-no-organization"),
                                       options: [.transition(ImageTransition.fade(1)),
-                                                .processor(ResizingImageProcessor.init(referenceSize: logoImageView.frame.size, mode: .aspectFill))],
+                                                .processor(ResizingImageProcessor.init(referenceSize: logoImageView.frame.size,
+                                                                                       mode: .aspectFill))],
                                       completionHandler: { image, error, cacheType, imageURL in
                                         self.logoImageView.kf.cancelDownloadTask()
             })

@@ -27,5 +27,9 @@ public class Lists: NSManagedObject {
         if let category = item as? Category {
             self.addToCategories(category)
         }
+        
+        if let organization = item as? Organization {
+            self.addToOrganizations(organization)
+        }
     }
 }

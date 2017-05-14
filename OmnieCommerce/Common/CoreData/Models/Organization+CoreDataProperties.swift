@@ -2,7 +2,7 @@
 //  Organization+CoreDataProperties.swift
 //  OmnieCommerce
 //
-//  Created by msm72 on 12.05.17.
+//  Created by msm72 on 14.05.17.
 //  Copyright © 2017 Omniesoft. All rights reserved.
 //
 
@@ -19,17 +19,16 @@ extension Organization {
     @NSManaged public var addressCityValue: String?
     @NSManaged public var addressStreetValue: String?
     @NSManaged public var canSendReview: Bool
-    @NSManaged public var catalog: String?
     @NSManaged public var codeID: String
     @NSManaged public var descriptionContent: String?
     @NSManaged public var descriptionTitle: String?
     @NSManaged public var email: String?
-    @NSManaged public var headerURL: String?
+    @NSManaged public var headerID: String?
+    @NSManaged public var imageID: String?
     @NSManaged public var isFavorite: Bool
     @NSManaged public var latitudeValue: Double
-    @NSManaged public var logoURL: String?
     @NSManaged public var longitudeValue: Double
-    @NSManaged public var nameValue: String?
+    @NSManaged public var nameValue: String
     @NSManaged public var phones: [String]?
     @NSManaged public var placeID: String?
     @NSManaged public var rating: Double
@@ -39,6 +38,7 @@ extension Organization {
     @NSManaged public var organizationReviews: NSSet?
     @NSManaged public var schedules: NSSet?
     @NSManaged public var services: NSSet?
+    @NSManaged public var lists: NSSet?
 
 }
 
@@ -141,5 +141,22 @@ extension Organization {
 
     @objc(removeServices:)
     @NSManaged public func removeFromServices(_ values: NSSet)
+
+}
+
+// MARK: Generated accessors for lists
+extension Organization {
+
+    @objc(addListsObject:)
+    @NSManaged public func addToLists(_ value: Lists)
+
+    @objc(removeListsObject:)
+    @NSManaged public func removeFromLists(_ value: Lists)
+
+    @objc(addLists:)
+    @NSManaged public func addToLists(_ values: NSSet)
+
+    @objc(removeLists:)
+    @NSManaged public func removeFromLists(_ values: NSSet)
 
 }

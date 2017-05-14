@@ -101,7 +101,7 @@ class NewsDataShowViewController: BaseViewController {
     func newsDataListDidShow() {
         // Setting MSMTableViewControllerManager
         let newsLists = CoreDataManager.instance.entitiesDidLoad(byName: "NewsData",
-                                                                 andPredicateParameters: NSPredicate(format: "newsList.name == %@", keyNewsData))
+                                                                 andPredicateParameters: NSPredicate(format: "ANY newsList.name == %@", keyNewsData))
         
         if let news = newsLists as? [NewsData] {
             newsData = news

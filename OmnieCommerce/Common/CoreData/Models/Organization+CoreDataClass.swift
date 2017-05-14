@@ -75,7 +75,7 @@ public class Organization: NSManagedObject, InitCellParameters, PointAnnotationB
 
 
     // MARK: - Class Initialization
-    convenience init?(json: [String: AnyObject]) {
+    convenience init?(json: [String: AnyObject], forList listName: String) {
         guard let codeID = json["uuid"] as? String, let name = json["orgName"] as? String, let isFavorite = json["isFavorite"] as? Bool else {
             return nil
         }
@@ -93,11 +93,13 @@ public class Organization: NSManagedObject, InitCellParameters, PointAnnotationB
         self.name = name
         self.isFavorite = isFavorite
         
-        if let imageURL = json["staticUrl"] as? String {
-            self.logoURL = "\(MSMRestApiManager.instance.appHostURL.absoluteString)\(imageURL)"
+        if let imageID = json["staticUrl"] as? String {
+            self.imageID = imageID
         }
+        
+        self.addToLists(Lists.init(name: listName, item: self))
 
-        // Prepare to save full data
+        // Prepare to save additional data
         // Phones
         if let phones = json["phones"] as? [String], phones.count > 0 {
             self.phones = phones

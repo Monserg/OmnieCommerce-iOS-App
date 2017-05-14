@@ -17,7 +17,6 @@ extension GalleryImage {
     }
 
     @NSManaged public var imageID: String
-    @NSManaged public var imagePath: String?
     @NSManaged public var serviceID: String?
     @NSManaged public var serviceName: String?
     @NSManaged public var organization: Organization?

@@ -18,7 +18,7 @@ public class GalleryImage: NSManagedObject, InitCellParameters {
     
     // MARK: - Class Initialization
     convenience init?(json: [String: AnyObject], andRelationshipObject managedObject: NSManagedObject?) {
-        guard let imageID = json["imageId"] as? String, let imagePath = json["staticUrl"] as? String else {
+        guard let imageID = json["imageId"] as? String else {
             return nil
         }
         
@@ -32,10 +32,6 @@ public class GalleryImage: NSManagedObject, InitCellParameters {
         
         // Prepare to save common data
         self.imageID = imageID
-        
-        if (imagePath.contains("/images/")) {
-            self.imagePath = "\(MSMRestApiManager.instance.appHostURL.absoluteString)\(imagePath)"
-        }
         
         if let serviceID = json["serviceId"] as? String {
             self.serviceID = serviceID

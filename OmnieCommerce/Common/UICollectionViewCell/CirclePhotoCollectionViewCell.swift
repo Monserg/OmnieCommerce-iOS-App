@@ -40,19 +40,16 @@ class CirclePhotoCollectionViewCell: UICollectionViewCell {
 extension CirclePhotoCollectionViewCell: ConfigureCell {
     func setup(withItem item: Any, andIndexPath indexPath: IndexPath) {
         let galleryImage = item as! GalleryImage
+        
         imageButton.frame = CGRect.init(origin: .zero, size: CGSize.init(width: galleryImage.cellHeight, height: galleryImage.cellHeight))
-
-        if let imagePath = galleryImage.imagePath {
-            imageButton.kf.setImage(with: ImageResource(downloadURL: URL(string: imagePath)!, cacheKey: "imagePath-\(indexPath.row)"), for: .normal,
-                                    placeholder: UIImage.init(named: "image-no-photo"),
-                                    options: [.transition(ImageTransition.fade(1)),
-                                              .processor(ResizingImageProcessor(referenceSize: imageButton.frame.size,
-                                                                                mode: .aspectFill))],
-                                    completionHandler: { image, error, cacheType, imageURL in
-                                        self.imageButton.imageView?.kf.cancelDownloadTask()
-            })
-        } else {
-            imageButton.setImage(UIImage.init(named: "image-no-photo"), for: .normal)
-        }
+        
+        imageButton.kf.setImage(with: ImageResource(downloadURL: galleryImage.imageID.convertToURL(withSize: .Small, inMode: .Get), cacheKey: "galleryImage.imageID-\(indexPath.row)"), for: .normal,
+                                placeholder: UIImage.init(named: "image-no-photo"),
+                                options: [.transition(ImageTransition.fade(1)),
+                                          .processor(ResizingImageProcessor(referenceSize: imageButton.frame.size,
+                                                                            mode: .aspectFill))],
+                                completionHandler: { image, error, cacheType, imageURL in
+                                    self.imageButton.imageView?.kf.cancelDownloadTask()
+        })
     }
 }

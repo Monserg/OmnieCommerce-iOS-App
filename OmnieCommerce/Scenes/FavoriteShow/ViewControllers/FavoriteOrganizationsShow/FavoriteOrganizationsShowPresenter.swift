@@ -28,7 +28,7 @@ class FavoriteOrganizationsShowPresenter: FavoriteOrganizationsShowPresenterInpu
     
     // MARK: - Custom Functions. Presentation logic
     func favoriteOrganizationsDidPrepareToShowLoad(fromResponseModel responseModel: FavoriteOrganizationsShowModels.Organizations.ResponseModel) {
-        guard responseModel.responseAPI?.body != nil else {
+        guard responseModel.responseAPI != nil else {
             let organizationsViewModel = FavoriteOrganizationsShowModels.Organizations.ViewModel(status: (responseModel.responseAPI?.status)!)
             self.viewController.favoriteOrganizationsDidShowLoad(fromViewModel: organizationsViewModel)
 
@@ -36,19 +36,15 @@ class FavoriteOrganizationsShowPresenter: FavoriteOrganizationsShowPresenterInpu
         }
         
         // Convert responseAPI body to Organization CoreData objects
-        if let organizationsList = responseModel.responseAPI!.body as? [Any], organizationsList.count > 0 {
-            for json in organizationsList {
-                let item = Organization.init(json: json as! [String: AnyObject])
-                
-                if let organization = item {
-                    organization.catalog = keyFavoriteOrganizations
-                    CoreDataManager.instance.didSaveContext()
+        if let organizationsList = responseModel.responseAPI!.body as? [Any] {
+            if (organizationsList.count > 0) {
+                for json in organizationsList {
+                    _ = Organization.init(json: json as! [String: AnyObject], forList: keyFavoriteOrganizations)
                 }
-                
-                let organizationsViewModel = FavoriteOrganizationsShowModels.Organizations.ViewModel(status: (responseModel.responseAPI?.status)!)
-                self.viewController.favoriteOrganizationsDidShowLoad(fromViewModel: organizationsViewModel)
             }
-        } else {
+            
+            CoreDataManager.instance.didSaveContext()
+
             let organizationsViewModel = FavoriteOrganizationsShowModels.Organizations.ViewModel(status: (responseModel.responseAPI?.status)!)
             self.viewController.favoriteOrganizationsDidShowLoad(fromViewModel: organizationsViewModel)
         }

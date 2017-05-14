@@ -41,11 +41,10 @@ class OrganizationsShowPresenter: OrganizationsShowPresenterInput {
         
         if let organizationsList = responseModel.responseAPI!.body as? [Any], organizationsList.count > 0 {
             for json in organizationsList {
-                let item = Organization.init(json: json as! [String: AnyObject])
+                let item = Organization.init(json: json as! [String: AnyObject], forList: keyOrganizations)
                 
                 if let organization = item {
                     organization.category = NSSet.init(object: responseModel.category)
-                    organization.catalog = "\(keyOrganizations)-\(responseModel.category.codeID)-\(responseModel.parameters["subCategory"] as! String)"
                     organization.cellIdentifier = "OrganizationTableViewCell"
                     organization.cellHeight = 96.0
                     
