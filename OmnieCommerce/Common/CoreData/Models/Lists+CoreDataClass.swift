@@ -31,5 +31,9 @@ public class Lists: NSManagedObject {
         if let organization = item as? Organization {
             self.addToOrganizations(organization)
         }
+
+        if let service = item as? Service {
+            self.addToServices(service)
+        }
     }
 }

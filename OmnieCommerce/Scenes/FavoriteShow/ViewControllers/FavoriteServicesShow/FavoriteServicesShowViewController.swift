@@ -76,7 +76,7 @@ class FavoriteServicesShowViewController: BaseViewController {
         // Load Services list from API
         if (isNetworkAvailable) {
             services = [Service]()
-//            CoreDataManager.instance.entitiesDidRemove(byName: "Service", andPredicateParameter: keyFavoriteServices)
+            CoreDataManager.instance.entitiesDidRemove(byName: "Lists", andPredicateParameters: NSPredicate(format: "name == %@", keyFavoriteServices))
             favoriteServicesListDidLoad(withOffset: 0, scrollingData: false)
         } else {
             spinnerDidFinish()
@@ -95,7 +95,8 @@ class FavoriteServicesShowViewController: BaseViewController {
     
     func favoriteServicesListDidShow() {
         // Setting MSMTableViewControllerManager
-        let servicesList = CoreDataManager.instance.entitiesDidLoad(byName: "Service", andPredicateParameter: ["catalog": keyFavoriteServices])
+        let servicesList = CoreDataManager.instance.entitiesDidLoad(byName: "Service",
+                                                                    andPredicateParameters: NSPredicate(format: "ANY lists.name == %@", keyFavoriteServices))
         
         if let services = servicesList as? [Service] {
             let _ = services.map({ $0.cellIdentifier = "FavoriteServiceTableViewCell"; $0.cellHeight = 60.0 })
@@ -119,7 +120,7 @@ class FavoriteServicesShowViewController: BaseViewController {
         tableView.tableViewControllerManager!.handlerPullRefreshCompletion = { _ in
             // Reload Services list from API
             self.services = [Service]()
-//            CoreDataManager.instance.entitiesDidRemove(byName: "Service", andPredicateParameter: keyFavoriteServices)
+            CoreDataManager.instance.entitiesDidRemove(byName: "Lists", andPredicateParameters: NSPredicate(format: "name == %@", keyFavoriteServices))
             self.limit = Config.Constants.paginationLimit
             self.favoriteServicesListDidLoad(withOffset: 0, scrollingData: true)
         }

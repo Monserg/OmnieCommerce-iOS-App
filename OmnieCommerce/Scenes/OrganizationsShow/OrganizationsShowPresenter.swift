@@ -81,10 +81,9 @@ class OrganizationsShowPresenter: OrganizationsShowPresenterInput {
         
         if let servicesList = responseModel.responseAPI!.body as? [Any], servicesList.count > 0 {
             for json in servicesList {
-                let item = Service.init(json: json as! [String: AnyObject], andOrganization: nil)
+                let item = Service.init(json: json as! [String: AnyObject], forOrganization: nil, forList: keyService)
                 
                 if let service = item {
-                    service.catalog = "\(keyServices)-\(responseModel.category.codeID)-\(responseModel.parameters["subCategory"] as! String)"
                     service.cellIdentifier = "ServiceTableViewCell"
                     service.cellHeight = 96.0
                     

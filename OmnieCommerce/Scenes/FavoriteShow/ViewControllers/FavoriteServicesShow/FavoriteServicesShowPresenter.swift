@@ -36,19 +36,15 @@ class FavoriteServicesShowPresenter: FavoriteServicesShowPresenterInput {
         }
         
         // Convert responseAPI body to Service CoreData objects
-        if let servicesList = responseModel.responseAPI!.body as? [Any], servicesList.count > 0 {
-            for json in servicesList {
-                let item = Service.init(json: json as! [String: AnyObject], andOrganization: nil)
-                
-                if let service = item {
-                    service.catalog = keyFavoriteServices
-                    CoreDataManager.instance.didSaveContext()
+        if let servicesList = responseModel.responseAPI!.body as? [Any] {
+            if (servicesList.count > 0) {
+                for json in servicesList {
+                    _ = Service.init(json: json as! [String: AnyObject], forOrganization: nil, forList: keyFavoriteServices)
                 }
             }
             
-            let servicesViewModel = FavoriteServicesShowModels.Services.ViewModel(status: (responseModel.responseAPI?.status)!)
-            self.viewController.favoriteServicesDidShowLoad(fromViewModel: servicesViewModel)
-        } else {
+            CoreDataManager.instance.didSaveContext()
+            
             let servicesViewModel = FavoriteServicesShowModels.Services.ViewModel(status: (responseModel.responseAPI?.status)!)
             self.viewController.favoriteServicesDidShowLoad(fromViewModel: servicesViewModel)
         }

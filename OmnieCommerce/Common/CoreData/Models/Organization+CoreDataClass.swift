@@ -99,6 +99,7 @@ public class Organization: NSManagedObject, InitCellParameters, PointAnnotationB
         
         self.addToLists(Lists.init(name: listName, item: self))
 
+        
         // Prepare to save additional data
         // Phones
         if let phones = json["phones"] as? [String], phones.count > 0 {
@@ -150,7 +151,7 @@ public class Organization: NSManagedObject, InitCellParameters, PointAnnotationB
             self.services = NSSet()
             
             for json in services {
-                let service = Service.init(json: json as! [String: AnyObject], andOrganization: self)
+                let service = Service.init(json: json as! [String: AnyObject], forOrganization: self, forList: keyService)
                 self.addToServices(service!)
             }
         }

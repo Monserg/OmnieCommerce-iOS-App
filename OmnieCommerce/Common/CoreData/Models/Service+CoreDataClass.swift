@@ -25,7 +25,7 @@ public class Service: NSManagedObject, InitCellParameters, PointAnnotationBindin
         }
         
         get {
-            return self.nameValue!
+            return self.nameValue
         }
     }
 
@@ -76,7 +76,7 @@ public class Service: NSManagedObject, InitCellParameters, PointAnnotationBindin
     
     
     // MARK: - Class Initialization
-    convenience init?(json: [String: AnyObject], andOrganization organization: Organization?) {
+    convenience init?(json: [String: AnyObject], forOrganization organization: Organization?, forList listName: String) {
         guard let codeID = json["uuid"] as? String, let name = json["name"] as? String else {
             return nil
         }
@@ -96,20 +96,28 @@ public class Service: NSManagedObject, InitCellParameters, PointAnnotationBindin
         self.isNameNeedHide = false
         self.needBackgroundColorSet = false
 
-        if let canUserSendReview = json["canSendReview"] as? Bool {
-            self.canUserSendReview = canUserSendReview
-        }
-        
         if let organizationName = json["orgName"] as? String {
             self.organizationName = organizationName
         }
         
-        if let descriptionContent = json["description"] as? String {
-            self.descriptionContent = descriptionContent
+        if let imageID = json["staticUrl"] as? String {
+            self.imageID = imageID
         }
-        
+
         if let isFavorite = json["isFavorite"] as? Bool {
             self.isFavorite = isFavorite
+        }
+
+        self.addToLists(Lists.init(name: listName, item: self))
+        
+        
+        // Prepare to save additional data
+        if let canUserSendReview = json["canSendReview"] as? Bool {
+            self.canUserSendReview = canUserSendReview
+        }
+        
+        if let descriptionContent = json["description"] as? String {
+            self.descriptionContent = descriptionContent
         }
         
         if let minDuration = json["minDuration"] as? Bool {
@@ -124,9 +132,6 @@ public class Service: NSManagedObject, InitCellParameters, PointAnnotationBindin
             self.rating = rating
         }
     
-        if let imageID = json["staticUrl"] as? String {
-            self.imageID = imageID
-        }
         
         // Prices
         if let prices = json["servicePrices"] as? [Any] {
@@ -137,10 +142,10 @@ public class Service: NSManagedObject, InitCellParameters, PointAnnotationBindin
             }
         }
         
-        // Categories
-        if let categories = json["categories"] as? [String] {
-            self.categories = categories
-        }
+        // Categories ????
+//        if let categories = json["categories"] as? [String] {
+//            self.categories = categories
+//        }
         
         // Common discounts
         self.discounts = NSSet()

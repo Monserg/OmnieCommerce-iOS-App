@@ -20,6 +20,7 @@ extension Lists {
     @NSManaged public var categories: NSSet?
     @NSManaged public var news: NSSet?
     @NSManaged public var organizations: NSSet?
+    @NSManaged public var services: NSSet?
 
 }
 
@@ -71,5 +72,22 @@ extension Lists {
 
     @objc(removeOrganizations:)
     @NSManaged public func removeFromOrganizations(_ values: NSSet)
+
+}
+
+// MARK: Generated accessors for services
+extension Lists {
+
+    @objc(addServicesObject:)
+    @NSManaged public func addToServices(_ value: Service)
+
+    @objc(removeServicesObject:)
+    @NSManaged public func removeFromServices(_ value: Service)
+
+    @objc(addServices:)
+    @NSManaged public func addToServices(_ values: NSSet)
+
+    @objc(removeServices:)
+    @NSManaged public func removeFromServices(_ values: NSSet)
 
 }
