@@ -38,7 +38,7 @@ class OrdersShowPresenter: OrdersShowPresenterInput {
         if let ordersList = responseModel.responseAPI!.body as? [Any] {
             if (ordersList.count > 0) {
                 for json in ordersList {
-                    _ = Order.init(json: json as! [String: AnyObject], forLists: keyOrders)
+                    _ = Order.init(json: json as! [String: AnyObject], forLists: "\(keyOrders)-\(responseModel.parameters["status"] as! String)")
                 }
                 
                 CoreDataManager.instance.didSaveContext()

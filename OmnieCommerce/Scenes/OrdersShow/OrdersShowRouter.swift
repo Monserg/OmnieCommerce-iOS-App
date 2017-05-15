@@ -34,14 +34,16 @@ class OrdersShowRouter: OrdersShowRouterInput {
     
     func navigateToCalendar(_ orderDateComponents: DateComponents) {
         let storyboard = UIStoryboard(name: "CalendarShow", bundle: nil)
-        let calendarShowVC = storyboard.instantiateViewController(withIdentifier: "CalendarShowVC") as! CalendarShowViewController
-        calendarShowVC.orderDateComponents = orderDateComponents
-//        calendarShowVC.service = viewController.serviceProfile
+        let calendarVC = storyboard.instantiateViewController(withIdentifier: "CalendarVC") as! CalendarViewController
+        calendarVC.selectedDate = Calendar.current.date(from: orderDateComponents)
+
+//        calendarVC.calendarMode = .OrderMode
         
-        viewController.revealViewController().pushFrontViewController(calendarShowVC, animated: true)
+        viewController.revealViewController().pushFrontViewController(calendarVC, animated: true)
        
         // Handler Confirm completion
-        calendarShowVC.handlerConfirmButtonCompletion = { newOrderDateComponents in
+        calendarVC.handlerSelectNewDateCompletion = { newDate in
+            print(newDate)
 //            self.viewController.orderDateComponents = newOrderDateComponents as? DateComponents
 //            self.viewController.orderDateComponentsDidShow()
         }

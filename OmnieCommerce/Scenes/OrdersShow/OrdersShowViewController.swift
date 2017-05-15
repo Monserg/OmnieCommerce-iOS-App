@@ -31,8 +31,12 @@ class OrdersShowViewController: BaseViewController {
     var limit: Int!
     var dateEnd: String!
     var dateStart: String!
-    var orderStatus: String = ""
+    var orderStatus: String = "ALL"
+    var statuses = [DropDownValue]()
     
+    let orderStatuses = [ "ALL", "DONE", "PENDING FOR USER", "PENDING FOR ADMIN", "CONFIRMED BY USER", "CONFIRMED BY ADMIN",
+                          "CANCELED BY USER", "CANCELED BY ADMIN", "FAILED BY USER" ]
+
     var currentDate: Date! {
         didSet {
             setupTitleLabel(withDate: currentDate)
@@ -48,17 +52,19 @@ class OrdersShowViewController: BaseViewController {
             orderStatesDropDownTableView.tableViewControllerManager = orderStatesTableManager
             orderStatesDropDownTableView.alpha = 0
             
-            // TODO: - CREATE DROPDOWN LIST ORDERS STATUSES
-//            var orderStates = CoreDataManager.instance.entitiesDidLoad(byName: "OrderState",
-//                                                                       andPredicateParameter: ["order.codeID": order!.codeID])
-//            
-//            orderStatesDropDownTableView.tableViewControllerManager.dataSource = orderStates!.sorted(by: { ($0 as! OrderState).codeID < ($1 as! OrderState).codeID })
+            for (index, status) in orderStatuses.enumerated() {
+                statuses.append(DropDownValue.init(String(index), withName: status.localized(), andType: .OrderStatus))
+            }
+            
+            orderStatesDropDownTableView.tableViewControllerManager.dataSource = statuses
+            orderStatesDropDownTableView.reloadData()
         }
     }
 
     // Outlets
     @IBOutlet weak var smallTopBarView: SmallTopBarView!
     @IBOutlet weak var calendarTitleLabel: UbuntuLightVeryLightGrayLabel!
+    @IBOutlet weak var orderStatusesButton: DropDownButton!
     
     @IBOutlet weak var tableView: MSMTableView! {
         didSet {
@@ -105,7 +111,9 @@ class OrdersShowViewController: BaseViewController {
         
         dateStart = currentDate.convertToString(withStyle: .DateHyphen)
         dateEnd = dateStart
-        orderStatus = "DONE"
+        
+        // Set DropDown lists
+        orderStatesDropDownTableView = MSMTableView(frame: .zero, style: .plain)
     }
 
     
@@ -128,7 +136,7 @@ class OrdersShowViewController: BaseViewController {
         // Load Orders list from API
         if (isNetworkAvailable) {
             orders = [Order]()
-            CoreDataManager.instance.entitiesDidRemove(byName: "Lists", andPredicateParameters: NSPredicate(format: "name == %@", keyOrders))
+            CoreDataManager.instance.entitiesDidRemove(byName: "Lists", andPredicateParameters: NSPredicate(format: "name == %@", "\(keyOrders)-\(orderStatus)"))
             ordersListDidLoad(withOffset: 0, scrollingData: false)
         } else {
             spinnerDidFinish()
@@ -151,7 +159,7 @@ class OrdersShowViewController: BaseViewController {
 
     func ordersListDidShow() {
         // Setting MSMTableViewControllerManager
-        let ordersList = CoreDataManager.instance.entitiesDidLoad(byName: "Order", andPredicateParameter: ["catalog": keyOrders])
+        let ordersList = CoreDataManager.instance.entitiesDidLoad(byName: "Order", andPredicateParameters: NSPredicate.init(format: "ANY lists.name == %@", "\(keyOrders)-\(orderStatus)"))
         
         if let orders = ordersList as? [Order] {
             let _ = orders.map({ $0.cellIdentifier = "OrderTableViewCell"; $0.cellHeight = 96.0 })
@@ -175,7 +183,7 @@ class OrdersShowViewController: BaseViewController {
         tableView.tableViewControllerManager!.handlerPullRefreshCompletion = { _ in
             // Reload Orders list from API
             self.orders = [Order]()
-            CoreDataManager.instance.entitiesDidRemove(byName: "Lists", andPredicateParameters: NSPredicate(format: "name == %@", keyOrders))
+            CoreDataManager.instance.entitiesDidRemove(byName: "Lists", andPredicateParameters: NSPredicate(format: "name == %@", "\(keyOrders)-\(self.orderStatus)"))
             self.limit = Config.Constants.paginationLimit
             self.ordersListDidLoad(withOffset: 0, scrollingData: true)
         }
@@ -197,6 +205,7 @@ class OrdersShowViewController: BaseViewController {
         
         smallTopBarView.setNeedsDisplay()
         smallTopBarView.circleView.setNeedsDisplay()
+        orderStatusesButton.setNeedsDisplay()
     }
     
     
@@ -236,6 +245,20 @@ class OrdersShowViewController: BaseViewController {
     @IBAction func handlerCalendarTitleButtonTap(_ sender: UIButton) {
         let orderDateComponents = Calendar.current.dateComponents([.month, .day, .year, .hour, .minute], from: currentDate)
         self.router.navigateToCalendar(orderDateComponents)
+    }
+    
+    @IBAction func handlerOrderStatusesButtonTap(_ sender: DropDownButton) {
+        (sender.isDropDownListShow) ?   sender.itemsListDidHide(orderStatesDropDownTableView, inView: view) :
+                                        sender.itemsListDidShow(orderStatesDropDownTableView, inView: view)
+        
+        // Handler DropDownList selection
+        orderStatesDropDownTableView.tableViewControllerManager!.handlerSelectRowCompletion = { item in
+            sender.changeTitle(newValue: (item as! DropDownItem).name)
+            sender.itemsListDidHide(self.orderStatesDropDownTableView, inView: self.view)
+            self.limit = Config.Constants.paginationLimit
+            self.orderStatus = (item as! DropDownItem).name
+            self.viewSettingsDidLoad()
+        }
     }
 }
 

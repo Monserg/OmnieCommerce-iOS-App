@@ -112,13 +112,13 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bC8-3d-R9C" userLabel="Orders Type View">
-                                <rect key="frame" x="8" y="135" width="359" height="45"/>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bC8-3d-R9C" userLabel="Orders Type View">
+                                <rect key="frame" x="8" y="145" width="359" height="45"/>
                                 <subviews>
-                                    <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3X2-Q3-map" userLabel="Type Button" customClass="DropDownButton" customModule="OmnieCommerce" customModuleProvider="target">
+                                    <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3X2-Q3-map" userLabel="Order Statuses Button" customClass="DropDownButton" customModule="OmnieCommerce" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="359" height="35"/>
                                         <color key="backgroundColor" red="0.14117647059999999" green="0.1960784314" blue="0.2470588235" alpha="1" colorSpace="calibratedRGB"/>
-                                        <state key="normal" title="Label" image="icon-drop-down-accessory-normal"/>
+                                        <state key="normal" title="ALL" image="icon-drop-down-accessory-normal"/>
                                         <state key="highlighted">
                                             <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
@@ -127,6 +127,9 @@
                                             <userDefinedRuntimeAttribute type="string" keyPath="dropDownList" value="City"/>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="handlerOrderStatusesButtonTap:" destination="EDW-bL-Rz6" eventType="touchUpInside" id="HID-ny-eEt"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -154,7 +157,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1Gy-qL-gk8" customClass="MSMTableView" customModule="OmnieCommerce" customModuleProvider="target">
-                                <rect key="frame" x="8" y="188" width="359" height="450"/>
+                                <rect key="frame" x="8" y="198" width="359" height="440"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
@@ -170,7 +173,7 @@
                             <constraint firstAttribute="trailing" secondItem="EBq-Ba-TWn" secondAttribute="trailing" constant="8" id="8x8-8v-8nr"/>
                             <constraint firstAttribute="bottom" secondItem="EBq-Ba-TWn" secondAttribute="bottom" constant="9" id="9rE-uP-SSh"/>
                             <constraint firstItem="bC8-3d-R9C" firstAttribute="height" secondItem="oKk-pR-n0g" secondAttribute="height" multiplier="45:375" id="AB0-Qg-QZC"/>
-                            <constraint firstItem="bC8-3d-R9C" firstAttribute="top" secondItem="TQL-4N-Iiv" secondAttribute="bottom" id="Atu-qY-BN4"/>
+                            <constraint firstItem="bC8-3d-R9C" firstAttribute="top" secondItem="TQL-4N-Iiv" secondAttribute="bottom" constant="10" id="Atu-qY-BN4"/>
                             <constraint firstItem="EBq-Ba-TWn" firstAttribute="centerX" secondItem="oKk-pR-n0g" secondAttribute="centerX" id="Bo8-FN-hGj"/>
                             <constraint firstItem="0nN-5h-FmO" firstAttribute="leading" secondItem="oKk-pR-n0g" secondAttribute="leading" id="CjR-yb-X9A"/>
                             <constraint firstItem="1Gy-qL-gk8" firstAttribute="top" secondItem="bC8-3d-R9C" secondAttribute="bottom" constant="8" id="Gse-gx-r52"/>
@@ -220,6 +223,7 @@
                     <navigationItem key="navigationItem" title="Orders" id="5Gb-Un-bfT"/>
                     <connections>
                         <outlet property="calendarTitleLabel" destination="7xU-cG-ctA" id="inP-MA-cHa"/>
+                        <outlet property="orderStatusesButton" destination="3X2-Q3-map" id="XPo-Yt-N6Z"/>
                         <outlet property="smallTopBarView" destination="0nN-5h-FmO" id="Xmu-1G-Ez6"/>
                         <outlet property="tableView" destination="1Gy-qL-gk8" id="Hmh-Wq-ojj"/>
                     </connections>

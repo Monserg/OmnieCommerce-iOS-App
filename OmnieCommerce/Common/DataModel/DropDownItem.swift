@@ -13,6 +13,7 @@ enum DropDownItemType: String {
     case Service                =   "Service"
     case Subcategory            =   "Subcategory"
     case OrganizationService    =   "OrganizationService"
+    case OrderStatus            =   "OrderStatus"
 }
 
 class DropDownValue: DropDownItem, InitCellParameters {

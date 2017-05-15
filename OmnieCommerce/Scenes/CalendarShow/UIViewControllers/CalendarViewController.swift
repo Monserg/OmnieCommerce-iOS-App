@@ -46,7 +46,7 @@ class CalendarViewController: UIViewController {
         // Setup cells insets
         calendarView.cellInset = CGPoint(x: 10, y: 5)
         setupCalendarView()
-        setupSelectedDate()
+//        setupSelectedDate()
         
         // Add Calendar scrolling
         calendarView.scrollingMode = .stopAtEachCalendarFrameWidth
