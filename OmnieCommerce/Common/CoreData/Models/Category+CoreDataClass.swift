@@ -42,7 +42,7 @@ public class Category: NSManagedObject, InitCellParameters {
         // Create SubCategories
         if (subCategoriesList.count > 0) {
             for json in subCategoriesList {
-                let subCategory = Subcategory.init(json: json as! [String: AnyObject], category: self, andType: .Subcategory)
+                let subCategory = Subcategory.init(json: json as! [String: AnyObject], category: self, andType: .Subcategory, managedObject: nil)
                 self.addToSubCategories(subCategory!)
             }
         }

@@ -232,6 +232,11 @@ class OrdersShowViewController: BaseViewController {
         CoreDataManager.instance.entitiesDidRemove(byName: "Lists", andPredicateParameters: NSPredicate(format: "name == %@", keyOrders))
         ordersListDidLoad(withOffset: 0, scrollingData: false)
     }
+    
+    @IBAction func handlerCalendarTitleButtonTap(_ sender: UIButton) {
+        let orderDateComponents = Calendar.current.dateComponents([.month, .day, .year, .hour, .minute], from: currentDate)
+        self.router.navigateToCalendar(orderDateComponents)
+    }
 }
 
 

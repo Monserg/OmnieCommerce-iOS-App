@@ -2,7 +2,7 @@
 //  Service+CoreDataProperties.swift
 //  OmnieCommerce
 //
-//  Created by msm72 on 14.05.17.
+//  Created by msm72 on 15.05.17.
 //  Copyright © 2017 Omniesoft. All rights reserved.
 //
 
@@ -19,7 +19,6 @@ extension Service {
     @NSManaged public var addressCityValue: String?
     @NSManaged public var addressStreetValue: String?
     @NSManaged public var canUserSendReview: Bool
-    @NSManaged public var categories: NSObject?
     @NSManaged public var codeID: String
     @NSManaged public var descriptionContent: String?
     @NSManaged public var duration: Int64
@@ -30,7 +29,7 @@ extension Service {
     @NSManaged public var latitudeValue: Double
     @NSManaged public var longitudeValue: Double
     @NSManaged public var minDuration: Bool
-    @NSManaged public var nameValue: String
+    @NSManaged public var nameValue: String?
     @NSManaged public var needBackgroundColorSet: Bool
     @NSManaged public var organizationName: String?
     @NSManaged public var placeID: String?
@@ -38,10 +37,11 @@ extension Service {
     @NSManaged public var additionalServices: NSSet?
     @NSManaged public var discounts: NSSet?
     @NSManaged public var images: NSSet?
+    @NSManaged public var lists: NSSet?
     @NSManaged public var organization: Organization?
     @NSManaged public var prices: NSSet?
-    @NSManaged public var lists: NSSet?
     @NSManaged public var reviews: NSSet?
+    @NSManaged public var subCategories: NSSet?
 
 }
 
@@ -96,23 +96,6 @@ extension Service {
 
 }
 
-// MARK: Generated accessors for prices
-extension Service {
-
-    @objc(addPricesObject:)
-    @NSManaged public func addToPrices(_ value: Price)
-
-    @objc(removePricesObject:)
-    @NSManaged public func removeFromPrices(_ value: Price)
-
-    @objc(addPrices:)
-    @NSManaged public func addToPrices(_ values: NSSet)
-
-    @objc(removePrices:)
-    @NSManaged public func removeFromPrices(_ values: NSSet)
-
-}
-
 // MARK: Generated accessors for lists
 extension Service {
 
@@ -130,6 +113,23 @@ extension Service {
 
 }
 
+// MARK: Generated accessors for prices
+extension Service {
+
+    @objc(addPricesObject:)
+    @NSManaged public func addToPrices(_ value: Price)
+
+    @objc(removePricesObject:)
+    @NSManaged public func removeFromPrices(_ value: Price)
+
+    @objc(addPrices:)
+    @NSManaged public func addToPrices(_ values: NSSet)
+
+    @objc(removePrices:)
+    @NSManaged public func removeFromPrices(_ values: NSSet)
+
+}
+
 // MARK: Generated accessors for reviews
 extension Service {
 
@@ -144,5 +144,22 @@ extension Service {
 
     @objc(removeReviews:)
     @NSManaged public func removeFromReviews(_ values: NSSet)
+
+}
+
+// MARK: Generated accessors for subCategories
+extension Service {
+
+    @objc(addSubCategoriesObject:)
+    @NSManaged public func addToSubCategories(_ value: Subcategory)
+
+    @objc(removeSubCategoriesObject:)
+    @NSManaged public func removeFromSubCategories(_ value: Subcategory)
+
+    @objc(addSubCategories:)
+    @NSManaged public func addToSubCategories(_ values: NSSet)
+
+    @objc(removeSubCategories:)
+    @NSManaged public func removeFromSubCategories(_ values: NSSet)
 
 }

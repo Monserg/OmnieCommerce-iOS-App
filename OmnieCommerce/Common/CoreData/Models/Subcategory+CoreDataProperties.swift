@@ -2,7 +2,7 @@
 //  Subcategory+CoreDataProperties.swift
 //  OmnieCommerce
 //
-//  Created by msm72 on 13.05.17.
+//  Created by msm72 on 15.05.17.
 //  Copyright © 2017 Omniesoft. All rights reserved.
 //
 
@@ -17,8 +17,12 @@ extension Subcategory {
     }
 
     @NSManaged public var codeIDValue: String
-    @NSManaged public var nameValue: String
+    @NSManaged public var nameValue: String?
+    @NSManaged public var nameRu: String?
+    @NSManaged public var nameUa: String?
+    @NSManaged public var nameEng: String?
     @NSManaged public var typeValue: String
     @NSManaged public var category: Category?
+    @NSManaged public var service: Service?
 
 }

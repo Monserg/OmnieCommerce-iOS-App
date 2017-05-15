@@ -140,10 +140,19 @@ public class Service: NSManagedObject, InitCellParameters, PointAnnotationBindin
             }
         }
         
-        // Categories ????
-//        if let categories = json["categories"] as? [String] {
-//            self.categories = categories
-//        }
+        // SubCategories
+        // FIXME: - WHERE USE SERVICE SUBCATEGORIES ???
+        /*
+        if let subCategories = json["categories"] as? NSArray, subCategories.count > 0 {
+            for subCategory in subCategories {
+                let categoryEntity = CoreDataManager.instance.entityDidLoad(byName: "Category", andPredicateParameters: NSPredicate.init(format: "codeID == %@", (subCategory as! [String: AnyObject])["categoryId"] as! String))
+                
+                if let category = categoryEntity as? Category {
+                    self.addToSubCategories(Subcategory.init(json: subCategory as! [String: AnyObject], category: category, andType: .Service, managedObject: self)!)
+                }
+            }
+        }
+        */
         
         // Common discounts
         if let commonDiscounts = json["discountsCommon"] as? NSArray, commonDiscounts.count > 0 {

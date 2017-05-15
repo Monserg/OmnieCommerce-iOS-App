@@ -28,7 +28,7 @@ class FavoriteServicesShowPresenter: FavoriteServicesShowPresenterInput {
     
     // MARK: - Custom Functions. Presentation logic
     func favoriteServicesDidPrepareToShowLoad(fromResponseModel responseModel: FavoriteServicesShowModels.Services.ResponseModel) {
-        guard responseModel.responseAPI?.body != nil else {
+        guard responseModel.responseAPI != nil else {
             let servicesViewModel = FavoriteServicesShowModels.Services.ViewModel(status: (responseModel.responseAPI?.status)!)
             viewController.favoriteServicesDidShowLoad(fromViewModel: servicesViewModel)
             

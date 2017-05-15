@@ -222,7 +222,6 @@
         <attribute name="addressCityValue" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="addressStreetValue" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="canUserSendReview" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="categories" optional="YES" attributeType="Transformable" syncable="YES"/>
         <attribute name="codeID" attributeType="String" syncable="YES"/>
         <attribute name="descriptionContent" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="duration" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
@@ -245,6 +244,7 @@
         <relationship name="organization" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Organization" inverseName="services" inverseEntity="Organization" syncable="YES"/>
         <relationship name="prices" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Price" inverseName="service" inverseEntity="Price" syncable="YES"/>
         <relationship name="reviews" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Review" inverseName="service" inverseEntity="Review" syncable="YES"/>
+        <relationship name="subCategories" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Subcategory" inverseName="service" inverseEntity="Subcategory" syncable="YES"/>
         <uniquenessConstraints>
             <uniquenessConstraint>
                 <constraint value="codeID"/>
@@ -253,9 +253,13 @@
     </entity>
     <entity name="Subcategory" representedClassName="Subcategory" syncable="YES">
         <attribute name="codeIDValue" attributeType="String" syncable="YES"/>
-        <attribute name="nameValue" attributeType="String" syncable="YES"/>
+        <attribute name="nameEng" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="nameRu" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="nameUa" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="nameValue" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="typeValue" attributeType="String" syncable="YES"/>
         <relationship name="category" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Category" inverseName="subCategories" inverseEntity="Category" syncable="YES"/>
+        <relationship name="service" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Service" inverseName="subCategories" inverseEntity="Service" syncable="YES"/>
         <uniquenessConstraints>
             <uniquenessConstraint>
                 <constraint value="codeIDValue"/>
@@ -298,7 +302,7 @@
         <element name="Review" positionX="171" positionY="108" width="128" height="210"/>
         <element name="Schedule" positionX="153" positionY="90" width="128" height="165"/>
         <element name="Service" positionX="-36" positionY="117" width="128" height="435"/>
-        <element name="Subcategory" positionX="475" positionY="-69" width="128" height="105"/>
+        <element name="Subcategory" positionX="475" positionY="-69" width="128" height="165"/>
         <element name="TimeSheet" positionX="144" positionY="81" width="128" height="150"/>
         <element name="TimeSheetItem" positionX="153" positionY="90" width="128" height="105"/>
     </elements>

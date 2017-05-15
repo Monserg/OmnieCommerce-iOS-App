@@ -22,12 +22,18 @@ protocol CalendarShowViewControllerOutput {
     func doSomething(request: CalendarShow.Something.Request)
 }
 
+enum CalendarMode {
+    case OrderMode
+    case ServiceMode
+}
+
 class CalendarShowViewController: BaseViewController, CalendarShowViewControllerInput {
     // MARK: - Properties
     var output: CalendarShowViewControllerOutput!
     var router: CalendarShowRouter!
     
-    var service: Service!
+    var serviceID: String!
+    var calendarMode: CalendarMode!
     var calendarVC: CalendarViewController?
     var timesheetVC: TimeSheetViewController?
     var orderDateComponents: DateComponents!
@@ -48,12 +54,19 @@ class CalendarShowViewController: BaseViewController, CalendarShowViewController
                     self.orderDateComponents = Calendar.current.dateComponents([.month, .day, .year, .hour, .minute], from: newDate)
                     
                     // API "Get timesheet for one day"
-                    MSMRestApiManager.instance.userRequestDidRun(.userGetOrderTimeSheetForDay(["date": newDate.convertToString(withStyle: .DateHyphen), "service": self.service.codeID], false), withHandlerResponseAPICompletion: { responseAPI in
-                        if let json = responseAPI?.body as? [String: Any] {
-                            self.timesheetVC!.timesheet = TimeSheet.init(json: json as [String: AnyObject], forDate: newDate.convertToString(withStyle: .DateDot))
-                            self.timesheetVC!.selectedDate = newDate
-                        }
-                    })
+                    switch self.calendarMode! {
+                    case .ServiceMode:
+                        MSMRestApiManager.instance.userRequestDidRun(.userGetOrderTimeSheetForDay(["date": newDate.convertToString(withStyle: .DateHyphen), "service": self.serviceID], false), withHandlerResponseAPICompletion: { responseAPI in
+                            if let json = responseAPI?.body as? [String: Any] {
+                                self.timesheetVC!.timesheet = TimeSheet.init(json: json as [String: AnyObject], forDate: newDate.convertToString(withStyle: .DateDot))
+                                self.timesheetVC!.selectedDate = newDate
+                            }
+                        })
+                        
+                    case .OrderMode:
+                        let ordersDates = UserDefaults.standard.array(forKey: keyOrders)
+                        self.calendarVC.sele
+                    }
                 }
             }
         }

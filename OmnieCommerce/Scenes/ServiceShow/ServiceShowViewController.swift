@@ -318,7 +318,7 @@ class ServiceShowViewController: BaseViewController {
             galleryCollectionView.reloadData()
             
             // Handler Image select
-            galleryCollectionView.collectionViewControllerManager!.handlerCellSelectCompletion = { item in
+            galleryManager.handlerCellSelectCompletion = { item in
                 if item is GalleryImage {
                     self.modalViewDidShow(withHeight: 365, customSubview: PhotosGalleryView(), andValues: Array(self.serviceProfile.images!))
                 }
@@ -379,7 +379,7 @@ class ServiceShowViewController: BaseViewController {
         }
         
         // User review
-        if !(serviceProfile.canUserSendReview) {
+        if (serviceProfile.canUserSendReview) {
             ratingView.isHidden = false
             
             let userReview = CoreDataManager.instance.entityDidLoad(byName: "Review", andPredicateParameters: NSPredicate.init(format: "codeID == %@", "\(serviceProfile.codeID)-UserReview")) as! Review

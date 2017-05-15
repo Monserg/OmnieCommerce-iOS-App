@@ -53,14 +53,15 @@ public class Subcategory: NSManagedObject, InitCellParameters, DropDownItem {
         // Create Entity
         self.init(entity: CoreDataManager.instance.entityForName("Subcategory")!, insertInto: CoreDataManager.instance.managedObjectContext)
         
+        // Prepare to save common data
         self.codeID = codeID
         self.name = name
         self.type = type
         self.category = category
     }
     
-    convenience init?(json: [String: AnyObject], category: Category, andType type: DropDownItemType) {
-        guard let codeID = json["uuid"] as? String, let name = json["name"] as? String else {
+    convenience init?(json: [String: AnyObject], category: Category, andType type: DropDownItemType, managedObject: NSManagedObject?) {
+        guard let codeID = json["uuid"] as? String else {
             return nil
         }
         
@@ -74,9 +75,30 @@ public class Subcategory: NSManagedObject, InitCellParameters, DropDownItem {
         
         // Prepare to save common data
         self.codeID = codeID
-        self.name = name
         self.type = type
         self.category = category
+        
+        if let name = json["name"] as? String {
+            self.name = name
+        }
+        
+        
+        // Prepare to save additional data
+        if let service = managedObject as? Service {
+            self.service = service
+        }
+        
+        if let nameRu = json["ruName"] as? String {
+            self.nameRu = nameRu
+        }
+
+        if let nameUa = json["uaName"] as? String {
+            self.nameUa = nameUa
+        }
+
+        if let nameEng = json["engName"] as? String {
+            self.name = nameEng
+        }
     }
 
     deinit {

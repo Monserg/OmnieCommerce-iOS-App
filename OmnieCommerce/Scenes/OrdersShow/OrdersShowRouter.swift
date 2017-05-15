@@ -14,6 +14,7 @@ import UIKit
 // MARK: - Input & Output protocols
 protocol OrdersShowRouterInput {
     func navigateToOrderShowScene(_ order: Order)
+    func navigateToCalendar(_ orderDateComponents: DateComponents)
 }
 
 class OrdersShowRouter: OrdersShowRouterInput {
@@ -30,6 +31,22 @@ class OrdersShowRouter: OrdersShowRouterInput {
         
         viewController.navigationController?.pushViewController(orderShowVC, animated: true)
     }
+    
+    func navigateToCalendar(_ orderDateComponents: DateComponents) {
+        let storyboard = UIStoryboard(name: "CalendarShow", bundle: nil)
+        let calendarShowVC = storyboard.instantiateViewController(withIdentifier: "CalendarShowVC") as! CalendarShowViewController
+        calendarShowVC.orderDateComponents = orderDateComponents
+//        calendarShowVC.service = viewController.serviceProfile
+        
+        viewController.revealViewController().pushFrontViewController(calendarShowVC, animated: true)
+       
+        // Handler Confirm completion
+        calendarShowVC.handlerConfirmButtonCompletion = { newOrderDateComponents in
+//            self.viewController.orderDateComponents = newOrderDateComponents as? DateComponents
+//            self.viewController.orderDateComponentsDidShow()
+        }
+    }
+
     
     // Communication
     func passDataToNextScene(segue: UIStoryboardSegue) {
