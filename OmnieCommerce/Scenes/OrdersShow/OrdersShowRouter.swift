@@ -14,7 +14,7 @@ import UIKit
 // MARK: - Input & Output protocols
 protocol OrdersShowRouterInput {
     func navigateToOrderShowScene(_ order: Order)
-    func navigateToCalendar(_ orderDateComponents: DateComponents)
+    func navigateToCalendar(withOrdersDates ordersDates: [Date]?)
 }
 
 class OrdersShowRouter: OrdersShowRouterInput {
@@ -32,20 +32,20 @@ class OrdersShowRouter: OrdersShowRouterInput {
         viewController.navigationController?.pushViewController(orderShowVC, animated: true)
     }
     
-    func navigateToCalendar(_ orderDateComponents: DateComponents) {
-        let storyboard = UIStoryboard(name: "CalendarShow", bundle: nil)
-        let calendarVC = storyboard.instantiateViewController(withIdentifier: "CalendarVC") as! CalendarViewController
-        calendarVC.selectedDate = Calendar.current.date(from: orderDateComponents)
-
-//        calendarVC.calendarMode = .OrderMode
+    func navigateToCalendar(withOrdersDates ordersDates: [Date]?) {
+        let storyboard = UIStoryboard(name: "OrderCalendarShow", bundle: nil)
+        let orderCalendarShowVC = storyboard.instantiateViewController(withIdentifier: "OrderCalendarShowVC") as! OrderCalendarShowViewController
+        orderCalendarShowVC.ordersDates = ordersDates
         
-        viewController.revealViewController().pushFrontViewController(calendarVC, animated: true)
-       
-        // Handler Confirm completion
-        calendarVC.handlerSelectNewDateCompletion = { newDate in
+        viewController.navigationController?.pushViewController(orderCalendarShowVC, animated: true)
+        
+        // Handler select new date completion
+        orderCalendarShowVC.handlerSelectNewDateCompletion = { newDate in
             print(newDate)
-//            self.viewController.orderDateComponents = newOrderDateComponents as? DateComponents
-//            self.viewController.orderDateComponentsDidShow()
+            self.viewController.dateStart = (newDate as! Date).convertToString(withStyle: .DateHyphen)
+            self.viewController.dateEnd = self.viewController.dateStart
+            self.viewController.setupTitleLabel(withDate: newDate as! Date)
+            self.viewController.viewSettingsDidLoad()
         }
     }
 

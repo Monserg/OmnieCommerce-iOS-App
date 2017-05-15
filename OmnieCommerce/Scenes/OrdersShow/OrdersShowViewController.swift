@@ -222,7 +222,7 @@ class OrdersShowViewController: BaseViewController {
         dateEnd = dateStart
         
         orders = [Order]()
-        CoreDataManager.instance.entitiesDidRemove(byName: "Lists", andPredicateParameters: NSPredicate(format: "name == %@", keyOrders))
+        CoreDataManager.instance.entitiesDidRemove(byName: "Lists", andPredicateParameters: NSPredicate(format: "name == %@", "\(keyOrders)-\(self.orderStatus)"))
         ordersListDidLoad(withOffset: 0, scrollingData: false)
     }
     
@@ -238,13 +238,12 @@ class OrdersShowViewController: BaseViewController {
         dateEnd = dateStart
 
         orders = [Order]()
-        CoreDataManager.instance.entitiesDidRemove(byName: "Lists", andPredicateParameters: NSPredicate(format: "name == %@", keyOrders))
+        CoreDataManager.instance.entitiesDidRemove(byName: "Lists", andPredicateParameters: NSPredicate(format: "name == %@", "\(keyOrders)-\(self.orderStatus)"))
         ordersListDidLoad(withOffset: 0, scrollingData: false)
     }
     
     @IBAction func handlerCalendarTitleButtonTap(_ sender: UIButton) {
-        let orderDateComponents = Calendar.current.dateComponents([.month, .day, .year, .hour, .minute], from: currentDate)
-        self.router.navigateToCalendar(orderDateComponents)
+        self.router.navigateToCalendar(withOrdersDates: ordersDates)
     }
     
     @IBAction func handlerOrderStatusesButtonTap(_ sender: DropDownButton) {

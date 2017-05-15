@@ -105,7 +105,7 @@ extension SlideMenuShowViewController: UITableViewDataSource {
         cell.newEventButtonHandlerCompletion = { sender in
             if (sender.tag == 0) {
                 let ordersNC = UIStoryboard(name: "OrdersShow", bundle: nil).instantiateViewController(withIdentifier: "OrdersShowNC") as! BaseNavigationController
-                self.revealViewController().pushFrontViewController(ordersNC.viewControllers.first, animated: true)
+                self.revealViewController().pushFrontViewController(ordersNC, animated: true)
             } else {
                 self.performSegue(withIdentifier: (sender as! MenuViewCell).segueName, sender: self)
             }
@@ -123,7 +123,7 @@ extension SlideMenuShowViewController: UITableViewDelegate {
         
         if indexPath.section == 0 && indexPath.row == 0 {
             let ordersNC = UIStoryboard(name: "OrdersShow", bundle: nil).instantiateViewController(withIdentifier: "OrdersShowNC") as! BaseNavigationController
-            revealViewController().pushFrontViewController(ordersNC.viewControllers.first, animated: true)
+            revealViewController().pushFrontViewController(ordersNC, animated: true)
         } else {
             guard indexPath.section != 3 else {
                 tableView.deselectRow(at: indexPath, animated: true)

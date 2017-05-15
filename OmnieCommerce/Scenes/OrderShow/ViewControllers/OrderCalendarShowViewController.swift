@@ -1,24 +1,25 @@
 //
-//  CalendarViewController.swift
+//  OrderCalendarShowViewController.swift
 //  OmnieCommerce
 //
-//  Created by msm72 on 08.12.16.
-//  Copyright © 2016 Omniesoft. All rights reserved.
+//  Created by msm72 on 15.05.17.
+//  Copyright © 2017 Omniesoft. All rights reserved.
 //
 
 import UIKit
 import JTAppleCalendar
 
-class CalendarViewController: UIViewController {
+class OrderCalendarShowViewController: BaseViewController {
     // MARK: - Properties
-    typealias HandlerSelectNewDateCompletion = ((_ newDate: Date) -> ())
-
-    var handlerSelectNewDateCompletion: HandlerSelectNewDateCompletion?
-
     let firstDayOfWeek: DaysOfWeek = .monday
-    var selectedDate: Date?
+    var ordersDates: [Date]?
     var calculatedDate = Date()
-    
+
+    var handlerSelectNewDateCompletion: HandlerPassDataCompletion?
+
+    // Outlets
+    @IBOutlet weak var contentView: UIView!
+    @IBOutlet weak var smallTopBarView: SmallTopBarView!
     @IBOutlet weak var calendarView: JTAppleCalendarView!
     @IBOutlet weak var titleLabel: UbuntuLightVeryLightGrayLabel!
     @IBOutlet var weekdayLabelsCollection: [UbuntuLightDarkCyanLabel]!
@@ -26,48 +27,63 @@ class CalendarViewController: UIViewController {
     
     // MARK: - Class Functions
     override func viewDidLayoutSubviews() {
-        print("\(#file): \(#function) run in [line \(#line)]")
+        print(object: "\(#file): \(#function) run in [line \(#line)]")
         
         super.viewDidLayoutSubviews()
     }
-    
+
     override func viewDidLoad() {
-        print("\(#file): \(#function) run in [line \(#line)]")
-        
         super.viewDidLoad()
-        
+
         // Delegates
         calendarView.dataSource = self
         calendarView.delegate = self
+
+        // Config smallTopBarView
+        navigationBarView = smallTopBarView
+        smallTopBarView.type = "Child"
+        haveMenuItem = false
         
+        // Handler Back button tap
+        smallTopBarView.handlerSendButtonCompletion = { _ in
+            self.navigationController?.popViewController(animated: true)
+        }
+
         // Register DayCellView from XIB
         calendarView.registerCellViewXib(file: "CalendarDayCellView")
         
         // Setup cells insets
         calendarView.cellInset = CGPoint(x: 10, y: 5)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+
         setupCalendarView()
-        setupSelectedDate()
         
         // Add Calendar scrolling
         calendarView.scrollingMode = .stopAtEachCalendarFrameWidth
-        
         calendarView.scrollToDate(Date())
     }
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    
+
     
     // MARK: - Custom Functions
     func setupCalendarView() {
-        print("\(#file): \(#function) run in [line \(#line)]")
+        print(object: "\(#file): \(#function) run in [line \(#line)]")
         
         // Set weekday symbols
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale.current
         var weekdaySymbols = Array<String>()
         var count: Int = 0
+
+        if let dates = ordersDates {
+            calendarView.selectDates(dates, triggerSelectionDelegate: false)
+        }
         
         for (index, weekdaySymbol) in dateFormatter.shortStandaloneWeekdaySymbols.enumerated() {
             if (index < firstDayOfWeek.rawValue - 1) {
@@ -90,14 +106,10 @@ class CalendarViewController: UIViewController {
         titleLabel.text = date.convertToString(withStyle: .MonthYear)
     }
     
-    func setupSelectedDate() {
-        calendarView.selectDates([selectedDate!], triggerSelectionDelegate: false)
-        handlerSelectNewDateCompletion!(selectedDate!)
-    }
     
     // MARK: - Actions
     @IBAction func handlerPreviuosButtonTap(_ sender: UIButton) {
-        print("\(#file): \(#function) run in [line \(#line)]")
+        print(object: "\(#file): \(#function) run in [line \(#line)]")
         
         calendarView.scrollToSegment(.previous) {
             self.calendarView.visibleDates { (visibleDates: DateSegmentInfo) in
@@ -108,7 +120,7 @@ class CalendarViewController: UIViewController {
     }
     
     @IBAction func handlerNextButtonTap(_ sender: UIButton) {
-        print("\(#file): \(#function) run in [line \(#line)]")
+        print(object: "\(#file): \(#function) run in [line \(#line)]")
         
         self.calendarView.scrollToSegment(.next) {
             self.calendarView.visibleDates { (visibleDates: DateSegmentInfo) in
@@ -121,9 +133,9 @@ class CalendarViewController: UIViewController {
 
 
 // MARK: - JTAppleCalendarViewDataSource
-extension CalendarViewController: JTAppleCalendarViewDataSource {
+extension OrderCalendarShowViewController: JTAppleCalendarViewDataSource {
     func configureCalendar(_ calendar: JTAppleCalendarView) -> ConfigurationParameters {
-        print("\(#file): \(#function) run in [line \(#line)]")
+        print(object: "\(#file): \(#function) run in [line \(#line)]")
         
         let startDate = Calendar.current.date(byAdding: .month, value: -12, to: Date(), wrappingComponents: false)!
         let endDate = Calendar.current.date(byAdding: .month, value: 12, to: Date(), wrappingComponents: false)!
@@ -135,7 +147,7 @@ extension CalendarViewController: JTAppleCalendarViewDataSource {
 
 
 // MARK: - JTAppleCalendarViewDelegate
-extension CalendarViewController: JTAppleCalendarViewDelegate {
+extension OrderCalendarShowViewController: JTAppleCalendarViewDelegate {
     func calendar(_ calendar: JTAppleCalendarView, willDisplayCell cell: JTAppleDayCellView, date: Date, cellState: CellState) {
         let dayCustomCell = cell as! CalendarDayCellView
         
@@ -176,11 +188,12 @@ extension CalendarViewController: JTAppleCalendarViewDelegate {
             }
         }
         
-        handlerSelectNewDateCompletion!(date)
+        handlerSelectNewDateCompletion!(date.globalTime())
+        self.navigationController?.popViewController(animated: true)
     }
     
     func calendar(_ calendar: JTAppleCalendarView, didDeselectDate date: Date, cell: JTAppleDayCellView?, cellState: CellState) {
-        print("\(#function) run in [line \(#line)]")
+        print(object: "\(#function) run in [line \(#line)]")
         
         guard let dayCustomCell = cell as? CalendarDayCellView else {
             return
@@ -192,7 +205,7 @@ extension CalendarViewController: JTAppleCalendarViewDelegate {
     }
     
     func calendar(_ calendar: JTAppleCalendarView, didScrollToDateSegmentWith visibleDates: DateSegmentInfo) {
-        print("\(#function) run in [line \(#line)]")
+        print(object: "\(#function) run in [line \(#line)]")
         
         self.calendarView.visibleDates { (visibleDates: DateSegmentInfo) in
             self.calculatedDate = visibleDates.monthDates[10]

@@ -449,6 +449,8 @@
 		B1D9AD811EA8A40E006A3852 /* Organization+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D9AD7F1EA8A40E006A3852 /* Organization+CoreDataClass.swift */; };
 		B1D9AD821EA8A40E006A3852 /* Organization+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D9AD801EA8A40E006A3852 /* Organization+CoreDataProperties.swift */; };
 		B1DA01B11DF1CB2F00E6DD46 /* UIFont+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DA01B01DF1CB2F00E6DD46 /* UIFont+Ext.swift */; };
+		B1E209A71ECA15C400B0226F /* OrderCalendarShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E209A61ECA15C400B0226F /* OrderCalendarShowViewController.swift */; };
+		B1E209A91ECA15F000B0226F /* OrderCalendarShow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1E209A81ECA15F000B0226F /* OrderCalendarShow.storyboard */; };
 		B1E52AB11DDDD0EA00C3B24D /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E52AB01DDDD0EA00C3B24D /* LaunchScreenViewController.swift */; };
 		B1E52AD31DDDDEC600C3B24D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1E52AD21DDDDEC600C3B24D /* Main.storyboard */; };
 		B1EC9F311E8B7FEF00F2E342 /* FavoriteOrganizationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1EC9F2F1E8B7FEF00F2E342 /* FavoriteOrganizationTableViewCell.swift */; };
@@ -962,6 +964,8 @@
 		B1D9AD7F1EA8A40E006A3852 /* Organization+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Organization+CoreDataClass.swift"; sourceTree = "<group>"; };
 		B1D9AD801EA8A40E006A3852 /* Organization+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Organization+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		B1DA01B01DF1CB2F00E6DD46 /* UIFont+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+Ext.swift"; sourceTree = "<group>"; };
+		B1E209A61ECA15C400B0226F /* OrderCalendarShowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderCalendarShowViewController.swift; sourceTree = "<group>"; };
+		B1E209A81ECA15F000B0226F /* OrderCalendarShow.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = OrderCalendarShow.storyboard; sourceTree = "<group>"; };
 		B1E52AB01DDDD0EA00C3B24D /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewController.swift; sourceTree = "<group>"; };
 		B1E52AD21DDDDEC600C3B24D /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		B1EC9F2F1E8B7FEF00F2E342 /* FavoriteOrganizationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteOrganizationTableViewCell.swift; sourceTree = "<group>"; };
@@ -1080,6 +1084,7 @@
 		B100405E1EB4910400161073 /* OrderShow */ = {
 			isa = PBXGroup;
 			children = (
+				B1E209A51ECA158700B0226F /* ViewControllers */,
 				B19375501EB4CB6200B48399 /* Views */,
 				B100405F1EB4912400161073 /* OrderShowConfigurator.swift */,
 				B10040601EB4912400161073 /* OrderShowInteractor.swift */,
@@ -1334,6 +1339,7 @@
 				B122F22B1DD35E550018A701 /* MessagesShow.storyboard */,
 				B122F2311DD35EF10018A701 /* NewsShow.storyboard */,
 				B1CF54EB1DDB57C300E98049 /* OmnieCardsShow.storyboard */,
+				B1E209A81ECA15F000B0226F /* OrderCalendarShow.storyboard */,
 				B100405C1EB4903200161073 /* OrderShow.storyboard */,
 				B122F2291DD35D6F0018A701 /* OrdersShow.storyboard */,
 				B1BEEDF61E6368F000F1DE8A /* OrganizationShow.storyboard */,
@@ -2142,6 +2148,14 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		B1E209A51ECA158700B0226F /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				B1E209A61ECA15C400B0226F /* OrderCalendarShowViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		B1EC9F2E1E8B7FD300F2E342 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -2387,6 +2401,7 @@
 				B122F22C1DD35E550018A701 /* MessagesShow.storyboard in Resources */,
 				B11CDCCA1E9F5DC400E52FDE /* ScheduleTableViewCell.xib in Resources */,
 				B1CF54E61DDB552300E98049 /* PersonalPageShow.storyboard in Resources */,
+				B1E209A91ECA15F000B0226F /* OrderCalendarShow.storyboard in Resources */,
 				B122F2481DD393330018A701 /* Localizable.strings in Resources */,
 				B1390FFD1E8D1E4B00BD9219 /* FavoriteServiceTableViewCell.xib in Resources */,
 				B122DF5A1DF7F901003823AD /* CalendarShow.storyboard in Resources */,
@@ -2764,6 +2779,7 @@
 				B100406A1EB4912400161073 /* OrderShowRouter.swift in Sources */,
 				B14C07201EA0993800556866 /* ServicesShowModels.swift in Sources */,
 				B1CF54791DDB50D900E98049 /* AboutShowPresenter.swift in Sources */,
+				B1E209A71ECA15C400B0226F /* OrderCalendarShowViewController.swift in Sources */,
 				B122F1F71DD35BC70018A701 /* FavoriteShowConfigurator.swift in Sources */,
 				B177E53A1E5475EC004F1390 /* SignInContainerShowWorker.swift in Sources */,
 				B122F2061DD35BEB0018A701 /* CategoriesShowInteractor.swift in Sources */,
