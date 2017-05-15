@@ -38,13 +38,15 @@ public class Discount: NSManagedObject, InitCellParameters {
         self.dateStart = dateStart.convertToDate(withDateFormat: .ResponseDate) as NSDate
         self.dateEnd = dateEnd.convertToDate(withDateFormat: .ResponseDate) as NSDate
         
-        if let organization = managedObject as? Organization {
-            self.organization = organization
+        if let organizationID = json["orgUuid"] as? String {
+            self.organizationID = organizationID
         }
-
-//        if let additionalService = managedObject as? AdditionalService {
-//            self.additionalService = additionalService
-//        }
+        
+        if let organization = managedObject as? Organization {
+            if let organizationCodeID = self.organizationID, organizationCodeID == organization.codeID {
+                self.organization = organization
+            }
+        }
 
         if let service = managedObject as? Service {
             self.service = service

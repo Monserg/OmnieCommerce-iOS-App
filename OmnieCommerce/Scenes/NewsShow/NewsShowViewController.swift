@@ -61,9 +61,7 @@ class NewsShowViewController: BaseViewController {
                 
         // Container Child Views
         newsDataVC = UIStoryboard(name: "NewsShow", bundle: nil).instantiateViewController(withIdentifier: "NewsDataShowVC") as? NewsDataShowViewController
-        
         newsActionsVC = UIStoryboard(name: "NewsShow", bundle: nil).instantiateViewController(withIdentifier: "NewsActionsShowVC") as? NewsActionsShowViewController
-        
         activeViewController = newsDataVC
         
         viewSettingsDidLoad()

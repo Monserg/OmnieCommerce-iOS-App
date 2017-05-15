@@ -33,7 +33,7 @@ public class Review: NSManagedObject, InitCellParameters {
     
     
     // MARK: - Class Initialization
-    convenience init?(json: [String: AnyObject], andType type: ReviewType) {
+    convenience init?(json: [String: AnyObject], forManagedObject managedObject: NSManagedObject, withType type: ReviewType) {
         guard let dateCreate = json["date"] as? String, let rating = json["rating"] as? Double else {
             return nil
         }
@@ -54,29 +54,35 @@ public class Review: NSManagedObject, InitCellParameters {
         if let userName = json["userName"] as? String {
             self.userName = userName
         }
-        
+
+        if let userID = json["userId"] as? String {
+            self.userID = userID
+        }
+
         if let content = json["review"] as? String {
             self.content = content
         }
         
-        switch type {
-        case .UserReview:
-            if let userID = json["userId"] as? String {
-                let user = CoreDataManager.instance.entityDidLoad(byName: "User", andPredicateParameter: userID) as! AppUser
-//                self.user = user
-            }
-            
-        case .OrganizationReview:
-            if let organizationID = json["organizationId"] as? String {
-                let organization = CoreDataManager.instance.entityDidLoad(byName: "Organization", andPredicateParameter: organizationID) as! Organization
-                self.organizationReview = organization
-            }
+        if let organization = managedObject as? Organization {
+            self.organization = organization
+        }
 
-        case .ServiceReview:
-            if let serviceID = json["serviceId"] as? String {
-                let service = CoreDataManager.instance.entityDidLoad(byName: "Service", andPredicateParameter: serviceID) as! Service
-//                self.service = service
-            }
+        if let organization = managedObject as? Organization {
+            self.organization = organization
+            self.codeID = "\(organization.codeID)-\(type.rawValue)"
+        }
+
+        if let serviceID = json["serviceId"] as? String {
+            self.serviceID = serviceID
+            self.codeID = "\(serviceID)-\(type.rawValue)"
+        }
+        
+        if let service = managedObject as? Service {
+            self.service = service
+        }
+        
+        if let imageID = json["userStaticUrl"] as? String {
+            self.imageID = imageID
         }
     }
     

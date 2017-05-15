@@ -35,19 +35,15 @@ class OrdersShowPresenter: OrdersShowPresenterInput {
         }
         
         // Convert responseAPI body to Order CoreData objects
-        if let ordersList = responseModel.responseAPI!.body as? [Any], ordersList.count > 0 {
-            for json in ordersList {
-                let item = Order.init(json: json as! [String: AnyObject])
-                
-                if let order = item {
-                    order.catalog = keyOrders
-                    CoreDataManager.instance.didSaveContext()
+        if let ordersList = responseModel.responseAPI!.body as? [Any] {
+            if (ordersList.count > 0) {
+                for json in ordersList {
+                    _ = Order.init(json: json as! [String: AnyObject], forLists: keyOrders)
                 }
                 
-                let ordersViewModel = OrdersShowModels.Orders.ViewModel(status: (responseModel.responseAPI?.status)!)
-                self.viewController.ordersDidShowLoad(fromViewModel: ordersViewModel)
+                CoreDataManager.instance.didSaveContext()
             }
-        } else {
+        
             let ordersViewModel = OrdersShowModels.Orders.ViewModel(status: (responseModel.responseAPI?.status)!)
             self.viewController.ordersDidShowLoad(fromViewModel: ordersViewModel)
         }

@@ -24,9 +24,9 @@ extension AdditionalService {
     @NSManaged public var maxValue: Double
     @NSManaged public var price: Double
     @NSManaged public var duration: Double
+    @NSManaged public var isAvailable: Bool
     @NSManaged public var service: Service?
     @NSManaged public var discounts: NSSet?
-    @NSManaged public var isAvailable: Bool
 
 }
 

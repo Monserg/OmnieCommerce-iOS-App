@@ -65,9 +65,9 @@
         <attribute name="dateStart" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="isUserDiscount" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="name" attributeType="String" syncable="YES"/>
+        <attribute name="organizationID" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="percent" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="status" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
-        <relationship name="additionalService" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="AdditionalService" syncable="YES"/>
         <relationship name="organization" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Organization" inverseName="discounts" inverseEntity="Organization" syncable="YES"/>
         <relationship name="service" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Service" inverseName="discounts" inverseEntity="Service" syncable="YES"/>
         <uniquenessConstraints>
@@ -77,7 +77,7 @@
         </uniquenessConstraints>
     </entity>
     <entity name="GalleryImage" representedClassName="GalleryImage" syncable="YES">
-        <attribute name="imageID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="imageID" attributeType="String" syncable="YES"/>
         <attribute name="serviceID" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="serviceName" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="organization" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Organization" inverseName="images" inverseEntity="Organization" syncable="YES"/>
@@ -92,7 +92,8 @@
         <attribute name="name" attributeType="String" syncable="YES"/>
         <relationship name="categories" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Category" inverseName="categoriesList" inverseEntity="Category" syncable="YES"/>
         <relationship name="news" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="NewsData" inverseName="newsList" inverseEntity="NewsData" syncable="YES"/>
-        <relationship name="organizations" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Organization" inverseName="lists" inverseEntity="Organization" syncable="YES"/>
+        <relationship name="orders" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Order" inverseName="lists" inverseEntity="Order" syncable="YES"/>
+        <relationship name="organizations" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Organization" inverseName="lists" inverseEntity="Organization" syncable="YES"/>
         <relationship name="services" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Service" inverseName="lists" inverseEntity="Service" syncable="YES"/>
         <uniquenessConstraints>
             <uniquenessConstraint>
@@ -117,19 +118,19 @@
         </uniquenessConstraints>
     </entity>
     <entity name="Order" representedClassName="Order" syncable="YES">
-        <attribute name="catalog" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="codeID" attributeType="String" syncable="YES"/>
         <attribute name="comment" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="dateEnd" attributeType="String" syncable="YES"/>
+        <attribute name="dateEnd" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="dateStart" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
-        <attribute name="discount" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="isAvailable" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="logoURL" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="discount" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="imageID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="isAvailable" optional="YES" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="organizationName" attributeType="String" syncable="YES"/>
-        <attribute name="price" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="priceTotal" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="price" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="priceTotal" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="serviceName" attributeType="String" syncable="YES"/>
         <attribute name="status" attributeType="String" syncable="YES"/>
+        <relationship name="lists" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Lists" inverseName="orders" inverseEntity="Lists" syncable="YES"/>
         <uniquenessConstraints>
             <uniquenessConstraint>
                 <constraint value="codeID"/>
@@ -157,7 +158,7 @@
         <relationship name="discounts" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Discount" inverseName="organization" inverseEntity="Discount" syncable="YES"/>
         <relationship name="images" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="GalleryImage" inverseName="organization" inverseEntity="GalleryImage" syncable="YES"/>
         <relationship name="lists" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Lists" inverseName="organizations" inverseEntity="Lists" syncable="YES"/>
-        <relationship name="organizationReviews" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Review" inverseName="organizationReview" inverseEntity="Review" syncable="YES"/>
+        <relationship name="reviews" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Review" inverseName="organization" inverseEntity="Review" syncable="YES"/>
         <relationship name="schedules" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Schedule" inverseName="organization" inverseEntity="Schedule" syncable="YES"/>
         <relationship name="services" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Service" inverseName="organization" inverseEntity="Service" syncable="YES"/>
         <uniquenessConstraints>
@@ -174,6 +175,7 @@
         <attribute name="price" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="ruleTimeEnd" attributeType="String" syncable="YES"/>
         <attribute name="ruleTimeStart" attributeType="String" syncable="YES"/>
+        <attribute name="serviceID" attributeType="String" syncable="YES"/>
         <attribute name="unit" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="unitName" attributeType="String" syncable="YES"/>
         <relationship name="service" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Service" inverseName="prices" inverseEntity="Service" syncable="YES"/>
@@ -184,13 +186,22 @@
         </uniquenessConstraints>
     </entity>
     <entity name="Review" representedClassName="Review" syncable="YES">
+        <attribute name="codeID" attributeType="String" syncable="YES"/>
         <attribute name="content" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="dateCreate" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="imageID" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="rating" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="serviceID" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="typeValue" attributeType="String" syncable="YES"/>
+        <attribute name="userID" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="userName" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="organizationReview" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Organization" inverseName="organizationReviews" inverseEntity="Organization" syncable="YES"/>
+        <relationship name="organization" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Organization" inverseName="reviews" inverseEntity="Organization" syncable="YES"/>
+        <relationship name="service" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Service" inverseName="reviews" inverseEntity="Service" syncable="YES"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="codeID"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
     </entity>
     <entity name="Schedule" representedClassName="Schedule" syncable="YES">
         <attribute name="codeID" attributeType="String" syncable="YES"/>
@@ -233,6 +244,7 @@
         <relationship name="lists" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Lists" inverseName="services" inverseEntity="Lists" syncable="YES"/>
         <relationship name="organization" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Organization" inverseName="services" inverseEntity="Organization" syncable="YES"/>
         <relationship name="prices" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Price" inverseName="service" inverseEntity="Price" syncable="YES"/>
+        <relationship name="reviews" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Review" inverseName="service" inverseEntity="Review" syncable="YES"/>
         <uniquenessConstraints>
             <uniquenessConstraint>
                 <constraint value="codeID"/>
@@ -278,14 +290,14 @@
         <element name="Category" positionX="270" positionY="-72" width="128" height="135"/>
         <element name="Discount" positionX="162" positionY="99" width="128" height="195"/>
         <element name="GalleryImage" positionX="-36" positionY="99" width="128" height="120"/>
-        <element name="Lists" positionX="144" positionY="81" width="128" height="120"/>
+        <element name="Lists" positionX="144" positionY="81" width="128" height="135"/>
         <element name="NewsData" positionX="-36" positionY="99" width="128" height="180"/>
         <element name="Order" positionX="144" positionY="81" width="128" height="240"/>
         <element name="Organization" positionX="-36" positionY="99" width="128" height="390"/>
-        <element name="Price" positionX="180" positionY="117" width="128" height="195"/>
-        <element name="Review" positionX="171" positionY="108" width="128" height="150"/>
+        <element name="Price" positionX="180" positionY="117" width="128" height="210"/>
+        <element name="Review" positionX="171" positionY="108" width="128" height="210"/>
         <element name="Schedule" positionX="153" positionY="90" width="128" height="165"/>
-        <element name="Service" positionX="-36" positionY="117" width="128" height="420"/>
+        <element name="Service" positionX="-36" positionY="117" width="128" height="435"/>
         <element name="Subcategory" positionX="475" positionY="-69" width="128" height="105"/>
         <element name="TimeSheet" positionX="144" positionY="81" width="128" height="150"/>
         <element name="TimeSheetItem" positionX="153" positionY="90" width="128" height="105"/>

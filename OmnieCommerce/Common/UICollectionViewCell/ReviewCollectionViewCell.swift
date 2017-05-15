@@ -17,7 +17,7 @@ class ReviewCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var userNameLabel: UbuntuLightVeryLightGrayLabel!
     @IBOutlet weak var userRatingView: CosmosView!
     @IBOutlet weak var dateLabel: UbuntuLightItalicVeryDarkGrayishBlueLabel!
-    @IBOutlet weak var userImage: CustomImageView!
+    @IBOutlet weak var userImageView: CustomImageView!
     
     @IBOutlet weak var noteLabel: UbuntuLightItalicVeryLightGrayLabel! {
         didSet {
@@ -55,25 +55,23 @@ class ReviewCollectionViewCell: UICollectionViewCell {
 extension ReviewCollectionViewCell: ConfigureCell {
     func setup(withItem item: Any, andIndexPath indexPath: IndexPath) {
         let review = item as! Review
+        
         userNameLabel.text = review.userName ?? "Zorro"
         userRatingView.rating = review.rating
         dateLabel.text = (review.dateCreate as Date).convertToString(withStyle: .DateDot)
         noteLabel.text = review.content ?? "Empty"
 
-//        @IBOutlet weak var userImage: CustomImageView!
-        
-
-//        if let imagePath = galleryImage.imagePath {
-//            imageButton.kf.setImage(with: ImageResource(downloadURL: URL(string: imagePath)!, cacheKey: "imagePath-\(indexPath.row)"), for: .normal,
-//                                    placeholder: UIImage.init(named: "image-no-photo"),
-//                                    options: [.transition(ImageTransition.fade(1)),
-//                                              .processor(ResizingImageProcessor(targetSize: imageButton.frame.size,
-//                                                                                contentMode: .aspectFill))],
-//                                    completionHandler: { image, error, cacheType, imageURL in
-//                                        self.imageButton.imageView?.kf.cancelDownloadTask()
-//            })
-//        } else {
-//            imageButton.setImage(UIImage.init(named: "image-no-photo"), for: .normal)
-//        }
+        if let imagePath = review.imageID {
+            userImageView.kf.setImage(with: ImageResource(downloadURL: URL(string: imagePath)!, cacheKey: "imagePath-\(indexPath.row)"),
+                                      placeholder: UIImage.init(named: "image-no-photo"),
+                                      options: [.transition(ImageTransition.fade(1)),
+                                                .processor(ResizingImageProcessor(referenceSize: userImageView.frame.size,
+                                                                                  mode: .aspectFill))],
+                                      completionHandler: { image, error, cacheType, imageURL in
+                                        self.userImageView.kf.cancelDownloadTask()
+            })
+        } else {
+            userImageView.image = UIImage.init(named: "image-no-photo")
+        }
     }
 }

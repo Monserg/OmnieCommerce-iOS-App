@@ -41,6 +41,10 @@ public class Price: NSManagedObject, InitCellParameters {
         self.ruleTimeStart = ruleTimeStart
         self.ruleTimeEnd = ruleTimeEnd
         
+        if let serviceID = json["serviceId"] as? String {
+            self.serviceID = serviceID
+        }
+
         if let service = managedObject as? Service {
             self.service = service
         }

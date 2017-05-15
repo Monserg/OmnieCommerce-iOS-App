@@ -221,7 +221,7 @@ class ServiceShowViewController: BaseViewController {
     
     func serviceProfileDidShow() {
         // Setting Service profile info
-        let predicate = NSPredicate(format: "codeID == %@ AND catalog == %@", serviceID, "ServiceItem")
+        let predicate = NSPredicate(format: "codeID == %@", serviceID)
         serviceProfile = CoreDataManager.instance.entityDidLoad(byName: "Service", andPredicateParameters: predicate) as! Service
         
         smallTopBarView.titleText = serviceProfile.organizationName ?? "Zorro"
@@ -259,48 +259,47 @@ class ServiceShowViewController: BaseViewController {
             view.setNeedsLayout()
         }
 
-        // Discounts view
-        if let discounts = serviceProfile.discounts, discounts.count > 0 {
-            // Show/Hide Common discounts
-            let discountsCommon = CoreDataManager.instance.entitiesDidLoad(byName: "Discount", andPredicateParameter: ["isUserDiscount": false])
+        // Common discounts
+        var discounts: Int = 0
+        
+        if let discountsCommon = CoreDataManager.instance.entitiesDidLoad(byName: "Discount", andPredicateParameters: NSPredicate.init(format: "ANY isUserDiscount == \(false)")), discountsCommon.count > 0 {
+            discountCommonStackView.isHidden = false
+            discounts += discountsCommon.count
             
-            if (discountsCommon!.count > 0) {
-                discountCommonStackView.isHidden = false
-                
-                let discountCommonTableManager = MSMTableViewControllerManager.init(withTableView: discountsCommonTableView,
-                                                                                    andSectionsCount: 1,
-                                                                                    andEmptyMessageText: "Common discounts list is empty")
-                
-                discountsCommonTableView.tableViewControllerManager = discountCommonTableManager
-                discountsCommonTableView.tableViewControllerManager!.dataSource = discountsCommon!
-                discountsCommonTableView.tableFooterView!.isHidden = true
-                discountCommonTableViewHeightConstraint.constant = CGFloat(50.0 + 50.0 * Double(discountsCommon!.count)) * view.heightRatio
-                
-                discountsCommonTableView.reloadData()
-            } else {
-                discountCommonStackView.isHidden = true
-            }
+            let discountCommonTableManager = MSMTableViewControllerManager.init(withTableView: discountsCommonTableView,
+                                                                                andSectionsCount: 1,
+                                                                                andEmptyMessageText: "Common discounts list is empty")
             
-            // Show/Hide User discounts
-            let discountsUser = CoreDataManager.instance.entitiesDidLoad(byName: "Discount", andPredicateParameter: ["isUserDiscount": true])
+            discountsCommonTableView.tableViewControllerManager = discountCommonTableManager
+            discountsCommonTableView.tableViewControllerManager!.dataSource = discountsCommon
+            discountsCommonTableView.tableFooterView!.isHidden = true
+            discountCommonTableViewHeightConstraint.constant = CGFloat(50.0 + 50.0 * Double(discountsCommon.count)) * view.heightRatio
             
-            if (discountsUser!.count > 0) {
-                discountUserStackView.isHidden = false
-                
-                let discountsUserTableManager = MSMTableViewControllerManager.init(withTableView: discountsUserTableView,
-                                                                                   andSectionsCount: 1,
-                                                                                   andEmptyMessageText: "User discounts list is empty")
-                
-                discountsUserTableView.tableViewControllerManager = discountsUserTableManager
-                discountsUserTableView.tableViewControllerManager!.dataSource = discountsUser!
-                discountsUserTableView.tableFooterView!.isHidden = true
-                discountsUserTableViewHeightConstraint.constant = CGFloat(61.0 + 50.0 * Double(discountsUser!.count)) * view.heightRatio
-                
-                discountsUserTableView.reloadData()
-            } else {
-                discountUserStackView.isHidden = true
-            }
+            discountsCommonTableView.reloadData()
+        } else {
+            discountCommonStackView.isHidden = true
+        }
+        
+        // Show/Hide User discounts
+        if let discountsUser = CoreDataManager.instance.entitiesDidLoad(byName: "Discount", andPredicateParameters: NSPredicate.init(format: "ANY isUserDiscount == \(true)")), discountsUser.count > 0 {
+            discountUserStackView.isHidden = false
+            discounts += discountsUser.count
+
+            let discountsUserTableManager = MSMTableViewControllerManager.init(withTableView: discountsUserTableView,
+                                                                               andSectionsCount: 1,
+                                                                               andEmptyMessageText: "User discounts list is empty")
             
+            discountsUserTableView.tableViewControllerManager = discountsUserTableManager
+            discountsUserTableView.tableViewControllerManager!.dataSource = discountsUser
+            discountsUserTableView.tableFooterView!.isHidden = true
+            discountsUserTableViewHeightConstraint.constant = CGFloat(61.0 + 50.0 * Double(discountsUser.count)) * view.heightRatio
+            
+            discountsUserTableView.reloadData()
+        } else {
+            discountUserStackView.isHidden = true
+        }
+        
+        if (discounts > 0) {
             discountsViewHeightConstraint.constant = discountCommonTableViewHeightConstraint.constant + discountsUserTableViewHeightConstraint.constant
             self.discountsView.layoutIfNeeded()
         } else {
@@ -308,7 +307,7 @@ class ServiceShowViewController: BaseViewController {
         }
 
         // Gallery view
-        if let images = serviceProfile.images, images.count > 0 {
+        if let images = CoreDataManager.instance.entitiesDidLoad(byName: "GalleryImage", andPredicateParameters: NSPredicate.init(format: "service.codeID == %@", serviceProfile.codeID)), images.count > 0 {
             galleryView.isHidden = false
             
             let galleryManager = MSMCollectionViewControllerManager(withCollectionView: galleryCollectionView)
@@ -329,7 +328,7 @@ class ServiceShowViewController: BaseViewController {
         }
 
         // Additional Services view
-        if let additionalServicesList = serviceProfile.additionalServices, additionalServicesList.count > 0 {
+        if let additionalServicesList = CoreDataManager.instance.entitiesDidLoad(byName: "AdditionalService", andPredicateParameters: NSPredicate.init(format: "service.codeID == %@", serviceProfile.codeID)), additionalServicesList.count > 0 {
             additionalServicesView.isHidden = false
             
             let additionalServicesTableManager = MSMTableViewControllerManager.init(withTableView: additionalServicesTableView,
@@ -358,49 +357,37 @@ class ServiceShowViewController: BaseViewController {
         
         
         // Service reviews
-        // TODO: - ADD SHOW REVIEWS AFTER CHANGE API
-        reviewsView.isHidden = true
-
-        /*
-        var reviews = [Any]()
-        
-        if let serviceReviews = serviceProfile.revi {
-            reviews.append(contentsOf: organizationReviews)
+        if let serviceReviews = CoreDataManager.instance.entitiesDidLoad(byName: "Review", andPredicateParameters: NSPredicate.init(format: "ANY codeID == %@", "\(serviceProfile.codeID)-ServiceReview")), serviceReviews.count > 0 {
+            reviewsView.isHidden = false
+            
+            let reviewsManager = MSMCollectionViewControllerManager(withCollectionView: reviewsCollectionView)
+            reviewsCollectionView.collectionViewControllerManager = reviewsManager
+            reviewsCollectionView.collectionViewControllerManager!.sectionsCount = 1
+            reviewsCollectionView.collectionViewControllerManager!.dataSource = serviceReviews
+            reviewsCollectionView.collectionViewControllerManager.collectionView.reloadData()
+            
+            // Handler Review select
+            reviewsCollectionView.collectionViewControllerManager!.handlerCellSelectCompletion = { item in }
+            
+            // Handler Navigation button tap
+            reviewsCollectionView.collectionViewControllerManager.handlerNavigationButtonTapCompletion = { item in
+                self.view.layoutIfNeeded()
+                self.reviewsCollectionView.scrollToItem(at: IndexPath(item: item as! Int, section: 0), at: .centeredHorizontally, animated: true)
+            }
+        } else {
+            reviewsView.isHidden = true
         }
         
-        //        let serviceReviews = CoreDataManager.instance.entitiesDidLoad(byName: "Review", andPredicateParameter: "ServiceReview")
-        //        organizationReviews!.append(contentsOf: serviceReviews!)
-        reviewsView.isHidden = (reviews.count > 0) ? false : true
-        
-        let reviewsManager = MSMCollectionViewControllerManager(withCollectionView: reviewsCollectionView)
-        reviewsCollectionView.collectionViewControllerManager = reviewsManager
-        reviewsCollectionView.collectionViewControllerManager!.sectionsCount = 1
-        reviewsCollectionView.collectionViewControllerManager!.dataSource = reviews
-        reviewsCollectionView.collectionViewControllerManager.collectionView.reloadData()
-        
-        // Handler Review select
-        reviewsCollectionView.collectionViewControllerManager!.handlerCellSelectCompletion = { item in }
-        
-        // Handler Navigation button tap
-        reviewsCollectionView.collectionViewControllerManager.handlerNavigationButtonTapCompletion = { item in
-            self.view.layoutIfNeeded()
-            self.reviewsCollectionView.scrollToItem(at: IndexPath(item: item as! Int, section: 0), at: .centeredHorizontally, animated: true)
-        }
-        */
-        
-        
-        // Rating view
-        // TODO: - MODIFY AFTER CHANGE REVIEW API
-        ratingView.isHidden = true
-        
-        /*
+        // User review
         if !(serviceProfile.canUserSendReview) {
             ratingView.isHidden = false
-            let userReview = CoreDataManager.instance.entityDidLoad(byName: "Review", andPredicateParameter: "UserReview") as! Review
+            
+            let userReview = CoreDataManager.instance.entityDidLoad(byName: "Review", andPredicateParameters: NSPredicate.init(format: "codeID == %@", "\(serviceProfile.codeID)-UserReview")) as! Review
+            
             userNameLabel.text = userReview.userName ?? "Zorro"
             cosmosView.rating = userReview.rating
             
-            if let imagePath = CoreDataManager.instance.appUser.imagePath {
+            if let imagePath = userReview.imageID {
                 userAvatarImageView.kf.setImage(with: ImageResource(downloadURL: URL(string: imagePath)!, cacheKey: imagePath),
                                                 placeholder: UIImage.init(named: "image-no-user"),
                                                 options: [.transition(ImageTransition.fade(1)),
@@ -416,12 +403,9 @@ class ServiceShowViewController: BaseViewController {
             cosmosView.didFinishTouchingCosmos = { _ in
                 self.modalViewDidShow(withHeight: 285, customSubview: ReviewsView(), andValues: nil)
             }
-            
         } else {
             ratingView.isHidden = true
         }
-        */
-        
         
         smallTopBarView.actionButton.isHidden = false
         self.view.layoutIfNeeded()

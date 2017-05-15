@@ -212,7 +212,7 @@
             <connections>
                 <outlet property="dateLabel" destination="Apf-Qh-jRv" id="cN2-aA-ARc"/>
                 <outlet property="noteLabel" destination="KPj-IR-ubz" id="Hcr-uG-19Z"/>
-                <outlet property="userImage" destination="MVe-AP-rnt" id="Yna-z3-u1J"/>
+                <outlet property="userImageView" destination="MVe-AP-rnt" id="XLX-67-P8C"/>
                 <outlet property="userNameLabel" destination="xtz-wl-bK3" id="o1E-Iq-Jn5"/>
                 <outlet property="userRatingView" destination="277-XF-kJ7" id="DFN-MC-7Qt"/>
             </connections>

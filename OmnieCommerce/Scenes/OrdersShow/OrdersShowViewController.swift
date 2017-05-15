@@ -26,6 +26,7 @@ class OrdersShowViewController: BaseViewController {
     var router: OrdersShowRouter!
     
     var orders = [Order]()
+    var ordersDates: [Date]? = UserDefaults.standard.array(forKey: keyOrders) as? [Date]
 
     var limit: Int!
     var dateEnd: String!
@@ -47,6 +48,7 @@ class OrdersShowViewController: BaseViewController {
             orderStatesDropDownTableView.tableViewControllerManager = orderStatesTableManager
             orderStatesDropDownTableView.alpha = 0
             
+            // TODO: - CREATE DROPDOWN LIST ORDERS STATUSES
 //            var orderStates = CoreDataManager.instance.entitiesDidLoad(byName: "OrderState",
 //                                                                       andPredicateParameter: ["order.codeID": order!.codeID])
 //            
@@ -93,7 +95,14 @@ class OrdersShowViewController: BaseViewController {
         navigationBarView = smallTopBarView
         smallTopBarView.type = "Parent"
         haveMenuItem = true
-        currentDate = Date()
+        
+        if (ordersDates == nil) {
+            currentDate = Date()
+            ordersDates = [currentDate!]
+        } else {
+            currentDate = ordersDates!.last
+        }
+        
         dateStart = currentDate.convertToString(withStyle: .DateHyphen)
         dateEnd = dateStart
         orderStatus = "DONE"
@@ -119,7 +128,7 @@ class OrdersShowViewController: BaseViewController {
         // Load Orders list from API
         if (isNetworkAvailable) {
             orders = [Order]()
-//            CoreDataManager.instance.entitiesDidRemove(byName: "Order", andPredicateParameter: keyOrders)
+            CoreDataManager.instance.entitiesDidRemove(byName: "Lists", andPredicateParameters: NSPredicate(format: "name == %@", keyOrders))
             ordersListDidLoad(withOffset: 0, scrollingData: false)
         } else {
             spinnerDidFinish()
@@ -166,7 +175,7 @@ class OrdersShowViewController: BaseViewController {
         tableView.tableViewControllerManager!.handlerPullRefreshCompletion = { _ in
             // Reload Orders list from API
             self.orders = [Order]()
-//            CoreDataManager.instance.entitiesDidRemove(byName: "Order", andPredicateParameter: keyOrders)
+            CoreDataManager.instance.entitiesDidRemove(byName: "Lists", andPredicateParameters: NSPredicate(format: "name == %@", keyOrders))
             self.limit = Config.Constants.paginationLimit
             self.ordersListDidLoad(withOffset: 0, scrollingData: true)
         }
@@ -193,22 +202,34 @@ class OrdersShowViewController: BaseViewController {
     
     // MARK: - Actions
     @IBAction func handlerPreviousButtonTap(_ sender: UIButton) {
-        currentDate = Calendar.current.date(byAdding: .day, value: -1, to: currentDate)!
+        let currentIndex = ordersDates!.index(of: currentDate)!
+        let previousIndex = ordersDates!.index(before: currentIndex)
+        
+        if (previousIndex > 0) {
+            currentDate = ordersDates![previousIndex]
+        }
+
         dateStart = currentDate.convertToString(withStyle: .DateHyphen)
         dateEnd = dateStart
         
         orders = [Order]()
-//        CoreDataManager.instance.entitiesDidRemove(byName: "Order", andPredicateParameter: keyOrders)
+        CoreDataManager.instance.entitiesDidRemove(byName: "Lists", andPredicateParameters: NSPredicate(format: "name == %@", keyOrders))
         ordersListDidLoad(withOffset: 0, scrollingData: false)
     }
     
     @IBAction func handlerNextButtonTap(_ sender: UIButton) {
-        currentDate = Calendar.current.date(byAdding: .day, value: 1, to: currentDate)!
+        let currentIndex = ordersDates!.index(of: currentDate)!
+        let nextIndex = ordersDates!.index(after: currentIndex)
+        
+        if (nextIndex < ordersDates!.count) {
+            currentDate = ordersDates![nextIndex]
+        }
+        
         dateStart = currentDate.convertToString(withStyle: .DateHyphen)
         dateEnd = dateStart
 
         orders = [Order]()
-//        CoreDataManager.instance.entitiesDidRemove(byName: "Order", andPredicateParameter: keyOrders)
+        CoreDataManager.instance.entitiesDidRemove(byName: "Lists", andPredicateParameters: NSPredicate(format: "name == %@", keyOrders))
         ordersListDidLoad(withOffset: 0, scrollingData: false)
     }
 }

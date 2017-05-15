@@ -135,8 +135,6 @@ public class Service: NSManagedObject, InitCellParameters, PointAnnotationBindin
         
         // Prices
         if let prices = json["servicePrices"] as? [Any] {
-            self.prices = NSSet()
-            
             for json in prices {
                 self.addToPrices(Price.init(json: json as! [String: AnyObject], andNSManagedObject: self)!)
             }
@@ -148,9 +146,7 @@ public class Service: NSManagedObject, InitCellParameters, PointAnnotationBindin
 //        }
         
         // Common discounts
-        self.discounts = NSSet()
-        
-        if let commonDiscounts = json["discountsCommon"] as? NSArray {
+        if let commonDiscounts = json["discountsCommon"] as? NSArray, commonDiscounts.count > 0 {
             for dictionary in commonDiscounts {
                 let discountCommon = Discount.init(json: dictionary as! [String : AnyObject], andRelationshipObject: self)!
                 discountCommon.isUserDiscount = false
@@ -160,7 +156,7 @@ public class Service: NSManagedObject, InitCellParameters, PointAnnotationBindin
         }
         
         // User discounts
-        if let userDiscounts = json["discountsUser"] as? NSArray {
+        if let userDiscounts = json["discountsUser"] as? NSArray, userDiscounts.count > 0 {
             for dictionary in userDiscounts {
                 let discountUser = Discount.init(json: dictionary as! [String : AnyObject], andRelationshipObject: self)!
                 discountUser.isUserDiscount = true
@@ -176,8 +172,6 @@ public class Service: NSManagedObject, InitCellParameters, PointAnnotationBindin
         
         // Additional services
         if let additionalServices = json["subServiceList"] as? [Any] {
-            self.additionalServices = NSSet()
-            
             for json in additionalServices {
                 self.addToAdditionalServices(AdditionalService.init(json: json as! [String: AnyObject], andRelationshipObject: self)!)
             }
@@ -192,8 +186,17 @@ public class Service: NSManagedObject, InitCellParameters, PointAnnotationBindin
             }
         }
         
-        // Reviews
-        // TODO: - ADD MAPPING REVIEWS AFTER CHANGE API
+        // Own Review
+        if let userReview = json["ownReview"] as? [String: AnyObject] {
+            self.addToReviews(Review.init(json: userReview, forManagedObject: self, withType: .UserReview)!)
+        }
+
+        // Service Reviews
+        if let serviceReviews = json["serviceReviews"] as? NSArray, serviceReviews.count > 0 {
+            for serviceReview in serviceReviews {
+                self.addToReviews(Review.init(json: serviceReview as! [String: AnyObject], forManagedObject: self, withType: .ServiceReview)!)
+            }
+        }
     }
 
     deinit {

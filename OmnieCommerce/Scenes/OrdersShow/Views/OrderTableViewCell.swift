@@ -18,7 +18,7 @@ class OrderTableViewCell: UITableViewCell, DottedBorderViewBinding {
     @IBOutlet weak var dateLabel: UbuntuLightItalicLightGrayishCyanLabel!
 
     // Outlets
-    @IBOutlet weak var logoImageView: CustomImageView!
+    @IBOutlet weak var organizationImageView: CustomImageView!
     @IBOutlet weak var stateButton: BorderTitleButton!
     
     @IBOutlet weak var dottedBorderView: DottedBorderView! {
@@ -60,17 +60,17 @@ extension OrderTableViewCell: ConfigureCell {
         dateLabel.text = (order.dateStart as Date).convertToString(withStyle: .DateDot)
         stateButton.titleOriginal = order.status
         
-        if let imagePath = order.logoURL {
-            logoImageView.kf.setImage(with: ImageResource(downloadURL: URL(string: imagePath)!, cacheKey: orderID),
-                                      placeholder: UIImage.init(named: "image-no-organization"),
-                                      options: [.transition(ImageTransition.fade(1)),
-                                                .processor(ResizingImageProcessor(referenceSize: logoImageView.frame.size,
-                                                                                  mode: .aspectFill))],
-                                      completionHandler: { image, error, cacheType, imageURL in
-                                        self.logoImageView.kf.cancelDownloadTask()
+        if let imageID = order.imageID {
+            organizationImageView.kf.setImage(with: ImageResource(downloadURL: imageID.convertToURL(withSize: .Small, inMode: .Get), cacheKey: "\(orderID)-\(imageID)"),
+                                              placeholder: UIImage.init(named: "image-no-organization"),
+                                              options: [.transition(ImageTransition.fade(1)),
+                                                        .processor(ResizingImageProcessor(referenceSize: organizationImageView.frame.size,
+                                                                                          mode: .aspectFill))],
+                                              completionHandler: { image, error, cacheType, imageURL in
+                                                self.organizationImageView.kf.cancelDownloadTask()
             })
         } else {
-            logoImageView.image = UIImage.init(named: "image-no-organization")
+            organizationImageView.image = UIImage.init(named: "image-no-organization")
         }
     }
 }

@@ -18,7 +18,7 @@ public class Order: NSManagedObject, InitCellParameters {
 
     
     // MARK: - Class Initialization
-    convenience init?(json: [String: AnyObject]) {
+    convenience init?(json: [String: AnyObject], forLists listName: String) {
         guard let codeID = json["uuid"] as? String, let orgName = json["orgName"] as? String, let serviceName = json["serviceName"] as? String, let dateStart = json["start"] as? String, let status = json["status"] as? String, let priceTotal = json["totalPrice"] as? Float else {
             return nil
         }
@@ -39,11 +39,12 @@ public class Order: NSManagedObject, InitCellParameters {
         self.status = status
         self.priceTotal = priceTotal
 
-        // Prepare to save additional data
-        if let logoURL = json["logoURL"] as? String {
-            self.logoURL = logoURL
+        if let imageID = json["imageId"] as? String {
+            self.imageID = imageID
         }
+        
 
+        // Prepare to save additional data
         if let dateEnd = json["end"] as? String {
             self.dateEnd = dateEnd
         }
@@ -55,5 +56,7 @@ public class Order: NSManagedObject, InitCellParameters {
         if let price = json["price"] as? Float {
             self.price = price
         }
+        
+        self.addToLists(Lists.init(name: listName, item: self))
     }
 }

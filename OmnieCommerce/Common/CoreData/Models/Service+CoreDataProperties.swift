@@ -41,6 +41,7 @@ extension Service {
     @NSManaged public var organization: Organization?
     @NSManaged public var prices: NSSet?
     @NSManaged public var lists: NSSet?
+    @NSManaged public var reviews: NSSet?
 
 }
 
@@ -126,5 +127,22 @@ extension Service {
 
     @objc(removeLists:)
     @NSManaged public func removeFromLists(_ values: NSSet)
+
+}
+
+// MARK: Generated accessors for reviews
+extension Service {
+
+    @objc(addReviewsObject:)
+    @NSManaged public func addToReviews(_ value: Review)
+
+    @objc(removeReviewsObject:)
+    @NSManaged public func removeFromReviews(_ value: Review)
+
+    @objc(addReviews:)
+    @NSManaged public func addToReviews(_ values: NSSet)
+
+    @objc(removeReviews:)
+    @NSManaged public func removeFromReviews(_ values: NSSet)
 
 }

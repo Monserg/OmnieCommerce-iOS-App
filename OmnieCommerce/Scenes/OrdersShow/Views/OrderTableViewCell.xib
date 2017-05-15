@@ -114,7 +114,7 @@
                             <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
                         </userDefinedRuntimeAttributes>
                     </view>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image-no-organization" translatesAutoresizingMaskIntoConstraints="NO" id="Ryx-ei-hEh" userLabel="Logo Image View" customClass="CustomImageView" customModule="OmnieCommerce" customModuleProvider="target">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image-no-organization" translatesAutoresizingMaskIntoConstraints="NO" id="Ryx-ei-hEh" userLabel="Organization Image View" customClass="CustomImageView" customModule="OmnieCommerce" customModuleProvider="target">
                         <rect key="frame" x="8" y="5" width="85" height="85"/>
                         <color key="backgroundColor" red="0.15294117647058825" green="0.21568627450980393" blue="0.27058823529411763" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -160,7 +160,7 @@
             <connections>
                 <outlet property="dateLabel" destination="JFd-zO-ezc" id="a4y-C5-m1L"/>
                 <outlet property="dottedBorderView" destination="13g-08-x1W" id="cKV-no-zNZ"/>
-                <outlet property="logoImageView" destination="Ryx-ei-hEh" id="83A-XI-5g8"/>
+                <outlet property="organizationImageView" destination="Ryx-ei-hEh" id="WsR-t4-Rk8"/>
                 <outlet property="organizationNameLabel" destination="hod-EF-PIW" id="3sU-vG-rWc"/>
                 <outlet property="serviceNameLabel" destination="hKe-9x-Ysk" id="ySn-1s-MFV"/>
                 <outlet property="stateButton" destination="xSA-hw-nlU" id="DTO-Sm-gca"/>

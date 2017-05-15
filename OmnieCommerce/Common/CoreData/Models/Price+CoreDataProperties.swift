@@ -25,6 +25,7 @@ extension Price {
     @NSManaged public var dateCreated: NSDate
     @NSManaged public var ruleTimeStart: String
     @NSManaged public var ruleTimeEnd: String
+    @NSManaged public var serviceID: String
     @NSManaged public var service: Service?
 
 }
