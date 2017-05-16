@@ -46,7 +46,7 @@ class OrganizationsShowViewController: BaseViewController {
             subcategoriesDropDownTableView.alpha = 0
            
             var subcategories = CoreDataManager.instance.entitiesDidLoad(byName: "Subcategory",
-                                                                         andPredicateParameter: ["category.codeID": category!.codeID])
+                                                                         andPredicateParameters: NSPredicate.init(format: "category.codeID == %@", category!.codeID))
             
             if !(subcategories?.contains(where: { ($0 as! Subcategory).codeID == "0000-\(category!.codeID)-All" }))! {
                 subcategories!.insert(Subcategory.init(codeID: "0000-\(category!.codeID)-All", name: "By all subcategories".localized(), type: .Subcategory, category: category!), at: 0)

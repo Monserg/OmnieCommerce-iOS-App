@@ -38,6 +38,10 @@ enum RequestType {
     case userGetOrderPriceWithoutDiscount([String: Any], Bool)
     
     
+    // Review
+    case userAddServiceReview([String: Any], Bool)
+    
+    
     // Organization
     case userGetOrganizationByID([String: Any], Bool)
     case userGetOrganizationsListByName([String: Any], Bool)
@@ -176,6 +180,15 @@ enum RequestType {
                                                                                         headers: headersExtended,
                                                                                         parameters: (isBodyParams ? nil : params))
             
+            
+        // Review
+        case .userAddServiceReview(let params, let isBodyParams):   return (method: .put,
+                                                                            apiStringURL: "/user/review/",
+                                                                            body: (isBodyParams ? params : nil),
+                                                                            bodyType: .ItemsDictionary,
+                                                                            headers: headersExtended,
+                                                                            parameters: (isBodyParams ? nil : params))
+
             
         // Organization
         case .userGetOrganizationByID(let params, let isBodyParams):    return (method: .get,

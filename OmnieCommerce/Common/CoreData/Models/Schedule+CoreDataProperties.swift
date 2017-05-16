@@ -23,6 +23,7 @@ extension Schedule {
     @NSManaged public var workTimeEnd: String?
     @NSManaged public var launchTimeStart: String?
     @NSManaged public var launchTimeEnd: String?
+    @NSManaged public var organizationID: String?
     @NSManaged public var organization: Organization?
 
 }

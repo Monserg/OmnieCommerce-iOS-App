@@ -43,7 +43,7 @@ class NewsActionsShowRouter: NewsActionsShowRouterInput {
             
             // Create Action
             var action = NewsData.init(json: responseAPI!.body as! [String: AnyObject], isAction: true)
-            action = CoreDataManager.instance.entityDidLoad(byName: "NewsData", andPredicateParameter: item.codeID) as? NewsData
+            action = CoreDataManager.instance.entityDidLoad(byName: "NewsData", andPredicateParameters: NSPredicate.init(format: "codeID == %@", item.codeID)) as? NewsData
             action!.isAction = true
             let storyboard = UIStoryboard(name: "NewsShow", bundle: nil)
             let newsItemShowVC = storyboard.instantiateViewController(withIdentifier: "NewsItemShowVC") as! NewsItemShowViewController

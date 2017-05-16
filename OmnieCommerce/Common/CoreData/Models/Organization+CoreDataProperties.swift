@@ -2,7 +2,7 @@
 //  Organization+CoreDataProperties.swift
 //  OmnieCommerce
 //
-//  Created by msm72 on 14.05.17.
+//  Created by msm72 on 16.05.17.
 //  Copyright © 2017 Omniesoft. All rights reserved.
 //
 
@@ -35,10 +35,10 @@ extension Organization {
     @NSManaged public var category: NSSet?
     @NSManaged public var discounts: NSSet?
     @NSManaged public var images: NSSet?
-    @NSManaged public var organizationReviews: NSSet?
+    @NSManaged public var lists: NSSet?
+    @NSManaged public var reviews: NSSet?
     @NSManaged public var schedules: NSSet?
     @NSManaged public var services: NSSet?
-    @NSManaged public var lists: NSSet?
 
 }
 
@@ -93,20 +93,37 @@ extension Organization {
 
 }
 
-// MARK: Generated accessors for organizationReviews
+// MARK: Generated accessors for lists
 extension Organization {
 
-    @objc(addOrganizationReviewsObject:)
-    @NSManaged public func addToOrganizationReviews(_ value: Review)
+    @objc(addListsObject:)
+    @NSManaged public func addToLists(_ value: Lists)
 
-    @objc(removeOrganizationReviewsObject:)
-    @NSManaged public func removeFromOrganizationReviews(_ value: Review)
+    @objc(removeListsObject:)
+    @NSManaged public func removeFromLists(_ value: Lists)
 
-    @objc(addOrganizationReviews:)
-    @NSManaged public func addToOrganizationReviews(_ values: NSSet)
+    @objc(addLists:)
+    @NSManaged public func addToLists(_ values: NSSet)
 
-    @objc(removeOrganizationReviews:)
-    @NSManaged public func removeFromOrganizationReviews(_ values: NSSet)
+    @objc(removeLists:)
+    @NSManaged public func removeFromLists(_ values: NSSet)
+
+}
+
+// MARK: Generated accessors for reviews
+extension Organization {
+
+    @objc(addReviewsObject:)
+    @NSManaged public func addToReviews(_ value: Review)
+
+    @objc(removeReviewsObject:)
+    @NSManaged public func removeFromReviews(_ value: Review)
+
+    @objc(addReviews:)
+    @NSManaged public func addToReviews(_ values: NSSet)
+
+    @objc(removeReviews:)
+    @NSManaged public func removeFromReviews(_ values: NSSet)
 
 }
 
@@ -141,22 +158,5 @@ extension Organization {
 
     @objc(removeServices:)
     @NSManaged public func removeFromServices(_ values: NSSet)
-
-}
-
-// MARK: Generated accessors for lists
-extension Organization {
-
-    @objc(addListsObject:)
-    @NSManaged public func addToLists(_ value: Lists)
-
-    @objc(removeListsObject:)
-    @NSManaged public func removeFromLists(_ value: Lists)
-
-    @objc(addLists:)
-    @NSManaged public func addToLists(_ values: NSSet)
-
-    @objc(removeLists:)
-    @NSManaged public func removeFromLists(_ values: NSSet)
 
 }

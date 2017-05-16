@@ -156,21 +156,15 @@ public class Service: NSManagedObject, InitCellParameters, PointAnnotationBindin
         
         // Common discounts
         if let commonDiscounts = json["discountsCommon"] as? NSArray, commonDiscounts.count > 0 {
-            for dictionary in commonDiscounts {
-                let discountCommon = Discount.init(json: dictionary as! [String : AnyObject], andRelationshipObject: self)!
-                discountCommon.isUserDiscount = false
-                
-                self.addToDiscounts(discountCommon)
+            for commonDiscount in commonDiscounts {
+                self.addToDiscounts(Discount.init(json: commonDiscount as! [String: AnyObject], forManagedObject: self, isUserDiscount: false)!)
             }
         }
         
         // User discounts
         if let userDiscounts = json["discountsUser"] as? NSArray, userDiscounts.count > 0 {
-            for dictionary in userDiscounts {
-                let discountUser = Discount.init(json: dictionary as! [String : AnyObject], andRelationshipObject: self)!
-                discountUser.isUserDiscount = true
-                
-                self.addToDiscounts(discountUser)
+            for userDiscount in userDiscounts {
+                self.addToDiscounts(Discount.init(json: userDiscount as! [String: AnyObject], forManagedObject: self, isUserDiscount: true)!)
             }
         }
         
@@ -189,7 +183,7 @@ public class Service: NSManagedObject, InitCellParameters, PointAnnotationBindin
         // Gallery images
         if let galleryImages = json["serviceGallery"] as? NSArray, galleryImages.count > 0 {
             for dictionary in galleryImages {
-                if let image = GalleryImage.init(json: dictionary as! [String : AnyObject], andRelationshipObject: self) {
+                if let image = GalleryImage.init(json: dictionary as! [String: AnyObject], andRelationshipObject: self) {
                     self.addToImages(image)
                 }
             }

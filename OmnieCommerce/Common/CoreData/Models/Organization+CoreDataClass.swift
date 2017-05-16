@@ -101,35 +101,8 @@ public class Organization: NSManagedObject, InitCellParameters, PointAnnotationB
 
         
         // Prepare to save additional data
-        // Phones
-        if let phones = json["phones"] as? [String], phones.count > 0 {
-            self.phones = phones
-        }
- 
-        // Reviews
-        // Organization reviews
-        // TODO: - ADD MAPPING REVIEWS AFTER CHANGE API
         if let canSendReview = json["canSendReview"] as? Bool {
             self.canSendReview = canSendReview
-        }
-        
-        /*
-        if let reviewsOrganization = json["organizationReviews"] as? [Any] {
-            self.organizationReviews = NSSet()
-            
-            for dictionary in reviewsOrganization {
-                self.addToOrganizationReviews(Review.init(json: dictionary as! [String: AnyObject], andType: .OrganizationReview)!)
-            }
-        }
-        */
-        
-        // Schedules
-        if let scheduleItems = json["timeSheets"] as? NSArray, scheduleItems.count > 0 {
-            for dictionary in scheduleItems {
-                let _ = Schedule.init(json: dictionary as! [String : AnyObject], andOrganization: self)
-            }
-            
-            self.schedules = NSSet.init(array: CoreDataManager.instance.entitiesDidLoad(byName: "Schedule", andPredicateParameter: ["organization.codeID": self.codeID])!)
         }
         
         // Google place
@@ -137,54 +110,73 @@ public class Organization: NSManagedObject, InitCellParameters, PointAnnotationB
             self.placeID = positionID
         }
         
+        // Phones
+        if let phones = json["phones"] as? [String], phones.count > 0 {
+            self.phones = phones
+        }
+ 
         // Descriptions
         if let describeTitle = json["descriptionTitle"] as? String {
             self.descriptionTitle = describeTitle
         }
-
+        
         if let describeContent = json["descriptionContent"] as? String {
             self.descriptionContent = describeContent
         }
+        
+        // Own Review
+        if let userReview = json["ownReview"] as? [String: AnyObject] {
+            self.addToReviews(Review.init(json: userReview, forManagedObject: self, withType: .UserReview)!)
+        }
+        
+        // Service Reviews
+        if let serviceReviews = json["serviceReviews"] as? NSArray, serviceReviews.count > 0 {
+            for serviceReview in serviceReviews {
+                self.addToReviews(Review.init(json: serviceReview as! [String: AnyObject], forManagedObject: self, withType: .ServiceReview)!)
+            }
+        }
 
+        // Organization reviews
+        if let organizationReviews = json["organizationReviews"] as? NSArray, organizationReviews.count > 0 {
+            for organizationReview in organizationReviews {
+                self.addToReviews(Review.init(json: organizationReview as! [String: AnyObject], forManagedObject: self, withType: .OrganizationReview)!)
+            }
+        }
+        
+        // Schedules / TimeSheets
+        if let timeSheets = json["timeSheets"] as? NSArray, timeSheets.count > 0 {
+            for timeSheet in timeSheets {
+                self.addToSchedules(Schedule.init(json: timeSheet as! [String: AnyObject], andOrganization: self)!)
+            }
+        }
+        
         // Services
         if let services = json["services"] as? NSArray, services.count > 0 {
-            self.services = NSSet()
-            
-            for json in services {
-                let service = Service.init(json: json as! [String: AnyObject], forOrganization: self, forList: keyService)
-                self.addToServices(service!)
+            for service in services {
+                self.addToServices(Service.init(json: service as! [String: AnyObject], forOrganization: self, forList: keyService)!)
             }
         }
 
         // Common discounts
         if let commonDiscounts = json["discountsCommon"] as? NSArray, commonDiscounts.count > 0 {
-            self.discounts = NSSet()
-            
-            for dictionary in commonDiscounts {
-                let discountCommon = Discount.init(json: dictionary as! [String : AnyObject], andRelationshipObject: self)!
-                discountCommon.isUserDiscount = false
-                
-                self.addToDiscounts(discountCommon)
+            for commonDiscount in commonDiscounts {
+                self.addToDiscounts(Discount.init(json: commonDiscount as! [String: AnyObject], forManagedObject: self, isUserDiscount: false)!)
             }
         }
         
         // User discounts
         if let userDiscounts = json["discountsForUser"] as? NSArray, userDiscounts.count > 0 {
-            for dictionary in userDiscounts {
-                let discountUser = Discount.init(json: dictionary as! [String : AnyObject], andRelationshipObject: self)!
-                discountUser.isUserDiscount = true
-                
-                self.addToDiscounts(discountUser)
+            for userDiscount in userDiscounts {
+                self.addToDiscounts(Discount.init(json: userDiscount as! [String: AnyObject], forManagedObject: self, isUserDiscount: true)!)
             }
         }
         
         // Gallery images
         if let galleryImages = json["gallery"] as? NSArray, galleryImages.count > 0 {
-            self.images = NSSet()
-            
             for dictionary in galleryImages {
-                let image = GalleryImage.init(json: dictionary as! [String : AnyObject], andRelationshipObject: self)
-                self.addToImages(image!)
+                if let image = GalleryImage.init(json: dictionary as! [String: AnyObject], andRelationshipObject: self) {
+                    self.addToImages(image)
+                }
             }
         }
     }
@@ -200,10 +192,10 @@ public class Organization: NSManagedObject, InitCellParameters, PointAnnotationB
         let locationManager = LocationManager()
         
         locationManager.geocodingAddress(byGoogleID: positionID, completion: { coordinate, city, street in
-            self.latitude = (coordinate?.latitude)!
-            self.longitude = (coordinate?.longitude)!
-            self.addressCity = city!
-            self.addressStreet = street!
+            self.latitudeValue = (coordinate?.latitude)!
+            self.longitudeValue = (coordinate?.longitude)!
+            self.addressCityValue = city!
+            self.addressStreetValue = street!
             
             completion()
         })

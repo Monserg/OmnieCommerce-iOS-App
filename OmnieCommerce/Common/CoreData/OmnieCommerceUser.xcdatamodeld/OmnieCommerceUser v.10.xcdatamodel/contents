@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="12141" systemVersion="16E195" minimumToolsVersion="Xcode 8.0" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="12141" systemVersion="16F73" minimumToolsVersion="Xcode 8.0" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Actions" representedClassName="Actions" syncable="YES">
         <attribute name="list" optional="YES" attributeType="Binary" syncable="YES"/>
     </entity>
@@ -190,6 +190,7 @@
         <attribute name="content" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="dateCreate" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="imageID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="organizationID" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="rating" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="serviceID" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="typeValue" attributeType="String" syncable="YES"/>
@@ -209,6 +210,7 @@
         <attribute name="launchTimeEnd" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="launchTimeStart" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" attributeType="String" syncable="YES"/>
+        <attribute name="organizationID" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="workTimeEnd" attributeType="String" syncable="YES"/>
         <attribute name="workTimeStart" attributeType="String" syncable="YES"/>
         <relationship name="organization" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Organization" inverseName="schedules" inverseEntity="Organization" syncable="YES"/>
@@ -299,8 +301,8 @@
         <element name="Order" positionX="144" positionY="81" width="128" height="240"/>
         <element name="Organization" positionX="-36" positionY="99" width="128" height="390"/>
         <element name="Price" positionX="180" positionY="117" width="128" height="210"/>
-        <element name="Review" positionX="171" positionY="108" width="128" height="210"/>
-        <element name="Schedule" positionX="153" positionY="90" width="128" height="165"/>
+        <element name="Review" positionX="171" positionY="108" width="128" height="225"/>
+        <element name="Schedule" positionX="153" positionY="90" width="128" height="180"/>
         <element name="Service" positionX="-36" positionY="117" width="128" height="435"/>
         <element name="Subcategory" positionX="475" positionY="-69" width="128" height="165"/>
         <element name="TimeSheet" positionX="144" positionY="81" width="128" height="150"/>

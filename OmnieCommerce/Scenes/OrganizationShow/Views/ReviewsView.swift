@@ -15,6 +15,7 @@ class ReviewsView: CustomView {
     
     var handlerSendButtonCompletion: HandlerPassDataCompletion?
     
+    // Outlets
     @IBOutlet var view: UIView! {
         didSet {
             let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTapGestureRecognizer))
@@ -126,8 +127,16 @@ class ReviewsView: CustomView {
     
     // MARK: - Actions
     @IBAction func handlerSendButtonTap(_ sender: FillVeryLightOrangeButton) {
-        // TODO: ADD COMPLETION DATA!!!
-        handlerSendButtonCompletion!(sender)
+        guard isNetworkAvailable else {
+            handlerSendButtonCompletion!(nil)
+            self.didHide()
+            
+            return
+        }
+        
+        // TODO: TEST API "SEND REVIEW"
+        handlerSendButtonCompletion!([ "organizationId": values?.first as! String, "text": commentTextView.text, "mark": Int(ratingView.rating) ])
+        self.didHide()
     }
     
     @IBAction func handlerCancelButtonTap(_ sender: UIButton) {

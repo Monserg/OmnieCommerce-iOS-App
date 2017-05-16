@@ -17,11 +17,13 @@ import MXParallaxHeader
 // MARK: - Input protocols for current ViewController component VIP-cicle
 protocol OrganizationShowViewControllerInput {
     func organizationDidShowLoad(fromViewModel viewModel: OrganizationShowModels.OrganizationItem.ViewModel)
+    func organizationRatingDidShowSend(fromViewModel viewModel: OrganizationShowModels.Rating.ViewModel)
 }
 
 // MARK: - Output protocols for Interactor component VIP-cicle
 protocol OrganizationShowViewControllerOutput {
     func organizationDidLoad(withRequestModel requestModel: OrganizationShowModels.OrganizationItem.RequestModel)
+    func organizationRatingDidSend(withRequestModel requestModel: OrganizationShowModels.Rating.RequestModel)
 }
 
 class OrganizationShowViewController: BaseViewController {
@@ -221,13 +223,26 @@ class OrganizationShowViewController: BaseViewController {
             
         case subView as ReviewsView:
             popupView = ReviewsView.init(inView: modalView!)
+            popupView.values = values as! [String]
+            
+            // Handler Send button tap completion
+            (popupView as! ReviewsView).handlerSendButtonCompletion = { parameters in
+                if (parameters == nil) {
+                    self.alertViewDidShow(withTitle: "Error", andMessage: "Disconnected from Network", completion: {_ in })
+                } else {
+                    // TODO: - ADD API "SEND REVIEW TO SERVER"
+                    // Send Organization rating
+                    let organizationRatingRequestModel = OrganizationShowModels.Rating.RequestModel(parameters: parameters as! [String: AnyObject])
+                    self.interactor.organizationRatingDidSend(withRequestModel: organizationRatingRequestModel)
+                }
+            }
             
         case subView as BlackListView:
             popupView = BlackListView.init(inView: modalView!)
             
         case subView as PhotosGalleryView:
             popupView = PhotosGalleryView.init(inView: modalView!)
-            popupView.values = (values as! [GalleryImage]).filter({ $0.imageID != nil })
+            popupView.values = values as! [GalleryImage]
             
         default:
             break
@@ -247,7 +262,7 @@ class OrganizationShowViewController: BaseViewController {
 
     func organizationProfileDidShow() {
         // Setting Organization profile info
-        let predicate = NSPredicate(format: "codeID == %@ AND catalog == %@", organizationID, "OrganizationItem")
+        let predicate = NSPredicate(format: "codeID == %@", organizationID)
         organizationProfile = CoreDataManager.instance.entityDidLoad(byName: "Organization", andPredicateParameters: predicate) as! Organization
 
         smallTopBarView.titleText = organizationProfile.name
@@ -346,54 +361,53 @@ class OrganizationShowViewController: BaseViewController {
             titleView.isHidden = true
         }
         
-        // Discounts view 
-        if let discounts = organizationProfile.discounts, discounts.count > 0 {
-            // Show/Hide Common discounts
-            let discountsCommon = CoreDataManager.instance.entitiesDidLoad(byName: "Discount", andPredicateParameter: ["isUserDiscount": false])
+        // Common discounts
+        var discounts: Int = 0
+        
+        if let discountsCommon = CoreDataManager.instance.entitiesDidLoad(byName: "Discount", andPredicateParameters: NSPredicate.init(format: "ANY isUserDiscount == \(false) AND organization.codeID == %@", organizationProfile.codeID)), discountsCommon.count > 0 {
+            discountCommonStackView.isHidden = false
+            discounts += discountsCommon.count
             
-            if (discountsCommon!.count > 0) {
-                discountCommonStackView.isHidden = false
-                
-                let discountCommonTableManager = MSMTableViewControllerManager.init(withTableView: discountsCommonTableView,
-                                                                                    andSectionsCount: 1,
-                                                                                    andEmptyMessageText: "Common discounts list is empty")
-                
-                discountsCommonTableView.tableViewControllerManager = discountCommonTableManager
-                discountsCommonTableView.tableViewControllerManager!.dataSource = discountsCommon!
-                discountsCommonTableView.tableFooterView!.isHidden = true
-                discountCommonTableViewHeightConstraint.constant = CGFloat(50.0 + 50.0 * Double(discountsCommon!.count)) * view.heightRatio
-                
-                discountsCommonTableView.reloadData()
-            } else {
-                discountCommonStackView.isHidden = true
-            }
+            let discountCommonTableManager = MSMTableViewControllerManager.init(withTableView: discountsCommonTableView,
+                                                                                andSectionsCount: 1,
+                                                                                andEmptyMessageText: "Common discounts list is empty")
             
-            // Show/Hide User discounts
-            let discountsUser = CoreDataManager.instance.entitiesDidLoad(byName: "Discount", andPredicateParameter: ["isUserDiscount": true])
+            discountsCommonTableView.tableViewControllerManager = discountCommonTableManager
+            discountsCommonTableView.tableViewControllerManager!.dataSource = discountsCommon
+            discountsCommonTableView.tableFooterView!.isHidden = true
+            discountCommonTableViewHeightConstraint.constant = CGFloat(50.0 + 50.0 * Double(discountsCommon.count)) * view.heightRatio
             
-            if (discountsUser!.count > 0) {
-                discountUserStackView.isHidden = false
-                
-                let discountsUserTableManager = MSMTableViewControllerManager.init(withTableView: discountsUserTableView,
-                                                                                   andSectionsCount: 1,
-                                                                                   andEmptyMessageText: "User discounts list is empty")
-                
-                discountsUserTableView.tableViewControllerManager = discountsUserTableManager
-                discountsUserTableView.tableViewControllerManager!.dataSource = discountsUser!
-                discountsUserTableView.tableFooterView!.isHidden = true
-                discountsUserTableViewHeightConstraint.constant = CGFloat(61.0 + 50.0 * Double(discountsUser!.count)) * view.heightRatio
-                
-                discountsUserTableView.reloadData()
-            } else {
-                discountUserStackView.isHidden = true
-            }
+            discountsCommonTableView.reloadData()
+        } else {
+            discountCommonStackView.isHidden = true
+        }
+        
+        // User discounts
+        if let discountsUser = CoreDataManager.instance.entitiesDidLoad(byName: "Discount", andPredicateParameters: NSPredicate.init(format: "ANY isUserDiscount == \(true) AND organization.codeID == %@", organizationProfile.codeID)), discountsUser.count > 0 {
+            discountUserStackView.isHidden = false
+            discounts += discountsUser.count
             
+            let discountsUserTableManager = MSMTableViewControllerManager.init(withTableView: discountsUserTableView,
+                                                                               andSectionsCount: 1,
+                                                                               andEmptyMessageText: "User discounts list is empty")
+            
+            discountsUserTableView.tableViewControllerManager = discountsUserTableManager
+            discountsUserTableView.tableViewControllerManager!.dataSource = discountsUser
+            discountsUserTableView.tableFooterView!.isHidden = true
+            discountsUserTableViewHeightConstraint.constant = CGFloat(61.0 + 50.0 * Double(discountsUser.count)) * view.heightRatio
+            
+            discountsUserTableView.reloadData()
+        } else {
+            discountUserStackView.isHidden = true
+        }
+        
+        if (discounts > 0) {
             discountsViewHeightConstraint.constant = discountCommonTableViewHeightConstraint.constant + discountsUserTableViewHeightConstraint.constant
             self.discountsView.layoutIfNeeded()
         } else {
             discountsView.isHidden = true
         }
-
+        
         // Gallery view
         if let images = organizationProfile.images, images.count > 0 {
             galleryView.isHidden = false
@@ -459,50 +473,50 @@ class OrganizationShowViewController: BaseViewController {
             servicesView.isHidden = true
         }
         
+        // Reviews
+        var reviews = [Review]()
+
+        // Service reviews
+        if let serviceReviews = CoreDataManager.instance.entitiesDidLoad(byName: "Review", andPredicateParameters: NSPredicate.init(format: "ANY codeID == %@", "\(organizationProfile.codeID)-ServiceReview")), serviceReviews.count > 0 {
+            reviews += serviceReviews as! [Review]
+        }
+
         // Organization reviews
-        // TODO: - ADD SHOW REVIEWS AFTER CHANGE API
-        reviewsView.isHidden = true
-
-        /*
-        var reviews = [Any]()
-        
-        if let organizationReviews = organizationProfile.organizationReviews {
-            reviews.append(contentsOf: organizationReviews)
+        if let organizationReviews = CoreDataManager.instance.entitiesDidLoad(byName: "Review", andPredicateParameters: NSPredicate.init(format: "ANY codeID == %@", "\(organizationProfile.codeID)-OrganizationReview")), organizationReviews.count > 0 {
+            reviews += organizationReviews as! [Review]
         }
-        
-//        let serviceReviews = CoreDataManager.instance.entitiesDidLoad(byName: "Review", andPredicateParameter: "ServiceReview")
-//        organizationReviews!.append(contentsOf: serviceReviews!)
-        reviewsView.isHidden = (reviews.count > 0) ? false : true
-        
-        let reviewsManager = MSMCollectionViewControllerManager(withCollectionView: reviewsCollectionView)
-        reviewsCollectionView.collectionViewControllerManager = reviewsManager
-        reviewsCollectionView.collectionViewControllerManager!.sectionsCount = 1
-        reviewsCollectionView.collectionViewControllerManager!.dataSource = reviews
-        reviewsCollectionView.collectionViewControllerManager.collectionView.reloadData()
-                
-        // Handler Review select
-        reviewsCollectionView.collectionViewControllerManager!.handlerCellSelectCompletion = { item in }
-        
-        // Handler Navigation button tap
-        reviewsCollectionView.collectionViewControllerManager.handlerNavigationButtonTapCompletion = { item in
-            self.view.layoutIfNeeded()
-            self.reviewsCollectionView.scrollToItem(at: IndexPath(item: item as! Int, section: 0), at: .centeredHorizontally, animated: true)
-        }
-        */
-        
-        
-        // Rating view
-        // TODO: - ADD SHOW REVIEWS AFTER CHANGE API
-        ratingView.isHidden = true
 
-        /*
-        if (organizationProfile.canUserSendReview) {
+        if (reviews.count > 0) {
+            reviewsView.isHidden = false
+            
+            let reviewsManager = MSMCollectionViewControllerManager(withCollectionView: reviewsCollectionView)
+            reviewsCollectionView.collectionViewControllerManager = reviewsManager
+            reviewsCollectionView.collectionViewControllerManager!.sectionsCount = 1
+            reviewsCollectionView.collectionViewControllerManager!.dataSource = reviews
+            reviewsCollectionView.collectionViewControllerManager.collectionView.reloadData()
+            
+            // Handler Review select
+            reviewsCollectionView.collectionViewControllerManager!.handlerCellSelectCompletion = { item in }
+            
+            // Handler Navigation button tap
+            reviewsCollectionView.collectionViewControllerManager.handlerNavigationButtonTapCompletion = { item in
+                self.view.layoutIfNeeded()
+                self.reviewsCollectionView.scrollToItem(at: IndexPath(item: item as! Int, section: 0), at: .centeredHorizontally, animated: true)
+            }
+        } else {
+            reviewsView.isHidden = true
+        }
+
+        // User review
+        if !(organizationProfile.canUserSendReview) {
             ratingView.isHidden = false
-            let userReview = CoreDataManager.instance.entityDidLoad(byName: "Review", andPredicateParameter: "UserReview") as! Review
+            
+            let userReview = CoreDataManager.instance.entityDidLoad(byName: "Review", andPredicateParameters: NSPredicate.init(format: "codeID == %@", "\(organizationProfile.codeID)-UserReview")) as! Review
+            
             userNameLabel.text = userReview.userName ?? "Zorro"
             cosmosView.rating = userReview.rating
             
-            if let imagePath = CoreDataManager.instance.appUser.imagePath {
+            if let imagePath = userReview.imageID {
                 userAvatarImageView.kf.setImage(with: ImageResource(downloadURL: URL(string: imagePath)!, cacheKey: imagePath),
                                                 placeholder: UIImage.init(named: "image-no-user"),
                                                 options: [.transition(ImageTransition.fade(1)),
@@ -516,14 +530,11 @@ class OrganizationShowViewController: BaseViewController {
             }
             
             cosmosView.didFinishTouchingCosmos = { _ in
-                self.modalViewDidShow(withHeight: 285, customSubview: ReviewsView(), andValues: nil)
+                self.modalViewDidShow(withHeight: 285, customSubview: ReviewsView(), andValues: [self.organizationProfile.codeID])
             }
-            
         } else {
             ratingView.isHidden = true
-        }
-        */
-        
+        }        
         
         _ = dottedBorderViewsCollection.map { $0.setNeedsDisplay() }
 
@@ -558,7 +569,17 @@ class OrganizationShowViewController: BaseViewController {
     }
     
     @IBAction func handlerAddressButtonTap(_ sender: CustomButton) {
-        router.navigateToOrganizationsMapShowScene(organizationProfile)
+        guard isNetworkAvailable else {
+            self.router.navigateToOrganizationsMapShowScene(self.organizationProfile)
+            return
+        }
+        
+        if let placeID = organizationProfile.placeID {
+            organizationProfile.googlePlaceDidLoad(positionID: placeID, completion: { _ in
+                CoreDataManager.instance.didSaveContext()
+                self.router.navigateToOrganizationsMapShowScene(self.organizationProfile)
+            })
+        }
     }
     
     @IBAction func handlerPhonesButtonTap(_ sender: CustomButton) {
@@ -697,6 +718,19 @@ extension OrganizationShowViewController: OrganizationShowViewControllerInput {
             return
         }
 
+        self.organizationProfileDidShow()
+    }
+    
+    func organizationRatingDidShowSend(fromViewModel viewModel: OrganizationShowModels.Rating.ViewModel) {
+        // Check for errors
+        guard viewModel.status == "SUCCESS" else {
+            self.alertViewDidShow(withTitle: "Error", andMessage: viewModel.status, completion: {
+                self.organizationProfileDidShow()
+            })
+            
+            return
+        }
+        
         self.organizationProfileDidShow()
     }
 }

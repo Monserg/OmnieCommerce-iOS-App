@@ -14,11 +14,13 @@ import UIKit
 // MARK: - Input protocols for current Interactor component VIP-cicle
 protocol OrganizationShowInteractorInput {
     func organizationDidLoad(withRequestModel requestModel: OrganizationShowModels.OrganizationItem.RequestModel)
+    func organizationRatingDidSend(withRequestModel requestModel: OrganizationShowModels.Rating.RequestModel)
 }
 
 // MARK: - Output protocols for Presenter component VIP-cicle
 protocol OrganizationShowInteractorOutput {
     func organizationDidPrepareToShowLoad(fromResponseModel responseModel: OrganizationShowModels.OrganizationItem.ResponseModel)
+    func organizationRatingDidPrepareToShowSend(fromResponseModel responseModel: OrganizationShowModels.Rating.ResponseModel)
 }
 
 class OrganizationShowInteractor: OrganizationShowInteractorInput {
@@ -33,6 +35,14 @@ class OrganizationShowInteractor: OrganizationShowInteractorInput {
             // Pass the result to the Presenter
             let organizationResponseModel = OrganizationShowModels.OrganizationItem.ResponseModel(responseAPI: responseAPI)
             self.presenter.organizationDidPrepareToShowLoad(fromResponseModel: organizationResponseModel)
+        })
+    }
+    
+    func organizationRatingDidSend(withRequestModel requestModel: OrganizationShowModels.Rating.RequestModel) {
+        MSMRestApiManager.instance.userRequestDidRun(.userAddServiceReview(requestModel.parameters, true), withHandlerResponseAPICompletion: { responseAPI in
+            // Pass the result to the Presenter
+            let organizationRatingResponseModel = OrganizationShowModels.Rating.ResponseModel(responseAPI: responseAPI)
+            self.presenter.organizationRatingDidPrepareToShowSend(fromResponseModel: organizationRatingResponseModel)
         })
     }
 }

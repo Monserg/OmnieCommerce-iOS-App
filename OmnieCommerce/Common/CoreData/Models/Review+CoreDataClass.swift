@@ -63,13 +63,13 @@ public class Review: NSManagedObject, InitCellParameters {
             self.content = content
         }
         
-        if let organization = managedObject as? Organization {
-            self.organization = organization
+        if let organizationID = json["organizationId"] as? String {
+            self.organizationID = organizationID
+            self.codeID = "\(organizationID)-\(type.rawValue)"
         }
 
         if let organization = managedObject as? Organization {
             self.organization = organization
-            self.codeID = "\(organization.codeID)-\(type.rawValue)"
         }
 
         if let serviceID = json["serviceId"] as? String {

@@ -61,6 +61,10 @@ public class Schedule: NSManagedObject, InitCellParameters {
             self.launchTimeEnd = breakEnd
         }
         
+        if let organizationID = json["orgUuid"] as? String {
+            self.organizationID = organizationID
+        }
+
         if (self.launchTimeStart != nil) {
             let _ = Schedule.init(codeID: self.codeID + "-launch",
                                   name: "Lunch break".localized(),

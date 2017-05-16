@@ -262,7 +262,7 @@ class ServiceShowViewController: BaseViewController {
         // Common discounts
         var discounts: Int = 0
         
-        if let discountsCommon = CoreDataManager.instance.entitiesDidLoad(byName: "Discount", andPredicateParameters: NSPredicate.init(format: "ANY isUserDiscount == \(false)")), discountsCommon.count > 0 {
+        if let discountsCommon = CoreDataManager.instance.entitiesDidLoad(byName: "Discount", andPredicateParameters: NSPredicate.init(format: "ANY isUserDiscount == \(false) AND service.codeID == %@", serviceProfile.codeID)), discountsCommon.count > 0 {
             discountCommonStackView.isHidden = false
             discounts += discountsCommon.count
             
@@ -280,8 +280,8 @@ class ServiceShowViewController: BaseViewController {
             discountCommonStackView.isHidden = true
         }
         
-        // Show/Hide User discounts
-        if let discountsUser = CoreDataManager.instance.entitiesDidLoad(byName: "Discount", andPredicateParameters: NSPredicate.init(format: "ANY isUserDiscount == \(true)")), discountsUser.count > 0 {
+        // User discounts
+        if let discountsUser = CoreDataManager.instance.entitiesDidLoad(byName: "Discount", andPredicateParameters: NSPredicate.init(format: "ANY isUserDiscount == \(true) AND service.codeID == %@", serviceProfile.codeID)), discountsUser.count > 0 {
             discountUserStackView.isHidden = false
             discounts += discountsUser.count
 
@@ -433,7 +433,7 @@ class ServiceShowViewController: BaseViewController {
         switch subView {
         case subView as PhotosGalleryView:
             popupView = PhotosGalleryView.init(inView: modalView!)
-            popupView.values = (values as! [GalleryImage]).filter({ $0.imageID != nil })
+            popupView.values = values as! [GalleryImage]
             
         case subView as ReviewsView:
             popupView = ReviewsView.init(inView: modalView!)
@@ -455,7 +455,7 @@ class ServiceShowViewController: BaseViewController {
     }
 
     func orderProfileDidShow(withOrderID orderID: String) {
-        let orderProfile = CoreDataManager.instance.entityDidLoad(byName: "Order", andPredicateParameter: orderID) as! Order
+        let orderProfile = CoreDataManager.instance.entityDidLoad(byName: "Order", andPredicateParameters: NSPredicate.init(format: "codeID == %@", orderID)) as! Order
         
         router.navigateToOrder(orderProfile)
         spinnerDidFinish()

@@ -14,11 +14,13 @@ import UIKit
 // MARK: - Input protocols for current Presenter component VIP-cicle
 protocol OrganizationShowPresenterInput {
     func organizationDidPrepareToShowLoad(fromResponseModel responseModel: OrganizationShowModels.OrganizationItem.ResponseModel)
+    func organizationRatingDidPrepareToShowSend(fromResponseModel responseModel: OrganizationShowModels.Rating.ResponseModel)
 }
 
 // MARK: - Output protocols for ViewController component VIP-cicle
 protocol OrganizationShowPresenterOutput: class {
     func organizationDidShowLoad(fromViewModel viewModel: OrganizationShowModels.OrganizationItem.ViewModel)
+    func organizationRatingDidShowSend(fromViewModel viewModel: OrganizationShowModels.Rating.ViewModel)
 }
 
 class OrganizationShowPresenter: OrganizationShowPresenterInput {
@@ -36,15 +38,15 @@ class OrganizationShowPresenter: OrganizationShowPresenterInput {
         }
         
         // Convert responseAPI body to Organization CoreData news objects
-        let organization = Organization.init(json: responseModel.responseAPI?.body as! [String: AnyObject], forList: keyOrganization)
+        _ = Organization.init(json: responseModel.responseAPI?.body as! [String: AnyObject], forList: keyOrganization)
+        CoreDataManager.instance.didSaveContext()
         
-        if let placeID = organization!.placeID {
-            organization!.googlePlaceDidLoad(positionID: placeID, completion: { _ in
-                CoreDataManager.instance.didSaveContext()
-
-                let organizationViewModel = OrganizationShowModels.OrganizationItem.ViewModel(status: responseModel.responseAPI!.status)
-                self.viewController.organizationDidShowLoad(fromViewModel: organizationViewModel)
-            })
-        }
+        let organizationViewModel = OrganizationShowModels.OrganizationItem.ViewModel(status: responseModel.responseAPI!.status)
+        self.viewController.organizationDidShowLoad(fromViewModel: organizationViewModel)
+    }
+    
+    func organizationRatingDidPrepareToShowSend(fromResponseModel responseModel: OrganizationShowModels.Rating.ResponseModel) {
+        let organizationRatingViewModel = OrganizationShowModels.Rating.ViewModel(status: (responseModel.responseAPI?.status)!)
+        viewController.organizationRatingDidShowSend(fromViewModel: organizationRatingViewModel)
     }
 }

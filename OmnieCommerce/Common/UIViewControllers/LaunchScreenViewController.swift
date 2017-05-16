@@ -21,7 +21,7 @@ class LaunchScreenViewController: UIViewController {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        let appSettings = CoreDataManager.instance.entityDidLoad(byName: "AppSettings", andPredicateParameter: nil) as? AppSettings ?? AppSettings()
+        let appSettings = CoreDataManager.instance.entityDidLoad(byName: "AppSettings", andPredicateParameters: nil) as? AppSettings ?? AppSettings()
         CoreDataManager.instance.appSettings = appSettings
     }
 
@@ -43,7 +43,7 @@ class LaunchScreenViewController: UIViewController {
         let window = UIApplication.shared.windows[0]
         
         // Create CoreData instance
-        let appUser = CoreDataManager.instance.entityDidLoad(byName: "AppUser", andPredicateParameter: nil) as? AppUser ?? AppUser()
+        let appUser = CoreDataManager.instance.entityDidLoad(byName: "AppUser", andPredicateParameters: nil) as? AppUser ?? AppUser()
         CoreDataManager.instance.appUser = appUser
         
         if (appUser.isAuthorized) {
