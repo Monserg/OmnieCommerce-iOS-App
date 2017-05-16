@@ -43,8 +43,7 @@ class LaunchScreenViewController: UIViewController {
         let window = UIApplication.shared.windows[0]
         
         // Create CoreData instance
-        let appUser = CoreDataManager.instance.entityDidLoad(byName: "AppUser", andPredicateParameters: nil) as? AppUser ?? AppUser()
-        CoreDataManager.instance.appUser = appUser
+        let appUser = CoreDataManager.instance.entityDidLoad(byName: "AppUser", andPredicateParameters: nil) as! AppUser
         
         if (appUser.isAuthorized) {
             backgroundImageView.isHidden = true

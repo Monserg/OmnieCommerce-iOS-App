@@ -63,7 +63,7 @@ extension Date {
         let currentYear     =   Calendar.current.dateComponents([.year], from: self).year!
         var years           =   [String]()
         
-        for year in (currentYear - 5)..<(currentYear + 6) {
+        for year in (currentYear - 100)..<(currentYear + 6) {
             years.append(String(year))
         }
         

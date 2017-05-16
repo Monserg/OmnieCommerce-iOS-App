@@ -508,7 +508,7 @@ class OrganizationShowViewController: BaseViewController {
         }
 
         // User review
-        if !(organizationProfile.canUserSendReview) {
+        if (organizationProfile.canUserSendReview) {
             ratingView.isHidden = false
             
             let userReview = CoreDataManager.instance.entityDidLoad(byName: "Review", andPredicateParameters: NSPredicate.init(format: "codeID == %@", "\(organizationProfile.codeID)-UserReview")) as! Review

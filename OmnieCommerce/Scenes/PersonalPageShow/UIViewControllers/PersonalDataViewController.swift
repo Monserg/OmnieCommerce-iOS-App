@@ -13,6 +13,8 @@ typealias ParametersForAPI = [Any]
 
 class PersonalDataViewController: BaseViewController, EmailErrorMessageView, PhoneErrorMessageView, PasswordErrorMessageView, PasswordStrengthView, PasswordStrengthErrorMessageView, RepeatPasswordErrorMessageView {
     // MARK: - Properties
+    let appUserProfile: AppUser! = CoreDataManager.instance.entityDidLoad(byName: "AppUser", andPredicateParameters: nil) as! AppUser
+    
     var profileParameters: [String: Any]?
     var passwordParameters: [String: Any]?
     var parametersForAPI: ParametersForAPI?
@@ -27,7 +29,8 @@ class PersonalDataViewController: BaseViewController, EmailErrorMessageView, Pho
             birthdayPickerView.dataSource = self.pickerViewManager
 
             let currentDayComponents = Calendar.current.dateComponents(in: TimeZone.current,
-                                                                       from: (CoreDataManager.instance.appUser.birthday != nil) ? CoreDataManager.instance.appUser!.birthday! as Date : Date())
+                                                                       from: (appUserProfile.birthday != nil) ? appUserProfile.birthday! as Date : Date())
+
             self.pickerViewManager.selectedMonthIndex = pickerViewManager.months.index(where: { $0 == String(currentDayComponents.month!) })!
             let currentDaysInMonth = pickerViewManager.days[self.pickerViewManager.selectedMonthIndex]
             self.pickerViewManager.selectedDayIndex = currentDaysInMonth.index(where: { $0 == String(currentDayComponents.day!) })!
@@ -54,6 +57,7 @@ class PersonalDataViewController: BaseViewController, EmailErrorMessageView, Pho
         }
     }
 
+    // Outlets
     @IBOutlet weak var scrollView: UIScrollView! {
         didSet {
             scrollViewBase = scrollView
@@ -69,14 +73,9 @@ class PersonalDataViewController: BaseViewController, EmailErrorMessageView, Pho
     
     @IBOutlet weak var avatarButton: CustomButton! {
         didSet {
-            guard CoreDataManager.instance.appUser.imagePath != nil else {
-                avatarButton.setImage(UIImage.init(named: "image-no-user"), for: .normal)
-                return
-            }
-            
             // Set User Image by URL
-            if let imagePath = CoreDataManager.instance.appUser.imagePath {
-                avatarButton.kf.setImage(with: ImageResource(downloadURL: URL(string: imagePath)!, cacheKey: imagePath), for: .normal,
+            if let imageID = (CoreDataManager.instance.entityDidLoad(byName: "AppUser", andPredicateParameters: nil) as! AppUser).imageID {
+                avatarButton.kf.setImage(with: ImageResource(downloadURL: imageID.convertToURL(withSize: .Small, inMode: .Get), cacheKey: imageID), for: .normal,
                                          placeholder: UIImage.init(named: "image-no-user"),
                                          options: [.transition(ImageTransition.fade(1)),
                                                    .processor(ResizingImageProcessor(referenceSize: avatarButton.frame.size,
@@ -92,11 +91,8 @@ class PersonalDataViewController: BaseViewController, EmailErrorMessageView, Pho
 
     @IBOutlet weak var emailTextField: CustomTextField! {
         didSet {
-            if (CoreDataManager.instance.appUser.email != nil) {
-                self.emailTextField.text = CoreDataManager.instance.appUser!.email
-            } else {
-                let dictionary = NSKeyedUnarchiver.unarchiveObject(with: CoreDataManager.instance.appUser!.additionalData! as Data) as! [String : Any]
-                self.emailTextField.text = dictionary["userEmail"] as? String
+            if let email = (CoreDataManager.instance.entityDidLoad(byName: "AppUser", andPredicateParameters: nil) as! AppUser).email {
+                self.emailTextField.text = email
             }
         }
     }
@@ -106,10 +102,10 @@ class PersonalDataViewController: BaseViewController, EmailErrorMessageView, Pho
             textFieldManager = MSMTextFieldManager(withTextFields: textFieldsCollection)
             textFieldManager.currentVC = self
             
-            textFieldsCollection[0].text = CoreDataManager.instance.appUser!.firstName
-            textFieldsCollection[1].text = CoreDataManager.instance.appUser!.surName
+            textFieldsCollection[0].text = appUserProfile.firstName
+            textFieldsCollection[1].text = appUserProfile.surName
             textFieldsCollection[2].clearButtonMode = .never
-            textFieldsCollection[3].text = CoreDataManager.instance.appUser!.phone
+            textFieldsCollection[3].text = appUserProfile.phone
             textFieldsCollection[4].text = "Test password"
             textFieldsCollection[4].isEnabled = false
             textFieldsCollection[4].clearButtonMode = .never
@@ -132,8 +128,8 @@ class PersonalDataViewController: BaseViewController, EmailErrorMessageView, Pho
     
     @IBOutlet var radioButtonsCollection: [DLRadioButton]! {
         didSet {
-            radioButtonsCollection!.first!.isSelected = (CoreDataManager.instance.appUser!.gender == 1) ? false : true
-            radioButtonsCollection!.last!.isSelected = (CoreDataManager.instance.appUser!.gender == 1) ? true : false
+            radioButtonsCollection!.first!.isSelected = (appUserProfile.gender == 0) ? true : false
+            radioButtonsCollection!.last!.isSelected = (appUserProfile.gender == 1) ? true : false
         }
     }
     
@@ -247,9 +243,9 @@ class PersonalDataViewController: BaseViewController, EmailErrorMessageView, Pho
         profileParameters =         [
                                         "birthDay": pickerViewManager.selectedDateDidShow(),
                                         "sex": radioButtonsCollection[0].isSelected ? 0 : 1,
-                                        "familyStatus": CoreDataManager.instance.appUser!.familyStatus,
-                                        "hasChildren": CoreDataManager.instance.appUser!.hasChildren,
-                                        "hasPet": CoreDataManager.instance.appUser!.hasPet
+                                        "familyStatus": appUserProfile.familyStatus,
+                                        "hasChildren": appUserProfile.hasChildren,
+                                        "hasPet": appUserProfile.hasPet
                                     ]
         
         if (!(textFieldsCollection[0].text?.isEmpty)!) {

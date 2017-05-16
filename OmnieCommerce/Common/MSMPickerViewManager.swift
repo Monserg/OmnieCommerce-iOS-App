@@ -37,7 +37,10 @@ class MSMPickerViewManager: UIView {
     
     // MARK: - Custom Functions
     func selectedDateDidShow() -> String {
-        return "\(years[selectedYearIndex])-\(months[selectedMonthIndex])-\(days[selectedMonthIndex][selectedDayIndex])"
+        let monthIndex = (selectedMonthIndex >= 10) ? String(months[selectedMonthIndex]) : "0\(months[selectedMonthIndex])"
+        let dayIndex = (selectedDayIndex >= 10) ? String(days[selectedMonthIndex][selectedDayIndex]) : "0\(days[selectedMonthIndex][selectedDayIndex])"
+        
+        return "\(years[selectedYearIndex])-\(monthIndex)-\(dayIndex)"
     }
 }
 

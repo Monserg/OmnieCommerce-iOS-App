@@ -14,8 +14,8 @@ import CoreLocation
 
 class PersonalPageShowWorker {
     // MARK: - Custom Functions. Business Logic
-    func userAppDidUpdateOnServer(withParameters parameters: [String: String]) -> AppUser {
-        // NOTE: Do the work
-        return CoreDataManager.instance.appUser
-    }
+//    func userAppDidUpdateOnServer(withParameters parameters: [String: String]) -> AppUser {
+//        // NOTE: Do the work
+//        return CoreDataManager.instance.appUser
+//    }
 }

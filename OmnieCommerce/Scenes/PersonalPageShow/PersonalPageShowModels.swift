@@ -51,7 +51,7 @@ struct PersonalPageShowModels {
         }
         
         struct ViewModel {
-            let responseAPI: ResponseAPI?
+            let status: String
             let passwordsParams: [String: Any]?
         }
     }

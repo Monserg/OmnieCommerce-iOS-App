@@ -152,11 +152,11 @@ extension SignInContainerShowViewController: SignInContainerShowViewControllerIn
         }
 
         // Mofidy AppUser properties
-        CoreDataManager.instance.appUser.codeID = String.init(describing: viewModel.responseAPI?.code)
-        CoreDataManager.instance.appUser.userName = (textFieldsCollection.first?.text)!
-        CoreDataManager.instance.appUser.password = textFieldsCollection.last?.text!
-        CoreDataManager.instance.appUser.accessToken = UserDefaults.standard.value(forKey: keyAccessToken) as? String
-        CoreDataManager.instance.appUser.isAuthorized = true
+        let appUser = CoreDataManager.instance.entityDidLoad(byName: "AppUser", andPredicateParameters: nil) as! AppUser
+        appUser.userName = (textFieldsCollection.first?.text)!
+        appUser.password = textFieldsCollection.last?.text!
+        appUser.accessToken = UserDefaults.standard.value(forKey: keyAccessToken) as? String
+        appUser.isAuthorized = true
         CoreDataManager.instance.didSaveContext()
         
         handlerPassDataCompletion!(viewModel.responseAPI!.code!)

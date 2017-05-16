@@ -81,7 +81,7 @@ class SignInShowViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if (CoreDataManager.instance.appUser.isAuthorized) {
+        if ((CoreDataManager.instance.entityDidLoad(byName: "AppUser", andPredicateParameters: nil) as! AppUser).isAuthorized) {
             self.view.isHidden = true
         }
         
@@ -102,8 +102,7 @@ class SignInShowViewController: BaseViewController {
         didAddTapGestureRecognizer()
 
         // Apply Container childVC
-        (CoreDataManager.instance.appUser.isAuthorized) ?   router.navigateAuthorizedUser(duringStartApp: true) :
-                                                            router.navigateBetweenContainerSubviews()
+        ((CoreDataManager.instance.entityDidLoad(byName: "AppUser", andPredicateParameters: nil) as! AppUser).isAuthorized) ? router.navigateAuthorizedUser(duringStartApp: true) : router.navigateBetweenContainerSubviews()
     }
     
     

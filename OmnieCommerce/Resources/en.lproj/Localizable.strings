@@ -209,7 +209,7 @@
 "CONTINUE"                      =   "";     //  2201
 "CREATED"                       =   "";     //  201
 "NOT_MODIFIED"                  =   "";     //  304
-"BAD_REQUEST"                   =   "";     //  400
+"BAD_REQUEST_400"               =   "Bad request";                                      //  400
 "INVALID_CREDENTIAL"            =   "";     //  401
 "NOT_FOUND"                     =   "";     //  404
 "CONFLICT"                      =   "";     //  409
@@ -218,6 +218,7 @@
 "WRONG_SHOW_INFO"               =   "Failed on showing info for service";               //  4200
 "BAD_AUTHORIZATION"             =   "Bad authorization";                                //  4401
 "INCORRECT_PASSWORD"            =   "Password is incorrect";                            //  4402
+"BAD_REQUEST_4444"              =   "Bad request";                                      //  4444
 "WRONG_INPUT_DATA"              =   "Wrong input data";                                 //  4500
 "USER_EXIST"                    =   "User is already exist";                            //  4670
 "SOMETHING_WRONG_5000"          =   "Please enter the correct code";                    //  5000

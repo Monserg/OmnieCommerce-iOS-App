@@ -147,10 +147,11 @@ extension SignUpShowViewController: SignUpShowViewControllerInput {
         
         alertViewDidShow(withTitle: "Info", andMessage: "User register successful", completion: { _ in
             // Mofidy AppUser properties
-            CoreDataManager.instance.appUser.userName = (self.textFieldsCollection.first?.text)!
-            CoreDataManager.instance.appUser.email = self.textFieldsCollection[1].text!
-            CoreDataManager.instance.appUser.password = self.textFieldsCollection.last?.text!
-            CoreDataManager.instance.appUser.isAuthorized = true
+            let appUser = CoreDataManager.instance.entityDidLoad(byName: "AppUser", andPredicateParameters: nil) as! AppUser
+            appUser.userName = (self.textFieldsCollection.first?.text)!
+            appUser.email = self.textFieldsCollection[1].text!
+            appUser.password = self.textFieldsCollection.last?.text!
+            appUser.isAuthorized = true
             CoreDataManager.instance.didSaveContext()
             
             self.handlerRegisterButtonCompletion!()

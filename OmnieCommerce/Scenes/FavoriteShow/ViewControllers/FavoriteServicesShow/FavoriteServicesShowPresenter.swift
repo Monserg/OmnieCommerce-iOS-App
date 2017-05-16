@@ -39,11 +39,13 @@ class FavoriteServicesShowPresenter: FavoriteServicesShowPresenterInput {
         if let servicesList = responseModel.responseAPI!.body as? [Any] {
             if (servicesList.count > 0) {
                 for json in servicesList {
-                    _ = Service.init(json: json as! [String: AnyObject], forOrganization: nil, forList: keyFavoriteServices)
+                    let service = Service.init(json: json as! [String: AnyObject], forOrganization: nil, forList: keyFavoriteServices)
+                    service!.cellHeight = 60.0
+                    service!.cellIdentifier = "FavoriteServiceTableViewCell"
+                    
+                    CoreDataManager.instance.didSaveContext()
                 }
             }
-            
-            CoreDataManager.instance.didSaveContext()
             
             let servicesViewModel = FavoriteServicesShowModels.Services.ViewModel(status: (responseModel.responseAPI?.status)!)
             self.viewController.favoriteServicesDidShowLoad(fromViewModel: servicesViewModel)

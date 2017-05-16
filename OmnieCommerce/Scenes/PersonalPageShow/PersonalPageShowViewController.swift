@@ -61,6 +61,7 @@ class PersonalPageShowViewController: BaseViewController {
         }
     }
     
+    // Outlets
     @IBOutlet weak var smallTopBarView: SmallTopBarView!
     @IBOutlet weak var copyrightLabel: CustomLabel!
     @IBOutlet weak var segmentedControlView: SegmentedControlView!
@@ -85,7 +86,21 @@ class PersonalPageShowViewController: BaseViewController {
         navigationBarView = smallTopBarView
         smallTopBarView.type = "Parent"
         haveMenuItem = true
-                
+        
+        viewSettingsDidLoad()
+    }
+    
+    
+    // MARK: - Custom Functions
+    func viewSettingsDidLoad() {
+        print(object: "\(type(of: self)): \(#function) run.")
+        
+        userAppDataDidLoad()
+        setupSegmentedControlView()
+        containerView.autoresizesSubviews = true
+    }
+    
+    func personalDataDidShow() {
         // Container Child Views
         personalDataVC = UIStoryboard(name: "PersonalPageShow", bundle: nil).instantiateViewController(withIdentifier: "PersonalDataVC") as? PersonalDataViewController
         
@@ -150,7 +165,7 @@ class PersonalPageShowViewController: BaseViewController {
             }
             
             self.spinnerDidStart(nil)
-            let uploadProfileRequestModel = PersonalPageShowModels.UploadData.RequestModel(parameters: parameters)
+            let uploadProfileRequestModel = PersonalPageShowModels.UploadData.RequestModel(parameters: parameters!)
             self.interactor.userAppDataDidUpload(withRequestModel: uploadProfileRequestModel)
         }
         
@@ -159,18 +174,6 @@ class PersonalPageShowViewController: BaseViewController {
         }
 
         personalTemplatesVC = UIStoryboard(name: "PersonalPageShow", bundle: nil).instantiateViewController(withIdentifier: "PersonalTemplatesVC") as? PersonalTemplatesViewController
-        
-        viewSettingsDidLoad()        
-    }
-    
-
-    // MARK: - Custom Functions
-    func viewSettingsDidLoad() {
-        print(object: "\(type(of: self)): \(#function) run.")
-        
-        userAppDataDidLoad()
-        setupSegmentedControlView()
-        containerView.autoresizesSubviews = true
         
         // Handler Change Network State
         personalDataVC!.handlerChangeNetworkStateCompletion = { success in
@@ -283,8 +286,15 @@ extension PersonalPageShowViewController: PersonalPageShowViewControllerInput {
         }
         
         // Mofidy AppUser properties
+//        let token = (CoreDataManager.instance.entityDidLoad(byName: "AppUser", andPredicateParameters: nil) as! AppUser).accessToken
+//        let appUser = AppUser.init(json: viewModel.responseAPI!.body as! [String: AnyObject])
+//        appUser.accessToken = token
+        
+        let appUser = CoreDataManager.instance.entityDidLoad(byName: "AppUser", andPredicateParameters: nil) as! AppUser
+        appUser.profileDidUpload(json: viewModel.responseAPI!.body as! [String: AnyObject])
         CoreDataManager.instance.didSaveContext()
         
+        personalDataDidShow()
         activeViewController = personalDataVC
 
         // Get Templates
@@ -294,6 +304,13 @@ extension PersonalPageShowViewController: PersonalPageShowViewControllerInput {
     
     func userAppDataDidShowUpload(fromViewModel viewModel: PersonalPageShowModels.UploadData.ViewModel) {
         spinnerDidFinish()
+
+        // Check for errors
+        guard viewModel.status == "SUCCESS" else {
+            self.alertViewDidShow(withTitle: "Error", andMessage: viewModel.status, completion: { })
+            
+            return
+        }
 
         // Check Network state
         guard isNetworkAvailable else {
@@ -326,7 +343,16 @@ extension PersonalPageShowViewController: PersonalPageShowViewControllerInput {
         blackoutView!.didHide()
     }
     
-    func userAppPasswordDidShowChange(fromViewModel viewModel: PersonalPageShowModels.UploadData.ViewModel) {}
+    func userAppPasswordDidShowChange(fromViewModel viewModel: PersonalPageShowModels.UploadData.ViewModel) {
+        spinnerDidFinish()
+        
+        // Check for errors
+        guard viewModel.status == "SUCCESS" else {
+            self.alertViewDidShow(withTitle: "Error", andMessage: viewModel.status, completion: { })
+            
+            return
+        }
+    }
 
     func userAppEmailDidShowChange(fromViewModel viewModel: PersonalPageShowModels.ChangeEmail.ViewModel) {
         spinnerDidFinish()

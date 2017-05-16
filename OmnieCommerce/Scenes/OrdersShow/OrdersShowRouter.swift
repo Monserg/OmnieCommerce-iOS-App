@@ -41,7 +41,6 @@ class OrdersShowRouter: OrdersShowRouterInput {
         
         // Handler select new date completion
         orderCalendarShowVC.handlerSelectNewDateCompletion = { newDate in
-            print(newDate)
             self.viewController.dateStart = (newDate as! Date).convertToString(withStyle: .DateHyphen)
             self.viewController.dateEnd = self.viewController.dateStart
             self.viewController.setupTitleLabel(withDate: newDate as! Date)

@@ -19,18 +19,17 @@ extension AppUser {
     @NSManaged public var accessToken: String?
     @NSManaged public var userName: String
     @NSManaged public var birthday: NSDate?
-    @NSManaged public var codeID: String?
+    @NSManaged public var registrationDate: NSDate?
     @NSManaged public var email: String?
     @NSManaged public var familyStatus: Int16
     @NSManaged public var firstName: String?
     @NSManaged public var gender: Int16
     @NSManaged public var hasChildren: Int16
     @NSManaged public var hasPet: Int16
-    @NSManaged public var imagePath: String?
+    @NSManaged public var imageID: String?
     @NSManaged public var isAuthorized: Bool
     @NSManaged public var password: String?
     @NSManaged public var phone: String?
     @NSManaged public var surName: String?
-    @NSManaged public var additionalData: NSData?
 
 }

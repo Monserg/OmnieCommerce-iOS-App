@@ -29,7 +29,7 @@ public enum StatusCodeNote: Int {
     case CREATED                    =   201     //  POST or PUT is successful
     case NOT_MODIFIED               =   304     //  If caching is enabled and etag matches with the server
     case SOMETHING_WRONG_3894       =   3894
-    case BAD_REQUEST                =   400     //  Possibly the parameters are invalid
+    case BAD_REQUEST_400            =   400     //  Possibly the parameters are invalid
     case INVALID_CREDENTIAL         =   401     //  INVALID CREDENTIAL, possible invalid token
     case NOT_FOUND                  =   404     //  The item you looked for is not found
     case CONFLICT                   =   409     //  Conflict - means already exist
@@ -37,6 +37,7 @@ public enum StatusCodeNote: Int {
     case WRONG_SHOW_INFO            =   4200    //  Failed on showing info
     case BAD_AUTHORIZATION          =   4401    //  BAD AUTHORIZATION
     case INCORRECT_PASSWORD         =   4402    //  PASSWORD IS INCORRECT
+    case BAD_REQUEST_4444           =   4444    //  BAD REQUEST
     case WRONG_INPUT_DATA           =   4500    //  WRONG INPUT DATA
     case USER_EXIST                 =   4670
 
@@ -63,23 +64,16 @@ class ResponseAPI {
         self.status = StatusCodeNote.init(rawValue: self.code)!.name
         
         switch type {
-        case .UserDataDictionary:
-            self.body = json["body"].dictionaryObject!
-            CoreDataManager.instance.appUser.dataDidMap(fromDictionary: self.body as! [String: Any])
-
-        case .UserAdditionalDataDictionary:
-            self.body = json["body"].dictionaryObject!
-            CoreDataManager.instance.appUser.additionalDataDidMap(fromDictionary: self.body as! [String: Any])
-
         case .ItemsDictionary:
-            self.body = json["body"].dictionaryObject!
+            if let body = json["body"].dictionaryObject {
+                self.body = body
+            }
             
         case .ItemsArray:
-            self.body = json["body"].arrayObject
+            if let body = json["body"].arrayObject {
+                self.body = body
+            }
             
-        case .OrganizationsArray:
-            self.body = json["body"].arrayObject!
-
         default:
             self.body = json["body"].stringValue
         }

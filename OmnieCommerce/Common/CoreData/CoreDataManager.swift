@@ -24,12 +24,6 @@ class CoreDataManager {
         //        "store: \(store)"
     }
 
-    var appUser: AppUser! {
-        didSet {
-//            didSaveContext()
-        }
-    }
-
     var appSettings: AppSettings! {
         didSet {
             didSaveContext()
@@ -121,6 +115,7 @@ class CoreDataManager {
     }
     
     func didUpdateAppUser(state: Bool) {
+        let appUser = CoreDataManager.instance.entityDidLoad(byName: "AppUser", andPredicateParameters: nil) as! AppUser
         appUser.isAuthorized = state
         
         if (!state) {
@@ -128,13 +123,13 @@ class CoreDataManager {
 
             appUser.accessToken = nil
             appUser.birthday = nil
-            appUser.codeID = nil
             appUser.firstName = nil
-            appUser.imagePath = nil
+            appUser.imageID = nil
             appUser.surName = nil
             appUser.password = nil
             appUser.phone = nil
             appUser.email = nil
+            appUser.registrationDate = nil
             
             // Clean Image Cache
             KingfisherManager.shared.cache.clearMemoryCache()

@@ -80,7 +80,7 @@ enum RequestType {
     
     func introduced() -> RequestParametersType {
         let headers = [ "Content-Type": "application/json" ]
-        let userAccessToken = CoreDataManager.instance.appUser.accessToken
+        let userAccessToken = (CoreDataManager.instance.entityDidLoad(byName: "AppUser", andPredicateParameters: nil) as! AppUser).accessToken
         var headersExtended = (userAccessToken != nil) ? [ "Content-Type": "application/json", "Authorization": userAccessToken! ] : nil
         
         // Body & Parametes named such as in Postman
@@ -328,7 +328,7 @@ enum RequestType {
         case .userGetProfileData(let params, let isBodyParams):     return (method: .get,
                                                                             apiStringURL: "/user/profile/",
                                                                             body: (isBodyParams ? params : nil),
-                                                                            bodyType: .UserDataDictionary,
+                                                                            bodyType: .ItemsDictionary,
                                                                             headers: headersExtended,
                                                                             parameters: (isBodyParams ? nil : params))
             
@@ -338,14 +338,14 @@ enum RequestType {
             return (method: .post,
                     apiStringURL: "/user/profile/",
                     body: (isBodyParams ? params : nil),
-                    bodyType: .UserDataDictionary,
+                    bodyType: .ItemsDictionary,
                     headers: headersExtended!,
                     parameters: (isBodyParams ? nil : params))
             
         case .userGetProfileSettings(let params, let isBodyParams):     return (method: .get,
                                                                                 apiStringURL: "/user/config/",
                                                                                 body: (isBodyParams ? params : nil),
-                                                                                bodyType: .UserDataDictionary,
+                                                                                bodyType: .ItemsDictionary,
                                                                                 headers: headersExtended,
                                                                                 parameters: (isBodyParams ? nil : params))
             
@@ -418,16 +418,8 @@ final class MSMRestApiManager {
             
             var responseAPI: ResponseAPI!
             let json = JSON(dataResponse.result.value!)
-            let statusCode = (dataResponse.result.value as! [String: Any])["code"] as! Int
+            responseAPI = ResponseAPI.init(fromJSON: json, withBodyType: requestParameters.bodyType)
             
-            switch requestType {
-            case .userGetProfileData:
-                responseAPI = ResponseAPI.init(fromJSON: json, withBodyType: (statusCode == 200) ? .UserDataDictionary : .UserAdditionalDataDictionary)
-                
-            default:
-                responseAPI = ResponseAPI.init(fromJSON: json, withBodyType: requestParameters.bodyType)
-            }
-
             // Save headers
             if (dataResponse.response?.statusCode == 200 && requestParameters.bodyType == .Default) {
                 let responseHeaders = dataResponse.response!.allHeaderFields
@@ -443,7 +435,7 @@ final class MSMRestApiManager {
     func userUploadImage(_ image: UIImage, withHandlerResponseAPICompletion handlerResponseAPICompletion: @escaping (ResponseAPI?) -> Void) {
         let imageData = UIImagePNGRepresentation(image)
         appApiString = "/user/profile/image/"
-        headers["Authorization"] = CoreDataManager.instance.appUser.accessToken!
+        headers["Authorization"] = (CoreDataManager.instance.entityDidLoad(byName: "AppUser", andPredicateParameters: nil) as! AppUser).accessToken
         headers["Content-Type"] = "multipart/form-data"
         
         let uploadURL = try! URLRequest(url: appURL, method: .post, headers: headers)

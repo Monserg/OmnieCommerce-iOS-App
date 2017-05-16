@@ -43,6 +43,7 @@ class PersonalPageShowInteractor: PersonalPageShowInteractorInput {
     func userAppDataDidLoad(withRequestModel requestModel: PersonalPageShowModels.LoadData.RequestModel) {
         MSMRestApiManager.instance.userRequestDidRun(.userGetProfileData(nil, false), withHandlerResponseAPICompletion: { responseAPI in
             // Pass the result to the Presenter
+            _ = AppUser.init()
             let loadResponseModel = PersonalPageShowModels.LoadData.ResponseModel(responseAPI: responseAPI)
             self.presenter.userAppDataDidPrepareToShowLoad(fromResponseModel: loadResponseModel)
         })

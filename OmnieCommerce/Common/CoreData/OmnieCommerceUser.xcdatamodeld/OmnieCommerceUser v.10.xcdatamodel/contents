@@ -25,19 +25,18 @@
     </entity>
     <entity name="AppUser" representedClassName="AppUser" syncable="YES">
         <attribute name="accessToken" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="additionalData" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="birthday" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
-        <attribute name="codeID" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="familyStatus" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="gender" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="hasChildren" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="hasPet" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="imagePath" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="imageID" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="isAuthorized" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="password" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="phone" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="registrationDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="surName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="userName" attributeType="String" syncable="YES"/>
         <uniquenessConstraints>
@@ -292,7 +291,7 @@
         <element name="Actions" positionX="-27" positionY="108" width="128" height="60"/>
         <element name="AdditionalService" positionX="144" positionY="81" width="128" height="195"/>
         <element name="AppSettings" positionX="-54" positionY="-9" width="128" height="60"/>
-        <element name="AppUser" positionX="-63" positionY="-18" width="128" height="285"/>
+        <element name="AppUser" positionX="-63" positionY="-18" width="128" height="270"/>
         <element name="Category" positionX="270" positionY="-72" width="128" height="135"/>
         <element name="Discount" positionX="162" positionY="99" width="128" height="195"/>
         <element name="GalleryImage" positionX="-36" positionY="99" width="128" height="120"/>

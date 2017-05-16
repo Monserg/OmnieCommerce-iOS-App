@@ -45,32 +45,38 @@ class PersonalPageShowPresenter: PersonalPageShowPresenterInput {
     }
     
     func userAppDataDidPrepareToShowUpload(fromResponseModel responseModel: PersonalPageShowModels.UploadData.ResponseModel) {
-        let uploadDataViewModel = PersonalPageShowModels.UploadData.ViewModel(responseAPI: responseModel.responseAPI, passwordsParams: responseModel.passwordsParams)
+        let uploadDataViewModel = PersonalPageShowModels.UploadData.ViewModel(status: responseModel.responseAPI!.status,
+                                                                              passwordsParams: responseModel.passwordsParams)
+        
         viewController.userAppDataDidShowUpload(fromViewModel: uploadDataViewModel)
     }
     
     func userAppImageDidPrepareToShowUpload(fromResponseModel responseModel: PersonalPageShowModels.UploadImage.ResponseModel) {
-        let imageURL = responseModel.responseAPI?.body as? String
-        
-        if (imageURL != nil) {
-            CoreDataManager.instance.appUser.imagePath = "http://\(imageURL!)"
+        if let imageID = responseModel.responseAPI?.body as? String {
+            let uploadImageViewModel = PersonalPageShowModels.UploadImage.ViewModel(imageStringURL: imageID)
+            viewController.userAppImageDidShowUpload(fromViewModel: uploadImageViewModel)
+           
+            let appUser = CoreDataManager.instance.entityDidCreate(byName: "AppUser") as! AppUser
+            appUser.imageID = imageID
+            CoreDataManager.instance.didSaveContext()
         }
-        
-        let uploadImageViewModel = PersonalPageShowModels.UploadImage.ViewModel(imageStringURL: imageURL)
-        viewController.userAppImageDidShowUpload(fromViewModel: uploadImageViewModel)
     }
 
     func userAppImageDidPrepareToShowDelete(fromResponseModel responseModel: PersonalPageShowModels.LoadData.ResponseModel) {
         if (responseModel.responseAPI?.code == 200) {
-            CoreDataManager.instance.appUser.imagePath = nil
+            let deleteImageViewModel = PersonalPageShowModels.LoadData.ViewModel(responseAPI: responseModel.responseAPI)
+            viewController.userAppImageDidShowDelete(fromViewModel: deleteImageViewModel)
+            
+            let appUser = CoreDataManager.instance.entityDidCreate(byName: "AppUser") as! AppUser
+            appUser.imageID = nil
+            CoreDataManager.instance.didSaveContext()
         }
-        
-        let deleteImageViewModel = PersonalPageShowModels.LoadData.ViewModel(responseAPI: responseModel.responseAPI)
-        viewController.userAppImageDidShowDelete(fromViewModel: deleteImageViewModel)
     }
     
     func userAppPasswordDidPrepareToShowChange(fromResponseModel responseModel: PersonalPageShowModels.UploadData.ResponseModel) {
-        let passwordChangeViewModel = PersonalPageShowModels.UploadData.ViewModel(responseAPI: responseModel.responseAPI, passwordsParams: nil)
+        let passwordChangeViewModel = PersonalPageShowModels.UploadData.ViewModel(status: responseModel.responseAPI!.status,
+                                                                                  passwordsParams: nil)
+        
         viewController.userAppPasswordDidShowChange(fromViewModel: passwordChangeViewModel)
     }
     
