@@ -330,6 +330,13 @@ extension PersonalPageShowViewController: PersonalPageShowViewControllerInput {
     func userAppImageDidShowUpload(fromViewModel viewModel: PersonalPageShowModels.UploadImage.ViewModel) {
         spinnerDidFinish()
         
+        // Check for errors
+        guard viewModel.status == "SUCCESS" else {
+            self.alertViewDidShow(withTitle: "Error", andMessage: viewModel.status, completion: { })
+            
+            return
+        }
+
         // Check Network state
         guard isNetworkAvailable else {
             wasImageUploaded = false
@@ -370,7 +377,7 @@ extension PersonalPageShowViewController: PersonalPageShowViewControllerInput {
         
         alertViewDidShow(withTitle: "Info", andMessage: "Change Email info message", completion: { _ in
             CoreDataManager.instance.didSaveContext()
-            self.personalDataVC!.textFieldsCollection[2].resignFirstResponder()
+            _ = self.personalDataVC!.textFieldsCollection.map({ $0.resignFirstResponder()})
             self.personalDataVC!.handlerChangeEmailButtonTap(self.personalDataVC!.emailChangeButton)
         })
     }

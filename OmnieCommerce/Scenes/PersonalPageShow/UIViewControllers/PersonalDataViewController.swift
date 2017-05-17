@@ -265,6 +265,7 @@ class PersonalDataViewController: BaseViewController, EmailErrorMessageView, Pho
 
         if (!(self.textFieldsCollection.last!.text?.isEmpty)!) {
             passwordParameters =    [
+                                        "currentPassword": self.textFieldsCollection[4].text!,
                                         "newPassword": self.textFieldsCollection.last!.text!
                                     ]
             

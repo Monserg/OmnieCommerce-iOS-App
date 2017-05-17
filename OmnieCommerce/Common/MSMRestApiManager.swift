@@ -434,10 +434,12 @@ final class MSMRestApiManager {
     // User upload image
     func userUploadImage(_ image: UIImage, withHandlerResponseAPICompletion handlerResponseAPICompletion: @escaping (ResponseAPI?) -> Void) {
         let imageData = UIImagePNGRepresentation(image)
-        appApiString = "/user/profile/image/"
-        headers["Authorization"] = (CoreDataManager.instance.entityDidLoad(byName: "AppUser", andPredicateParameters: nil) as! AppUser).accessToken
-        headers["Content-Type"] = "multipart/form-data"
-        
+//        appApiString = "/user/profile/image/"
+//        headers["Authorization"] = (CoreDataManager.instance.entityDidLoad(byName: "AppUser", andPredicateParameters: nil) as! AppUser).accessToken
+//        headers["Content-Type"] = "multipart/form-data"
+//            (imageHostURL.appendingPathComponent("/upload/")
+
+        appURL = appApiString.convertToURL(withSize: .Original, inMode: .Upload)
         let uploadURL = try! URLRequest(url: appURL, method: .post, headers: headers)
         
         guard imageData != nil else {
@@ -445,7 +447,7 @@ final class MSMRestApiManager {
         }
         
         Alamofire.upload(multipartFormData: { (multipartFormData) in
-            multipartFormData.append(imageData!, withName: "uploaded_file", fileName: "userImage.jpg", mimeType: "image/jpeg")
+            multipartFormData.append(imageData!, withName: "picture", fileName: "userImage.jpg", mimeType: "image/jpeg")
         }, with: uploadURL, encodingCompletion: { encodingResult in
             switch encodingResult {
             case .success(let upload, _, _):
@@ -465,7 +467,6 @@ final class MSMRestApiManager {
                 handlerResponseAPICompletion(nil)
                 return
             }
-            
         })
     }
 }

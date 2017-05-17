@@ -66,7 +66,7 @@ struct PersonalPageShowModels {
         }
         
         struct ViewModel {
-            let imageStringURL: String?
+            let status: String
         }
     }
     
