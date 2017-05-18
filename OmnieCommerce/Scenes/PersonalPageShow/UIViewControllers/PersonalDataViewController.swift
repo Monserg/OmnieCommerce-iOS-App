@@ -202,7 +202,7 @@ class PersonalDataViewController: BaseViewController, EmailErrorMessageView, Pho
     // MARK: - Custom Functions
     func viewSettingsDidLoad() {
         // Create PickerViewManager
-        pickerViewManager = MSMPickerViewManager.init(frame: self.view.frame)
+        pickerViewManager = MSMPickerViewManager.init(self.view.frame, forScene: "PersonalPageShow")
 
         // Add Tap Gesture Regognizer
         didAddTapGestureRecognizer()

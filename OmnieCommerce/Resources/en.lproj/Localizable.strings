@@ -80,6 +80,15 @@
 "Discount available"            =   "* The amount of discount available";
 "Thanks!"                       =   "Thanks!";
 "Your order send"               =   "Your order is sent \n on processing.";
+"Setting sound notifications"   =   "Enable sound notifications";
+"Setting event notify"          =   "Notify event";
+"Setting calendar sync"         =   "Sync calendar";
+"Setting light theme"           =   "Enable light theme";
+"Setting popup messages"        =   "Pop-up messages";
+"Setting push offline mode"     =   "When the program is off";
+"Setting day"                   =   "day";
+"Setting hours"                 =   "hours";
+"Setting minutes"               =   "minutes";
 
 
 // Buttons

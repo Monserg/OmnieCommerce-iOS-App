@@ -27,9 +27,70 @@ class SettingsShowViewController: BaseViewController {
     
     var appSettings = [AppSettings]()
     
+    var pickerViewManager: MSMPickerViewManager! {
+        didSet {
+            guard eventPickerView != nil else {
+                return
+            }
+            
+            eventPickerView.delegate = self.pickerViewManager
+            eventPickerView.dataSource = self.pickerViewManager
+            
+            let currentDayComponents = Calendar.current.dateComponents(in: TimeZone.current, from: Date())
+
+            self.pickerViewManager.selectedMonthIndex = pickerViewManager.months.index(where: { $0 == String(currentDayComponents.month!) })!
+            let currentDaysInMonth = pickerViewManager.days[self.pickerViewManager.selectedMonthIndex]
+            self.pickerViewManager.selectedDayIndex = currentDaysInMonth.index(where: { $0 == String(currentDayComponents.day!).twoNumberFormat() })!
+            self.pickerViewManager.selectedHourIndex = pickerViewManager.hours.index(where: { $0 == String(currentDayComponents.hour!).twoNumberFormat() })!
+            self.pickerViewManager.selectedMinuteIndex = pickerViewManager.minutes.index(where: { $0 == String(currentDayComponents.minute!).twoNumberFormat() })!
+            
+            eventPickerView.selectRow(self.pickerViewManager.selectedDayIndex, inComponent: 0, animated: true)
+            eventPickerView.selectRow(self.pickerViewManager.selectedHourIndex, inComponent: 2, animated: true)
+            eventPickerView.selectRow(self.pickerViewManager.selectedMinuteIndex, inComponent: 4, animated: true)
+        }
+    }
+
     // Outlets
     @IBOutlet weak var smallTopBarView: SmallTopBarView!
+    
+    @IBOutlet weak var scrollView: UIScrollView! {
+        didSet {
+            scrollViewBase = scrollView
+        }
+    }
 
+    // Push View
+    @IBOutlet weak var pushCheckButton: DLRadioButton! {
+        didSet {
+            pushCheckButton.setTitle("Setting push offline mode".localized(), for: .normal)
+        }
+    }
+    @IBOutlet weak var pushLabel: UbuntuLightVeryLightGrayLabel!
+    @IBOutlet weak var pushSwitch: UISwitch!
+    
+    // Sound View
+    @IBOutlet weak var soundLabel: UbuntuLightVeryLightGrayLabel!
+    @IBOutlet weak var soundSwitch: UISwitch!
+    
+    // Event View
+    @IBOutlet weak var eventLabel: UbuntuLightVeryLightGrayLabel!
+    @IBOutlet weak var eventSwitch: UISwitch!
+    @IBOutlet weak var eventPickerView: UIPickerView!
+    
+    @IBOutlet var labelsCollection: [UILabel]! {
+        didSet {
+            _ = labelsCollection.map { $0.text = $0.text!.localized() }
+        }
+    }
+    
+    // Sync View
+    @IBOutlet weak var syncLabel: UbuntuLightVeryLightGrayLabel!
+    @IBOutlet weak var syncSwitch: UISwitch!
+    
+    // Scheme View
+    @IBOutlet weak var schemeLabel: UbuntuLightVeryLightGrayLabel!
+    @IBOutlet weak var schemeSwitch: UISwitch!
+    
     
     // MARK: - Class Initialization
     override func awakeFromNib() {
@@ -48,7 +109,20 @@ class SettingsShowViewController: BaseViewController {
         smallTopBarView.type = "Parent"
         haveMenuItem = true
         
+        // Create PickerViewManager
+        pickerViewManager = MSMPickerViewManager.init(self.view.frame, forScene: "SettingsShow")
+
         // Load data
+        appSettingsDidLoadData()
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        scrollView.indicatorDidChange(UIColor.veryLightOrange)
+    }
+
+    
+    // MARK: - Custom Functions
+    func appSettingsDidLoadData() {
         guard isNetworkAvailable else {
             appSettingsDidShow()
             return
@@ -57,11 +131,11 @@ class SettingsShowViewController: BaseViewController {
         let appSettingsRequestModel = SettingsShowModels.Items.RequestModel(parameters: parametersDidPrepare())
         interactor.appSettingsDidLoad(withRequestModel: appSettingsRequestModel)
     }
-    
-    
-    // MARK: - Custom Functions
+
     func appSettingsDidShow() {
         // TODO: - SHOW ITEMS AS DESIGN ELEMENTS
+        
+        spinnerDidFinish()
     }
     
     func parametersDidPrepare() -> [String: AnyObject] {
@@ -83,6 +157,47 @@ class SettingsShowViewController: BaseViewController {
         
         smallTopBarView.setNeedsDisplay()
         smallTopBarView.circleView.setNeedsDisplay()
+    }
+    
+    
+    // MARK: - Actions
+    @IBAction func handlerSaveButtonTap(_ sender: FillVeryLightOrangeButton) {
+        spinnerDidStart(view)
+        appSettingsDidLoadData()
+    }
+    
+    @IBAction func handlerCancelButtonTap(_ sender: BorderVeryLightOrangeButton) {
+        router.navigateToNewsDataShow()
+    }
+    
+    @IBAction func handlerPushCheckButtonTap(_ sender: DLRadioButton) {
+        sender.tag = (sender.tag == 0) ? 1 : 0
+        
+        if (sender.tag == 1) {
+            sender.isSelected = true
+        } else {
+            sender.isSelected = false
+        }
+    }
+
+    @IBAction func handlerPushSwitchChangeValue(_ sender: UISwitch) {
+        pushLabel.textColor = (sender.isOn) ? UIColor.veryLightGray : UIColor.veryDarkGrayishBlue56
+    }
+
+    @IBAction func handlerSoundSwitchChangeValue(_ sender: UISwitch) {
+        soundLabel.textColor = (sender.isOn) ? UIColor.veryLightGray : UIColor.veryDarkGrayishBlue56
+    }
+    
+    @IBAction func handlerEventSwitchChangeValue(_ sender: UISwitch) {
+        eventLabel.textColor = (sender.isOn) ? UIColor.veryLightGray : UIColor.veryDarkGrayishBlue56
+    }
+
+    @IBAction func handlerSyncSwitchChangeValue(_ sender: UISwitch) {
+        syncLabel.textColor = (sender.isOn) ? UIColor.veryLightGray : UIColor.veryDarkGrayishBlue56
+    }
+
+    @IBAction func handlerSchemeSwitchChangeValue(_ sender: UISwitch) {
+        schemeLabel.textColor = (sender.isOn) ? UIColor.veryLightGray : UIColor.veryDarkGrayishBlue56
     }
 }
 

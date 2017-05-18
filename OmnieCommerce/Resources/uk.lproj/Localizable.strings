@@ -80,6 +80,15 @@
 "Discount available"            =   "* Сума вказана з урахуваннями знижки";
 "Thanks!"                       =   "Дякуємо!";
 "Your order send"               =   "Ваше замовлення відправлене \nна опрацювання.";
+"Setting sound notifications"   =   "Увімкнути звукові сповіщення";
+"Setting event notify"          =   "Сповіщати про подію";
+"Setting calendar sync"         =   "Синхронізувати з особистим календарем";
+"Setting light theme"           =   "Увімкнути світлу тему";
+"Setting popup messages"        =   "Спливаючі повідомлення";
+"Setting push offline mode"     =   "При вимкненій програмі";
+"Setting day"                   =   "день";
+"Setting hours"                 =   "години";
+"Setting minutes"               =   "хвилини";
 
 
 // Buttons

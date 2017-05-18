@@ -19,25 +19,15 @@ enum StringDateStyle: String {
 
 extension Date {
     func getDaysInMonth() -> [[String]] {
-        let currentYear     =   Calendar.current.dateComponents([.year], from: self).year!
-        var daysInMonth     =   [[String]]()
+        let currentYear = Calendar.current.dateComponents([.year], from: self).year!
+        var daysInMonth = [[String]]()
         
         for month in 1..<13 {
-            let dateComponents  =   DateComponents(year: currentYear, month: month)
-            let date            =   Calendar.current.date(from: dateComponents)!
-            let range           =   Calendar.current.range(of: .day, in: .month, for: date)!
-            let daysCount       =   range.count + 1
-            
-            
-            
-            
-            
-//            let dateComponents  =   DateComponents(timeZone: TimeZone.current, year: Calendar.current.component(.year, from: self), month: month)
-//            let date            =   Calendar.current.date(from: dateComponents)!
-//            let range           =   Calendar.current.range(of: .day, in: .month, for: date)!
-//            let daysCount       =   range.count + 1
-            
-            var days            =   [String]()
+            let dateComponents = DateComponents(year: currentYear, month: month)
+            let date = Calendar.current.date(from: dateComponents)!
+            let range = Calendar.current.range(of: .day, in: .month, for: date)!
+            let daysCount = range.count + 1
+            var days = [String]()
             
             for day in 1..<daysCount {
                 days.append(String(day))
@@ -50,7 +40,7 @@ extension Date {
     }
     
     func getMonthsNumbers() -> [String] {
-        var months          =   [String]()
+        var months = [String]()
         
         for i in 1..<13 {
             months.append(String(i))
@@ -60,8 +50,8 @@ extension Date {
     }
     
     func getYears() -> [String] {
-        let currentYear     =   Calendar.current.dateComponents([.year], from: self).year!
-        var years           =   [String]()
+        let currentYear = Calendar.current.dateComponents([.year], from: self).year!
+        var years = [String]()
         
         for year in (currentYear - 100)..<(currentYear + 6) {
             years.append(String(year))
@@ -69,28 +59,48 @@ extension Date {
         
         return years
     }
-    
+
+    func getHours() -> [String] {
+        var hours = [String]()
+        
+        for hour in 0..<25 {
+            hours.append(String(hour).twoNumberFormat())
+        }
+        
+        return hours
+    }
+
+    func getMinutes() -> [String] {
+        var minutes = [String]()
+        
+        for minute in 0..<61 {
+            minutes.append(String(minute).twoNumberFormat())
+        }
+        
+        return minutes
+    }
+
     func convertToString(withStyle dateStyle: StringDateStyle) -> String {
-        let dateFormatter       =   DateFormatter()
-        dateFormatter.locale    =   NSLocale.current
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = NSLocale.current
         
         switch dateStyle {
         case .DateDot:
-            dateFormatter.dateFormat    =   "dd.MM.yyyy"
+            dateFormatter.dateFormat = "dd.MM.yyyy"
 
         case .DateHyphen:
-            dateFormatter.dateFormat    =   "yyyy-MM-dd"
+            dateFormatter.dateFormat = "yyyy-MM-dd"
 
         case .Time:
-            dateFormatter.dateFormat    =   "HH:mm"
+            dateFormatter.dateFormat = "HH:mm"
             
         case .MonthYear:
-            let components              =   Calendar.current.dateComponents([.weekday, .month, .day, .year], from: self)
-            let monthsNames             =   Calendar.current.standaloneMonthSymbols
-            dateFormatter.dateFormat    =  "\(monthsNames[components.month! - 1]) \(components.year!)"
+            let components = Calendar.current.dateComponents([.weekday, .month, .day, .year], from: self)
+            let monthsNames = Calendar.current.standaloneMonthSymbols
+            dateFormatter.dateFormat = "\(monthsNames[components.month! - 1]) \(components.year!)"
 
         case .WeekdayMonthYear:
-            dateFormatter.dateFormat    =   "EEEE dd MMMM YYYY"
+            dateFormatter.dateFormat = "EEEE dd MMMM YYYY"
 
         case .DayMonthYear:
             dateFormatter.dateFormat = "dd MMMM YYYY"
