@@ -64,7 +64,7 @@ extension Date {
         var hours = [String]()
         
         for hour in 0..<25 {
-            hours.append(String(hour).twoNumberFormat())
+            hours.append(String(hour))
         }
         
         return hours
@@ -74,7 +74,7 @@ extension Date {
         var minutes = [String]()
         
         for minute in 0..<61 {
-            minutes.append(String(minute).twoNumberFormat())
+            minutes.append(String(minute))
         }
         
         return minutes

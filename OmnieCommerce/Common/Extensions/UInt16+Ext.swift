@@ -66,5 +66,5 @@ extension UInt16 {
         }
         
         return nil
-    }
+    }    
 }

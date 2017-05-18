@@ -25,7 +25,7 @@ class SettingsShowViewController: BaseViewController {
     var interactor: SettingsShowViewControllerOutput!
     var router: SettingsShowRouter!
     
-    var appSettings = [AppSettings]()
+    var appSettings: AppSettings!
     
     var pickerViewManager: MSMPickerViewManager! {
         didSet {
@@ -36,13 +36,12 @@ class SettingsShowViewController: BaseViewController {
             eventPickerView.delegate = self.pickerViewManager
             eventPickerView.dataSource = self.pickerViewManager
             
-            let currentDayComponents = Calendar.current.dateComponents(in: TimeZone.current, from: Date())
+            let parameters = appSettings.notifyDelay.convertToParameters()
 
-            self.pickerViewManager.selectedMonthIndex = pickerViewManager.months.index(where: { $0 == String(currentDayComponents.month!) })!
-            let currentDaysInMonth = pickerViewManager.days[self.pickerViewManager.selectedMonthIndex]
-            self.pickerViewManager.selectedDayIndex = currentDaysInMonth.index(where: { $0 == String(currentDayComponents.day!).twoNumberFormat() })!
-            self.pickerViewManager.selectedHourIndex = pickerViewManager.hours.index(where: { $0 == String(currentDayComponents.hour!).twoNumberFormat() })!
-            self.pickerViewManager.selectedMinuteIndex = pickerViewManager.minutes.index(where: { $0 == String(currentDayComponents.minute!).twoNumberFormat() })!
+            self.pickerViewManager.selectedDayIndex = parameters["day"]!
+            self.pickerViewManager.selectedHourIndex = parameters["hours"]!
+            self.pickerViewManager.selectedMinuteIndex = parameters["minutes"]!
+            self.pickerViewManager.selectedMonthIndex = Calendar.current.dateComponents([.month], from: Date()).month! - 1
             
             eventPickerView.selectRow(self.pickerViewManager.selectedDayIndex, inComponent: 0, animated: true)
             eventPickerView.selectRow(self.pickerViewManager.selectedHourIndex, inComponent: 2, animated: true)
@@ -109,9 +108,6 @@ class SettingsShowViewController: BaseViewController {
         smallTopBarView.type = "Parent"
         haveMenuItem = true
         
-        // Create PickerViewManager
-        pickerViewManager = MSMPickerViewManager.init(self.view.frame, forScene: "SettingsShow")
-
         // Load data
         appSettingsDidLoadData()
     }
@@ -128,26 +124,42 @@ class SettingsShowViewController: BaseViewController {
             return
         }
         
-        let appSettingsRequestModel = SettingsShowModels.Items.RequestModel(parameters: parametersDidPrepare())
+        let appSettingsRequestModel = SettingsShowModels.Items.RequestModel(parameters: nil)
         interactor.appSettingsDidLoad(withRequestModel: appSettingsRequestModel)
     }
 
     func appSettingsDidShow() {
         // TODO: - SHOW ITEMS AS DESIGN ELEMENTS
+        appSettings = CoreDataManager.instance.entityDidLoad(byName: "AppSettings", andPredicateParameters: nil) as! AppSettings
+        
+        // Create PickerViewManager
+        pickerViewManager = MSMPickerViewManager.init(self.view.frame, forScene: "SettingsShow")
+
+        // Show
+        pushSwitch.isOn = appSettings.pushNotify
+        pushCheckButton.isSelected = appSettings.whenCloseApp
+        eventSwitch.isOn = appSettings.notifyEvent
+        soundSwitch.isOn = appSettings.soundNotify
+        syncSwitch.isOn = appSettings.calendarSync
+        schemeSwitch.isOn = appSettings.lightColorSchema
         
         spinnerDidFinish()
     }
     
     func parametersDidPrepare() -> [String: AnyObject] {
         return [
-                    "pushNotify":       false as AnyObject,
-                    "whenCloseApp":     true as AnyObject,
-                    "notifyEvent":      true as AnyObject,
-                    "soundNotify":      true as AnyObject,
-                    "notifyDelay":      900 as AnyObject,
-                    "calendarSync":     true as AnyObject,
-                    "lightColorSchema": true as AnyObject
+                    "pushNotify":       pushSwitch.isOn as AnyObject,
+                    "whenCloseApp":     pushCheckButton.isSelected as AnyObject,
+                    "notifyEvent":      eventSwitch.isOn as AnyObject,
+                    "soundNotify":      soundSwitch.isOn as AnyObject,
+                    "notifyDelay":      notifyDelayDidPrepare(),
+                    "calendarSync":     syncSwitch.isOn as AnyObject,
+                    "lightColorSchema": schemeSwitch.isOn as AnyObject
                 ]
+    }
+    
+    func notifyDelayDidPrepare() -> AnyObject {
+        return UInt64.convertToNumber(["day": pickerViewManager.selectedDayIndex, "hours": pickerViewManager.selectedHourIndex, "minutes": pickerViewManager.selectedMinuteIndex]) as AnyObject
     }
     
     
@@ -182,6 +194,7 @@ class SettingsShowViewController: BaseViewController {
 
     @IBAction func handlerPushSwitchChangeValue(_ sender: UISwitch) {
         pushLabel.textColor = (sender.isOn) ? UIColor.veryLightGray : UIColor.veryDarkGrayishBlue56
+        pushCheckButton.isEnabled = sender.isOn
     }
 
     @IBAction func handlerSoundSwitchChangeValue(_ sender: UISwitch) {
@@ -190,6 +203,7 @@ class SettingsShowViewController: BaseViewController {
     
     @IBAction func handlerEventSwitchChangeValue(_ sender: UISwitch) {
         eventLabel.textColor = (sender.isOn) ? UIColor.veryLightGray : UIColor.veryDarkGrayishBlue56
+        eventPickerView.isUserInteractionEnabled = sender.isOn
     }
 
     @IBAction func handlerSyncSwitchChangeValue(_ sender: UISwitch) {

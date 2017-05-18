@@ -21,7 +21,7 @@ extension AppSettings {
     @NSManaged public var whenCloseApp: Bool
     @NSManaged public var notifyEvent: Bool
     @NSManaged public var soundNotify: Bool
-    @NSManaged public var notifyDelay: Int16
+    @NSManaged public var notifyDelay: UInt64
     @NSManaged public var calendarSync: Bool
     @NSManaged public var codeID: String
 

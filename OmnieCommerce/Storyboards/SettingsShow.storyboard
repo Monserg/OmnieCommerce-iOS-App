@@ -172,8 +172,161 @@
                                                             <action selector="handlerEventSwitchChangeValue:" destination="lF2-kt-29c" eventType="valueChanged" id="En6-R1-m0A"/>
                                                         </connections>
                                                     </switch>
+                                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OCJ-7X-up9" userLabel="Separators View">
+                                                        <rect key="frame" x="112" y="68.5" width="135" height="33"/>
+                                                        <subviews>
+                                                            <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ek6-vl-Apx">
+                                                                <rect key="frame" x="0.0" y="0.0" width="135" height="33"/>
+                                                                <subviews>
+                                                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="frh-uC-JOw" userLabel="Column 0 View">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="26" height="33"/>
+                                                                        <subviews>
+                                                                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sdv-RM-9Yh" userLabel="Top Left Line View">
+                                                                                <rect key="frame" x="0.0" y="3" width="26" height="1"/>
+                                                                                <color key="backgroundColor" red="0.0" green="0.57647058819999997" blue="0.58431372550000005" alpha="1" colorSpace="calibratedRGB"/>
+                                                                                <constraints>
+                                                                                    <constraint firstAttribute="height" constant="1" id="vO4-Px-gnr"/>
+                                                                                </constraints>
+                                                                                <userDefinedRuntimeAttributes>
+                                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                                                                </userDefinedRuntimeAttributes>
+                                                                            </view>
+                                                                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lYc-Tk-0CQ" userLabel="Bottom Left Line View">
+                                                                                <rect key="frame" x="0.0" y="29" width="26" height="1"/>
+                                                                                <color key="backgroundColor" red="0.0" green="0.57647058819999997" blue="0.58431372550000005" alpha="1" colorSpace="calibratedRGB"/>
+                                                                                <constraints>
+                                                                                    <constraint firstAttribute="height" constant="1" id="0gY-vy-dbB"/>
+                                                                                </constraints>
+                                                                                <userDefinedRuntimeAttributes>
+                                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                                                                </userDefinedRuntimeAttributes>
+                                                                            </view>
+                                                                        </subviews>
+                                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="bottom" secondItem="lYc-Tk-0CQ" secondAttribute="bottom" constant="3" id="ASt-2m-o9W"/>
+                                                                            <constraint firstAttribute="trailing" secondItem="lYc-Tk-0CQ" secondAttribute="trailing" id="JLs-QQ-jfX"/>
+                                                                            <constraint firstItem="lYc-Tk-0CQ" firstAttribute="leading" secondItem="frh-uC-JOw" secondAttribute="leading" id="XaM-uf-aMJ"/>
+                                                                            <constraint firstItem="sdv-RM-9Yh" firstAttribute="top" secondItem="frh-uC-JOw" secondAttribute="top" constant="3" id="lLz-sw-m1n"/>
+                                                                            <constraint firstItem="sdv-RM-9Yh" firstAttribute="leading" secondItem="frh-uC-JOw" secondAttribute="leading" id="qtk-Px-qID"/>
+                                                                            <constraint firstAttribute="trailing" secondItem="sdv-RM-9Yh" secondAttribute="trailing" id="ugU-ud-19H"/>
+                                                                        </constraints>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                                                        </userDefinedRuntimeAttributes>
+                                                                    </view>
+                                                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Php-Tf-CuN" userLabel="Column 1 View">
+                                                                        <rect key="frame" x="26" y="0.0" width="26" height="33"/>
+                                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                                                        </userDefinedRuntimeAttributes>
+                                                                    </view>
+                                                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XpF-i2-dgk" userLabel="Column 2 View">
+                                                                        <rect key="frame" x="52" y="0.0" width="25" height="33"/>
+                                                                        <subviews>
+                                                                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T8D-9Q-TUA" userLabel="Top Middle Line View">
+                                                                                <rect key="frame" x="0.0" y="3" width="25" height="1"/>
+                                                                                <color key="backgroundColor" red="0.0" green="0.57647058819999997" blue="0.58431372550000005" alpha="1" colorSpace="calibratedRGB"/>
+                                                                                <constraints>
+                                                                                    <constraint firstAttribute="height" constant="1" id="UcY-QU-nWN"/>
+                                                                                </constraints>
+                                                                                <userDefinedRuntimeAttributes>
+                                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                                                                </userDefinedRuntimeAttributes>
+                                                                            </view>
+                                                                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ggv-aJ-tFi" userLabel="Bottom Middle Line View">
+                                                                                <rect key="frame" x="0.0" y="29" width="25" height="1"/>
+                                                                                <color key="backgroundColor" red="0.0" green="0.57647058819999997" blue="0.58431372550000005" alpha="1" colorSpace="calibratedRGB"/>
+                                                                                <constraints>
+                                                                                    <constraint firstAttribute="height" constant="1" id="DIE-QM-AXj"/>
+                                                                                </constraints>
+                                                                                <userDefinedRuntimeAttributes>
+                                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                                                                </userDefinedRuntimeAttributes>
+                                                                            </view>
+                                                                        </subviews>
+                                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                                        <constraints>
+                                                                            <constraint firstItem="T8D-9Q-TUA" firstAttribute="top" secondItem="XpF-i2-dgk" secondAttribute="top" constant="3" id="284-Lc-Ji8"/>
+                                                                            <constraint firstItem="ggv-aJ-tFi" firstAttribute="leading" secondItem="XpF-i2-dgk" secondAttribute="leading" id="53t-Pd-TGc"/>
+                                                                            <constraint firstItem="T8D-9Q-TUA" firstAttribute="leading" secondItem="XpF-i2-dgk" secondAttribute="leading" id="EUq-Jq-LAR"/>
+                                                                            <constraint firstAttribute="bottom" secondItem="ggv-aJ-tFi" secondAttribute="bottom" constant="3" id="YQ5-dT-oBT"/>
+                                                                            <constraint firstAttribute="trailing" secondItem="ggv-aJ-tFi" secondAttribute="trailing" id="c3J-ec-9uE"/>
+                                                                            <constraint firstAttribute="trailing" secondItem="T8D-9Q-TUA" secondAttribute="trailing" id="dz9-FZ-MC8"/>
+                                                                        </constraints>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                                                        </userDefinedRuntimeAttributes>
+                                                                    </view>
+                                                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qso-mp-MEW" userLabel="Column 3 View">
+                                                                        <rect key="frame" x="77" y="0.0" width="33" height="33"/>
+                                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                                                        </userDefinedRuntimeAttributes>
+                                                                    </view>
+                                                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fgw-PT-Ioo" userLabel="Column 4 View">
+                                                                        <rect key="frame" x="110" y="0.0" width="25" height="33"/>
+                                                                        <subviews>
+                                                                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k90-Ct-Ms3" userLabel="Top Right Line View">
+                                                                                <rect key="frame" x="0.0" y="3" width="25" height="1"/>
+                                                                                <color key="backgroundColor" red="0.0" green="0.57647058819999997" blue="0.58431372550000005" alpha="1" colorSpace="calibratedRGB"/>
+                                                                                <constraints>
+                                                                                    <constraint firstAttribute="height" constant="1" id="SS0-2w-dMM"/>
+                                                                                </constraints>
+                                                                                <userDefinedRuntimeAttributes>
+                                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                                                                </userDefinedRuntimeAttributes>
+                                                                            </view>
+                                                                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NUe-bl-sVY" userLabel="Bottom Right Line View">
+                                                                                <rect key="frame" x="0.0" y="29" width="25" height="1"/>
+                                                                                <color key="backgroundColor" red="0.0" green="0.57647058819999997" blue="0.58431372550000005" alpha="1" colorSpace="calibratedRGB"/>
+                                                                                <constraints>
+                                                                                    <constraint firstAttribute="height" constant="1" id="29n-pO-8Co"/>
+                                                                                </constraints>
+                                                                                <userDefinedRuntimeAttributes>
+                                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                                                                </userDefinedRuntimeAttributes>
+                                                                            </view>
+                                                                        </subviews>
+                                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                                        <constraints>
+                                                                            <constraint firstItem="NUe-bl-sVY" firstAttribute="leading" secondItem="Fgw-PT-Ioo" secondAttribute="leading" id="C1a-t7-e9d"/>
+                                                                            <constraint firstItem="k90-Ct-Ms3" firstAttribute="leading" secondItem="Fgw-PT-Ioo" secondAttribute="leading" id="Mxt-lC-Ri2"/>
+                                                                            <constraint firstAttribute="bottom" secondItem="NUe-bl-sVY" secondAttribute="bottom" constant="3" id="Ul5-GU-pZv"/>
+                                                                            <constraint firstItem="k90-Ct-Ms3" firstAttribute="top" secondItem="Fgw-PT-Ioo" secondAttribute="top" constant="3" id="aUc-Qr-nUY"/>
+                                                                            <constraint firstAttribute="trailing" secondItem="k90-Ct-Ms3" secondAttribute="trailing" id="dSW-gx-iMF"/>
+                                                                            <constraint firstAttribute="trailing" secondItem="NUe-bl-sVY" secondAttribute="trailing" id="tXs-CY-4uk"/>
+                                                                        </constraints>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                                                        </userDefinedRuntimeAttributes>
+                                                                    </view>
+                                                                </subviews>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </stackView>
+                                                        </subviews>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        <constraints>
+                                                            <constraint firstItem="Ek6-vl-Apx" firstAttribute="leading" secondItem="OCJ-7X-up9" secondAttribute="leading" id="Mnf-E8-OaM"/>
+                                                            <constraint firstAttribute="trailing" secondItem="Ek6-vl-Apx" secondAttribute="trailing" id="g02-sh-4RN"/>
+                                                            <constraint firstAttribute="bottom" secondItem="Ek6-vl-Apx" secondAttribute="bottom" id="jTK-QF-YWK"/>
+                                                            <constraint firstAttribute="width" constant="135" id="qYB-Ve-fHl"/>
+                                                            <constraint firstItem="Ek6-vl-Apx" firstAttribute="top" secondItem="OCJ-7X-up9" secondAttribute="top" id="yfU-q8-qPY"/>
+                                                        </constraints>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </view>
                                                     <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CpU-UX-Sf1" userLabel="Event Picker View">
                                                         <rect key="frame" x="97.5" y="39" width="164" height="92"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="164" id="GVF-0v-D5L"/>
+                                                        </constraints>
                                                     </pickerView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="AEf-Lz-ktu">
                                                         <rect key="frame" x="97" y="131" width="164" height="23"/>
@@ -218,7 +371,9 @@
                                                 <constraints>
                                                     <constraint firstItem="AEf-Lz-ktu" firstAttribute="centerX" secondItem="5tb-Q2-VKt" secondAttribute="centerX" id="FVs-4v-vBi"/>
                                                     <constraint firstItem="f4N-uB-m8t" firstAttribute="leading" secondItem="5tb-Q2-VKt" secondAttribute="leading" constant="10" id="KDC-Bx-Su3"/>
+                                                    <constraint firstItem="OCJ-7X-up9" firstAttribute="centerY" secondItem="CpU-UX-Sf1" secondAttribute="centerY" id="VpW-hJ-cQx"/>
                                                     <constraint firstAttribute="bottom" secondItem="AEf-Lz-ktu" secondAttribute="bottom" id="Wwq-HL-9vY"/>
+                                                    <constraint firstItem="OCJ-7X-up9" firstAttribute="centerX" secondItem="CpU-UX-Sf1" secondAttribute="centerX" id="abb-FD-Pef"/>
                                                     <constraint firstItem="CpU-UX-Sf1" firstAttribute="top" secondItem="JgO-xs-U2Z" secondAttribute="bottom" id="g1Z-ic-2ZW"/>
                                                     <constraint firstItem="JgO-xs-U2Z" firstAttribute="top" secondItem="5tb-Q2-VKt" secondAttribute="top" constant="8" id="iB8-q0-ixy"/>
                                                     <constraint firstAttribute="trailing" secondItem="JgO-xs-U2Z" secondAttribute="trailing" constant="10" id="lNm-Od-GLV"/>
@@ -430,6 +585,7 @@
                             <constraint firstAttribute="trailing" secondItem="Ou2-ut-ywD" secondAttribute="trailing" constant="8" id="4y4-EE-C8W"/>
                             <constraint firstItem="opD-Rt-fy7" firstAttribute="height" secondItem="YdI-eJ-QVc" secondAttribute="height" multiplier="56:375" id="5mM-61-eMA"/>
                             <constraint firstItem="FOv-zk-cAp" firstAttribute="width" secondItem="YdI-eJ-QVc" secondAttribute="width" multiplier="460:667" id="9kR-K1-lhC"/>
+                            <constraint firstItem="frh-uC-JOw" firstAttribute="width" secondItem="YdI-eJ-QVc" secondAttribute="width" multiplier="26:667" id="9us-O7-oDG"/>
                             <constraint firstItem="dJF-tN-FcP" firstAttribute="height" secondItem="YdI-eJ-QVc" secondAttribute="height" multiplier="56:375" id="Cf8-4G-YNZ"/>
                             <constraint firstItem="lDS-x9-eUo" firstAttribute="height" secondItem="YdI-eJ-QVc" secondAttribute="height" multiplier="36:667" id="E3f-KV-DXn"/>
                             <constraint firstItem="rQ9-BL-GD8" firstAttribute="height" secondItem="YdI-eJ-QVc" secondAttribute="height" multiplier="56:667" id="EeU-Em-wCX"/>
@@ -437,22 +593,31 @@
                                 <variation key="heightClass=compact-widthClass=compact" constant="0.0"/>
                                 <variation key="heightClass=compact-widthClass=regular" constant="0.0"/>
                             </constraint>
+                            <constraint firstItem="qso-mp-MEW" firstAttribute="width" secondItem="YdI-eJ-QVc" secondAttribute="width" multiplier="33:375" id="HDR-gl-50Z"/>
                             <constraint firstItem="CpU-UX-Sf1" firstAttribute="width" secondItem="YdI-eJ-QVc" secondAttribute="width" multiplier="164:667" id="HM9-iJ-FyQ"/>
                             <constraint firstItem="CpU-UX-Sf1" firstAttribute="height" secondItem="YdI-eJ-QVc" secondAttribute="height" multiplier="92:375" id="IvQ-6Q-gJd"/>
                             <constraint firstItem="opD-Rt-fy7" firstAttribute="height" secondItem="YdI-eJ-QVc" secondAttribute="height" multiplier="56:667" id="KlK-aE-THG"/>
                             <constraint firstItem="5tb-Q2-VKt" firstAttribute="height" secondItem="YdI-eJ-QVc" secondAttribute="height" multiplier="154:667" id="N5M-Qj-DME"/>
+                            <constraint firstItem="XpF-i2-dgk" firstAttribute="width" secondItem="YdI-eJ-QVc" secondAttribute="width" multiplier="25:667" id="N7t-yk-bqz"/>
                             <constraint firstItem="FOv-zk-cAp" firstAttribute="width" secondItem="YdI-eJ-QVc" secondAttribute="width" multiplier="224:375" id="NTQ-lg-rws"/>
                             <constraint firstItem="CpU-UX-Sf1" firstAttribute="width" secondItem="YdI-eJ-QVc" secondAttribute="width" multiplier="164:375" id="O2B-Bv-Hoq"/>
                             <constraint firstAttribute="bottom" secondItem="Ou2-ut-ywD" secondAttribute="bottom" constant="9" id="O4I-Oc-KzN"/>
                             <constraint firstItem="5tb-Q2-VKt" firstAttribute="height" secondItem="YdI-eJ-QVc" secondAttribute="height" multiplier="154:375" id="OxG-L2-pcf"/>
+                            <constraint firstItem="OCJ-7X-up9" firstAttribute="height" secondItem="YdI-eJ-QVc" secondAttribute="height" multiplier="33:375" id="PYq-HZ-uhz"/>
                             <constraint firstItem="zS9-gZ-teb" firstAttribute="height" secondItem="YdI-eJ-QVc" secondAttribute="height" multiplier="95:667" id="Pcr-SM-oT3"/>
                             <constraint firstItem="zS9-gZ-teb" firstAttribute="leading" secondItem="YdI-eJ-QVc" secondAttribute="leading" id="S3T-BJ-8Q5"/>
+                            <constraint firstItem="frh-uC-JOw" firstAttribute="width" secondItem="YdI-eJ-QVc" secondAttribute="width" multiplier="26:375" id="S5o-7x-xaE"/>
+                            <constraint firstItem="qso-mp-MEW" firstAttribute="width" secondItem="YdI-eJ-QVc" secondAttribute="width" multiplier="33:667" id="YPe-6d-A9f"/>
+                            <constraint firstItem="XpF-i2-dgk" firstAttribute="width" secondItem="YdI-eJ-QVc" secondAttribute="width" multiplier="25:375" id="cVN-Pe-Hyc"/>
                             <constraint firstItem="IS5-f4-2Hp" firstAttribute="height" secondItem="YdI-eJ-QVc" secondAttribute="height" multiplier="76:375" id="cze-QD-hbw"/>
                             <constraint firstItem="IS5-f4-2Hp" firstAttribute="height" secondItem="YdI-eJ-QVc" secondAttribute="height" multiplier="127:667" id="dC6-pA-kng"/>
+                            <constraint firstItem="Php-Tf-CuN" firstAttribute="width" secondItem="YdI-eJ-QVc" secondAttribute="width" multiplier="26:375" id="hCp-Aa-dm3"/>
                             <constraint firstItem="dJF-tN-FcP" firstAttribute="height" secondItem="YdI-eJ-QVc" secondAttribute="height" multiplier="56:667" id="jGe-1R-VO5"/>
                             <constraint firstItem="k0n-o3-3aT" firstAttribute="height" secondItem="YdI-eJ-QVc" secondAttribute="height" multiplier="56:375" id="lsR-ww-QX2"/>
                             <constraint firstAttribute="trailing" secondItem="zS9-gZ-teb" secondAttribute="trailing" id="ndQ-mK-hZ6"/>
                             <constraint firstItem="lDS-x9-eUo" firstAttribute="height" secondItem="YdI-eJ-QVc" secondAttribute="height" multiplier="36:375" id="pTY-Zv-mRJ"/>
+                            <constraint firstItem="OCJ-7X-up9" firstAttribute="height" secondItem="YdI-eJ-QVc" secondAttribute="height" multiplier="33:667" id="qtm-xT-1rl"/>
+                            <constraint firstItem="Php-Tf-CuN" firstAttribute="width" secondItem="YdI-eJ-QVc" secondAttribute="width" multiplier="26:667" id="quC-Pa-O8E"/>
                             <constraint firstItem="rQ9-BL-GD8" firstAttribute="height" secondItem="YdI-eJ-QVc" secondAttribute="height" multiplier="56:375" id="uAa-5s-AAa"/>
                             <constraint firstItem="zS9-gZ-teb" firstAttribute="height" secondItem="YdI-eJ-QVc" secondAttribute="height" multiplier="80:375" id="ugB-Sy-Xkj"/>
                             <constraint firstItem="Ou2-ut-ywD" firstAttribute="top" secondItem="zgB-nA-nXr" secondAttribute="bottom" constant="9" id="weP-4X-NGz"/>
@@ -469,7 +634,12 @@
                                 <exclude reference="jGe-1R-VO5"/>
                                 <exclude reference="3B4-Zl-VKL"/>
                                 <exclude reference="O2B-Bv-Hoq"/>
+                                <exclude reference="qtm-xT-1rl"/>
+                                <exclude reference="S5o-7x-xaE"/>
+                                <exclude reference="hCp-Aa-dm3"/>
                                 <exclude reference="EeU-Em-wCX"/>
+                                <exclude reference="cVN-Pe-Hyc"/>
+                                <exclude reference="HDR-gl-50Z"/>
                                 <exclude reference="dC6-pA-kng"/>
                                 <exclude reference="NTQ-lg-rws"/>
                                 <exclude reference="E3f-KV-DXn"/>
@@ -491,8 +661,18 @@
                                 <exclude reference="HM9-iJ-FyQ"/>
                                 <exclude reference="IvQ-6Q-gJd"/>
                                 <include reference="O2B-Bv-Hoq"/>
+                                <exclude reference="PYq-HZ-uhz"/>
+                                <include reference="qtm-xT-1rl"/>
+                                <exclude reference="9us-O7-oDG"/>
+                                <include reference="S5o-7x-xaE"/>
+                                <include reference="hCp-Aa-dm3"/>
+                                <exclude reference="quC-Pa-O8E"/>
                                 <include reference="EeU-Em-wCX"/>
                                 <exclude reference="uAa-5s-AAa"/>
+                                <exclude reference="N7t-yk-bqz"/>
+                                <include reference="cVN-Pe-Hyc"/>
+                                <include reference="HDR-gl-50Z"/>
+                                <exclude reference="YPe-6d-A9f"/>
                                 <exclude reference="cze-QD-hbw"/>
                                 <include reference="dC6-pA-kng"/>
                                 <exclude reference="9kR-K1-lhC"/>
@@ -536,7 +716,7 @@ CQ
 </string>
                     <toolbarItems/>
                     <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="K1C-FM-eAU">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="K1C-FM-eAU">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

@@ -39,7 +39,7 @@ public class AppSettings: NSManagedObject {
             self.calendarSync = calendarSync
         }
 
-        if let notifyDelay = json["notifyDelay"] as? Int16 {
+        if let notifyDelay = json["notifyDelay"] as? UInt64 {
             self.notifyDelay = notifyDelay
         }
     }

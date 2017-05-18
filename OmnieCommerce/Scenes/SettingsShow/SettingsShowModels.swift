@@ -15,7 +15,7 @@ import UIKit
 struct SettingsShowModels {
     struct Items {
         struct RequestModel {
-            let parameters: [String: AnyObject]
+            let parameters: [String: AnyObject]?
         }
         
         struct ResponseModel {

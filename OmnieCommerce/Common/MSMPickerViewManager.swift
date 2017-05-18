@@ -19,7 +19,13 @@ class MSMPickerViewManager: UIView {
     var minutes: [String]!
 
     // Selected values
-    var selectedMonthIndex: Int = 0
+    var selectedMonthIndex: Int = 0 {
+        willSet {
+            if (scene == "SettingsShow") {
+                self.days[newValue].insert("0", at: 0)
+            }
+        }
+    }
     var selectedDayIndex: Int = 0
     var selectedYearIndex: Int = 0
     var selectedHourIndex: Int = 0
