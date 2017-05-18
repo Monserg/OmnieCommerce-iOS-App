@@ -35,16 +35,16 @@ class SettingsShowConfigurator {
 
     // MARK: - Custom Functions
     func configure(viewController: SettingsShowViewController) {
-        let router = SettingsShowRouter()
-        router.viewController = viewController
+        let router                  =   SettingsShowRouter()
+        router.viewController       =   viewController
         
-        let presenter = SettingsShowPresenter()
-        presenter.output = viewController
+        let presenter               =   SettingsShowPresenter()
+        presenter.viewController    =   viewController
         
-        let interactor = SettingsShowInteractor()
-        interactor.output = presenter
+        let interactor              =   SettingsShowInteractor()
+        interactor.presenter        =   presenter
         
-        viewController.output = interactor
-        viewController.router = router
+        viewController.interactor   =   interactor
+        viewController.router       =   router
     }
 }

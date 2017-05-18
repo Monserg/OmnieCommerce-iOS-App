@@ -17,15 +17,6 @@ public class AppUser: NSManagedObject, InitCellParameters {
     var cellHeight: CGFloat = 44.0
     
     
-    // MARK: - Class Initialization
-//    convenience init(json: [String: AnyObject]) {
-//        // Create Entity
-//        self.init(entity: CoreDataManager.instance.entityForName("AppUser")!, insertInto: CoreDataManager.instance.managedObjectContext)
-//
-//        self.isAuthorized = true
-//    }
-    
-    
     // MARK: - Custom Functions
     func profileDidUpload(json: [String: AnyObject]) {
         // Ivan

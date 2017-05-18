@@ -20,6 +20,7 @@ struct OrganizationShowModels {
         
         struct ResponseModel {
             let responseAPI: ResponseAPI?
+            let parameters: [String: Any]
         }
         
         struct ViewModel {

@@ -74,24 +74,20 @@ public class Organization: NSManagedObject, InitCellParameters, PointAnnotationB
     }
 
 
-    // MARK: - Class Initialization
-    convenience init?(json: [String: AnyObject], forList listName: String) {
-        guard let codeID = json["uuid"] as? String, let name = json["orgName"] as? String, let isFavorite = json["isFavorite"] as? Bool else {
-            return nil
-        }
-        
-        // Check Entity available in CoreData
-        guard let organizationEntity = CoreDataManager.instance.entityForName("Organization") else {
-            return nil
-        }
-        
-        // Create Entity
-        self.init(entity: organizationEntity, insertInto: CoreDataManager.instance.managedObjectContext)
-        
+    // MARK: - Custom Functions
+    func profileDidUpload(json: [String: AnyObject], forList listName: String) {
         // Prepare to save common data
-        self.codeID = codeID
-        self.name = name
-        self.isFavorite = isFavorite
+        if let codeID = json["uuid"] as? String {
+            self.codeID = codeID
+        }
+        
+        if let name = json["orgName"] as? String {
+            self.name = name
+        }
+        
+        if let isFavorite = json["isFavorite"] as? Bool {
+            self.isFavorite = isFavorite
+        }
         
         if let imageID = json["staticUrl"] as? String {
             self.imageID = imageID
@@ -152,8 +148,15 @@ public class Organization: NSManagedObject, InitCellParameters, PointAnnotationB
         
         // Services
         if let services = json["services"] as? NSArray, services.count > 0 {
-            for service in services {
-                self.addToServices(Service.init(json: service as! [String: AnyObject], forOrganization: self, forList: keyService)!)
+            for serviceJSON in services {
+                if let serviceID = (serviceJSON as? [String: AnyObject])?["uuid"] as? String {
+                    if let service = CoreDataManager.instance.entityDidLoad(byName: "Service", andPredicateParameters: NSPredicate.init(format: "codeID == %@", serviceID)) as? Service {
+                        service.profileDidUpload(json: serviceJSON as! [String: AnyObject], forOrganization: self, forList: keyService)
+                        self.addToServices(service)
+                        
+                        CoreDataManager.instance.didSaveContext()
+                    }
+                }
             }
         }
 

@@ -26,8 +26,8 @@ import UIKit
     // MARK: - Custom Functions
     func didSetup() {
         text            =   text?.localized()
-        font            =   (isAppThemeDark) ? UIFont.systemFont(ofSize: 9) : UIFont(name: "Ubuntu-Light", size: font!.pointSize)!
-        textColor       =   (isAppThemeDark) ? UIColor.white : UIColor.veryDarkGrayishBlue53
+        font            =   (!isLightColorAppSchema) ? UIFont.systemFont(ofSize: 9) : UIFont(name: "Ubuntu-Light", size: font!.pointSize)!
+        textColor       =   (!isLightColorAppSchema) ? UIColor.white : UIColor.veryDarkGrayishBlue53
         textAlignment   =   textAlignment
         
         self.adjustsFontSizeToFitWidth = true

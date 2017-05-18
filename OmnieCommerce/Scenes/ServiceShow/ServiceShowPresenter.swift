@@ -38,38 +38,43 @@ class ServiceShowPresenter: ServiceShowPresenterInput {
         }
         
         // Convert responseAPI body to Service CoreData object
-        let service = Service.init(json: responseModel.responseAPI?.body as! [String: AnyObject], forOrganization: nil, forList: keyService)
+        let service = CoreDataManager.instance.entityDidLoad(byName: "Service", andPredicateParameters: NSPredicate.init(format: "codeID == %@", responseModel.parameters["id"] as! String)) as! Service
         
-        if let pricesList = service?.prices, pricesList.count > 0 {
+        if let pricesList = service.prices, pricesList.count > 0 {
             let pricesArray = Array(pricesList)
             _ = pricesArray.map({ ($0 as! Price).cellHeight = 20.0; ($0 as! Price).cellIdentifier = "PriceServiceTableViewCell" })
-            service!.prices = NSSet.init(array: pricesArray)
+            
+            service.prices = NSSet.init(array: pricesArray)
         }
 
-        if let placeID = service!.placeID {
-            service!.googlePlaceDidLoad(positionID: placeID, completion: { _ in
+        if let placeID = service.placeID {
+            service.googlePlaceDidLoad(positionID: placeID, completion: { _ in
                 CoreDataManager.instance.didSaveContext()
                 
                 let serviceViewModel = ServiceShowModels.ServiceItem.ViewModel(status: responseModel.responseAPI!.status)
                 self.viewController.serviceDidShowLoad(fromViewModel: serviceViewModel)
             })
+        } else {
+            let serviceViewModel = ServiceShowModels.ServiceItem.ViewModel(status: responseModel.responseAPI!.status)
+            self.viewController.serviceDidShowLoad(fromViewModel: serviceViewModel)
         }
     }
     
     func orderDidPrepareToShowLoad(fromResponseModel responseModel: ServiceShowModels.OrderItem.ResponseModel) {
         guard responseModel.responseAPI != nil else {
-            let orderViewModel = ServiceShowModels.OrderItem.ViewModel(status: (responseModel.responseAPI?.status)!, orderID: nil)
+            let orderViewModel = ServiceShowModels.OrderItem.ViewModel(status: (responseModel.responseAPI?.status)!)
             viewController.orderDidShowLoad(fromViewModel: orderViewModel)
             
             return
         }
         
         // Convert responseAPI body to Order CoreData object
-        let order = Order.init(json: responseModel.responseAPI?.body as! [String: AnyObject], forLists: keyOrder)
-        let orderID = order!.codeID
+        let order = CoreDataManager.instance.entityDidLoad(byName: "Order", andPredicateParameters: NSPredicate.init(format: "codeID = %@", responseModel.parameters["id"] as! String)) as! Order
+        
+        // TODO: - ADD UPLOAD ORDER FROM RESPONSE BODY
         CoreDataManager.instance.didSaveContext()
         
-        let orderViewModel = ServiceShowModels.OrderItem.ViewModel(status: responseModel.responseAPI!.status, orderID: orderID)
+        let orderViewModel = ServiceShowModels.OrderItem.ViewModel(status: responseModel.responseAPI!.status)
         self.viewController.orderDidShowLoad(fromViewModel: orderViewModel)
     }
 }

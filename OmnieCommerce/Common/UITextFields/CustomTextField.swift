@@ -79,7 +79,7 @@ enum FieldType: String {
         autocorrectionType                  =   .no
         spellCheckingType                   =   .no
         keyboardType                        =   .default
-        keyboardAppearance                  =   (isAppThemeDark) ? .dark : .light
+        keyboardAppearance                  =   (!isLightColorAppSchema) ? .dark : .light
         enablesReturnKeyAutomatically       =   true
         returnKeyType                       =   (tag == 99) ? .default : .next
         isSecureTextEntry                   =   false
@@ -87,9 +87,9 @@ enum FieldType: String {
         textAlignment                       =   .left
         
         // Text design: Ubuntu-Light, 12 or 16, #dedede
-        font = (isAppThemeDark) ? UIFont.systemFont(ofSize: 12) : ((font?.pointSize == 12) ? UIFont.ubuntuLight12 : UIFont.ubuntuLight16)
-        textColor = (isAppThemeDark) ? UIColor.blue : UIColor.veryLightGray
-        tintColor = (isAppThemeDark) ? UIColor.blue : UIColor.veryLightGray
+        font = (!isLightColorAppSchema) ? UIFont.systemFont(ofSize: 12) : ((font?.pointSize == 12) ? UIFont.ubuntuLight12 : UIFont.ubuntuLight16)
+        textColor = (!isLightColorAppSchema) ? UIColor.blue : UIColor.veryLightGray
+        tintColor = (!isLightColorAppSchema) ? UIColor.blue : UIColor.veryLightGray
         
         // Placeholder design
         attributedPlaceholder = NSAttributedString(string: (placeholder?.localized())!, attributes: [NSFontAttributeName:  (font?.pointSize == 12) ? UIFont.ubuntuLightItalic12 : UIFont.ubuntuLightItalic16, NSForegroundColorAttributeName: UIColor.darkCyan, NSKernAttributeName: 0.0, NSParagraphStyleAttributeName: paragraphStyle])

@@ -33,7 +33,7 @@ class ServiceShowInteractor: ServiceShowInteractorInput {
     func serviceDidLoad(withRequestModel requestModel: ServiceShowModels.ServiceItem.RequestModel) {
         MSMRestApiManager.instance.userRequestDidRun(.userGetServiceByID(requestModel.parameters, false), withHandlerResponseAPICompletion: { responseAPI in
             // Pass the result to the Presenter
-            let serviceResponseModel = ServiceShowModels.ServiceItem.ResponseModel(responseAPI: responseAPI)
+            let serviceResponseModel = ServiceShowModels.ServiceItem.ResponseModel(responseAPI: responseAPI, parameters: requestModel.parameters)
             self.presenter.serviceDidPrepareToShowLoad(fromResponseModel: serviceResponseModel)
         })
     }
@@ -41,7 +41,7 @@ class ServiceShowInteractor: ServiceShowInteractorInput {
     func orderDidLoad(withRequestModel requestModel: ServiceShowModels.OrderItem.RequestModel) {
         MSMRestApiManager.instance.userRequestDidRun(.userMakeNewOrder(requestModel.parameters, true), withHandlerResponseAPICompletion: { responseAPI in
             // Pass the result to the Presenter
-            let orderResponseModel = ServiceShowModels.OrderItem.ResponseModel(responseAPI: responseAPI)
+            let orderResponseModel = ServiceShowModels.OrderItem.ResponseModel(responseAPI: responseAPI, parameters: requestModel.parameters)
             self.presenter.orderDidPrepareToShowLoad(fromResponseModel: orderResponseModel)
         })
     }

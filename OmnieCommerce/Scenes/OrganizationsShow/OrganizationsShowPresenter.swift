@@ -51,24 +51,26 @@ class OrganizationsShowPresenter: OrganizationsShowPresenterInput {
                     }
                         
                     let keyList = "\(keyOrganizations)-\(responseModel.category.codeID)-\(subCategoryID!)"
-                    let item = Organization.init(json: json as! [String: AnyObject], forList: keyList)
                     
-                    if let organization = item {
-                        organization.category = NSSet.init(object: responseModel.category)
-                        organization.cellIdentifier = "OrganizationTableViewCell"
-                        organization.cellHeight = 96.0
-                        
-                        if let googlePlaceID = (json as! [String: AnyObject])["placeId"] as? String {
-                            organization.googlePlaceDidLoad(positionID: googlePlaceID, completion: {
-                                counter += 1
-                                
-                                if (counter == (responseModel.responseAPI!.body as! [Any]).count) {
-                                    CoreDataManager.instance.didSaveContext()
+                    if let organizationID = (json as? [String: AnyObject])?["uuid"] as? String {
+                        if let organization = CoreDataManager.instance.entityDidLoad(byName: "Organization", andPredicateParameters: NSPredicate.init(format: "codeID == %@", organizationID)) as? Organization {
+                            organization.profileDidUpload(json: json as! [String: AnyObject], forList: keyList)
+                            organization.category = NSSet.init(object: responseModel.category)
+                            organization.cellIdentifier = "OrganizationTableViewCell"
+                            organization.cellHeight = 96.0
+                            
+                            if let googlePlaceID = (json as! [String: AnyObject])["placeId"] as? String {
+                                organization.googlePlaceDidLoad(positionID: googlePlaceID, completion: {
+                                    counter += 1
                                     
-                                    let organizationsViewModel = OrganizationsShowModels.Organizations.ViewModel(status: (responseModel.responseAPI?.status)!)
-                                    self.viewController.organizationsDidShowLoad(fromViewModel: organizationsViewModel)
-                                }
-                            })
+                                    if (counter == (responseModel.responseAPI!.body as! [Any]).count) {
+                                        CoreDataManager.instance.didSaveContext()
+                                        
+                                        let organizationsViewModel = OrganizationsShowModels.Organizations.ViewModel(status: (responseModel.responseAPI?.status)!)
+                                        self.viewController.organizationsDidShowLoad(fromViewModel: organizationsViewModel)
+                                    }
+                                })
+                            }
                         }
                     }
                 }
@@ -92,7 +94,7 @@ class OrganizationsShowPresenter: OrganizationsShowPresenterInput {
         
         if let servicesList = responseModel.responseAPI!.body as? [Any] {
             if (servicesList.count > 0) {
-                for json in servicesList {
+                for serviceJSON in servicesList {
                     var subCategoryID: String!
                     
                     if let code = responseModel.parameters["subCategory"] as? String, code.isEmpty {
@@ -102,23 +104,25 @@ class OrganizationsShowPresenter: OrganizationsShowPresenterInput {
                     }
                     
                     let keyList = "\(keyServices)-\(responseModel.category.codeID)-\(subCategoryID!)"
-                    let item = Service.init(json: json as! [String: AnyObject], forOrganization: nil, forList: keyList)
                     
-                    if let service = item {
-                        service.cellIdentifier = "ServiceTableViewCell"
-                        service.cellHeight = 96.0
-                        
-                        if let googlePlaceID = (json as! [String: AnyObject])["placeId"] as? String {
-                            service.googlePlaceDidLoad(positionID: googlePlaceID, completion: {
-                                counter += 1
-                                
-                                if (counter == (responseModel.responseAPI!.body as! [Any]).count) {
-                                    CoreDataManager.instance.didSaveContext()
+                    if let serviceID = (serviceJSON as? [String: AnyObject])?["uuid"] as? String {
+                        if let service = CoreDataManager.instance.entityDidLoad(byName: "Service", andPredicateParameters: NSPredicate.init(format: "codeID == %@", serviceID)) as? Service {
+                            service.profileDidUpload(json: serviceJSON as! [String: AnyObject], forOrganization: nil, forList: keyList)
+                            service.cellIdentifier = "ServiceTableViewCell"
+                            service.cellHeight = 96.0
+                            
+                            if let googlePlaceID = (serviceJSON as! [String: AnyObject])["placeId"] as? String {
+                                service.googlePlaceDidLoad(positionID: googlePlaceID, completion: {
+                                    counter += 1
                                     
-                                    let servicesViewModel = OrganizationsShowModels.Services.ViewModel(status: (responseModel.responseAPI?.status)!)
-                                    self.viewController.servicesDidShowLoad(fromViewModel: servicesViewModel)
-                                }
-                            })
+                                    if (counter == (responseModel.responseAPI!.body as! [Any]).count) {
+                                        CoreDataManager.instance.didSaveContext()
+                                        
+                                        let servicesViewModel = OrganizationsShowModels.Services.ViewModel(status: (responseModel.responseAPI?.status)!)
+                                        self.viewController.servicesDidShowLoad(fromViewModel: servicesViewModel)
+                                    }
+                                })
+                            }
                         }
                     }
                 }

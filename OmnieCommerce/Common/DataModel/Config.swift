@@ -60,7 +60,7 @@ typealias OrganizationData                          =   (name: String, rating: I
 
 
 // Public Constants
-var isAppThemeDark                                  =   false
+var isLightColorAppSchema                           =   true
 let NetworkReachabilityChanged                      =   NSNotification.Name("NetworkReachabilityChanged")
 
 var isNetworkAvailable: Bool {

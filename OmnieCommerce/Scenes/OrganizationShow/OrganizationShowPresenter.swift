@@ -38,8 +38,10 @@ class OrganizationShowPresenter: OrganizationShowPresenterInput {
         }
         
         // Convert responseAPI body to Organization CoreData news objects
-        _ = Organization.init(json: responseModel.responseAPI?.body as! [String: AnyObject], forList: keyOrganization)
-        CoreDataManager.instance.didSaveContext()
+        if let organization = CoreDataManager.instance.entityDidLoad(byName: "Organization", andPredicateParameters: NSPredicate.init(format: "codeID == %@", responseModel.parameters["id"] as! String)) as? Organization {
+            organization.profileDidUpload(json: responseModel.responseAPI?.body as! [String: AnyObject], forList: keyOrganization)
+            CoreDataManager.instance.didSaveContext()
+        }
         
         let organizationViewModel = OrganizationShowModels.OrganizationItem.ViewModel(status: responseModel.responseAPI!.status)
         self.viewController.organizationDidShowLoad(fromViewModel: organizationViewModel)

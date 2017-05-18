@@ -27,7 +27,7 @@ import UIKit
         let titleText = (isTitleUnderlined) ? attributedTitle(for: .normal)!.string : (titleLabel?.text!.localized())!
         
         setAttributedTitle(NSAttributedString(string: titleText,
-                                              attributes:   [ NSFontAttributeName: (isAppThemeDark ? UIFont.systemFont(ofSize: 9) : UIFont(name: "Ubuntu-Light", size: titleLabel!.font!.pointSize)!),
+                                              attributes:   [ NSFontAttributeName: (!isLightColorAppSchema ? UIFont.systemFont(ofSize: 9) : UIFont(name: "Ubuntu-Light", size: titleLabel!.font!.pointSize)!),
                                                               NSForegroundColorAttributeName: UIColor.veryLightOrange,
                                                               NSUnderlineStyleAttributeName: (isTitleUnderlined ? NSUnderlineStyle.styleSingle.rawValue : NSUnderlineStyle.styleNone.rawValue)
                                                             ]),

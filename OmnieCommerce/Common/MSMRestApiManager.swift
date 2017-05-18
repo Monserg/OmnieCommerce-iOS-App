@@ -73,7 +73,7 @@ enum RequestType {
     case userChangeEmail([String: Any], Bool)
     case userGetProfileData([String: Any]?, Bool)
     case userUploadProfileData([String: Any], Bool)
-    case userGetProfileSettings([String: Any], Bool)
+    case userGetProfileSettings([String: Any]?, Bool)
     case userUploadProfileSettings([String: Any], Bool)
     case userChangePasswordFromProfile([String: Any], Bool)
     
@@ -394,10 +394,6 @@ final class MSMRestApiManager {
         appApiString = requestParameters.apiStringURL
         
         if (requestParameters.parameters != nil) {
-//            let key = requestParameters.parameters!.keys.first!
-//            let value = requestParameters.parameters![key] as! String
-//            appURL = URL.init(string: appURL.absoluteString.appending("?\(key)=\(value)"))
-            
             for (index, dictionary) in requestParameters.parameters!.enumerated() {
                 let key = dictionary.key
                 let value = dictionary.value
@@ -434,11 +430,6 @@ final class MSMRestApiManager {
     // User upload image
     func userUploadImage(_ image: UIImage, withHandlerResponseAPICompletion handlerResponseAPICompletion: @escaping (ResponseAPI?) -> Void) {
         let imageData = UIImagePNGRepresentation(image)
-//        appApiString = "/user/profile/image/"
-//        headers["Authorization"] = (CoreDataManager.instance.entityDidLoad(byName: "AppUser", andPredicateParameters: nil) as! AppUser).accessToken
-//        headers["Content-Type"] = "multipart/form-data"
-//            (imageHostURL.appendingPathComponent("/upload/")
-
         appURL = appApiString.convertToURL(withSize: .Original, inMode: .Upload)
         let uploadURL = try! URLRequest(url: appURL, method: .post, headers: headers)
         

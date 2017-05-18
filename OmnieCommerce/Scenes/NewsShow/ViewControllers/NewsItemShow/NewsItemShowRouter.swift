@@ -46,11 +46,17 @@ class NewsItemShowRouter: NewsItemShowRouterInput {
             
             let storyboard = UIStoryboard(name: "OrganizationShow", bundle: nil)
             let organizationShowVC = storyboard.instantiateViewController(withIdentifier: "OrganizationShowVC") as! OrganizationShowViewController
-            let _ = Organization.init(json: responseAPI!.body as! [String: AnyObject], forList: keyOrganization)
-            CoreDataManager.instance.didSaveContext()
-            organizationShowVC.organizationID = (CoreDataManager.instance.entityDidLoad(byName: "Organization", andPredicateParameters: NSPredicate.init(format: "codeID == %@", organizationID)) as! Organization).codeID
             
-            self.viewController.navigationController!.pushViewController(organizationShowVC, animated: true)
+            if let organizationJSON = responseAPI!.body as? [String: AnyObject] {
+                if let organization = CoreDataManager.instance.entityDidLoad(byName: "Organization", andPredicateParameters: NSPredicate.init(format: "codeID == %@", organizationID)) as? Organization {
+                        organization.profileDidUpload(json: organizationJSON, forList: keyOrganization)
+                        CoreDataManager.instance.didSaveContext()
+
+                    organizationShowVC.organizationID = (CoreDataManager.instance.entityDidLoad(byName: "Organization", andPredicateParameters: NSPredicate.init(format: "codeID == %@", organizationID)) as! Organization).codeID
+                    
+                    self.viewController.navigationController!.pushViewController(organizationShowVC, animated: true)
+                }
+            }
         })
     }
     

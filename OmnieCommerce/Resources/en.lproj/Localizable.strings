@@ -202,6 +202,7 @@
 "Change Email info message"     =   "Request successfully completed.\nConfirm your decision by checking the entered email";
 "Change Email error message"    =   "Request failed.\nRepeat your attempt later";
 "This time is busy."            =   "This time is busy. \nPlease, select any available time.";
+"All fields can be..."          =   "All fields must be filled";
 
 
 // Request Errors

@@ -506,7 +506,7 @@ extension UIFont {
     open class var ubuntuRegularSoftOrange21Alpha30: [String : Any] {
         set {
             self.ubuntuRegularVeryDarkGray16                =   [   NSFontAttributeName             :   UIFont.ubuntuRegular21,
-                                                                    NSForegroundColorAttributeName  :   UIColor(hexString: (CoreDataManager.instance.appSettings.isThemeDark) ? "#5e6969" : "#d9ba68", withAlpha: 0.3)!,
+                                                                    NSForegroundColorAttributeName  :   UIColor(hexString: (CoreDataManager.instance.appSettings.lightColorSchema) ? "#5e6969" : "#d9ba68", withAlpha: 0.3)!,
                                                                     NSKernAttributeName             :   0.0,
                                                                     NSUnderlineStyleAttributeName   :   NSUnderlineStyle.styleNone.rawValue
                                                                 ] as [String : Any]!
@@ -514,7 +514,7 @@ extension UIFont {
         
         get {
             return  [   NSFontAttributeName             :   UIFont.ubuntuRegular21,
-                        NSForegroundColorAttributeName  :   UIColor(hexString: (CoreDataManager.instance.appSettings.isThemeDark) ? "#5e6969" : "#d9ba68", withAlpha: 0.3)!,
+                        NSForegroundColorAttributeName  :   UIColor(hexString: (CoreDataManager.instance.appSettings.lightColorSchema) ? "#5e6969" : "#d9ba68", withAlpha: 0.3)!,
                         NSKernAttributeName             :   0.0,
                         NSUnderlineStyleAttributeName   :   NSUnderlineStyle.styleNone.rawValue
                     ] as [String : Any]!
@@ -542,7 +542,7 @@ extension UIFont {
     open class var ubuntuLight12UnderlineVeryLightGray: [String : Any] {
         set {
             self.ubuntuLight12UnderlineVeryLightGray        =   [   NSFontAttributeName             :   UIFont.ubuntuLight12,
-                                                                    NSForegroundColorAttributeName  :   UIColor(hexString: (CoreDataManager.instance.appSettings.isThemeDark) ? "#5e6969" : "#9ec9c6", withAlpha: 1.0)!,
+                                                                    NSForegroundColorAttributeName  :   UIColor(hexString: (CoreDataManager.instance.appSettings.lightColorSchema) ? "#5e6969" : "#9ec9c6", withAlpha: 1.0)!,
                                                                     NSKernAttributeName             :   0.0,
                                                                     NSUnderlineStyleAttributeName   :   NSUnderlineStyle.styleSingle.rawValue
                                                                 ] as [String : Any]!
@@ -550,7 +550,7 @@ extension UIFont {
         
         get {
             return  [   NSFontAttributeName             :   UIFont.ubuntuLight12,
-                        NSForegroundColorAttributeName  :   UIColor(hexString: (CoreDataManager.instance.appSettings.isThemeDark) ? "#5e6969" : "#9ec9c6", withAlpha: 1.0)!,
+                        NSForegroundColorAttributeName  :   UIColor(hexString: (CoreDataManager.instance.appSettings.lightColorSchema) ? "#5e6969" : "#9ec9c6", withAlpha: 1.0)!,
                         NSKernAttributeName             :   0.0,
                         NSUnderlineStyleAttributeName   :   NSUnderlineStyle.styleSingle.rawValue
                     ] as [String : Any]!
@@ -560,7 +560,7 @@ extension UIFont {
     open class var ubuntuLightItalic12UnderlineVeryLightOrange: [String : Any] {
         set {
             self.ubuntuLight12UnderlineVeryLightGray        =   [   NSFontAttributeName             :   UIFont.ubuntuLightItalic12,
-                                                                    NSForegroundColorAttributeName  :   UIColor(hexString: (CoreDataManager.instance.appSettings.isThemeDark) ? "#5e6969" : "#ffd76c", withAlpha: 1.0)!,
+                                                                    NSForegroundColorAttributeName  :   UIColor(hexString: (CoreDataManager.instance.appSettings.lightColorSchema) ? "#5e6969" : "#ffd76c", withAlpha: 1.0)!,
                                                                     NSKernAttributeName             :   0.0,
                                                                     NSUnderlineStyleAttributeName   :   NSUnderlineStyle.styleSingle.rawValue
                                                                 ] as [String : Any]!
@@ -568,7 +568,7 @@ extension UIFont {
         
         get {
             return  [   NSFontAttributeName             :   UIFont.ubuntuLightItalic12,
-                        NSForegroundColorAttributeName  :   UIColor(hexString: (CoreDataManager.instance.appSettings.isThemeDark) ? "#5e6969" : "#ffd76c", withAlpha: 1.0)!,
+                        NSForegroundColorAttributeName  :   UIColor(hexString: (CoreDataManager.instance.appSettings.lightColorSchema) ? "#5e6969" : "#ffd76c", withAlpha: 1.0)!,
                         NSKernAttributeName             :   0.0,
                         NSUnderlineStyleAttributeName   :   NSUnderlineStyle.styleSingle.rawValue
                     ] as [String : Any]!
@@ -578,7 +578,7 @@ extension UIFont {
     open class var ubuntuLightItalic12UnderlineVeryLightOrangeAlpha30: [String : Any] {
         set {
             self.ubuntuLight12UnderlineVeryLightGray        =   [   NSFontAttributeName             :   UIFont.ubuntuLightItalic12,
-                                                                    NSForegroundColorAttributeName  :   UIColor(hexString: (CoreDataManager.instance.appSettings.isThemeDark) ? "#5e6969" : "#ffd76c", withAlpha: 0.3)!,
+                                                                    NSForegroundColorAttributeName  :   UIColor(hexString: (CoreDataManager.instance.appSettings.lightColorSchema) ? "#5e6969" : "#ffd76c", withAlpha: 0.3)!,
                                                                     NSKernAttributeName             :   0.0,
                                                                     NSUnderlineStyleAttributeName   :   NSUnderlineStyle.styleSingle.rawValue
                                                                 ] as [String : Any]!
@@ -586,7 +586,7 @@ extension UIFont {
         
         get {
             return  [   NSFontAttributeName             :   UIFont.ubuntuLightItalic12,
-                        NSForegroundColorAttributeName  :   UIColor(hexString: (CoreDataManager.instance.appSettings.isThemeDark) ? "#5e6969" : "#ffd76c", withAlpha: 0.3)!,
+                        NSForegroundColorAttributeName  :   UIColor(hexString: (CoreDataManager.instance.appSettings.lightColorSchema) ? "#5e6969" : "#ffd76c", withAlpha: 0.3)!,
                         NSKernAttributeName             :   0.0,
                         NSUnderlineStyleAttributeName   :   NSUnderlineStyle.styleSingle.rawValue
                     ] as [String : Any]!

@@ -48,7 +48,12 @@ class ForgotPasswordShowViewController: BaseViewController, EmailErrorMessageVie
     @IBOutlet var textFieldsCollection: [CustomTextField]!
 
     // Protocol EmailErrorMessageView
-    @IBOutlet weak var emailErrorMessageView: ErrorMessageView!
+    @IBOutlet weak var emailErrorMessageView: ErrorMessageView! {
+        didSet {
+            emailErrorMessageView.handlerHiddenCompletion = { isHidden in }
+        }
+    }
+    
     @IBOutlet weak var emailErrorMessageViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var emailErrorMessageViewTopConstraint: NSLayoutConstraint!
 

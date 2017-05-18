@@ -45,6 +45,7 @@ class ServiceShowViewController: BaseViewController {
     @IBOutlet weak var scrollView: UIScrollView! {
         didSet {
             scrollView.delegate = self
+            scrollViewBase = scrollView
         }
     }
     
@@ -120,6 +121,7 @@ class ServiceShowViewController: BaseViewController {
     @IBOutlet weak var calendarEndTimeButton: UbuntuLightVeryLightOrangeButton!
     
     // Comment view
+    @IBOutlet weak var commentView: UIView!
     @IBOutlet weak var commentTextView: UITextView! {
         didSet {
             commentTextView.delegate = self
@@ -180,7 +182,7 @@ class ServiceShowViewController: BaseViewController {
         super.viewDidLoad()
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTapGestureRecognizer))
-        view.addGestureRecognizer(tapGesture)
+        commentView.addGestureRecognizer(tapGesture)
        
         viewSettingsDidLoad()
     }
@@ -354,7 +356,8 @@ class ServiceShowViewController: BaseViewController {
         orderDateComponentsDidShow()
         
         // Comment view
-        
+        selectedRange = CGRect.init(origin: CGPoint.init(x: 8, y: smallTopBarView.frame.height + view.convert(commentView.frame, from: mainStackView).origin.y), size: commentView.frame.size)
+
         
         // Service reviews
         if let serviceReviews = CoreDataManager.instance.entitiesDidLoad(byName: "Review", andPredicateParameters: NSPredicate.init(format: "ANY codeID == %@", "\(serviceProfile.codeID)-ServiceReview")), serviceReviews.count > 0 {
@@ -595,7 +598,8 @@ extension ServiceShowViewController: ServiceShowViewControllerInput {
             return
         }
         
-        self.orderProfileDidShow(withOrderID: viewModel.orderID!)
+        // FIXME: - ORDERID ???
+//        self.orderProfileDidShow(withOrderID: viewModel.orderID!)
     }
 }
 
@@ -613,6 +617,7 @@ extension ServiceShowViewController: UITextFieldDelegate {
 extension ServiceShowViewController: UITextViewDelegate {
     func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
         textViewPlaceholderDidUpload((textView.text == "Comment".localized()) ? nil : textView.text)
+
         return true
     }
     

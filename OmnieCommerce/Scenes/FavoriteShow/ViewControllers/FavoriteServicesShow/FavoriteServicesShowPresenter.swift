@@ -36,19 +36,21 @@ class FavoriteServicesShowPresenter: FavoriteServicesShowPresenterInput {
         }
         
         // Convert responseAPI body to Service CoreData objects
-        if let servicesList = responseModel.responseAPI!.body as? [Any] {
-            if (servicesList.count > 0) {
-                for json in servicesList {
-                    let service = Service.init(json: json as! [String: AnyObject], forOrganization: nil, forList: keyFavoriteServices)
-                    service!.cellHeight = 60.0
-                    service!.cellIdentifier = "FavoriteServiceTableViewCell"
-                    
-                    CoreDataManager.instance.didSaveContext()
+        if let servicesList = responseModel.responseAPI!.body as? [Any], servicesList.count > 0 {
+            for serviceJSON in servicesList {
+                if let serviceID = (serviceJSON as? [String: AnyObject])?["uuid"] as? String {
+                    if let service = CoreDataManager.instance.entityDidLoad(byName: "Service", andPredicateParameters: NSPredicate.init(format: "codeID == %@", serviceID)) as? Service {
+                        service.profileDidUpload(json: serviceJSON as! [String: AnyObject], forOrganization: nil, forList: keyFavoriteServices)
+                        service.cellHeight = 60.0
+                        service.cellIdentifier = "FavoriteServiceTableViewCell"
+                        
+                        CoreDataManager.instance.didSaveContext()
+                    }
                 }
             }
-            
-            let servicesViewModel = FavoriteServicesShowModels.Services.ViewModel(status: (responseModel.responseAPI?.status)!)
-            self.viewController.favoriteServicesDidShowLoad(fromViewModel: servicesViewModel)
         }
+        
+        let servicesViewModel = FavoriteServicesShowModels.Services.ViewModel(status: (responseModel.responseAPI?.status)!)
+        self.viewController.favoriteServicesDidShowLoad(fromViewModel: servicesViewModel)
     }
 }

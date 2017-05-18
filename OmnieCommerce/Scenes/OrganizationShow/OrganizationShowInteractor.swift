@@ -33,7 +33,7 @@ class OrganizationShowInteractor: OrganizationShowInteractorInput {
     func organizationDidLoad(withRequestModel requestModel: OrganizationShowModels.OrganizationItem.RequestModel) {
         MSMRestApiManager.instance.userRequestDidRun(.userGetOrganizationByID(requestModel.parameters, false), withHandlerResponseAPICompletion: { responseAPI in
             // Pass the result to the Presenter
-            let organizationResponseModel = OrganizationShowModels.OrganizationItem.ResponseModel(responseAPI: responseAPI)
+            let organizationResponseModel = OrganizationShowModels.OrganizationItem.ResponseModel(responseAPI: responseAPI, parameters: requestModel.parameters)
             self.presenter.organizationDidPrepareToShowLoad(fromResponseModel: organizationResponseModel)
         })
     }

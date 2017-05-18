@@ -21,7 +21,19 @@
         </uniquenessConstraints>
     </entity>
     <entity name="AppSettings" representedClassName="AppSettings" syncable="YES">
-        <attribute name="isThemeDark" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="calendarSync" optional="YES" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="codeID" attributeType="String" defaultValueString="AppSettings" syncable="YES"/>
+        <attribute name="lightColorSchema" optional="YES" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="notifyDelay" optional="YES" attributeType="Integer 16" defaultValueString="3600" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="notifyEvent" optional="YES" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="pushNotify" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="soundNotify" optional="YES" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="whenCloseApp" optional="YES" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="YES" syncable="YES"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="codeID"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
     </entity>
     <entity name="AppUser" representedClassName="AppUser" syncable="YES">
         <attribute name="accessToken" optional="YES" attributeType="String" syncable="YES"/>
@@ -290,7 +302,7 @@
     <elements>
         <element name="Actions" positionX="-27" positionY="108" width="128" height="60"/>
         <element name="AdditionalService" positionX="144" positionY="81" width="128" height="195"/>
-        <element name="AppSettings" positionX="-54" positionY="-9" width="128" height="60"/>
+        <element name="AppSettings" positionX="-54" positionY="-9" width="128" height="165"/>
         <element name="AppUser" positionX="-63" positionY="-18" width="128" height="270"/>
         <element name="Category" positionX="270" positionY="-72" width="128" height="135"/>
         <element name="Discount" positionX="162" positionY="99" width="128" height="195"/>

@@ -20,6 +20,7 @@ struct ServiceShowModels {
         
         struct ResponseModel {
             let responseAPI: ResponseAPI?
+            let parameters: [String: Any]
         }
         
         struct ViewModel {
@@ -34,11 +35,11 @@ struct ServiceShowModels {
         
         struct ResponseModel {
             let responseAPI: ResponseAPI?
+            let parameters: [String: Any]
         }
         
         struct ViewModel {
             let status: String
-            let orderID: String?
         }
     }
 }

@@ -13,27 +13,26 @@ import UIKit
 
 // MARK: - Input & Output protocols
 protocol SettingsShowInteractorInput {
-    func doSomething(request: SettingsShow.Something.Request)
+    func appSettingsDidLoad(withRequestModel requestModel: SettingsShowModels.Items.RequestModel)
 }
 
 protocol SettingsShowInteractorOutput {
-    func presentSomething(response: SettingsShow.Something.Response)
+    func appSettingsDidPrepareToShowLoad(fromResponseModel responseModel: SettingsShowModels.Items.ResponseModel)
 }
 
 class SettingsShowInteractor: SettingsShowInteractorInput {
     // MARK: - Properties
-    var output: SettingsShowInteractorOutput!
+    var presenter: SettingsShowInteractorOutput!
     var worker: SettingsShowWorker!
     
     
     // MARK: - Custom Functions. Business logic
-    func doSomething(request: SettingsShow.Something.Request) {
-        // NOTE: Create some Worker to do the work
-        worker = SettingsShowWorker()
-        worker.doSomeWork()
-        
-        // NOTE: Pass the result to the Presenter
-        let response = SettingsShow.Something.Response()
-        output.presentSomething(response: response)
+    func appSettingsDidLoad(withRequestModel requestModel: SettingsShowModels.Items.RequestModel) {
+        // API
+        MSMRestApiManager.instance.userRequestDidRun(.userGetProfileSettings(nil, false), withHandlerResponseAPICompletion: { responseAPI in
+            // NOTE: Pass the result to the Presenter
+            let appSettingsResponseModel = SettingsShowModels.Items.ResponseModel(responseAPI: responseAPI)
+            self.presenter.appSettingsDidPrepareToShowLoad(fromResponseModel: appSettingsResponseModel)
+        })
     }
 }

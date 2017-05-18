@@ -13,18 +13,21 @@ import UIKit
 
 // MARK: - Input & Output protocols
 protocol SettingsShowViewControllerInput {
-    func displaySomething(viewModel: SettingsShow.Something.ViewModel)
+    func appSettingsDidShowLoad(fromViewModel viewModel: SettingsShowModels.Items.ViewModel)
 }
 
 protocol SettingsShowViewControllerOutput {
-    func doSomething(request: SettingsShow.Something.Request)
+    func appSettingsDidLoad(withRequestModel requestModel: SettingsShowModels.Items.RequestModel)
 }
 
 class SettingsShowViewController: BaseViewController {
     // MARK: - Properties
-    var output: SettingsShowViewControllerOutput!
+    var interactor: SettingsShowViewControllerOutput!
     var router: SettingsShowRouter!
     
+    var appSettings = [AppSettings]()
+    
+    // Outlets
     @IBOutlet weak var smallTopBarView: SmallTopBarView!
 
     
@@ -40,22 +43,37 @@ class SettingsShowViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        viewSettingsDidLoad()
-    }
-    
-
-    // MARK: - Custom Functions
-    func viewSettingsDidLoad() {
-        print(object: "\(type(of: self)): \(#function) run.")
-        
         // Config smallTopBarView
-        navigationBarView       =   smallTopBarView
-        smallTopBarView.type    =   "ParentSearch"
-        haveMenuItem            =   true
+        navigationBarView = smallTopBarView
+        smallTopBarView.type = "Parent"
+        haveMenuItem = true
         
         // Load data
-        let requestModel        =   SettingsShow.Something.Request()
-        output.doSomething(request: requestModel)
+        guard isNetworkAvailable else {
+            appSettingsDidShow()
+            return
+        }
+        
+        let appSettingsRequestModel = SettingsShowModels.Items.RequestModel(parameters: parametersDidPrepare())
+        interactor.appSettingsDidLoad(withRequestModel: appSettingsRequestModel)
+    }
+    
+    
+    // MARK: - Custom Functions
+    func appSettingsDidShow() {
+        // TODO: - SHOW ITEMS AS DESIGN ELEMENTS
+    }
+    
+    func parametersDidPrepare() -> [String: AnyObject] {
+        return [
+                    "pushNotify":       false as AnyObject,
+                    "whenCloseApp":     true as AnyObject,
+                    "notifyEvent":      true as AnyObject,
+                    "soundNotify":      true as AnyObject,
+                    "notifyDelay":      900 as AnyObject,
+                    "calendarSync":     true as AnyObject,
+                    "lightColorSchema": true as AnyObject
+                ]
     }
     
     
@@ -71,10 +89,16 @@ class SettingsShowViewController: BaseViewController {
 
 // MARK: - SettingsShowViewControllerInput
 extension SettingsShowViewController: SettingsShowViewControllerInput {
-    func displaySomething(viewModel: SettingsShow.Something.ViewModel) {
-        print(object: "\(type(of: self)): \(#function) run.")
+    func appSettingsDidShowLoad(fromViewModel viewModel: SettingsShowModels.Items.ViewModel) {
+        // Check for errors
+        guard viewModel.status == "SUCCESS" else {
+            self.alertViewDidShow(withTitle: "Error", andMessage: viewModel.status, completion: {
+                self.appSettingsDidShow()
+            })
+            
+            return
+        }
         
-        // NOTE: Display the result from the Presenter
-        // nameTextField.text = viewModel.name
+        self.appSettingsDidShow()
     }
 }

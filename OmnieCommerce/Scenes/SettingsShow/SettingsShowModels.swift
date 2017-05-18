@@ -12,15 +12,18 @@
 import UIKit
 
 // MARK: - Data models
-struct SettingsShow {
-    struct Something {
-        struct Request {
+struct SettingsShowModels {
+    struct Items {
+        struct RequestModel {
+            let parameters: [String: AnyObject]
         }
         
-        struct Response {
+        struct ResponseModel {
+            let responseAPI: ResponseAPI?
         }
         
         struct ViewModel {
+            let status: String
         }
     }
 }

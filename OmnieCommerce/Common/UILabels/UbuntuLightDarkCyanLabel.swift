@@ -26,8 +26,8 @@ import UIKit
     // MARK: - Custom Functions
     func didSetup() {
         text            =   (text == "Copyright") ? "\u{00A9} Omniesoft, 2016" : text?.localized()
-        font            =   (isAppThemeDark) ? UIFont.systemFont(ofSize: 9) : UIFont(name: "Ubuntu-Light", size: font!.pointSize)!
-        textColor       =   (isAppThemeDark) ? UIColor.white : UIColor.darkCyan
+        font            =   (!isLightColorAppSchema) ? UIFont.systemFont(ofSize: 9) : UIFont(name: "Ubuntu-Light", size: font!.pointSize)!
+        textColor       =   (!isLightColorAppSchema) ? UIColor.white : UIColor.darkCyan
         textAlignment   =   textAlignment
         
         self.adjustsFontSizeToFitWidth  =   true
