@@ -47,7 +47,7 @@ class CalendarDayCellView: JTAppleDayCellView {
         dateFormatter.dateFormat = "dd.MM.yyyy"
         
         currentDayView.isHidden = (dateFormatter.string(from: Date()) == dateFormatter.string(from: date)) ? false : true
-        backgroundColor = (!isLightColorAppSchema) ? UIColor.green : UIColor.veryDarkDesaturatedBlue24
+        backgroundColor = (isLightColorAppSchema) ? UIColor.green : UIColor.veryDarkDesaturatedBlue24
         
         if (!currentDayView.isHidden) {
             layoutIfNeeded()
@@ -58,13 +58,13 @@ class CalendarDayCellView: JTAppleDayCellView {
     func setTextColor(forState state: CellState) {
         switch state.isSelected {
         case true:
-            dayLabel.textColor = (!isLightColorAppSchema) ? UIColor.black : UIColor.veryLightGray
+            dayLabel.textColor = (isLightColorAppSchema) ? UIColor.black : UIColor.veryLightGray
 
         default:
             if (state.dateBelongsTo == .thisMonth) {
-                dayLabel.textColor = (!isLightColorAppSchema) ? UIColor.red : UIColor.veryLightGray
+                dayLabel.textColor = (isLightColorAppSchema) ? UIColor.red : UIColor.veryLightGray
             } else {
-                dayLabel.textColor = (!isLightColorAppSchema) ? UIColor.blue : UIColor.veryDarkGrayishBlue56
+                dayLabel.textColor = (isLightColorAppSchema) ? UIColor.blue : UIColor.veryDarkGrayishBlue56
             }
         }
     }

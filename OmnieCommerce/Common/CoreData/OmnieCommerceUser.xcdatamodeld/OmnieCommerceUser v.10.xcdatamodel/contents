@@ -23,7 +23,7 @@
     <entity name="AppSettings" representedClassName="AppSettings" syncable="YES">
         <attribute name="calendarSync" optional="YES" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="codeID" attributeType="String" defaultValueString="AppSettings" syncable="YES"/>
-        <attribute name="lightColorSchema" optional="YES" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="lightColorSchema" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="notifyDelay" optional="YES" attributeType="Integer 64" defaultValueString="3600" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="notifyEvent" optional="YES" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="pushNotify" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>

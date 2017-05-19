@@ -53,6 +53,7 @@ class SettingsShowViewController: BaseViewController {
 
     // Outlets
     @IBOutlet weak var smallTopBarView: SmallTopBarView!
+    @IBOutlet var modalView: ModalView!
     
     @IBOutlet weak var scrollView: UIScrollView! {
         didSet {
@@ -191,6 +192,22 @@ class SettingsShowViewController: BaseViewController {
         }
     }
     
+    func modalViewDidShow(withHeight height: CGFloat, customSubview subView: CustomView, andValues values: [Any]?) {
+        if (blackoutView == nil) {
+            blackoutView = MSMBlackoutView.init(inView: view)
+            blackoutView!.didShow()
+        }
+        
+        modalView = ModalView.init(inView: blackoutView!, withHeight: height)
+        let popupView = ConfirmSaveView.init(inView: modalView!)
+        
+        // Handler Cancel button tap
+        popupView.handlerCancelButtonCompletion = { _ in
+            self.blackoutView!.didHide()
+            self.blackoutView = nil
+        }
+    }
+
     
     // MARK: - Transition
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -204,6 +221,11 @@ class SettingsShowViewController: BaseViewController {
     // MARK: - Actions
     @IBAction func handlerSaveButtonTap(_ sender: FillVeryLightOrangeButton) {
         spinnerDidStart(view)
+        
+        guard isNetworkAvailable else {
+            appSettingsDidShow()
+            return
+        }
         
         let appSettingsRequestModel = SettingsShowModels.Items.RequestModel(parameters: parametersDidPrepare())
         interactor.appSettingsDidUpload(withRequestModel: appSettingsRequestModel)
@@ -244,7 +266,7 @@ class SettingsShowViewController: BaseViewController {
 
         eventPickerView.selectRow(self.pickerViewManager.selectedDayIndex, inComponent: 0, animated: true)
         eventPickerView.selectRow(self.pickerViewManager.selectedHourIndex, inComponent: 2, animated: true)
-        eventPickerView.selectRow(self.pickerViewManager.selectedMinuteIndex, inComponent: 4, animated: true)
+        eventPickerView.selectRow(self.pickerViewManager.selectedMinuteIndex, inComponent: 4, animated: true) 
     }
 
     @IBAction func handlerSyncSwitchChangeValue(_ sender: UISwitch) {
@@ -283,5 +305,8 @@ extension SettingsShowViewController: SettingsShowViewControllerInput {
             
             return
         }
+        
+        modalViewDidShow(withHeight: 185.0, customSubview: ConfirmSaveView(), andValues: nil)
+        appSettingsDidLoadData()
     }
 }

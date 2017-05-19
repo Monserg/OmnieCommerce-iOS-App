@@ -89,6 +89,8 @@
 "Setting day"                   =   "день";
 "Setting hours"                 =   "часы";
 "Setting minutes"               =   "минуты";
+"Saved"                         =   "Сохранено!";
+"Saved message"                 =   "Ваши натройки успешно \nсохранены.";
 
 
 // Buttons

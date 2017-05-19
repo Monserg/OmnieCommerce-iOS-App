@@ -13,15 +13,15 @@ import UIKit
     override func draw(_ rect: CGRect) {
         let titleText = (titleLabel?.text != nil) ? (titleLabel?.text!.localized())! : String()
         
-        if (!isLightColorAppSchema) {
+        if (isLightColorAppSchema) {
             backgroundColor = UIColor.white
         } else {
             backgroundColor = UIColor.clear
         }
 
-        tintColor = (!isLightColorAppSchema) ? UIColor.black : UIColor.veryLightGray
-        titleLabel?.font = (!isLightColorAppSchema) ? UIFont.systemFont(ofSize: 12) : UIFont.ubuntuRegular16
-        borderColor = (!isLightColorAppSchema) ? UIColor.black : UIColor.veryLightOrange
+        tintColor = (isLightColorAppSchema) ? UIColor.black : UIColor.veryLightGray
+        titleLabel?.font = (isLightColorAppSchema) ? UIFont.systemFont(ofSize: 12) : UIFont.ubuntuRegular16
+        borderColor = (isLightColorAppSchema) ? UIColor.black : UIColor.veryLightOrange
 
         setAttributedTitle(NSAttributedString(string: titleText, attributes: [NSForegroundColorAttributeName: UIColor.veryLightGray]), for: .normal)
         setAttributedTitle(NSAttributedString(string: titleText, attributes: [NSForegroundColorAttributeName: UIColor.veryLightGrayAlpha30]), for: .highlighted)

@@ -89,6 +89,8 @@
 "Setting day"                   =   "день";
 "Setting hours"                 =   "години";
 "Setting minutes"               =   "хвилини";
+"Saved"                         =   "Збережено!";
+"Saved message"                 =   "Ваші налаштування успішно \nзбережено.";
 
 
 // Buttons

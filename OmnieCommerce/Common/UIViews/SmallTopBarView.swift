@@ -19,6 +19,7 @@ enum ViewType: String {
     // MARK: - Properties
     var handlerSendButtonCompletion: HandlerSendButtonCompletion?
 
+    // Outlets
     @IBOutlet var view: UIView!
     @IBOutlet weak var circleView: SmallCirleView!
     @IBOutlet weak var titleLabel: CustomLabel!
@@ -39,6 +40,11 @@ enum ViewType: String {
         }
     }
     
+    @IBOutlet weak var searchBottomLineView: DottedBorderView! {
+        didSet {
+            searchBottomLineView.style = .BottomDottedLine
+        }
+    }
     
     // MARK: - Class Initialization
     override init(frame: CGRect) {
@@ -110,17 +116,17 @@ enum ViewType: String {
             for innerSubViews in subview.subviews {
                 if let cancelButton = innerSubViews as? UIButton {
                     cancelButton.setAttributedTitle(NSAttributedString.init(string: cancelButton.titleLabel!.text!,
-                                                                            attributes: UIFont.ubuntuLightVeryLightGray16),
+                                                                            attributes: UIFont.ubuntuLightLightGrayishCyan12),
                                                     for: .normal)
                 }
                 
                 if let textField = innerSubViews as? UITextField {
                     textField.backgroundColor = UIColor.darkCyan
-                    textField.textColor = UIColor.veryLightGray
-                    textField.tintColor = UIColor.veryLightGray
+                    textField.textColor = UIColor.lightGrayishCyan
+                    textField.tintColor = UIColor.lightGrayishCyan
                     
                     textField.attributedPlaceholder = NSAttributedString.init(string: "Enter Search text".localized(),
-                                                                              attributes: UIFont.ubuntuLightItalicVeryLightGray16)
+                                                                              attributes: UIFont.ubuntuLightLightGrayishCyan12)
                     
                     if let iconView = textField.leftView as? UIImageView {
                         iconView.image = iconView.image?.withRenderingMode(.alwaysTemplate)
@@ -138,6 +144,8 @@ enum ViewType: String {
     func searchBarDidHide() {
         UIView.animate(withDuration: 0.3, animations: {
             self.searchBar.alpha = 0
+            self.dottesStackView.isHidden = false
+            self.searchBottomLineView.isHidden = true
             self.searchBar.transform = CGAffineTransform(translationX: 800, y: 0)
         }, completion: { success in
             UIView.animate(withDuration: 0.5, animations: {
@@ -159,6 +167,10 @@ enum ViewType: String {
         UIView.animate(withDuration: 0.5, animations: {
             sender.alpha = 0
             self.titleLabel.alpha = 0
+            self.dottesStackView.isHidden = true
+            self.searchBottomLineView.isHidden = false
+            self.searchBottomLineView.tintColor = UIColor(hexString: "#23323f")
+            self.searchBottomLineView.tintColor.setStroke()
         }, completion: { success in
             UIView.animate(withDuration: 0.3, animations: {
                 self.searchBar.alpha = 1

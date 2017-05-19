@@ -50,20 +50,20 @@ extension UIButton {
         
         switch buttonStyle {
         case .Social:
-            backgroundColor = (!isLightColorAppSchema) ? UIColor.white : UIColor.softOrange
+            backgroundColor = (isLightColorAppSchema) ? UIColor.white : UIColor.softOrange
             tintColor = UIColor.clear
             borderColor = UIColor.clear
             borderWidth = 0
 
         case .VeryLightOrangeFill, .SoftOrangeFill:
-            backgroundColor = (!isLightColorAppSchema) ? UIColor.white : ((buttonStyle == .VeryLightOrangeFill) ? UIColor.veryLightOrange : UIColor.softOrange)
+            backgroundColor = (isLightColorAppSchema) ? UIColor.white : ((buttonStyle == .VeryLightOrangeFill) ? UIColor.veryLightOrange : UIColor.softOrange)
             setAttributedTitle(NSAttributedString.init(string: titleText, attributes: UIFont.ubuntuRegularVeryDarkGray16), for: .normal)
             borderColor = UIColor.clear
             borderWidth = 0
 
-            (!isLightColorAppSchema) ? setAttributedTitle(NSAttributedString.init(string: titleText, attributes: UIFont.ubuntuLightVeryLightGrayUnderline12), for: .normal) : setAttributedTitle(NSAttributedString.init(string: titleText, attributes: UIFont.ubuntuRegularVeryDarkGray16), for: .normal)
+            (isLightColorAppSchema) ? setAttributedTitle(NSAttributedString.init(string: titleText, attributes: UIFont.ubuntuLightVeryLightGrayUnderline12), for: .normal) : setAttributedTitle(NSAttributedString.init(string: titleText, attributes: UIFont.ubuntuRegularVeryDarkGray16), for: .normal)
             
-            (!isLightColorAppSchema) ? setAttributedTitle(NSAttributedString.init(string: titleText, attributes: UIFont.ubuntuLightVeryLightGrayUnderline12), for: .highlighted) : setAttributedTitle(NSAttributedString.init(string: titleText, attributes: UIFont.ubuntuRegularVeryDarkGray16), for: .highlighted)
+            (isLightColorAppSchema) ? setAttributedTitle(NSAttributedString.init(string: titleText, attributes: UIFont.ubuntuLightVeryLightGrayUnderline12), for: .highlighted) : setAttributedTitle(NSAttributedString.init(string: titleText, attributes: UIFont.ubuntuRegularVeryDarkGray16), for: .highlighted)
 
             titleLabel?.sizeToFit()
 
@@ -73,9 +73,9 @@ extension UIButton {
             
         case .Border:
             backgroundColor = UIColor.clear
-            tintColor = (!isLightColorAppSchema) ? UIColor.black : UIColor.veryLightGray
-            titleLabel?.font = (!isLightColorAppSchema) ? UIFont.systemFont(ofSize: 12) : UIFont.ubuntuRegular16
-            borderColor = (!isLightColorAppSchema) ? UIColor.black : UIColor.veryLightOrange
+            tintColor = (isLightColorAppSchema) ? UIColor.black : UIColor.veryLightGray
+            titleLabel?.font = (isLightColorAppSchema) ? UIFont.systemFont(ofSize: 12) : UIFont.ubuntuRegular16
+            borderColor = (isLightColorAppSchema) ? UIColor.black : UIColor.veryLightOrange
             borderWidth = 1
             
         case .Underline:
@@ -84,9 +84,9 @@ extension UIButton {
             borderWidth = 0
             cornerRadius = 0
             
-            (!isLightColorAppSchema) ? setAttributedTitle(NSAttributedString.init(string: (titleLabel?.text?.localized())!, attributes: UIFont.ubuntuLightVeryLightGrayUnderline12), for: .normal) : setAttributedTitle(NSAttributedString.init(string: (titleLabel?.text?.localized())!, attributes: UIFont.ubuntuLightVeryLightGrayUnderline12), for: .normal)
+            (isLightColorAppSchema) ? setAttributedTitle(NSAttributedString.init(string: (titleLabel?.text?.localized())!, attributes: UIFont.ubuntuLightVeryLightGrayUnderline12), for: .normal) : setAttributedTitle(NSAttributedString.init(string: (titleLabel?.text?.localized())!, attributes: UIFont.ubuntuLightVeryLightGrayUnderline12), for: .normal)
             
-            (!isLightColorAppSchema) ? setAttributedTitle(NSAttributedString.init(string: (titleLabel?.text?.localized())!, attributes: UIFont.ubuntuLightVeryLightGrayUnderline12), for: .highlighted) : setAttributedTitle(NSAttributedString.init(string: (titleLabel?.text?.localized())!, attributes: UIFont.ubuntuLightVeryLightGrayUnderline12), for: .highlighted)
+            (isLightColorAppSchema) ? setAttributedTitle(NSAttributedString.init(string: (titleLabel?.text?.localized())!, attributes: UIFont.ubuntuLightVeryLightGrayUnderline12), for: .highlighted) : setAttributedTitle(NSAttributedString.init(string: (titleLabel?.text?.localized())!, attributes: UIFont.ubuntuLightVeryLightGrayUnderline12), for: .highlighted)
 
         case .UnderlineColor:
             backgroundColor = UIColor.clear
@@ -94,12 +94,12 @@ extension UIButton {
             borderWidth = 0
             cornerRadius = 0
             
-            (!isLightColorAppSchema) ? setAttributedTitle(NSAttributedString.init(string: (titleLabel?.text?.localized())!, attributes: UIFont.ubuntuLightSoftOrangeUnderline12), for: .normal) : setAttributedTitle(NSAttributedString.init(string: (titleLabel?.text?.localized())!, attributes: UIFont.ubuntuLightSoftOrangeUnderline12), for: .normal)
+            (isLightColorAppSchema) ? setAttributedTitle(NSAttributedString.init(string: (titleLabel?.text?.localized())!, attributes: UIFont.ubuntuLightSoftOrangeUnderline12), for: .normal) : setAttributedTitle(NSAttributedString.init(string: (titleLabel?.text?.localized())!, attributes: UIFont.ubuntuLightSoftOrangeUnderline12), for: .normal)
             
-            (!isLightColorAppSchema) ? setAttributedTitle(NSAttributedString.init(string: (titleLabel?.text?.localized())!, attributes: UIFont.ubuntuLightSoftOrangeUnderline12), for: .highlighted) : setAttributedTitle(NSAttributedString.init(string: (titleLabel?.text?.localized())!, attributes: UIFont.ubuntuLightSoftOrangeUnderline12), for: .highlighted)
+            (isLightColorAppSchema) ? setAttributedTitle(NSAttributedString.init(string: (titleLabel?.text?.localized())!, attributes: UIFont.ubuntuLightSoftOrangeUnderline12), for: .highlighted) : setAttributedTitle(NSAttributedString.init(string: (titleLabel?.text?.localized())!, attributes: UIFont.ubuntuLightSoftOrangeUnderline12), for: .highlighted)
             
         case .DropDownList:
-            backgroundColor = (!isLightColorAppSchema) ? UIColor.white : UIColor.veryDarkDesaturatedBlue24
+            backgroundColor = (isLightColorAppSchema) ? UIColor.white : UIColor.veryDarkDesaturatedBlue24
             setAttributedTitle(NSAttributedString(string: (titleLabel?.text)!, attributes: UIFont.ubuntuLightVeryLightGray12), for: .normal)
             setAttributedTitle(NSAttributedString(string: (titleLabel?.text)!, attributes: UIFont.ubuntuLightVeryLightGray12Alpha30), for: .highlighted)
             borderColor = UIColor.darkCyan
@@ -109,7 +109,7 @@ extension UIButton {
             imageEdgeInsets = UIEdgeInsetsMake(3, frame.width - 18 - borderWidth, 0, 0)
 
         case .MenuEvent:
-            backgroundColor = (!isLightColorAppSchema) ? UIColor.white : UIColor.veryLightOrange
+            backgroundColor = (isLightColorAppSchema) ? UIColor.white : UIColor.veryLightOrange
             setAttributedTitle(NSAttributedString(string: (titleLabel?.text)!, attributes: UIFont.ubuntuLightVeryLightGray12), for: .normal)
             setAttributedTitle(NSAttributedString(string: (titleLabel?.text)!, attributes: UIFont.ubuntuLightVeryLightGray12Alpha30), for: .highlighted)
             borderColor = UIColor.darkCyan
@@ -124,7 +124,7 @@ extension UIButton {
             borderWidth = 0
 
         case .ActionViewOrangeButton:
-            backgroundColor = (!isLightColorAppSchema) ? UIColor.white : UIColor.clear
+            backgroundColor = (isLightColorAppSchema) ? UIColor.white : UIColor.clear
             setAttributedTitle(NSAttributedString(string: (titleLabel?.text)!, attributes: UIFont.ubuntuLightVeryLightOrange12), for: .normal)
             setAttributedTitle(NSAttributedString(string: (titleLabel?.text)!, attributes: UIFont.ubuntuLightVeryLightOrange12Alpha30), for: .highlighted)
             

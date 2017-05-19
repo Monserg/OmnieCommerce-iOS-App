@@ -32,7 +32,7 @@ import UIKit
         if (titleOriginal != nil) {
             let titleText = (titleLabel?.text != nil) ? (titleLabel?.text!.localized())! : String()
             
-            if (!isLightColorAppSchema) {
+            if (isLightColorAppSchema) {
                 backgroundColor = UIColor.white
             } else {
                 backgroundColor = UIColor.init(hexString: "#24323f", withAlpha: 1.0)
@@ -40,9 +40,9 @@ import UIKit
             
             switch titleOriginal {
             case "CONFIRMED BY USER", "CONFIRMED BY ADMIN", "DONE":
-                tintColor = (!isLightColorAppSchema) ? UIColor.black : UIColor.darkCyan
-                titleLabel?.font = (!isLightColorAppSchema) ? UIFont.systemFont(ofSize: 12) : UIFont.ubuntuLightItalic09
-                borderColor = (!isLightColorAppSchema) ? UIColor.black : UIColor.darkCyan
+                tintColor = (isLightColorAppSchema) ? UIColor.black : UIColor.darkCyan
+                titleLabel?.font = (isLightColorAppSchema) ? UIFont.systemFont(ofSize: 12) : UIFont.ubuntuLightItalic09
+                borderColor = (isLightColorAppSchema) ? UIColor.black : UIColor.darkCyan
                 
                 setAttributedTitle(NSAttributedString(string: titleText, attributes: [NSForegroundColorAttributeName: UIColor.darkCyan]), for: .normal)
                 setAttributedTitle(NSAttributedString(string: titleText, attributes: [NSForegroundColorAttributeName: UIColor.darkCyanAlpha30]), for: .highlighted)

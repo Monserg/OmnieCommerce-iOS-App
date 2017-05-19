@@ -16,7 +16,7 @@ import UIKit
         setTitle(titleText, for: .normal)
         setTitle(titleText, for: .highlighted)
 
-        if (!isLightColorAppSchema) {
+        if (isLightColorAppSchema) {
             backgroundColor = UIColor.white
         } else {
             setBackgroundImage(UIImage(named: "image-background-color-very-light-orange-normal.png")?.withRenderingMode(.alwaysOriginal), for: .normal)
@@ -25,10 +25,10 @@ import UIKit
         borderColor = UIColor.clear
         borderWidth = 0
         
-        (!isLightColorAppSchema) ? setAttributedTitle(NSAttributedString.init(string: titleText, attributes: UIFont.ubuntuLightVeryLightGrayUnderline12), for: .normal) :
+        (isLightColorAppSchema) ? setAttributedTitle(NSAttributedString.init(string: titleText, attributes: UIFont.ubuntuLightVeryLightGrayUnderline12), for: .normal) :
                             setAttributedTitle(NSAttributedString.init(string: titleText, attributes: UIFont.ubuntuRegularVeryDarkGray16), for: .normal)
         
-        (!isLightColorAppSchema) ? setAttributedTitle(NSAttributedString.init(string: titleText, attributes: UIFont.ubuntuLightVeryLightGrayUnderline12), for: .highlighted) :
+        (isLightColorAppSchema) ? setAttributedTitle(NSAttributedString.init(string: titleText, attributes: UIFont.ubuntuLightVeryLightGrayUnderline12), for: .highlighted) :
                             setAttributedTitle(NSAttributedString.init(string: titleText, attributes: UIFont.ubuntuRegularVeryDarkGray16), for: .highlighted)
         
         titleLabel?.sizeToFit()

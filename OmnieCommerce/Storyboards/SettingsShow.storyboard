@@ -631,15 +631,15 @@
                                 <exclude reference="1a1-x5-ANU"/>
                                 <exclude reference="KlK-aE-THG"/>
                                 <exclude reference="N5M-Qj-DME"/>
-                                <exclude reference="jGe-1R-VO5"/>
                                 <exclude reference="3B4-Zl-VKL"/>
                                 <exclude reference="O2B-Bv-Hoq"/>
                                 <exclude reference="qtm-xT-1rl"/>
                                 <exclude reference="S5o-7x-xaE"/>
                                 <exclude reference="hCp-Aa-dm3"/>
-                                <exclude reference="EeU-Em-wCX"/>
                                 <exclude reference="cVN-Pe-Hyc"/>
                                 <exclude reference="HDR-gl-50Z"/>
+                                <exclude reference="jGe-1R-VO5"/>
+                                <exclude reference="EeU-Em-wCX"/>
                                 <exclude reference="dC6-pA-kng"/>
                                 <exclude reference="NTQ-lg-rws"/>
                                 <exclude reference="E3f-KV-DXn"/>
@@ -655,8 +655,6 @@
                                 <include reference="KlK-aE-THG"/>
                                 <include reference="N5M-Qj-DME"/>
                                 <exclude reference="OxG-L2-pcf"/>
-                                <exclude reference="Cf8-4G-YNZ"/>
-                                <include reference="jGe-1R-VO5"/>
                                 <include reference="3B4-Zl-VKL"/>
                                 <exclude reference="HM9-iJ-FyQ"/>
                                 <exclude reference="IvQ-6Q-gJd"/>
@@ -667,12 +665,14 @@
                                 <include reference="S5o-7x-xaE"/>
                                 <include reference="hCp-Aa-dm3"/>
                                 <exclude reference="quC-Pa-O8E"/>
-                                <include reference="EeU-Em-wCX"/>
-                                <exclude reference="uAa-5s-AAa"/>
                                 <exclude reference="N7t-yk-bqz"/>
                                 <include reference="cVN-Pe-Hyc"/>
                                 <include reference="HDR-gl-50Z"/>
                                 <exclude reference="YPe-6d-A9f"/>
+                                <exclude reference="Cf8-4G-YNZ"/>
+                                <include reference="jGe-1R-VO5"/>
+                                <include reference="EeU-Em-wCX"/>
+                                <exclude reference="uAa-5s-AAa"/>
                                 <exclude reference="cze-QD-hbw"/>
                                 <include reference="dC6-pA-kng"/>
                                 <exclude reference="9kR-K1-lhC"/>
@@ -687,6 +687,7 @@
                         <outlet property="eventLabel" destination="f4N-uB-m8t" id="fTe-o2-9ZL"/>
                         <outlet property="eventPickerView" destination="CpU-UX-Sf1" id="qNL-kM-NTq"/>
                         <outlet property="eventSwitch" destination="JgO-xs-U2Z" id="J4Z-JA-bhu"/>
+                        <outlet property="modalView" destination="hEF-LN-HkO" id="Shf-WB-T4m"/>
                         <outlet property="pushCheckButton" destination="qZZ-xF-0Jx" id="BOU-Sv-QJo"/>
                         <outlet property="pushLabel" destination="FwA-Vc-shl" id="BA2-cN-4O0"/>
                         <outlet property="pushSwitch" destination="OnV-eq-5IZ" id="B8v-YT-pwf"/>
@@ -703,6 +704,14 @@
                         <outletCollection property="labelsCollection" destination="L95-VD-Z7V" collectionClass="NSMutableArray" id="12U-Pm-R3c"/>
                     </connections>
                 </viewController>
+                <view clipsSubviews="YES" contentMode="scaleToFill" id="hEF-LN-HkO" userLabel="Modal View" customClass="ModalView" customModule="OmnieCommerce" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                </view>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wwl-qi-06k" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1059.4202898550725" y="117.39130434782609"/>

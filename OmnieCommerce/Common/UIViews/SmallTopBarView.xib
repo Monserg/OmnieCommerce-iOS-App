@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -16,6 +16,7 @@
                 <outlet property="circleView" destination="kst-NW-aRW" id="bf6-OY-a7q"/>
                 <outlet property="dottesStackView" destination="ef5-nQ-6Bi" id="9FI-vq-4U6"/>
                 <outlet property="searchBar" destination="NQE-rU-agZ" id="Kxd-PH-gMa"/>
+                <outlet property="searchBottomLineView" destination="gxD-8P-O38" id="naZ-H7-dtv"/>
                 <outlet property="searchButton" destination="FNP-4w-rop" id="obE-VI-N2j"/>
                 <outlet property="titleLabel" destination="HQM-9u-rBz" id="usx-1b-NgG"/>
                 <outlet property="view" destination="iN0-l3-epB" id="pfh-W6-wIu"/>
@@ -42,7 +43,7 @@
                             </constraints>
                             <state key="normal" image="icon-menu-normal"/>
                         </button>
-                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Orders" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HQM-9u-rBz" userLabel="Title Label" customClass="HelveticaNeueCyrLightVeryLightGrayLabel" customModule="OmnieCommerce" customModuleProvider="target">
+                        <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Orders" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HQM-9u-rBz" userLabel="Title Label" customClass="HelveticaNeueCyrLightVeryLightGrayLabel" customModule="OmnieCommerce" customModuleProvider="target">
                             <rect key="frame" x="56" y="7.5" width="306" height="38.5"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <fontDescription key="fontDescription" type="system" pointSize="32"/>
@@ -55,7 +56,7 @@
                         <searchBar clipsSubviews="YES" alpha="0.0" contentMode="redraw" placeholder="Enter name" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NQE-rU-agZ">
                             <rect key="frame" x="48" y="4" width="366" height="44"/>
                             <color key="backgroundColor" red="0.0" green="0.57647058823529407" blue="0.58431372549019611" alpha="1" colorSpace="calibratedRGB"/>
-                            <color key="tintColor" red="0.87058823529411766" green="0.87058823529411766" blue="0.87058823529411766" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="tintColor" red="1" green="0.84313725490000002" blue="0.42352941179999998" alpha="1" colorSpace="calibratedRGB"/>
                             <color key="barTintColor" red="0.0" green="0.57647058823529407" blue="0.58431372549019611" alpha="1" colorSpace="calibratedRGB"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no" returnKeyType="search" enablesReturnKeyAutomatically="YES"/>
                             <scopeButtonTitles>
@@ -81,6 +82,13 @@
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
                         </searchBar>
+                        <view hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gxD-8P-O38" userLabel="Search Bottom Line View" customClass="DottedBorderView" customModule="OmnieCommerce" customModuleProvider="target">
+                            <rect key="frame" x="30" y="4.5" width="304" height="44"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                        </view>
                         <stackView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="ef5-nQ-6Bi">
                             <rect key="frame" x="189" y="50" width="36" height="4"/>
                             <subviews>
@@ -136,6 +144,9 @@
                                 <constraint firstAttribute="width" constant="36" id="5zv-DE-sIo"/>
                                 <constraint firstAttribute="height" constant="4" id="I5X-Sh-2dA"/>
                             </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                            </userDefinedRuntimeAttributes>
                         </stackView>
                         <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FNP-4w-rop" userLabel="Search Button">
                             <rect key="frame" x="366" y="4" width="44" height="44"/>
@@ -152,14 +163,18 @@
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
+                        <constraint firstItem="gxD-8P-O38" firstAttribute="centerY" secondItem="NQE-rU-agZ" secondAttribute="centerY" id="0mM-uf-hzG"/>
                         <constraint firstItem="1UU-5B-Xhy" firstAttribute="leading" secondItem="OTQ-6X-f87" secondAttribute="leading" constant="4" id="8cd-N0-2Qg"/>
                         <constraint firstItem="FNP-4w-rop" firstAttribute="leading" secondItem="HQM-9u-rBz" secondAttribute="trailing" constant="4" id="Cz6-PU-kg7"/>
                         <constraint firstAttribute="trailing" secondItem="NQE-rU-agZ" secondAttribute="trailing" id="EIe-lg-3er"/>
+                        <constraint firstItem="gxD-8P-O38" firstAttribute="leading" secondItem="OTQ-6X-f87" secondAttribute="leading" constant="30" id="FEK-wE-WH7"/>
+                        <constraint firstAttribute="trailing" secondItem="gxD-8P-O38" secondAttribute="trailing" constant="80" id="FUj-zr-4qg"/>
                         <constraint firstItem="NQE-rU-agZ" firstAttribute="centerY" secondItem="OTQ-6X-f87" secondAttribute="centerY" id="TLI-b4-wgM"/>
                         <constraint firstItem="ef5-nQ-6Bi" firstAttribute="centerX" secondItem="OTQ-6X-f87" secondAttribute="centerX" id="Z8g-np-luF"/>
                         <constraint firstItem="NQE-rU-agZ" firstAttribute="leading" secondItem="1UU-5B-Xhy" secondAttribute="trailing" id="ghL-0N-AoT"/>
                         <constraint firstItem="1UU-5B-Xhy" firstAttribute="centerY" secondItem="OTQ-6X-f87" secondAttribute="centerY" id="ri0-Kd-0cx"/>
                         <constraint firstAttribute="trailing" secondItem="FNP-4w-rop" secondAttribute="trailing" constant="4" id="sxe-82-sZm"/>
+                        <constraint firstItem="gxD-8P-O38" firstAttribute="height" secondItem="NQE-rU-agZ" secondAttribute="height" id="tqM-tK-1qv"/>
                         <constraint firstItem="ef5-nQ-6Bi" firstAttribute="top" secondItem="HQM-9u-rBz" secondAttribute="bottom" constant="4" id="usi-nX-d5e"/>
                         <constraint firstItem="FNP-4w-rop" firstAttribute="centerY" secondItem="1UU-5B-Xhy" secondAttribute="centerY" id="vNZ-UE-GNj"/>
                         <constraint firstItem="HQM-9u-rBz" firstAttribute="centerY" secondItem="1UU-5B-Xhy" secondAttribute="centerY" id="vTT-s3-Kml"/>

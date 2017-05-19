@@ -27,7 +27,7 @@ import UIKit
     func didSetup() {
         text            =   text?.localized()
         font            =   UIFont(name: "Ubuntu-LightItalic", size: font!.pointSize)!
-        textColor       =   (!isLightColorAppSchema) ? UIColor.white : UIColor.moderateRed
+        textColor       =   (isLightColorAppSchema) ? UIColor.white : UIColor.moderateRed
         textAlignment   =   textAlignment
         
         self.adjustsFontSizeToFitWidth  =   true

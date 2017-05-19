@@ -11,7 +11,7 @@ import CoreData
 import CoreLocation
 
 @objc(Organization)
-public class Organization: NSManagedObject, InitCellParameters, PointAnnotationBinding {
+public class Organization: NSManagedObject, InitCellParameters, PointAnnotationBinding, SearchObject {
     var workStartTime = 9
     var workTimeDuration = 18
 
@@ -22,7 +22,7 @@ public class Organization: NSManagedObject, InitCellParameters, PointAnnotationB
     var cellIdentifier: String = "OrganizationTableViewCell"
     var cellHeight: CGFloat = 96.0
     
-    // Confirm PointAnnotationBinding Protocol
+    // Confirm PointAnnotationBinding & SearchObject Protocols
     var name: String! {
         set {
             self.nameValue = newValue

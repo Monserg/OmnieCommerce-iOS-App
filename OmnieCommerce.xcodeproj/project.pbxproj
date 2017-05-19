@@ -144,6 +144,8 @@
 		B122F2321DD35EF10018A701 /* NewsShow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B122F2311DD35EF10018A701 /* NewsShow.storyboard */; };
 		B122F2411DD371B30018A701 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B122F2401DD371B30018A701 /* BaseNavigationController.swift */; };
 		B122F2481DD393330018A701 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B122F24A1DD393330018A701 /* Localizable.strings */; };
+		B12974B61ECED7C1002409C7 /* ConfirmSaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12974B41ECED7C1002409C7 /* ConfirmSaveView.swift */; };
+		B12974B71ECED7C1002409C7 /* ConfirmSaveView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B12974B51ECED7C1002409C7 /* ConfirmSaveView.xib */; };
 		B12FE6461E57327D00A4FBA4 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12FE6451E57327D00A4FBA4 /* CustomTextField.swift */; };
 		B137EC8B1E7D0334006F0184 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B137EC891E7D0334006F0184 /* CategoryCollectionViewCell.swift */; };
 		B137EC8C1E7D0334006F0184 /* CategoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B137EC8A1E7D0334006F0184 /* CategoryCollectionViewCell.xib */; };
@@ -646,6 +648,8 @@
 		B122F2491DD393330018A701 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B122F24C1DD393350018A701 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B122F24D1DD393360018A701 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Localizable.strings; sourceTree = "<group>"; };
+		B12974B41ECED7C1002409C7 /* ConfirmSaveView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmSaveView.swift; sourceTree = "<group>"; };
+		B12974B51ECED7C1002409C7 /* ConfirmSaveView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConfirmSaveView.xib; sourceTree = "<group>"; };
 		B12FE6451E57327D00A4FBA4 /* CustomTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = CustomTextField.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		B137EC891E7D0334006F0184 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		B137EC8A1E7D0334006F0184 /* CategoryCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CategoryCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -690,7 +694,7 @@
 		B14C07281EA0AA7700556866 /* ExpandedHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpandedHeaderCell.swift; sourceTree = "<group>"; };
 		B14C072B1EA0AB2500556866 /* ExpandedTableViewHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpandedTableViewHeaderView.swift; sourceTree = "<group>"; };
 		B14C072D1EA0AB2D00556866 /* ExpandedTableViewHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExpandedTableViewHeaderView.xib; sourceTree = "<group>"; };
-		B14C07511EA0E0BC00556866 /* FillColorButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FillColorButton.swift; sourceTree = "<group>"; };
+		B14C07511EA0E0BC00556866 /* FillColorButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = FillColorButton.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		B14C07531EA1082F00556866 /* ServicePriceTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServicePriceTableViewCell.swift; sourceTree = "<group>"; };
 		B14C07541EA1082F00556866 /* ServicePriceTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ServicePriceTableViewCell.xib; sourceTree = "<group>"; };
 		B14CD9191E57C058005F8BF6 /* Protocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
@@ -795,7 +799,7 @@
 		B177E5531E54B739004F1390 /* RepetitionPasswordShowRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepetitionPasswordShowRouter.swift; sourceTree = "<group>"; };
 		B177E5541E54B739004F1390 /* RepetitionPasswordShowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepetitionPasswordShowViewController.swift; sourceTree = "<group>"; };
 		B177E5551E54B739004F1390 /* RepetitionPasswordShowWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepetitionPasswordShowWorker.swift; sourceTree = "<group>"; };
-		B177E55D1E54B8F6004F1390 /* PasswordStrengthLevelView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordStrengthLevelView.swift; sourceTree = "<group>"; };
+		B177E55D1E54B8F6004F1390 /* PasswordStrengthLevelView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = PasswordStrengthLevelView.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		B17D92DA1E6FFC290028967E /* UbuntuLightItalicModerateRedLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = UbuntuLightItalicModerateRedLabel.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		B17D92DC1E701D750028967E /* MSMTextFieldManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSMTextFieldManager.swift; sourceTree = "<group>"; };
 		B17EBF171E9B5286000E61AA /* UbuntuLightSoftCyanLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UbuntuLightSoftCyanLabel.swift; sourceTree = "<group>"; };
@@ -994,7 +998,7 @@
 		B1FBC9241E6D948B00D86429 /* UbuntuLightVeryLightOrangeButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UbuntuLightVeryLightOrangeButton.swift; sourceTree = "<group>"; };
 		B1FBC9261E6D974300D86429 /* UbuntuLightItalicLightGrayishCyanLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = UbuntuLightItalicLightGrayishCyanLabel.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		B1FBC9281E6D9FEB00D86429 /* MSMBlackoutView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSMBlackoutView.swift; sourceTree = "<group>"; };
-		B1FBC92C1E6DD86500D86429 /* UbuntuLightDarkCyanLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UbuntuLightDarkCyanLabel.swift; sourceTree = "<group>"; };
+		B1FBC92C1E6DD86500D86429 /* UbuntuLightDarkCyanLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = UbuntuLightDarkCyanLabel.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		B1FBC92E1E6DEFD300D86429 /* MSMImagePickerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSMImagePickerController.swift; sourceTree = "<group>"; };
 		B1FBC9301E6DFC0E00D86429 /* UIViewController+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
 		B1FFF6F91E5ECDF900A075D8 /* OrganizationsShowConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrganizationsShowConfigurator.swift; sourceTree = "<group>"; };
@@ -1565,6 +1569,15 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		B12974B31ECED761002409C7 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B12974B41ECED7C1002409C7 /* ConfirmSaveView.swift */,
+				B12974B51ECED7C1002409C7 /* ConfirmSaveView.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		B12FE6421E57321500A4FBA4 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
@@ -2009,6 +2022,7 @@
 		B1CF54691DDB504600E98049 /* SettingsShow */ = {
 			isa = PBXGroup;
 			children = (
+				B12974B31ECED761002409C7 /* Views */,
 				B1CF54D11DDB51BE00E98049 /* SettingsShowConfigurator.swift */,
 				B1CF54D21DDB51BE00E98049 /* SettingsShowInteractor.swift */,
 				B1CF54D31DDB51BE00E98049 /* SettingsShowModels.swift */,
@@ -2337,6 +2351,7 @@
 				B15291571DDE3FEF00BBA1E0 /* MenuSectionHeaderView.xib in Resources */,
 				B1CF54E81DDB55E300E98049 /* HandbookShow.storyboard in Resources */,
 				B11DCAF91E9E49C200180375 /* HeaderImageView.xib in Resources */,
+				B12974B71ECED7C1002409C7 /* ConfirmSaveView.xib in Resources */,
 				B122A5941E6C56E600C39B67 /* MessageTableViewCell.xib in Resources */,
 				B10CF52C1E684BA000811DC1 /* ScheduleView.xib in Resources */,
 				B1BF926B1DD6516C00BECBBB /* helveticaneuecyr-bolditalic.otf in Resources */,
@@ -2664,6 +2679,7 @@
 				B1CF54A01DDB515000E98049 /* HandbookShowConfigurator.swift in Sources */,
 				B122DF661DF7F957003823AD /* CalendarShowPresenter.swift in Sources */,
 				B14172051EA7969B006120A1 /* NewsData+CoreDataClass.swift in Sources */,
+				B12974B61ECED7C1002409C7 /* ConfirmSaveView.swift in Sources */,
 				B10040691EB4912400161073 /* OrderShowPresenter.swift in Sources */,
 				B100406B1EB4912400161073 /* OrderShowViewController.swift in Sources */,
 				B1CF54981DDB512000E98049 /* DiscountCardsShowWorker.swift in Sources */,

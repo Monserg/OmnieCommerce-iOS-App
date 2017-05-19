@@ -24,11 +24,11 @@ class CoreDataManager {
         //        "store: \(store)"
     }
 
-    var appSettings: AppSettings! {
-        didSet {
-            didSaveContext()
-        }
-    }
+//    var appSettings: AppSettings! {
+//        didSet {
+//            didSaveContext()
+//        }
+//    }
     
     lazy var applicationDocumentsDirectory: URL = {
         let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)

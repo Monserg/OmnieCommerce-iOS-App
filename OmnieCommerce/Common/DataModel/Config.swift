@@ -60,8 +60,24 @@ typealias OrganizationData                          =   (name: String, rating: I
 
 
 // Public Constants
-var isLightColorAppSchema                           =   true
+var appUser                                         =   CoreDataManager.instance.entityDidLoad(byName: "AppUser", andPredicateParameters: nil) as! AppUser
 let NetworkReachabilityChanged                      =   NSNotification.Name("NetworkReachabilityChanged")
+
+var appSettings: AppSettings {
+    set { }
+    
+    get {
+        return CoreDataManager.instance.entityDidLoad(byName: "AppSettings", andPredicateParameters: nil) as! AppSettings
+    }
+}
+
+var isLightColorAppSchema: Bool {
+    set { }
+    
+    get {
+        return appSettings.lightColorSchema
+    }
+}
 
 var isNetworkAvailable: Bool {
     set { }

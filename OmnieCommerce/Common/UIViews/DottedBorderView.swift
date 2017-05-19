@@ -75,8 +75,8 @@ enum ViewStyle: String {
         dottedLinePath.setLineDash(dottes, count: dottes.count, phase: 0.0)
         dottedLinePath.lineCapStyle = .round
         
-        (isColor) ? ((!isLightColorAppSchema) ? UIColor.black.set() : UIColor.veryLightOrangeAlpha60.set()) :
-                    ((!isLightColorAppSchema) ? UIColor.black.set() : UIColor.lightGrayAlpha20.set())
+        (isColor) ? ((isLightColorAppSchema) ? UIColor.black.set() : UIColor.veryLightOrangeAlpha60.set()) :
+                    ((isLightColorAppSchema) ? UIColor.black.set() : UIColor.lightGrayAlpha20.set())
         
         dottedLinePath.stroke()
     }
@@ -99,8 +99,8 @@ enum ViewStyle: String {
         dottedLinePath.setLineDash(dottes, count: dottes.count, phase: 0.0)
         dottedLinePath.lineCapStyle = .round
         
-        (isColor) ? ((!isLightColorAppSchema) ? UIColor.black.set() : UIColor.veryLightOrangeAlpha60.set()) :
-                    ((!isLightColorAppSchema) ? UIColor.black.set() : UIColor.lightGrayAlpha20.set())
+        (isColor) ? ((isLightColorAppSchema) ? UIColor.black.set() : UIColor.veryLightOrangeAlpha60.set()) :
+                    ((isLightColorAppSchema) ? UIColor.black.set() : UIColor.lightGrayAlpha20.set())
 
         dottedLinePath.stroke()
     }

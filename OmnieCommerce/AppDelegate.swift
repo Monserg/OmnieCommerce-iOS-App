@@ -24,8 +24,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Get stored value
-        isLightColorAppSchema = CoreDataManager.instance.appSettings.lightColorSchema
+//        // Get stored value
+//        CoreDataManager.instance.appSettings = CoreDataManager.instance.entityDidLoad(byName: "AppSettings", andPredicateParameters: nil) as! AppSettings
+//        isLightColorAppSchema = CoreDataManager.instance.appSettings.lightColorSchema
         
         // Facebook SDK
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)

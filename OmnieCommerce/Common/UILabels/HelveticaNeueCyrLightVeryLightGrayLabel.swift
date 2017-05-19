@@ -25,12 +25,12 @@ import UIKit
     
     // MARK: - Custom Functions
     func didSetup() {
-        text            =   text?.localized()
-        font            =   (!isLightColorAppSchema) ? UIFont.systemFont(ofSize: 9) : UIFont(name: "HelveticaNeueCyr-Light", size: font!.pointSize)!
-        textColor       =   (!isLightColorAppSchema) ? UIColor.white : UIColor.veryLightGray
-        textAlignment   =   textAlignment
+        text = text?.localized()
+        font = (isLightColorAppSchema) ? UIFont.systemFont(ofSize: 12) : UIFont(name: "HelveticaNeueCyr-Light", size: font!.pointSize)!
+        textColor = (isLightColorAppSchema) ? UIColor.white : UIColor.veryLightGray
+        textAlignment = textAlignment
         
-        self.adjustsFontSizeToFitWidth  =   true
-        clipsToBounds   =   true
+        self.adjustsFontSizeToFitWidth = true
+        clipsToBounds = true
     }
 }

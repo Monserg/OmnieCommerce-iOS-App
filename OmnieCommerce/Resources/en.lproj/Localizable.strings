@@ -89,6 +89,8 @@
 "Setting day"                   =   "day";
 "Setting hours"                 =   "hours";
 "Setting minutes"               =   "minutes";
+"Saved"                         =   "Saved!";
+"Saved message"                 =   "Your settings have been successfully \nsaved.";
 
 
 // Buttons
