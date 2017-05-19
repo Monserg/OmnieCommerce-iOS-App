@@ -141,9 +141,11 @@ class SettingsShowViewController: BaseViewController {
         // Show
         pushSwitch.isOn = appSettings.pushNotify
         pushLabel.textColor = (pushSwitch.isOn) ? UIColor.veryLightGray : UIColor.veryDarkGrayishBlue56
-        pushCheckButton.isUserInteractionEnabled = pushSwitch.isOn
+        pushCheckButton.isEnabled = pushSwitch.isOn
         pushCheckButton.isSelected = (pushSwitch.isOn) ? appSettings.whenCloseApp : false
-
+        pushCheckButton.tag = (pushSwitch.isOn) ? 1 : 0
+        pushCheckButton.setTitleColor((pushSwitch.isOn) ? UIColor.veryLightGray : UIColor.veryDarkGrayishBlue56, for: .normal)
+        
         eventSwitch.isOn = appSettings.notifyEvent
         eventLabel.textColor = (eventSwitch.isOn) ? UIColor.veryLightGray : UIColor.veryDarkGrayishBlue56
         eventPickerView.isUserInteractionEnabled = eventSwitch.isOn
@@ -173,7 +175,20 @@ class SettingsShowViewController: BaseViewController {
     }
     
     func notifyDelayDidPrepare() -> AnyObject {
-        return UInt64.decodeToNumber(fromParameters: ["day": pickerViewManager.selectedDayIndex, "hours": pickerViewManager.selectedHourIndex, "minutes": pickerViewManager.selectedMinuteIndex]) as AnyObject
+        if (eventSwitch.isOn) {
+            return UInt64.decodeToNumber(fromParameters:    [
+                                                                "day":      pickerViewManager.selectedDayIndex,
+                                                                "hours":    pickerViewManager.selectedHourIndex,
+                                                                "minutes":  pickerViewManager.selectedMinuteIndex
+                                                            ]) as AnyObject
+            
+        } else {
+            return  [
+                        "day":      0,
+                        "hours":    0,
+                        "minutes":  0
+                    ] as AnyObject
+        }
     }
     
     
@@ -210,8 +225,10 @@ class SettingsShowViewController: BaseViewController {
 
     @IBAction func handlerPushSwitchChangeValue(_ sender: UISwitch) {
         pushLabel.textColor = (sender.isOn) ? UIColor.veryLightGray : UIColor.veryDarkGrayishBlue56
-        pushCheckButton.isUserInteractionEnabled = sender.isOn
+        pushCheckButton.isEnabled = sender.isOn
         pushCheckButton.isSelected = (sender.isOn) ? appSettings.whenCloseApp : false
+        pushCheckButton.tag = (pushSwitch.isOn) ? 1 : 0
+        pushCheckButton.setTitleColor((pushSwitch.isOn) ? UIColor.veryLightGray : UIColor.veryDarkGrayishBlue56, for: .normal)
     }
 
     @IBAction func handlerSoundSwitchChangeValue(_ sender: UISwitch) {
@@ -221,6 +238,13 @@ class SettingsShowViewController: BaseViewController {
     @IBAction func handlerEventSwitchChangeValue(_ sender: UISwitch) {
         eventLabel.textColor = (sender.isOn) ? UIColor.veryLightGray : UIColor.veryDarkGrayishBlue56
         eventPickerView.isUserInteractionEnabled = sender.isOn
+        pickerViewManager.selectedDayIndex = 0
+        pickerViewManager.selectedHourIndex = 0
+        pickerViewManager.selectedMinuteIndex = 0
+
+        eventPickerView.selectRow(self.pickerViewManager.selectedDayIndex, inComponent: 0, animated: true)
+        eventPickerView.selectRow(self.pickerViewManager.selectedHourIndex, inComponent: 2, animated: true)
+        eventPickerView.selectRow(self.pickerViewManager.selectedMinuteIndex, inComponent: 4, animated: true)
     }
 
     @IBAction func handlerSyncSwitchChangeValue(_ sender: UISwitch) {
