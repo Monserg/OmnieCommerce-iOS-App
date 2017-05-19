@@ -58,7 +58,7 @@
                             <color key="backgroundColor" red="0.0" green="0.57647058823529407" blue="0.58431372549019611" alpha="1" colorSpace="calibratedRGB"/>
                             <color key="tintColor" red="1" green="0.84313725490000002" blue="0.42352941179999998" alpha="1" colorSpace="calibratedRGB"/>
                             <color key="barTintColor" red="0.0" green="0.57647058823529407" blue="0.58431372549019611" alpha="1" colorSpace="calibratedRGB"/>
-                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no" returnKeyType="search" enablesReturnKeyAutomatically="YES"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                             <scopeButtonTitles>
                                 <string>Title</string>
                                 <string>Title</string>
@@ -83,8 +83,11 @@
                             </userDefinedRuntimeAttributes>
                         </searchBar>
                         <view hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gxD-8P-O38" userLabel="Search Bottom Line View" customClass="DottedBorderView" customModule="OmnieCommerce" customModuleProvider="target">
-                            <rect key="frame" x="30" y="4.5" width="304" height="44"/>
+                            <rect key="frame" x="30" y="53" width="304" height="20"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="20" id="fLa-BL-6kt"/>
+                            </constraints>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
                             </userDefinedRuntimeAttributes>
@@ -163,18 +166,17 @@
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstItem="gxD-8P-O38" firstAttribute="centerY" secondItem="NQE-rU-agZ" secondAttribute="centerY" id="0mM-uf-hzG"/>
                         <constraint firstItem="1UU-5B-Xhy" firstAttribute="leading" secondItem="OTQ-6X-f87" secondAttribute="leading" constant="4" id="8cd-N0-2Qg"/>
                         <constraint firstItem="FNP-4w-rop" firstAttribute="leading" secondItem="HQM-9u-rBz" secondAttribute="trailing" constant="4" id="Cz6-PU-kg7"/>
                         <constraint firstAttribute="trailing" secondItem="NQE-rU-agZ" secondAttribute="trailing" id="EIe-lg-3er"/>
                         <constraint firstItem="gxD-8P-O38" firstAttribute="leading" secondItem="OTQ-6X-f87" secondAttribute="leading" constant="30" id="FEK-wE-WH7"/>
                         <constraint firstAttribute="trailing" secondItem="gxD-8P-O38" secondAttribute="trailing" constant="80" id="FUj-zr-4qg"/>
                         <constraint firstItem="NQE-rU-agZ" firstAttribute="centerY" secondItem="OTQ-6X-f87" secondAttribute="centerY" id="TLI-b4-wgM"/>
+                        <constraint firstItem="gxD-8P-O38" firstAttribute="top" secondItem="NQE-rU-agZ" secondAttribute="bottom" constant="-10" id="UmS-rb-AUw"/>
                         <constraint firstItem="ef5-nQ-6Bi" firstAttribute="centerX" secondItem="OTQ-6X-f87" secondAttribute="centerX" id="Z8g-np-luF"/>
                         <constraint firstItem="NQE-rU-agZ" firstAttribute="leading" secondItem="1UU-5B-Xhy" secondAttribute="trailing" id="ghL-0N-AoT"/>
                         <constraint firstItem="1UU-5B-Xhy" firstAttribute="centerY" secondItem="OTQ-6X-f87" secondAttribute="centerY" id="ri0-Kd-0cx"/>
                         <constraint firstAttribute="trailing" secondItem="FNP-4w-rop" secondAttribute="trailing" constant="4" id="sxe-82-sZm"/>
-                        <constraint firstItem="gxD-8P-O38" firstAttribute="height" secondItem="NQE-rU-agZ" secondAttribute="height" id="tqM-tK-1qv"/>
                         <constraint firstItem="ef5-nQ-6Bi" firstAttribute="top" secondItem="HQM-9u-rBz" secondAttribute="bottom" constant="4" id="usi-nX-d5e"/>
                         <constraint firstItem="FNP-4w-rop" firstAttribute="centerY" secondItem="1UU-5B-Xhy" secondAttribute="centerY" id="vNZ-UE-GNj"/>
                         <constraint firstItem="HQM-9u-rBz" firstAttribute="centerY" secondItem="1UU-5B-Xhy" secondAttribute="centerY" id="vTT-s3-Kml"/>

@@ -20,6 +20,7 @@ extension NewsData {
     @NSManaged public var codeID: String
     @NSManaged public var imageID: String?
     @NSManaged public var isAction: Bool
+    @NSManaged public var nameValue: String
     @NSManaged public var organizationID: String
     @NSManaged public var organizationName: String
     @NSManaged public var text: String?

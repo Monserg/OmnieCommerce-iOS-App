@@ -29,6 +29,11 @@ class NewsDataShowViewController: BaseViewController {
     var newsData = [NewsData]()
     var limit: Int!
 
+    var handlerTableViewReloadDataCompletion: HandlerPassDataCompletion?
+    var handlerSearchBarHideCompletion: HandlerCancelButtonCompletion?
+    var handlerSearchButtonHideCompletion: HandlerPassDataCompletion?
+    
+    // Outlets
     @IBOutlet weak var tableView: MSMTableView! {
         didSet {
             tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0)
@@ -58,10 +63,17 @@ class NewsDataShowViewController: BaseViewController {
         
         limit = (newsData.count == 0) ? Config.Constants.paginationLimit : newsData.count
         viewSettingsDidLoad()
+        
+        // Handler Search Bar Cancel button tap
+        newsDataTableManager.handlerCancelButtonCompletion = { _ in
+            self.handlerSearchBarHideCompletion!()
+        }
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
+        
+        handlerSearchButtonHideCompletion!(newsData)
     }
     
 
@@ -105,6 +117,7 @@ class NewsDataShowViewController: BaseViewController {
         
         if let news = newsLists as? [NewsData] {
             newsData = news
+            handlerSearchButtonHideCompletion!(newsData)
             tableView.tableViewControllerManager!.dataSource = news
             tableView!.tableFooterView!.isHidden = (news.count > 0) ? true : false
             
@@ -134,6 +147,7 @@ class NewsDataShowViewController: BaseViewController {
         }
         
         tableView.tableViewControllerManager.pullRefreshDidFinish()
+        handlerTableViewReloadDataCompletion!(tableView.tableViewControllerManager)
         spinnerDidFinish()
     }
 }

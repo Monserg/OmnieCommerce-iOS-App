@@ -29,6 +29,11 @@ class NewsActionsShowViewController: BaseViewController {
     var actionsData = [NewsData]()
     var limit: Int!
     
+    var handlerTableViewReloadDataCompletion: HandlerPassDataCompletion?
+    var handlerSearchBarHideCompletion: HandlerCancelButtonCompletion?
+    var handlerSearchButtonHideCompletion: HandlerPassDataCompletion?
+
+    // Outlets
     @IBOutlet weak var tableView: MSMTableView! {
         didSet {
             tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0)
@@ -55,6 +60,11 @@ class NewsActionsShowViewController: BaseViewController {
                                                                      andEmptyMessageText: "NewsActions list is empty")
         
         tableView.tableViewControllerManager = actionsTableManager
+        
+        // Handler Search Bar Cancel button tap
+        actionsTableManager.handlerCancelButtonCompletion = { _ in
+            self.handlerSearchBarHideCompletion!()
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -62,6 +72,7 @@ class NewsActionsShowViewController: BaseViewController {
         
         limit = (actionsData.count == 0) ? Config.Constants.paginationLimit : actionsData.count
         viewSettingsDidLoad()
+        handlerSearchButtonHideCompletion!(actionsData)
     }
     
 
@@ -105,6 +116,7 @@ class NewsActionsShowViewController: BaseViewController {
         
         if let actions = actionsLists as? [NewsData] {
             actionsData = actions
+            handlerSearchButtonHideCompletion!(actionsData)
             tableView.tableViewControllerManager!.dataSource = actions
             tableView!.tableFooterView!.isHidden = (actions.count > 0) ? true : false
             
@@ -134,6 +146,7 @@ class NewsActionsShowViewController: BaseViewController {
         }
         
         tableView.tableViewControllerManager.pullRefreshDidFinish()
+        handlerTableViewReloadDataCompletion!(tableView.tableViewControllerManager)
         spinnerDidFinish()
     }
 }

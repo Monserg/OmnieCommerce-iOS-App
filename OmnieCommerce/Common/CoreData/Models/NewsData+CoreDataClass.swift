@@ -10,13 +10,24 @@ import Foundation
 import CoreData
 
 @objc(NewsData)
-public class NewsData: NSManagedObject, InitCellParameters {
+public class NewsData: NSManagedObject, InitCellParameters, SearchObject {
     // MARK: - Properties
+    var services: [Service]?
+
     // Confirm InitCellParameters Protocol
     var cellIdentifier: String = "NewsDataTableViewCell"
     var cellHeight: CGFloat = 96.0
 
-    var services: [Service]?
+    // Confirm SearchObject Protocol
+    var name: String! {
+        set {
+            self.nameValue = newValue
+        }
+        
+        get {
+            return self.nameValue
+        }
+    }
     
     
     // MARK: - Class Initialization
@@ -39,6 +50,7 @@ public class NewsData: NSManagedObject, InitCellParameters {
         self.isAction = isAction
         self.organizationID = organizationID
         self.organizationName = organizationName
+        self.name = organizationName
         self.activeDate = date.convertToDate(withDateFormat: .NewsDate) as NSDate
         
         if let imageID = json["imageUrl"] as? String {

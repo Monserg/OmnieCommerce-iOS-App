@@ -11,7 +11,7 @@ import CoreData
 import CoreLocation
 
 @objc(Service)
-public class Service: NSManagedObject, InitCellParameters, PointAnnotationBinding {
+public class Service: NSManagedObject, InitCellParameters, PointAnnotationBinding, SearchObject {
     let durationMin: CGFloat = 30.0
     var durationMinRate: CGFloat = 60.0
 
@@ -29,7 +29,7 @@ public class Service: NSManagedObject, InitCellParameters, PointAnnotationBindin
         }
     }
 
-    // Confirm PointAnnotationBinding Protocol
+    // Confirm PointAnnotationBinding Protocols
     var latitude: CLLocationDegrees? {
         set {
             self.latitudeValue = Double(newValue!)
@@ -73,22 +73,6 @@ public class Service: NSManagedObject, InitCellParameters, PointAnnotationBindin
     // Confirm InitCellParameters Protocol
     var cellIdentifier: String = "ServiceTableViewCell"
     var cellHeight: CGFloat = 96.0
-    
-    
-//    // MARK: - Class Initialization
-//    convenience init?(json: [String: AnyObject], forOrganization organization: Organization?, forList listName: String) {
-//        guard let codeID = json["uuid"] as? String, let name = json["name"] as? String else {
-//            return nil
-//        }
-//        
-//        // Check Entity available in CoreData
-//        guard let serviceEntity = CoreDataManager.instance.entityForName("Service") else {
-//            return nil
-//        }
-//        
-//        // Create Entity
-//        self.init(entity: serviceEntity, insertInto: CoreDataManager.instance.managedObjectContext)
-//    }
     
     
     // MARK: - Custom Functions

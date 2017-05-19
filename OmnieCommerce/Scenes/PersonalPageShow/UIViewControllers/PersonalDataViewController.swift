@@ -74,7 +74,7 @@ class PersonalDataViewController: BaseViewController, EmailErrorMessageView, Pho
     @IBOutlet weak var avatarButton: CustomButton! {
         didSet {
             // Set User Image by URL
-            if let imageID = (CoreDataManager.instance.entityDidLoad(byName: "AppUser", andPredicateParameters: nil) as! AppUser).imageID {
+            if let imageID = appUser.imageID {
                 avatarButton.kf.setImage(with: ImageResource(downloadURL: imageID.convertToURL(withSize: .Small, inMode: .Get), cacheKey: imageID), for: .normal,
                                          placeholder: UIImage.init(named: "image-no-user"),
                                          options: [.transition(ImageTransition.fade(1)),
@@ -258,6 +258,12 @@ class PersonalDataViewController: BaseViewController, EmailErrorMessageView, Pho
         
         if (!(textFieldsCollection[3].text?.isEmpty)!) {
             profileParameters!["userPhone"] = textFieldsCollection[3].text!
+        }
+        
+        if let imageID = appUserProfile.imageID {
+            profileParameters!["userImg"] = imageID
+        } else {
+            profileParameters!["userImg"] = nil
         }
         
         parametersForAPI = [ParametersForAPI]()

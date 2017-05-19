@@ -117,6 +117,7 @@
         <attribute name="codeID" attributeType="String" syncable="YES"/>
         <attribute name="imageID" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="isAction" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="nameValue" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="organizationID" attributeType="String" syncable="YES"/>
         <attribute name="organizationName" attributeType="String" syncable="YES"/>
         <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
@@ -308,7 +309,7 @@
         <element name="Discount" positionX="162" positionY="99" width="128" height="195"/>
         <element name="GalleryImage" positionX="-36" positionY="99" width="128" height="120"/>
         <element name="Lists" positionX="144" positionY="81" width="128" height="135"/>
-        <element name="NewsData" positionX="-36" positionY="99" width="128" height="180"/>
+        <element name="NewsData" positionX="-36" positionY="99" width="128" height="195"/>
         <element name="Order" positionX="144" positionY="81" width="128" height="240"/>
         <element name="Organization" positionX="-36" positionY="99" width="128" height="390"/>
         <element name="Price" positionX="180" positionY="117" width="128" height="210"/>

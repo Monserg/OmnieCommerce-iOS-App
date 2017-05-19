@@ -397,8 +397,7 @@ extension MSMTableViewControllerManager: UITableViewDelegate {
 // MARK: - UISearchBarDelegate
 extension MSMTableViewControllerManager: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        // TODO: - ADD API TO SEARCH ORGANIZATIONS
-        handlerSendButtonCompletion!()
+        searchBar.resignFirstResponder()
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
@@ -423,7 +422,11 @@ extension MSMTableViewControllerManager: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         dataSourceFiltered = (searchText.isEmpty) ? dataSource : dataSource.filter{ ($0 as! SearchObject).name.contains(searchBar.text!) }
-        
+        tableView!.tableFooterView!.isHidden = (dataSourceFiltered.count > 0) ? true : false
+       
+        (tableView!.tableFooterView as! MSMTableViewFooterView).didUpload(forItemsCount: dataSourceFiltered.count,
+                                                                          andEmptyText: emptyText)
+
         tableView!.reloadData()
     }
 }

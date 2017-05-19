@@ -145,9 +145,13 @@ class PersonalPageShowViewController: BaseViewController {
                         self.handlerResult(fromImagePicker: imagePickerController, forAvatarButton: avatarButton)
                         
                     case .PhotoDelete:
-                        self.spinnerDidStart(self.blackoutView!)
-                        let deleteImageRequestModel = PersonalPageShowModels.LoadData.RequestModel()
-                        self.interactor.userAppImageDidDelete(withRequestModel: deleteImageRequestModel)
+                        UIView.animate(withDuration: 0.7, animations: {
+                            avatarButton.setImage(UIImage.init(named: "image-no-user"), for: .normal)
+                        }, completion: { success in
+                            appUser.imageID = nil
+                            CoreDataManager.instance.didSaveContext()
+                            self.blackoutView!.didHide()
+                        })
                     }
             }
             
@@ -229,17 +233,10 @@ class PersonalPageShowViewController: BaseViewController {
             if (isNetworkAvailable) {
                 // Upload Image API
                 self.spinnerDidStart(self.blackoutView!)
-                let imageUploadRequestModel = PersonalPageShowModels.UploadImage.RequestModel(image: uploadedImage)
+                
+                let imageUploadRequestModel = PersonalPageShowModels.UploadImage.RequestModel(image: image)
                 self.interactor.userAppImageDidUpload(withRequestModel: imageUploadRequestModel)
             }
-            
-            // Change Avatar Button Image
-            UIView.animate(withDuration: 0.7, animations: {
-                avatarButton.setImage(uploadedImage, for: .normal)
-            }, completion: { success in
-                self.wasImageUploaded = false
-                self.blackoutView!.didHide()
-            })
         }
         
         // Handler Cancel result
@@ -270,27 +267,18 @@ extension PersonalPageShowViewController: PersonalPageShowViewControllerInput {
         // Check Network state
         guard isNetworkAvailable else {
             activeViewController = personalDataVC
+
             return
         }
         
         // Check Response value
         guard viewModel.responseAPI != nil && (viewModel.responseAPI?.code == 200 || viewModel.responseAPI?.code == 2201) else {
-//            if (viewModel.responseAPI?.errorMessage == nil) {
-//                alertViewDidShow(withTitle: "Error", andMessage: "Wrong input data", completion: { _ in })
-//            } else {
-//                alertViewDidShow(withTitle: "Error", andMessage: viewModel.responseAPI!.errorMessage!, completion: { _ in })
-//            }
-            
             activeViewController = personalDataVC
+
             return
         }
         
         // Mofidy AppUser properties
-//        let token = (CoreDataManager.instance.entityDidLoad(byName: "AppUser", andPredicateParameters: nil) as! AppUser).accessToken
-//        let appUser = AppUser.init(json: viewModel.responseAPI!.body as! [String: AnyObject])
-//        appUser.accessToken = token
-        
-        let appUser = CoreDataManager.instance.entityDidLoad(byName: "AppUser", andPredicateParameters: nil) as! AppUser
         appUser.profileDidUpload(json: viewModel.responseAPI!.body as! [String: AnyObject])
         CoreDataManager.instance.didSaveContext()
         
@@ -347,7 +335,22 @@ extension PersonalPageShowViewController: PersonalPageShowViewControllerInput {
         CoreDataManager.instance.didSaveContext()
         ImageCache.default.store(personalDataVC!.avatarButton.image(for: .normal)!, forKey: "userImage")
         wasImageUploaded = true
-        blackoutView!.didHide()
+        
+        // Change Avatar Button Image
+        if let imageID = appUser.imageID {
+            self.personalDataVC?.avatarButton.kf.setImage(with: ImageResource(downloadURL: imageID.convertToURL(withSize: .Small, inMode: .Get), cacheKey: imageID), for: .normal,
+                                                          placeholder: UIImage.init(named: "image-no-user"),
+                                                          options: [.transition(ImageTransition.fade(1)),
+                                                                    .processor(ResizingImageProcessor(referenceSize: (self.personalDataVC?.avatarButton.frame.size)!,
+                                                                                                      mode: .aspectFill))],
+                                                          completionHandler: { image, error, cacheType, imageURL in
+                                                            self.personalDataVC?.avatarButton.imageView?.kf.cancelDownloadTask()
+            })
+        } else {
+            self.personalDataVC!.avatarButton.setImage(UIImage.init(named: "image-no-user"), for: .normal)
+        }
+        
+        self.blackoutView!.didHide()
     }
     
     func userAppPasswordDidShowChange(fromViewModel viewModel: PersonalPageShowModels.UploadData.ViewModel) {

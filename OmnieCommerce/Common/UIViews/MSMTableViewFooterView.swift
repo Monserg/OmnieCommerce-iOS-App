@@ -53,7 +53,6 @@ class MSMTableViewFooterView: UIView {
         } else {
             emptyView.isHidden = true
             infiniteScrollView.isHidden = false
-//            isHidden = (isLoadMore) ? false : true
         }
     }
 }

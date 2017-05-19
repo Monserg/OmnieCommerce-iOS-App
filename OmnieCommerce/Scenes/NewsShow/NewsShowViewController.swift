@@ -65,6 +65,37 @@ class NewsShowViewController: BaseViewController {
         activeViewController = newsDataVC
         
         viewSettingsDidLoad()
+        
+        // Handler Reload Table View data
+        newsDataVC!.handlerTableViewReloadDataCompletion = { tableViewManager in
+            // Search Manager
+            self.smallTopBarView.searchBar.placeholder = "Enter Organization name".localized()
+            self.smallTopBarView.searchBar.delegate = tableViewManager as! MSMTableViewControllerManager
+        }
+        
+        newsActionsVC!.handlerTableViewReloadDataCompletion = { tableViewManager in
+            // Search Manager
+            self.smallTopBarView.searchBar.placeholder = "Enter Organization name".localized()
+            self.smallTopBarView.searchBar.delegate = tableViewManager as! MSMTableViewControllerManager
+        }
+        
+        // Handler SearchBar hide
+        newsDataVC!.handlerSearchBarHideCompletion = { _ in
+            self.smallTopBarView.searchBarDidHide()
+        }
+
+        newsActionsVC!.handlerSearchBarHideCompletion = { _ in
+            self.smallTopBarView.searchBarDidHide()
+        }
+        
+        // Handler Search button hide
+        newsDataVC!.handlerSearchButtonHideCompletion = { items in
+            self.smallTopBarView.searchButton.isEnabled = ((items as! NSArray).count == 0) ? false : true
+        }
+
+        newsActionsVC!.handlerSearchButtonHideCompletion = { items in
+            self.smallTopBarView.searchButton.isEnabled = ((items as! NSArray).count == 0) ? false : true
+        }
     }
     
 
@@ -77,7 +108,7 @@ class NewsShowViewController: BaseViewController {
 
         // Config smallTopBarView
         navigationBarView = smallTopBarView
-        smallTopBarView.type = "Parent"
+        smallTopBarView.type = "ParentSearch"
         haveMenuItem = true
     }
     
@@ -85,6 +116,11 @@ class NewsShowViewController: BaseViewController {
         segmentedControlView.backgroundColor = UIColor.veryDarkDesaturatedBlue24
         
         segmentedControlView.actionButtonHandlerCompletion = { sender in
+            if (self.smallTopBarView.searchBar.alpha == 1) {
+                self.smallTopBarView.searchBarDidHide()
+                self.view.endEditing(true)
+            }
+
             switch sender.tag {
             case 1:
                 self.activeViewController = self.newsActionsVC

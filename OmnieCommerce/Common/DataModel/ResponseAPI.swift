@@ -76,6 +76,10 @@ class ResponseAPI {
             
         default:
             self.body = json["body"].stringValue
+
+            if ((body as! String).isEmpty) {
+                self.body = json["message"].stringValue
+            }
         }
     }
     
