@@ -10,7 +10,6 @@
 //
 
 import UIKit
-import Toucan
 import Kingfisher
 
 // MARK: - Input protocols for current ViewController component VIP-cicle
@@ -226,10 +225,6 @@ class PersonalPageShowViewController: BaseViewController {
     func handlerResult(fromImagePicker imagePickerController: MSMImagePickerController, forAvatarButton avatarButton: CustomButton) {
         // Handler Success Select Image
         imagePickerController.handlerImagePickerControllerCompletion = { image in
-            let uploadedImage = Toucan(image: image)
-                                .resize(avatarButton.frame.size, fitMode: Toucan.Resize.FitMode.crop)
-                                .maskWithEllipse().image
-
             if (isNetworkAvailable) {
                 // Upload Image API
                 self.spinnerDidStart(self.blackoutView!)
