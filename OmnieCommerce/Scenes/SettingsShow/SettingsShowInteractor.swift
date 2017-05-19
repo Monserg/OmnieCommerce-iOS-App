@@ -14,10 +14,12 @@ import UIKit
 // MARK: - Input & Output protocols
 protocol SettingsShowInteractorInput {
     func appSettingsDidLoad(withRequestModel requestModel: SettingsShowModels.Items.RequestModel)
+    func appSettingsDidUpload(withRequestModel requestModel: SettingsShowModels.Items.RequestModel)
 }
 
 protocol SettingsShowInteractorOutput {
     func appSettingsDidPrepareToShowLoad(fromResponseModel responseModel: SettingsShowModels.Items.ResponseModel)
+    func appSettingsDidPrepareToShowUpload(fromResponseModel responseModel: SettingsShowModels.Items.ResponseModel)
 }
 
 class SettingsShowInteractor: SettingsShowInteractorInput {
@@ -33,6 +35,15 @@ class SettingsShowInteractor: SettingsShowInteractorInput {
             // NOTE: Pass the result to the Presenter
             let appSettingsResponseModel = SettingsShowModels.Items.ResponseModel(responseAPI: responseAPI)
             self.presenter.appSettingsDidPrepareToShowLoad(fromResponseModel: appSettingsResponseModel)
+        })
+    }
+    
+    func appSettingsDidUpload(withRequestModel requestModel: SettingsShowModels.Items.RequestModel) {
+        // API
+        MSMRestApiManager.instance.userRequestDidRun(.userUploadProfileSettings(requestModel.parameters!, true), withHandlerResponseAPICompletion: { responseAPI in
+            // NOTE: Pass the result to the Presenter
+            let appSettingsResponseModel = SettingsShowModels.Items.ResponseModel(responseAPI: responseAPI)
+            self.presenter.appSettingsDidPrepareToShowUpload(fromResponseModel: appSettingsResponseModel)
         })
     }
 }

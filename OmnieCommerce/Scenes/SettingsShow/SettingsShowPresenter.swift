@@ -14,10 +14,12 @@ import UIKit
 // MARK: - Input & Output protocols
 protocol SettingsShowPresenterInput {
     func appSettingsDidPrepareToShowLoad(fromResponseModel responseModel: SettingsShowModels.Items.ResponseModel)
+    func appSettingsDidPrepareToShowUpload(fromResponseModel responseModel: SettingsShowModels.Items.ResponseModel)
 }
 
 protocol SettingsShowPresenterOutput: class {
     func appSettingsDidShowLoad(fromViewModel viewModel: SettingsShowModels.Items.ViewModel)
+    func appSettingsDidShowUpload(fromViewModel viewModel: SettingsShowModels.Items.ViewModel)
 }
 
 class SettingsShowPresenter: SettingsShowPresenterInput {
@@ -35,5 +37,11 @@ class SettingsShowPresenter: SettingsShowPresenterInput {
 
         let appSettingViewModel = SettingsShowModels.Items.ViewModel(status: responseModel.responseAPI!.status)
         viewController.appSettingsDidShowLoad(fromViewModel: appSettingViewModel)
+    }
+    
+    func appSettingsDidPrepareToShowUpload(fromResponseModel responseModel: SettingsShowModels.Items.ResponseModel) {
+        // NOTE: Format the response from the Interactor and pass the result back to the View Controller
+        let appSettingViewModel = SettingsShowModels.Items.ViewModel(status: responseModel.responseAPI!.status)
+        viewController.appSettingsDidShowUpload(fromViewModel: appSettingViewModel)
     }
 }

@@ -14,10 +14,12 @@ import UIKit
 // MARK: - Input & Output protocols
 protocol SettingsShowViewControllerInput {
     func appSettingsDidShowLoad(fromViewModel viewModel: SettingsShowModels.Items.ViewModel)
+    func appSettingsDidShowUpload(fromViewModel viewModel: SettingsShowModels.Items.ViewModel)
 }
 
 protocol SettingsShowViewControllerOutput {
     func appSettingsDidLoad(withRequestModel requestModel: SettingsShowModels.Items.RequestModel)
+    func appSettingsDidUpload(withRequestModel requestModel: SettingsShowModels.Items.RequestModel)
 }
 
 class SettingsShowViewController: BaseViewController {
@@ -36,7 +38,7 @@ class SettingsShowViewController: BaseViewController {
             eventPickerView.delegate = self.pickerViewManager
             eventPickerView.dataSource = self.pickerViewManager
             
-            let parameters = appSettings.notifyDelay.convertToParameters()
+            let parameters = appSettings.notifyDelay.encodeToParameters()
 
             self.pickerViewManager.selectedDayIndex = parameters["day"]!
             self.pickerViewManager.selectedHourIndex = parameters["hours"]!
@@ -64,6 +66,7 @@ class SettingsShowViewController: BaseViewController {
             pushCheckButton.setTitle("Setting push offline mode".localized(), for: .normal)
         }
     }
+    
     @IBOutlet weak var pushLabel: UbuntuLightVeryLightGrayLabel!
     @IBOutlet weak var pushSwitch: UISwitch!
     
@@ -137,12 +140,23 @@ class SettingsShowViewController: BaseViewController {
 
         // Show
         pushSwitch.isOn = appSettings.pushNotify
-        pushCheckButton.isSelected = appSettings.whenCloseApp
+        pushLabel.textColor = (pushSwitch.isOn) ? UIColor.veryLightGray : UIColor.veryDarkGrayishBlue56
+        pushCheckButton.isUserInteractionEnabled = pushSwitch.isOn
+        pushCheckButton.isSelected = (pushSwitch.isOn) ? appSettings.whenCloseApp : false
+
         eventSwitch.isOn = appSettings.notifyEvent
-        soundSwitch.isOn = appSettings.soundNotify
-        syncSwitch.isOn = appSettings.calendarSync
-        schemeSwitch.isOn = appSettings.lightColorSchema
+        eventLabel.textColor = (eventSwitch.isOn) ? UIColor.veryLightGray : UIColor.veryDarkGrayishBlue56
+        eventPickerView.isUserInteractionEnabled = eventSwitch.isOn
         
+        soundSwitch.isOn = appSettings.soundNotify
+        soundLabel.textColor = (soundSwitch.isOn) ? UIColor.veryLightGray : UIColor.veryDarkGrayishBlue56
+
+        syncSwitch.isOn = appSettings.calendarSync
+        syncLabel.textColor = (syncSwitch.isOn) ? UIColor.veryLightGray : UIColor.veryDarkGrayishBlue56
+
+        schemeSwitch.isOn = appSettings.lightColorSchema
+        schemeLabel.textColor = (schemeSwitch.isOn) ? UIColor.veryLightGray : UIColor.veryDarkGrayishBlue56
+
         spinnerDidFinish()
     }
     
@@ -159,7 +173,7 @@ class SettingsShowViewController: BaseViewController {
     }
     
     func notifyDelayDidPrepare() -> AnyObject {
-        return UInt64.convertToNumber(["day": pickerViewManager.selectedDayIndex, "hours": pickerViewManager.selectedHourIndex, "minutes": pickerViewManager.selectedMinuteIndex]) as AnyObject
+        return UInt64.decodeToNumber(fromParameters: ["day": pickerViewManager.selectedDayIndex, "hours": pickerViewManager.selectedHourIndex, "minutes": pickerViewManager.selectedMinuteIndex]) as AnyObject
     }
     
     
@@ -175,7 +189,9 @@ class SettingsShowViewController: BaseViewController {
     // MARK: - Actions
     @IBAction func handlerSaveButtonTap(_ sender: FillVeryLightOrangeButton) {
         spinnerDidStart(view)
-        appSettingsDidLoadData()
+        
+        let appSettingsRequestModel = SettingsShowModels.Items.RequestModel(parameters: parametersDidPrepare())
+        interactor.appSettingsDidUpload(withRequestModel: appSettingsRequestModel)
     }
     
     @IBAction func handlerCancelButtonTap(_ sender: BorderVeryLightOrangeButton) {
@@ -194,7 +210,8 @@ class SettingsShowViewController: BaseViewController {
 
     @IBAction func handlerPushSwitchChangeValue(_ sender: UISwitch) {
         pushLabel.textColor = (sender.isOn) ? UIColor.veryLightGray : UIColor.veryDarkGrayishBlue56
-        pushCheckButton.isEnabled = sender.isOn
+        pushCheckButton.isUserInteractionEnabled = sender.isOn
+        pushCheckButton.isSelected = (sender.isOn) ? appSettings.whenCloseApp : false
     }
 
     @IBAction func handlerSoundSwitchChangeValue(_ sender: UISwitch) {
@@ -229,5 +246,18 @@ extension SettingsShowViewController: SettingsShowViewControllerInput {
         }
         
         self.appSettingsDidShow()
+    }
+    
+    func appSettingsDidShowUpload(fromViewModel viewModel: SettingsShowModels.Items.ViewModel) {
+        spinnerDidFinish()
+        
+        // Check for errors
+        guard viewModel.status == "SUCCESS" else {
+            self.alertViewDidShow(withTitle: "Error", andMessage: viewModel.status, completion: {
+                self.appSettingsDidShow()
+            })
+            
+            return
+        }
     }
 }

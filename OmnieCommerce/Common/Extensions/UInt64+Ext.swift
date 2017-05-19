@@ -9,15 +9,15 @@
 import Foundation
 
 extension UInt64 {
-    func convertToParameters() -> [String: Int] {
+    func encodeToParameters() -> [String: Int] {
         let day = Int(self / UInt64(86_400))
-        let hours = Int(self / UInt64(3_600))
-        let minutes = Int(self / UInt64(60))
+        let hours = Int((self - UInt64(day * 86_400)) / UInt64(3_600))
+        let minutes = Int((self - UInt64(day * 86_400) - UInt64(hours * 3_600)) / UInt64(60))
         
         return [ "day": day, "hours": hours, "minutes": minutes ]
     }
     
-    static func convertToNumber(_ parameters: [String: Int]) -> UInt64 {
+    static func decodeToNumber(fromParameters parameters: [String: Int]) -> UInt64 {
         let day = UInt64(parameters["day"]! * 86_400)
         let hours = UInt64(parameters["hours"]! * 3_600)
         let minutes = UInt64(parameters["minutes"]! * 60)
