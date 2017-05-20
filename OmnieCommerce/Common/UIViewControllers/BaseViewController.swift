@@ -24,7 +24,11 @@ class BaseViewController: UIViewController {
         }
     }
     
-    var scrollViewBase: UIScrollView?
+    var scrollViewBase: UIScrollView? {
+        didSet {
+            scrollViewBase!.delegate = self
+        }
+    }
 
     var handlerImagePickerControllerCompletion: HandlerImagePickerControllerCompletion?
     var handlerChangeNetworkConnectionStateCompletion: HandlerPassDataCompletion?
@@ -170,14 +174,14 @@ class BaseViewController: UIViewController {
 }
 
 
-//// MARK: - UIScrollViewDelegate
-//extension BaseViewController: UIScrollViewDelegate {
-//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-//        print(object: "\(type(of: self)): \(#function) run in [line \(#line)]. UIScrollView.contentOffset.y = \(scrollView.contentOffset.y)")
-//        
-//        scrollView.indicatorDidChange(UIColor.veryLightOrange)
-//    }
-//}
+// MARK: - UIScrollViewDelegate
+extension BaseViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        print(object: "\(type(of: self)): \(#function) run in [line \(#line)]. UIScrollView.contentOffset.y = \(scrollView.contentOffset.y)")
+        
+        scrollView.indicatorDidChange(UIColor.veryLightOrange)
+    }
+}
 
 
 // MARK: - UIGestureRecognizerDelegate

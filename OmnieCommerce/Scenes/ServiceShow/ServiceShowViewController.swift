@@ -191,7 +191,7 @@ class ServiceShowViewController: BaseViewController {
         super.viewDidDisappear(true)
     }
     
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
         scrollView.indicatorDidChange(UIColor.veryLightOrange)
     }
 

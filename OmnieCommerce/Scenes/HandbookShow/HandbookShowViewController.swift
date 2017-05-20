@@ -25,6 +25,9 @@ class HandbookShowViewController: BaseViewController {
     var output: HandbookShowViewControllerOutput!
     var router: HandbookShowRouter!
     
+    var handbookID: String!
+    
+    // Outlets
     @IBOutlet weak var smallTopBarView: SmallTopBarView!
     
     

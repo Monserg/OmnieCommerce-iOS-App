@@ -54,7 +54,7 @@ class NewsItemShowViewController: BaseViewController {
         textView.setContentOffset(CGPoint(x: 0, y: 0), animated: false)
     }
     
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
         scrollView.indicatorDidChange(UIColor.veryLightOrange)
         print(object: "scroll = \(scrollView.contentOffset.y)")
         

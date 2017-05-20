@@ -26,7 +26,8 @@ enum RequestType {
     
     
     // Handbook
-    
+    case userGetHandbooksList([String: Any], Bool)
+    case userCreateNewHandbook([String: Any], Bool)
     
     
     // Order
@@ -134,7 +135,19 @@ enum RequestType {
                                                                             parameters: (isBodyParams ? nil : params))
             
         // Handbook
-            
+        case .userGetHandbooksList(let params, let isBodyParams):  return (method: .get,
+                                                                            apiStringURL: "/user/handbook/",
+                                                                            body: (isBodyParams ? params : nil),
+                                                                            bodyType: .ItemsArray,
+                                                                            headers: headers,
+                                                                            parameters: (isBodyParams ? nil : params))
+
+        case .userCreateNewHandbook(let params, let isBodyParams):  return (method: .post,
+                                                                            apiStringURL: "/user/handbook/create/",
+                                                                            body: (isBodyParams ? params : nil),
+                                                                            bodyType: .ItemsDictionary,
+                                                                            headers: headers,
+                                                                            parameters: (isBodyParams ? nil : params))
             
             
         // Order

@@ -34,10 +34,10 @@
                                 <rect key="frame" x="8" y="95" width="359" height="543"/>
                                 <subviews>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RrQ-GW-TSn" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="359" height="525"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="359" height="513"/>
                                         <subviews>
                                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k0n-o3-3aT" userLabel="Push View">
-                                                <rect key="frame" x="0.0" y="12" width="359" height="56"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="359" height="56"/>
                                                 <subviews>
                                                     <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Setting popup messages" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FwA-Vc-shl" userLabel="Push Label" customClass="UbuntuLightVeryLightGrayLabel" customModule="OmnieCommerce" customModuleProvider="target">
                                                         <rect key="frame" x="10" y="16.5" width="140.5" height="14.5"/>
@@ -102,14 +102,16 @@
                                                     <constraint firstItem="OnV-eq-5IZ" firstAttribute="centerY" secondItem="FwA-Vc-shl" secondAttribute="centerY" id="IVW-eI-xy4"/>
                                                     <constraint firstItem="FwA-Vc-shl" firstAttribute="leading" secondItem="k0n-o3-3aT" secondAttribute="leading" constant="10" id="drw-Yk-HMN"/>
                                                     <constraint firstItem="qZZ-xF-0Jx" firstAttribute="leading" secondItem="k0n-o3-3aT" secondAttribute="leading" constant="30" id="eNr-PI-wzD"/>
-                                                    <constraint firstAttribute="trailing" secondItem="OnV-eq-5IZ" secondAttribute="trailing" constant="10" id="xnV-ZC-mn8"/>
+                                                    <constraint firstAttribute="trailing" secondItem="OnV-eq-5IZ" secondAttribute="trailing" constant="18" id="xnV-ZC-mn8">
+                                                        <variation key="heightClass=regular-widthClass=compact" constant="10"/>
+                                                    </constraint>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="opD-Rt-fy7" userLabel="Sound View">
-                                                <rect key="frame" x="0.0" y="70" width="359" height="56"/>
+                                                <rect key="frame" x="0.0" y="58" width="359" height="56"/>
                                                 <subviews>
                                                     <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Setting sound notifications" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kNJ-fI-7Gw" userLabel="Sound Label" customClass="UbuntuLightVeryLightGrayLabel" customModule="OmnieCommerce" customModuleProvider="target">
                                                         <rect key="frame" x="10" y="21" width="152" height="14.5"/>
@@ -138,7 +140,9 @@
                                                 <color key="backgroundColor" red="0.15294117647058825" green="0.21568627450980393" blue="0.27058823529411763" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstItem="W1r-uu-Mso" firstAttribute="centerY" secondItem="opD-Rt-fy7" secondAttribute="centerY" id="5GV-Zn-QOU"/>
-                                                    <constraint firstAttribute="trailing" secondItem="W1r-uu-Mso" secondAttribute="trailing" constant="10" id="6uq-0o-e0U"/>
+                                                    <constraint firstAttribute="trailing" secondItem="W1r-uu-Mso" secondAttribute="trailing" constant="18" id="6uq-0o-e0U">
+                                                        <variation key="heightClass=regular-widthClass=compact" constant="10"/>
+                                                    </constraint>
                                                     <constraint firstItem="kNJ-fI-7Gw" firstAttribute="centerY" secondItem="opD-Rt-fy7" secondAttribute="centerY" id="9N8-Ho-rZV"/>
                                                     <constraint firstItem="kNJ-fI-7Gw" firstAttribute="leading" secondItem="opD-Rt-fy7" secondAttribute="leading" constant="10" id="Vjp-9s-C8u"/>
                                                 </constraints>
@@ -147,7 +151,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5tb-Q2-VKt" userLabel="Event View">
-                                                <rect key="frame" x="0.0" y="128" width="359" height="154"/>
+                                                <rect key="frame" x="0.0" y="116" width="359" height="154"/>
                                                 <subviews>
                                                     <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Setting event notify" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f4N-uB-m8t" userLabel="Event Label" customClass="UbuntuLightVeryLightGrayLabel" customModule="OmnieCommerce" customModuleProvider="target">
                                                         <rect key="frame" x="10" y="16.5" width="111" height="14.5"/>
@@ -376,7 +380,9 @@
                                                     <constraint firstItem="OCJ-7X-up9" firstAttribute="centerX" secondItem="CpU-UX-Sf1" secondAttribute="centerX" id="abb-FD-Pef"/>
                                                     <constraint firstItem="CpU-UX-Sf1" firstAttribute="top" secondItem="JgO-xs-U2Z" secondAttribute="bottom" id="g1Z-ic-2ZW"/>
                                                     <constraint firstItem="JgO-xs-U2Z" firstAttribute="top" secondItem="5tb-Q2-VKt" secondAttribute="top" constant="8" id="iB8-q0-ixy"/>
-                                                    <constraint firstAttribute="trailing" secondItem="JgO-xs-U2Z" secondAttribute="trailing" constant="10" id="lNm-Od-GLV"/>
+                                                    <constraint firstAttribute="trailing" secondItem="JgO-xs-U2Z" secondAttribute="trailing" constant="18" id="lNm-Od-GLV">
+                                                        <variation key="heightClass=regular-widthClass=compact" constant="10"/>
+                                                    </constraint>
                                                     <constraint firstItem="JgO-xs-U2Z" firstAttribute="centerY" secondItem="f4N-uB-m8t" secondAttribute="centerY" id="nIq-dD-LMe"/>
                                                     <constraint firstItem="AEf-Lz-ktu" firstAttribute="width" secondItem="CpU-UX-Sf1" secondAttribute="width" id="q06-3x-iVI"/>
                                                     <constraint firstItem="AEf-Lz-ktu" firstAttribute="top" secondItem="CpU-UX-Sf1" secondAttribute="bottom" id="vkX-3C-yjq"/>
@@ -387,7 +393,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dJF-tN-FcP" userLabel="Sync View">
-                                                <rect key="frame" x="0.0" y="284" width="359" height="56"/>
+                                                <rect key="frame" x="0.0" y="272" width="359" height="56"/>
                                                 <subviews>
                                                     <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Setting calendar sync" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EdD-rC-RNf" userLabel="Sync Label" customClass="UbuntuLightVeryLightGrayLabel" customModule="OmnieCommerce" customModuleProvider="target">
                                                         <rect key="frame" x="10" y="21" width="122.5" height="14.5"/>
@@ -418,14 +424,16 @@
                                                     <constraint firstItem="EdD-rC-RNf" firstAttribute="leading" secondItem="dJF-tN-FcP" secondAttribute="leading" constant="10" id="5YF-m6-tgq"/>
                                                     <constraint firstItem="EdD-rC-RNf" firstAttribute="centerY" secondItem="dJF-tN-FcP" secondAttribute="centerY" id="B3t-tz-Bwp"/>
                                                     <constraint firstItem="dpy-Dd-T0w" firstAttribute="centerY" secondItem="dJF-tN-FcP" secondAttribute="centerY" id="EGW-cm-kaU"/>
-                                                    <constraint firstAttribute="trailing" secondItem="dpy-Dd-T0w" secondAttribute="trailing" constant="10" id="hHv-L0-TYf"/>
+                                                    <constraint firstAttribute="trailing" secondItem="dpy-Dd-T0w" secondAttribute="trailing" constant="18" id="hHv-L0-TYf">
+                                                        <variation key="heightClass=regular-widthClass=compact" constant="10"/>
+                                                    </constraint>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rQ9-BL-GD8" userLabel="Scheme View">
-                                                <rect key="frame" x="0.0" y="342" width="359" height="56"/>
+                                                <rect key="frame" x="0.0" y="330" width="359" height="56"/>
                                                 <subviews>
                                                     <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Setting light theme" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MoU-g0-5Ed" userLabel="Scheme Label" customClass="UbuntuLightVeryLightGrayLabel" customModule="OmnieCommerce" customModuleProvider="target">
                                                         <rect key="frame" x="10" y="21" width="108" height="14.5"/>
@@ -456,14 +464,16 @@
                                                     <constraint firstItem="Lbq-LV-lID" firstAttribute="centerY" secondItem="rQ9-BL-GD8" secondAttribute="centerY" id="Nad-9O-9Y2"/>
                                                     <constraint firstItem="MoU-g0-5Ed" firstAttribute="centerY" secondItem="rQ9-BL-GD8" secondAttribute="centerY" id="e5I-wq-X2z"/>
                                                     <constraint firstItem="MoU-g0-5Ed" firstAttribute="leading" secondItem="rQ9-BL-GD8" secondAttribute="leading" constant="10" id="jqk-ZH-foJ"/>
-                                                    <constraint firstAttribute="trailing" secondItem="Lbq-LV-lID" secondAttribute="trailing" constant="10" id="qXo-ha-rsu"/>
+                                                    <constraint firstAttribute="trailing" secondItem="Lbq-LV-lID" secondAttribute="trailing" constant="18" id="qXo-ha-rsu">
+                                                        <variation key="heightClass=regular-widthClass=compact" constant="10"/>
+                                                    </constraint>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IS5-f4-2Hp" userLabel="Action Buttons View">
-                                                <rect key="frame" x="0.0" y="398" width="359" height="127"/>
+                                                <rect key="frame" x="0.0" y="386" width="359" height="127"/>
                                                 <subviews>
                                                     <stackView clipsSubviews="YES" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="FOv-zk-cAp">
                                                         <rect key="frame" x="67.5" y="20" width="224" height="87"/>
@@ -524,7 +534,7 @@
                                             <constraint firstAttribute="trailing" secondItem="IS5-f4-2Hp" secondAttribute="trailing" id="Jqa-mO-73b"/>
                                             <constraint firstItem="rQ9-BL-GD8" firstAttribute="leading" secondItem="RrQ-GW-TSn" secondAttribute="leading" id="Mt5-Uc-5R0"/>
                                             <constraint firstAttribute="trailing" secondItem="k0n-o3-3aT" secondAttribute="trailing" id="NUf-ce-ra2"/>
-                                            <constraint firstAttribute="height" priority="250" constant="566" id="O8X-Bq-ppX"/>
+                                            <constraint firstAttribute="height" priority="250" constant="505" id="O8X-Bq-ppX"/>
                                             <constraint firstItem="dJF-tN-FcP" firstAttribute="leading" secondItem="RrQ-GW-TSn" secondAttribute="leading" id="P0a-4h-30y"/>
                                             <constraint firstAttribute="bottom" secondItem="IS5-f4-2Hp" secondAttribute="bottom" id="R7f-Hi-dGZ"/>
                                             <constraint firstItem="5tb-Q2-VKt" firstAttribute="leading" secondItem="RrQ-GW-TSn" secondAttribute="leading" id="U87-Mw-bBD"/>
@@ -532,7 +542,7 @@
                                             <constraint firstItem="rQ9-BL-GD8" firstAttribute="top" secondItem="dJF-tN-FcP" secondAttribute="bottom" constant="2" id="c4t-qX-tl8"/>
                                             <constraint firstItem="dJF-tN-FcP" firstAttribute="top" secondItem="5tb-Q2-VKt" secondAttribute="bottom" constant="2" id="gfW-tg-zPu"/>
                                             <constraint firstItem="k0n-o3-3aT" firstAttribute="top" secondItem="RrQ-GW-TSn" secondAttribute="top" constant="30" id="reL-Uj-vJe">
-                                                <variation key="heightClass=regular-widthClass=compact" constant="12"/>
+                                                <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
                                             </constraint>
                                             <constraint firstItem="5tb-Q2-VKt" firstAttribute="top" secondItem="opD-Rt-fy7" secondAttribute="bottom" constant="2" id="vvf-cb-cu3"/>
                                             <constraint firstAttribute="trailing" secondItem="dJF-tN-FcP" secondAttribute="trailing" id="xId-y9-vvw"/>
@@ -547,7 +557,10 @@
                                 <constraints>
                                     <constraint firstItem="RrQ-GW-TSn" firstAttribute="leading" secondItem="zgB-nA-nXr" secondAttribute="leading" id="7ZL-K0-g65"/>
                                     <constraint firstAttribute="bottom" secondItem="RrQ-GW-TSn" secondAttribute="bottom" id="VHC-fh-dDJ"/>
-                                    <constraint firstItem="RrQ-GW-TSn" firstAttribute="top" secondItem="zgB-nA-nXr" secondAttribute="top" id="m2Y-nl-hNI"/>
+                                    <constraint firstItem="RrQ-GW-TSn" firstAttribute="top" secondItem="zgB-nA-nXr" secondAttribute="top" id="m2Y-nl-hNI">
+                                        <variation key="heightClass=compact-widthClass=compact" constant="35"/>
+                                        <variation key="heightClass=compact-widthClass=regular" constant="35"/>
+                                    </constraint>
                                     <constraint firstItem="RrQ-GW-TSn" firstAttribute="centerX" secondItem="zgB-nA-nXr" secondAttribute="centerX" id="rb1-Tz-22M"/>
                                     <constraint firstAttribute="trailing" secondItem="RrQ-GW-TSn" secondAttribute="trailing" id="yE1-7g-hwB"/>
                                 </constraints>
@@ -577,7 +590,10 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="zgB-nA-nXr" firstAttribute="leading" secondItem="YdI-eJ-QVc" secondAttribute="leading" constant="8" id="0dj-Db-qnw"/>
-                            <constraint firstItem="zgB-nA-nXr" firstAttribute="top" secondItem="zS9-gZ-teb" secondAttribute="bottom" id="0uf-mq-qc4"/>
+                            <constraint firstItem="zgB-nA-nXr" firstAttribute="top" secondItem="zS9-gZ-teb" secondAttribute="bottom" id="0uf-mq-qc4">
+                                <variation key="heightClass=compact-widthClass=compact" constant="-35"/>
+                                <variation key="heightClass=compact-widthClass=regular" constant="-35"/>
+                            </constraint>
                             <constraint firstItem="k0n-o3-3aT" firstAttribute="height" secondItem="YdI-eJ-QVc" secondAttribute="height" multiplier="56:667" id="1a1-x5-ANU"/>
                             <constraint firstItem="CpU-UX-Sf1" firstAttribute="height" secondItem="YdI-eJ-QVc" secondAttribute="height" multiplier="92:667" id="3B4-Zl-VKL"/>
                             <constraint firstAttribute="trailing" secondItem="zgB-nA-nXr" secondAttribute="trailing" constant="8" id="42A-RL-22l"/>

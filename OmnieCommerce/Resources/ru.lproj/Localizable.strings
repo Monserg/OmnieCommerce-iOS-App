@@ -16,6 +16,7 @@
 "OmnieCards"                    =   "Omnie Cards";
 "BusinessCards"                 =   "Визитница";
 "Handbook"                      =   "Справочник";
+"Handbooks"                     =   "Справочники";
 "PersonalPage"                  =   "Мой кабинет";
 "Settings"                      =   "Настройки";
 "About"                         =   "Справка";
@@ -210,6 +211,7 @@
 "User is already exist"         =   "Пользователь уже существует";
 "Retry request succeeded"       =   "Повторный запрос успешно выполнен";
 "Categories list is empty"      =   "Список категорий пуст";
+"Handbooks list is empty"       =   "Список справочников пуст";
 "Change Email info message"     =   "Запрос успешно выполнен.\nПодтвердите свое решение, проверив указанный email";
 "Change Email error message"    =   "Запрос не выполнен.\nПовторите свою попытку позже";
 "This time is busy."            =   "Это время занято. \nПожалуйста, выберите другое доступное время.";
@@ -234,6 +236,7 @@
 "WRONG_INPUT_DATA"              =   "Ошибка входных данных";                                    //  4500
 "USER_EXIST"                    =   "Такой пользователь уже существует";                        //  4670
 "SOMETHING_WRONG_5000"          =   "Пожалуйста, введите правильный код";                       //  5000
+"ORG_NAME_EXIST"                =   "Организация с таким названием уже существует";             //  6992
 
 
 // Cities

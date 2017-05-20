@@ -57,7 +57,7 @@ class MSMCollectionViewControllerManager: BaseViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
         collectionView!.setScrollIndicatorColor(color: UIColor.veryLightOrange)
     }
 }

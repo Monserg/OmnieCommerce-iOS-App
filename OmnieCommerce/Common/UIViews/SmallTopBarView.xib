@@ -83,7 +83,7 @@
                             </userDefinedRuntimeAttributes>
                         </searchBar>
                         <view hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gxD-8P-O38" userLabel="Search Bottom Line View" customClass="DottedBorderView" customModule="OmnieCommerce" customModuleProvider="target">
-                            <rect key="frame" x="30" y="53" width="304" height="20"/>
+                            <rect key="frame" x="30" y="38" width="304" height="20"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="20" id="fLa-BL-6kt"/>

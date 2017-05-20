@@ -176,8 +176,8 @@ extension OrderShowViewController: OrderShowViewControllerInput {
 
 
 // MARK: - UIScrollViewDelegate
-extension OrderShowViewController: UIScrollViewDelegate {
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        scrollView.indicatorDidChange(UIColor.veryLightOrange)
-    }
-}
+//extension OrderShowViewController: UIScrollViewDelegate {
+//    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+//        scrollView.indicatorDidChange(UIColor.veryLightOrange)
+//    }
+//}

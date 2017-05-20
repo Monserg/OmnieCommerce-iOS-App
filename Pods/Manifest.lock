@@ -76,7 +76,6 @@ PODS:
   - SwiftyJSON (3.1.4)
   - SwiftyVK (2.0.8)
   - SWRevealViewController (2.3.0)
-  - Toucan (0.6.0)
 
 DEPENDENCIES:
   - AFNetworking (~> 3.1)
@@ -97,7 +96,6 @@ DEPENDENCIES:
   - SwiftyJSON (~> 3.1)
   - SwiftyVK (~> 2.0)
   - SWRevealViewController (~> 2.3)
-  - Toucan (~> 0.6)
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
@@ -125,8 +123,7 @@ SPEC CHECKSUMS:
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
   SwiftyVK: 940bc77f65ad0c5ea2d2d9cb578943f686fd8e63
   SWRevealViewController: 6d3fd97f70112fd7cef9de14df4260eacce4c63a
-  Toucan: 47485bbc9cb4541ef6318d6886103e6eaf16e919
 
-PODFILE CHECKSUM: 62e14854d13a1a3b86e899e49f7e5299043c10fc
+PODFILE CHECKSUM: 620241b788a5c53a2bcaeb1dbbfa2ae50ba47ee2
 
 COCOAPODS: 1.2.0.beta.1

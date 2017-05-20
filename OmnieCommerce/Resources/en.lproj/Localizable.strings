@@ -16,6 +16,7 @@
 "OmnieCards"                    =   "Omnie Cards";
 "BusinessCards"                 =   "Business Cards";
 "Handbook"                      =   "Handbook";
+"Handbooks"                     =   "Handbooks";
 "PersonalPage"                  =   "Personal Page";
 "Settings"                      =   "Settings";
 "About"                         =   "About";
@@ -210,6 +211,7 @@
 "User is already exist"         =   "User is already exist";
 "Retry request succeeded"       =   "Retry request succeeded";
 "Categories list is empty"      =   "Categories list is empty";
+"Handbooks list is empty"       =   "Handbooks list is empty";
 "Change Email info message"     =   "Request successfully completed.\nConfirm your decision by checking the entered email";
 "Change Email error message"    =   "Request failed.\nRepeat your attempt later";
 "This time is busy."            =   "This time is busy. \nPlease, select any available time.";
@@ -234,6 +236,7 @@
 "WRONG_INPUT_DATA"              =   "Wrong input data";                                 //  4500
 "USER_EXIST"                    =   "User is already exist";                            //  4670
 "SOMETHING_WRONG_5000"          =   "Please enter the correct code";                    //  5000
+"ORG_NAME_EXIST"                =   "Organization name is already exist";               //  6992
 
 
 // Cities

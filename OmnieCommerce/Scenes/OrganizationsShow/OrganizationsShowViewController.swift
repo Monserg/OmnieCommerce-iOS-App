@@ -76,6 +76,7 @@ class OrganizationsShowViewController: BaseViewController {
         }
     }
 
+    // Outlets
     @IBOutlet weak var smallTopBarView: SmallTopBarView!
     @IBOutlet weak var mapButton: CustomButton!
     @IBOutlet weak var subcategoriesButton: DropDownButton!

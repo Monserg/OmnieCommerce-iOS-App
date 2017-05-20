@@ -58,6 +58,7 @@ class SettingsShowViewController: BaseViewController {
     @IBOutlet weak var scrollView: UIScrollView! {
         didSet {
             scrollViewBase = scrollView
+            scrollViewBase!.scrollIndicatorInsets = UIEdgeInsets(top: 15, left: 0, bottom: 0, right: 0)
         }
     }
 
@@ -111,14 +112,15 @@ class SettingsShowViewController: BaseViewController {
         navigationBarView = smallTopBarView
         smallTopBarView.type = "Parent"
         haveMenuItem = true
+        scrollViewBase = scrollView
         
         // Load data
         appSettingsDidLoadData()
     }
     
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        scrollView.indicatorDidChange(UIColor.veryLightOrange)
-    }
+//    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+//        scrollView.indicatorDidChange(UIColor.veryLightOrange)
+//    }
 
     
     // MARK: - Custom Functions
