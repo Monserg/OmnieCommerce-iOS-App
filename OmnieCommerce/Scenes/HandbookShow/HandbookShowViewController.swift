@@ -25,7 +25,8 @@ class HandbookShowViewController: BaseViewController {
     var output: HandbookShowViewControllerOutput!
     var router: HandbookShowRouter!
     
-    var handbookID: String!
+    // nil = create mode
+    var handbookID: String?
     
     // Outlets
     @IBOutlet weak var smallTopBarView: SmallTopBarView!
@@ -52,13 +53,21 @@ class HandbookShowViewController: BaseViewController {
         print(object: "\(type(of: self)): \(#function) run.")
         
         // Config smallTopBarView
-        navigationBarView       =   smallTopBarView
-        smallTopBarView.type    =   "ParentSearch"
-        haveMenuItem            =   true
+        navigationBarView = smallTopBarView
+        smallTopBarView.type = "Child"
+        haveMenuItem = false
         
-        // Load data
-        let requestModel        =   HandbookShow.Something.Request()
-        output.doSomething(request: requestModel)
+        // Handler Back button tap
+        smallTopBarView.handlerSendButtonCompletion = { _ in
+            _ = self.navigationController?.popViewController(animated: true)
+        }
+
+        let handbookProfile: Handbook? = (handbookID == nil) ? nil : CoreDataManager.instance.entityDidLoad(byName: "Handbook", andPredicateParameters: NSPredicate.init(format: "codeID == %@", self.handbookID!)) as? Handbook
+        
+        if let handbook = handbookProfile {
+            // Show scene
+            
+        }
     }
     
     

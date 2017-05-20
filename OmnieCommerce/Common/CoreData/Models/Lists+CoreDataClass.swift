@@ -39,5 +39,9 @@ public class Lists: NSManagedObject {
         if let order = item as? Order {
             self.addToOrders(order)
         }
+        
+        if let handbook = item as? Handbook {
+            self.addToHandbooks(handbook)
+        }
     }
 }

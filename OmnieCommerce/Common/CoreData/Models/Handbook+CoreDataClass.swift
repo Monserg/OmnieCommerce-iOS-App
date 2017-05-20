@@ -56,5 +56,8 @@ public class Handbook: NSManagedObject, InitCellParameters, SearchObject {
         if let tags = json["tags"] as? [String], tags.count > 0 {
             self.tags = tags
         }
+        
+        // Lists
+        self.addToLists(Lists.init(name: listName, item: self))
     }
 }

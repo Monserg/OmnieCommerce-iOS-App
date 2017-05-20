@@ -106,6 +106,7 @@
         <attribute name="nameValue" attributeType="String" syncable="YES"/>
         <attribute name="phones" optional="YES" attributeType="Transformable" customClassName="String" syncable="YES"/>
         <attribute name="tags" optional="YES" attributeType="Transformable" customClassName="String" syncable="YES"/>
+        <relationship name="lists" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Lists" inverseName="handbooks" inverseEntity="Lists" syncable="YES"/>
         <uniquenessConstraints>
             <uniquenessConstraint>
                 <constraint value="codeID"/>
@@ -115,6 +116,7 @@
     <entity name="Lists" representedClassName="Lists" syncable="YES">
         <attribute name="name" attributeType="String" syncable="YES"/>
         <relationship name="categories" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Category" inverseName="categoriesList" inverseEntity="Category" syncable="YES"/>
+        <relationship name="handbooks" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Handbook" inverseName="lists" inverseEntity="Handbook" syncable="YES"/>
         <relationship name="news" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="NewsData" inverseName="newsList" inverseEntity="NewsData" syncable="YES"/>
         <relationship name="orders" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Order" inverseName="lists" inverseEntity="Order" syncable="YES"/>
         <relationship name="organizations" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Organization" inverseName="lists" inverseEntity="Organization" syncable="YES"/>
@@ -321,7 +323,8 @@
         <element name="Category" positionX="270" positionY="-72" width="128" height="135"/>
         <element name="Discount" positionX="162" positionY="99" width="128" height="195"/>
         <element name="GalleryImage" positionX="-36" positionY="99" width="128" height="120"/>
-        <element name="Lists" positionX="144" positionY="81" width="128" height="135"/>
+        <element name="Handbook" positionX="144" positionY="81" width="128" height="150"/>
+        <element name="Lists" positionX="144" positionY="81" width="128" height="150"/>
         <element name="NewsData" positionX="-36" positionY="99" width="128" height="195"/>
         <element name="Order" positionX="144" positionY="81" width="128" height="240"/>
         <element name="Organization" positionX="-36" positionY="99" width="128" height="390"/>
@@ -332,6 +335,5 @@
         <element name="Subcategory" positionX="475" positionY="-69" width="128" height="165"/>
         <element name="TimeSheet" positionX="144" positionY="81" width="128" height="150"/>
         <element name="TimeSheetItem" positionX="153" positionY="90" width="128" height="105"/>
-        <element name="Handbook" positionX="144" positionY="81" width="128" height="135"/>
     </elements>
 </model>

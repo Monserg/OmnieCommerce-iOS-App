@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Handbook Show View Controller-->
+        <scene sceneID="iAv-0I-nui">
+            <objects>
+                <viewController storyboardIdentifier="HandbookShowVC" id="aIy-oy-tcM" customClass="HandbookShowViewController" customModule="OmnieCommerce" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="fCD-Ib-AP4"/>
+                        <viewControllerLayoutGuide type="bottom" id="dIE-vb-nxS"/>
+                    </layoutGuides>
+                    <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="6mz-3c-taz">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mzo-JX-FrS" customClass="SmallTopBarView" customModule="OmnieCommerce" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="95"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="titleText" value="Handbook"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="type" value="Child"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Copyright" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ERr-6N-n2o" userLabel="Copyright Label" customClass="UbuntuLightDarkCyanLabel" customModule="OmnieCommerce" customModuleProvider="target">
+                                <rect key="frame" x="8" y="647" width="359" height="11"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ERr-6N-n2o" firstAttribute="leading" secondItem="6mz-3c-taz" secondAttribute="leading" constant="8" id="D3f-wn-twT"/>
+                            <constraint firstAttribute="trailing" secondItem="ERr-6N-n2o" secondAttribute="trailing" constant="8" id="HiN-wS-Dzx"/>
+                            <constraint firstItem="Mzo-JX-FrS" firstAttribute="height" secondItem="6mz-3c-taz" secondAttribute="height" multiplier="80:375" id="NxF-wD-9ry"/>
+                            <constraint firstItem="Mzo-JX-FrS" firstAttribute="height" secondItem="6mz-3c-taz" secondAttribute="height" multiplier="95:667" id="PiB-EF-haO"/>
+                            <constraint firstAttribute="bottom" secondItem="ERr-6N-n2o" secondAttribute="bottom" constant="9" id="Q3o-uD-QdX"/>
+                            <constraint firstItem="Mzo-JX-FrS" firstAttribute="top" secondItem="6mz-3c-taz" secondAttribute="top" id="Zbf-yD-B7K"/>
+                            <constraint firstItem="Mzo-JX-FrS" firstAttribute="leading" secondItem="6mz-3c-taz" secondAttribute="leading" id="c3L-Y0-TaR"/>
+                            <constraint firstAttribute="trailing" secondItem="Mzo-JX-FrS" secondAttribute="trailing" id="yeX-DH-4E3"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="PiB-EF-haO"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="constraints">
+                                <exclude reference="NxF-wD-9ry"/>
+                                <include reference="PiB-EF-haO"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="smallTopBarView" destination="Mzo-JX-FrS" id="OxP-Wv-Er0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GZ5-1l-DwV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="216" y="189"/>
+        </scene>
+    </scenes>
+</document>

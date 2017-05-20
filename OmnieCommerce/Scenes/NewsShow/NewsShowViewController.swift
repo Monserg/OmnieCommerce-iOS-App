@@ -90,11 +90,11 @@ class NewsShowViewController: BaseViewController {
         
         // Handler Search button hide
         newsDataVC!.handlerSearchButtonHideCompletion = { items in
-            self.smallTopBarView.searchButton.isEnabled = ((items as! NSArray).count == 0) ? false : true
+            self.smallTopBarView.searchButton.isHidden = ((items as! NSArray).count == 0 || !isNetworkAvailable) ? true : false
         }
 
         newsActionsVC!.handlerSearchButtonHideCompletion = { items in
-            self.smallTopBarView.searchButton.isEnabled = ((items as! NSArray).count == 0) ? false : true
+            self.smallTopBarView.searchButton.isHidden = ((items as! NSArray).count == 0 || !isNetworkAvailable) ? true : false
         }
     }
     

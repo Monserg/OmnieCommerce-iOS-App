@@ -16,11 +16,29 @@ extension Handbook {
         return NSFetchRequest<Handbook>(entityName: "Handbook")
     }
 
-    @NSManaged public var codeID: String
-    @NSManaged public var nameValue: String?
     @NSManaged public var address: String?
-    @NSManaged public var phones: [String]?
+    @NSManaged public var codeID: String
     @NSManaged public var imageID: String?
+    @NSManaged public var nameValue: String?
+    @NSManaged public var phones: [String]?
     @NSManaged public var tags: [String]?
+    @NSManaged public var lists: NSSet?
+
+}
+
+// MARK: Generated accessors for lists
+extension Handbook {
+
+    @objc(addListsObject:)
+    @NSManaged public func addToLists(_ value: Lists)
+
+    @objc(removeListsObject:)
+    @NSManaged public func removeFromLists(_ value: Lists)
+
+    @objc(addLists:)
+    @NSManaged public func addToLists(_ values: NSSet)
+
+    @objc(removeLists:)
+    @NSManaged public func removeFromLists(_ values: NSSet)
 
 }

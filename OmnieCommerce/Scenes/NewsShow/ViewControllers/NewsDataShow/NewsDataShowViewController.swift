@@ -117,7 +117,6 @@ class NewsDataShowViewController: BaseViewController {
         
         if let news = newsLists as? [NewsData] {
             newsData = news
-            handlerSearchButtonHideCompletion!(newsData)
             tableView.tableViewControllerManager!.dataSource = news
             tableView!.tableFooterView!.isHidden = (news.count > 0) ? true : false
             
@@ -147,7 +146,12 @@ class NewsDataShowViewController: BaseViewController {
         }
         
         tableView.tableViewControllerManager.pullRefreshDidFinish()
-        handlerTableViewReloadDataCompletion!(tableView.tableViewControllerManager)
+        
+        if (isNetworkAvailable) {
+            handlerSearchButtonHideCompletion!(newsData)
+            handlerTableViewReloadDataCompletion!(tableView.tableViewControllerManager)
+        }
+
         spinnerDidFinish()
     }
 }

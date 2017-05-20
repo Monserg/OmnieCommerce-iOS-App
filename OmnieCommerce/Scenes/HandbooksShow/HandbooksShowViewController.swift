@@ -31,12 +31,13 @@ class HandbooksShowViewController: BaseViewController {
 
     // Outlets
     @IBOutlet weak var smallTopBarView: SmallTopBarView!
-    @IBOutlet weak var createNewHandbookButton: CustomButton!
-    
+    @IBOutlet weak var createNewHandbookButton: FillColorButton!
+    @IBOutlet var modalView: ModalView!
+
     @IBOutlet weak var tableView: MSMTableView! {
         didSet {
-            tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0)
-            tableView.scrollIndicatorInsets = UIEdgeInsetsMake(0, 0, 0, 0)
+            tableView.contentInset = UIEdgeInsetsMake(30, 0, 0, 0)
+            tableView.scrollIndicatorInsets = UIEdgeInsetsMake(10, 0, 0, 0)
         }
     }
 
@@ -53,12 +54,57 @@ class HandbooksShowViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        viewSettingsDidLoad()
+        // Config smallTopBarView
+        navigationBarView = smallTopBarView
+        smallTopBarView.type = "ParentSearch"
+        haveMenuItem = true
+        
+        // Create MSMTableViewControllerManager
+        let handbooksTableManager = MSMTableViewControllerManager.init(withTableView: tableView,
+                                                                       andSectionsCount: 1,
+                                                                       andEmptyMessageText: "Handbooks list is empty")
+        
+        tableView.tableViewControllerManager = handbooksTableManager
+        
+        // Handler Phone button tap completion
+        handbooksTableManager.handlerTapPhoneButtonCompletion = { phones in
+            self.modalViewDidShow(withHeight: 185, customSubview: PhonesView(), andValues: phones as! [String])
+        }
+    
+        // Handler Bussiness Card button tap completion
+        handbooksTableManager.handlerTapBussinessCardButtonCompletion = { item in
+            // TODO: - ADD TRANSITION TO BUSSINESS CARD
+            
+        }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
+        if (tableView.tableViewControllerManager == nil) {
+            limit = Config.Constants.paginationLimit
+        } else {
+            limit = (tableView.tableViewControllerManager.dataSource.count == 0) ?  Config.Constants.paginationLimit :
+                tableView.tableViewControllerManager.dataSource.count
+        }
+        
+        viewSettingsDidLoad()
+    }
+
 
     // MARK: - Custom Functions
     func viewSettingsDidLoad() {
+        // Load Organizations list from Core Data
+        guard isNetworkAvailable else {
+            self.handbooksListDidShow()
+            
+            return
+        }
+        
+        // Load Organizations list from API
+        handbooks = [Handbook]()
+        CoreDataManager.instance.entitiesDidRemove(byName: "Lists", andPredicateParameters: NSPredicate(format: "name == %@", keyHandbooks))
+        handbooksListDidLoad(withOffset: 0, filter: "", scrollingData: false)
     }
     
     func handbooksListDidLoad(withOffset offset: Int, filter: String, scrollingData: Bool) {
@@ -66,9 +112,10 @@ class HandbooksShowViewController: BaseViewController {
             spinnerDidStart(view)
         }
         
+        // from = offset, to = limit
         let parameters: [String: Any] = [
-                                            "from": 0,
-                                            "to": 10,
+                                            "from": offset,
+                                            "to": limit,
                                             "locale": Locale.current.languageCode!.lowercased()
                                         ]
         
@@ -135,15 +182,64 @@ class HandbooksShowViewController: BaseViewController {
         }
         
         tableView.tableViewControllerManager.pullRefreshDidFinish()
+        self.smallTopBarView.searchButton.isHidden = (handbooks.count == 0 || !isNetworkAvailable) ? true : false
         spinnerDidFinish()
     }
 
+    func modalViewDidShow(withHeight height: CGFloat, customSubview subView: CustomView, andValues values: [Any]?) {
+        var popupView = subView
+        
+        if (blackoutView == nil) {
+            blackoutView = MSMBlackoutView.init(inView: view)
+            blackoutView!.didShow()
+        }
+        
+        modalView = ModalView.init(inView: blackoutView!, withHeight: height)
+
+        popupView = PhonesView.init(inView: modalView!)
+        popupView.values = values as! [String]
+        
+        // Handler Phones format error
+        (popupView as! PhonesView).handlerPhonesFormatErrorCompletion = { _ in
+            self.alertViewDidShow(withTitle: "Error", andMessage: "Wrong phones format", completion: { _ in })
+        }
+        
+        // Handler Cancel button tap
+        popupView.handlerCancelButtonCompletion = { _ in
+            self.blackoutView!.didHide()
+            self.blackoutView = nil
+        }
+    }
+    
+    
+    // MARK: - Transition
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        smallTopBarView.setNeedsDisplay()
+        smallTopBarView.circleView.setNeedsDisplay()
+
+        _ = tableView.visibleCells.map { ($0 as! DottedBorderViewBinding).dottedBorderView.setNeedsDisplay() }
+    }
+    
+    
+    // MARK: - Actions
+    @IBAction func handlerCreateNewHandbookButtonTap(_ sender: FillColorButton) {
+        self.router.navigateToHandbookShowScene(withHandbookID: nil)
+    }
 }
 
 
 // MARK: - HandbooksShowViewControllerInput
 extension HandbooksShowViewController: HandbooksShowViewControllerInput {
     func handbooksDidShowLoad(fromViewModel viewModel: HandbooksShowModels.Items.ViewModel) {
+        // Check for errors
+        guard viewModel.status == "SUCCESS" else {
+            self.alertViewDidShow(withTitle: "Error", andMessage: viewModel.status, completion: {
+                self.handbooksListDidShow()
+            })
+            
+            return
+        }
         
+        self.handbooksListDidShow()
     }
 }

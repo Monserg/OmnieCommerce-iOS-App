@@ -139,14 +139,14 @@ enum RequestType {
                                                                             apiStringURL: "/user/handbook/",
                                                                             body: (isBodyParams ? params : nil),
                                                                             bodyType: .ItemsArray,
-                                                                            headers: headers,
+                                                                            headers: headersExtended,
                                                                             parameters: (isBodyParams ? nil : params))
 
         case .userCreateNewHandbook(let params, let isBodyParams):  return (method: .post,
                                                                             apiStringURL: "/user/handbook/create/",
                                                                             body: (isBodyParams ? params : nil),
                                                                             bodyType: .ItemsDictionary,
-                                                                            headers: headers,
+                                                                            headers: headersExtended,
                                                                             parameters: (isBodyParams ? nil : params))
             
             

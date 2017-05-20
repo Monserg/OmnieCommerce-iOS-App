@@ -741,7 +741,7 @@ CQ
 </string>
                     <toolbarItems/>
                     <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="K1C-FM-eAU">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="K1C-FM-eAU">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

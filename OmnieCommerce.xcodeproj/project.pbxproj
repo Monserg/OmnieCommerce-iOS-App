@@ -312,6 +312,9 @@
 		B18FBB081ECFFF880037804C /* HandbooksShowWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18FBB011ECFFF880037804C /* HandbooksShowWorker.swift */; };
 		B18FBB0B1ED004CD0037804C /* Handbook+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18FBB091ED004CD0037804C /* Handbook+CoreDataClass.swift */; };
 		B18FBB0C1ED004CD0037804C /* Handbook+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18FBB0A1ED004CD0037804C /* Handbook+CoreDataProperties.swift */; };
+		B18FBB131ED0B6B60037804C /* HandbookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18FBB111ED0B6B60037804C /* HandbookTableViewCell.swift */; };
+		B18FBB141ED0B6B60037804C /* HandbookTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B18FBB121ED0B6B60037804C /* HandbookTableViewCell.xib */; };
+		B18FBB181ED0D07C0037804C /* HandbookShow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B18FBB171ED0D07C0037804C /* HandbookShow.storyboard */; };
 		B19375521EB4CB9B00B48399 /* ConfirmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19375511EB4CB9B00B48399 /* ConfirmView.swift */; };
 		B19375541EB4CBA300B48399 /* ConfirmView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B19375531EB4CBA300B48399 /* ConfirmView.xib */; };
 		B19668601E73098600B9C9AE /* OrganizationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B196685F1E73098600B9C9AE /* OrganizationTableViewCell.swift */; };
@@ -829,6 +832,9 @@
 		B18FBB011ECFFF880037804C /* HandbooksShowWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HandbooksShowWorker.swift; sourceTree = "<group>"; };
 		B18FBB091ED004CD0037804C /* Handbook+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Handbook+CoreDataClass.swift"; sourceTree = "<group>"; };
 		B18FBB0A1ED004CD0037804C /* Handbook+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Handbook+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		B18FBB111ED0B6B60037804C /* HandbookTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HandbookTableViewCell.swift; sourceTree = "<group>"; };
+		B18FBB121ED0B6B60037804C /* HandbookTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HandbookTableViewCell.xib; sourceTree = "<group>"; };
+		B18FBB171ED0D07C0037804C /* HandbookShow.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = HandbookShow.storyboard; sourceTree = "<group>"; };
 		B19375511EB4CB9B00B48399 /* ConfirmView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmView.swift; sourceTree = "<group>"; };
 		B19375531EB4CBA300B48399 /* ConfirmView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConfirmView.xib; sourceTree = "<group>"; };
 		B196685F1E73098600B9C9AE /* OrganizationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrganizationTableViewCell.swift; sourceTree = "<group>"; };
@@ -1360,6 +1366,7 @@
 				B1CF54ED1DDB588600E98049 /* DiscountCardsShow.storyboard */,
 				B1C13D8C1DEF3385002B494A /* DropDown.storyboard */,
 				B122F22D1DD35ECC0018A701 /* FavoriteShow.storyboard */,
+				B18FBB171ED0D07C0037804C /* HandbookShow.storyboard */,
 				B1CF54E71DDB55E300E98049 /* HandbooksShow.storyboard */,
 				B1E52AD21DDDDEC600C3B24D /* Main.storyboard */,
 				B122F22B1DD35E550018A701 /* MessagesShow.storyboard */,
@@ -1927,6 +1934,8 @@
 		B18FBAFA1ECFFE410037804C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				B18FBB111ED0B6B60037804C /* HandbookTableViewCell.swift */,
+				B18FBB121ED0B6B60037804C /* HandbookTableViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -2439,6 +2448,7 @@
 				B17EBF1C1E9B69A4000E61AA /* DiscountTableViewCell.xib in Resources */,
 				B1C94BBE1E37823C00122933 /* BarCodeView.xib in Resources */,
 				B1BF92781DD6516C00BECBBB /* UBUNTU-B.TTF in Resources */,
+				B18FBB181ED0D07C0037804C /* HandbookShow.storyboard in Resources */,
 				B1BF92791DD6516C00BECBBB /* UBUNTU-BI.TTF in Resources */,
 				B1F3CD561E97AA7F00ECAC35 /* PhotosGalleryView.xib in Resources */,
 				B1CF54EA1DDB56BD00E98049 /* BusinessCardsShow.storyboard in Resources */,
@@ -2448,6 +2458,7 @@
 				B1E52AD31DDDDEC600C3B24D /* Main.storyboard in Resources */,
 				B14C07561EA1082F00556866 /* ServicePriceTableViewCell.xib in Resources */,
 				B1BEEDF71E6368F000F1DE8A /* OrganizationShow.storyboard in Resources */,
+				B18FBB141ED0B6B60037804C /* HandbookTableViewCell.xib in Resources */,
 				B1D57E921E87CB7F00CA6243 /* MSMTableViewFooterView.xib in Resources */,
 				B1BF927B1DD6516C00BECBBB /* UBUNTU-I.TTF in Resources */,
 				B1F7EDBA1DF54886003B36AD /* SegmentedControlView.xib in Resources */,
@@ -2781,6 +2792,7 @@
 				B1CF54D81DDB51BE00E98049 /* SettingsShowConfigurator.swift in Sources */,
 				B14B8DE81EBB725A00B29511 /* TimerPointer.swift in Sources */,
 				B18FBB0B1ED004CD0037804C /* Handbook+CoreDataClass.swift in Sources */,
+				B18FBB131ED0B6B60037804C /* HandbookTableViewCell.swift in Sources */,
 				B112036E1E8EDD5D0036001A /* UbuntuLightVeryDarkGrayishBlueLabel.swift in Sources */,
 				B122F1EC1DD35BA70018A701 /* MessagesShowPresenter.swift in Sources */,
 				B15125121EADC619009A6A44 /* ServiceShowWorker.swift in Sources */,

@@ -27,6 +27,8 @@ class MSMTableViewControllerManager: BaseViewController {
     }
     
     var handlerSelectRowCompletion: HandlerPassDataCompletion?
+    var handlerTapPhoneButtonCompletion: HandlerPassDataCompletion?
+    var handlerTapBussinessCardButtonCompletion: HandlerPassDataCompletion?
     var handlerSendButtonCompletion: HandlerSendButtonCompletion?
     var handlerCancelButtonCompletion: HandlerCancelButtonCompletion?
     var handlerPullRefreshCompletion: HandlerSendButtonCompletion?
@@ -271,29 +273,20 @@ extension MSMTableViewControllerManager: UITableViewDataSource {
             // Handler Switch change state
             additionalServiceCell.handlerSwitchChangeStateCompletion = { isSwithStateOn in
                 (item as! AdditionalService).isAvailable = isSwithStateOn as! Bool
-//                CoreDataManager.instance.didSaveContext()
+            }
+
+        case cell as HandbookTableViewCell:
+            let handbookTableViewCell = cell as! HandbookTableViewCell
+            
+            // Handler Phone button tap completion
+            handbookTableViewCell.handlerPhoneButtonTapCompletion = { phones in
+                self.handlerTapPhoneButtonCompletion!(phones as! [String])
             }
             
-//        case cell as AvatarTableViewCell:
-//            let avatarCell  =   (cell as! AvatarTableViewCell)
-//            
-//            // Handler show UIImagePickerController
-//            avatarCell.handlerNewViewControllerShowCompletion   =   { imagePicker in
-//                self.present(imagePicker, animated: true, completion: nil)
-//            }
-//
-//        case cell as ActionButtonsTableViewCell:
-//            let actionButtonsCell   =   (cell as! ActionButtonsTableViewCell)
-//            
-//            // Handler Save Button tap
-//            actionButtonsCell.handlerSendButtonCompletion       =   { _ in
-//                self.handlerSendButtonCompletion!()
-//            }
-//
-//            // Handler Cancel Button tap
-//            actionButtonsCell.handlerCancelButtonCompletion     =   { _ in
-//                self.handlerCancelButtonCompletion!()
-//            }
+            // Handler Bussiness Card button tap completion
+            handbookTableViewCell.handlerBussinessCardButtonTapCompletion = { item in
+                self.handlerTapBussinessCardButtonCompletion!(item)
+            }
             
         default:
             break

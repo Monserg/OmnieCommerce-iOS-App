@@ -23,6 +23,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dSv-Uj-zSV" customClass="MSMTableView" customModule="OmnieCommerce" customModuleProvider="target">
+                                <rect key="frame" x="8" y="65" width="359" height="573"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QIO-EA-wXe" customClass="SmallTopBarView" customModule="OmnieCommerce" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="95"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -41,28 +48,36 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </label>
-                            <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CrO-mJ-vQE" userLabel="Create New Handbook Button" customClass="CustomButton" customModule="OmnieCommerce" customModuleProvider="target">
-                                <rect key="frame" x="313" y="598" width="46" height="30"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CrO-mJ-vQE" userLabel="Create New Handbook Button" customClass="FillColorButton" customModule="OmnieCommerce" customModuleProvider="target">
+                                <rect key="frame" x="302" y="581" width="57" height="57"/>
+                                <color key="backgroundColor" red="0.85098039215686272" green="0.72941176470588232" blue="0.40784313725490196" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="CrO-mJ-vQE" secondAttribute="height" multiplier="1:1" id="N8a-ha-Dch"/>
                                 </constraints>
+                                <state key="normal" image="icon-create-new-handbook-normal"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="buttonStyle" value="SoftOrangeFill"/>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="handlerCreateNewHandbookButtonTap:" destination="GlX-f2-5KY" eventType="touchUpInside" id="sMm-kd-hCb"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="QIO-EA-wXe" firstAttribute="leading" secondItem="Ueb-xh-5L2" secondAttribute="leading" id="4tA-e0-QW4"/>
+                            <constraint firstItem="dSv-Uj-zSV" firstAttribute="top" secondItem="QIO-EA-wXe" secondAttribute="bottom" constant="-30" id="5It-tW-ora"/>
                             <constraint firstItem="CrO-mJ-vQE" firstAttribute="height" secondItem="Ueb-xh-5L2" secondAttribute="height" multiplier="57:667" id="CeF-1y-kep"/>
                             <constraint firstItem="QIO-EA-wXe" firstAttribute="height" secondItem="Ueb-xh-5L2" secondAttribute="height" multiplier="80:375" id="EnI-yI-85h"/>
+                            <constraint firstItem="dSv-Uj-zSV" firstAttribute="leading" secondItem="Ueb-xh-5L2" secondAttribute="leading" constant="8" id="GYb-H7-UCL"/>
                             <constraint firstItem="0jm-qd-ave" firstAttribute="top" secondItem="CrO-mJ-vQE" secondAttribute="bottom" constant="9" id="Itu-tJ-Z3z"/>
                             <constraint firstItem="QIO-EA-wXe" firstAttribute="top" secondItem="Ueb-xh-5L2" secondAttribute="top" id="R7e-Fb-qKN">
                                 <variation key="heightClass=compact-widthClass=compact" constant="0.0"/>
                                 <variation key="heightClass=compact-widthClass=regular" constant="0.0"/>
                             </constraint>
+                            <constraint firstItem="0jm-qd-ave" firstAttribute="top" secondItem="dSv-Uj-zSV" secondAttribute="bottom" constant="9" id="VU1-2g-8vM"/>
+                            <constraint firstAttribute="trailing" secondItem="dSv-Uj-zSV" secondAttribute="trailing" constant="8" id="Zul-e4-EWc"/>
                             <constraint firstAttribute="trailing" secondItem="CrO-mJ-vQE" secondAttribute="trailing" constant="16" id="bAC-Q3-L3N"/>
                             <constraint firstAttribute="trailing" secondItem="0jm-qd-ave" secondAttribute="trailing" constant="8" id="bes-ze-Nvg"/>
                             <constraint firstItem="QIO-EA-wXe" firstAttribute="height" secondItem="Ueb-xh-5L2" secondAttribute="height" multiplier="95:667" id="dBe-yQ-LmB"/>
@@ -89,9 +104,19 @@
                     <navigationItem key="navigationItem" id="pdq-Tq-NOG"/>
                     <connections>
                         <outlet property="createNewHandbookButton" destination="CrO-mJ-vQE" id="I6w-x6-MnT"/>
+                        <outlet property="modalView" destination="GE3-jQ-18m" id="C52-Ab-cZe"/>
                         <outlet property="smallTopBarView" destination="QIO-EA-wXe" id="CC6-ct-MDh"/>
+                        <outlet property="tableView" destination="dSv-Uj-zSV" id="iFZ-Xo-zs0"/>
                     </connections>
                 </viewController>
+                <view clipsSubviews="YES" contentMode="scaleToFill" id="GE3-jQ-18m" userLabel="Modal View" customClass="ModalView" customModule="OmnieCommerce" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                </view>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Agf-AF-wsv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1308" y="257.72113943028489"/>
@@ -103,7 +128,7 @@
                     <toolbarItems/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="pHS-Rq-tb8">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="pHS-Rq-tb8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -117,4 +142,7 @@
             <point key="canvasLocation" x="368.80000000000001" y="257.72113943028489"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="icon-create-new-handbook-normal" width="32" height="24"/>
+    </resources>
 </document>
