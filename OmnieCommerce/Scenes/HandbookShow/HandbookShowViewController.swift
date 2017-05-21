@@ -26,7 +26,7 @@ class HandbookShowViewController: BaseViewController {
     var router: HandbookShowRouter!
     
     // nil = create mode
-    var handbookID: String?
+//    var handbookID: String!
     
     // Outlets
     @IBOutlet weak var smallTopBarView: SmallTopBarView!
@@ -62,12 +62,10 @@ class HandbookShowViewController: BaseViewController {
             _ = self.navigationController?.popViewController(animated: true)
         }
 
-        let handbookProfile: Handbook? = (handbookID == nil) ? nil : CoreDataManager.instance.entityDidLoad(byName: "Handbook", andPredicateParameters: NSPredicate.init(format: "codeID == %@", self.handbookID!)) as? Handbook
+//        let handbookProfile = CoreDataManager.instance.entityDidLoad(byName: "Handbook", andPredicateParameters: NSPredicate.init(format: "codeID == %@", self.handbookID)) as! Handbook
         
-        if let handbook = handbookProfile {
-            // Show scene
+        // Show scene
             
-        }
     }
     
     

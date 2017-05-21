@@ -201,7 +201,7 @@ class OrganizationsShowViewController: BaseViewController {
         
         // Handler select cell
         tableView.tableViewControllerManager!.handlerSelectRowCompletion = { organization in
-            self.router.navigateToOrganizationShowScene(organization as! Organization)
+            self.router.navigateToOrganizationShowScene(withOrganizationID: (organization as! Organization).codeID)
 
             if (self.organizationServiceButton.isDropDownListShow) {
                 self.organizationServiceButton.itemsListDidHide(self.organizationServiceDropDownTableView, inView: self.view)
@@ -288,7 +288,7 @@ class OrganizationsShowViewController: BaseViewController {
         
         // Handler select cell
         tableView.tableViewControllerManager!.handlerSelectRowCompletion = { service in
-            self.router.navigateToServiceShowScene(service as! Service)
+            self.router.navigateToServiceShowScene(withServiceID: (service as! Service).codeID)
 
             if (self.organizationServiceButton.isDropDownListShow) {
                 self.organizationServiceButton.itemsListDidHide(self.organizationServiceDropDownTableView, inView: self.view)

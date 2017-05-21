@@ -152,7 +152,7 @@ class HandbooksShowViewController: BaseViewController {
         
         // Handler select cell
         tableView.tableViewControllerManager!.handlerSelectRowCompletion = { handbook in
-            self.router.navigateToHandbookShowScene(withHandbookID: (handbook as! Handbook).codeID)
+            self.router.navigateToOrganizationShowScene(withOrganizationID: (handbook as! Handbook).codeID)
         }
         
         // Handler Search keyboard button tap
@@ -223,7 +223,7 @@ class HandbooksShowViewController: BaseViewController {
     
     // MARK: - Actions
     @IBAction func handlerCreateNewHandbookButtonTap(_ sender: FillColorButton) {
-        self.router.navigateToHandbookShowScene(withHandbookID: nil)
+        self.router.navigateToHandbookShowScene()
     }
 }
 

@@ -13,8 +13,8 @@ import UIKit
 
 // MARK: - Input & Output protocols
 protocol OrganizationsShowRouterInput {
-    func navigateToOrganizationShowScene(_ organization: Organization)
-    func navigateToServiceShowScene(_ service: Service)
+    func navigateToOrganizationShowScene(withOrganizationID organizationID: String)
+    func navigateToServiceShowScene(withServiceID serviceID: String)
     func navigateToOrganizationsMapShowScene(withItems items: [PointAnnotationBinding])
 }
 
@@ -24,18 +24,18 @@ class OrganizationsShowRouter: OrganizationsShowRouterInput {
     
     
     // MARK: - Custom Functions. Navigation
-    func navigateToOrganizationShowScene(_ organization: Organization) {
+    func navigateToOrganizationShowScene(withOrganizationID organizationID: String) {
         let storyboard = UIStoryboard(name: "OrganizationShow", bundle: nil)
         let organizationShowVC = storyboard.instantiateViewController(withIdentifier: "OrganizationShowVC") as! OrganizationShowViewController
-        organizationShowVC.organizationID = organization.codeID
+        organizationShowVC.organizationID = organizationID
         
         viewController.navigationController?.pushViewController(organizationShowVC, animated: true)
     }
     
-    func navigateToServiceShowScene(_ service: Service) {
+    func navigateToServiceShowScene(withServiceID serviceID: String) {
         let storyboard = UIStoryboard(name: "ServiceShow", bundle: nil)
         let serviceShowVC = storyboard.instantiateViewController(withIdentifier: "ServiceShowVC") as! ServiceShowViewController
-        serviceShowVC.serviceID = service.codeID
+        serviceShowVC.serviceID = serviceID
         
         viewController.navigationController?.pushViewController(serviceShowVC, animated: true)
     }

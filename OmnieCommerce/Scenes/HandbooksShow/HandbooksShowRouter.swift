@@ -13,7 +13,8 @@ import UIKit
 
 // MARK: - Input & Output protocols
 protocol HandbooksShowRouterInput {
-    func navigateToHandbookShowScene(withHandbookID handbookID: String?)
+    func navigateToHandbookShowScene()
+    func navigateToOrganizationShowScene(withOrganizationID organizationID: String)
 }
 
 class HandbooksShowRouter: HandbooksShowRouterInput {
@@ -22,13 +23,21 @@ class HandbooksShowRouter: HandbooksShowRouterInput {
     
     
     // MARK: - Custom Functions. Navigation
-    func navigateToHandbookShowScene(withHandbookID handbookID: String?) {
+    func navigateToHandbookShowScene() {
         let storyboard = UIStoryboard(name: "HandbookShow", bundle: nil)
         let handbookShowVC = storyboard.instantiateViewController(withIdentifier: "HandbookShowVC") as! HandbookShowViewController
-        handbookShowVC.handbookID = handbookID
         
         viewController.navigationController?.pushViewController(handbookShowVC, animated: true)
     }
+    
+    func navigateToOrganizationShowScene(withOrganizationID organizationID: String) {
+        let storyboard = UIStoryboard(name: "OrganizationShow", bundle: nil)
+        let organizationShowVC = storyboard.instantiateViewController(withIdentifier: "OrganizationShowVC") as! OrganizationShowViewController
+        organizationShowVC.organizationID = organizationID
+        
+        viewController.navigationController?.pushViewController(organizationShowVC, animated: true)
+    }
+
     
     // Communication
     func passDataToNextScene(segue: UIStoryboardSegue) {
