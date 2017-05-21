@@ -23,14 +23,9 @@ import UIKit
     override func draw(_ rect: CGRect) {
         let titleText = (titleLabel?.text != nil) ? (titleLabel?.text!.localized())! : String()
         
-        if (isLightColorAppSchema) {
-            backgroundColor = UIColor.white
-        } else {
-            backgroundColor = UIColor.init(hexString: "#273745", withAlpha: 1.0)
-        }
-
+        backgroundColor = (isLightColorAppSchema) ? UIColor.white : UIColor.init(hexString: "#273745", withAlpha: 1.0)
         tintColor = (isLightColorAppSchema) ? UIColor.black : UIColor.lightGrayishCyan
-        titleLabel?.font = (isLightColorAppSchema) ? UIFont.systemFont(ofSize: 12) : UIFont.ubuntuLightItalic09
+        titleLabel?.font = (isLightColorAppSchema) ? UIFont.systemFont(ofSize: 09) : UIFont.ubuntuLightItalic09
         borderColor = (isLightColorAppSchema) ? UIColor.black : UIColor.init(hexString: "#1d2a37", withAlpha: 1.0)
 
         setAttributedTitle(NSAttributedString(string: titleText, attributes: [NSForegroundColorAttributeName: UIColor.lightGrayishCyan]), for: .normal)
@@ -38,7 +33,10 @@ import UIKit
 
         layer.borderWidth = 1
         layer.cornerRadius = frame.height / 2
-        titleEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 0)
+        
+//        let leghtTitle = Double(titleLabel!.text!.characters.count) * 7.5
+//        self.frame = CGRect.init(origin: frame.origin, size: CGSize.init(width: CGFloat(leghtTitle), height: frame.height))
+
         clipsToBounds = true
         
         guard imageView?.image != nil, titleLabel?.text != nil else {

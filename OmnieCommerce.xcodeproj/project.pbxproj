@@ -315,6 +315,8 @@
 		B18FBB131ED0B6B60037804C /* HandbookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18FBB111ED0B6B60037804C /* HandbookTableViewCell.swift */; };
 		B18FBB141ED0B6B60037804C /* HandbookTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B18FBB121ED0B6B60037804C /* HandbookTableViewCell.xib */; };
 		B18FBB181ED0D07C0037804C /* HandbookShow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B18FBB171ED0D07C0037804C /* HandbookShow.storyboard */; };
+		B18FBB1F1ED1630B0037804C /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = B18FBB1E1ED1630B0037804C /* iCarousel.m */; };
+		B18FBB211ED163710037804C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B18FBB201ED163710037804C /* QuartzCore.framework */; };
 		B19375521EB4CB9B00B48399 /* ConfirmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19375511EB4CB9B00B48399 /* ConfirmView.swift */; };
 		B19375541EB4CBA300B48399 /* ConfirmView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B19375531EB4CBA300B48399 /* ConfirmView.xib */; };
 		B19668601E73098600B9C9AE /* OrganizationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B196685F1E73098600B9C9AE /* OrganizationTableViewCell.swift */; };
@@ -835,6 +837,9 @@
 		B18FBB111ED0B6B60037804C /* HandbookTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HandbookTableViewCell.swift; sourceTree = "<group>"; };
 		B18FBB121ED0B6B60037804C /* HandbookTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HandbookTableViewCell.xib; sourceTree = "<group>"; };
 		B18FBB171ED0D07C0037804C /* HandbookShow.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = HandbookShow.storyboard; sourceTree = "<group>"; };
+		B18FBB1D1ED1630B0037804C /* iCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCarousel.h; sourceTree = "<group>"; };
+		B18FBB1E1ED1630B0037804C /* iCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCarousel.m; sourceTree = "<group>"; };
+		B18FBB201ED163710037804C /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		B19375511EB4CB9B00B48399 /* ConfirmView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmView.swift; sourceTree = "<group>"; };
 		B19375531EB4CBA300B48399 /* ConfirmView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConfirmView.xib; sourceTree = "<group>"; };
 		B196685F1E73098600B9C9AE /* OrganizationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrganizationTableViewCell.swift; sourceTree = "<group>"; };
@@ -1060,6 +1065,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B18FBB211ED163710037804C /* QuartzCore.framework in Frameworks */,
 				B1F3CD601E9806AD00ECAC35 /* ImageSlideshow.framework in Frameworks */,
 				B1131A961E768F2900DAF90A /* Alamofire.framework in Frameworks */,
 				B1FBC9161E6D474400D86429 /* LTHRadioButton.framework in Frameworks */,
@@ -1087,6 +1093,7 @@
 		A4A33B8C6849A99639A17A3F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B18FBB201ED163710037804C /* QuartzCore.framework */,
 				B1F3CD5F1E9806AD00ECAC35 /* ImageSlideshow.framework */,
 				B1131A941E768F2900DAF90A /* Alamofire.framework */,
 				B1131A951E768F2900DAF90A /* AlamofireImage.framework */,
@@ -1589,6 +1596,7 @@
 		B122F2451DD392C60018A701 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				B18FBB1C1ED162E70037804C /* iCarousel */,
 				B1D7384F1E93B23300A764F4 /* Assets.xcassets */,
 				B1BF924E1DD6508A00BECBBB /* Fonts */,
 				B122F24A1DD393330018A701 /* Localizable.strings */,
@@ -1938,6 +1946,15 @@
 				B18FBB121ED0B6B60037804C /* HandbookTableViewCell.xib */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		B18FBB1C1ED162E70037804C /* iCarousel */ = {
+			isa = PBXGroup;
+			children = (
+				B18FBB1D1ED1630B0037804C /* iCarousel.h */,
+				B18FBB1E1ED1630B0037804C /* iCarousel.m */,
+			);
+			path = iCarousel;
 			sourceTree = "<group>";
 		};
 		B19375501EB4CB6200B48399 /* Views */ = {
@@ -2606,6 +2623,7 @@
 				B1F3CD541E97AA7900ECAC35 /* PhotosGalleryView.swift in Sources */,
 				B14C07231EA0993800556866 /* ServicesShowViewController.swift in Sources */,
 				B122F2071DD35BEB0018A701 /* CategoriesShowModels.swift in Sources */,
+				B18FBB1F1ED1630B0037804C /* iCarousel.m in Sources */,
 				B10B48DC1E8A5B2E007DDD81 /* FavoriteOrganizationsShowPresenter.swift in Sources */,
 				B1CF54CD1DDB51A500E98049 /* PersonalPageShowPresenter.swift in Sources */,
 				B177E5381E5475EC004F1390 /* SignInContainerShowRouter.swift in Sources */,

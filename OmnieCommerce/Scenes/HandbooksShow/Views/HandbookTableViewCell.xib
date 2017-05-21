@@ -35,7 +35,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="o1N-GT-z5a">
-                                <rect key="frame" x="52" y="1" width="227" height="37"/>
+                                <rect key="frame" x="52" y="10" width="227" height="52"/>
                                 <subviews>
                                     <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Organization Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hod-EF-PIW" userLabel="Organization Name Label" customClass="UbuntuLightVeryLightGrayLabel" customModule="OmnieCommerce" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="227" height="19"/>
@@ -51,7 +51,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </label>
                                     <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hKe-9x-Ysk" userLabel="Address Label" customClass="UbuntuLightItalicLightGrayishCyanLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="20" width="227" height="17"/>
+                                        <rect key="frame" x="0.0" y="22" width="227" height="30"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="pTl-gh-xo0"/>
@@ -75,6 +75,17 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </stackView>
+                            <view clipsSubviews="YES" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="Lpy-D3-dxI" userLabel="iCarousel View" customClass="iCarousel">
+                                <rect key="frame" x="52" y="64" width="217" height="15"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outlet property="dataSource" destination="t8b-kV-lCE" id="f9h-Ii-kbu"/>
+                                    <outlet property="delegate" destination="t8b-kV-lCE" id="JZO-yJ-zg1"/>
+                                </connections>
+                            </view>
                             <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QoE-Of-7Vf" userLabel="Phone Button" customClass="FillVeryLightOrangeButton" customModule="OmnieCommerce" customModuleProvider="target">
                                 <rect key="frame" x="287" y="14" width="22" height="22"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -105,13 +116,16 @@
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="QoE-Of-7Vf" secondAttribute="trailing" constant="8" id="0tk-Is-Dnz"/>
                             <constraint firstItem="QoE-Of-7Vf" firstAttribute="top" secondItem="XLs-NS-f4d" secondAttribute="top" constant="14" id="2a6-ku-3nH"/>
+                            <constraint firstItem="Drm-Yr-a0D" firstAttribute="leading" secondItem="Lpy-D3-dxI" secondAttribute="trailing" constant="18" id="56d-w0-Tgo"/>
                             <constraint firstItem="13g-08-x1W" firstAttribute="leading" secondItem="XLs-NS-f4d" secondAttribute="leading" id="Fpm-ll-KAz"/>
                             <constraint firstItem="o1N-GT-z5a" firstAttribute="top" secondItem="XLs-NS-f4d" secondAttribute="top" constant="10" id="TfC-YV-kMh"/>
                             <constraint firstAttribute="bottom" secondItem="13g-08-x1W" secondAttribute="bottom" id="WIy-1s-tyH"/>
                             <constraint firstAttribute="trailing" secondItem="13g-08-x1W" secondAttribute="trailing" id="WLO-0e-Sv0"/>
                             <constraint firstItem="o1N-GT-z5a" firstAttribute="leading" secondItem="XLs-NS-f4d" secondAttribute="leading" constant="52" id="Znw-uu-4hj"/>
+                            <constraint firstItem="Lpy-D3-dxI" firstAttribute="leading" secondItem="o1N-GT-z5a" secondAttribute="leading" id="Zzf-tO-pQL"/>
                             <constraint firstAttribute="bottom" secondItem="Drm-Yr-a0D" secondAttribute="bottom" constant="14" id="bJp-0o-sh3"/>
                             <constraint firstAttribute="trailing" secondItem="Drm-Yr-a0D" secondAttribute="trailing" constant="8" id="g4P-k0-Hoh"/>
+                            <constraint firstItem="Lpy-D3-dxI" firstAttribute="top" secondItem="o1N-GT-z5a" secondAttribute="bottom" constant="2" id="kIN-n8-x3w"/>
                             <constraint firstItem="Drm-Yr-a0D" firstAttribute="width" secondItem="Drm-Yr-a0D" secondAttribute="height" multiplier="1:1" id="l6C-5O-0xV"/>
                             <constraint firstItem="Drm-Yr-a0D" firstAttribute="leading" secondItem="o1N-GT-z5a" secondAttribute="trailing" constant="8" id="uDz-sV-3og"/>
                             <constraint firstItem="13g-08-x1W" firstAttribute="top" secondItem="XLs-NS-f4d" secondAttribute="top" id="yH7-bM-zyJ"/>
@@ -152,6 +166,7 @@
                     <constraint firstItem="XLs-NS-f4d" firstAttribute="top" secondItem="sMV-OY-u28" secondAttribute="top" constant="5" id="d0g-bt-HAe"/>
                     <constraint firstItem="QoE-Of-7Vf" firstAttribute="height" secondItem="sMV-OY-u28" secondAttribute="height" multiplier="22:96" id="qc0-W3-UOx"/>
                     <constraint firstItem="Ryx-ei-hEh" firstAttribute="centerY" secondItem="sMV-OY-u28" secondAttribute="centerY" id="rJR-kJ-dSf"/>
+                    <constraint firstItem="Lpy-D3-dxI" firstAttribute="height" secondItem="sMV-OY-u28" secondAttribute="height" multiplier="15:96" id="uHg-Y6-Kgh"/>
                     <constraint firstItem="XLs-NS-f4d" firstAttribute="leading" secondItem="sMV-OY-u28" secondAttribute="leading" constant="50" id="z54-2l-awJ"/>
                 </constraints>
                 <userDefinedRuntimeAttributes>
@@ -168,6 +183,7 @@
             <connections>
                 <outlet property="addressLabel" destination="hKe-9x-Ysk" id="J8k-Zf-ZfU"/>
                 <outlet property="cardButton" destination="Drm-Yr-a0D" id="4VT-92-b9k"/>
+                <outlet property="carouselView" destination="Lpy-D3-dxI" id="FdT-nz-HZS"/>
                 <outlet property="dottedBorderView" destination="13g-08-x1W" id="qPy-G6-Il7"/>
                 <outlet property="organizationImageView" destination="Ryx-ei-hEh" id="oCS-US-A5h"/>
                 <outlet property="organizationNameLabel" destination="hod-EF-PIW" id="Do4-jr-1NL"/>

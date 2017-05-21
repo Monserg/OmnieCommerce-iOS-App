@@ -229,7 +229,7 @@
                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
-                                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="4fB-vI-cJk" userLabel="Organization Button" customClass="BorderVeryDarkDesaturatedBlueButton" customModule="OmnieCommerce" customModuleProvider="target">
+                                                    <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="4fB-vI-cJk" userLabel="Organization Button" customClass="BorderVeryDarkDesaturatedBlueButton" customModule="OmnieCommerce" customModuleProvider="target">
                                                         <rect key="frame" x="44" y="3.5" width="30" height="14.5"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <userDefinedRuntimeAttributes>

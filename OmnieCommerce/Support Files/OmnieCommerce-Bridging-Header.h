@@ -6,3 +6,4 @@
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 #import "DLRadioButton.h"
+#import "iCarousel.h"
