@@ -122,6 +122,7 @@
 "All services"                  =   "Усі послуги";
 "View Order"                    =   "Переглянути замовлення";
 "Save as template"              =   "Зберегти як шаблон";
+"Add dictionary photo"          =   "Добавити фото закладу";
 
 
 // TextField Placeholders
@@ -140,6 +141,7 @@
 "Enter Search text"             =   "Введіть назву для пошуку";
 "Theme"                         =   "Тема";
 "Comment"                       =   "Коментар";
+"Keywords"                      =   "Ключові слова";
 
 
 // Segmented Control Titles

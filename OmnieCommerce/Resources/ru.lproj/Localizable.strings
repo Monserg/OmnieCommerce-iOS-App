@@ -122,6 +122,7 @@
 "All services"                  =   "Все услуги";
 "View Order"                    =   "Посмотреть заказ";
 "Save as template"              =   "Сохранить как шаблон";
+"Add dictionary photo"          =   "Добавить фото справочника";
 
 
 // TextField Placeholders
@@ -140,6 +141,7 @@
 "Enter Search text"             =   "Введите название для поиска";
 "Theme"                         =   "Тема";
 "Comment"                       =   "Комментарий";
+"Keywords"                      =   "Ключевые слова";
 
 
 // Segmented Control Titles

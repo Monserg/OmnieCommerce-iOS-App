@@ -20,7 +20,9 @@ class AvatarActionView: CustomView {
     
     @IBOutlet var view: UIView!
     @IBOutlet weak var cancelButton: UIButton!
-    @IBOutlet weak var deleteButton: UbuntuLightVeryLightOrangeButton!
+    @IBOutlet weak var uploadPhotoButton: UbuntuLightVeryLightOrangeButton!
+    @IBOutlet weak var makePhotoButton: UbuntuLightVeryLightOrangeButton!
+    @IBOutlet weak var deletePhotoButton: UbuntuLightVeryLightOrangeButton!
     
     // MARK: - Class Initialization
     init(inView view: UIView) {

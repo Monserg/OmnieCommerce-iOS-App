@@ -122,6 +122,7 @@
 "All services"                  =   "All services";
 "View Order"                    =   "View Order";
 "Save as template"              =   "Save as template";
+"Add dictionary photo"          =   "Add dictionary photo";
 
 
 // TextField Placeholders
@@ -140,6 +141,7 @@
 "Enter Search text"             =   "Enter search text";
 "Theme"                         =   "Theme";
 "Comment"                       =   "Comment";
+"Keywords"                      =   "Keywords";
 
 
 // Segmented Control Titles

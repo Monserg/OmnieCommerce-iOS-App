@@ -25,12 +25,16 @@ class HandbookShowViewController: BaseViewController {
     var output: HandbookShowViewControllerOutput!
     var router: HandbookShowRouter!
     
-    // nil = create mode
-//    var handbookID: String!
-    
     // Outlets
     @IBOutlet weak var smallTopBarView: SmallTopBarView!
+    @IBOutlet var modalView: ModalView!
     
+    @IBOutlet weak var imageButton: UIButton! {
+        didSet {
+            let title = imageButton.titleLabel?.text?.localized()
+            imageButton.setTitle(title, for: .normal)
+        }
+    }
     
     // MARK: - Class Initialization
     override func awakeFromNib() {
@@ -68,6 +72,24 @@ class HandbookShowViewController: BaseViewController {
             
     }
     
+    func handlerResult(fromImagePicker imagePickerController: MSMImagePickerController, forAvatarButton avatarButton: UIButton) {
+        // Handler Success Select Image
+        imagePickerController.handlerImagePickerControllerCompletion = { image in
+            if (isNetworkAvailable) {
+                // Upload Image API
+                self.spinnerDidStart(self.blackoutView!)
+                
+//                let imageUploadRequestModel = PersonalPageShowModels.UploadImage.RequestModel(image: image)
+//                self.interactor.userAppImageDidUpload(withRequestModel: imageUploadRequestModel)
+            }
+        }
+        
+        // Handler Cancel result
+        imagePickerController.handlerCancelButtonCompletion = { _ in
+            self.blackoutView!.didHide()
+        }
+    }
+
     
     // MARK: - Transition
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -75,6 +97,63 @@ class HandbookShowViewController: BaseViewController {
         
         smallTopBarView.setNeedsDisplay()
         smallTopBarView.circleView.setNeedsDisplay()
+    }
+    
+    // MARK: - Actions
+    @IBAction func handlerImageButtonTap(_ sender: UIButton) {
+        self.blackoutView = MSMBlackoutView.init(inView: self.view)
+        
+        self.blackoutView!.didShow()
+        
+        let avatarActionView = AvatarActionView.init(inView: self.view)
+        
+        if (sender.currentImage == nil) {
+            avatarActionView.deletePhotoButton.isHidden = true
+        }
+        
+        // Handler AvatarActionView completions
+        avatarActionView.handlerViewDismissCompletion = { actionType in
+            switch actionType {
+            // Handler Photo Make button tap
+            case .PhotoUpload:
+                let imagePickerController = MSMImagePickerController()
+                imagePickerController.photoDidLoadFromAlbum()
+                
+                self.present(imagePickerController, animated: true, completion: nil)
+                
+                // Handler MSMImagePickerController results
+                self.handlerResult(fromImagePicker: imagePickerController, forAvatarButton: sender)
+                
+            case .PhotoMake:
+                let imagePickerController = MSMImagePickerController()
+                
+                guard imagePickerController.photoDidMakeWithCamera() else {
+                    self.alertViewDidShow(withTitle: "Error", andMessage: "Camera is not available", completion: { _ in })
+                    self.blackoutView!.didHide()
+                    return
+                }
+                
+                self.present(imagePickerController, animated: true, completion: nil)
+                
+                // Handler MSMImagePickerController results
+                self.handlerResult(fromImagePicker: imagePickerController, forAvatarButton: sender)
+                
+            case .PhotoDelete:
+                UIView.animate(withDuration: 0.7, animations: {
+                    sender.setImage(UIImage.init(named: "image-no-user"), for: .normal)
+                }, completion: { success in
+                    appUser.imageID = nil
+                    CoreDataManager.instance.didSaveContext()
+                    self.blackoutView!.didHide()
+                })
+            }
+        }
+        
+        
+        // Handler AvatarActionView Cancel button tap
+        avatarActionView.handlerCancelButtonCompletion = { _ in
+            self.blackoutView!.didHide()
+        }
     }
 }
 

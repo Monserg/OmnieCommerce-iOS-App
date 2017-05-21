@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -14,7 +14,9 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AvatarActionView">
             <connections>
                 <outlet property="cancelButton" destination="5d2-SK-bQu" id="hBS-W2-wv0"/>
-                <outlet property="deleteButton" destination="QEw-l9-xXg" id="PbG-Wa-ky6"/>
+                <outlet property="deletePhotoButton" destination="QEw-l9-xXg" id="yIZ-Pd-VBL"/>
+                <outlet property="makePhotoButton" destination="nMe-Yh-hVS" id="ABL-h4-LZu"/>
+                <outlet property="uploadPhotoButton" destination="Sys-bT-jlw" id="M3t-RO-aQA"/>
                 <outlet property="view" destination="iN0-l3-epB" id="ejE-4b-RN8"/>
             </connections>
         </placeholder>
@@ -53,37 +55,40 @@
                                 <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
                             </userDefinedRuntimeAttributes>
                         </label>
-                        <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sys-bT-jlw" customClass="UbuntuLightVeryLightOrangeButton" customModule="OmnieCommerce" customModuleProvider="target">
+                        <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sys-bT-jlw" customClass="UbuntuLightVeryLightOrangeButton" customModule="OmnieCommerce" customModuleProvider="target">
                             <rect key="frame" x="143.5" y="65.5" width="76" height="27"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                             <state key="normal" title="Photo upload"/>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="isTitleUnderlined" value="NO"/>
                             </userDefinedRuntimeAttributes>
                             <connections>
                                 <action selector="handlerPhotoUploadButtonTap:" destination="-1" eventType="touchUpInside" id="WTl-G8-s0J"/>
                             </connections>
                         </button>
-                        <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nMe-Yh-hVS" customClass="UbuntuLightVeryLightOrangeButton" customModule="OmnieCommerce" customModuleProvider="target">
+                        <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nMe-Yh-hVS" customClass="UbuntuLightVeryLightOrangeButton" customModule="OmnieCommerce" customModuleProvider="target">
                             <rect key="frame" x="143.5" y="102.5" width="67" height="27"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                             <state key="normal" title="Photo make"/>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="isTitleUnderlined" value="NO"/>
                             </userDefinedRuntimeAttributes>
                             <connections>
                                 <action selector="handlerPhotoMakeButtonTap:" destination="-1" eventType="touchUpInside" id="m8b-jA-fmv"/>
                             </connections>
                         </button>
-                        <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QEw-l9-xXg" customClass="UbuntuLightVeryLightOrangeButton" customModule="OmnieCommerce" customModuleProvider="target">
+                        <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QEw-l9-xXg" customClass="UbuntuLightVeryLightOrangeButton" customModule="OmnieCommerce" customModuleProvider="target">
                             <rect key="frame" x="143.5" y="139.5" width="72" height="27"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                             <state key="normal" title="Photo delete"/>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="isTitleUnderlined" value="NO"/>
                             </userDefinedRuntimeAttributes>
                             <connections>
                                 <action selector="handlerPhotoDeleteButtonTap:" destination="-1" eventType="touchUpInside" id="Onk-ZJ-bnt"/>
