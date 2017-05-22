@@ -24,7 +24,7 @@ import UIKit
 //        }
         
         tintColor = UIColor.veryLightOrange
-        let titleText = (isTitleUnderlined) ? attributedTitle(for: .normal)!.string : (titleLabel?.text!.localized())!
+        let titleText = ((isTitleUnderlined) ? attributedTitle(for: .normal)!.string : titleLabel?.text?.localized()) ?? ""
         
         setAttributedTitle(NSAttributedString(string: titleText,
                                               attributes:   [ NSFontAttributeName: (isLightColorAppSchema ? UIFont.systemFont(ofSize: 12) : UIFont(name: "Ubuntu-Light", size: titleLabel!.font!.pointSize)!),

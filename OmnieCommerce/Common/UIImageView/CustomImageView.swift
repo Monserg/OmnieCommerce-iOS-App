@@ -36,5 +36,7 @@ import UIKit
 
     
     // MARK: - Class Functions
-    override func draw(_ rect: CGRect) {}
+    override func draw(_ rect: CGRect) {
+        layer.cornerRadius = self.cornerRadius
+    }
 }

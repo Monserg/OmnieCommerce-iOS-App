@@ -35,16 +35,16 @@ class HandbookShowConfigurator {
 
     // MARK: - Custom Functions
     func configure(viewController: HandbookShowViewController) {
-        let router = HandbookShowRouter()
-        router.viewController = viewController
+        let router                  =   HandbookShowRouter()
+        router.viewController       =   viewController
         
-        let presenter = HandbookShowPresenter()
-        presenter.output = viewController
+        let presenter               =   HandbookShowPresenter()
+        presenter.viewController    =   viewController
         
-        let interactor = HandbookShowInteractor()
-        interactor.output = presenter
+        let interactor              =   HandbookShowInteractor()
+        interactor.presenter        =   presenter
         
-        viewController.output = interactor
-        viewController.router = router
+        viewController.interactor   =   interactor
+        viewController.router       =   router
     }
 }

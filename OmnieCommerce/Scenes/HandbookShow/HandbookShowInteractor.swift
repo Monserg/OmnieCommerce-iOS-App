@@ -13,27 +13,39 @@ import UIKit
 
 // MARK: - Input & Output protocols
 protocol HandbookShowInteractorInput {
-    func doSomething(request: HandbookShow.Something.Request)
+    func handbookDidCreate(withRequestModel requestModel: HandbookShowModels.Item.RequestModel)
+    func handbookImageDidUpload(withRequestModel requestModel: HandbookShowModels.Image.RequestModel)
 }
 
 protocol HandbookShowInteractorOutput {
-    func presentSomething(response: HandbookShow.Something.Response)
+    func handbookDidPrepareToShowCreate(fromResponseModel responseModel: HandbookShowModels.Item.ResponseModel)
+    func handbookImageDidPrepareToShowUpload(fromResponseModel responseModel: HandbookShowModels.Image.ResponseModel)
 }
 
 class HandbookShowInteractor: HandbookShowInteractorInput {
     // MARK: - Properties
-    var output: HandbookShowInteractorOutput!
+    var presenter: HandbookShowInteractorOutput!
     var worker: HandbookShowWorker!
     
     
     // MARK: - Custom Functions. Business logic
-    func doSomething(request: HandbookShow.Something.Request) {
+    func handbookDidCreate(withRequestModel requestModel: HandbookShowModels.Item.RequestModel) {
         // NOTE: Create some Worker to do the work
         worker = HandbookShowWorker()
         worker.doSomeWork()
-        
+      
         // NOTE: Pass the result to the Presenter
-        let response = HandbookShow.Something.Response()
-        output.presentSomething(response: response)
+        MSMRestApiManager.instance.userRequestDidRun(.userCreateNewHandbook(requestModel.parameters, true), withHandlerResponseAPICompletion:  { responseAPI in
+            let handbookResponseModel = HandbookShowModels.Item.ResponseModel(responseAPI: responseAPI)
+            self.presenter.handbookDidPrepareToShowCreate(fromResponseModel: handbookResponseModel)
+        })
+    }
+    
+    func handbookImageDidUpload(withRequestModel requestModel: HandbookShowModels.Image.RequestModel) {
+        MSMRestApiManager.instance.userUploadImage(requestModel.image) { responseAPI in
+            // Pass the result to the Presenter
+            let imageUploadResponseModel = HandbookShowModels.Image.ResponseModel(responseAPI: responseAPI)
+            self.presenter.handbookImageDidPrepareToShowUpload(fromResponseModel: imageUploadResponseModel)
+        }
     }
 }

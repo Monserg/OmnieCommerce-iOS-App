@@ -123,6 +123,7 @@
 "View Order"                    =   "Посмотреть заказ";
 "Save as template"              =   "Сохранить как шаблон";
 "Add dictionary photo"          =   "Добавить фото справочника";
+"Change dictionary photo"       =   "Изменить фото справочника";
 
 
 // TextField Placeholders

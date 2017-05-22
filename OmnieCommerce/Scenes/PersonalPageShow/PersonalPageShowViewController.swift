@@ -113,7 +113,7 @@ class PersonalPageShowViewController: BaseViewController {
             self.avatarActionView = AvatarActionView.init(inView: self.view)
             
             if ((sender as! CustomButton).currentImage == nil) {
-                self.avatarActionView!.deleteButton.isHidden = true
+                self.avatarActionView!.deletePhotoButton.isHidden = true
             }
             
             // Handler AvatarActionView completions

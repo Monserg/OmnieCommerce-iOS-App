@@ -10,29 +10,41 @@
 //
 
 import UIKit
+import Kingfisher
 
 // MARK: - Input & Output protocols
 protocol HandbookShowViewControllerInput {
-    func displaySomething(viewModel: HandbookShow.Something.ViewModel)
+    func handbookDidShowCreate(fromViewModel viewModel: HandbookShowModels.Item.ViewModel)
+    func handbookImageDidShowUpload(fromViewModel viewModel: HandbookShowModels.Image.ViewModel)
 }
 
 protocol HandbookShowViewControllerOutput {
-    func doSomething(request: HandbookShow.Something.Request)
+    func handbookDidCreate(withRequestModel requestModel: HandbookShowModels.Item.RequestModel)
+    func handbookImageDidUpload(withRequestModel requestModel: HandbookShowModels.Image.RequestModel)
 }
 
 class HandbookShowViewController: BaseViewController {
     // MARK: - Properties
-    var output: HandbookShowViewControllerOutput!
+    var interactor: HandbookShowViewControllerOutput!
     var router: HandbookShowRouter!
+    
+    var imageID: String? {
+        didSet {
+            let title = (self.imageID == nil) ? "Add dictionary photo" : "Change dictionary photo"
+            self.imageButton.setTitle(title, for: .normal)
+            self.imageButton.setNeedsDisplay()
+        }
+    }
     
     // Outlets
     @IBOutlet weak var smallTopBarView: SmallTopBarView!
     @IBOutlet var modalView: ModalView!
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var imageView: UIImageView!
     
-    @IBOutlet weak var imageButton: UIButton! {
+    @IBOutlet weak var imageButton: UbuntuLightVeryLightOrangeButton! {
         didSet {
-            let title = imageButton.titleLabel?.text?.localized()
-            imageButton.setTitle(title, for: .normal)
+            imageButton.setTitle("Add dictionary photo", for: .normal)
         }
     }
     
@@ -58,6 +70,7 @@ class HandbookShowViewController: BaseViewController {
         
         // Config smallTopBarView
         navigationBarView = smallTopBarView
+        scrollViewBase = scrollView
         smallTopBarView.type = "Child"
         haveMenuItem = false
         
@@ -79,8 +92,8 @@ class HandbookShowViewController: BaseViewController {
                 // Upload Image API
                 self.spinnerDidStart(self.blackoutView!)
                 
-//                let imageUploadRequestModel = PersonalPageShowModels.UploadImage.RequestModel(image: image)
-//                self.interactor.userAppImageDidUpload(withRequestModel: imageUploadRequestModel)
+                let imageUploadRequestModel = HandbookShowModels.Image.RequestModel(image: image)
+                self.interactor.handbookImageDidUpload(withRequestModel: imageUploadRequestModel)
             }
         }
         
@@ -155,15 +168,66 @@ class HandbookShowViewController: BaseViewController {
             self.blackoutView!.didHide()
         }
     }
+    
+    @IBAction func handlerSaveButtonTap(_ sender: FillVeryLightOrangeButton) {
+        spinnerDidStart(view)
+        
+        let parameters: [String: Any] = [
+                                            "name"      :   "Serg tested org 1",
+                                            "address"   :   "Хмельницкий, ул. Горбанчука 6",
+                                            "imageId"   :   "",
+                                            "phones"    :   "",
+                                            "tags"      :   "",
+                                            "imageId"   :   imageID ?? ""
+                                        ]
+        
+        let handbookRequestModel = HandbookShowModels.Item.RequestModel(parameters: parameters)
+        interactor.handbookDidCreate(withRequestModel: handbookRequestModel)
+    }
+    
+    @IBAction func handlerCancelButtonTap(_ sender: BorderVeryLightOrangeButton) {
+        self.navigationController!.popViewController(animated: true)
+    }
 }
 
 
 // MARK: - HandbookShowViewControllerInput
 extension HandbookShowViewController: HandbookShowViewControllerInput {
-    func displaySomething(viewModel: HandbookShow.Something.ViewModel) {
-        print(object: "\(type(of: self)): \(#function) run.")
+    func handbookDidShowCreate(fromViewModel viewModel: HandbookShowModels.Item.ViewModel) {
+        // Check for errors
+        guard viewModel.status == "SUCCESS" else {
+            self.alertViewDidShow(withTitle: "Error", andMessage: viewModel.status, completion: { })
+            
+            return
+        }
         
-        // Display the result from the Presenter
-        // nameTextField.text = viewModel.name
+        self.navigationController!.popViewController(animated: true)
+    }
+    
+    func handbookImageDidShowUpload(fromViewModel viewModel: HandbookShowModels.Image.ViewModel) {
+        // Check for errors
+        guard viewModel.responseAPI!.status == "SUCCESS" else {
+            self.alertViewDidShow(withTitle: "Error", andMessage: viewModel.responseAPI!.status, completion: { })
+            
+            return
+        }
+
+        // Change Avatar Button Image
+        if let imageCodeID = viewModel.responseAPI?.body as? String, !imageCodeID.isEmpty {
+            self.imageView.kf.setImage(with: ImageResource(downloadURL: imageCodeID.convertToURL(withSize: .Medium, inMode: .Get), cacheKey: imageCodeID),
+                                                            placeholder: UIImage.init(named: "image-no-photo"),
+                                                            options: [.transition(ImageTransition.fade(1)),
+                                                                      .processor(ResizingImageProcessor(referenceSize: self.imageButton.frame.size,
+                                                                                                        mode: .aspectFill))],
+                                                            completionHandler: { image, error, cacheType, imageURL in
+                                                                self.imageView.kf.cancelDownloadTask()
+                                                                self.imageID = imageCodeID
+            })
+        } else {
+            self.imageView.backgroundColor = UIColor.init(hexString: "#273745")
+        }
+        
+        self.blackoutView!.didHide()
+        self.spinnerDidFinish()
     }
 }

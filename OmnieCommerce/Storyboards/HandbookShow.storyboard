@@ -30,54 +30,147 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="type" value="Child"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <stackView clipsSubviews="YES" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Jyg-cW-TY1" userLabel="Info Stack View">
-                                <rect key="frame" x="75.5" y="110" width="224" height="440"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KgS-Wu-CWa">
+                                <rect key="frame" x="0.0" y="95" width="375" height="543"/>
                                 <subviews>
-                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kgk-dh-D1R" userLabel="Image View">
-                                        <rect key="frame" x="0.0" y="0.0" width="224" height="220"/>
+                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0cG-7k-X4Q" userLabel="Content View">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                         <subviews>
-                                            <button clipsSubviews="YES" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aLk-zQ-LIL" userLabel="Image Button">
-                                                <rect key="frame" x="0.0" y="0.0" width="224" height="135"/>
-                                                <color key="backgroundColor" red="0.15294117647058825" green="0.21568627450980393" blue="0.27058823529411763" alpha="1" colorSpace="calibratedRGB"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                <state key="normal" title="Add dictionary photo">
-                                                    <color key="titleColor" red="1" green="0.84313725490196079" blue="0.42352941176470588" alpha="1" colorSpace="calibratedRGB"/>
-                                                </state>
+                                            <stackView clipsSubviews="YES" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Jyg-cW-TY1" userLabel="Info Stack View">
+                                                <rect key="frame" x="75.5" y="15" width="224" height="360"/>
+                                                <subviews>
+                                                    <view clipsSubviews="YES" contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="kgk-dh-D1R" userLabel="Image View">
+                                                        <rect key="frame" x="0.0" y="0.0" width="224" height="140"/>
+                                                        <subviews>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Dxq-SE-v4L" customClass="CustomImageView" customModule="OmnieCommerce" customModuleProvider="target">
+                                                                <rect key="frame" x="-0.5" y="0.0" width="224" height="135"/>
+                                                                <color key="backgroundColor" red="0.15294117647058825" green="0.21568627450980393" blue="0.27058823529411763" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                        <real key="value" value="5"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </imageView>
+                                                            <button clipsSubviews="YES" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aLk-zQ-LIL" userLabel="Image Button" customClass="UbuntuLightVeryLightOrangeButton" customModule="OmnieCommerce" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="0.0" width="224" height="135"/>
+                                                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="calibratedRGB"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="135" id="93f-40-9Ps"/>
+                                                                    <constraint firstAttribute="width" constant="224" id="HiL-e4-h9f"/>
+                                                                </constraints>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                        <real key="value" value="5"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isTitleUnderlined" value="NO"/>
+                                                                </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <action selector="handlerImageButtonTap:" destination="aIy-oy-tcM" eventType="touchUpInside" id="Lm1-Ps-vo9"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        <constraints>
+                                                            <constraint firstItem="Dxq-SE-v4L" firstAttribute="height" secondItem="aLk-zQ-LIL" secondAttribute="height" id="BCA-lA-P4C"/>
+                                                            <constraint firstItem="aLk-zQ-LIL" firstAttribute="centerX" secondItem="kgk-dh-D1R" secondAttribute="centerX" id="a4w-0V-rB8"/>
+                                                            <constraint firstItem="Dxq-SE-v4L" firstAttribute="top" secondItem="kgk-dh-D1R" secondAttribute="top" id="cCF-s5-uX0"/>
+                                                            <constraint firstItem="aLk-zQ-LIL" firstAttribute="top" secondItem="kgk-dh-D1R" secondAttribute="top" id="dN3-Q3-43h"/>
+                                                            <constraint firstItem="Dxq-SE-v4L" firstAttribute="centerX" secondItem="kgk-dh-D1R" secondAttribute="centerX" id="xPC-3d-FzB"/>
+                                                            <constraint firstItem="Dxq-SE-v4L" firstAttribute="width" secondItem="aLk-zQ-LIL" secondAttribute="width" id="zgS-L9-SZ5"/>
+                                                        </constraints>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="5"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </view>
+                                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="sly-pT-UmN" customClass="MSMTableView" customModule="OmnieCommerce" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="140" width="224" height="220"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </tableView>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <real key="value" value="5"/>
-                                                    </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
-                                                <connections>
-                                                    <action selector="handlerImageButtonTap:" destination="aIy-oy-tcM" eventType="touchUpInside" id="Lm1-Ps-vo9"/>
-                                                </connections>
-                                            </button>
+                                                <variation key="heightClass=compact-widthClass=compact" axis="horizontal" spacing="10"/>
+                                                <variation key="heightClass=compact-widthClass=regular" axis="horizontal" spacing="10"/>
+                                            </stackView>
+                                            <stackView clipsSubviews="YES" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="QZA-Hj-mST" userLabel="Action Stack View">
+                                                <rect key="frame" x="75.5" y="400" width="224" height="51"/>
+                                                <subviews>
+                                                    <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Db-te-x1f" userLabel="Save Button" customClass="FillVeryLightOrangeButton" customModule="OmnieCommerce" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="224" height="18"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="30" id="Aze-0U-6Vm"/>
+                                                            <constraint firstAttribute="width" constant="46" id="WTc-3S-Y3I"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                        <state key="normal" title="Save" image="icon-confirm-save-normal"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="handlerSaveButtonTap:" destination="aIy-oy-tcM" eventType="touchUpInside" id="teo-Oy-mE8"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cCc-VH-z6W" userLabel="Cancel Button" customClass="BorderVeryLightOrangeButton" customModule="OmnieCommerce" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="33" width="224" height="18"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="46" id="D28-4g-JXU"/>
+                                                            <constraint firstAttribute="height" constant="30" id="i20-yj-zAU"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                        <state key="normal" title="Cancel" image="icon-confirm-cancel-white-normal"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="handlerCancelButtonTap:" destination="aIy-oy-tcM" eventType="touchUpInside" id="o7h-Kj-Zuk"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
+                                                <variation key="heightClass=compact-widthClass=compact" axis="horizontal" spacing="10"/>
+                                                <variation key="heightClass=compact-widthClass=regular" axis="horizontal" spacing="10"/>
+                                            </stackView>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstItem="aLk-zQ-LIL" firstAttribute="centerX" secondItem="kgk-dh-D1R" secondAttribute="centerX" id="a4w-0V-rB8"/>
-                                            <constraint firstItem="aLk-zQ-LIL" firstAttribute="top" secondItem="kgk-dh-D1R" secondAttribute="top" id="dN3-Q3-43h"/>
+                                            <constraint firstItem="Jyg-cW-TY1" firstAttribute="top" secondItem="0cG-7k-X4Q" secondAttribute="top" constant="15" id="3Gs-XQ-gNg"/>
+                                            <constraint firstItem="QZA-Hj-mST" firstAttribute="centerX" secondItem="0cG-7k-X4Q" secondAttribute="centerX" id="QOa-Pv-nLM"/>
+                                            <constraint firstAttribute="bottom" secondItem="QZA-Hj-mST" secondAttribute="bottom" constant="25" id="XxJ-sz-f7c"/>
+                                            <constraint firstItem="QZA-Hj-mST" firstAttribute="top" secondItem="Jyg-cW-TY1" secondAttribute="bottom" constant="25" id="blS-gN-UDD"/>
+                                            <constraint firstItem="Jyg-cW-TY1" firstAttribute="centerX" secondItem="0cG-7k-X4Q" secondAttribute="centerX" id="hSl-h8-scc"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="sly-pT-UmN" customClass="MSMTableView" customModule="OmnieCommerce" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="220" width="224" height="220"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
-                                        </userDefinedRuntimeAttributes>
-                                    </tableView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="0cG-7k-X4Q" firstAttribute="leading" secondItem="KgS-Wu-CWa" secondAttribute="leading" id="1SD-tI-Yh7"/>
+                                    <constraint firstAttribute="trailing" secondItem="0cG-7k-X4Q" secondAttribute="trailing" id="F0h-qR-aqJ"/>
+                                    <constraint firstAttribute="bottom" secondItem="0cG-7k-X4Q" secondAttribute="bottom" id="IE8-2E-Dkd"/>
+                                    <constraint firstItem="0cG-7k-X4Q" firstAttribute="top" secondItem="KgS-Wu-CWa" secondAttribute="top" id="w5R-P1-Xw4"/>
+                                </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
-                                <variation key="heightClass=compact-widthClass=compact" axis="horizontal" spacing="10"/>
-                                <variation key="heightClass=compact-widthClass=regular" axis="horizontal" spacing="10"/>
-                            </stackView>
+                            </scrollView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Copyright" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ERr-6N-n2o" userLabel="Copyright Label" customClass="UbuntuLightDarkCyanLabel" customModule="OmnieCommerce" customModuleProvider="target">
                                 <rect key="frame" x="8" y="647" width="359" height="11"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -91,25 +184,32 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Jyg-cW-TY1" firstAttribute="width" secondItem="6mz-3c-taz" secondAttribute="width" multiplier="474:667" id="37h-50-HLK"/>
-                            <constraint firstItem="Jyg-cW-TY1" firstAttribute="width" secondItem="6mz-3c-taz" secondAttribute="width" multiplier="224:375" id="3LO-Yy-Nt1"/>
-                            <constraint firstItem="aLk-zQ-LIL" firstAttribute="height" secondItem="6mz-3c-taz" secondAttribute="height" multiplier="135:667" id="Bh8-YQ-iDS"/>
+                            <constraint firstItem="sly-pT-UmN" firstAttribute="height" secondItem="6mz-3c-taz" secondAttribute="height" multiplier="220:667" id="2Bn-7A-J9V"/>
+                            <constraint firstItem="KgS-Wu-CWa" firstAttribute="top" secondItem="Mzo-JX-FrS" secondAttribute="bottom" id="487-BH-bce"/>
+                            <constraint firstItem="QZA-Hj-mST" firstAttribute="width" secondItem="6mz-3c-taz" secondAttribute="width" multiplier="470:667" id="4AI-LG-LW4"/>
+                            <constraint firstItem="Jyg-cW-TY1" firstAttribute="width" secondItem="6mz-3c-taz" secondAttribute="width" multiplier="474:667" id="6Rh-c1-iJv"/>
+                            <constraint firstItem="aLk-zQ-LIL" firstAttribute="height" secondItem="6mz-3c-taz" secondAttribute="height" multiplier="135:375" id="8df-mO-bn0"/>
+                            <constraint firstItem="KgS-Wu-CWa" firstAttribute="leading" secondItem="6mz-3c-taz" secondAttribute="leading" id="AuN-G5-sw5"/>
                             <constraint firstItem="ERr-6N-n2o" firstAttribute="leading" secondItem="6mz-3c-taz" secondAttribute="leading" constant="8" id="D3f-wn-twT"/>
-                            <constraint firstItem="sly-pT-UmN" firstAttribute="width" secondItem="6mz-3c-taz" secondAttribute="width" multiplier="224:667" id="Fir-Y6-LOL"/>
+                            <constraint firstItem="Jyg-cW-TY1" firstAttribute="height" secondItem="6mz-3c-taz" secondAttribute="height" multiplier="176:375" id="DxG-Nw-bpJ"/>
+                            <constraint firstItem="QZA-Hj-mST" firstAttribute="height" secondItem="6mz-3c-taz" secondAttribute="height" multiplier="36:375" id="FNS-TZ-PLV"/>
                             <constraint firstAttribute="trailing" secondItem="ERr-6N-n2o" secondAttribute="trailing" constant="8" id="HiN-wS-Dzx"/>
-                            <constraint firstItem="Jyg-cW-TY1" firstAttribute="height" secondItem="6mz-3c-taz" secondAttribute="height" multiplier="355:667" priority="250" id="MzD-17-bz9"/>
+                            <constraint firstItem="0cG-7k-X4Q" firstAttribute="height" secondItem="6mz-3c-taz" secondAttribute="height" id="Kjc-gr-GBk"/>
                             <constraint firstItem="Mzo-JX-FrS" firstAttribute="height" secondItem="6mz-3c-taz" secondAttribute="height" multiplier="80:375" id="NxF-wD-9ry"/>
-                            <constraint firstItem="aLk-zQ-LIL" firstAttribute="height" secondItem="6mz-3c-taz" secondAttribute="height" multiplier="135:375" id="OIc-mh-H1F"/>
+                            <constraint firstItem="ERr-6N-n2o" firstAttribute="top" secondItem="KgS-Wu-CWa" secondAttribute="bottom" constant="9" id="Ooe-SJ-hoV"/>
                             <constraint firstItem="Mzo-JX-FrS" firstAttribute="height" secondItem="6mz-3c-taz" secondAttribute="height" multiplier="95:667" id="PiB-EF-haO"/>
                             <constraint firstAttribute="bottom" secondItem="ERr-6N-n2o" secondAttribute="bottom" constant="9" id="Q3o-uD-QdX"/>
-                            <constraint firstItem="Jyg-cW-TY1" firstAttribute="centerX" secondItem="6mz-3c-taz" secondAttribute="centerX" id="RUo-xa-JGg"/>
-                            <constraint firstItem="Jyg-cW-TY1" firstAttribute="top" secondItem="Mzo-JX-FrS" secondAttribute="bottom" constant="15" id="RjL-ng-N0o"/>
-                            <constraint firstItem="aLk-zQ-LIL" firstAttribute="width" secondItem="6mz-3c-taz" secondAttribute="width" multiplier="224:375" id="SRF-E4-ADR"/>
-                            <constraint firstItem="Jyg-cW-TY1" firstAttribute="height" secondItem="6mz-3c-taz" secondAttribute="height" multiplier="176:375" id="ZOT-hu-BQy"/>
+                            <constraint firstItem="Jyg-cW-TY1" firstAttribute="height" secondItem="6mz-3c-taz" secondAttribute="height" multiplier="360:667" id="Rpk-fn-Sem"/>
+                            <constraint firstItem="0cG-7k-X4Q" firstAttribute="width" secondItem="6mz-3c-taz" secondAttribute="width" id="SSq-LE-Aft"/>
                             <constraint firstItem="Mzo-JX-FrS" firstAttribute="top" secondItem="6mz-3c-taz" secondAttribute="top" id="Zbf-yD-B7K"/>
+                            <constraint firstAttribute="trailing" secondItem="KgS-Wu-CWa" secondAttribute="trailing" id="aBv-p4-OhH"/>
+                            <constraint firstItem="Jyg-cW-TY1" firstAttribute="width" secondItem="6mz-3c-taz" secondAttribute="width" multiplier="224:375" id="bZU-Px-DsC"/>
                             <constraint firstItem="Mzo-JX-FrS" firstAttribute="leading" secondItem="6mz-3c-taz" secondAttribute="leading" id="c3L-Y0-TaR"/>
-                            <constraint firstItem="sly-pT-UmN" firstAttribute="height" secondItem="6mz-3c-taz" secondAttribute="height" multiplier="220:667" id="d5G-fn-doZ"/>
-                            <constraint firstItem="aLk-zQ-LIL" firstAttribute="width" secondItem="6mz-3c-taz" secondAttribute="width" multiplier="224:667" id="qzx-Aa-t0O"/>
+                            <constraint firstItem="aLk-zQ-LIL" firstAttribute="width" secondItem="6mz-3c-taz" secondAttribute="width" multiplier="224:375" id="l8v-VV-cFi"/>
+                            <constraint firstItem="aLk-zQ-LIL" firstAttribute="height" secondItem="6mz-3c-taz" secondAttribute="height" multiplier="135:667" id="nmF-Gs-uEo"/>
+                            <constraint firstItem="QZA-Hj-mST" firstAttribute="height" secondItem="6mz-3c-taz" secondAttribute="height" multiplier="51:667" id="rrm-aO-X8U"/>
+                            <constraint firstItem="QZA-Hj-mST" firstAttribute="width" secondItem="6mz-3c-taz" secondAttribute="width" multiplier="224:375" id="slk-WQ-gx7"/>
+                            <constraint firstItem="aLk-zQ-LIL" firstAttribute="width" secondItem="6mz-3c-taz" secondAttribute="width" multiplier="224:667" id="yDz-uy-DTb"/>
                             <constraint firstAttribute="trailing" secondItem="Mzo-JX-FrS" secondAttribute="trailing" id="yeX-DH-4E3"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
@@ -118,33 +218,40 @@
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="PiB-EF-haO"/>
-                                <exclude reference="3LO-Yy-Nt1"/>
-                                <exclude reference="MzD-17-bz9"/>
-                                <exclude reference="Bh8-YQ-iDS"/>
-                                <exclude reference="SRF-E4-ADR"/>
-                                <exclude reference="d5G-fn-doZ"/>
+                                <exclude reference="Rpk-fn-Sem"/>
+                                <exclude reference="bZU-Px-DsC"/>
+                                <exclude reference="l8v-VV-cFi"/>
+                                <exclude reference="nmF-Gs-uEo"/>
+                                <exclude reference="2Bn-7A-J9V"/>
+                                <exclude reference="rrm-aO-X8U"/>
+                                <exclude reference="slk-WQ-gx7"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="constraints">
                                 <exclude reference="NxF-wD-9ry"/>
                                 <include reference="PiB-EF-haO"/>
-                                <exclude reference="37h-50-HLK"/>
-                                <include reference="3LO-Yy-Nt1"/>
-                                <include reference="MzD-17-bz9"/>
-                                <exclude reference="ZOT-hu-BQy"/>
-                                <include reference="Bh8-YQ-iDS"/>
-                                <exclude reference="OIc-mh-H1F"/>
-                                <include reference="SRF-E4-ADR"/>
-                                <exclude reference="qzx-Aa-t0O"/>
-                                <exclude reference="Fir-Y6-LOL"/>
-                                <include reference="d5G-fn-doZ"/>
+                                <exclude reference="6Rh-c1-iJv"/>
+                                <exclude reference="DxG-Nw-bpJ"/>
+                                <include reference="Rpk-fn-Sem"/>
+                                <include reference="bZU-Px-DsC"/>
+                                <exclude reference="8df-mO-bn0"/>
+                                <include reference="l8v-VV-cFi"/>
+                                <include reference="nmF-Gs-uEo"/>
+                                <exclude reference="yDz-uy-DTb"/>
+                                <include reference="2Bn-7A-J9V"/>
+                                <exclude reference="4AI-LG-LW4"/>
+                                <exclude reference="FNS-TZ-PLV"/>
+                                <include reference="rrm-aO-X8U"/>
+                                <include reference="slk-WQ-gx7"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
                         <outlet property="imageButton" destination="aLk-zQ-LIL" id="whc-xV-q13"/>
+                        <outlet property="imageView" destination="Dxq-SE-v4L" id="bdq-In-Jxd"/>
                         <outlet property="modalView" destination="oWW-Cg-gda" id="dKi-Aa-U4i"/>
+                        <outlet property="scrollView" destination="KgS-Wu-CWa" id="wdO-9a-Arb"/>
                         <outlet property="smallTopBarView" destination="Mzo-JX-FrS" id="OxP-Wv-Er0"/>
                     </connections>
                 </viewController>
@@ -161,4 +268,8 @@
             <point key="canvasLocation" x="216" y="189"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="icon-confirm-cancel-white-normal" width="7" height="7"/>
+        <image name="icon-confirm-save-normal" width="8" height="5"/>
+    </resources>
 </document>

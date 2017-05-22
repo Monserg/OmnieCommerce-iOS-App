@@ -13,22 +13,29 @@ import UIKit
 
 // MARK: - Input & Output protocols
 protocol HandbookShowPresenterInput {
-    func presentSomething(response: HandbookShow.Something.Response)
+    func handbookDidPrepareToShowCreate(fromResponseModel responseModel: HandbookShowModels.Item.ResponseModel)
+    func handbookImageDidPrepareToShowUpload(fromResponseModel responseModel: HandbookShowModels.Image.ResponseModel)
 }
 
 protocol HandbookShowPresenterOutput: class {
-    func displaySomething(viewModel: HandbookShow.Something.ViewModel)
+    func handbookDidShowCreate(fromViewModel viewModel: HandbookShowModels.Item.ViewModel)
+    func handbookImageDidShowUpload(fromViewModel viewModel: HandbookShowModels.Image.ViewModel)
 }
 
 class HandbookShowPresenter: HandbookShowPresenterInput {
     // MARK: - Properties
-    weak var output: HandbookShowPresenterOutput!
+    weak var viewController: HandbookShowPresenterOutput!
     
     
     // MARK: - Custom Functions. Presentation logic
-    func presentSomething(response: HandbookShow.Something.Response) {
+    func handbookDidPrepareToShowCreate(fromResponseModel responseModel: HandbookShowModels.Item.ResponseModel) {
         // NOTE: Format the response from the Interactor and pass the result back to the View Controller
-        let viewModel = HandbookShow.Something.ViewModel()
-        output.displaySomething(viewModel: viewModel)
+        let handbookViewModel = HandbookShowModels.Item.ViewModel(status: (responseModel.responseAPI?.status)!)
+        viewController.handbookDidShowCreate(fromViewModel: handbookViewModel)
+    }
+    
+    func handbookImageDidPrepareToShowUpload(fromResponseModel responseModel: HandbookShowModels.Image.ResponseModel) {
+        let uploadImageViewModel = HandbookShowModels.Image.ViewModel(responseAPI: responseModel.responseAPI)
+        viewController.handbookImageDidShowUpload(fromViewModel: uploadImageViewModel)
     }
 }
