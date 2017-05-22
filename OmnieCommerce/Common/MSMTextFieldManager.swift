@@ -107,6 +107,9 @@ extension MSMTextFieldManager: UITextFieldDelegate {
         case .Email, .PhoneEmail, .PhoneButton:
             (currentVC as! EmailErrorMessageView).didHide((currentVC as! EmailErrorMessageView).emailErrorMessageView, withConstraint: (currentVC as! EmailErrorMessageView).emailErrorMessageViewTopConstraint)
             
+        case .Phone:
+            (currentVC as! PhoneErrorMessageView).didHide((currentVC as! PhoneErrorMessageView).phoneErrorMessageView, withConstraint: (currentVC as! PhoneErrorMessageView).phoneErrorMessageViewTopConstraint)
+            
         case .Password, .PasswordButton:
             (currentVC as! PasswordErrorMessageView).didHide((currentVC as! PasswordErrorMessageView).passwordErrorMessageView, withConstraint: (currentVC as! PasswordErrorMessageView).passwordErrorMessageViewTopConstraint)
             
@@ -128,6 +131,11 @@ extension MSMTextFieldManager: UITextFieldDelegate {
         case .Email:
             if !(textField as! CustomTextField).checkEmailValidation(textField.text!) && textField.tag != 0 {
                 (currentVC as! EmailErrorMessageView).emailErrorMessageView.didShow(true, withConstraint: (currentVC as! EmailErrorMessageView).emailErrorMessageViewTopConstraint)
+            }
+            
+        case .Phone:
+            if !(textField as! CustomTextField).checkPhoneValidation(textField.text!) {
+                (currentVC as! PhoneErrorMessageView).didShow((currentVC as! PhoneErrorMessageView).phoneErrorMessageView, withConstraint: (currentVC as! PhoneErrorMessageView).phoneErrorMessageViewTopConstraint)
             }
             
         case .PhoneEmail, .PhoneButton:
@@ -163,7 +171,7 @@ extension MSMTextFieldManager: UITextFieldDelegate {
         case .Email, .PhoneEmail:
             (currentVC as! EmailErrorMessageView).emailErrorMessageView.didShow(false, withConstraint: (currentVC as! EmailErrorMessageView).emailErrorMessageViewTopConstraint)
             
-        case .PhoneButton:
+        case .PhoneButton, .Phone:
             // Delete character
             if (string.isEmpty) {
                 (currentVC as! PhoneErrorMessageView).phoneErrorMessageView.didShow(false, withConstraint: (currentVC as! PhoneErrorMessageView).phoneErrorMessageViewTopConstraint)
@@ -229,7 +237,7 @@ extension MSMTextFieldManager: UITextFieldDelegate {
         case .Email, .PhoneEmail:
             (currentVC as! EmailErrorMessageView).didHide((currentVC as! EmailErrorMessageView).emailErrorMessageView, withConstraint: (currentVC as! EmailErrorMessageView).emailErrorMessageViewTopConstraint)
             
-        case .PhoneButton:
+        case .PhoneButton, .Phone:
             (currentVC as! PhoneErrorMessageView).phoneErrorMessageView.didShow(false, withConstraint: (currentVC as! PhoneErrorMessageView).phoneErrorMessageViewTopConstraint)
             
         case .Password, .PasswordButton:
@@ -267,7 +275,7 @@ extension MSMTextFieldManager: UITextFieldDelegate {
                 (currentVC as! EmailErrorMessageView).didShow((currentVC as! EmailErrorMessageView).emailErrorMessageView, withConstraint: (currentVC as! EmailErrorMessageView).emailErrorMessageViewTopConstraint)
             }
             
-        case .PhoneButton:
+        case .PhoneButton, .Phone:
             if (textField as! CustomTextField).checkPhoneValidation(textField.text!) {
                 self.nextTextFieldDidLoad(afterCurrent: textField as! CustomTextField)
             } else {

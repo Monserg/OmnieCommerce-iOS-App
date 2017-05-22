@@ -37,6 +37,7 @@ public enum StatusCodeNote: Int {
     case WRONG_SHOW_INFO            =   4200    //  Failed on showing info
     case BAD_AUTHORIZATION          =   4401    //  BAD AUTHORIZATION
     case INCORRECT_PASSWORD         =   4402    //  PASSWORD IS INCORRECT
+    case SOMETHING_WRONG_4222       =   4222    //  User does not exist
     case BAD_REQUEST_4444           =   4444    //  BAD REQUEST
     case WRONG_INPUT_DATA           =   4500    //  WRONG INPUT DATA
     case USER_EXIST                 =   4670

@@ -236,6 +236,7 @@
 "WRONG_SHOW_INFO"               =   "Failed on showing info for service";               //  4200
 "BAD_AUTHORIZATION"             =   "Bad authorization";                                //  4401
 "INCORRECT_PASSWORD"            =   "Password is incorrect";                            //  4402
+"SOMETHING_WRONG_4222"          =   "User does not exist";                              //  4222
 "BAD_REQUEST_4444"              =   "Bad request";                                      //  4444
 "WRONG_INPUT_DATA"              =   "Wrong input data";                                 //  4500
 "USER_EXIST"                    =   "User is already exist";                            //  4670

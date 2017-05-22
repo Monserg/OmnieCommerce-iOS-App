@@ -23,7 +23,7 @@ protocol HandbookShowViewControllerOutput {
     func handbookImageDidUpload(withRequestModel requestModel: HandbookShowModels.Image.RequestModel)
 }
 
-class HandbookShowViewController: BaseViewController {
+class HandbookShowViewController: BaseViewController, PhoneErrorMessageView {
     // MARK: - Properties
     var interactor: HandbookShowViewControllerOutput!
     var router: HandbookShowRouter!
@@ -64,6 +64,15 @@ class HandbookShowViewController: BaseViewController {
         }
     }
     
+    @IBOutlet var phoneErrorMessageViewsCollection: [ErrorMessageView]!
+    @IBOutlet var phoneErrorMessageViewHeightConstraintsCollection: [NSLayoutConstraint]!
+    @IBOutlet var phoneErrorMessageViewTopConstraintsCollection: [NSLayoutConstraint]!
+    
+    // Protocol PhoneErrorMessageView
+    var phoneErrorMessageView: ErrorMessageView!
+    var phoneErrorMessageViewTopConstraint: NSLayoutConstraint!
+    var phoneErrorMessageViewHeightConstraint: NSLayoutConstraint!
+
     
     // MARK: - Class Initialization
     override func awakeFromNib() {
@@ -101,7 +110,25 @@ class HandbookShowViewController: BaseViewController {
 //        let handbookProfile = CoreDataManager.instance.entityDidLoad(byName: "Handbook", andPredicateParameters: NSPredicate.init(format: "codeID == %@", self.handbookID)) as! Handbook
         
         // Show scene
+        
+        // Create MSMTextFieldManager
+        textFieldManager = MSMTextFieldManager(withTextFields: textFieldsCollection)
+        textFieldManager.currentVC = self
+        
+        // Hide Phone Error Message View
+        _ = phoneErrorMessageViewsCollection.map({ $0.handlerHiddenCompletion = { isHidden in
+            self.print(object: isHidden as! Bool)
             
+            }
+        })
+        _ = phoneErrorMessageViewHeightConstraintsCollection.map({ $0.constant = Config.Constants.errorMessageViewHeight })
+        phoneErrorMessageView = phoneErrorMessageViewsCollection.first
+        phoneErrorMessageViewTopConstraint = phoneErrorMessageViewTopConstraintsCollection.first
+        phoneErrorMessageViewHeightConstraint = phoneErrorMessageViewHeightConstraintsCollection.first
+
+        for (index, phoneErrorMessageView) in phoneErrorMessageViewsCollection.enumerated() {
+            phoneErrorMessageView.didShow(false, withConstraint: phoneErrorMessageViewTopConstraintsCollection[index])
+        }
     }
     
     func handlerResult(fromImagePicker imagePickerController: MSMImagePickerController, forAvatarButton avatarButton: UIButton) {

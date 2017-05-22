@@ -175,7 +175,7 @@ enum FieldType: String {
             return true
         }
         
-        let charcterSet  = NSCharacterSet(charactersIn: "+0123456789").inverted
+        let charcterSet = NSCharacterSet(charactersIn: "+0123456789").inverted
         let inputString = phone.components(separatedBy: charcterSet)
         let filtered = inputString.joined(separator: "")
         let resultPhone = phone == filtered
