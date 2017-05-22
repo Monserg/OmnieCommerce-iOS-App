@@ -201,7 +201,7 @@ class SettingsShowViewController: BaseViewController {
         }
         
         modalView = ModalView.init(inView: blackoutView!, withHeight: height)
-        let popupView = ConfirmSaveView.init(inView: modalView!)
+        let popupView = ConfirmSaveView.init(inView: modalView!, withText: "Settings saved message")
         
         // Handler Cancel button tap
         popupView.handlerCancelButtonCompletion = { _ in

@@ -91,7 +91,8 @@
 "Setting hours"                 =   "hours";
 "Setting minutes"               =   "minutes";
 "Saved"                         =   "Saved!";
-"Saved message"                 =   "Your settings have been successfully \nsaved.";
+"Settings saved message"        =   "Your settings have been successfully \nsaved.";
+"Dictionary saved message"      =   "Your request was sent to \nmoderation.";
 
 
 // Buttons

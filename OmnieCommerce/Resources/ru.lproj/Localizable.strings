@@ -91,7 +91,8 @@
 "Setting hours"                 =   "часы";
 "Setting minutes"               =   "минуты";
 "Saved"                         =   "Сохранено!";
-"Saved message"                 =   "Ваши натройки успешно \nсохранены.";
+"Settings saved message"        =   "Ваши натройки успешно \nсохранены.";
+"Dictionary saved message"      =   "Ваш запрос отправлен на \nмодерацию.";
 
 
 // Buttons

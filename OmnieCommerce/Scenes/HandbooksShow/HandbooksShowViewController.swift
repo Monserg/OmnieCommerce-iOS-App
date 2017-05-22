@@ -40,8 +40,8 @@ class HandbooksShowViewController: BaseViewController {
             tableView.scrollIndicatorInsets = UIEdgeInsetsMake(10, 0, 0, 0)
         }
     }
-
     
+
     // MARK: - Class initialization
     override func awakeFromNib() {
         super.awakeFromNib()

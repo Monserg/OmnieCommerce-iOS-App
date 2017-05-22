@@ -36,17 +36,34 @@ class HandbookShowViewController: BaseViewController {
         }
     }
     
+    var textFieldManager: MSMTextFieldManager! {
+        didSet {
+            // Delegates
+            for textField in textFieldsCollection {
+                textField.delegate = textFieldManager
+            }
+        }
+    }
+
     // Outlets
     @IBOutlet weak var smallTopBarView: SmallTopBarView!
     @IBOutlet var modalView: ModalView!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var imageView: UIImageView!
-    
+    @IBOutlet var textFieldsCollection: [CustomTextField]!
+
     @IBOutlet weak var imageButton: UbuntuLightVeryLightOrangeButton! {
         didSet {
             imageButton.setTitle("Add dictionary photo", for: .normal)
         }
     }
+    
+    @IBOutlet var dottedBorderViewsCollection: [DottedBorderView]! {
+        didSet {
+            _ = dottedBorderViewsCollection.map{ $0.style = .BottomDottedLine }
+        }
+    }
+    
     
     // MARK: - Class Initialization
     override func awakeFromNib() {
@@ -74,6 +91,8 @@ class HandbookShowViewController: BaseViewController {
         smallTopBarView.type = "Child"
         haveMenuItem = false
         
+        didAddTapGestureRecognizer()
+
         // Handler Back button tap
         smallTopBarView.handlerSendButtonCompletion = { _ in
             _ = self.navigationController?.popViewController(animated: true)
@@ -100,6 +119,24 @@ class HandbookShowViewController: BaseViewController {
         // Handler Cancel result
         imagePickerController.handlerCancelButtonCompletion = { _ in
             self.blackoutView!.didHide()
+        }
+    }
+    
+    func modalViewDidShow(withHeight height: CGFloat, customSubview subView: CustomView, andValues values: [Any]?) {
+        if (blackoutView == nil) {
+            blackoutView = MSMBlackoutView.init(inView: view)
+            blackoutView!.didShow()
+        }
+        
+        modalView = ModalView.init(inView: blackoutView!, withHeight: height)
+        let popupView = ConfirmSaveView.init(inView: modalView!, withText: "Saved message")
+        
+        // Handler Cancel button tap
+        popupView.handlerCancelButtonCompletion = { _ in
+            self.blackoutView!.didHide()
+            self.blackoutView = nil
+            
+            self.navigationController!.popViewController(animated: true)
         }
     }
 
@@ -172,10 +209,11 @@ class HandbookShowViewController: BaseViewController {
     @IBAction func handlerSaveButtonTap(_ sender: FillVeryLightOrangeButton) {
         spinnerDidStart(view)
         
+        let name = textFieldsCollection.filter({ $0.tag == 10 }).first?.text ?? ""
+        
         let parameters: [String: Any] = [
-                                            "name"      :   "Serg tested org 1",
+                                            "name"      :   name,
                                             "address"   :   "Хмельницкий, ул. Горбанчука 6",
-                                            "imageId"   :   "",
                                             "phones"    :   "",
                                             "tags"      :   "",
                                             "imageId"   :   imageID ?? ""
@@ -201,7 +239,8 @@ extension HandbookShowViewController: HandbookShowViewControllerInput {
             return
         }
         
-        self.navigationController!.popViewController(animated: true)
+        // Show success modal view
+        modalViewDidShow(withHeight: 185.0, customSubview: ConfirmSaveView(), andValues: nil)
     }
     
     func handbookImageDidShowUpload(fromViewModel viewModel: HandbookShowModels.Image.ViewModel) {

@@ -49,9 +49,9 @@ class DiscountCardsShowViewController: BaseViewController {
         print(object: "\(type(of: self)): \(#function) run.")
         
         // Config smallTopBarView
-        navigationBarView       =   smallTopBarView
-        smallTopBarView.type    =   "ParentSearch"
-        haveMenuItem            =   true
+        navigationBarView = smallTopBarView
+        smallTopBarView.type = "Parent"
+        haveMenuItem = true
         
         // Load data
         let requestModel = DiscountCardsShow.Something.Request()

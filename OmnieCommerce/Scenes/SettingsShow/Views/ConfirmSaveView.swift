@@ -12,10 +12,11 @@ class ConfirmSaveView: CustomView {
     // MARK: - Properties
     // Outlets
     @IBOutlet var view: UIView!
+    @IBOutlet weak var messageLabel: UbuntuLightVeryLightGrayLabel!
     
     
     // MARK: - Class Initialization
-    init(inView view: UIView) {
+    init(inView view: UIView, withText text: String) {
         let newFrame = CGRect.init(origin: .zero, size: view.frame.size)
         super.init(frame: newFrame)
         
@@ -25,6 +26,7 @@ class ConfirmSaveView: CustomView {
         self.backgroundColor = UIColor.clear
         self.layer.cornerRadius = 5
         self.clipsToBounds = true
+        self.messageLabel.text = text.localized()
         
         view.addSubview(self)
         self.didShow()
