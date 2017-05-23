@@ -122,6 +122,7 @@ class PersonalPageShowViewController: BaseViewController {
                     // Handler Photo Make button tap
                     case .PhotoUpload:
                         let imagePickerController = MSMImagePickerController()
+                        imagePickerController.modalPresentationStyle = .overCurrentContext
                         imagePickerController.photoDidLoadFromAlbum()
                         
                         self.present(imagePickerController, animated: true, completion: nil)
@@ -131,6 +132,7 @@ class PersonalPageShowViewController: BaseViewController {
 
                     case .PhotoMake:
                         let imagePickerController = MSMImagePickerController()
+                        imagePickerController.modalPresentationStyle = .overCurrentContext
                         
                         guard imagePickerController.photoDidMakeWithCamera() else {
                             self.alertViewDidShow(withTitle: "Error", andMessage: "Camera is not available", completion: { _ in })

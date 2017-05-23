@@ -16,6 +16,8 @@ class MSMTextFieldManager: NSObject {
     
     var handlerTextFieldCompletion: HandlerTextFieldCompletion?
     var handlerCleanReturnCompletion: HandlerPassDataCompletion?
+    var handlerKeywordsFieldCompletion: HandlerSendButtonCompletion?
+    var handlerFirstResponderCompletion: HandlerSendButtonCompletion?
     var handlerTextFieldShowErrorViewCompletion: HandlerTextFieldShowErrorViewCompletion?
     var handlerPhoneNumberLenghtCompletion: HandlerPassDataCompletion?
     
@@ -111,6 +113,7 @@ extension MSMTextFieldManager: UITextFieldDelegate {
             (currentVC as! EmailErrorMessageView).didHide((currentVC as! EmailErrorMessageView).emailErrorMessageView, withConstraint: (currentVC as! EmailErrorMessageView).emailErrorMessageViewTopConstraint)
             
         case .Phone:
+            handlerFirstResponderCompletion!()
             (currentVC as! PhoneErrorMessageView).didHide((currentVC as! PhoneErrorMessageView).phoneErrorMessageView, withConstraint: (currentVC as! PhoneErrorMessageView).phoneErrorMessageViewTopConstraint)
             
         case .Password, .PasswordButton:
@@ -165,6 +168,10 @@ extension MSMTextFieldManager: UITextFieldDelegate {
             return true
             
         default:
+            if ((textField as! CustomTextField).style! == .Name && textField.tag == 99) {
+                handlerKeywordsFieldCompletion!()
+            }
+            
             break
         }
         
@@ -172,6 +179,8 @@ extension MSMTextFieldManager: UITextFieldDelegate {
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        firstResponder = textField as! CustomTextField
+        
         switch (textField as! CustomTextField).style! {
         case .Email, .PhoneEmail:
             (currentVC as! EmailErrorMessageView).emailErrorMessageView.didShow(false, withConstraint: (currentVC as! EmailErrorMessageView).emailErrorMessageViewTopConstraint)
@@ -193,7 +202,7 @@ extension MSMTextFieldManager: UITextFieldDelegate {
             if let _ = Int(string) {
                 (currentVC as! PhoneErrorMessageView).phoneErrorMessageView.didShow(false, withConstraint: (currentVC as! PhoneErrorMessageView).phoneErrorMessageViewTopConstraint)
                 
-                if ((textField as! CustomTextField).style! == .Phone && 0...4 ~= textField.text!.characters.count) {
+                if ((textField as! CustomTextField).style! == .Phone && textField.text!.characters.count > 0) {
                     handlerPhoneNumberLenghtCompletion!(textField.text!.characters.count)
                 }
                 

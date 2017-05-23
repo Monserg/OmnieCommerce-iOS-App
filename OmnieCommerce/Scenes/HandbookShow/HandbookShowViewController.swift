@@ -29,7 +29,25 @@ class HandbookShowViewController: BaseViewController, PhoneErrorMessageView {
     var router: HandbookShowRouter!
     
     var phones = [String]()
-    var tags = [String]()
+    var keywords = [String]()
+    var freePhoneTags = [ 21, 22, 23, 24 ]
+    
+    var availableToEditTextFieldsCount: Int! {
+        set {}
+        
+        get {
+            let visiblePhoneViews = phoneViewsCollection.filter({ $0.isHidden == false })
+            var count: Int = 1
+            
+            for phoneView in visiblePhoneViews {
+                if let phoneTextField = textFieldsCollection.first(where: { $0.tag == phoneView.tag }), (phoneTextField.text?.isEmpty)! {
+                    count += 1
+                }
+            }
+            
+            return count
+        }
+    }
     
     var imageID: String? {
         didSet {
@@ -74,7 +92,7 @@ class HandbookShowViewController: BaseViewController, PhoneErrorMessageView {
     @IBOutlet var phoneDeleteButtonsCollection: [FillColorButton]!
     @IBOutlet var phoneViewTopConstraintsCollection: [NSLayoutConstraint]!
     @IBOutlet weak var infoStackViewHeightConstraint: NSLayoutConstraint!
-    
+    @IBOutlet weak var phonesViewHeightConstraint: NSLayoutConstraint!
     
     // Protocol PhoneErrorMessageView
     var phoneErrorMessageView: ErrorMessageView!
@@ -107,7 +125,9 @@ class HandbookShowViewController: BaseViewController, PhoneErrorMessageView {
         scrollViewBase = scrollView
         smallTopBarView.type = "Child"
         haveMenuItem = false
-        
+
+        infoStackViewHeightConstraint.constant = (view.frame.width > view.frame.height) ? 176.0 : 311.0
+
         didAddTapGestureRecognizer()
 
         // Handler Back button tap
@@ -115,10 +135,6 @@ class HandbookShowViewController: BaseViewController, PhoneErrorMessageView {
             _ = self.navigationController?.popViewController(animated: true)
         }
 
-//        let handbookProfile = CoreDataManager.instance.entityDidLoad(byName: "Handbook", andPredicateParameters: NSPredicate.init(format: "codeID == %@", self.handbookID)) as! Handbook
-        
-        // Show scene
-        
         // Create MSMTextFieldManager
         textFieldManager = MSMTextFieldManager(withTextFields: textFieldsCollection)
         textFieldManager.currentVC = self
@@ -127,10 +143,12 @@ class HandbookShowViewController: BaseViewController, PhoneErrorMessageView {
         textFieldManager.handlerPhoneNumberLenghtCompletion = { lenght in
             let tag = self.textFieldManager.firstResponder.tag
             let phoneDeleteButton = self.phoneDeleteButtonsCollection.first(where: { $0.tag == tag })!
-            phoneDeleteButton.isHidden = ((lenght as! Int) == 4) ? false : true
+            phoneDeleteButton.isHidden = ((lenght as! Int) > 0) ? false : true
             
-            if ((lenght as! Int) == 4) {
-                self.phoneViewDidPrepareToShow(tag + 1, isShow: true)
+            if ((lenght as! Int) > 0) {
+                if let nextTag = self.freePhoneTags.sorted().first, self.availableToEditTextFieldsCount <= 1 {
+                    self.phoneViewDidPrepareToShow(nextTag, isShow: true)
+                }
             }
         }
         
@@ -142,6 +160,9 @@ class HandbookShowViewController: BaseViewController, PhoneErrorMessageView {
                     UIView.animate(withDuration: 0.5, animations: {
                         self.infoStackViewHeightConstraint.constant += (isHidden as! Bool) ?    -Config.Constants.errorMessageViewHeight :
                                                                                                 Config.Constants.errorMessageViewHeight
+                        
+                        self.phonesViewHeightConstraint.constant = CGFloat(44.0 * Double(self.phoneViewsCollection.filter({ $0.isHidden == false }).count))
+
                         self.view.layoutIfNeeded()
                     })
                 }
@@ -152,6 +173,19 @@ class HandbookShowViewController: BaseViewController, PhoneErrorMessageView {
             if (success) {
                 self.phones.append(textField.text!)
             }
+        }
+        
+        // Handler tags
+        textFieldManager.handlerKeywordsFieldCompletion = { textField in
+            self.keywords = self.textFieldsCollection.last!.text!.convertToKeywords()
+        }
+
+        // Handler become first responder
+        textFieldManager.handlerFirstResponderCompletion = { _ in
+            self.phoneErrorMessageView = self.phoneErrorMessageViewsCollection.first(where: { $0.tag == self.textFieldManager.firstResponder.tag })
+            let index = self.phoneErrorMessageViewsCollection.index(of: self.phoneErrorMessageView)
+            self.phoneErrorMessageViewTopConstraint = self.phoneErrorMessageViewTopConstraintsCollection[index!]
+            self.phoneErrorMessageViewHeightConstraint = self.phoneErrorMessageViewHeightConstraintsCollection[index!]
         }
         
         _ = phoneErrorMessageViewHeightConstraintsCollection.map({ $0.constant = Config.Constants.errorMessageViewHeight })
@@ -189,7 +223,7 @@ class HandbookShowViewController: BaseViewController, PhoneErrorMessageView {
         }
         
         modalView = ModalView.init(inView: blackoutView!, withHeight: height)
-        let popupView = ConfirmSaveView.init(inView: modalView!, withText: "Saved message")
+        let popupView = ConfirmSaveView.init(inView: modalView!, withText: "Dictionary saved message")
         
         // Handler Cancel button tap
         popupView.handlerCancelButtonCompletion = { _ in
@@ -202,15 +236,30 @@ class HandbookShowViewController: BaseViewController, PhoneErrorMessageView {
     
     func phoneViewDidPrepareToShow(_ tag: Int, isShow: Bool) {
         let index = phoneViewsCollection.index(where: { $0.tag == tag })
+        
+        guard index != nil else {
+            return
+        }
+        
         let phoneView = phoneViewsCollection[index!]
         let phoneViewTopConstraint = phoneViewTopConstraintsCollection[index!]
         
-        if (phones.count > 0) {
+        if (phoneView.isHidden == false && isShow) {
+            return
+        }
+        
+        if (phones.count >= 1) {
             phoneView.didShow(isShow, withConstraint: phoneViewTopConstraint)
 
             UIView.animate(withDuration: 0.5, animations: {
                 self.infoStackViewHeightConstraint.constant += (isShow) ? 44.0 : -44.0
+                self.phoneViewsCollection[index!].isHidden = !isShow
+                self.phonesViewHeightConstraint.constant = CGFloat(44.0 * Double(self.phoneViewsCollection.filter({ $0.isHidden == false }).count))
                 self.view.layoutIfNeeded()
+                
+                if let tagIndex = self.freePhoneTags.index(of: tag) {
+                    self.freePhoneTags.remove(at: tagIndex)
+                }
             })
         }
         
@@ -219,7 +268,13 @@ class HandbookShowViewController: BaseViewController, PhoneErrorMessageView {
 
             UIView.animate(withDuration: 0.5, animations: {
                 self.infoStackViewHeightConstraint.constant += 44.0
+                self.phoneViewsCollection[index!].isHidden = false
+                self.phonesViewHeightConstraint.constant = CGFloat(44.0 * Double(self.phoneViewsCollection.filter({ $0.isHidden == false }).count))
                 self.view.layoutIfNeeded()
+                
+                if let tagIndex = self.freePhoneTags.index(of: tag) {
+                    self.freePhoneTags.remove(at: tagIndex)
+                }
             })
         }
     }
@@ -227,11 +282,19 @@ class HandbookShowViewController: BaseViewController, PhoneErrorMessageView {
     
     // MARK: - Transition
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        print(object: "\(type(of: self)): \(#function) run. New size = \(size)")
-        
         smallTopBarView.setNeedsDisplay()
         smallTopBarView.circleView.setNeedsDisplay()
+
+        _ = dottedBorderViewsCollection.map({ $0.setNeedsDisplay() })
+        
+        UIView.animate(withDuration: 0.5, animations: {
+            self.infoStackViewHeightConstraint.constant += (size.width > size.height) ? -self.imageButton.frame.height : self.imageButton.frame.height
+            self.phonesViewHeightConstraint.constant = CGFloat(44.0 * Double(self.phoneViewsCollection.filter({ $0.isHidden == false }).count))
+            
+            self.view.layoutIfNeeded()
+        })
     }
+    
     
     // MARK: - Actions
     @IBAction func handlerImageButtonTap(_ sender: UIButton) {
@@ -251,6 +314,7 @@ class HandbookShowViewController: BaseViewController, PhoneErrorMessageView {
             // Handler Photo Make button tap
             case .PhotoUpload:
                 let imagePickerController = MSMImagePickerController()
+                imagePickerController.modalPresentationStyle = .overCurrentContext
                 imagePickerController.photoDidLoadFromAlbum()
                 
                 self.present(imagePickerController, animated: true, completion: nil)
@@ -260,7 +324,8 @@ class HandbookShowViewController: BaseViewController, PhoneErrorMessageView {
                 
             case .PhotoMake:
                 let imagePickerController = MSMImagePickerController()
-                
+                imagePickerController.modalPresentationStyle = .overCurrentContext
+
                 guard imagePickerController.photoDidMakeWithCamera() else {
                     self.alertViewDidShow(withTitle: "Error", andMessage: "Camera is not available", completion: { _ in })
                     self.blackoutView!.didHide()
@@ -292,14 +357,15 @@ class HandbookShowViewController: BaseViewController, PhoneErrorMessageView {
     
     @IBAction func handlerSaveButtonTap(_ sender: FillVeryLightOrangeButton) {
         spinnerDidStart(view)
+        view.endEditing(true)
         
         let name = textFieldsCollection.filter({ $0.tag == 10 }).first?.text ?? ""
         
         let parameters: [String: Any] = [
                                             "name"      :   name,
                                             "address"   :   "Хмельницкий, ул. Горбанчука 6",
-                                            "phones"    :   phones,
-                                            "tags"      :   tags,
+                                            "phones"    :   phones.filter({ !$0.isEmpty }),
+                                            "tags"      :   keywords,
                                             "imageId"   :   imageID ?? ""
                                         ]
         
@@ -312,17 +378,16 @@ class HandbookShowViewController: BaseViewController, PhoneErrorMessageView {
     }
     
     @IBAction func handlerPhoneDeleteButtonTap(_ sender: FillColorButton) {
+        view.endEditing(true)
         phoneViewDidPrepareToShow(sender.tag, isShow: false)
+        textFieldManager.firstResponder = textFieldsCollection.first(where: { $0.tag == sender.tag })
+
+        if let phoneNumber = textFieldManager.firstResponder.text, let index = phones.index(of: phoneNumber), phones.count > 1 {
+            _ = phones.remove(at: index)
+            freePhoneTags.append(sender.tag)
+            _ = self.textFieldsCollection.first(where: { $0.text == phoneNumber }).map({ $0.text = nil })
+        }
     }
-    
-    
-    
-    @IBAction func dagjfhgahfgahj(_ sender: Any) {
-        self.tags = textFieldsCollection[0].text!.convertToTags()
-        print(object: tags)
-    }
-    
-    
 }
 
 
@@ -332,6 +397,7 @@ extension HandbookShowViewController: HandbookShowViewControllerInput {
         // Check for errors
         guard viewModel.status == "SUCCESS" else {
             self.alertViewDidShow(withTitle: "Error", andMessage: viewModel.status, completion: { })
+            spinnerDidFinish()
             
             return
         }

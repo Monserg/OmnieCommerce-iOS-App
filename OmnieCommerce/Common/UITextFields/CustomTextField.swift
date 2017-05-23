@@ -187,6 +187,14 @@ enum FieldType: String {
         return resultPhone
     }
     
+    func isValidPhone(_ phone: String) -> Bool {
+        let PHONE_REGEX = "^09[0-9'@s]{9,9}$"
+        let phoneTest = NSPredicate(format: "SELF MATCHES %@", PHONE_REGEX)
+        let result = phoneTest.evaluate(with: phone)
+        
+        return result
+    }
+    
     func checkEmailValidation(_ email: String) -> Bool {
         // Validate Email
         guard !(email.isEmpty) else {
