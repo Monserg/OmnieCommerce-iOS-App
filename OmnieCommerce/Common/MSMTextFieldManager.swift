@@ -12,10 +12,12 @@ class MSMTextFieldManager: NSObject {
     // MARK: - Properties
     var textFieldsArray: [CustomTextField]!
     var currentVC: BaseViewController!
+    var firstResponder: CustomTextField!
     
     var handlerTextFieldCompletion: HandlerTextFieldCompletion?
     var handlerCleanReturnCompletion: HandlerPassDataCompletion?
     var handlerTextFieldShowErrorViewCompletion: HandlerTextFieldShowErrorViewCompletion?
+    var handlerPhoneNumberLenghtCompletion: HandlerPassDataCompletion?
     
     // MARK: - Class Initialization
     init(withTextFields array: [CustomTextField]) {
@@ -102,6 +104,7 @@ class MSMTextFieldManager: NSObject {
 extension MSMTextFieldManager: UITextFieldDelegate {
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         currentVC?.selectedRange = textField.convert(textField.frame, to: currentVC?.view)
+        firstResponder = textField as! CustomTextField
         
         switch (textField as! CustomTextField).style! {
         case .Email, .PhoneEmail, .PhoneButton:
@@ -175,18 +178,28 @@ extension MSMTextFieldManager: UITextFieldDelegate {
             // Delete character
             if (string.isEmpty) {
                 (currentVC as! PhoneErrorMessageView).phoneErrorMessageView.didShow(false, withConstraint: (currentVC as! PhoneErrorMessageView).phoneErrorMessageViewTopConstraint)
+                
+                if ((textField as! CustomTextField).style! == .Phone && textField.text!.characters.count - 2 < 5) {
+                    handlerPhoneNumberLenghtCompletion!(textField.text!.characters.count)
+                }
+            
                 return true
             }
             
             // Show Phone Error Message View
             guard Int(string) != nil || string == "+" else {
                 (currentVC as! PhoneErrorMessageView).phoneErrorMessageView.didShow(true, withConstraint: (currentVC as! PhoneErrorMessageView).phoneErrorMessageViewTopConstraint)
-                    return false
+                return false
             }
             
             // Hide Phone Error Message View
             if let _ = Int(string) {
                 (currentVC as! PhoneErrorMessageView).phoneErrorMessageView.didShow(false, withConstraint: (currentVC as! PhoneErrorMessageView).phoneErrorMessageViewTopConstraint)
+                
+                if ((textField as! CustomTextField).style! == .Phone && 0...4 ~= textField.text!.characters.count) {
+                    handlerPhoneNumberLenghtCompletion!(textField.text!.characters.count)
+                }
+                
                 return true
             } else if ((textField.text?.isEmpty)! && string == "+") {
                 return true

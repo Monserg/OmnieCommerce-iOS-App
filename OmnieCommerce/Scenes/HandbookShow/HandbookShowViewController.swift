@@ -28,6 +28,8 @@ class HandbookShowViewController: BaseViewController, PhoneErrorMessageView {
     var interactor: HandbookShowViewControllerOutput!
     var router: HandbookShowRouter!
     
+    var phones = [String]()
+    
     var imageID: String? {
         didSet {
             let title = (self.imageID == nil) ? "Add dictionary photo" : "Change dictionary photo"
@@ -67,6 +69,8 @@ class HandbookShowViewController: BaseViewController, PhoneErrorMessageView {
     @IBOutlet var phoneErrorMessageViewsCollection: [ErrorMessageView]!
     @IBOutlet var phoneErrorMessageViewHeightConstraintsCollection: [NSLayoutConstraint]!
     @IBOutlet var phoneErrorMessageViewTopConstraintsCollection: [NSLayoutConstraint]!
+    @IBOutlet var phoneDeleteButtonsCollection: [FillColorButton]!
+    
     
     // Protocol PhoneErrorMessageView
     var phoneErrorMessageView: ErrorMessageView!
@@ -115,12 +119,20 @@ class HandbookShowViewController: BaseViewController, PhoneErrorMessageView {
         textFieldManager = MSMTextFieldManager(withTextFields: textFieldsCollection)
         textFieldManager.currentVC = self
         
+        // Handler Phone number lenght
+        textFieldManager.handlerPhoneNumberLenghtCompletion = { lenght in
+            let tag = self.textFieldManager.firstResponder.tag
+            let phoneDeleteButton = self.phoneDeleteButtonsCollection.first(where: { $0.tag == tag })!
+            phoneDeleteButton.isHidden = ((lenght as! Int) == 4) ? false : true
+        }
+        
         // Hide Phone Error Message View
-        _ = phoneErrorMessageViewsCollection.map({ $0.handlerHiddenCompletion = { isHidden in
-            self.print(object: isHidden as! Bool)
-            
-            }
+        _ = phoneErrorMessageViewsCollection.map({
+                $0.handlerHiddenCompletion = { isHidden in
+                    self.print(object: isHidden as! Bool)
+                }
         })
+        
         _ = phoneErrorMessageViewHeightConstraintsCollection.map({ $0.constant = Config.Constants.errorMessageViewHeight })
         phoneErrorMessageView = phoneErrorMessageViewsCollection.first
         phoneErrorMessageViewTopConstraint = phoneErrorMessageViewTopConstraintsCollection.first
@@ -252,6 +264,10 @@ class HandbookShowViewController: BaseViewController, PhoneErrorMessageView {
     
     @IBAction func handlerCancelButtonTap(_ sender: BorderVeryLightOrangeButton) {
         self.navigationController!.popViewController(animated: true)
+    }
+    
+    @IBAction func handlerPhoneDeleteButtonTap(_ sender: FillColorButton) {
+
     }
 }
 
