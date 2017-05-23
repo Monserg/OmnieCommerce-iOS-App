@@ -29,6 +29,7 @@ class HandbookShowViewController: BaseViewController, PhoneErrorMessageView {
     var router: HandbookShowRouter!
     
     var phones = [String]()
+    var tags = [String]()
     
     var imageID: String? {
         didSet {
@@ -53,6 +54,7 @@ class HandbookShowViewController: BaseViewController, PhoneErrorMessageView {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet var textFieldsCollection: [CustomTextField]!
+    @IBOutlet var phoneViewsCollection: [UIView]!
 
     @IBOutlet weak var imageButton: UbuntuLightVeryLightOrangeButton! {
         didSet {
@@ -70,6 +72,8 @@ class HandbookShowViewController: BaseViewController, PhoneErrorMessageView {
     @IBOutlet var phoneErrorMessageViewHeightConstraintsCollection: [NSLayoutConstraint]!
     @IBOutlet var phoneErrorMessageViewTopConstraintsCollection: [NSLayoutConstraint]!
     @IBOutlet var phoneDeleteButtonsCollection: [FillColorButton]!
+    @IBOutlet var phoneViewTopConstraintsCollection: [NSLayoutConstraint]!
+    @IBOutlet weak var infoStackViewHeightConstraint: NSLayoutConstraint!
     
     
     // Protocol PhoneErrorMessageView
@@ -124,14 +128,31 @@ class HandbookShowViewController: BaseViewController, PhoneErrorMessageView {
             let tag = self.textFieldManager.firstResponder.tag
             let phoneDeleteButton = self.phoneDeleteButtonsCollection.first(where: { $0.tag == tag })!
             phoneDeleteButton.isHidden = ((lenght as! Int) == 4) ? false : true
+            
+            if ((lenght as! Int) == 4) {
+                self.phoneViewDidPrepareToShow(tag + 1, isShow: true)
+            }
         }
         
         // Hide Phone Error Message View
         _ = phoneErrorMessageViewsCollection.map({
                 $0.handlerHiddenCompletion = { isHidden in
                     self.print(object: isHidden as! Bool)
+                    
+                    UIView.animate(withDuration: 0.5, animations: {
+                        self.infoStackViewHeightConstraint.constant += (isHidden as! Bool) ?    -Config.Constants.errorMessageViewHeight :
+                                                                                                Config.Constants.errorMessageViewHeight
+                        self.view.layoutIfNeeded()
+                    })
                 }
         })
+        
+        // Handler enter validation phone number
+        textFieldManager.handlerTextFieldCompletion = { (textField, success) in
+            if (success) {
+                self.phones.append(textField.text!)
+            }
+        }
         
         _ = phoneErrorMessageViewHeightConstraintsCollection.map({ $0.constant = Config.Constants.errorMessageViewHeight })
         phoneErrorMessageView = phoneErrorMessageViewsCollection.first
@@ -176,6 +197,30 @@ class HandbookShowViewController: BaseViewController, PhoneErrorMessageView {
             self.blackoutView = nil
             
             self.navigationController!.popViewController(animated: true)
+        }
+    }
+    
+    func phoneViewDidPrepareToShow(_ tag: Int, isShow: Bool) {
+        let index = phoneViewsCollection.index(where: { $0.tag == tag })
+        let phoneView = phoneViewsCollection[index!]
+        let phoneViewTopConstraint = phoneViewTopConstraintsCollection[index!]
+        
+        if (phones.count > 0) {
+            phoneView.didShow(isShow, withConstraint: phoneViewTopConstraint)
+
+            UIView.animate(withDuration: 0.5, animations: {
+                self.infoStackViewHeightConstraint.constant += (isShow) ? 44.0 : -44.0
+                self.view.layoutIfNeeded()
+            })
+        }
+        
+        if (phones.count == 0 && isShow) {
+            phoneView.didShow(isShow, withConstraint: phoneViewTopConstraint)
+
+            UIView.animate(withDuration: 0.5, animations: {
+                self.infoStackViewHeightConstraint.constant += 44.0
+                self.view.layoutIfNeeded()
+            })
         }
     }
 
@@ -253,8 +298,8 @@ class HandbookShowViewController: BaseViewController, PhoneErrorMessageView {
         let parameters: [String: Any] = [
                                             "name"      :   name,
                                             "address"   :   "Хмельницкий, ул. Горбанчука 6",
-                                            "phones"    :   "",
-                                            "tags"      :   "",
+                                            "phones"    :   phones,
+                                            "tags"      :   tags,
                                             "imageId"   :   imageID ?? ""
                                         ]
         
@@ -267,8 +312,17 @@ class HandbookShowViewController: BaseViewController, PhoneErrorMessageView {
     }
     
     @IBAction func handlerPhoneDeleteButtonTap(_ sender: FillColorButton) {
-
+        phoneViewDidPrepareToShow(sender.tag, isShow: false)
     }
+    
+    
+    
+    @IBAction func dagjfhgahfgahj(_ sender: Any) {
+        self.tags = textFieldsCollection[0].text!.convertToTags()
+        print(object: tags)
+    }
+    
+    
 }
 
 

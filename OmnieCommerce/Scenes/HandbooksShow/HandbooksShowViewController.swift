@@ -58,6 +58,8 @@ class HandbooksShowViewController: BaseViewController {
         navigationBarView = smallTopBarView
         smallTopBarView.type = "ParentSearch"
         haveMenuItem = true
+        createNewHandbookButton.isEnabled = false
+        smallTopBarView.searchButton.isEnabled = false
         
         // Create MSMTableViewControllerManager
         let handbooksTableManager = MSMTableViewControllerManager.init(withTableView: tableView,
@@ -183,6 +185,9 @@ class HandbooksShowViewController: BaseViewController {
         
         tableView.tableViewControllerManager.pullRefreshDidFinish()
         self.smallTopBarView.searchButton.isHidden = (handbooks.count == 0 || !isNetworkAvailable) ? true : false
+        createNewHandbookButton.isEnabled = true
+        smallTopBarView.searchButton.isEnabled = true
+
         spinnerDidFinish()
     }
 

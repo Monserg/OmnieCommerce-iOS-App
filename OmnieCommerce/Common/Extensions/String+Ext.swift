@@ -81,6 +81,13 @@ extension String {
         }
     }
     
+    func convertToTags() -> [String] {
+        let charactersSet = CharacterSet(charactersIn: ".,/-#$?%!;:_{}[]()+=@^&*~`'")
+        
+        return self.components(separatedBy: charactersSet).filter({ !$0.isEmpty }).map({ $0.trimmingCharacters(in: .whitespaces)})
+    }
+    
+    
     // For Schedule
     func twoNumberFormat() -> String {
         switch Int(self)! {

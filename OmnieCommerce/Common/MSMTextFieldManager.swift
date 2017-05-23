@@ -139,6 +139,8 @@ extension MSMTextFieldManager: UITextFieldDelegate {
         case .Phone:
             if !(textField as! CustomTextField).checkPhoneValidation(textField.text!) {
                 (currentVC as! PhoneErrorMessageView).didShow((currentVC as! PhoneErrorMessageView).phoneErrorMessageView, withConstraint: (currentVC as! PhoneErrorMessageView).phoneErrorMessageViewTopConstraint)
+            } else {
+                handlerTextFieldCompletion!(textField as! CustomTextField, true)
             }
             
         case .PhoneEmail, .PhoneButton:
@@ -177,12 +179,7 @@ extension MSMTextFieldManager: UITextFieldDelegate {
         case .PhoneButton, .Phone:
             // Delete character
             if (string.isEmpty) {
-                (currentVC as! PhoneErrorMessageView).phoneErrorMessageView.didShow(false, withConstraint: (currentVC as! PhoneErrorMessageView).phoneErrorMessageViewTopConstraint)
-                
-                if ((textField as! CustomTextField).style! == .Phone && textField.text!.characters.count - 2 < 5) {
-                    handlerPhoneNumberLenghtCompletion!(textField.text!.characters.count)
-                }
-            
+                (currentVC as! PhoneErrorMessageView).phoneErrorMessageView.didShow(false, withConstraint: (currentVC as! PhoneErrorMessageView).phoneErrorMessageViewTopConstraint)                
                 return true
             }
             

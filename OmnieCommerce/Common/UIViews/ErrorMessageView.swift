@@ -14,7 +14,7 @@ class ErrorMessageView: UIView {
     
     
     // MARK: - Custom Functions
-    func didShow(_ value: Bool, withConstraint constraint: NSLayoutConstraint) {
+    override func didShow(_ value: Bool, withConstraint constraint: NSLayoutConstraint) {
         guard (isHidden && value) || (!isHidden && !value) else {
             return
         }
