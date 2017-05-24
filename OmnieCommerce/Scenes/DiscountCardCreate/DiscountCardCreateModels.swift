@@ -26,4 +26,18 @@ struct DiscountCardCreateModels {
             let status: String
         }
     }
+    
+    struct Image {
+        struct RequestModel {
+            let image: UIImage
+        }
+        
+        struct ResponseModel {
+            let responseAPI: ResponseAPI?
+        }
+        
+        struct ViewModel {
+            let responseAPI: ResponseAPI?
+        }
+    }
 }

@@ -14,11 +14,13 @@ import UIKit
 // MARK: - Input protocols for current Interactor component VIP-cicle
 protocol DiscountCardCreateInteractorInput {
     func discountCardDidCreate(withRequestModel requestModel: DiscountCardCreateModels.Item.RequestModel)
+    func discountCardImageDidUpload(withRequestModel requestModel: DiscountCardCreateModels.Image.RequestModel)
 }
 
 // MARK: - Output protocols for Presenter component VIP-cicle
 protocol DiscountCardCreateInteractorOutput {
     func discountCardDidPrepareToShowCreate(fromResponseModel responseModel: DiscountCardCreateModels.Item.ResponseModel)
+    func discountCardImageDidPrepareToShowUpload(fromResponseModel responseModel: DiscountCardCreateModels.Image.ResponseModel)
 }
 
 class DiscountCardCreateInteractor: DiscountCardCreateInteractorInput {
@@ -38,5 +40,13 @@ class DiscountCardCreateInteractor: DiscountCardCreateInteractorInput {
             let discountCardResponseModel = DiscountCardCreateModels.Item.ResponseModel(responseAPI: responseAPI)
             self.presenter.discountCardDidPrepareToShowCreate(fromResponseModel: discountCardResponseModel)
         })
+    }
+    
+    func discountCardImageDidUpload(withRequestModel requestModel: DiscountCardCreateModels.Image.RequestModel) {
+        MSMRestApiManager.instance.userUploadImage(requestModel.image) { responseAPI in
+            // Pass the result to the Presenter
+            let imageUploadResponseModel = DiscountCardCreateModels.Image.ResponseModel(responseAPI: responseAPI)
+            self.presenter.discountCardImageDidPrepareToShowUpload(fromResponseModel: imageUploadResponseModel)
+        }
     }
 }

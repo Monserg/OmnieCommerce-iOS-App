@@ -10,15 +10,18 @@
 //
 
 import UIKit
+import Kingfisher
 
 // MARK: - Input protocols for current ViewController component VIP-cicle
 protocol DiscountCardCreateViewControllerInput {
     func discountCardDidShowCreate(fromViewModel viewModel: DiscountCardCreateModels.Item.ViewModel)
+    func discountCardImageDidShowUpload(fromViewModel viewModel: DiscountCardCreateModels.Image.ViewModel)
 }
 
 // MARK: - Output protocols for Interactor component VIP-cicle
 protocol DiscountCardCreateViewControllerOutput {
     func discountCardDidCreate(withRequestModel requestModel: DiscountCardCreateModels.Item.RequestModel)
+    func discountCardImageDidUpload(withRequestModel requestModel: DiscountCardCreateModels.Image.RequestModel)
 }
 
 class DiscountCardCreateViewController: BaseViewController {
@@ -107,6 +110,24 @@ class DiscountCardCreateViewController: BaseViewController {
         }
     }
 
+    func handlerResult(fromImagePicker imagePickerController: MSMImagePickerController, forAvatarButton avatarButton: UIButton) {
+        // Handler Success Select Image
+        imagePickerController.handlerImagePickerControllerCompletion = { image in
+            if (isNetworkAvailable) {
+                // Upload Image API
+                self.spinnerDidStart(self.blackoutView!)
+                
+                let imageUploadRequestModel = DiscountCardCreateModels.Image.RequestModel(image: image)
+                self.interactor.discountCardImageDidUpload(withRequestModel: imageUploadRequestModel)
+            }
+        }
+        
+        // Handler Cancel result
+        imagePickerController.handlerCancelButtonCompletion = { _ in
+            self.blackoutView!.didHide()
+        }
+    }
+
     
     // MARK: - Transition
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -137,6 +158,55 @@ class DiscountCardCreateViewController: BaseViewController {
     }
     
     @IBAction func handlerPhotoImageButtonTap(_ sender: UbuntuLightVeryLightOrangeButton) {
+        self.blackoutView = MSMBlackoutView.init(inView: self.view)
+        
+        self.blackoutView!.didShow()
+        
+        let avatarActionView = AvatarActionView.init(inView: self.view)
+        
+        if (sender.currentImage == nil) {
+            avatarActionView.deletePhotoButton.isHidden = true
+        }
+        
+        // Handler AvatarActionView completions
+        avatarActionView.handlerViewDismissCompletion = { actionType in
+            switch actionType {
+            // Handler Photo Make button tap
+            case .PhotoUpload:
+                let imagePickerController = MSMImagePickerController()
+                imagePickerController.modalPresentationStyle = .overCurrentContext
+                imagePickerController.photoDidLoadFromAlbum()
+                
+                self.present(imagePickerController, animated: true, completion: nil)
+                
+                // Handler MSMImagePickerController results
+                self.handlerResult(fromImagePicker: imagePickerController, forAvatarButton: sender)
+                
+            case .PhotoMake:
+                let imagePickerController = MSMImagePickerController()
+                imagePickerController.modalPresentationStyle = .overCurrentContext
+                
+                guard imagePickerController.photoDidMakeWithCamera() else {
+                    self.alertViewDidShow(withTitle: "Error", andMessage: "Camera is not available", completion: { _ in })
+                    self.blackoutView!.didHide()
+                    return
+                }
+                
+                self.present(imagePickerController, animated: true, completion: nil)
+                
+                // Handler MSMImagePickerController results
+                self.handlerResult(fromImagePicker: imagePickerController, forAvatarButton: sender)
+                
+            case .PhotoDelete:
+                UIView.animate(withDuration: 0.7, animations: {
+                    sender.setImage(UIImage.init(named: "image-no-user"), for: .normal)
+                }, completion: { success in
+                    appUser.imageID = nil
+                    CoreDataManager.instance.didSaveContext()
+                    self.blackoutView!.didHide()
+                })
+            }
+        }
     }
     
     @IBAction func handlerBarcodeImageButtonTap(_ sender: UbuntuLightVeryLightOrangeButton) {
@@ -157,5 +227,32 @@ extension DiscountCardCreateViewController: DiscountCardCreateViewControllerInpu
         
         // Show success modal view
         modalViewDidShow(withHeight: 185.0, customSubview: ConfirmSaveView(), andValues: nil)
+    }
+    
+    func discountCardImageDidShowUpload(fromViewModel viewModel: DiscountCardCreateModels.Image.ViewModel) {
+        // Check for errors
+        guard viewModel.responseAPI!.status == "SUCCESS" else {
+            self.alertViewDidShow(withTitle: "Error", andMessage: viewModel.responseAPI!.status, completion: { })
+            
+            return
+        }
+        
+        // Change Avatar Button Image
+        if let imageCodeID = viewModel.responseAPI?.body as? String, !imageCodeID.isEmpty {
+            self.photoImageView.kf.setImage(with: ImageResource(downloadURL: imageCodeID.convertToURL(withSize: .Medium, inMode: .Get), cacheKey: imageCodeID),
+                                       placeholder: UIImage.init(named: "image-no-photo"),
+                                       options: [.transition(ImageTransition.fade(1)),
+                                                 .processor(ResizingImageProcessor(referenceSize: self.photoImageView.frame.size,
+                                                                                   mode: .aspectFill))],
+                                       completionHandler: { image, error, cacheType, imageURL in
+                                        self.photoImageView.kf.cancelDownloadTask()
+                                        self.imageID = imageCodeID
+            })
+        } else {
+            self.photoImageView.backgroundColor = UIColor.init(hexString: "#273745")
+        }
+        
+        self.blackoutView!.didHide()
+        self.spinnerDidFinish()
     }
 }
