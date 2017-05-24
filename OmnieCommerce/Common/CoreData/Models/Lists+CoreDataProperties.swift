@@ -2,7 +2,7 @@
 //  Lists+CoreDataProperties.swift
 //  OmnieCommerce
 //
-//  Created by msm72 on 20.05.17.
+//  Created by msm72 on 24.05.17.
 //  Copyright © 2017 Omniesoft. All rights reserved.
 //
 
@@ -23,6 +23,7 @@ extension Lists {
     @NSManaged public var orders: NSSet?
     @NSManaged public var organizations: NSSet?
     @NSManaged public var services: NSSet?
+    @NSManaged public var discountCards: NSSet?
 
 }
 
@@ -125,5 +126,22 @@ extension Lists {
 
     @objc(removeServices:)
     @NSManaged public func removeFromServices(_ values: NSSet)
+
+}
+
+// MARK: Generated accessors for discountCards
+extension Lists {
+
+    @objc(addDiscountCardsObject:)
+    @NSManaged public func addToDiscountCards(_ value: DiscountCard)
+
+    @objc(removeDiscountCardsObject:)
+    @NSManaged public func removeFromDiscountCards(_ value: DiscountCard)
+
+    @objc(addDiscountCards:)
+    @NSManaged public func addToDiscountCards(_ values: NSSet)
+
+    @objc(removeDiscountCards:)
+    @NSManaged public func removeFromDiscountCards(_ values: NSSet)
 
 }

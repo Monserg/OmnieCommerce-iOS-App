@@ -43,5 +43,9 @@ public class Lists: NSManagedObject {
         if let handbook = item as? Handbook {
             self.addToHandbooks(handbook)
         }
+
+        if let discountCard = item as? DiscountCard {
+            self.addToDiscountCards(discountCard)
+        }
     }
 }

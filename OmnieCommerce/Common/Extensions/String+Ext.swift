@@ -12,12 +12,13 @@
 import Foundation
 
 enum DateFormatType: String {
-    case Default                =   "dd.MM.yyyy"                        // "17.03.2017"
-    case ResponseDate           =   "yyyy-MM-dd"                        // "2017-03-17"
-    case NewsDate               =   "yyyy-MM-dd HH:mm"                  // "2017-03-31 01:03"
-    case PriceDate              =   "MMM dd, yyyy HH:mm:ss a"           // "May 9, 2017 12:01:14 PM"
-    case BirthdayDate           =   "MMM dd, yyyy"                      // "Dec 14, 2014"
-    case RegistrationDate       =   "yyyy-MM-dd HH:mm:ss"               // "2017-05-10 10:11:11.108985"
+    case Default                =   "dd.MM.yyyy"                        //  "17.03.2017"
+    case ResponseDate           =   "yyyy-MM-dd"                        //  "2017-03-17"
+    case NewsDate               =   "yyyy-MM-dd HH:mm"                  //  "2017-03-31 01:03"
+    case PriceDate              =   "MMM dd, yyyy HH:mm:ss a"           //  "May 9, 2017 12:01:14 PM"
+    case BirthdayDate           =   "MMM dd, yyyy"                      //  "Dec 14, 2014"
+    case RegistrationDate       =   "yyyy-MM-dd HH:mm:ss"               //  "2017-05-10 10:11:11.108985"
+    case DiscountCardDate       =   "yyyy-MM-dd\'T\'HH:mm"              //  "2017-05-16T22:48"
 }
 
 enum ImageSize: String {

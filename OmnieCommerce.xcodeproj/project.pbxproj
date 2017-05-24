@@ -154,6 +154,8 @@
 		B137EC951E7D19FB006F0184 /* MSMCollectionViewControllerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B137EC941E7D19FB006F0184 /* MSMCollectionViewControllerManager.swift */; };
 		B1390FFC1E8D1E4B00BD9219 /* FavoriteServiceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1390FFA1E8D1E4B00BD9219 /* FavoriteServiceTableViewCell.swift */; };
 		B1390FFD1E8D1E4B00BD9219 /* FavoriteServiceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1390FFB1E8D1E4B00BD9219 /* FavoriteServiceTableViewCell.xib */; };
+		B13F4E301ED5533300455604 /* DiscountCard+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13F4E2E1ED5533300455604 /* DiscountCard+CoreDataClass.swift */; };
+		B13F4E311ED5533300455604 /* DiscountCard+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13F4E2F1ED5533300455604 /* DiscountCard+CoreDataProperties.swift */; };
 		B13FE1A11E94C59C000DD416 /* BlackListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B13FE1A01E94C59C000DD416 /* BlackListView.xib */; };
 		B13FE1A31E94C5A4000DD416 /* BlackListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13FE1A21E94C5A4000DD416 /* BlackListView.swift */; };
 		B13FE1A81E95121B000DD416 /* NewsItemShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13FE1A71E95121B000DD416 /* NewsItemShowViewController.swift */; };
@@ -672,6 +674,8 @@
 		B137EC941E7D19FB006F0184 /* MSMCollectionViewControllerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSMCollectionViewControllerManager.swift; sourceTree = "<group>"; };
 		B1390FFA1E8D1E4B00BD9219 /* FavoriteServiceTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteServiceTableViewCell.swift; sourceTree = "<group>"; };
 		B1390FFB1E8D1E4B00BD9219 /* FavoriteServiceTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FavoriteServiceTableViewCell.xib; sourceTree = "<group>"; };
+		B13F4E2E1ED5533300455604 /* DiscountCard+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DiscountCard+CoreDataClass.swift"; sourceTree = "<group>"; };
+		B13F4E2F1ED5533300455604 /* DiscountCard+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DiscountCard+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		B13FE1A01E94C59C000DD416 /* BlackListView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BlackListView.xib; sourceTree = "<group>"; };
 		B13FE1A21E94C5A4000DD416 /* BlackListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlackListView.swift; sourceTree = "<group>"; };
 		B13FE1A71E95121B000DD416 /* NewsItemShowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsItemShowViewController.swift; sourceTree = "<group>"; };
@@ -1159,6 +1163,8 @@
 				B15F95B31EA1E1C50009AD28 /* Category+CoreDataProperties.swift */,
 				B10189C01EAB71B400C1AD2F /* Discount+CoreDataClass.swift */,
 				B10189C11EAB71B400C1AD2F /* Discount+CoreDataProperties.swift */,
+				B13F4E2E1ED5533300455604 /* DiscountCard+CoreDataClass.swift */,
+				B13F4E2F1ED5533300455604 /* DiscountCard+CoreDataProperties.swift */,
 				B11DCAF21E9E234200180375 /* GalleryImage+CoreDataClass.swift */,
 				B11DCAF31E9E234200180375 /* GalleryImage+CoreDataProperties.swift */,
 				B18FBB091ED004CD0037804C /* Handbook+CoreDataClass.swift */,
@@ -2810,6 +2816,7 @@
 				B1CF54D81DDB51BE00E98049 /* SettingsShowConfigurator.swift in Sources */,
 				B14B8DE81EBB725A00B29511 /* TimerPointer.swift in Sources */,
 				B18FBB0B1ED004CD0037804C /* Handbook+CoreDataClass.swift in Sources */,
+				B13F4E301ED5533300455604 /* DiscountCard+CoreDataClass.swift in Sources */,
 				B18FBB131ED0B6B60037804C /* HandbookTableViewCell.swift in Sources */,
 				B112036E1E8EDD5D0036001A /* UbuntuLightVeryDarkGrayishBlueLabel.swift in Sources */,
 				B122F1EC1DD35BA70018A701 /* MessagesShowPresenter.swift in Sources */,
@@ -2920,6 +2927,7 @@
 				B1CF54DC1DDB51BE00E98049 /* SettingsShowRouter.swift in Sources */,
 				B122F2411DD371B30018A701 /* BaseNavigationController.swift in Sources */,
 				B122DF671DF7F957003823AD /* CalendarShowRouter.swift in Sources */,
+				B13F4E311ED5533300455604 /* DiscountCard+CoreDataProperties.swift in Sources */,
 				B1D8832D1E8E8D63006F4831 /* NewsActionsShowPresenter.swift in Sources */,
 				B1FBC91B1E6D494D00D86429 /* DLRadioButton.m in Sources */,
 				B1E52AB11DDDD0EA00C3B24D /* LaunchScreenViewController.swift in Sources */,
