@@ -13,12 +13,12 @@ import UIKit
 
 // MARK: - Input protocols for current Presenter component VIP-cicle
 protocol DiscountCardShowPresenterInput {
-    func presentSomething(responseModel: DiscountCardShowModels.Something.ResponseModel)
+    func discountCardDidPrepareToShowDelete(fromResponseModel responseModel: DiscountCardShowModels.Item.ResponseModel)
 }
 
 // MARK: - Output protocols for ViewController component VIP-cicle
 protocol DiscountCardShowPresenterOutput: class {
-    func displaySomething(viewModel: DiscountCardShowModels.Something.ViewModel)
+    func discountCardDidShowDelete(fromViewModel viewModel: DiscountCardShowModels.Item.ViewModel)
 }
 
 class DiscountCardShowPresenter: DiscountCardShowPresenterInput {
@@ -27,9 +27,9 @@ class DiscountCardShowPresenter: DiscountCardShowPresenterInput {
     
     
     // MARK: - Custom Functions. Presentation logic
-    func presentSomething(responseModel: DiscountCardShowModels.Something.ResponseModel) {
+    func discountCardDidPrepareToShowDelete(fromResponseModel responseModel: DiscountCardShowModels.Item.ResponseModel) {
         // NOTE: Format the response from the Interactor and pass the result back to the View Controller
-        let viewModel = DiscountCardShowModels.Something.ViewModel()
-        viewController.displaySomething(viewModel: viewModel)
+        let discountCardViewModel = DiscountCardShowModels.Item.ViewModel(status: (responseModel.responseAPI?.status)!)
+        viewController.discountCardDidShowDelete(fromViewModel: discountCardViewModel)
     }
 }

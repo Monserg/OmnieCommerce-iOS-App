@@ -164,6 +164,16 @@
 		B13F4E3F1ED55BB700455604 /* DiscountCardShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13F4E381ED55BB700455604 /* DiscountCardShowViewController.swift */; };
 		B13F4E401ED55BB700455604 /* DiscountCardShowWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13F4E391ED55BB700455604 /* DiscountCardShowWorker.swift */; };
 		B13F4E421ED55C0500455604 /* DiscountCardShow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B13F4E411ED55C0500455604 /* DiscountCardShow.storyboard */; };
+		B13F4E451ED5627E00455604 /* DiscountCardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13F4E441ED5627E00455604 /* DiscountCardCollectionViewCell.swift */; };
+		B13F4E471ED5631200455604 /* DiscountCardCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B13F4E461ED5631200455604 /* DiscountCardCollectionViewCell.xib */; };
+		B13F4E681ED587A000455604 /* DiscountCardCreate.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B13F4E671ED587A000455604 /* DiscountCardCreate.storyboard */; };
+		B13F4E711ED5880D00455604 /* DiscountCardCreateConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13F4E6A1ED5880D00455604 /* DiscountCardCreateConfigurator.swift */; };
+		B13F4E721ED5880D00455604 /* DiscountCardCreateInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13F4E6B1ED5880D00455604 /* DiscountCardCreateInteractor.swift */; };
+		B13F4E731ED5880D00455604 /* DiscountCardCreateModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13F4E6C1ED5880D00455604 /* DiscountCardCreateModels.swift */; };
+		B13F4E741ED5880D00455604 /* DiscountCardCreatePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13F4E6D1ED5880D00455604 /* DiscountCardCreatePresenter.swift */; };
+		B13F4E751ED5880E00455604 /* DiscountCardCreateRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13F4E6E1ED5880D00455604 /* DiscountCardCreateRouter.swift */; };
+		B13F4E761ED5880E00455604 /* DiscountCardCreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13F4E6F1ED5880D00455604 /* DiscountCardCreateViewController.swift */; };
+		B13F4E771ED5880E00455604 /* DiscountCardCreateWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13F4E701ED5880D00455604 /* DiscountCardCreateWorker.swift */; };
 		B13FE1A11E94C59C000DD416 /* BlackListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B13FE1A01E94C59C000DD416 /* BlackListView.xib */; };
 		B13FE1A31E94C5A4000DD416 /* BlackListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13FE1A21E94C5A4000DD416 /* BlackListView.swift */; };
 		B13FE1A81E95121B000DD416 /* NewsItemShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13FE1A71E95121B000DD416 /* NewsItemShowViewController.swift */; };
@@ -692,6 +702,16 @@
 		B13F4E381ED55BB700455604 /* DiscountCardShowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscountCardShowViewController.swift; sourceTree = "<group>"; };
 		B13F4E391ED55BB700455604 /* DiscountCardShowWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscountCardShowWorker.swift; sourceTree = "<group>"; };
 		B13F4E411ED55C0500455604 /* DiscountCardShow.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DiscountCardShow.storyboard; sourceTree = "<group>"; };
+		B13F4E441ED5627E00455604 /* DiscountCardCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscountCardCollectionViewCell.swift; sourceTree = "<group>"; };
+		B13F4E461ED5631200455604 /* DiscountCardCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DiscountCardCollectionViewCell.xib; sourceTree = "<group>"; };
+		B13F4E671ED587A000455604 /* DiscountCardCreate.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DiscountCardCreate.storyboard; sourceTree = "<group>"; };
+		B13F4E6A1ED5880D00455604 /* DiscountCardCreateConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscountCardCreateConfigurator.swift; sourceTree = "<group>"; };
+		B13F4E6B1ED5880D00455604 /* DiscountCardCreateInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscountCardCreateInteractor.swift; sourceTree = "<group>"; };
+		B13F4E6C1ED5880D00455604 /* DiscountCardCreateModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscountCardCreateModels.swift; sourceTree = "<group>"; };
+		B13F4E6D1ED5880D00455604 /* DiscountCardCreatePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscountCardCreatePresenter.swift; sourceTree = "<group>"; };
+		B13F4E6E1ED5880D00455604 /* DiscountCardCreateRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscountCardCreateRouter.swift; sourceTree = "<group>"; };
+		B13F4E6F1ED5880D00455604 /* DiscountCardCreateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscountCardCreateViewController.swift; sourceTree = "<group>"; };
+		B13F4E701ED5880D00455604 /* DiscountCardCreateWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscountCardCreateWorker.swift; sourceTree = "<group>"; };
 		B13FE1A01E94C59C000DD416 /* BlackListView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BlackListView.xib; sourceTree = "<group>"; };
 		B13FE1A21E94C5A4000DD416 /* BlackListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlackListView.swift; sourceTree = "<group>"; };
 		B13FE1A71E95121B000DD416 /* NewsItemShowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsItemShowViewController.swift; sourceTree = "<group>"; };
@@ -1392,6 +1412,7 @@
 				B1CF54E91DDB56BD00E98049 /* BusinessCardsShow.storyboard */,
 				B122DF591DF7F901003823AD /* CalendarShow.storyboard */,
 				B122F22F1DD35EE10018A701 /* CategoriesShow.storyboard */,
+				B13F4E671ED587A000455604 /* DiscountCardCreate.storyboard */,
 				B13F4E411ED55C0500455604 /* DiscountCardShow.storyboard */,
 				B1CF54ED1DDB588600E98049 /* DiscountCardsShow.storyboard */,
 				B1C13D8C1DEF3385002B494A /* DropDown.storyboard */,
@@ -1425,6 +1446,7 @@
 				B1CF546C1DDB507900E98049 /* BusinessCardsShow */,
 				B122DF5B1DF7F919003823AD /* CalendarShow */,
 				B122F1D01DD35B1C0018A701 /* CategoriesShow */,
+				B13F4E691ED587E600455604 /* DiscountCardCreate */,
 				B13F4E321ED55B9400455604 /* DiscountCardShow */,
 				B1CF546E1DDB50AB00E98049 /* DiscountCardsShow */,
 				B177E53F1E54AC5A004F1390 /* EnterCodeShow */,
@@ -1682,6 +1704,29 @@
 				B13F4E391ED55BB700455604 /* DiscountCardShowWorker.swift */,
 			);
 			path = DiscountCardShow;
+			sourceTree = "<group>";
+		};
+		B13F4E431ED5625D00455604 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B13F4E441ED5627E00455604 /* DiscountCardCollectionViewCell.swift */,
+				B13F4E461ED5631200455604 /* DiscountCardCollectionViewCell.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		B13F4E691ED587E600455604 /* DiscountCardCreate */ = {
+			isa = PBXGroup;
+			children = (
+				B13F4E6A1ED5880D00455604 /* DiscountCardCreateConfigurator.swift */,
+				B13F4E6B1ED5880D00455604 /* DiscountCardCreateInteractor.swift */,
+				B13F4E6C1ED5880D00455604 /* DiscountCardCreateModels.swift */,
+				B13F4E6D1ED5880D00455604 /* DiscountCardCreatePresenter.swift */,
+				B13F4E6E1ED5880D00455604 /* DiscountCardCreateRouter.swift */,
+				B13F4E6F1ED5880D00455604 /* DiscountCardCreateViewController.swift */,
+				B13F4E701ED5880D00455604 /* DiscountCardCreateWorker.swift */,
+			);
+			path = DiscountCardCreate;
 			sourceTree = "<group>";
 		};
 		B13FE1A61E9511A9000DD416 /* NewsItemShow */ = {
@@ -2213,6 +2258,7 @@
 		B1CF546E1DDB50AB00E98049 /* DiscountCardsShow */ = {
 			isa = PBXGroup;
 			children = (
+				B13F4E431ED5625D00455604 /* Views */,
 				B1CF548B1DDB512000E98049 /* DiscountCardsShowConfigurator.swift */,
 				B1CF548C1DDB512000E98049 /* DiscountCardsShowInteractor.swift */,
 				B1CF548D1DDB512000E98049 /* DiscountCardsShowModels.swift */,
@@ -2453,6 +2499,7 @@
 				B100405D1EB4903200161073 /* OrderShow.storyboard in Resources */,
 				B1D7384E1E93B0B200A764F4 /* ReviewsView.xib in Resources */,
 				B151251C1EAE1126009A6A44 /* ServiceShow.storyboard in Resources */,
+				B13F4E471ED5631200455604 /* DiscountCardCollectionViewCell.xib in Resources */,
 				B16F5A4A1EB0752300CC0859 /* PriceServiceTableViewCell.xib in Resources */,
 				B1BF92681DD6516C00BECBBB /* helveticaneuecyr-black.otf in Resources */,
 				B1FFF72A1E5F0DFB00A075D8 /* InfoPlist.strings in Resources */,
@@ -2505,6 +2552,7 @@
 				B1C94BBE1E37823C00122933 /* BarCodeView.xib in Resources */,
 				B1BF92781DD6516C00BECBBB /* UBUNTU-B.TTF in Resources */,
 				B18FBB181ED0D07C0037804C /* HandbookShow.storyboard in Resources */,
+				B13F4E681ED587A000455604 /* DiscountCardCreate.storyboard in Resources */,
 				B1BF92791DD6516C00BECBBB /* UBUNTU-BI.TTF in Resources */,
 				B1F3CD561E97AA7F00ECAC35 /* PhotosGalleryView.xib in Resources */,
 				B1CF54EA1DDB56BD00E98049 /* BusinessCardsShow.storyboard in Resources */,
@@ -2613,6 +2661,7 @@
 				B16E966F1DE6C94000147CEF /* BigTopBarView.swift in Sources */,
 				B10874801E5B0DC9004A4FB6 /* AppSettings+CoreDataProperties.swift in Sources */,
 				B1D883211E8E8C98006F4831 /* NewsDataShowViewController.swift in Sources */,
+				B13F4E771ED5880E00455604 /* DiscountCardCreateWorker.swift in Sources */,
 				B122F1F91DD35BC70018A701 /* FavoriteShowModels.swift in Sources */,
 				B1032BC71EC7068D00AEB661 /* Lists+CoreDataProperties.swift in Sources */,
 				B10CF52A1E684B9700811DC1 /* ScheduleView.swift in Sources */,
@@ -2625,6 +2674,7 @@
 				B122F2171DD35C2C0018A701 /* NewsShowRouter.swift in Sources */,
 				B14C07521EA0E0BC00556866 /* FillColorButton.swift in Sources */,
 				B11CDCC91E9F5DC400E52FDE /* ScheduleTableViewCell.swift in Sources */,
+				B13F4E721ED5880D00455604 /* DiscountCardCreateInteractor.swift in Sources */,
 				B19DFAC11E64B9F100599073 /* UITextField+Ext.swift in Sources */,
 				B177E55A1E54B739004F1390 /* RepetitionPasswordShowRouter.swift in Sources */,
 				B15125101EADC619009A6A44 /* ServiceShowRouter.swift in Sources */,
@@ -2653,6 +2703,7 @@
 				B15291591DDE3FFA00BBA1E0 /* MenuSectionHeaderView.swift in Sources */,
 				B1ACAB641EC97AEC00B62F78 /* OmnieCommerceUser.xcdatamodeld in Sources */,
 				B1BEEDEF1E63687500F1DE8A /* OrganizationShowConfigurator.swift in Sources */,
+				B13F4E451ED5627E00455604 /* DiscountCardCollectionViewCell.swift in Sources */,
 				B10040701EB4980D00161073 /* Order+CoreDataProperties.swift in Sources */,
 				B151251A1EAE0DD0009A6A44 /* AdditionalService+CoreDataProperties.swift in Sources */,
 				B140F1A31EC482C2003CFF4A /* OrderTableViewCell.swift in Sources */,
@@ -2700,6 +2751,7 @@
 				B1D883351E8E9150006F4831 /* Actions+CoreDataClass.swift in Sources */,
 				B1F3CD691E98A3BE00ECAC35 /* ServicePrice.swift in Sources */,
 				B1CF54771DDB50D900E98049 /* AboutShowInteractor.swift in Sources */,
+				B13F4E761ED5880E00455604 /* DiscountCardCreateViewController.swift in Sources */,
 				B16E96731DE717E400147CEF /* BigCirleView.swift in Sources */,
 				B177E5491E54AC7F004F1390 /* EnterCodeShowModels.swift in Sources */,
 				B10B48D11E8A5AEC007DDD81 /* FavoriteServicesShowWorker.swift in Sources */,
@@ -2736,6 +2788,7 @@
 				B14E97561DD8B052001E1DE2 /* SignUpShowConfigurator.swift in Sources */,
 				B1D883131E8E8995006F4831 /* NewsDataTableViewCell.swift in Sources */,
 				B14E97671DD8B05E001E1DE2 /* ForgotPasswordShowPresenter.swift in Sources */,
+				B13F4E741ED5880D00455604 /* DiscountCardCreatePresenter.swift in Sources */,
 				B122F1DF1DD35B760018A701 /* OrdersShowRouter.swift in Sources */,
 				B19668601E73098600B9C9AE /* OrganizationTableViewCell.swift in Sources */,
 				B1CF54CA1DDB51A500E98049 /* PersonalPageShowConfigurator.swift in Sources */,
@@ -2845,6 +2898,7 @@
 				B1CF54961DDB512000E98049 /* DiscountCardsShowRouter.swift in Sources */,
 				B14E97661DD8B05E001E1DE2 /* ForgotPasswordShowModels.swift in Sources */,
 				B1CF54A61DDB515000E98049 /* HandbookShowWorker.swift in Sources */,
+				B13F4E711ED5880D00455604 /* DiscountCardCreateConfigurator.swift in Sources */,
 				B1CF54F01DDB5F1A00E98049 /* CustomLabel.swift in Sources */,
 				B108747F1E5B0DC9004A4FB6 /* AppSettings+CoreDataClass.swift in Sources */,
 				B14E974E1DD8B042001E1DE2 /* SignInShowWorker.swift in Sources */,
@@ -2934,6 +2988,7 @@
 				B100406A1EB4912400161073 /* OrderShowRouter.swift in Sources */,
 				B14C07201EA0993800556866 /* ServicesShowModels.swift in Sources */,
 				B1CF54791DDB50D900E98049 /* AboutShowPresenter.swift in Sources */,
+				B13F4E751ED5880E00455604 /* DiscountCardCreateRouter.swift in Sources */,
 				B1E209A71ECA15C400B0226F /* OrderCalendarShowViewController.swift in Sources */,
 				B122F1F71DD35BC70018A701 /* FavoriteShowConfigurator.swift in Sources */,
 				B177E53A1E5475EC004F1390 /* SignInContainerShowWorker.swift in Sources */,
@@ -2972,6 +3027,7 @@
 				B1FBC91B1E6D494D00D86429 /* DLRadioButton.m in Sources */,
 				B1E52AB11DDDD0EA00C3B24D /* LaunchScreenViewController.swift in Sources */,
 				B1BEEDF21E63687500F1DE8A /* OrganizationShowPresenter.swift in Sources */,
+				B13F4E731ED5880D00455604 /* DiscountCardCreateModels.swift in Sources */,
 				B177E5341E5475EC004F1390 /* SignInContainerShowConfigurator.swift in Sources */,
 				B122F1DC1DD35B760018A701 /* OrdersShowInteractor.swift in Sources */,
 				B10B48CD1E8A5AEC007DDD81 /* FavoriteServicesShowModels.swift in Sources */,

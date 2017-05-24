@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Discount Card Create View Controller-->
+        <scene sceneID="mx6-as-Mx6">
+            <objects>
+                <viewController storyboardIdentifier="DiscountCardCreateVC" id="cHe-tJ-QAg" customClass="DiscountCardCreateViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="DeV-ld-9zg"/>
+                        <viewControllerLayoutGuide type="bottom" id="j6u-3J-zWE"/>
+                    </layoutGuides>
+                    <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="A4D-yP-xw0">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K4O-Hp-7T4" customClass="SmallTopBarView" customModule="OmnieCommerce" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="95"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="titleText" value="DiscountCard"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="type" value="ParentSearch"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Copyright" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mhd-tM-ire" userLabel="Copyright Label" customClass="UbuntuLightDarkCyanLabel" customModule="OmnieCommerce" customModuleProvider="target">
+                                <rect key="frame" x="8" y="648" width="359" height="11"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="K4O-Hp-7T4" firstAttribute="top" secondItem="A4D-yP-xw0" secondAttribute="top" id="7WP-Ue-bPh">
+                                <variation key="heightClass=compact-widthClass=compact" constant="0.0"/>
+                                <variation key="heightClass=compact-widthClass=regular" constant="0.0"/>
+                            </constraint>
+                            <constraint firstAttribute="trailing" secondItem="Mhd-tM-ire" secondAttribute="trailing" constant="8" id="AaT-uz-y0p"/>
+                            <constraint firstAttribute="bottom" secondItem="Mhd-tM-ire" secondAttribute="bottom" constant="8" id="I5B-45-Ist"/>
+                            <constraint firstItem="K4O-Hp-7T4" firstAttribute="height" secondItem="A4D-yP-xw0" secondAttribute="height" multiplier="95:667" id="UJN-6K-TTu"/>
+                            <constraint firstItem="K4O-Hp-7T4" firstAttribute="leading" secondItem="A4D-yP-xw0" secondAttribute="leading" id="Uza-Y8-Gkp"/>
+                            <constraint firstItem="Mhd-tM-ire" firstAttribute="leading" secondItem="A4D-yP-xw0" secondAttribute="leading" constant="8" id="Zd0-3j-CRY"/>
+                            <constraint firstAttribute="trailing" secondItem="K4O-Hp-7T4" secondAttribute="trailing" id="ap6-sg-toG"/>
+                            <constraint firstItem="Mhd-tM-ire" firstAttribute="centerX" secondItem="A4D-yP-xw0" secondAttribute="centerX" id="g82-U3-YBO"/>
+                            <constraint firstItem="K4O-Hp-7T4" firstAttribute="height" secondItem="A4D-yP-xw0" secondAttribute="height" multiplier="80:375" id="n2M-rK-mUC"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="UJN-6K-TTu"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="constraints">
+                                <include reference="UJN-6K-TTu"/>
+                                <exclude reference="n2M-rK-mUC"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" id="RQS-qq-19K"/>
+                    <connections>
+                        <outlet property="smallTopBarView" destination="K4O-Hp-7T4" id="d5z-pn-3ze"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NVo-Mt-ymv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1119.2" y="16.641679160419791"/>
+        </scene>
+    </scenes>
+</document>

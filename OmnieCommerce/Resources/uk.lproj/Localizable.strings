@@ -94,6 +94,8 @@
 "Saved"                         =   "Збережено!";
 "Settings saved message"        =   "Ваші налаштування успішно \nзбережено.";
 "Dictionary saved message"      =   "Ваш запит відправлено на \nмодерацію.";
+"DiscountCard delete message"   =   "Картку успішно видалено.";
+"DiscountCard create message"   =   "Нова картка успішно додана \nдо списку."
 
 
 // Buttons
@@ -126,6 +128,7 @@
 "Save as template"              =   "Зберегти як шаблон";
 "Add dictionary photo"          =   "Добавити фото закладу";
 "Change dictionary photo"       =   "Змінити фото закладу";
+"Delete discount card"          =   "Видалити картку";
 
 
 // TextField Placeholders

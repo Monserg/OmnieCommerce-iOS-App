@@ -94,6 +94,8 @@
 "Saved"                         =   "Сохранено!";
 "Settings saved message"        =   "Ваши натройки успешно \nсохранены.";
 "Dictionary saved message"      =   "Ваш запрос отправлен на \nмодерацию.";
+"DiscountCard delete message"   =   "Карточка успешно удалена.";
+"DiscountCard create message"   =   "Новая карточка успешно добавлена \nв список."
 
 
 // Buttons

@@ -13,12 +13,12 @@ import UIKit
 
 // MARK: - Input protocols for current Interactor component VIP-cicle
 protocol DiscountCardShowInteractorInput {
-    func doSomething(requestModel: DiscountCardShowModels.Something.RequestModel)
+    func discountCardDidDelete(withRequestModel requestModel: DiscountCardShowModels.Item.RequestModel)
 }
 
 // MARK: - Output protocols for Presenter component VIP-cicle
 protocol DiscountCardShowInteractorOutput {
-    func presentSomething(responseModel: DiscountCardShowModels.Something.ResponseModel)
+    func discountCardDidPrepareToShowDelete(fromResponseModel responseModel: DiscountCardShowModels.Item.ResponseModel)
 }
 
 class DiscountCardShowInteractor: DiscountCardShowInteractorInput {
@@ -28,13 +28,15 @@ class DiscountCardShowInteractor: DiscountCardShowInteractorInput {
     
     
     // MARK: - Custom Functions. Business logic
-    func doSomething(requestModel: DiscountCardShowModels.Something.RequestModel) {
+    func discountCardDidDelete(withRequestModel requestModel: DiscountCardShowModels.Item.RequestModel) {
         // NOTE: Create some Worker to do the work
         worker = DiscountCardShowWorker()
         worker.doSomeWork()
         
         // NOTE: Pass the result to the Presenter
-        let responseModel = DiscountCardShowModels.Something.ResponseModel()
-        presenter.presentSomething(responseModel: responseModel)
+        MSMRestApiManager.instance.userRequestDidRun(.userDeleteDiscountCard(requestModel.parameters, false), withHandlerResponseAPICompletion:  { responseAPI in
+            let discountCardResponseModel = DiscountCardShowModels.Item.ResponseModel(responseAPI: responseAPI)
+            self.presenter.discountCardDidPrepareToShowDelete(fromResponseModel: discountCardResponseModel)
+        })
     }
 }

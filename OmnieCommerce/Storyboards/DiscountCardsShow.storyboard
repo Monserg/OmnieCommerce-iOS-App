@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -22,6 +23,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="mQb-sM-Lo4" customClass="MSMCollectionView" customModule="OmnieCommerce" customModuleProvider="target">
+                                <rect key="frame" x="8" y="65" width="359" height="574"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="16" minimumInteritemSpacing="16" id="huf-bC-RIX">
+                                    <size key="itemSize" width="170" height="102"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </collectionView>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K4O-Hp-7T4" customClass="SmallTopBarView" customModule="OmnieCommerce" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="95"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -41,36 +56,64 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </label>
+                            <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MWO-T0-hvb" userLabel="Create New Discount Card Button" customClass="FillColorButton" customModule="OmnieCommerce" customModuleProvider="target">
+                                <rect key="frame" x="316" y="594" width="30" height="34"/>
+                                <color key="backgroundColor" red="0.85098039219999999" green="0.72941176470000002" blue="0.40784313729999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="MWO-T0-hvb" secondAttribute="height" multiplier="1:1" id="xqC-wy-ChY"/>
+                                </constraints>
+                                <state key="normal" image="icon-create-new-discount-card-normal"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="buttonStyle" value="SoftOrangeFill"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="handlerCreateNewDiscountCardButtonTap:" destination="cHe-tJ-QAg" eventType="touchUpInside" id="Lwp-Jn-IM6"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="mQb-sM-Lo4" secondAttribute="trailing" constant="8" id="0lW-xl-xeO"/>
                             <constraint firstItem="K4O-Hp-7T4" firstAttribute="top" secondItem="A4D-yP-xw0" secondAttribute="top" id="7WP-Ue-bPh">
                                 <variation key="heightClass=compact-widthClass=compact" constant="0.0"/>
                                 <variation key="heightClass=compact-widthClass=regular" constant="0.0"/>
                             </constraint>
+                            <constraint firstItem="Mhd-tM-ire" firstAttribute="top" secondItem="mQb-sM-Lo4" secondAttribute="bottom" constant="9" id="9j3-l2-yV5"/>
                             <constraint firstAttribute="trailing" secondItem="Mhd-tM-ire" secondAttribute="trailing" constant="8" id="AaT-uz-y0p"/>
+                            <constraint firstItem="MWO-T0-hvb" firstAttribute="height" secondItem="A4D-yP-xw0" secondAttribute="height" multiplier="57:375" id="Ego-pw-C2z"/>
                             <constraint firstAttribute="bottom" secondItem="Mhd-tM-ire" secondAttribute="bottom" constant="8" id="I5B-45-Ist"/>
+                            <constraint firstItem="mQb-sM-Lo4" firstAttribute="top" secondItem="K4O-Hp-7T4" secondAttribute="bottom" constant="-30" id="JvB-0g-GTG"/>
                             <constraint firstItem="K4O-Hp-7T4" firstAttribute="height" secondItem="A4D-yP-xw0" secondAttribute="height" multiplier="95:667" id="UJN-6K-TTu"/>
                             <constraint firstItem="K4O-Hp-7T4" firstAttribute="leading" secondItem="A4D-yP-xw0" secondAttribute="leading" id="Uza-Y8-Gkp"/>
+                            <constraint firstItem="mQb-sM-Lo4" firstAttribute="leading" secondItem="A4D-yP-xw0" secondAttribute="leading" constant="8" id="Wre-MQ-JYS"/>
                             <constraint firstItem="Mhd-tM-ire" firstAttribute="leading" secondItem="A4D-yP-xw0" secondAttribute="leading" constant="8" id="Zd0-3j-CRY"/>
+                            <constraint firstItem="MWO-T0-hvb" firstAttribute="height" secondItem="A4D-yP-xw0" secondAttribute="height" multiplier="57:667" id="aFw-qi-KFn"/>
                             <constraint firstAttribute="trailing" secondItem="K4O-Hp-7T4" secondAttribute="trailing" id="ap6-sg-toG"/>
+                            <constraint firstItem="Mhd-tM-ire" firstAttribute="top" secondItem="MWO-T0-hvb" secondAttribute="bottom" constant="9" id="es3-ZX-zdX"/>
                             <constraint firstItem="Mhd-tM-ire" firstAttribute="centerX" secondItem="A4D-yP-xw0" secondAttribute="centerX" id="g82-U3-YBO"/>
                             <constraint firstItem="K4O-Hp-7T4" firstAttribute="height" secondItem="A4D-yP-xw0" secondAttribute="height" multiplier="80:375" id="n2M-rK-mUC"/>
+                            <constraint firstAttribute="trailing" secondItem="MWO-T0-hvb" secondAttribute="trailing" constant="16" id="p5b-Hr-ymL"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="UJN-6K-TTu"/>
+                                <exclude reference="aFw-qi-KFn"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="constraints">
                                 <include reference="UJN-6K-TTu"/>
                                 <exclude reference="n2M-rK-mUC"/>
+                                <exclude reference="Ego-pw-C2z"/>
+                                <include reference="aFw-qi-KFn"/>
                             </mask>
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" id="RQS-qq-19K"/>
                     <connections>
+                        <outlet property="collectionView" destination="mQb-sM-Lo4" id="7WP-TM-IDZ"/>
+                        <outlet property="createNewDiscountCardButton" destination="MWO-T0-hvb" id="Zer-xi-dSm"/>
                         <outlet property="smallTopBarView" destination="K4O-Hp-7T4" id="q8S-72-lAF"/>
                     </connections>
                 </viewController>
@@ -99,4 +142,7 @@
             <point key="canvasLocation" x="180" y="16.641679160419791"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="icon-create-new-discount-card-normal" width="32" height="22"/>
+    </resources>
 </document>

@@ -10,6 +10,8 @@ import UIKit
 
 class MSMCollectionView: UICollectionView {
     // MARK: - Properties
+    var hasHeaders = false
+
     var collectionViewControllerManager: MSMCollectionViewControllerManager! {
         didSet {
             self.delegate = collectionViewControllerManager

@@ -1,5 +1,5 @@
 //
-//  DiscountCardShowModels.swift
+//  DiscountCardCreateModels.swift
 //  OmnieCommerce
 //
 //  Created by msm72 on 24.05.17.
@@ -12,18 +12,15 @@
 import UIKit
 
 // MARK: - Data models
-struct DiscountCardShowModels {
-    struct Item {
+struct DiscountCardCreateModels {
+    struct Something {
         struct RequestModel {
-            let parameters: [String: Any]
         }
         
         struct ResponseModel {
-            let responseAPI: ResponseAPI?
         }
         
         struct ViewModel {
-            let status: String
         }
     }
 }

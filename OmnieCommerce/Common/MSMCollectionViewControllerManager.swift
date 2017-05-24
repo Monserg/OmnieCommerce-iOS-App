@@ -10,8 +10,6 @@ import UIKit
 
 class MSMCollectionViewControllerManager: BaseViewController {
     // MARK: - Properties
-    var sectionsCount = 0
-    
     var dataSource: [Any]! {
         didSet {
             _ = dataSource.map {
@@ -22,13 +20,33 @@ class MSMCollectionViewControllerManager: BaseViewController {
     }
     
     var collectionView: MSMCollectionView!
-    
+    var dataSourceFiltered = [Any]()
+    var isSearchBarActive: Bool = false
+    var refreshControl: UIRefreshControl?
+    var isLoadMore = false
+    var sectionsCount = 0
+    var emptyText: String!
+
     // Handlers
     var handlerCellSelectCompletion: HandlerPassDataCompletion?
     var handlerNavigationButtonTapCompletion: HandlerPassDataCompletion?
-    
+    var handlerPullRefreshCompletion: HandlerSendButtonCompletion?
+    var handlerInfiniteScrollCompletion: HandlerSendButtonCompletion?
+
     
     // MARK: - Class Initialization
+    init(withCollectionView collectionView: MSMCollectionView, andEmptyMessageText text: String) {
+        super.init(nibName: nil, bundle: nil)
+        
+        self.collectionView = collectionView
+        self.collectionView.delegate = self
+        self.collectionView.dataSource = self
+        self.emptyText = text
+        
+        self.pullRefreshDidCreate()
+        self.dataSource = [Any]()
+    }
+
     init(withCollectionView collectionView: MSMCollectionView) {
         super.init(nibName: nil, bundle: Bundle.main)
         
@@ -58,7 +76,68 @@ class MSMCollectionViewControllerManager: BaseViewController {
     }
     
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        print(object: "\(type(of: self)): \(#function) run in [line \(#line)]. UIScrollView.contentOffset.y = \(scrollView.contentOffset.y)")
+        
         collectionView!.setScrollIndicatorColor(color: UIColor.veryLightOrange)
+        
+        // Set Infinite Scroll
+        guard isNetworkAvailable else {
+            return
+        }
+        
+//        if (!self.collectionView!.hasHeaders && (self.dataSource.count + self.dataSourceFiltered.count > 0)) {
+//            if (scrollView.contentOffset.y >= footerViewHeight && !isLoadMore) {
+//                isLoadMore = !isLoadMore
+//                
+//                // Refresh FooterView
+//                self.collectionView!.beginUpdates()
+//                
+//                (self.collectionView!.tableFooterView as! MSMTableViewFooterView).didUpload(forItemsCount: dataSource.count,
+//                                                                                       andEmptyText: emptyText)
+//                
+//                self.tableView!.endUpdates()
+//                
+//                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
+//                    self.handlerInfiniteScrollCompletion!()
+//                }
+//            }
+//        }
+    }
+
+    
+    // MARK: - Custom Functions
+    private func pullRefreshDidCreate() {
+        if (!collectionView!.hasHeaders) {
+            refreshControl = UIRefreshControl()
+            refreshControl!.tintColor = UIColor.init(hexString: "#dedede", withAlpha: 1.0)
+            refreshControl!.attributedTitle = NSAttributedString(string: "Loading Data".localized(),
+                                                                 attributes: [NSFontAttributeName:  UIFont(name: "Ubuntu-Light", size: 12.0)!,
+                                                                              NSForegroundColorAttributeName: UIColor.veryLightGray])
+            
+            if #available(iOS 10.0, *) {
+                collectionView!.refreshControl = refreshControl!
+            } else {
+                collectionView!.addSubview(refreshControl!)
+            }
+            
+            refreshControl!.addTarget(self, action: #selector(handlerPullRefresh), for: .valueChanged)
+        }
+    }
+    
+    func pullRefreshDidFinish() {
+        refreshControl!.endRefreshing()
+        isLoadMore = false
+    }
+    
+    func handlerPullRefresh(refreshControl: UIRefreshControl) {
+        guard isNetworkAvailable else {
+            refreshControl.endRefreshing()
+            return
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
+            self.handlerPullRefreshCompletion!()
+        }
     }
 }
 
@@ -117,31 +196,6 @@ extension MSMCollectionViewControllerManager {
         handlerCellSelectCompletion!(dataSource[indexPath.row])
         self.collectionView.deselectItem(at: indexPath, animated: true)
     }
-
-    /*
-    // Specify if the specified item should be highlighted during tracking
-    func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    
-    // Specify if the specified item should be selected
-    func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    
-    // Specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-    func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
-        return false
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
-        return false
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
-        
-    }
-    */
 }
 
 

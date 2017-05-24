@@ -14,7 +14,7 @@ public class DiscountCard: NSManagedObject, InitCellParameters, SearchObject  {
     // MARK: - Properties
     // Confirm InitCellParameters Protocol
     var cellIdentifier: String = "DiscountCardCollectionViewCell"
-    var cellHeight: CGFloat = 96.0
+    var cellHeight: CGFloat = 126.0
     
     // Confirm SearchObject Protocol
     var name: String! {

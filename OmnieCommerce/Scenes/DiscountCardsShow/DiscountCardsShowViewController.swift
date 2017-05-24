@@ -32,10 +32,10 @@ class DiscountCardsShowViewController: BaseViewController {
     @IBOutlet weak var smallTopBarView: SmallTopBarView!
     @IBOutlet weak var createNewDiscountCardButton: FillColorButton!
     
-    @IBOutlet weak var tableView: MSMTableView! {
+    @IBOutlet weak var collectionView: MSMCollectionView! {
         didSet {
-            tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0)
-            tableView.scrollIndicatorInsets = UIEdgeInsetsMake(0, 0, 0, 0)
+            collectionView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0)
+            collectionView.scrollIndicatorInsets = UIEdgeInsetsMake(0, 0, 0, 0)
         }
     }
 
@@ -54,27 +54,26 @@ class DiscountCardsShowViewController: BaseViewController {
         
         // Config smallTopBarView
         navigationBarView = smallTopBarView
-        smallTopBarView.type = "ParentSearch"
+        smallTopBarView.type = "Parent"
         haveMenuItem = true
         createNewDiscountCardButton.isEnabled = false
         smallTopBarView.searchButton.isEnabled = false
 
         // Create MSMTableViewControllerManager
-        let discountCardsTableManager = MSMTableViewControllerManager.init(withTableView: tableView,
-                                                                           andSectionsCount: 1,
-                                                                           andEmptyMessageText: "DiscountCards list is empty")
+        let discountCardsCollectionManager = MSMCollectionViewControllerManager.init(withCollectionView: collectionView,
+                                                                                     andEmptyMessageText: "DiscountCards list is empty")
         
-        tableView.tableViewControllerManager = discountCardsTableManager
+        collectionView.collectionViewControllerManager = discountCardsCollectionManager
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
-        if (tableView.tableViewControllerManager == nil) {
+        if (collectionView.collectionViewControllerManager == nil) {
             limit = Config.Constants.paginationLimit
         } else {
-            limit = (tableView.tableViewControllerManager.dataSource.count == 0) ?  Config.Constants.paginationLimit :
-                                                                                    tableView.tableViewControllerManager.dataSource.count
+            limit = (collectionView.collectionViewControllerManager.dataSource.count == 0) ?    Config.Constants.paginationLimit :
+                                                                                                collectionView.collectionViewControllerManager.dataSource.count
         }
         
         viewSettingsDidLoad()
@@ -123,36 +122,20 @@ class DiscountCardsShowViewController: BaseViewController {
         if let discountCardsList = discountCardsEntities as? [DiscountCard] {
             discountCards = discountCardsList
             
-            tableView.tableViewControllerManager!.dataSource = discountCards
-            tableView!.tableFooterView!.isHidden = (discountCards.count > 0) ? true : false
-            
-            (tableView!.tableFooterView as! MSMTableViewFooterView).didUpload(forItemsCount: discountCards.count,
-                                                                              andEmptyText: "DiscountCards list is empty")
-            
-            tableView.reloadData()
+            collectionView.collectionViewControllerManager!.dataSource = discountCards
+            collectionView.reloadData()
         }
         
         // Search Manager
         smallTopBarView.searchBar.placeholder = "Enter Organization name".localized()
-        smallTopBarView.searchBar.delegate = tableView.tableViewControllerManager
         
         // Handler select cell
-        tableView.tableViewControllerManager!.handlerSelectRowCompletion = { discountCard in
-            self.router.navigateToDiscountCardShowScene(withDiscountCardID: (discountCard as! DiscountCard).codeID)
-        }
-        
-        // Handler Search keyboard button tap
-        tableView.tableViewControllerManager!.handlerSendButtonCompletion = { _ in
-            self.smallTopBarView.searchBarDidHide()
-        }
-        
-        // Handler Search Bar Cancel button tap
-        tableView.tableViewControllerManager!.handlerCancelButtonCompletion = { _ in
-            self.smallTopBarView.searchBarDidHide()
+        collectionView.collectionViewControllerManager!.handlerCellSelectCompletion = { discountCard in
+            self.router.navigateToDiscountCardShowScene(withDiscountCardID: discountCard as! DiscountCard)
         }
         
         // Handler PullRefresh
-        tableView.tableViewControllerManager!.handlerPullRefreshCompletion = { _ in
+        collectionView.collectionViewControllerManager!.handlerPullRefreshCompletion = { _ in
             // Reload DiscountCards list from API
             self.discountCards = [DiscountCard]()
             CoreDataManager.instance.entitiesDidRemove(byName: "Lists", andPredicateParameters: NSPredicate(format: "name == %@", keyDiscountCards))
@@ -161,12 +144,12 @@ class DiscountCardsShowViewController: BaseViewController {
         }
         
         // Handler InfiniteScroll
-        tableView.tableViewControllerManager.handlerInfiniteScrollCompletion = { _ in
+        collectionView.collectionViewControllerManager.handlerInfiniteScrollCompletion = { _ in
             // Load More DiscountCards from API
             self.discountCardsListDidLoad(withOffset: self.discountCards.count, filter: "", scrollingData: true)
         }
         
-        tableView.tableViewControllerManager.pullRefreshDidFinish()
+        collectionView.collectionViewControllerManager.pullRefreshDidFinish()
         self.smallTopBarView.searchButton.isHidden = (discountCards.count == 0 || !isNetworkAvailable) ? true : false
         createNewDiscountCardButton.isEnabled = true
         smallTopBarView.searchButton.isEnabled = true
@@ -180,13 +163,13 @@ class DiscountCardsShowViewController: BaseViewController {
         smallTopBarView.setNeedsDisplay()
         smallTopBarView.circleView.setNeedsDisplay()
         
-        _ = tableView.visibleCells.map { ($0 as! DottedBorderViewBinding).dottedBorderView.setNeedsDisplay() }
+        _ = collectionView.visibleCells.map { ($0 as! DottedBorderViewBinding).dottedBorderView.setNeedsDisplay() }
     }
     
     
     // MARK: - Actions
     @IBAction func handlerCreateNewDiscountCardButtonTap(_ sender: FillColorButton) {
-        self.router.navigateToDiscountCardShowScene(withDiscountCardID: nil)
+        self.router.navigateToDiscountCardCreateScene()
     }
 }
 

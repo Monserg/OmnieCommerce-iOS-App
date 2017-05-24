@@ -10,15 +10,16 @@
 //
 
 import UIKit
+import  Kingfisher
 
 // MARK: - Input protocols for current ViewController component VIP-cicle
 protocol DiscountCardShowViewControllerInput {
-    func displaySomething(viewModel: DiscountCardShowModels.Something.ViewModel)
+    func discountCardDidShowDelete(fromViewModel viewModel: DiscountCardShowModels.Item.ViewModel)
 }
 
 // MARK: - Output protocols for Interactor component VIP-cicle
 protocol DiscountCardShowViewControllerOutput {
-    func doSomething(requestModel: DiscountCardShowModels.Something.RequestModel)
+    func discountCardDidDelete(withRequestModel requestModel: DiscountCardShowModels.Item.RequestModel)
 }
 
 class DiscountCardShowViewController: BaseViewController {
@@ -26,11 +27,20 @@ class DiscountCardShowViewController: BaseViewController {
     var interactor: DiscountCardShowViewControllerOutput!
     var router: DiscountCardShowRouter!
     
-    var discountCardID: String?
+    var discountCard: DiscountCard!
     
     // Outlets
+    @IBOutlet weak var codeImageView: UIImageView!
+    @IBOutlet weak var codeLabel: UbuntuLightVeryLightGrayLabel!
+    @IBOutlet var modalView: ModalView!
     
+    @IBOutlet weak var smallTopBarView: SmallTopBarView! {
+        didSet {
+            smallTopBarView.actionButton.isHidden = true
+        }
+    }
 
+    
     // MARK: - Class initialization
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -49,17 +59,73 @@ class DiscountCardShowViewController: BaseViewController {
 
     // MARK: - Custom Functions
     func viewSettingsDidLoad() {
-        // Load data
-        let requestModel    =   DiscountCardShowModels.Something.RequestModel()
-        interactor.doSomething(requestModel: requestModel)
+        // Config smallTopBarView
+        navigationBarView = smallTopBarView
+        smallTopBarView.type = "Child"
+        haveMenuItem = false
+
+        // Show control elements
+        self.codeLabel.text = self.discountCard.code
+        
+        if let imageID = discountCard.imageID {
+            self.codeImageView.kf.setImage(with: ImageResource(downloadURL: imageID.convertToURL(withSize: .Medium, inMode: .Get), cacheKey: imageID),
+                                       placeholder: UIImage.init(named: "image-no-photo"),
+                                       options: [.transition(ImageTransition.fade(1)),
+                                                 .processor(ResizingImageProcessor(referenceSize: self.codeImageView.frame.size,
+                                                                                   mode: .aspectFill))],
+                                       completionHandler: { image, error, cacheType, imageURL in
+                                        self.codeImageView.kf.cancelDownloadTask()
+            })
+        } else {
+            self.codeImageView.image = UIImage.init(named: "image-no-photo")
+        }
+    }
+
+    func modalViewDidShow(withHeight height: CGFloat, customSubview subView: CustomView, andValues values: [Any]?) {
+        if (blackoutView == nil) {
+            blackoutView = MSMBlackoutView.init(inView: view)
+            blackoutView!.didShow()
+        }
+        
+        modalView = ModalView.init(inView: blackoutView!, withHeight: height)
+        let popupView = ConfirmSaveView.init(inView: modalView!, withText: "DiscountCard delete message")
+        
+        // Handler Cancel button tap
+        popupView.handlerCancelButtonCompletion = { _ in
+            self.blackoutView!.didHide()
+            self.blackoutView = nil
+            
+            self.navigationController!.popViewController(animated: true)
+        }
+    }
+
+    
+    // MARK: - Actions
+    @IBAction func handlerDeleteDiscountCardButtonTap(_ sender: UbuntuLightVeryLightOrangeButton) {
+        let discountCardRequestModel = DiscountCardShowModels.Item.RequestModel(parameters: [ "id": discountCard.codeID] )
+        interactor.discountCardDidDelete(withRequestModel: discountCardRequestModel)
+    }
+    
+    @IBAction func handlerEditButtonTap(_ sender: UIButton) {
+        self.router.navigateToDiscountCardShowScene(withDiscountCardID: discountCard)
+    }
+    
+    @IBAction func handlerBackButtonTap(_ sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
     }
 }
 
 
 // MARK: - DiscountCardShowViewControllerInput
 extension DiscountCardShowViewController: DiscountCardShowViewControllerInput {
-    func displaySomething(viewModel: DiscountCardShowModels.Something.ViewModel) {
-        // Display the result from the Presenter
-        // nameTextField.text = viewModel.name
+    func discountCardDidShowDelete(fromViewModel viewModel: DiscountCardShowModels.Item.ViewModel) {
+        // Check for errors
+        guard viewModel.status == "SUCCESS" else {
+            self.alertViewDidShow(withTitle: "Error", andMessage: viewModel.status, completion: { _ in })
+            return
+        }
+        
+        // Show success modal view
+        modalViewDidShow(withHeight: 185.0, customSubview: ConfirmSaveView(), andValues: nil)
     }
 }

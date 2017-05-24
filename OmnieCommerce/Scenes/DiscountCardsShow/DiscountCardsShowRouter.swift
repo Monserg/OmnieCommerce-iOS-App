@@ -13,7 +13,8 @@ import UIKit
 
 // MARK: - Input & Output protocols
 protocol DiscountCardsShowRouterInput {
-    func navigateToDiscountCardShowScene(withDiscountCardID discountCardID: String?)
+    func navigateToDiscountCardCreateScene()
+    func navigateToDiscountCardShowScene(withDiscountCardID discountCard: DiscountCard)
 }
 
 class DiscountCardsShowRouter: DiscountCardsShowRouterInput {
@@ -22,14 +23,19 @@ class DiscountCardsShowRouter: DiscountCardsShowRouterInput {
     
     
     // MARK: - Custom Functions. Navigation
-    func navigateToDiscountCardShowScene(withDiscountCardID discountCardID: String?) {
-        func navigateToOrganizationShowScene(withOrganizationID organizationID: String) {
-            let storyboard = UIStoryboard(name: "DiscountCardShow", bundle: nil)
-            let discountCardShowVC = storyboard.instantiateViewController(withIdentifier: "DiscountCardShowVC") as! DiscountCardShowViewController
-            discountCardShowVC.discountCardID = discountCardID
-            
-            viewController.navigationController?.pushViewController(discountCardShowVC, animated: true)
-        }
+    func navigateToDiscountCardCreateScene() {
+        let storyboard = UIStoryboard(name: "DiscountCardCreate", bundle: nil)
+        let discountCardCreateVC = storyboard.instantiateViewController(withIdentifier: "DiscountCardCreateVC") as! DiscountCardCreateViewController
+        
+        viewController.navigationController?.pushViewController(discountCardCreateVC, animated: true)
+    }
+
+    func navigateToDiscountCardShowScene(withDiscountCardID discountCard: DiscountCard) {
+        let storyboard = UIStoryboard(name: "DiscountCardShow", bundle: nil)
+        let discountCardShowVC = storyboard.instantiateViewController(withIdentifier: "DiscountCardShowVC") as! DiscountCardShowViewController
+        discountCardShowVC.discountCard = discountCard
+        
+        viewController.navigationController?.pushViewController(discountCardShowVC, animated: true)
     }
     
     // Communication
