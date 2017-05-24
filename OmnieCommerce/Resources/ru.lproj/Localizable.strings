@@ -13,6 +13,7 @@
 "Categories"                    =   "Категории";
 "News"                          =   "Новости";
 "DiscountCards"                 =   "Карточки";
+"DiscountCard"                  =   "Карточка";
 "OmnieCards"                    =   "Omnie Cards";
 "BusinessCards"                 =   "Визитница";
 "Handbook"                      =   "Справочник";
@@ -216,6 +217,7 @@
 "Retry request succeeded"       =   "Повторный запрос успешно выполнен";
 "Categories list is empty"      =   "Список категорий пуст";
 "Handbooks list is empty"       =   "Список справочников пуст";
+"DiscountCards list is empty"   =   "Список карточек пуст";
 "Change Email info message"     =   "Запрос успешно выполнен.\nПодтвердите свое решение, проверив указанный email";
 "Change Email error message"    =   "Запрос не выполнен.\nПовторите свою попытку позже";
 "This time is busy."            =   "Это время занято. \nПожалуйста, выберите другое доступное время.";

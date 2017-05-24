@@ -10,15 +10,15 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Discount Cards Show View Controller-->
+        <!--Discount Card Show View Controller-->
         <scene sceneID="mx6-as-Mx6">
             <objects>
-                <viewController storyboardIdentifier="DiscountCardsShowVC" id="cHe-tJ-QAg" customClass="DiscountCardsShowViewController" customModule="OmnieCommerce" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DiscountCardShowVC" id="cHe-tJ-QAg" customClass="DiscountCardShowViewController" customModule="OmnieCommerce" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="DeV-ld-9zg"/>
                         <viewControllerLayoutGuide type="bottom" id="j6u-3J-zWE"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="A4D-yP-xw0">
+                    <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="A4D-yP-xw0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -26,7 +26,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="95"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="titleText" value="DiscountCards"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="titleText" value="DiscountCard"/>
                                     <userDefinedRuntimeAttribute type="string" keyPath="type" value="ParentSearch"/>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
@@ -57,6 +57,9 @@
                             <constraint firstItem="Mhd-tM-ire" firstAttribute="centerX" secondItem="A4D-yP-xw0" secondAttribute="centerX" id="g82-U3-YBO"/>
                             <constraint firstItem="K4O-Hp-7T4" firstAttribute="height" secondItem="A4D-yP-xw0" secondAttribute="height" multiplier="80:375" id="n2M-rK-mUC"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                        </userDefinedRuntimeAttributes>
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="UJN-6K-TTu"/>
@@ -77,26 +80,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NVo-Mt-ymv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1119.2" y="16.641679160419791"/>
-        </scene>
-        <!--Base Navigation Controller-->
-        <scene sceneID="BsC-ly-h74">
-            <objects>
-                <navigationController storyboardIdentifier="DiscountCardsShowNC" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="e6Y-Ur-b96" customClass="BaseNavigationController" customModule="OmnieCommerce" customModuleProvider="target" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
-                    <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="z6D-Fr-pFE">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="cHe-tJ-QAg" kind="relationship" relationship="rootViewController" id="EMe-pv-bTe"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="QUt-mj-k0J" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="180" y="16.641679160419791"/>
         </scene>
     </scenes>
 </document>

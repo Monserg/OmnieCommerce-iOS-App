@@ -13,27 +13,24 @@ import UIKit
 
 // MARK: - Input & Output protocols
 protocol DiscountCardsShowInteractorInput {
-    func doSomething(request: DiscountCardsShow.Something.Request)
+    func discountCardsDidLoad(withRequestModel requestModel: DiscountCardsShowModels.Items.RequestModel)
 }
 
 protocol DiscountCardsShowInteractorOutput {
-    func presentSomething(response: DiscountCardsShow.Something.Response)
+    func discountCardsDidPrepareToShowLoad(fromResponseModel responseModel: DiscountCardsShowModels.Items.ResponseModel)
 }
 
 class DiscountCardsShowInteractor: DiscountCardsShowInteractorInput {
     // MARK: - Properties
-    var output: DiscountCardsShowInteractorOutput!
+    var presenter: DiscountCardsShowInteractorOutput!
     var worker: DiscountCardsShowWorker!
     
     
     // MARK: - Custom Functions. Business logic
-    func doSomething(request: DiscountCardsShow.Something.Request) {
-        // NOTE: Create some Worker to do the work
-        worker = DiscountCardsShowWorker()
-        worker.doSomeWork()
-        
-        // NOTE: Pass the result to the Presenter
-        let response = DiscountCardsShow.Something.Response()
-        output.presentSomething(response: response)
+    func discountCardsDidLoad(withRequestModel requestModel: DiscountCardsShowModels.Items.RequestModel) {
+        MSMRestApiManager.instance.userRequestDidRun(.userGetDiscountCardsList(requestModel.parameters, false), withHandlerResponseAPICompletion: { responseAPI in
+            let discountCardsResponseModel = DiscountCardsShowModels.Items.ResponseModel(responseAPI: responseAPI)
+            self.presenter.discountCardsDidPrepareToShowLoad(fromResponseModel: discountCardsResponseModel)
+        })
     }
 }

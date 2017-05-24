@@ -13,6 +13,7 @@
 "Categories"                    =   "Категорії";
 "News"                          =   "Новини";
 "DiscountCards"                 =   "Картки";
+"DiscountCard"                  =   "Картка";
 "OmnieCards"                    =   "Omnie Cards";
 "BusinessCards"                 =   "Візитниця";
 "Handbook"                      =   "Довідник";
@@ -216,6 +217,7 @@
 "Retry request succeeded"       =   "Повторний запит успішно виконаний";
 "Categories list is empty"      =   "Список категорій порожній";
 "Handbooks list is empty"       =   "Список довідників порожній";
+"DiscountCards list is empty"   =   "Список карток порожній";
 "Change Email info message"     =   "Запит успішно виконаний.\nПідтвердіть своє рішення, перевіривши вказаний email";
 "Change Email error message"    =   "Запит невиконаний.\nПовторіть спробу пізніше";
 "This time is busy."            =   "Цей час зайнятий. \nБудь ласка, виберіть інший доступний проміжок.";

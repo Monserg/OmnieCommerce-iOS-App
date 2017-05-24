@@ -87,7 +87,7 @@ class HandbooksShowViewController: BaseViewController {
             limit = Config.Constants.paginationLimit
         } else {
             limit = (tableView.tableViewControllerManager.dataSource.count == 0) ?  Config.Constants.paginationLimit :
-                tableView.tableViewControllerManager.dataSource.count
+                                                                                    tableView.tableViewControllerManager.dataSource.count
         }
         
         viewSettingsDidLoad()

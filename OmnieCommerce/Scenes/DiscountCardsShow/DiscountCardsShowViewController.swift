@@ -13,19 +13,31 @@ import UIKit
 
 // MARK: - Input & Output protocols
 protocol DiscountCardsShowViewControllerInput {
-    func displaySomething(viewModel: DiscountCardsShow.Something.ViewModel)
+    func discountCardsDidShowLoad(fromViewModel viewModel: DiscountCardsShowModels.Items.ViewModel)
 }
 
 protocol DiscountCardsShowViewControllerOutput {
-    func doSomething(request: DiscountCardsShow.Something.Request)
+    func discountCardsDidLoad(withRequestModel requestModel: DiscountCardsShowModels.Items.RequestModel)
 }
 
 class DiscountCardsShowViewController: BaseViewController {
     // MARK: - Properties
-    var output: DiscountCardsShowViewControllerOutput!
+    var interactor: DiscountCardsShowViewControllerOutput!
     var router: DiscountCardsShowRouter!
     
+    var discountCards = [DiscountCard]()
+    var limit: Int!
+
+    // Outlets
     @IBOutlet weak var smallTopBarView: SmallTopBarView!
+    @IBOutlet weak var createNewDiscountCardButton: FillColorButton!
+    
+    @IBOutlet weak var tableView: MSMTableView! {
+        didSet {
+            tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0)
+            tableView.scrollIndicatorInsets = UIEdgeInsetsMake(0, 0, 0, 0)
+        }
+    }
 
     
     // MARK: - Class Initialization
@@ -40,6 +52,31 @@ class DiscountCardsShowViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Config smallTopBarView
+        navigationBarView = smallTopBarView
+        smallTopBarView.type = "ParentSearch"
+        haveMenuItem = true
+        createNewDiscountCardButton.isEnabled = false
+        smallTopBarView.searchButton.isEnabled = false
+
+        // Create MSMTableViewControllerManager
+        let discountCardsTableManager = MSMTableViewControllerManager.init(withTableView: tableView,
+                                                                           andSectionsCount: 1,
+                                                                           andEmptyMessageText: "DiscountCards list is empty")
+        
+        tableView.tableViewControllerManager = discountCardsTableManager
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
+        if (tableView.tableViewControllerManager == nil) {
+            limit = Config.Constants.paginationLimit
+        } else {
+            limit = (tableView.tableViewControllerManager.dataSource.count == 0) ?  Config.Constants.paginationLimit :
+                                                                                    tableView.tableViewControllerManager.dataSource.count
+        }
+        
         viewSettingsDidLoad()
     }
     
@@ -48,33 +85,124 @@ class DiscountCardsShowViewController: BaseViewController {
     func viewSettingsDidLoad() {
         print(object: "\(type(of: self)): \(#function) run.")
         
-        // Config smallTopBarView
-        navigationBarView = smallTopBarView
-        smallTopBarView.type = "Parent"
-        haveMenuItem = true
+        // Load DiscountCards list from Core Data
+        guard isNetworkAvailable else {
+            self.discountCardsListDidShow()
+            
+            return
+        }
         
-        // Load data
-        let requestModel = DiscountCardsShow.Something.Request()
-        output.doSomething(request: requestModel)
+        // Load DiscountCards list from API
+        discountCards = [DiscountCard]()
+        CoreDataManager.instance.entitiesDidRemove(byName: "Lists", andPredicateParameters: NSPredicate(format: "name == %@", keyDiscountCards))
+        discountCardsListDidLoad(withOffset: 0, filter: "", scrollingData: false)
     }
     
+    func discountCardsListDidLoad(withOffset offset: Int, filter: String, scrollingData: Bool) {
+        if (!scrollingData) {
+            spinnerDidStart(view)
+        }
+        
+        // from = offset, to = limit
+        let parameters: [String: Any] = [ "offset": offset, "limit": limit ]
+        
+        guard isNetworkAvailable else {
+            discountCardsListDidShow()
+            return
+        }
+        
+        let discountCardsRequestModel = DiscountCardsShowModels.Items.RequestModel(parameters: parameters)
+        interactor.discountCardsDidLoad(withRequestModel: discountCardsRequestModel)
+    }
+
+    func discountCardsListDidShow() {
+        // Setting MSMTableViewControllerManager
+        let discountCardsEntities = CoreDataManager.instance.entitiesDidLoad(byName: "DiscountCard",
+                                                                             andPredicateParameters: NSPredicate(format: "ANY lists.name == %@", keyDiscountCards))
+        
+        if let discountCardsList = discountCardsEntities as? [DiscountCard] {
+            discountCards = discountCardsList
+            
+            tableView.tableViewControllerManager!.dataSource = discountCards
+            tableView!.tableFooterView!.isHidden = (discountCards.count > 0) ? true : false
+            
+            (tableView!.tableFooterView as! MSMTableViewFooterView).didUpload(forItemsCount: discountCards.count,
+                                                                              andEmptyText: "DiscountCards list is empty")
+            
+            tableView.reloadData()
+        }
+        
+        // Search Manager
+        smallTopBarView.searchBar.placeholder = "Enter Organization name".localized()
+        smallTopBarView.searchBar.delegate = tableView.tableViewControllerManager
+        
+        // Handler select cell
+        tableView.tableViewControllerManager!.handlerSelectRowCompletion = { discountCard in
+            self.router.navigateToDiscountCardShowScene(withDiscountCardID: (discountCard as! DiscountCard).codeID)
+        }
+        
+        // Handler Search keyboard button tap
+        tableView.tableViewControllerManager!.handlerSendButtonCompletion = { _ in
+            self.smallTopBarView.searchBarDidHide()
+        }
+        
+        // Handler Search Bar Cancel button tap
+        tableView.tableViewControllerManager!.handlerCancelButtonCompletion = { _ in
+            self.smallTopBarView.searchBarDidHide()
+        }
+        
+        // Handler PullRefresh
+        tableView.tableViewControllerManager!.handlerPullRefreshCompletion = { _ in
+            // Reload DiscountCards list from API
+            self.discountCards = [DiscountCard]()
+            CoreDataManager.instance.entitiesDidRemove(byName: "Lists", andPredicateParameters: NSPredicate(format: "name == %@", keyDiscountCards))
+            self.limit = Config.Constants.paginationLimit
+            self.discountCardsListDidLoad(withOffset: 0, filter: "", scrollingData: true)
+        }
+        
+        // Handler InfiniteScroll
+        tableView.tableViewControllerManager.handlerInfiniteScrollCompletion = { _ in
+            // Load More DiscountCards from API
+            self.discountCardsListDidLoad(withOffset: self.discountCards.count, filter: "", scrollingData: true)
+        }
+        
+        tableView.tableViewControllerManager.pullRefreshDidFinish()
+        self.smallTopBarView.searchButton.isHidden = (discountCards.count == 0 || !isNetworkAvailable) ? true : false
+        createNewDiscountCardButton.isEnabled = true
+        smallTopBarView.searchButton.isEnabled = true
+        
+        spinnerDidFinish()
+    }
+
     
     // MARK: - Transition
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        print(object: "\(type(of: self)): \(#function) run. New size = \(size)")
-        
         smallTopBarView.setNeedsDisplay()
         smallTopBarView.circleView.setNeedsDisplay()
+        
+        _ = tableView.visibleCells.map { ($0 as! DottedBorderViewBinding).dottedBorderView.setNeedsDisplay() }
+    }
+    
+    
+    // MARK: - Actions
+    @IBAction func handlerCreateNewDiscountCardButtonTap(_ sender: FillColorButton) {
+        self.router.navigateToDiscountCardShowScene(withDiscountCardID: nil)
     }
 }
 
 
 // MARK: - DiscountCardsShowViewControllerInput
 extension DiscountCardsShowViewController: DiscountCardsShowViewControllerInput {
-    func displaySomething(viewModel: DiscountCardsShow.Something.ViewModel) {
-        print(object: "\(type(of: self)): \(#function) run.")
+    func discountCardsDidShowLoad(fromViewModel viewModel: DiscountCardsShowModels.Items.ViewModel) {
+        // Check for errors
+        guard viewModel.status == "SUCCESS" else {
+            self.alertViewDidShow(withTitle: "Error", andMessage: viewModel.status, completion: { _ in
+                self.discountCardsListDidShow()
+            })
+            
+            return
+        }
         
-        // NOTE: Display the result from the Presenter
-        // nameTextField.text = viewModel.name
+        self.discountCardsListDidShow()
     }
 }

@@ -38,6 +38,8 @@ public let keyNewsData: String                      =   "News"
 public let keyNewsActions: String                   =   "Actions"
 public let keyHandbook: String                      =   "Handbook"
 public let keyHandbooks: String                     =   "Handbooks"
+public let keyDiscountCard: String                  =   "DiscountCard"
+public let keyDiscountCards: String                 =   "DiscountCards"
 
 
 // Handlers

@@ -13,6 +13,7 @@
 "Categories"                    =   "Categories";
 "News"                          =   "News";
 "DiscountCards"                 =   "Discount Cards";
+"DiscountCard"                  =   "Discount Card";
 "OmnieCards"                    =   "Omnie Cards";
 "BusinessCards"                 =   "Business Cards";
 "Handbook"                      =   "Handbook";
@@ -216,6 +217,7 @@
 "Retry request succeeded"       =   "Retry request succeeded";
 "Categories list is empty"      =   "Categories list is empty";
 "Handbooks list is empty"       =   "Handbooks list is empty";
+"DiscountCards list is empty"   =   "Discount Cards list is empty";
 "Change Email info message"     =   "Request successfully completed.\nConfirm your decision by checking the entered email";
 "Change Email error message"    =   "Request failed.\nRepeat your attempt later";
 "This time is busy."            =   "This time is busy. \nPlease, select any available time.";

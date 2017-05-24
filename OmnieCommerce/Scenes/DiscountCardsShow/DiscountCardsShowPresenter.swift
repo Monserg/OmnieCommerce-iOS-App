@@ -13,22 +13,36 @@ import UIKit
 
 // MARK: - Input & Output protocols
 protocol DiscountCardsShowPresenterInput {
-    func presentSomething(response: DiscountCardsShow.Something.Response)
+    func discountCardsDidPrepareToShowLoad(fromResponseModel responseModel: DiscountCardsShowModels.Items.ResponseModel)
 }
 
 protocol DiscountCardsShowPresenterOutput: class {
-    func displaySomething(viewModel: DiscountCardsShow.Something.ViewModel)
+    func discountCardsDidShowLoad(fromViewModel viewModel: DiscountCardsShowModels.Items.ViewModel)
 }
 
 class DiscountCardsShowPresenter: DiscountCardsShowPresenterInput {
     // MARK: - Properties
-    weak var output: DiscountCardsShowPresenterOutput!
+    weak var viewController: DiscountCardsShowPresenterOutput!
     
     
     // MARK: - Custom Functions. Presentation logic
-    func presentSomething(response: DiscountCardsShow.Something.Response) {
-        // NOTE: Format the response from the Interactor and pass the result back to the View Controller
-        let viewModel = DiscountCardsShow.Something.ViewModel()
-        output.displaySomething(viewModel: viewModel)
+    func discountCardsDidPrepareToShowLoad(fromResponseModel responseModel: DiscountCardsShowModels.Items.ResponseModel) {
+        guard responseModel.responseAPI != nil else {
+            let discountCardsViewModel = DiscountCardsShowModels.Items.ViewModel(status: (responseModel.responseAPI?.status)!)
+            self.viewController.discountCardsDidShowLoad(fromViewModel: discountCardsViewModel)
+            
+            return
+        }
+        
+        // Convert responseAPI body to DiscountCard CoreData objects
+        for json in responseModel.responseAPI!.body as! [Any] {
+            let discountCard = CoreDataManager.instance.entityDidLoad(byName: "DiscountCard", andPredicateParameters: NSPredicate.init(format: "codeID = %@", (json as! [String: AnyObject])["uuid"] as! String)) as! DiscountCard
+            discountCard.profileDidUpload(json: json as! [String: AnyObject], forList: keyDiscountCards)
+        }
+        
+        CoreDataManager.instance.didSaveContext()
+        
+        let discountCardsViewModel = DiscountCardsShowModels.Items.ViewModel(status: (responseModel.responseAPI?.status)!)
+        self.viewController.discountCardsDidShowLoad(fromViewModel: discountCardsViewModel)
     }
 }
