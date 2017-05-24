@@ -65,6 +65,7 @@
 		B1131A961E768F2900DAF90A /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1131A941E768F2900DAF90A /* Alamofire.framework */; };
 		B1152FAF1E6E9FD8007999B9 /* UserTemplateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1152FAD1E6E9FD8007999B9 /* UserTemplateTableViewCell.swift */; };
 		B1152FB01E6E9FD8007999B9 /* UserTemplateTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1152FAE1E6E9FD8007999B9 /* UserTemplateTableViewCell.xib */; };
+		B11B3FD71ED6119D00E78D45 /* UbuntuLightItalicVeryLightOrangeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11B3FD61ED6119D00E78D45 /* UbuntuLightItalicVeryLightOrangeButton.swift */; };
 		B11B9AD61DF00CC5009A4AA1 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11B9AD51DF00CC5009A4AA1 /* BaseTableViewCell.swift */; };
 		B11B9ADA1DF02F5C009A4AA1 /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11B9AD91DF02F5C009A4AA1 /* Date+Ext.swift */; };
 		B11B9ADD1DF053BA009A4AA1 /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11B9ADC1DF053BA009A4AA1 /* CustomImageView.swift */; };
@@ -601,6 +602,7 @@
 		B1131A951E768F2900DAF90A /* AlamofireImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlamofireImage.framework; path = "../../../../../Library/Developer/Xcode/DerivedData/OmnieCommerce-enpckymiymzhiuhdgnbmlxbwmhew/Build/Products/Debug-iphonesimulator/AlamofireImage/AlamofireImage.framework"; sourceTree = "<group>"; };
 		B1152FAD1E6E9FD8007999B9 /* UserTemplateTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTemplateTableViewCell.swift; sourceTree = "<group>"; };
 		B1152FAE1E6E9FD8007999B9 /* UserTemplateTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserTemplateTableViewCell.xib; sourceTree = "<group>"; };
+		B11B3FD61ED6119D00E78D45 /* UbuntuLightItalicVeryLightOrangeButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UbuntuLightItalicVeryLightOrangeButton.swift; sourceTree = "<group>"; };
 		B11B9AD51DF00CC5009A4AA1 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
 		B11B9AD91DF02F5C009A4AA1 /* Date+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
 		B11B9ADC1DF053BA009A4AA1 /* CustomImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
@@ -1612,6 +1614,7 @@
 				B122A58D1E6BE10F00C39B67 /* FillVeryLightOrangeButton.swift */,
 				B163FE701E6FE039004AF42E /* UbuntuLightItalicDarkCyanButton.swift */,
 				B1FBC9241E6D948B00D86429 /* UbuntuLightVeryLightOrangeButton.swift */,
+				B11B3FD61ED6119D00E78D45 /* UbuntuLightItalicVeryLightOrangeButton.swift */,
 			);
 			path = UIButtons;
 			sourceTree = "<group>";
@@ -2761,6 +2764,7 @@
 				B1131A931E76744300DAF90A /* MSMRestApiManager.swift in Sources */,
 				B1EC9F3D1E8BBDBD00F2E342 /* DropDownItem.swift in Sources */,
 				B14B8DF61EBB880F00B29511 /* TimeSheetItem+CoreDataProperties.swift in Sources */,
+				B11B3FD71ED6119D00E78D45 /* UbuntuLightItalicVeryLightOrangeButton.swift in Sources */,
 				B122F1DD1DD35B760018A701 /* OrdersShowModels.swift in Sources */,
 				B11DCAF41E9E234200180375 /* GalleryImage+CoreDataClass.swift in Sources */,
 				B10B48DD1E8A5B2E007DDD81 /* FavoriteOrganizationsShowRouter.swift in Sources */,

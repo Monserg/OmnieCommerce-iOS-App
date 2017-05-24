@@ -288,8 +288,8 @@ class HandbookShowViewController: BaseViewController, PhoneErrorMessageView {
         _ = dottedBorderViewsCollection.map({ $0.setNeedsDisplay() })
         
         UIView.animate(withDuration: 0.5, animations: {
-            self.infoStackViewHeightConstraint.constant += (size.width > size.height) ? -self.imageButton.frame.height : self.imageButton.frame.height
             self.phonesViewHeightConstraint.constant = CGFloat(44.0 * Double(self.phoneViewsCollection.filter({ $0.isHidden == false }).count))
+            self.infoStackViewHeightConstraint.constant = CGFloat(44.0 * 3) + self.phonesViewHeightConstraint.constant + ((size.width > size.height) ? 0.0 : self.imageButton.frame.height)
             
             self.view.layoutIfNeeded()
         })

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina4_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -20,13 +20,13 @@
                         <viewControllerLayoutGuide type="bottom" id="j6u-3J-zWE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="A4D-yP-xw0">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="mQb-sM-Lo4" customClass="MSMCollectionView" customModule="OmnieCommerce" customModuleProvider="target">
-                                <rect key="frame" x="8" y="65" width="359" height="574"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="mQb-sM-Lo4" customClass="MSMCollectionView" customModule="OmnieCommerce" customModuleProvider="target">
+                                <rect key="frame" x="73.5" y="50" width="520" height="297"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="16" minimumInteritemSpacing="16" id="huf-bC-RIX">
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="12" minimumInteritemSpacing="39" id="huf-bC-RIX">
                                     <size key="itemSize" width="170" height="102"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -38,7 +38,7 @@
                                 </userDefinedRuntimeAttributes>
                             </collectionView>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K4O-Hp-7T4" customClass="SmallTopBarView" customModule="OmnieCommerce" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="95"/>
+                                <rect key="frame" x="0.0" y="0.0" width="667" height="80"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="titleText" value="DiscountCards"/>
@@ -47,7 +47,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Copyright" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mhd-tM-ire" userLabel="Copyright Label" customClass="UbuntuLightDarkCyanLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                                <rect key="frame" x="8" y="648" width="359" height="11"/>
+                                <rect key="frame" x="8" y="356" width="651" height="11"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="9"/>
                                 <nil key="textColor"/>
@@ -57,7 +57,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MWO-T0-hvb" userLabel="Create New Discount Card Button" customClass="FillColorButton" customModule="OmnieCommerce" customModuleProvider="target">
-                                <rect key="frame" x="316" y="594" width="30" height="34"/>
+                                <rect key="frame" x="594" y="290" width="57" height="57"/>
                                 <color key="backgroundColor" red="0.85098039219999999" green="0.72941176470000002" blue="0.40784313729999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="MWO-T0-hvb" secondAttribute="height" multiplier="1:1" id="xqC-wy-ChY"/>
@@ -90,14 +90,18 @@
                             <constraint firstItem="Mhd-tM-ire" firstAttribute="leading" secondItem="A4D-yP-xw0" secondAttribute="leading" constant="8" id="Zd0-3j-CRY"/>
                             <constraint firstItem="MWO-T0-hvb" firstAttribute="height" secondItem="A4D-yP-xw0" secondAttribute="height" multiplier="57:667" id="aFw-qi-KFn"/>
                             <constraint firstAttribute="trailing" secondItem="K4O-Hp-7T4" secondAttribute="trailing" id="ap6-sg-toG"/>
+                            <constraint firstItem="mQb-sM-Lo4" firstAttribute="centerX" secondItem="A4D-yP-xw0" secondAttribute="centerX" id="bjR-nd-2bc"/>
                             <constraint firstItem="Mhd-tM-ire" firstAttribute="top" secondItem="MWO-T0-hvb" secondAttribute="bottom" constant="9" id="es3-ZX-zdX"/>
                             <constraint firstItem="Mhd-tM-ire" firstAttribute="centerX" secondItem="A4D-yP-xw0" secondAttribute="centerX" id="g82-U3-YBO"/>
+                            <constraint firstItem="mQb-sM-Lo4" firstAttribute="width" secondItem="A4D-yP-xw0" secondAttribute="width" multiplier="520:667" id="mqu-nB-ytR"/>
                             <constraint firstItem="K4O-Hp-7T4" firstAttribute="height" secondItem="A4D-yP-xw0" secondAttribute="height" multiplier="80:375" id="n2M-rK-mUC"/>
                             <constraint firstAttribute="trailing" secondItem="MWO-T0-hvb" secondAttribute="trailing" constant="16" id="p5b-Hr-ymL"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="UJN-6K-TTu"/>
+                                <exclude reference="0lW-xl-xeO"/>
+                                <exclude reference="Wre-MQ-JYS"/>
                                 <exclude reference="aFw-qi-KFn"/>
                             </mask>
                         </variation>
@@ -105,6 +109,9 @@
                             <mask key="constraints">
                                 <include reference="UJN-6K-TTu"/>
                                 <exclude reference="n2M-rK-mUC"/>
+                                <include reference="0lW-xl-xeO"/>
+                                <include reference="Wre-MQ-JYS"/>
+                                <exclude reference="mqu-nB-ytR"/>
                                 <exclude reference="Ego-pw-C2z"/>
                                 <include reference="aFw-qi-KFn"/>
                             </mask>
@@ -128,7 +135,7 @@
                     <toolbarItems/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="z6D-Fr-pFE">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="z6D-Fr-pFE">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

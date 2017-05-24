@@ -34,8 +34,8 @@ class DiscountCardsShowViewController: BaseViewController {
     
     @IBOutlet weak var collectionView: MSMCollectionView! {
         didSet {
-            collectionView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0)
-            collectionView.scrollIndicatorInsets = UIEdgeInsetsMake(0, 0, 0, 0)
+            collectionView.contentInset = UIEdgeInsetsMake(45, 0, 0, 0)
+            collectionView.scrollIndicatorInsets = UIEdgeInsetsMake(10, 0, 0, 0)
         }
     }
 
@@ -58,24 +58,20 @@ class DiscountCardsShowViewController: BaseViewController {
         haveMenuItem = true
         createNewDiscountCardButton.isEnabled = false
         smallTopBarView.searchButton.isEnabled = false
-
-        // Create MSMTableViewControllerManager
-        let discountCardsCollectionManager = MSMCollectionViewControllerManager.init(withCollectionView: collectionView,
-                                                                                     andEmptyMessageText: "DiscountCards list is empty")
-        
-        collectionView.collectionViewControllerManager = discountCardsCollectionManager
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+//
+////        if (collectionView.collectionViewControllerManager == nil) {
+////            limit = Config.Constants.paginationLimit
+////        } else {
+////            limit = (collectionView.collectionViewControllerManager.dataSource.count == 0) ?    Config.Constants.paginationLimit :
+////                                                                                                collectionView.collectionViewControllerManager.dataSource.count
+////        }
+////     
         
-        if (collectionView.collectionViewControllerManager == nil) {
-            limit = Config.Constants.paginationLimit
-        } else {
-            limit = (collectionView.collectionViewControllerManager.dataSource.count == 0) ?    Config.Constants.paginationLimit :
-                                                                                                collectionView.collectionViewControllerManager.dataSource.count
-        }
-        
+        limit = (discountCards.count == 0) ? Config.Constants.paginationLimit : discountCards.count
         viewSettingsDidLoad()
     }
     
@@ -116,13 +112,18 @@ class DiscountCardsShowViewController: BaseViewController {
 
     func discountCardsListDidShow() {
         // Setting MSMTableViewControllerManager
+        collectionView.collectionViewControllerManager = MSMCollectionViewControllerManager.init(withCollectionView: collectionView,
+                                                                                                 andEmptyMessageText: "DiscountCards list is empty")
+
         let discountCardsEntities = CoreDataManager.instance.entitiesDidLoad(byName: "DiscountCard",
                                                                              andPredicateParameters: NSPredicate(format: "ANY lists.name == %@", keyDiscountCards))
         
         if let discountCardsList = discountCardsEntities as? [DiscountCard] {
             discountCards = discountCardsList
             
+            collectionView.collectionViewControllerManager!.sectionsCount = 1
             collectionView.collectionViewControllerManager!.dataSource = discountCards
+
             collectionView.reloadData()
         }
         
@@ -163,7 +164,8 @@ class DiscountCardsShowViewController: BaseViewController {
         smallTopBarView.setNeedsDisplay()
         smallTopBarView.circleView.setNeedsDisplay()
         
-        _ = collectionView.visibleCells.map { ($0 as! DottedBorderViewBinding).dottedBorderView.setNeedsDisplay() }
+        collectionView.setNeedsDisplay()
+        collectionView.reloadData()
     }
     
     

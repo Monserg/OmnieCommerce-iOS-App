@@ -8,7 +8,7 @@
 
 import UIKit
 
-@IBDesignable class UbuntuLightVeryLightOrangeButton: UIButton {
+@IBDesignable class UbuntuLightItalicVeryLightOrangeButton: UIButton {
     // MARK: - Properties
     @IBInspectable var isTitleUnderlined: Bool = false {
         didSet {
@@ -19,16 +19,11 @@ import UIKit
     
     // MARK: - Class Functions
     override func draw(_ rect: CGRect) {
-//        guard attributedTitle(for: .normal) != nil else {
-//            return
-//        }
-        
         tintColor = UIColor.veryLightOrange
         let titleText = titleLabel?.text?.localized() ?? ""
-//        let titleText = ((isTitleUnderlined) ? attributedTitle(for: .normal)!.string : titleLabel?.text?.localized()) ?? ""
         
         setAttributedTitle(NSAttributedString(string: titleText,
-                                              attributes:   [ NSFontAttributeName: (isLightColorAppSchema ? UIFont.systemFont(ofSize: 12) : UIFont(name: "Ubuntu-Light", size: titleLabel!.font!.pointSize)!),
+                                              attributes:   [ NSFontAttributeName: (isLightColorAppSchema ? UIFont.systemFont(ofSize: 12) : UIFont(name: "Ubuntu-LightItalic", size: titleLabel!.font!.pointSize)!),
                                                               NSForegroundColorAttributeName: UIColor.veryLightOrange,
                                                               NSUnderlineStyleAttributeName: (isTitleUnderlined ? NSUnderlineStyle.styleSingle.rawValue : NSUnderlineStyle.styleNone.rawValue)
                                                             ]),

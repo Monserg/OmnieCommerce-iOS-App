@@ -36,7 +36,7 @@ class MSMCollectionViewControllerManager: BaseViewController {
     
     // MARK: - Class Initialization
     init(withCollectionView collectionView: MSMCollectionView, andEmptyMessageText text: String) {
-        super.init(nibName: nil, bundle: nil)
+        super.init(nibName: nil, bundle: Bundle.main)
         
         self.collectionView = collectionView
         self.collectionView.delegate = self
@@ -44,7 +44,7 @@ class MSMCollectionViewControllerManager: BaseViewController {
         self.emptyText = text
         
         self.pullRefreshDidCreate()
-        self.dataSource = [Any]()
+//        self.dataSource = [Any]()
     }
 
     init(withCollectionView collectionView: MSMCollectionView) {
@@ -53,6 +53,8 @@ class MSMCollectionViewControllerManager: BaseViewController {
         self.collectionView = collectionView
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
+
+        self.pullRefreshDidCreate()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -211,7 +213,14 @@ extension MSMCollectionViewControllerManager: UICollectionViewDelegateFlowLayout
             
             return (UIApplication.shared.statusBarOrientation.isPortrait) ? CGSize.init(width: (collectionView.frame.width - 16.0) / 2, height: height) :
                                                                             CGSize.init(width: (collectionView.frame.width - 16 * 2) / 3, height: height)
+
+        case "DiscountCardCollectionViewCell":
+            let height: CGFloat = cellHeight * self.collectionView.heightRatio
+            let width: CGFloat = ((UIApplication.shared.statusBarOrientation.isLandscape) ? CGFloat(520.0) : UIScreen.main.bounds.width - 16.0) * self.collectionView.widthRatio
             
+            return (UIApplication.shared.statusBarOrientation.isPortrait) ? CGSize.init(width: (width - 39.0) / 2, height: height) :
+                                                                            CGSize.init(width: (width - 20.0 * 2) / 3, height: height)
+
         case "CirclePhotoCollectionViewCell":
             let height: CGFloat = cellHeight * self.collectionView.heightRatio
             return CGSize.init(width: height, height: height)

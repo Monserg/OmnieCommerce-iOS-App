@@ -101,7 +101,7 @@ class DiscountCardShowViewController: BaseViewController {
 
     
     // MARK: - Actions
-    @IBAction func handlerDeleteDiscountCardButtonTap(_ sender: UbuntuLightVeryLightOrangeButton) {
+    @IBAction func handlerDeleteDiscountCardButtonTap(_ sender: UbuntuLightItalicVeryLightOrangeButton) {
         let discountCardRequestModel = DiscountCardShowModels.Item.RequestModel(parameters: [ "id": discountCard.codeID] )
         interactor.discountCardDidDelete(withRequestModel: discountCardRequestModel)
     }
