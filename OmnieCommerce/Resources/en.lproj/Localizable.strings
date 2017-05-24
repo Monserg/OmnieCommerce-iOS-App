@@ -95,7 +95,7 @@
 "Settings saved message"        =   "Your settings have been successfully \nsaved.";
 "Dictionary saved message"      =   "Your request was sent to \nmoderation.";
 "DiscountCard delete message"   =   "Discount Card have been successfully \ndeleted.";
-"DiscountCard create message"   =   "Discount Card have been successfully \nadded to list."
+"DiscountCard create message"   =   "Discount Card have been successfully \nadded to list.";
 
 
 // Buttons

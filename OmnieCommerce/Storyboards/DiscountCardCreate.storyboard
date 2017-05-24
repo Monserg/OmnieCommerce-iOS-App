@@ -13,7 +13,7 @@
         <!--Discount Card Create View Controller-->
         <scene sceneID="mx6-as-Mx6">
             <objects>
-                <viewController storyboardIdentifier="DiscountCardCreateVC" id="cHe-tJ-QAg" customClass="DiscountCardCreateViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DiscountCardCreateVC" id="cHe-tJ-QAg" customClass="DiscountCardCreateViewController" customModule="OmnieCommerce" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="DeV-ld-9zg"/>
                         <viewControllerLayoutGuide type="bottom" id="j6u-3J-zWE"/>
@@ -74,7 +74,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="RQS-qq-19K"/>
                     <connections>
-                        <outlet property="smallTopBarView" destination="K4O-Hp-7T4" id="d5z-pn-3ze"/>
+                        <outlet property="smallTopBarView" destination="K4O-Hp-7T4" id="jS4-kB-2aY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NVo-Mt-ymv" userLabel="First Responder" sceneMemberID="firstResponder"/>

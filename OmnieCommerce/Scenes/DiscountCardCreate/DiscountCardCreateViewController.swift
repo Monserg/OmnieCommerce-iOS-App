@@ -26,7 +26,10 @@ class DiscountCardCreateViewController: BaseViewController {
     var interactor: DiscountCardCreateViewControllerOutput!
     var router: DiscountCardCreateRouter!
     
+    // Outlets
+    @IBOutlet weak var smallTopBarView: SmallTopBarView!
 
+        
     // MARK: - Class initialization
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -45,9 +48,15 @@ class DiscountCardCreateViewController: BaseViewController {
 
     // MARK: - Custom Functions
     func viewSettingsDidLoad() {
-        // Load data
-        let requestModel    =   DiscountCardCreateModels.Something.RequestModel()
-        interactor.doSomething(requestModel: requestModel)
+        // Config smallTopBarView
+        navigationBarView = smallTopBarView
+        smallTopBarView.type = "Child"
+        haveMenuItem = false
+        
+        // Handler Back button tap
+        smallTopBarView.handlerSendButtonCompletion = { _ in
+            self.navigationController?.popViewController(animated: true)
+        }
     }
 }
 
