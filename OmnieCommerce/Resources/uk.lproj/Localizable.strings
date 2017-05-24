@@ -129,6 +129,8 @@
 "Add dictionary photo"          =   "Добавити фото закладу";
 "Change dictionary photo"       =   "Змінити фото закладу";
 "Delete discount card"          =   "Видалити картку";
+"Add discount card photo"       =   "Добавити фото картки";
+"Read discount card Barcode"    =   "Зчитати штрих код";
 
 
 // TextField Placeholders
@@ -148,6 +150,8 @@
 "Theme"                         =   "Тема";
 "Comment"                       =   "Коментар";
 "Keywords"                      =   "Ключові слова";
+"Organization name"             =   "Назва закладу";
+"Discount card code"            =   "Код";
 
 
 // Segmented Control Titles

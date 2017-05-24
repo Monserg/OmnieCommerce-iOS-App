@@ -22,6 +22,282 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gci-sb-RiG">
+                                <rect key="frame" x="8" y="65" width="359" height="574"/>
+                                <subviews>
+                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Ox-so-LhP" userLabel="Content View">
+                                        <rect key="frame" x="0.0" y="45" width="359" height="549"/>
+                                        <subviews>
+                                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TKa-ZV-fxe" userLabel="Photo View">
+                                                <rect key="frame" x="68" y="0.0" width="222" height="123"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5UX-DT-gi4" userLabel="Photo Image View">
+                                                        <rect key="frame" x="1" y="1" width="220" height="121"/>
+                                                        <color key="backgroundColor" red="0.15294117647058825" green="0.21568627450980393" blue="0.27058823529411763" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="5"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                <color key="value" red="0.11372549019607843" green="0.16470588235294117" blue="0.21568627450980393" alpha="1" colorSpace="calibratedRGB"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                <real key="value" value="1"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isCircle" value="NO"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </imageView>
+                                                    <button clipsSubviews="YES" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ufA-2I-Fba" userLabel="Photo Image Button" customClass="UbuntuLightVeryLightOrangeButton" customModule="OmnieCommerce" customModuleProvider="target">
+                                                        <rect key="frame" x="1" y="1" width="220" height="121"/>
+                                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="calibratedRGB"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                        <state key="normal" title="Add discount card photo"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="5"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isTitleUnderlined" value="NO"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="handlerPhotoImageButtonTap:" destination="cHe-tJ-QAg" eventType="touchUpInside" id="T09-ES-xVT"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstItem="5UX-DT-gi4" firstAttribute="top" secondItem="TKa-ZV-fxe" secondAttribute="top" constant="1" id="0kB-Iw-mnM"/>
+                                                    <constraint firstItem="5UX-DT-gi4" firstAttribute="leading" secondItem="TKa-ZV-fxe" secondAttribute="leading" constant="1" id="2tj-xY-7yG"/>
+                                                    <constraint firstItem="ufA-2I-Fba" firstAttribute="top" secondItem="TKa-ZV-fxe" secondAttribute="top" constant="1" id="BcS-sn-v6U"/>
+                                                    <constraint firstAttribute="trailing" secondItem="5UX-DT-gi4" secondAttribute="trailing" constant="1" id="ByT-UJ-sDE"/>
+                                                    <constraint firstAttribute="bottom" secondItem="ufA-2I-Fba" secondAttribute="bottom" constant="1" id="EcY-Ud-EOz"/>
+                                                    <constraint firstAttribute="trailing" secondItem="ufA-2I-Fba" secondAttribute="trailing" constant="1" id="cdn-vF-Q2q"/>
+                                                    <constraint firstItem="ufA-2I-Fba" firstAttribute="leading" secondItem="TKa-ZV-fxe" secondAttribute="leading" constant="1" id="hQp-qL-Bb5"/>
+                                                    <constraint firstAttribute="bottom" secondItem="5UX-DT-gi4" secondAttribute="bottom" constant="1" id="vSf-pf-6UB"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z8o-2j-rXn" userLabel="Name View">
+                                                <rect key="frame" x="68.5" y="123" width="222" height="44"/>
+                                                <subviews>
+                                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f2F-iZ-oOL" userLabel="Name Dotted Line View" customClass="DottedBorderView" customModule="OmnieCommerce" customModuleProvider="target">
+                                                        <rect key="frame" x="0.5" y="0.0" width="222" height="44"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="viewStyle" value="BottomDottedLine"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </view>
+                                                    <textField clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Organization name" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Zq1-U6-Adb" userLabel="Name Text Field" customClass="CustomTextField" customModule="OmnieCommerce" customModuleProvider="target">
+                                                        <rect key="frame" x="8.5" y="23.5" width="222" height="19"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        <nil key="textColor"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="alphabet" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="fieldType" value="Name"/>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </textField>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstItem="Zq1-U6-Adb" firstAttribute="centerY" secondItem="Z8o-2j-rXn" secondAttribute="centerY" multiplier="1.5" id="3cJ-ps-d2o"/>
+                                                    <constraint firstItem="Zq1-U6-Adb" firstAttribute="centerY" secondItem="Z8o-2j-rXn" secondAttribute="centerY" multiplier="1.3" id="3kY-c7-bg9"/>
+                                                    <constraint firstAttribute="trailing" secondItem="f2F-iZ-oOL" secondAttribute="trailing" id="C3j-z0-VmA"/>
+                                                    <constraint firstItem="f2F-iZ-oOL" firstAttribute="top" secondItem="Z8o-2j-rXn" secondAttribute="top" id="PjU-gE-X8P"/>
+                                                    <constraint firstItem="f2F-iZ-oOL" firstAttribute="leading" secondItem="Z8o-2j-rXn" secondAttribute="leading" id="dVL-Qo-NLn"/>
+                                                    <constraint firstAttribute="trailing" secondItem="Zq1-U6-Adb" secondAttribute="trailing" constant="-8" id="ec9-PX-LQb"/>
+                                                    <constraint firstItem="Zq1-U6-Adb" firstAttribute="leading" secondItem="Z8o-2j-rXn" secondAttribute="leading" constant="8" id="gtU-ee-B7z"/>
+                                                    <constraint firstAttribute="bottom" secondItem="f2F-iZ-oOL" secondAttribute="bottom" id="xsz-L7-MFa"/>
+                                                </constraints>
+                                                <variation key="default">
+                                                    <mask key="constraints">
+                                                        <exclude reference="3cJ-ps-d2o"/>
+                                                    </mask>
+                                                </variation>
+                                                <variation key="heightClass=regular-widthClass=compact">
+                                                    <mask key="constraints">
+                                                        <include reference="3cJ-ps-d2o"/>
+                                                        <exclude reference="3kY-c7-bg9"/>
+                                                    </mask>
+                                                </variation>
+                                            </view>
+                                            <view clipsSubviews="YES" tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HfR-cm-VVz" userLabel="Code View">
+                                                <rect key="frame" x="68.5" y="167" width="222" height="44"/>
+                                                <subviews>
+                                                    <view clipsSubviews="YES" tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G0U-gw-rgO" userLabel="Code Dotted Line View" customClass="DottedBorderView" customModule="OmnieCommerce" customModuleProvider="target">
+                                                        <rect key="frame" x="0.5" y="0.0" width="222" height="44"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="viewStyle" value="BottomDottedLine"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </view>
+                                                    <textField clipsSubviews="YES" tag="99" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Discount card code" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="l4V-EI-i2h" userLabel="Code Text Field" customClass="CustomTextField" customModule="OmnieCommerce" customModuleProvider="target">
+                                                        <rect key="frame" x="8.5" y="23.5" width="222" height="19"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        <nil key="textColor"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="alphabet" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="fieldType" value="Name"/>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </textField>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstItem="l4V-EI-i2h" firstAttribute="centerY" secondItem="HfR-cm-VVz" secondAttribute="centerY" multiplier="1.5" id="3Fx-Mu-cRE"/>
+                                                    <constraint firstAttribute="trailing" secondItem="G0U-gw-rgO" secondAttribute="trailing" id="9SN-bk-Cwo"/>
+                                                    <constraint firstItem="l4V-EI-i2h" firstAttribute="centerY" secondItem="HfR-cm-VVz" secondAttribute="centerY" multiplier="1.3" id="BP7-PM-OTW"/>
+                                                    <constraint firstItem="G0U-gw-rgO" firstAttribute="leading" secondItem="HfR-cm-VVz" secondAttribute="leading" id="Cjx-xy-2LG"/>
+                                                    <constraint firstAttribute="height" constant="44" id="E4U-dc-UV7"/>
+                                                    <constraint firstItem="l4V-EI-i2h" firstAttribute="leading" secondItem="HfR-cm-VVz" secondAttribute="leading" constant="8" id="F7d-1e-5fj"/>
+                                                    <constraint firstAttribute="trailing" secondItem="l4V-EI-i2h" secondAttribute="trailing" constant="-8" id="GG1-bh-jX9"/>
+                                                    <constraint firstItem="G0U-gw-rgO" firstAttribute="top" secondItem="HfR-cm-VVz" secondAttribute="top" id="toB-zn-bVw"/>
+                                                    <constraint firstAttribute="bottom" secondItem="G0U-gw-rgO" secondAttribute="bottom" id="wGc-HE-ss8"/>
+                                                </constraints>
+                                                <variation key="default">
+                                                    <mask key="constraints">
+                                                        <exclude reference="3Fx-Mu-cRE"/>
+                                                    </mask>
+                                                </variation>
+                                                <variation key="heightClass=regular-widthClass=compact">
+                                                    <mask key="constraints">
+                                                        <include reference="3Fx-Mu-cRE"/>
+                                                        <exclude reference="BP7-PM-OTW"/>
+                                                    </mask>
+                                                </variation>
+                                            </view>
+                                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MVT-YL-dme" userLabel="Barcode View">
+                                                <rect key="frame" x="68" y="236" width="222" height="123"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AUv-xk-FpC" userLabel="Barcode Image View">
+                                                        <rect key="frame" x="1" y="1" width="220" height="121"/>
+                                                        <color key="backgroundColor" red="0.15294117647058825" green="0.21568627450980393" blue="0.27058823529411763" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="5"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                <real key="value" value="1"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isCircle" value="NO"/>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                <color key="value" red="0.11372549019607843" green="0.16470588235294117" blue="0.21568627450980393" alpha="1" colorSpace="calibratedRGB"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </imageView>
+                                                    <button clipsSubviews="YES" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nfg-NB-e1I" userLabel="Barcode Image Button" customClass="UbuntuLightVeryLightOrangeButton" customModule="OmnieCommerce" customModuleProvider="target">
+                                                        <rect key="frame" x="1" y="1" width="220" height="121"/>
+                                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="calibratedRGB"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                        <state key="normal" title="Read discount card Barcode"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="5"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isTitleUnderlined" value="NO"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="handlerBarcodeImageButtonTap:" destination="cHe-tJ-QAg" eventType="touchUpInside" id="V0g-sw-zGI"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="nfg-NB-e1I" secondAttribute="trailing" constant="1" id="Ku3-VM-xyS"/>
+                                                    <constraint firstItem="AUv-xk-FpC" firstAttribute="leading" secondItem="MVT-YL-dme" secondAttribute="leading" constant="1" id="T6M-rN-iU9"/>
+                                                    <constraint firstItem="AUv-xk-FpC" firstAttribute="top" secondItem="MVT-YL-dme" secondAttribute="top" constant="1" id="V71-YE-vaL"/>
+                                                    <constraint firstAttribute="bottom" secondItem="AUv-xk-FpC" secondAttribute="bottom" constant="1" id="Z2f-66-J8I"/>
+                                                    <constraint firstAttribute="trailing" secondItem="AUv-xk-FpC" secondAttribute="trailing" constant="1" id="aw8-Fz-ZS6"/>
+                                                    <constraint firstItem="nfg-NB-e1I" firstAttribute="top" secondItem="MVT-YL-dme" secondAttribute="top" constant="1" id="c1b-NY-5e2"/>
+                                                    <constraint firstAttribute="bottom" secondItem="nfg-NB-e1I" secondAttribute="bottom" constant="1" id="diM-ST-aXI"/>
+                                                    <constraint firstItem="nfg-NB-e1I" firstAttribute="leading" secondItem="MVT-YL-dme" secondAttribute="leading" constant="1" id="feE-ui-saG"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z6B-rL-krf" userLabel="Save Button" customClass="FillVeryLightOrangeButton" customModule="OmnieCommerce" customModuleProvider="target">
+                                                <rect key="frame" x="68" y="437" width="222" height="36"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                <state key="normal" title="Save" image="icon-confirm-save-normal"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="handlerSaveButtonTap:" destination="cHe-tJ-QAg" eventType="touchUpInside" id="ESJ-cq-bd6"/>
+                                                </connections>
+                                            </button>
+                                            <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XG8-PP-lX0" userLabel="Cancel Button" customClass="BorderVeryLightOrangeButton" customModule="OmnieCommerce" customModuleProvider="target">
+                                                <rect key="frame" x="68" y="488" width="222" height="36"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                <state key="normal" title="Cancel" image="icon-confirm-cancel-white-normal"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="handlerCancelButtonTap:" destination="cHe-tJ-QAg" eventType="touchUpInside" id="HUm-6L-w3V"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="Z8o-2j-rXn" firstAttribute="top" secondItem="TKa-ZV-fxe" secondAttribute="bottom" id="07w-gT-367"/>
+                                            <constraint firstItem="HfR-cm-VVz" firstAttribute="height" secondItem="Z8o-2j-rXn" secondAttribute="height" id="1rx-NZ-F74"/>
+                                            <constraint firstItem="XG8-PP-lX0" firstAttribute="top" secondItem="z6B-rL-krf" secondAttribute="bottom" constant="15" id="3Vx-gT-sdL"/>
+                                            <constraint firstItem="HfR-cm-VVz" firstAttribute="width" secondItem="TKa-ZV-fxe" secondAttribute="width" id="4FJ-8M-yXh"/>
+                                            <constraint firstItem="Z8o-2j-rXn" firstAttribute="width" secondItem="TKa-ZV-fxe" secondAttribute="width" id="8Zt-u7-SaY"/>
+                                            <constraint firstItem="TKa-ZV-fxe" firstAttribute="top" secondItem="8Ox-so-LhP" secondAttribute="top" id="9U4-kR-TYf"/>
+                                            <constraint firstItem="z6B-rL-krf" firstAttribute="centerX" secondItem="8Ox-so-LhP" secondAttribute="centerX" id="Cog-Lj-zCi"/>
+                                            <constraint firstItem="z6B-rL-krf" firstAttribute="width" secondItem="XG8-PP-lX0" secondAttribute="width" id="EDc-GJ-QpO"/>
+                                            <constraint firstItem="z6B-rL-krf" firstAttribute="height" secondItem="XG8-PP-lX0" secondAttribute="height" id="P7M-ak-P8c"/>
+                                            <constraint firstItem="Z8o-2j-rXn" firstAttribute="centerX" secondItem="8Ox-so-LhP" secondAttribute="centerX" id="PZl-0M-Ejk"/>
+                                            <constraint firstItem="XG8-PP-lX0" firstAttribute="centerX" secondItem="8Ox-so-LhP" secondAttribute="centerX" id="XhJ-sp-RhM"/>
+                                            <constraint firstItem="z6B-rL-krf" firstAttribute="top" secondItem="MVT-YL-dme" secondAttribute="bottom" constant="25" id="ZBk-Bb-SW4">
+                                                <variation key="heightClass=regular-widthClass=compact" constant="78"/>
+                                            </constraint>
+                                            <constraint firstItem="HfR-cm-VVz" firstAttribute="top" secondItem="Z8o-2j-rXn" secondAttribute="bottom" id="b4y-Ce-hnd"/>
+                                            <constraint firstItem="HfR-cm-VVz" firstAttribute="centerX" secondItem="8Ox-so-LhP" secondAttribute="centerX" id="bih-vK-wGd"/>
+                                            <constraint firstItem="MVT-YL-dme" firstAttribute="top" secondItem="HfR-cm-VVz" secondAttribute="bottom" constant="25" id="bum-lV-Lj4"/>
+                                            <constraint firstItem="MVT-YL-dme" firstAttribute="width" secondItem="TKa-ZV-fxe" secondAttribute="width" id="dfe-4L-eNe"/>
+                                            <constraint firstItem="TKa-ZV-fxe" firstAttribute="centerX" secondItem="8Ox-so-LhP" secondAttribute="centerX" id="kBe-5w-MMa"/>
+                                            <constraint firstItem="z6B-rL-krf" firstAttribute="width" secondItem="MVT-YL-dme" secondAttribute="width" id="kR6-tt-iLG"/>
+                                            <constraint firstAttribute="height" priority="250" constant="574" id="njF-OY-3aT"/>
+                                            <constraint firstItem="MVT-YL-dme" firstAttribute="height" secondItem="TKa-ZV-fxe" secondAttribute="height" id="pLC-uP-qV4"/>
+                                            <constraint firstAttribute="bottom" secondItem="XG8-PP-lX0" secondAttribute="bottom" constant="25" id="wWn-xf-E7r"/>
+                                            <constraint firstItem="MVT-YL-dme" firstAttribute="centerX" secondItem="8Ox-so-LhP" secondAttribute="centerX" id="xqd-Gx-0Ip"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="8Ox-so-LhP" firstAttribute="centerX" secondItem="Gci-sb-RiG" secondAttribute="centerX" id="NXt-tp-HYp"/>
+                                    <constraint firstItem="8Ox-so-LhP" firstAttribute="leading" secondItem="Gci-sb-RiG" secondAttribute="leading" id="SOS-aQ-6Jd"/>
+                                    <constraint firstItem="8Ox-so-LhP" firstAttribute="top" secondItem="Gci-sb-RiG" secondAttribute="top" constant="45" id="hE6-HB-7Rn"/>
+                                    <constraint firstAttribute="bottom" secondItem="8Ox-so-LhP" secondAttribute="bottom" id="nNU-58-3xO"/>
+                                    <constraint firstAttribute="trailing" secondItem="8Ox-so-LhP" secondAttribute="trailing" id="zNS-ZE-qg8"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </scrollView>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K4O-Hp-7T4" customClass="SmallTopBarView" customModule="OmnieCommerce" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="95"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -44,18 +320,30 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Mhd-tM-ire" firstAttribute="top" secondItem="Gci-sb-RiG" secondAttribute="bottom" constant="9" id="28o-Ny-JN5"/>
+                            <constraint firstItem="TKa-ZV-fxe" firstAttribute="height" secondItem="A4D-yP-xw0" secondAttribute="height" multiplier="123:667" id="5vn-pu-y8x"/>
                             <constraint firstItem="K4O-Hp-7T4" firstAttribute="top" secondItem="A4D-yP-xw0" secondAttribute="top" id="7WP-Ue-bPh">
                                 <variation key="heightClass=compact-widthClass=compact" constant="0.0"/>
                                 <variation key="heightClass=compact-widthClass=regular" constant="0.0"/>
                             </constraint>
+                            <constraint firstItem="Z8o-2j-rXn" firstAttribute="height" secondItem="A4D-yP-xw0" secondAttribute="height" multiplier="44:375" id="AP3-fA-eCt"/>
                             <constraint firstAttribute="trailing" secondItem="Mhd-tM-ire" secondAttribute="trailing" constant="8" id="AaT-uz-y0p"/>
+                            <constraint firstItem="TKa-ZV-fxe" firstAttribute="height" secondItem="A4D-yP-xw0" secondAttribute="height" multiplier="123:375" id="BlS-1J-n8Q"/>
                             <constraint firstAttribute="bottom" secondItem="Mhd-tM-ire" secondAttribute="bottom" constant="8" id="I5B-45-Ist"/>
+                            <constraint firstItem="Gci-sb-RiG" firstAttribute="leading" secondItem="A4D-yP-xw0" secondAttribute="leading" constant="8" id="L9C-qM-UJb"/>
+                            <constraint firstItem="TKa-ZV-fxe" firstAttribute="width" secondItem="A4D-yP-xw0" secondAttribute="width" multiplier="222:667" id="NmG-pz-RWr"/>
+                            <constraint firstAttribute="trailing" secondItem="Gci-sb-RiG" secondAttribute="trailing" constant="8" id="O2a-6s-jBw"/>
+                            <constraint firstItem="Z8o-2j-rXn" firstAttribute="height" secondItem="A4D-yP-xw0" secondAttribute="height" multiplier="44:667" id="O3j-iT-PYP"/>
                             <constraint firstItem="K4O-Hp-7T4" firstAttribute="height" secondItem="A4D-yP-xw0" secondAttribute="height" multiplier="95:667" id="UJN-6K-TTu"/>
                             <constraint firstItem="K4O-Hp-7T4" firstAttribute="leading" secondItem="A4D-yP-xw0" secondAttribute="leading" id="Uza-Y8-Gkp"/>
                             <constraint firstItem="Mhd-tM-ire" firstAttribute="leading" secondItem="A4D-yP-xw0" secondAttribute="leading" constant="8" id="Zd0-3j-CRY"/>
                             <constraint firstAttribute="trailing" secondItem="K4O-Hp-7T4" secondAttribute="trailing" id="ap6-sg-toG"/>
+                            <constraint firstItem="z6B-rL-krf" firstAttribute="height" secondItem="A4D-yP-xw0" secondAttribute="height" multiplier="36:375" id="fwL-LP-0xJ"/>
                             <constraint firstItem="Mhd-tM-ire" firstAttribute="centerX" secondItem="A4D-yP-xw0" secondAttribute="centerX" id="g82-U3-YBO"/>
+                            <constraint firstItem="z6B-rL-krf" firstAttribute="height" secondItem="A4D-yP-xw0" secondAttribute="height" multiplier="36:667" id="kMF-LQ-NyD"/>
+                            <constraint firstItem="TKa-ZV-fxe" firstAttribute="width" secondItem="A4D-yP-xw0" secondAttribute="width" multiplier="222:375" id="lYH-lD-O9M"/>
                             <constraint firstItem="K4O-Hp-7T4" firstAttribute="height" secondItem="A4D-yP-xw0" secondAttribute="height" multiplier="80:375" id="n2M-rK-mUC"/>
+                            <constraint firstItem="Gci-sb-RiG" firstAttribute="top" secondItem="K4O-Hp-7T4" secondAttribute="bottom" constant="-30" id="vtD-7x-E24"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
@@ -63,23 +351,55 @@
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="UJN-6K-TTu"/>
+                                <exclude reference="5vn-pu-y8x"/>
+                                <exclude reference="lYH-lD-O9M"/>
+                                <exclude reference="O3j-iT-PYP"/>
+                                <exclude reference="kMF-LQ-NyD"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="constraints">
                                 <include reference="UJN-6K-TTu"/>
                                 <exclude reference="n2M-rK-mUC"/>
+                                <include reference="5vn-pu-y8x"/>
+                                <exclude reference="BlS-1J-n8Q"/>
+                                <exclude reference="NmG-pz-RWr"/>
+                                <include reference="lYH-lD-O9M"/>
+                                <exclude reference="AP3-fA-eCt"/>
+                                <include reference="O3j-iT-PYP"/>
+                                <exclude reference="fwL-LP-0xJ"/>
+                                <include reference="kMF-LQ-NyD"/>
                             </mask>
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" id="RQS-qq-19K"/>
                     <connections>
-                        <outlet property="smallTopBarView" destination="K4O-Hp-7T4" id="jS4-kB-2aY"/>
+                        <outlet property="barcodeImageView" destination="AUv-xk-FpC" id="mGs-uZ-ymN"/>
+                        <outlet property="modalView" destination="7zw-Cz-hK4" id="g8h-YA-q5P"/>
+                        <outlet property="photoImageView" destination="5UX-DT-gi4" id="Gyq-FM-e7N"/>
+                        <outlet property="scrollView" destination="Gci-sb-RiG" id="NOq-Z0-nhf"/>
+                        <outlet property="smallTopBarView" destination="K4O-Hp-7T4" id="ooX-cW-N5M"/>
+                        <outletCollection property="dottedBorderViewsCollection" destination="f2F-iZ-oOL" collectionClass="NSMutableArray" id="XZC-ds-yN0"/>
+                        <outletCollection property="textFieldsCollection" destination="Zq1-U6-Adb" collectionClass="NSMutableArray" id="LzB-md-mwt"/>
+                        <outletCollection property="dottedBorderViewsCollection" destination="G0U-gw-rgO" collectionClass="NSMutableArray" id="tLl-Jz-zQL"/>
+                        <outletCollection property="textFieldsCollection" destination="l4V-EI-i2h" collectionClass="NSMutableArray" id="RHu-JM-Jt6"/>
                     </connections>
                 </viewController>
+                <view clipsSubviews="YES" contentMode="scaleToFill" id="7zw-Cz-hK4" userLabel="Modal View" customClass="ModalView" customModule="OmnieCommerce" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                </view>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NVo-Mt-ymv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1119.2" y="16.641679160419791"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="icon-confirm-cancel-white-normal" width="7" height="7"/>
+        <image name="icon-confirm-save-normal" width="8" height="5"/>
+    </resources>
 </document>

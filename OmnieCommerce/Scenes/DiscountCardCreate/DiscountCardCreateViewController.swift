@@ -13,12 +13,12 @@ import UIKit
 
 // MARK: - Input protocols for current ViewController component VIP-cicle
 protocol DiscountCardCreateViewControllerInput {
-    func displaySomething(viewModel: DiscountCardCreateModels.Something.ViewModel)
+    func discountCardDidShowCreate(fromViewModel viewModel: DiscountCardCreateModels.Item.ViewModel)
 }
 
 // MARK: - Output protocols for Interactor component VIP-cicle
 protocol DiscountCardCreateViewControllerOutput {
-    func doSomething(requestModel: DiscountCardCreateModels.Something.RequestModel)
+    func discountCardDidCreate(withRequestModel requestModel: DiscountCardCreateModels.Item.RequestModel)
 }
 
 class DiscountCardCreateViewController: BaseViewController {
@@ -26,10 +26,32 @@ class DiscountCardCreateViewController: BaseViewController {
     var interactor: DiscountCardCreateViewControllerOutput!
     var router: DiscountCardCreateRouter!
     
-    // Outlets
-    @IBOutlet weak var smallTopBarView: SmallTopBarView!
+    var imageID: String?
+    
+    var textFieldManager: MSMTextFieldManager! {
+        didSet {
+            // Delegates
+            for textField in textFieldsCollection {
+                textField.delegate = textFieldManager
+            }
+        }
+    }
 
-        
+    // Outlets
+    @IBOutlet var modalView: ModalView!
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var smallTopBarView: SmallTopBarView!
+    @IBOutlet var textFieldsCollection: [CustomTextField]!
+    @IBOutlet weak var photoImageView: UIImageView!
+    @IBOutlet weak var barcodeImageView: UIImageView!
+
+    @IBOutlet var dottedBorderViewsCollection: [DottedBorderView]! {
+        didSet {
+            _ = dottedBorderViewsCollection.map{ $0.style = .BottomDottedLine }
+        }
+    }
+
+    
     // MARK: - Class initialization
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -50,21 +72,90 @@ class DiscountCardCreateViewController: BaseViewController {
     func viewSettingsDidLoad() {
         // Config smallTopBarView
         navigationBarView = smallTopBarView
+        scrollViewBase = scrollView
         smallTopBarView.type = "Child"
         haveMenuItem = false
+        
+        didAddTapGestureRecognizer()
+        
+        // Create MSMTextFieldManager
+        textFieldManager = MSMTextFieldManager(withTextFields: textFieldsCollection)
+        textFieldManager.currentVC = self
+        textFieldManager.handlerKeywordsFieldCompletion = { _ in }
         
         // Handler Back button tap
         smallTopBarView.handlerSendButtonCompletion = { _ in
             self.navigationController?.popViewController(animated: true)
         }
     }
+    
+    func modalViewDidShow(withHeight height: CGFloat, customSubview subView: CustomView, andValues values: [Any]?) {
+        if (blackoutView == nil) {
+            blackoutView = MSMBlackoutView.init(inView: view)
+            blackoutView!.didShow()
+        }
+        
+        modalView = ModalView.init(inView: blackoutView!, withHeight: height)
+        let popupView = ConfirmSaveView.init(inView: modalView!, withText: "DiscountCard create message")
+        
+        // Handler Cancel button tap
+        popupView.handlerCancelButtonCompletion = { _ in
+            self.blackoutView!.didHide()
+            self.blackoutView = nil
+            
+            self.navigationController!.popViewController(animated: true)
+        }
+    }
+
+    
+    // MARK: - Transition
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        smallTopBarView.setNeedsDisplay()
+        smallTopBarView.circleView.setNeedsDisplay()
+        
+        _ = dottedBorderViewsCollection.map({ $0.setNeedsDisplay() })
+    }
+
+    
+    // MARK: - Actions
+    @IBAction func handlerSaveButtonTap(_ sender: FillVeryLightOrangeButton) {
+        spinnerDidStart(view)
+
+        let parameters: [String: Any]  =    [
+                                                "imageId":  self.imageID ?? "",
+                                                "name":     self.textFieldsCollection.first?.text ?? "",
+                                                "code":     self.textFieldsCollection.last?.text ?? "",
+                                                "format":   "QR"
+                                            ]
+        
+        let discountCardRequestModel = DiscountCardCreateModels.Item.RequestModel(parameters: parameters)
+        interactor.discountCardDidCreate(withRequestModel: discountCardRequestModel)
+    }
+    
+    @IBAction func handlerCancelButtonTap(_ sender: BorderVeryLightOrangeButton) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func handlerPhotoImageButtonTap(_ sender: UbuntuLightVeryLightOrangeButton) {
+    }
+    
+    @IBAction func handlerBarcodeImageButtonTap(_ sender: UbuntuLightVeryLightOrangeButton) {
+    }
 }
 
 
 // MARK: - DiscountCardCreateViewControllerInput
 extension DiscountCardCreateViewController: DiscountCardCreateViewControllerInput {
-    func displaySomething(viewModel: DiscountCardCreateModels.Something.ViewModel) {
-        // Display the result from the Presenter
-        // nameTextField.text = viewModel.name
+    func discountCardDidShowCreate(fromViewModel viewModel: DiscountCardCreateModels.Item.ViewModel) {
+        // Check for errors
+        guard viewModel.status == "SUCCESS" else {
+            self.alertViewDidShow(withTitle: "Error", andMessage: viewModel.status, completion: { })
+            spinnerDidFinish()
+            
+            return
+        }
+        
+        // Show success modal view
+        modalViewDidShow(withHeight: 185.0, customSubview: ConfirmSaveView(), andValues: nil)
     }
 }

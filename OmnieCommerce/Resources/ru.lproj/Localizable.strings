@@ -128,6 +128,9 @@
 "Save as template"              =   "Сохранить как шаблон";
 "Add dictionary photo"          =   "Добавить фото справочника";
 "Change dictionary photo"       =   "Изменить фото справочника";
+"Delete discount card"          =   "Удалить карточку";
+"Add discount card photo"       =   "Добавить фото карточки";
+"Read discount card Barcode"    =   "Считать штрих код";
 
 
 // TextField Placeholders
@@ -147,6 +150,8 @@
 "Theme"                         =   "Тема";
 "Comment"                       =   "Комментарий";
 "Keywords"                      =   "Ключевые слова";
+"Organization name"             =   "Название организации";
+"Discount card code"            =   "Код";
 
 
 // Segmented Control Titles

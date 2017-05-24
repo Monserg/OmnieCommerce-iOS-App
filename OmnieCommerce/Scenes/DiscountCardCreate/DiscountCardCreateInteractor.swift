@@ -13,12 +13,12 @@ import UIKit
 
 // MARK: - Input protocols for current Interactor component VIP-cicle
 protocol DiscountCardCreateInteractorInput {
-    func doSomething(requestModel: DiscountCardCreateModels.Something.RequestModel)
+    func discountCardDidCreate(withRequestModel requestModel: DiscountCardCreateModels.Item.RequestModel)
 }
 
 // MARK: - Output protocols for Presenter component VIP-cicle
 protocol DiscountCardCreateInteractorOutput {
-    func presentSomething(responseModel: DiscountCardCreateModels.Something.ResponseModel)
+    func discountCardDidPrepareToShowCreate(fromResponseModel responseModel: DiscountCardCreateModels.Item.ResponseModel)
 }
 
 class DiscountCardCreateInteractor: DiscountCardCreateInteractorInput {
@@ -28,13 +28,15 @@ class DiscountCardCreateInteractor: DiscountCardCreateInteractorInput {
     
     
     // MARK: - Custom Functions. Business logic
-    func doSomething(requestModel: DiscountCardCreateModels.Something.RequestModel) {
+    func discountCardDidCreate(withRequestModel requestModel: DiscountCardCreateModels.Item.RequestModel) {
         // NOTE: Create some Worker to do the work
         worker = DiscountCardCreateWorker()
         worker.doSomeWork()
         
         // NOTE: Pass the result to the Presenter
-        let responseModel = DiscountCardCreateModels.Something.ResponseModel()
-        presenter.presentSomething(responseModel: responseModel)
+        MSMRestApiManager.instance.userRequestDidRun(.userCreateNewDiscountCard(requestModel.parameters, true), withHandlerResponseAPICompletion:  { responseAPI in
+            let discountCardResponseModel = DiscountCardCreateModels.Item.ResponseModel(responseAPI: responseAPI)
+            self.presenter.discountCardDidPrepareToShowCreate(fromResponseModel: discountCardResponseModel)
+        })
     }
 }

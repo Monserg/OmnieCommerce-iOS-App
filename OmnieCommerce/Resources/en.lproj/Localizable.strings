@@ -128,6 +128,9 @@
 "Save as template"              =   "Save as template";
 "Add dictionary photo"          =   "Add dictionary photo";
 "Change dictionary photo"       =   "Change dictionary photo";
+"Delete discount card"          =   "Delete discount card";
+"Add discount card photo"       =   "Add discount card photo";
+"Read discount card Barcode"    =   "Read Barcode";
 
 
 // TextField Placeholders
@@ -147,6 +150,8 @@
 "Theme"                         =   "Theme";
 "Comment"                       =   "Comment";
 "Keywords"                      =   "Keywords";
+"Organization name"             =   "Organization name";
+"Discount card code"            =   "Code";
 
 
 // Segmented Control Titles
