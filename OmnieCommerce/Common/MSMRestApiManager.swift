@@ -25,6 +25,13 @@ enum RequestType {
     case userGetCategoriesList([String: Any], Bool)
     
     
+    // Discount Cards
+    case userEditDiscountCard([String: Any], Bool)
+    case userDeleteDiscountCard([String: Any], Bool)
+    case userCreateDiscountCard([String: Any], Bool)
+    case userGetDiscountCardsList([String: Any], Bool)
+    
+    
     // Handbook
     case userGetHandbooksList([String: Any], Bool)
     case userCreateNewHandbook([String: Any], Bool)
@@ -134,6 +141,35 @@ enum RequestType {
                                                                             headers: headers,
                                                                             parameters: (isBodyParams ? nil : params))
             
+        // Discount Cards
+        case .userEditDiscountCard(let params, let isBodyParams):   return (method: .patch,
+                                                                            apiStringURL: "/user/cards/discount/",
+                                                                            body: (isBodyParams ? params : nil),
+                                                                            bodyType: .Default,
+                                                                            headers: headersExtended,
+                                                                            parameters: (isBodyParams ? nil : params))
+
+        case .userDeleteDiscountCard(let params, let isBodyParams):         return (method: .delete,
+                                                                                    apiStringURL: "/user/cards/discount/",
+                                                                                    body: (isBodyParams ? params : nil),
+                                                                                    bodyType: .Default,
+                                                                                    headers: headersExtended,
+                                                                                    parameters: (isBodyParams ? nil : params))
+
+        case .userCreateDiscountCard(let params, let isBodyParams):         return (method: .post,
+                                                                                    apiStringURL: "/user/cards/discount/",
+                                                                                    body: (isBodyParams ? params : nil),
+                                                                                    bodyType: .Default,
+                                                                                    headers: headersExtended,
+                                                                                    parameters: (isBodyParams ? nil : params))
+
+        case .userGetDiscountCardsList(let params, let isBodyParams):       return (method: .get,
+                                                                                    apiStringURL: "/user/cards/discount/",
+                                                                                    body: (isBodyParams ? params : nil),
+                                                                                    bodyType: .ItemsArray,
+                                                                                    headers: headersExtended,
+                                                                                    parameters: (isBodyParams ? nil : params))
+
         // Handbook
         case .userGetHandbooksList(let params, let isBodyParams):  return (method: .get,
                                                                             apiStringURL: "/user/handbook/",
