@@ -13,7 +13,7 @@ import UIKit
 
 // MARK: - Input & Output protocols
 protocol DiscountCardShowRouterInput {
-    func navigateToDiscountCardShowScene(withDiscountCardID discountCard: DiscountCard)
+    func navigateToDiscountCardCreateScene(withDiscountCard discountCard: DiscountCard?)
 }
 
 class DiscountCardShowRouter: DiscountCardShowRouterInput {
@@ -22,13 +22,14 @@ class DiscountCardShowRouter: DiscountCardShowRouterInput {
     
     
     // MARK: - Custom Functions. Navigation
-    func navigateToDiscountCardShowScene(withDiscountCardID discountCard: DiscountCard) {
-        let storyboard = UIStoryboard(name: "DiscountCardShow", bundle: nil)
-        let discountCardShowVC = storyboard.instantiateViewController(withIdentifier: "DiscountCardShowVC") as! DiscountCardShowViewController
-        discountCardShowVC.discountCard = discountCard
+    func navigateToDiscountCardCreateScene(withDiscountCard discountCard: DiscountCard?) {
+        let storyboard = UIStoryboard(name: "DiscountCardCreate", bundle: nil)
+        let discountCardCreateVC = storyboard.instantiateViewController(withIdentifier: "DiscountCardCreateVC") as! DiscountCardCreateViewController
+        discountCardCreateVC.discountCard = discountCard
         
-        viewController.navigationController?.pushViewController(discountCardShowVC, animated: true)
+        viewController.navigationController?.pushViewController(discountCardCreateVC, animated: true)
     }
+
     
     // Communication
     func passDataToNextScene(segue: UIStoryboardSegue) {

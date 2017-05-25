@@ -490,6 +490,7 @@
 		B1E209A91ECA15F000B0226F /* OrderCalendarShow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1E209A81ECA15F000B0226F /* OrderCalendarShow.storyboard */; };
 		B1E52AB11DDDD0EA00C3B24D /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E52AB01DDDD0EA00C3B24D /* LaunchScreenViewController.swift */; };
 		B1E52AD31DDDDEC600C3B24D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1E52AD21DDDDEC600C3B24D /* Main.storyboard */; };
+		B1E94DAF1ED6B2D700F1B1E5 /* Barcode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E94DAE1ED6B2D700F1B1E5 /* Barcode.swift */; };
 		B1EC9F311E8B7FEF00F2E342 /* FavoriteOrganizationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1EC9F2F1E8B7FEF00F2E342 /* FavoriteOrganizationTableViewCell.swift */; };
 		B1EC9F321E8B7FEF00F2E342 /* FavoriteOrganizationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1EC9F301E8B7FEF00F2E342 /* FavoriteOrganizationTableViewCell.xib */; };
 		B1EC9F3D1E8BBDBD00F2E342 /* DropDownItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1EC9F3C1E8BBDBD00F2E342 /* DropDownItem.swift */; };
@@ -1044,6 +1045,7 @@
 		B1E209A81ECA15F000B0226F /* OrderCalendarShow.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = OrderCalendarShow.storyboard; sourceTree = "<group>"; };
 		B1E52AB01DDDD0EA00C3B24D /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewController.swift; sourceTree = "<group>"; };
 		B1E52AD21DDDDEC600C3B24D /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		B1E94DAE1ED6B2D700F1B1E5 /* Barcode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Barcode.swift; sourceTree = "<group>"; };
 		B1EC9F2F1E8B7FEF00F2E342 /* FavoriteOrganizationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteOrganizationTableViewCell.swift; sourceTree = "<group>"; };
 		B1EC9F301E8B7FEF00F2E342 /* FavoriteOrganizationTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FavoriteOrganizationTableViewCell.xib; sourceTree = "<group>"; };
 		B1EC9F3C1E8BBDBD00F2E342 /* DropDownItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DropDownItem.swift; sourceTree = "<group>"; };
@@ -1337,6 +1339,7 @@
 		B1228FB31DD4853E00A90FBB /* DataModel */ = {
 			isa = PBXGroup;
 			children = (
+				B1E94DAE1ED6B2D700F1B1E5 /* Barcode.swift */,
 				B1BF92431DD5FC8000BECBBB /* Config.swift */,
 				B1EC9F3C1E8BBDBD00F2E342 /* DropDownItem.swift */,
 				B1228FB41DD4856A00A90FBB /* MenuItem.swift */,
@@ -2968,6 +2971,7 @@
 				B14C07221EA0993800556866 /* ServicesShowRouter.swift in Sources */,
 				B1FBC9311E6DFC0E00D86429 /* UIViewController+Ext.swift in Sources */,
 				B14E97571DD8B052001E1DE2 /* SignUpShowInteractor.swift in Sources */,
+				B1E94DAF1ED6B2D700F1B1E5 /* Barcode.swift in Sources */,
 				B10189CA1EABBD3B00C1AD2F /* Service+CoreDataClass.swift in Sources */,
 				B177E5481E54AC7F004F1390 /* EnterCodeShowInteractor.swift in Sources */,
 				B137EC8E1E7D059B006F0184 /* UbuntuRegularVeryDarkGrayLabel.swift in Sources */,

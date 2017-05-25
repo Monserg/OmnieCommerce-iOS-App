@@ -107,7 +107,7 @@ class DiscountCardShowViewController: BaseViewController {
     }
     
     @IBAction func handlerEditButtonTap(_ sender: UIButton) {
-        self.router.navigateToDiscountCardShowScene(withDiscountCardID: discountCard)
+        self.router.navigateToDiscountCardCreateScene(withDiscountCard: discountCard)
     }
     
     @IBAction func handlerBackButtonTap(_ sender: UIButton) {

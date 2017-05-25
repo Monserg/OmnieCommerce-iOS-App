@@ -30,7 +30,9 @@ class DiscountCardCreateViewController: BaseViewController {
     var router: DiscountCardCreateRouter!
     
     var imageID: String?
-    
+    var barcodeID: String?
+    var discountCard: DiscountCard?
+
     var textFieldManager: MSMTextFieldManager! {
         didSet {
             // Delegates
@@ -89,6 +91,33 @@ class DiscountCardCreateViewController: BaseViewController {
         // Handler Back button tap
         smallTopBarView.handlerSendButtonCompletion = { _ in
             self.navigationController?.popViewController(animated: true)
+        }
+        
+        // Edit mode
+        if (discountCard != nil) {
+            textFieldsCollection.first?.text = discountCard!.name
+            textFieldsCollection.last?.text = discountCard!.code
+            
+            if let photoImageID = discountCard!.imageID, !photoImageID.isEmpty {
+                self.photoImageView.kf.setImage(with: ImageResource(downloadURL: photoImageID.convertToURL(withSize: .Medium, inMode: .Get), cacheKey: photoImageID),
+                                                placeholder: UIImage.init(named: "image-no-photo"),
+                                                options: [.transition(ImageTransition.fade(1)),
+                                                          .processor(ResizingImageProcessor(referenceSize: self.photoImageView.frame.size,
+                                                                                            mode: .aspectFill))],
+                                                completionHandler: { image, error, cacheType, imageURL in
+                                                    self.photoImageView.kf.cancelDownloadTask()
+                                                    self.imageID = photoImageID
+                })
+            } else {
+                self.photoImageView.backgroundColor = UIColor.init(hexString: "#273745")
+            }
+            
+            if let barcodeImage = Barcode.convertToImageFromString(discountCard?.code) {
+                self.barcodeID = discountCard!.code
+                self.barcodeImageView.image = barcodeImage
+            } else {
+                self.barcodeImageView.backgroundColor = UIColor.init(hexString: "#273745")
+            }
         }
     }
     

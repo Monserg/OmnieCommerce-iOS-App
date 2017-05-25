@@ -132,7 +132,7 @@ class DiscountCardsShowViewController: BaseViewController {
         
         // Handler select cell
         collectionView.collectionViewControllerManager!.handlerCellSelectCompletion = { discountCard in
-            self.router.navigateToDiscountCardShowScene(withDiscountCardID: discountCard as! DiscountCard)
+            self.router.navigateToDiscountCardShowScene(withDiscountCard: discountCard as! DiscountCard)
         }
         
         // Handler PullRefresh
@@ -171,7 +171,7 @@ class DiscountCardsShowViewController: BaseViewController {
     
     // MARK: - Actions
     @IBAction func handlerCreateNewDiscountCardButtonTap(_ sender: FillColorButton) {
-        self.router.navigateToDiscountCardCreateScene()
+        self.router.navigateToDiscountCardCreateScene(withDiscountCard: nil)
     }
 }
 
