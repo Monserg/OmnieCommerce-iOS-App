@@ -216,13 +216,13 @@ class HandbookShowViewController: BaseViewController, PhoneErrorMessageView {
         }
     }
     
-    func modalViewDidShow(withHeight height: CGFloat, customSubview subView: CustomView, andValues values: [Any]?) {
+    func modalViewDidShow() {
         if (blackoutView == nil) {
             blackoutView = MSMBlackoutView.init(inView: view)
             blackoutView!.didShow()
         }
         
-        modalView = ModalView.init(inView: blackoutView!, withHeight: height)
+        modalView = ModalView.init(inView: blackoutView!, withHeight: 185.0)
         let popupView = ConfirmSaveView.init(inView: modalView!, withText: "Dictionary saved message")
         
         // Handler Cancel button tap
@@ -394,16 +394,17 @@ class HandbookShowViewController: BaseViewController, PhoneErrorMessageView {
 // MARK: - HandbookShowViewControllerInput
 extension HandbookShowViewController: HandbookShowViewControllerInput {
     func handbookDidShowCreate(fromViewModel viewModel: HandbookShowModels.Item.ViewModel) {
+        spinnerDidFinish()
+
         // Check for errors
         guard viewModel.status == "SUCCESS" else {
             self.alertViewDidShow(withTitle: "Error", andMessage: viewModel.status, completion: { })
-            spinnerDidFinish()
             
             return
         }
         
         // Show success modal view
-        modalViewDidShow(withHeight: 185.0, customSubview: ConfirmSaveView(), andValues: nil)
+        modalViewDidShow()
     }
     
     func handbookImageDidShowUpload(fromViewModel viewModel: HandbookShowModels.Image.ViewModel) {

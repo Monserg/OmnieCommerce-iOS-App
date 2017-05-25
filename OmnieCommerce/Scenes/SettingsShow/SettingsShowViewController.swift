@@ -194,13 +194,13 @@ class SettingsShowViewController: BaseViewController {
         }
     }
     
-    func modalViewDidShow(withHeight height: CGFloat, customSubview subView: CustomView, andValues values: [Any]?) {
+    func modalViewDidShow() {
         if (blackoutView == nil) {
             blackoutView = MSMBlackoutView.init(inView: view)
             blackoutView!.didShow()
         }
         
-        modalView = ModalView.init(inView: blackoutView!, withHeight: height)
+        modalView = ModalView.init(inView: blackoutView!, withHeight: 185.0)
         let popupView = ConfirmSaveView.init(inView: modalView!, withText: "Settings saved message")
         
         // Handler Cancel button tap
@@ -308,7 +308,7 @@ extension SettingsShowViewController: SettingsShowViewControllerInput {
             return
         }
         
-        modalViewDidShow(withHeight: 185.0, customSubview: ConfirmSaveView(), andValues: nil)
+        modalViewDidShow()
         appSettingsDidLoadData()
     }
 }

@@ -121,13 +121,13 @@ class DiscountCardCreateViewController: BaseViewController {
         }
     }
     
-    func modalViewDidShow(withHeight height: CGFloat, customSubview subView: CustomView, andValues values: [Any]?) {
+    func modalViewDidShow() {
         if (blackoutView == nil) {
             blackoutView = MSMBlackoutView.init(inView: view)
             blackoutView!.didShow()
         }
         
-        modalView = ModalView.init(inView: blackoutView!, withHeight: height)
+        modalView = ModalView.init(inView: blackoutView!, withHeight: 185.0)
         let popupView = ConfirmSaveView.init(inView: modalView!, withText: "DiscountCard create message")
         
         // Handler Cancel button tap
@@ -139,6 +139,14 @@ class DiscountCardCreateViewController: BaseViewController {
         }
     }
 
+    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldReceiveTouch touch: UITouch) -> Bool {
+        if (touch.view?.isDescendant(of: view.subviews.last!))! {
+            return false
+        }
+        
+        return true
+    }
+    
     func handlerResult(fromImagePicker imagePickerController: MSMImagePickerController, forAvatarButton avatarButton: UIButton) {
         // Handler Success Select Image
         imagePickerController.handlerImagePickerControllerCompletion = { image in
@@ -246,16 +254,17 @@ class DiscountCardCreateViewController: BaseViewController {
 // MARK: - DiscountCardCreateViewControllerInput
 extension DiscountCardCreateViewController: DiscountCardCreateViewControllerInput {
     func discountCardDidShowCreate(fromViewModel viewModel: DiscountCardCreateModels.Item.ViewModel) {
+        spinnerDidFinish()
+
         // Check for errors
         guard viewModel.status == "SUCCESS" else {
             self.alertViewDidShow(withTitle: "Error", andMessage: viewModel.status, completion: { })
-            spinnerDidFinish()
             
             return
         }
         
         // Show success modal view
-        modalViewDidShow(withHeight: 185.0, customSubview: ConfirmSaveView(), andValues: nil)
+        modalViewDidShow()
     }
     
     func discountCardImageDidShowUpload(fromViewModel viewModel: DiscountCardCreateModels.Image.ViewModel) {

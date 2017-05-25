@@ -81,13 +81,13 @@ class DiscountCardShowViewController: BaseViewController {
         }
     }
 
-    func modalViewDidShow(withHeight height: CGFloat, customSubview subView: CustomView, andValues values: [Any]?) {
+    func modalViewDidShow() {
         if (blackoutView == nil) {
             blackoutView = MSMBlackoutView.init(inView: view)
             blackoutView!.didShow()
         }
         
-        modalView = ModalView.init(inView: blackoutView!, withHeight: height)
+        modalView = ModalView.init(inView: blackoutView!, withHeight: 185.0)
         let popupView = ConfirmSaveView.init(inView: modalView!, withText: "DiscountCard delete message")
         
         // Handler Cancel button tap
@@ -119,6 +119,8 @@ class DiscountCardShowViewController: BaseViewController {
 // MARK: - DiscountCardShowViewControllerInput
 extension DiscountCardShowViewController: DiscountCardShowViewControllerInput {
     func discountCardDidShowDelete(fromViewModel viewModel: DiscountCardShowModels.Item.ViewModel) {
+        spinnerDidFinish()
+        
         // Check for errors
         guard viewModel.status == "SUCCESS" else {
             self.alertViewDidShow(withTitle: "Error", andMessage: viewModel.status, completion: { _ in })
@@ -126,6 +128,6 @@ extension DiscountCardShowViewController: DiscountCardShowViewControllerInput {
         }
         
         // Show success modal view
-        modalViewDidShow(withHeight: 185.0, customSubview: ConfirmSaveView(), andValues: nil)
+        modalViewDidShow()
     }
 }
