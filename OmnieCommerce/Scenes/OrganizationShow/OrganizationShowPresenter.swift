@@ -13,14 +13,16 @@ import UIKit
 
 // MARK: - Input protocols for current Presenter component VIP-cicle
 protocol OrganizationShowPresenterInput {
-    func organizationDidPrepareToShowLoad(fromResponseModel responseModel: OrganizationShowModels.OrganizationItem.ResponseModel)
     func organizationRatingDidPrepareToShowSend(fromResponseModel responseModel: OrganizationShowModels.Rating.ResponseModel)
+    func organizationDidPrepareToShowLoad(fromResponseModel responseModel: OrganizationShowModels.OrganizationItem.ResponseModel)
+    func bussinessCardDidPrepareToShowCreateFromOrganization(fromResponseModel responseModel: OrganizationShowModels.BussinessCard.ResponseModel)
 }
 
 // MARK: - Output protocols for ViewController component VIP-cicle
 protocol OrganizationShowPresenterOutput: class {
-    func organizationDidShowLoad(fromViewModel viewModel: OrganizationShowModels.OrganizationItem.ViewModel)
     func organizationRatingDidShowSend(fromViewModel viewModel: OrganizationShowModels.Rating.ViewModel)
+    func organizationDidShowLoad(fromViewModel viewModel: OrganizationShowModels.OrganizationItem.ViewModel)
+    func bussinessCardDidShowCreateFromOrganization(fromViewModel viewModel: OrganizationShowModels.BussinessCard.ViewModel)
 }
 
 class OrganizationShowPresenter: OrganizationShowPresenterInput {
@@ -50,5 +52,10 @@ class OrganizationShowPresenter: OrganizationShowPresenterInput {
     func organizationRatingDidPrepareToShowSend(fromResponseModel responseModel: OrganizationShowModels.Rating.ResponseModel) {
         let organizationRatingViewModel = OrganizationShowModels.Rating.ViewModel(status: (responseModel.responseAPI?.status)!)
         viewController.organizationRatingDidShowSend(fromViewModel: organizationRatingViewModel)
+    }
+    
+    func bussinessCardDidPrepareToShowCreateFromOrganization(fromResponseModel responseModel: OrganizationShowModels.BussinessCard.ResponseModel) {
+        let bussinessCardViewModel = OrganizationShowModels.BussinessCard.ViewModel(status: (responseModel.responseAPI?.status)!)
+        viewController.bussinessCardDidShowCreateFromOrganization(fromViewModel: bussinessCardViewModel)
     }
 }

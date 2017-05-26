@@ -16,14 +16,16 @@ import MXParallaxHeader
 
 // MARK: - Input protocols for current ViewController component VIP-cicle
 protocol OrganizationShowViewControllerInput {
-    func organizationDidShowLoad(fromViewModel viewModel: OrganizationShowModels.OrganizationItem.ViewModel)
     func organizationRatingDidShowSend(fromViewModel viewModel: OrganizationShowModels.Rating.ViewModel)
+    func organizationDidShowLoad(fromViewModel viewModel: OrganizationShowModels.OrganizationItem.ViewModel)
+    func bussinessCardDidShowCreateFromOrganization(fromViewModel viewModel: OrganizationShowModels.BussinessCard.ViewModel)
 }
 
 // MARK: - Output protocols for Interactor component VIP-cicle
 protocol OrganizationShowViewControllerOutput {
-    func organizationDidLoad(withRequestModel requestModel: OrganizationShowModels.OrganizationItem.RequestModel)
     func organizationRatingDidSend(withRequestModel requestModel: OrganizationShowModels.Rating.RequestModel)
+    func organizationDidLoad(withRequestModel requestModel: OrganizationShowModels.OrganizationItem.RequestModel)
+    func bussinessCardDidCreateFromOrganization(withRequestModel requestModel: OrganizationShowModels.BussinessCard.RequestModel)
 }
 
 class OrganizationShowViewController: BaseViewController {
@@ -243,7 +245,10 @@ class OrganizationShowViewController: BaseViewController {
         case subView as PhotosGalleryView:
             popupView = PhotosGalleryView.init(inView: modalView!)
             popupView.values = values as! [GalleryImage]
-            
+
+        case subView as ConfirmSaveView:
+            popupView = ConfirmSaveView.init(inView: modalView!, withText: "BussinessСard create message")
+
         default:
             break
         }
@@ -675,18 +680,18 @@ class OrganizationShowViewController: BaseViewController {
                 self.messageLabel.transform = self.messageButton.transform
                 self.messageLabel.isHidden = true
             })
-        }, completion: { _ in
-            self.animationButton.tag = 0
-            self.blackoutView!.didHide()
-            self.blackoutView = nil
         })
 
         // Handler action button tap
         switch sender.tag {
-        // Card
+        // Add Bussiness Card
         case 1:
-            // TODO: - ADD TRANSITION TO ...
-            break
+            self.animationButton.tag = 0
+            self.blackoutView!.didHide()
+            self.blackoutView = nil
+
+            let bussinessCardRequestModel = OrganizationShowModels.BussinessCard.RequestModel(parameters: [ "id": organizationProfile.codeID as AnyObject ])
+            interactor.bussinessCardDidCreateFromOrganization(withRequestModel: bussinessCardRequestModel)
             
         // Price
         case 2:
@@ -699,7 +704,9 @@ class OrganizationShowViewController: BaseViewController {
             break
             
         default:
-            break
+            self.animationButton.tag = 0
+            self.blackoutView!.didHide()
+            self.blackoutView = nil
         }
     }
     
@@ -709,6 +716,8 @@ class OrganizationShowViewController: BaseViewController {
 // MARK: - OrganizationShowViewControllerInput
 extension OrganizationShowViewController: OrganizationShowViewControllerInput {
     func organizationDidShowLoad(fromViewModel viewModel: OrganizationShowModels.OrganizationItem.ViewModel) {
+        spinnerDidFinish()
+        
         // Check for errors
         guard viewModel.status == "SUCCESS" else {
             self.alertViewDidShow(withTitle: "Error", andMessage: viewModel.status, completion: {
@@ -722,6 +731,8 @@ extension OrganizationShowViewController: OrganizationShowViewControllerInput {
     }
     
     func organizationRatingDidShowSend(fromViewModel viewModel: OrganizationShowModels.Rating.ViewModel) {
+        spinnerDidFinish()
+
         // Check for errors
         guard viewModel.status == "SUCCESS" else {
             self.alertViewDidShow(withTitle: "Error", andMessage: viewModel.status, completion: {
@@ -732,6 +743,19 @@ extension OrganizationShowViewController: OrganizationShowViewControllerInput {
         }
         
         self.organizationProfileDidShow()
+    }
+    
+    func bussinessCardDidShowCreateFromOrganization(fromViewModel viewModel: OrganizationShowModels.BussinessCard.ViewModel) {
+        spinnerDidFinish()
+
+        // Check for errors
+        guard viewModel.status == "SUCCESS" else {
+            self.alertViewDidShow(withTitle: "Error", andMessage: viewModel.status, completion: {})
+            
+            return
+        }
+        
+        self.modalViewDidShow(withHeight: 185.0, customSubview: ConfirmSaveView(), andValues: nil)
     }
 }
 

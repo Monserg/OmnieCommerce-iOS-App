@@ -174,14 +174,14 @@ enum RequestType {
                                                                                     headers: headersExtended,
                                                                                     parameters: (isBodyParams ? nil : params))
 
-        case .userCreateNewBussinessCardFromHandbook(let params, let isBodyParams):     return (method: .post,
+        case .userCreateNewBussinessCardFromHandbook(let params, let isBodyParams):     return (method: .get,
                                                                                                 apiStringURL: "/user/cards/business/handbook/",
                                                                                                 body: (isBodyParams ? params : nil),
                                                                                                 bodyType: .Default,
                                                                                                 headers: headersExtended,
                                                                                                 parameters: (isBodyParams ? nil : params))
 
-        case .userCreateNewBussinessCardFromOrganization(let params, let isBodyParams): return (method: .post,
+        case .userCreateNewBussinessCardFromOrganization(let params, let isBodyParams): return (method: .get,
                                                                                                 apiStringURL: "/user/cards/business/organization/",
                                                                                                 body: (isBodyParams ? params : nil),
                                                                                                 bodyType: .Default,
