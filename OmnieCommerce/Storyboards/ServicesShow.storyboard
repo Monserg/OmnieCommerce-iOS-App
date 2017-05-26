@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="x4X-Jw-jMj">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="x4X-Jw-jMj">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -22,8 +22,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="Fjh-QA-ScC" customClass="MSMTableView" customModule="OmnieCommerce" customModuleProvider="target">
-                                <rect key="frame" x="8" y="70" width="359" height="543"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="44" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="Fjh-QA-ScC" customClass="MSMTableView" customModule="OmnieCommerce" customModuleProvider="target">
+                                <rect key="frame" x="8" y="60" width="359" height="578"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <inset key="scrollIndicatorInsets" minX="0.0" minY="5" maxX="0.0" maxY="0.0"/>
                                 <userDefinedRuntimeAttributes>
@@ -54,10 +54,8 @@
                         <constraints>
                             <constraint firstItem="RAq-Mj-VNq" firstAttribute="height" secondItem="OX1-0c-Jwt" secondAttribute="height" multiplier="95:667" id="4dq-4S-Wmn"/>
                             <constraint firstItem="RAq-Mj-VNq" firstAttribute="leading" secondItem="OX1-0c-Jwt" secondAttribute="leading" id="Clx-ac-shr"/>
-                            <constraint firstItem="Fjh-QA-ScC" firstAttribute="top" secondItem="RAq-Mj-VNq" secondAttribute="bottom" constant="-25" id="Htt-ci-UTO">
-                                <variation key="heightClass=compact-widthClass=compact" constant="-35"/>
-                            </constraint>
-                            <constraint firstItem="yRT-UB-sdK" firstAttribute="top" secondItem="Fjh-QA-ScC" secondAttribute="bottom" constant="34" id="P6w-0G-XJe"/>
+                            <constraint firstItem="Fjh-QA-ScC" firstAttribute="top" secondItem="RAq-Mj-VNq" secondAttribute="bottom" constant="-35" id="Htt-ci-UTO"/>
+                            <constraint firstItem="yRT-UB-sdK" firstAttribute="top" secondItem="Fjh-QA-ScC" secondAttribute="bottom" constant="9" id="P6w-0G-XJe"/>
                             <constraint firstItem="yRT-UB-sdK" firstAttribute="leading" secondItem="OX1-0c-Jwt" secondAttribute="leading" constant="8" id="Rye-Dr-8oP"/>
                             <constraint firstAttribute="trailing" secondItem="RAq-Mj-VNq" secondAttribute="trailing" id="Vdg-85-zA1"/>
                             <constraint firstAttribute="trailing" secondItem="yRT-UB-sdK" secondAttribute="trailing" constant="8" id="agW-ns-hie"/>

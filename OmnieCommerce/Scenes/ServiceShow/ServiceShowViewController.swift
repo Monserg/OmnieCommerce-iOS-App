@@ -581,7 +581,8 @@ extension ServiceShowViewController: ServiceShowViewControllerInput {
         // Check for errors
         guard viewModel.status == "SUCCESS" else {
             self.alertViewDidShow(withTitle: "Error", andMessage: viewModel.status, completion: {
-                self.serviceProfileDidShow()
+                self.navigationController?.popViewController(animated: true)
+//                self.serviceProfileDidShow()
             })
             
             return

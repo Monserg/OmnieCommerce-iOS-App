@@ -139,14 +139,6 @@ class DiscountCardCreateViewController: BaseViewController {
         }
     }
 
-    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldReceiveTouch touch: UITouch) -> Bool {
-        if (touch.view?.isDescendant(of: view.subviews.last!))! {
-            return false
-        }
-        
-        return true
-    }
-    
     func handlerResult(fromImagePicker imagePickerController: MSMImagePickerController, forAvatarButton avatarButton: UIButton) {
         // Handler Success Select Image
         imagePickerController.handlerImagePickerControllerCompletion = { image in
@@ -172,6 +164,8 @@ class DiscountCardCreateViewController: BaseViewController {
         smallTopBarView.circleView.setNeedsDisplay()
         
         _ = dottedBorderViewsCollection.map({ $0.setNeedsDisplay() })
+       
+        self.view.layoutIfNeeded()
     }
 
     

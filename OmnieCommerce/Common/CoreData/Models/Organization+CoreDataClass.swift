@@ -153,7 +153,7 @@ public class Organization: NSManagedObject, InitCellParameters, PointAnnotationB
                         service.profileDidUpload(json: serviceJSON as! [String: AnyObject], forOrganization: self, forList: keyService)
                         self.addToServices(service)
                         
-                        CoreDataManager.instance.didSaveContext()
+//                        CoreDataManager.instance.didSaveContext()
                     }
                 }
             }

@@ -36,8 +36,8 @@ public class Discount: NSManagedObject, InitCellParameters {
         self.percent = percent
         self.status = status
         self.isUserDiscount = isUserDiscount
-        self.dateStart = dateStart.convertToDate(withDateFormat: .ResponseDate) as NSDate
-        self.dateEnd = dateEnd.convertToDate(withDateFormat: .ResponseDate) as NSDate
+        self.dateStart = dateStart.convertToDate(withDateFormat: .PriceDate) as NSDate
+        self.dateEnd = dateEnd.convertToDate(withDateFormat: .PriceDate) as NSDate
         
         if let organizationID = json["orgUuid"] as? String {
             self.organizationID = organizationID

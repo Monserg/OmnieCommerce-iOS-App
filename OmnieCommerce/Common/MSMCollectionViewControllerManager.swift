@@ -44,7 +44,6 @@ class MSMCollectionViewControllerManager: BaseViewController {
         self.emptyText = text
         
         self.pullRefreshDidCreate()
-//        self.dataSource = [Any]()
     }
 
     init(withCollectionView collectionView: MSMCollectionView) {
@@ -53,8 +52,6 @@ class MSMCollectionViewControllerManager: BaseViewController {
         self.collectionView = collectionView
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
-
-        self.pullRefreshDidCreate()
     }
     
     required init?(coder aDecoder: NSCoder) {

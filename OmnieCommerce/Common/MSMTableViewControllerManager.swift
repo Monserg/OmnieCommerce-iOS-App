@@ -174,6 +174,10 @@ extension MSMTableViewControllerManager: UITableViewDataSource {
         }
         
         switch cell {
+        case cell as ServicePriceTableViewCell:
+            let servicePriceTableViewCell = cell as! ServicePriceTableViewCell
+            servicePriceTableViewCell.lineView.isHidden = (dataSource[indexPath.section] as! [Price]).count > 1 ? false : true
+            
         case cell as UserTemplateTableViewCell:
             let userTemplateCell = (cell as! UserTemplateTableViewCell)
             
@@ -306,8 +310,7 @@ extension MSMTableViewControllerManager: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
 
         if (self.tableView!.hasHeaders) {
-            // TODO: - ADD HANDLERS
-            
+            handlerSelectRowCompletion!((dataSource[indexPath.section] as! [Any])[indexPath.row])
         } else {
             handlerSelectRowCompletion!((isSearchBarActive) ? dataSourceFiltered[indexPath.row] : dataSource[indexPath.row])
         }

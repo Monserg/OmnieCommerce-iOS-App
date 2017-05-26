@@ -39,17 +39,17 @@ class FavoriteServicesShowPresenter: FavoriteServicesShowPresenterInput {
         if let servicesList = responseModel.responseAPI!.body as? [Any], servicesList.count > 0 {
             for serviceJSON in servicesList {
                 if let serviceID = (serviceJSON as? [String: AnyObject])?["uuid"] as? String {
-                    if let service = CoreDataManager.instance.entityDidLoad(byName: "Service", andPredicateParameters: NSPredicate.init(format: "codeID == %@", serviceID)) as? Service {
+                    if let service = CoreDataManager.instance.entityDidLoad(byName: "Service", andPredicateParameters: NSPredicate.init(format: "codeID == %@ AND organizationName == %@", serviceID, (serviceJSON as? [String: AnyObject])?["orgName"] as! String)) as? Service {
                         service.profileDidUpload(json: serviceJSON as! [String: AnyObject], forOrganization: nil, forList: keyFavoriteServices)
                         service.cellHeight = 60.0
                         service.cellIdentifier = "FavoriteServiceTableViewCell"
-                        
-                        CoreDataManager.instance.didSaveContext()
                     }
                 }
             }
         }
         
+        CoreDataManager.instance.didSaveContext()
+
         let servicesViewModel = FavoriteServicesShowModels.Services.ViewModel(status: (responseModel.responseAPI?.status)!)
         self.viewController.favoriteServicesDidShowLoad(fromViewModel: servicesViewModel)
     }

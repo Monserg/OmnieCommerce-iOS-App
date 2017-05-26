@@ -20,8 +20,8 @@
                 <rect key="frame" x="0.0" y="0.0" width="170" height="102"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image-tourism-normal" translatesAutoresizingMaskIntoConstraints="NO" id="YUg-TK-vv1">
-                        <rect key="frame" x="49" y="20" width="72" height="41"/>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1 beauty" translatesAutoresizingMaskIntoConstraints="NO" id="YUg-TK-vv1">
+                        <rect key="frame" x="49" y="20" width="56" height="40"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="YUg-TK-vv1" secondAttribute="height" multiplier="16:9" id="F92-Kq-Ui2"/>
@@ -29,6 +29,11 @@
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
                         </userDefinedRuntimeAttributes>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="F92-Kq-Ui2"/>
+                            </mask>
+                        </variation>
                     </imageView>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c1I-Wt-CNS" userLabel="Name Label" customClass="UbuntuRegularVeryDarkGrayLabel" customModule="OmnieCommerce" customModuleProvider="target">
                         <rect key="frame" x="8" y="71" width="154" height="19.5"/>
@@ -65,6 +70,6 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="image-tourism-normal" width="40" height="40"/>
+        <image name="1 beauty" width="34" height="40"/>
     </resources>
 </document>

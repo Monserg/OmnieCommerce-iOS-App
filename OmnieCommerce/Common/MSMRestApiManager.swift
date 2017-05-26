@@ -21,6 +21,15 @@ enum RequestType {
     case userChangePasswordFromLogin([String: Any], Bool)   // Forgot password. Step 3
     
     
+    // Bussiness Cards
+    case userEditBussinessCard([String: Any], Bool)
+    case userDeleteBussinessCard([String: Any], Bool)
+    case userGetBussinessCardsList([String: Any], Bool)
+    case userCreateNewBussinessCard([String: Any], Bool)
+    case userCreateNewBussinessCardFromHandbook([String: Any], Bool)
+    case userCreateNewBussinessCardFromOrganization([String: Any], Bool)
+    
+    
     // Categories
     case userGetCategoriesList([String: Any], Bool)
     
@@ -93,7 +102,8 @@ enum RequestType {
         
         // Body & Parametes named such as in Postman
         switch self {
-            // Security
+        // Security
+        
         // Forgot password, step 2
         case .userCheckEmail(let params, let isBodyParams):     return (method: .post,
                                                                         apiStringURL: "/forgot/",
@@ -116,6 +126,7 @@ enum RequestType {
                                                                         headers: headers,
                                                                         parameters: (isBodyParams ? nil : params))
             
+        
         // Forgot password. Step 1
         case .userForgotPassword(let params, let isBodyParams):     return (method: .get,
                                                                             apiStringURL: "/forgot/",
@@ -124,6 +135,7 @@ enum RequestType {
                                                                             headers: headers,
                                                                             parameters: (isBodyParams ? nil : params))
             
+        
         // Forgot password. Step 3
         case .userChangePasswordFromLogin(let params, let isBodyParams):    return (method: .get,
                                                                                     apiStringURL: "/change-password/",
@@ -133,6 +145,50 @@ enum RequestType {
                                                                                     parameters: (isBodyParams ? nil : params))
             
             
+        // Bussiness Cards
+        case .userEditBussinessCard(let params, let isBodyParams):  return (method: .patch,
+                                                                            apiStringURL: "/user/cards/business/",
+                                                                            body: (isBodyParams ? params : nil),
+                                                                            bodyType: .Default,
+                                                                            headers: headersExtended,
+                                                                            parameters: (isBodyParams ? nil : params))
+            
+        case .userDeleteBussinessCard(let params, let isBodyParams):        return (method: .delete,
+                                                                                    apiStringURL: "/user/cards/business/",
+                                                                                    body: (isBodyParams ? params : nil),
+                                                                                    bodyType: .Default,
+                                                                                    headers: headersExtended,
+                                                                                    parameters: (isBodyParams ? nil : params))
+            
+        case .userGetBussinessCardsList(let params, let isBodyParams):      return (method: .get,
+                                                                                    apiStringURL: "/user/cards/business/",
+                                                                                    body: (isBodyParams ? params : nil),
+                                                                                    bodyType: .ItemsArray,
+                                                                                    headers: headersExtended,
+                                                                                    parameters: (isBodyParams ? nil : params))
+            
+        case .userCreateNewBussinessCard(let params, let isBodyParams):     return (method: .post,
+                                                                                    apiStringURL: "/user/cards/business/",
+                                                                                    body: (isBodyParams ? params : nil),
+                                                                                    bodyType: .Default,
+                                                                                    headers: headersExtended,
+                                                                                    parameters: (isBodyParams ? nil : params))
+
+        case .userCreateNewBussinessCardFromHandbook(let params, let isBodyParams):     return (method: .post,
+                                                                                                apiStringURL: "/user/cards/business/handbook/",
+                                                                                                body: (isBodyParams ? params : nil),
+                                                                                                bodyType: .Default,
+                                                                                                headers: headersExtended,
+                                                                                                parameters: (isBodyParams ? nil : params))
+
+        case .userCreateNewBussinessCardFromOrganization(let params, let isBodyParams): return (method: .post,
+                                                                                                apiStringURL: "/user/cards/business/organization/",
+                                                                                                body: (isBodyParams ? params : nil),
+                                                                                                bodyType: .Default,
+                                                                                                headers: headersExtended,
+                                                                                                parameters: (isBodyParams ? nil : params))
+
+        
         // Categories
         case .userGetCategoriesList(let params, let isBodyParams):  return (method: .get,
                                                                             apiStringURL: "/categories/",
@@ -141,6 +197,7 @@ enum RequestType {
                                                                             headers: headers,
                                                                             parameters: (isBodyParams ? nil : params))
             
+        
         // Discount Cards
         case .userEditDiscountCard(let params, let isBodyParams):   return (method: .patch,
                                                                             apiStringURL: "/user/cards/discount/",
@@ -170,6 +227,7 @@ enum RequestType {
                                                                                     headers: headersExtended,
                                                                                     parameters: (isBodyParams ? nil : params))
             
+       
         // Handbook
         case .userGetHandbooksList(let params, let isBodyParams):  return (method: .get,
                                                                             apiStringURL: "/user/handbook/",

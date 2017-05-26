@@ -34,12 +34,13 @@ extension CategoryCollectionViewCell: ConfigureCell {
         self.name.text = category.name
         
         if let imageID = category.imageID {
-            imageView.kf.setImage(with: ImageResource(downloadURL: imageID.convertToURL(withSize: .Small, inMode: .Get), cacheKey: category.codeID),
+            imageView.kf.setImage(with: ImageResource(downloadURL: imageID.convertToURL(withSize: .Original, inMode: .Get), cacheKey: category.codeID),
                                   placeholder: UIImage.init(named: "image-no-photo"),
                                   options: [.transition(ImageTransition.fade(1)),
                                             .processor(ResizingImageProcessor(referenceSize: imageView.frame.size,
                                                                               mode: .aspectFill))],
                                   completionHandler: { image, error, cacheType, imageURL in
+//                                    self.imageView.frame = CGRect.init(origin: , size: image!.size)
                                     self.imageView.kf.cancelDownloadTask()
             })
         } else {

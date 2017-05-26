@@ -49,13 +49,20 @@ class ServicesShowViewController: BaseViewController {
             // Create MSMTableViewControllerManager
             self.tableView.hasHeaders = true
             self.tableView.headears = headers
+            
             let servicesTableManager = MSMTableViewControllerManager.init(withTableView: self.tableView,
                                                                           andSectionsCount: headers.count,
                                                                           andEmptyMessageText: "Services list is empty")
             
             tableView.tableViewControllerManager = servicesTableManager
             tableView.tableViewControllerManager.dataSource = priceDataSource
+            
             tableView.reloadData()
+            
+            // Handler select cell
+            tableView.tableViewControllerManager.handlerSelectRowCompletion = { item in
+                self.router.navigateToServiceShowScene(withID: (item as! Price).serviceID)
+            }
         }
     }
     

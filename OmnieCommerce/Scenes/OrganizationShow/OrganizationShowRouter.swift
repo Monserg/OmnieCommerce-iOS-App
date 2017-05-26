@@ -14,7 +14,7 @@ import UIKit
 // MARK: - Input & Output protocols
 protocol OrganizationShowRouterInput {
     func navigateToOrganizationsMapShowScene(_ organization: Organization)
-    func navigateToServiceShowScene(_ service: Service)
+    func navigateToServiceShowScene(withID serviceID: String)
     func navigateToServicesShowScene(_ services: [Service])
 }
 
@@ -32,10 +32,10 @@ class OrganizationShowRouter: OrganizationShowRouterInput {
         viewController.navigationController?.pushViewController(organizationsMapShowVC, animated: true)
     }
 
-    func navigateToServiceShowScene(_ service: Service) {
+    func navigateToServiceShowScene(withID serviceID: String) {
         let storyboard = UIStoryboard(name: "ServiceShow", bundle: nil)
         let serviceShowVC = storyboard.instantiateViewController(withIdentifier: "ServiceShowVC") as! ServiceShowViewController
-        serviceShowVC.serviceID = service.codeID
+        serviceShowVC.serviceID = serviceID
         
         viewController.navigationController?.pushViewController(serviceShowVC, animated: true)        
     }

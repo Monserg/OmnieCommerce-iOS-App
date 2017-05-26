@@ -40,6 +40,10 @@ class ServiceShowPresenter: ServiceShowPresenterInput {
         // Convert responseAPI body to Service CoreData object
         let service = CoreDataManager.instance.entityDidLoad(byName: "Service", andPredicateParameters: NSPredicate.init(format: "codeID == %@", responseModel.parameters["id"] as! String)) as! Service
         
+        if let json = responseModel.responseAPI?.body {
+            service.profileDidUpload(json: json as! [String: AnyObject], forOrganization: service.organization, forList: keyService)
+        }
+        
         if let pricesList = service.prices, pricesList.count > 0 {
             let pricesArray = Array(pricesList)
             _ = pricesArray.map({ ($0 as! Price).cellHeight = 20.0; ($0 as! Price).cellIdentifier = "PriceServiceTableViewCell" })

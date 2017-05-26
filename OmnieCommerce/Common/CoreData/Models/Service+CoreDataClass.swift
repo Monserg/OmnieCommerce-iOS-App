@@ -82,8 +82,10 @@ public class Service: NSManagedObject, InitCellParameters, PointAnnotationBindin
             self.codeID = codeID
         }
         
-        if let name = json["name"] as? String {
+        if let name = json["name"] as? String, !name.isEmpty {
             self.name = name
+        } else {
+            self.name = "Zorro"
         }
 
         self.organization = organization

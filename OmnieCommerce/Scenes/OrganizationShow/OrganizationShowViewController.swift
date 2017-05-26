@@ -466,7 +466,7 @@ class OrganizationShowViewController: BaseViewController {
             // Handler Service select
             servicesTableView.tableViewControllerManager!.handlerSelectRowCompletion = { item in
                 if item is Service {
-                    self.router.navigateToServiceShowScene(item as! Service)
+                    self.router.navigateToServiceShowScene(withID: (item as! Service).codeID)
                 }
             }
         } else {

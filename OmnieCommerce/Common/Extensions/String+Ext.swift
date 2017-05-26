@@ -72,7 +72,7 @@ extension String {
     func convertToURL(withSize size: ImageSize, inMode mode: ImageMode) -> URL {
         switch mode {
         case .Get:
-            return URL.init(string: MSMRestApiManager.instance.imageHostURL.absoluteString.appending("\(mode.rawValue)?objectId=\(self)&imageType=SMALL"))!
+            return URL.init(string: MSMRestApiManager.instance.imageHostURL.absoluteString.appending("\(mode.rawValue)?objectId=\(self)&imageType=\(size.rawValue)"))!
 
         case .Upload:
             return URL.init(string: MSMRestApiManager.instance.imageHostURL.absoluteString.appending(mode.rawValue))!
