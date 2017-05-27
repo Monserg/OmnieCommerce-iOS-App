@@ -243,6 +243,8 @@ extension MSMTableViewControllerManager: UITableViewDataSource {
 
                 self.tableView!.deleteRows(at: [IndexPath(row: organizationIndex, section: 0)], with: .left)
                 self.tableView!.endUpdates()
+                
+                self.handlerPullRefreshCompletion!()
             }
 
         case cell as FavoriteServiceTableViewCell:
@@ -268,7 +270,7 @@ extension MSMTableViewControllerManager: UITableViewDataSource {
                 self.tableView!.deleteRows(at: [IndexPath(row: serviceIndex, section: 0)], with: .left)
                 self.tableView!.endUpdates()
                 
-                self.tableView!.reloadData()
+                self.handlerPullRefreshCompletion!()
             }
 
         case cell as AdditionalServiceTableViewCell:
