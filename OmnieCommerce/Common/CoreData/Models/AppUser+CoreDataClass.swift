@@ -19,6 +19,8 @@ public class AppUser: NSManagedObject, InitCellParameters {
     
     // MARK: - Custom Functions
     func profileDidUpload(json: [String: AnyObject]) {
+        self.codeID = "AppUser"
+
         // Ivan
         if let firstName = json["firstName"] as? String {
             self.firstName = firstName

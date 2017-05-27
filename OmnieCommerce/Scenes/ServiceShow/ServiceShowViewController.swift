@@ -223,8 +223,7 @@ class ServiceShowViewController: BaseViewController {
     
     func serviceProfileDidShow() {
         // Setting Service profile info
-        let predicate = NSPredicate(format: "codeID == %@", serviceID)
-        serviceProfile = CoreDataManager.instance.entityDidLoad(byName: "Service", andPredicateParameters: predicate) as! Service
+        serviceProfile = CoreDataManager.instance.entityBy("Service", andCodeID: serviceID) as! Service
         
         smallTopBarView.titleText = serviceProfile.organizationName ?? "Zorro"
         orderDateComponents = Calendar.current.dateComponents([.month, .day, .year, .hour, .minute], from: Date())
@@ -385,7 +384,8 @@ class ServiceShowViewController: BaseViewController {
         if (serviceProfile.canUserSendReview) {
             ratingView.isHidden = false
             
-            let userReview = CoreDataManager.instance.entityDidLoad(byName: "Review", andPredicateParameters: NSPredicate.init(format: "codeID == %@", "\(serviceProfile.codeID)-UserReview")) as! Review
+            let userReview = CoreDataManager.instance.entityBy("Review", andCodeID: "\(serviceProfile.codeID)-UserReview") as! Review
+            //entityDidLoad(byName: "Review", andPredicateParameters: NSPredicate.init(format: "codeID == %@", "\(serviceProfile.codeID)-UserReview")) as! Review
             
             userNameLabel.text = userReview.userName ?? "Zorro"
             cosmosView.rating = userReview.rating
@@ -452,13 +452,14 @@ class ServiceShowViewController: BaseViewController {
             self.blackoutView = nil
             
             if ((popupView as? PhotosGalleryView) != nil) {
-                _ = self.serviceProfile.images!.map { ($0 as! GalleryImage).cellHeight = 102.0 }
+                _ = self.serviceProfile.images!.map{ ($0 as! GalleryImage).cellHeight = 102.0 }
+                self.galleryCollectionView.reloadData()
             }
         }
     }
 
     func orderProfileDidShow(withOrderID orderID: String) {
-        let orderProfile = CoreDataManager.instance.entityDidLoad(byName: "Order", andPredicateParameters: NSPredicate.init(format: "codeID == %@", orderID)) as! Order
+        let orderProfile = CoreDataManager.instance.entityBy("Order", andCodeID: orderID) as! Order
         
         router.navigateToOrder(orderProfile)
         spinnerDidFinish()
@@ -521,8 +522,10 @@ class ServiceShowViewController: BaseViewController {
         _ = dottedBorderViewsCollection.map { $0.setNeedsDisplay() }
         aroundDottedBorderView.setNeedsDisplay()
         smallTopBarView.setNeedsDisplay()
-        galleryCollectionView.reloadData()
-
+        
+        if (blackoutView == nil) {
+            galleryCollectionView.reloadData()
+        }
 //        // Album
 //        if newCollection.verticalSizeClass == .compact {
 //            scrollViewTopConstraint.constant = smallTopBarView.frame.height + 20.0 - 50.0

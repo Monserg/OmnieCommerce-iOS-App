@@ -688,7 +688,7 @@
                                                                             <userDefinedRuntimeAttribute type="string" keyPath="viewStyle" value="BottomDottedLine"/>
                                                                         </userDefinedRuntimeAttributes>
                                                                     </view>
-                                                                    <textField clipsSubviews="YES" tag="30" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Address" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="u8C-gF-LxW" userLabel="Address Text Field" customClass="CustomTextField" customModule="OmnieCommerce" customModuleProvider="target">
+                                                                    <textField clipsSubviews="YES" tag="30" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Address" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="u8C-gF-LxW" userLabel="Address Text Field" customClass="CustomTextField" customModule="OmnieCommerce" customModuleProvider="target">
                                                                         <rect key="frame" x="8" y="23.5" width="224" height="19"/>
                                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                         <nil key="textColor"/>
@@ -699,16 +699,35 @@
                                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
                                                                         </userDefinedRuntimeAttributes>
                                                                     </textField>
+                                                                    <button clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aHH-w1-hKM" userLabel="Address Button">
+                                                                        <rect key="frame" x="179.5" y="0.0" width="44" height="44"/>
+                                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="height" constant="44" id="X5Y-P1-hhf"/>
+                                                                            <constraint firstAttribute="width" secondItem="aHH-w1-hKM" secondAttribute="height" multiplier="1:1" id="eFZ-x6-XhV"/>
+                                                                        </constraints>
+                                                                        <inset key="imageEdgeInsets" minX="0.0" minY="11" maxX="3" maxY="0.0"/>
+                                                                        <state key="normal" image="icon-address-orange-normal"/>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                                                        </userDefinedRuntimeAttributes>
+                                                                        <connections>
+                                                                            <action selector="handlerAddressButtonTap:" destination="aIy-oy-tcM" eventType="touchUpInside" id="vau-yt-fYt"/>
+                                                                        </connections>
+                                                                    </button>
                                                                 </subviews>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="trailing" secondItem="u8C-gF-LxW" secondAttribute="trailing" constant="-8" id="1JO-24-QFj"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="aHH-w1-hKM" secondAttribute="trailing" id="9qW-fp-wjw"/>
                                                                     <constraint firstItem="u8C-gF-LxW" firstAttribute="centerY" secondItem="LVj-SC-hPT" secondAttribute="centerY" multiplier="1.3" id="ARf-e1-7xF"/>
                                                                     <constraint firstAttribute="trailing" secondItem="MwJ-OC-KLS" secondAttribute="trailing" id="Qcu-Fw-MXQ"/>
                                                                     <constraint firstItem="MwJ-OC-KLS" firstAttribute="top" secondItem="LVj-SC-hPT" secondAttribute="top" id="SXq-6n-Dzk"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="aHH-w1-hKM" secondAttribute="bottom" id="XDT-qI-Ab9"/>
                                                                     <constraint firstAttribute="height" constant="44" id="c1f-x0-UZn"/>
                                                                     <constraint firstAttribute="bottom" secondItem="MwJ-OC-KLS" secondAttribute="bottom" id="dqM-uJ-MVV"/>
                                                                     <constraint firstItem="u8C-gF-LxW" firstAttribute="centerY" secondItem="LVj-SC-hPT" secondAttribute="centerY" multiplier="1.5" id="gWv-jb-KuA"/>
+                                                                    <constraint firstItem="aHH-w1-hKM" firstAttribute="top" secondItem="LVj-SC-hPT" secondAttribute="top" id="gZB-aD-Me1"/>
                                                                     <constraint firstItem="u8C-gF-LxW" firstAttribute="leading" secondItem="LVj-SC-hPT" secondAttribute="leading" constant="8" id="rG6-G0-6l9"/>
                                                                     <constraint firstItem="MwJ-OC-KLS" firstAttribute="leading" secondItem="LVj-SC-hPT" secondAttribute="leading" id="z41-XX-giV"/>
                                                                 </constraints>
@@ -940,6 +959,8 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="addressButton" destination="aHH-w1-hKM" id="d9m-JQ-UiF"/>
+                        <outlet property="addressTextField" destination="u8C-gF-LxW" id="i9Q-fc-QhX"/>
                         <outlet property="imageButton" destination="aLk-zQ-LIL" id="whc-xV-q13"/>
                         <outlet property="imageView" destination="Dxq-SE-v4L" id="bdq-In-Jxd"/>
                         <outlet property="infoStackViewHeightConstraint" destination="KpY-aQ-HGz" id="5rK-D0-Zsm"/>
@@ -990,7 +1011,6 @@
                         <outletCollection property="phoneErrorMessageViewTopConstraintsCollection" destination="6mw-aD-CIs" collectionClass="NSMutableArray" id="s3i-Wc-YU0"/>
                         <outletCollection property="phoneErrorMessageViewHeightConstraintsCollection" destination="yGS-8E-Bg9" collectionClass="NSMutableArray" id="DuD-af-HmQ"/>
                         <outletCollection property="dottedBorderViewsCollection" destination="MwJ-OC-KLS" collectionClass="NSMutableArray" id="dYQ-Bw-Cn2"/>
-                        <outletCollection property="textFieldsCollection" destination="u8C-gF-LxW" collectionClass="NSMutableArray" id="aDp-k3-XhS"/>
                         <outletCollection property="dottedBorderViewsCollection" destination="Hda-eh-i4v" collectionClass="NSMutableArray" id="6aA-gd-TbD"/>
                         <outletCollection property="textFieldsCollection" destination="Oki-Gh-Kcv" collectionClass="NSMutableArray" id="jsm-Ir-yet"/>
                     </connections>
@@ -1009,6 +1029,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="icon-address-orange-normal" width="6" height="9"/>
         <image name="icon-confirm-cancel-white-normal" width="7" height="7"/>
         <image name="icon-confirm-save-normal" width="8" height="5"/>
         <image name="image-background-color-very-light-orange-normal" width="40" height="40"/>

@@ -40,7 +40,7 @@ class NewsItemShowViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        newsProfile = CoreDataManager.instance.entityDidLoad(byName: "NewsData", andPredicateParameters: NSPredicate.init(format: "codeID == %@", newsID)) as! NewsData
+        newsProfile = CoreDataManager.instance.entityBy("NewsData", andCodeID: newsID) as! NewsData
         viewSettingsDidLoad()
     }
 

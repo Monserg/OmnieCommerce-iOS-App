@@ -38,9 +38,12 @@ class HandbooksShowPresenter: HandbooksShowPresenterInput {
         }
         
         // Convert responseAPI body to Handbook CoreData objects
-        for json in responseModel.responseAPI!.body as! [Any] {
-            let handbook = CoreDataManager.instance.entityDidLoad(byName: "Handbook", andPredicateParameters: NSPredicate.init(format: "codeID = %@", (json as! [String: AnyObject])["uuid"] as! String)) as! Handbook
-            handbook.profileDidUpload(json: json as! [String: AnyObject], forList: keyHandbooks)
+        for jsonHandbook in responseModel.responseAPI!.body as! [[String: AnyObject]] {
+            if let codeID = jsonHandbook["uuid"] as? String {
+                if let handbook = CoreDataManager.instance.entityBy("Handbook", andCodeID: codeID) as? Handbook {
+                    handbook.profileDidUpload(json: jsonHandbook, forList: keyHandbooks)
+                }
+            }
         }
         
         CoreDataManager.instance.didSaveContext()

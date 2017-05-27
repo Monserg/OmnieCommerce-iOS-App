@@ -36,11 +36,11 @@ class FavoriteOrganizationsShowPresenter: FavoriteOrganizationsShowPresenterInpu
         }
         
         // Convert responseAPI body to Organization CoreData objects
-        if let organizationsList = responseModel.responseAPI!.body as? [Any], organizationsList.count > 0 {
-            for organizationJSON in organizationsList {
-                if let organizationID = (organizationJSON as? [String: AnyObject])?["uuid"] as? String {
-                    if let organization = CoreDataManager.instance.entityDidLoad(byName: "Organization", andPredicateParameters: NSPredicate.init(format: "codeID == %@", organizationID)) as? Organization {
-                        organization.profileDidUpload(json: organizationJSON as! [String: AnyObject], forList: keyFavoriteOrganizations)
+        if let organizationsList = responseModel.responseAPI!.body as? [[String: AnyObject]], organizationsList.count > 0 {
+            for jsonOrganization in organizationsList {
+                if let organizationID = jsonOrganization["uuid"] as? String {
+                    if let organization = CoreDataManager.instance.entityBy("Organization", andCodeID: organizationID) as? Organization {
+                        organization.profileDidUpload(json: jsonOrganization, forList: keyFavoriteOrganizations)
                     }
                 }
             }

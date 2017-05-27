@@ -46,6 +46,9 @@ class OrganizationsShowRouter: OrganizationsShowRouterInput {
         organizationsMapShowVC.items = items
         
         viewController.navigationController?.pushViewController(organizationsMapShowVC, animated: true)
+        
+        // Handler back button
+        organizationsMapShowVC.handlerPassDataCompletion = { locationItem in }
     }
 
     func navigateToSomewhere() {

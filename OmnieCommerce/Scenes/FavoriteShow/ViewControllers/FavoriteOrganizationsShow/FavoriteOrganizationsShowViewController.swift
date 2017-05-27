@@ -113,7 +113,7 @@ class FavoriteOrganizationsShowViewController: BaseViewController {
         
         // Handler select cell
         tableView.tableViewControllerManager!.handlerSelectRowCompletion = { organization in
-            self.router.navigateToOrganizationShowScene(organization as! Organization)
+            self.router.navigateToOrganizationShowScene(withOrganizationID: (organization as! Organization).codeID)
         }
         
         // Handler PullRefresh

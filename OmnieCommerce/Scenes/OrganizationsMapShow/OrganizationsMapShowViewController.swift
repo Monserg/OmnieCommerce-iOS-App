@@ -30,7 +30,12 @@ class OrganizationsMapShowViewController: BaseViewController {
     var items = [PointAnnotationBinding]()
     var pointAnnotations = [PointAnnotation]()
     var regionRect = MKMapRect()
+    var isTapGestureAvailable = false
+    let locationManager = LocationManager()
 
+    var handlerPassDataCompletion: HandlerPassDataCompletion?
+    
+    // Outlets
     @IBOutlet weak var smallTopBarView: SmallTopBarView!
     
     // Info view
@@ -80,6 +85,9 @@ class OrganizationsMapShowViewController: BaseViewController {
         
         // Handler Back button tap
         smallTopBarView.handlerSendButtonCompletion = { _ in
+            self.handlerPassDataCompletion!(self.locationManager.currentLocation)
+            self.locationManager.stopCoreLocation()
+            
             _ = self.navigationController?.popViewController(animated: true)
         }
         
@@ -88,14 +96,34 @@ class OrganizationsMapShowViewController: BaseViewController {
             cityLabel.text = items.first!.addressCity
             streetLabel.text = items.first!.addressStreet
             copyrightLabel.isHidden = true
-        } else {
+            
+            // Set Tap Gesture
+            if (isTapGestureAvailable) {
+                let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handlerTapGesture))
+                gestureRecognizer.delegate = self
+                
+                mapView.addGestureRecognizer(gestureRecognizer)
+                locationManager.startCoreLocation(inMode: .Standard)
+                
+                // Handler location
+                locationManager.handlerPassCurrentLocationCompletion = { locationItem in }
+            }
+        } else if (items.count > 0) {
             infoView.isHidden = true
             copyrightLabel.isHidden = false
+        } else {
+            // set current position
+            infoView.isHidden = false
+            cityLabel.text = nil
+            streetLabel.text = nil
+            copyrightLabel.isHidden = true
         }
         
         // Load point annotations
-        let requestModel = OrganizationsMapShowModels.PointAnnotations.RequestModel(items: items)
-        interactor.pointAnnotationsDidLoad(withRequestModel: requestModel)
+        if (items.count > 0) {
+            let requestModel = OrganizationsMapShowModels.PointAnnotations.RequestModel(items: items)
+            interactor.pointAnnotationsDidLoad(withRequestModel: requestModel)
+        }
     }
     
     func mapViewDidAddPointAnnotations() {
@@ -109,6 +137,26 @@ class OrganizationsMapShowViewController: BaseViewController {
     // MARK: - Transition
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         mapView.setNeedsDisplay()
+    }
+    
+    
+    // MARK: - Gesture
+    func handlerTapGesture(gestureRecognizer: UIGestureRecognizer) {
+        let touchPoint = gestureRecognizer.location(in: mapView)
+        let newCoordinates = mapView.convert(touchPoint, toCoordinateFrom: mapView)
+       
+        pointAnnotations.first!.coordinate = newCoordinates
+        
+        locationManager.coordinatesConvertToAddress(newCoordinates, completion: { _ in
+            self.cityLabel.text = self.locationManager.currentLocation.addressCity
+            self.streetLabel.text = self.locationManager.currentLocation.addressStreet
+        })
+
+        // Centered map view
+        let pointCenter = MKMapPointForCoordinate(newCoordinates)
+        self.regionRect = MKMapRectMake(pointCenter.x - 10_000.0, pointCenter.y - 10_000.0, 10_000.0 * 2, 10_000.0 * 2)
+        self.regionRect = self.mapView.mapRectThatFits(self.regionRect, edgePadding: UIEdgeInsetsMake(20, 50, 20, 50))
+        self.mapView.setVisibleMapRect(self.regionRect, animated: true)
     }
 }
 

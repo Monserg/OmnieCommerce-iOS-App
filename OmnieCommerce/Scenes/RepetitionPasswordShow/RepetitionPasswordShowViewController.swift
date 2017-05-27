@@ -133,7 +133,7 @@ extension RepetitionPasswordShowViewController: RepetitionPasswordShowViewContro
         
         if (viewModel.response?.code == 200) {
             // Save UserApp values
-            let appUser = CoreDataManager.instance.entityDidLoad(byName: "AppUser", andPredicateParameters: nil) as! AppUser
+//            let appUser = CoreDataManager.instance.entityDidLoad(byName: "AppUser", andPredicateParameters: nil) as! AppUser
             appUser.email = UserDefaults.standard.value(forKey: keyEmail) as? String
             appUser.password = textFieldsCollection.first!.text!
             appUser.accessToken = viewModel.response!.body as? String

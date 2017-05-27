@@ -38,10 +38,10 @@ class ServiceShowPresenter: ServiceShowPresenterInput {
         }
         
         // Convert responseAPI body to Service CoreData object
-        let service = CoreDataManager.instance.entityDidLoad(byName: "Service", andPredicateParameters: NSPredicate.init(format: "codeID == %@", responseModel.parameters["id"] as! String)) as! Service
+        let service = CoreDataManager.instance.entityBy("Service", andCodeID: responseModel.parameters["id"] as! String) as! Service
         
-        if let json = responseModel.responseAPI?.body {
-            service.profileDidUpload(json: json as! [String: AnyObject], forOrganization: service.organization, forList: keyService)
+        if let jsonService = responseModel.responseAPI?.body {
+            service.profileDidUpload(json: jsonService as! [String: AnyObject], forList: keyService)
         }
         
         if let pricesList = service.prices, pricesList.count > 0 {
@@ -73,7 +73,8 @@ class ServiceShowPresenter: ServiceShowPresenterInput {
         }
         
         // Convert responseAPI body to Order CoreData object
-        let order = CoreDataManager.instance.entityDidLoad(byName: "Order", andPredicateParameters: NSPredicate.init(format: "codeID = %@", responseModel.parameters["id"] as! String)) as! Order
+        let order = CoreDataManager.instance.entityBy("Order", andCodeID: responseModel.parameters["id"] as! String) as! Order
+//        entityDidLoad(byName: "Order", andPredicateParameters: NSPredicate.init(format: "codeID = %@", responseModel.parameters["id"] as! String)) as! Order
         
         // TODO: - ADD UPLOAD ORDER FROM RESPONSE BODY
         CoreDataManager.instance.didSaveContext()

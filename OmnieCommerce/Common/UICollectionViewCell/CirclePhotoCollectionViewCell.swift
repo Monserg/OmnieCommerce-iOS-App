@@ -43,7 +43,7 @@ extension CirclePhotoCollectionViewCell: ConfigureCell {
         
         imageButton.frame = CGRect.init(origin: .zero, size: CGSize.init(width: galleryImage.cellHeight, height: galleryImage.cellHeight))
         
-        imageButton.kf.setImage(with: ImageResource(downloadURL: galleryImage.imageID.convertToURL(withSize: .Small, inMode: .Get), cacheKey: "galleryImage.imageID-\(indexPath.row)"), for: .normal,
+        imageButton.kf.setImage(with: ImageResource(downloadURL: galleryImage.codeID.convertToURL(withSize: .Small, inMode: .Get), cacheKey: "galleryImage.imageID-\(indexPath.row)"), for: .normal,
                                 placeholder: UIImage.init(named: "image-no-photo"),
                                 options: [.transition(ImageTransition.fade(1)),
                                           .processor(ResizingImageProcessor(referenceSize: imageButton.frame.size,

@@ -30,9 +30,7 @@ class SettingsShowPresenter: SettingsShowPresenterInput {
     // MARK: - Custom Functions. Presentation logic
     func appSettingsDidPrepareToShowLoad(fromResponseModel responseModel: SettingsShowModels.Items.ResponseModel) {
         // NOTE: Format the response from the Interactor and pass the result back to the View Controller
-        let appSettings = CoreDataManager.instance.entityDidLoad(byName: "AppSettings", andPredicateParameters: nil) as! AppSettings
         appSettings.settingsDidUpload(json: responseModel.responseAPI!.body as! [String: AnyObject])
-        
         CoreDataManager.instance.didSaveContext()
 
         let appSettingViewModel = SettingsShowModels.Items.ViewModel(status: responseModel.responseAPI!.status)

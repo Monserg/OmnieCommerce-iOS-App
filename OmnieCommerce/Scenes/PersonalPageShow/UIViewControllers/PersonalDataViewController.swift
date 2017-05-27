@@ -13,7 +13,8 @@ typealias ParametersForAPI = [Any]
 
 class PersonalDataViewController: BaseViewController, EmailErrorMessageView, PhoneErrorMessageView, PasswordErrorMessageView, PasswordStrengthView, PasswordStrengthErrorMessageView, RepeatPasswordErrorMessageView {
     // MARK: - Properties
-    let appUserProfile: AppUser! = CoreDataManager.instance.entityDidLoad(byName: "AppUser", andPredicateParameters: nil) as! AppUser
+    let appUserProfile: AppUser! = appUser
+//        CoreDataManager.instance.entityDidLoad(byName: "AppUser", andPredicateParameters: nil) as! AppUser
     
     var profileParameters: [String: Any]?
     var passwordParameters: [String: Any]?
@@ -91,7 +92,8 @@ class PersonalDataViewController: BaseViewController, EmailErrorMessageView, Pho
 
     @IBOutlet weak var emailTextField: CustomTextField! {
         didSet {
-            if let email = (CoreDataManager.instance.entityDidLoad(byName: "AppUser", andPredicateParameters: nil) as! AppUser).email {
+            if let email = appUser.email {
+//                (CoreDataManager.instance.entityDidLoad(byName: "AppUser", andPredicateParameters: nil) as! AppUser).email {
                 self.emailTextField.text = email
             }
         }

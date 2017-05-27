@@ -64,14 +64,21 @@ typealias OrganizationData                          =   (name: String, rating: I
 
 
 // Public Constants
-var appUser                                         =   CoreDataManager.instance.entityDidLoad(byName: "AppUser", andPredicateParameters: nil) as! AppUser
 let NetworkReachabilityChanged                      =   NSNotification.Name("NetworkReachabilityChanged")
+
+var appUser: AppUser {
+    set { }
+    
+    get {
+        return CoreDataManager.instance.entityBy("AppUser", andCodeID: "AppUser") as! AppUser
+    }
+}
 
 var appSettings: AppSettings {
     set { }
     
     get {
-        return CoreDataManager.instance.entityDidLoad(byName: "AppSettings", andPredicateParameters: nil) as! AppSettings
+        return CoreDataManager.instance.entityBy("AppSettings", andCodeID: "AppSettings") as! AppSettings
     }
 }
 

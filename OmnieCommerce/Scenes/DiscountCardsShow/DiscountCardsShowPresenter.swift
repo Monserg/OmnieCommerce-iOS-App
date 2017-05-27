@@ -35,9 +35,12 @@ class DiscountCardsShowPresenter: DiscountCardsShowPresenterInput {
         }
         
         // Convert responseAPI body to DiscountCard CoreData objects
-        for json in responseModel.responseAPI!.body as! [Any] {
-            let discountCard = CoreDataManager.instance.entityDidLoad(byName: "DiscountCard", andPredicateParameters: NSPredicate.init(format: "codeID = %@", (json as! [String: AnyObject])["uuid"] as! String)) as! DiscountCard
-            discountCard.profileDidUpload(json: json as! [String: AnyObject], forList: keyDiscountCards)
+        for jsonDiscountCard in responseModel.responseAPI!.body as! [[String: AnyObject]] {
+            if let codeID = jsonDiscountCard["uuid"] as? String {
+                if let discountCard = CoreDataManager.instance.entityBy("DiscountCard", andCodeID: codeID) as? DiscountCard {
+                    discountCard.profileDidUpload(json: jsonDiscountCard, forList: keyDiscountCards)
+                }
+            }
         }
         
         CoreDataManager.instance.didSaveContext()

@@ -352,6 +352,7 @@
 		B19E01B01E78217500B53E02 /* NewPhoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19E01AF1E78217500B53E02 /* NewPhoneView.swift */; };
 		B19E01B21E78217F00B53E02 /* NewPhoneView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B19E01B11E78217F00B53E02 /* NewPhoneView.xib */; };
 		B1ACAB641EC97AEC00B62F78 /* OmnieCommerceUser.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B1ACAB591EC97AEC00B62F78 /* OmnieCommerceUser.xcdatamodeld */; };
+		B1AF6E831ED947EC0085BDCA /* LocationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1AF6E821ED947EC0085BDCA /* LocationItem.swift */; };
 		B1B761CA1E62D0030067339F /* OrganizationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1B761C91E62D0030067339F /* OrganizationTableViewCell.xib */; };
 		B1BEEDE61E63402000F1DE8A /* ListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1BEEDE51E63402000F1DE8A /* ListTableViewController.swift */; };
 		B1BEEDEF1E63687500F1DE8A /* OrganizationShowConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1BEEDE81E63687500F1DE8A /* OrganizationShowConfigurator.swift */; };
@@ -907,6 +908,7 @@
 		B1ACAB611EC97AEC00B62F78 /* OmnieCommerceUser v.8.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "OmnieCommerceUser v.8.xcdatamodel"; sourceTree = "<group>"; };
 		B1ACAB621EC97AEC00B62F78 /* OmnieCommerceUser v.9.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "OmnieCommerceUser v.9.xcdatamodel"; sourceTree = "<group>"; };
 		B1ACAB631EC97AEC00B62F78 /* OmnieCommerceUser.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = OmnieCommerceUser.xcdatamodel; sourceTree = "<group>"; };
+		B1AF6E821ED947EC0085BDCA /* LocationItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationItem.swift; sourceTree = "<group>"; };
 		B1B761C91E62D0030067339F /* OrganizationTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OrganizationTableViewCell.xib; sourceTree = "<group>"; };
 		B1BEEDE51E63402000F1DE8A /* ListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListTableViewController.swift; sourceTree = "<group>"; };
 		B1BEEDE81E63687500F1DE8A /* OrganizationShowConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrganizationShowConfigurator.swift; sourceTree = "<group>"; };
@@ -2073,6 +2075,14 @@
 			path = UIViewControllers;
 			sourceTree = "<group>";
 		};
+		B1AF6E811ED947C30085BDCA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B1AF6E821ED947EC0085BDCA /* LocationItem.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		B1B761C41E62CD960067339F /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -2218,6 +2228,7 @@
 		B1CF546B1DDB506A00E98049 /* HandbookShow */ = {
 			isa = PBXGroup;
 			children = (
+				B1AF6E811ED947C30085BDCA /* Models */,
 				B18FBAEA1ECFFDE00037804C /* Views */,
 				B1CF54991DDB515000E98049 /* HandbookShowConfigurator.swift */,
 				B1CF549A1DDB515000E98049 /* HandbookShowInteractor.swift */,
@@ -2866,6 +2877,7 @@
 				B1D738421E9382C300A764F4 /* ReviewsView.swift in Sources */,
 				B1CF54A01DDB515000E98049 /* HandbookShowConfigurator.swift in Sources */,
 				B122DF661DF7F957003823AD /* CalendarShowPresenter.swift in Sources */,
+				B1AF6E831ED947EC0085BDCA /* LocationItem.swift in Sources */,
 				B14172051EA7969B006120A1 /* NewsData+CoreDataClass.swift in Sources */,
 				B12974B61ECED7C1002409C7 /* ConfirmSaveView.swift in Sources */,
 				B10040691EB4912400161073 /* OrderShowPresenter.swift in Sources */,

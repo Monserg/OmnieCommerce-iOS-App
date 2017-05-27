@@ -53,7 +53,8 @@ class PersonalPageShowPresenter: PersonalPageShowPresenterInput {
     
     func userAppImageDidPrepareToShowUpload(fromResponseModel responseModel: PersonalPageShowModels.UploadImage.ResponseModel) {
         if let imageID = responseModel.responseAPI?.body as? String, !imageID.isEmpty {
-            let appUser = CoreDataManager.instance.entityDidLoad(byName: "AppUser", andPredicateParameters: nil) as! AppUser
+//            let appUser: AppUser = appUser
+//                CoreDataManager.instance.entityDidLoad(byName: "AppUser", andPredicateParameters: nil) as! AppUser
             appUser.imageID = imageID
             CoreDataManager.instance.didSaveContext()
         }
@@ -67,7 +68,8 @@ class PersonalPageShowPresenter: PersonalPageShowPresenterInput {
             let deleteImageViewModel = PersonalPageShowModels.LoadData.ViewModel(responseAPI: responseModel.responseAPI)
             viewController.userAppImageDidShowDelete(fromViewModel: deleteImageViewModel)
             
-            let appUser = CoreDataManager.instance.entityDidCreate(byName: "AppUser") as! AppUser
+//            let appUser = CoreDataManager.instance.entityBy("AppUser", andCodeID: "AppUser") as! AppUser
+            //entityDidCreate(byName: "AppUser") as! AppUser
             appUser.imageID = nil
             CoreDataManager.instance.didSaveContext()
         }

@@ -31,7 +31,8 @@ class HandbookShowViewController: BaseViewController, PhoneErrorMessageView {
     var phones = [String]()
     var keywords = [String]()
     var freePhoneTags = [ 21, 22, 23, 24 ]
-    
+    let locationManager = LocationManager()
+
     var availableToEditTextFieldsCount: Int! {
         set {}
         
@@ -73,6 +74,8 @@ class HandbookShowViewController: BaseViewController, PhoneErrorMessageView {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet var textFieldsCollection: [CustomTextField]!
     @IBOutlet var phoneViewsCollection: [UIView]!
+    @IBOutlet weak var addressTextField: CustomTextField!
+    @IBOutlet weak var addressButton: UIButton!
 
     @IBOutlet weak var imageButton: UbuntuLightVeryLightOrangeButton! {
         didSet {
@@ -115,6 +118,25 @@ class HandbookShowViewController: BaseViewController, PhoneErrorMessageView {
         viewSettingsDidLoad()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        
+        // Start location
+        if (addressTextField.text?.isEmpty)! {
+            locationManager.startCoreLocation(inMode: .Current)
+        } else {
+            self.addressTextField.text = String(format: "%@, %@", locationManager.currentLocation.addressCity!, locationManager.currentLocation.addressStreet!)
+        }
+        
+        // Handler Current location position
+        locationManager.handlerPassCurrentLocationCompletion = { currentLocation in
+            if let location = currentLocation as? LocationItem, location.addressCity != nil, location.addressStreet != nil {
+                self.addressTextField.text = String(format: "%@, %@", location.addressCity!, location.addressStreet!)
+                self.addressButton.isUserInteractionEnabled = true
+            }
+        }
+    }
+
     
     // MARK: - Custom Functions
     func viewSettingsDidLoad() {
@@ -387,6 +409,11 @@ class HandbookShowViewController: BaseViewController, PhoneErrorMessageView {
             freePhoneTags.append(sender.tag)
             _ = self.textFieldsCollection.first(where: { $0.text == phoneNumber }).map({ $0.text = nil })
         }
+    }
+    
+    @IBAction func handlerAddressButtonTap(_ sender: UIButton) {
+        locationManager.currentLocation.name = textFieldsCollection.first?.text ?? "Zorro"
+        self.router.navigateToOrganizationMapShowScene(withItems: [locationManager.currentLocation])
     }
 }
 

@@ -33,8 +33,8 @@ public class Review: NSManagedObject, InitCellParameters {
     
     
     // MARK: - Class Initialization
-    convenience init?(json: [String: AnyObject], forManagedObject managedObject: NSManagedObject, withType type: ReviewType) {
-        guard let dateCreate = json["date"] as? String, let rating = json["rating"] as? Double else {
+    convenience init?(json: [String: AnyObject], withType type: ReviewType) {
+        guard let codeID = json["uuid"] as? String, let dateCreate = json["date"] as? String, let rating = json["rating"] as? Double else {
             return nil
         }
         
@@ -47,6 +47,7 @@ public class Review: NSManagedObject, InitCellParameters {
         self.init(entity: reviewEntity, insertInto: CoreDataManager.instance.managedObjectContext)
         
         // Prepare to save common data
+        self.codeID = codeID
         self.dateCreate = dateCreate.convertToDate(withDateFormat: .PriceDate) as NSDate
         self.rating = rating
         self.type = type
@@ -68,17 +69,8 @@ public class Review: NSManagedObject, InitCellParameters {
             self.codeID = "\(organizationID)-\(type.rawValue)"
         }
 
-        if let organization = managedObject as? Organization {
-            self.organization = organization
-        }
-
         if let serviceID = json["serviceId"] as? String {
             self.serviceID = serviceID
-            self.codeID = "\(serviceID)-\(type.rawValue)"
-        }
-        
-        if let service = managedObject as? Service {
-            self.service = service
         }
         
         if let imageID = json["userStaticUrl"] as? String {

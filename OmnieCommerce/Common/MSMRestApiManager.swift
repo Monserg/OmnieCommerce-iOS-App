@@ -97,7 +97,7 @@ enum RequestType {
     
     func introduced() -> RequestParametersType {
         let headers = [ "Content-Type": "application/json" ]
-        let userAccessToken = (CoreDataManager.instance.entityDidLoad(byName: "AppUser", andPredicateParameters: nil) as! AppUser).accessToken
+        let userAccessToken = appUser.accessToken
         var headersExtended = (userAccessToken != nil) ? [ "Content-Type": "application/json", "Authorization": userAccessToken! ] : nil
         
         // Body & Parametes named such as in Postman

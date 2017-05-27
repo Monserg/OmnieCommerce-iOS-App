@@ -25,6 +25,7 @@ class AdditionalServiceTableViewCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UbuntuLightVeryLightGrayLabel!
     @IBOutlet weak var priceLabel: UbuntuLightVeryLightOrangeLabel!
     @IBOutlet weak var durationLabel: UbuntuLightItalicLightGrayishCyanLabel!
+    @IBOutlet weak var separatorsView: UIView!
     
     @IBOutlet weak var stateSwitch: UISwitch! {
         didSet {
@@ -62,17 +63,40 @@ class AdditionalServiceTableViewCell: UITableViewCell {
 extension AdditionalServiceTableViewCell: ConfigureCell {
     func setup(withItem item: Any, andIndexPath indexPath: IndexPath) {
         let additionalService = item as! AdditionalService
+        let durationMinutes = Int(additionalService.duration / 60.0 / 1_000.0)
         
         nameLabel.text = additionalService.name
-        priceLabel.text = "\(Int(additionalService.price) * Int(additionalService.minValue)) \(additionalService.unitName)"
-        durationLabel.text = "\(Int(additionalService.duration / 60.0 / 1_000.0)) \("Minutes short".localized())"
+
+        if (durationMinutes == 0) {
+            durationLabel.text = nil
+            priceLabel.text = String(format: "%3.2f %@", additionalService.price, additionalService.unitName)
+        } else {
+            durationLabel.text = "\(durationMinutes) \("Minutes short".localized())"
+            
+            if (additionalService.unit == 0) {
+                priceLabel.text = String(format: "%3.2f %@", additionalService.price / 60.0 * Double(durationMinutes), additionalService.unitName.components(separatedBy: "/").first!)
+            } else {
+                priceLabel.text = String(format: "%3.2f %@", additionalService.price, additionalService.unitName)
+            }
+        }
         
-        pickerData = Array(0...Int(additionalService.maxValue + 10))
-        pickerView.selectRow(Int(additionalService.minValue), inComponent: 0, animated: true)
+        if (additionalService.minValue + additionalService.maxValue == 0) {
+            pickerView.isHidden = true
+            separatorsView.isHidden = true
+        } else {
+            pickerData = Array(Int(additionalService.minValue)...Int(additionalService.maxValue + 20))
+            pickerView.selectRow(1, inComponent: 0, animated: true)
+        }
         
+        // Handler change quantity
         handlerPickerChangeValueCompletion = { row in
-            self.priceLabel.text = "\(Int(additionalService.price) * (row as! Int)) \(additionalService.unitName)"
-            self.durationLabel.text = "\(Int(additionalService.duration * Double(row as! Int) / 60.0 / 1_000.0)) \("Minutes short".localized())"
+            if (additionalService.unit == 0) {
+                self.priceLabel.text = String(format: "%3.2f %@", additionalService.price / 60.0 * Double(durationMinutes * (row as! Int)), additionalService.unitName.components(separatedBy: "/").first!)
+            } else {
+                self.priceLabel.text = String(format: "%3.2f %@", additionalService.price * Double(row as! Int), additionalService.unitName)
+            }
+
+            self.durationLabel.text = "\(durationMinutes * (row as! Int)) \("Minutes short".localized())"
         }
     }
 }

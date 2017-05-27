@@ -36,8 +36,6 @@ class PasswordStrengthLevelView: UIView, ErrorMessageViewAnimation {
     // MARK: - Class Functions
     override func draw(_ rect: CGRect) {
         if (isVisible) {
-//            let isLightColorAppSchema = CoreDataManager.instance.appSettings.lightColorSchema
-//
             switch passwordStrengthLevel {
             case .Weak:
                 // Draw level line

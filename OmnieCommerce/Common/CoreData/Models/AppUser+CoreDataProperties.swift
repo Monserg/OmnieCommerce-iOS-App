@@ -16,6 +16,7 @@ extension AppUser {
         return NSFetchRequest<AppUser>(entityName: "AppUser");
     }
 
+    @NSManaged public var codeID: String
     @NSManaged public var accessToken: String?
     @NSManaged public var userName: String
     @NSManaged public var birthday: NSDate?

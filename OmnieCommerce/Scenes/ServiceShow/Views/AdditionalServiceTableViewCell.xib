@@ -39,7 +39,7 @@
                                         <rect key="frame" x="0.0" y="18.5" width="204" height="14.5"/>
                                         <subviews>
                                             <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tSQ-e6-pYL" userLabel="Price Label" customClass="UbuntuLightVeryLightOrangeLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="60" height="14.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="76.5" height="14.5"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <nil key="textColor"/>
@@ -49,7 +49,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Duration" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bD5-GF-qhr" userLabel="Duration  Label" customClass="UbuntuLightItalicLightGrayishCyanLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                                                <rect key="frame" x="70" y="0.0" width="134" height="14.5"/>
+                                                <rect key="frame" x="86.5" y="0.0" width="117.5" height="14.5"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <nil key="textColor"/>
@@ -66,7 +66,7 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </stackView>
-                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EaD-DU-p6V">
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EaD-DU-p6V" userLabel="Separators View">
                                 <rect key="frame" x="226" y="14.5" width="25" height="21"/>
                                 <subviews>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fxo-Te-r9G" userLabel="Top Line View">
@@ -157,10 +157,10 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="NtU-PD-iFw" firstAttribute="width" secondItem="KGk-i7-Jjw" secondAttribute="width" multiplier="1:26" id="9Sq-x7-6Tm"/>
-                <constraint firstItem="tSQ-e6-pYL" firstAttribute="width" secondItem="KGk-i7-Jjw" secondAttribute="width" multiplier="1:11" id="ge5-Rc-kj8"/>
+                <constraint firstItem="tSQ-e6-pYL" firstAttribute="width" secondItem="KGk-i7-Jjw" secondAttribute="width" multiplier="80:667" id="ge5-Rc-kj8"/>
                 <constraint firstItem="NtU-PD-iFw" firstAttribute="width" secondItem="KGk-i7-Jjw" secondAttribute="width" multiplier="1:14.4" id="ixc-vE-NkB"/>
                 <constraint firstItem="EaD-DU-p6V" firstAttribute="height" secondItem="KGk-i7-Jjw" secondAttribute="height" multiplier="1:2.5" id="oL6-O9-twf"/>
-                <constraint firstItem="tSQ-e6-pYL" firstAttribute="width" secondItem="KGk-i7-Jjw" secondAttribute="width" multiplier="1:6" id="vzJ-zR-jWl"/>
+                <constraint firstItem="tSQ-e6-pYL" firstAttribute="width" secondItem="KGk-i7-Jjw" secondAttribute="width" multiplier="80:375" id="vzJ-zR-jWl"/>
             </constraints>
             <userDefinedRuntimeAttributes>
                 <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
@@ -184,6 +184,7 @@
                 <outlet property="nameLabel" destination="FsN-Rf-5bD" id="YYL-O8-3sd"/>
                 <outlet property="pickerView" destination="NtU-PD-iFw" id="MQa-V8-7br"/>
                 <outlet property="priceLabel" destination="tSQ-e6-pYL" id="t62-Ei-1al"/>
+                <outlet property="separatorsView" destination="EaD-DU-p6V" id="qh9-fU-kgs"/>
                 <outlet property="stateSwitch" destination="gQ7-tC-5qK" id="KcS-Q1-RTp"/>
                 <outletCollection property="labelsCollection" destination="tSQ-e6-pYL" collectionClass="NSMutableArray" id="eWh-C3-Tty"/>
                 <outletCollection property="labelsCollection" destination="bD5-GF-qhr" collectionClass="NSMutableArray" id="rmF-2Y-YZM"/>

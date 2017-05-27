@@ -17,21 +17,11 @@ public class GalleryImage: NSManagedObject, InitCellParameters {
 
     
     // MARK: - Class Initialization
-    convenience init?(json: [String: AnyObject], andRelationshipObject managedObject: NSManagedObject?) {
-        guard let imageID = json["imageId"] as? String else {
-            return nil
-        }
-        
-        // Check Entity available in CoreData
-        guard let galleryImageEntity = CoreDataManager.instance.entityForName("GalleryImage") else {
-            return nil
-        }
-        
-        // Create Entity
-        self.init(entity: galleryImageEntity, insertInto: CoreDataManager.instance.managedObjectContext)
-        
+    func profileDidUpload(json: [String: AnyObject]) {
         // Prepare to save common data
-        self.imageID = imageID
+        if let imageID = json["imageId"] as? String {
+            self.codeID = imageID
+        }
         
         if let serviceID = json["serviceId"] as? String {
             self.serviceID = serviceID
@@ -39,14 +29,6 @@ public class GalleryImage: NSManagedObject, InitCellParameters {
         
         if let seviceName = json["serviceName"] as? String {
             self.serviceName = seviceName
-        }
-        
-        if let organization = managedObject as? Organization {
-            self.organization = organization
-        }
-
-        if let service = managedObject as? Service {
-            self.service = service
         }
     }
     

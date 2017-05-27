@@ -166,11 +166,12 @@ class OrganizationShowViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        viewSettingsDidLoad()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+
+        viewSettingsDidLoad()
     }
 
 
@@ -267,9 +268,7 @@ class OrganizationShowViewController: BaseViewController {
 
     func organizationProfileDidShow() {
         // Setting Organization profile info
-        let predicate = NSPredicate(format: "codeID == %@", organizationID)
-        organizationProfile = CoreDataManager.instance.entityDidLoad(byName: "Organization", andPredicateParameters: predicate) as! Organization
-
+        organizationProfile = CoreDataManager.instance.entityBy("Organization", andCodeID: organizationID) as! Organization
         smallTopBarView.titleText = organizationProfile.name
 
         // Parallax Header view
@@ -516,7 +515,8 @@ class OrganizationShowViewController: BaseViewController {
         if (organizationProfile.canUserSendReview) {
             ratingView.isHidden = false
             
-            let userReview = CoreDataManager.instance.entityDidLoad(byName: "Review", andPredicateParameters: NSPredicate.init(format: "codeID == %@", "\(organizationProfile.codeID)-UserReview")) as! Review
+            let userReview = CoreDataManager.instance.entityBy("Review", andCodeID: "\(organizationProfile.codeID)-UserReview") as! Review
+//            entityDidLoad(byName: "Review", andPredicateParameters: NSPredicate.init(format: "codeID == %@", "\(organizationProfile.codeID)-UserReview")) as! Review
             
             userNameLabel.text = userReview.userName ?? "Zorro"
             cosmosView.rating = userReview.rating

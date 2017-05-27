@@ -17,25 +17,26 @@ public class AdditionalService: NSManagedObject, InitCellParameters {
     
     
     // MARK: - Class Initialization
-    convenience init?(json: [String: AnyObject], andRelationshipObject managedObject: NSManagedObject) {
-        guard let codeID = json["uuid"] as? String, let name = json["name"] as? String, let unit = json["unit"] as? UInt16, let price = json["price"] as? Double else {
-            return nil
-        }
-        
-        // Check Entity available in CoreData
-        guard let additionalServiceEntity = CoreDataManager.instance.entityForName("AdditionalService") else {
-            return nil
-        }
-        
-        // Create Entity
-        self.init(entity: additionalServiceEntity, insertInto: CoreDataManager.instance.managedObjectContext)
-        
+//    convenience init?(json: [String: AnyObject], andRelationshipObject managedObject: NSManagedObject) {
+//        guard let codeID = json["uuid"] as? String, let name = json["name"] as? String, let unit = json["unit"] as? UInt16, let price = json["price"] as? Double else {
+//            return nil
+//        }
+//        
+//        // Check Entity available in CoreData
+//        guard let additionalServiceEntity = CoreDataManager.instance.entityForName("AdditionalService") else {
+//            return nil
+//        }
+//        
+//        // Create Entity
+//        self.init(entity: additionalServiceEntity, insertInto: CoreDataManager.instance.managedObjectContext)
+    
+    func profileDidUpload(json: [String: AnyObject]) {
         // Prepare to save common data
-        self.codeID = codeID
-        self.name = name
-        self.unit = unit
+        self.codeID = json["uuid"] as! String
+        self.name = json["name"] as! String
+        self.unit = json["unit"] as! UInt16
         self.unitName = unit.convertToUnitString() ?? "XXX"
-        self.price = price
+        self.price = json["price"] as! Double
         self.isAvailable = true
         
         if let minValue = json["minValue"] as? Double {
@@ -48,10 +49,6 @@ public class AdditionalService: NSManagedObject, InitCellParameters {
 
         if let duration = json["duration"] as? Double {
             self.duration = duration
-        }
-        
-        if let service = managedObject as? Service {
-            self.service = service
         }
         
         // Common discounts

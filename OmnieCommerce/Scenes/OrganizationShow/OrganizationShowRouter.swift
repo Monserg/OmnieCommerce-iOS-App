@@ -30,6 +30,9 @@ class OrganizationShowRouter: OrganizationShowRouterInput {
         organizationsMapShowVC.items = [organization]
         
         viewController.navigationController?.pushViewController(organizationsMapShowVC, animated: true)
+        
+        // Handler back button
+        organizationsMapShowVC.handlerPassDataCompletion = { locationItem in }
     }
 
     func navigateToServiceShowScene(withID serviceID: String) {

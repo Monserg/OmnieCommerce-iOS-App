@@ -92,7 +92,7 @@ extension SlideMenuShowViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let sectionArray = menuItemsList.object(forKey: "Section \(section)") as! NSArray
         
-        return ((CoreDataManager.instance.entityDidLoad(byName: "AppUser", andPredicateParameters: nil) as! AppUser).isAuthorized) ? sectionArray.count : (sectionArray.count - 1)
+        return (appUser.isAuthorized) ? sectionArray.count : (sectionArray.count - 1)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

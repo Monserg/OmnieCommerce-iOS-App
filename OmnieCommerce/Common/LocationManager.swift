@@ -12,11 +12,29 @@ import GooglePlaces
 import CoreLocation
 import Contacts
 
+enum LocationMode {
+    case Standard
+    case Current
+}
+
 class LocationManager: BaseViewController {
     // MARK: - Properties
     private var locationManager: CLLocationManager?
-    var handlerLocationCompletion: HandlerLocationCompletion?
     var organizations: [Organization]!
+    var mode: LocationMode = .Standard
+    
+    var currentLocation: LocationItem! {
+        didSet {
+            if (mode == .Current) {
+                self.stopCoreLocation()
+            }
+            
+            self.handlerPassCurrentLocationCompletion!(currentLocation)
+        }
+    }
+    
+    var handlerLocationCompletion: HandlerLocationCompletion?
+    var handlerPassCurrentLocationCompletion: HandlerPassDataCompletion?
     
     
     // MARK: - Class Functions
@@ -35,6 +53,18 @@ class LocationManager: BaseViewController {
     
     
     // MARK: - Custom Functions
+    func startCoreLocation(inMode mode: LocationMode) {
+        locationManager = CLLocationManager()
+        locationManager!.delegate = self
+        locationManager!.requestWhenInUseAuthorization()
+        
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager!.desiredAccuracy = kCLLocationAccuracyBest
+            locationManager!.distanceFilter = 10.0
+            locationManager!.requestLocation()
+        }
+    }
+    
     func startCoreLocation(withOrganizations organizations: [Organization]) {
         self.organizations = organizations
         
@@ -48,7 +78,7 @@ class LocationManager: BaseViewController {
             locationManager!.requestLocation()
         }
     }
-    
+
     func stopCoreLocation() {
         locationManager?.stopUpdatingLocation()
         locationManager = nil
@@ -141,13 +171,48 @@ class LocationManager: BaseViewController {
             }
         })
     }
+    
+    func coordinatesConvertToAddress(_ coordinates: CLLocationCoordinate2D, completion: @escaping (() -> ())) {
+        let location = CLLocation.init(latitude: coordinates.latitude, longitude: coordinates.longitude)
+
+        CLGeocoder().reverseGeocodeLocation(location) { placemarks, error in
+            guard placemarks != nil else {
+                return
+            }
+            
+            let placemark = placemarks![0]
+            
+            if let dictionary = placemark.addressDictionary, dictionary.count > 0 {
+                self.currentLocation.addressCity = dictionary["City"] as? String
+                self.currentLocation.addressStreet = dictionary["Thoroughfare"] as? String
+            }
+
+            return completion()
+        }
+    }
 }
 
 
 // MARK: - CLLocationManagerDelegate
 extension LocationManager: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        
+        if (locations.first != nil) {
+            CLGeocoder().reverseGeocodeLocation(locations[0] as CLLocation) { (placemarks, error) in
+                if (error != nil) {
+                    self.print(object: "Error getting location: \(error!.localizedDescription)")
+                } else {
+                    if let placeMark = (placemarks as [CLPlacemark]!).first, (placeMark.addressDictionary?.count)! > 0 {
+                        self.currentLocation = LocationItem(cellIdentifier: "",
+                                                            cellHeight: 0.0,
+                                                            name: "Zorro",
+                                                            latitude: (locations[0] as CLLocation).coordinate.latitude,
+                                                            longitude: (locations[0] as CLLocation).coordinate.longitude,
+                                                            addressCity: placeMark.addressDictionary!["City"] as? String,
+                                                            addressStreet: placeMark.addressDictionary!["Thoroughfare"] as? String)
+                    }
+                }
+            }
+        }
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {

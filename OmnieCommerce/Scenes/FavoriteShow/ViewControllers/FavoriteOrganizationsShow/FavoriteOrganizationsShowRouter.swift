@@ -13,7 +13,7 @@ import UIKit
 
 // MARK: - Input & Output protocols
 protocol FavoriteOrganizationsShowRouterInput {
-    func navigateToOrganizationShowScene(_ organization: Organization)
+    func navigateToOrganizationShowScene(withOrganizationID organizationID: String)
     func navigateToSomewhere()
 }
 
@@ -23,10 +23,10 @@ class FavoriteOrganizationsShowRouter: FavoriteOrganizationsShowRouterInput {
     
     
     // MARK: - Custom Functions. Navigation
-    func navigateToOrganizationShowScene(_ organization: Organization) {
+    func navigateToOrganizationShowScene(withOrganizationID organizationID: String) {
         let storyboard = UIStoryboard(name: "OrganizationShow", bundle: nil)
         let organizationShowVC = storyboard.instantiateViewController(withIdentifier: "OrganizationShowVC") as! OrganizationShowViewController
-        organizationShowVC.organizationID = organization.codeID
+        organizationShowVC.organizationID = organizationID
         
         viewController.navigationController?.pushViewController(organizationShowVC, animated: true)
     }

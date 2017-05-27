@@ -27,37 +27,12 @@ class NewsItemShowRouter: NewsItemShowRouterInput {
         if (self.viewController == nil) {
             self.viewController = viewController
         }
-        
-        guard isNetworkAvailable else {
-            let storyboard = UIStoryboard(name: "OrganizationShow", bundle: nil)
-            let organizationShowVC = storyboard.instantiateViewController(withIdentifier: "OrganizationShowVC") as! OrganizationShowViewController
-            organizationShowVC.organizationID = (CoreDataManager.instance.entityDidLoad(byName: "Organization", andPredicateParameters: NSPredicate.init(format: "codeID == %@", organizationID)) as! Organization).codeID
-            
-            self.viewController.navigationController!.pushViewController(organizationShowVC, animated: true)
-            return
-        }
-        
-        MSMRestApiManager.instance.userRequestDidRun(.userGetOrganizationByID(["id": organizationID], false), withHandlerResponseAPICompletion: { responseAPI in
-            // Check for errors
-            guard responseAPI?.code == 200 else {
-                self.viewController.alertViewDidShow(withTitle: "Error", andMessage: String(responseAPI!.status), completion: { _ in })
-                return
-            }
-            
-            let storyboard = UIStoryboard(name: "OrganizationShow", bundle: nil)
-            let organizationShowVC = storyboard.instantiateViewController(withIdentifier: "OrganizationShowVC") as! OrganizationShowViewController
-            
-            if let organizationJSON = responseAPI!.body as? [String: AnyObject] {
-                if let organization = CoreDataManager.instance.entityDidLoad(byName: "Organization", andPredicateParameters: NSPredicate.init(format: "codeID == %@", organizationID)) as? Organization {
-                        organization.profileDidUpload(json: organizationJSON, forList: keyOrganization)
-                        CoreDataManager.instance.didSaveContext()
 
-                    organizationShowVC.organizationID = (CoreDataManager.instance.entityDidLoad(byName: "Organization", andPredicateParameters: NSPredicate.init(format: "codeID == %@", organizationID)) as! Organization).codeID
-                    
-                    self.viewController.navigationController!.pushViewController(organizationShowVC, animated: true)
-                }
-            }
-        })
+        let storyboard = UIStoryboard(name: "OrganizationShow", bundle: nil)
+        let organizationShowVC = storyboard.instantiateViewController(withIdentifier: "OrganizationShowVC") as! OrganizationShowViewController
+        organizationShowVC.organizationID = organizationID
+        
+        self.viewController.navigationController!.pushViewController(organizationShowVC, animated: true)
     }
     
     func navigateToSomewhere() {

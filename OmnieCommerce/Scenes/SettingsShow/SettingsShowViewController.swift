@@ -136,7 +136,7 @@ class SettingsShowViewController: BaseViewController {
 
     func appSettingsDidShow() {
         // TODO: - SHOW ITEMS AS DESIGN ELEMENTS
-        appSettings = CoreDataManager.instance.entityDidLoad(byName: "AppSettings", andPredicateParameters: nil) as! AppSettings
+//        appSettings = CoreDataManager.instance.entityDidLoad(byName: "AppSettings", andPredicateParameters: nil) as! AppSettings
         
         // Create PickerViewManager
         pickerViewManager = MSMPickerViewManager.init(self.view.frame, forScene: "SettingsShow")

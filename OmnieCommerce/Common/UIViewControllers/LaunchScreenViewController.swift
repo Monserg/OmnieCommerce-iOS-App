@@ -20,9 +20,6 @@ class LaunchScreenViewController: UIViewController {
     // MARK: - Class Functions
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-//        let appSettings = CoreDataManager.instance.entityDidLoad(byName: "AppSettings", andPredicateParameters: nil) as? AppSettings ?? AppSettings()
-//        CoreDataManager.instance.appSettings = appSettings
     }
 
     override func viewDidLoad() {
@@ -43,8 +40,6 @@ class LaunchScreenViewController: UIViewController {
         let window = UIApplication.shared.windows[0]
         
         // Create CoreData instance
-        let appUser = CoreDataManager.instance.entityDidLoad(byName: "AppUser", andPredicateParameters: nil) as! AppUser
-        
         if (appUser.isAuthorized) {
             backgroundImageView.isHidden = true
             backgroundImageView.backgroundColor = UIColor.clear

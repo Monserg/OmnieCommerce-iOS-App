@@ -39,9 +39,9 @@ class OrganizationsShowPresenter: OrganizationsShowPresenterInput {
         // Convert responseAPI body to Organization CoreData objects
         var counter: Int = 0
         
-        if let organizationsList = responseModel.responseAPI!.body as? [Any] {
+        if let organizationsList = responseModel.responseAPI!.body as? [[String: AnyObject]] {
             if (organizationsList.count > 0) {
-                for json in organizationsList {
+                for jsonOrganization in organizationsList {
                     var subCategoryID: String!
                     
                     if let code = responseModel.parameters["subCategory"] as? String, code.isEmpty {
@@ -52,14 +52,14 @@ class OrganizationsShowPresenter: OrganizationsShowPresenterInput {
                         
                     let keyList = "\(keyOrganizations)-\(responseModel.category.codeID)-\(subCategoryID!)"
                     
-                    if let organizationID = (json as? [String: AnyObject])?["uuid"] as? String {
-                        if let organization = CoreDataManager.instance.entityDidLoad(byName: "Organization", andPredicateParameters: NSPredicate.init(format: "codeID == %@", organizationID)) as? Organization {
-                            organization.profileDidUpload(json: json as! [String: AnyObject], forList: keyList)
+                    if let organizationID = jsonOrganization["uuid"] as? String {
+                        if let organization = CoreDataManager.instance.entityBy("Organization", andCodeID: organizationID) as? Organization {
+                            organization.profileDidUpload(json: jsonOrganization, forList: keyList)
                             organization.category = NSSet.init(object: responseModel.category)
                             organization.cellIdentifier = "OrganizationTableViewCell"
                             organization.cellHeight = 96.0
                             
-                            if let googlePlaceID = (json as! [String: AnyObject])["placeId"] as? String {
+                            if let googlePlaceID = jsonOrganization["placeId"] as? String {
                                 organization.googlePlaceDidLoad(positionID: googlePlaceID, completion: {
                                     counter += 1
                                     
@@ -92,9 +92,9 @@ class OrganizationsShowPresenter: OrganizationsShowPresenterInput {
         // Convert responseAPI body to Service CoreData objects
         var counter: Int = 0
         
-        if let servicesList = responseModel.responseAPI!.body as? [Any] {
+        if let servicesList = responseModel.responseAPI!.body as? [[String: AnyObject]] {
             if (servicesList.count > 0) {
-                for serviceJSON in servicesList {
+                for jsonService in servicesList {
                     var subCategoryID: String!
                     
                     if let code = responseModel.parameters["subCategory"] as? String, code.isEmpty {
@@ -105,13 +105,13 @@ class OrganizationsShowPresenter: OrganizationsShowPresenterInput {
                     
                     let keyList = "\(keyServices)-\(responseModel.category.codeID)-\(subCategoryID!)"
                     
-                    if let serviceID = (serviceJSON as? [String: AnyObject])?["uuid"] as? String {
-                        if let service = CoreDataManager.instance.entityDidLoad(byName: "Service", andPredicateParameters: NSPredicate.init(format: "codeID == %@", serviceID)) as? Service {
-                            service.profileDidUpload(json: serviceJSON as! [String: AnyObject], forOrganization: nil, forList: keyList)
+                    if let serviceID = jsonService["uuid"] as? String {
+                        if let service = CoreDataManager.instance.entityBy("Service", andCodeID: serviceID) as? Service {
+                            service.profileDidUpload(json: jsonService, forList: keyList)
                             service.cellIdentifier = "ServiceTableViewCell"
                             service.cellHeight = 96.0
                             
-                            if let googlePlaceID = (serviceJSON as! [String: AnyObject])["placeId"] as? String {
+                            if let googlePlaceID = jsonService["placeId"] as? String {
                                 service.googlePlaceDidLoad(positionID: googlePlaceID, completion: {
                                     counter += 1
                                     

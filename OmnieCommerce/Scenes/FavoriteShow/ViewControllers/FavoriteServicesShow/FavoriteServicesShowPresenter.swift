@@ -36,11 +36,11 @@ class FavoriteServicesShowPresenter: FavoriteServicesShowPresenterInput {
         }
         
         // Convert responseAPI body to Service CoreData objects
-        if let servicesList = responseModel.responseAPI!.body as? [Any], servicesList.count > 0 {
-            for serviceJSON in servicesList {
-                if let serviceID = (serviceJSON as? [String: AnyObject])?["uuid"] as? String {
-                    if let service = CoreDataManager.instance.entityDidLoad(byName: "Service", andPredicateParameters: NSPredicate.init(format: "codeID == %@ AND organizationName == %@", serviceID, (serviceJSON as? [String: AnyObject])?["orgName"] as! String)) as? Service {
-                        service.profileDidUpload(json: serviceJSON as! [String: AnyObject], forOrganization: nil, forList: keyFavoriteServices)
+        if let servicesList = responseModel.responseAPI!.body as? [[String: AnyObject]], servicesList.count > 0 {
+            for jsonService in servicesList {
+                if let serviceID = jsonService["uuid"] as? String {
+                    if let service = CoreDataManager.instance.entityBy("Service", andCodeID: serviceID) as? Service {
+                        service.profileDidUpload(json: jsonService, forList: keyFavoriteServices)
                         service.cellHeight = 60.0
                         service.cellIdentifier = "FavoriteServiceTableViewCell"
                     }

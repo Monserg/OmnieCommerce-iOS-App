@@ -18,6 +18,7 @@ extension Discount {
 
     @NSManaged public var codeID: String
     @NSManaged public var organizationID: String?
+    @NSManaged public var serviceID: String?
     @NSManaged public var dateEnd: NSDate
     @NSManaged public var dateStart: NSDate
     @NSManaged public var isUserDiscount: Bool

@@ -23,12 +23,6 @@ class CoreDataManager {
         "storeURL: \(applicationDocumentsDirectory)\n"
         //        "store: \(store)"
     }
-
-//    var appSettings: AppSettings! {
-//        didSet {
-//            didSaveContext()
-//        }
-//    }
     
     lazy var applicationDocumentsDirectory: URL = {
         let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
@@ -115,7 +109,7 @@ class CoreDataManager {
     }
     
     func didUpdateAppUser(state: Bool) {
-        let appUser = CoreDataManager.instance.entityDidLoad(byName: "AppUser", andPredicateParameters: nil) as! AppUser
+        let appUser = CoreDataManager.instance.entityBy("AppUser", andCodeID: "AppUser") as! AppUser
         appUser.isAuthorized = state
         
         if (!state) {
@@ -140,7 +134,7 @@ class CoreDataManager {
     }
     
     // Get Entity by name
-    func entityDidLoad(byName name: String, andPredicateParameters predicate: NSPredicate?) -> NSManagedObject? {
+    fileprivate func entityDidLoad(byName name: String, andPredicateParameters predicate: NSPredicate?) -> NSManagedObject? {
         let fetchRequest: NSFetchRequest<NSFetchRequestResult>!
         
         if (predicate == nil) {
@@ -178,8 +172,12 @@ class CoreDataManager {
             return nil
         }
     }
-    
-    func entityDidCreate(byName name: String) -> NSManagedObject? {
+
+    func entityBy(_ name: String, andCodeID codeID: String) -> NSManagedObject? {
+        return CoreDataManager.instance.entityDidLoad(byName: name, andPredicateParameters: NSPredicate.init(format: "codeID = %@", codeID))
+    }
+
+    fileprivate func entityDidCreate(byName name: String) -> NSManagedObject? {
         let newEntity = NSEntityDescription.insertNewObject(forEntityName: name, into: self.managedObjectContext)
         
         return newEntity

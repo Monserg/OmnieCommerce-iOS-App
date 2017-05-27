@@ -76,7 +76,7 @@ public class Service: NSManagedObject, InitCellParameters, PointAnnotationBindin
     
     
     // MARK: - Custom Functions
-    func profileDidUpload(json: [String: AnyObject], forOrganization organization: Organization?, forList listName: String) {
+    func profileDidUpload(json: [String: AnyObject], forList listName: String) {
         // Prepare to save common data
         if let codeID = json["uuid"] as? String {
             self.codeID = codeID
@@ -88,7 +88,6 @@ public class Service: NSManagedObject, InitCellParameters, PointAnnotationBindin
             self.name = "Zorro"
         }
 
-        self.organization = organization
         self.isNameNeedHide = false
         self.needBackgroundColorSet = false
 
@@ -151,16 +150,26 @@ public class Service: NSManagedObject, InitCellParameters, PointAnnotationBindin
         */
         
         // Common discounts
-        if let commonDiscounts = json["discountsCommon"] as? NSArray, commonDiscounts.count > 0 {
-            for commonDiscount in commonDiscounts {
-                self.addToDiscounts(Discount.init(json: commonDiscount as! [String: AnyObject], forManagedObject: self, isUserDiscount: false)!)
+        if let commonDiscounts = json["discountsCommon"] as? [[String: AnyObject]], commonDiscounts.count > 0 {
+            for jsonCommonDiscount in commonDiscounts {
+                if let codeID = jsonCommonDiscount["uuid"] as? String {
+                    if let commonDiscount = CoreDataManager.instance.entityBy("Discount", andCodeID: codeID) as? Discount {
+                        commonDiscount.profileDidUpload(json: jsonCommonDiscount, isUserDiscount: false)
+                        self.addToDiscounts(commonDiscount)
+                    }
+                }
             }
         }
         
         // User discounts
-        if let userDiscounts = json["discountsUser"] as? NSArray, userDiscounts.count > 0 {
-            for userDiscount in userDiscounts {
-                self.addToDiscounts(Discount.init(json: userDiscount as! [String: AnyObject], forManagedObject: self, isUserDiscount: true)!)
+        if let userDiscounts = json["discountsForUser"] as? [[String: AnyObject]], userDiscounts.count > 0 {
+            for jsonUserDiscount in userDiscounts {
+                if let codeID = jsonUserDiscount["uuid"] as? String {
+                    if let userDiscount = CoreDataManager.instance.entityBy("Discount", andCodeID: codeID) as? Discount {
+                        userDiscount.profileDidUpload(json: jsonUserDiscount, isUserDiscount: true)
+                        self.addToDiscounts(userDiscount)
+                    }
+                }
             }
         }
         
@@ -170,32 +179,40 @@ public class Service: NSManagedObject, InitCellParameters, PointAnnotationBindin
         }
         
         // Additional services
-        if let additionalServices = json["subServiceList"] as? [Any] {
-            for json in additionalServices {
-                self.addToAdditionalServices(AdditionalService.init(json: json as! [String: AnyObject], andRelationshipObject: self)!)
+        if let additionalServices = json["subServiceList"] as? [[String: AnyObject]] {
+            for jsonAdditionalService in additionalServices {
+                if let codeID = jsonAdditionalService["uuid"] as? String {
+                    if let additionalService = CoreDataManager.instance.entityBy("AdditionalService", andCodeID: codeID) as? AdditionalService {
+                        additionalService.profileDidUpload(json: jsonAdditionalService)
+                        addToAdditionalServices(additionalService)
+                    }
+                }
             }
         }
         
         // Gallery images
-        if let galleryImages = json["serviceGallery"] as? NSArray, galleryImages.count > 0 {
-            for dictionary in galleryImages {
-                if let image = GalleryImage.init(json: dictionary as! [String: AnyObject], andRelationshipObject: self) {
-                    self.addToImages(image)
+        if let galleryImages = json["serviceGallery"] as? [[String: AnyObject]], galleryImages.count > 0 {
+            for json in galleryImages {
+                if let imageID = json["imageId"] as? String {
+                    if let galleryImageEntity = CoreDataManager.instance.entityBy("GalleryImage", andCodeID: imageID) as? GalleryImage {
+                        galleryImageEntity.profileDidUpload(json: json)
+                        addToImages(galleryImageEntity)
+                    }
                 }
             }
         }
         
         // Own Review
-        if let userReview = json["ownReview"] as? [String: AnyObject] {
-            self.addToReviews(Review.init(json: userReview, forManagedObject: self, withType: .UserReview)!)
-        }
-
-        // Service Reviews
-        if let serviceReviews = json["serviceReviews"] as? NSArray, serviceReviews.count > 0 {
-            for serviceReview in serviceReviews {
-                self.addToReviews(Review.init(json: serviceReview as! [String: AnyObject], forManagedObject: self, withType: .ServiceReview)!)
-            }
-        }
+//        if let userReview = json["ownReview"] as? [String: AnyObject] {
+//            self.addToReviews(Review.init(json: userReview, withType: .UserReview)!)
+//        }
+//
+//        // Service Reviews
+//        if let serviceReviews = json["serviceReviews"] as? NSArray, serviceReviews.count > 0 {
+//            for serviceReview in serviceReviews {
+//                self.addToReviews(Review.init(json: serviceReview as! [String: AnyObject], withType: .ServiceReview)!)
+//            }
+//        }
     }
 
     deinit {
