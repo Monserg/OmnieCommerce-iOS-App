@@ -14,11 +14,13 @@ import UIKit
 // MARK: - Input protocols for current Presenter component VIP-cicle
 protocol HandbooksShowPresenterInput {
     func handbooksDidPrepareToShowLoad(fromResponseModel responseModel: HandbooksShowModels.Items.ResponseModel)
+    func bussinessCardDidPrepareToShowCreateFromHandbook(fromResponseModel responseModel: HandbooksShowModels.BussinessCard.ResponseModel)
 }
 
 // MARK: - Output protocols for ViewController component VIP-cicle
 protocol HandbooksShowPresenterOutput: class {
     func handbooksDidShowLoad(fromViewModel viewModel: HandbooksShowModels.Items.ViewModel)
+    func bussinessCardDidShowCreateFromHandbook(fromViewModel viewModel: HandbooksShowModels.BussinessCard.ViewModel)
 }
 
 class HandbooksShowPresenter: HandbooksShowPresenterInput {
@@ -45,5 +47,10 @@ class HandbooksShowPresenter: HandbooksShowPresenterInput {
         
         let handbooksViewModel = HandbooksShowModels.Items.ViewModel(status: (responseModel.responseAPI?.status)!)
         self.viewController.handbooksDidShowLoad(fromViewModel: handbooksViewModel)
+    }
+    
+    func bussinessCardDidPrepareToShowCreateFromHandbook(fromResponseModel responseModel: HandbooksShowModels.BussinessCard.ResponseModel) {
+        let bussinessCardViewModel = HandbooksShowModels.BussinessCard.ViewModel(status: (responseModel.responseAPI?.status)!)
+        viewController.bussinessCardDidShowCreateFromHandbook(fromViewModel: bussinessCardViewModel)
     }
 }

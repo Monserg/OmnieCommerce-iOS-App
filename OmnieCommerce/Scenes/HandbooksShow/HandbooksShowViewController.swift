@@ -14,11 +14,13 @@ import UIKit
 // MARK: - Input protocols for current ViewController component VIP-cicle
 protocol HandbooksShowViewControllerInput {
     func handbooksDidShowLoad(fromViewModel viewModel: HandbooksShowModels.Items.ViewModel)
+    func bussinessCardDidShowCreateFromHandbook(fromViewModel viewModel: HandbooksShowModels.BussinessCard.ViewModel)
 }
 
 // MARK: - Output protocols for Interactor component VIP-cicle
 protocol HandbooksShowViewControllerOutput {
     func handbooksDidLoad(withRequestModel requestModel: HandbooksShowModels.Items.RequestModel)
+    func bussinessCardDidCreateFromHandbook(withRequestModel requestModel: HandbooksShowModels.BussinessCard.RequestModel)
 }
 
 class HandbooksShowViewController: BaseViewController {
@@ -74,9 +76,9 @@ class HandbooksShowViewController: BaseViewController {
         }
     
         // Handler Bussiness Card button tap completion
-        handbooksTableManager.handlerTapBussinessCardButtonCompletion = { item in
-            // TODO: - ADD TRANSITION TO BUSSINESS CARD
-            
+        handbooksTableManager.handlerTapBussinessCardButtonCompletion = { itemID in
+            let bussinessCardRequestModel = HandbooksShowModels.BussinessCard.RequestModel(parameters: [ "id": itemID as AnyObject ])
+            self.interactor.bussinessCardDidCreateFromHandbook(withRequestModel: bussinessCardRequestModel)
         }
     }
     
@@ -201,12 +203,21 @@ class HandbooksShowViewController: BaseViewController {
         
         modalView = ModalView.init(inView: blackoutView!, withHeight: height)
 
-        popupView = PhonesView.init(inView: modalView!)
-        popupView.values = values as! [String]
-        
-        // Handler Phones format error
-        (popupView as! PhonesView).handlerPhonesFormatErrorCompletion = { _ in
-            self.alertViewDidShow(withTitle: "Error", andMessage: "Wrong phones format", completion: { _ in })
+        switch subView {
+        case subView as PhonesView:
+            popupView = PhonesView.init(inView: modalView!)
+            popupView.values = values as! [String]
+            
+            // Handler Phones format error
+            (popupView as! PhonesView).handlerPhonesFormatErrorCompletion = { _ in
+                self.alertViewDidShow(withTitle: "Error", andMessage: "Wrong phones format", completion: { _ in })
+            }
+
+        case subView as ConfirmSaveView:
+            popupView = ConfirmSaveView.init(inView: modalView!, withText: "BussinessСard create message")
+            
+        default:
+            break
         }
         
         // Handler Cancel button tap
@@ -246,5 +257,18 @@ extension HandbooksShowViewController: HandbooksShowViewControllerInput {
         }
         
         self.handbooksListDidShow()
+    }
+    
+    func bussinessCardDidShowCreateFromHandbook(fromViewModel viewModel: HandbooksShowModels.BussinessCard.ViewModel) {
+        spinnerDidFinish()
+        
+        // Check for errors
+        guard viewModel.status == "SUCCESS" else {
+            self.alertViewDidShow(withTitle: "Error", andMessage: viewModel.status, completion: {})
+            
+            return
+        }
+        
+        self.modalViewDidShow(withHeight: 185.0, customSubview: ConfirmSaveView(), andValues: nil)
     }
 }

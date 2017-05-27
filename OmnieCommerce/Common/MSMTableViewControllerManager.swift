@@ -289,7 +289,7 @@ extension MSMTableViewControllerManager: UITableViewDataSource {
             
             // Handler Bussiness Card button tap completion
             handbookTableViewCell.handlerBussinessCardButtonTapCompletion = { item in
-                self.handlerTapBussinessCardButtonCompletion!(item)
+                self.handlerTapBussinessCardButtonCompletion!(item as! String)
             }
             
         default:

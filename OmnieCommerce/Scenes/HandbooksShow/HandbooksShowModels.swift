@@ -26,4 +26,18 @@ struct HandbooksShowModels {
             let status: String
         }
     }
+    
+    struct BussinessCard {
+        struct RequestModel {
+            let parameters: [String: AnyObject]
+        }
+        
+        struct ResponseModel {
+            let responseAPI: ResponseAPI?
+        }
+        
+        struct ViewModel {
+            let status: String
+        }
+    }
 }

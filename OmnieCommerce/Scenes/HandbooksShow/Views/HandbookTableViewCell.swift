@@ -13,6 +13,7 @@ class HandbookTableViewCell: UITableViewCell, DottedBorderViewBinding, iCarousel
     // MARK: - Properties
     var phones: [String]?
     var tags: [String]?
+    var handbookID: String!
     
     var handlerPhoneButtonTapCompletion: HandlerPassDataCompletion?
     var handlerBussinessCardButtonTapCompletion: HandlerPassDataCompletion?
@@ -58,7 +59,7 @@ class HandbookTableViewCell: UITableViewCell, DottedBorderViewBinding, iCarousel
     }
     
     @IBAction func handlerCardButtonTap(_ sender: FillVeryLightOrangeButton) {
-        handlerBussinessCardButtonTapCompletion!(sender)
+        handlerBussinessCardButtonTapCompletion!(self.handbookID)
     }
     
 
@@ -110,12 +111,12 @@ extension HandbookTableViewCell: ConfigureCell {
     func setup(withItem item: Any, andIndexPath indexPath: IndexPath) {
         let handbook = item as! Handbook
 
+        self.handbookID = handbook.codeID
         self.organizationNameLabel.text = handbook.name
         selectionStyle = .none
         carouselView.type = .linear
         carouselView.isPagingEnabled = false
         carouselView.centerItemWhenSelected = true
-//        carouselView.bounceDistance = CGFloat(0.0)
         carouselView.bounces = true
 
         if let phonesList = handbook.phones, phonesList.count > 0 {

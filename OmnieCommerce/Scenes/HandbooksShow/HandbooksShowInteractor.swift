@@ -14,11 +14,13 @@ import UIKit
 // MARK: - Input protocols for current Interactor component VIP-cicle
 protocol HandbooksShowInteractorInput {
     func handbooksDidLoad(withRequestModel requestModel: HandbooksShowModels.Items.RequestModel)
+    func bussinessCardDidCreateFromHandbook(withRequestModel requestModel: HandbooksShowModels.BussinessCard.RequestModel)
 }
 
 // MARK: - Output protocols for Presenter component VIP-cicle
 protocol HandbooksShowInteractorOutput {
     func handbooksDidPrepareToShowLoad(fromResponseModel responseModel: HandbooksShowModels.Items.ResponseModel)
+    func bussinessCardDidPrepareToShowCreateFromHandbook(fromResponseModel responseModel: HandbooksShowModels.BussinessCard.ResponseModel)
 }
 
 class HandbooksShowInteractor: HandbooksShowInteractorInput {
@@ -32,6 +34,14 @@ class HandbooksShowInteractor: HandbooksShowInteractorInput {
         MSMRestApiManager.instance.userRequestDidRun(.userGetHandbooksList(requestModel.parameters, false), withHandlerResponseAPICompletion: { responseAPI in
             let handbooksResponseModel = HandbooksShowModels.Items.ResponseModel(responseAPI: responseAPI)
             self.presenter.handbooksDidPrepareToShowLoad(fromResponseModel: handbooksResponseModel)
+        })
+    }
+    
+    func bussinessCardDidCreateFromHandbook(withRequestModel requestModel: HandbooksShowModels.BussinessCard.RequestModel) {
+        MSMRestApiManager.instance.userRequestDidRun(.userCreateNewBussinessCardFromHandbook(requestModel.parameters, false), withHandlerResponseAPICompletion: { responseAPI in
+            // Pass the result to the Presenter
+            let bussinessCardResponseModel = HandbooksShowModels.BussinessCard.ResponseModel(responseAPI: responseAPI)
+            self.presenter.bussinessCardDidPrepareToShowCreateFromHandbook(fromResponseModel: bussinessCardResponseModel)
         })
     }
 }
