@@ -184,6 +184,7 @@
 "NewsItem"                      =   "Новость";
 "Service"                       =   "Услуга";
 "Order"                         =   "Заказ";
+"Price List"                    =   "Прайс лист";
 
 
 // Alert actions

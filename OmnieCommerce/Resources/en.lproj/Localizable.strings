@@ -184,6 +184,7 @@
 "NewsItem"                      =   "News";
 "Service"                       =   "Service";
 "Order"                         =   "Order";
+"Price List"                    =   "Price List";
 
 
 // Alert actions

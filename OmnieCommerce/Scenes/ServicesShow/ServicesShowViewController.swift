@@ -17,15 +17,25 @@ protocol ServicesShowViewControllerInput {}
 // MARK: - Output protocols for Interactor component VIP-cicle
 protocol ServicesShowViewControllerOutput {}
 
+enum ServicesShowMode {
+    case PriceList
+    case AllServices
+}
+
 class ServicesShowViewController: BaseViewController {
     // MARK: - Properties
     var interactor: ServicesShowViewControllerOutput!
     var router: ServicesShowRouter!
     
     var services = [Service]()
+    var mode: ServicesShowMode = .AllServices
     
     // Outlets
-    @IBOutlet weak var smallTopBarView: SmallTopBarView!
+    @IBOutlet weak var smallTopBarView: SmallTopBarView! {
+        didSet {
+            smallTopBarView.titleText = ((mode == .AllServices) ? "All services".localized() : "Price List".localized())
+        }
+    }
     
     @IBOutlet weak var tableView: MSMTableView! {
         didSet {

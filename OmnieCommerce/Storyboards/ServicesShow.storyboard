@@ -34,7 +34,6 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="95"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="titleText" value="All services"/>
                                     <userDefinedRuntimeAttribute type="string" keyPath="type" value="ParentSearch"/>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>

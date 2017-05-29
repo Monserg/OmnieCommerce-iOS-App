@@ -693,10 +693,13 @@ class OrganizationShowViewController: BaseViewController {
             let bussinessCardRequestModel = OrganizationShowModels.BussinessCard.RequestModel(parameters: [ "id": organizationProfile.codeID as AnyObject ])
             interactor.bussinessCardDidCreateFromOrganization(withRequestModel: bussinessCardRequestModel)
             
-        // Price
+        // Price List
         case 2:
-            // TODO: - ADD TRANSITION TO ...
-            break
+            self.animationButton.tag = 0
+            self.blackoutView!.didHide()
+            self.blackoutView = nil
+
+            router.navigateToPriceListShowScene(Array(organizationProfile.services!) as! [Service])
             
         // Message
         case 3:

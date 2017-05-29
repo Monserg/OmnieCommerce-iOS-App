@@ -13,9 +13,10 @@ import UIKit
 
 // MARK: - Input & Output protocols
 protocol OrganizationShowRouterInput {
-    func navigateToOrganizationsMapShowScene(_ organization: Organization)
-    func navigateToServiceShowScene(withID serviceID: String)
     func navigateToServicesShowScene(_ services: [Service])
+    func navigateToPriceListShowScene(_ services: [Service])
+    func navigateToServiceShowScene(withID serviceID: String)
+    func navigateToOrganizationsMapShowScene(_ organization: Organization)
 }
 
 class OrganizationShowRouter: OrganizationShowRouterInput {
@@ -24,6 +25,32 @@ class OrganizationShowRouter: OrganizationShowRouterInput {
     
     
     // MARK: - Custom Functions. Navigation
+    func navigateToServicesShowScene(_ services: [Service]) {
+        let storyboard = UIStoryboard(name: "ServicesShow", bundle: nil)
+        let servicesShowVC = storyboard.instantiateViewController(withIdentifier: "ServicesShowVC") as! ServicesShowViewController
+        servicesShowVC.services = services
+        servicesShowVC.mode = .AllServices
+        
+        viewController.navigationController?.pushViewController(servicesShowVC, animated: true)
+    }
+    
+    func navigateToPriceListShowScene(_ services: [Service]) {
+        let storyboard = UIStoryboard(name: "ServicesShow", bundle: nil)
+        let servicesShowVC = storyboard.instantiateViewController(withIdentifier: "ServicesShowVC") as! ServicesShowViewController
+        servicesShowVC.services = services
+        servicesShowVC.mode = .PriceList
+        
+        viewController.navigationController?.pushViewController(servicesShowVC, animated: true)
+    }
+    
+    func navigateToServiceShowScene(withID serviceID: String) {
+        let storyboard = UIStoryboard(name: "ServiceShow", bundle: nil)
+        let serviceShowVC = storyboard.instantiateViewController(withIdentifier: "ServiceShowVC") as! ServiceShowViewController
+        serviceShowVC.serviceID = serviceID
+        
+        viewController.navigationController?.pushViewController(serviceShowVC, animated: true)        
+    }
+
     func navigateToOrganizationsMapShowScene(_ organization: Organization) {
         let storyboard = UIStoryboard(name: "OrganizationsMapShow", bundle: nil)
         let organizationsMapShowVC = storyboard.instantiateViewController(withIdentifier: "OrganizationsMapShowVC") as! OrganizationsMapShowViewController
@@ -34,23 +61,7 @@ class OrganizationShowRouter: OrganizationShowRouterInput {
         // Handler back button
         organizationsMapShowVC.handlerPassDataCompletion = { locationItem in }
     }
-
-    func navigateToServiceShowScene(withID serviceID: String) {
-        let storyboard = UIStoryboard(name: "ServiceShow", bundle: nil)
-        let serviceShowVC = storyboard.instantiateViewController(withIdentifier: "ServiceShowVC") as! ServiceShowViewController
-        serviceShowVC.serviceID = serviceID
-        
-        viewController.navigationController?.pushViewController(serviceShowVC, animated: true)        
-    }
-
-    func navigateToServicesShowScene(_ services: [Service]) {
-        let storyboard = UIStoryboard(name: "ServicesShow", bundle: nil)
-        let servicesShowVC = storyboard.instantiateViewController(withIdentifier: "ServicesShowVC") as! ServicesShowViewController
-        servicesShowVC.services = services
-        
-        viewController.navigationController?.pushViewController(servicesShowVC, animated: true)
-    }
-
+    
     
     // Communication
     func passDataToNextScene(segue: UIStoryboardSegue) {
