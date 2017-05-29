@@ -13,13 +13,15 @@ import UIKit
 
 // MARK: - Input protocols for current Presenter component VIP-cicle
 protocol DiscountCardCreatePresenterInput {
-    func discountCardDidPrepareToShowCreate(fromResponseModel responseModel: DiscountCardCreateModels.Item.ResponseModel)
+    func discountCardDidPrepareToShowCreate(fromResponseModel responseModel: DiscountCardCreateModels.Create.ResponseModel)
+    func discountCardDidPrepareToShowUpload(fromResponseModel responseModel: DiscountCardCreateModels.Upload.ResponseModel)
     func discountCardImageDidPrepareToShowUpload(fromResponseModel responseModel: DiscountCardCreateModels.Image.ResponseModel)
 }
 
 // MARK: - Output protocols for ViewController component VIP-cicle
 protocol DiscountCardCreatePresenterOutput: class {
-    func discountCardDidShowCreate(fromViewModel viewModel: DiscountCardCreateModels.Item.ViewModel)
+    func discountCardDidShowCreate(fromViewModel viewModel: DiscountCardCreateModels.Create.ViewModel)
+    func discountCardDidShowUpload(fromViewModel viewModel: DiscountCardCreateModels.Upload.ViewModel)
     func discountCardImageDidShowUpload(fromViewModel viewModel: DiscountCardCreateModels.Image.ViewModel)
 }
 
@@ -29,10 +31,26 @@ class DiscountCardCreatePresenter: DiscountCardCreatePresenterInput {
     
     
     // MARK: - Custom Functions. Presentation logic
-    func discountCardDidPrepareToShowCreate(fromResponseModel responseModel: DiscountCardCreateModels.Item.ResponseModel) {
+    func discountCardDidPrepareToShowCreate(fromResponseModel responseModel: DiscountCardCreateModels.Create.ResponseModel) {
         // NOTE: Format the response from the Interactor and pass the result back to the View Controller
-        let discountCardViewModel = DiscountCardCreateModels.Item.ViewModel(status: (responseModel.responseAPI?.status)!)
+        let discountCardViewModel = DiscountCardCreateModels.Create.ViewModel(status: (responseModel.responseAPI?.status)!)
         viewController.discountCardDidShowCreate(fromViewModel: discountCardViewModel)
+    }
+    
+    func discountCardDidPrepareToShowUpload(fromResponseModel responseModel: DiscountCardCreateModels.Upload.ResponseModel) {
+        // NOTE: Format the response from the Interactor and pass the result back to the View Controller
+        if let status = responseModel.responseAPI?.status, status == "SUCCESS" {
+            if let codeID = responseModel.parameters["uuid"] as? String {
+                if let discountCard = CoreDataManager.instance.entityBy("DiscountCard", andCodeID: codeID) as? DiscountCard {
+                    discountCard.profileDidEdit(json: responseModel.parameters as [String: AnyObject])
+                }
+            }
+        }
+        
+        CoreDataManager.instance.didSaveContext()
+        
+        let discountCardViewModel = DiscountCardCreateModels.Upload.ViewModel(status: (responseModel.responseAPI?.status)!)
+        viewController.discountCardDidShowUpload(fromViewModel: discountCardViewModel)
     }
     
     func discountCardImageDidPrepareToShowUpload(fromResponseModel responseModel: DiscountCardCreateModels.Image.ResponseModel) {

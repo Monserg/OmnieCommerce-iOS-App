@@ -27,7 +27,7 @@ class DiscountCardShowViewController: BaseViewController {
     var interactor: DiscountCardShowViewControllerOutput!
     var router: DiscountCardShowRouter!
     
-    var discountCard: DiscountCard!
+    var discountCardID: String!
     
     // Outlets
     @IBOutlet weak var codeImageView: UIImageView!
@@ -50,12 +50,24 @@ class DiscountCardShowViewController: BaseViewController {
     
 
     // MARK: - Class Functions
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        if (blackoutView != nil) {
+            modalView?.center = blackoutView!.center
+        }
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
         
         viewSettingsDidLoad()
     }
-    
+
 
     // MARK: - Custom Functions
     func viewSettingsDidLoad() {
@@ -64,20 +76,28 @@ class DiscountCardShowViewController: BaseViewController {
         smallTopBarView.type = "Child"
         haveMenuItem = false
 
-        // Show control elements
-        self.codeLabel.text = self.discountCard.code
-        
-        if let imageID = discountCard.imageID {
-            self.codeImageView.kf.setImage(with: ImageResource(downloadURL: imageID.convertToURL(withSize: .Medium, inMode: .Get), cacheKey: imageID),
-                                       placeholder: UIImage.init(named: "image-no-photo"),
-                                       options: [.transition(ImageTransition.fade(1)),
-                                                 .processor(ResizingImageProcessor(referenceSize: self.codeImageView.frame.size,
-                                                                                   mode: .aspectFill))],
-                                       completionHandler: { image, error, cacheType, imageURL in
-                                        self.codeImageView.kf.cancelDownloadTask()
-            })
-        } else {
-            self.codeImageView.image = UIImage.init(named: "image-no-photo")
+        // Load Discount Card
+        if let discountCard = CoreDataManager.instance.entityBy("DiscountCard", andCodeID: discountCardID) as? DiscountCard {
+            // Show control elements
+            self.codeLabel.text = discountCard.code
+            
+            if let imageID = discountCard.imageID {
+                self.codeImageView.kf.setImage(with: ImageResource(downloadURL: imageID.convertToURL(withSize: .Medium, inMode: .Get), cacheKey: imageID),
+                                               placeholder: nil,
+                                               options: [.transition(ImageTransition.fade(1)),
+                                                         .processor(ResizingImageProcessor(referenceSize: self.codeImageView.frame.size,
+                                                                                           mode: .aspectFill))],
+                                               completionHandler: { image, error, cacheType, imageURL in
+                                                self.codeImageView.kf.cancelDownloadTask()
+                })
+            } else {
+                self.codeImageView.contentMode = .center
+                self.codeImageView.backgroundColor = UIColor.init(hexString: "#273745")
+                
+                UIView.animate(withDuration: 0.5, animations: {
+                    self.codeImageView.image = UIImage.init(named: "image-no-photo")
+                })
+            }
         }
     }
 
@@ -100,14 +120,21 @@ class DiscountCardShowViewController: BaseViewController {
     }
 
     
+    // MARK: - Transition
+    override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
+        smallTopBarView.setNeedsDisplay()
+        self.view.layoutIfNeeded()
+    }
+
+    
     // MARK: - Actions
     @IBAction func handlerDeleteDiscountCardButtonTap(_ sender: UbuntuLightItalicVeryLightOrangeButton) {
-        let discountCardRequestModel = DiscountCardShowModels.Item.RequestModel(parameters: [ "id": discountCard.codeID] )
+        let discountCardRequestModel = DiscountCardShowModels.Item.RequestModel(parameters: [ "id": discountCardID] )
         interactor.discountCardDidDelete(withRequestModel: discountCardRequestModel)
     }
     
     @IBAction func handlerEditButtonTap(_ sender: UIButton) {
-        self.router.navigateToDiscountCardCreateScene(withDiscountCard: discountCard)
+        self.router.navigateToDiscountCardCreateScene(withDiscountCardID: discountCardID)
     }
     
     @IBAction func handlerBackButtonTap(_ sender: UIButton) {

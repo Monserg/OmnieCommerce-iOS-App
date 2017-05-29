@@ -124,13 +124,8 @@ class DiscountCardsShowViewController: BaseViewController {
             
             collectionView.collectionViewControllerManager!.sectionsCount = 1
             collectionView.collectionViewControllerManager!.dataSource = discountCards
-//            collectionView.collectionViewControllerManager.infiniteScrollingView = infiniteScrollingView
 
             collectionView.reloadData()
-            
-//            if (infiniteScrollingView.isHidden == false) {
-//                infiniteScrollingView.isHidden = true
-//            }
         }
         
         // Search Manager
@@ -138,7 +133,7 @@ class DiscountCardsShowViewController: BaseViewController {
         
         // Handler select cell
         collectionView.collectionViewControllerManager!.handlerCellSelectCompletion = { discountCard in
-            self.router.navigateToDiscountCardShowScene(withDiscountCard: discountCard as! DiscountCard)
+            self.router.navigateToDiscountCardShowScene(withDiscountCardID: (discountCard as! DiscountCard).codeID)
         }
         
         // Handler Pull Refresh
@@ -177,7 +172,7 @@ class DiscountCardsShowViewController: BaseViewController {
     
     // MARK: - Actions
     @IBAction func handlerCreateNewDiscountCardButtonTap(_ sender: FillColorButton) {
-        self.router.navigateToDiscountCardCreateScene(withDiscountCard: nil)
+        self.router.navigateToDiscountCardCreateScene(withDiscountCardID: nil)
     }
 }
 

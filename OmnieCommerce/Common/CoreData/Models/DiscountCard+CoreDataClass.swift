@@ -61,4 +61,27 @@ public class DiscountCard: NSManagedObject, InitCellParameters, SearchObject  {
 
         self.addToLists(Lists.init(name: listName, item: self))
     }
+    
+    func profileDidEdit(json: [String: AnyObject]) {
+        // Prepare to save common data
+        if let codeID = json["uuid"] as? String {
+            self.codeID = codeID
+        }
+        
+        if let imageID = json["imageId"] as? String {
+            self.imageID = imageID
+        }
+        
+        if let name = json["name"] as? String {
+            self.name = name
+        }
+        
+        if let code = json["code"] as? String {
+            self.code = code
+        }
+        
+        if let format = json["format"] as? String {
+            self.format = format
+        }
+    }
 }

@@ -96,6 +96,7 @@
 "Dictionary saved message"      =   "Ваш запрос отправлен на \nмодерацию.";
 "DiscountCard delete message"   =   "Карточка успешно удалена.";
 "DiscountCard create message"   =   "Новая карточка успешно добавлена \nв список.";
+"DiscountCard upload message"   =   "Профиль карточки успешно \nобновлен.";
 "BussinessСard create message"  =   "Новая визитка успешно создана.";
 
 

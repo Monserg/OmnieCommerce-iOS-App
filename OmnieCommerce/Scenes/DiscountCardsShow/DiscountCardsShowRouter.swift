@@ -13,8 +13,8 @@ import UIKit
 
 // MARK: - Input & Output protocols
 protocol DiscountCardsShowRouterInput {
-    func navigateToDiscountCardCreateScene(withDiscountCard discountCard: DiscountCard?)
-    func navigateToDiscountCardShowScene(withDiscountCard discountCard: DiscountCard)
+    func navigateToDiscountCardShowScene(withDiscountCardID discountCardID: String)
+    func navigateToDiscountCardCreateScene(withDiscountCardID discountCardID: String?)
 }
 
 class DiscountCardsShowRouter: DiscountCardsShowRouterInput {
@@ -23,22 +23,22 @@ class DiscountCardsShowRouter: DiscountCardsShowRouterInput {
     
     
     // MARK: - Custom Functions. Navigation
-    func navigateToDiscountCardCreateScene(withDiscountCard discountCard: DiscountCard?) {
-        let storyboard = UIStoryboard(name: "DiscountCardCreate", bundle: nil)
-        let discountCardCreateVC = storyboard.instantiateViewController(withIdentifier: "DiscountCardCreateVC") as! DiscountCardCreateViewController
-        discountCardCreateVC.discountCard = discountCard
-        
-        viewController.navigationController?.pushViewController(discountCardCreateVC, animated: true)
-    }
-
-    func navigateToDiscountCardShowScene(withDiscountCard discountCard: DiscountCard) {
+    func navigateToDiscountCardShowScene(withDiscountCardID discountCardID: String) {
         let storyboard = UIStoryboard(name: "DiscountCardShow", bundle: nil)
         let discountCardShowVC = storyboard.instantiateViewController(withIdentifier: "DiscountCardShowVC") as! DiscountCardShowViewController
-        discountCardShowVC.discountCard = discountCard
+        discountCardShowVC.discountCardID = discountCardID
         
         viewController.navigationController?.pushViewController(discountCardShowVC, animated: true)
     }
     
+    func navigateToDiscountCardCreateScene(withDiscountCardID discountCardID: String?) {
+        let storyboard = UIStoryboard(name: "DiscountCardCreate", bundle: nil)
+        let discountCardCreateVC = storyboard.instantiateViewController(withIdentifier: "DiscountCardCreateVC") as! DiscountCardCreateViewController
+        discountCardCreateVC.discountCardID = discountCardID
+        
+        viewController.navigationController?.pushViewController(discountCardCreateVC, animated: true)
+    }
+
     // Communication
     func passDataToNextScene(segue: UIStoryboardSegue) {
         // NOTE: Teach the router which scenes it can communicate with

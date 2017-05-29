@@ -14,13 +14,15 @@ import Kingfisher
 
 // MARK: - Input protocols for current ViewController component VIP-cicle
 protocol DiscountCardCreateViewControllerInput {
-    func discountCardDidShowCreate(fromViewModel viewModel: DiscountCardCreateModels.Item.ViewModel)
+    func discountCardDidShowCreate(fromViewModel viewModel: DiscountCardCreateModels.Create.ViewModel)
+    func discountCardDidShowUpload(fromViewModel viewModel: DiscountCardCreateModels.Upload.ViewModel)
     func discountCardImageDidShowUpload(fromViewModel viewModel: DiscountCardCreateModels.Image.ViewModel)
 }
 
 // MARK: - Output protocols for Interactor component VIP-cicle
 protocol DiscountCardCreateViewControllerOutput {
-    func discountCardDidCreate(withRequestModel requestModel: DiscountCardCreateModels.Item.RequestModel)
+    func discountCardDidCreate(withRequestModel requestModel: DiscountCardCreateModels.Create.RequestModel)
+    func discountCardDidUpload(withRequestModel requestModel: DiscountCardCreateModels.Upload.RequestModel)
     func discountCardImageDidUpload(withRequestModel requestModel: DiscountCardCreateModels.Image.RequestModel)
 }
 
@@ -31,7 +33,7 @@ class DiscountCardCreateViewController: BaseViewController {
     
     var imageID: String?
     var barcodeID: String?
-    var discountCard: DiscountCard?
+    var discountCardID: String?
 
     var textFieldManager: MSMTextFieldManager! {
         didSet {
@@ -66,6 +68,18 @@ class DiscountCardCreateViewController: BaseViewController {
     
 
     // MARK: - Class Functions
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        if (blackoutView != nil) {
+            modalView?.center = blackoutView!.center
+        }
+        
+        if (spinner.isAnimating) {
+            spinner.center = view.center
+        }
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -94,34 +108,41 @@ class DiscountCardCreateViewController: BaseViewController {
         }
         
         // Edit mode
-        if (discountCard != nil) {
-            textFieldsCollection.first?.text = discountCard!.name
-            textFieldsCollection.last?.text = discountCard!.code
-            
-            if let photoImageID = discountCard!.imageID, !photoImageID.isEmpty {
-                self.photoImageView.kf.setImage(with: ImageResource(downloadURL: photoImageID.convertToURL(withSize: .Medium, inMode: .Get), cacheKey: photoImageID),
-                                                placeholder: nil,
-                                                options: [.transition(ImageTransition.fade(1)),
-                                                          .processor(ResizingImageProcessor(referenceSize: self.photoImageView.frame.size,
-                                                                                            mode: .aspectFill))],
-                                                completionHandler: { image, error, cacheType, imageURL in
-                                                    self.photoImageView.kf.cancelDownloadTask()
-                                                    self.imageID = photoImageID
-                })
-            } else {
-                self.photoImageView.contentMode = .center
-                self.photoImageView.backgroundColor = UIColor.init(hexString: "#273745")
+        if (discountCardID != nil) {
+            if let discountCard = CoreDataManager.instance.entityBy("DiscountCard", andCodeID: discountCardID!) as? DiscountCard {
+                textFieldsCollection.first?.text = discountCard.name
+                textFieldsCollection.last?.text = discountCard.code
                 
-                UIView.animate(withDuration: 0.5, animations: { 
-                     self.photoImageView.image = UIImage.init(named: "image-no-photo")
-                })
-            }
-            
-            if let barcodeImage = Barcode.convertToImageFromString(discountCard?.code) {
-                self.barcodeID = discountCard!.code
-                self.barcodeImageView.image = barcodeImage
-            } else {
-                self.barcodeImageView.backgroundColor = UIColor.init(hexString: "#273745")
+                if let photoImageID = discountCard.imageID, !photoImageID.isEmpty {
+                    self.photoImageView.kf.setImage(with: ImageResource(downloadURL: photoImageID.convertToURL(withSize: .Medium, inMode: .Get), cacheKey: photoImageID),
+                                                    placeholder: nil,
+                                                    options: [.transition(ImageTransition.fade(1)),
+                                                              .processor(ResizingImageProcessor(referenceSize: self.photoImageView.frame.size,
+                                                                                                mode: .aspectFill))],
+                                                    completionHandler: { image, error, cacheType, imageURL in
+                                                        self.photoImageView.kf.cancelDownloadTask()
+                                                        self.imageID = photoImageID
+                    })
+                } else {
+                    self.photoImageView.contentMode = .center
+                    self.photoImageView.backgroundColor = UIColor.init(hexString: "#273745")
+                    
+                    UIView.animate(withDuration: 0.5, animations: {
+                        self.photoImageView.image = UIImage.init(named: "image-no-photo")
+                    })
+                }
+                
+                if let barcodeImage = Barcode.convertToImageFromString(discountCard.code) {
+                    self.barcodeID = discountCard.code
+                    self.barcodeImageView.image = barcodeImage
+                } else {
+                    self.photoImageView.contentMode = .center
+                    self.photoImageView.backgroundColor = UIColor.init(hexString: "#273745")
+                    
+                    UIView.animate(withDuration: 0.5, animations: {
+                        self.photoImageView.image = UIImage.init(named: "image-no-photo")
+                    })
+                }
             }
         }
     }
@@ -133,7 +154,7 @@ class DiscountCardCreateViewController: BaseViewController {
         }
         
         modalView = ModalView.init(inView: blackoutView!, withHeight: 185.0)
-        let popupView = ConfirmSaveView.init(inView: modalView!, withText: "DiscountCard create message")
+        let popupView = ConfirmSaveView.init(inView: modalView!, withText: (discountCardID == nil) ? "DiscountCard create message" : "DiscountCard upload message")
         
         // Handler Cancel button tap
         popupView.handlerCancelButtonCompletion = { _ in
@@ -169,7 +190,7 @@ class DiscountCardCreateViewController: BaseViewController {
         smallTopBarView.circleView.setNeedsDisplay()
         
         _ = dottedBorderViewsCollection.map({ $0.setNeedsDisplay() })
-       
+        
         self.view.layoutIfNeeded()
     }
 
@@ -178,15 +199,21 @@ class DiscountCardCreateViewController: BaseViewController {
     @IBAction func handlerSaveButtonTap(_ sender: FillVeryLightOrangeButton) {
         spinnerDidStart(view)
 
-        let parameters: [String: Any]  =    [
+        var parameters: [String: Any]  =    [
                                                 "imageId":  self.imageID ?? "",
                                                 "name":     self.textFieldsCollection.first?.text ?? "",
                                                 "code":     self.textFieldsCollection.last?.text ?? "",
                                                 "format":   "QR"
                                             ]
         
-        let discountCardRequestModel = DiscountCardCreateModels.Item.RequestModel(parameters: parameters)
-        interactor.discountCardDidCreate(withRequestModel: discountCardRequestModel)
+        if (discountCardID == nil) {
+            let discountCardRequestModel = DiscountCardCreateModels.Create.RequestModel(parameters: parameters)
+            interactor.discountCardDidCreate(withRequestModel: discountCardRequestModel)
+        } else {
+            parameters["uuid"] = discountCardID
+            let discountCardRequestModel = DiscountCardCreateModels.Upload.RequestModel(parameters: parameters)
+            interactor.discountCardDidUpload(withRequestModel: discountCardRequestModel)
+        }
     }
     
     @IBAction func handlerCancelButtonTap(_ sender: BorderVeryLightOrangeButton) {
@@ -252,9 +279,23 @@ class DiscountCardCreateViewController: BaseViewController {
 
 // MARK: - DiscountCardCreateViewControllerInput
 extension DiscountCardCreateViewController: DiscountCardCreateViewControllerInput {
-    func discountCardDidShowCreate(fromViewModel viewModel: DiscountCardCreateModels.Item.ViewModel) {
+    func discountCardDidShowCreate(fromViewModel viewModel: DiscountCardCreateModels.Create.ViewModel) {
         spinnerDidFinish()
 
+        // Check for errors
+        guard viewModel.status == "SUCCESS" else {
+            self.alertViewDidShow(withTitle: "Error", andMessage: viewModel.status, completion: { })
+            
+            return
+        }
+        
+        // Show success modal view
+        modalViewDidShow()
+    }
+    
+    func discountCardDidShowUpload(fromViewModel viewModel: DiscountCardCreateModels.Upload.ViewModel) {
+        spinnerDidFinish()
+        
         // Check for errors
         guard viewModel.status == "SUCCESS" else {
             self.alertViewDidShow(withTitle: "Error", andMessage: viewModel.status, completion: { })

@@ -19,7 +19,10 @@ class ModalView: CustomView {
         
         self.backgroundColor = UIColor.clear
         view.addSubview(self)
-        self.center = view.center        
+        self.center = view.center
+        
+        self.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        self.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
     }
     
     required init?(coder aDecoder: NSCoder) {
