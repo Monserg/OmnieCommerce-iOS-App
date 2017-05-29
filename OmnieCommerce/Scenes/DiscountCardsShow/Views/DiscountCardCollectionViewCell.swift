@@ -35,7 +35,7 @@ extension DiscountCardCollectionViewCell: ConfigureCell {
         
         if let imageID = discountCard.imageID {
             imageView.kf.setImage(with: ImageResource(downloadURL: imageID.convertToURL(withSize: .Small, inMode: .Get), cacheKey: imageID),
-                                  placeholder: UIImage.init(named: "image-no-photo"),
+                                  placeholder: nil,
                                   options: [.transition(ImageTransition.fade(1)),
                                             .processor(ResizingImageProcessor(referenceSize: imageView.frame.size,
                                                                               mode: .aspectFill))],
@@ -43,7 +43,12 @@ extension DiscountCardCollectionViewCell: ConfigureCell {
                                     self.imageView.kf.cancelDownloadTask()
             })
         } else {
-            imageView.image = UIImage.init(named: "image-no-photo")
+            imageView.contentMode = .center
+            
+            UIView.animate(withDuration: 0.5, animations: { 
+                self.imageView.backgroundColor = UIColor.veryDarkGrayishBlue38
+                self.imageView.image = UIImage.init(named: "image-no-photo")
+            })
         }
         
         // Set selected color

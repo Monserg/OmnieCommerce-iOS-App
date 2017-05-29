@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="landscape">
+    <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -20,25 +20,58 @@
                         <viewControllerLayoutGuide type="bottom" id="j6u-3J-zWE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="A4D-yP-xw0">
-                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="mQb-sM-Lo4" customClass="MSMCollectionView" customModule="OmnieCommerce" customModuleProvider="target">
-                                <rect key="frame" x="73.5" y="50" width="520" height="297"/>
+                                <rect key="frame" x="8" y="65" width="359" height="574"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="12" minimumInteritemSpacing="39" id="huf-bC-RIX">
-                                    <size key="itemSize" width="170" height="102"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="15" minimumInteritemSpacing="20" id="huf-bC-RIX">
+                                    <size key="itemSize" width="160" height="126"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="359" height="60"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells/>
+                                <collectionReusableView key="sectionFooterView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="InfiniteScrollingFooterView" id="v1k-wJ-hWp">
+                                    <rect key="frame" x="0.0" y="0.0" width="359" height="60"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <activityIndicatorView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="Rt9-Sm-bGO">
+                                            <rect key="frame" x="169" y="8" width="20" height="20"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                            </userDefinedRuntimeAttributes>
+                                        </activityIndicatorView>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading More" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uzs-Pd-EY8" userLabel="Infinite Label" customClass="UbuntuLightVeryLightGrayLabel" customModule="OmnieCommerce" customModuleProvider="target">
+                                            <rect key="frame" x="140" y="33" width="77.5" height="14.5"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                            </userDefinedRuntimeAttributes>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstItem="Rt9-Sm-bGO" firstAttribute="centerX" secondItem="v1k-wJ-hWp" secondAttribute="centerX" id="0f6-gx-elc"/>
+                                        <constraint firstItem="Rt9-Sm-bGO" firstAttribute="centerY" secondItem="v1k-wJ-hWp" secondAttribute="centerY" multiplier="0.6" id="UsI-wT-Ujr"/>
+                                        <constraint firstItem="uzs-Pd-EY8" firstAttribute="centerX" secondItem="v1k-wJ-hWp" secondAttribute="centerX" id="qRM-bR-ln3"/>
+                                        <constraint firstItem="uzs-Pd-EY8" firstAttribute="top" secondItem="Rt9-Sm-bGO" secondAttribute="bottom" constant="5" id="wcG-Sg-AXE"/>
+                                    </constraints>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                    </userDefinedRuntimeAttributes>
+                                </collectionReusableView>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </collectionView>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K4O-Hp-7T4" customClass="SmallTopBarView" customModule="OmnieCommerce" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="667" height="80"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="95"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="titleText" value="DiscountCards"/>
@@ -47,7 +80,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Copyright" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mhd-tM-ire" userLabel="Copyright Label" customClass="UbuntuLightDarkCyanLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                                <rect key="frame" x="8" y="356" width="651" height="11"/>
+                                <rect key="frame" x="8" y="648" width="359" height="11"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="9"/>
                                 <nil key="textColor"/>
@@ -57,7 +90,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MWO-T0-hvb" userLabel="Create New Discount Card Button" customClass="FillColorButton" customModule="OmnieCommerce" customModuleProvider="target">
-                                <rect key="frame" x="594" y="290" width="57" height="57"/>
+                                <rect key="frame" x="302" y="582" width="57" height="57"/>
                                 <color key="backgroundColor" red="0.85098039219999999" green="0.72941176470000002" blue="0.40784313729999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="MWO-T0-hvb" secondAttribute="height" multiplier="1:1" id="xqC-wy-ChY"/>
@@ -79,7 +112,6 @@
                                 <variation key="heightClass=compact-widthClass=compact" constant="0.0"/>
                                 <variation key="heightClass=compact-widthClass=regular" constant="0.0"/>
                             </constraint>
-                            <constraint firstItem="Mhd-tM-ire" firstAttribute="top" secondItem="mQb-sM-Lo4" secondAttribute="bottom" constant="9" id="9j3-l2-yV5"/>
                             <constraint firstAttribute="trailing" secondItem="Mhd-tM-ire" secondAttribute="trailing" constant="8" id="AaT-uz-y0p"/>
                             <constraint firstItem="MWO-T0-hvb" firstAttribute="height" secondItem="A4D-yP-xw0" secondAttribute="height" multiplier="57:375" id="Ego-pw-C2z"/>
                             <constraint firstAttribute="bottom" secondItem="Mhd-tM-ire" secondAttribute="bottom" constant="8" id="I5B-45-Ist"/>
@@ -96,6 +128,7 @@
                             <constraint firstItem="mQb-sM-Lo4" firstAttribute="width" secondItem="A4D-yP-xw0" secondAttribute="width" multiplier="520:667" id="mqu-nB-ytR"/>
                             <constraint firstItem="K4O-Hp-7T4" firstAttribute="height" secondItem="A4D-yP-xw0" secondAttribute="height" multiplier="80:375" id="n2M-rK-mUC"/>
                             <constraint firstAttribute="trailing" secondItem="MWO-T0-hvb" secondAttribute="trailing" constant="16" id="p5b-Hr-ymL"/>
+                            <constraint firstItem="Mhd-tM-ire" firstAttribute="top" secondItem="mQb-sM-Lo4" secondAttribute="bottom" constant="9" id="ybR-FI-5vh"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">

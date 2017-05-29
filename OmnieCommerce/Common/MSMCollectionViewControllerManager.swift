@@ -23,9 +23,13 @@ class MSMCollectionViewControllerManager: BaseViewController {
     var dataSourceFiltered = [Any]()
     var isSearchBarActive: Bool = false
     var refreshControl: UIRefreshControl?
+    var footerViewHeight: CGFloat = 60.0
+//    var infiniteScrollingView: UIView?
     var isLoadMore = false
     var sectionsCount = 0
     var emptyText: String!
+    var scrollPushPosition: CGFloat = 0.0
+    var showFooterView = false
 
     // Handlers
     var handlerCellSelectCompletion: HandlerPassDataCompletion?
@@ -42,6 +46,7 @@ class MSMCollectionViewControllerManager: BaseViewController {
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
         self.emptyText = text
+        self.scrollPushPosition = self.collectionView.contentOffset.y
         
         self.pullRefreshDidCreate()
     }
@@ -84,27 +89,28 @@ class MSMCollectionViewControllerManager: BaseViewController {
             return
         }
         
-//        if (!self.collectionView!.hasHeaders && (self.dataSource.count + self.dataSourceFiltered.count > 0)) {
-//            if (scrollView.contentOffset.y >= footerViewHeight && !isLoadMore) {
-//                isLoadMore = !isLoadMore
-//                
-//                // Refresh FooterView
-//                self.collectionView!.beginUpdates()
-//                
-//                (self.collectionView!.tableFooterView as! MSMTableViewFooterView).didUpload(forItemsCount: dataSource.count,
-//                                                                                       andEmptyText: emptyText)
-//                
-//                self.tableView!.endUpdates()
-//                
-//                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
-//                    self.handlerInfiniteScrollCompletion!()
-//                }
-//            }
-//        }
+        if (!self.collectionView!.hasHeaders && (self.dataSource.count + self.dataSourceFiltered.count > 0)) {
+            if (scrollView.contentOffset.y >= footerViewHeight && !isLoadMore) {
+                isLoadMore = !isLoadMore
+                
+                // Refresh Infinite Scrolling view
+                showFooterView(true)
+                
+                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
+                    self.handlerInfiniteScrollCompletion!()                    
+                    self.showFooterView(false)
+                }
+            }
+        }
     }
 
     
     // MARK: - Custom Functions
+    private func showFooterView(_ show: Bool) {
+        self.showFooterView = show
+        self.collectionView.collectionViewLayout.invalidateLayout()
+    }
+    
     private func pullRefreshDidCreate() {
         if (!collectionView!.hasHeaders) {
             refreshControl = UIRefreshControl()
@@ -124,6 +130,7 @@ class MSMCollectionViewControllerManager: BaseViewController {
     }
     
     func pullRefreshDidFinish() {
+        collectionView.setContentOffset(CGPoint.init(x: 0, y: scrollPushPosition), animated: true)
         refreshControl!.endRefreshing()
         isLoadMore = false
     }
@@ -215,8 +222,9 @@ extension MSMCollectionViewControllerManager: UICollectionViewDelegateFlowLayout
             let height: CGFloat = cellHeight * self.collectionView.heightRatio
             let width: CGFloat = ((UIApplication.shared.statusBarOrientation.isLandscape) ? CGFloat(520.0) : UIScreen.main.bounds.width - 16.0) * self.collectionView.widthRatio
             
-            return (UIApplication.shared.statusBarOrientation.isPortrait) ? CGSize.init(width: (width - 39.0) / 2, height: height) :
-                                                                            CGSize.init(width: (width - 20.0 * 2) / 3, height: height)
+            return (UIApplication.shared.statusBarOrientation.isLandscape) ?    CGSize.init(width: (width - 20 * 2) / 3, height: height) :
+                                                                                CGSize.init(width: (width - 39.0) / 2, height: height)
+            
 
         case "CirclePhotoCollectionViewCell":
             let height: CGFloat = cellHeight * self.collectionView.heightRatio
@@ -230,5 +238,31 @@ extension MSMCollectionViewControllerManager: UICollectionViewDelegateFlowLayout
         }
         
         return CGSize.zero
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
+        return (showFooterView) ? CGSize.init(width: collectionView.frame.width, height: footerViewHeight) : .zero
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        switch kind {
+        case UICollectionElementKindSectionHeader:
+            let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind,
+                                                                             withReuseIdentifier: "Header",
+                                                                             for: indexPath)
+            headerView.backgroundColor = UIColor.blue
+            
+            return headerView
+            
+        case UICollectionElementKindSectionFooter:
+            let footerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind,
+                                                                             withReuseIdentifier: "InfiniteScrollingFooterView",
+                                                                             for: indexPath)
+            
+            return footerView
+            
+        default:
+            assert(false, "Unexpected element kind")
+        }
     }
 }

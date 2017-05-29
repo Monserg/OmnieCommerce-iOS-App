@@ -100,7 +100,7 @@ class DiscountCardCreateViewController: BaseViewController {
             
             if let photoImageID = discountCard!.imageID, !photoImageID.isEmpty {
                 self.photoImageView.kf.setImage(with: ImageResource(downloadURL: photoImageID.convertToURL(withSize: .Medium, inMode: .Get), cacheKey: photoImageID),
-                                                placeholder: UIImage.init(named: "image-no-photo"),
+                                                placeholder: nil,
                                                 options: [.transition(ImageTransition.fade(1)),
                                                           .processor(ResizingImageProcessor(referenceSize: self.photoImageView.frame.size,
                                                                                             mode: .aspectFill))],
@@ -109,7 +109,12 @@ class DiscountCardCreateViewController: BaseViewController {
                                                     self.imageID = photoImageID
                 })
             } else {
+                self.photoImageView.contentMode = .center
                 self.photoImageView.backgroundColor = UIColor.init(hexString: "#273745")
+                
+                UIView.animate(withDuration: 0.5, animations: { 
+                     self.photoImageView.image = UIImage.init(named: "image-no-photo")
+                })
             }
             
             if let barcodeImage = Barcode.convertToImageFromString(discountCard?.code) {

@@ -29,9 +29,16 @@ class DiscountCardsShowViewController: BaseViewController {
     var limit: Int!
 
     // Outlets
+    @IBOutlet weak var infiniteScrollingView: UIView!
     @IBOutlet weak var smallTopBarView: SmallTopBarView!
     @IBOutlet weak var createNewDiscountCardButton: FillColorButton!
     
+    @IBOutlet weak var infiniteSpinner: UIActivityIndicatorView! {
+        didSet {
+            spinner.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
+        }
+    }
+
     @IBOutlet weak var collectionView: MSMCollectionView! {
         didSet {
             collectionView.contentInset = UIEdgeInsetsMake(45, 0, 0, 0)
@@ -62,14 +69,6 @@ class DiscountCardsShowViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-//
-////        if (collectionView.collectionViewControllerManager == nil) {
-////            limit = Config.Constants.paginationLimit
-////        } else {
-////            limit = (collectionView.collectionViewControllerManager.dataSource.count == 0) ?    Config.Constants.paginationLimit :
-////                                                                                                collectionView.collectionViewControllerManager.dataSource.count
-////        }
-////     
         
         limit = (discountCards.count == 0) ? Config.Constants.paginationLimit : discountCards.count
         viewSettingsDidLoad()
@@ -112,9 +111,11 @@ class DiscountCardsShowViewController: BaseViewController {
 
     func discountCardsListDidShow() {
         // Setting MSMTableViewControllerManager
-        collectionView.collectionViewControllerManager = MSMCollectionViewControllerManager.init(withCollectionView: collectionView,
-                                                                                                 andEmptyMessageText: "DiscountCards list is empty")
-
+        if (collectionView.collectionViewControllerManager == nil) {
+            collectionView.collectionViewControllerManager = MSMCollectionViewControllerManager.init(withCollectionView: collectionView,
+                                                                                                     andEmptyMessageText: "DiscountCards list is empty")
+        }
+        
         let discountCardsEntities = CoreDataManager.instance.entitiesDidLoad(byName: "DiscountCard",
                                                                              andPredicateParameters: NSPredicate(format: "ANY lists.name == %@", keyDiscountCards))
         
@@ -123,8 +124,13 @@ class DiscountCardsShowViewController: BaseViewController {
             
             collectionView.collectionViewControllerManager!.sectionsCount = 1
             collectionView.collectionViewControllerManager!.dataSource = discountCards
+//            collectionView.collectionViewControllerManager.infiniteScrollingView = infiniteScrollingView
 
             collectionView.reloadData()
+            
+//            if (infiniteScrollingView.isHidden == false) {
+//                infiniteScrollingView.isHidden = true
+//            }
         }
         
         // Search Manager
@@ -135,7 +141,7 @@ class DiscountCardsShowViewController: BaseViewController {
             self.router.navigateToDiscountCardShowScene(withDiscountCard: discountCard as! DiscountCard)
         }
         
-        // Handler PullRefresh
+        // Handler Pull Refresh
         collectionView.collectionViewControllerManager!.handlerPullRefreshCompletion = { _ in
             // Reload DiscountCards list from API
             self.discountCards = [DiscountCard]()
@@ -144,7 +150,7 @@ class DiscountCardsShowViewController: BaseViewController {
             self.discountCardsListDidLoad(withOffset: 0, filter: "", scrollingData: true)
         }
         
-        // Handler InfiniteScroll
+        // Handler Infinite Scrolling
         collectionView.collectionViewControllerManager.handlerInfiniteScrollCompletion = { _ in
             // Load More DiscountCards from API
             self.discountCardsListDidLoad(withOffset: self.discountCards.count, filter: "", scrollingData: true)
