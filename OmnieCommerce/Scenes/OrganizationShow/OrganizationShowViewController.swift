@@ -368,7 +368,7 @@ class OrganizationShowViewController: BaseViewController {
         // Common discounts
         var discounts: Int = 0
         
-        if let discountsCommon = CoreDataManager.instance.entitiesDidLoad(byName: "Discount", andPredicateParameters: NSPredicate.init(format: "ANY isUserDiscount == \(false) AND organization.codeID == %@", organizationProfile.codeID)), discountsCommon.count > 0 {
+        if let discountsCommon = CoreDataManager.instance.entitiesDidLoad(byName: "Discount", andPredicateParameters: NSPredicate.init(format: "ANY isUserDiscount == \(false) AND organizationID == %@", organizationProfile.codeID)), discountsCommon.count > 0 {
             discountCommonStackView.isHidden = false
             discounts += discountsCommon.count
             
@@ -379,15 +379,16 @@ class OrganizationShowViewController: BaseViewController {
             discountsCommonTableView.tableViewControllerManager = discountCommonTableManager
             discountsCommonTableView.tableViewControllerManager!.dataSource = discountsCommon
             discountsCommonTableView.tableFooterView!.isHidden = true
-            discountCommonTableViewHeightConstraint.constant = CGFloat(50.0 + 50.0 * Double(discountsCommon.count)) * view.heightRatio
+            discountCommonTableViewHeightConstraint.constant = CGFloat(58.0 * Double(discountsCommon.count)) * view.heightRatio + 10.0
             
             discountsCommonTableView.reloadData()
         } else {
             discountCommonStackView.isHidden = true
+            discountCommonTableViewHeightConstraint.constant = 0.0
         }
         
         // User discounts
-        if let discountsUser = CoreDataManager.instance.entitiesDidLoad(byName: "Discount", andPredicateParameters: NSPredicate.init(format: "ANY isUserDiscount == \(true) AND organization.codeID == %@", organizationProfile.codeID)), discountsUser.count > 0 {
+        if let discountsUser = CoreDataManager.instance.entitiesDidLoad(byName: "Discount", andPredicateParameters: NSPredicate.init(format: "ANY isUserDiscount == \(true) AND organizationID == %@", organizationProfile.codeID)), discountsUser.count > 0 {
             discountUserStackView.isHidden = false
             discounts += discountsUser.count
             
@@ -398,11 +399,12 @@ class OrganizationShowViewController: BaseViewController {
             discountsUserTableView.tableViewControllerManager = discountsUserTableManager
             discountsUserTableView.tableViewControllerManager!.dataSource = discountsUser
             discountsUserTableView.tableFooterView!.isHidden = true
-            discountsUserTableViewHeightConstraint.constant = CGFloat(61.0 + 50.0 * Double(discountsUser.count)) * view.heightRatio
+            discountsUserTableViewHeightConstraint.constant = CGFloat(61.0 + 58.0 * Double(discountsUser.count)) * view.heightRatio
             
             discountsUserTableView.reloadData()
         } else {
             discountUserStackView.isHidden = true
+            discountsUserTableViewHeightConstraint.constant = 0.0
         }
         
         if (discounts > 0) {
@@ -516,8 +518,6 @@ class OrganizationShowViewController: BaseViewController {
             ratingView.isHidden = false
             
             let userReview = CoreDataManager.instance.entityBy("Review", andCodeID: "\(organizationProfile.codeID)-UserReview") as! Review
-//            entityDidLoad(byName: "Review", andPredicateParameters: NSPredicate.init(format: "codeID == %@", "\(organizationProfile.codeID)-UserReview")) as! Review
-            
             userNameLabel.text = userReview.userName ?? "Zorro"
             cosmosView.rating = userReview.rating
             
@@ -539,6 +539,9 @@ class OrganizationShowViewController: BaseViewController {
             }
         } else {
             ratingView.isHidden = true
+            
+            // Hide last dotted line in Services view
+            _ = dottedBorderViewsCollection.filter({ $0.tag == 100 }).map({ $0.isHidden = reviewsView.isHidden && ratingView.isHidden })
         }        
         
         _ = dottedBorderViewsCollection.map { $0.setNeedsDisplay() }

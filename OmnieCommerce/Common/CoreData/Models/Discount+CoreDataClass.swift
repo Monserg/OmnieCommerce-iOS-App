@@ -13,7 +13,7 @@ import CoreData
 public class Discount: NSManagedObject, InitCellParameters {
     // Confirm InitCellParameters Protocol
     var cellIdentifier: String = "DiscountTableViewCell"
-    var cellHeight: CGFloat = 50.0
+    var cellHeight: CGFloat = 58.0
 
     
     // MARK: - Class Initialization
