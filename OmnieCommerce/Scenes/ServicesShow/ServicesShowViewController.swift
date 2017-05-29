@@ -46,10 +46,14 @@ class ServicesShowViewController: BaseViewController {
             
             // Create sections array
             for service in services.filter({ ($0.prices?.count)! > 0 }) {
-                headers.append(ExpandedHeaderCell.init(withName: service.name))
-                var prices = [Price]()
+                headers.append(ExpandedHeaderCell.init(withName: service.name, inMode: mode))
                 
+                var prices = [Price]()
+
                 for price in service.prices! {
+                    (price as! Price).cellHeight = 44.0
+                    (price as! Price).cellIdentifier = "ServicePriceTableViewCell"
+                    
                     prices.append(price as! Price)
                 }
                 

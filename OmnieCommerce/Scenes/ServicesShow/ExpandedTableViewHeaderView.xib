@@ -98,6 +98,7 @@
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="additionalExpandButton" destination="VwW-HJ-jWG" id="Cv5-e4-bte"/>
                 <outlet property="expandButton" destination="bvb-AP-Q0W" id="Dqt-kV-w2R"/>
                 <outlet property="nameLabel" destination="4V5-Vh-iqk" id="lUA-m6-V0i"/>
             </connections>

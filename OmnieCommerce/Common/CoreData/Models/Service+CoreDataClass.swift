@@ -129,9 +129,15 @@ public class Service: NSManagedObject, InitCellParameters, PointAnnotationBindin
     
         
         // Prices
-        if let prices = json["servicePrices"] as? [Any] {
-            for json in prices {
-                self.addToPrices(Price.init(json: json as! [String: AnyObject], andNSManagedObject: self)!)
+        if let prices = json["servicePrices"] as? [[String: AnyObject]], prices.count > 0 {
+            for jsonPrice in prices {
+                if let codeID = jsonPrice["uuid"] as? String {
+                    if let price = CoreDataManager.instance.entityBy("Price", andCodeID: codeID) as? Price {
+                        price.profileDidUpload(json: jsonPrice, forService: self)
+                        
+                        self.addToPrices(price)
+                    }
+                }
             }
         }
         

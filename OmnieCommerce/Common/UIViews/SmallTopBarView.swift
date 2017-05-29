@@ -81,7 +81,7 @@ enum ViewType: String {
         actionButton.alpha                  =   1
         titleLabel.clipsToBounds            =   true
         dottesStackView.alpha               =   1
-        titleLabel.text                     =   titleText?.localized() ?? "Zorro"
+        titleLabel.text                     =   titleText?.localized() ?? ""
         actionButton.setImage(UIImage.init(named: "icon-menu-normal"), for: .normal)
         searchBar.barTintColor              =   UIColor.darkCyan
         searchBar.tintColor                 =   UIColor.veryLightGray

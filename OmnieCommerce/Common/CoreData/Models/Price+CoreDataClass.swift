@@ -16,38 +16,24 @@ public class Price: NSManagedObject, InitCellParameters {
     var cellHeight: CGFloat = 44.0
 
     
-    // MARK: - Class Initialization
-    convenience init?(json: [String: AnyObject], andNSManagedObject managedObject: NSManagedObject?) {
-        guard let codeID = json["uuid"] as? String, let day = json["day"] as? UInt16, let price = json["price"] as? Double, let unit = json["unit"] as? UInt16, let dateCreated = json["createDate"] as? String, let ruleTimeStart = json["startRule"] as? String, let ruleTimeEnd = json["endRule"] as? String else {
-            return nil
-        }
-        
-        // Check Entity available in CoreData
-        guard let priceEntity = CoreDataManager.instance.entityForName("Price") else {
-            return nil
-        }
-        
-        // Create Entity
-        self.init(entity: priceEntity, insertInto: CoreDataManager.instance.managedObjectContext)
-        
+    // MARK: - Custom Functions
+    func profileDidUpload(json: [String: AnyObject], forService service: Service) {
         // Prepare to save common data
-        self.codeID = codeID
-        self.day = day
+        self.codeID = json["uuid"] as! String
+        self.day = json["day"] as! UInt16
         self.dayName = day.convertToScheduleString()
-        self.price = price
-        self.unit = unit
-        self.unitName = unit.convertToUnitString() ?? "ZZZ"
-        self.dateCreated = dateCreated.convertToDate(withDateFormat: .PriceDate) as NSDate
-        self.ruleTimeStart = ruleTimeStart
-        self.ruleTimeEnd = ruleTimeEnd
+        self.price = json["price"] as! Double
+        self.unit = json["unit"] as! UInt16
+        self.unitName = unit.convertToUnitString() ?? "Zorro"
+        self.dateCreated = (json["createDate"] as! String).convertToDate(withDateFormat: .PriceDate) as NSDate
+        self.ruleTimeStart = json["startRule"] as! String
+        self.ruleTimeEnd = json["endRule"] as! String
         
         if let serviceID = json["serviceId"] as? String {
             self.serviceID = serviceID
         }
-
-        if let service = managedObject as? Service {
-            self.service = service
-        }
+        
+        self.service = service
     }
     
     deinit {

@@ -12,6 +12,7 @@ class ExpandedHeaderCell: NSObject, InitCellParameters {
     // MARK: - Properties
     var name: String!
     var isExpanded: Bool = false
+    var mode: ServicesShowMode = .AllServices
     
     // Confirm InitCellParameters Protocol
     var cellIdentifier: String = "ExpandedTableViewHeaderView"
@@ -19,9 +20,11 @@ class ExpandedHeaderCell: NSObject, InitCellParameters {
     
     
     // MARK: - Class Initialization
-    init(withName name: String) {
+    init(withName name: String, inMode mode: ServicesShowMode) {
         super.init()
         
         self.name = name
+        self.mode = mode
+        self.isExpanded = (mode == .AllServices) ? false : true
     }
 }
