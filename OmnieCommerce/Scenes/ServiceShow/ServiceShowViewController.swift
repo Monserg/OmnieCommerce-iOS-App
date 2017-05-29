@@ -61,6 +61,7 @@ class ServiceShowViewController: BaseViewController {
     @IBOutlet weak var titleLabel: UbuntuLightVeryLightOrangeLabel!
     @IBOutlet weak var titleViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var titleTableViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var contentLabelHeightConstraint: NSLayoutConstraint!
 
     @IBOutlet weak var contentLabel: UbuntuLightVeryLightGrayLabel! {
         didSet {
@@ -239,6 +240,8 @@ class ServiceShowViewController: BaseViewController {
             titleLabel.text = serviceProfile.name
             contentLabel.text = serviceProfile.descriptionContent ?? ""
             contentLabel.sizeToFit()
+            contentLabelHeightConstraint.constant = contentLabel.frame.height
+            contentLabel.layoutIfNeeded()
             
             favoriteButton.tag = (serviceProfile.isFavorite) ? 1 : 0
             favoriteButton.setImage(UIImage.init(named: (favoriteButton.tag == 0) ? "image-favorite-star-normal" : "image-favorite-star-selected"), for: .normal)
@@ -253,6 +256,9 @@ class ServiceShowViewController: BaseViewController {
                 titleTableView.tableFooterView!.isHidden = true
                 titleTableViewHeightConstraint.constant = CGFloat(20.0 * Double(serviceProfile.prices!.count)) * view.heightRatio
                 titleTableView.layoutIfNeeded()
+                
+                titleViewHeightConstraint.constant = titleTableView.frame.maxY + 19.0
+                view.layoutIfNeeded()
 
                 titleTableView.reloadData()
             }
@@ -410,6 +416,9 @@ class ServiceShowViewController: BaseViewController {
             }
         } else {
             ratingView.isHidden = true
+
+            // Hide last dotted line in Comment view
+            _ = dottedBorderViewsCollection.filter({ $0.tag == 100 }).map({ $0.isHidden = reviewsView.isHidden && ratingView.isHidden })
         }
         
         smallTopBarView.actionButton.isHidden = false
