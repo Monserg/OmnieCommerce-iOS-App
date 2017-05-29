@@ -187,7 +187,7 @@
                                             <view clipsSubviews="YES" contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="oQx-AA-cxs" userLabel="Top Left View">
                                                 <rect key="frame" x="0.0" y="21.5" width="304" height="122.5"/>
                                                 <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image-no-organization" translatesAutoresizingMaskIntoConstraints="NO" id="quN-na-7ti" userLabel="Logo Image View" customClass="CustomImageView" customModule="OmnieCommerce" customModuleProvider="target">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="quN-na-7ti" userLabel="Logo Image View" customClass="CustomImageView" customModule="OmnieCommerce" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="304" height="122.5"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <userDefinedRuntimeAttributes>
@@ -198,11 +198,18 @@
                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
                                                         </userDefinedRuntimeAttributes>
                                                     </imageView>
+                                                    <activityIndicatorView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="ijC-5j-EDc">
+                                                        <rect key="frame" x="134" y="43" width="37" height="37"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        <color key="color" red="0.094117647058823528" green="0.40392156862745099" blue="0.43529411764705883" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </activityIndicatorView>
                                                 </subviews>
                                                 <color key="backgroundColor" red="0.15294117647058825" green="0.21568627450980393" blue="0.27058823529411763" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
+                                                    <constraint firstItem="ijC-5j-EDc" firstAttribute="centerX" secondItem="oQx-AA-cxs" secondAttribute="centerX" id="Kty-hy-6n1"/>
                                                     <constraint firstAttribute="bottom" secondItem="quN-na-7ti" secondAttribute="bottom" id="OGK-BL-JQk"/>
                                                     <constraint firstItem="quN-na-7ti" firstAttribute="top" secondItem="oQx-AA-cxs" secondAttribute="top" id="UOP-N8-PRA"/>
+                                                    <constraint firstItem="ijC-5j-EDc" firstAttribute="centerY" secondItem="oQx-AA-cxs" secondAttribute="centerY" id="snj-f5-ie6"/>
                                                     <constraint firstAttribute="trailing" secondItem="quN-na-7ti" secondAttribute="trailing" id="uaz-qv-ACZ"/>
                                                     <constraint firstItem="quN-na-7ti" firstAttribute="leading" secondItem="oQx-AA-cxs" secondAttribute="leading" id="v7A-2I-fni"/>
                                                 </constraints>
@@ -388,6 +395,7 @@
                     <connections>
                         <outlet property="dateLabel" destination="o3s-FE-K1t" id="ufv-bZ-Hjq"/>
                         <outlet property="logoImageView" destination="quN-na-7ti" id="6wZ-L6-83L"/>
+                        <outlet property="logoImageViewSpinner" destination="ijC-5j-EDc" id="RXN-fI-w7E"/>
                         <outlet property="organizationButton" destination="4fB-vI-cJk" id="nek-1H-Uis"/>
                         <outlet property="smallTopBarView" destination="uac-VS-0kU" id="uwY-df-2dz"/>
                         <outlet property="textView" destination="pvh-xD-20U" id="RcM-c8-iu3"/>
@@ -456,7 +464,4 @@
             <point key="canvasLocation" x="325.60000000000002" y="178.56071964017991"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="image-no-organization" width="24" height="20"/>
-    </resources>
 </document>

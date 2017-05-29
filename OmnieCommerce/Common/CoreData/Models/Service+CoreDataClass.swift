@@ -95,7 +95,7 @@ public class Service: NSManagedObject, InitCellParameters, PointAnnotationBindin
             self.organizationName = organizationName
         }
         
-        if let imageID = json["staticUrl"] as? String {
+        if let imageID = json["imageId"] as? String {
             self.imageID = imageID
         }
 

@@ -30,30 +30,18 @@ public class NewsData: NSManagedObject, InitCellParameters, SearchObject {
     }
     
     
-    // MARK: - Class Initialization
-    convenience init?(json: [String: AnyObject], isAction: Bool) {
-        guard let codeID = json["uuid"] as? String, let organizationName = json["orgName"] as? String, let title = json["title"] as? String, let date = json["date"] as? String, let organizationID = json["organization"] as? String else {
-            return nil
-        }
-
-        // Check Entity available in CoreData
-        guard let newsDataEntity = CoreDataManager.instance.entityForName("NewsData") else {
-            return nil
-        }
-        
-        // Create Entity
-        self.init(entity: newsDataEntity, insertInto: CoreDataManager.instance.managedObjectContext)
-        
+    // MARK: - Custom Functions
+    func profileDidUpload(json: [String: AnyObject], isAction: Bool) {
         // Prepare to save common data
-        self.title = title
-        self.codeID = codeID
+        self.title = json["title"] as! String
+        self.codeID = json["uuid"] as! String
         self.isAction = isAction
-        self.organizationID = organizationID
-        self.organizationName = organizationName
+        self.organizationID = json["organization"] as! String
+        self.organizationName = json["orgName"] as! String
         self.name = organizationName
-        self.activeDate = date.convertToDate(withDateFormat: .NewsDate) as NSDate
+        self.activeDate = (json["date"] as! String).convertToDate(withDateFormat: .NewsDate) as NSDate
         
-        if let imageID = json["imageUrl"] as? String {
+        if let imageID = json["imageId"] as? String {
             self.imageID = imageID
         }
         

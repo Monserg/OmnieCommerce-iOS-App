@@ -36,8 +36,11 @@ class NewsDataShowPresenter: NewsDataShowPresenterInput {
         }
         
         // Convert responseAPI body to NewsData news & Lists CoreData objects
-        for json in responseModel.responseAPI!.body as! [Any] {
-            _ = NewsData.init(json: json as! [String: AnyObject], isAction: false)
+        for jsonNewsData in responseModel.responseAPI!.body as! [[String: AnyObject]] {
+            if let codeID = jsonNewsData["uuid"] as? String {
+                let newsData = CoreDataManager.instance.entityBy("NewsData", andCodeID: codeID) as! NewsData
+                newsData.profileDidUpload(json: jsonNewsData, isAction: false)
+            }
         }
         
         CoreDataManager.instance.didSaveContext()

@@ -42,7 +42,13 @@ class NewsDataShowRouter: NewsDataShowRouterInput {
             }
             
             // Create News
-            _ = NewsData.init(json: responseAPI!.body as! [String: AnyObject], isAction: false)
+            if let jsonNewsData = responseAPI?.body as? [String: AnyObject] {
+                if let codeID = jsonNewsData["uuid"] as? String {
+                    let newsData = CoreDataManager.instance.entityBy("NewsData", andCodeID: codeID) as! NewsData
+                    newsData.profileDidUpload(json: jsonNewsData, isAction: false)
+                }
+            }
+
             CoreDataManager.instance.didSaveContext()
 
             // Transition to NewsData profile scene

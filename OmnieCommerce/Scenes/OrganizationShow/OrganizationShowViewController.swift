@@ -277,7 +277,7 @@ class OrganizationShowViewController: BaseViewController {
             smallTopBarView.actionButton.isHidden = true
             
             // Set Header image
-            headerView!.imageView.kf.setImage(with: ImageResource(downloadURL: headerID.convertToURL(withSize: .Original, inMode: .Get), cacheKey: "imagePath-\(organizationID)"),
+            headerView!.imageView.kf.setImage(with: ImageResource(downloadURL: headerID.convertToURL(withSize: .Original, inMode: .Get), cacheKey: headerID),
                                               placeholder: UIImage.init(named: "image-no-photo"),
                                               options: [.transition(ImageTransition.fade(1)),
                                                         .processor(ResizingImageProcessor(referenceSize: headerView!.frame.size,
@@ -285,7 +285,7 @@ class OrganizationShowViewController: BaseViewController {
                                               completionHandler: { image, error, cacheType, imageURL in
                                                 self.headerView!.kf.cancelDownloadTask()
             })
-        
+            
             // Settings
             scrollView.parallaxHeader.view = headerView
             scrollView.parallaxHeader.height = 150

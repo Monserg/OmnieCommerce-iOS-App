@@ -42,15 +42,20 @@ class NewsActionsShowRouter: NewsActionsShowRouterInput {
             }
             
             // Create Action
-            var action = NewsData.init(json: responseAPI!.body as! [String: AnyObject], isAction: true)
-            action = CoreDataManager.instance.entityBy("NewsData", andCodeID: item.codeID) as? NewsData
-//            entityDidLoad(byName: "NewsData", andPredicateParameters: NSPredicate.init(format: "codeID == %@", item.codeID)) as? NewsData
-            action!.isAction = true
-            let storyboard = UIStoryboard(name: "NewsShow", bundle: nil)
-            let newsItemShowVC = storyboard.instantiateViewController(withIdentifier: "NewsItemShowVC") as! NewsItemShowViewController
-            newsItemShowVC.newsID = action?.codeID
-
-            self.viewController.navigationController?.pushViewController(newsItemShowVC, animated: true)
+            if let jsonAction = responseAPI!.body as? [String: AnyObject] {
+                if let codeID = jsonAction["uuid"] as? String {
+                    let action = CoreDataManager.instance.entityBy("NewsData", andCodeID: codeID) as! NewsData
+                    action.profileDidUpload(json: jsonAction, isAction: true)
+                    
+                    CoreDataManager.instance.didSaveContext()
+                    
+                    let storyboard = UIStoryboard(name: "NewsShow", bundle: nil)
+                    let newsItemShowVC = storyboard.instantiateViewController(withIdentifier: "NewsItemShowVC") as! NewsItemShowViewController
+                    newsItemShowVC.newsID = codeID
+                    
+                    self.viewController.navigationController?.pushViewController(newsItemShowVC, animated: true)
+                }
+            }
         })
     }
     

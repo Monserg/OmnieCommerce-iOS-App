@@ -88,7 +88,7 @@ public class Organization: NSManagedObject, InitCellParameters, PointAnnotationB
             self.isFavorite = isFavorite
         }
         
-        if let imageID = json["staticUrl"] as? String {
+        if let imageID = json["imageId"] as? String {
             self.imageID = imageID
         }
         
@@ -182,7 +182,7 @@ public class Organization: NSManagedObject, InitCellParameters, PointAnnotationB
         }
         
         // Gallery images
-        if let galleryImages = json["serviceGallery"] as? [[String: AnyObject]], galleryImages.count > 0 {
+        if let galleryImages = json["gallery"] as? [[String: AnyObject]], galleryImages.count > 0 {
             for jsonGalleryImage in galleryImages {
                 if let codeID = jsonGalleryImage["imageId"] as? String {
                     if let image = CoreDataManager.instance.entityBy("GalleryImage", andCodeID: codeID) as? GalleryImage {

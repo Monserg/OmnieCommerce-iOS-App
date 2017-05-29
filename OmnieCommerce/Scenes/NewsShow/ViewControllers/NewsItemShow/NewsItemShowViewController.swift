@@ -24,6 +24,7 @@ class NewsItemShowViewController: BaseViewController {
     @IBOutlet weak var dateLabel: UbuntuLightItalicVeryDarkGrayishBlueLabel!
     @IBOutlet weak var organizationButton: BorderVeryDarkDesaturatedBlueButton!
     @IBOutlet weak var logoImageView: CustomImageView!
+    @IBOutlet weak var logoImageViewSpinner: UIActivityIndicatorView!
     
     @IBOutlet weak var textView: UITextView! {
         didSet {
@@ -78,16 +79,24 @@ class NewsItemShowViewController: BaseViewController {
         organizationButton.setTitle("          \(newsProfile.organizationName)          ", for: .normal)
 
         if let imageID = newsProfile.imageID {
-            logoImageView.kf.setImage(with: ImageResource(downloadURL: imageID.convertToURL(withSize: .Medium, inMode: .Get), cacheKey: newsProfile.codeID),
-                                      placeholder: UIImage.init(named: "image-no-organization"),
+            logoImageViewSpinner.isHidden = false
+            
+            logoImageView.kf.setImage(with: ImageResource(downloadURL: imageID.convertToURL(withSize: .Medium, inMode: .Get), cacheKey: imageID),
+                                      placeholder: nil,
                                       options: [.transition(ImageTransition.fade(1)),
                                                 .processor(ResizingImageProcessor.init(referenceSize: logoImageView.frame.size,
                                                                                        mode: .aspectFill))],
                                       completionHandler: { image, error, cacheType, imageURL in
                                         self.logoImageView.kf.cancelDownloadTask()
+                                        self.logoImageViewSpinner.stopAnimating()
             })
         } else {
-            logoImageView.image = UIImage.init(named: "image-no-organization")
+            logoImageView.contentMode = .center
+            logoImageViewSpinner.stopAnimating()
+            
+            UIView.animate(withDuration: 0.5, animations: { 
+                self.logoImageView.image = UIImage.init(named: "image-no-organization")
+            })
         }
 
         // Merge title + text + actions
