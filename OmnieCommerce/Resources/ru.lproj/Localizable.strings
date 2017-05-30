@@ -95,9 +95,11 @@
 "Settings saved message"        =   "Ваши натройки успешно \nсохранены.";
 "Dictionary saved message"      =   "Ваш запрос отправлен на \nмодерацию.";
 "DiscountCard delete message"   =   "Карточка успешно удалена.";
-"DiscountCard create message"   =   "Новая карточка успешно добавлена \nв список.";
+"DiscountCard create message"   =   "Новая карточка успешно создана.";
 "DiscountCard upload message"   =   "Профиль карточки успешно \nобновлен.";
-"BussinessСard create message"  =   "Новая визитка успешно создана.";
+"BusinessСard delete message"   =   "Визитка успешно \nудалена.";
+"BusinessСard create message"   =   "Новая визитка успешно \nсоздана.";
+"BusinessСard upload message"   =   "Профиль визитки успешно \nобновлен.";
 "User Omniecard title text"     =   "Уже давно известно, что читабельное содержание будет мешать человеку сосредоточиться во время оценки композиции страницы.";
 
 
@@ -134,6 +136,7 @@
 "Delete discount card"          =   "Удалить карточку";
 "Add discount card photo"       =   "Добавить фото карточки";
 "Read discount card Barcode"    =   "Считать штрих код";
+"Delete business card"          =   "Удалить визитку";
 
 
 // TextField Placeholders

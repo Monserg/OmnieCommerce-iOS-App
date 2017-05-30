@@ -95,9 +95,11 @@
 "Settings saved message"        =   "Your settings have been successfully \nsaved.";
 "Dictionary saved message"      =   "Your request was sent to \nmoderation.";
 "DiscountCard delete message"   =   "Discount Card have been successfully \ndeleted.";
-"DiscountCard create message"   =   "Discount Card have been successfully \nadded to list.";
+"DiscountCard create message"   =   "Discount Card have been successfully \ncreated.";
 "DiscountCard upload message"   =   "Discount Card have been successfully \nuploaded.";
-"BussinessСard create message"  =   "Bussiness Card have been successfully created.";
+"BusinessСard delete message"   =   "Bussiness Card have been successfully \ndeleted.";
+"BusinessСard create message"   =   "Bussiness Card have been successfully \ncreated.";
+"BusinessСard upload message"   =   "Bussiness Card have been successfully \nuploaded.";
 "User Omniecard title text"     =   "It has long been known that the readable content of the concentrate will prevent a person who appreciates the track page. ";
 
 
@@ -134,6 +136,7 @@
 "Delete discount card"          =   "Delete discount card";
 "Add discount card photo"       =   "Add discount card photo";
 "Read discount card Barcode"    =   "Read Barcode";
+"Delete business card"          =   "Delete business card";
 
 
 // TextField Placeholders

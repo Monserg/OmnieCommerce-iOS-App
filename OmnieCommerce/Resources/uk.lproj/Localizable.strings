@@ -94,10 +94,12 @@
 "Saved"                         =   "Збережено!";
 "Settings saved message"        =   "Ваші налаштування успішно \nзбережено.";
 "Dictionary saved message"      =   "Ваш запит відправлено на \nмодерацію.";
-"DiscountCard delete message"   =   "Картку успішно видалено.";
-"DiscountCard create message"   =   "Нова картка успішно додана \nдо списку.";
+"DiscountCard delete message"   =   "Картка успішно \nвидалена.";
+"DiscountCard create message"   =   "Нова картка успішно \nстворена.";
 "DiscountCard upload message"   =   "Профіль картки успішно \nпоновлено.";
-"BussinessСard create message"  =   "Нова візитка успішно створена.";
+"BusinessСard delete message"   =   "Візитка успішно \nвидалена.";
+"BusinessСard create message"   =   "Нова візитка успішно \nстворена.";
+"BusinessСard upload message"   =   "Профіль візитки успішно \nпоновлено.";
 "User Omniecard title text"     =   "Вже давно відомо, що читабельний зміст буде заважати зосередитись людині, яка оцінює композицію сторінки.";
 
 
@@ -134,6 +136,7 @@
 "Delete discount card"          =   "Видалити картку";
 "Add discount card photo"       =   "Добавити фото картки";
 "Read discount card Barcode"    =   "Зчитати штрих код";
+"Delete business card"          =   "Видалити візитку";
 
 
 // TextField Placeholders

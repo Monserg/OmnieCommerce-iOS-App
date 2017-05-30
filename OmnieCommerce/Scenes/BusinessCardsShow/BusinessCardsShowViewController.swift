@@ -180,7 +180,7 @@ class BusinessCardsShowViewController: BaseViewController {
     
     // MARK: - Actions
     @IBAction func handlerCreateNewBusinessCardButtonTap(_ sender: FillColorButton) {
-    
+        self.router.navigateToBusinessCardCreateScene(withBusinessCardID: nil)
     }
 }
 

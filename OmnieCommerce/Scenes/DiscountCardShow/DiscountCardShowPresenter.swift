@@ -28,6 +28,13 @@ class DiscountCardShowPresenter: DiscountCardShowPresenterInput {
     
     // MARK: - Custom Functions. Presentation logic
     func discountCardDidPrepareToShowDelete(fromResponseModel responseModel: DiscountCardShowModels.Item.ResponseModel) {
+        guard responseModel.responseAPI != nil else {
+            let discountCardViewModel = DiscountCardShowModels.Item.ViewModel(status: "RESPONSE_NIL")
+            self.viewController.discountCardDidShowDelete(fromViewModel: discountCardViewModel)
+            
+            return
+        }
+
         // NOTE: Format the response from the Interactor and pass the result back to the View Controller
         let discountCardViewModel = DiscountCardShowModels.Item.ViewModel(status: (responseModel.responseAPI?.status)!)
         viewController.discountCardDidShowDelete(fromViewModel: discountCardViewModel)

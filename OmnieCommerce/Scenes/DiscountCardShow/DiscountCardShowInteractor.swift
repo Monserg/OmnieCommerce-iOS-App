@@ -29,10 +29,6 @@ class DiscountCardShowInteractor: DiscountCardShowInteractorInput {
     
     // MARK: - Custom Functions. Business logic
     func discountCardDidDelete(withRequestModel requestModel: DiscountCardShowModels.Item.RequestModel) {
-        // NOTE: Create some Worker to do the work
-        worker = DiscountCardShowWorker()
-        worker.doSomeWork()
-        
         // NOTE: Pass the result to the Presenter
         MSMRestApiManager.instance.userRequestDidRun(.userDeleteDiscountCard(requestModel.parameters, false), withHandlerResponseAPICompletion:  { responseAPI in
             let discountCardResponseModel = DiscountCardShowModels.Item.ResponseModel(responseAPI: responseAPI)
