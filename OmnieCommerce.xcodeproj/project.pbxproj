@@ -144,6 +144,10 @@
 		B122F2411DD371B30018A701 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B122F2401DD371B30018A701 /* BaseNavigationController.swift */; };
 		B122F2481DD393330018A701 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B122F24A1DD393330018A701 /* Localizable.strings */; };
 		B12440D91EDD6A0700C93220 /* BarcodeReaderShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12440D81EDD6A0700C93220 /* BarcodeReaderShowViewController.swift */; };
+		B12440DC1EDDA57400C93220 /* BusinessCard+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12440DA1EDDA57300C93220 /* BusinessCard+CoreDataClass.swift */; };
+		B12440DD1EDDA57400C93220 /* BusinessCard+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12440DB1EDDA57300C93220 /* BusinessCard+CoreDataProperties.swift */; };
+		B12440E01EDDA70600C93220 /* BusinessCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12440DF1EDDA70600C93220 /* BusinessCardTableViewCell.swift */; };
+		B12440E21EDDA72100C93220 /* BusinessCardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B12440E11EDDA72100C93220 /* BusinessCardTableViewCell.xib */; };
 		B12974B61ECED7C1002409C7 /* ConfirmSaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12974B41ECED7C1002409C7 /* ConfirmSaveView.swift */; };
 		B12974B71ECED7C1002409C7 /* ConfirmSaveView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B12974B51ECED7C1002409C7 /* ConfirmSaveView.xib */; };
 		B12FE6461E57327D00A4FBA4 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12FE6451E57327D00A4FBA4 /* CustomTextField.swift */; };
@@ -682,6 +686,10 @@
 		B122F24C1DD393350018A701 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B122F24D1DD393360018A701 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B12440D81EDD6A0700C93220 /* BarcodeReaderShowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarcodeReaderShowViewController.swift; sourceTree = "<group>"; };
+		B12440DA1EDDA57300C93220 /* BusinessCard+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BusinessCard+CoreDataClass.swift"; sourceTree = "<group>"; };
+		B12440DB1EDDA57300C93220 /* BusinessCard+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BusinessCard+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		B12440DF1EDDA70600C93220 /* BusinessCardTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessCardTableViewCell.swift; sourceTree = "<group>"; };
+		B12440E11EDDA72100C93220 /* BusinessCardTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BusinessCardTableViewCell.xib; sourceTree = "<group>"; };
 		B12974B41ECED7C1002409C7 /* ConfirmSaveView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmSaveView.swift; sourceTree = "<group>"; };
 		B12974B51ECED7C1002409C7 /* ConfirmSaveView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConfirmSaveView.xib; sourceTree = "<group>"; };
 		B12FE6451E57327D00A4FBA4 /* CustomTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = CustomTextField.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -1195,6 +1203,8 @@
 				B108747C1E5B0DC9004A4FB6 /* AppSettings+CoreDataProperties.swift */,
 				B10874A41E5B3D7E004A4FB6 /* AppUser+CoreDataClass.swift */,
 				B10874A51E5B3D7E004A4FB6 /* AppUser+CoreDataProperties.swift */,
+				B12440DA1EDDA57300C93220 /* BusinessCard+CoreDataClass.swift */,
+				B12440DB1EDDA57300C93220 /* BusinessCard+CoreDataProperties.swift */,
 				B15F95B21EA1E1C50009AD28 /* Category+CoreDataClass.swift */,
 				B15F95B31EA1E1C50009AD28 /* Category+CoreDataProperties.swift */,
 				B10189C01EAB71B400C1AD2F /* Discount+CoreDataClass.swift */,
@@ -1659,6 +1669,15 @@
 				B12440D81EDD6A0700C93220 /* BarcodeReaderShowViewController.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		B12440DE1EDDA6B600C93220 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B12440DF1EDDA70600C93220 /* BusinessCardTableViewCell.swift */,
+				B12440E11EDDA72100C93220 /* BusinessCardTableViewCell.xib */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		B12974B31ECED761002409C7 /* Views */ = {
@@ -2222,6 +2241,7 @@
 		B1CF546C1DDB507900E98049 /* BusinessCardsShow */ = {
 			isa = PBXGroup;
 			children = (
+				B12440DE1EDDA6B600C93220 /* Views */,
 				B1CF547D1DDB50F100E98049 /* BusinessCardsShowConfigurator.swift */,
 				B1CF547E1DDB50F100E98049 /* BusinessCardsShowInteractor.swift */,
 				B1CF547F1DDB50F100E98049 /* BusinessCardsShowModels.swift */,
@@ -2517,6 +2537,7 @@
 				B1BF926F1DD6516C00BECBBB /* helveticaneuecyr-light.otf in Resources */,
 				B152915D1DDE44B700BBA1E0 /* MenuSectionFooterView.xib in Resources */,
 				B15125161EAE0341009A6A44 /* AdditionalServiceTableViewCell.xib in Resources */,
+				B12440E21EDDA72100C93220 /* BusinessCardTableViewCell.xib in Resources */,
 				B1BF92701DD6516C00BECBBB /* helveticaneuecyr-lightitalic.otf in Resources */,
 				B1BF92711DD6516C00BECBBB /* helveticaneuecyr-medium.otf in Resources */,
 				B1BF92721DD6516C00BECBBB /* helveticaneuecyr-mediumitaicl.otf in Resources */,
@@ -2911,8 +2932,10 @@
 				B122F1DE1DD35B760018A701 /* OrdersShowPresenter.swift in Sources */,
 				B122A5961E6C56F800C39B67 /* MessageTableViewCell.swift in Sources */,
 				B14E975B1DD8B052001E1DE2 /* SignUpShowViewController.swift in Sources */,
+				B12440DC1EDDA57400C93220 /* BusinessCard+CoreDataClass.swift in Sources */,
 				B1FFF7171E5F017A00A075D8 /* OrganizationsMapShowWorker.swift in Sources */,
 				B1CF54A11DDB515000E98049 /* HandbookShowInteractor.swift in Sources */,
+				B12440E01EDDA70600C93220 /* BusinessCardTableViewCell.swift in Sources */,
 				B10B48DA1E8A5B2E007DDD81 /* FavoriteOrganizationsShowInteractor.swift in Sources */,
 				B1FBC9271E6D974300D86429 /* UbuntuLightItalicLightGrayishCyanLabel.swift in Sources */,
 				B13F4E3C1ED55BB700455604 /* DiscountCardShowModels.swift in Sources */,
@@ -2964,6 +2987,7 @@
 				B1CF54BD1DDB519000E98049 /* OnmieSoftShowInteractor.swift in Sources */,
 				B177E5561E54B739004F1390 /* RepetitionPasswordShowConfigurator.swift in Sources */,
 				B122F1E91DD35BA70018A701 /* MessagesShowConfigurator.swift in Sources */,
+				B12440DD1EDDA57400C93220 /* BusinessCard+CoreDataProperties.swift in Sources */,
 				B1BF92441DD5FC8000BECBBB /* Config.swift in Sources */,
 				B14C071E1EA0993800556866 /* ServicesShowConfigurator.swift in Sources */,
 				B10189B81EAB40E700C1AD2F /* Phone+CoreDataClass.swift in Sources */,

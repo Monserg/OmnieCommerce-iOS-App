@@ -2,7 +2,7 @@
 //  Lists+CoreDataProperties.swift
 //  OmnieCommerce
 //
-//  Created by msm72 on 24.05.17.
+//  Created by msm72 on 30.05.17.
 //  Copyright © 2017 Omniesoft. All rights reserved.
 //
 
@@ -16,14 +16,15 @@ extension Lists {
         return NSFetchRequest<Lists>(entityName: "Lists")
     }
 
-    @NSManaged public var name: String
+    @NSManaged public var name: String?
     @NSManaged public var categories: NSSet?
+    @NSManaged public var discountCards: NSSet?
     @NSManaged public var handbooks: NSSet?
     @NSManaged public var news: NSSet?
     @NSManaged public var orders: NSSet?
     @NSManaged public var organizations: NSSet?
     @NSManaged public var services: NSSet?
-    @NSManaged public var discountCards: NSSet?
+    @NSManaged public var businessCards: NSSet?
 
 }
 
@@ -41,6 +42,23 @@ extension Lists {
 
     @objc(removeCategories:)
     @NSManaged public func removeFromCategories(_ values: NSSet)
+
+}
+
+// MARK: Generated accessors for discountCards
+extension Lists {
+
+    @objc(addDiscountCardsObject:)
+    @NSManaged public func addToDiscountCards(_ value: DiscountCard)
+
+    @objc(removeDiscountCardsObject:)
+    @NSManaged public func removeFromDiscountCards(_ value: DiscountCard)
+
+    @objc(addDiscountCards:)
+    @NSManaged public func addToDiscountCards(_ values: NSSet)
+
+    @objc(removeDiscountCards:)
+    @NSManaged public func removeFromDiscountCards(_ values: NSSet)
 
 }
 
@@ -129,19 +147,19 @@ extension Lists {
 
 }
 
-// MARK: Generated accessors for discountCards
+// MARK: Generated accessors for businessCards
 extension Lists {
 
-    @objc(addDiscountCardsObject:)
-    @NSManaged public func addToDiscountCards(_ value: DiscountCard)
+    @objc(addBusinessCardsObject:)
+    @NSManaged public func addToBusinessCards(_ value: BusinessCard)
 
-    @objc(removeDiscountCardsObject:)
-    @NSManaged public func removeFromDiscountCards(_ value: DiscountCard)
+    @objc(removeBusinessCardsObject:)
+    @NSManaged public func removeFromBusinessCards(_ value: BusinessCard)
 
-    @objc(addDiscountCards:)
-    @NSManaged public func addToDiscountCards(_ values: NSSet)
+    @objc(addBusinessCards:)
+    @NSManaged public func addToBusinessCards(_ values: NSSet)
 
-    @objc(removeDiscountCards:)
-    @NSManaged public func removeFromDiscountCards(_ values: NSSet)
+    @objc(removeBusinessCards:)
+    @NSManaged public func removeFromBusinessCards(_ values: NSSet)
 
 }

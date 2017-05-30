@@ -15,14 +15,14 @@ import UIKit
 protocol OrganizationShowInteractorInput {
     func organizationRatingDidSend(withRequestModel requestModel: OrganizationShowModels.Rating.RequestModel)
     func organizationDidLoad(withRequestModel requestModel: OrganizationShowModels.OrganizationItem.RequestModel)
-    func bussinessCardDidCreateFromOrganization(withRequestModel requestModel: OrganizationShowModels.BussinessCard.RequestModel)
+    func businessCardDidCreateFromOrganization(withRequestModel requestModel: OrganizationShowModels.BusinessCard.RequestModel)
 }
 
 // MARK: - Output protocols for Presenter component VIP-cicle
 protocol OrganizationShowInteractorOutput {
     func organizationRatingDidPrepareToShowSend(fromResponseModel responseModel: OrganizationShowModels.Rating.ResponseModel)
     func organizationDidPrepareToShowLoad(fromResponseModel responseModel: OrganizationShowModels.OrganizationItem.ResponseModel)
-    func bussinessCardDidPrepareToShowCreateFromOrganization(fromResponseModel responseModel: OrganizationShowModels.BussinessCard.ResponseModel)
+    func businessCardDidPrepareToShowCreateFromOrganization(fromResponseModel responseModel: OrganizationShowModels.BusinessCard.ResponseModel)
 }
 
 class OrganizationShowInteractor: OrganizationShowInteractorInput {
@@ -48,11 +48,11 @@ class OrganizationShowInteractor: OrganizationShowInteractorInput {
         })
     }
     
-    func bussinessCardDidCreateFromOrganization(withRequestModel requestModel: OrganizationShowModels.BussinessCard.RequestModel) {
-        MSMRestApiManager.instance.userRequestDidRun(.userCreateNewBussinessCardFromOrganization(requestModel.parameters, false), withHandlerResponseAPICompletion: { responseAPI in
+    func businessCardDidCreateFromOrganization(withRequestModel requestModel: OrganizationShowModels.BusinessCard.RequestModel) {
+        MSMRestApiManager.instance.userRequestDidRun(.userCreateNewBusinessCardFromOrganization(requestModel.parameters, false), withHandlerResponseAPICompletion: { responseAPI in
             // Pass the result to the Presenter
-            let bussinessCardResponseModel = OrganizationShowModels.BussinessCard.ResponseModel(responseAPI: responseAPI)
-            self.presenter.bussinessCardDidPrepareToShowCreateFromOrganization(fromResponseModel: bussinessCardResponseModel)
+            let businessCardResponseModel = OrganizationShowModels.BusinessCard.ResponseModel(responseAPI: responseAPI)
+            self.presenter.businessCardDidPrepareToShowCreateFromOrganization(fromResponseModel: businessCardResponseModel)
         })
     }
 }

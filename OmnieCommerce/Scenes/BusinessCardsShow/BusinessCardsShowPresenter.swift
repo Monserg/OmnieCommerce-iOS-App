@@ -13,22 +13,39 @@ import UIKit
 
 // MARK: - Input & Output protocols
 protocol BusinessCardsShowPresenterInput {
-    func presentSomething(response: BusinessCardsShow.Something.Response)
+    func businessCardsDidPrepareToShowLoad(fromResponseModel responseModel: BusinessCardsShowModels.Load.ResponseModel)
 }
 
 protocol BusinessCardsShowPresenterOutput: class {
-    func displaySomething(viewModel: BusinessCardsShow.Something.ViewModel)
+    func businessCardsDidShowLoad(fromViewModel viewModel: BusinessCardsShowModels.Load.ViewModel)
 }
 
 class BusinessCardsShowPresenter: BusinessCardsShowPresenterInput {
     // MARK: - Properties
-    weak var output: BusinessCardsShowPresenterOutput!
+    weak var viewController: BusinessCardsShowPresenterOutput!
     
     
     // MARK: - Custom Functions. Presentation logic
-    func presentSomething(response: BusinessCardsShow.Something.Response) {
-        // NOTE: Format the response from the Interactor and pass the result back to the View Controller
-        let viewModel = BusinessCardsShow.Something.ViewModel()
-        output.displaySomething(viewModel: viewModel)
+    func businessCardsDidPrepareToShowLoad(fromResponseModel responseModel: BusinessCardsShowModels.Load.ResponseModel) {
+        guard responseModel.responseAPI != nil else {
+            let businessCardsViewModel = BusinessCardsShowModels.Load.ViewModel(status: "RESPONSE_NIL")
+            self.viewController.businessCardsDidShowLoad(fromViewModel: businessCardsViewModel)
+            
+            return
+        }
+        
+        // Convert responseAPI body to BusinessCard CoreData objects
+        for jsonBusinessCard in responseModel.responseAPI!.body as! [[String: AnyObject]] {
+            if let codeID = jsonBusinessCard["uuid"] as? String {
+                if let businessCard = CoreDataManager.instance.entityBy("BusinessCard", andCodeID: codeID) as? BusinessCard {
+                    businessCard.profileDidUpload(json: jsonBusinessCard, forList: keyBusinessCards)
+                }
+            }
+        }
+        
+        CoreDataManager.instance.didSaveContext()
+        
+        let businessCardsViewModel = BusinessCardsShowModels.Load.ViewModel(status: (responseModel.responseAPI?.status)!)
+        self.viewController.businessCardsDidShowLoad(fromViewModel: businessCardsViewModel)
     }
 }

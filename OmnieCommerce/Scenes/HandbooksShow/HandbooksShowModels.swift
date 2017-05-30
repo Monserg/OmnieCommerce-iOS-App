@@ -27,7 +27,7 @@ struct HandbooksShowModels {
         }
     }
     
-    struct BussinessCard {
+    struct BusinessCard {
         struct RequestModel {
             let parameters: [String: AnyObject]
         }

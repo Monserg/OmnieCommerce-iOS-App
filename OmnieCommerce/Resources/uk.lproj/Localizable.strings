@@ -229,6 +229,7 @@
 "Categories list is empty"      =   "Список категорій порожній";
 "Handbooks list is empty"       =   "Список довідників порожній";
 "DiscountCards list is empty"   =   "Список карток порожній";
+"BusinessCards list is empty"   =   "Список візиток порожній";
 "Change Email info message"     =   "Запит успішно виконаний.\nПідтвердіть своє рішення, перевіривши вказаний email";
 "Change Email error message"    =   "Запит невиконаний.\nПовторіть спробу пізніше";
 "This time is busy."            =   "Цей час зайнятий. \nБудь ласка, виберіть інший доступний проміжок.";

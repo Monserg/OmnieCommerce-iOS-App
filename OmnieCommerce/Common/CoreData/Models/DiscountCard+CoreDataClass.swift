@@ -47,12 +47,12 @@ public class DiscountCard: NSManagedObject, InitCellParameters, SearchObject  {
             self.name = name
         }
         
-        if let code = json["code"] as? String {
-            self.code = code
+        if let barcode = json["code"] as? String {
+            self.barcode = barcode
         }
 
-        if let format = json["format"] as? String {
-            self.format = format
+        if let barcodeFormat = json["format"] as? String {
+            self.barcodeFormat = barcodeFormat
         }
 
         if let dateCreated = json["createDate"] as? String {
@@ -76,12 +76,12 @@ public class DiscountCard: NSManagedObject, InitCellParameters, SearchObject  {
             self.name = name
         }
         
-        if let code = json["code"] as? String {
-            self.code = code
+        if let barcode = json["code"] as? String {
+            self.barcode = barcode
         }
         
-        if let format = json["format"] as? String {
-            self.format = format
+        if let barcodeFormat = json["format"] as? String {
+            self.barcodeFormat = barcodeFormat
         }
     }
 }

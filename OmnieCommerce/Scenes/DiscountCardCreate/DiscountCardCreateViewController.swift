@@ -119,8 +119,8 @@ class DiscountCardCreateViewController: BaseViewController {
         if (discountCardID != nil) {
             if let discountCard = CoreDataManager.instance.entityBy("DiscountCard", andCodeID: discountCardID!) as? DiscountCard {
                 textFieldsCollection.first?.text = discountCard.name
-                textFieldsCollection.last?.text = discountCard.code
-                barcodeFormat = discountCard.format
+                textFieldsCollection.last?.text = discountCard.barcode
+                barcodeFormat = discountCard.barcodeFormat
                 barcodeView.backgroundColor = UIColor.white
                 
                 // Show discount card photo
@@ -144,7 +144,7 @@ class DiscountCardCreateViewController: BaseViewController {
                 }
                 
                 // Show discount card barcode
-                barcodeDidGenerateToShow(withCode: discountCard.code)
+                barcodeDidGenerateToShow(withCode: discountCard.barcode)
             }
         }
     }

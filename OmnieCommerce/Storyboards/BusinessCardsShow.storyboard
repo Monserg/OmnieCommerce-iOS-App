@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -18,16 +19,24 @@
                         <viewControllerLayoutGuide type="top" id="jIG-lw-zG6"/>
                         <viewControllerLayoutGuide type="bottom" id="lRj-Os-OaT"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="U6k-Jd-Hxd">
+                    <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="U6k-Jd-Hxd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r2E-6A-P6i" customClass="SmallTopBarView" customModule="OmnieCommerce" customModuleProvider="target">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Vn7-j9-C4O" customClass="MSMTableView" customModule="OmnieCommerce" customModuleProvider="target">
+                                <rect key="frame" x="8" y="60" width="359" height="578"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </tableView>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r2E-6A-P6i" customClass="SmallTopBarView" customModule="OmnieCommerce" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="95"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="titleText" value="BusinessCards"/>
                                     <userDefinedRuntimeAttribute type="string" keyPath="type" value="ParentSearch"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Copyright" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v8x-1f-kET" userLabel="Copyright Label" customClass="UbuntuLightDarkCyanLabel" customModule="OmnieCommerce" customModuleProvider="target">
@@ -40,37 +49,68 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </label>
+                            <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hc9-me-CHh" userLabel="Create New Discount Card Button" customClass="FillColorButton" customModule="OmnieCommerce" customModuleProvider="target">
+                                <rect key="frame" x="302" y="581" width="57" height="57"/>
+                                <color key="backgroundColor" red="0.85098039219999999" green="0.72941176470000002" blue="0.40784313729999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="hc9-me-CHh" secondAttribute="height" multiplier="1:1" id="UFh-qE-2y6"/>
+                                </constraints>
+                                <state key="normal" image="icon-create-new-business-card"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="buttonStyle" value="SoftOrangeFill"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="handlerCreateNewBusinessCardButtonTap:" destination="6cl-Wf-xR0" eventType="touchUpInside" id="WGH-Sf-seY"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="v8x-1f-kET" firstAttribute="centerX" secondItem="U6k-Jd-Hxd" secondAttribute="centerX" id="1Md-DP-tYu"/>
+                            <constraint firstItem="Vn7-j9-C4O" firstAttribute="leading" secondItem="U6k-Jd-Hxd" secondAttribute="leading" constant="8" id="1TZ-Q0-4cp"/>
                             <constraint firstItem="v8x-1f-kET" firstAttribute="leading" secondItem="U6k-Jd-Hxd" secondAttribute="leading" constant="8" id="5Tt-br-3im"/>
+                            <constraint firstItem="v8x-1f-kET" firstAttribute="top" secondItem="hc9-me-CHh" secondAttribute="bottom" constant="9" id="7W4-7J-kcL"/>
+                            <constraint firstAttribute="trailing" secondItem="hc9-me-CHh" secondAttribute="trailing" constant="16" id="AOV-Ib-rQ3"/>
                             <constraint firstItem="r2E-6A-P6i" firstAttribute="top" secondItem="U6k-Jd-Hxd" secondAttribute="top" id="BIZ-xI-dJA">
                                 <variation key="heightClass=compact-widthClass=compact" constant="0.0"/>
                                 <variation key="heightClass=compact-widthClass=regular" constant="0.0"/>
                             </constraint>
+                            <constraint firstAttribute="trailing" secondItem="Vn7-j9-C4O" secondAttribute="trailing" constant="8" id="D8J-Ig-JNl"/>
                             <constraint firstItem="r2E-6A-P6i" firstAttribute="height" secondItem="U6k-Jd-Hxd" secondAttribute="height" multiplier="95:667" id="Rw2-s3-g7P"/>
+                            <constraint firstItem="v8x-1f-kET" firstAttribute="top" secondItem="Vn7-j9-C4O" secondAttribute="bottom" constant="9" id="U4U-sp-pRY"/>
+                            <constraint firstItem="hc9-me-CHh" firstAttribute="height" secondItem="U6k-Jd-Hxd" secondAttribute="height" multiplier="57:375" id="in6-Ku-VrX"/>
                             <constraint firstAttribute="trailing" secondItem="v8x-1f-kET" secondAttribute="trailing" constant="8" id="lLf-vL-m6J"/>
                             <constraint firstAttribute="trailing" secondItem="r2E-6A-P6i" secondAttribute="trailing" id="m3L-TM-DAA"/>
+                            <constraint firstItem="hc9-me-CHh" firstAttribute="height" secondItem="U6k-Jd-Hxd" secondAttribute="height" multiplier="57:667" id="m9T-ow-pxY"/>
                             <constraint firstAttribute="bottom" secondItem="v8x-1f-kET" secondAttribute="bottom" constant="9" id="qDH-Fj-5TB"/>
                             <constraint firstItem="r2E-6A-P6i" firstAttribute="leading" secondItem="U6k-Jd-Hxd" secondAttribute="leading" id="qEY-0c-jdJ"/>
+                            <constraint firstItem="Vn7-j9-C4O" firstAttribute="top" secondItem="r2E-6A-P6i" secondAttribute="bottom" constant="-35" id="sm9-dt-aIJ"/>
                             <constraint firstItem="r2E-6A-P6i" firstAttribute="height" secondItem="U6k-Jd-Hxd" secondAttribute="height" multiplier="80:375" id="ySs-cx-RdW"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                        </userDefinedRuntimeAttributes>
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="Rw2-s3-g7P"/>
+                                <exclude reference="m9T-ow-pxY"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="constraints">
                                 <include reference="Rw2-s3-g7P"/>
                                 <exclude reference="ySs-cx-RdW"/>
+                                <exclude reference="in6-Ku-VrX"/>
+                                <include reference="m9T-ow-pxY"/>
                             </mask>
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" id="NMq-fn-4R1"/>
                     <connections>
+                        <outlet property="createNewBusinessCardButton" destination="hc9-me-CHh" id="kJ5-yb-xyN"/>
                         <outlet property="smallTopBarView" destination="r2E-6A-P6i" id="azT-1A-KW3"/>
+                        <outlet property="tableView" destination="Vn7-j9-C4O" id="iTh-3o-y8J"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nZg-d8-bRr" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -84,7 +124,7 @@
                     <toolbarItems/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="lKy-lt-hQh">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="lKy-lt-hQh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -98,4 +138,7 @@
             <point key="canvasLocation" x="180" y="182.15892053973016"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="icon-create-new-business-card" width="32" height="24"/>
+    </resources>
 </document>

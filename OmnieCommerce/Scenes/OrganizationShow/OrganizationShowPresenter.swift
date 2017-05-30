@@ -15,14 +15,14 @@ import UIKit
 protocol OrganizationShowPresenterInput {
     func organizationRatingDidPrepareToShowSend(fromResponseModel responseModel: OrganizationShowModels.Rating.ResponseModel)
     func organizationDidPrepareToShowLoad(fromResponseModel responseModel: OrganizationShowModels.OrganizationItem.ResponseModel)
-    func bussinessCardDidPrepareToShowCreateFromOrganization(fromResponseModel responseModel: OrganizationShowModels.BussinessCard.ResponseModel)
+    func businessCardDidPrepareToShowCreateFromOrganization(fromResponseModel responseModel: OrganizationShowModels.BusinessCard.ResponseModel)
 }
 
 // MARK: - Output protocols for ViewController component VIP-cicle
 protocol OrganizationShowPresenterOutput: class {
     func organizationRatingDidShowSend(fromViewModel viewModel: OrganizationShowModels.Rating.ViewModel)
     func organizationDidShowLoad(fromViewModel viewModel: OrganizationShowModels.OrganizationItem.ViewModel)
-    func bussinessCardDidShowCreateFromOrganization(fromViewModel viewModel: OrganizationShowModels.BussinessCard.ViewModel)
+    func businessCardDidShowCreateFromOrganization(fromViewModel viewModel: OrganizationShowModels.BusinessCard.ViewModel)
 }
 
 class OrganizationShowPresenter: OrganizationShowPresenterInput {
@@ -55,8 +55,8 @@ class OrganizationShowPresenter: OrganizationShowPresenterInput {
         viewController.organizationRatingDidShowSend(fromViewModel: organizationRatingViewModel)
     }
     
-    func bussinessCardDidPrepareToShowCreateFromOrganization(fromResponseModel responseModel: OrganizationShowModels.BussinessCard.ResponseModel) {
-        let bussinessCardViewModel = OrganizationShowModels.BussinessCard.ViewModel(status: (responseModel.responseAPI?.status)!)
-        viewController.bussinessCardDidShowCreateFromOrganization(fromViewModel: bussinessCardViewModel)
+    func businessCardDidPrepareToShowCreateFromOrganization(fromResponseModel responseModel: OrganizationShowModels.BusinessCard.ResponseModel) {
+        let businessCardViewModel = OrganizationShowModels.BusinessCard.ViewModel(status: (responseModel.responseAPI?.status)!)
+        viewController.businessCardDidShowCreateFromOrganization(fromViewModel: businessCardViewModel)
     }
 }

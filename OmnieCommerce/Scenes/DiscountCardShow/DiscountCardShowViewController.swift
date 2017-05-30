@@ -79,9 +79,9 @@ class DiscountCardShowViewController: BaseViewController {
         // Load Discount Card
         if let discountCard = CoreDataManager.instance.entityBy("DiscountCard", andCodeID: discountCardID) as? DiscountCard {
             // Show control elements
-            self.codeLabel.text = discountCard.code
+            self.codeLabel.text = discountCard.barcode
             
-            if let image = Barcode.generateBarcodeFrom(stringCode: discountCard.code, withImageSize: codeImageView.frame.size) {
+            if let image = Barcode.generateBarcodeFrom(stringCode: discountCard.barcode, withImageSize: codeImageView.frame.size) {
                 UIView.animate(withDuration: 0.5, animations: {
                     self.codeImageView.image = image
                 })

@@ -13,27 +13,25 @@ import UIKit
 
 // MARK: - Input & Output protocols
 protocol BusinessCardsShowInteractorInput {
-    func doSomething(request: BusinessCardsShow.Something.Request)
+    func businessCardsDidLoad(withRequestModel requestModel: BusinessCardsShowModels.Load.RequestModel)
 }
 
 protocol BusinessCardsShowInteractorOutput {
-    func presentSomething(response: BusinessCardsShow.Something.Response)
+    func businessCardsDidPrepareToShowLoad(fromResponseModel responseModel: BusinessCardsShowModels.Load.ResponseModel)
 }
 
 class BusinessCardsShowInteractor: BusinessCardsShowInteractorInput {
     // MARK: - Properties
-    var output: BusinessCardsShowInteractorOutput!
+    var presenter: BusinessCardsShowInteractorOutput!
     var worker: BusinessCardsShowWorker!
     
     
     // MARK: - Custom Functions. Business logic
-    func doSomething(request: BusinessCardsShow.Something.Request) {
-        // NOTE: Create some Worker to do the work
-        worker = BusinessCardsShowWorker()
-        worker.doSomeWork()
-        
+    func businessCardsDidLoad(withRequestModel requestModel: BusinessCardsShowModels.Load.RequestModel) {
         // NOTE: Pass the result to the Presenter
-        let response = BusinessCardsShow.Something.Response()
-        output.presentSomething(response: response)
+        MSMRestApiManager.instance.userRequestDidRun(.userGetBusinessCardsList(requestModel.parameters, false), withHandlerResponseAPICompletion: { responseAPI in
+            let businessCardsResponseModel = BusinessCardsShowModels.Load.ResponseModel(responseAPI: responseAPI)
+            self.presenter.businessCardsDidPrepareToShowLoad(fromResponseModel: businessCardsResponseModel)
+        })
     }
 }

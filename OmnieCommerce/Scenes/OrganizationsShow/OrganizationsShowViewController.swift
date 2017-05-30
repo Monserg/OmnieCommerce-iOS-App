@@ -330,6 +330,16 @@ class OrganizationsShowViewController: BaseViewController {
     }
 
     
+    // MARK: - Transition
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        smallTopBarView.setNeedsDisplay()
+        subcategoriesButton.setNeedsDisplay()
+        organizationServiceButton.setNeedsDisplay()
+        
+        _ = tableView.visibleCells.map { ($0 as! DottedBorderViewBinding).dottedBorderView.setNeedsDisplay() }
+    }
+
+    
     // MARK: - Actions
     @IBAction func handlerMapButtonTap(_ sender: CustomButton) {
         if (tableView.tableViewControllerManager!.dataSource.count > 0) {
@@ -391,15 +401,6 @@ class OrganizationsShowViewController: BaseViewController {
         if (subcategoriesButton.isDropDownListShow) {
             subcategoriesButton.itemsListDidHide(subcategoriesDropDownTableView, inView: view)
         }
-    }
-
-    
-    // MARK: - Transition
-    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        smallTopBarView.setNeedsDisplay()
-        subcategoriesButton.setNeedsDisplay()
-        organizationServiceButton.setNeedsDisplay()
-        _ = tableView.visibleCells.map { ($0 as! DottedBorderViewBinding).dottedBorderView.setNeedsDisplay() }
     }
 }
 

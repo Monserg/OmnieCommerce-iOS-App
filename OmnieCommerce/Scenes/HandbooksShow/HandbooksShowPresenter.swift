@@ -14,13 +14,13 @@ import UIKit
 // MARK: - Input protocols for current Presenter component VIP-cicle
 protocol HandbooksShowPresenterInput {
     func handbooksDidPrepareToShowLoad(fromResponseModel responseModel: HandbooksShowModels.Items.ResponseModel)
-    func bussinessCardDidPrepareToShowCreateFromHandbook(fromResponseModel responseModel: HandbooksShowModels.BussinessCard.ResponseModel)
+    func businessCardDidPrepareToShowCreateFromHandbook(fromResponseModel responseModel: HandbooksShowModels.BusinessCard.ResponseModel)
 }
 
 // MARK: - Output protocols for ViewController component VIP-cicle
 protocol HandbooksShowPresenterOutput: class {
     func handbooksDidShowLoad(fromViewModel viewModel: HandbooksShowModels.Items.ViewModel)
-    func bussinessCardDidShowCreateFromHandbook(fromViewModel viewModel: HandbooksShowModels.BussinessCard.ViewModel)
+    func businessCardDidShowCreateFromHandbook(fromViewModel viewModel: HandbooksShowModels.BusinessCard.ViewModel)
 }
 
 class HandbooksShowPresenter: HandbooksShowPresenterInput {
@@ -52,8 +52,8 @@ class HandbooksShowPresenter: HandbooksShowPresenterInput {
         self.viewController.handbooksDidShowLoad(fromViewModel: handbooksViewModel)
     }
     
-    func bussinessCardDidPrepareToShowCreateFromHandbook(fromResponseModel responseModel: HandbooksShowModels.BussinessCard.ResponseModel) {
-        let bussinessCardViewModel = HandbooksShowModels.BussinessCard.ViewModel(status: (responseModel.responseAPI?.status)!)
-        viewController.bussinessCardDidShowCreateFromHandbook(fromViewModel: bussinessCardViewModel)
+    func businessCardDidPrepareToShowCreateFromHandbook(fromResponseModel responseModel: HandbooksShowModels.BusinessCard.ResponseModel) {
+        let businessCardViewModel = HandbooksShowModels.BusinessCard.ViewModel(status: (responseModel.responseAPI?.status)!)
+        viewController.businessCardDidShowCreateFromHandbook(fromViewModel: businessCardViewModel)
     }
 }

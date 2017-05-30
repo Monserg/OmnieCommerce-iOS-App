@@ -18,14 +18,14 @@ import MXParallaxHeader
 protocol OrganizationShowViewControllerInput {
     func organizationRatingDidShowSend(fromViewModel viewModel: OrganizationShowModels.Rating.ViewModel)
     func organizationDidShowLoad(fromViewModel viewModel: OrganizationShowModels.OrganizationItem.ViewModel)
-    func bussinessCardDidShowCreateFromOrganization(fromViewModel viewModel: OrganizationShowModels.BussinessCard.ViewModel)
+    func businessCardDidShowCreateFromOrganization(fromViewModel viewModel: OrganizationShowModels.BusinessCard.ViewModel)
 }
 
 // MARK: - Output protocols for Interactor component VIP-cicle
 protocol OrganizationShowViewControllerOutput {
     func organizationRatingDidSend(withRequestModel requestModel: OrganizationShowModels.Rating.RequestModel)
     func organizationDidLoad(withRequestModel requestModel: OrganizationShowModels.OrganizationItem.RequestModel)
-    func bussinessCardDidCreateFromOrganization(withRequestModel requestModel: OrganizationShowModels.BussinessCard.RequestModel)
+    func businessCardDidCreateFromOrganization(withRequestModel requestModel: OrganizationShowModels.BusinessCard.RequestModel)
 }
 
 class OrganizationShowViewController: BaseViewController {
@@ -693,8 +693,8 @@ class OrganizationShowViewController: BaseViewController {
             self.blackoutView!.didHide()
             self.blackoutView = nil
 
-            let bussinessCardRequestModel = OrganizationShowModels.BussinessCard.RequestModel(parameters: [ "id": organizationProfile.codeID as AnyObject ])
-            interactor.bussinessCardDidCreateFromOrganization(withRequestModel: bussinessCardRequestModel)
+            let businessCardRequestModel = OrganizationShowModels.BusinessCard.RequestModel(parameters: [ "id": organizationProfile.codeID as AnyObject ])
+            interactor.businessCardDidCreateFromOrganization(withRequestModel: businessCardRequestModel)
             
         // Price List
         case 2:
@@ -751,7 +751,7 @@ extension OrganizationShowViewController: OrganizationShowViewControllerInput {
         self.organizationProfileDidShow()
     }
     
-    func bussinessCardDidShowCreateFromOrganization(fromViewModel viewModel: OrganizationShowModels.BussinessCard.ViewModel) {
+    func businessCardDidShowCreateFromOrganization(fromViewModel viewModel: OrganizationShowModels.BusinessCard.ViewModel) {
         spinnerDidFinish()
 
         // Check for errors

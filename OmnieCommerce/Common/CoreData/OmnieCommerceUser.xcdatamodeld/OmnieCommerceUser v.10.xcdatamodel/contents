@@ -61,6 +61,22 @@
             </uniquenessConstraint>
         </uniquenessConstraints>
     </entity>
+    <entity name="BusinessCard" representedClassName="BusinessCard" syncable="YES">
+        <attribute name="codeID" attributeType="String" syncable="YES"/>
+        <attribute name="comment" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="dateCreated" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="imageID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="nameValue" attributeType="String" syncable="YES"/>
+        <attribute name="phones" optional="YES" attributeType="Transformable" customClassName="String" syncable="YES"/>
+        <attribute name="userID" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="lists" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Lists" inverseName="businessCards" inverseEntity="Lists" syncable="YES"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="codeID"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
+    </entity>
     <entity name="Category" representedClassName="Category" syncable="YES">
         <attribute name="codeID" attributeType="String" syncable="YES"/>
         <attribute name="imageID" optional="YES" attributeType="String" syncable="YES"/>
@@ -93,10 +109,10 @@
         </uniquenessConstraints>
     </entity>
     <entity name="DiscountCard" representedClassName="DiscountCard" syncable="YES">
-        <attribute name="code" attributeType="String" syncable="YES"/>
+        <attribute name="barcode" attributeType="String" syncable="YES"/>
+        <attribute name="barcodeFormat" attributeType="String" syncable="YES"/>
         <attribute name="codeID" attributeType="String" syncable="YES"/>
         <attribute name="dateCreated" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
-        <attribute name="format" attributeType="String" syncable="YES"/>
         <attribute name="imageID" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="nameValue" attributeType="String" syncable="YES"/>
         <attribute name="userID" optional="YES" attributeType="String" syncable="YES"/>
@@ -135,6 +151,7 @@
     </entity>
     <entity name="Lists" representedClassName="Lists" syncable="YES">
         <attribute name="name" attributeType="String" syncable="YES"/>
+        <relationship name="businessCards" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="BusinessCard" inverseName="lists" inverseEntity="BusinessCard" syncable="YES"/>
         <relationship name="categories" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Category" inverseName="categoriesList" inverseEntity="Category" syncable="YES"/>
         <relationship name="discountCards" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="DiscountCard" inverseName="lists" inverseEntity="DiscountCard" syncable="YES"/>
         <relationship name="handbooks" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Handbook" inverseName="lists" inverseEntity="Handbook" syncable="YES"/>
@@ -346,7 +363,7 @@
         <element name="DiscountCard" positionX="144" positionY="81" width="128" height="165"/>
         <element name="GalleryImage" positionX="-36" positionY="99" width="128" height="120"/>
         <element name="Handbook" positionX="144" positionY="81" width="128" height="150"/>
-        <element name="Lists" positionX="144" positionY="81" width="128" height="165"/>
+        <element name="Lists" positionX="144" positionY="81" width="128" height="180"/>
         <element name="NewsData" positionX="-36" positionY="99" width="128" height="195"/>
         <element name="Order" positionX="144" positionY="81" width="128" height="240"/>
         <element name="Organization" positionX="-36" positionY="99" width="128" height="30"/>
@@ -357,5 +374,6 @@
         <element name="Subcategory" positionX="475" positionY="-69" width="128" height="165"/>
         <element name="TimeSheet" positionX="144" positionY="81" width="128" height="150"/>
         <element name="TimeSheetItem" positionX="153" positionY="90" width="128" height="105"/>
+        <element name="BusinessCard" positionX="144" positionY="81" width="128" height="180"/>
     </elements>
 </model>

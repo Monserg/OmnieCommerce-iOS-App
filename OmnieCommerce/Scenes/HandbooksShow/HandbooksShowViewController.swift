@@ -14,13 +14,13 @@ import UIKit
 // MARK: - Input protocols for current ViewController component VIP-cicle
 protocol HandbooksShowViewControllerInput {
     func handbooksDidShowLoad(fromViewModel viewModel: HandbooksShowModels.Items.ViewModel)
-    func bussinessCardDidShowCreateFromHandbook(fromViewModel viewModel: HandbooksShowModels.BussinessCard.ViewModel)
+    func businessCardDidShowCreateFromHandbook(fromViewModel viewModel: HandbooksShowModels.BusinessCard.ViewModel)
 }
 
 // MARK: - Output protocols for Interactor component VIP-cicle
 protocol HandbooksShowViewControllerOutput {
     func handbooksDidLoad(withRequestModel requestModel: HandbooksShowModels.Items.RequestModel)
-    func bussinessCardDidCreateFromHandbook(withRequestModel requestModel: HandbooksShowModels.BussinessCard.RequestModel)
+    func businessCardDidCreateFromHandbook(withRequestModel requestModel: HandbooksShowModels.BusinessCard.RequestModel)
 }
 
 class HandbooksShowViewController: BaseViewController {
@@ -75,10 +75,10 @@ class HandbooksShowViewController: BaseViewController {
             self.modalViewDidShow(withHeight: 185, customSubview: PhonesView(), andValues: phones as! [String])
         }
     
-        // Handler Bussiness Card button tap completion
+        // Handler Business Card button tap completion
         handbooksTableManager.handlerTapBussinessCardButtonCompletion = { itemID in
-            let bussinessCardRequestModel = HandbooksShowModels.BussinessCard.RequestModel(parameters: [ "id": itemID as AnyObject ])
-            self.interactor.bussinessCardDidCreateFromHandbook(withRequestModel: bussinessCardRequestModel)
+            let businessCardRequestModel = HandbooksShowModels.BusinessCard.RequestModel(parameters: [ "id": itemID as AnyObject ])
+            self.interactor.businessCardDidCreateFromHandbook(withRequestModel: businessCardRequestModel)
         }
     }
     
@@ -259,7 +259,7 @@ extension HandbooksShowViewController: HandbooksShowViewControllerInput {
         self.handbooksListDidShow()
     }
     
-    func bussinessCardDidShowCreateFromHandbook(fromViewModel viewModel: HandbooksShowModels.BussinessCard.ViewModel) {
+    func businessCardDidShowCreateFromHandbook(fromViewModel viewModel: HandbooksShowModels.BusinessCard.ViewModel) {
         spinnerDidFinish()
         
         // Check for errors

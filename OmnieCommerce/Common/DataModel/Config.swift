@@ -40,6 +40,8 @@ public let keyHandbook: String                      =   "Handbook"
 public let keyHandbooks: String                     =   "Handbooks"
 public let keyDiscountCard: String                  =   "DiscountCard"
 public let keyDiscountCards: String                 =   "DiscountCards"
+public let keyBusinessCard: String                  =   "BusinessCard"
+public let keyBusinessCards: String                 =   "BusinessCards"
 
 
 // Handlers

@@ -21,13 +21,13 @@ enum RequestType {
     case userChangePasswordFromLogin([String: Any], Bool)   // Forgot password. Step 3
     
     
-    // Bussiness Cards
-    case userEditBussinessCard([String: Any], Bool)
-    case userDeleteBussinessCard([String: Any], Bool)
-    case userGetBussinessCardsList([String: Any], Bool)
-    case userCreateNewBussinessCard([String: Any], Bool)
-    case userCreateNewBussinessCardFromHandbook([String: Any], Bool)
-    case userCreateNewBussinessCardFromOrganization([String: Any], Bool)
+    // Business Cards
+    case userEditBusinessCard([String: Any], Bool)
+    case userDeleteBusinessCard([String: Any], Bool)
+    case userGetBusinessCardsList([String: Any], Bool)
+    case userCreateNewBusinessCard([String: Any], Bool)
+    case userCreateNewBusinessCardFromHandbook([String: Any], Bool)
+    case userCreateNewBusinessCardFromOrganization([String: Any], Bool)
     
     
     // Categories
@@ -146,43 +146,43 @@ enum RequestType {
                                                                                     parameters: (isBodyParams ? nil : params))
             
             
-        // Bussiness Cards
-        case .userEditBussinessCard(let params, let isBodyParams):  return (method: .patch,
+        // Business Cards
+        case .userEditBusinessCard(let params, let isBodyParams):   return (method: .patch,
                                                                             apiStringURL: "/user/cards/business/",
                                                                             body: (isBodyParams ? params : nil),
                                                                             bodyType: .Default,
                                                                             headers: headersExtended,
                                                                             parameters: (isBodyParams ? nil : params))
             
-        case .userDeleteBussinessCard(let params, let isBodyParams):        return (method: .delete,
+        case .userDeleteBusinessCard(let params, let isBodyParams):         return (method: .delete,
                                                                                     apiStringURL: "/user/cards/business/",
                                                                                     body: (isBodyParams ? params : nil),
                                                                                     bodyType: .Default,
                                                                                     headers: headersExtended,
                                                                                     parameters: (isBodyParams ? nil : params))
             
-        case .userGetBussinessCardsList(let params, let isBodyParams):      return (method: .get,
+        case .userGetBusinessCardsList(let params, let isBodyParams):       return (method: .get,
                                                                                     apiStringURL: "/user/cards/business/",
                                                                                     body: (isBodyParams ? params : nil),
                                                                                     bodyType: .ItemsArray,
                                                                                     headers: headersExtended,
                                                                                     parameters: (isBodyParams ? nil : params))
             
-        case .userCreateNewBussinessCard(let params, let isBodyParams):     return (method: .post,
+        case .userCreateNewBusinessCard(let params, let isBodyParams):      return (method: .post,
                                                                                     apiStringURL: "/user/cards/business/",
                                                                                     body: (isBodyParams ? params : nil),
                                                                                     bodyType: .Default,
                                                                                     headers: headersExtended,
                                                                                     parameters: (isBodyParams ? nil : params))
 
-        case .userCreateNewBussinessCardFromHandbook(let params, let isBodyParams):     return (method: .get,
+        case .userCreateNewBusinessCardFromHandbook(let params, let isBodyParams):      return (method: .get,
                                                                                                 apiStringURL: "/user/cards/business/handbook/",
                                                                                                 body: (isBodyParams ? params : nil),
                                                                                                 bodyType: .Default,
                                                                                                 headers: headersExtended,
                                                                                                 parameters: (isBodyParams ? nil : params))
 
-        case .userCreateNewBussinessCardFromOrganization(let params, let isBodyParams): return (method: .get,
+        case .userCreateNewBusinessCardFromOrganization(let params, let isBodyParams):  return (method: .get,
                                                                                                 apiStringURL: "/user/cards/business/organization/",
                                                                                                 body: (isBodyParams ? params : nil),
                                                                                                 bodyType: .Default,

@@ -36,15 +36,15 @@ class BusinessCardsShowConfigurator {
     // MARK: - Custom Functions
     func configure(viewController: BusinessCardsShowViewController) {
         let router = BusinessCardsShowRouter()
-        router.viewController = viewController
+        router.viewController       =   viewController
         
-        let presenter = BusinessCardsShowPresenter()
-        presenter.output = viewController
+        let presenter               =   BusinessCardsShowPresenter()
+        presenter.viewController    =   viewController
         
-        let interactor = BusinessCardsShowInteractor()
-        interactor.output = presenter
+        let interactor              =   BusinessCardsShowInteractor()
+        interactor.presenter        =   presenter
         
-        viewController.output = interactor
-        viewController.router = router
+        viewController.interactor   =   interactor
+        viewController.router       =   router
     }
 }
