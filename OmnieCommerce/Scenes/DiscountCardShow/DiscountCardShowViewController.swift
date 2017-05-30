@@ -124,6 +124,14 @@ class DiscountCardShowViewController: BaseViewController {
     
     // MARK: - Actions
     @IBAction func handlerDeleteDiscountCardButtonTap(_ sender: UbuntuLightItalicVeryLightOrangeButton) {
+        guard isNetworkAvailable else {
+            self.alertViewDidShow(withTitle: "Info", andMessage: "Disconnected from Network", completion: { _ in })
+            
+            return
+        }
+
+        spinnerDidStart(view)
+        
         let discountCardRequestModel = DiscountCardShowModels.Item.RequestModel(parameters: [ "id": discountCardID] )
         interactor.discountCardDidDelete(withRequestModel: discountCardRequestModel)
     }

@@ -60,9 +60,6 @@ class BarcodeReaderViewController: RSCodeReaderViewController {
                 self.dispatched = true
                
                 for barcode in barcodes {
-//                    self.barcode = barcode.stringValue
-//                    print("Barcode found: type=" + barcode.type + " value=" + barcode.stringValue)
-//                    
                     DispatchQueue.main.async(execute: {
                         self.handlerReadBarcodeCompletion!(barcode)
                         self.navigationController?.popViewController(animated: true)
@@ -83,5 +80,11 @@ class BarcodeReaderViewController: RSCodeReaderViewController {
         if let navigationController = self.navigationController {
             navigationController.isNavigationBarHidden = true
         }
-    }    
+    }
+    
+    
+    // MARK: - Actions
+    @IBAction func handlerBackButtonTap(_ sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
+    }
 }

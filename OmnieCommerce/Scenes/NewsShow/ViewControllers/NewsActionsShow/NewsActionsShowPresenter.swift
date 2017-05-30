@@ -29,7 +29,7 @@ class NewsActionsShowPresenter: NewsActionsShowPresenterInput {
     // MARK: - Custom Functions. Presentation logic
     func actionsDidPrepareToShowLoad(fromResponseModel responseModel: NewsActionsShowModels.Actions.ResponseModel) {
         guard responseModel.responseAPI != nil else {
-            let actionsViewModel = NewsActionsShowModels.Actions.ViewModel(status: (responseModel.responseAPI?.status)!)
+            let actionsViewModel = NewsActionsShowModels.Actions.ViewModel(status: "RESPONSE_NIL")
             viewController.actionsDidShowLoad(fromViewModel: actionsViewModel)
             
             return

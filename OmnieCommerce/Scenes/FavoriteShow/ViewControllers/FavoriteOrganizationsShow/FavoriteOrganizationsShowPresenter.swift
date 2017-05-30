@@ -29,7 +29,7 @@ class FavoriteOrganizationsShowPresenter: FavoriteOrganizationsShowPresenterInpu
     // MARK: - Custom Functions. Presentation logic
     func favoriteOrganizationsDidPrepareToShowLoad(fromResponseModel responseModel: FavoriteOrganizationsShowModels.Organizations.ResponseModel) {
         guard responseModel.responseAPI != nil else {
-            let organizationsViewModel = FavoriteOrganizationsShowModels.Organizations.ViewModel(status: (responseModel.responseAPI?.status)!)
+            let organizationsViewModel = FavoriteOrganizationsShowModels.Organizations.ViewModel(status: "RESPONSE_NIL")
             self.viewController.favoriteOrganizationsDidShowLoad(fromViewModel: organizationsViewModel)
 
             return

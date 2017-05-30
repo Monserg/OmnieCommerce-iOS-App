@@ -102,6 +102,12 @@ class DiscountCardCreateViewController: BaseViewController {
         // Create MSMTextFieldManager
         textFieldManager = MSMTextFieldManager(withTextFields: textFieldsCollection)
         textFieldManager.currentVC = self
+        
+        // Handler enter barcode using keyboard
+        textFieldManager.handlerKeywordsFieldCompletion = { _ in
+            self.barcodeFormat = Barcode.codeDidValidate(self.textFieldsCollection.last!.text!)
+        }
+        
         textFieldManager.handlerKeywordsFieldCompletion = { _ in }
         
         // Handler Back button tap
@@ -211,6 +217,12 @@ class DiscountCardCreateViewController: BaseViewController {
     
     // MARK: - Actions
     @IBAction func handlerSaveButtonTap(_ sender: FillVeryLightOrangeButton) {
+        guard isNetworkAvailable else {
+            self.alertViewDidShow(withTitle: "Info", andMessage: "Disconnected from Network", completion: { _ in })
+            
+            return
+        }
+        
         spinnerDidStart(view)
 
         var parameters: [String: Any]  =    [

@@ -33,7 +33,7 @@ class OrganizationShowPresenter: OrganizationShowPresenterInput {
     // MARK: - Custom Functions. Presentation logic
     func organizationDidPrepareToShowLoad(fromResponseModel responseModel: OrganizationShowModels.OrganizationItem.ResponseModel) {
         guard responseModel.responseAPI != nil else {
-            let organizationViewModel = OrganizationShowModels.OrganizationItem.ViewModel(status: (responseModel.responseAPI?.status)!)
+            let organizationViewModel = OrganizationShowModels.OrganizationItem.ViewModel(status: "RESPONSE_NIL")
             viewController.organizationDidShowLoad(fromViewModel: organizationViewModel)
             
             return

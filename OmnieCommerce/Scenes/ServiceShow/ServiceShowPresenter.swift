@@ -31,7 +31,7 @@ class ServiceShowPresenter: ServiceShowPresenterInput {
     // MARK: - Custom Functions. Presentation logic
     func serviceDidPrepareToShowLoad(fromResponseModel responseModel: ServiceShowModels.ServiceItem.ResponseModel) {
         guard responseModel.responseAPI != nil else {
-            let serviceViewModel = ServiceShowModels.ServiceItem.ViewModel(status: (responseModel.responseAPI?.status)!)
+            let serviceViewModel = ServiceShowModels.ServiceItem.ViewModel(status: "RESPONSE_NIL")
             viewController.serviceDidShowLoad(fromViewModel: serviceViewModel)
             
             return
@@ -66,7 +66,7 @@ class ServiceShowPresenter: ServiceShowPresenterInput {
     
     func orderDidPrepareToShowLoad(fromResponseModel responseModel: ServiceShowModels.OrderItem.ResponseModel) {
         guard responseModel.responseAPI != nil else {
-            let orderViewModel = ServiceShowModels.OrderItem.ViewModel(status: (responseModel.responseAPI?.status)!)
+            let orderViewModel = ServiceShowModels.OrderItem.ViewModel(status: "RESPONSE_NIL")
             viewController.orderDidShowLoad(fromViewModel: orderViewModel)
             
             return

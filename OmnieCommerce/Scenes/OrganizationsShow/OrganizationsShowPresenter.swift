@@ -31,7 +31,7 @@ class OrganizationsShowPresenter: OrganizationsShowPresenterInput {
     // MARK: - Custom Functions. Presentation logic
     func organizationsDidPrepareToShowLoad(fromResponseModel responseModel: OrganizationsShowModels.Organizations.ResponseModel) {
         guard responseModel.responseAPI != nil else {
-            let organizationsViewModel = OrganizationsShowModels.Organizations.ViewModel(status: (responseModel.responseAPI?.status)!)
+            let organizationsViewModel = OrganizationsShowModels.Organizations.ViewModel(status: "RESPONSE_NIL")
             self.viewController.organizationsDidShowLoad(fromViewModel: organizationsViewModel)
             return
         }
@@ -83,7 +83,7 @@ class OrganizationsShowPresenter: OrganizationsShowPresenterInput {
 
     func servicesDidPrepareToShowLoad(fromResponseModel responseModel: OrganizationsShowModels.Services.ResponseModel) {
         guard responseModel.responseAPI != nil else {
-            let servicesViewModel = OrganizationsShowModels.Services.ViewModel(status: (responseModel.responseAPI?.status)!)
+            let servicesViewModel = OrganizationsShowModels.Services.ViewModel(status: "RESPONSE_NIL")
             self.viewController.servicesDidShowLoad(fromViewModel: servicesViewModel)
            
             return

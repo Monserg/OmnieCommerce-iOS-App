@@ -29,7 +29,7 @@ class CategoriesShowPresenter: CategoriesShowPresenterInput {
     // MARK: - Custom Functions. Presentation logic
     func categoriesDidPrepareToShowLoad(fromResponseModel responseModel: CategoriesShowModels.Categories.ResponseModel) {
         guard responseModel.responseAPI != nil else {
-            let categoriesViewModel = CategoriesShowModels.Categories.ViewModel(status: (responseModel.responseAPI?.status)!)
+            let categoriesViewModel = CategoriesShowModels.Categories.ViewModel(status: "RESPONSE_NIL")
             viewController.categoriesDidShowLoad(fromViewModel: categoriesViewModel)
             
             return

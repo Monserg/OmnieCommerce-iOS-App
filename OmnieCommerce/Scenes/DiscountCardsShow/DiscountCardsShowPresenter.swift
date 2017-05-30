@@ -28,7 +28,7 @@ class DiscountCardsShowPresenter: DiscountCardsShowPresenterInput {
     // MARK: - Custom Functions. Presentation logic
     func discountCardsDidPrepareToShowLoad(fromResponseModel responseModel: DiscountCardsShowModels.Items.ResponseModel) {
         guard responseModel.responseAPI != nil else {
-            let discountCardsViewModel = DiscountCardsShowModels.Items.ViewModel(status: (responseModel.responseAPI?.status)!)
+            let discountCardsViewModel = DiscountCardsShowModels.Items.ViewModel(status: "RESPONSE_NIL")
             self.viewController.discountCardsDidShowLoad(fromViewModel: discountCardsViewModel)
             
             return

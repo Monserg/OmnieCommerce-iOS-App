@@ -31,7 +31,7 @@ class HandbooksShowPresenter: HandbooksShowPresenterInput {
     // MARK: - Custom Functions. Presentation logic
     func handbooksDidPrepareToShowLoad(fromResponseModel responseModel: HandbooksShowModels.Items.ResponseModel) {
         guard responseModel.responseAPI != nil else {
-            let handbooksViewModel = HandbooksShowModels.Items.ViewModel(status: (responseModel.responseAPI?.status)!)
+            let handbooksViewModel = HandbooksShowModels.Items.ViewModel(status: "RESPONSE_NIL")
             self.viewController.handbooksDidShowLoad(fromViewModel: handbooksViewModel)
             
             return

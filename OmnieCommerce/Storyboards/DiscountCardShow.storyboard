@@ -139,8 +139,9 @@
                                     <constraint firstAttribute="bottom" secondItem="yfu-xV-3C9" secondAttribute="bottom" constant="50" id="IgE-0w-EKS"/>
                                     <constraint firstItem="yfu-xV-3C9" firstAttribute="centerX" secondItem="Pbl-5y-903" secondAttribute="centerX" id="Kky-a1-yAR"/>
                                     <constraint firstItem="yCj-cg-icS" firstAttribute="centerX" secondItem="Pbl-5y-903" secondAttribute="centerX" id="Lg0-lu-PlU"/>
-                                    <constraint firstItem="4Dw-Qj-tu7" firstAttribute="top" secondItem="Pbl-5y-903" secondAttribute="top" id="MxR-I4-lrJ">
-                                        <variation key="heightClass=regular-widthClass=compact" constant="20"/>
+                                    <constraint firstItem="4Dw-Qj-tu7" firstAttribute="top" secondItem="Pbl-5y-903" secondAttribute="top" constant="20" id="MxR-I4-lrJ">
+                                        <variation key="heightClass=compact-widthClass=compact" constant="4"/>
+                                        <variation key="heightClass=compact-widthClass=regular" constant="6"/>
                                     </constraint>
                                     <constraint firstItem="4Dw-Qj-tu7" firstAttribute="leading" secondItem="Pbl-5y-903" secondAttribute="leading" id="ND0-G5-yQz"/>
                                     <constraint firstAttribute="trailing" secondItem="32W-Am-YMB" secondAttribute="trailing" constant="4" id="OEV-tg-0KV"/>

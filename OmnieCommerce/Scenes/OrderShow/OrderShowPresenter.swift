@@ -29,7 +29,7 @@ class OrderShowPresenter: OrderShowPresenterInput {
     // MARK: - Custom Functions. Presentation logic
     func orderDidPrepareToShowLoad(fromResponseModel responseModel: OrderShowModels.OrderItem.ResponseModel) {
         guard responseModel.responseAPI != nil else {
-            let orderViewModel = OrderShowModels.OrderItem.ViewModel(status: (responseModel.responseAPI?.status)!)
+            let orderViewModel = OrderShowModels.OrderItem.ViewModel(status: "RESPONSE_NIL")
             viewController.orderDidShowLoad(fromViewModel: orderViewModel)
             
             return
