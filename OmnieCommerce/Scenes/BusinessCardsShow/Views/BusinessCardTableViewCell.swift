@@ -69,8 +69,8 @@ extension BusinessCardTableViewCell: ConfigureCell {
             commentLabel.isHidden = true
         }
         
-        if ((businessCard.phones?.count)! > 0) {
-            phoneLabel.text = businessCard.phones!.first!
+        if let phones = businessCard.phones, phones.count > 0 {
+            phoneLabel.text = phones.first!
         } else {
             phoneLabel.isHidden = true
         }

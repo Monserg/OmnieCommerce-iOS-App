@@ -55,6 +55,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="hc9-me-CHh" secondAttribute="height" multiplier="1:1" id="UFh-qE-2y6"/>
                                 </constraints>
+                                <inset key="imageEdgeInsets" minX="4" minY="2" maxX="0.0" maxY="0.0"/>
                                 <state key="normal" image="icon-create-new-business-card"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="buttonStyle" value="SoftOrangeFill"/>

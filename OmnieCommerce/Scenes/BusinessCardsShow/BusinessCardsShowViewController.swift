@@ -78,7 +78,7 @@ class BusinessCardsShowViewController: BaseViewController {
     func viewSettingsDidLoad() {
         // Config smallTopBarView
         navigationBarView = smallTopBarView
-        smallTopBarView.type = "ParentSearch"
+        smallTopBarView.type = "Parent"
         haveMenuItem = true
         createNewBusinessCardButton.isUserInteractionEnabled = false
         

@@ -95,6 +95,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="MWO-T0-hvb" secondAttribute="height" multiplier="1:1" id="xqC-wy-ChY"/>
                                 </constraints>
+                                <inset key="imageEdgeInsets" minX="4" minY="2" maxX="0.0" maxY="0.0"/>
                                 <state key="normal" image="icon-create-new-discount-card-normal"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="buttonStyle" value="SoftOrangeFill"/>
@@ -168,7 +169,7 @@
                     <toolbarItems/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="z6D-Fr-pFE">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="z6D-Fr-pFE">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
