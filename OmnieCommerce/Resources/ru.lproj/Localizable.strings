@@ -100,6 +100,7 @@
 "BusinessСard delete message"   =   "Визитка успешно \nудалена.";
 "BusinessСard create message"   =   "Новая визитка успешно \nсоздана.";
 "BusinessСard upload message"   =   "Профиль визитки успешно \nобновлен.";
+"BusinessСard add?"             =   "Добавить визитку?";
 "User Omniecard title text"     =   "Уже давно известно, что читабельное содержание будет мешать человеку сосредоточиться во время оценки композиции страницы.";
 
 
@@ -137,6 +138,7 @@
 "Add discount card photo"       =   "Добавить фото карточки";
 "Read discount card Barcode"    =   "Считать штрих код";
 "Delete business card"          =   "Удалить визитку";
+"Yes"                           =   "Да";
 
 
 // TextField Placeholders

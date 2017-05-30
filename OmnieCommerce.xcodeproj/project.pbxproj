@@ -163,6 +163,8 @@
 		B12441001EDDF25000C93220 /* BusinessCardCreateRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12440F91EDDF25000C93220 /* BusinessCardCreateRouter.swift */; };
 		B12441011EDDF25000C93220 /* BusinessCardCreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12440FA1EDDF25000C93220 /* BusinessCardCreateViewController.swift */; };
 		B12441021EDDF25000C93220 /* BusinessCardCreateWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12440FB1EDDF25000C93220 /* BusinessCardCreateWorker.swift */; };
+		B12441061EDDF9E000C93220 /* ConfirmQuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12441041EDDF9E000C93220 /* ConfirmQuestionView.swift */; };
+		B12441071EDDF9E000C93220 /* ConfirmQuestionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B12441051EDDF9E000C93220 /* ConfirmQuestionView.xib */; };
 		B12974B61ECED7C1002409C7 /* ConfirmSaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12974B41ECED7C1002409C7 /* ConfirmSaveView.swift */; };
 		B12974B71ECED7C1002409C7 /* ConfirmSaveView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B12974B51ECED7C1002409C7 /* ConfirmSaveView.xib */; };
 		B12FE6461E57327D00A4FBA4 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12FE6451E57327D00A4FBA4 /* CustomTextField.swift */; };
@@ -720,6 +722,8 @@
 		B12440F91EDDF25000C93220 /* BusinessCardCreateRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessCardCreateRouter.swift; sourceTree = "<group>"; };
 		B12440FA1EDDF25000C93220 /* BusinessCardCreateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessCardCreateViewController.swift; sourceTree = "<group>"; };
 		B12440FB1EDDF25000C93220 /* BusinessCardCreateWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessCardCreateWorker.swift; sourceTree = "<group>"; };
+		B12441041EDDF9E000C93220 /* ConfirmQuestionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmQuestionView.swift; sourceTree = "<group>"; };
+		B12441051EDDF9E000C93220 /* ConfirmQuestionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConfirmQuestionView.xib; sourceTree = "<group>"; };
 		B12974B41ECED7C1002409C7 /* ConfirmSaveView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmSaveView.swift; sourceTree = "<group>"; };
 		B12974B51ECED7C1002409C7 /* ConfirmSaveView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConfirmSaveView.xib; sourceTree = "<group>"; };
 		B12FE6451E57327D00A4FBA4 /* CustomTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = CustomTextField.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -1730,6 +1734,7 @@
 		B12440F41EDDF22700C93220 /* BusinessCardCreate */ = {
 			isa = PBXGroup;
 			children = (
+				B12441031EDDF95D00C93220 /* Views */,
 				B12440F51EDDF25000C93220 /* BusinessCardCreateConfigurator.swift */,
 				B12440F61EDDF25000C93220 /* BusinessCardCreateInteractor.swift */,
 				B12440F71EDDF25000C93220 /* BusinessCardCreateModels.swift */,
@@ -1739,6 +1744,15 @@
 				B12440FB1EDDF25000C93220 /* BusinessCardCreateWorker.swift */,
 			);
 			path = BusinessCardCreate;
+			sourceTree = "<group>";
+		};
+		B12441031EDDF95D00C93220 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B12441041EDDF9E000C93220 /* ConfirmQuestionView.swift */,
+				B12441051EDDF9E000C93220 /* ConfirmQuestionView.xib */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		B12974B31ECED761002409C7 /* Views */ = {
@@ -2667,6 +2681,7 @@
 				B1CF54E41DDB543300E98049 /* SettingsShow.storyboard in Resources */,
 				B122F1BF1DD3575E0018A701 /* SlideMenuShow.storyboard in Resources */,
 				B122F22E1DD35ECC0018A701 /* FavoriteShow.storyboard in Resources */,
+				B12441071EDDF9E000C93220 /* ConfirmQuestionView.xib in Resources */,
 				B149A7BC1E5D8E24009BF8C7 /* AnimatedButton.xib in Resources */,
 				B19B51411E8C1BD200353CCB /* ServiceTableViewCell.xib in Resources */,
 			);
@@ -2935,6 +2950,7 @@
 				B14E974A1DD8B042001E1DE2 /* SignInShowModels.swift in Sources */,
 				B122F1E01DD35B760018A701 /* OrdersShowViewController.swift in Sources */,
 				B1D738421E9382C300A764F4 /* ReviewsView.swift in Sources */,
+				B12441061EDDF9E000C93220 /* ConfirmQuestionView.swift in Sources */,
 				B1CF54A01DDB515000E98049 /* HandbookShowConfigurator.swift in Sources */,
 				B122DF661DF7F957003823AD /* CalendarShowPresenter.swift in Sources */,
 				B1AF6E831ED947EC0085BDCA /* LocationItem.swift in Sources */,

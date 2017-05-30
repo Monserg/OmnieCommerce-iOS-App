@@ -100,6 +100,7 @@
 "BusinessСard delete message"   =   "Bussiness Card have been successfully \ndeleted.";
 "BusinessСard create message"   =   "Bussiness Card have been successfully \ncreated.";
 "BusinessСard upload message"   =   "Bussiness Card have been successfully \nuploaded.";
+"BusinessСard add?"             =   "Add Bussiness Card?";
 "User Omniecard title text"     =   "It has long been known that the readable content of the concentrate will prevent a person who appreciates the track page. ";
 
 
@@ -137,6 +138,7 @@
 "Add discount card photo"       =   "Add discount card photo";
 "Read discount card Barcode"    =   "Read Barcode";
 "Delete business card"          =   "Delete business card";
+"Yes"                           =   "Yes";
 
 
 // TextField Placeholders

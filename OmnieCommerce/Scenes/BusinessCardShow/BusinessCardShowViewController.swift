@@ -103,8 +103,12 @@ class BusinessCardShowViewController: BaseViewController {
             blackoutView!.didShow()
         }
         
-        modalView = ModalView.init(inView: blackoutView!, withHeight: 185.0)
-        let popupView = ConfirmSaveView.init(inView: modalView!, withText: "BusinessСard delete message")
+        modalView = ModalView.init(inView: blackoutView!, withHeight: 150.0)
+        let popupView = ConfirmQuestionView.init(inView: modalView!, withText: "BusinessСard add?")
+
+//        modalView = ModalView.init(inView: blackoutView!, withHeight: 185.0)
+//        let popupView = ConfirmSaveView.init(inView: modalView!, withText: "BusinessСard delete message")
+
         
         // Handler Cancel button tap
         popupView.handlerCancelButtonCompletion = { _ in
@@ -138,7 +142,8 @@ class BusinessCardShowViewController: BaseViewController {
     }
     
     @IBAction func handlerEditButtonTap(_ sender: UIButton) {
-        self.router.navigateToBusinessCardCreateScene(withBusinessCardID: businessCardID)
+//        self.router.navigateToBusinessCardCreateScene(withBusinessCardID: businessCardID)
+        modalViewDidShow()
     }
     
     @IBAction func handlerBackButtonTap(_ sender: UIButton) {
