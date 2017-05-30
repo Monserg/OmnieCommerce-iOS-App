@@ -13,22 +13,30 @@ import UIKit
 
 // MARK: - Input & Output protocols
 protocol OmnieCardsShowPresenterInput {
-    func presentSomething(response: OmnieCardsShow.Something.Response)
+    func omnieCardDidPrepareToShowLoad(fromResponseModel responseModel: OmnieCardsShowModels.Code.ResponseModel)
 }
 
 protocol OmnieCardsShowPresenterOutput: class {
-    func displaySomething(viewModel: OmnieCardsShow.Something.ViewModel)
+    func omnieCardDidShowLoad(fromViewModel viewModel: OmnieCardsShowModels.Code.ViewModel)
 }
 
 class OmnieCardsShowPresenter: OmnieCardsShowPresenterInput {
     // MARK: - Properties
-    weak var output: OmnieCardsShowPresenterOutput!
+    weak var viewController: OmnieCardsShowPresenterOutput!
     
     
     // MARK: - Custom Functions. Presentation logic
-    func presentSomething(response: OmnieCardsShow.Something.Response) {
+    func omnieCardDidPrepareToShowLoad(fromResponseModel responseModel: OmnieCardsShowModels.Code.ResponseModel) {
         // NOTE: Format the response from the Interactor and pass the result back to the View Controller
-        let viewModel = OmnieCardsShow.Something.ViewModel()
-        output.displaySomething(viewModel: viewModel)
+        if let status = responseModel.responseAPI?.status, status == "SUCCESS" {
+            if let jsonAppUser = responseModel.responseAPI?.body as? [String: AnyObject] {
+                appUser.profileDidAddBarCode(json: jsonAppUser)
+            }
+        }
+        
+        CoreDataManager.instance.didSaveContext()
+        
+        let omnieCardViewModel = OmnieCardsShowModels.Code.ViewModel(status: (responseModel.responseAPI?.status)!)
+        viewController.omnieCardDidShowLoad(fromViewModel: omnieCardViewModel)
     }
 }

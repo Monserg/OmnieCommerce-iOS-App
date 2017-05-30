@@ -32,5 +32,8 @@ extension AppUser {
     @NSManaged public var password: String?
     @NSManaged public var phone: String?
     @NSManaged public var surName: String?
+    @NSManaged public var omniecardName: String?
+    @NSManaged public var omniecardBarCode: String?
+    @NSManaged public var omniecardDate: NSDate?
 
 }

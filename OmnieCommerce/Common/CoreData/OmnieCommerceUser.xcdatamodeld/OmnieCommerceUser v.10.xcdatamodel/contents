@@ -47,6 +47,9 @@
         <attribute name="hasPet" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="imageID" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="isAuthorized" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="omniecardBarCode" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="omniecardDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="omniecardName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="password" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="phone" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="registrationDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
@@ -337,7 +340,7 @@
         <element name="Actions" positionX="-27" positionY="108" width="128" height="60"/>
         <element name="AdditionalService" positionX="144" positionY="81" width="128" height="195"/>
         <element name="AppSettings" positionX="-54" positionY="-9" width="128" height="165"/>
-        <element name="AppUser" positionX="-63" positionY="-18" width="128" height="285"/>
+        <element name="AppUser" positionX="-63" positionY="-18" width="128" height="330"/>
         <element name="Category" positionX="270" positionY="-72" width="128" height="135"/>
         <element name="Discount" positionX="162" positionY="99" width="128" height="210"/>
         <element name="DiscountCard" positionX="144" positionY="81" width="128" height="165"/>

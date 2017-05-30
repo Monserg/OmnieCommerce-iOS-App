@@ -23,5 +23,6 @@ target 'OmnieCommerce' do
     pod 'Kingfisher', '~> 3.5'
     pod 'ImageSlideshow', '~> 1.2'
     pod 'ImageSlideshow/Kingfisher'
+    pod 'RSBarcodes_Swift', '~> 3.0'
 
 end

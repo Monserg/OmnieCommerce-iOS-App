@@ -98,6 +98,7 @@
 "DiscountCard create message"   =   "Новая карточка успешно добавлена \nв список.";
 "DiscountCard upload message"   =   "Профиль карточки успешно \nобновлен.";
 "BussinessСard create message"  =   "Новая визитка успешно создана.";
+"User Omniecard title text"     =   "Уже давно известно, что читабельное содержание будет мешать человеку сосредоточиться во время оценки композиции страницы.";
 
 
 // Buttons

@@ -89,6 +89,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>RSBarcodes_Swift.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>SWRevealViewController.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -112,12 +117,32 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>05D5A88E10F31AA1DDE6F3B3560E539C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>107A9565F9DF88517DFD3E28C05B2B96</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>2F0FE1E2A5B1EF15139E10A40F05CE94</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>434E45FAFB836A41476353ED7EC85073</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>444CE3C9F50960C5856D88C582D9095B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>45AD2EEE52EDE08781E8CE8666E1EA3E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -142,11 +167,6 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>872D982A2F1A6B337B45B5FF473374E9</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>88E9EC28B8B46C3631E6B242B50F4442</key>
 		<dict>
 			<key>primary</key>
@@ -157,7 +177,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8E21215C6C24B901650FE774D529D448</key>
+		<key>971AB2EB16D4DB3320D5527C05400062</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -182,17 +202,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D6EFC0F454A2FADF81CC17855060CFAF</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>E75E5BAC0FE6E4C6A5E5F95EA6807F8A</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>EA33482C9ACD9E3566DDF76D68DCBA5E</key>
 		<dict>
 			<key>primary</key>
 			<true/>

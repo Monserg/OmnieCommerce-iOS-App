@@ -36,15 +36,15 @@ class OmnieCardsShowConfigurator {
     // MARK: - Custom Functions
     func configure(viewController: OmnieCardsShowViewController) {
         let router = OmnieCardsShowRouter()
-        router.viewController = viewController
+        router.viewController       =   viewController
         
-        let presenter = OmnieCardsShowPresenter()
-        presenter.output = viewController
+        let presenter               =   OmnieCardsShowPresenter()
+        presenter.viewController    =   viewController
         
-        let interactor = OmnieCardsShowInteractor()
-        interactor.output = presenter
+        let interactor              =   OmnieCardsShowInteractor()
+        interactor.presenter        =   presenter
         
-        viewController.output = interactor
-        viewController.router = router
+        viewController.interactor   =   interactor
+        viewController.router       =   router
     }
 }

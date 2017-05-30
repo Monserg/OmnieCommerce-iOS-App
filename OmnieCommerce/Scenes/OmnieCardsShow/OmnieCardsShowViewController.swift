@@ -13,21 +13,25 @@ import UIKit
 
 // MARK: - Input & Output protocols
 protocol OmnieCardsShowViewControllerInput {
-    func displaySomething(viewModel: OmnieCardsShow.Something.ViewModel)
+    func omnieCardDidShowLoad(fromViewModel viewModel: OmnieCardsShowModels.Code.ViewModel)
 }
 
 protocol OmnieCardsShowViewControllerOutput {
-    func doSomething(request: OmnieCardsShow.Something.Request)
+    func omnieCardDidLoad(withRequestModel requestModel: OmnieCardsShowModels.Code.RequestModel)
 }
 
 class OmnieCardsShowViewController: BaseViewController {
     // MARK: - Properties
-    var output: OmnieCardsShowViewControllerOutput!
+    var interactor: OmnieCardsShowViewControllerOutput!
     var router: OmnieCardsShowRouter!
-    let barcodeViewModel = OmnieCardViewModel()
     
-    @IBOutlet weak var barcodeView: BarCodeView!
+    // IBOutlet
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var qrcodeImageView: UIImageView!
+    @IBOutlet weak var barcodeImageView: UIImageView!
     @IBOutlet weak var smallTopBarView: SmallTopBarView!
+    @IBOutlet weak var qrcodeLabel: UbuntuLightVeryLightGrayLabel!
+    @IBOutlet weak var barcodeLabel: UbuntuLightVeryLightGrayLabel!
 
     
     // MARK: - Class Initialization
@@ -47,9 +51,6 @@ class OmnieCardsShowViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        
-        barcodeView.titleLabel.text     =   barcodeViewModel.getBarCodeID()
-        barcodeView.imageView.image     =   barcodeViewModel.createBarCode()
     }
 
     
@@ -58,13 +59,40 @@ class OmnieCardsShowViewController: BaseViewController {
         print(object: "\(type(of: self)): \(#function) run.")
         
         // Config smallTopBarView
-        navigationBarView               =   smallTopBarView
-        smallTopBarView.type            =   "ParentSearch"
-        haveMenuItem                    =   true
+        navigationBarView = smallTopBarView
+        smallTopBarView.type = "Parent"
+        haveMenuItem = true
+        scrollViewBase = scrollView
+     
+        userOmnieCardDidLoad()
+    }
+    
+    func userOmnieCardDidLoad() {
+        spinnerDidStart(view)
         
         // Load data
-        let requestModel                =   OmnieCardsShow.Something.Request()
-        output.doSomething(request: requestModel)
+        let omnieCardRequestModel = OmnieCardsShowModels.Code.RequestModel()
+        interactor.omnieCardDidLoad(withRequestModel: omnieCardRequestModel)
+    }
+    
+    func userOmnieCardDidShow() {
+        // Generate Barcode Code
+        if let image = Barcode.generateBarcodeFrom(stringCode: appUser.omniecardBarCode!, withImageSize: barcodeImageView.frame.size) {
+            UIView.animate(withDuration: 0.5, animations: { 
+                self.barcodeImageView.image = image
+            })
+        }
+
+        if let image = Barcode.generateQRCodeFrom(stringCode: appUser.omniecardBarCode!, withImageSize: qrcodeImageView.frame.size) {
+            UIView.animate(withDuration: 0.5, animations: {
+                self.qrcodeImageView.image = image
+            })
+        }
+
+        self.barcodeLabel.text = appUser.omniecardBarCode
+        self.qrcodeLabel.text = appUser.omniecardBarCode
+
+        spinnerDidFinish()
     }
     
     
@@ -80,10 +108,16 @@ class OmnieCardsShowViewController: BaseViewController {
 
 // MARK: - OmnieCardsShowViewControllerInput
 extension OmnieCardsShowViewController: OmnieCardsShowViewControllerInput {
-    func displaySomething(viewModel: OmnieCardsShow.Something.ViewModel) {
-        print(object: "\(type(of: self)): \(#function) run.")
+    func omnieCardDidShowLoad(fromViewModel viewModel: OmnieCardsShowModels.Code.ViewModel) {
+        // Check for errors
+        guard viewModel.status == "SUCCESS" else {
+            self.alertViewDidShow(withTitle: "Error", andMessage: viewModel.status, completion: {
+                self.userOmnieCardDidShow()
+            })
+            
+            return
+        }
         
-        // Display the result from the Presenter
-        // nameTextField.text = viewModel.name
+        userOmnieCardDidShow()
     }
 }

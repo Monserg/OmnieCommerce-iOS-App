@@ -73,6 +73,7 @@ PODS:
   - PhoneNumberKit/PhoneNumberKitCore (1.2.3)
   - PhoneNumberKit/UIKit (1.2.3):
     - PhoneNumberKit/PhoneNumberKitCore
+  - RSBarcodes_Swift (3.0.3)
   - SwiftyJSON (3.1.4)
   - SwiftyVK (2.0.8)
   - SWRevealViewController (2.3.0)
@@ -93,6 +94,7 @@ DEPENDENCIES:
   - MXParallaxHeader (~> 0.6)
   - Navajo-Swift (~> 1.0)
   - PhoneNumberKit (~> 1.2)
+  - RSBarcodes_Swift (~> 3.0)
   - SwiftyJSON (~> 3.1)
   - SwiftyVK (~> 2.0)
   - SWRevealViewController (~> 2.3)
@@ -120,10 +122,11 @@ SPEC CHECKSUMS:
   MXParallaxHeader: 858c403532ed933b381556a81ce333d7065ad182
   Navajo-Swift: b5ccdf31f5b21e4944a418c5dfe891c8e571f7c7
   PhoneNumberKit: 1e5cca669113fc361a8c82ec1ee559c62b8cd0f7
+  RSBarcodes_Swift: 3b4a9c2e81fe9f435a26f18a1b8b826665e7cf89
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
   SwiftyVK: 940bc77f65ad0c5ea2d2d9cb578943f686fd8e63
   SWRevealViewController: 6d3fd97f70112fd7cef9de14df4260eacce4c63a
 
-PODFILE CHECKSUM: 620241b788a5c53a2bcaeb1dbbfa2ae50ba47ee2
+PODFILE CHECKSUM: 63b6767b636f271ec14213ced13bec2cb3512956
 
 COCOAPODS: 1.2.0.beta.1

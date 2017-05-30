@@ -12,15 +12,17 @@
 import UIKit
 
 // MARK: - Data models
-struct OmnieCardsShow {
-    struct Something {
-        struct Request {
+struct OmnieCardsShowModels {
+    struct Code {
+        struct RequestModel {
         }
         
-        struct Response {
+        struct ResponseModel {
+            let responseAPI: ResponseAPI?
         }
         
         struct ViewModel {
+            let status: String
         }
     }
 }

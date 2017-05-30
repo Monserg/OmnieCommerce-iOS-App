@@ -90,6 +90,7 @@ enum RequestType {
     case userChangeEmail([String: Any], Bool)
     case userGetProfileData([String: Any]?, Bool)
     case userUploadProfileData([String: Any], Bool)
+    case userGetOmnieCardProfile([String: Any]?, Bool)
     case userGetProfileSettings([String: Any]?, Bool)
     case userUploadProfileSettings([String: Any], Bool)
     case userChangePasswordFromProfile([String: Any], Bool)
@@ -448,6 +449,13 @@ enum RequestType {
                     bodyType: .ItemsDictionary,
                     headers: headersExtended!,
                     parameters: (isBodyParams ? nil : params))
+            
+        case .userGetOmnieCardProfile(let params, let isBodyParams):    return (method: .get,
+                                                                                apiStringURL: "/user/omniecard/",
+                                                                                body: (isBodyParams ? params : nil),
+                                                                                bodyType: .ItemsDictionary,
+                                                                                headers: headersExtended,
+                                                                                parameters: (isBodyParams ? nil : params))
             
         case .userGetProfileSettings(let params, let isBodyParams):     return (method: .get,
                                                                                 apiStringURL: "/user/config/",

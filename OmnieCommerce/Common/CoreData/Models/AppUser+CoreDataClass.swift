@@ -73,6 +73,20 @@ public class AppUser: NSManagedObject, InitCellParameters {
         }
     }
     
+    func profileDidAddBarCode(json: [String: AnyObject]) {
+        if let name = json["name"] as? String {
+            self.omniecardName = name
+        }
+        
+        if let barcode = json["barCode"] as? String {
+            self.omniecardBarCode = barcode
+        }
+
+        if let createdDate = json["createDate"] as? String {
+            self.omniecardDate = createdDate.convertToDate(withDateFormat: .PriceDate) as NSDate
+        }
+    }
+    
     deinit {
         print("\(type(of: self)) deinit")
     }

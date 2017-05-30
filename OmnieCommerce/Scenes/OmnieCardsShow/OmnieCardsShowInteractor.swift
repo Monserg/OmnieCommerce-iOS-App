@@ -13,27 +13,25 @@ import UIKit
 
 // MARK: - Input & Output protocols
 protocol OmnieCardsShowInteractorInput {
-    func doSomething(request: OmnieCardsShow.Something.Request)
+    func omnieCardDidLoad(withRequestModel requestModel: OmnieCardsShowModels.Code.RequestModel)
 }
 
 protocol OmnieCardsShowInteractorOutput {
-    func presentSomething(response: OmnieCardsShow.Something.Response)
+    func omnieCardDidPrepareToShowLoad(fromResponseModel responseModel: OmnieCardsShowModels.Code.ResponseModel)
 }
 
 class OmnieCardsShowInteractor: OmnieCardsShowInteractorInput {
     // MARK: - Properties
-    var output: OmnieCardsShowInteractorOutput!
+    var presenter: OmnieCardsShowInteractorOutput!
     var worker: OmnieCardsShowWorker!
     
     
     // MARK: - Custom Functions. Business logic
-    func doSomething(request: OmnieCardsShow.Something.Request) {
-        // NOTE: Create some Worker to do the work
-        worker = OmnieCardsShowWorker()
-        worker.doSomeWork()
-        
+    func omnieCardDidLoad(withRequestModel requestModel: OmnieCardsShowModels.Code.RequestModel) {
         // NOTE: Pass the result to the Presenter
-        let response = OmnieCardsShow.Something.Response()
-        output.presentSomething(response: response)
+        MSMRestApiManager.instance.userRequestDidRun(.userGetOmnieCardProfile(nil, false), withHandlerResponseAPICompletion: { responseAPI in
+            let omnieCardResponseModel = OmnieCardsShowModels.Code.ResponseModel(responseAPI: responseAPI)
+            self.presenter.omnieCardDidPrepareToShowLoad(fromResponseModel: omnieCardResponseModel)
+        })
     }
 }
