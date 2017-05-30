@@ -33,6 +33,7 @@ class DiscountCardCreateViewController: BaseViewController {
     
     var imageID: String?
     var barcodeID: String?
+    var barcodeFormat: String!
     var discountCardID: String?
 
     var textFieldManager: MSMTextFieldManager! {
@@ -51,6 +52,7 @@ class DiscountCardCreateViewController: BaseViewController {
     @IBOutlet var textFieldsCollection: [CustomTextField]!
     @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var barcodeImageView: UIImageView!
+    @IBOutlet weak var barcodeView: UIView!
 
     @IBOutlet var dottedBorderViewsCollection: [DottedBorderView]! {
         didSet {
@@ -112,7 +114,10 @@ class DiscountCardCreateViewController: BaseViewController {
             if let discountCard = CoreDataManager.instance.entityBy("DiscountCard", andCodeID: discountCardID!) as? DiscountCard {
                 textFieldsCollection.first?.text = discountCard.name
                 textFieldsCollection.last?.text = discountCard.code
+                barcodeFormat = discountCard.format
+                barcodeView.backgroundColor = UIColor.white
                 
+                // Show discount card photo
                 if let photoImageID = discountCard.imageID, !photoImageID.isEmpty {
                     self.photoImageView.kf.setImage(with: ImageResource(downloadURL: photoImageID.convertToURL(withSize: .Medium, inMode: .Get), cacheKey: photoImageID),
                                                     placeholder: nil,
@@ -132,18 +137,27 @@ class DiscountCardCreateViewController: BaseViewController {
                     })
                 }
                 
-                if let barcodeImage = Barcode.convertToImageFromString(discountCard.code) {
-                    self.barcodeID = discountCard.code
-                    self.barcodeImageView.image = barcodeImage
-                } else {
-                    self.photoImageView.contentMode = .center
-                    self.photoImageView.backgroundColor = UIColor.init(hexString: "#273745")
-                    
-                    UIView.animate(withDuration: 0.5, animations: {
-                        self.photoImageView.image = UIImage.init(named: "image-no-photo")
-                    })
-                }
+                // Show discount card barcode
+                barcodeDidGenerateToShow(withCode: discountCard.code)
             }
+        }
+    }
+    
+    func barcodeDidGenerateToShow(withCode code: String) {
+        if let image = Barcode.generateBarcodeFrom(stringCode: code, withImageSize: barcodeImageView.frame.size) {
+            UIView.animate(withDuration: 0.5, animations: {
+                self.barcodeID = code
+                self.barcodeFormat = Barcode.codeDidValidate(code)
+                self.barcodeImageView.image = image
+                self.barcodeView.backgroundColor = UIColor.white                
+            })
+        } else {
+            self.barcodeImageView.contentMode = .center
+            self.barcodeView.backgroundColor = UIColor.init(hexString: "#273745")
+            
+            UIView.animate(withDuration: 0.5, animations: {
+                self.barcodeImageView.image = UIImage.init(named: "image-no-photo")
+            })
         }
     }
     
@@ -203,7 +217,7 @@ class DiscountCardCreateViewController: BaseViewController {
                                                 "imageId":  self.imageID ?? "",
                                                 "name":     self.textFieldsCollection.first?.text ?? "",
                                                 "code":     self.textFieldsCollection.last?.text ?? "",
-                                                "format":   "QR"
+                                                "format":   barcodeFormat
                                             ]
         
         if (discountCardID == nil) {
@@ -272,7 +286,8 @@ class DiscountCardCreateViewController: BaseViewController {
         }
     }
     
-    @IBAction func handlerBarcodeImageButtonTap(_ sender: UbuntuLightVeryLightOrangeButton) {
+    @IBAction func handlerBarcodeReaderButtonTap(_ sender: UbuntuLightVeryLightOrangeButton) {
+        self.router.navigateToBarcodeReader()
     }
 }
 

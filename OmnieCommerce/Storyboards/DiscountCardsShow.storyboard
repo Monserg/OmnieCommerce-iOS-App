@@ -23,7 +23,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="mQb-sM-Lo4" customClass="MSMCollectionView" customModule="OmnieCommerce" customModuleProvider="target">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="prototypes" prefetchingEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mQb-sM-Lo4" customClass="MSMCollectionView" customModule="OmnieCommerce" customModuleProvider="target">
                                 <rect key="frame" x="8" y="65" width="359" height="574"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="15" minimumInteritemSpacing="20" id="huf-bC-RIX">
@@ -152,7 +152,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="RQS-qq-19K"/>
                     <connections>
-                        <outlet property="collectionView" destination="mQb-sM-Lo4" id="7WP-TM-IDZ"/>
+                        <outlet property="collectionView" destination="mQb-sM-Lo4" id="gRA-M1-9If"/>
                         <outlet property="createNewDiscountCardButton" destination="MWO-T0-hvb" id="Zer-xi-dSm"/>
                         <outlet property="smallTopBarView" destination="K4O-Hp-7T4" id="q8S-72-lAF"/>
                     </connections>

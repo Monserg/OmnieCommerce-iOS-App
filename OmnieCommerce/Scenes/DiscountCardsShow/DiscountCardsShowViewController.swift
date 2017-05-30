@@ -29,20 +29,19 @@ class DiscountCardsShowViewController: BaseViewController {
     var limit: Int!
 
     // Outlets
-    @IBOutlet weak var infiniteScrollingView: UIView!
     @IBOutlet weak var smallTopBarView: SmallTopBarView!
     @IBOutlet weak var createNewDiscountCardButton: FillColorButton!
     
-    @IBOutlet weak var infiniteSpinner: UIActivityIndicatorView! {
-        didSet {
-            spinner.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
-        }
-    }
-
     @IBOutlet weak var collectionView: MSMCollectionView! {
         didSet {
             collectionView.contentInset = UIEdgeInsetsMake(45, 0, 0, 0)
             collectionView.scrollIndicatorInsets = UIEdgeInsetsMake(10, 0, 0, 0)
+            
+            // Setting MSMTableViewControllerManager
+            if (collectionView.collectionViewControllerManager == nil) {
+                collectionView.collectionViewControllerManager = MSMCollectionViewControllerManager.init(withCollectionView: collectionView,
+                                                                                                         andEmptyMessageText: "DiscountCards list is empty")
+            }
         }
     }
 
@@ -74,7 +73,7 @@ class DiscountCardsShowViewController: BaseViewController {
         viewSettingsDidLoad()
     }
     
-
+    
     // MARK: - Custom Functions
     func viewSettingsDidLoad() {
         print(object: "\(type(of: self)): \(#function) run.")

@@ -35,8 +35,6 @@
 		B1032BC71EC7068D00AEB661 /* Lists+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1032BC51EC7068D00AEB661 /* Lists+CoreDataProperties.swift */; };
 		B105D1B81E76B90800FCDC73 /* ResponseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B105D1B71E76B90800FCDC73 /* ResponseAPI.swift */; };
 		B10672FA1E71BE8100DB2AE0 /* MSMPickerViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10672F91E71BE8100DB2AE0 /* MSMPickerViewManager.swift */; };
-		B10871521E379A4800374DD5 /* OmnieCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10871511E379A4800374DD5 /* OmnieCard.swift */; };
-		B10871541E379A9A00374DD5 /* OmnieCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10871531E379A9A00374DD5 /* OmnieCardViewModel.swift */; };
 		B108746C1E5B07D3004A4FB6 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B108746B1E5B07D3004A4FB6 /* CoreDataManager.swift */; };
 		B108747F1E5B0DC9004A4FB6 /* AppSettings+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B108747B1E5B0DC9004A4FB6 /* AppSettings+CoreDataClass.swift */; };
 		B10874801E5B0DC9004A4FB6 /* AppSettings+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B108747C1E5B0DC9004A4FB6 /* AppSettings+CoreDataProperties.swift */; };
@@ -145,6 +143,7 @@
 		B122F2321DD35EF10018A701 /* NewsShow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B122F2311DD35EF10018A701 /* NewsShow.storyboard */; };
 		B122F2411DD371B30018A701 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B122F2401DD371B30018A701 /* BaseNavigationController.swift */; };
 		B122F2481DD393330018A701 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B122F24A1DD393330018A701 /* Localizable.strings */; };
+		B12440D91EDD6A0700C93220 /* BarcodeReaderShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12440D81EDD6A0700C93220 /* BarcodeReaderShowViewController.swift */; };
 		B12974B61ECED7C1002409C7 /* ConfirmSaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12974B41ECED7C1002409C7 /* ConfirmSaveView.swift */; };
 		B12974B71ECED7C1002409C7 /* ConfirmSaveView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B12974B51ECED7C1002409C7 /* ConfirmSaveView.xib */; };
 		B12FE6461E57327D00A4FBA4 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12FE6451E57327D00A4FBA4 /* CustomTextField.swift */; };
@@ -393,8 +392,6 @@
 		B1C13D8D1DEF3385002B494A /* DropDown.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1C13D8C1DEF3385002B494A /* DropDown.storyboard */; };
 		B1C13D8F1DEF5736002B494A /* DropDownTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C13D8E1DEF5736002B494A /* DropDownTableViewCell.swift */; };
 		B1C6F35D1DD9C718004695C2 /* MenuItemsList.plist in Resources */ = {isa = PBXBuildFile; fileRef = B1C6F35C1DD9C718004695C2 /* MenuItemsList.plist */; };
-		B1C94BBE1E37823C00122933 /* BarCodeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1C94BBD1E37823C00122933 /* BarCodeView.xib */; };
-		B1C94BC21E37825E00122933 /* BarCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C94BC11E37825E00122933 /* BarCodeView.swift */; };
 		B1CF54641DDAE78200E98049 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CF54631DDAE78200E98049 /* CustomButton.swift */; };
 		B1CF54761DDB50D900E98049 /* AboutShowConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CF546F1DDB50D900E98049 /* AboutShowConfigurator.swift */; };
 		B1CF54771DDB50D900E98049 /* AboutShowInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CF54701DDB50D900E98049 /* AboutShowInteractor.swift */; };
@@ -573,8 +570,6 @@
 		B1032BC51EC7068D00AEB661 /* Lists+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Lists+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		B105D1B71E76B90800FCDC73 /* ResponseAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseAPI.swift; sourceTree = "<group>"; };
 		B10672F91E71BE8100DB2AE0 /* MSMPickerViewManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSMPickerViewManager.swift; sourceTree = "<group>"; };
-		B10871511E379A4800374DD5 /* OmnieCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OmnieCard.swift; sourceTree = "<group>"; };
-		B10871531E379A9A00374DD5 /* OmnieCardViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OmnieCardViewModel.swift; sourceTree = "<group>"; };
 		B108746B1E5B07D3004A4FB6 /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		B108747B1E5B0DC9004A4FB6 /* AppSettings+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AppSettings+CoreDataClass.swift"; sourceTree = "<group>"; };
 		B108747C1E5B0DC9004A4FB6 /* AppSettings+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AppSettings+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -686,6 +681,7 @@
 		B122F2491DD393330018A701 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B122F24C1DD393350018A701 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B122F24D1DD393360018A701 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Localizable.strings; sourceTree = "<group>"; };
+		B12440D81EDD6A0700C93220 /* BarcodeReaderShowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarcodeReaderShowViewController.swift; sourceTree = "<group>"; };
 		B12974B41ECED7C1002409C7 /* ConfirmSaveView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmSaveView.swift; sourceTree = "<group>"; };
 		B12974B51ECED7C1002409C7 /* ConfirmSaveView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConfirmSaveView.xib; sourceTree = "<group>"; };
 		B12FE6451E57327D00A4FBA4 /* CustomTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = CustomTextField.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -949,8 +945,6 @@
 		B1C13D8C1DEF3385002B494A /* DropDown.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DropDown.storyboard; sourceTree = "<group>"; };
 		B1C13D8E1DEF5736002B494A /* DropDownTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DropDownTableViewCell.swift; sourceTree = "<group>"; };
 		B1C6F35C1DD9C718004695C2 /* MenuItemsList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = MenuItemsList.plist; sourceTree = "<group>"; };
-		B1C94BBD1E37823C00122933 /* BarCodeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BarCodeView.xib; sourceTree = "<group>"; };
-		B1C94BC11E37825E00122933 /* BarCodeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarCodeView.swift; sourceTree = "<group>"; };
 		B1CF54631DDAE78200E98049 /* CustomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		B1CF546F1DDB50D900E98049 /* AboutShowConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutShowConfigurator.swift; sourceTree = "<group>"; };
 		B1CF54701DDB50D900E98049 /* AboutShowInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutShowInteractor.swift; sourceTree = "<group>"; };
@@ -1659,6 +1653,14 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		B12440D71EDD69D600C93220 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				B12440D81EDD6A0700C93220 /* BarcodeReaderShowViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		B12974B31ECED761002409C7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -1726,6 +1728,7 @@
 		B13F4E691ED587E600455604 /* DiscountCardCreate */ = {
 			isa = PBXGroup;
 			children = (
+				B12440D71EDD69D600C93220 /* ViewControllers */,
 				B13F4E6A1ED5880D00455604 /* DiscountCardCreateConfigurator.swift */,
 				B13F4E6B1ED5880D00455604 /* DiscountCardCreateInteractor.swift */,
 				B13F4E6C1ED5880D00455604 /* DiscountCardCreateModels.swift */,
@@ -2141,31 +2144,6 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
-		B1C94BBA1E37820400122933 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				B10871511E379A4800374DD5 /* OmnieCard.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		B1C94BBB1E37821100122933 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				B1C94BC11E37825E00122933 /* BarCodeView.swift */,
-				B1C94BBD1E37823C00122933 /* BarCodeView.xib */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		B1C94BBC1E37821B00122933 /* View Model */ = {
-			isa = PBXGroup;
-			children = (
-				B10871531E379A9A00374DD5 /* OmnieCardViewModel.swift */,
-			);
-			path = "View Model";
-			sourceTree = "<group>";
-		};
 		B1CF54671DDB501900E98049 /* OnmieSoftShow */ = {
 			isa = PBXGroup;
 			children = (
@@ -2258,9 +2236,6 @@
 		B1CF546D1DDB508A00E98049 /* OmnieCardsShow */ = {
 			isa = PBXGroup;
 			children = (
-				B1C94BBA1E37820400122933 /* Model */,
-				B1C94BBC1E37821B00122933 /* View Model */,
-				B1C94BBB1E37821100122933 /* View */,
 				B1CF54A71DDB516E00E98049 /* OmnieCardsShowConfigurator.swift */,
 				B1CF54A81DDB516E00E98049 /* OmnieCardsShowInteractor.swift */,
 				B1CF54A91DDB516E00E98049 /* OmnieCardsShowModels.swift */,
@@ -2566,7 +2541,6 @@
 				B1FFF7081E5ECE4800A075D8 /* OrganizationsShow.storyboard in Resources */,
 				B1BF92771DD6516C00BECBBB /* helveticaneuecyr-ultralightitalic.otf in Resources */,
 				B17EBF1C1E9B69A4000E61AA /* DiscountTableViewCell.xib in Resources */,
-				B1C94BBE1E37823C00122933 /* BarCodeView.xib in Resources */,
 				B1BF92781DD6516C00BECBBB /* UBUNTU-B.TTF in Resources */,
 				B18FBB181ED0D07C0037804C /* HandbookShow.storyboard in Resources */,
 				B13F4E681ED587A000455604 /* DiscountCardCreate.storyboard in Resources */,
@@ -2724,6 +2698,7 @@
 				B10040701EB4980D00161073 /* Order+CoreDataProperties.swift in Sources */,
 				B151251A1EAE0DD0009A6A44 /* AdditionalService+CoreDataProperties.swift in Sources */,
 				B140F1A31EC482C2003CFF4A /* OrderTableViewCell.swift in Sources */,
+				B12440D91EDD6A0700C93220 /* BarcodeReaderShowViewController.swift in Sources */,
 				B1FFF7151E5F017A00A075D8 /* OrganizationsMapShowRouter.swift in Sources */,
 				B18FBB061ECFFF880037804C /* HandbooksShowRouter.swift in Sources */,
 				B1767D7A1E93DA520095859B /* UbuntuLightSoftOrangeLabel.swift in Sources */,
@@ -2757,11 +2732,9 @@
 				B177E5391E5475EC004F1390 /* SignInContainerShowViewController.swift in Sources */,
 				B1CF54871DDB50F100E98049 /* BusinessCardsShowPresenter.swift in Sources */,
 				B122DF651DF7F957003823AD /* CalendarShowModels.swift in Sources */,
-				B10871541E379A9A00374DD5 /* OmnieCardViewModel.swift in Sources */,
 				B1D57E901E87CB7500CA6243 /* MSMTableViewFooterView.swift in Sources */,
 				B1FFF7111E5F017A00A075D8 /* OrganizationsMapShowConfigurator.swift in Sources */,
 				B13FE1A31E94C5A4000DD416 /* BlackListView.swift in Sources */,
-				B1C94BC21E37825E00122933 /* BarCodeView.swift in Sources */,
 				B14107C71DFEB1D700F79CF9 /* CustomView.swift in Sources */,
 				B10B48CC1E8A5AEC007DDD81 /* FavoriteServicesShowInteractor.swift in Sources */,
 				B18FBB081ECFFF880037804C /* HandbooksShowWorker.swift in Sources */,
@@ -3065,7 +3038,6 @@
 				B1D8832E1E8E8D63006F4831 /* NewsActionsShowRouter.swift in Sources */,
 				B177E5571E54B739004F1390 /* RepetitionPasswordShowInteractor.swift in Sources */,
 				B15125151EAE0341009A6A44 /* AdditionalServiceTableViewCell.swift in Sources */,
-				B10871521E379A4800374DD5 /* OmnieCard.swift in Sources */,
 				B100406F1EB4980D00161073 /* Order+CoreDataClass.swift in Sources */,
 				B122A5981E6C728300C39B67 /* Message.swift in Sources */,
 				B1BEEDF31E63687500F1DE8A /* OrganizationShowRouter.swift in Sources */,
@@ -3232,6 +3204,7 @@
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
 				INFOPLIST_FILE = OmnieCommerce/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\"";
 				PRODUCT_BUNDLE_IDENTIFIER = ua.com.omniesoft.OmnieCommerce;
@@ -3259,6 +3232,7 @@
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
 				INFOPLIST_FILE = OmnieCommerce/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ua.com.omniesoft.OmnieCommerce;
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -178,20 +178,14 @@
                                                 <rect key="frame" x="68" y="236" width="222" height="123"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AUv-xk-FpC" userLabel="Barcode Image View">
-                                                        <rect key="frame" x="1" y="1" width="220" height="121"/>
-                                                        <color key="backgroundColor" red="0.2196078431372549" green="0.26666666666666666" blue="0.30588235294117649" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <rect key="frame" x="20" y="10" width="182" height="103"/>
+                                                        <color key="backgroundColor" red="0.2196078431372549" green="0.26666666666666666" blue="0.30588235294117649" alpha="0.0" colorSpace="calibratedRGB"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                <real key="value" value="5"/>
-                                                            </userDefinedRuntimeAttribute>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                                                                 <real key="value" value="1"/>
                                                             </userDefinedRuntimeAttribute>
                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="isCircle" value="NO"/>
-                                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                                <color key="value" red="0.11372549019607843" green="0.16470588235294117" blue="0.21568627450980393" alpha="1" colorSpace="calibratedRGB"/>
-                                                            </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </imageView>
                                                     <button clipsSubviews="YES" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nfg-NB-e1I" userLabel="Barcode Image Button" customClass="UbuntuLightVeryLightOrangeButton" customModule="OmnieCommerce" customModuleProvider="target">
@@ -207,17 +201,15 @@
                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="isTitleUnderlined" value="NO"/>
                                                         </userDefinedRuntimeAttributes>
                                                         <connections>
-                                                            <action selector="handlerBarcodeImageButtonTap:" destination="cHe-tJ-QAg" eventType="touchUpInside" id="V0g-sw-zGI"/>
+                                                            <action selector="handlerBarcodeReaderButtonTap:" destination="cHe-tJ-QAg" eventType="touchUpInside" id="7xF-qw-YI9"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <color key="backgroundColor" red="0.2196078431372549" green="0.26666666666666666" blue="0.30588235294117649" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
+                                                    <constraint firstItem="AUv-xk-FpC" firstAttribute="centerX" secondItem="MVT-YL-dme" secondAttribute="centerX" id="5G9-1Z-lt2"/>
                                                     <constraint firstAttribute="trailing" secondItem="nfg-NB-e1I" secondAttribute="trailing" constant="1" id="Ku3-VM-xyS"/>
-                                                    <constraint firstItem="AUv-xk-FpC" firstAttribute="leading" secondItem="MVT-YL-dme" secondAttribute="leading" constant="1" id="T6M-rN-iU9"/>
-                                                    <constraint firstItem="AUv-xk-FpC" firstAttribute="top" secondItem="MVT-YL-dme" secondAttribute="top" constant="1" id="V71-YE-vaL"/>
-                                                    <constraint firstAttribute="bottom" secondItem="AUv-xk-FpC" secondAttribute="bottom" constant="1" id="Z2f-66-J8I"/>
-                                                    <constraint firstAttribute="trailing" secondItem="AUv-xk-FpC" secondAttribute="trailing" constant="1" id="aw8-Fz-ZS6"/>
+                                                    <constraint firstItem="AUv-xk-FpC" firstAttribute="centerY" secondItem="MVT-YL-dme" secondAttribute="centerY" id="bgG-yQ-thQ"/>
                                                     <constraint firstItem="nfg-NB-e1I" firstAttribute="top" secondItem="MVT-YL-dme" secondAttribute="top" constant="1" id="c1b-NY-5e2"/>
                                                     <constraint firstAttribute="bottom" secondItem="nfg-NB-e1I" secondAttribute="bottom" constant="1" id="diM-ST-aXI"/>
                                                     <constraint firstItem="nfg-NB-e1I" firstAttribute="leading" secondItem="MVT-YL-dme" secondAttribute="leading" constant="1" id="feE-ui-saG"/>
@@ -226,6 +218,12 @@
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                         <real key="value" value="5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                        <color key="value" red="0.11372549019607843" green="0.16470588235294117" blue="0.21568627450980393" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <integer key="value" value="1"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
@@ -328,14 +326,18 @@
                             </constraint>
                             <constraint firstItem="Z8o-2j-rXn" firstAttribute="height" secondItem="A4D-yP-xw0" secondAttribute="height" multiplier="44:375" id="AP3-fA-eCt"/>
                             <constraint firstAttribute="trailing" secondItem="Mhd-tM-ire" secondAttribute="trailing" constant="8" id="AaT-uz-y0p"/>
+                            <constraint firstItem="AUv-xk-FpC" firstAttribute="height" secondItem="A4D-yP-xw0" secondAttribute="height" multiplier="103:375" id="BTq-OD-xYr"/>
                             <constraint firstItem="TKa-ZV-fxe" firstAttribute="height" secondItem="A4D-yP-xw0" secondAttribute="height" multiplier="123:375" id="BlS-1J-n8Q"/>
+                            <constraint firstItem="AUv-xk-FpC" firstAttribute="width" secondItem="A4D-yP-xw0" secondAttribute="width" multiplier="182:375" id="FsG-Us-5h6"/>
                             <constraint firstAttribute="bottom" secondItem="Mhd-tM-ire" secondAttribute="bottom" constant="8" id="I5B-45-Ist"/>
                             <constraint firstItem="Gci-sb-RiG" firstAttribute="leading" secondItem="A4D-yP-xw0" secondAttribute="leading" constant="8" id="L9C-qM-UJb"/>
                             <constraint firstItem="TKa-ZV-fxe" firstAttribute="width" secondItem="A4D-yP-xw0" secondAttribute="width" multiplier="222:667" id="NmG-pz-RWr"/>
                             <constraint firstAttribute="trailing" secondItem="Gci-sb-RiG" secondAttribute="trailing" constant="8" id="O2a-6s-jBw"/>
                             <constraint firstItem="Z8o-2j-rXn" firstAttribute="height" secondItem="A4D-yP-xw0" secondAttribute="height" multiplier="44:667" id="O3j-iT-PYP"/>
+                            <constraint firstItem="AUv-xk-FpC" firstAttribute="width" secondItem="A4D-yP-xw0" secondAttribute="width" multiplier="182:667" id="Qe5-43-u0u"/>
                             <constraint firstItem="K4O-Hp-7T4" firstAttribute="height" secondItem="A4D-yP-xw0" secondAttribute="height" multiplier="95:667" id="UJN-6K-TTu"/>
                             <constraint firstItem="K4O-Hp-7T4" firstAttribute="leading" secondItem="A4D-yP-xw0" secondAttribute="leading" id="Uza-Y8-Gkp"/>
+                            <constraint firstItem="AUv-xk-FpC" firstAttribute="height" secondItem="A4D-yP-xw0" secondAttribute="height" multiplier="103:667" id="WVS-V2-zt8"/>
                             <constraint firstItem="Mhd-tM-ire" firstAttribute="leading" secondItem="A4D-yP-xw0" secondAttribute="leading" constant="8" id="Zd0-3j-CRY"/>
                             <constraint firstAttribute="trailing" secondItem="K4O-Hp-7T4" secondAttribute="trailing" id="ap6-sg-toG"/>
                             <constraint firstItem="z6B-rL-krf" firstAttribute="height" secondItem="A4D-yP-xw0" secondAttribute="height" multiplier="36:375" id="fwL-LP-0xJ"/>
@@ -354,6 +356,8 @@
                                 <exclude reference="5vn-pu-y8x"/>
                                 <exclude reference="lYH-lD-O9M"/>
                                 <exclude reference="O3j-iT-PYP"/>
+                                <exclude reference="FsG-Us-5h6"/>
+                                <exclude reference="WVS-V2-zt8"/>
                                 <exclude reference="kMF-LQ-NyD"/>
                             </mask>
                         </variation>
@@ -367,6 +371,10 @@
                                 <include reference="lYH-lD-O9M"/>
                                 <exclude reference="AP3-fA-eCt"/>
                                 <include reference="O3j-iT-PYP"/>
+                                <exclude reference="BTq-OD-xYr"/>
+                                <include reference="FsG-Us-5h6"/>
+                                <exclude reference="Qe5-43-u0u"/>
+                                <include reference="WVS-V2-zt8"/>
                                 <exclude reference="fwL-LP-0xJ"/>
                                 <include reference="kMF-LQ-NyD"/>
                             </mask>
@@ -375,6 +383,7 @@
                     <navigationItem key="navigationItem" id="RQS-qq-19K"/>
                     <connections>
                         <outlet property="barcodeImageView" destination="AUv-xk-FpC" id="mGs-uZ-ymN"/>
+                        <outlet property="barcodeView" destination="MVT-YL-dme" id="YPF-yj-Mic"/>
                         <outlet property="modalView" destination="7zw-Cz-hK4" id="g8h-YA-q5P"/>
                         <outlet property="photoImageView" destination="5UX-DT-gi4" id="Gyq-FM-e7N"/>
                         <outlet property="scrollView" destination="Gci-sb-RiG" id="NOq-Z0-nhf"/>
@@ -396,6 +405,27 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NVo-Mt-ymv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1119.2" y="16.641679160419791"/>
+        </scene>
+        <!--Barcode Reader View Controller-->
+        <scene sceneID="Ju2-5n-KPU">
+            <objects>
+                <viewController storyboardIdentifier="BarcodeReaderVC" id="dCb-T7-Q5B" customClass="BarcodeReaderViewController" customModule="OmnieCommerce" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="R7Y-de-jp9"/>
+                        <viewControllerLayoutGuide type="bottom" id="B0B-p3-i60"/>
+                    </layoutGuides>
+                    <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="o3j-bf-fUY">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.14117647058823529" green="0.19607843137254902" blue="0.24705882352941178" alpha="1" colorSpace="calibratedRGB"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7Ml-Jo-1GK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1994" y="17"/>
         </scene>
     </scenes>
     <resources>

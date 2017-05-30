@@ -76,24 +76,6 @@ class CategoriesShowViewController: BaseViewController {
     }
     
     
-    // MARK: - Transition
-    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        smallTopBarView.setNeedsDisplay()
-        smallTopBarView.circleView.setNeedsDisplay()
-        
-        // TODO: - UNCOMMENT WHEN USE CITY DROPDOWN LIST
-        /*
-        cityButton.setNeedsDisplay()
-        
-        if (cityButton.isDropDownListShow) {
-            cityButton.itemsListDidHide(inView: view)
-        }
-        */
-        
-        collectionView.reloadData()
-    }
-    
-    
     // MARK: - Custom Functions
     func viewSettingsDidLoad() {
         print(object: "\(type(of: self)): \(#function) run.")
@@ -149,6 +131,23 @@ class CategoriesShowViewController: BaseViewController {
                 break
             }
         }
+    }
+    
+    // MARK: - Transition
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        smallTopBarView.setNeedsDisplay()
+        smallTopBarView.circleView.setNeedsDisplay()
+        
+        // TODO: - UNCOMMENT WHEN USE CITY DROPDOWN LIST
+        /*
+         cityButton.setNeedsDisplay()
+         
+         if (cityButton.isDropDownListShow) {
+         cityButton.itemsListDidHide(inView: view)
+         }
+         */
+        
+        collectionView.reloadData()
     }
 }
 

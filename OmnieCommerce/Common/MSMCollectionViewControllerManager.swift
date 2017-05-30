@@ -24,7 +24,6 @@ class MSMCollectionViewControllerManager: BaseViewController {
     var isSearchBarActive: Bool = false
     var refreshControl: UIRefreshControl?
     var footerViewHeight: CGFloat = 60.0
-//    var infiniteScrollingView: UIView?
     var isLoadMore = false
     var sectionsCount = 0
     var emptyText: String!
@@ -86,6 +85,10 @@ class MSMCollectionViewControllerManager: BaseViewController {
         
         // Set Infinite Scroll
         guard isNetworkAvailable else {
+            return
+        }
+        
+        guard dataSource != nil else {
             return
         }
         
@@ -207,6 +210,10 @@ extension MSMCollectionViewControllerManager {
 
 // MARK: - UICollectionViewDelegateFlowLayout
 extension MSMCollectionViewControllerManager: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return (section == 0) ? .zero : CGSize.init(width: collectionView.frame.width, height: footerViewHeight)
+    }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let cellIdentifier = (dataSource[indexPath.row] as! InitCellParameters).cellIdentifier
         let cellHeight = (dataSource[indexPath.row] as! InitCellParameters).cellHeight

@@ -24,13 +24,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Ec-8q-1sJ">
-                                <rect key="frame" x="0.0" y="60" width="375" height="578"/>
+                                <rect key="frame" x="0.0" y="60" width="375" height="607"/>
                                 <subviews>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="STe-Cp-YyG" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="35" width="374" height="527.5"/>
+                                        <rect key="frame" x="0.0" y="35" width="374" height="502.5"/>
                                         <subviews>
                                             <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User Omniecard title text" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BCj-bo-i8c" userLabel="Title Label" customClass="UbuntuLightVeryLightGrayLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                                                <rect key="frame" x="40" y="25" width="294" height="14.5"/>
+                                                <rect key="frame" x="40" y="0.0" width="294" height="14.5"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <nil key="textColor"/>
@@ -40,7 +40,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T66-fo-i9c" userLabel="Barcode View">
-                                                <rect key="frame" x="74.5" y="74.5" width="225" height="108"/>
+                                                <rect key="frame" x="74.5" y="49.5" width="225" height="108"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="z8v-OO-Cly" userLabel="Barcode Image View">
                                                         <rect key="frame" x="20" y="18" width="184" height="72"/>
@@ -66,7 +66,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4bC-Sd-HeO" userLabel="Barcode Label" customClass="UbuntuLightVeryLightGrayLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                                                <rect key="frame" x="187" y="207.5" width="0.0" height="20"/>
+                                                <rect key="frame" x="187" y="182.5" width="0.0" height="20"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="20" id="nVs-Ey-Ty3"/>
@@ -79,7 +79,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O6a-cD-oN1" userLabel="QRCode View">
-                                                <rect key="frame" x="94" y="272.5" width="185" height="185"/>
+                                                <rect key="frame" x="94" y="247.5" width="185" height="185"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8Jk-90-Apo" userLabel="QRCode Image View">
                                                         <rect key="frame" x="17" y="17.5" width="150" height="150"/>
@@ -102,7 +102,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hmj-SM-Dm3" userLabel="QRCode Label" customClass="UbuntuLightVeryLightGrayLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                                                <rect key="frame" x="187" y="482.5" width="0.0" height="20"/>
+                                                <rect key="frame" x="187" y="457.5" width="0.0" height="20"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="20" id="G0e-vv-u5D"/>
@@ -241,7 +241,7 @@
                     <toolbarItems/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="ZYn-Je-r4m">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ZYn-Je-r4m">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

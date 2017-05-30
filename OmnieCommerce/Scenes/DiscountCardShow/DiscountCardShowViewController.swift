@@ -30,9 +30,9 @@ class DiscountCardShowViewController: BaseViewController {
     var discountCardID: String!
     
     // Outlets
+    @IBOutlet var modalView: ModalView!
     @IBOutlet weak var codeImageView: UIImageView!
     @IBOutlet weak var codeLabel: UbuntuLightVeryLightGrayLabel!
-    @IBOutlet var modalView: ModalView!
     
     @IBOutlet weak var smallTopBarView: SmallTopBarView! {
         didSet {
@@ -81,14 +81,9 @@ class DiscountCardShowViewController: BaseViewController {
             // Show control elements
             self.codeLabel.text = discountCard.code
             
-            if let imageID = discountCard.imageID {
-                self.codeImageView.kf.setImage(with: ImageResource(downloadURL: imageID.convertToURL(withSize: .Medium, inMode: .Get), cacheKey: imageID),
-                                               placeholder: nil,
-                                               options: [.transition(ImageTransition.fade(1)),
-                                                         .processor(ResizingImageProcessor(referenceSize: self.codeImageView.frame.size,
-                                                                                           mode: .aspectFill))],
-                                               completionHandler: { image, error, cacheType, imageURL in
-                                                self.codeImageView.kf.cancelDownloadTask()
+            if let image = Barcode.generateBarcodeFrom(stringCode: discountCard.code, withImageSize: codeImageView.frame.size) {
+                UIView.animate(withDuration: 0.5, animations: {
+                    self.codeImageView.image = image
                 })
             } else {
                 self.codeImageView.contentMode = .center

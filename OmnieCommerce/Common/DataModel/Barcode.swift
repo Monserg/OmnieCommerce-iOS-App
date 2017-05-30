@@ -12,18 +12,6 @@ import AVFoundation
 
 class Barcode {
     // MARK: - Class Functions
-    class func convertToImageFromString(_ string : String?) -> UIImage? {
-        if let code = string {
-            let data = code.data(using: .ascii)
-            let filter = CIFilter(name: "CICode128BarcodeGenerator")
-            filter?.setValue(data, forKey: "inputMessage")
-            
-            return UIImage(ciImage: (filter?.outputImage)!)
-        }
-        
-        return nil
-    }
-    
     class func generateBarcodeFrom(stringCode code: String, withImageSize imageSize: CGSize) -> UIImage? {
         let generator = RSUnifiedCodeGenerator.shared
         generator.fillColor = UIColor.white
@@ -56,7 +44,7 @@ class Barcode {
         return nil
     }
     
-    private class func codeDidValidate(_ code: String) -> String? {
+    class func codeDidValidate(_ code: String) -> String? {
         let types = [
                         AVMetadataObjectTypeUPCECode,              AVMetadataObjectTypeCode39Code,     AVMetadataObjectTypeCode39Mod43Code,
                         AVMetadataObjectTypeEAN13Code,             AVMetadataObjectTypeEAN8Code,       AVMetadataObjectTypeCode93Code,

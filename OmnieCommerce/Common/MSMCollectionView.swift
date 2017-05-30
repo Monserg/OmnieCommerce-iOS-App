@@ -39,7 +39,7 @@ class MSMCollectionView: UICollectionView {
     override func draw(_ rect: CGRect) {
         // Drawing code
     }
-    
+        
     deinit {
         print(object: "\(type(of: self)) deinit")
     }
