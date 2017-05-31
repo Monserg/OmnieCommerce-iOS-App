@@ -61,9 +61,6 @@ class NewsDataShowViewController: BaseViewController {
         
         tableView.tableViewControllerManager = newsDataTableManager
         
-        limit = (newsData.count == 0) ? Config.Constants.paginationLimit : newsData.count
-        viewSettingsDidLoad()
-        
         // Handler Search Bar Cancel button tap
         newsDataTableManager.handlerCancelButtonCompletion = { _ in
             self.handlerSearchBarHideCompletion!()
@@ -73,6 +70,9 @@ class NewsDataShowViewController: BaseViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         
+        limit = (newsData.count == 0) ? Config.Constants.paginationLimit : newsData.count
+        viewSettingsDidLoad()
+
         handlerSearchButtonHideCompletion!(newsData)
     }
     

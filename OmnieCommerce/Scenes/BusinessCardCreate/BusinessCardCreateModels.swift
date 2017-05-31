@@ -13,14 +13,31 @@ import UIKit
 
 // MARK: - Data models
 struct BusinessCardCreateModels {
-    struct Something {
+    struct Item {
         struct RequestModel {
+            let parameters: [String: Any]
         }
         
         struct ResponseModel {
+            let responseAPI: ResponseAPI?
         }
         
         struct ViewModel {
+            let status: String
+        }
+    }
+    
+    struct Image {
+        struct RequestModel {
+            let image: UIImage
+        }
+        
+        struct ResponseModel {
+            let responseAPI: ResponseAPI?
+        }
+        
+        struct ViewModel {
+            let responseAPI: ResponseAPI?
         }
     }
 }

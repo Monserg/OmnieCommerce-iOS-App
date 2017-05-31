@@ -69,6 +69,7 @@ class ConfirmQuestionView: CustomView {
     }
     
     @IBAction func handlerSaveButtonTap(_ sender: FillVeryLightOrangeButton) {
+        self.didHide()
+        handlerSaveButtonCompletion!()
     }
-    
 }

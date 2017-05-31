@@ -16,6 +16,7 @@
 "DiscountCard"                  =   "Discount Card";
 "OmnieCards"                    =   "Omnie Cards";
 "BusinessCards"                 =   "Business Cards";
+"BusinessCard"                  =   "Business Card";
 "Handbook"                      =   "Handbook";
 "Handbooks"                     =   "Handbooks";
 "PersonalPage"                  =   "Personal Page";
@@ -136,6 +137,9 @@
 "Change dictionary photo"       =   "Change dictionary photo";
 "Delete discount card"          =   "Delete discount card";
 "Add discount card photo"       =   "Add discount card photo";
+"Change business card photo"    =   "Change business card photo";
+"Add business card photo"       =   "Add business card photo";
+"Add to handbook"               =   "Add to handbook";
 "Read discount card Barcode"    =   "Read Barcode";
 "Delete business card"          =   "Delete business card";
 "Yes"                           =   "Yes";

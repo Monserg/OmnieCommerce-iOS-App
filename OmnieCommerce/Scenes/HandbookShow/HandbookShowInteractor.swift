@@ -30,10 +30,6 @@ class HandbookShowInteractor: HandbookShowInteractorInput {
     
     // MARK: - Custom Functions. Business logic
     func handbookDidCreate(withRequestModel requestModel: HandbookShowModels.Item.RequestModel) {
-        // NOTE: Create some Worker to do the work
-        worker = HandbookShowWorker()
-        worker.doSomeWork()
-      
         // NOTE: Pass the result to the Presenter
         MSMRestApiManager.instance.userRequestDidRun(.userCreateNewHandbook(requestModel.parameters, true), withHandlerResponseAPICompletion:  { responseAPI in
             let handbookResponseModel = HandbookShowModels.Item.ResponseModel(responseAPI: responseAPI)

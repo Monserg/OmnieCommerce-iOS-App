@@ -13,12 +13,14 @@ import UIKit
 
 // MARK: - Input protocols for current Presenter component VIP-cicle
 protocol BusinessCardCreatePresenterInput {
-    func presentSomething(responseModel: BusinessCardCreateModels.Something.ResponseModel)
+    func businessCardDidPrepareToShowCreate(fromResponseModel responseModel: BusinessCardCreateModels.Item.ResponseModel)
+    func businessCardImageDidPrepareToShowUpload(fromResponseModel responseModel: BusinessCardCreateModels.Image.ResponseModel)
 }
 
 // MARK: - Output protocols for ViewController component VIP-cicle
 protocol BusinessCardCreatePresenterOutput: class {
-    func displaySomething(viewModel: BusinessCardCreateModels.Something.ViewModel)
+    func businessCardDidShowCreate(fromViewModel viewModel: BusinessCardCreateModels.Item.ViewModel)
+    func businessCardImageDidShowUpload(fromViewModel viewModel: BusinessCardCreateModels.Image.ViewModel)
 }
 
 class BusinessCardCreatePresenter: BusinessCardCreatePresenterInput {
@@ -27,9 +29,22 @@ class BusinessCardCreatePresenter: BusinessCardCreatePresenterInput {
     
     
     // MARK: - Custom Functions. Presentation logic
-    func presentSomething(responseModel: BusinessCardCreateModels.Something.ResponseModel) {
+    func businessCardDidPrepareToShowCreate(fromResponseModel responseModel: BusinessCardCreateModels.Item.ResponseModel) {
+        guard responseModel.responseAPI != nil else {
+            let businessCardViewModel = BusinessCardCreateModels.Item.ViewModel(status: "RESPONSE_NIL")
+            self.viewController.businessCardDidShowCreate(fromViewModel: businessCardViewModel)
+            
+            return
+        }
+
         // NOTE: Format the response from the Interactor and pass the result back to the View Controller
-        let viewModel = BusinessCardCreateModels.Something.ViewModel()
-        viewController.displaySomething(viewModel: viewModel)
+        let businessCardViewModel = BusinessCardCreateModels.Item.ViewModel(status: (responseModel.responseAPI?.status)!)
+        viewController.businessCardDidShowCreate(fromViewModel: businessCardViewModel)
+    }
+    
+    func businessCardImageDidPrepareToShowUpload(fromResponseModel responseModel: BusinessCardCreateModels.Image.ResponseModel) {
+        // NOTE: Format the response from the Interactor and pass the result back to the View Controller
+        let uploadImageViewModel = BusinessCardCreateModels.Image.ViewModel(responseAPI: responseModel.responseAPI)
+        viewController.businessCardImageDidShowUpload(fromViewModel: uploadImageViewModel)
     }
 }

@@ -28,7 +28,7 @@
                         <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QWC-3b-mfA" userLabel="Left View" customClass="CustomView" customModule="OmnieCommerce" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="0.0" width="105" height="150"/>
                             <subviews>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CvY-Ln-y6z">
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image-business-card-half" translatesAutoresizingMaskIntoConstraints="NO" id="CvY-Ln-y6z">
                                     <rect key="frame" x="0.0" y="34.5" width="80" height="80"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <userDefinedRuntimeAttributes>
@@ -86,7 +86,7 @@
                             </userDefinedRuntimeAttributes>
                         </label>
                         <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yZ5-Ps-sN3" userLabel="Save Button" customClass="FillVeryLightOrangeButton" customModule="OmnieCommerce" customModuleProvider="target">
-                            <rect key="frame" x="157" y="86.5" width="84" height="36"/>
+                            <rect key="frame" x="130" y="84.5" width="84" height="36"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                             <state key="normal" title="Yes" image="icon-confirm-save-normal"/>
@@ -98,7 +98,7 @@
                             </connections>
                         </button>
                         <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9wF-ww-eLM" userLabel="Cancel Button" customClass="BorderVeryLightOrangeButton" customModule="OmnieCommerce" customModuleProvider="target">
-                            <rect key="frame" x="219" y="87.5" width="36" height="36"/>
+                            <rect key="frame" x="224" y="84.5" width="36" height="36"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="9wF-ww-eLM" secondAttribute="height" multiplier="1:1" id="9B5-8W-aNS"/>
@@ -160,5 +160,6 @@
         <image name="icon-cancel-gold-normal" width="12" height="12"/>
         <image name="icon-confirm-cancel-white-normal" width="7" height="7"/>
         <image name="icon-confirm-save-normal" width="8" height="5"/>
+        <image name="image-business-card-half" width="76" height="77"/>
     </resources>
 </document>

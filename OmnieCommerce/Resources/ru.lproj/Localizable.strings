@@ -16,6 +16,7 @@
 "DiscountCard"                  =   "Карточка";
 "OmnieCards"                    =   "Omnie Cards";
 "BusinessCards"                 =   "Визитница";
+"BusinessCard"                  =   "Визитка";
 "Handbook"                      =   "Справочник";
 "Handbooks"                     =   "Справочники";
 "PersonalPage"                  =   "Мой кабинет";
@@ -136,6 +137,9 @@
 "Change dictionary photo"       =   "Изменить фото справочника";
 "Delete discount card"          =   "Удалить карточку";
 "Add discount card photo"       =   "Добавить фото карточки";
+"Change business card photo"    =   "Изменить фото визитки";
+"Add business card photo"       =   "Добавить фото визитки";
+"Add to handbook"               =   "Добавить в справочник";
 "Read discount card Barcode"    =   "Считать штрих код";
 "Delete business card"          =   "Удалить визитку";
 "Yes"                           =   "Да";

@@ -140,7 +140,7 @@ extension HandbookTableViewCell: ConfigureCell {
         
         if let imageID = handbook.imageID {
             organizationImageView.kf.setImage(with: ImageResource(downloadURL: imageID.convertToURL(withSize: .Small, inMode: .Get), cacheKey: imageID),
-                                              placeholder: UIImage.init(named: "image-no-organization"),
+                                              placeholder: nil,
                                               options: [.transition(ImageTransition.fade(1)),
                                                         .processor(ResizingImageProcessor(referenceSize: organizationImageView.frame.size,
                                                                                           mode: .aspectFill))],
@@ -148,7 +148,12 @@ extension HandbookTableViewCell: ConfigureCell {
                                                 self.organizationImageView.kf.cancelDownloadTask()
             })
         } else {
-            organizationImageView.image = UIImage.init(named: "image-no-organization")
+            organizationImageView.contentMode = .center
+            
+            UIView.animate(withDuration: 0.5, animations: {
+                self.organizationImageView.backgroundColor = UIColor.veryDarkGrayishBlue38
+                self.organizationImageView.image = UIImage.init(named: "image-no-organization")
+            })
         }
     }
 }

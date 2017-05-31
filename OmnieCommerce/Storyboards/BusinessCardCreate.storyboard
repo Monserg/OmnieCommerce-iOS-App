@@ -10,11 +10,16 @@
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="UBUNTU-L.TTF">
+            <string>Ubuntu-Light</string>
+        </array>
+    </customFonts>
     <scenes>
-        <!--Handbook Show View Controller-->
+        <!--Business Card Create View Controller-->
         <scene sceneID="iAv-0I-nui">
             <objects>
-                <viewController storyboardIdentifier="HandbookShowVC" id="aIy-oy-tcM" customClass="HandbookShowViewController" customModule="OmnieCommerce" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BusinessCardCreateVC" id="aIy-oy-tcM" customClass="BusinessCardCreateViewController" customModule="OmnieCommerce" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="fCD-Ib-AP4"/>
                         <viewControllerLayoutGuide type="bottom" id="dIE-vb-nxS"/>
@@ -23,22 +28,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mzo-JX-FrS" customClass="SmallTopBarView" customModule="OmnieCommerce" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="95"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="titleText" value="Handbook"/>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="type" value="Child"/>
-                                </userDefinedRuntimeAttributes>
-                            </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KgS-Wu-CWa">
-                                <rect key="frame" x="0.0" y="95" width="375" height="543"/>
+                                <rect key="frame" x="0.0" y="60" width="375" height="578"/>
                                 <subviews>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0cG-7k-X4Q" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="463"/>
+                                        <rect key="frame" x="0.0" y="35" width="375" height="522"/>
                                         <subviews>
-                                            <stackView clipsSubviews="YES" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Jyg-cW-TY1" userLabel="Info Stack View">
-                                                <rect key="frame" x="75.5" y="15" width="224" height="311"/>
+                                            <stackView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Jyg-cW-TY1" userLabel="Info Stack View">
+                                                <rect key="frame" x="75.5" y="15" width="224" height="370"/>
                                                 <subviews>
                                                     <view clipsSubviews="YES" contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="kgk-dh-D1R" userLabel="Image View">
                                                         <rect key="frame" x="0.0" y="0.0" width="224" height="135"/>
@@ -55,7 +52,7 @@
                                                             </imageView>
                                                             <button clipsSubviews="YES" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aLk-zQ-LIL" userLabel="Image Button" customClass="UbuntuLightVeryLightOrangeButton" customModule="OmnieCommerce" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="224" height="135"/>
-                                                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="calibratedRGB"/>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
@@ -65,7 +62,7 @@
                                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isTitleUnderlined" value="NO"/>
                                                                 </userDefinedRuntimeAttributes>
                                                                 <connections>
-                                                                    <action selector="handlerImageButtonTap:" destination="aIy-oy-tcM" eventType="touchUpInside" id="Lm1-Ps-vo9"/>
+                                                                    <action selector="handlerImageButtonTap:" destination="aIy-oy-tcM" eventType="touchUpInside" id="gVa-hJ-lSd"/>
                                                                 </connections>
                                                             </button>
                                                         </subviews>
@@ -88,7 +85,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0hE-Lz-B7b" userLabel="Fields View">
-                                                        <rect key="frame" x="0.0" y="135" width="224" height="176"/>
+                                                        <rect key="frame" x="0.0" y="135" width="224" height="235"/>
                                                         <subviews>
                                                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sib-cC-cFy" userLabel="Name View">
                                                                 <rect key="frame" x="0.0" y="0.0" width="224" height="44"/>
@@ -180,7 +177,7 @@
                                                                                     </userDefinedRuntimeAttribute>
                                                                                 </userDefinedRuntimeAttributes>
                                                                                 <connections>
-                                                                                    <action selector="handlerPhoneDeleteButtonTap:" destination="aIy-oy-tcM" eventType="touchUpInside" id="rJc-hc-nCu"/>
+                                                                                    <action selector="handlerPhoneDeleteButtonTap:" destination="aIy-oy-tcM" eventType="touchUpInside" id="3ch-0H-Sso"/>
                                                                                 </connections>
                                                                             </button>
                                                                         </subviews>
@@ -280,7 +277,7 @@
                                                                                     </userDefinedRuntimeAttribute>
                                                                                 </userDefinedRuntimeAttributes>
                                                                                 <connections>
-                                                                                    <action selector="handlerPhoneDeleteButtonTap:" destination="aIy-oy-tcM" eventType="touchUpInside" id="xb8-Qd-rpy"/>
+                                                                                    <action selector="handlerPhoneDeleteButtonTap:" destination="aIy-oy-tcM" eventType="touchUpInside" id="5nG-7e-FeS"/>
                                                                                 </connections>
                                                                             </button>
                                                                         </subviews>
@@ -380,7 +377,7 @@
                                                                                     </userDefinedRuntimeAttribute>
                                                                                 </userDefinedRuntimeAttributes>
                                                                                 <connections>
-                                                                                    <action selector="handlerPhoneDeleteButtonTap:" destination="aIy-oy-tcM" eventType="touchUpInside" id="cZU-Rz-iOq"/>
+                                                                                    <action selector="handlerPhoneDeleteButtonTap:" destination="aIy-oy-tcM" eventType="touchUpInside" id="rLL-r4-xym"/>
                                                                                 </connections>
                                                                             </button>
                                                                         </subviews>
@@ -480,7 +477,7 @@
                                                                                     </userDefinedRuntimeAttribute>
                                                                                 </userDefinedRuntimeAttributes>
                                                                                 <connections>
-                                                                                    <action selector="handlerPhoneDeleteButtonTap:" destination="aIy-oy-tcM" eventType="touchUpInside" id="Aoe-cI-kBg"/>
+                                                                                    <action selector="handlerPhoneDeleteButtonTap:" destination="aIy-oy-tcM" eventType="touchUpInside" id="GRq-aV-9Mx"/>
                                                                                 </connections>
                                                                             </button>
                                                                         </subviews>
@@ -580,7 +577,7 @@
                                                                                     </userDefinedRuntimeAttribute>
                                                                                 </userDefinedRuntimeAttributes>
                                                                                 <connections>
-                                                                                    <action selector="handlerPhoneDeleteButtonTap:" destination="aIy-oy-tcM" eventType="touchUpInside" id="YVY-fz-OzA"/>
+                                                                                    <action selector="handlerPhoneDeleteButtonTap:" destination="aIy-oy-tcM" eventType="touchUpInside" id="C2H-G3-n7B"/>
                                                                                 </connections>
                                                                             </button>
                                                                         </subviews>
@@ -678,56 +675,62 @@
                                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
                                                                 </userDefinedRuntimeAttributes>
                                                             </view>
-                                                            <view clipsSubviews="YES" tag="30" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LVj-SC-hPT" userLabel="Address View">
+                                                            <view hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fmg-r5-yOC" userLabel="Email Error View" customClass="ErrorMessageView" customModule="OmnieCommerce" customModuleProvider="target">
+                                                                <rect key="frame" x="-0.5" y="132" width="224" height="14"/>
+                                                                <subviews>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wrong Email" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9GS-8O-5hk" userLabel="Email Error Message Label" customClass="CustomLabel" customModule="OmnieCommerce" customModuleProvider="target">
+                                                                        <rect key="frame" x="8" y="0.0" width="216" height="14.5"/>
+                                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                                        <nil key="textColor"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="string" keyPath="labelStyle" value="Error"/>
+                                                                        </userDefinedRuntimeAttributes>
+                                                                    </label>
+                                                                </subviews>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                                <constraints>
+                                                                    <constraint firstItem="9GS-8O-5hk" firstAttribute="top" secondItem="Fmg-r5-yOC" secondAttribute="top" id="LTd-uU-2YG"/>
+                                                                    <constraint firstItem="9GS-8O-5hk" firstAttribute="leading" secondItem="Fmg-r5-yOC" secondAttribute="leading" constant="8" id="OEL-mX-YRz"/>
+                                                                    <constraint firstAttribute="height" constant="14" id="TdC-QJ-YHW"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="9GS-8O-5hk" secondAttribute="trailing" id="huN-AA-b4I"/>
+                                                                </constraints>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </view>
+                                                            <view clipsSubviews="YES" tag="30" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LVj-SC-hPT" userLabel="Email View">
                                                                 <rect key="frame" x="0.0" y="88" width="224" height="44"/>
                                                                 <subviews>
-                                                                    <view clipsSubviews="YES" tag="30" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MwJ-OC-KLS" userLabel="Address Dotted Line View" customClass="DottedBorderView" customModule="OmnieCommerce" customModuleProvider="target">
+                                                                    <view clipsSubviews="YES" tag="30" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MwJ-OC-KLS" userLabel="Email Dotted Line View" customClass="DottedBorderView" customModule="OmnieCommerce" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="0.0" width="224" height="44"/>
                                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                         <userDefinedRuntimeAttributes>
                                                                             <userDefinedRuntimeAttribute type="string" keyPath="viewStyle" value="BottomDottedLine"/>
                                                                         </userDefinedRuntimeAttributes>
                                                                     </view>
-                                                                    <textField clipsSubviews="YES" tag="30" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Address" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="u8C-gF-LxW" userLabel="Address Text Field" customClass="CustomTextField" customModule="OmnieCommerce" customModuleProvider="target">
+                                                                    <textField clipsSubviews="YES" tag="30" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="u8C-gF-LxW" userLabel="Email Text Field" customClass="CustomTextField" customModule="OmnieCommerce" customModuleProvider="target">
                                                                         <rect key="frame" x="8" y="23.5" width="224" height="19"/>
                                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                         <nil key="textColor"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="alphabet" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
                                                                         <userDefinedRuntimeAttributes>
-                                                                            <userDefinedRuntimeAttribute type="string" keyPath="fieldType" value="Name"/>
+                                                                            <userDefinedRuntimeAttribute type="string" keyPath="fieldType" value="Email"/>
                                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
                                                                         </userDefinedRuntimeAttributes>
                                                                     </textField>
-                                                                    <button clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aHH-w1-hKM" userLabel="Address Button">
-                                                                        <rect key="frame" x="179.5" y="0.0" width="44" height="44"/>
-                                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                                        <constraints>
-                                                                            <constraint firstAttribute="height" constant="44" id="X5Y-P1-hhf"/>
-                                                                            <constraint firstAttribute="width" secondItem="aHH-w1-hKM" secondAttribute="height" multiplier="1:1" id="eFZ-x6-XhV"/>
-                                                                        </constraints>
-                                                                        <inset key="imageEdgeInsets" minX="0.0" minY="11" maxX="3" maxY="0.0"/>
-                                                                        <state key="normal" image="icon-address-orange-normal"/>
-                                                                        <userDefinedRuntimeAttributes>
-                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
-                                                                        </userDefinedRuntimeAttributes>
-                                                                        <connections>
-                                                                            <action selector="handlerAddressButtonTap:" destination="aIy-oy-tcM" eventType="touchUpInside" id="vau-yt-fYt"/>
-                                                                        </connections>
-                                                                    </button>
                                                                 </subviews>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="trailing" secondItem="u8C-gF-LxW" secondAttribute="trailing" constant="-8" id="1JO-24-QFj"/>
-                                                                    <constraint firstAttribute="trailing" secondItem="aHH-w1-hKM" secondAttribute="trailing" id="9qW-fp-wjw"/>
                                                                     <constraint firstItem="u8C-gF-LxW" firstAttribute="centerY" secondItem="LVj-SC-hPT" secondAttribute="centerY" multiplier="1.3" id="ARf-e1-7xF"/>
                                                                     <constraint firstAttribute="trailing" secondItem="MwJ-OC-KLS" secondAttribute="trailing" id="Qcu-Fw-MXQ"/>
                                                                     <constraint firstItem="MwJ-OC-KLS" firstAttribute="top" secondItem="LVj-SC-hPT" secondAttribute="top" id="SXq-6n-Dzk"/>
-                                                                    <constraint firstAttribute="bottom" secondItem="aHH-w1-hKM" secondAttribute="bottom" id="XDT-qI-Ab9"/>
                                                                     <constraint firstAttribute="height" constant="44" id="c1f-x0-UZn"/>
                                                                     <constraint firstAttribute="bottom" secondItem="MwJ-OC-KLS" secondAttribute="bottom" id="dqM-uJ-MVV"/>
                                                                     <constraint firstItem="u8C-gF-LxW" firstAttribute="centerY" secondItem="LVj-SC-hPT" secondAttribute="centerY" multiplier="1.5" id="gWv-jb-KuA"/>
-                                                                    <constraint firstItem="aHH-w1-hKM" firstAttribute="top" secondItem="LVj-SC-hPT" secondAttribute="top" id="gZB-aD-Me1"/>
                                                                     <constraint firstItem="u8C-gF-LxW" firstAttribute="leading" secondItem="LVj-SC-hPT" secondAttribute="leading" constant="8" id="rG6-G0-6l9"/>
                                                                     <constraint firstItem="MwJ-OC-KLS" firstAttribute="leading" secondItem="LVj-SC-hPT" secondAttribute="leading" id="z41-XX-giV"/>
                                                                 </constraints>
@@ -743,17 +746,17 @@
                                                                     </mask>
                                                                 </variation>
                                                             </view>
-                                                            <view clipsSubviews="YES" tag="30" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xIk-3k-ZQn" userLabel="Keywords View">
-                                                                <rect key="frame" x="-0.5" y="132" width="224" height="44"/>
+                                                            <view clipsSubviews="YES" tag="30" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xIk-3k-ZQn" userLabel="Comment View">
+                                                                <rect key="frame" x="-0.5" y="146" width="224" height="44"/>
                                                                 <subviews>
-                                                                    <view clipsSubviews="YES" tag="40" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hda-eh-i4v" userLabel="Keywords Dotted Line View" customClass="DottedBorderView" customModule="OmnieCommerce" customModuleProvider="target">
+                                                                    <view clipsSubviews="YES" tag="40" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hda-eh-i4v" userLabel="Comment Dotted Line View" customClass="DottedBorderView" customModule="OmnieCommerce" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="0.0" width="224" height="44"/>
                                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                         <userDefinedRuntimeAttributes>
                                                                             <userDefinedRuntimeAttribute type="string" keyPath="viewStyle" value="BottomDottedLine"/>
                                                                         </userDefinedRuntimeAttributes>
                                                                     </view>
-                                                                    <textField clipsSubviews="YES" tag="99" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Keywords" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Oki-Gh-Kcv" userLabel="Keywords Text Field" customClass="CustomTextField" customModule="OmnieCommerce" customModuleProvider="target">
+                                                                    <textField clipsSubviews="YES" tag="99" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Comment" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Oki-Gh-Kcv" userLabel="Comment Text Field" customClass="CustomTextField" customModule="OmnieCommerce" customModuleProvider="target">
                                                                         <rect key="frame" x="8" y="23.5" width="224" height="19"/>
                                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                         <nil key="textColor"/>
@@ -789,21 +792,74 @@
                                                                     </mask>
                                                                 </variation>
                                                             </view>
+                                                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vhn-Bi-qgf" userLabel="Handbook View">
+                                                                <rect key="frame" x="0.0" y="190" width="224" height="45"/>
+                                                                <subviews>
+                                                                    <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wCH-sk-YN4" userLabel="Check Button" customClass="DLRadioButton">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="224" height="45"/>
+                                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                                        <fontDescription key="fontDescription" name="Ubuntu-Light" family="Ubuntu" pointSize="12"/>
+                                                                        <state key="normal" title="Add to handbook"/>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="iconSquare" value="YES"/>
+                                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                                <real key="value" value="2"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                                                            <userDefinedRuntimeAttribute type="number" keyPath="iconSize">
+                                                                                <real key="value" value="11"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                            <userDefinedRuntimeAttribute type="color" keyPath="iconColor">
+                                                                                <color key="value" red="1" green="0.84313725490000002" blue="0.42352941179999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                            <userDefinedRuntimeAttribute type="number" keyPath="indicatorSize">
+                                                                                <real key="value" value="4"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                            <userDefinedRuntimeAttribute type="color" keyPath="indicatorColor">
+                                                                                <color key="value" red="1" green="0.84313725490000002" blue="0.42352941179999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                            <userDefinedRuntimeAttribute type="number" keyPath="marginWidth">
+                                                                                <real key="value" value="13"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                        </userDefinedRuntimeAttributes>
+                                                                        <connections>
+                                                                            <action selector="handlerHandbookCheckButtonTap:" destination="aIy-oy-tcM" eventType="touchUpInside" id="XBF-ef-pU9"/>
+                                                                        </connections>
+                                                                    </button>
+                                                                </subviews>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="45" id="E2S-fy-aPU"/>
+                                                                    <constraint firstItem="wCH-sk-YN4" firstAttribute="leading" secondItem="vhn-Bi-qgf" secondAttribute="leading" id="gVH-lc-vg7"/>
+                                                                    <constraint firstItem="wCH-sk-YN4" firstAttribute="top" secondItem="vhn-Bi-qgf" secondAttribute="top" id="kpv-l5-hBc"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="wCH-sk-YN4" secondAttribute="bottom" id="ocj-O8-jv7"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="wCH-sk-YN4" secondAttribute="trailing" id="qLc-N9-tCs"/>
+                                                                </constraints>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </view>
                                                         </subviews>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <constraints>
                                                             <constraint firstItem="xIk-3k-ZQn" firstAttribute="leading" secondItem="0hE-Lz-B7b" secondAttribute="leading" id="7oO-hC-SJ6"/>
                                                             <constraint firstAttribute="trailing" secondItem="Sib-cC-cFy" secondAttribute="trailing" id="9ZD-Zf-u0f"/>
+                                                            <constraint firstItem="Fmg-r5-yOC" firstAttribute="top" secondItem="LVj-SC-hPT" secondAttribute="bottom" constant="-14" id="FJY-sh-8vc"/>
                                                             <constraint firstItem="LVj-SC-hPT" firstAttribute="top" secondItem="8dc-0P-JEq" secondAttribute="bottom" id="FaB-Dg-hHH"/>
                                                             <constraint firstAttribute="trailing" secondItem="LVj-SC-hPT" secondAttribute="trailing" id="G03-y1-V2o"/>
                                                             <constraint firstAttribute="trailing" secondItem="xIk-3k-ZQn" secondAttribute="trailing" id="Kja-4T-iPb"/>
                                                             <constraint firstItem="8dc-0P-JEq" firstAttribute="leading" secondItem="0hE-Lz-B7b" secondAttribute="leading" id="O2m-4n-Xbi"/>
+                                                            <constraint firstItem="xIk-3k-ZQn" firstAttribute="top" secondItem="Fmg-r5-yOC" secondAttribute="bottom" id="ONP-Bg-bZ0"/>
                                                             <constraint firstItem="LVj-SC-hPT" firstAttribute="leading" secondItem="0hE-Lz-B7b" secondAttribute="leading" id="QYt-hv-3bq"/>
                                                             <constraint firstItem="Sib-cC-cFy" firstAttribute="leading" secondItem="0hE-Lz-B7b" secondAttribute="leading" id="Rt1-hQ-i8U"/>
+                                                            <constraint firstItem="Fmg-r5-yOC" firstAttribute="leading" secondItem="0hE-Lz-B7b" secondAttribute="leading" id="S9g-5i-Obi"/>
+                                                            <constraint firstItem="vhn-Bi-qgf" firstAttribute="top" secondItem="xIk-3k-ZQn" secondAttribute="bottom" id="SUD-Xt-2ij"/>
+                                                            <constraint firstAttribute="trailing" secondItem="vhn-Bi-qgf" secondAttribute="trailing" id="WL6-5F-6xS"/>
+                                                            <constraint firstItem="vhn-Bi-qgf" firstAttribute="leading" secondItem="0hE-Lz-B7b" secondAttribute="leading" id="cOJ-g9-B54"/>
                                                             <constraint firstItem="Sib-cC-cFy" firstAttribute="top" secondItem="0hE-Lz-B7b" secondAttribute="top" id="du5-vA-gLg"/>
-                                                            <constraint firstAttribute="bottom" secondItem="xIk-3k-ZQn" secondAttribute="bottom" id="fEv-Px-43e"/>
                                                             <constraint firstAttribute="trailing" secondItem="8dc-0P-JEq" secondAttribute="trailing" id="gTX-yr-4F0"/>
-                                                            <constraint firstItem="xIk-3k-ZQn" firstAttribute="top" secondItem="LVj-SC-hPT" secondAttribute="bottom" id="h4F-FK-h7m"/>
+                                                            <constraint firstAttribute="bottom" secondItem="vhn-Bi-qgf" secondAttribute="bottom" id="hU8-Lt-PRn"/>
+                                                            <constraint firstAttribute="trailing" secondItem="Fmg-r5-yOC" secondAttribute="trailing" id="rhL-LQ-wi7"/>
                                                             <constraint firstItem="8dc-0P-JEq" firstAttribute="top" secondItem="Sib-cC-cFy" secondAttribute="bottom" id="xhm-vZ-cff"/>
                                                         </constraints>
                                                         <userDefinedRuntimeAttributes>
@@ -813,7 +869,7 @@
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="311" id="KpY-aQ-HGz"/>
+                                                    <constraint firstAttribute="height" constant="370" id="KpY-aQ-HGz"/>
                                                     <constraint firstItem="kgk-dh-D1R" firstAttribute="leading" secondItem="Jyg-cW-TY1" secondAttribute="leading" id="dPI-q3-1dq"/>
                                                     <constraint firstAttribute="bottom" secondItem="0hE-Lz-B7b" secondAttribute="bottom" id="vLH-6A-a99"/>
                                                     <constraint firstItem="kgk-dh-D1R" firstAttribute="top" secondItem="Jyg-cW-TY1" secondAttribute="top" id="wOd-8Y-jfQ"/>
@@ -830,8 +886,8 @@
                                                     </mask>
                                                 </variation>
                                             </stackView>
-                                            <stackView clipsSubviews="YES" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="QZA-Hj-mST" userLabel="Action Stack View">
-                                                <rect key="frame" x="75.5" y="351" width="224" height="87"/>
+                                            <stackView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="QZA-Hj-mST" userLabel="Action Stack View">
+                                                <rect key="frame" x="75.5" y="410" width="224" height="87"/>
                                                 <subviews>
                                                     <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Db-te-x1f" userLabel="Save Button" customClass="FillVeryLightOrangeButton" customModule="OmnieCommerce" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="224" height="36"/>
@@ -842,7 +898,7 @@
                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
                                                         </userDefinedRuntimeAttributes>
                                                         <connections>
-                                                            <action selector="handlerSaveButtonTap:" destination="aIy-oy-tcM" eventType="touchUpInside" id="teo-Oy-mE8"/>
+                                                            <action selector="handlerSaveButtonTap:" destination="aIy-oy-tcM" eventType="touchUpInside" id="Eq4-Og-CPg"/>
                                                         </connections>
                                                     </button>
                                                     <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cCc-VH-z6W" userLabel="Cancel Button" customClass="BorderVeryLightOrangeButton" customModule="OmnieCommerce" customModuleProvider="target">
@@ -854,7 +910,7 @@
                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
                                                         </userDefinedRuntimeAttributes>
                                                         <connections>
-                                                            <action selector="handlerCancelButtonTap:" destination="aIy-oy-tcM" eventType="touchUpInside" id="o7h-Kj-Zuk"/>
+                                                            <action selector="handlerCancelButtonTap:" destination="aIy-oy-tcM" eventType="touchUpInside" id="HZD-uk-LoH"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -884,12 +940,20 @@
                                     <constraint firstItem="0cG-7k-X4Q" firstAttribute="leading" secondItem="KgS-Wu-CWa" secondAttribute="leading" id="1SD-tI-Yh7"/>
                                     <constraint firstAttribute="trailing" secondItem="0cG-7k-X4Q" secondAttribute="trailing" id="F0h-qR-aqJ"/>
                                     <constraint firstAttribute="bottom" secondItem="0cG-7k-X4Q" secondAttribute="bottom" id="IE8-2E-Dkd"/>
-                                    <constraint firstItem="0cG-7k-X4Q" firstAttribute="top" secondItem="KgS-Wu-CWa" secondAttribute="top" id="w5R-P1-Xw4"/>
+                                    <constraint firstItem="0cG-7k-X4Q" firstAttribute="top" secondItem="KgS-Wu-CWa" secondAttribute="top" constant="35" id="w5R-P1-Xw4"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </scrollView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mzo-JX-FrS" customClass="SmallTopBarView" customModule="OmnieCommerce" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="95"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="titleText" value="BusinessCard"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="type" value="Child"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Copyright" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ERr-6N-n2o" userLabel="Copyright Label" customClass="UbuntuLightDarkCyanLabel" customModule="OmnieCommerce" customModuleProvider="target">
                                 <rect key="frame" x="8" y="647" width="359" height="11"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -903,7 +967,7 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="KgS-Wu-CWa" firstAttribute="top" secondItem="Mzo-JX-FrS" secondAttribute="bottom" id="487-BH-bce"/>
+                            <constraint firstItem="KgS-Wu-CWa" firstAttribute="top" secondItem="Mzo-JX-FrS" secondAttribute="bottom" constant="-35" id="487-BH-bce"/>
                             <constraint firstItem="QZA-Hj-mST" firstAttribute="width" secondItem="6mz-3c-taz" secondAttribute="width" multiplier="470:667" id="4AI-LG-LW4"/>
                             <constraint firstItem="Jyg-cW-TY1" firstAttribute="width" secondItem="6mz-3c-taz" secondAttribute="width" multiplier="474:667" id="6Rh-c1-iJv"/>
                             <constraint firstItem="KgS-Wu-CWa" firstAttribute="leading" secondItem="6mz-3c-taz" secondAttribute="leading" id="AuN-G5-sw5"/>
@@ -959,60 +1023,65 @@
                         </variation>
                     </view>
                     <connections>
-                        <outlet property="addressButton" destination="aHH-w1-hKM" id="d9m-JQ-UiF"/>
-                        <outlet property="addressTextField" destination="u8C-gF-LxW" id="i9Q-fc-QhX"/>
-                        <outlet property="imageButton" destination="aLk-zQ-LIL" id="whc-xV-q13"/>
-                        <outlet property="imageView" destination="Dxq-SE-v4L" id="bdq-In-Jxd"/>
-                        <outlet property="infoStackViewHeightConstraint" destination="KpY-aQ-HGz" id="5rK-D0-Zsm"/>
-                        <outlet property="modalView" destination="oWW-Cg-gda" id="dKi-Aa-U4i"/>
-                        <outlet property="phonesViewHeightConstraint" destination="PJ2-yN-0cB" id="Egr-qR-f5E"/>
-                        <outlet property="scrollView" destination="KgS-Wu-CWa" id="wdO-9a-Arb"/>
-                        <outlet property="smallTopBarView" destination="Mzo-JX-FrS" id="OxP-Wv-Er0"/>
-                        <outletCollection property="dottedBorderViewsCollection" destination="uuz-ee-q9U" collectionClass="NSMutableArray" id="AZI-i1-OTw"/>
-                        <outletCollection property="textFieldsCollection" destination="oeK-bT-Uuf" collectionClass="NSMutableArray" id="WRl-t5-0Dq"/>
-                        <outletCollection property="dottedBorderViewsCollection" destination="yq4-yJ-gVj" collectionClass="NSMutableArray" id="dJM-jO-Mzv"/>
-                        <outletCollection property="textFieldsCollection" destination="I52-vD-ShT" collectionClass="NSMutableArray" id="OTT-Hr-Q9t"/>
-                        <outletCollection property="phoneErrorMessageViewsCollection" destination="tyP-v3-LMb" collectionClass="NSMutableArray" id="aVj-lX-71h"/>
-                        <outletCollection property="phoneErrorMessageViewHeightConstraintsCollection" destination="Nn9-aL-aUF" collectionClass="NSMutableArray" id="d8v-gj-Yrg"/>
-                        <outletCollection property="phoneErrorMessageViewTopConstraintsCollection" destination="ctd-nR-K8V" collectionClass="NSMutableArray" id="Ptx-fu-obS"/>
-                        <outletCollection property="phoneDeleteButtonsCollection" destination="cx0-2W-Hpg" collectionClass="NSMutableArray" id="UxK-tO-Pmv"/>
-                        <outletCollection property="phoneViewTopConstraintsCollection" destination="8Bf-hy-Z63" collectionClass="NSMutableArray" id="ZjR-00-i6M"/>
-                        <outletCollection property="dottedBorderViewsCollection" destination="X4V-hO-sXr" collectionClass="NSMutableArray" id="Rz1-oe-CaP"/>
-                        <outletCollection property="textFieldsCollection" destination="N2d-yE-TI5" collectionClass="NSMutableArray" id="tOi-VN-GGc"/>
-                        <outletCollection property="phoneDeleteButtonsCollection" destination="6ZE-XZ-J89" collectionClass="NSMutableArray" id="e63-NB-al8"/>
-                        <outletCollection property="phoneErrorMessageViewHeightConstraintsCollection" destination="3XZ-XC-cXu" collectionClass="NSMutableArray" id="mvw-6k-wEN"/>
-                        <outletCollection property="phoneErrorMessageViewTopConstraintsCollection" destination="18A-Ym-8Id" collectionClass="NSMutableArray" id="096-C8-gra"/>
-                        <outletCollection property="phoneViewTopConstraintsCollection" destination="A2d-vz-0xh" collectionClass="NSMutableArray" id="lfk-sd-ysC"/>
-                        <outletCollection property="phoneErrorMessageViewsCollection" destination="cd7-kl-h3T" collectionClass="NSMutableArray" id="A84-A4-Ti7"/>
-                        <outletCollection property="phoneViewsCollection" destination="M2W-ia-1vz" collectionClass="NSMutableArray" id="7Hd-BG-mZ7"/>
-                        <outletCollection property="phoneViewsCollection" destination="VHk-xk-WTl" collectionClass="NSMutableArray" id="o3u-Ii-owO"/>
-                        <outletCollection property="phoneViewsCollection" destination="a0P-kX-Q3l" collectionClass="NSMutableArray" id="QXO-NQ-7p3"/>
-                        <outletCollection property="dottedBorderViewsCollection" destination="kIn-hj-ThS" collectionClass="NSMutableArray" id="BCC-Os-e9e"/>
-                        <outletCollection property="textFieldsCollection" destination="XPm-0w-wAA" collectionClass="NSMutableArray" id="31B-QQ-UsX"/>
-                        <outletCollection property="phoneDeleteButtonsCollection" destination="yWf-JI-Rvq" collectionClass="NSMutableArray" id="WR9-6o-1eZ"/>
-                        <outletCollection property="phoneErrorMessageViewsCollection" destination="de6-Zw-7rt" collectionClass="NSMutableArray" id="gse-l3-OFj"/>
-                        <outletCollection property="phoneViewTopConstraintsCollection" destination="mCD-JE-x2f" collectionClass="NSMutableArray" id="uWj-LU-rHG"/>
-                        <outletCollection property="phoneErrorMessageViewHeightConstraintsCollection" destination="YNp-7S-t4q" collectionClass="NSMutableArray" id="tIT-0x-XrL"/>
-                        <outletCollection property="phoneErrorMessageViewTopConstraintsCollection" destination="ec9-gE-WVy" collectionClass="NSMutableArray" id="495-lf-Dzg"/>
-                        <outletCollection property="phoneViewsCollection" destination="wXV-jX-eKn" collectionClass="NSMutableArray" id="APl-eR-QDa"/>
-                        <outletCollection property="dottedBorderViewsCollection" destination="PC6-iy-BgK" collectionClass="NSMutableArray" id="4CR-p8-mj0"/>
-                        <outletCollection property="textFieldsCollection" destination="xud-MP-54d" collectionClass="NSMutableArray" id="ux8-tC-UWh"/>
-                        <outletCollection property="phoneDeleteButtonsCollection" destination="R0C-Po-baU" collectionClass="NSMutableArray" id="nXR-Gx-Gtb"/>
-                        <outletCollection property="phoneViewTopConstraintsCollection" destination="A3Q-8h-GsY" collectionClass="NSMutableArray" id="Zq0-ZR-AhY"/>
-                        <outletCollection property="phoneErrorMessageViewHeightConstraintsCollection" destination="94i-KE-FCE" collectionClass="NSMutableArray" id="NNq-IX-Jpb"/>
-                        <outletCollection property="phoneErrorMessageViewTopConstraintsCollection" destination="Ahb-gz-YlU" collectionClass="NSMutableArray" id="Uz3-5O-zYw"/>
-                        <outletCollection property="phoneViewsCollection" destination="USN-2K-fCC" collectionClass="NSMutableArray" id="GV5-Gh-uhM"/>
-                        <outletCollection property="dottedBorderViewsCollection" destination="VvZ-72-xS9" collectionClass="NSMutableArray" id="bcc-c2-j1j"/>
-                        <outletCollection property="textFieldsCollection" destination="RHw-nm-hZl" collectionClass="NSMutableArray" id="JFo-oC-v8B"/>
-                        <outletCollection property="phoneDeleteButtonsCollection" destination="jeb-iw-Gtw" collectionClass="NSMutableArray" id="zdO-eO-EBs"/>
-                        <outletCollection property="phoneErrorMessageViewsCollection" destination="F3G-3f-cX7" collectionClass="NSMutableArray" id="vFM-5G-Unq"/>
-                        <outletCollection property="phoneViewTopConstraintsCollection" destination="O8u-mj-C8w" collectionClass="NSMutableArray" id="5m9-1M-BdH"/>
-                        <outletCollection property="phoneErrorMessageViewsCollection" destination="67q-nF-ktr" collectionClass="NSMutableArray" id="NG2-gV-fsh"/>
-                        <outletCollection property="phoneErrorMessageViewTopConstraintsCollection" destination="6mw-aD-CIs" collectionClass="NSMutableArray" id="s3i-Wc-YU0"/>
-                        <outletCollection property="phoneErrorMessageViewHeightConstraintsCollection" destination="yGS-8E-Bg9" collectionClass="NSMutableArray" id="DuD-af-HmQ"/>
-                        <outletCollection property="dottedBorderViewsCollection" destination="MwJ-OC-KLS" collectionClass="NSMutableArray" id="dYQ-Bw-Cn2"/>
-                        <outletCollection property="dottedBorderViewsCollection" destination="Hda-eh-i4v" collectionClass="NSMutableArray" id="6aA-gd-TbD"/>
-                        <outletCollection property="textFieldsCollection" destination="Oki-Gh-Kcv" collectionClass="NSMutableArray" id="jsm-Ir-yet"/>
+                        <outlet property="actionStackView" destination="QZA-Hj-mST" id="mLd-bV-uBo"/>
+                        <outlet property="emailErrorMessageView" destination="Fmg-r5-yOC" id="ZKd-GF-eBR"/>
+                        <outlet property="emailErrorMessageViewHeightConstraint" destination="TdC-QJ-YHW" id="V80-yq-G1n"/>
+                        <outlet property="emailErrorMessageViewTopConstraint" destination="FJY-sh-8vc" id="KjO-is-cQy"/>
+                        <outlet property="handbookCheckButton" destination="wCH-sk-YN4" id="TIx-7c-ESx"/>
+                        <outlet property="imageButton" destination="aLk-zQ-LIL" id="kzo-si-GfI"/>
+                        <outlet property="imageView" destination="Dxq-SE-v4L" id="f2M-QH-r86"/>
+                        <outlet property="infoStackView" destination="Jyg-cW-TY1" id="YKG-40-1xB"/>
+                        <outlet property="infoStackViewHeightConstraint" destination="KpY-aQ-HGz" id="rKq-KE-BF8"/>
+                        <outlet property="modalView" destination="oWW-Cg-gda" id="blg-q0-tc6"/>
+                        <outlet property="phonesViewHeightConstraint" destination="PJ2-yN-0cB" id="VrZ-EO-GMz"/>
+                        <outlet property="scrollView" destination="KgS-Wu-CWa" id="vb1-k9-lZs"/>
+                        <outlet property="smallTopBarView" destination="Mzo-JX-FrS" id="y1f-mv-qg7"/>
+                        <outletCollection property="dottedBorderViewsCollection" destination="uuz-ee-q9U" collectionClass="NSMutableArray" id="kRV-59-24W"/>
+                        <outletCollection property="textFieldsCollection" destination="oeK-bT-Uuf" collectionClass="NSMutableArray" id="uWd-0l-LA1"/>
+                        <outletCollection property="dottedBorderViewsCollection" destination="yq4-yJ-gVj" collectionClass="NSMutableArray" id="E7n-Cv-t05"/>
+                        <outletCollection property="dottedBorderViewsCollection" destination="X4V-hO-sXr" collectionClass="NSMutableArray" id="qVh-yR-SJo"/>
+                        <outletCollection property="dottedBorderViewsCollection" destination="kIn-hj-ThS" collectionClass="NSMutableArray" id="FjG-ZK-raf"/>
+                        <outletCollection property="dottedBorderViewsCollection" destination="PC6-iy-BgK" collectionClass="NSMutableArray" id="vak-YC-F6t"/>
+                        <outletCollection property="dottedBorderViewsCollection" destination="VvZ-72-xS9" collectionClass="NSMutableArray" id="azS-R2-ld8"/>
+                        <outletCollection property="textFieldsCollection" destination="I52-vD-ShT" collectionClass="NSMutableArray" id="HdA-LV-Huo"/>
+                        <outletCollection property="textFieldsCollection" destination="N2d-yE-TI5" collectionClass="NSMutableArray" id="tnj-IW-lLn"/>
+                        <outletCollection property="textFieldsCollection" destination="XPm-0w-wAA" collectionClass="NSMutableArray" id="JXJ-l7-jY8"/>
+                        <outletCollection property="textFieldsCollection" destination="xud-MP-54d" collectionClass="NSMutableArray" id="Vso-dc-MAa"/>
+                        <outletCollection property="textFieldsCollection" destination="RHw-nm-hZl" collectionClass="NSMutableArray" id="M8C-R6-XhT"/>
+                        <outletCollection property="dottedBorderViewsCollection" destination="MwJ-OC-KLS" collectionClass="NSMutableArray" id="4FK-iP-cO1"/>
+                        <outletCollection property="textFieldsCollection" destination="u8C-gF-LxW" collectionClass="NSMutableArray" id="weM-Eu-8zz"/>
+                        <outletCollection property="dottedBorderViewsCollection" destination="Hda-eh-i4v" collectionClass="NSMutableArray" id="xXp-7i-ghS"/>
+                        <outletCollection property="textFieldsCollection" destination="Oki-Gh-Kcv" collectionClass="NSMutableArray" id="xX3-yt-Upp"/>
+                        <outletCollection property="phoneDeleteButtonsCollection" destination="cx0-2W-Hpg" collectionClass="NSMutableArray" id="PKj-K7-wsF"/>
+                        <outletCollection property="phoneDeleteButtonsCollection" destination="6ZE-XZ-J89" collectionClass="NSMutableArray" id="a8n-0t-Fe8"/>
+                        <outletCollection property="phoneDeleteButtonsCollection" destination="yWf-JI-Rvq" collectionClass="NSMutableArray" id="2eK-DX-oiq"/>
+                        <outletCollection property="phoneDeleteButtonsCollection" destination="R0C-Po-baU" collectionClass="NSMutableArray" id="vxf-Al-NSi"/>
+                        <outletCollection property="phoneDeleteButtonsCollection" destination="jeb-iw-Gtw" collectionClass="NSMutableArray" id="0Gn-y5-ndN"/>
+                        <outletCollection property="phoneErrorMessageViewsCollection" destination="tyP-v3-LMb" collectionClass="NSMutableArray" id="vto-F7-PXv"/>
+                        <outletCollection property="phoneErrorMessageViewsCollection" destination="cd7-kl-h3T" collectionClass="NSMutableArray" id="PcP-jw-LDD"/>
+                        <outletCollection property="phoneErrorMessageViewsCollection" destination="de6-Zw-7rt" collectionClass="NSMutableArray" id="NaI-uO-MXC"/>
+                        <outletCollection property="phoneErrorMessageViewsCollection" destination="F3G-3f-cX7" collectionClass="NSMutableArray" id="oBl-w1-jRY"/>
+                        <outletCollection property="phoneErrorMessageViewsCollection" destination="67q-nF-ktr" collectionClass="NSMutableArray" id="rlT-Yu-q8u"/>
+                        <outletCollection property="phoneErrorMessageViewHeightConstraintsCollection" destination="Nn9-aL-aUF" collectionClass="NSMutableArray" id="iJM-oS-zKm"/>
+                        <outletCollection property="phoneErrorMessageViewHeightConstraintsCollection" destination="3XZ-XC-cXu" collectionClass="NSMutableArray" id="f9Q-kp-QBu"/>
+                        <outletCollection property="phoneErrorMessageViewHeightConstraintsCollection" destination="YNp-7S-t4q" collectionClass="NSMutableArray" id="Nle-UV-YtA"/>
+                        <outletCollection property="phoneErrorMessageViewHeightConstraintsCollection" destination="94i-KE-FCE" collectionClass="NSMutableArray" id="djp-Hz-sgd"/>
+                        <outletCollection property="phoneErrorMessageViewHeightConstraintsCollection" destination="yGS-8E-Bg9" collectionClass="NSMutableArray" id="czd-t9-G18"/>
+                        <outletCollection property="phoneErrorMessageViewTopConstraintsCollection" destination="ctd-nR-K8V" collectionClass="NSMutableArray" id="zTK-bM-baU"/>
+                        <outletCollection property="phoneErrorMessageViewTopConstraintsCollection" destination="18A-Ym-8Id" collectionClass="NSMutableArray" id="jQl-r0-4zA"/>
+                        <outletCollection property="phoneErrorMessageViewTopConstraintsCollection" destination="ec9-gE-WVy" collectionClass="NSMutableArray" id="OY4-PX-aFz"/>
+                        <outletCollection property="phoneErrorMessageViewTopConstraintsCollection" destination="Ahb-gz-YlU" collectionClass="NSMutableArray" id="r7V-AL-WPn"/>
+                        <outletCollection property="phoneErrorMessageViewTopConstraintsCollection" destination="6mw-aD-CIs" collectionClass="NSMutableArray" id="1Pm-Lx-B3H"/>
+                        <outletCollection property="phoneViewTopConstraintsCollection" destination="8Bf-hy-Z63" collectionClass="NSMutableArray" id="frz-GG-HaT"/>
+                        <outletCollection property="phoneViewTopConstraintsCollection" destination="A2d-vz-0xh" collectionClass="NSMutableArray" id="MUR-qc-ENs"/>
+                        <outletCollection property="phoneViewTopConstraintsCollection" destination="mCD-JE-x2f" collectionClass="NSMutableArray" id="NGt-nU-HKN"/>
+                        <outletCollection property="phoneViewTopConstraintsCollection" destination="A3Q-8h-GsY" collectionClass="NSMutableArray" id="eet-By-sGF"/>
+                        <outletCollection property="phoneViewTopConstraintsCollection" destination="O8u-mj-C8w" collectionClass="NSMutableArray" id="mp9-LG-2nJ"/>
+                        <outletCollection property="phoneViewsCollection" destination="M2W-ia-1vz" collectionClass="NSMutableArray" id="Q2X-Bz-RUb"/>
+                        <outletCollection property="phoneViewsCollection" destination="VHk-xk-WTl" collectionClass="NSMutableArray" id="PMy-pf-dxY"/>
+                        <outletCollection property="phoneViewsCollection" destination="a0P-kX-Q3l" collectionClass="NSMutableArray" id="LzL-us-cUC"/>
+                        <outletCollection property="phoneViewsCollection" destination="wXV-jX-eKn" collectionClass="NSMutableArray" id="Nib-Iw-Rl4"/>
+                        <outletCollection property="phoneViewsCollection" destination="USN-2K-fCC" collectionClass="NSMutableArray" id="aFT-qW-LeR"/>
                     </connections>
                 </viewController>
                 <view clipsSubviews="YES" contentMode="scaleToFill" id="oWW-Cg-gda" userLabel="Modal View" customClass="ModalView" customModule="OmnieCommerce" customModuleProvider="target">
@@ -1029,7 +1098,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="icon-address-orange-normal" width="6" height="9"/>
         <image name="icon-confirm-cancel-white-normal" width="7" height="7"/>
         <image name="icon-confirm-save-normal" width="8" height="5"/>
         <image name="image-background-color-very-light-orange-normal" width="40" height="40"/>

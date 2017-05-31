@@ -57,6 +57,7 @@
 		B10B48DF1E8A5B2E007DDD81 /* FavoriteOrganizationsShowWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10B48D81E8A5B2E007DDD81 /* FavoriteOrganizationsShowWorker.swift */; };
 		B10CF52A1E684B9700811DC1 /* ScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10CF5291E684B9700811DC1 /* ScheduleView.swift */; };
 		B10CF52C1E684BA000811DC1 /* ScheduleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B10CF52B1E684BA000811DC1 /* ScheduleView.xib */; };
+		B10F43C91EDE817000034B7D /* BusinessCardCreate.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B10F43C81EDE817000034B7D /* BusinessCardCreate.storyboard */; };
 		B112036E1E8EDD5D0036001A /* UbuntuLightVeryDarkGrayishBlueLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B112036D1E8EDD5D0036001A /* UbuntuLightVeryDarkGrayishBlueLabel.swift */; };
 		B11203701E8F6A420036001A /* Dictionary+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B112036F1E8F6A420036001A /* Dictionary+Ext.swift */; };
 		B1131A931E76744300DAF90A /* MSMRestApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1131A921E76744300DAF90A /* MSMRestApiManager.swift */; };
@@ -613,6 +614,7 @@
 		B10B48D81E8A5B2E007DDD81 /* FavoriteOrganizationsShowWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteOrganizationsShowWorker.swift; sourceTree = "<group>"; };
 		B10CF5291E684B9700811DC1 /* ScheduleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleView.swift; sourceTree = "<group>"; };
 		B10CF52B1E684BA000811DC1 /* ScheduleView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScheduleView.xib; sourceTree = "<group>"; };
+		B10F43C81EDE817000034B7D /* BusinessCardCreate.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = BusinessCardCreate.storyboard; sourceTree = "<group>"; };
 		B112036D1E8EDD5D0036001A /* UbuntuLightVeryDarkGrayishBlueLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UbuntuLightVeryDarkGrayishBlueLabel.swift; sourceTree = "<group>"; };
 		B112036F1E8F6A420036001A /* Dictionary+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Dictionary+Ext.swift"; sourceTree = "<group>"; };
 		B1131A921E76744300DAF90A /* MSMRestApiManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSMRestApiManager.swift; sourceTree = "<group>"; };
@@ -1454,6 +1456,7 @@
 			isa = PBXGroup;
 			children = (
 				B1CF54E11DDB529300E98049 /* AboutShow.storyboard */,
+				B10F43C81EDE817000034B7D /* BusinessCardCreate.storyboard */,
 				B12440F21EDDE86D00C93220 /* BusinessCardShow.storyboard */,
 				B1CF54E91DDB56BD00E98049 /* BusinessCardsShow.storyboard */,
 				B122DF591DF7F901003823AD /* CalendarShow.storyboard */,
@@ -2635,6 +2638,7 @@
 				B13F4E421ED55C0500455604 /* DiscountCardShow.storyboard in Resources */,
 				B1CF54EC1DDB57C300E98049 /* OmnieCardsShow.storyboard in Resources */,
 				B1FFF7081E5ECE4800A075D8 /* OrganizationsShow.storyboard in Resources */,
+				B10F43C91EDE817000034B7D /* BusinessCardCreate.storyboard in Resources */,
 				B1BF92771DD6516C00BECBBB /* helveticaneuecyr-ultralightitalic.otf in Resources */,
 				B17EBF1C1E9B69A4000E61AA /* DiscountTableViewCell.xib in Resources */,
 				B1BF92781DD6516C00BECBBB /* UBUNTU-B.TTF in Resources */,

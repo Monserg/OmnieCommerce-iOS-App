@@ -18,6 +18,7 @@ import UIKit
     
     var values: [Any]?
 
+    var handlerSaveButtonCompletion: HandlerSendButtonCompletion?
     var handlerCancelButtonCompletion: HandlerCancelButtonCompletion?
 
     @IBInspectable var circleRadius: CGFloat = 0 {

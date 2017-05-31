@@ -29,10 +29,6 @@ class NewsDataShowInteractor: NewsDataShowInteractorInput {
     
     // MARK: - Custom Functions. Business logic
     func newsDataDidLoad(withRequestModel requestModel: NewsDataShowModels.Data.RequestModel) {
-        // NOTE: Create some Worker to do the work
-        worker = NewsDataShowWorker()
-        worker.doSomeWork()
-        
         // NOTE: Pass the result to the Presenter
         MSMRestApiManager.instance.userRequestDidRun(.userGetNewsDataList(requestModel.parameters, true), withHandlerResponseAPICompletion:  { responseAPI in
             let newsDataResponseModel = NewsDataShowModels.Data.ResponseModel(responseAPI: responseAPI)

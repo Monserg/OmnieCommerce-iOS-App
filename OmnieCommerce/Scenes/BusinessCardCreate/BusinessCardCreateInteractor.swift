@@ -13,12 +13,14 @@ import UIKit
 
 // MARK: - Input protocols for current Interactor component VIP-cicle
 protocol BusinessCardCreateInteractorInput {
-    func doSomething(requestModel: BusinessCardCreateModels.Something.RequestModel)
+    func businessCardDidCreate(withRequestModel requestModel: BusinessCardCreateModels.Item.RequestModel)
+    func businessCardImageDidUpload(withRequestModel requestModel: BusinessCardCreateModels.Image.RequestModel)
 }
 
 // MARK: - Output protocols for Presenter component VIP-cicle
 protocol BusinessCardCreateInteractorOutput {
-    func presentSomething(responseModel: BusinessCardCreateModels.Something.ResponseModel)
+    func businessCardDidPrepareToShowCreate(fromResponseModel responseModel: BusinessCardCreateModels.Item.ResponseModel)
+    func businessCardImageDidPrepareToShowUpload(fromResponseModel responseModel: BusinessCardCreateModels.Image.ResponseModel)
 }
 
 class BusinessCardCreateInteractor: BusinessCardCreateInteractorInput {
@@ -28,13 +30,19 @@ class BusinessCardCreateInteractor: BusinessCardCreateInteractorInput {
     
     
     // MARK: - Custom Functions. Business logic
-    func doSomething(requestModel: BusinessCardCreateModels.Something.RequestModel) {
-        // NOTE: Create some Worker to do the work
-        worker = BusinessCardCreateWorker()
-        worker.doSomeWork()
-        
+    func businessCardDidCreate(withRequestModel requestModel: BusinessCardCreateModels.Item.RequestModel) {
         // NOTE: Pass the result to the Presenter
-        let responseModel = BusinessCardCreateModels.Something.ResponseModel()
-        presenter.presentSomething(responseModel: responseModel)
+        MSMRestApiManager.instance.userRequestDidRun(.userCreateNewBusinessCard(requestModel.parameters, true), withHandlerResponseAPICompletion:  { responseAPI in
+            let businessCardResponseModel = BusinessCardCreateModels.Item.ResponseModel(responseAPI: responseAPI)
+            self.presenter.businessCardDidPrepareToShowCreate(fromResponseModel: businessCardResponseModel)
+        })
+    }
+    
+    func businessCardImageDidUpload(withRequestModel requestModel: BusinessCardCreateModels.Image.RequestModel) {
+        MSMRestApiManager.instance.userUploadImage(requestModel.image) { responseAPI in
+            // Pass the result to the Presenter
+            let imageUploadResponseModel = BusinessCardCreateModels.Image.ResponseModel(responseAPI: responseAPI)
+            self.presenter.businessCardImageDidPrepareToShowUpload(fromResponseModel: imageUploadResponseModel)
+        }
     }
 }
