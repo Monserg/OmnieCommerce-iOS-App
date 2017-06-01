@@ -307,11 +307,12 @@ class DiscountCardCreateViewController: BaseViewController {
 // MARK: - DiscountCardCreateViewControllerInput
 extension DiscountCardCreateViewController: DiscountCardCreateViewControllerInput {
     func discountCardDidShowCreate(fromViewModel viewModel: DiscountCardCreateModels.Create.ViewModel) {
+        blackoutView!.didHide()
         spinnerDidFinish()
 
         // Check for errors
         guard viewModel.status == "SUCCESS" else {
-            self.alertViewDidShow(withTitle: "Error", andMessage: viewModel.status, completion: { })
+            self.alertViewDidShow(withTitle: "Error", andMessage: viewModel.status, completion: {})
             
             return
         }
@@ -321,11 +322,12 @@ extension DiscountCardCreateViewController: DiscountCardCreateViewControllerInpu
     }
     
     func discountCardDidShowUpload(fromViewModel viewModel: DiscountCardCreateModels.Upload.ViewModel) {
+        blackoutView!.didHide()
         spinnerDidFinish()
         
         // Check for errors
         guard viewModel.status == "SUCCESS" else {
-            self.alertViewDidShow(withTitle: "Error", andMessage: viewModel.status, completion: { })
+            self.alertViewDidShow(withTitle: "Error", andMessage: viewModel.status, completion: {})
             
             return
         }
@@ -335,9 +337,12 @@ extension DiscountCardCreateViewController: DiscountCardCreateViewControllerInpu
     }
     
     func discountCardImageDidShowUpload(fromViewModel viewModel: DiscountCardCreateModels.Image.ViewModel) {
+        blackoutView!.didHide()
+        spinnerDidFinish()
+
         // Check for errors
         guard viewModel.responseAPI!.status == "SUCCESS" else {
-            self.alertViewDidShow(withTitle: "Error", andMessage: viewModel.responseAPI!.status, completion: { })
+            self.alertViewDidShow(withTitle: "Error", andMessage: viewModel.responseAPI!.status, completion: {})
             
             return
         }
@@ -356,8 +361,5 @@ extension DiscountCardCreateViewController: DiscountCardCreateViewControllerInpu
         } else {
             self.photoImageView.backgroundColor = UIColor.init(hexString: "#273745")
         }
-        
-        self.blackoutView!.didHide()
-        self.spinnerDidFinish()
     }
 }

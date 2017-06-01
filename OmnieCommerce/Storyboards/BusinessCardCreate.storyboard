@@ -276,6 +276,7 @@
                                                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                                                         <real key="value" value="10"/>
                                                                                     </userDefinedRuntimeAttribute>
+                                                                                    <userDefinedRuntimeAttribute type="string" keyPath="titleText" value="-"/>
                                                                                 </userDefinedRuntimeAttributes>
                                                                                 <connections>
                                                                                     <action selector="handlerPhoneDeleteButtonTap:" destination="aIy-oy-tcM" eventType="touchUpInside" id="5nG-7e-FeS"/>
@@ -367,7 +368,7 @@
                                                                                     <constraint firstAttribute="width" secondItem="yWf-JI-Rvq" secondAttribute="height" multiplier="1:1" id="S0z-He-J5v"/>
                                                                                     <constraint firstAttribute="height" constant="20" id="StQ-eM-R3k"/>
                                                                                 </constraints>
-                                                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                                                 <state key="normal" title="-" backgroundImage="image-background-color-very-light-orange-normal">
                                                                                     <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                                                                 </state>
@@ -376,6 +377,7 @@
                                                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                                                         <real key="value" value="10"/>
                                                                                     </userDefinedRuntimeAttribute>
+                                                                                    <userDefinedRuntimeAttribute type="string" keyPath="titleText" value="-"/>
                                                                                 </userDefinedRuntimeAttributes>
                                                                                 <connections>
                                                                                     <action selector="handlerPhoneDeleteButtonTap:" destination="aIy-oy-tcM" eventType="touchUpInside" id="rLL-r4-xym"/>
@@ -467,7 +469,7 @@
                                                                                     <constraint firstAttribute="height" constant="20" id="IqF-0R-ReC"/>
                                                                                     <constraint firstAttribute="width" secondItem="R0C-Po-baU" secondAttribute="height" multiplier="1:1" id="Zs0-Yg-t1j"/>
                                                                                 </constraints>
-                                                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                                                 <state key="normal" title="-" backgroundImage="image-background-color-very-light-orange-normal">
                                                                                     <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                                                                 </state>
@@ -476,6 +478,7 @@
                                                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                                                         <real key="value" value="10"/>
                                                                                     </userDefinedRuntimeAttribute>
+                                                                                    <userDefinedRuntimeAttribute type="string" keyPath="titleText" value="-"/>
                                                                                 </userDefinedRuntimeAttributes>
                                                                                 <connections>
                                                                                     <action selector="handlerPhoneDeleteButtonTap:" destination="aIy-oy-tcM" eventType="touchUpInside" id="GRq-aV-9Mx"/>
@@ -567,7 +570,7 @@
                                                                                     <constraint firstAttribute="height" constant="20" id="UR7-sw-ATC"/>
                                                                                     <constraint firstAttribute="width" secondItem="jeb-iw-Gtw" secondAttribute="height" multiplier="1:1" id="tOk-nK-VoN"/>
                                                                                 </constraints>
-                                                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                                                 <state key="normal" title="-" backgroundImage="image-background-color-very-light-orange-normal">
                                                                                     <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                                                                 </state>
@@ -576,6 +579,7 @@
                                                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                                                         <real key="value" value="10"/>
                                                                                     </userDefinedRuntimeAttribute>
+                                                                                    <userDefinedRuntimeAttribute type="string" keyPath="titleText" value="-"/>
                                                                                 </userDefinedRuntimeAttributes>
                                                                                 <connections>
                                                                                     <action selector="handlerPhoneDeleteButtonTap:" destination="aIy-oy-tcM" eventType="touchUpInside" id="C2H-G3-n7B"/>

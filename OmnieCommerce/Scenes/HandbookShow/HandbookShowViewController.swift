@@ -112,6 +112,18 @@ class HandbookShowViewController: BaseViewController, PhoneErrorMessageView {
     
     
     // MARK: - Class Functions
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        if (blackoutView != nil) {
+            modalView?.center = blackoutView!.center
+        }
+        
+        if (spinner.isAnimating) {
+            spinner.center = view.center
+        }
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -275,7 +287,9 @@ class HandbookShowViewController: BaseViewController, PhoneErrorMessageView {
 
             UIView.animate(withDuration: 0.5, animations: {
                 self.infoStackViewHeightConstraint.constant += (isShow) ? 44.0 : -44.0
-                self.phoneViewsCollection[index!].isHidden = !isShow
+                _ = self.phoneViewsCollection.filter({ $0.tag == tag }).map({ $0.isHidden = !isShow })
+                _ = self.textFieldsCollection.filter({ $0.tag == tag }).map({ $0.isHidden = !isShow })
+                _ = self.phoneDeleteButtonsCollection.filter({ $0.tag == tag }).map({ $0.titleText = "-" })
                 self.phonesViewHeightConstraint.constant = CGFloat(44.0 * Double(self.phoneViewsCollection.filter({ $0.isHidden == false }).count))
                 self.view.layoutIfNeeded()
                 
@@ -290,7 +304,10 @@ class HandbookShowViewController: BaseViewController, PhoneErrorMessageView {
 
             UIView.animate(withDuration: 0.5, animations: {
                 self.infoStackViewHeightConstraint.constant += 44.0
-                self.phoneViewsCollection[index!].isHidden = false
+                _ = self.phoneViewsCollection.filter({ $0.tag == tag }).map({ $0.isHidden = false })
+                _ = self.textFieldsCollection.filter({ $0.tag == tag }).map({ $0.isHidden = false })
+                _ = self.phoneDeleteButtonsCollection.filter({ $0.tag == 20 }).map({ $0.titleText = "-" })
+                _ = self.phoneDeleteButtonsCollection.filter({ $0.tag == tag }).map({ $0.titleText = "-" })
                 self.phonesViewHeightConstraint.constant = CGFloat(44.0 * Double(self.phoneViewsCollection.filter({ $0.isHidden == false }).count))
                 self.view.layoutIfNeeded()
                 
@@ -378,21 +395,29 @@ class HandbookShowViewController: BaseViewController, PhoneErrorMessageView {
     }
     
     @IBAction func handlerSaveButtonTap(_ sender: FillVeryLightOrangeButton) {
-        spinnerDidStart(view)
-        view.endEditing(true)
-        
-        let name = textFieldsCollection.filter({ $0.tag == 10 }).first?.text ?? ""
-        
-        let parameters: [String: Any] = [
-                                            "name"      :   name,
-                                            "address"   :   "Хмельницкий, ул. Горбанчука 6",
-                                            "phones"    :   phones.filter({ !$0.isEmpty }),
-                                            "tags"      :   keywords,
-                                            "imageId"   :   imageID ?? ""
-                                        ]
-        
-        let handbookRequestModel = HandbookShowModels.Item.RequestModel(parameters: parameters)
-        interactor.handbookDidCreate(withRequestModel: handbookRequestModel)
+        guard isNetworkAvailable else {
+            self.alertViewDidShow(withTitle: "Info", andMessage: "Disconnected from Network", completion: { _ in })
+            
+            return
+        }
+
+        if (textFieldManager.checkTextFieldCollection()) {
+            spinnerDidStart(view)
+            view.endEditing(true)
+            
+            let name = textFieldsCollection.filter({ $0.tag == 10 }).first?.text ?? ""
+            
+            let parameters: [String: Any] = [
+                                                "name"      :   name,
+                                                "address"   :   "Хмельницкий, ул. Горбанчука 6",
+                                                "phones"    :   phones.filter({ !$0.isEmpty }),
+                                                "tags"      :   keywords,
+                                                "imageId"   :   imageID ?? ""
+                                            ]
+            
+            let handbookRequestModel = HandbookShowModels.Item.RequestModel(parameters: parameters)
+            interactor.handbookDidCreate(withRequestModel: handbookRequestModel)
+        }
     }
     
     @IBAction func handlerCancelButtonTap(_ sender: BorderVeryLightOrangeButton) {
