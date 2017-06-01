@@ -239,6 +239,7 @@ extension BaseViewController: SWRevealViewControllerDelegate {
             
         default:
             blackoutView?.removeFromSuperview()
+            blackoutView = nil
         }
     }
 }

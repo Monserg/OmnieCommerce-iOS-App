@@ -57,7 +57,7 @@ class MSMTextFieldManager: NSObject {
     
     func checkTextFieldCollection() -> Bool {
         // Check empty fields
-        let emptyFields = textFieldsArray!.filter({ $0.text?.isEmpty == true })
+        let emptyFields = textFieldsArray!.filter({ $0.isHidden == false }).filter({ $0.text?.isEmpty == true }).filter({ $0.style != .Phone })
         
         guard emptyFields.count == 0 else {
             currentVC!.alertViewDidShow(withTitle: "Info", andMessage: "All fields can be...", completion: { _ in })
@@ -67,7 +67,7 @@ class MSMTextFieldManager: NSObject {
         
         var results = [Bool]()
         
-        for textField in textFieldsArray! {
+        for textField in textFieldsArray!.filter({ $0.isHidden == false }) {
             switch textField.style! {
             case .Email:
                 let result = textField.checkEmailValidation(textField.text!)
@@ -76,6 +76,11 @@ class MSMTextFieldManager: NSObject {
                 
                 results.append(result)
                 
+            case .Phone:
+                let result = textField.checkPhoneValidation(textField.text!)
+                
+                (currentVC as! PhoneErrorMessageView).phoneErrorMessageView.didShow(result, withConstraint: (currentVC as! PhoneErrorMessageView).phoneErrorMessageViewTopConstraint)
+
             case .PhoneEmail, .PhoneButton:
                 let result = textField.checkPhoneEmailValidation(textField.text!)
                 

@@ -305,11 +305,19 @@ class BusinessCardCreateViewController: BaseViewController, EmailErrorMessageVie
     }
     
     func modalViewDidShow(withHeight height: CGFloat, andQuestion isQuestion: Bool) {
+        guard isNetworkAvailable else {
+            self.alertViewDidShow(withTitle: "Info", andMessage: "Disconnected from Network", completion: { _ in })
+            
+            return
+        }
+
         var popupView: CustomView!
 
         if (blackoutView == nil) {
             blackoutView = MSMBlackoutView.init(inView: view)
             blackoutView!.didShow()
+        } else {
+            view.bringSubview(toFront: blackoutView!)
         }
         
         modalView = ModalView.init(inView: blackoutView!, withHeight: 150.0)
@@ -477,7 +485,9 @@ class BusinessCardCreateViewController: BaseViewController, EmailErrorMessageVie
     }
     
     @IBAction func handlerSaveButtonTap(_ sender: FillVeryLightOrangeButton) {
-        modalViewDidShow(withHeight: 150.0, andQuestion: true)
+        if (textFieldManager.checkTextFieldCollection()) {
+            modalViewDidShow(withHeight: 150.0, andQuestion: true)
+        }
     }
     
     @IBAction func handlerCancelButtonTap(_ sender: BorderVeryLightOrangeButton) {
