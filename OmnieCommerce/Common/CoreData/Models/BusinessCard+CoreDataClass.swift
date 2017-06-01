@@ -65,4 +65,35 @@ public class BusinessCard: NSManagedObject, InitCellParameters, SearchObject {
         
         self.addToLists(Lists.init(name: listName, item: self))
     }
+    
+    func profileDidEdit(json: [String: AnyObject]) {
+        // Prepare to save common data
+        if let codeID = json["uuid"] as? String {
+            self.codeID = codeID
+        }
+        
+        if let userID = json["userId"] as? String {
+            self.userID = userID
+        }
+        
+        if let imageID = json["imageId"] as? String {
+            self.imageID = imageID
+        }
+        
+        if let name = json["name"] as? String {
+            self.name = name
+        }
+        
+        if let email = json["email"] as? String {
+            self.email = email
+        }
+        
+        if let comment = json["comment"] as? String {
+            self.comment = comment
+        }
+        
+        if let phones = json["phones"] as? [String], phones.count > 0 {
+            self.phones = phones
+        }
+    }
 }

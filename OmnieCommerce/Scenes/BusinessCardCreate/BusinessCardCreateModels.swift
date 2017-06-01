@@ -13,7 +13,7 @@ import UIKit
 
 // MARK: - Data models
 struct BusinessCardCreateModels {
-    struct Item {
+    struct Create {
         struct RequestModel {
             let parameters: [String: Any]
         }
@@ -27,6 +27,21 @@ struct BusinessCardCreateModels {
         }
     }
     
+    struct Upload {
+        struct RequestModel {
+            let parameters: [String: Any]
+        }
+        
+        struct ResponseModel {
+            let responseAPI: ResponseAPI?
+            let parameters: [String: Any]
+        }
+        
+        struct ViewModel {
+            let status: String
+        }
+    }
+
     struct Image {
         struct RequestModel {
             let image: UIImage

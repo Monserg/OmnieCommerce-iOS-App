@@ -102,6 +102,7 @@
 "BusinessСard create message"   =   "Нова візитка успішно \nстворена.";
 "BusinessСard upload message"   =   "Профіль візитки успішно \nпоновлено.";
 "BusinessСard add?"             =   "Додати візитку?";
+"BusinessСard upload?"          =   "Поновити візитку?";
 "User Omniecard title text"     =   "Вже давно відомо, що читабельний зміст буде заважати зосередитись людині, яка оцінює композицію сторінки.";
 
 

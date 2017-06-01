@@ -32,14 +32,28 @@ class DiscountCardCreatePresenter: DiscountCardCreatePresenterInput {
     
     // MARK: - Custom Functions. Presentation logic
     func discountCardDidPrepareToShowCreate(fromResponseModel responseModel: DiscountCardCreateModels.Create.ResponseModel) {
+        guard responseModel.responseAPI != nil else {
+            let discountCardViewModel = DiscountCardCreateModels.Create.ViewModel(status: "RESPONSE_NIL")
+            self.viewController.discountCardDidShowCreate(fromViewModel: discountCardViewModel)
+            
+            return
+        }
+
         // NOTE: Format the response from the Interactor and pass the result back to the View Controller
         let discountCardViewModel = DiscountCardCreateModels.Create.ViewModel(status: (responseModel.responseAPI?.status)!)
         viewController.discountCardDidShowCreate(fromViewModel: discountCardViewModel)
     }
     
     func discountCardDidPrepareToShowUpload(fromResponseModel responseModel: DiscountCardCreateModels.Upload.ResponseModel) {
+        guard responseModel.responseAPI != nil else {
+            let discountCardViewModel = DiscountCardCreateModels.Create.ViewModel(status: "RESPONSE_NIL")
+            self.viewController.discountCardDidShowCreate(fromViewModel: discountCardViewModel)
+            
+            return
+        }
+
         // NOTE: Format the response from the Interactor and pass the result back to the View Controller
-        if let status = responseModel.responseAPI?.status, status == "SUCCESS" {
+        if (responseModel.responseAPI!.status == "SUCCESS") {
             if let codeID = responseModel.parameters["uuid"] as? String {
                 if let discountCard = CoreDataManager.instance.entityBy("DiscountCard", andCodeID: codeID) as? DiscountCard {
                     discountCard.profileDidEdit(json: responseModel.parameters as [String: AnyObject])

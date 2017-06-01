@@ -14,13 +14,15 @@ import Kingfisher
 
 // MARK: - Input protocols for current ViewController component VIP-cicle
 protocol BusinessCardCreateViewControllerInput {
-    func businessCardDidShowCreate(fromViewModel viewModel: BusinessCardCreateModels.Item.ViewModel)
+    func businessCardDidShowCreate(fromViewModel viewModel: BusinessCardCreateModels.Create.ViewModel)
+    func businessCardDidShowUpload(fromViewModel viewModel: BusinessCardCreateModels.Upload.ViewModel)
     func businessCardImageDidShowUpload(fromViewModel viewModel: BusinessCardCreateModels.Image.ViewModel)
 }
 
 // MARK: - Output protocols for Interactor component VIP-cicle
 protocol BusinessCardCreateViewControllerOutput {
-    func businessCardDidCreate(withRequestModel requestModel: BusinessCardCreateModels.Item.RequestModel)
+    func businessCardDidCreate(withRequestModel requestModel: BusinessCardCreateModels.Create.RequestModel)
+    func businessCardDidUpload(withRequestModel requestModel: BusinessCardCreateModels.Upload.RequestModel)
     func businessCardImageDidUpload(withRequestModel requestModel: BusinessCardCreateModels.Image.RequestModel)
 }
 
@@ -252,10 +254,6 @@ class BusinessCardCreateViewController: BaseViewController, EmailErrorMessageVie
                 } else {
                     self.imageView.contentMode = .center
                     self.imageView.backgroundColor = UIColor.init(hexString: "#273745")
-                    
-                    UIView.animate(withDuration: 0.5, animations: {
-                        self.imageView.image = UIImage.init(named: "image-no-card")
-                    })
                 }
             
                 // Phones
@@ -315,15 +313,16 @@ class BusinessCardCreateViewController: BaseViewController, EmailErrorMessageVie
 
         if (blackoutView == nil) {
             blackoutView = MSMBlackoutView.init(inView: view)
-            blackoutView!.didShow()
         } else {
             view.bringSubview(toFront: blackoutView!)
         }
         
-        modalView = ModalView.init(inView: blackoutView!, withHeight: 150.0)
+        blackoutView!.didShow()
+
+        modalView = ModalView.init(inView: blackoutView!, withHeight: height)
         
         if (isQuestion) {
-            popupView = ConfirmQuestionView.init(inView: modalView!, withText: "BusinessСard add?")
+            popupView = ConfirmQuestionView.init(inView: modalView!, withText: (businessCardID == nil) ? "BusinessСard add?" : "BusinessСard upload?")
 
             // Handler Save button tap
             popupView.handlerSaveButtonCompletion = { _ in
@@ -334,19 +333,26 @@ class BusinessCardCreateViewController: BaseViewController, EmailErrorMessageVie
                 let email = self.textFieldsCollection.filter({ $0.tag == 30 }).first?.text ?? ""
                 let comment = self.textFieldsCollection.filter({ $0.tag == 99 }).first?.text ?? ""
                 
-                let bodyParameters: [String: Any] = [
-                    "name"      :   name,
-                    "email"     :   email,
-                    "phones"    :   self.phones.filter({ !$0.isEmpty }),
-                    "comment"   :   comment,
-                    "imageId"   :   self.imageID ?? ""
-                ]
+                var bodyParameters: [String: Any] = [
+                                                        "name"      :   name,
+                                                        "email"     :   email,
+                                                        "phones"    :   self.phones.filter({ !$0.isEmpty }),
+                                                        "comment"   :   comment,
+                                                        "imageId"   :   self.imageID ?? ""
+                                                    ]
                 
-                let businessCardRequestModel = BusinessCardCreateModels.Item.RequestModel(parameters: bodyParameters)
-                self.interactor.businessCardDidCreate(withRequestModel: businessCardRequestModel)
+                if (self.businessCardID == nil) {
+                    let businessCardRequestModel = BusinessCardCreateModels.Create.RequestModel(parameters: bodyParameters)
+                    self.interactor.businessCardDidCreate(withRequestModel: businessCardRequestModel)
+                } else {
+                    bodyParameters["uuid"] = self.businessCardID
+                    let businessCardRequestModel = BusinessCardCreateModels.Upload.RequestModel(parameters: bodyParameters)
+                    self.interactor.businessCardDidUpload(withRequestModel: businessCardRequestModel)
+                }
             }
         } else {
-            popupView = ConfirmSaveView.init(inView: modalView!, withText: "BusinessСard create message")
+            popupView = ConfirmSaveView.init(inView: modalView!, withText: (businessCardID == nil) ?    "BusinessСard create message" :
+                                                                                                        "BusinessСard upload message")
         }
         
         // Handler Cancel button tap
@@ -532,7 +538,7 @@ class BusinessCardCreateViewController: BaseViewController, EmailErrorMessageVie
 
 // MARK: - BusinessCardCreateViewControllerInput
 extension BusinessCardCreateViewController: BusinessCardCreateViewControllerInput {
-    func businessCardDidShowCreate(fromViewModel viewModel: BusinessCardCreateModels.Item.ViewModel) {
+    func businessCardDidShowCreate(fromViewModel viewModel: BusinessCardCreateModels.Create.ViewModel) {
         spinnerDidFinish()
         
         // Check for errors
@@ -546,17 +552,39 @@ extension BusinessCardCreateViewController: BusinessCardCreateViewControllerInpu
         modalViewDidShow(withHeight: 185.0, andQuestion: false)
     }
     
+    func businessCardDidShowUpload(fromViewModel viewModel: BusinessCardCreateModels.Upload.ViewModel) {
+        spinnerDidFinish()
+        
+        // Check for errors
+        guard viewModel.status == "SUCCESS" else {
+            self.alertViewDidShow(withTitle: "Error", andMessage: viewModel.status, completion: {
+                self.blackoutView!.didHide()
+            })
+            
+            return
+        }
+        
+        // Show success modal view
+        modalViewDidShow(withHeight: 185.0, andQuestion: false)
+    }
+
     func businessCardImageDidShowUpload(fromViewModel viewModel: BusinessCardCreateModels.Image.ViewModel) {
         self.spinnerDidFinish()
 
         // Check for errors
         guard viewModel.responseAPI != nil else {
-            self.alertViewDidShow(withTitle: "Info", andMessage: "RESPONSE_NIL", completion: { })
+            self.alertViewDidShow(withTitle: "Info", andMessage: "RESPONSE_NIL", completion: {
+                self.blackoutView!.didHide()
+            })
+            
             return
         }
         
         guard viewModel.responseAPI!.status == "SUCCESS" else {
-            self.alertViewDidShow(withTitle: "Error", andMessage: viewModel.responseAPI!.status, completion: { })
+            self.alertViewDidShow(withTitle: "Error", andMessage: viewModel.responseAPI!.status, completion: {
+                self.blackoutView!.didHide()
+            })
+            
             return
         }
         
