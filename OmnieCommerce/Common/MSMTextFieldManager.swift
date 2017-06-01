@@ -38,8 +38,13 @@ class MSMTextFieldManager: NSObject {
         if (textField.tag == 99) {
             textField.resignFirstResponder()
         } else {
-            let currentIndex = textFieldsArray!.index(of: textField)!
-            let nextIndex = textFieldsArray!.index(after: currentIndex)
+            var currentIndex = textFieldsArray!.index(of: textField)!
+            var nextIndex = textFieldsArray!.index(after: currentIndex)
+            
+            while (textFieldsArray![nextIndex].isHidden) {
+                currentIndex = nextIndex
+                nextIndex = textFieldsArray!.index(after: currentIndex)
+            }
             
             guard nextIndex <= textFieldsArray.count - 1 else {
                 textField.resignFirstResponder()

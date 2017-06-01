@@ -159,8 +159,6 @@ class BusinessCardCreateViewController: BaseViewController, EmailErrorMessageVie
         smallTopBarView.type = "Child"
         haveMenuItem = false
         
-        infoStackViewHeightConstraint.constant = (view.frame.width > view.frame.height) ? 221.0 : 356.0
-        
         didAddTapGestureRecognizer()
         
         // Handler Back button tap
@@ -192,10 +190,9 @@ class BusinessCardCreateViewController: BaseViewController, EmailErrorMessageVie
                 
                 UIView.animate(withDuration: 0.5, animations: {
                     self.infoStackViewHeightConstraint.constant += (isHidden as! Bool) ?    -Config.Constants.errorMessageViewHeight :
-                        Config.Constants.errorMessageViewHeight
+                                                                                            Config.Constants.errorMessageViewHeight
                     
                     self.phonesViewHeightConstraint.constant = CGFloat(44.0 * Double(self.phoneViewsCollection.filter({ $0.isHidden == false }).count))
-                    
                     self.view.layoutIfNeeded()
                 })
             }
@@ -217,6 +214,12 @@ class BusinessCardCreateViewController: BaseViewController, EmailErrorMessageVie
             let index = self.phoneErrorMessageViewsCollection.index(of: self.phoneErrorMessageView)
             self.phoneErrorMessageViewTopConstraint = self.phoneErrorMessageViewTopConstraintsCollection[index!]
             self.phoneErrorMessageViewHeightConstraint = self.phoneErrorMessageViewHeightConstraintsCollection[index!]
+            
+            // Show Add phone button
+            if let text = self.textFieldManager.firstResponder.text, self.textFieldManager.firstResponder.checkPhoneValidation(text), self.freePhoneTags.count == 4 {
+                self.phoneDeleteButtonsCollection[index!].isHidden = false
+                self.phoneDeleteButtonsCollection[index!].titleText = "+"
+            }
         }
         
         _ = phoneErrorMessageViewHeightConstraintsCollection.map({ $0.constant = Config.Constants.errorMessageViewHeight })
@@ -254,8 +257,28 @@ class BusinessCardCreateViewController: BaseViewController, EmailErrorMessageVie
                         self.imageView.image = UIImage.init(named: "image-no-card")
                     })
                 }
+            
+                // Phones
+                if let phones = businessCard.phones, phones.count > 0 {
+                    _ = textFieldsCollection.first(where: { $0.tag == 20 }).map{ $0.text = phones.first }
+
+                    if (phones.count > 1) {
+                        for index in 1...phones.count - 1 {
+                            _ = textFieldsCollection.first(where: { $0.tag == (20 + index) }).map({ $0.text = phones[index]; $0.isHidden = false })
+                            _ = phoneViewsCollection.filter({ $0.tag == (20 + index) }).map({ $0.isHidden = false })
+                            
+                            if let tagIndex = self.freePhoneTags.index(of: 20 + index) {
+                                self.freePhoneTags.remove(at: tagIndex)
+                            }
+                        }
+                    }
+                }
             }
         }
+
+        phonesViewHeightConstraint.constant = CGFloat(44.0 * Double(phoneViewsCollection.filter({ $0.isHidden == false }).count))
+        infoStackViewHeightConstraint.constant = ((view.frame.width > view.frame.height) ? 221.0 : 356.0) - 44.0 + phonesViewHeightConstraint.constant
+        self.view.layoutIfNeeded()
 
         UIView.animate(withDuration: 0.3, animations: { _ in
             self.infoStackView.isHidden = false
@@ -346,7 +369,9 @@ class BusinessCardCreateViewController: BaseViewController, EmailErrorMessageVie
             
             UIView.animate(withDuration: 0.5, animations: {
                 self.infoStackViewHeightConstraint.constant += (isShow) ? 44.0 : -44.0
-                self.phoneViewsCollection[index!].isHidden = !isShow
+                _ = self.phoneViewsCollection.filter({ $0.tag == tag }).map({ $0.isHidden = !isShow })
+                _ = self.textFieldsCollection.filter({ $0.tag == tag }).map({ $0.isHidden = !isShow })
+                _ = self.phoneDeleteButtonsCollection.filter({ $0.tag == tag }).map({ $0.titleText = "-" })
                 self.phonesViewHeightConstraint.constant = CGFloat(44.0 * Double(self.phoneViewsCollection.filter({ $0.isHidden == false }).count))
                 self.view.layoutIfNeeded()
                 
@@ -361,7 +386,10 @@ class BusinessCardCreateViewController: BaseViewController, EmailErrorMessageVie
             
             UIView.animate(withDuration: 0.5, animations: {
                 self.infoStackViewHeightConstraint.constant += 44.0
-                self.phoneViewsCollection[index!].isHidden = false
+                _ = self.phoneViewsCollection.filter({ $0.tag == tag }).map({ $0.isHidden = false })
+                _ = self.textFieldsCollection.filter({ $0.tag == tag }).map({ $0.isHidden = false })
+                _ = self.phoneDeleteButtonsCollection.filter({ $0.tag == 20 }).map({ $0.titleText = "-" })
+                _ = self.phoneDeleteButtonsCollection.filter({ $0.tag == tag }).map({ $0.titleText = "-" })
                 self.phonesViewHeightConstraint.constant = CGFloat(44.0 * Double(self.phoneViewsCollection.filter({ $0.isHidden == false }).count))
                 self.view.layoutIfNeeded()
                 
@@ -458,13 +486,23 @@ class BusinessCardCreateViewController: BaseViewController, EmailErrorMessageVie
     
     @IBAction func handlerPhoneDeleteButtonTap(_ sender: FillColorButton) {
         view.endEditing(true)
-        phoneViewDidPrepareToShow(sender.tag, isShow: false)
-        textFieldManager.firstResponder = textFieldsCollection.first(where: { $0.tag == sender.tag })
         
-        if let phoneNumber = textFieldManager.firstResponder.text, let index = phones.index(of: phoneNumber), phones.count > 1 {
-            _ = phones.remove(at: index)
-            freePhoneTags.append(sender.tag)
-            _ = self.textFieldsCollection.first(where: { $0.text == phoneNumber }).map({ $0.text = nil })
+        // Add/delete phone field
+        if (sender.titleText == "+") {
+            if let nextTag = freePhoneTags.sorted().first {
+                phoneViewDidPrepareToShow(nextTag, isShow: true)
+                textFieldManager.firstResponder = textFieldsCollection.first(where: { $0.tag == nextTag })
+                freePhoneTags.remove(at: freePhoneTags.index(of: nextTag)!)
+            }
+        } else {
+            phoneViewDidPrepareToShow(sender.tag, isShow: false)
+            textFieldManager.firstResponder = textFieldsCollection.first(where: { $0.tag == sender.tag })
+            
+            if let phoneNumber = textFieldManager.firstResponder.text, let index = phones.index(of: phoneNumber), phones.count > 1 {
+                _ = phones.remove(at: index)
+                freePhoneTags.append(sender.tag)
+                _ = self.textFieldsCollection.first(where: { $0.text == phoneNumber }).map({ $0.text = nil; $0.isHidden = true })
+            }
         }
     }
     

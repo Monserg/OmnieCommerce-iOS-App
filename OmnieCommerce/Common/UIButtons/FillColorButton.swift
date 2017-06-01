@@ -9,9 +9,17 @@
 import UIKit
 
 @IBDesignable class FillColorButton: UIButton {
+    // MARK: - Properties
+    @IBInspectable var titleText: String = "" {
+        didSet {
+            setNeedsDisplay()
+        }
+    }
+    
+    
     // MARK: - Class Functions
     override func draw(_ rect: CGRect) {
-        let titleText = (titleLabel?.text != nil) ? (titleLabel?.text!.localized())! : String()
+//        let titleText = (titleLabel?.text != nil) ? (titleLabel?.text!.localized())! : String()
 
         setTitle(titleText, for: .normal)
         setTitle(titleText, for: .highlighted)
