@@ -13,8 +13,8 @@ import UIKit
 
 // MARK: - Input & Output protocols
 protocol OrdersShowRouterInput {
-    func navigateToOrderShowScene(_ order: Order)
-    func navigateToCalendar(withOrdersDates ordersDates: [Date]?)
+    func navigateToOrderShowScene(withOrderID orderID: String)
+    func navigateToCalendar(withOrdersFromPeriod datesPeriod: DatesPeriod)
 }
 
 class OrdersShowRouter: OrdersShowRouterInput {
@@ -23,27 +23,33 @@ class OrdersShowRouter: OrdersShowRouterInput {
     
     
     // MARK: - Custom Functions. Navigation
-    func navigateToOrderShowScene(_ order: Order) {
+    func navigateToOrderShowScene(withOrderID orderID: String) {
         let storyboard = UIStoryboard(name: "OrderShow", bundle: nil)
         let orderShowVC = storyboard.instantiateViewController(withIdentifier: "OrderShowVC") as! OrderShowViewController
-        orderShowVC.order = order
+        orderShowVC.orderID = orderID
         orderShowVC.orderMode = .Preview
         
         viewController.navigationController?.pushViewController(orderShowVC, animated: true)
     }
     
-    func navigateToCalendar(withOrdersDates ordersDates: [Date]?) {
+    func navigateToCalendar(withOrdersFromPeriod datesPeriod: DatesPeriod) {
         let storyboard = UIStoryboard(name: "OrderCalendarShow", bundle: nil)
         let orderCalendarShowVC = storyboard.instantiateViewController(withIdentifier: "OrderCalendarShowVC") as! OrderCalendarShowViewController
-        orderCalendarShowVC.ordersDates = ordersDates
+        orderCalendarShowVC.ordersDatesPeriod = datesPeriod
         
         viewController.navigationController?.pushViewController(orderCalendarShowVC, animated: true)
         
         // Handler select new date completion
-        orderCalendarShowVC.handlerSelectNewDateCompletion = { newDate in
-            self.viewController.dateStart = (newDate as! Date).convertToString(withStyle: .DateHyphen)
-            self.viewController.dateEnd = self.viewController.dateStart
-            self.viewController.setupTitleLabel(withDate: newDate as! Date)
+        orderCalendarShowVC.handlerSelectDatesPeriodCompletion = { datesPeriod in
+            self.viewController.dateStart = (datesPeriod as! DatesPeriod).dateStart.convertToString(withStyle: .DateHyphen)
+            self.viewController.dateEnd = (datesPeriod as! DatesPeriod).dateEnd.convertToString(withStyle: .DateHyphen)
+            
+            if (self.viewController.dateStart == self.viewController.dateEnd) {
+                self.viewController.setupTitleLabel(withDate: (datesPeriod as! DatesPeriod).dateStart)
+            } else {
+                self.viewController.setupTitleLabel(withDatesPeriod: datesPeriod as! DatesPeriod)
+            }
+            
             self.viewController.viewSettingsDidLoad()
         }
     }

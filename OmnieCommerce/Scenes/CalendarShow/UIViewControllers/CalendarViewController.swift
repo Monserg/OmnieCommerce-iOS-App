@@ -19,9 +19,9 @@ class CalendarViewController: UIViewController {
     var selectedDate: Date?
     var calculatedDate = Date()
     
-    @IBOutlet weak var calendarView: JTAppleCalendarView!
     @IBOutlet weak var titleLabel: UbuntuLightVeryLightGrayLabel!
     @IBOutlet var weekdayLabelsCollection: [UbuntuLightDarkCyanLabel]!
+    @IBOutlet weak var calendarView: JTAppleCalendarView!
     
     
     // MARK: - Class Functions
@@ -36,15 +36,13 @@ class CalendarViewController: UIViewController {
         
         super.viewDidLoad()
         
-        // Delegates
-        calendarView.dataSource = self
+        // Setup Calendar view
         calendarView.delegate = self
-        
-        // Register DayCellView from XIB
+        calendarView.dataSource = self
+        calendarView.allowsMultipleSelection = false
+//        calendarView.cellInset = CGPoint(x: 10, y: 5)
         calendarView.registerCellViewXib(file: "CalendarDayCellView")
-        
-        // Setup cells insets
-        calendarView.cellInset = CGPoint(x: 10, y: 5)
+
         setupCalendarView()
         setupSelectedDate()
         
@@ -116,7 +114,7 @@ class CalendarViewController: UIViewController {
                 self.setupTitleLabel(withDate: self.calculatedDate.globalTime())
             }
         }
-    }
+    }    
 }
 
 
@@ -140,7 +138,7 @@ extension CalendarViewController: JTAppleCalendarViewDelegate {
         let dayCustomCell = cell as! CalendarDayCellView
         
         // Setup Day
-        dayCustomCell.setupBeforeDisplay(forDate: date, witState: cellState)
+        dayCustomCell.setupBeforeDisplay(forDate: date, withState: cellState)
     }
     
     func calendar(_ calendar: JTAppleCalendarView, didSelectDate date: Date, cell: JTAppleDayCellView?, cellState: CellState) {
@@ -188,6 +186,7 @@ extension CalendarViewController: JTAppleCalendarViewDelegate {
         
         // Customize cell
         dayCustomCell.setTextColor(forState: cellState)
+//        dayCustomCell.selectedView.isHidden = true
         dayCustomCell.setSelection(forState: cellState)
     }
     

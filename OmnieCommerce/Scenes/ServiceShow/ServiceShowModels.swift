@@ -35,7 +35,21 @@ struct ServiceShowModels {
         
         struct ResponseModel {
             let responseAPI: ResponseAPI?
+        }
+        
+        struct ViewModel {
+            let status: String
+            let orderID: String?
+        }
+    }
+    
+    struct TimeSheet {
+        struct RequestModel {
             let parameters: [String: Any]
+        }
+        
+        struct ResponseModel {
+            let responseAPI: ResponseAPI?
         }
         
         struct ViewModel {

@@ -13,8 +13,8 @@ import UIKit
 
 // MARK: - Input & Output protocols
 protocol ServiceShowRouterInput {
-    func navigateToOrder(_ order: Order)
-    func navigateToCalendar(_ orderDateComponents: DateComponents)
+    func navigateToOrderShowScene(withOrderID orderID: String)
+    func navigateToCalendar(withServiceID serviceID: String, andorderDateComponents orderDateComponents: DateComponents)
 }
 
 class ServiceShowRouter: ServiceShowRouterInput {
@@ -23,19 +23,19 @@ class ServiceShowRouter: ServiceShowRouterInput {
     
     
     // MARK: - Custom Functions. Navigation
-    func navigateToOrder(_ order: Order) {
+    func navigateToOrderShowScene(withOrderID orderID: String) {
         let storyboard = UIStoryboard(name: "OrderShow", bundle: nil)
         let orderShowVC = storyboard.instantiateViewController(withIdentifier: "OrderShowVC") as! OrderShowViewController
-        orderShowVC.order = order
+        orderShowVC.orderID = orderID
         
         viewController.navigationController?.pushViewController(orderShowVC, animated: true)
     }
 
-    func navigateToCalendar(_ orderDateComponents: DateComponents) {
+    func navigateToCalendar(withServiceID serviceID: String, andorderDateComponents orderDateComponents: DateComponents) {
         let storyboard = UIStoryboard(name: "CalendarShow", bundle: nil)
         let calendarShowVC = storyboard.instantiateViewController(withIdentifier: "CalendarShowVC") as! CalendarShowViewController
         calendarShowVC.orderDateComponents = orderDateComponents
-//        calendarShowVC.service = viewController.serviceProfile
+        calendarShowVC.serviceID = serviceID
         
         viewController.navigationController?.pushViewController(calendarShowVC, animated: true)
         

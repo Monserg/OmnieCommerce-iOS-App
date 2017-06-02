@@ -37,7 +37,7 @@ class CalendarDayCellView: JTAppleDayCellView {
 
     
     // MARK: - Class Functions
-    func setupBeforeDisplay(forDate date: Date, witState state: CellState) {
+    func setupBeforeDisplay(forDate date: Date, withState state: CellState) {
         dayLabel.text = state.text
         
         setTextColor(forState: state)
@@ -50,8 +50,8 @@ class CalendarDayCellView: JTAppleDayCellView {
         backgroundColor = (isLightColorAppSchema) ? UIColor.green : UIColor.veryDarkDesaturatedBlue24
         
         if (!currentDayView.isHidden) {
-            layoutIfNeeded()
             currentDayView.layer.cornerRadius = currentDayView.bounds.height / 2
+            layoutIfNeeded()
         }
     }
     
@@ -72,9 +72,9 @@ class CalendarDayCellView: JTAppleDayCellView {
     func setSelection(forState state: CellState) {        
         switch state.isSelected {
         case true:
-            layoutIfNeeded()
             selectedView.layer.cornerRadius = selectedView.bounds.height / 2
             selectedView.isHidden = false
+            layoutIfNeeded()
 
         default:
             selectedView.isHidden = true

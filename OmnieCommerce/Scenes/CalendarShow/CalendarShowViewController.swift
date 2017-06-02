@@ -22,18 +22,12 @@ protocol CalendarShowViewControllerOutput {
     func doSomething(request: CalendarShow.Something.Request)
 }
 
-enum CalendarMode {
-    case OrderMode
-    case ServiceMode
-}
-
 class CalendarShowViewController: BaseViewController, CalendarShowViewControllerInput {
     // MARK: - Properties
     var output: CalendarShowViewControllerOutput!
     var router: CalendarShowRouter!
     
     var serviceID: String!
-    var calendarMode: CalendarMode!
     var calendarVC: CalendarViewController?
     var timesheetVC: TimeSheetViewController?
     var orderDateComponents: DateComponents!
@@ -54,41 +48,45 @@ class CalendarShowViewController: BaseViewController, CalendarShowViewController
                     self.orderDateComponents = Calendar.current.dateComponents([.month, .day, .year, .hour, .minute], from: newDate)
                     
                     // API "Get timesheet for one day"
-                    switch self.calendarMode! {
-                    case .ServiceMode:
-                        MSMRestApiManager.instance.userRequestDidRun(.userGetOrderTimeSheetForDay(["date": newDate.convertToString(withStyle: .DateHyphen), "service": self.serviceID], false), withHandlerResponseAPICompletion: { responseAPI in
-                            if let json = responseAPI?.body as? [String: Any] {
-                                self.timesheetVC!.timesheet = TimeSheet.init(json: json as [String: AnyObject], forDate: newDate.convertToString(withStyle: .DateDot))
+                    MSMRestApiManager.instance.userRequestDidRun(.userGetOrderTimeSheetForDay(["date": newDate.convertToString(withStyle: .DateHyphen), "service": self.serviceID], false), withHandlerResponseAPICompletion: { responseAPI in
+                        if let jsonTimeSheet = responseAPI?.body as? [String: AnyObject], jsonTimeSheet.count > 0 {
+                            let codeID = "\(self.serviceID)-\(newDate.convertToString(withStyle: .DateHyphen))"
+
+                            if let timeSheet = CoreDataManager.instance.entityBy("TimeSheet", andCodeID: codeID) as? TimeSheet {
+                                timeSheet.profileDidUpload(json: jsonTimeSheet, forService: self.serviceID, andDate: newDate.convertToString(withStyle: .DateHyphen))
                                 self.timesheetVC!.selectedDate = newDate
                             }
-                        })
+                        }
                         
-                    case .OrderMode:
-                        let ordersDates = UserDefaults.standard.array(forKey: keyOrders)
-//                        self.calendarVC.sele
-                    }
+                        CoreDataManager.instance.didSaveContext()
+                    })
                 }
             }
         }
     }
     
-    @IBOutlet weak var bottomDottedBorderView: DottedBorderView! {
-        didSet {
-            bottomDottedBorderView.style = .AroundDottedRectangle
-        }
-    }
-    
+    // Outlets
     @IBOutlet weak var segmentedControlView: SegmentedControlView!
     @IBOutlet weak var confirmButton: FillColorButton!
     @IBOutlet weak var containerView: UIView!
-    
-    @IBOutlet weak var dateLabel: UbuntuLightVeryLightGrayLabel!
     @IBOutlet weak var fromTimeLabel: UbuntuLightVeryLightGrayLabel!
     @IBOutlet weak var toTimeLabel: UbuntuLightVeryLightGrayLabel!
     @IBOutlet weak var dateStackView: UIView!
     
     @IBOutlet weak var containerLeadingConstraint: NSLayoutConstraint!
     @IBOutlet weak var containerTrailingConstraint: NSLayoutConstraint!
+    
+    @IBOutlet weak var dateLabel: UbuntuLightVeryLightGrayLabel! {
+        didSet {
+            dateLabel.textAlignment = (UIApplication.shared.statusBarOrientation.isPortrait) ? .left : .center
+        }
+    }
+
+    @IBOutlet weak var bottomDottedBorderView: DottedBorderView! {
+        didSet {
+            bottomDottedBorderView.style = .AroundDottedRectangle
+        }
+    }
     
     var handlerConfirmButtonCompletion: HandlerPassDataCompletion?
     
@@ -146,8 +144,6 @@ class CalendarShowViewController: BaseViewController, CalendarShowViewController
     }
     
     func setupScene(withSize size: CGSize) {
-        print(object: "\(type(of: self)): \(#function) run. Screen view size = \(size)")
-        
         bottomDottedBorderView.setNeedsDisplay()
         segmentedControlView.setNeedsDisplay()
         containerView.setNeedsDisplay()
@@ -200,6 +196,16 @@ class CalendarShowViewController: BaseViewController, CalendarShowViewController
     }
     
     
+    // MARK: - Transition
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        print(object: "\(type(of: self)): \(#function) run. New size = \(size)")
+        
+//        calendarVC!.calendarView.setNeedsLayout()
+        setupScene(withSize: size)
+        
+        dateLabel.textAlignment = (size.height > size.width) ? .left : .center
+    }
+
     // MARK: - Actions
     @IBAction func handlerConfirmButtonTap(_ sender: CustomButton) {
         print(object: "\(type(of: self)): \(#function) run.")
@@ -210,13 +216,5 @@ class CalendarShowViewController: BaseViewController, CalendarShowViewController
     @IBAction func handlerCancelButtonTap(_ sender: CustomButton) {
         print(object: "\(type(of: self)): \(#function) run.")
         self.navigationController?.popViewController(animated: true)
-    }
-    
-    
-    // MARK: - Transition
-    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        print(object: "\(type(of: self)): \(#function) run. New size = \(size)")
-        
-        setupScene(withSize: size)
     }
 }

@@ -11,32 +11,32 @@ import CoreData
 
 @objc(TimeSheet)
 public class TimeSheet: NSManagedObject {
-    // MARK: - Class Initialization
-    convenience init?(json: [String: AnyObject], forDate date: String) {
-        guard let workTimeStart = json["start"] as? String, let workTimeEnd = json["end"] as? String, let breakDuration = json["breakDuration"] as? Int16, let slotsCount = json["slotsCount"] as? Int16, let minDuration = json["minDuration"] as? Bool else {
-            return nil
-        }
-        
-        // Check Entity available in CoreData
-        guard let timeSheetEntity = CoreDataManager.instance.entityForName("TimeSheet") else {
-            return nil
-        }
-        
-        // Create Entity
-        self.init(entity: timeSheetEntity, insertInto: CoreDataManager.instance.managedObjectContext)
-        
+    // MARK: - Custom Functions
+    func profileDidUpload(json: [String: AnyObject], forService serviceID: String, andDate date: String) {
         // Prepare to save data
         self.date = date
-        self.workTimeStart = workTimeStart
-        self.workTimeEnd = workTimeEnd
-        self.breakDuration = breakDuration
-        self.slotsCount = slotsCount
-        self.minDuration = minDuration
-        
+        self.workTimeStart = json["start"] as! String
+        self.workTimeEnd = json["end"] as! String
+        self.breakDuration = json["breakDuration"] as! Int16
+        self.slotsCount = json["slotsCount"] as! Int16
+        self.minDuration = json["minDuration"] as! Bool
+
+        self.codeID = "\(serviceID)-\(date)"
+
         if let items = json["timesheet"] as? NSArray, items.count > 0 {
             for index in 0..<(items.firstObject as! NSArray).count {
-                let dictionary = (items.firstObject as! NSArray)[index]
-                self.addToTimesheets(TimeSheetItem.init(json: dictionary as! [String : AnyObject], andTimeSheet: self)!)
+                if let jsonTimeSheetItem = (items.firstObject as? NSArray)?[index] as? [String: AnyObject] {
+                    let start = jsonTimeSheetItem["start"] as? String
+                    let end = jsonTimeSheetItem["end"] as? String
+                    
+                    if (start != nil && end != nil) {
+                        let codeID = "\(self.codeID)-\(start!)-\(end!)"
+                        
+                        if let timeSheetItem = CoreDataManager.instance.entityBy("TimeSheetItem", andCodeID: codeID) as? TimeSheetItem {
+                            timeSheetItem.profileDidUpload(json: jsonTimeSheetItem, andTimeSheet: self)
+                        }
+                    }
+                }
             }
         }
     }

@@ -16,6 +16,7 @@ extension TimeSheetItem {
         return NSFetchRequest<TimeSheetItem>(entityName: "TimeSheetItem")
     }
 
+    @NSManaged public var codeID: String
     @NSManaged public var typeValue: String
     @NSManaged public var start: String
     @NSManaged public var end: String

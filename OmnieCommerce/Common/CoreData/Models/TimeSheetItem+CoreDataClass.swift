@@ -28,25 +28,15 @@ public class TimeSheetItem: NSManagedObject {
     }
     
     
-    // MARK: - Class Initialization
-    convenience init?(json: [String: AnyObject], andTimeSheet timesheet: TimeSheet) {
-        guard let start = json["start"] as? String, let end = json["end"] as? String, let type = json["type"] as? String else {
-            return nil
-        }
-        
-        // Check Entity available in CoreData
-        guard let timeSheetItemEntity = CoreDataManager.instance.entityForName("TimeSheetItem") else {
-            return nil
-        }
-        
-        // Create Entity
-        self.init(entity: timeSheetItemEntity, insertInto: CoreDataManager.instance.managedObjectContext)
-        
+    // MARK: - Custom Functions
+    func profileDidUpload(json: [String: AnyObject], andTimeSheet timesheet: TimeSheet) {
         // Prepare to save data
         self.timesheet = timesheet
-        self.start = start
-        self.end = end
-        self.type = TimeSheetItemType.init(rawValue: type)
+        self.start = json["start"] as! String
+        self.end = json["end"] as! String
+        self.type = TimeSheetItemType.init(rawValue: (json["type"] as! String))
+        
+        self.codeID = "\(timesheet.codeID)-\(start)-\(end)"
     }
     
     deinit {

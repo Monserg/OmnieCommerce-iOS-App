@@ -41,7 +41,7 @@ class ServiceShowInteractor: ServiceShowInteractorInput {
     func orderDidLoad(withRequestModel requestModel: ServiceShowModels.OrderItem.RequestModel) {
         MSMRestApiManager.instance.userRequestDidRun(.userMakeNewOrder(requestModel.parameters, true), withHandlerResponseAPICompletion: { responseAPI in
             // Pass the result to the Presenter
-            let orderResponseModel = ServiceShowModels.OrderItem.ResponseModel(responseAPI: responseAPI, parameters: requestModel.parameters)
+            let orderResponseModel = ServiceShowModels.OrderItem.ResponseModel(responseAPI: responseAPI)
             self.presenter.orderDidPrepareToShowLoad(fromResponseModel: orderResponseModel)
         })
     }

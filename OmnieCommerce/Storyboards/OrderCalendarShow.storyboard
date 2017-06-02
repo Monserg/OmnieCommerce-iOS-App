@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -26,9 +27,9 @@
                                 <rect key="frame" x="0.0" y="95" width="375" height="544"/>
                                 <subviews>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hny-I3-4or" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="379"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="414"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PbY-0I-Esy" userLabel="Top View">
+                                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PbY-0I-Esy" userLabel="Top View">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
                                                 <subviews>
                                                     <button clipsSubviews="YES" contentMode="redraw" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LdK-CM-flN" userLabel="Previous Button">
@@ -46,8 +47,8 @@
                                                             <action selector="handlerPreviuosButtonTap:" destination="IaX-mQ-Dr0" eventType="touchUpInside" id="6IT-ae-g3m"/>
                                                         </connections>
                                                     </button>
-                                                    <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PKQ-bX-EEm" userLabel="Title Label" customClass="UbuntuLightVeryLightGrayLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                                                        <rect key="frame" x="60" y="10.5" width="255" height="19.5"/>
+                                                    <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PKQ-bX-EEm" userLabel="Title Label" customClass="UbuntuLightVeryLightGrayLabel" customModule="OmnieCommerce" customModuleProvider="target">
+                                                        <rect key="frame" x="60" y="20.5" width="255" height="0.0"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                         <nil key="textColor"/>
@@ -173,32 +174,27 @@
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             </stackView>
                                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D5b-jX-eYg" userLabel="Calendar View" customClass="JTAppleCalendarView" customModule="JTAppleCalendar">
-                                                <rect key="frame" x="35" y="109" width="305" height="270"/>
+                                                <rect key="frame" x="35" y="109" width="305" height="305"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="D5b-jX-eYg" secondAttribute="height" multiplier="1:1" id="k1x-Vb-a51"/>
+                                                </constraints>
                                             </view>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstItem="fze-RR-4gj" firstAttribute="leading" secondItem="Hny-I3-4or" secondAttribute="leading" constant="35" id="7II-pr-rLg">
-                                                <variation key="heightClass=compact-widthClass=compact" constant="145"/>
-                                                <variation key="heightClass=compact-widthClass=regular" constant="145"/>
-                                            </constraint>
-                                            <constraint firstAttribute="trailing" secondItem="D5b-jX-eYg" secondAttribute="trailing" constant="35" id="FO4-oT-e7Q">
-                                                <variation key="heightClass=compact-widthClass=compact" constant="145"/>
-                                                <variation key="heightClass=compact-widthClass=regular" constant="145"/>
+                                            <constraint firstItem="fze-RR-4gj" firstAttribute="leading" secondItem="Hny-I3-4or" secondAttribute="leading" constant="145" id="7II-pr-rLg">
+                                                <variation key="heightClass=regular-widthClass=compact" constant="35"/>
                                             </constraint>
                                             <constraint firstAttribute="trailing" secondItem="PbY-0I-Esy" secondAttribute="trailing" id="GCX-xS-Uyx"/>
                                             <constraint firstAttribute="bottom" secondItem="D5b-jX-eYg" secondAttribute="bottom" id="GLp-XJ-Q84"/>
-                                            <constraint firstItem="D5b-jX-eYg" firstAttribute="leading" secondItem="Hny-I3-4or" secondAttribute="leading" constant="35" id="HAB-Bh-zMs">
-                                                <variation key="heightClass=compact-widthClass=compact" constant="145"/>
-                                                <variation key="heightClass=compact-widthClass=regular" constant="145"/>
-                                            </constraint>
                                             <constraint firstItem="D5b-jX-eYg" firstAttribute="top" secondItem="fze-RR-4gj" secondAttribute="bottom" id="K7e-8B-DOh"/>
+                                            <constraint firstItem="D5b-jX-eYg" firstAttribute="width" secondItem="fze-RR-4gj" secondAttribute="width" id="NSk-fj-ct1"/>
                                             <constraint firstItem="fze-RR-4gj" firstAttribute="top" secondItem="PbY-0I-Esy" secondAttribute="bottom" constant="15" id="PZg-az-npc"/>
                                             <constraint firstItem="PbY-0I-Esy" firstAttribute="leading" secondItem="Hny-I3-4or" secondAttribute="leading" id="RFB-Ku-55l"/>
-                                            <constraint firstAttribute="trailing" secondItem="fze-RR-4gj" secondAttribute="trailing" constant="35" id="T6S-uX-iBx">
-                                                <variation key="heightClass=compact-widthClass=compact" constant="145"/>
-                                                <variation key="heightClass=compact-widthClass=regular" constant="145"/>
+                                            <constraint firstItem="D5b-jX-eYg" firstAttribute="centerX" secondItem="Hny-I3-4or" secondAttribute="centerX" id="SLa-K0-ApD"/>
+                                            <constraint firstAttribute="trailing" secondItem="fze-RR-4gj" secondAttribute="trailing" constant="145" id="T6S-uX-iBx">
+                                                <variation key="heightClass=regular-widthClass=compact" constant="35"/>
                                             </constraint>
                                             <constraint firstItem="PbY-0I-Esy" firstAttribute="top" secondItem="Hny-I3-4or" secondAttribute="top" id="Wze-EJ-qcE"/>
                                         </constraints>
@@ -228,6 +224,24 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NJH-1N-lEv" userLabel="Confirm Button" customClass="BorderVeryLightOrangeButton" customModule="OmnieCommerce">
+                                <rect key="frame" x="302" y="582" width="57" height="57"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="NJH-1N-lEv" secondAttribute="height" multiplier="1:1" id="bRb-Ox-7cv"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="2" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" image="icon-confirm-white-normal"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="handlerSelectPeriodButtonTap:" destination="IaX-mQ-Dr0" eventType="touchUpInside" id="AkQ-CX-LcL"/>
+                                </connections>
+                            </button>
                             <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Copyright" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HVy-zE-HHm" customClass="UbuntuLightDarkCyanLabel" customModule="OmnieCommerce" customModuleProvider="target">
                                 <rect key="frame" x="8" y="648" width="359" height="11"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -241,24 +255,26 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="NJH-1N-lEv" secondAttribute="trailing" constant="16" id="15R-VB-g06"/>
                             <constraint firstItem="XpB-ku-cBd" firstAttribute="leading" secondItem="XPu-Tw-Sx8" secondAttribute="leading" id="6w0-C6-7e1"/>
                             <constraint firstAttribute="trailing" secondItem="XpB-ku-cBd" secondAttribute="trailing" id="EsE-2X-X6k"/>
+                            <constraint firstItem="HVy-zE-HHm" firstAttribute="top" secondItem="NJH-1N-lEv" secondAttribute="bottom" constant="9" id="J1s-fn-iDX"/>
                             <constraint firstItem="PbY-0I-Esy" firstAttribute="height" secondItem="XPu-Tw-Sx8" secondAttribute="height" multiplier="40:667" id="MkU-q3-vze"/>
                             <constraint firstItem="HVy-zE-HHm" firstAttribute="leading" secondItem="XPu-Tw-Sx8" secondAttribute="leading" constant="8" id="NBd-It-k4z"/>
                             <constraint firstItem="fze-RR-4gj" firstAttribute="height" secondItem="XPu-Tw-Sx8" secondAttribute="height" multiplier="54:667" id="PTJ-Lj-AVV"/>
+                            <constraint firstItem="NJH-1N-lEv" firstAttribute="height" secondItem="XPu-Tw-Sx8" secondAttribute="height" multiplier="57:375" id="QnE-x7-y75"/>
                             <constraint firstAttribute="trailing" secondItem="HVy-zE-HHm" secondAttribute="trailing" constant="8" id="WTv-0H-pJs"/>
-                            <constraint firstItem="D5b-jX-eYg" firstAttribute="height" secondItem="XPu-Tw-Sx8" secondAttribute="height" multiplier="230:375" id="Z3B-Oj-0Fj"/>
                             <constraint firstItem="Q0i-ZZ-Hvo" firstAttribute="height" secondItem="XPu-Tw-Sx8" secondAttribute="height" multiplier="95:667" id="ZiU-i9-GTK"/>
                             <constraint firstItem="HVy-zE-HHm" firstAttribute="top" secondItem="XpB-ku-cBd" secondAttribute="bottom" constant="9" id="ayq-Ya-odT"/>
                             <constraint firstAttribute="bottom" secondItem="HVy-zE-HHm" secondAttribute="bottom" constant="8" id="eyB-qI-jPs"/>
                             <constraint firstItem="fze-RR-4gj" firstAttribute="height" secondItem="XPu-Tw-Sx8" secondAttribute="height" multiplier="54:375" id="gUA-rf-XVx"/>
-                            <constraint firstItem="D5b-jX-eYg" firstAttribute="height" secondItem="XPu-Tw-Sx8" secondAttribute="height" multiplier="270:667" id="hRq-0q-X8m"/>
                             <constraint firstItem="XpB-ku-cBd" firstAttribute="top" secondItem="Q0i-ZZ-Hvo" secondAttribute="bottom" id="mJF-7d-zPD"/>
                             <constraint firstItem="Q0i-ZZ-Hvo" firstAttribute="top" secondItem="XPu-Tw-Sx8" secondAttribute="top" id="o1m-FW-b7b"/>
                             <constraint firstItem="PbY-0I-Esy" firstAttribute="height" secondItem="XPu-Tw-Sx8" secondAttribute="height" multiplier="40:375" id="pbu-Qj-rcC"/>
                             <constraint firstItem="Q0i-ZZ-Hvo" firstAttribute="height" secondItem="XPu-Tw-Sx8" secondAttribute="height" multiplier="80:375" id="pwg-rF-rFS"/>
                             <constraint firstAttribute="trailing" secondItem="Q0i-ZZ-Hvo" secondAttribute="trailing" id="sHc-0k-LhE"/>
                             <constraint firstItem="Q0i-ZZ-Hvo" firstAttribute="leading" secondItem="XPu-Tw-Sx8" secondAttribute="leading" id="sdp-2N-2uE"/>
+                            <constraint firstItem="NJH-1N-lEv" firstAttribute="height" secondItem="XPu-Tw-Sx8" secondAttribute="height" multiplier="57:667" id="y3V-oD-DK7"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
@@ -268,7 +284,7 @@
                                 <exclude reference="ZiU-i9-GTK"/>
                                 <exclude reference="MkU-q3-vze"/>
                                 <exclude reference="PTJ-Lj-AVV"/>
-                                <exclude reference="hRq-0q-X8m"/>
+                                <exclude reference="y3V-oD-DK7"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -279,8 +295,8 @@
                                 <exclude reference="pbu-Qj-rcC"/>
                                 <include reference="PTJ-Lj-AVV"/>
                                 <exclude reference="gUA-rf-XVx"/>
-                                <exclude reference="Z3B-Oj-0Fj"/>
-                                <include reference="hRq-0q-X8m"/>
+                                <exclude reference="QnE-x7-y75"/>
+                                <include reference="y3V-oD-DK7"/>
                             </mask>
                         </variation>
                     </view>
@@ -289,6 +305,7 @@
                     <connections>
                         <outlet property="calendarView" destination="D5b-jX-eYg" id="bBy-Zr-N1i"/>
                         <outlet property="contentView" destination="Hny-I3-4or" id="WGQ-1h-KKK"/>
+                        <outlet property="scrollView" destination="XpB-ku-cBd" id="lJJ-B5-AOB"/>
                         <outlet property="smallTopBarView" destination="Q0i-ZZ-Hvo" id="7S2-fB-zBq"/>
                         <outlet property="titleLabel" destination="PKQ-bX-EEm" id="265-A7-9fe"/>
                         <outletCollection property="weekdayLabelsCollection" destination="4db-zd-FBF" collectionClass="NSMutableArray" id="toC-7R-Dny"/>
@@ -306,6 +323,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="icon-confirm-white-normal" width="16" height="10"/>
         <image name="icon-next-item-normal" width="6" height="10"/>
         <image name="icon-previous-item-normal" width="6" height="10"/>
     </resources>

@@ -26,22 +26,21 @@ class OrdersShowViewController: BaseViewController {
     var router: OrdersShowRouter!
     
     var orders = [Order]()
-    var ordersDates: [Date]? = UserDefaults.standard.array(forKey: keyOrders) as? [Date]
-
     var limit: Int!
     var dateEnd: String!
     var dateStart: String!
     var orderStatus: String = "ALL"
     var statuses = [DropDownValue]()
-    
-    let orderStatuses = [ "ALL", "DONE", "PENDING FOR USER", "PENDING FOR ADMIN", "CONFIRMED BY USER", "CONFIRMED BY ADMIN",
-                          "CANCELED BY USER", "CANCELED BY ADMIN", "FAILED BY USER" ]
+    var calculatedDate = Date()
 
     var currentDate: Date! {
         didSet {
             setupTitleLabel(withDate: currentDate)
         }
     }
+    
+    let orderStatuses = [ "ALL", "DONE", "PENDING FOR USER", "PENDING FOR ADMIN", "CONFIRMED BY USER", "CONFIRMED BY ADMIN",
+                          "CANCELED BY USER", "CANCELED BY ADMIN", "FAILED BY USER" ]
 
     var orderStatesDropDownTableView: MSMTableView! {
         didSet {
@@ -101,14 +100,7 @@ class OrdersShowViewController: BaseViewController {
         navigationBarView = smallTopBarView
         smallTopBarView.type = "Parent"
         haveMenuItem = true
-        
-        if (ordersDates == nil) {
-            currentDate = Date()
-            ordersDates = [currentDate!]
-        } else {
-            currentDate = ordersDates!.last
-        }
-        
+        currentDate = Date()
         dateStart = currentDate.convertToString(withStyle: .DateHyphen)
         dateEnd = dateStart
         
@@ -147,6 +139,10 @@ class OrdersShowViewController: BaseViewController {
         calendarTitleLabel.text = date.convertToString(withStyle: .DayMonthYear)
     }
 
+    func setupTitleLabel(withDatesPeriod period: DatesPeriod) {
+        calendarTitleLabel.text = "\(period.dateStart.convertToString(withStyle: .DateDot)) - \(period.dateEnd.convertToString(withStyle: .DateDot))"
+    }
+
     func ordersListDidLoad(withOffset offset: Int, scrollingData: Bool) {
         if (!scrollingData) {
             spinnerDidStart(view)
@@ -176,7 +172,7 @@ class OrdersShowViewController: BaseViewController {
         
         // Handler select cell
         tableView.tableViewControllerManager!.handlerSelectRowCompletion = { order in
-            self.router.navigateToOrderShowScene(order as! Order)
+            self.router.navigateToOrderShowScene(withOrderID: (order as! Order).codeID)
         }
         
         // Handler PullRefresh
@@ -211,39 +207,35 @@ class OrdersShowViewController: BaseViewController {
     
     // MARK: - Actions
     @IBAction func handlerPreviousButtonTap(_ sender: UIButton) {
-        let currentIndex = ordersDates!.index(of: currentDate)!
-        let previousIndex = ordersDates!.index(before: currentIndex)
-        
-        if (previousIndex > 0) {
-            currentDate = ordersDates![previousIndex]
-        }
+        calculatedDate = calculatedDate.previousMonth()
+        setupTitleLabel(withDate: calculatedDate)
 
-        dateStart = currentDate.convertToString(withStyle: .DateHyphen)
+        // Set Orders list period
+        dateStart = calculatedDate.convertToString(withStyle: .DateHyphen)
         dateEnd = dateStart
         
+        // Clear Orders list & run API
         orders = [Order]()
         CoreDataManager.instance.entitiesDidRemove(byName: "Lists", andPredicateParameters: NSPredicate(format: "name == %@", "\(keyOrders)-\(self.orderStatus)"))
         ordersListDidLoad(withOffset: 0, scrollingData: false)
     }
     
     @IBAction func handlerNextButtonTap(_ sender: UIButton) {
-        let currentIndex = ordersDates!.index(of: currentDate)!
-        let nextIndex = ordersDates!.index(after: currentIndex)
-        
-        if (nextIndex < ordersDates!.count) {
-            currentDate = ordersDates![nextIndex]
-        }
-        
+        calculatedDate = calculatedDate.nextMonth()
+        setupTitleLabel(withDate: calculatedDate)
+
+        // Set Orders list period
         dateStart = currentDate.convertToString(withStyle: .DateHyphen)
         dateEnd = dateStart
 
+        // Clear Orders list & run API
         orders = [Order]()
         CoreDataManager.instance.entitiesDidRemove(byName: "Lists", andPredicateParameters: NSPredicate(format: "name == %@", "\(keyOrders)-\(self.orderStatus)"))
         ordersListDidLoad(withOffset: 0, scrollingData: false)
     }
     
     @IBAction func handlerCalendarTitleButtonTap(_ sender: UIButton) {
-        self.router.navigateToCalendar(withOrdersDates: ordersDates)
+        self.router.navigateToCalendar(withOrdersFromPeriod: (dateStart.convertToDate(withDateFormat: .ResponseDate), dateEnd.convertToDate(withDateFormat: .ResponseDate)))
     }
     
     @IBAction func handlerOrderStatusesButtonTap(_ sender: DropDownButton) {

@@ -27,25 +27,28 @@ class OrdersShowPresenter: OrdersShowPresenterInput {
     
     // MARK: - Custom Functions. Presentation logic
     func ordersDidPrepareToShowLoad(fromResponseModel responseModel: OrdersShowModels.Orders.ResponseModel) {
-        guard responseModel.responseAPI?.body != nil else {
-            let ordersViewModel = OrdersShowModels.Orders.ViewModel(status: (responseModel.responseAPI?.status)!)
-            self.viewController.ordersDidShowLoad(fromViewModel: ordersViewModel)
+        guard responseModel.responseAPI != nil else {
+            let ordersViewModel = OrdersShowModels.Orders.ViewModel(status: "RESPONSE_NIL")
+            viewController.ordersDidShowLoad(fromViewModel: ordersViewModel)
             
             return
         }
-        
+
         // Convert responseAPI body to Order CoreData objects
-        if let ordersList = responseModel.responseAPI!.body as? [Any] {
-            if (ordersList.count > 0) {
-                for json in ordersList {
-                    _ = Order.init(json: json as! [String: AnyObject], forLists: "\(keyOrders)-\(responseModel.parameters["status"] as! String)")
+        if let ordersList = responseModel.responseAPI!.body as? [[String: AnyObject]], ordersList.count > 0 {
+            for jsonOrder in ordersList {
+                if let codeID = jsonOrder["uuid"] as? String {
+                    if let order = CoreDataManager.instance.entityBy("Order", andCodeID: codeID) as? Order {
+                        order.profileDidUpload(json: jsonOrder, forList: keyOrders)
+                    }
                 }
-                
-                CoreDataManager.instance.didSaveContext()
             }
-        
-            let ordersViewModel = OrdersShowModels.Orders.ViewModel(status: (responseModel.responseAPI?.status)!)
-            self.viewController.ordersDidShowLoad(fromViewModel: ordersViewModel)
         }
+        
+
+        CoreDataManager.instance.didSaveContext()
+        
+        let ordersViewModel = OrdersShowModels.Orders.ViewModel(status: (responseModel.responseAPI?.status)!)
+        self.viewController.ordersDidShowLoad(fromViewModel: ordersViewModel)
     }
 }

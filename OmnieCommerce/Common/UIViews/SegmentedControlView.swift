@@ -78,8 +78,13 @@ import Localize_Swift
         
         // Set vertical style
         if (self.tag == 99) {
-            self.leftActionButton.setVerticalTitleStyle()
-            self.rightActionButton.setVerticalTitleStyle()
+            if (UIDevice.current.orientation.isLandscape) {
+                self.leftActionButton.setVerticalTitleStyle()
+                self.rightActionButton.setVerticalTitleStyle()
+            } else {
+                self.leftActionButton.setHorizontalTitleStyle()
+                self.rightActionButton.setHorizontalTitleStyle()
+            }
         }
     }
 
@@ -90,7 +95,7 @@ import Localize_Swift
 
     // MARK: - Custom Functions
     func setupView() {
-        if (self.tag == 1) {
+        if (self.tag == 99) {
             UINib(nibName: "SegmentedControlViewLandscape", bundle: Bundle(for: SegmentedControlView.self)).instantiate(withOwner: self, options: nil)
         } else {
             UINib(nibName: String(describing: SegmentedControlView.self), bundle: Bundle(for: SegmentedControlView.self)).instantiate(withOwner: self, options: nil)

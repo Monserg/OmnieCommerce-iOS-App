@@ -17,12 +17,14 @@ import Kingfisher
 protocol ServiceShowViewControllerInput {
     func serviceDidShowLoad(fromViewModel viewModel: ServiceShowModels.ServiceItem.ViewModel)
     func orderDidShowLoad(fromViewModel viewModel: ServiceShowModels.OrderItem.ViewModel)
+//    func orderTimeSheetForDayDidShowLoad(fromViewModel viewModel: ServiceShowModels.TimeSheet.ViewModel)
 }
 
 // MARK: - Output protocols for Interactor component VIP-cicle
 protocol ServiceShowViewControllerOutput {
     func serviceDidLoad(withRequestModel requestModel: ServiceShowModels.ServiceItem.RequestModel)
     func orderDidLoad(withRequestModel requestModel: ServiceShowModels.OrderItem.RequestModel)
+//    func orderTimeSheetForDayDidLoad(withRequestModel requestModel: ServiceShowModels.TimeSheet.RequestModel)
 }
 
 class ServiceShowViewController: BaseViewController {
@@ -469,10 +471,8 @@ class ServiceShowViewController: BaseViewController {
         }
     }
 
-    func orderProfileDidShow(withOrderID orderID: String) {
-        let orderProfile = CoreDataManager.instance.entityBy("Order", andCodeID: orderID) as! Order
-        
-        router.navigateToOrder(orderProfile)
+    func orderProfileDidShow(withOrderID orderID: String) {        
+        router.navigateToOrderShowScene(withOrderID: orderID)
         spinnerDidFinish()
     }
     
@@ -567,7 +567,7 @@ class ServiceShowViewController: BaseViewController {
     }
     
     @IBAction func handlerCalendarButtonTap(_ sender: UbuntuLightVeryLightOrangeButton) {
-        self.router.navigateToCalendar(orderDateComponents!)
+        self.router.navigateToCalendar(withServiceID: serviceProfile.codeID, andorderDateComponents: orderDateComponents!)
     }
     
     @IBAction func handlerSchedulerButtonTap(_ sender: UbuntuLightVeryLightOrangeButton) {
@@ -606,6 +606,8 @@ extension ServiceShowViewController: ServiceShowViewControllerInput {
     }
     
     func orderDidShowLoad(fromViewModel viewModel: ServiceShowModels.OrderItem.ViewModel) {
+        spinnerDidFinish()
+        
         // Check for errors
         guard viewModel.status == "SUCCESS" else {
             self.alertViewDidShow(withTitle: "Error", andMessage: viewModel.status, completion: { })
@@ -613,9 +615,23 @@ extension ServiceShowViewController: ServiceShowViewControllerInput {
             return
         }
         
-        // FIXME: - ORDERID ???
-//        self.orderProfileDidShow(withOrderID: viewModel.orderID!)
+        if let codeID = viewModel.orderID {
+            self.orderProfileDidShow(withOrderID: codeID)
+        }
     }
+    
+//    func orderTimeSheetForDayDidShowLoad(fromViewModel viewModel: ServiceShowModels.TimeSheet.ViewModel) {
+//        spinnerDidFinish()
+//        
+//        // Check for errors
+//        guard viewModel.status == "SUCCESS" else {
+//            self.alertViewDidShow(withTitle: "Error", andMessage: viewModel.status, completion: { })
+//            
+//            return
+//        }
+//
+////        self.router.navigateToCalendar(orderDateComponents!)
+//    }
 }
 
 

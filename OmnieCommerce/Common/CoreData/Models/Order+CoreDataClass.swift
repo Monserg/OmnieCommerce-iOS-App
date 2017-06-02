@@ -16,28 +16,16 @@ public class Order: NSManagedObject, InitCellParameters {
     var cellIdentifier: String = "OrderTableViewCell"
     var cellHeight: CGFloat = 96.0
 
-    
-    // MARK: - Class Initialization
-    convenience init?(json: [String: AnyObject], forLists listName: String) {
-        guard let codeID = json["uuid"] as? String, let orgName = json["orgName"] as? String, let serviceName = json["serviceName"] as? String, let dateStart = json["start"] as? String, let status = json["status"] as? String, let priceTotal = json["totalPrice"] as? Float else {
-            return nil
-        }
-        
-        // Check Entity available in CoreData
-        guard let orderEntity = CoreDataManager.instance.entityForName("Order") else {
-            return nil
-        }
-        
-        // Create Entity
-        self.init(entity: orderEntity, insertInto: CoreDataManager.instance.managedObjectContext)
-        
+
+    // MARK: - Custom Functions
+    func profileDidUpload(json: [String: AnyObject], forList listName: String) {
         // Prepare to save common data
-        self.codeID = codeID
-        self.organizationName = orgName
-        self.serviceName = serviceName
-        self.dateStart = dateStart.convertToDate(withDateFormat: .Default) as NSDate
-        self.status = status
-        self.priceTotal = priceTotal
+        self.codeID = json["uuid"] as! String
+        self.organizationName = json["orgName"] as! String
+        self.serviceName = json["serviceName"] as! String
+        self.dateStart = (json["start"] as! String).convertToDate(withDateFormat: .Default) as NSDate
+        self.status = json["status"] as! String
+        self.priceTotal = json["totalPrice"] as! Float
 
         if let imageID = json["imageId"] as? String {
             self.imageID = imageID

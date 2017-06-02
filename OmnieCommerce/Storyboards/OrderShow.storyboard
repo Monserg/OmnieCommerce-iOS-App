@@ -43,12 +43,25 @@
                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
+                                                    <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qkp-38-hll" userLabel="State Button" customClass="BorderTitleButton" customModule="OmnieCommerce" customModuleProvider="target">
+                                                        <rect key="frame" x="308" y="55.5" width="30" height="16"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="16" id="f6U-q9-A7N"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="9"/>
+                                                        <state key="normal" title="State"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="trailing" secondItem="4VI-FV-fWE" secondAttribute="trailing" id="6QO-ez-8R5"/>
                                                     <constraint firstAttribute="bottom" secondItem="4VI-FV-fWE" secondAttribute="bottom" id="Z5k-TU-ZyJ"/>
                                                     <constraint firstItem="4VI-FV-fWE" firstAttribute="leading" secondItem="yVn-6g-nBJ" secondAttribute="leading" id="hrR-0T-unr"/>
+                                                    <constraint firstAttribute="trailing" secondItem="Qkp-38-hll" secondAttribute="trailing" constant="20" id="i4z-Nl-lHt"/>
                                                     <constraint firstItem="4VI-FV-fWE" firstAttribute="top" secondItem="yVn-6g-nBJ" secondAttribute="top" id="tz9-ch-p4K"/>
                                                     <constraint firstAttribute="height" constant="128" id="wwX-8P-w0F"/>
                                                 </constraints>
@@ -165,10 +178,10 @@
                                                         </connections>
                                                     </button>
                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aEB-CW-Tz4" userLabel="Buttons View">
-                                                        <rect key="frame" x="85" y="122.5" width="188" height="64"/>
+                                                        <rect key="frame" x="101.5" y="122.5" width="155.5" height="64"/>
                                                         <subviews>
                                                             <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2R6-v1-lKb" userLabel="Confirm Button" customClass="FillVeryLightOrangeButton" customModule="OmnieCommerce" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="0.0" width="92.5" height="64"/>
+                                                                <rect key="frame" x="0.5" y="0.0" width="92.5" height="64"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                                 <state key="normal" title="Confirm" image="icon-confirm-normal"/>
@@ -180,7 +193,7 @@
                                                                 </connections>
                                                             </button>
                                                             <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e45-Ad-iYc" userLabel="Cancel Button" customClass="BorderVeryLightOrangeButton" customModule="OmnieCommerce" customModuleProvider="target">
-                                                                <rect key="frame" x="98.5" y="0.0" width="89.5" height="64"/>
+                                                                <rect key="frame" x="99" y="0.0" width="57" height="64"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                                 <state key="normal" title="Cancel" image="icon-confirm-cancel-white-normal"/>
@@ -308,9 +321,10 @@
                                 <exclude reference="LWc-Pe-Crl"/>
                                 <exclude reference="Rcy-Ap-OG4"/>
                                 <exclude reference="BGt-nB-FFB"/>
-                                <exclude reference="bmj-k9-kjG"/>
                                 <exclude reference="Tit-Ok-TGI"/>
                                 <exclude reference="U40-kM-7bZ"/>
+                                <exclude reference="ktn-VW-wk0"/>
+                                <exclude reference="bmj-k9-kjG"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -321,12 +335,12 @@
                                 <exclude reference="zJl-l6-viK"/>
                                 <include reference="BGt-nB-FFB"/>
                                 <exclude reference="G45-iL-uHi"/>
-                                <include reference="bmj-k9-kjG"/>
-                                <exclude reference="dFZ-JM-uXx"/>
                                 <include reference="Tit-Ok-TGI"/>
                                 <include reference="U40-kM-7bZ"/>
-                                <exclude reference="ktn-VW-wk0"/>
+                                <include reference="ktn-VW-wk0"/>
                                 <exclude reference="oaB-5E-Ocs"/>
+                                <include reference="bmj-k9-kjG"/>
+                                <exclude reference="dFZ-JM-uXx"/>
                             </mask>
                         </variation>
                     </view>
@@ -334,6 +348,7 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="667"/>
                     <connections>
+                        <outlet property="actionView" destination="gv5-jF-yHH" id="jzS-yh-azg"/>
                         <outlet property="checkButton" destination="wLY-ah-PEE" id="RZ6-ow-6LX"/>
                         <outlet property="modalView" destination="Cfk-FK-QZa" id="gcf-yZ-ogo"/>
                         <outlet property="priceLabel" destination="x1T-hN-PiE" id="rJI-aO-1vd"/>

@@ -31,9 +31,9 @@ class OrderShowViewController: BaseViewController {
     var interactor: OrderShowViewControllerOutput!
     var router: OrderShowRouter!
     
-    var order: Order!
+    var orderID: String!
     var orderMode: OrderMode = .Edit
-    
+
     // Outlets
     @IBOutlet weak var smallTopBarView: SmallTopBarView!
     @IBOutlet var modalView: ModalView!
@@ -58,6 +58,8 @@ class OrderShowViewController: BaseViewController {
     
     
     // Action view
+    @IBOutlet weak var actionView: UIView!
+    
     @IBOutlet weak var checkButton: DLRadioButton! {
         didSet {
             checkButton.setTitle("Save as template".localized(), for: .normal)
@@ -102,8 +104,8 @@ class OrderShowViewController: BaseViewController {
         }
         
         // Load Order profile data
-        if let orderItem = order {
-            let orderRequestModel = OrderShowModels.OrderItem.RequestModel(parameters: ["id": orderItem.codeID])
+        if (orderID != nil) {
+            let orderRequestModel = OrderShowModels.OrderItem.RequestModel(parameters: [ "id": orderID! ])
             interactor.orderDidLoad(withRequestModel: orderRequestModel)
         } else {
             orderProfileDidShow()
@@ -111,11 +113,13 @@ class OrderShowViewController: BaseViewController {
     }
     
     func orderProfileDidShow() {
+        let orderProfile = CoreDataManager.instance.entityBy("Order", andCodeID: orderID!) as! Order
+        
         // Info view
         
         
         // Price view
-        priceLabel.text = "\(420) грн."
+        priceLabel.text = String(format: "%3.2f грн.", orderProfile.priceTotal)
         
         // Action view
         checkButton.sizeToFit()

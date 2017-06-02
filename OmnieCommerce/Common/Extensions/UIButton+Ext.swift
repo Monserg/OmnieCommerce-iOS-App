@@ -143,8 +143,14 @@ extension UIButton {
     
     func setVerticalTitleStyle() {
         setTitle(String().verticalStyle(string: (titleLabel?.text)!), for: .normal)
-        contentEdgeInsets           =   UIEdgeInsetsMake(0, 22, 0, 21)
+        contentEdgeInsets           =   UIEdgeInsetsMake(0, 19, 0, 19) //UIEdgeInsetsMake(0, 22, 0, 21)
         titleLabel?.numberOfLines   =   0
+        titleLabel?.textAlignment   =   .center
+    }
+    
+    func setHorizontalTitleStyle() {
+        contentEdgeInsets           =   UIEdgeInsetsMake(0, 0, 0, 0)
+        titleLabel?.numberOfLines   =   1
         titleLabel?.textAlignment   =   .center
     }
     

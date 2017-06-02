@@ -66,20 +66,27 @@ class ServiceShowPresenter: ServiceShowPresenterInput {
     
     func orderDidPrepareToShowLoad(fromResponseModel responseModel: ServiceShowModels.OrderItem.ResponseModel) {
         guard responseModel.responseAPI != nil else {
-            let orderViewModel = ServiceShowModels.OrderItem.ViewModel(status: "RESPONSE_NIL")
+            let orderViewModel = ServiceShowModels.OrderItem.ViewModel(status: "RESPONSE_NIL", orderID: nil)
             viewController.orderDidShowLoad(fromViewModel: orderViewModel)
             
             return
         }
         
         // Convert responseAPI body to Order CoreData object
-        let order = CoreDataManager.instance.entityBy("Order", andCodeID: responseModel.parameters["id"] as! String) as! Order
-//        entityDidLoad(byName: "Order", andPredicateParameters: NSPredicate.init(format: "codeID = %@", responseModel.parameters["id"] as! String)) as! Order
+        var orderCodeID: String?
         
-        // TODO: - ADD UPLOAD ORDER FROM RESPONSE BODY
+        if let jsonOrder = responseModel.responseAPI!.body as? [String: AnyObject] {
+            if let codeID = jsonOrder["uuid"] as? String {
+                if let order = CoreDataManager.instance.entityBy("Order", andCodeID: codeID) as? Order {
+                    order.profileDidUpload(json: jsonOrder, forList: keyOrder)
+                    orderCodeID = codeID
+                }
+            }
+        }
+        
         CoreDataManager.instance.didSaveContext()
         
-        let orderViewModel = ServiceShowModels.OrderItem.ViewModel(status: responseModel.responseAPI!.status)
+        let orderViewModel = ServiceShowModels.OrderItem.ViewModel(status: responseModel.responseAPI!.status, orderID: orderCodeID)
         self.viewController.orderDidShowLoad(fromViewModel: orderViewModel)
     }
 }

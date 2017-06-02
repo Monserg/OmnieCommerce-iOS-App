@@ -16,9 +16,10 @@ extension TimeSheet {
         return NSFetchRequest<TimeSheet>(entityName: "TimeSheet")
     }
 
+    @NSManaged public var codeID: String
     @NSManaged public var date: String?
-    @NSManaged public var workTimeStart: String?
-    @NSManaged public var workTimeEnd: String?
+    @NSManaged public var workTimeStart: String
+    @NSManaged public var workTimeEnd: String
     @NSManaged public var breakDuration: Int16
     @NSManaged public var slotsCount: Int16
     @NSManaged public var minDuration: Bool
