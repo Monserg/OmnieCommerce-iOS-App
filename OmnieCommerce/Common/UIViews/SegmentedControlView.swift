@@ -72,8 +72,19 @@ import Localize_Swift
         print(object: "\(type(of: self)): \(#function) run.")
         
         if (selectedButton!.tag == 1) {
-            self.selectedView.frame = CGRect.init(origin: CGPoint.init(x: selectedButton!.frame.minX + 8, y: selectedButton!.frame.maxY),
-                                                  size: self.selectedView.bounds.size)
+            if (self.tag == 0) {
+                self.selectedView.frame = CGRect.init(origin: CGPoint.init(x: selectedButton!.frame.minX + 8, y: selectedButton!.frame.maxY),
+                                                      size: self.selectedView.bounds.size)
+            } else {
+                if (UIApplication.shared.statusBarOrientation.isPortrait) {
+                    self.selectedView.frame = CGRect.init(origin: CGPoint.init(x: selectedButton!.frame.minX + 35, y: selectedButton!.frame.maxY),
+                                                          size: CGSize.init(width: selectedButton!.frame.width, height: 1))
+                } else {
+                    self.selectedView.frame = CGRect.init(origin: CGPoint.init(x: selectedButton!.frame.maxX, y: selectedButton!.frame.minY),
+                                                          size: CGSize.init(width: 1, height: selectedButton!.frame.height))
+                }
+
+            }
         }
         
         // Set vertical style
@@ -136,14 +147,14 @@ import Localize_Swift
             UIView.animate(withDuration: 0.3, animations: {
                 if (self.tag == 0) {
                     self.selectedView.frame = CGRect.init(origin: CGPoint.init(x: sender.frame.minX + 8, y: sender.frame.maxY),
-                                                          size: self.selectedView.bounds.size)
+                                                          size: CGSize.init(width: sender.frame.width, height: 1))
                 } else {
                     if (UIApplication.shared.statusBarOrientation.isPortrait) {
-                        self.selectedView.frame = CGRect.init(origin: CGPoint.init(x: sender.frame.minX + 8, y: sender.frame.maxY),
-                                                              size: self.selectedView.bounds.size)
+                        self.selectedView.frame = CGRect.init(origin: CGPoint.init(x: sender.frame.minX + 35, y: sender.frame.maxY),
+                                                              size: CGSize.init(width: sender.frame.width, height: 1))
                     } else {
-                        self.selectedView.frame = CGRect.init(origin: CGPoint.init(x: sender.frame.maxX, y: sender.frame.minY + 8),
-                                                              size: self.selectedView.bounds.size)
+                        self.selectedView.frame = CGRect.init(origin: CGPoint.init(x: sender.frame.maxX, y: sender.frame.minY),
+                                                              size: CGSize.init(width: 1, height: sender.frame.height))
                     }
                 }
             }, completion: { success in

@@ -27,10 +27,10 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
                     <subviews>
                         <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Xdx-Q9-yeo">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="59"/>
+                            <rect key="frame" x="8" y="0.0" width="359" height="59"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q7z-KT-8TK" userLabel="Left Button">
-                                    <rect key="frame" x="0.0" y="0.0" width="187.5" height="59"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="179.5" height="59"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <state key="normal" title="Button">
                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -43,7 +43,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oew-p9-ddP" userLabel="Right Button">
-                                    <rect key="frame" x="187.5" y="0.0" width="187.5" height="59"/>
+                                    <rect key="frame" x="179.5" y="0.0" width="179.5" height="59"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <state key="normal" title="Button"/>
                                     <connections>
@@ -54,7 +54,7 @@
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         </stackView>
                         <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T10-6F-Z0I" userLabel="Selected View">
-                            <rect key="frame" x="8" y="59" width="169" height="1"/>
+                            <rect key="frame" x="8" y="59" width="179.5" height="1"/>
                             <color key="backgroundColor" red="1" green="0.84313725490196079" blue="0.42352941176470588" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="1" id="Gr5-Ja-0Ab"/>
@@ -65,11 +65,11 @@
                     <constraints>
                         <constraint firstItem="T10-6F-Z0I" firstAttribute="leading" secondItem="D9Z-ac-N9t" secondAttribute="leading" constant="8" id="1aZ-r1-aOC"/>
                         <constraint firstItem="T10-6F-Z0I" firstAttribute="top" secondItem="Xdx-Q9-yeo" secondAttribute="bottom" id="3qR-Db-myD"/>
-                        <constraint firstAttribute="trailing" secondItem="Xdx-Q9-yeo" secondAttribute="trailing" id="5nT-2V-YlA"/>
+                        <constraint firstAttribute="trailing" secondItem="Xdx-Q9-yeo" secondAttribute="trailing" constant="8" id="5nT-2V-YlA"/>
                         <constraint firstItem="Xdx-Q9-yeo" firstAttribute="top" secondItem="D9Z-ac-N9t" secondAttribute="top" id="9eJ-i9-VgD"/>
                         <constraint firstAttribute="bottom" secondItem="T10-6F-Z0I" secondAttribute="bottom" id="9sl-1l-wfx"/>
-                        <constraint firstItem="T10-6F-Z0I" firstAttribute="width" secondItem="D9Z-ac-N9t" secondAttribute="width" multiplier="0.45" id="c3U-tf-zXm"/>
-                        <constraint firstItem="Xdx-Q9-yeo" firstAttribute="leading" secondItem="D9Z-ac-N9t" secondAttribute="leading" id="oxC-5X-CDn"/>
+                        <constraint firstItem="T10-6F-Z0I" firstAttribute="width" secondItem="Xdx-Q9-yeo" secondAttribute="width" multiplier="0.5" id="HGY-TZ-U2P"/>
+                        <constraint firstItem="Xdx-Q9-yeo" firstAttribute="leading" secondItem="D9Z-ac-N9t" secondAttribute="leading" constant="8" id="oxC-5X-CDn"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>

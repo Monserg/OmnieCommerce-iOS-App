@@ -372,6 +372,9 @@
 		B19DFAC11E64B9F100599073 /* UITextField+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19DFAC01E64B9F100599073 /* UITextField+Ext.swift */; };
 		B19E01B01E78217500B53E02 /* NewPhoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19E01AF1E78217500B53E02 /* NewPhoneView.swift */; };
 		B19E01B21E78217F00B53E02 /* NewPhoneView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B19E01B11E78217F00B53E02 /* NewPhoneView.xib */; };
+		B1A1F7271EE2DBD9009B742A /* CalendarDayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A1F7261EE2DBD9009B742A /* CalendarDayCell.swift */; };
+		B1A7BA511EE558060092E431 /* TimeSheetPickersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A7BA501EE558060092E431 /* TimeSheetPickersView.swift */; };
+		B1A7BA531EE558120092E431 /* TimeSheetPickersView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1A7BA521EE558120092E431 /* TimeSheetPickersView.xib */; };
 		B1ACAB641EC97AEC00B62F78 /* OmnieCommerceUser.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B1ACAB591EC97AEC00B62F78 /* OmnieCommerceUser.xcdatamodeld */; };
 		B1AF6E831ED947EC0085BDCA /* LocationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1AF6E821ED947EC0085BDCA /* LocationItem.swift */; };
 		B1B761CA1E62D0030067339F /* OrganizationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1B761C91E62D0030067339F /* OrganizationTableViewCell.xib */; };
@@ -938,6 +941,9 @@
 		B19DFAC01E64B9F100599073 /* UITextField+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+Ext.swift"; sourceTree = "<group>"; };
 		B19E01AF1E78217500B53E02 /* NewPhoneView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPhoneView.swift; sourceTree = "<group>"; };
 		B19E01B11E78217F00B53E02 /* NewPhoneView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewPhoneView.xib; sourceTree = "<group>"; };
+		B1A1F7261EE2DBD9009B742A /* CalendarDayCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarDayCell.swift; sourceTree = "<group>"; };
+		B1A7BA501EE558060092E431 /* TimeSheetPickersView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeSheetPickersView.swift; sourceTree = "<group>"; };
+		B1A7BA521EE558120092E431 /* TimeSheetPickersView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimeSheetPickersView.xib; sourceTree = "<group>"; };
 		B1ACAB5A1EC97AEC00B62F78 /* OmnieCommerceUser v. 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "OmnieCommerceUser v. 3.xcdatamodel"; sourceTree = "<group>"; };
 		B1ACAB5B1EC97AEC00B62F78 /* OmnieCommerceUser v.10.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "OmnieCommerceUser v.10.xcdatamodel"; sourceTree = "<group>"; };
 		B1ACAB5C1EC97AEC00B62F78 /* OmnieCommerceUser v.2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "OmnieCommerceUser v.2.xcdatamodel"; sourceTree = "<group>"; };
@@ -1858,12 +1864,15 @@
 		B14B8DDC1EBB720700B29511 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				B1A1F7261EE2DBD9009B742A /* CalendarDayCell.swift */,
 				B14B8DDD1EBB723C00B29511 /* CustomTimer.swift */,
 				B14B8DEB1EBB756C00B29511 /* TimeSheetTableViewCell.swift */,
 				B14B8DE01EBB724B00B29511 /* TimeSheetTableViewCell.xib */,
 				B14B8DEF1EBB760C00B29511 /* TimeSheetView.swift */,
 				B14B8DE21EBB724B00B29511 /* TimeSheetView.xib */,
 				B14B8DE71EBB725A00B29511 /* TimerPointer.swift */,
+				B1A7BA501EE558060092E431 /* TimeSheetPickersView.swift */,
+				B1A7BA521EE558120092E431 /* TimeSheetPickersView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -2615,6 +2624,7 @@
 				B1BF926F1DD6516C00BECBBB /* helveticaneuecyr-light.otf in Resources */,
 				B152915D1DDE44B700BBA1E0 /* MenuSectionFooterView.xib in Resources */,
 				B15125161EAE0341009A6A44 /* AdditionalServiceTableViewCell.xib in Resources */,
+				B1A7BA531EE558120092E431 /* TimeSheetPickersView.xib in Resources */,
 				B12440E21EDDA72100C93220 /* BusinessCardTableViewCell.xib in Resources */,
 				B1BF92701DD6516C00BECBBB /* helveticaneuecyr-lightitalic.otf in Resources */,
 				B1BF92711DD6516C00BECBBB /* helveticaneuecyr-medium.otf in Resources */,
@@ -2748,6 +2758,7 @@
 			files = (
 				B14B8DF81EBB880F00B29511 /* TimeSheet+CoreDataProperties.swift in Sources */,
 				B12440EE1EDDE84200C93220 /* BusinessCardShowPresenter.swift in Sources */,
+				B1A7BA511EE558060092E431 /* TimeSheetPickersView.swift in Sources */,
 				B11203701E8F6A420036001A /* Dictionary+Ext.swift in Sources */,
 				B1BEEDF11E63687500F1DE8A /* OrganizationShowModels.swift in Sources */,
 				B15F95B11EA1D4230009AD28 /* Subcategory+CoreDataProperties.swift in Sources */,
@@ -2872,6 +2883,7 @@
 				B10040661EB4912400161073 /* OrderShowConfigurator.swift in Sources */,
 				B1FFF7161E5F017A00A075D8 /* OrganizationsMapShowViewController.swift in Sources */,
 				B14B8DF01EBB760C00B29511 /* TimeSheetView.swift in Sources */,
+				B1A1F7271EE2DBD9009B742A /* CalendarDayCell.swift in Sources */,
 				B14CD91A1E57C058005F8BF6 /* Protocols.swift in Sources */,
 				B137EC951E7D19FB006F0184 /* MSMCollectionViewControllerManager.swift in Sources */,
 				B14E97591DD8B052001E1DE2 /* SignUpShowPresenter.swift in Sources */,

@@ -125,6 +125,7 @@ class ServiceShowViewController: BaseViewController {
     
     // Comment view
     @IBOutlet weak var commentView: UIView!
+   
     @IBOutlet weak var commentTextView: UITextView! {
         didSet {
             commentTextView.delegate = self
@@ -142,7 +143,7 @@ class ServiceShowViewController: BaseViewController {
     @IBOutlet weak var orderButton: FillVeryLightOrangeButton! {
         didSet {
             // FIXME: - SET DEFAULT = FALSE
-            orderButton.isEnabled = true
+            orderButton.isEnabled = false
         }
     }
     

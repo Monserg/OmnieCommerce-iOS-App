@@ -27,6 +27,8 @@ class CalendarShowViewController: BaseViewController, CalendarShowViewController
     var output: CalendarShowViewControllerOutput!
     var router: CalendarShowRouter!
     
+    var handlerConfirmButtonCompletion: HandlerPassDataCompletion?
+
     var serviceID: String!
     var calendarVC: CalendarViewController?
     var timesheetVC: TimeSheetViewController?
@@ -67,7 +69,6 @@ class CalendarShowViewController: BaseViewController, CalendarShowViewController
     
     // Outlets
     @IBOutlet weak var segmentedControlView: SegmentedControlView!
-    @IBOutlet weak var confirmButton: FillColorButton!
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var fromTimeLabel: UbuntuLightVeryLightGrayLabel!
     @IBOutlet weak var toTimeLabel: UbuntuLightVeryLightGrayLabel!
@@ -75,6 +76,12 @@ class CalendarShowViewController: BaseViewController, CalendarShowViewController
     
     @IBOutlet weak var containerLeadingConstraint: NSLayoutConstraint!
     @IBOutlet weak var containerTrailingConstraint: NSLayoutConstraint!
+    
+    @IBOutlet weak var confirmButton: FillColorButton! {
+        didSet {
+            confirmButton.isEnabled = false
+        }
+    }
     
     @IBOutlet weak var dateLabel: UbuntuLightVeryLightGrayLabel! {
         didSet {
@@ -88,7 +95,7 @@ class CalendarShowViewController: BaseViewController, CalendarShowViewController
         }
     }
     
-    var handlerConfirmButtonCompletion: HandlerPassDataCompletion?
+    @IBOutlet var timeSheetPickersView: TimeSheetPickersView!    
     
     
     // MARK: - Class Initialization
@@ -115,8 +122,13 @@ class CalendarShowViewController: BaseViewController, CalendarShowViewController
         setupSegmentedControlView()
         setupContainerView(withSize: view.frame.size)
         setupDateLabel(withDate: Calendar.current.date(from: orderDateComponents)!)
-        
+
         viewSettingsDidLoad()
+        
+        
+        // TESTED
+        timeSheetPickersView.frameDidChange()
+        timeSheetPickersView.didShow()
     }
     
     override func viewDidLayoutSubviews() {
@@ -133,6 +145,8 @@ class CalendarShowViewController: BaseViewController, CalendarShowViewController
         // NOTE: Ask the Interactor to do some work
         let request = CalendarShow.Something.Request()
         output.doSomething(request: request)
+        
+        timeSheetPickersView.didHide()
     }
     
     // Display logic
@@ -200,10 +214,9 @@ class CalendarShowViewController: BaseViewController, CalendarShowViewController
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         print(object: "\(type(of: self)): \(#function) run. New size = \(size)")
         
-//        calendarVC!.calendarView.setNeedsLayout()
-        setupScene(withSize: size)
-        
+        setupScene(withSize: size)        
         dateLabel.textAlignment = (size.height > size.width) ? .left : .center
+//        calendarVC!.calendarView.scrollToDate(calendarVC!.selectedDate!)
     }
 
     // MARK: - Actions

@@ -41,6 +41,7 @@ class ServiceShowRouter: ServiceShowRouterInput {
         
         // Handler Confirm completion
         calendarShowVC.handlerConfirmButtonCompletion = { newOrderDateComponents in
+            self.viewController.orderButton.isEnabled = true
             self.viewController.orderDateComponents = newOrderDateComponents as? DateComponents
             self.viewController.orderDateComponentsDidShow()
         }

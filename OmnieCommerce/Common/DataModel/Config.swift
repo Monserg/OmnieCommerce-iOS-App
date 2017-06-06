@@ -62,6 +62,7 @@ typealias HandlerTextFieldShowErrorViewCompletion   =   ((_ textField: CustomTex
 
 // New Types
 typealias DatesPeriod                               =   (dateStart: Date, dateEnd: Date)
+typealias TimesPeriod                               =   (hourStart: Int, minuteStart: Int, hourEnd: Int, minuteEnd: Int)
 typealias LocationData                              =   (placemark: CLPlacemark?, coordinate: CLLocationCoordinate2D?, address: String?)
 typealias OrganizationData                          =   (name: String, rating: Int, isFavorite: Bool, city: String, street: String, logo: UIImage, location: CLLocationCoordinate2D)
 

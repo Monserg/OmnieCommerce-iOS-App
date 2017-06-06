@@ -51,7 +51,11 @@ class MSMPickerViewManager: UIView {
             self.days = Date().getDaysInMonth()
             self.months = Date().getMonthsNumbers()
             self.years = Date().getYears()
-            
+
+        case "TimeSheetPickersView":
+            self.hours = Date().getHours()
+            self.minutes = Date().getMinutes()
+
         default:
             break
         }
@@ -79,17 +83,17 @@ class MSMPickerViewManager: UIView {
 extension MSMPickerViewManager: UIPickerViewDataSource {
     // returns the number of 'columns' to display.
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 5
+        return (scene == "TimeSheetPickersView") ? 3 : 5
     }
     
     // returns the # of rows in each component..
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         switch component {
         case 0:
-            return days[selectedMonthIndex].count
+            return (scene == "TimeSheetPickersView") ? hours.count : days[selectedMonthIndex].count
             
         case 2:
-            return (scene == "PersonalPageShow") ? months.count : hours.count
+            return (scene == "PersonalPageShow") ? months.count : (scene == "TimeSheetPickersView") ? minutes.count : hours.count
             
         case 4:
             return (scene == "PersonalPageShow") ? years.count : minutes.count
@@ -149,22 +153,30 @@ extension MSMPickerViewManager: UIPickerViewDelegate {
             label = view as! UILabel
         }
         
-        label.font = UIFont(name: "Ubuntu-Light", size: 14.0)
+        label.font = (scene == "TimeSheetPickersView") ? UIFont(name: "Ubuntu-Light", size: 19.0) : UIFont(name: "Ubuntu-Light", size: 14.0)
         label.textColor = UIColor.veryLightGray
         label.textAlignment = .center
         
         switch component {
         case 0:
-            label.text = days[selectedMonthIndex][row]
+            if (scene == "TimeSheetPickersView") {
+                label.text = hours[row]
+            } else {
+                label.text = days[selectedMonthIndex][row]
+            }
             
         case 2:
-            label.text = (scene == "PersonalPageShow") ? months[row] : hours[row]
+            if (scene == "TimeSheetPickersView") {
+                label.text = minutes[row]
+            } else {
+                label.text = (scene == "PersonalPageShow") ? months[row] : hours[row]
+            }
             
         case 4:
             label.text = (scene == "PersonalPageShow") ? years[row] : minutes[row]
             
         default:
-            label.text = (scene == "PersonalPageShow") ? "." : nil
+            label.text = (scene == "PersonalPageShow") ? "." : (scene == "TimeSheetPickersView") ? ":" : nil
         }
         
         return label
@@ -173,7 +185,11 @@ extension MSMPickerViewManager: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         switch component {
         case 0:
-            selectedDayIndex = row
+            if (scene == "TimeSheetPickersView") {
+                selectedHourIndex = row
+            } else {
+                selectedDayIndex = row
+            }
             
         case 2:
             if (scene == "PersonalPageShow") {
@@ -184,6 +200,10 @@ extension MSMPickerViewManager: UIPickerViewDelegate {
             
             if (scene == "SettingsShow") {
                 selectedHourIndex = row
+            }
+            
+            if (scene == "TimeSheetPickersView") {
+                selectedMinuteIndex = row
             }
             
         case 4:
