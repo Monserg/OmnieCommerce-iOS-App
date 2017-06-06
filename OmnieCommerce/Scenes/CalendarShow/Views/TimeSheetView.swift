@@ -32,13 +32,13 @@ class TimeSheetView: UIView {
     
     var countServiceMinDown = 1 {
         willSet {
-            finishTimeLabel.text = String(self.cell!.time! + countServiceMinDown * Int((self.cell!.service?.durationMin)!)).twoNumberFormat()
+//            finishTimeLabel.text = String(self.cell!.time! + countServiceMinDown * Int((self.cell!.service?.durationMin)!)).twoNumberFormat()
         }
     }
     
     var countServiceMinUp = 1 {
         willSet {
-            startTimeLabel.text = String(self.cell!.time! - countServiceMinDown * Int((self.cell!.service?.durationMin)!)).twoNumberFormat()
+//            startTimeLabel.text = String(self.cell!.time! - countServiceMinDown * Int((self.cell!.service?.durationMin)!)).twoNumberFormat()
         }
     }
     
@@ -124,7 +124,7 @@ class TimeSheetView: UIView {
     
     func setCurrentPeriod() {
         startTimeLabel.text = String((cell?.time!)!).twoNumberFormat()
-        finishTimeLabel.text = "\(String((cell?.time!)!)):\(String(countServiceMinDown * Int((cell?.service?.durationMin)!)).twoNumberFormat())"
+//        finishTimeLabel.text = "\(String((cell?.time!)!)):\(String(countServiceMinDown * Int((cell?.service?.durationMin)!)).twoNumberFormat())"
     }
     
     

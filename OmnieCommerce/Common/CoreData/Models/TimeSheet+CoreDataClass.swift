@@ -30,7 +30,7 @@ public class TimeSheet: NSManagedObject {
                     let end = jsonTimeSheetItem["end"] as? String
                     
                     if (start != nil && end != nil) {
-                        let codeID = "\(self.codeID)-\(start!)-\(end!)"
+                        let codeID = "\(self.codeID)-\(start!.components(separatedBy: "T").first!)"
                         
                         if let timeSheetItem = CoreDataManager.instance.entityBy("TimeSheetItem", andCodeID: codeID) as? TimeSheetItem {
                             timeSheetItem.profileDidUpload(json: jsonTimeSheetItem, andTimeSheet: self)

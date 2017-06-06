@@ -16,7 +16,8 @@ enum TimeSheetItemType: String {
 }
 
 @objc(TimeSheetItem)
-public class TimeSheetItem: NSManagedObject {
+public class TimeSheetItem: NSManagedObject, InitCellParameters {
+    // MARK: - Properties
     var type: TimeSheetItemType! {
         set {
             self.typeValue = newValue.rawValue
@@ -27,6 +28,11 @@ public class TimeSheetItem: NSManagedObject {
         }
     }
     
+    // Confirm InitCellParameters Protocol
+    var cellIdentifier: String = "TimeSheetTableViewCell"
+    var cellHeight: CGFloat = 90.0
+
+    
     
     // MARK: - Custom Functions
     func profileDidUpload(json: [String: AnyObject], andTimeSheet timesheet: TimeSheet) {
@@ -36,7 +42,7 @@ public class TimeSheetItem: NSManagedObject {
         self.end = json["end"] as! String
         self.type = TimeSheetItemType.init(rawValue: (json["type"] as! String))
         
-        self.codeID = "\(timesheet.codeID)-\(start)-\(end)"
+        self.codeID = "\(timesheet.codeID)-\(start.components(separatedBy: "T").first!)"
     }
     
     deinit {

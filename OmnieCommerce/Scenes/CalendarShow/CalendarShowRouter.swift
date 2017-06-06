@@ -21,6 +21,50 @@ class CalendarShowRouter: CalendarShowRouterInput {
     weak var viewController: CalendarShowViewController!
     
     
+    // MARK: - UIContainerView
+    func removeInactiveViewController(inactiveViewController: BaseViewController?) {
+        if let inactiveVC = inactiveViewController {
+            UIView.animate(withDuration: 0.2, animations: {
+                inactiveVC.view.transform = CGAffineTransform(translationX: (self.viewController.animationDirection == .FromRightToLeft) ? -1000 : 1000, y: 0)
+            }, completion: { success in
+                inactiveVC.willMove(toParentViewController: nil)
+                inactiveVC.view.removeFromSuperview()
+                inactiveVC.removeFromParentViewController()
+                
+                self.updateActiveViewController()
+            })
+        }
+    }
+    
+    func updateActiveViewController() {
+        if let activeVC = viewController.activeViewController {
+            if (self.viewController.animationDirection == nil) {
+                addActiveViewController(activeVC)
+            } else {
+                self.addActiveViewController(activeVC)
+                
+                UIView.animate(withDuration: 0.2, animations: {
+                    activeVC.view.transform = CGAffineTransform(translationX: (self.viewController.animationDirection == .FromRightToLeft) ? 0 : 0, y: 0)
+                })
+            }
+        }
+    }
+    
+    private func addActiveViewController(_ activeVC: BaseViewController) {
+        self.viewController.addChildViewController(activeVC)
+        
+        if (self.viewController.animationDirection == nil) {
+            activeVC.view.frame = self.viewController.containerView.bounds
+        } else {
+            activeVC.view.frame.size = self.viewController.containerView.frame.size
+            activeVC.view.transform = CGAffineTransform(translationX: (self.viewController.animationDirection == .FromRightToLeft) ? 1000 : -1000, y: 0)
+        }
+        
+        self.viewController.containerView.addSubview(activeVC.view)
+        activeVC.didMove(toParentViewController: self.viewController)
+    }
+
+    
     // MARK: - Custom Functions. Navigation
     func navigateToSomewhere() {
         // NOTE: Teach the router how to navigate to another scene. Some examples follow:

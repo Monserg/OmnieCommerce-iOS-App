@@ -32,7 +32,7 @@ class CalendarDayCell: JTAppleCell {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd.MM.yyyy"
 
-        selectedView.layer.cornerRadius = (UIDevice.current.orientation.isPortrait) ? (frame.width - 2) / 2 : (frame.height - 2) / 2
+        selectedView.layer.cornerRadius = (UIDevice.current.orientation.isPortrait) ? (frame.width - 2 ) / 2 : (frame.height - 2) / 2
         selectedView.isHidden = (cellState.isSelected) ? false : true
 
         currentView.layer.cornerRadius = (UIDevice.current.orientation.isPortrait) ? (frame.width - 2) / 2 : (frame.height - 2) / 2

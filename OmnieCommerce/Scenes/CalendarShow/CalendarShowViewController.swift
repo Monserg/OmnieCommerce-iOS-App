@@ -35,11 +35,18 @@ class CalendarShowViewController: BaseViewController, CalendarShowViewController
     var orderDateComponents: DateComponents!
     var orderStartTimeComponents: DateComponents?
     var orderEndTimeComponents: DateComponents?
-    
-    private var activeViewController: UIViewController? {
+    var animationDirection: AnimationDirection?
+
+    var activeViewController: BaseViewController? {
         didSet {
-            removeInactiveViewController(inactiveViewController: oldValue)
-            updateActiveViewController()
+            guard oldValue != nil else {
+                router.updateActiveViewController()
+                
+                return
+            }
+            
+            animationDirection = ((oldValue?.view.tag)! < (activeViewController?.view.tag)!) ? .FromRightToLeft : .FromLeftToRight
+            router.removeInactiveViewController(inactiveViewController: oldValue)
         }
         
         willSet {
@@ -52,11 +59,12 @@ class CalendarShowViewController: BaseViewController, CalendarShowViewController
                     // API "Get timesheet for one day"
                     MSMRestApiManager.instance.userRequestDidRun(.userGetOrderTimeSheetForDay(["date": newDate.convertToString(withStyle: .DateHyphen), "service": self.serviceID], false), withHandlerResponseAPICompletion: { responseAPI in
                         if let jsonTimeSheet = responseAPI?.body as? [String: AnyObject], jsonTimeSheet.count > 0 {
-                            let codeID = "\(self.serviceID)-\(newDate.convertToString(withStyle: .DateHyphen))"
-
+                            let codeID = "\(self.serviceID!)-\(newDate.convertToString(withStyle: .DateHyphen))"
+                            
                             if let timeSheet = CoreDataManager.instance.entityBy("TimeSheet", andCodeID: codeID) as? TimeSheet {
                                 timeSheet.profileDidUpload(json: jsonTimeSheet, forService: self.serviceID, andDate: newDate.convertToString(withStyle: .DateHyphen))
                                 self.timesheetVC!.selectedDate = newDate
+                                self.timesheetVC!.timeSheetID = "\(self.serviceID!)-\(newDate.convertToString(withStyle: .DateHyphen))"
                             }
                         }
                         
@@ -113,7 +121,8 @@ class CalendarShowViewController: BaseViewController, CalendarShowViewController
         calendarVC = UIStoryboard(name: "CalendarShow", bundle: nil).instantiateViewController(withIdentifier: "CalendarVC") as? CalendarViewController
         calendarVC!.selectedDate = Calendar.current.date(from: orderDateComponents)
         timesheetVC = UIStoryboard(name: "CalendarShow", bundle: nil).instantiateViewController(withIdentifier: "TimeSheetVC") as? TimeSheetViewController
-        
+        timesheetVC!.timeSheetID = "\(self.serviceID!)-\(Date().convertToString(withStyle: .DateHyphen))"
+
         activeViewController = calendarVC
         view.backgroundColor = UIColor.veryDarkDesaturatedBlue24
         dateStackView.isHidden = false
@@ -124,11 +133,6 @@ class CalendarShowViewController: BaseViewController, CalendarShowViewController
         setupDateLabel(withDate: Calendar.current.date(from: orderDateComponents)!)
 
         viewSettingsDidLoad()
-        
-        
-        // TESTED
-        timeSheetPickersView.frameDidChange()
-        timeSheetPickersView.didShow()
     }
     
     override func viewDidLayoutSubviews() {

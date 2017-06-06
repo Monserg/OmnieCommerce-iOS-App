@@ -10,11 +10,10 @@ import UIKit
 
 class TimeSheetTableViewCell: UITableViewCell {
     // MARK: - Properties
-    var organization: Organization?
-    var service: Service?
     var time: Int?
-    var isFree = true //(arc4random_uniform(2) == 0) ? true : false
+    var isFree = true
     
+    // Outlets
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var dottedLineView: UIView!
     
@@ -33,10 +32,23 @@ class TimeSheetTableViewCell: UITableViewCell {
     
     
     // MARK: - Custom Functions
-    func setup(forRow indexPath: IndexPath, withOrganization organization: Organization, andService service: Service) {
-        self.organization = organization
-        self.service = service
-        timeLabel.text = "\(String(organization.workStartTime + indexPath.row).twoNumberFormat()):00"
-        time = organization.workStartTime + indexPath.row
+//    func setup(forRow indexPath: IndexPath, withOrganization organization: Organization, andService service: Service) {
+//        self.organization = organization
+//        self.service = service
+//        
+//        timeLabel.text = "\(String(organization.workStartTime + indexPath.row).twoNumberFormat()):00"
+//        time = organization.workStartTime + indexPath.row
+//    }
+}
+
+
+// MARK: - ConfigureCell
+extension TimeSheetTableViewCell: ConfigureCell {
+    func setup(withItem item: Any, andIndexPath indexPath: IndexPath) {
+        let timeSheetItem = item as! TimeSheetItem
+        
+//        timeLabel.text = "\(String(timeSheetItem.start + indexPath.row).twoNumberFormat()):00"
+//        time = organization.workStartTime + indexPath.row
+        selectionStyle = .none
     }
 }

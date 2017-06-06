@@ -24,7 +24,8 @@ class TimeSheetViewController: BaseViewController {
     var currentScheduleView: TimeSheetView?
     var service: Service!
     var organization = Organization()
-    var timesheet: TimeSheet!
+    var timeSheet: TimeSheet!
+    var timeSheetID: String!
 
     var selectedDate: Date! {
         willSet {
@@ -74,10 +75,16 @@ class TimeSheetViewController: BaseViewController {
                                                                   andEmptyMessageText: "Schedule list is empty")
         
         tableView.tableViewControllerManager = tableViewManager
-//        tableView.tableViewControllerManager!.dataSource = //Array(serviceProfile.prices!)
-        tableView.tableFooterView!.isHidden = true
         
-        tableView.reloadData()
+        // TODO: - GET DATASOURCE
+        timeSheet = CoreDataManager.instance.entityBy("TimeSheet", andCodeID: timeSheetID) as! TimeSheet
+        
+        if let timeSheetItems = CoreDataManager.instance.entitiesDidLoad(byName: "TimeSheetItem", andPredicateParameters: NSPredicate.init(format: "timesheet.codeID == %@", timeSheetID)) as? [TimeSheetItem], timeSheetItems.count > 0 {
+            tableView.tableViewControllerManager!.dataSource = timeSheetItems
+            tableView.tableFooterView!.isHidden = true
+        
+            tableView.reloadData()
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {

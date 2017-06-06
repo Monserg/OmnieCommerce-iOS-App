@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -534,7 +534,7 @@
                         <viewControllerLayoutGuide type="top" id="qje-Ol-JQD"/>
                         <viewControllerLayoutGuide type="bottom" id="qdX-zN-eio"/>
                     </layoutGuides>
-                    <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="5Jk-DC-YaV">
+                    <view key="view" clipsSubviews="YES" tag="1" contentMode="scaleToFill" id="5Jk-DC-YaV">
                         <rect key="frame" x="0.0" y="0.0" width="400" height="400"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -912,20 +912,16 @@
                                                         </view>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="bottom" secondItem="Edl-MQ-3SO" secondAttribute="bottom" constant="1" id="2HB-1N-RV9"/>
-                                                            <constraint firstAttribute="bottom" secondItem="xTe-fw-N30" secondAttribute="bottom" constant="1" id="HGj-TR-aee"/>
-                                                            <constraint firstItem="xTe-fw-N30" firstAttribute="leading" secondItem="q8c-QT-93S" secondAttribute="leading" constant="1" id="JTc-t3-wqJ"/>
+                                                            <constraint firstItem="Edl-MQ-3SO" firstAttribute="leading" secondItem="q8c-QT-93S" secondAttribute="leading" constant="1" id="7fy-3t-db8"/>
+                                                            <constraint firstAttribute="trailing" secondItem="xTe-fw-N30" secondAttribute="trailing" constant="1" id="Gej-bB-bGH"/>
+                                                            <constraint firstItem="xTe-fw-N30" firstAttribute="leading" secondItem="q8c-QT-93S" secondAttribute="leading" constant="1" id="W5n-ni-wLR"/>
                                                             <constraint firstItem="Edl-MQ-3SO" firstAttribute="centerX" secondItem="q8c-QT-93S" secondAttribute="centerX" id="ZCO-v6-Cs3"/>
                                                             <constraint firstItem="xTe-fw-N30" firstAttribute="centerY" secondItem="q8c-QT-93S" secondAttribute="centerY" id="aD3-sK-Mcz"/>
                                                             <constraint firstItem="kFE-kS-d7o" firstAttribute="centerX" secondItem="q8c-QT-93S" secondAttribute="centerX" id="b9A-FF-qWO"/>
-                                                            <constraint firstItem="Edl-MQ-3SO" firstAttribute="top" secondItem="q8c-QT-93S" secondAttribute="top" constant="1" id="b9h-hm-7oA"/>
                                                             <constraint firstItem="xTe-fw-N30" firstAttribute="centerX" secondItem="q8c-QT-93S" secondAttribute="centerX" id="d8h-fV-MFc"/>
-                                                            <constraint firstItem="Edl-MQ-3SO" firstAttribute="leading" secondItem="q8c-QT-93S" secondAttribute="leading" constant="1" id="eiH-Sx-xMb"/>
                                                             <constraint firstItem="kFE-kS-d7o" firstAttribute="centerY" secondItem="q8c-QT-93S" secondAttribute="centerY" id="esg-zw-ia5"/>
-                                                            <constraint firstAttribute="trailing" secondItem="xTe-fw-N30" secondAttribute="trailing" constant="1" id="gcu-L5-5PZ"/>
                                                             <constraint firstItem="Edl-MQ-3SO" firstAttribute="centerY" secondItem="q8c-QT-93S" secondAttribute="centerY" id="ikF-bG-eAt"/>
-                                                            <constraint firstAttribute="trailing" secondItem="Edl-MQ-3SO" secondAttribute="trailing" constant="1" id="lW2-Wf-pE0"/>
-                                                            <constraint firstItem="xTe-fw-N30" firstAttribute="top" secondItem="q8c-QT-93S" secondAttribute="top" constant="1" id="wU8-7t-dvi"/>
+                                                            <constraint firstAttribute="trailing" secondItem="Edl-MQ-3SO" secondAttribute="trailing" constant="1" id="w73-fF-6Mr"/>
                                                         </constraints>
                                                         <size key="customSize" width="80" height="80"/>
                                                         <userDefinedRuntimeAttributes>
@@ -933,22 +929,18 @@
                                                         </userDefinedRuntimeAttributes>
                                                         <variation key="default">
                                                             <mask key="constraints">
-                                                                <exclude reference="eiH-Sx-xMb"/>
-                                                                <exclude reference="lW2-Wf-pE0"/>
-                                                                <exclude reference="JTc-t3-wqJ"/>
-                                                                <exclude reference="gcu-L5-5PZ"/>
+                                                                <exclude reference="Gej-bB-bGH"/>
+                                                                <exclude reference="W5n-ni-wLR"/>
+                                                                <exclude reference="7fy-3t-db8"/>
+                                                                <exclude reference="w73-fF-6Mr"/>
                                                             </mask>
                                                         </variation>
                                                         <variation key="heightClass=regular-widthClass=compact">
                                                             <mask key="constraints">
-                                                                <exclude reference="2HB-1N-RV9"/>
-                                                                <exclude reference="b9h-hm-7oA"/>
-                                                                <include reference="eiH-Sx-xMb"/>
-                                                                <include reference="lW2-Wf-pE0"/>
-                                                                <exclude reference="HGj-TR-aee"/>
-                                                                <include reference="JTc-t3-wqJ"/>
-                                                                <include reference="gcu-L5-5PZ"/>
-                                                                <exclude reference="wU8-7t-dvi"/>
+                                                                <include reference="Gej-bB-bGH"/>
+                                                                <include reference="W5n-ni-wLR"/>
+                                                                <include reference="7fy-3t-db8"/>
+                                                                <include reference="w73-fF-6Mr"/>
                                                             </mask>
                                                         </variation>
                                                         <connections>
