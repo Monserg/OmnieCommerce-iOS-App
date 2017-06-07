@@ -540,11 +540,6 @@ class ServiceShowViewController: BaseViewController {
 //    }
     
     func orderDateComponentsDidShow() {
-//        let orderDate = Calendar.current.date(from: orderDateComponents!)
-//        let startTimeDate = Calendar.current.date(from: orderStartTimeComponents!)
-//        let endTimeDate = Calendar.current.date(from: orderEndTimeComponents!)
-
-        
         let orderDate = orderPeriod.datesPeriod.dateStart.convertToString(withStyle: .DateDot)
         let startTimeDate = "\(String(orderPeriod.timesPeriod.hourStart).twoNumberFormat()):\(String(orderPeriod.timesPeriod.minuteStart).twoNumberFormat())"
         let endTimeDate = "\(String(orderPeriod.timesPeriod.hourEnd).twoNumberFormat()):\(String(orderPeriod.timesPeriod.minuteEnd).twoNumberFormat())"

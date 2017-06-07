@@ -28,10 +28,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hfh-VF-vjs">
-                                <rect key="frame" x="0.0" y="142.5" width="375" height="496.5"/>
+                                <rect key="frame" x="0.0" y="95" width="375" height="544"/>
                                 <subviews>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UTx-4c-86N" userLabel="Content View">
-                                        <rect key="frame" x="8" y="0.0" width="358" height="698"/>
+                                        <rect key="frame" x="8" y="0.0" width="358" height="576"/>
                                         <subviews>
                                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yVn-6g-nBJ" userLabel="Info View">
                                                 <rect key="frame" x="0.0" y="0.0" width="358" height="268"/>
@@ -46,6 +46,9 @@
                                                     <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Organization:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kWc-23-rg4" userLabel="Organization Label" customClass="UbuntuLightItalicLightGrayishCyanLabel" customModule="OmnieCommerce" customModuleProvider="target">
                                                         <rect key="frame" x="8" y="0.0" width="76" height="14.5"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="14.5" id="jIg-Cq-AVh"/>
+                                                        </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -56,6 +59,9 @@
                                                     <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IfC-cL-HCc" userLabel="Organization Name Label" customClass="UbuntuLightVeryLightGrayLabel" customModule="OmnieCommerce" customModuleProvider="target">
                                                         <rect key="frame" x="8" y="19.5" width="31" height="14.5"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="14.5" id="qJj-BN-RZA"/>
+                                                        </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -66,6 +72,9 @@
                                                     <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Service:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iSr-PF-aNB" userLabel="Service Label" customClass="UbuntuLightItalicLightGrayishCyanLabel" customModule="OmnieCommerce" customModuleProvider="target">
                                                         <rect key="frame" x="8" y="49" width="46" height="14.5"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="14.5" id="vyq-5m-DyA"/>
+                                                        </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -76,6 +85,9 @@
                                                     <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zTn-56-BlL" userLabel="Service Name Label" customClass="UbuntuLightVeryLightGrayLabel" customModule="OmnieCommerce" customModuleProvider="target">
                                                         <rect key="frame" x="8" y="68.5" width="31" height="14.5"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="14.5" id="SbD-co-aj7"/>
+                                                        </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -86,6 +98,9 @@
                                                     <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Additional Services:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zcn-y5-hT5" userLabel="Additional Service Label" customClass="UbuntuLightItalicLightGrayishCyanLabel" customModule="OmnieCommerce" customModuleProvider="target">
                                                         <rect key="frame" x="8" y="98" width="112" height="14.5"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="14.5" id="H80-Bc-RWv"/>
+                                                        </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -96,6 +111,9 @@
                                                     <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xaQ-wj-lR8" userLabel="Additional Service Name Label" customClass="UbuntuLightVeryLightGrayLabel" customModule="OmnieCommerce" customModuleProvider="target">
                                                         <rect key="frame" x="8" y="118" width="31" height="14.5"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="14" id="pGZ-PB-uPZ"/>
+                                                        </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -106,6 +124,9 @@
                                                     <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Order Date:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kiB-dA-EkL" userLabel="Period Label" customClass="UbuntuLightItalicLightGrayishCyanLabel" customModule="OmnieCommerce" customModuleProvider="target">
                                                         <rect key="frame" x="8" y="147.5" width="66" height="14.5"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="14.5" id="gX6-2m-GrG"/>
+                                                        </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -116,6 +137,9 @@
                                                     <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gns-xn-H05" userLabel="Period Date Label" customClass="UbuntuLightVeryLightGrayLabel" customModule="OmnieCommerce" customModuleProvider="target">
                                                         <rect key="frame" x="8" y="167" width="31" height="14.5"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="14.5" id="Mfm-CG-XXg"/>
+                                                        </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -126,6 +150,9 @@
                                                     <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9o2-PD-QYS" userLabel="Period Times Label" customClass="UbuntuLightVeryLightGrayLabel" customModule="OmnieCommerce" customModuleProvider="target">
                                                         <rect key="frame" x="8" y="186.5" width="31" height="14.5"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="14.5" id="get-jM-Rtt"/>
+                                                        </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -136,6 +163,9 @@
                                                     <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Comment:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DzY-AH-yl9" userLabel="Comment Label" customClass="UbuntuLightItalicLightGrayishCyanLabel" customModule="OmnieCommerce" customModuleProvider="target">
                                                         <rect key="frame" x="8" y="210" width="58.5" height="14.5"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="14.5" id="rCM-Kd-9JS"/>
+                                                        </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -146,6 +176,9 @@
                                                     <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vRy-9H-guW" userLabel="Comment Text Label" customClass="UbuntuLightVeryLightGrayLabel" customModule="OmnieCommerce" customModuleProvider="target">
                                                         <rect key="frame" x="8" y="238" width="31" height="14.5"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="14" id="0lD-VP-0lc"/>
+                                                        </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -210,10 +243,10 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3OQ-pK-yeT" userLabel="Price View">
-                                                <rect key="frame" x="0.0" y="268" width="358" height="223.5"/>
+                                                <rect key="frame" x="0.0" y="268" width="358" height="126"/>
                                                 <subviews>
                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uFl-Lv-gVE" userLabel="Price Dotted Border View" customClass="DottedBorderView" customModule="OmnieCommerce" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="358" height="223.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="358" height="126"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
@@ -264,6 +297,7 @@
                                                     <constraint firstItem="x1T-hN-PiE" firstAttribute="top" secondItem="tg6-D4-mUc" secondAttribute="bottom" constant="15" id="1Qr-NU-OUs"/>
                                                     <constraint firstItem="WRg-9L-vTM" firstAttribute="top" secondItem="x1T-hN-PiE" secondAttribute="bottom" constant="10" id="3Fy-1f-lOD"/>
                                                     <constraint firstItem="WRg-9L-vTM" firstAttribute="centerX" secondItem="3OQ-pK-yeT" secondAttribute="centerX" id="43E-py-iAz"/>
+                                                    <constraint firstAttribute="height" priority="750" constant="126" id="47f-vT-Sak"/>
                                                     <constraint firstItem="WRg-9L-vTM" firstAttribute="leading" secondItem="3OQ-pK-yeT" secondAttribute="leading" id="8tX-Q9-91R"/>
                                                     <constraint firstAttribute="trailing" secondItem="tg6-D4-mUc" secondAttribute="trailing" id="D64-4j-hMJ"/>
                                                     <constraint firstItem="uFl-Lv-gVE" firstAttribute="top" secondItem="3OQ-pK-yeT" secondAttribute="top" id="DCq-s2-Cx3"/>
@@ -281,10 +315,10 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gv5-jF-yHH" userLabel="Action View">
-                                                <rect key="frame" x="0.0" y="491.5" width="358" height="206.5"/>
+                                                <rect key="frame" x="0.0" y="394" width="358" height="116"/>
                                                 <subviews>
                                                     <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wLY-ah-PEE" userLabel="Check Button" customClass="DLRadioButton">
-                                                        <rect key="frame" x="104" y="20" width="150" height="82.5"/>
+                                                        <rect key="frame" x="104" y="20" width="150" height="36"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="150" id="lha-bj-ap8"/>
@@ -318,10 +352,10 @@
                                                         </connections>
                                                     </button>
                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aEB-CW-Tz4" userLabel="Buttons View">
-                                                        <rect key="frame" x="101.5" y="122.5" width="155.5" height="64"/>
+                                                        <rect key="frame" x="114" y="76" width="131" height="20"/>
                                                         <subviews>
                                                             <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2R6-v1-lKb" userLabel="Confirm Button" customClass="FillVeryLightOrangeButton" customModule="OmnieCommerce" customModuleProvider="target">
-                                                                <rect key="frame" x="0.5" y="0.0" width="92.5" height="64"/>
+                                                                <rect key="frame" x="0.5" y="0.0" width="68" height="20"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                                 <state key="normal" title="Confirm" image="icon-confirm-normal"/>
@@ -333,7 +367,7 @@
                                                                 </connections>
                                                             </button>
                                                             <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e45-Ad-iYc" userLabel="Cancel Button" customClass="BorderVeryLightOrangeButton" customModule="OmnieCommerce" customModuleProvider="target">
-                                                                <rect key="frame" x="99" y="0.0" width="57" height="64"/>
+                                                                <rect key="frame" x="74.5" y="0.0" width="57" height="20"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                                 <state key="normal" title="Cancel" image="icon-confirm-cancel-white-normal"/>
@@ -366,7 +400,34 @@
                                                     <constraint firstItem="aEB-CW-Tz4" firstAttribute="top" secondItem="wLY-ah-PEE" secondAttribute="bottom" constant="20" id="QYc-xv-0wc"/>
                                                     <constraint firstItem="wLY-ah-PEE" firstAttribute="centerX" secondItem="gv5-jF-yHH" secondAttribute="centerX" id="nxh-Qg-gsh"/>
                                                     <constraint firstItem="aEB-CW-Tz4" firstAttribute="centerX" secondItem="gv5-jF-yHH" secondAttribute="centerX" id="r9Y-d4-cha"/>
+                                                    <constraint firstAttribute="height" priority="750" constant="116" id="rRZ-5r-wur"/>
                                                     <constraint firstItem="wLY-ah-PEE" firstAttribute="top" secondItem="gv5-jF-yHH" secondAttribute="top" constant="20" id="syr-9t-Zim"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fy1-QB-eTo" userLabel="Cancel Action View">
+                                                <rect key="frame" x="0.0" y="510" width="358" height="66"/>
+                                                <subviews>
+                                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kKS-Tc-ZlO" userLabel="Cancel Button" customClass="BorderVeryLightOrangeButton" customModule="OmnieCommerce" customModuleProvider="target">
+                                                        <rect key="frame" x="-8" y="-300.5" width="375" height="667"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                        <state key="normal" title="Cancel" image="icon-confirm-cancel-white-normal"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="handlerCancelPreviewOrderButtonTap:" destination="QMv-PU-zAE" eventType="touchUpInside" id="KhC-vf-Ylr"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstItem="kKS-Tc-ZlO" firstAttribute="centerY" secondItem="fy1-QB-eTo" secondAttribute="centerY" id="1GE-AA-rFr"/>
+                                                    <constraint firstAttribute="height" priority="750" constant="66" id="5UJ-wH-nSU"/>
+                                                    <constraint firstItem="kKS-Tc-ZlO" firstAttribute="centerX" secondItem="fy1-QB-eTo" secondAttribute="centerX" id="Zc1-PG-e8s"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
@@ -375,17 +436,20 @@
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstItem="gv5-jF-yHH" firstAttribute="leading" secondItem="UTx-4c-86N" secondAttribute="leading" id="1v7-FU-5ZT"/>
+                                            <constraint firstItem="gv5-jF-yHH" firstAttribute="leading" secondItem="UTx-4c-86N" secondAttribute="leading" id="1Sp-nt-moT"/>
+                                            <constraint firstAttribute="bottom" secondItem="fy1-QB-eTo" secondAttribute="bottom" id="1UE-fi-0DC"/>
+                                            <constraint firstAttribute="trailing" secondItem="fy1-QB-eTo" secondAttribute="trailing" id="4lv-Jw-c2K"/>
+                                            <constraint firstAttribute="trailing" secondItem="3OQ-pK-yeT" secondAttribute="trailing" id="9eC-uJ-pd1"/>
                                             <constraint firstAttribute="trailing" secondItem="yVn-6g-nBJ" secondAttribute="trailing" id="BBa-Ie-ePP"/>
-                                            <constraint firstItem="3OQ-pK-yeT" firstAttribute="leading" secondItem="UTx-4c-86N" secondAttribute="leading" id="LoB-8D-Ggw"/>
-                                            <constraint firstAttribute="bottom" secondItem="gv5-jF-yHH" secondAttribute="bottom" id="O0s-YA-akU"/>
                                             <constraint firstAttribute="height" priority="250" constant="544" id="PVn-aY-zRH"/>
-                                            <constraint firstItem="3OQ-pK-yeT" firstAttribute="top" secondItem="yVn-6g-nBJ" secondAttribute="bottom" id="Rh7-O4-l1O"/>
+                                            <constraint firstItem="fy1-QB-eTo" firstAttribute="top" secondItem="gv5-jF-yHH" secondAttribute="bottom" id="VyA-RJ-Q9Y"/>
                                             <constraint firstItem="yVn-6g-nBJ" firstAttribute="leading" secondItem="UTx-4c-86N" secondAttribute="leading" id="WAO-kZ-1y6"/>
-                                            <constraint firstAttribute="trailing" secondItem="3OQ-pK-yeT" secondAttribute="trailing" id="X9f-yS-TUx"/>
+                                            <constraint firstItem="3OQ-pK-yeT" firstAttribute="top" secondItem="yVn-6g-nBJ" secondAttribute="bottom" id="aoc-g8-IkD"/>
+                                            <constraint firstItem="gv5-jF-yHH" firstAttribute="top" secondItem="3OQ-pK-yeT" secondAttribute="bottom" id="d9O-Fw-0QC"/>
                                             <constraint firstItem="yVn-6g-nBJ" firstAttribute="top" secondItem="UTx-4c-86N" secondAttribute="top" id="dgP-2W-lpP"/>
-                                            <constraint firstAttribute="trailing" secondItem="gv5-jF-yHH" secondAttribute="trailing" id="djV-0v-3Uy"/>
-                                            <constraint firstItem="gv5-jF-yHH" firstAttribute="top" secondItem="3OQ-pK-yeT" secondAttribute="bottom" id="sSE-t0-Sgf"/>
+                                            <constraint firstItem="3OQ-pK-yeT" firstAttribute="leading" secondItem="UTx-4c-86N" secondAttribute="leading" id="dlz-DB-w5Q"/>
+                                            <constraint firstAttribute="trailing" secondItem="gv5-jF-yHH" secondAttribute="trailing" id="ih0-sI-r2B"/>
+                                            <constraint firstItem="fy1-QB-eTo" firstAttribute="leading" secondItem="UTx-4c-86N" secondAttribute="leading" id="qiK-fZ-6L5"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
@@ -394,18 +458,18 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="UTx-4c-86N" secondAttribute="bottom" id="3hS-Ja-GnC"/>
                                     <constraint firstAttribute="trailing" secondItem="UTx-4c-86N" secondAttribute="trailing" constant="8" id="YTk-St-fh9"/>
                                     <constraint firstItem="UTx-4c-86N" firstAttribute="leading" secondItem="Hfh-VF-vjs" secondAttribute="leading" constant="8" id="d0e-jI-EhL"/>
                                     <constraint firstItem="UTx-4c-86N" firstAttribute="centerX" secondItem="Hfh-VF-vjs" secondAttribute="centerX" id="fgt-Bs-Ppi"/>
                                     <constraint firstItem="UTx-4c-86N" firstAttribute="top" secondItem="Hfh-VF-vjs" secondAttribute="top" id="jK7-1f-PXi"/>
+                                    <constraint firstAttribute="bottom" secondItem="UTx-4c-86N" secondAttribute="bottom" id="yPo-lR-oO3"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </scrollView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TOJ-4o-BWv" customClass="SmallTopBarView" customModule="OmnieCommerce" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="142.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="95"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="titleText" value="Order"/>
@@ -427,30 +491,24 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="Wtk-iH-4Z6" secondAttribute="bottom" constant="8" id="0Po-Xd-B17"/>
+                            <constraint firstItem="kKS-Tc-ZlO" firstAttribute="height" secondItem="Eo6-85-ajl" secondAttribute="height" multiplier="36:667" id="3iw-cW-Ooz"/>
                             <constraint firstAttribute="trailing" secondItem="Wtk-iH-4Z6" secondAttribute="trailing" constant="8" id="4Ep-W1-gSe"/>
+                            <constraint firstItem="kKS-Tc-ZlO" firstAttribute="width" secondItem="Eo6-85-ajl" secondAttribute="width" multiplier="224:667" id="4Hn-w3-YpD"/>
                             <constraint firstItem="Hfh-VF-vjs" firstAttribute="top" secondItem="TOJ-4o-BWv" secondAttribute="bottom" id="4uJ-NS-Kw4"/>
-                            <constraint firstItem="gv5-jF-yHH" firstAttribute="height" secondItem="Eo6-85-ajl" secondAttribute="height" multiplier="1:5.75" id="BGt-nB-FFB"/>
-                            <constraint firstItem="gv5-jF-yHH" firstAttribute="height" secondItem="Eo6-85-ajl" secondAttribute="height" multiplier="1:3.23" id="G45-iL-uHi"/>
+                            <constraint firstItem="kKS-Tc-ZlO" firstAttribute="width" secondItem="Eo6-85-ajl" secondAttribute="width" multiplier="224:375" id="B5k-Pb-uQw"/>
                             <constraint firstAttribute="trailing" secondItem="TOJ-4o-BWv" secondAttribute="trailing" id="H7m-tW-2tk"/>
                             <constraint firstItem="Wtk-iH-4Z6" firstAttribute="centerX" secondItem="Eo6-85-ajl" secondAttribute="centerX" id="IQk-uV-KGR"/>
                             <constraint firstItem="Hfh-VF-vjs" firstAttribute="leading" secondItem="Eo6-85-ajl" secondAttribute="leading" id="LDE-ia-dea"/>
                             <constraint firstItem="TOJ-4o-BWv" firstAttribute="height" secondItem="Eo6-85-ajl" secondAttribute="height" multiplier="95:667" id="LWc-Pe-Crl"/>
-                            <constraint firstItem="3OQ-pK-yeT" firstAttribute="height" secondItem="Eo6-85-ajl" secondAttribute="height" multiplier="1:5.29" id="Rcy-Ap-OG4"/>
-                            <constraint firstItem="aEB-CW-Tz4" firstAttribute="height" secondItem="Eo6-85-ajl" secondAttribute="height" multiplier="1:18.53" id="Tit-Ok-TGI"/>
-                            <constraint firstItem="aEB-CW-Tz4" firstAttribute="width" secondItem="Eo6-85-ajl" secondAttribute="width" multiplier="1:1.12" id="U40-kM-7bZ"/>
                             <constraint firstItem="TOJ-4o-BWv" firstAttribute="height" secondItem="Eo6-85-ajl" secondAttribute="height" multiplier="80:375" id="XmP-SG-Pci"/>
-                            <constraint firstItem="2R6-v1-lKb" firstAttribute="width" secondItem="Eo6-85-ajl" secondAttribute="width" multiplier="1:2.27" id="bmj-k9-kjG"/>
-                            <constraint firstItem="2R6-v1-lKb" firstAttribute="width" secondItem="Eo6-85-ajl" secondAttribute="width" multiplier="1:4.04" id="dFZ-JM-uXx"/>
                             <constraint firstItem="TOJ-4o-BWv" firstAttribute="top" secondItem="Eo6-85-ajl" secondAttribute="top" id="fs8-SN-DTN">
                                 <variation key="heightClass=compact-widthClass=compact" constant="0.0"/>
                                 <variation key="heightClass=compact-widthClass=regular" constant="0.0"/>
                             </constraint>
                             <constraint firstItem="Wtk-iH-4Z6" firstAttribute="top" secondItem="Hfh-VF-vjs" secondAttribute="bottom" constant="9" id="iJL-oh-mVM"/>
-                            <constraint firstItem="aEB-CW-Tz4" firstAttribute="width" secondItem="Eo6-85-ajl" secondAttribute="width" multiplier="1:1.99" id="ktn-VW-wk0"/>
                             <constraint firstItem="TOJ-4o-BWv" firstAttribute="leading" secondItem="Eo6-85-ajl" secondAttribute="leading" id="nM2-Vh-zkR"/>
-                            <constraint firstItem="aEB-CW-Tz4" firstAttribute="height" secondItem="Eo6-85-ajl" secondAttribute="height" multiplier="1:10.42" id="oaB-5E-Ocs"/>
                             <constraint firstItem="Wtk-iH-4Z6" firstAttribute="leading" secondItem="Eo6-85-ajl" secondAttribute="leading" constant="8" id="rd0-Cf-hfE"/>
-                            <constraint firstItem="3OQ-pK-yeT" firstAttribute="height" secondItem="Eo6-85-ajl" secondAttribute="height" multiplier="1:2.98" id="zJl-l6-viK"/>
+                            <constraint firstItem="kKS-Tc-ZlO" firstAttribute="height" secondItem="Eo6-85-ajl" secondAttribute="height" multiplier="36:375" id="wsb-hR-2sY"/>
                             <constraint firstAttribute="trailing" secondItem="Hfh-VF-vjs" secondAttribute="trailing" id="zh6-5l-n35"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
@@ -459,28 +517,18 @@
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="LWc-Pe-Crl"/>
-                                <exclude reference="Rcy-Ap-OG4"/>
-                                <exclude reference="BGt-nB-FFB"/>
-                                <exclude reference="Tit-Ok-TGI"/>
-                                <exclude reference="U40-kM-7bZ"/>
-                                <exclude reference="ktn-VW-wk0"/>
-                                <exclude reference="bmj-k9-kjG"/>
+                                <exclude reference="3iw-cW-Ooz"/>
+                                <exclude reference="B5k-Pb-uQw"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="constraints">
                                 <include reference="LWc-Pe-Crl"/>
                                 <exclude reference="XmP-SG-Pci"/>
-                                <include reference="Rcy-Ap-OG4"/>
-                                <exclude reference="zJl-l6-viK"/>
-                                <include reference="BGt-nB-FFB"/>
-                                <exclude reference="G45-iL-uHi"/>
-                                <include reference="Tit-Ok-TGI"/>
-                                <include reference="U40-kM-7bZ"/>
-                                <include reference="ktn-VW-wk0"/>
-                                <exclude reference="oaB-5E-Ocs"/>
-                                <include reference="bmj-k9-kjG"/>
-                                <exclude reference="dFZ-JM-uXx"/>
+                                <include reference="3iw-cW-Ooz"/>
+                                <exclude reference="4Hn-w3-YpD"/>
+                                <include reference="B5k-Pb-uQw"/>
+                                <exclude reference="wsb-hR-2sY"/>
                             </mask>
                         </variation>
                     </view>
@@ -490,6 +538,7 @@
                     <connections>
                         <outlet property="actionView" destination="gv5-jF-yHH" id="jzS-yh-azg"/>
                         <outlet property="additionalServicesNames" destination="xaQ-wj-lR8" id="hs9-qf-VFn"/>
+                        <outlet property="cancelActionView" destination="fy1-QB-eTo" id="eE4-Xt-9Vu"/>
                         <outlet property="checkButton" destination="wLY-ah-PEE" id="RZ6-ow-6LX"/>
                         <outlet property="commentTextLabel" destination="vRy-9H-guW" id="4kZ-vU-FGc"/>
                         <outlet property="modalView" destination="Cfk-FK-QZa" id="gcf-yZ-ogo"/>

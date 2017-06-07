@@ -16,6 +16,7 @@ protocol OrderShowInteractorInput {
     func orderDidLoad(withRequestModel requestModel: OrderShowModels.OrderItem.RequestModel)
     func orderDidCreate(withRequestModel requestModel: OrderShowModels.OrderItem.RequestModel)
     func orderDidCancel(withRequestModel requestModel: OrderShowModels.OrderItem.RequestModel)
+    func totalPriceDidLoad(withRequestModel requestModel: OrderShowModels.TotalPrice.RequestModel)
 }
 
 // MARK: - Output protocols for Presenter component VIP-cicle
@@ -23,6 +24,7 @@ protocol OrderShowInteractorOutput {
     func orderDidPrepareToShowLoad(fromResponseModel responseModel: OrderShowModels.OrderItem.ResponseModel)
     func orderDidPrepareToShowCreate(fromResponseModel responseModel: OrderShowModels.OrderItem.ResponseModel)
     func orderDidPrepareToShowCancel(fromResponseModel responseModel: OrderShowModels.OrderItem.ResponseModel)
+    func totalPriceDidPrepareToShowLoad(fromResponseModel responseModel: OrderShowModels.TotalPrice.ResponseModel)
 }
 
 class OrderShowInteractor: OrderShowInteractorInput {
@@ -53,6 +55,14 @@ class OrderShowInteractor: OrderShowInteractorInput {
             // Pass the result to the Presenter
             let orderResponseModel = OrderShowModels.OrderItem.ResponseModel(responseAPI: responseAPI)
             self.presenter.orderDidPrepareToShowCancel(fromResponseModel: orderResponseModel)
+        })
+    }
+    
+    func totalPriceDidLoad(withRequestModel requestModel: OrderShowModels.TotalPrice.RequestModel) {
+        MSMRestApiManager.instance.userRequestDidRun(.userGetOrderPriceWithoutDiscount(requestModel.parameters, true), withHandlerResponseAPICompletion: { responseAPI in
+            // Pass the result to the Presenter
+            let totalPriceResponseModel = OrderShowModels.TotalPrice.ResponseModel(responseAPI: responseAPI)
+            self.presenter.totalPriceDidPrepareToShowLoad(fromResponseModel: totalPriceResponseModel)
         })
     }
 }

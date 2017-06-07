@@ -27,4 +27,19 @@ struct OrderShowModels {
             let orderID: String?
         }
     }
+
+    struct TotalPrice {
+        struct RequestModel {
+            let parameters: [String: Any]
+        }
+        
+        struct ResponseModel {
+            let responseAPI: ResponseAPI?
+        }
+        
+        struct ViewModel {
+            let status: String
+            let value: Double?
+        }
+    }
 }

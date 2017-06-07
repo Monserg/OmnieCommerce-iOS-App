@@ -16,6 +16,7 @@ protocol OrderShowViewControllerInput {
     func orderDidShowLoad(fromViewModel viewModel: OrderShowModels.OrderItem.ViewModel)
     func orderDidShowCreate(fromViewModel viewModel: OrderShowModels.OrderItem.ViewModel)
     func orderDidShowCancel(fromViewModel viewModel: OrderShowModels.OrderItem.ViewModel)
+    func totalPriceDidShowLoad(fromViewModel viewModel: OrderShowModels.TotalPrice.ViewModel)
 }
 
 // MARK: - Output protocols for Interactor component VIP-cicle
@@ -23,6 +24,7 @@ protocol OrderShowViewControllerOutput {
     func orderDidLoad(withRequestModel requestModel: OrderShowModels.OrderItem.RequestModel)
     func orderDidCreate(withRequestModel requestModel: OrderShowModels.OrderItem.RequestModel)
     func orderDidCancel(withRequestModel requestModel: OrderShowModels.OrderItem.RequestModel)
+    func totalPriceDidLoad(withRequestModel requestModel: OrderShowModels.TotalPrice.RequestModel)
 }
 
 class OrderShowViewController: BaseViewController {
@@ -33,6 +35,7 @@ class OrderShowViewController: BaseViewController {
     var orderID: String?
     var orderPrepare: OrderPrepare?
     var bodyRequestParameters: [String: AnyObject]?
+    var orderProfile: Order?
     
     // Outlets
     @IBOutlet weak var smallTopBarView: SmallTopBarView!
@@ -41,6 +44,7 @@ class OrderShowViewController: BaseViewController {
     @IBOutlet weak var scrollView: UIScrollView! {
         didSet {
             scrollView.delegate = self
+            scrollViewBase = scrollView
         }
     }
     
@@ -72,6 +76,8 @@ class OrderShowViewController: BaseViewController {
         }
     }
     
+    // Cancel Action view
+    @IBOutlet weak var cancelActionView: UIView!
     
     
     // MARK: - Class initialization
@@ -113,40 +119,50 @@ class OrderShowViewController: BaseViewController {
         if (orderID != nil) {
             let orderRequestModel = OrderShowModels.OrderItem.RequestModel(parameters: [ "id": orderID! ])
             interactor.orderDidLoad(withRequestModel: orderRequestModel)
+            
+            actionView.isHidden = false
+            cancelActionView.isHidden = true
         } else {
             orderProfileDidShow()
+
+            actionView.isHidden = true
+            stateButton.isHidden = true
+            cancelActionView.isHidden = false
         }
+        
+        // Get total price
+//        let priceRequestModel = OrderShowModels.TotalPrice.RequestModel(parameters: bodyRequestParameters!)
+//        interactor.totalPriceDidLoad(withRequestModel: priceRequestModel)
     }
     
     func orderProfileDidShow() {
-        let orderProfile = CoreDataManager.instance.entityBy("Order", andCodeID: orderID!) as! Order
-        
         // Info view
         if (orderID != nil) {
-            organizationNameLabel.text = orderProfile.organizationName
-            serviceNameLabel.text = orderProfile.serviceName
-            additionalServicesNames.numberOfLines = 0
+            if let orderEntity = CoreDataManager.instance.entityBy("Order", andCodeID: orderID!) as? Order {
+                orderProfile = orderEntity
             
+                organizationNameLabel.text = orderProfile!.organizationName
+                serviceNameLabel.text = orderProfile!.serviceName
+                additionalServicesNames.numberOfLines = 0
+                
 //            additionalServicesNames.text = orderProfile.additionalServices
-            
-            periodDateLabel.text = orderPrepare!.period.datesPeriod.dateStart.convertToString(withStyle: .DateDot)
-            periodTimesLabel.text = "From \(String(orderPrepare!.period.timesPeriod.hourStart).twoNumberFormat()):\(String(orderPrepare!.period.timesPeriod.minuteStart).twoNumberFormat()) To \(String(orderPrepare!.period.timesPeriod.hourEnd).twoNumberFormat()):\(String(orderPrepare!.period.timesPeriod.minuteEnd).twoNumberFormat())".localized()
-            
-            commentTextLabel.numberOfLines = 0
-            commentTextLabel.text = orderProfile.comment
+                
+                periodDateLabel.text = orderPrepare!.period.datesPeriod.dateStart.convertToString(withStyle: .DateDot)
+                periodTimesLabel.text = "\("From".localized()) \(String(orderPrepare!.period.timesPeriod.hourStart).twoNumberFormat()):\(String(orderPrepare!.period.timesPeriod.minuteStart).twoNumberFormat()) \("To".localized()) \(String(orderPrepare!.period.timesPeriod.hourEnd).twoNumberFormat()):\(String(orderPrepare!.period.timesPeriod.minuteEnd).twoNumberFormat())"
+                
+                commentTextLabel.numberOfLines = 0
+                commentTextLabel.text = orderProfile!.comment
+            }
         } else {
             organizationNameLabel.text = orderPrepare!.organizationName
             serviceNameLabel.text = orderPrepare!.serviceName
             additionalServicesNames.numberOfLines = 0
             additionalServicesNames.text = orderPrepare!.additionalServices
             periodDateLabel.text = orderPrepare!.period.datesPeriod.dateStart.convertToString(withStyle: .DateDot)
-            periodTimesLabel.text = "From \(String(orderPrepare!.period.timesPeriod.hourStart).twoNumberFormat()):\(String(orderPrepare!.period.timesPeriod.minuteStart).twoNumberFormat()) To \(String(orderPrepare!.period.timesPeriod.hourEnd).twoNumberFormat()):\(String(orderPrepare!.period.timesPeriod.minuteEnd).twoNumberFormat())".localized()
+            periodTimesLabel.text = "\("From".localized()) \(String(orderPrepare!.period.timesPeriod.hourStart).twoNumberFormat()):\(String(orderPrepare!.period.timesPeriod.minuteStart).twoNumberFormat()) \("To".localized()) \(String(orderPrepare!.period.timesPeriod.hourEnd).twoNumberFormat()):\(String(orderPrepare!.period.timesPeriod.minuteEnd).twoNumberFormat())"
             commentTextLabel.numberOfLines = 0
             commentTextLabel.text = orderPrepare!.comment
         }
-        
-        // Price view
-        priceLabel.text = String(format: "%3.2f грн.", orderProfile.priceTotal)
         
         // Action view
         checkButton.sizeToFit()
@@ -189,6 +205,10 @@ class OrderShowViewController: BaseViewController {
         } else {
             sender.isSelected = false
         }
+    }
+    
+    @IBAction func handlerCancelPreviewOrderButtonTap(_ sender: BorderVeryLightOrangeButton) {
+        self.navigationController?.popViewController(animated: true)
     }
 }
 
@@ -233,6 +253,22 @@ extension OrderShowViewController: OrderShowViewControllerInput {
         }
         
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    func totalPriceDidShowLoad(fromViewModel viewModel: OrderShowModels.TotalPrice.ViewModel) {
+        spinnerDidFinish()
+        
+        // Check for errors
+        guard viewModel.status == "SUCCESS" else {
+            self.alertViewDidShow(withTitle: "Error", andMessage: viewModel.status, completion: { })
+            
+            return
+        }
+        
+        // Price view
+        if let totalPrice = viewModel.value {
+            self.priceLabel.text = String(format: "%3.2f", totalPrice)
+        }
     }
 }
 

@@ -16,6 +16,7 @@ protocol OrderShowPresenterInput {
     func orderDidPrepareToShowLoad(fromResponseModel responseModel: OrderShowModels.OrderItem.ResponseModel)
     func orderDidPrepareToShowCreate(fromResponseModel responseModel: OrderShowModels.OrderItem.ResponseModel)
     func orderDidPrepareToShowCancel(fromResponseModel responseModel: OrderShowModels.OrderItem.ResponseModel)
+    func totalPriceDidPrepareToShowLoad(fromResponseModel responseModel: OrderShowModels.TotalPrice.ResponseModel)
 }
 
 // MARK: - Output protocols for ViewController component VIP-cicle
@@ -23,6 +24,7 @@ protocol OrderShowPresenterOutput: class {
     func orderDidShowLoad(fromViewModel viewModel: OrderShowModels.OrderItem.ViewModel)
     func orderDidShowCreate(fromViewModel viewModel: OrderShowModels.OrderItem.ViewModel)
     func orderDidShowCancel(fromViewModel viewModel: OrderShowModels.OrderItem.ViewModel)
+    func totalPriceDidShowLoad(fromViewModel viewModel: OrderShowModels.TotalPrice.ViewModel)
 }
 
 class OrderShowPresenter: OrderShowPresenterInput {
@@ -94,5 +96,18 @@ class OrderShowPresenter: OrderShowPresenterInput {
         // Convert responseAPI body to Order CoreData object
         let orderViewModel = OrderShowModels.OrderItem.ViewModel(status: responseModel.responseAPI!.status, orderID: responseModel.responseAPI!.body as? String)
         self.viewController.orderDidShowCreate(fromViewModel: orderViewModel)
+    }
+    
+    func totalPriceDidPrepareToShowLoad(fromResponseModel responseModel: OrderShowModels.TotalPrice.ResponseModel) {
+        guard responseModel.responseAPI != nil else {
+            let totalPriceViewModel = OrderShowModels.TotalPrice.ViewModel(status: "RESPONSE_NIL", value: nil)
+            viewController.totalPriceDidShowLoad(fromViewModel: totalPriceViewModel)
+            
+            return
+        }
+        
+        // Convert responseAPI body to Order CoreData object
+        let totalPriceViewModel = OrderShowModels.TotalPrice.ViewModel(status: responseModel.responseAPI!.status, value: responseModel.responseAPI!.body as? Double)
+        self.viewController.totalPriceDidShowLoad(fromViewModel: totalPriceViewModel)
     }
 }

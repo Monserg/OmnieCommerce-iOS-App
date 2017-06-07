@@ -42,6 +42,7 @@ public enum StatusCodeNote: Int {
     case WRONG_INPUT_DATA           =   4500    //  WRONG INPUT DATA
     case USER_EXIST                 =   4670
     case ORG_NAME_EXIST             =   6992    //  NAME OF ORG HAS UNIQUE CONSTRAIN
+    case TIMESHEET_BROKEN           =   8100    //  Timesheet is not available
 
     var name: String {
         get { return String(describing: self) }

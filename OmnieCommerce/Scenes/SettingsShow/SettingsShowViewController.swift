@@ -27,8 +27,6 @@ class SettingsShowViewController: BaseViewController {
     var interactor: SettingsShowViewControllerOutput!
     var router: SettingsShowRouter!
     
-    var appSettings: AppSettings!
-    
     var pickerViewManager: MSMPickerViewManager! {
         didSet {
             guard eventPickerView != nil else {
