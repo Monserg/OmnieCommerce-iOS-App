@@ -13,8 +13,8 @@ import UIKit
 
 // MARK: - Input & Output protocols
 protocol ServiceShowRouterInput {
-    func navigateToOrderShowScene(withOrderID orderID: String)
-    func navigateToCalendar(withServiceID serviceID: String, andorderDateComponents orderDateComponents: DateComponents)
+    func navigateToCalendar(withServiceID serviceID: String, andOrderPeriod orderPeriod: Period)
+    func navigateToOrderShowScene(withOrderPrepare orderPrepare: OrderPrepare, andRequestParameters bodyParameters: [String: AnyObject])
 }
 
 class ServiceShowRouter: ServiceShowRouterInput {
@@ -23,26 +23,28 @@ class ServiceShowRouter: ServiceShowRouterInput {
     
     
     // MARK: - Custom Functions. Navigation
-    func navigateToOrderShowScene(withOrderID orderID: String) {
+    func navigateToOrderShowScene(withOrderPrepare orderPrepare: OrderPrepare, andRequestParameters bodyParameters: [String: AnyObject]) {
         let storyboard = UIStoryboard(name: "OrderShow", bundle: nil)
         let orderShowVC = storyboard.instantiateViewController(withIdentifier: "OrderShowVC") as! OrderShowViewController
-        orderShowVC.orderID = orderID
+        orderShowVC.orderPrepare = orderPrepare
+        orderShowVC.bodyRequestParameters = bodyParameters
         
         viewController.navigationController?.pushViewController(orderShowVC, animated: true)
     }
 
-    func navigateToCalendar(withServiceID serviceID: String, andorderDateComponents orderDateComponents: DateComponents) {
+    func navigateToCalendar(withServiceID serviceID: String, andOrderPeriod orderPeriod: Period) {
         let storyboard = UIStoryboard(name: "CalendarShow", bundle: nil)
         let calendarShowVC = storyboard.instantiateViewController(withIdentifier: "CalendarShowVC") as! CalendarShowViewController
-        calendarShowVC.orderDateComponents = orderDateComponents
+        calendarShowVC.orderPeriod = orderPeriod
         calendarShowVC.serviceID = serviceID
         
         viewController.navigationController?.pushViewController(calendarShowVC, animated: true)
         
         // Handler Confirm completion
-        calendarShowVC.handlerConfirmButtonCompletion = { newOrderDateComponents in
+        calendarShowVC.handlerConfirmButtonCompletion = { orderPeriod in
             self.viewController.orderButton.isEnabled = true
-            self.viewController.orderDateComponents = newOrderDateComponents as? DateComponents
+            self.viewController.orderPeriod = orderPeriod as! Period
+            self.viewController.orderPrepare.period = orderPeriod as! Period
             self.viewController.orderDateComponentsDidShow()
         }
     }

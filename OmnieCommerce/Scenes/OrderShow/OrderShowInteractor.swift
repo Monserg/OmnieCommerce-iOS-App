@@ -14,11 +14,15 @@ import UIKit
 // MARK: - Input protocols for current Interactor component VIP-cicle
 protocol OrderShowInteractorInput {
     func orderDidLoad(withRequestModel requestModel: OrderShowModels.OrderItem.RequestModel)
+    func orderDidCreate(withRequestModel requestModel: OrderShowModels.OrderItem.RequestModel)
+    func orderDidCancel(withRequestModel requestModel: OrderShowModels.OrderItem.RequestModel)
 }
 
 // MARK: - Output protocols for Presenter component VIP-cicle
 protocol OrderShowInteractorOutput {
     func orderDidPrepareToShowLoad(fromResponseModel responseModel: OrderShowModels.OrderItem.ResponseModel)
+    func orderDidPrepareToShowCreate(fromResponseModel responseModel: OrderShowModels.OrderItem.ResponseModel)
+    func orderDidPrepareToShowCancel(fromResponseModel responseModel: OrderShowModels.OrderItem.ResponseModel)
 }
 
 class OrderShowInteractor: OrderShowInteractorInput {
@@ -33,6 +37,22 @@ class OrderShowInteractor: OrderShowInteractorInput {
             // Pass the result to the Presenter
             let orderResponseModel = OrderShowModels.OrderItem.ResponseModel(responseAPI: responseAPI)
             self.presenter.orderDidPrepareToShowLoad(fromResponseModel: orderResponseModel)
+        })
+    }
+    
+    func orderDidCreate(withRequestModel requestModel: OrderShowModels.OrderItem.RequestModel) {
+        MSMRestApiManager.instance.userRequestDidRun(.userMakeNewOrder(requestModel.parameters, true), withHandlerResponseAPICompletion: { responseAPI in
+            // Pass the result to the Presenter
+            let orderResponseModel = OrderShowModels.OrderItem.ResponseModel(responseAPI: responseAPI)
+            self.presenter.orderDidPrepareToShowCreate(fromResponseModel: orderResponseModel)
+        })
+    }
+    
+    func orderDidCancel(withRequestModel requestModel: OrderShowModels.OrderItem.RequestModel) {
+        MSMRestApiManager.instance.userRequestDidRun(.userCancelOrderByID(requestModel.parameters, false), withHandlerResponseAPICompletion: { responseAPI in
+            // Pass the result to the Presenter
+            let orderResponseModel = OrderShowModels.OrderItem.ResponseModel(responseAPI: responseAPI)
+            self.presenter.orderDidPrepareToShowCancel(fromResponseModel: orderResponseModel)
         })
     }
 }

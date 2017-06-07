@@ -114,10 +114,10 @@ extension MSMPickerViewManager: UIPickerViewDelegate {
             return (scene == "PersonalPageShow") ? 20.0 : 23.0
             
         case 1:
-            return (scene == "PersonalPageShow") ? 15.0 : 22.0
+            return (scene == "PersonalPageShow") ? 15.0 : (scene == "TimeSheetPickersView") ? 5.0 : 22.0
             
         case 2:
-            return 20.0
+            return (scene == "TimeSheetPickersView") ? 23.0 : 20.0
             
         case 4:
             return (scene == "PersonalPageShow") ? 35.0 : 20.0
@@ -160,14 +160,14 @@ extension MSMPickerViewManager: UIPickerViewDelegate {
         switch component {
         case 0:
             if (scene == "TimeSheetPickersView") {
-                label.text = hours[row]
+                label.text = hours[row].twoNumberFormat()
             } else {
                 label.text = days[selectedMonthIndex][row]
             }
             
         case 2:
             if (scene == "TimeSheetPickersView") {
-                label.text = minutes[row]
+                label.text = minutes[row].twoNumberFormat()
             } else {
                 label.text = (scene == "PersonalPageShow") ? months[row] : hours[row]
             }

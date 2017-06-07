@@ -14,13 +14,13 @@ import UIKit
 // MARK: - Input protocols for current Presenter component VIP-cicle
 protocol ServiceShowPresenterInput {
     func serviceDidPrepareToShowLoad(fromResponseModel responseModel: ServiceShowModels.ServiceItem.ResponseModel)
-    func orderDidPrepareToShowLoad(fromResponseModel responseModel: ServiceShowModels.OrderItem.ResponseModel)
+//    func orderDidPrepareToShowLoad(fromResponseModel responseModel: ServiceShowModels.OrderItem.ResponseModel)
 }
 
 // MARK: - Output protocols for ViewController component VIP-cicle
 protocol ServiceShowPresenterOutput: class {
     func serviceDidShowLoad(fromViewModel viewModel: ServiceShowModels.ServiceItem.ViewModel)
-    func orderDidShowLoad(fromViewModel viewModel: ServiceShowModels.OrderItem.ViewModel)
+//    func orderDidShowLoad(fromViewModel viewModel: ServiceShowModels.OrderItem.ViewModel)
 }
 
 class ServiceShowPresenter: ServiceShowPresenterInput {
@@ -66,8 +66,8 @@ class ServiceShowPresenter: ServiceShowPresenterInput {
     
     func orderDidPrepareToShowLoad(fromResponseModel responseModel: ServiceShowModels.OrderItem.ResponseModel) {
         guard responseModel.responseAPI != nil else {
-            let orderViewModel = ServiceShowModels.OrderItem.ViewModel(status: "RESPONSE_NIL", orderID: nil)
-            viewController.orderDidShowLoad(fromViewModel: orderViewModel)
+//            let orderViewModel = ServiceShowModels.OrderItem.ViewModel(status: "RESPONSE_NIL", orderID: nil)
+//            viewController.orderDidShowLoad(fromViewModel: orderViewModel)
             
             return
         }
@@ -86,7 +86,7 @@ class ServiceShowPresenter: ServiceShowPresenterInput {
         
         CoreDataManager.instance.didSaveContext()
         
-        let orderViewModel = ServiceShowModels.OrderItem.ViewModel(status: responseModel.responseAPI!.status, orderID: orderCodeID)
-        self.viewController.orderDidShowLoad(fromViewModel: orderViewModel)
+//        let orderViewModel = ServiceShowModels.OrderItem.ViewModel(status: responseModel.responseAPI!.status, orderID: orderCodeID)
+//        self.viewController.orderDidShowLoad(fromViewModel: orderViewModel)
     }
 }

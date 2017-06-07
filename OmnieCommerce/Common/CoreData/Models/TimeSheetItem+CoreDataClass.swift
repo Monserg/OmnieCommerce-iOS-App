@@ -30,7 +30,7 @@ public class TimeSheetItem: NSManagedObject, InitCellParameters {
     
     // Confirm InitCellParameters Protocol
     var cellIdentifier: String = "TimeSheetTableViewCell"
-    var cellHeight: CGFloat = 90.0
+    var cellHeight: CGFloat = 45.0
 
     
     
@@ -42,7 +42,7 @@ public class TimeSheetItem: NSManagedObject, InitCellParameters {
         self.end = json["end"] as! String
         self.type = TimeSheetItemType.init(rawValue: (json["type"] as! String))
         
-        self.codeID = "\(timesheet.codeID)-\(start.components(separatedBy: "T").first!)"
+        self.codeID = "\(timesheet.codeID)-\(start.components(separatedBy: "T").last!)"
     }
     
     deinit {

@@ -32,11 +32,12 @@ class CalendarShowViewController: BaseViewController, CalendarShowViewController
     var serviceID: String!
     var calendarVC: CalendarViewController?
     var timesheetVC: TimeSheetViewController?
-    var orderDateComponents: DateComponents!
+    var orderDateComponents: DateComponents! = Calendar.current.dateComponents([.month, .day, .year, .hour, .minute], from: Date())
     var orderStartTimeComponents: DateComponents?
     var orderEndTimeComponents: DateComponents?
     var animationDirection: AnimationDirection?
-
+    var orderPeriod: Period!
+    
     var activeViewController: BaseViewController? {
         didSet {
             guard oldValue != nil else {
@@ -52,24 +53,28 @@ class CalendarShowViewController: BaseViewController, CalendarShowViewController
         willSet {
             if (newValue == calendarVC) {
                 calendarVC!.handlerSelectNewDateCompletion = { newDate in
-                    self.dateStackView.isHidden = false
-                    self.setupDateLabel(withDate: newDate)
-                    self.orderDateComponents = Calendar.current.dateComponents([.month, .day, .year, .hour, .minute], from: newDate)
-                    
-                    // API "Get timesheet for one day"
-                    MSMRestApiManager.instance.userRequestDidRun(.userGetOrderTimeSheetForDay(["date": newDate.convertToString(withStyle: .DateHyphen), "service": self.serviceID], false), withHandlerResponseAPICompletion: { responseAPI in
-                        if let jsonTimeSheet = responseAPI?.body as? [String: AnyObject], jsonTimeSheet.count > 0 {
-                            let codeID = "\(self.serviceID!)-\(newDate.convertToString(withStyle: .DateHyphen))"
+                    self.dateDidSelect(newDate)
+                }
+            } else {
+                timesheetVC!.handlerShowTimeSheetPickersCompletion = { isShow in
+                    if (isShow as! Bool) {
+                        if !(self.timeSheetPickersView?.isShow)! {
+                            self.timeSheetPickersView = TimeSheetPickersView.init(frame: CGRect.init(origin: .zero, size: .zero))
+                            self.timeSheetPickersView.timesPeriod = self.timesheetVC!.currentScheduleView!.timesPeriod
+                            self.timeSheetPickersView.didShow(inView: self.view)
                             
-                            if let timeSheet = CoreDataManager.instance.entityBy("TimeSheet", andCodeID: codeID) as? TimeSheet {
-                                timeSheet.profileDidUpload(json: jsonTimeSheet, forService: self.serviceID, andDate: newDate.convertToString(withStyle: .DateHyphen))
-                                self.timesheetVC!.selectedDate = newDate
-                                self.timesheetVC!.timeSheetID = "\(self.serviceID!)-\(newDate.convertToString(withStyle: .DateHyphen))"
+                            self.timeSheetPickersView.handlerConfirmButtonCompletion = { timesPeriod in
+                                self.timesheetVC!.currentScheduleView!.didChangeGestureMode(to: .ScheduleMove)
+                                self.confirmButton.isEnabled = true
+                                self.orderPeriod.timesPeriod = timesPeriod as! TimesPeriod
+                                self.fromTimeLabel.text = "\(String(self.orderPeriod.timesPeriod.hourStart).twoNumberFormat()):\(String(self.orderPeriod.timesPeriod.minuteStart).twoNumberFormat())"
+                                self.toTimeLabel.text = "\(String(self.orderPeriod.timesPeriod.hourEnd).twoNumberFormat()):\(String(self.orderPeriod.timesPeriod.minuteEnd).twoNumberFormat())"
                             }
                         }
-                        
-                        CoreDataManager.instance.didSaveContext()
-                    })
+                    } else {
+                        self.timesheetVC!.currentScheduleView!.didChangeGestureMode(to: .ScheduleMove)
+                        self.timeSheetPickersView.didHide()
+                    }
                 }
             }
         }
@@ -127,12 +132,16 @@ class CalendarShowViewController: BaseViewController, CalendarShowViewController
         view.backgroundColor = UIColor.veryDarkDesaturatedBlue24
         dateStackView.isHidden = false
         
+        dateDidSelect(Calendar.current.date(from: orderDateComponents)!)
+        
         setupScene(withSize: view.frame.size)
         setupSegmentedControlView()
         setupContainerView(withSize: view.frame.size)
         setupDateLabel(withDate: Calendar.current.date(from: orderDateComponents)!)
 
         viewSettingsDidLoad()
+        
+        timeSheetPickersView.frameDidChange()
     }
     
     override func viewDidLayoutSubviews() {
@@ -165,7 +174,6 @@ class CalendarShowViewController: BaseViewController, CalendarShowViewController
         bottomDottedBorderView.setNeedsDisplay()
         segmentedControlView.setNeedsDisplay()
         containerView.setNeedsDisplay()
-        confirmButton.setupWithStyle(.VeryLightOrangeFill)
     }
     
     func setupDateLabel(withDate date: Date) {
@@ -195,39 +203,64 @@ class CalendarShowViewController: BaseViewController, CalendarShowViewController
         }
     }
     
-    func removeInactiveViewController(inactiveViewController: UIViewController?) {
-        if let inactiveVC = inactiveViewController {
-            inactiveVC.willMove(toParentViewController: nil)
-            inactiveVC.view.removeFromSuperview()
-            inactiveVC.removeFromParentViewController()
-        }
+    func dateDidSelect(_ date: Date) {
+        self.dateStackView.isHidden = false
+        self.setupDateLabel(withDate: date)
+        self.orderDateComponents = Calendar.current.dateComponents([.month, .day, .year, .hour, .minute], from: date)
+        
+        // API "Get timesheet for one day"
+        MSMRestApiManager.instance.userRequestDidRun(.userGetOrderTimeSheetForDay(["date": date.convertToString(withStyle: .DateHyphen), "service": self.serviceID], false), withHandlerResponseAPICompletion: { responseAPI in
+            let codeID = "\(self.serviceID!)-\(date.convertToString(withStyle: .DateHyphen))"
+
+            if let jsonTimeSheet = responseAPI?.body as? [String: AnyObject], jsonTimeSheet.count > 0 {
+                if let timeSheet = CoreDataManager.instance.entityBy("TimeSheet", andCodeID: codeID) as? TimeSheet {
+                    timeSheet.profileDidUpload(json: jsonTimeSheet, forService: self.serviceID, andDate: date.convertToString(withStyle: .DateHyphen))
+                    self.timesheetVC!.selectedDate = date
+                    self.timesheetVC!.timeSheetID = "\(self.serviceID!)-\(date.convertToString(withStyle: .DateHyphen))"
+                    
+                    // Create TimeSheetItems for Organization work time
+                    if let timeSheetItems = jsonTimeSheet["timesheet"] as? [String: AnyObject], timeSheetItems.count > 0 {
+                        
+                    } else {
+                        for index in 0...23 {
+                            let start = "\(String(index).twoNumberFormat()):00"
+                            let end = (index == 23) ? "\(String(index).twoNumberFormat()):59" : "\(String(index + 1).twoNumberFormat()):00"
+                            let itemCodeID = "\(timeSheet.codeID)-\(start)"
+                            let date = "\(self.orderDateComponents.year!)-\(String(self.orderDateComponents.month!).twoNumberFormat())-\(String(self.orderDateComponents.day!).twoNumberFormat())T"
+                            
+                            if let timeSheetItem = CoreDataManager.instance.entityBy("TimeSheetItem", andCodeID: itemCodeID) as? TimeSheetItem {
+                                let jsonTimeSheetItem: [String: AnyObject] =    [
+                                    "start":    "\(date)\(start)" as AnyObject,
+                                    "end":      "\(date)\(end)" as AnyObject,
+                                    "type":     "FREE" as AnyObject
+                                ]
+                                
+                                timeSheetItem.profileDidUpload(json: jsonTimeSheetItem, andTimeSheet: timeSheet)
+                            }
+                        }
+                    }
+                }
+            }
+                
+            CoreDataManager.instance.didSaveContext()
+        })
     }
-    
-    func updateActiveViewController() {
-        if let activeVC = activeViewController {
-            addChildViewController(activeVC)
-            activeVC.view.frame = containerView.bounds
-            containerView.addSubview(activeVC.view)
-            activeVC.didMove(toParentViewController: self)
-            activeVC.didMove(toParentViewController: self)
-        }
-    }
-    
-    
+        
+        
     // MARK: - Transition
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         print(object: "\(type(of: self)): \(#function) run. New size = \(size)")
         
-        setupScene(withSize: size)        
+        setupScene(withSize: size)
         dateLabel.textAlignment = (size.height > size.width) ? .left : .center
-//        calendarVC!.calendarView.scrollToDate(calendarVC!.selectedDate!)
+        timeSheetPickersView.fromLabel.setNeedsDisplay()
     }
 
     // MARK: - Actions
     @IBAction func handlerConfirmButtonTap(_ sender: CustomButton) {
         print(object: "\(type(of: self)): \(#function) run.")
         self.navigationController?.popViewController(animated: true)
-        handlerConfirmButtonCompletion!(orderDateComponents)
+        handlerConfirmButtonCompletion!(orderPeriod)
     }
     
     @IBAction func handlerCancelButtonTap(_ sender: CustomButton) {

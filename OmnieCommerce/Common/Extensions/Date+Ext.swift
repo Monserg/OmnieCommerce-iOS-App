@@ -63,7 +63,7 @@ extension Date {
     func getHours() -> [String] {
         var hours = [String]()
         
-        for hour in 0..<25 {
+        for hour in 0..<24 {
             hours.append(String(hour))
         }
         
@@ -73,7 +73,7 @@ extension Date {
     func getMinutes() -> [String] {
         var minutes = [String]()
         
-        for minute in 0..<61 {
+        for minute in 0..<60 {
             minutes.append(String(minute))
         }
         
@@ -169,23 +169,20 @@ extension Date {
         return startTime + " - " + currentTime
     }
     
-    func didShow(timePointer: TimePointer, forOrganization organization: Organization, inTableView tableView: UITableView, withCellHeight cellHeight: CGFloat) -> Bool {
-        let dateComponents = Calendar.current.dateComponents([.hour], from: self)
+    func didShow(timePointer: TimePointer, inTableView tableView: UITableView, withCellHeight cellHeight: CGFloat) -> Bool {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "HH dd.MM.yyyy"
         
         if (dateFormatter.string(from: self) == dateFormatter.string(from: Date())) {
-            if (organization.workStartTime...(organization.workStartTime + tableView.visibleCells.count) ~= dateComponents.hour!) {
-                // Initialization
-                if (timePointer.frame.minY == 0) {
-                    tableView.addSubview(timePointer)
-                    timePointer.didMoveToNewPosition(forOrganization: organization, inTableView: tableView, withCellHeight: cellHeight, andAnimation: false)
-                } else {
-                    timePointer.didMoveToNewPosition(forOrganization: organization, inTableView: tableView, withCellHeight: cellHeight, andAnimation: true)
-                }
-                
-                return true
+            // Initialization
+            if (timePointer.frame.minY == 0) {
+                tableView.addSubview(timePointer)
+                timePointer.didMoveToNewPosition(inTableView: tableView, withCellHeight: cellHeight, andAnimation: false)
+            } else {
+                timePointer.didMoveToNewPosition(inTableView: tableView, withCellHeight: cellHeight, andAnimation: true)
             }
+            
+            return true
         }
         
         return false

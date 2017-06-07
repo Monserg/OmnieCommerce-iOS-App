@@ -338,6 +338,7 @@
         <attribute name="codeID" attributeType="String" syncable="YES"/>
         <attribute name="date" attributeType="String" syncable="YES"/>
         <attribute name="minDuration" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="orderDuration" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="slotsCount" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="workTimeEnd" attributeType="String" syncable="YES"/>
         <attribute name="workTimeStart" attributeType="String" syncable="YES"/>
@@ -380,7 +381,7 @@
         <element name="Schedule" positionX="153" positionY="90" width="128" height="180"/>
         <element name="Service" positionX="-36" positionY="117" width="128" height="30"/>
         <element name="Subcategory" positionX="475" positionY="-69" width="128" height="165"/>
-        <element name="TimeSheet" positionX="144" positionY="81" width="128" height="165"/>
+        <element name="TimeSheet" positionX="144" positionY="81" width="128" height="180"/>
         <element name="TimeSheetItem" positionX="153" positionY="90" width="128" height="120"/>
     </elements>
 </model>

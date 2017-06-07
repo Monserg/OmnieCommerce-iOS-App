@@ -14,11 +14,15 @@ import UIKit
 // MARK: - Input protocols for current Presenter component VIP-cicle
 protocol OrderShowPresenterInput {
     func orderDidPrepareToShowLoad(fromResponseModel responseModel: OrderShowModels.OrderItem.ResponseModel)
+    func orderDidPrepareToShowCreate(fromResponseModel responseModel: OrderShowModels.OrderItem.ResponseModel)
+    func orderDidPrepareToShowCancel(fromResponseModel responseModel: OrderShowModels.OrderItem.ResponseModel)
 }
 
 // MARK: - Output protocols for ViewController component VIP-cicle
 protocol OrderShowPresenterOutput: class {
     func orderDidShowLoad(fromViewModel viewModel: OrderShowModels.OrderItem.ViewModel)
+    func orderDidShowCreate(fromViewModel viewModel: OrderShowModels.OrderItem.ViewModel)
+    func orderDidShowCancel(fromViewModel viewModel: OrderShowModels.OrderItem.ViewModel)
 }
 
 class OrderShowPresenter: OrderShowPresenterInput {
@@ -29,28 +33,66 @@ class OrderShowPresenter: OrderShowPresenterInput {
     // MARK: - Custom Functions. Presentation logic
     func orderDidPrepareToShowLoad(fromResponseModel responseModel: OrderShowModels.OrderItem.ResponseModel) {
         guard responseModel.responseAPI != nil else {
-            let orderViewModel = OrderShowModels.OrderItem.ViewModel(status: "RESPONSE_NIL")
+            let orderViewModel = OrderShowModels.OrderItem.ViewModel(status: "RESPONSE_NIL", orderID: nil)
             viewController.orderDidShowLoad(fromViewModel: orderViewModel)
             
             return
         }
         
         // Convert responseAPI body to Order CoreData object
-//        let order = Order.init(json: responseModel.responseAPI?.body as! [String: AnyObject], andOrganization: nil)
-//        
-//        if let pricesList = service?.prices, pricesList.count > 0 {
-//            let pricesArray = Array(pricesList)
-//            _ = pricesArray.map({ ($0 as! Price).cellHeight = 20.0; ($0 as! Price).cellIdentifier = "PriceServiceTableViewCell" })
-//            service!.prices = NSSet.init(array: pricesArray)
-//        }
-//        
-//        if let placeID = service!.placeID {
-//            service!.googlePlaceDidLoad(positionID: placeID, completion: { _ in
-//                CoreDataManager.instance.didSaveContext()
-//                
-//                let serviceViewModel = ServiceShowModels.ServiceItem.ViewModel(status: responseModel.responseAPI!.status)
-//                self.viewController.serviceDidShowLoad(fromViewModel: serviceViewModel)
-//            })
-//        }
+        var orderCodeID: String?
+        
+        if let jsonOrder = responseModel.responseAPI!.body as? [String: AnyObject] {
+            if let codeID = jsonOrder["uuid"] as? String {
+                if let order = CoreDataManager.instance.entityBy("Order", andCodeID: codeID) as? Order {
+                    order.profileDidUpload(json: jsonOrder, forList: keyOrder)
+                    orderCodeID = codeID
+                }
+            }
+        }
+        
+        CoreDataManager.instance.didSaveContext()
+        
+        let orderViewModel = OrderShowModels.OrderItem.ViewModel(status: responseModel.responseAPI!.status, orderID: orderCodeID)
+        self.viewController.orderDidShowLoad(fromViewModel: orderViewModel)
+    }
+    
+    func orderDidPrepareToShowCreate(fromResponseModel responseModel: OrderShowModels.OrderItem.ResponseModel) {
+        guard responseModel.responseAPI != nil else {
+            let orderViewModel = OrderShowModels.OrderItem.ViewModel(status: "RESPONSE_NIL", orderID: nil)
+            viewController.orderDidShowLoad(fromViewModel: orderViewModel)
+            
+            return
+        }
+        
+        // Convert responseAPI body to Order CoreData object
+        var orderCodeID: String?
+        
+        if let jsonOrder = responseModel.responseAPI!.body as? [String: AnyObject] {
+            if let codeID = jsonOrder["uuid"] as? String {
+                if let order = CoreDataManager.instance.entityBy("Order", andCodeID: codeID) as? Order {
+                    order.profileDidUpload(json: jsonOrder, forList: keyOrder)
+                    orderCodeID = codeID
+                }
+            }
+        }
+        
+        CoreDataManager.instance.didSaveContext()
+        
+        let orderViewModel = OrderShowModels.OrderItem.ViewModel(status: responseModel.responseAPI!.status, orderID: orderCodeID)
+        self.viewController.orderDidShowCreate(fromViewModel: orderViewModel)
+    }
+
+    func orderDidPrepareToShowCancel(fromResponseModel responseModel: OrderShowModels.OrderItem.ResponseModel) {
+        guard responseModel.responseAPI != nil else {
+            let orderViewModel = OrderShowModels.OrderItem.ViewModel(status: "RESPONSE_NIL", orderID: nil)
+            viewController.orderDidShowLoad(fromViewModel: orderViewModel)
+            
+            return
+        }
+        
+        // Convert responseAPI body to Order CoreData object
+        let orderViewModel = OrderShowModels.OrderItem.ViewModel(status: responseModel.responseAPI!.status, orderID: responseModel.responseAPI!.body as? String)
+        self.viewController.orderDidShowCreate(fromViewModel: orderViewModel)
     }
 }

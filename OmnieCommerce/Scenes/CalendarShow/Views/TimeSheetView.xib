@@ -1,94 +1,110 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TimeSheetView" customModule="OmnieCommerce" customModuleProvider="target">
             <connections>
+                <outlet property="contentView" destination="FV8-XW-0fl" id="8C1-j7-TuM"/>
                 <outlet property="finishTimeLabel" destination="nQo-y8-OU5" id="qSp-78-k2h"/>
                 <outlet property="startTimeLabel" destination="qYR-Ta-mYR" id="BSc-6F-9AX"/>
                 <outlet property="view" destination="dUt-sL-QaU" id="Mgh-nT-LTR"/>
-                <outletCollection property="upDownButtonsCollection" destination="ZNF-A0-Dmv" collectionClass="NSMutableArray" id="20a-gp-pji"/>
                 <outletCollection property="upDownButtonsCollection" destination="XQY-Cz-M1I" collectionClass="NSMutableArray" id="u4n-SS-haP"/>
+                <outletCollection property="upDownButtonsCollection" destination="ZNF-A0-Dmv" collectionClass="NSMutableArray" id="20a-gp-pji"/>
             </connections>
         </placeholder>
         <view clipsSubviews="YES" contentMode="scaleToFill" id="dUt-sL-QaU">
             <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XQY-Cz-M1I" userLabel="Up Button">
-                    <rect key="frame" x="345" y="-5" width="10" height="10"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FV8-XW-0fl" userLabel="Content View">
+                    <rect key="frame" x="0.0" y="5" width="375" height="40"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XQY-Cz-M1I" userLabel="Up Button">
+                            <rect key="frame" x="345" y="-5" width="10" height="10"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="10" id="5tK-Xl-dLk"/>
+                                <constraint firstAttribute="width" constant="10" id="dE0-h2-sij"/>
+                            </constraints>
+                            <state key="normal" image="icon-top-item-normal"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                        </button>
+                        <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZNF-A0-Dmv" userLabel="Down Button">
+                            <rect key="frame" x="20" y="35" width="10" height="10"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="10" id="blP-2R-zhu"/>
+                                <constraint firstAttribute="width" constant="10" id="h4D-k2-Ca7"/>
+                            </constraints>
+                            <state key="normal" image="icon-bottom-item-normal"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                        </button>
+                        <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qYR-Ta-mYR" userLabel="Start Time Label">
+                            <rect key="frame" x="8" y="8" width="31" height="15"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qmh-SQ-qUc" userLabel="Separator Time Label">
+                            <rect key="frame" x="39" y="8" width="10" height="15"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="10" id="gsy-5y-AA3"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nQo-y8-OU5" userLabel="Finish Time Label">
+                            <rect key="frame" x="49" y="8" width="31" height="15"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="0.098039215686274508" green="0.30980392156862746" blue="0.34901960784313724" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="10" id="5tK-Xl-dLk"/>
-                        <constraint firstAttribute="width" constant="10" id="dE0-h2-sij"/>
+                        <constraint firstItem="qmh-SQ-qUc" firstAttribute="centerY" secondItem="qYR-Ta-mYR" secondAttribute="centerY" id="005-XG-7dk"/>
+                        <constraint firstItem="ZNF-A0-Dmv" firstAttribute="leading" secondItem="FV8-XW-0fl" secondAttribute="leading" constant="20" id="3Qh-sm-fFq"/>
+                        <constraint firstItem="nQo-y8-OU5" firstAttribute="leading" secondItem="qmh-SQ-qUc" secondAttribute="trailing" id="ATD-BG-GHp"/>
+                        <constraint firstAttribute="trailing" secondItem="XQY-Cz-M1I" secondAttribute="trailing" constant="20" id="Ccr-Mn-Dcj"/>
+                        <constraint firstItem="qmh-SQ-qUc" firstAttribute="leading" secondItem="qYR-Ta-mYR" secondAttribute="trailing" id="J5b-QH-DQZ"/>
+                        <constraint firstItem="nQo-y8-OU5" firstAttribute="centerY" secondItem="qYR-Ta-mYR" secondAttribute="centerY" id="LnM-0M-09V"/>
+                        <constraint firstItem="qYR-Ta-mYR" firstAttribute="top" secondItem="FV8-XW-0fl" secondAttribute="top" constant="8" id="SyV-K0-UDt"/>
+                        <constraint firstItem="XQY-Cz-M1I" firstAttribute="top" secondItem="FV8-XW-0fl" secondAttribute="top" constant="-5" id="bca-io-kf3"/>
+                        <constraint firstAttribute="bottom" secondItem="ZNF-A0-Dmv" secondAttribute="bottom" constant="-5" id="gMs-mz-R2I"/>
+                        <constraint firstItem="qYR-Ta-mYR" firstAttribute="leading" secondItem="FV8-XW-0fl" secondAttribute="leading" constant="8" id="inI-97-D6G"/>
                     </constraints>
-                    <state key="normal" image="icon-top-item-normal"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
                     </userDefinedRuntimeAttributes>
-                </button>
-                <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZNF-A0-Dmv" userLabel="Down Button">
-                    <rect key="frame" x="20" y="45" width="10" height="10"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="10" id="blP-2R-zhu"/>
-                        <constraint firstAttribute="width" constant="10" id="h4D-k2-Ca7"/>
-                    </constraints>
-                    <state key="normal" image="icon-bottom-item-normal"/>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
-                    </userDefinedRuntimeAttributes>
-                </button>
-                <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qYR-Ta-mYR" userLabel="Start Time Label">
-                    <rect key="frame" x="8" y="8" width="31" height="15"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <nil key="highlightedColor"/>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
-                    </userDefinedRuntimeAttributes>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qmh-SQ-qUc" userLabel="Separator Time Label">
-                    <rect key="frame" x="39" y="8" width="10" height="15"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="10" id="gsy-5y-AA3"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nQo-y8-OU5" userLabel="Finish Time Label">
-                    <rect key="frame" x="49" y="8" width="31" height="15"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <nil key="highlightedColor"/>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
-                    </userDefinedRuntimeAttributes>
-                </label>
+                </view>
             </subviews>
-            <color key="backgroundColor" red="0.0" green="0.57647058823529407" blue="0.58431372549019611" alpha="0.29999999999999999" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="qYR-Ta-mYR" firstAttribute="leading" secondItem="dUt-sL-QaU" secondAttribute="leading" constant="8" id="BJO-Ku-itD"/>
-                <constraint firstItem="nQo-y8-OU5" firstAttribute="leading" secondItem="qmh-SQ-qUc" secondAttribute="trailing" id="Fq7-mK-Olo"/>
-                <constraint firstItem="qYR-Ta-mYR" firstAttribute="top" secondItem="dUt-sL-QaU" secondAttribute="top" constant="8" id="Irw-JB-CJq"/>
-                <constraint firstItem="qmh-SQ-qUc" firstAttribute="leading" secondItem="qYR-Ta-mYR" secondAttribute="trailing" id="N2e-4e-cse"/>
-                <constraint firstAttribute="bottom" secondItem="ZNF-A0-Dmv" secondAttribute="bottom" constant="-5" id="cq0-vQ-GuP"/>
-                <constraint firstItem="ZNF-A0-Dmv" firstAttribute="leading" secondItem="dUt-sL-QaU" secondAttribute="leading" constant="20" id="cwY-9X-gcE"/>
-                <constraint firstItem="qmh-SQ-qUc" firstAttribute="centerY" secondItem="qYR-Ta-mYR" secondAttribute="centerY" id="mX1-PA-8S2"/>
-                <constraint firstItem="XQY-Cz-M1I" firstAttribute="top" secondItem="dUt-sL-QaU" secondAttribute="top" constant="-5" id="uit-Fm-umQ"/>
-                <constraint firstAttribute="trailing" secondItem="XQY-Cz-M1I" secondAttribute="trailing" constant="20" id="wiE-q0-xFJ"/>
-                <constraint firstItem="nQo-y8-OU5" firstAttribute="centerY" secondItem="qYR-Ta-mYR" secondAttribute="centerY" id="y4C-cp-6Jl"/>
+                <constraint firstAttribute="bottom" secondItem="FV8-XW-0fl" secondAttribute="bottom" constant="5" id="DXj-Dg-ctA"/>
+                <constraint firstAttribute="trailing" secondItem="FV8-XW-0fl" secondAttribute="trailing" id="Kc8-6q-4pU"/>
+                <constraint firstItem="FV8-XW-0fl" firstAttribute="leading" secondItem="dUt-sL-QaU" secondAttribute="leading" id="Yok-Eu-J5j"/>
+                <constraint firstItem="FV8-XW-0fl" firstAttribute="top" secondItem="dUt-sL-QaU" secondAttribute="top" constant="5" id="gKW-TF-uR8"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <nil key="simulatedTopBarMetrics"/>

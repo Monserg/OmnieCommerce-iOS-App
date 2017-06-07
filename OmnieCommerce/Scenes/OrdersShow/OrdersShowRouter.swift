@@ -27,7 +27,7 @@ class OrdersShowRouter: OrdersShowRouterInput {
         let storyboard = UIStoryboard(name: "OrderShow", bundle: nil)
         let orderShowVC = storyboard.instantiateViewController(withIdentifier: "OrderShowVC") as! OrderShowViewController
         orderShowVC.orderID = orderID
-        orderShowVC.orderMode = .Preview
+//        orderShowVC.orderMode = .Preview
         
         viewController.navigationController?.pushViewController(orderShowVC, animated: true)
     }

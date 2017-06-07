@@ -14,15 +14,17 @@ class TimeSheetView: UIView {
     var startPosition = CGPoint.zero
     var originalHeight: CGFloat = 0
     var isResizeDown = true
+    var orderMinDuration: CGFloat = 1.0
+    var timesPeriod: TimesPeriod!
 
     var gestureMode = GestureMode.ScheduleMove {
         willSet {
             switch newValue {
             case .ScheduleMove:
-                view.backgroundColor = UIColor.gray
+                contentView.backgroundColor = UIColor.veryDarkCyan
                 
             case .ScheduleResize:
-                view.backgroundColor = UIColor.cyan
+                contentView.backgroundColor = UIColor.cyan
                 
             default:
                 break
@@ -32,20 +34,24 @@ class TimeSheetView: UIView {
     
     var countServiceMinDown = 1 {
         willSet {
-//            finishTimeLabel.text = String(self.cell!.time! + countServiceMinDown * Int((self.cell!.service?.durationMin)!)).twoNumberFormat()
+//            finishTimeLabel.text = String(orderStartTime + countServiceMinDown * Int(orderMinDuration)).twoNumberFormat()
         }
     }
     
     var countServiceMinUp = 1 {
         willSet {
-//            startTimeLabel.text = String(self.cell!.time! - countServiceMinDown * Int((self.cell!.service?.durationMin)!)).twoNumberFormat()
+//            startTimeLabel.text = String(orderStartTime - countServiceMinDown * Int(orderMinDuration)).twoNumberFormat()
         }
     }
     
+    // Outlets
     @IBOutlet var view: UIView!
+    @IBOutlet weak var contentView: UIView!
     @IBOutlet var upDownButtonsCollection: [UIButton]!
     @IBOutlet weak var startTimeLabel: UILabel!
     @IBOutlet weak var finishTimeLabel: UILabel!
+    
+    var handlerShowPickersViewCompletion: HandlerSendButtonCompletion?
     
     
     // MARK: - Class Initialization
@@ -53,7 +59,7 @@ class TimeSheetView: UIView {
         super.init(frame: frame)
         
         // Init from XIB
-        UINib(nibName: String(describing: ScheduleView.self), bundle: Bundle(for: ScheduleView.self)).instantiate(withOwner: self, options: nil)
+        UINib(nibName: String(describing: TimeSheetView.self), bundle: Bundle(for: TimeSheetView.self)).instantiate(withOwner: self, options: nil)
         view.frame = CGRect.init(origin: CGPoint.zero, size: frame.size)
         gestureMode = .ScheduleMove
         _ = upDownButtonsCollection.map{ $0.isHidden = true }
@@ -122,9 +128,10 @@ class TimeSheetView: UIView {
         }, completion: nil)
     }
     
-    func setCurrentPeriod() {
-        startTimeLabel.text = String((cell?.time!)!).twoNumberFormat()
-//        finishTimeLabel.text = "\(String((cell?.time!)!)):\(String(countServiceMinDown * Int((cell?.service?.durationMin)!)).twoNumberFormat())"
+    func setCurrentPeriod(_ period: TimesPeriod) {
+        timesPeriod = period
+        startTimeLabel.text = "\(String(period.hourStart).twoNumberFormat()):\(String(period.minuteStart).twoNumberFormat())"
+        finishTimeLabel.text = "\(String(period.hourEnd).twoNumberFormat()):\(String(period.minuteEnd).twoNumberFormat())"
     }
     
     
@@ -150,8 +157,15 @@ class TimeSheetView: UIView {
                     subview.frame.contains(CGPoint.init(x: frame.minX, y: frame.minY))) && !subview.isUserInteractionEnabled) {
                     gestureMode = .TableGesture
                     _ = upDownButtonsCollection.map{ $0.isHidden = true}
+                    
                     frame = (isResizeDown) ? CGRect.init(origin: frame.origin, size: CGSize.init(width: frame.width, height: frame.height - 1.1)) : CGRect.init(origin: CGPoint.init(x: frame.minX, y: frame.minY - 1.1), size: frame.size)
                     sender.setTranslation(CGPoint.zero, in: self.superview!)
+                    
+                    if (isResizeDown) {
+                        countServiceMinDown -= 1
+                    } else {
+                        countServiceMinUp += 1
+                    }
                 } else {
                     if (frame.height >= originalHeight) {
                         sender.setTranslation(CGPoint.zero, in: self.superview!)
@@ -174,6 +188,7 @@ class TimeSheetView: UIView {
         if (gestureMode == .ScheduleMove) {
             didChangeGestureMode(to: .ScheduleResize)
             (superview as! UITableView).isScrollEnabled = false
+            handlerShowPickersViewCompletion!()
         }
     }
 }

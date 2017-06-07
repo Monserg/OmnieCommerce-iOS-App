@@ -24,6 +24,7 @@ struct OrderShowModels {
         
         struct ViewModel {
             let status: String
+            let orderID: String?
         }
     }
 }

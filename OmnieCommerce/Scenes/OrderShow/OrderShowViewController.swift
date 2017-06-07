@@ -14,16 +14,15 @@ import UIKit
 // MARK: - Input protocols for current ViewController component VIP-cicle
 protocol OrderShowViewControllerInput {
     func orderDidShowLoad(fromViewModel viewModel: OrderShowModels.OrderItem.ViewModel)
+    func orderDidShowCreate(fromViewModel viewModel: OrderShowModels.OrderItem.ViewModel)
+    func orderDidShowCancel(fromViewModel viewModel: OrderShowModels.OrderItem.ViewModel)
 }
 
 // MARK: - Output protocols for Interactor component VIP-cicle
 protocol OrderShowViewControllerOutput {
     func orderDidLoad(withRequestModel requestModel: OrderShowModels.OrderItem.RequestModel)
-}
-
-enum OrderMode {
-    case Edit
-    case Preview
+    func orderDidCreate(withRequestModel requestModel: OrderShowModels.OrderItem.RequestModel)
+    func orderDidCancel(withRequestModel requestModel: OrderShowModels.OrderItem.RequestModel)
 }
 
 class OrderShowViewController: BaseViewController {
@@ -31,9 +30,10 @@ class OrderShowViewController: BaseViewController {
     var interactor: OrderShowViewControllerOutput!
     var router: OrderShowRouter!
     
-    var orderID: String!
-    var orderMode: OrderMode = .Edit
-
+    var orderID: String?
+    var orderPrepare: OrderPrepare?
+    var bodyRequestParameters: [String: AnyObject]?
+    
     // Outlets
     @IBOutlet weak var smallTopBarView: SmallTopBarView!
     @IBOutlet var modalView: ModalView!
@@ -51,7 +51,13 @@ class OrderShowViewController: BaseViewController {
     }
 
     // Info view
-    
+    @IBOutlet weak var stateButton: BorderTitleButton!
+    @IBOutlet weak var organizationNameLabel: UbuntuLightVeryLightGrayLabel!
+    @IBOutlet weak var serviceNameLabel: UbuntuLightVeryLightGrayLabel!
+    @IBOutlet weak var additionalServicesNames: UbuntuLightVeryLightGrayLabel!
+    @IBOutlet weak var periodDateLabel: UbuntuLightVeryLightGrayLabel!
+    @IBOutlet weak var periodTimesLabel: UbuntuLightVeryLightGrayLabel!
+    @IBOutlet weak var commentTextLabel: UbuntuLightVeryLightGrayLabel!
     
     // Price view
     @IBOutlet weak var priceLabel: UbuntuLightVeryLightOrangeLabel!
@@ -116,7 +122,28 @@ class OrderShowViewController: BaseViewController {
         let orderProfile = CoreDataManager.instance.entityBy("Order", andCodeID: orderID!) as! Order
         
         // Info view
-        
+        if (orderID != nil) {
+            organizationNameLabel.text = orderProfile.organizationName
+            serviceNameLabel.text = orderProfile.serviceName
+            additionalServicesNames.numberOfLines = 0
+            
+//            additionalServicesNames.text = orderProfile.additionalServices
+            
+            periodDateLabel.text = orderPrepare!.period.datesPeriod.dateStart.convertToString(withStyle: .DateDot)
+            periodTimesLabel.text = "From \(String(orderPrepare!.period.timesPeriod.hourStart).twoNumberFormat()):\(String(orderPrepare!.period.timesPeriod.minuteStart).twoNumberFormat()) To \(String(orderPrepare!.period.timesPeriod.hourEnd).twoNumberFormat()):\(String(orderPrepare!.period.timesPeriod.minuteEnd).twoNumberFormat())".localized()
+            
+            commentTextLabel.numberOfLines = 0
+            commentTextLabel.text = orderProfile.comment
+        } else {
+            organizationNameLabel.text = orderPrepare!.organizationName
+            serviceNameLabel.text = orderPrepare!.serviceName
+            additionalServicesNames.numberOfLines = 0
+            additionalServicesNames.text = orderPrepare!.additionalServices
+            periodDateLabel.text = orderPrepare!.period.datesPeriod.dateStart.convertToString(withStyle: .DateDot)
+            periodTimesLabel.text = "From \(String(orderPrepare!.period.timesPeriod.hourStart).twoNumberFormat()):\(String(orderPrepare!.period.timesPeriod.minuteStart).twoNumberFormat()) To \(String(orderPrepare!.period.timesPeriod.hourEnd).twoNumberFormat()):\(String(orderPrepare!.period.timesPeriod.minuteEnd).twoNumberFormat())".localized()
+            commentTextLabel.numberOfLines = 0
+            commentTextLabel.text = orderPrepare!.comment
+        }
         
         // Price view
         priceLabel.text = String(format: "%3.2f грн.", orderProfile.priceTotal)
@@ -145,9 +172,13 @@ class OrderShowViewController: BaseViewController {
     
     // MARK: - Actions
     @IBAction func handlerConfirmButtonTap(_ sender: FillVeryLightOrangeButton) {
+        let orderCreateRequestModel = OrderShowModels.OrderItem.RequestModel(parameters: bodyRequestParameters!)
+        interactor.orderDidCreate(withRequestModel: orderCreateRequestModel)
     }
     
     @IBAction func handlerCancelButtonTap(_ sender: BorderVeryLightOrangeButton) {
+        let orderCreateRequestModel = OrderShowModels.OrderItem.RequestModel(parameters: [ "id": orderID! ])
+        interactor.orderDidCreate(withRequestModel: orderCreateRequestModel)
     }
     
     @IBAction func handlerCheckButtonTap(_ sender: DLRadioButton) {
@@ -165,16 +196,43 @@ class OrderShowViewController: BaseViewController {
 // MARK: - OrderShowViewControllerInput
 extension OrderShowViewController: OrderShowViewControllerInput {
     func orderDidShowLoad(fromViewModel viewModel: OrderShowModels.OrderItem.ViewModel) {
+        spinnerDidFinish()
+        
         // Check for errors
         guard viewModel.status == "SUCCESS" else {
-            self.alertViewDidShow(withTitle: "Error", andMessage: viewModel.status, completion: {
-                self.orderProfileDidShow()
-            })
+            self.alertViewDidShow(withTitle: "Error", andMessage: viewModel.status, completion: { })
             
             return
         }
         
+        self.orderID = viewModel.orderID!
         self.orderProfileDidShow()
+    }
+    
+    func orderDidShowCreate(fromViewModel viewModel: OrderShowModels.OrderItem.ViewModel) {
+        spinnerDidFinish()
+        
+        // Check for errors
+        guard viewModel.status == "SUCCESS" else {
+            self.alertViewDidShow(withTitle: "Error", andMessage: viewModel.status, completion: { })
+            
+            return
+        }
+        
+        self.navigationController?.popToRootViewController(animated: true)
+    }
+    
+    func orderDidShowCancel(fromViewModel viewModel: OrderShowModels.OrderItem.ViewModel) {
+        spinnerDidFinish()
+        
+        // Check for errors
+        guard viewModel.status == "SUCCESS" else {
+            self.alertViewDidShow(withTitle: "Error", andMessage: viewModel.status, completion: { })
+            
+            return
+        }
+        
+        self.navigationController?.popViewController(animated: true)
     }
 }
 
