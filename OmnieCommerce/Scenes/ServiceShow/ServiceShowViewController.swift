@@ -38,8 +38,18 @@ class ServiceShowViewController: BaseViewController {
     var orderStartTimeComponents: DateComponents?
     var orderEndTimeComponents: DateComponents?
     var wasLaunchedAPI = false
-    var orderPeriod: Period!
     var orderPrepare: OrderPrepare!
+
+    var orderPeriod: Period! {
+        didSet {
+            guard selectedDateLabel != nil && selectedTimesLabel != nil else {
+                return
+            }
+            
+            selectedDateLabel.text = " "
+            selectedTimesLabel.text = " "
+        }
+    }
 
     // Outlets
     @IBOutlet var modalView: ModalView?
@@ -121,9 +131,55 @@ class ServiceShowViewController: BaseViewController {
 
     // Calendar view
     @IBOutlet weak var calendarView: UIView!
-    @IBOutlet weak var calendarButton: UbuntuLightVeryLightOrangeButton!
-    @IBOutlet weak var calendarStartTimeButton: UbuntuLightVeryLightOrangeButton!
-    @IBOutlet weak var calendarEndTimeButton: UbuntuLightVeryLightOrangeButton!
+    @IBOutlet weak var selectedTimesLabelTopConstraint: NSLayoutConstraint!
+    
+    @IBOutlet weak var selectedDateLabel: UbuntuLightVeryLightOrangeLabel! {
+        didSet {
+            selectedDateLabel.text = (orderPeriod.timesPeriod.hourStart == 0 && orderPeriod.timesPeriod.minuteStart == 0) ? "Select Date click text".localized() : orderPeriod.datesPeriod.dateStart.convertToString(withStyle: .DateDot)
+        }
+    }
+    
+    @IBOutlet weak var selectedTimesLabel: UbuntuLightItalicVeryDarkGrayishBlueLabel! {
+        didSet {
+            if (orderPeriod.timesPeriod.hourStart == 0 && orderPeriod.timesPeriod.minuteStart == 0) {
+                selectedTimesLabel.isHidden = true
+            } else {
+                let times = "\("From".localized()) (String(orderPeriod.timesPeriod.hourStart).twoNumberFormat()):\(String(orderPeriod.timesPeriod.minuteStart).twoNumberFormat()) \("To".localized()) \(String(orderPeriod.timesPeriod.hourEnd).twoNumberFormat()):\(String(orderPeriod.timesPeriod.minuteEnd).twoNumberFormat())"
+                
+                let stringAttributed = NSMutableAttributedString.init(string: times)
+                let timeArray = times.components(separatedBy: " ")
+                var location: Int = 0
+                
+                // From
+                stringAttributed.addAttributes([ NSFontAttributeName: UIFont.ubuntuLightItalic16, NSForegroundColorAttributeName: UIColor.veryDarkGrayishBlue56 ],
+                                               range: NSRange.init(location: location, length: timeArray[0].characters.count))
+                
+                location += timeArray[0].characters.count + 1
+
+                // Start time
+                stringAttributed.addAttributes([ NSFontAttributeName: UIFont.ubuntuLight16, NSForegroundColorAttributeName: UIColor.veryLightOrange ],
+                                               range: NSRange.init(location: location, length: timeArray[1].characters.count))
+                
+                location += timeArray[1].characters.count + 1
+                
+                // To
+                stringAttributed.addAttributes([ NSFontAttributeName: UIFont.ubuntuLightItalic16, NSForegroundColorAttributeName: UIColor.veryDarkGrayishBlue56 ],
+                                               range: NSRange.init(location: location, length: timeArray[2].characters.count))
+
+                location += timeArray[2].characters.count + 1
+
+                // End time
+                stringAttributed.addAttributes([ NSFontAttributeName: UIFont.ubuntuLight16, NSForegroundColorAttributeName: UIColor.veryLightOrange ],
+                                               range: NSRange.init(location: location, length: timeArray[3].characters.count))
+            }
+        }
+    }
+    
+    @IBOutlet weak var selectPeriodTitleLabel: HelveticaNeueCyrLightVeryLightGrayLabel! {
+        didSet {
+            selectPeriodTitleLabel.text = (orderPeriod.timesPeriod.hourStart == 0 && orderPeriod.timesPeriod.minuteStart == 0) ? "Select Date".localized() : "Turn the Date".localized()
+        }
+    }
     
     // Comment view
     @IBOutlet weak var commentView: UIView!
@@ -389,12 +445,15 @@ class ServiceShowViewController: BaseViewController {
 
         // Calendar view
         calendarView.isHidden = false
-        orderDateComponentsDidShow()
+        
+        if (orderPeriod.timesPeriod.hourStart == 0 && orderPeriod.timesPeriod.minuteStart == 0) {
+            selectedTimesLabelTopConstraint.constant = -15
+            selectedTimesLabel.didShow(false, withConstraint: selectedTimesLabelTopConstraint)
+        }
         
         // Comment view
         selectedRange = CGRect.init(origin: CGPoint.init(x: 8, y: smallTopBarView.frame.height + view.convert(commentView.frame, from: mainStackView).origin.y), size: commentView.frame.size)
 
-        
         // Service reviews
         if let serviceReviews = CoreDataManager.instance.entitiesDidLoad(byName: "Review", andPredicateParameters: NSPredicate.init(format: "ANY codeID == %@", "\(serviceProfile.codeID)-ServiceReview")), serviceReviews.count > 0 {
             reviewsView.isHidden = false
@@ -539,16 +598,6 @@ class ServiceShowViewController: BaseViewController {
 //        return parameters
 //    }
     
-    func orderDateComponentsDidShow() {
-        let orderDate = orderPeriod.datesPeriod.dateStart.convertToString(withStyle: .DateDot)
-        let startTimeDate = "\(String(orderPeriod.timesPeriod.hourStart).twoNumberFormat()):\(String(orderPeriod.timesPeriod.minuteStart).twoNumberFormat())"
-        let endTimeDate = "\(String(orderPeriod.timesPeriod.hourEnd).twoNumberFormat()):\(String(orderPeriod.timesPeriod.minuteEnd).twoNumberFormat())"
-
-        calendarButton.setAttributedTitle(NSAttributedString.init(string: orderDate, attributes: UIFont.ubuntuLightVeryLightOrange16), for: .normal)
-        calendarStartTimeButton.setAttributedTitle(NSAttributedString.init(string: startTimeDate, attributes: UIFont.ubuntuLightVeryLightOrange16), for: .normal)
-        calendarEndTimeButton.setAttributedTitle(NSAttributedString.init(string: endTimeDate, attributes: UIFont.ubuntuLightVeryLightOrange16), for: .normal)
-    }
-    
     func orderRequestParametersDidPrepare() -> [String: AnyObject] {
         var bodyParameters = [String: AnyObject]()
         var subservices = [[String: Any]]()
@@ -622,13 +671,9 @@ class ServiceShowViewController: BaseViewController {
         })
     }
     
-    @IBAction func handlerCalendarButtonTap(_ sender: UbuntuLightVeryLightOrangeButton) {
+    @IBAction func handlerSelectPeriodButtonTap(_ sender: UIButton) {
+        self.view.endEditing(true)
         self.router.navigateToCalendar(withServiceID: serviceProfile.codeID, andOrderPeriod: orderPeriod)
-    }
-    
-    @IBAction func handlerSchedulerButtonTap(_ sender: UbuntuLightVeryLightOrangeButton) {
-        // TODO: - ADD ENABLE ORDER BUTTON AFTER MAKE ORDER!!!
-        
     }
     
     @IBAction func handlerViewOrderButtonTap(_ sender: FillVeryLightOrangeButton) {

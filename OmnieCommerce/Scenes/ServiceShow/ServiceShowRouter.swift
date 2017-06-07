@@ -45,7 +45,6 @@ class ServiceShowRouter: ServiceShowRouterInput {
             self.viewController.orderButton.isEnabled = true
             self.viewController.orderPeriod = orderPeriod as! Period
             self.viewController.orderPrepare.period = orderPeriod as! Period
-            self.viewController.orderDateComponentsDidShow()
         }
     }
 

@@ -36,7 +36,8 @@ class OrganizationsShowRouter: OrganizationsShowRouterInput {
         let storyboard = UIStoryboard(name: "ServiceShow", bundle: nil)
         let serviceShowVC = storyboard.instantiateViewController(withIdentifier: "ServiceShowVC") as! ServiceShowViewController
         serviceShowVC.serviceID = serviceID
-        
+        serviceShowVC.orderPeriod = (datesPeriod: (dateStart: Date(), dateEnd: Date()), timesPeriod: (hourStart: 0, minuteStart: 0, hourEnd: 0, minuteEnd: 0))
+
         viewController.navigationController?.pushViewController(serviceShowVC, animated: true)
     }
 
