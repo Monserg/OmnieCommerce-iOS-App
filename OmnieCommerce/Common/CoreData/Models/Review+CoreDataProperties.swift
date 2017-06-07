@@ -21,7 +21,7 @@ extension Review {
     @NSManaged public var rating: Double
     @NSManaged public var typeValue: String
     @NSManaged public var userName: String?
-    @NSManaged public var codeID: String?
+    @NSManaged public var codeID: String
     @NSManaged public var userID: String?
     @NSManaged public var imageID: String?
     @NSManaged public var serviceID: String?

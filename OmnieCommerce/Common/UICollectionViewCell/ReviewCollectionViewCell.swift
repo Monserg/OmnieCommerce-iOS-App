@@ -61,9 +61,9 @@ extension ReviewCollectionViewCell: ConfigureCell {
         dateLabel.text = (review.dateCreate as Date).convertToString(withStyle: .DateDot)
         noteLabel.text = review.content ?? "Empty"
 
-        if let imagePath = review.imageID {
-            userImageView.kf.setImage(with: ImageResource(downloadURL: URL(string: imagePath)!, cacheKey: "imagePath-\(indexPath.row)"),
-                                      placeholder: UIImage.init(named: "image-no-photo"),
+        if let imageID = review.imageID {
+            userImageView.kf.setImage(with: ImageResource(downloadURL: imageID.convertToURL(withSize: .Small, inMode: .Get), cacheKey: imageID),
+                                      placeholder: nil,
                                       options: [.transition(ImageTransition.fade(1)),
                                                 .processor(ResizingImageProcessor(referenceSize: userImageView.frame.size,
                                                                                   mode: .aspectFill))],
@@ -71,7 +71,12 @@ extension ReviewCollectionViewCell: ConfigureCell {
                                         self.userImageView.kf.cancelDownloadTask()
             })
         } else {
-            userImageView.image = UIImage.init(named: "image-no-photo")
+            userImageView.contentMode = .center
+            
+            UIView.animate(withDuration: 0.5, animations: {
+                self.userImageView.backgroundColor = UIColor.init(hexString: "#273745")
+                self.userImageView.image = UIImage.init(named: "image-no-photo")
+            })
         }
     }
 }

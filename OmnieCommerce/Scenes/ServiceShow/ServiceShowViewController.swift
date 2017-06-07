@@ -232,12 +232,12 @@ class ServiceShowViewController: BaseViewController {
             modalView?.center = blackoutView!.center
         }
         
-//        guard let flowLayout = reviewsCollectionView.collectionViewLayout as? UICollectionViewFlowLayout else {
-//            return
-//        }
-//        
-//        flowLayout.itemSize = reviewsCollectionView.frame.size
-//        flowLayout.invalidateLayout()
+        guard let flowLayout = reviewsCollectionView.collectionViewLayout as? UICollectionViewFlowLayout else {
+            return
+        }
+        
+        flowLayout.itemSize = reviewsCollectionView.frame.size
+        flowLayout.invalidateLayout()
     }
 
     override func viewDidLoad() {
@@ -455,7 +455,7 @@ class ServiceShowViewController: BaseViewController {
         selectedRange = CGRect.init(origin: CGPoint.init(x: 8, y: smallTopBarView.frame.height + view.convert(commentView.frame, from: mainStackView).origin.y), size: commentView.frame.size)
 
         // Service reviews
-        if let serviceReviews = CoreDataManager.instance.entitiesDidLoad(byName: "Review", andPredicateParameters: NSPredicate.init(format: "ANY codeID == %@", "\(serviceProfile.codeID)-ServiceReview")), serviceReviews.count > 0 {
+        if let serviceReviews = CoreDataManager.instance.entitiesDidLoad(byName: "Review", andPredicateParameters: NSPredicate.init(format: "ANY serviceID == %@", serviceProfile.codeID)), serviceReviews.count > 0 {
             reviewsView.isHidden = false
             
             let reviewsManager = MSMCollectionViewControllerManager(withCollectionView: reviewsCollectionView)
@@ -745,7 +745,8 @@ extension ServiceShowViewController: UITextFieldDelegate {
 extension ServiceShowViewController: UITextViewDelegate {
     func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
         textViewPlaceholderDidUpload((textView.text == "Comment".localized()) ? nil : textView.text)
-
+        selectedRange = textView.convert(textView.frame, to: mainStackView)
+        
         return true
     }
     

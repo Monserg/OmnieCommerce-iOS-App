@@ -120,21 +120,36 @@ public class Organization: NSManagedObject, InitCellParameters, PointAnnotationB
         }
         
         // Own Review
-        if let userReview = json["ownReview"] as? [String: AnyObject] {
-            self.addToReviews(Review.init(json: userReview, withType: .UserReview)!)
+        if let jsonUserReview = json["ownReview"] as? [String: AnyObject] {
+            if let codeID = jsonUserReview["uuid"] as? String {
+                if let review = CoreDataManager.instance.entityBy("Review", andCodeID: codeID) as? Review {
+                    review.profileDidUpload(json: jsonUserReview, withType: .UserReview)
+                    self.addToReviews(review)
+                }
+            }
         }
         
         // Service Reviews
-        if let serviceReviews = json["serviceReviews"] as? NSArray, serviceReviews.count > 0 {
-            for serviceReview in serviceReviews {
-                self.addToReviews(Review.init(json: serviceReview as! [String: AnyObject], withType: .ServiceReview)!)
+        if let serviceReviews = json["serviceReviews"] as? [[String: AnyObject]], serviceReviews.count > 0 {
+            for jsonServiceReview in serviceReviews {
+                if let codeID = jsonServiceReview["uuid"] as? String {
+                    if let review = CoreDataManager.instance.entityBy("Review", andCodeID: codeID) as? Review {
+                        review.profileDidUpload(json: jsonServiceReview, withType: .ServiceReview)
+                        self.addToReviews(review)
+                    }
+                }
             }
         }
 
         // Organization reviews
-        if let organizationReviews = json["organizationReviews"] as? NSArray, organizationReviews.count > 0 {
-            for organizationReview in organizationReviews {
-                self.addToReviews(Review.init(json: organizationReview as! [String: AnyObject], withType: .OrganizationReview)!)
+        if let organizationReviews = json["organizationReviews"] as? [[String: AnyObject]], organizationReviews.count > 0 {
+            for jsonOrganizationReview in organizationReviews {
+                if let codeID = jsonOrganizationReview["uuid"] as? String {
+                    if let review = CoreDataManager.instance.entityBy("Review", andCodeID: codeID) as? Review {
+                        review.profileDidUpload(json: jsonOrganizationReview, withType: .OrganizationReview)
+                        self.addToReviews(review)
+                    }
+                }
             }
         }
         

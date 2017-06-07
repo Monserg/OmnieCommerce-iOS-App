@@ -208,16 +208,22 @@ public class Service: NSManagedObject, InitCellParameters, PointAnnotationBindin
             }
         }
         
+        // Service Reviews
+        if let serviceReviews = json["serviceReviews"] as? [[String: AnyObject]], serviceReviews.count > 0 {
+            for jsonServiceReview in serviceReviews {
+                if let codeID = jsonServiceReview["uuid"] as? String {
+                    if let review = CoreDataManager.instance.entityBy("Review", andCodeID: codeID) as? Review {
+                        review.profileDidUpload(json: jsonServiceReview, withType: .ServiceReview)
+                        self.addToReviews(review)
+                    }
+                }
+            }
+        }
+
+        
         // Own Review
 //        if let userReview = json["ownReview"] as? [String: AnyObject] {
 //            self.addToReviews(Review.init(json: userReview, withType: .UserReview)!)
-//        }
-//
-//        // Service Reviews
-//        if let serviceReviews = json["serviceReviews"] as? NSArray, serviceReviews.count > 0 {
-//            for serviceReview in serviceReviews {
-//                self.addToReviews(Review.init(json: serviceReview as! [String: AnyObject], withType: .ServiceReview)!)
-//            }
 //        }
     }
 
