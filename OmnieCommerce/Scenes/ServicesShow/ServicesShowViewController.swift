@@ -75,7 +75,7 @@ class ServicesShowViewController: BaseViewController {
             
             // Handler select cell
             tableView.tableViewControllerManager.handlerSelectRowCompletion = { item in
-                self.router.navigateToServiceShowScene(withID: (item as! Price).serviceID)
+                self.router.navigateToServiceShowScene(withServiceID: (item as! Price).serviceID)
             }
         }
     }

@@ -32,6 +32,7 @@ extension Service {
     @NSManaged public var nameValue: String?
     @NSManaged public var needBackgroundColorSet: Bool
     @NSManaged public var organizationName: String?
+    @NSManaged public var organizationID: String?
     @NSManaged public var placeID: String?
     @NSManaged public var rating: Double
     @NSManaged public var additionalServices: NSSet?

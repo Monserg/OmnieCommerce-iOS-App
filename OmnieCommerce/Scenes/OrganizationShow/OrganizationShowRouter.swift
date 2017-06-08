@@ -15,7 +15,7 @@ import UIKit
 protocol OrganizationShowRouterInput {
     func navigateToServicesShowScene(_ services: [Service])
     func navigateToPriceListShowScene(_ services: [Service])
-    func navigateToServiceShowScene(withID serviceID: String)
+    func navigateToServiceShowScene(withServiceID serviceID: String, andOrganizationID organizationID: String)
     func navigateToOrganizationsMapShowScene(_ organization: Organization)
 }
 
@@ -43,10 +43,11 @@ class OrganizationShowRouter: OrganizationShowRouterInput {
         viewController.navigationController?.pushViewController(servicesShowVC, animated: true)
     }
     
-    func navigateToServiceShowScene(withID serviceID: String) {
+    func navigateToServiceShowScene(withServiceID serviceID: String, andOrganizationID organizationID: String) {
         let storyboard = UIStoryboard(name: "ServiceShow", bundle: nil)
         let serviceShowVC = storyboard.instantiateViewController(withIdentifier: "ServiceShowVC") as! ServiceShowViewController
         serviceShowVC.serviceID = serviceID
+        serviceShowVC.organizationID = organizationID
         serviceShowVC.orderPeriod = (datesPeriod: (dateStart: Date(), dateEnd: Date()), timesPeriod: (hourStart: 0, minuteStart: 0, hourEnd: 0, minuteEnd: 0))
 
         viewController.navigationController?.pushViewController(serviceShowVC, animated: true)

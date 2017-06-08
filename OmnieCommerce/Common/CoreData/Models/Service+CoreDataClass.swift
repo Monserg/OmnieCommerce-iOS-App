@@ -76,7 +76,7 @@ public class Service: NSManagedObject, InitCellParameters, PointAnnotationBindin
     
     
     // MARK: - Custom Functions
-    func profileDidUpload(json: [String: AnyObject], forList listName: String) {
+    func profileDidUpload(json: [String: AnyObject], forList listName: String, withOrganizationID organizationID: String?) {
         // Prepare to save common data
         if let codeID = json["uuid"] as? String {
             self.codeID = codeID
@@ -93,6 +93,10 @@ public class Service: NSManagedObject, InitCellParameters, PointAnnotationBindin
 
         if let organizationName = json["orgName"] as? String {
             self.organizationName = organizationName
+        }
+        
+        if (organizationID != nil) {
+            self.organizationID = organizationID!
         }
         
         if let imageID = json["imageId"] as? String {
@@ -213,7 +217,7 @@ public class Service: NSManagedObject, InitCellParameters, PointAnnotationBindin
             for jsonServiceReview in serviceReviews {
                 if let codeID = jsonServiceReview["uuid"] as? String {
                     if let review = CoreDataManager.instance.entityBy("Review", andCodeID: codeID) as? Review {
-                        review.profileDidUpload(json: jsonServiceReview, withType: .ServiceReview)
+                        review.profileDidUpload(json: jsonServiceReview, withType: .ServiceReview, andOrganizationID: nil)
                         self.addToReviews(review)
                     }
                 }

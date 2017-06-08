@@ -16,7 +16,7 @@ class CalendarViewController: BaseViewController {
     var handlerSelectNewDateCompletion: HandlerSelectNewDateCompletion?
 
     let firstDayOfWeek: DaysOfWeek = .monday
-    var selectedDate: Date?
+    var selectedDate: Date!
     
     @IBOutlet weak var titleLabel: UbuntuLightVeryLightGrayLabel!
     @IBOutlet var weekdayLabelsCollection: [UbuntuLightDarkCyanLabel]!
@@ -38,13 +38,12 @@ class CalendarViewController: BaseViewController {
         // Setup Calendar view
         calendarView.minimumLineSpacing = 0
         calendarView.minimumInteritemSpacing = 0
-
-        setupCalendarView()
         
         // Add Calendar scrolling
         calendarView.scrollingMode = .stopAtEachCalendarFrameWidth
         
-        calendarView.scrollToDate(Date())
+        calendarView.scrollToDate(selectedDate)
+        setupCalendarView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -87,10 +86,6 @@ class CalendarViewController: BaseViewController {
         titleLabel.text = date.convertToString(withStyle: .MonthYear)
     }
     
-    func setupSelectedDate() {
-        calendarView.selectDates([selectedDate!], triggerSelectionDelegate: false)
-        handlerSelectNewDateCompletion!(selectedDate!)
-    }
     
     // MARK: - Actions
     @IBAction func handlerPreviuosButtonTap(_ sender: UIButton) {
@@ -124,8 +119,9 @@ extension CalendarViewController: JTAppleCalendarViewDataSource {
     func configureCalendar(_ calendar: JTAppleCalendarView) -> ConfigurationParameters {
         print(object: "\(#file): \(#function) run in [line \(#line)]")
         
-        let startDate = Calendar.current.date(byAdding: .month, value: -12, to: Date(), wrappingComponents: false)!
+        let startDate = Date() //Calendar.current.date(byAdding: .month, value: -12, to: Date(), wrappingComponents: false)!
         let endDate = Calendar.current.date(byAdding: .month, value: 12, to: Date(), wrappingComponents: false)!
+        
         let parameters = ConfigurationParameters(startDate: startDate,
                                                  endDate: endDate,
                                                  numberOfRows: 6,
@@ -152,8 +148,8 @@ extension CalendarViewController: JTAppleCalendarViewDelegate {
     
     func calendar(_ calendar: JTAppleCalendarView, didSelectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
         if let calendarDayCell = cell as? CalendarDayCell {
+            selectedDate = date
             calendarDayCell.viewDidUpload(forCellState: cellState)
-            selectedDate = cellState.date
         
             // Scroll to out month
             if (cellState.dateBelongsTo != .thisMonth ) {
@@ -195,11 +191,6 @@ extension CalendarViewController: JTAppleCalendarViewDelegate {
         if let date = visibleDates.monthDates.first?.date {
             self.setupTitleLabel(withDate: date.globalTime())
         }
-        
-//        self.calendarView.visibleDates { (visibleDates: DateSegmentInfo) in
-//            self.calculatedDate = visibleDates.monthDates[10]
-//            self.setupTitleLabel(withDate: self.calculatedDate.globalTime())
-//        }
     }
 
 //    func calendar(_ calendar: JTAppleCalendarView, didSelectDate date: Date, cell: JTAppleDayCellView?, cellState: CellState) {

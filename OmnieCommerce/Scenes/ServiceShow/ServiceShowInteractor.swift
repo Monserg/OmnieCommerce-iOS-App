@@ -31,7 +31,7 @@ class ServiceShowInteractor: ServiceShowInteractorInput {
     func serviceDidLoad(withRequestModel requestModel: ServiceShowModels.ServiceItem.RequestModel) {
         MSMRestApiManager.instance.userRequestDidRun(.userGetServiceByID(requestModel.parameters, false), withHandlerResponseAPICompletion: { responseAPI in
             // Pass the result to the Presenter
-            let serviceResponseModel = ServiceShowModels.ServiceItem.ResponseModel(responseAPI: responseAPI, parameters: requestModel.parameters)
+            let serviceResponseModel = ServiceShowModels.ServiceItem.ResponseModel(responseAPI: responseAPI, parameters: requestModel.parameters, organizationID: requestModel.organizationID)
             self.presenter.serviceDidPrepareToShowLoad(fromResponseModel: serviceResponseModel)
         })
     }

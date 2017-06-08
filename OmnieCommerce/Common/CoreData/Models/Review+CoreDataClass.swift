@@ -33,7 +33,7 @@ public class Review: NSManagedObject, InitCellParameters {
     
     
     // MARK: - Custom Functions
-    func profileDidUpload(json: [String: AnyObject], withType type: ReviewType) {
+    func profileDidUpload(json: [String: AnyObject], withType type: ReviewType, andOrganizationID organizationID: String?) {
         // Prepare to save common data
         self.codeID = json["uuid"] as! String
         self.dateCreate = (json["date"] as! String).convertToDate(withDateFormat: .PriceDate) as NSDate
@@ -52,9 +52,8 @@ public class Review: NSManagedObject, InitCellParameters {
             self.content = content
         }
         
-        if let organizationID = json["organizationId"] as? String {
+        if (organizationID != nil) {
             self.organizationID = organizationID
-//            self.codeID = "\(organizationID)-\(type.rawValue)"
         }
 
         if let serviceID = json["serviceId"] as? String {

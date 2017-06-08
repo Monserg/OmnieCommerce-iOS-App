@@ -472,7 +472,7 @@ class OrganizationShowViewController: BaseViewController {
             // Handler Service select
             servicesTableView.tableViewControllerManager!.handlerSelectRowCompletion = { item in
                 if item is Service {
-                    self.router.navigateToServiceShowScene(withID: (item as! Service).codeID)
+                    self.router.navigateToServiceShowScene(withServiceID: (item as! Service).codeID, andOrganizationID: self.organizationProfile.codeID)
                 }
             }
         } else {
@@ -483,12 +483,12 @@ class OrganizationShowViewController: BaseViewController {
         var reviews = [Review]()
 
         // Service reviews
-        if let serviceReviews = CoreDataManager.instance.entitiesDidLoad(byName: "Review", andPredicateParameters: NSPredicate.init(format: "ANY codeID == %@", "\(organizationProfile.codeID)-ServiceReview")), serviceReviews.count > 0 {
+        if let serviceReviews = CoreDataManager.instance.entitiesDidLoad(byName: "Review", andPredicateParameters: NSPredicate.init(format: "ANY organizationID == %@ AND typeValue == %@", organizationProfile.codeID, "ServiceReview")), serviceReviews.count > 0 {
             reviews += serviceReviews as! [Review]
         }
 
         // Organization reviews
-        if let organizationReviews = CoreDataManager.instance.entitiesDidLoad(byName: "Review", andPredicateParameters: NSPredicate.init(format: "ANY codeID == %@", "\(organizationProfile.codeID)-OrganizationReview")), organizationReviews.count > 0 {
+        if let organizationReviews = CoreDataManager.instance.entitiesDidLoad(byName: "Review", andPredicateParameters: NSPredicate.init(format: "ANY organizationID == %@ AND typeValue == %@", organizationProfile.codeID, "OrganizationReview")), organizationReviews.count > 0 {
             reviews += organizationReviews as! [Review]
         }
 

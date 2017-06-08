@@ -107,7 +107,7 @@ class OrganizationsShowPresenter: OrganizationsShowPresenterInput {
                     
                     if let serviceID = jsonService["uuid"] as? String {
                         if let service = CoreDataManager.instance.entityBy("Service", andCodeID: serviceID) as? Service {
-                            service.profileDidUpload(json: jsonService, forList: keyList)
+                            service.profileDidUpload(json: jsonService, forList: keyList, withOrganizationID: nil)
                             service.cellIdentifier = "ServiceTableViewCell"
                             service.cellHeight = 96.0
                             

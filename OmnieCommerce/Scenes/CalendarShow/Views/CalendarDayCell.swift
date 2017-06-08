@@ -33,8 +33,8 @@ class CalendarDayCell: JTAppleCell {
         dateFormatter.dateFormat = "dd.MM.yyyy"
 
         selectedView.layer.cornerRadius = (UIDevice.current.orientation.isPortrait) ? (frame.width - 2 ) / 2 : (frame.height - 2) / 2
-        selectedView.isHidden = (cellState.isSelected) ? false : true
-
+        selectedView.isHidden = !cellState.isSelected
+        
         currentView.layer.cornerRadius = (UIDevice.current.orientation.isPortrait) ? (frame.width - 2) / 2 : (frame.height - 2) / 2
         currentView.isHidden = (dateFormatter.string(from: Date()) == dateFormatter.string(from: cellState.date)) ? false : true
 

@@ -142,87 +142,34 @@
                                                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
                                                                                 </userDefinedRuntimeAttributes>
                                                                             </label>
-                                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="J8k-Cb-px5">
+                                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="J8k-Cb-px5">
                                                                                 <rect key="frame" x="0.0" y="20" width="150" height="16"/>
                                                                                 <subviews>
-                                                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="qPK-mV-VzX">
-                                                                                        <rect key="frame" x="0.0" y="0.0" width="78.5" height="16"/>
-                                                                                        <subviews>
-                                                                                            <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="From" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="PvP-62-nTe" userLabel="From Label" customClass="UbuntuLightItalicVeryDarkGrayishBlueLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                                                                                                <rect key="frame" x="0.0" y="0.0" width="31" height="16"/>
-                                                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                                                                <constraints>
-                                                                                                    <constraint firstAttribute="width" constant="25" id="h6X-XI-sml"/>
-                                                                                                </constraints>
-                                                                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                                                                <nil key="textColor"/>
-                                                                                                <nil key="highlightedColor"/>
-                                                                                                <userDefinedRuntimeAttributes>
-                                                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
-                                                                                                </userDefinedRuntimeAttributes>
-                                                                                                <variation key="heightClass=regular-widthClass=compact">
-                                                                                                    <mask key="constraints">
-                                                                                                        <exclude reference="h6X-XI-sml"/>
-                                                                                                    </mask>
-                                                                                                </variation>
-                                                                                            </label>
-                                                                                            <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="rjk-Dh-lke" userLabel="From Time Label" customClass="UbuntuLightVeryLightGrayLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                                                                                                <rect key="frame" x="35" y="0.0" width="43.5" height="16"/>
-                                                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                                                                <nil key="textColor"/>
-                                                                                                <nil key="highlightedColor"/>
-                                                                                                <userDefinedRuntimeAttributes>
-                                                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
-                                                                                                </userDefinedRuntimeAttributes>
-                                                                                            </label>
-                                                                                        </subviews>
-                                                                                        <constraints>
-                                                                                            <constraint firstItem="rjk-Dh-lke" firstAttribute="height" secondItem="PvP-62-nTe" secondAttribute="height" id="E51-Ez-mEL"/>
-                                                                                        </constraints>
-                                                                                        <variation key="heightClass=regular-widthClass=compact" spacing="4"/>
-                                                                                    </stackView>
-                                                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="ISp-bE-LQz">
-                                                                                        <rect key="frame" x="86.5" y="0.0" width="63.5" height="16"/>
-                                                                                        <subviews>
-                                                                                            <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="cvd-Dc-wqb" userLabel="To Label" customClass="UbuntuLightItalicVeryDarkGrayishBlueLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                                                                                                <rect key="frame" x="0.0" y="0.0" width="15" height="16"/>
-                                                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                                                                <constraints>
-                                                                                                    <constraint firstAttribute="width" constant="25" id="csz-Dg-2bf">
-                                                                                                        <variation key="heightClass=regular-widthClass=compact" constant="15"/>
-                                                                                                    </constraint>
-                                                                                                </constraints>
-                                                                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                                                                <nil key="textColor"/>
-                                                                                                <nil key="highlightedColor"/>
-                                                                                                <userDefinedRuntimeAttributes>
-                                                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
-                                                                                                </userDefinedRuntimeAttributes>
-                                                                                                <variation key="heightClass=regular-widthClass=compact">
-                                                                                                    <mask key="constraints">
-                                                                                                        <exclude reference="csz-Dg-2bf"/>
-                                                                                                    </mask>
-                                                                                                </variation>
-                                                                                            </label>
-                                                                                            <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="13:35" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="OhZ-x6-ONU" userLabel="To Time Label" customClass="UbuntuLightVeryLightGrayLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                                                                                                <rect key="frame" x="19" y="0.0" width="44.5" height="16"/>
-                                                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                                                                <nil key="textColor"/>
-                                                                                                <nil key="highlightedColor"/>
-                                                                                                <userDefinedRuntimeAttributes>
-                                                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
-                                                                                                </userDefinedRuntimeAttributes>
-                                                                                            </label>
-                                                                                        </subviews>
-                                                                                        <constraints>
-                                                                                            <constraint firstItem="OhZ-x6-ONU" firstAttribute="height" secondItem="cvd-Dc-wqb" secondAttribute="height" id="YLD-7S-AWZ"/>
-                                                                                        </constraints>
-                                                                                        <variation key="heightClass=regular-widthClass=compact" spacing="4"/>
-                                                                                    </stackView>
+                                                                                    <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="From" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="PvP-62-nTe" userLabel="From Label" customClass="UbuntuLightItalicVeryDarkGrayishBlueLabel" customModule="OmnieCommerce" customModuleProvider="target">
+                                                                                        <rect key="frame" x="0.0" y="0.0" width="75" height="16"/>
+                                                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                                                        <nil key="textColor"/>
+                                                                                        <nil key="highlightedColor"/>
+                                                                                        <userDefinedRuntimeAttributes>
+                                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                                                                        </userDefinedRuntimeAttributes>
+                                                                                    </label>
+                                                                                    <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="cvd-Dc-wqb" userLabel="To Label" customClass="UbuntuLightItalicVeryDarkGrayishBlueLabel" customModule="OmnieCommerce" customModuleProvider="target">
+                                                                                        <rect key="frame" x="75" y="0.0" width="75" height="16"/>
+                                                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                                                        <nil key="textColor"/>
+                                                                                        <nil key="highlightedColor"/>
+                                                                                        <userDefinedRuntimeAttributes>
+                                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                                                                        </userDefinedRuntimeAttributes>
+                                                                                    </label>
                                                                                 </subviews>
-                                                                                <variation key="heightClass=regular-widthClass=compact" axis="horizontal" spacing="8"/>
+                                                                                <userDefinedRuntimeAttributes>
+                                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
+                                                                                </userDefinedRuntimeAttributes>
+                                                                                <variation key="heightClass=regular-widthClass=compact" axis="horizontal"/>
                                                                             </stackView>
                                                                         </subviews>
                                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -504,10 +451,10 @@
                         <outlet property="containerView" destination="J5w-YA-SAz" id="sZR-WR-JWm"/>
                         <outlet property="dateLabel" destination="Rfs-OC-dPl" id="BM4-Rq-xP6"/>
                         <outlet property="dateStackView" destination="Z9P-FS-lTV" id="G5S-DU-nRX"/>
-                        <outlet property="fromTimeLabel" destination="rjk-Dh-lke" id="I3Y-5R-oWB"/>
+                        <outlet property="fromTimeLabel" destination="PvP-62-nTe" id="2xW-oH-YM1"/>
                         <outlet property="segmentedControlView" destination="EDl-jJ-gKO" id="NYA-RR-61M"/>
                         <outlet property="timeSheetPickersView" destination="S7s-ud-1d8" id="GEH-VE-1WB"/>
-                        <outlet property="toTimeLabel" destination="OhZ-x6-ONU" id="2pp-K1-YIw"/>
+                        <outlet property="toTimeLabel" destination="cvd-Dc-wqb" id="SGx-wz-eKC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KgU-Ew-ER7" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -860,7 +807,7 @@
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dt0-Co-e1e" userLabel="Calendar Container View">
                                         <rect key="frame" x="0.0" y="83" width="330" height="417"/>
                                         <subviews>
-                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="gqm-LM-w1J" customClass="JTAppleCalendarView" customModule="JTAppleCalendar">
+                                            <collectionView clipsSubviews="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" prefetchingEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gqm-LM-w1J" customClass="JTAppleCalendarView" customModule="JTAppleCalendar">
                                                 <rect key="frame" x="0.0" y="0.0" width="330" height="330"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <constraints>
@@ -933,18 +880,18 @@
                                                         </userDefinedRuntimeAttributes>
                                                         <variation key="default">
                                                             <mask key="constraints">
-                                                                <exclude reference="Gej-bB-bGH"/>
-                                                                <exclude reference="W5n-ni-wLR"/>
                                                                 <exclude reference="7fy-3t-db8"/>
                                                                 <exclude reference="w73-fF-6Mr"/>
+                                                                <exclude reference="Gej-bB-bGH"/>
+                                                                <exclude reference="W5n-ni-wLR"/>
                                                             </mask>
                                                         </variation>
                                                         <variation key="heightClass=regular-widthClass=compact">
                                                             <mask key="constraints">
-                                                                <include reference="Gej-bB-bGH"/>
-                                                                <include reference="W5n-ni-wLR"/>
                                                                 <include reference="7fy-3t-db8"/>
                                                                 <include reference="w73-fF-6Mr"/>
+                                                                <include reference="Gej-bB-bGH"/>
+                                                                <include reference="W5n-ni-wLR"/>
                                                             </mask>
                                                         </variation>
                                                         <connections>

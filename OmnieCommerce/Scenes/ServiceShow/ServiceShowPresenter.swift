@@ -41,7 +41,7 @@ class ServiceShowPresenter: ServiceShowPresenterInput {
         let service = CoreDataManager.instance.entityBy("Service", andCodeID: responseModel.parameters["id"] as! String) as! Service
         
         if let jsonService = responseModel.responseAPI?.body {
-            service.profileDidUpload(json: jsonService as! [String: AnyObject], forList: keyService)
+            service.profileDidUpload(json: jsonService as! [String: AnyObject], forList: keyService, withOrganizationID: responseModel.organizationID)
         }
         
         if let pricesList = service.prices, pricesList.count > 0 {

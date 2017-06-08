@@ -40,7 +40,7 @@ class FavoriteServicesShowPresenter: FavoriteServicesShowPresenterInput {
             for jsonService in servicesList {
                 if let serviceID = jsonService["uuid"] as? String {
                     if let service = CoreDataManager.instance.entityBy("Service", andCodeID: serviceID) as? Service {
-                        service.profileDidUpload(json: jsonService, forList: keyFavoriteServices)
+                        service.profileDidUpload(json: jsonService, forList: keyFavoriteServices, withOrganizationID: nil)
                         service.cellHeight = 60.0
                         service.cellIdentifier = "FavoriteServiceTableViewCell"
                     }

@@ -16,11 +16,13 @@ struct ServiceShowModels {
     struct ServiceItem {
         struct RequestModel {
             let parameters: [String: Any]
+            let organizationID: String?
         }
         
         struct ResponseModel {
             let responseAPI: ResponseAPI?
             let parameters: [String: Any]
+            let organizationID: String?
         }
         
         struct ViewModel {

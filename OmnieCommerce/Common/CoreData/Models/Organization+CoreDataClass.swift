@@ -123,7 +123,7 @@ public class Organization: NSManagedObject, InitCellParameters, PointAnnotationB
         if let jsonUserReview = json["ownReview"] as? [String: AnyObject] {
             if let codeID = jsonUserReview["uuid"] as? String {
                 if let review = CoreDataManager.instance.entityBy("Review", andCodeID: codeID) as? Review {
-                    review.profileDidUpload(json: jsonUserReview, withType: .UserReview)
+                    review.profileDidUpload(json: jsonUserReview, withType: .UserReview, andOrganizationID: self.codeID)
                     self.addToReviews(review)
                 }
             }
@@ -134,7 +134,7 @@ public class Organization: NSManagedObject, InitCellParameters, PointAnnotationB
             for jsonServiceReview in serviceReviews {
                 if let codeID = jsonServiceReview["uuid"] as? String {
                     if let review = CoreDataManager.instance.entityBy("Review", andCodeID: codeID) as? Review {
-                        review.profileDidUpload(json: jsonServiceReview, withType: .ServiceReview)
+                        review.profileDidUpload(json: jsonServiceReview, withType: .ServiceReview, andOrganizationID: self.codeID)
                         self.addToReviews(review)
                     }
                 }
@@ -146,7 +146,7 @@ public class Organization: NSManagedObject, InitCellParameters, PointAnnotationB
             for jsonOrganizationReview in organizationReviews {
                 if let codeID = jsonOrganizationReview["uuid"] as? String {
                     if let review = CoreDataManager.instance.entityBy("Review", andCodeID: codeID) as? Review {
-                        review.profileDidUpload(json: jsonOrganizationReview, withType: .OrganizationReview)
+                        review.profileDidUpload(json: jsonOrganizationReview, withType: .OrganizationReview, andOrganizationID: self.codeID)
                         self.addToReviews(review)
                     }
                 }
@@ -165,7 +165,7 @@ public class Organization: NSManagedObject, InitCellParameters, PointAnnotationB
             for jsonService in services {
                 if let serviceID = jsonService["uuid"] as? String {
                     if let service = CoreDataManager.instance.entityBy("Service", andCodeID: serviceID) as? Service {
-                        service.profileDidUpload(json: jsonService, forList: keyService)
+                        service.profileDidUpload(json: jsonService, forList: keyService, withOrganizationID: self.codeID)
                         self.addToServices(service)
                     }
                 }

@@ -108,6 +108,12 @@ class TimeSheetViewController: BaseViewController {
         setupTimePointer()
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(true)
+        
+        self.timer.stop()
+    }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -124,6 +130,7 @@ class TimeSheetViewController: BaseViewController {
         
         // Setup Timer
         timer.start()
+        
         timer.handlerTimerActionCompletion = { counter in
             self.print(object: "timerPointer move to new position")
             

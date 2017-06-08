@@ -32,9 +32,6 @@ class CalendarShowViewController: BaseViewController, CalendarShowViewController
     var serviceID: String!
     var calendarVC: CalendarViewController?
     var timesheetVC: TimeSheetViewController?
-    var orderDateComponents: DateComponents! = Calendar.current.dateComponents([.month, .day, .year, .hour, .minute], from: Date())
-    var orderStartTimeComponents: DateComponents?
-    var orderEndTimeComponents: DateComponents?
     var animationDirection: AnimationDirection?
     var orderPeriod: Period!
     
@@ -54,6 +51,9 @@ class CalendarShowViewController: BaseViewController, CalendarShowViewController
             if (newValue == calendarVC) {
                 calendarVC!.handlerSelectNewDateCompletion = { newDate in
                     self.dateDidSelect(newDate)
+                    
+//                    self.activeViewController = self.timesheetVC!
+//                    self.segmentedControlView.handlerActionButtonTap(self.segmentedControlView.rightActionButton)
                 }
             } else {
                 timesheetVC!.handlerShowTimeSheetPickersCompletion = { isShow in
@@ -72,7 +72,7 @@ class CalendarShowViewController: BaseViewController, CalendarShowViewController
                             }
                         }
                     } else {
-                        self.timesheetVC!.currentScheduleView!.didChangeGestureMode(to: .ScheduleMove)
+                        self.timesheetVC!.currentScheduleView?.didChangeGestureMode(to: .ScheduleMove)
                         self.timeSheetPickersView.didHide()
                     }
                 }
@@ -83,9 +83,9 @@ class CalendarShowViewController: BaseViewController, CalendarShowViewController
     // Outlets
     @IBOutlet weak var segmentedControlView: SegmentedControlView!
     @IBOutlet weak var containerView: UIView!
-    @IBOutlet weak var fromTimeLabel: UbuntuLightVeryLightGrayLabel!
-    @IBOutlet weak var toTimeLabel: UbuntuLightVeryLightGrayLabel!
     @IBOutlet weak var dateStackView: UIView!
+    @IBOutlet weak var fromTimeLabel: UbuntuLightItalicVeryDarkGrayishBlueLabel!
+    @IBOutlet weak var toTimeLabel: UbuntuLightItalicVeryDarkGrayishBlueLabel!
     
     @IBOutlet weak var containerLeadingConstraint: NSLayoutConstraint!
     @IBOutlet weak var containerTrailingConstraint: NSLayoutConstraint!
@@ -124,20 +124,24 @@ class CalendarShowViewController: BaseViewController, CalendarShowViewController
         super.viewDidLoad()
         
         calendarVC = UIStoryboard(name: "CalendarShow", bundle: nil).instantiateViewController(withIdentifier: "CalendarVC") as? CalendarViewController
-        calendarVC!.selectedDate = Calendar.current.date(from: orderDateComponents)
+        calendarVC!.selectedDate = orderPeriod.datesPeriod.dateStart
+
+        if (orderPeriod.timesPeriod.hourStart == 0 && orderPeriod.timesPeriod.hourEnd == 0) {
+            dateStackView.isHidden = true
+        }
+        
         timesheetVC = UIStoryboard(name: "CalendarShow", bundle: nil).instantiateViewController(withIdentifier: "TimeSheetVC") as? TimeSheetViewController
         timesheetVC!.timeSheetID = "\(self.serviceID!)-\(Date().convertToString(withStyle: .DateHyphen))"
 
         activeViewController = calendarVC
         view.backgroundColor = UIColor.veryDarkDesaturatedBlue24
-        dateStackView.isHidden = false
         
-        dateDidSelect(Calendar.current.date(from: orderDateComponents)!)
+        dateDidSelect(orderPeriod.datesPeriod.dateStart)
         
         setupScene(withSize: view.frame.size)
         setupSegmentedControlView()
         setupContainerView(withSize: view.frame.size)
-        setupDateLabel(withDate: Calendar.current.date(from: orderDateComponents)!)
+        setupDateLabel(withDate: orderPeriod.datesPeriod.dateStart)
 
         viewSettingsDidLoad()
         
@@ -206,7 +210,10 @@ class CalendarShowViewController: BaseViewController, CalendarShowViewController
     func dateDidSelect(_ date: Date) {
         self.dateStackView.isHidden = false
         self.setupDateLabel(withDate: date)
-        self.orderDateComponents = Calendar.current.dateComponents([.month, .day, .year, .hour, .minute], from: date)
+        
+        // Change orderPeriod
+        orderPeriod.datesPeriod.dateStart = date
+        orderPeriod.datesPeriod.dateEnd = date
         
         // API "Get timesheet for one day"
         MSMRestApiManager.instance.userRequestDidRun(.userGetOrderTimeSheetForDay(["date": date.convertToString(withStyle: .DateHyphen), "service": self.serviceID], false), withHandlerResponseAPICompletion: { responseAPI in
@@ -226,14 +233,14 @@ class CalendarShowViewController: BaseViewController, CalendarShowViewController
                             let start = "\(String(index).twoNumberFormat()):00"
                             let end = (index == 23) ? "\(String(index).twoNumberFormat()):59" : "\(String(index + 1).twoNumberFormat()):00"
                             let itemCodeID = "\(timeSheet.codeID)-\(start)"
-                            let date = "\(self.orderDateComponents.year!)-\(String(self.orderDateComponents.month!).twoNumberFormat())-\(String(self.orderDateComponents.day!).twoNumberFormat())T"
+                            let dateWithoutT = date.convertToString(withStyle: .DateHyphen)
                             
                             if let timeSheetItem = CoreDataManager.instance.entityBy("TimeSheetItem", andCodeID: itemCodeID) as? TimeSheetItem {
                                 let jsonTimeSheetItem: [String: AnyObject] =    [
-                                    "start":    "\(date)\(start)" as AnyObject,
-                                    "end":      "\(date)\(end)" as AnyObject,
-                                    "type":     "FREE" as AnyObject
-                                ]
+                                                                                    "start":    "\(dateWithoutT)T\(start)" as AnyObject,
+                                                                                    "end":      "\(dateWithoutT)T\(end)" as AnyObject,
+                                                                                    "type":     "FREE" as AnyObject
+                                                                                ]
                                 
                                 timeSheetItem.profileDidUpload(json: jsonTimeSheetItem, andTimeSheet: timeSheet)
                             }

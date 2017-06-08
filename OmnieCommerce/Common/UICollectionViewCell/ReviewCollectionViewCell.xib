@@ -169,7 +169,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.15294117647058825" green="0.21568627450980393" blue="0.27058823529411763" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="DsI-a0-7bc" firstAttribute="leading" secondItem="EQX-yN-EmO" secondAttribute="leading" id="6xk-Ol-5rx"/>
                             <constraint firstAttribute="width" secondItem="EQX-yN-EmO" secondAttribute="height" multiplier="359:143" id="G7h-D3-xLF"/>
@@ -183,7 +183,7 @@
                     </view>
                 </subviews>
             </view>
-            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="0.15294117647058825" green="0.21568627450980393" blue="0.27058823529411763" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="EQX-yN-EmO" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="15O-4j-VUz"/>
                 <constraint firstAttribute="trailing" secondItem="EQX-yN-EmO" secondAttribute="trailing" id="5BR-9M-MoV"/>

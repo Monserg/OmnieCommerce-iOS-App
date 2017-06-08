@@ -28,7 +28,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hfh-VF-vjs">
-                                <rect key="frame" x="0.0" y="95" width="375" height="544"/>
+                                <rect key="frame" x="0.0" y="142.5" width="375" height="496.5"/>
                                 <subviews>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UTx-4c-86N" userLabel="Content View">
                                         <rect key="frame" x="8" y="0.0" width="358" height="576"/>
@@ -47,7 +47,7 @@
                                                         <rect key="frame" x="8" y="0.0" width="76" height="14.5"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="14.5" id="jIg-Cq-AVh"/>
+                                                            <constraint firstAttribute="height" constant="15" id="8tu-HX-tcy"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                         <nil key="textColor"/>
@@ -60,7 +60,7 @@
                                                         <rect key="frame" x="8" y="19.5" width="31" height="14.5"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="14.5" id="qJj-BN-RZA"/>
+                                                            <constraint firstAttribute="height" constant="15" id="wFd-0W-nCZ"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                         <nil key="textColor"/>
@@ -73,7 +73,7 @@
                                                         <rect key="frame" x="8" y="49" width="46" height="14.5"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="14.5" id="vyq-5m-DyA"/>
+                                                            <constraint firstAttribute="height" constant="15" id="scI-Xf-rIP"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                         <nil key="textColor"/>
@@ -86,7 +86,7 @@
                                                         <rect key="frame" x="8" y="68.5" width="31" height="14.5"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="14.5" id="SbD-co-aj7"/>
+                                                            <constraint firstAttribute="height" constant="15" id="RZn-1L-kzH"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                         <nil key="textColor"/>
@@ -99,7 +99,7 @@
                                                         <rect key="frame" x="8" y="98" width="112" height="14.5"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="14.5" id="H80-Bc-RWv"/>
+                                                            <constraint firstAttribute="height" constant="15" id="I5E-fh-9qE"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                         <nil key="textColor"/>
@@ -108,11 +108,11 @@
                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
-                                                    <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xaQ-wj-lR8" userLabel="Additional Service Name Label" customClass="UbuntuLightVeryLightGrayLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                                                        <rect key="frame" x="8" y="118" width="31" height="14.5"/>
+                                                    <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="xaQ-wj-lR8" userLabel="Additional Service Name Label" customClass="UbuntuLightVeryLightGrayLabel" customModule="OmnieCommerce" customModuleProvider="target">
+                                                        <rect key="frame" x="8" y="118" width="31" height="15"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="14" id="pGZ-PB-uPZ"/>
+                                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="15" id="TOi-Pu-jqM"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                         <nil key="textColor"/>
@@ -122,10 +122,10 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
                                                     <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Order Date:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kiB-dA-EkL" userLabel="Period Label" customClass="UbuntuLightItalicLightGrayishCyanLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                                                        <rect key="frame" x="8" y="147.5" width="66" height="14.5"/>
+                                                        <rect key="frame" x="8" y="148" width="66" height="14.5"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="14.5" id="gX6-2m-GrG"/>
+                                                            <constraint firstAttribute="height" constant="15" id="azb-q8-b0n"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                         <nil key="textColor"/>
@@ -135,10 +135,10 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
                                                     <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gns-xn-H05" userLabel="Period Date Label" customClass="UbuntuLightVeryLightGrayLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                                                        <rect key="frame" x="8" y="167" width="31" height="14.5"/>
+                                                        <rect key="frame" x="8" y="167.5" width="31" height="14.5"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="14.5" id="Mfm-CG-XXg"/>
+                                                            <constraint firstAttribute="height" constant="15" id="v6U-pb-kWJ"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                         <nil key="textColor"/>
@@ -147,11 +147,11 @@
                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
-                                                    <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9o2-PD-QYS" userLabel="Period Times Label" customClass="UbuntuLightVeryLightGrayLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                                                        <rect key="frame" x="8" y="186.5" width="31" height="14.5"/>
+                                                    <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="261" verticalCompressionResistancePriority="768" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9o2-PD-QYS" userLabel="Period Times Label" customClass="UbuntuLightVeryLightGrayLabel" customModule="OmnieCommerce" customModuleProvider="target">
+                                                        <rect key="frame" x="8" y="187" width="31" height="14.5"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="14.5" id="get-jM-Rtt"/>
+                                                            <constraint firstAttribute="height" constant="15" id="cGv-j9-tQu"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                         <nil key="textColor"/>
@@ -161,10 +161,10 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
                                                     <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Comment:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DzY-AH-yl9" userLabel="Comment Label" customClass="UbuntuLightItalicLightGrayishCyanLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                                                        <rect key="frame" x="8" y="210" width="58.5" height="14.5"/>
+                                                        <rect key="frame" x="8" y="218.5" width="58.5" height="14.5"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="14.5" id="rCM-Kd-9JS"/>
+                                                            <constraint firstAttribute="height" constant="15" id="ILL-0B-Ydn"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                         <nil key="textColor"/>
@@ -173,11 +173,11 @@
                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
-                                                    <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vRy-9H-guW" userLabel="Comment Text Label" customClass="UbuntuLightVeryLightGrayLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                                                        <rect key="frame" x="8" y="238" width="31" height="14.5"/>
+                                                    <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="vRy-9H-guW" userLabel="Comment Text Label" customClass="UbuntuLightVeryLightGrayLabel" customModule="OmnieCommerce" customModuleProvider="target">
+                                                        <rect key="frame" x="8" y="238" width="31" height="15"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="14" id="0lD-VP-0lc"/>
+                                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="15" id="e8Y-3t-azm"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                         <nil key="textColor"/>
@@ -201,37 +201,33 @@
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstItem="vRy-9H-guW" firstAttribute="top" secondItem="DzY-AH-yl9" secondAttribute="bottom" constant="5" id="1sM-2A-zZi"/>
-                                                    <constraint firstAttribute="bottom" secondItem="vRy-9H-guW" secondAttribute="bottom" constant="15" id="2S9-52-bpU"/>
                                                     <constraint firstItem="IfC-cL-HCc" firstAttribute="leading" secondItem="yVn-6g-nBJ" secondAttribute="leading" constant="8" id="3se-uY-p52"/>
                                                     <constraint firstItem="vRy-9H-guW" firstAttribute="leading" secondItem="yVn-6g-nBJ" secondAttribute="leading" constant="8" id="5D2-mQ-7pW"/>
                                                     <constraint firstAttribute="trailing" secondItem="4VI-FV-fWE" secondAttribute="trailing" id="6QO-ez-8R5"/>
                                                     <constraint firstItem="xaQ-wj-lR8" firstAttribute="top" secondItem="Zcn-y5-hT5" secondAttribute="bottom" constant="5" id="CAg-35-R3R"/>
                                                     <constraint firstItem="kiB-dA-EkL" firstAttribute="leading" secondItem="yVn-6g-nBJ" secondAttribute="leading" constant="8" id="Dtl-4R-EIh"/>
-                                                    <constraint firstItem="kiB-dA-EkL" firstAttribute="top" secondItem="xaQ-wj-lR8" secondAttribute="bottom" constant="15" id="EKs-7d-TIj"/>
                                                     <constraint firstItem="Qkp-38-hll" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="kWc-23-rg4" secondAttribute="trailing" constant="20" id="EwJ-Tz-yzc"/>
                                                     <constraint firstItem="iSr-PF-aNB" firstAttribute="top" secondItem="IfC-cL-HCc" secondAttribute="bottom" constant="15" id="HHa-ut-b8k"/>
                                                     <constraint firstItem="Gns-xn-H05" firstAttribute="leading" secondItem="yVn-6g-nBJ" secondAttribute="leading" constant="8" id="KPi-o2-CyN"/>
                                                     <constraint firstItem="kWc-23-rg4" firstAttribute="leading" secondItem="yVn-6g-nBJ" secondAttribute="leading" constant="8" id="KTd-w1-WqE"/>
-                                                    <constraint firstItem="xaQ-wj-lR8" firstAttribute="top" secondItem="Zcn-y5-hT5" secondAttribute="bottom" constant="5" id="Led-Tl-WVF"/>
-                                                    <constraint firstItem="DzY-AH-yl9" firstAttribute="top" secondItem="9o2-PD-QYS" secondAttribute="bottom" constant="15" id="Mf8-Xy-XRc"/>
-                                                    <constraint firstItem="xaQ-wj-lR8" firstAttribute="top" secondItem="Zcn-y5-hT5" secondAttribute="bottom" constant="5" id="OqM-4B-eJ5"/>
+                                                    <constraint firstItem="kiB-dA-EkL" firstAttribute="top" secondItem="xaQ-wj-lR8" secondAttribute="bottom" constant="15" id="LSw-6G-KqM"/>
                                                     <constraint firstItem="vRy-9H-guW" firstAttribute="top" secondItem="DzY-AH-yl9" secondAttribute="bottom" constant="5" id="QGb-bM-abY"/>
                                                     <constraint firstItem="Qkp-38-hll" firstAttribute="top" secondItem="yVn-6g-nBJ" secondAttribute="top" id="RbN-OD-tUt"/>
-                                                    <constraint firstItem="zTn-56-BlL" firstAttribute="top" secondItem="iSr-PF-aNB" secondAttribute="bottom" constant="5" id="Rve-bk-1LP"/>
                                                     <constraint firstItem="9o2-PD-QYS" firstAttribute="top" secondItem="Gns-xn-H05" secondAttribute="bottom" constant="5" id="T9o-qr-Bj7"/>
                                                     <constraint firstItem="xaQ-wj-lR8" firstAttribute="leading" secondItem="yVn-6g-nBJ" secondAttribute="leading" constant="8" id="UFg-c5-Ppn"/>
                                                     <constraint firstAttribute="bottom" secondItem="4VI-FV-fWE" secondAttribute="bottom" id="Z5k-TU-ZyJ"/>
                                                     <constraint firstItem="IfC-cL-HCc" firstAttribute="top" secondItem="kWc-23-rg4" secondAttribute="bottom" constant="5" id="Zyd-uW-WS5"/>
+                                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="xaQ-wj-lR8" secondAttribute="trailing" constant="8" id="ckI-Hx-izi"/>
                                                     <constraint firstItem="Zcn-y5-hT5" firstAttribute="leading" secondItem="yVn-6g-nBJ" secondAttribute="leading" constant="8" id="eaP-D5-IiR"/>
                                                     <constraint firstItem="4VI-FV-fWE" firstAttribute="leading" secondItem="yVn-6g-nBJ" secondAttribute="leading" id="hrR-0T-unr"/>
-                                                    <constraint firstAttribute="trailing" secondItem="Qkp-38-hll" secondAttribute="trailing" constant="20" id="i4z-Nl-lHt"/>
                                                     <constraint firstItem="DzY-AH-yl9" firstAttribute="leading" secondItem="yVn-6g-nBJ" secondAttribute="leading" constant="8" id="k2y-GF-Bnh"/>
                                                     <constraint firstItem="iSr-PF-aNB" firstAttribute="leading" secondItem="yVn-6g-nBJ" secondAttribute="leading" constant="8" id="pW9-Gh-rdf"/>
                                                     <constraint firstAttribute="trailing" secondItem="Qkp-38-hll" secondAttribute="trailing" constant="20" id="pp7-YS-qU6"/>
                                                     <constraint firstItem="Zcn-y5-hT5" firstAttribute="top" secondItem="zTn-56-BlL" secondAttribute="bottom" constant="15" id="q0r-jV-9u3"/>
                                                     <constraint firstItem="zTn-56-BlL" firstAttribute="leading" secondItem="yVn-6g-nBJ" secondAttribute="leading" constant="8" id="qC9-sq-P7o"/>
+                                                    <constraint firstItem="DzY-AH-yl9" firstAttribute="top" secondItem="xaQ-wj-lR8" secondAttribute="bottom" constant="85.5" id="qwt-HN-pe2"/>
                                                     <constraint firstItem="zTn-56-BlL" firstAttribute="top" secondItem="iSr-PF-aNB" secondAttribute="bottom" constant="5" id="r8e-a2-cbe"/>
+                                                    <constraint firstAttribute="bottom" secondItem="vRy-9H-guW" secondAttribute="bottom" constant="15" id="rEp-42-m46"/>
                                                     <constraint firstItem="4VI-FV-fWE" firstAttribute="top" secondItem="yVn-6g-nBJ" secondAttribute="top" id="tz9-ch-p4K"/>
                                                     <constraint firstItem="Gns-xn-H05" firstAttribute="top" secondItem="kiB-dA-EkL" secondAttribute="bottom" constant="5" id="uYw-fQ-MgL"/>
                                                     <constraint firstItem="9o2-PD-QYS" firstAttribute="leading" secondItem="yVn-6g-nBJ" secondAttribute="leading" constant="8" id="uhs-is-62J"/>
@@ -411,7 +407,7 @@
                                                 <rect key="frame" x="0.0" y="510" width="358" height="66"/>
                                                 <subviews>
                                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kKS-Tc-ZlO" userLabel="Cancel Button" customClass="BorderVeryLightOrangeButton" customModule="OmnieCommerce" customModuleProvider="target">
-                                                        <rect key="frame" x="-8" y="-300.5" width="375" height="667"/>
+                                                        <rect key="frame" x="116.5" y="1" width="126" height="64"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                         <state key="normal" title="Cancel" image="icon-confirm-cancel-white-normal"/>
@@ -469,7 +465,7 @@
                                 </userDefinedRuntimeAttributes>
                             </scrollView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TOJ-4o-BWv" customClass="SmallTopBarView" customModule="OmnieCommerce" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="95"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="142.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="titleText" value="Order"/>
@@ -537,6 +533,7 @@
                     <size key="freeformSize" width="375" height="667"/>
                     <connections>
                         <outlet property="actionView" destination="gv5-jF-yHH" id="jzS-yh-azg"/>
+                        <outlet property="actionViewTopConstraint" destination="d9O-Fw-0QC" id="b2X-2k-gIo"/>
                         <outlet property="additionalServicesNames" destination="xaQ-wj-lR8" id="hs9-qf-VFn"/>
                         <outlet property="cancelActionView" destination="fy1-QB-eTo" id="eE4-Xt-9Vu"/>
                         <outlet property="checkButton" destination="wLY-ah-PEE" id="RZ6-ow-6LX"/>

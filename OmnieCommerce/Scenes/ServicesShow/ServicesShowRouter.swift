@@ -13,7 +13,7 @@ import UIKit
 
 // MARK: - Input & Output protocols
 protocol ServicesShowRouterInput {
-    func navigateToServiceShowScene(withID serviceID: String)
+    func navigateToServiceShowScene(withServiceID serviceID: String)
 }
 
 class ServicesShowRouter: ServicesShowRouterInput {
@@ -22,7 +22,7 @@ class ServicesShowRouter: ServicesShowRouterInput {
     
     
     // MARK: - Custom Functions. Navigation
-    func navigateToServiceShowScene(withID serviceID: String) {
+    func navigateToServiceShowScene(withServiceID serviceID: String) {
         let storyboard = UIStoryboard(name: "ServiceShow", bundle: nil)
         let serviceShowVC = storyboard.instantiateViewController(withIdentifier: "ServiceShowVC") as! ServiceShowViewController
         serviceShowVC.serviceID = serviceID

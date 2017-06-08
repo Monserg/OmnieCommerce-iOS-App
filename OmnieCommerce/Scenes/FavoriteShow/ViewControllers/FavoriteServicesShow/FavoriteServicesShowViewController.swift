@@ -113,7 +113,7 @@ class FavoriteServicesShowViewController: BaseViewController {
         
         // Handler select cell
         tableView.tableViewControllerManager!.handlerSelectRowCompletion = { service in
-            self.router.navigateToServiceShowScene(service as! Service)
+            self.router.navigateToServiceShowScene(withServiceID: (service as! Service).codeID)
         }
         
         // Handler PullRefresh

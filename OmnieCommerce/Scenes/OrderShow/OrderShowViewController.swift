@@ -69,6 +69,7 @@ class OrderShowViewController: BaseViewController {
     
     // Action view
     @IBOutlet weak var actionView: UIView!
+    @IBOutlet weak var actionViewTopConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var checkButton: DLRadioButton! {
         didSet {
@@ -123,16 +124,18 @@ class OrderShowViewController: BaseViewController {
             actionView.isHidden = false
             cancelActionView.isHidden = true
         } else {
-            orderProfileDidShow()
-
+//            actionView.didShow(false, withConstraint: actionViewTopConstraint)
+            actionViewTopConstraint.constant = -actionView.frame.height
             actionView.isHidden = true
             stateButton.isHidden = true
             cancelActionView.isHidden = false
+            
+            orderProfileDidShow()
         }
         
         // Get total price
-//        let priceRequestModel = OrderShowModels.TotalPrice.RequestModel(parameters: bodyRequestParameters!)
-//        interactor.totalPriceDidLoad(withRequestModel: priceRequestModel)
+        let priceRequestModel = OrderShowModels.TotalPrice.RequestModel(parameters: bodyRequestParameters!)
+        interactor.totalPriceDidLoad(withRequestModel: priceRequestModel)
     }
     
     func orderProfileDidShow() {
@@ -158,13 +161,16 @@ class OrderShowViewController: BaseViewController {
             serviceNameLabel.text = orderPrepare!.serviceName
             additionalServicesNames.numberOfLines = 0
             additionalServicesNames.text = orderPrepare!.additionalServices
+            additionalServicesNames.sizeToFit()
             periodDateLabel.text = orderPrepare!.period.datesPeriod.dateStart.convertToString(withStyle: .DateDot)
             periodTimesLabel.text = "\("From".localized()) \(String(orderPrepare!.period.timesPeriod.hourStart).twoNumberFormat()):\(String(orderPrepare!.period.timesPeriod.minuteStart).twoNumberFormat()) \("To".localized()) \(String(orderPrepare!.period.timesPeriod.hourEnd).twoNumberFormat()):\(String(orderPrepare!.period.timesPeriod.minuteEnd).twoNumberFormat())"
             commentTextLabel.numberOfLines = 0
             commentTextLabel.text = orderPrepare!.comment
+            commentTextLabel.sizeToFit()
         }
         
         // Action view
+        view.layoutIfNeeded()
         checkButton.sizeToFit()
         spinnerDidFinish()
     }
@@ -267,7 +273,7 @@ extension OrderShowViewController: OrderShowViewControllerInput {
         
         // Price view
         if let totalPrice = viewModel.value {
-            self.priceLabel.text = String(format: "%3.2f", totalPrice)
+            self.priceLabel.text = String(format: "%3.2f UAH", totalPrice)
         }
     }
 }

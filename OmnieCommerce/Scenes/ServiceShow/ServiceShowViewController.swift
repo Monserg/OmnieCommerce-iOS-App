@@ -33,10 +33,8 @@ class ServiceShowViewController: BaseViewController {
     var router: ServiceShowRouter!
     
     var serviceID: String!
+    var organizationID: String?
     var serviceProfile: Service!
-    var orderDateComponents: DateComponents?
-    var orderStartTimeComponents: DateComponents?
-    var orderEndTimeComponents: DateComponents?
     var wasLaunchedAPI = false
     var orderPrepare: OrderPrepare!
 
@@ -46,8 +44,11 @@ class ServiceShowViewController: BaseViewController {
                 return
             }
             
-            selectedDateLabel.text = " "
-            selectedTimesLabel.text = " "
+            selectedDateDidUpload()
+            selectedTimesDidUpload()
+            selectedPeriodTitleDidUpload()
+            
+            serviceProfileDidShow()
         }
     }
 
@@ -135,49 +136,19 @@ class ServiceShowViewController: BaseViewController {
     
     @IBOutlet weak var selectedDateLabel: UbuntuLightVeryLightOrangeLabel! {
         didSet {
-            selectedDateLabel.text = (orderPeriod.timesPeriod.hourStart == 0 && orderPeriod.timesPeriod.minuteStart == 0) ? "Select Date click text".localized() : orderPeriod.datesPeriod.dateStart.convertToString(withStyle: .DateDot)
+            selectedDateDidUpload()
         }
     }
     
     @IBOutlet weak var selectedTimesLabel: UbuntuLightItalicVeryDarkGrayishBlueLabel! {
         didSet {
-            if (orderPeriod.timesPeriod.hourStart == 0 && orderPeriod.timesPeriod.minuteStart == 0) {
-                selectedTimesLabel.isHidden = true
-            } else {
-                let times = "\("From".localized()) (String(orderPeriod.timesPeriod.hourStart).twoNumberFormat()):\(String(orderPeriod.timesPeriod.minuteStart).twoNumberFormat()) \("To".localized()) \(String(orderPeriod.timesPeriod.hourEnd).twoNumberFormat()):\(String(orderPeriod.timesPeriod.minuteEnd).twoNumberFormat())"
-                
-                let stringAttributed = NSMutableAttributedString.init(string: times)
-                let timeArray = times.components(separatedBy: " ")
-                var location: Int = 0
-                
-                // From
-                stringAttributed.addAttributes([ NSFontAttributeName: UIFont.ubuntuLightItalic16, NSForegroundColorAttributeName: UIColor.veryDarkGrayishBlue56 ],
-                                               range: NSRange.init(location: location, length: timeArray[0].characters.count))
-                
-                location += timeArray[0].characters.count + 1
-
-                // Start time
-                stringAttributed.addAttributes([ NSFontAttributeName: UIFont.ubuntuLight16, NSForegroundColorAttributeName: UIColor.veryLightOrange ],
-                                               range: NSRange.init(location: location, length: timeArray[1].characters.count))
-                
-                location += timeArray[1].characters.count + 1
-                
-                // To
-                stringAttributed.addAttributes([ NSFontAttributeName: UIFont.ubuntuLightItalic16, NSForegroundColorAttributeName: UIColor.veryDarkGrayishBlue56 ],
-                                               range: NSRange.init(location: location, length: timeArray[2].characters.count))
-
-                location += timeArray[2].characters.count + 1
-
-                // End time
-                stringAttributed.addAttributes([ NSFontAttributeName: UIFont.ubuntuLight16, NSForegroundColorAttributeName: UIColor.veryLightOrange ],
-                                               range: NSRange.init(location: location, length: timeArray[3].characters.count))
-            }
+            selectedTimesDidUpload()
         }
     }
     
     @IBOutlet weak var selectPeriodTitleLabel: HelveticaNeueCyrLightVeryLightGrayLabel! {
         didSet {
-            selectPeriodTitleLabel.text = (orderPeriod.timesPeriod.hourStart == 0 && orderPeriod.timesPeriod.minuteStart == 0) ? "Select Date".localized() : "Turn the Date".localized()
+            selectedPeriodTitleDidUpload()
         }
     }
     
@@ -279,18 +250,14 @@ class ServiceShowViewController: BaseViewController {
         }
         
         // Load Service profile data
-        let serviceRequestModel = ServiceShowModels.ServiceItem.RequestModel(parameters: [ "id": serviceID, "locale": Locale.current.languageCode!.lowercased() ])
+        let serviceRequestModel = ServiceShowModels.ServiceItem.RequestModel(parameters: [ "id": serviceID, "locale": Locale.current.languageCode!.lowercased() ], organizationID: organizationID)
         interactor.serviceDidLoad(withRequestModel: serviceRequestModel)
     }
     
     func serviceProfileDidShow() {
         // Setting Service profile info
         serviceProfile = CoreDataManager.instance.entityBy("Service", andCodeID: serviceID) as! Service
-        
         smallTopBarView.titleText = serviceProfile.organizationName ?? "Zorro"
-        orderDateComponents = Calendar.current.dateComponents([.month, .day, .year, .hour, .minute], from: Date())
-        orderStartTimeComponents = Calendar.current.dateComponents([.hour, .minute], from: Date())
-        orderEndTimeComponents = Calendar.current.dateComponents([.hour, .minute], from: Date().addingTimeInterval(TimeInterval(serviceProfile.duration / 1_000)))
 
         // Create Period
         if (orderPeriod == nil) {
@@ -434,8 +401,12 @@ class ServiceShowViewController: BaseViewController {
             // Add additional services stirng
             var services = String()
             
-            for additionalService in Array(additionalServicesList) {
-                services.append("\((additionalService as! AdditionalService).name)\n")
+            for (index, additionalService) in Array(additionalServicesList).enumerated() {
+                if (index == 0) {
+                    services.append("\((additionalService as! AdditionalService).name)")
+                } else {
+                    services.append("\n\((additionalService as! AdditionalService).name)")
+                }
             }
             
             orderPrepare.additionalServices = services
@@ -449,6 +420,9 @@ class ServiceShowViewController: BaseViewController {
         if (orderPeriod.timesPeriod.hourStart == 0 && orderPeriod.timesPeriod.minuteStart == 0) {
             selectedTimesLabelTopConstraint.constant = -15
             selectedTimesLabel.didShow(false, withConstraint: selectedTimesLabelTopConstraint)
+        } else {
+            selectedTimesLabelTopConstraint.constant = 30
+            selectedTimesLabel.didShow(true, withConstraint: selectedTimesLabelTopConstraint)
         }
         
         // Comment view
@@ -612,26 +586,75 @@ class ServiceShowViewController: BaseViewController {
         let startSeconds: Int64 = Int64((orderPeriod.timesPeriod.hourStart * 60 + orderPeriod.timesPeriod.minuteStart) * 60)
         let endSeconds: Int64 = Int64((orderPeriod.timesPeriod.hourEnd * 60 + orderPeriod.timesPeriod.minuteEnd) * 60)
 
-        bodyParameters["duration"] = (endSeconds - startSeconds) as AnyObject
+        bodyParameters["duration"] = (endSeconds - startSeconds) * 1_000 as AnyObject
         
-        let subservicesList: [AdditionalService] = additionalServicesTableView.tableViewControllerManager.dataSource.filter({ ($0 as! AdditionalService).isAvailable == true }) as! [AdditionalService]
-        
-        if (subservicesList.count > 0) {
-            for (index, subservice) in subservicesList.enumerated() {
-                let additionalString = ["subServiceId": subservice.codeID, "quantity": (additionalServicesTableView.cellForRow(at: IndexPath.init(row: index, section: 0)) as! AdditionalServiceTableViewCell).pickerView.selectedRow(inComponent: 0)] as [String : Any]
-                subservices.append(additionalString)
-            }
+        if !(additionalServicesView.isHidden) {
+            let subservicesList: [AdditionalService] = additionalServicesTableView.tableViewControllerManager.dataSource.filter({ ($0 as! AdditionalService).isAvailable == true }) as! [AdditionalService]
             
-            bodyParameters["subServiceOrders"] = subservices as AnyObject
+            if (subservicesList.count > 0) {
+                for (index, subservice) in subservicesList.enumerated() {
+                    let quantity = (additionalServicesTableView.cellForRow(at: IndexPath.init(row: index, section: 0)) as! AdditionalServiceTableViewCell).pickerView.selectedRow(inComponent: 0)
+                    let additionalString = ["subServiceId": subservice.codeID, "quantity": (quantity == 0) ? 1 : quantity ] as [String : Any]
+                    subservices.append(additionalString)
+                }
+                
+                bodyParameters["subServiceOrders"] = subservices as AnyObject
+            }
+        } else {
+            bodyParameters["subServiceOrders"] = [] as AnyObject
         }
         
-        if let commentText = commentTextView.text {
+        if let commentText = commentTextView.text, commentText != "Comment".localized() {
             bodyParameters["comment"] = commentText as AnyObject
         }
 
         return bodyParameters
     }
 
+    func selectedDateDidUpload() {
+        selectedDateLabel.text = (orderPeriod.timesPeriod.hourStart == 0 && orderPeriod.timesPeriod.minuteStart == 0) ? "Select Date click text".localized() : orderPeriod.datesPeriod.dateStart.convertToString(withStyle: .DateDot)
+    }
+
+    func selectedTimesDidUpload() {
+        if (orderPeriod.timesPeriod.hourStart == 0 && orderPeriod.timesPeriod.minuteStart == 0) {
+            selectedTimesLabel.isHidden = true
+        } else {
+            let times = "\("From".localized()) \(String(orderPeriod.timesPeriod.hourStart).twoNumberFormat()):\(String(orderPeriod.timesPeriod.minuteStart).twoNumberFormat()) \("To".localized()) \(String(orderPeriod.timesPeriod.hourEnd).twoNumberFormat()):\(String(orderPeriod.timesPeriod.minuteEnd).twoNumberFormat())"
+            
+            let stringAttributed = NSMutableAttributedString.init(string: times)
+            let timeArray = times.components(separatedBy: " ")
+            var location: Int = 0
+            
+            // From
+            stringAttributed.addAttributes([ NSFontAttributeName: UIFont.ubuntuLightItalic12, NSForegroundColorAttributeName: UIColor.veryDarkGrayishBlue56 ],
+                                           range: NSRange.init(location: location, length: timeArray[0].characters.count))
+            
+            location += timeArray[0].characters.count + 1
+            
+            // Start time
+            stringAttributed.addAttributes([ NSFontAttributeName: UIFont.ubuntuLight16, NSForegroundColorAttributeName: UIColor.veryLightOrange ],
+                                           range: NSRange.init(location: location, length: timeArray[1].characters.count))
+            
+            location += timeArray[1].characters.count + 1
+            
+            // To
+            stringAttributed.addAttributes([ NSFontAttributeName: UIFont.ubuntuLightItalic12, NSForegroundColorAttributeName: UIColor.veryDarkGrayishBlue56 ],
+                                           range: NSRange.init(location: location, length: timeArray[2].characters.count))
+            
+            location += timeArray[2].characters.count + 1
+            
+            // End time
+            stringAttributed.addAttributes([ NSFontAttributeName: UIFont.ubuntuLight16, NSForegroundColorAttributeName: UIColor.veryLightOrange ],
+                                           range: NSRange.init(location: location, length: timeArray[3].characters.count))
+            
+            selectedTimesLabel.attributedText = stringAttributed
+        }
+    }
+    
+    func selectedPeriodTitleDidUpload() {
+        selectPeriodTitleLabel.text = (orderPeriod.timesPeriod.hourStart == 0 && orderPeriod.timesPeriod.minuteStart == 0) ? "Select Date".localized() : "Turn the Date".localized()
+    }
+    
     
     // MARK: - Transition
     override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -677,6 +700,7 @@ class ServiceShowViewController: BaseViewController {
     }
     
     @IBAction func handlerViewOrderButtonTap(_ sender: FillVeryLightOrangeButton) {
+        view.endEditing(true)
         self.router.navigateToOrderShowScene(withOrderPrepare: orderPrepare, andRequestParameters: orderRequestParametersDidPrepare())        
     }
     
@@ -752,7 +776,10 @@ extension ServiceShowViewController: UITextViewDelegate {
     
     func textViewShouldEndEditing(_ textView: UITextView) -> Bool {
         textViewPlaceholderDidUpload(textView.text)
-        orderPrepare.comment = textView.text
+        
+        if (textView.text != "Comment".localized()) {
+            orderPrepare.comment = textView.text
+        }
         
         return true
     }

@@ -15,6 +15,7 @@ enum StringDateStyle: String {
     case MonthYear          =   "MonthYear"                 //  "Feb 2017"
     case WeekdayMonthYear   =   "WeekdayMonthYear"          //  "Четвер 19 Серпня 2016"
     case DayMonthYear       =   "DayMonthYear"              //  "19 Серпня 2016"
+    case DiscountCardDate   =   "yyyy-MM-dd\'T\'HH:mm"      //  "2017-05-16T22:48"
 }
 
 extension Date {
@@ -104,6 +105,9 @@ extension Date {
 
         case .DayMonthYear:
             dateFormatter.dateFormat = "dd MMMM YYYY"
+
+        case .DiscountCardDate:
+            dateFormatter.dateFormat = "yyyy-MM-dd\'T\'HH:mm"
         }
         
         return dateFormatter.string(from: self).capitalized
