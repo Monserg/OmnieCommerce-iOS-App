@@ -31,6 +31,10 @@ class MSMPickerViewManager: UIView {
     var selectedHourIndex: Int = 0
     var selectedMinuteIndex: Int = 0
 
+    // Handler only for Order
+    var handlerChangeHourCompletion: HandlerPassDataCompletion?
+    var handlerChangeMinuteCompletion: HandlerPassDataCompletion?
+    
     
     // MARK: - Class Initialization
     override init(frame: CGRect) {
@@ -187,6 +191,7 @@ extension MSMPickerViewManager: UIPickerViewDelegate {
         case 0:
             if (scene == "TimeSheetPickersView") {
                 selectedHourIndex = row
+                handlerChangeHourCompletion!(row)
             } else {
                 selectedDayIndex = row
             }
@@ -204,6 +209,7 @@ extension MSMPickerViewManager: UIPickerViewDelegate {
             
             if (scene == "TimeSheetPickersView") {
                 selectedMinuteIndex = row
+                handlerChangeMinuteCompletion!(row)
             }
             
         case 4:

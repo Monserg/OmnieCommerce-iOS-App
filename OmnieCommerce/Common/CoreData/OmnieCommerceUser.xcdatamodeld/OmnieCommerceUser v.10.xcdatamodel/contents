@@ -151,14 +151,14 @@
     </entity>
     <entity name="Lists" representedClassName="Lists" syncable="YES">
         <attribute name="name" attributeType="String" syncable="YES"/>
-        <relationship name="businessCards" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="BusinessCard" inverseName="lists" inverseEntity="BusinessCard" syncable="YES"/>
-        <relationship name="categories" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Category" inverseName="categoriesList" inverseEntity="Category" syncable="YES"/>
-        <relationship name="discountCards" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="DiscountCard" inverseName="lists" inverseEntity="DiscountCard" syncable="YES"/>
-        <relationship name="handbooks" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Handbook" inverseName="lists" inverseEntity="Handbook" syncable="YES"/>
-        <relationship name="news" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="NewsData" inverseName="newsList" inverseEntity="NewsData" syncable="YES"/>
-        <relationship name="orders" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Order" inverseName="lists" inverseEntity="Order" syncable="YES"/>
-        <relationship name="organizations" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Organization" inverseName="lists" inverseEntity="Organization" syncable="YES"/>
-        <relationship name="services" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Service" inverseName="lists" inverseEntity="Service" syncable="YES"/>
+        <relationship name="businessCards" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="BusinessCard" inverseName="lists" inverseEntity="BusinessCard" syncable="YES"/>
+        <relationship name="categories" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Category" inverseName="categoriesList" inverseEntity="Category" syncable="YES"/>
+        <relationship name="discountCards" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DiscountCard" inverseName="lists" inverseEntity="DiscountCard" syncable="YES"/>
+        <relationship name="handbooks" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Handbook" inverseName="lists" inverseEntity="Handbook" syncable="YES"/>
+        <relationship name="news" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="NewsData" inverseName="newsList" inverseEntity="NewsData" syncable="YES"/>
+        <relationship name="orders" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Order" inverseName="lists" inverseEntity="Order" syncable="YES"/>
+        <relationship name="organizations" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Organization" inverseName="lists" inverseEntity="Organization" syncable="YES"/>
+        <relationship name="services" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Service" inverseName="lists" inverseEntity="Service" syncable="YES"/>
         <uniquenessConstraints>
             <uniquenessConstraint>
                 <constraint value="name"/>

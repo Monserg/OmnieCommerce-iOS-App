@@ -27,6 +27,23 @@ class TimeSheetPickersView: UIView {
             
             fromPickerView.selectRow(fromPickerViewManager.selectedHourIndex, inComponent: 0, animated: true)
             fromPickerView.selectRow(fromPickerViewManager.selectedMinuteIndex, inComponent: 2, animated: true)
+            
+            // Handler times change
+            fromPickerViewManager.handlerChangeHourCompletion = { value in
+                self.print(object: "\(value as! Int)")
+                self.timesPeriod.hourStart = value as! Int
+                
+                // Compare times
+                self.timesPeriodDidCompare()
+            }
+
+            fromPickerViewManager.handlerChangeMinuteCompletion = { value in
+                self.print(object: "\(value as! Int)")
+                self.timesPeriod.minuteStart = value as! Int
+                
+                // Compare times
+                self.timesPeriodDidCompare()
+            }
         }
     }
 
@@ -42,13 +59,31 @@ class TimeSheetPickersView: UIView {
             toPickerViewManager.selectedHourIndex = timesPeriod.hourEnd
             toPickerViewManager.selectedMinuteIndex = timesPeriod.minuteEnd
             
-            fromPickerView.selectRow(toPickerViewManager.selectedHourIndex, inComponent: 0, animated: true)
-            fromPickerView.selectRow(toPickerViewManager.selectedMinuteIndex, inComponent: 2, animated: true)
+            toPickerView.selectRow(toPickerViewManager.selectedHourIndex, inComponent: 0, animated: true)
+            toPickerView.selectRow(toPickerViewManager.selectedMinuteIndex, inComponent: 2, animated: true)
+            
+            // Handler times change
+            toPickerViewManager.handlerChangeHourCompletion = { value in
+                self.print(object: "\(value as! Int)")
+                self.timesPeriod.hourEnd = value as! Int
+                
+                // Compare times
+                self.timesPeriodDidCompare()
+            }
+            
+            toPickerViewManager.handlerChangeMinuteCompletion = { value in
+                self.print(object: "\(value as! Int)")
+                self.timesPeriod.minuteEnd = value as! Int
+
+                // Compare times
+                self.timesPeriodDidCompare()
+            }
         }
     }
 
     var handlerConfirmButtonCompletion: HandlerPassDataCompletion?
-    
+    var handlerChangeTimesPeriodCompletion: HandlerPassDataCompletion?
+
     // Outlets
     @IBOutlet var view: UIView!
     @IBOutlet weak var fromPickerView: UIPickerView!
@@ -149,6 +184,29 @@ class TimeSheetPickersView: UIView {
                 self.removeFromSuperview()
             })
         }
+    }
+
+    func timesPeriodDidCompare() {
+        if (self.timesPeriod.hourStart > self.timesPeriod.hourEnd) {
+            self.toPickerViewManager.selectedHourIndex = self.timesPeriod.hourStart
+            self.toPickerViewManager.selectedMinuteIndex = 0
+            
+            self.toPickerView.selectRow(self.toPickerViewManager.selectedHourIndex, inComponent: 0, animated: true)
+            self.toPickerView.selectRow(self.toPickerViewManager.selectedMinuteIndex, inComponent: 2, animated: true)
+
+            self.timesPeriod.hourEnd = self.toPickerViewManager.selectedHourIndex
+        }
+        
+        if (self.timesPeriod.hourStart == self.timesPeriod.hourEnd) {
+            self.toPickerViewManager.selectedMinuteIndex = self.timesPeriod.minuteStart
+            
+            self.toPickerView.selectRow(self.toPickerViewManager.selectedHourIndex, inComponent: 0, animated: true)
+            self.toPickerView.selectRow(self.toPickerViewManager.selectedMinuteIndex, inComponent: 2, animated: true)
+        
+            self.timesPeriod.minuteEnd = self.toPickerViewManager.selectedMinuteIndex
+        }
+        
+        self.handlerChangeTimesPeriodCompletion!(self.timesPeriod)
     }
 
     

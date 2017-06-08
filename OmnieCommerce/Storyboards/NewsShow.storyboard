@@ -138,9 +138,28 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="llC-pM-Ewh" customClass="BorderVeryLightOrangeButton" customModule="OmnieCommerce" customModuleProvider="target">
+                                <rect key="frame" x="240" y="400" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="2Wj-Zu-PBZ"/>
+                                    <constraint firstAttribute="width" constant="60" id="aYW-MF-65M"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <state key="normal" title="Order"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="30"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="serviceTap:" destination="Ilf-Sn-Zlw" eventType="touchUpInside" id="zxP-55-A2E"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="gfO-BQ-LUo" firstAttribute="top" secondItem="llC-pM-Ewh" secondAttribute="bottom" constant="20" id="54A-D3-MUO"/>
+                            <constraint firstAttribute="trailing" secondItem="llC-pM-Ewh" secondAttribute="trailing" constant="20" id="7uW-fF-ehI"/>
                             <constraint firstItem="k4R-nE-6Gi" firstAttribute="top" secondItem="ifC-ZK-xUt" secondAttribute="top" id="A59-fS-dXg"/>
                             <constraint firstItem="k4R-nE-6Gi" firstAttribute="leading" secondItem="ifC-ZK-xUt" secondAttribute="leading" id="eZW-Dd-wE9"/>
                             <constraint firstAttribute="bottom" secondItem="k4R-nE-6Gi" secondAttribute="bottom" id="mp0-LW-O35"/>

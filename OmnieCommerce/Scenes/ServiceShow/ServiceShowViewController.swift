@@ -594,14 +594,12 @@ class ServiceShowViewController: BaseViewController {
             if (subservicesList.count > 0) {
                 for (index, subservice) in subservicesList.enumerated() {
                     let quantity = (additionalServicesTableView.cellForRow(at: IndexPath.init(row: index, section: 0)) as! AdditionalServiceTableViewCell).pickerView.selectedRow(inComponent: 0)
-                    let additionalString = ["subServiceId": subservice.codeID, "quantity": (quantity == 0) ? 1 : quantity ] as [String : Any]
+                    let additionalString = ["subServiceId": subservice.codeID, "quantity": (quantity == 0) ? 1 : quantity ] as [String: Any]
                     subservices.append(additionalString)
                 }
                 
                 bodyParameters["subServiceOrders"] = subservices as AnyObject
             }
-        } else {
-            bodyParameters["subServiceOrders"] = [] as AnyObject
         }
         
         if let commentText = commentTextView.text, commentText != "Comment".localized() {

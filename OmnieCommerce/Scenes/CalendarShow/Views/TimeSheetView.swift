@@ -16,15 +16,21 @@ class TimeSheetView: UIView {
     var isResizeDown = true
     var orderMinDuration: CGFloat = 1.0
     var timesPeriod: TimesPeriod!
-
+    
     var gestureMode = GestureMode.ScheduleMove {
         willSet {
             switch newValue {
             case .ScheduleMove:
                 contentView.backgroundColor = UIColor.veryDarkCyan
+                startTimeLabel.textColor = UIColor.white
+                finishTimeLabel.textColor = UIColor.white
+                separatorTimeLabel.textColor = UIColor.white
                 
             case .ScheduleResize:
                 contentView.backgroundColor = UIColor.cyan
+                startTimeLabel.textColor = UIColor.black
+                finishTimeLabel.textColor = UIColor.black
+                separatorTimeLabel.textColor = UIColor.black
                 
             default:
                 break
@@ -50,6 +56,7 @@ class TimeSheetView: UIView {
     @IBOutlet var upDownButtonsCollection: [UIButton]!
     @IBOutlet weak var startTimeLabel: UILabel!
     @IBOutlet weak var finishTimeLabel: UILabel!
+    @IBOutlet weak var separatorTimeLabel: UILabel!
     
     var handlerShowPickersViewCompletion: HandlerSendButtonCompletion?
     
@@ -145,7 +152,7 @@ class TimeSheetView: UIView {
             sender.view!.center = CGPoint(x: sender.view!.center.x, y: sender.view!.center.y + translate.y)
             sender.setTranslation(CGPoint.zero, in: self.superview!)
             
-            print(object: "sender.view!.frame")
+            print(object: "Order view new position = \(sender.view?.frame.minY)")
             
         case .ScheduleResize:
             let translation = sender.translation(in: self.superview!)
@@ -188,6 +195,8 @@ class TimeSheetView: UIView {
         if (gestureMode == .ScheduleMove) {
             didChangeGestureMode(to: .ScheduleResize)
             (superview as! UITableView).isScrollEnabled = false
+            (superview as! UITableView).bringSubview(toFront: self)
+
             handlerShowPickersViewCompletion!()
         }
     }

@@ -124,7 +124,6 @@ class OrderShowViewController: BaseViewController {
             actionView.isHidden = false
             cancelActionView.isHidden = true
         } else {
-//            actionView.didShow(false, withConstraint: actionViewTopConstraint)
             actionViewTopConstraint.constant = -actionView.frame.height
             actionView.isHidden = true
             stateButton.isHidden = true

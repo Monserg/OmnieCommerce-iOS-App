@@ -51,33 +51,78 @@ class CalendarShowViewController: BaseViewController, CalendarShowViewController
             if (newValue == calendarVC) {
                 calendarVC!.handlerSelectNewDateCompletion = { newDate in
                     self.dateDidSelect(newDate)
-                    
-//                    self.activeViewController = self.timesheetVC!
-//                    self.segmentedControlView.handlerActionButtonTap(self.segmentedControlView.rightActionButton)
+                    self.segmentedControlView.handlerActionButtonTap(self.segmentedControlView.rightActionButton)
                 }
             } else {
+                // Handler Pickers confirm button tap
                 timesheetVC!.handlerShowTimeSheetPickersCompletion = { isShow in
                     if (isShow as! Bool) {
                         if !(self.timeSheetPickersView?.isShow)! {
                             self.timeSheetPickersView = TimeSheetPickersView.init(frame: CGRect.init(origin: .zero, size: .zero))
-                            self.timeSheetPickersView.timesPeriod = self.timesheetVC!.currentScheduleView!.timesPeriod
+                            self.timeSheetPickersView.timesPeriod = self.timesheetVC!.timeSheetView!.timesPeriod
                             self.timeSheetPickersView.didShow(inView: self.view)
                             
                             self.timeSheetPickersView.handlerConfirmButtonCompletion = { timesPeriod in
-                                self.timesheetVC!.currentScheduleView!.didChangeGestureMode(to: .ScheduleMove)
-                                self.confirmButton.isEnabled = true
+                                self.timesheetVC!.timeSheetView!.didChangeGestureMode(to: .ScheduleMove)
+                                self.timesheetVC!.handlerTapGesture(UIGestureRecognizer())
                                 self.orderPeriod.timesPeriod = timesPeriod as! TimesPeriod
-                                self.fromTimeLabel.text = "\(String(self.orderPeriod.timesPeriod.hourStart).twoNumberFormat()):\(String(self.orderPeriod.timesPeriod.minuteStart).twoNumberFormat())"
-                                self.toTimeLabel.text = "\(String(self.orderPeriod.timesPeriod.hourEnd).twoNumberFormat()):\(String(self.orderPeriod.timesPeriod.minuteEnd).twoNumberFormat())"
+                                self.timesLabelsDidUpload()
+                            }
+                            
+                            // Handler change times in Pickers view
+                            self.timeSheetPickersView.handlerChangeTimesPeriodCompletion = { timesPeriod in
+                                self.orderPeriod.timesPeriod = timesPeriod as! TimesPeriod
+                                self.timeSheetPickersView.timesPeriod = timesPeriod as! TimesPeriod
+                                self.timesheetVC!.timeSheetView!.setCurrentPeriod(timesPeriod as! TimesPeriod)
                             }
                         }
                     } else {
-                        self.timesheetVC!.currentScheduleView?.didChangeGestureMode(to: .ScheduleMove)
+                        self.timesheetVC!.timeSheetView?.didChangeGestureMode(to: .ScheduleMove)
                         self.timeSheetPickersView.didHide()
+                        self.timesLabelsDidUpload()
                     }
                 }
             }
         }
+    }
+    
+    func timesLabelsDidUpload() {
+        // Create times text
+        let timesPeriod = self.timeSheetPickersView.timesPeriod
+        var times = "\("From".localized()) \(String(timesPeriod!.hourStart).twoNumberFormat()):\(String(timesPeriod!.minuteStart).twoNumberFormat())"
+        var stringAttributed = NSMutableAttributedString.init(string: times)
+        var timeArray = times.components(separatedBy: " ")
+        var location: Int = 0
+        
+        // From
+        stringAttributed.addAttributes([ NSFontAttributeName: UIFont.ubuntuLightItalic12, NSForegroundColorAttributeName: UIColor.veryDarkGrayishBlue56 ],
+                                       range: NSRange.init(location: location, length: timeArray[0].characters.count))
+        
+        location += timeArray[0].characters.count + 1
+        
+        // Start time
+        stringAttributed.addAttributes([ NSFontAttributeName: UIFont.ubuntuLight16, NSForegroundColorAttributeName: UIColor.veryLightGray ],
+                                       range: NSRange.init(location: location, length: timeArray[1].characters.count))
+        
+        self.fromTimeLabel.attributedText = stringAttributed
+        location = 0
+        times = "\("To".localized()) \(String(timesPeriod!.hourEnd).twoNumberFormat()):\(String(timesPeriod!.minuteEnd).twoNumberFormat())"
+        timeArray = times.components(separatedBy: " ")
+        
+        // To
+        stringAttributed = NSMutableAttributedString.init(string: times)
+        
+        stringAttributed.addAttributes([ NSFontAttributeName: UIFont.ubuntuLightItalic12, NSForegroundColorAttributeName: UIColor.veryDarkGrayishBlue56 ],
+                                       range: NSRange.init(location: location, length: timeArray[0].characters.count))
+        
+        location += timeArray[0].characters.count + 1
+        
+        // End time
+        stringAttributed.addAttributes([ NSFontAttributeName: UIFont.ubuntuLight16, NSForegroundColorAttributeName: UIColor.veryLightGray ],
+                                       range: NSRange.init(location: location, length: timeArray[1].characters.count))
+        
+        self.toTimeLabel.attributedText = stringAttributed
+        self.confirmButton.isEnabled = true
     }
     
     // Outlets
@@ -221,39 +266,42 @@ class CalendarShowViewController: BaseViewController, CalendarShowViewController
 
             if let jsonTimeSheet = responseAPI?.body as? [String: AnyObject], jsonTimeSheet.count > 0 {
                 if let timeSheet = CoreDataManager.instance.entityBy("TimeSheet", andCodeID: codeID) as? TimeSheet {
-                    timeSheet.profileDidUpload(json: jsonTimeSheet, forService: self.serviceID, andDate: date.convertToString(withStyle: .DateHyphen))
+//                    timeSheet.profileDidUpload(json: jsonTimeSheet, forService: self.serviceID, andDate: date.convertToString(withStyle: .DateHyphen))
                     self.timesheetVC!.selectedDate = date
                     self.timesheetVC!.timeSheetID = "\(self.serviceID!)-\(date.convertToString(withStyle: .DateHyphen))"
                     
                     // Create TimeSheetItems for Organization work time
-                    if let timeSheetItems = jsonTimeSheet["timesheet"] as? [String: AnyObject], timeSheetItems.count > 0 {
+//                    if let timeSheetItems = jsonTimeSheet["timesheet"] as? [String: AnyObject], timeSheetItems.count > 0 {
+//                        
+//                    } else {
+                    for index in 0...23 {
+                        let start = "\(String(index).twoNumberFormat()):00"
+                        let end = (index == 23) ? "\(String(index).twoNumberFormat()):59" : "\(String(index + 1).twoNumberFormat()):00"
+                        let itemCodeID = "\(timeSheet.codeID)-\(start)"
+                        let dateWithoutT = date.convertToString(withStyle: .DateHyphen)
                         
-                    } else {
-                        for index in 0...23 {
-                            let start = "\(String(index).twoNumberFormat()):00"
-                            let end = (index == 23) ? "\(String(index).twoNumberFormat()):59" : "\(String(index + 1).twoNumberFormat()):00"
-                            let itemCodeID = "\(timeSheet.codeID)-\(start)"
-                            let dateWithoutT = date.convertToString(withStyle: .DateHyphen)
+                        if let timeSheetItem = CoreDataManager.instance.entityBy("TimeSheetItem", andCodeID: itemCodeID) as? TimeSheetItem {
+                            let jsonTimeSheetItem: [String: AnyObject] =    [
+                                "start":    "\(dateWithoutT)T\(start)" as AnyObject,
+                                "end":      "\(dateWithoutT)T\(end)" as AnyObject,
+                                "type":     "FREE" as AnyObject
+                            ]
                             
-                            if let timeSheetItem = CoreDataManager.instance.entityBy("TimeSheetItem", andCodeID: itemCodeID) as? TimeSheetItem {
-                                let jsonTimeSheetItem: [String: AnyObject] =    [
-                                                                                    "start":    "\(dateWithoutT)T\(start)" as AnyObject,
-                                                                                    "end":      "\(dateWithoutT)T\(end)" as AnyObject,
-                                                                                    "type":     "FREE" as AnyObject
-                                                                                ]
-                                
-                                timeSheetItem.profileDidUpload(json: jsonTimeSheetItem, andTimeSheet: timeSheet)
-                            }
+                            timeSheetItem.profileDidUpload(json: jsonTimeSheetItem, andTimeSheet: timeSheet)
                         }
                     }
+                    
+                    timeSheet.profileDidUpload(json: jsonTimeSheet, forService: self.serviceID, andDate: date.convertToString(withStyle: .DateHyphen))
+
+//                    }
                 }
             }
-                
+            
             CoreDataManager.instance.didSaveContext()
         })
     }
-        
-        
+    
+    
     // MARK: - Transition
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         print(object: "\(type(of: self)): \(#function) run. New size = \(size)")

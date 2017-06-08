@@ -154,6 +154,18 @@ class NewsDataShowViewController: BaseViewController {
 
         spinnerDidFinish()
     }
+    
+    
+    
+    
+    
+    // FIXME: - DELETE AFTER TEST & ROUTER
+    // MARK: - Actions
+    @IBAction func serviceTap(_ sender: Any) {
+        router.navigateToCalendar(withServiceID: "4ad4e431-8cee-40f2-aef1-87f6f28ee5e7",
+                                  andOrderPeriod: (datesPeriod: (dateStart: Date(), dateEnd: Date()),
+                                                   timesPeriod: (hourStart: 0, minuteStart: 0, hourEnd: 0, minuteEnd: 0)))
+    }
 }
 
 

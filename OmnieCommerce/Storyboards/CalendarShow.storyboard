@@ -122,13 +122,13 @@
                                                                 </variation>
                                                             </view>
                                                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jUZ-KM-uOX" userLabel="Content View">
-                                                                <rect key="frame" x="0.0" y="0.0" width="150" height="36"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="120" height="36"/>
                                                                 <subviews>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Z9P-FS-lTV">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="150" height="36"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="120" height="36"/>
                                                                         <subviews>
                                                                             <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="07.12.2016" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rfs-OC-dPl" userLabel="Date Label" customClass="UbuntuLightVeryLightGrayLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="150" height="17"/>
+                                                                                <rect key="frame" x="0.0" y="0.0" width="120" height="17"/>
                                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="height" constant="27" id="uWA-g8-01W">
@@ -143,10 +143,10 @@
                                                                                 </userDefinedRuntimeAttributes>
                                                                             </label>
                                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="J8k-Cb-px5">
-                                                                                <rect key="frame" x="0.0" y="20" width="150" height="16"/>
+                                                                                <rect key="frame" x="0.0" y="20" width="120" height="16"/>
                                                                                 <subviews>
                                                                                     <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="From" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="PvP-62-nTe" userLabel="From Label" customClass="UbuntuLightItalicVeryDarkGrayishBlueLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                                                                                        <rect key="frame" x="0.0" y="0.0" width="75" height="16"/>
+                                                                                        <rect key="frame" x="0.0" y="0.0" width="60" height="16"/>
                                                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                                         <nil key="textColor"/>
@@ -156,7 +156,7 @@
                                                                                         </userDefinedRuntimeAttributes>
                                                                                     </label>
                                                                                     <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="cvd-Dc-wqb" userLabel="To Label" customClass="UbuntuLightItalicVeryDarkGrayishBlueLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                                                                                        <rect key="frame" x="75" y="0.0" width="75" height="16"/>
+                                                                                        <rect key="frame" x="60" y="0.0" width="60" height="16"/>
                                                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                                         <nil key="textColor"/>
@@ -180,7 +180,7 @@
                                                                 <constraints>
                                                                     <constraint firstAttribute="trailing" secondItem="Z9P-FS-lTV" secondAttribute="trailing" id="5VA-Ye-Har"/>
                                                                     <constraint firstAttribute="bottom" secondItem="Z9P-FS-lTV" secondAttribute="bottom" id="Alg-S0-6WF"/>
-                                                                    <constraint firstAttribute="width" constant="150" id="MLX-On-xLn"/>
+                                                                    <constraint firstAttribute="width" constant="120" id="MLX-On-xLn"/>
                                                                     <constraint firstItem="Z9P-FS-lTV" firstAttribute="top" secondItem="jUZ-KM-uOX" secondAttribute="top" id="eP1-UN-Kix"/>
                                                                     <constraint firstAttribute="height" constant="81" id="i6d-uH-wcr"/>
                                                                     <constraint firstItem="Z9P-FS-lTV" firstAttribute="leading" secondItem="jUZ-KM-uOX" secondAttribute="leading" id="iyG-rc-ZSh"/>
@@ -200,12 +200,12 @@
                                                                     </mask>
                                                                 </variation>
                                                             </view>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Ml-to-0S1" userLabel="Middle View">
-                                                                <rect key="frame" x="150" y="0.0" width="0.0" height="36"/>
+                                                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Ml-to-0S1" userLabel="Middle View">
+                                                                <rect key="frame" x="120" y="0.0" width="0.0" height="36"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="42" id="Juo-Hy-d0f"/>
-                                                                    <constraint firstAttribute="width" id="LAi-tS-92R"/>
+                                                                    <constraint firstAttribute="width" constant="10" id="LAi-tS-92R"/>
                                                                 </constraints>
                                                                 <variation key="default">
                                                                     <mask key="constraints">
@@ -230,10 +230,10 @@
                                                                 </variation>
                                                             </view>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="uOU-iv-l2D">
-                                                                <rect key="frame" x="150" y="0.0" width="189" height="36"/>
+                                                                <rect key="frame" x="120" y="0.0" width="219" height="36"/>
                                                                 <subviews>
                                                                     <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p0Y-B5-nW5" userLabel="Confirm Button" customClass="FillVeryLightOrangeButton" customModule="OmnieCommerce" customModuleProvider="target">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="145" height="36"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="175" height="36"/>
                                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                                         <state key="normal" title="Confirm" image="icon-confirm-normal"/>
@@ -245,7 +245,7 @@
                                                                         </connections>
                                                                     </button>
                                                                     <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WuZ-ep-v0H" userLabel="Cancel Button" customClass="BorderVeryLightOrangeButton" customModule="OmnieCommerce" customModuleProvider="target">
-                                                                        <rect key="frame" x="153" y="0.0" width="36" height="36"/>
+                                                                        <rect key="frame" x="183" y="0.0" width="36" height="36"/>
                                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" constant="36" id="SmF-w6-8ia"/>

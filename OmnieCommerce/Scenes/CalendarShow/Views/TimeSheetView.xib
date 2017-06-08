@@ -13,6 +13,7 @@
             <connections>
                 <outlet property="contentView" destination="FV8-XW-0fl" id="8C1-j7-TuM"/>
                 <outlet property="finishTimeLabel" destination="nQo-y8-OU5" id="qSp-78-k2h"/>
+                <outlet property="separatorTimeLabel" destination="qmh-SQ-qUc" id="LQA-mT-Xzo"/>
                 <outlet property="startTimeLabel" destination="qYR-Ta-mYR" id="BSc-6F-9AX"/>
                 <outlet property="view" destination="dUt-sL-QaU" id="Mgh-nT-LTR"/>
                 <outletCollection property="upDownButtonsCollection" destination="XQY-Cz-M1I" collectionClass="NSMutableArray" id="u4n-SS-haP"/>

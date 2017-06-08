@@ -15,6 +15,7 @@ import UIKit
 protocol NewsDataShowRouterInput {
     func navigateToSomewhere()
     func navigateToNewsItemShowScene(_ item: NewsData)
+    func navigateToCalendar(withServiceID serviceID: String, andOrderPeriod orderPeriod: Period)
 }
 
 class NewsDataShowRouter: NewsDataShowRouterInput {
@@ -60,6 +61,24 @@ class NewsDataShowRouter: NewsDataShowRouterInput {
         })
     }
 
+    
+    func navigateToCalendar(withServiceID serviceID: String, andOrderPeriod orderPeriod: Period) {
+        let storyboard = UIStoryboard(name: "CalendarShow", bundle: nil)
+        let calendarShowVC = storyboard.instantiateViewController(withIdentifier: "CalendarShowVC") as! CalendarShowViewController
+        calendarShowVC.orderPeriod = orderPeriod
+        calendarShowVC.serviceID = serviceID
+        
+        viewController.navigationController?.pushViewController(calendarShowVC, animated: true)
+        
+        // Handler Confirm completion
+        calendarShowVC.handlerConfirmButtonCompletion = { orderPeriod in
+//            self.viewController.orderButton.isEnabled = true
+//            self.viewController.orderPeriod = orderPeriod as! Period
+//            self.viewController.orderPrepare.period = orderPeriod as! Period
+        }
+    }
+
+    
     func navigateToSomewhere() {
         // NOTE: Teach the router how to navigate to another scene. Some examples follow:
         // 1. Trigger a storyboard segue

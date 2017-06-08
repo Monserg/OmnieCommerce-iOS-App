@@ -18,6 +18,7 @@ class CalendarViewController: BaseViewController {
     let firstDayOfWeek: DaysOfWeek = .monday
     var selectedDate: Date!
     
+    // Outlets
     @IBOutlet weak var titleLabel: UbuntuLightVeryLightGrayLabel!
     @IBOutlet var weekdayLabelsCollection: [UbuntuLightDarkCyanLabel]!
     @IBOutlet weak var calendarView: JTAppleCalendarView!
