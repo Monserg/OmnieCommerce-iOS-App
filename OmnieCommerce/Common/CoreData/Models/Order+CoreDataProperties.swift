@@ -2,7 +2,7 @@
 //  Order+CoreDataProperties.swift
 //  OmnieCommerce
 //
-//  Created by msm72 on 15.05.17.
+//  Created by msm72 on 08.06.17.
 //  Copyright © 2017 Omniesoft. All rights reserved.
 //
 
@@ -21,14 +21,32 @@ extension Order {
     @NSManaged public var dateEnd: String?
     @NSManaged public var dateStart: NSDate
     @NSManaged public var discount: Float
-    @NSManaged public var isAvailable: Bool
     @NSManaged public var imageID: String?
+    @NSManaged public var isAvailable: Bool
     @NSManaged public var organizationName: String
     @NSManaged public var price: Float
     @NSManaged public var priceTotal: Float
     @NSManaged public var serviceName: String
     @NSManaged public var status: String
+    @NSManaged public var additionalServices: NSSet?
     @NSManaged public var lists: NSSet?
+
+}
+
+// MARK: Generated accessors for additionalServices
+extension Order {
+
+    @objc(addAdditionalServicesObject:)
+    @NSManaged public func addToAdditionalServices(_ value: AdditionalService)
+
+    @objc(removeAdditionalServicesObject:)
+    @NSManaged public func removeFromAdditionalServices(_ value: AdditionalService)
+
+    @objc(addAdditionalServices:)
+    @NSManaged public func addToAdditionalServices(_ values: NSSet)
+
+    @objc(removeAdditionalServices:)
+    @NSManaged public func removeFromAdditionalServices(_ values: NSSet)
 
 }
 

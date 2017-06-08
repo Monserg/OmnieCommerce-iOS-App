@@ -16,20 +16,7 @@ public class AdditionalService: NSManagedObject, InitCellParameters {
     var cellHeight: CGFloat = 52.0
     
     
-    // MARK: - Class Initialization
-//    convenience init?(json: [String: AnyObject], andRelationshipObject managedObject: NSManagedObject) {
-//        guard let codeID = json["uuid"] as? String, let name = json["name"] as? String, let unit = json["unit"] as? UInt16, let price = json["price"] as? Double else {
-//            return nil
-//        }
-//        
-//        // Check Entity available in CoreData
-//        guard let additionalServiceEntity = CoreDataManager.instance.entityForName("AdditionalService") else {
-//            return nil
-//        }
-//        
-//        // Create Entity
-//        self.init(entity: additionalServiceEntity, insertInto: CoreDataManager.instance.managedObjectContext)
-    
+    // MARK: - Custom Functions
     func profileDidUpload(json: [String: AnyObject]) {
         // Prepare to save common data
         self.codeID = json["uuid"] as! String

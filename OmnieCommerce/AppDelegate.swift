@@ -30,6 +30,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Google Maps
         GMSPlacesClient.provideAPIKey("AIzaSyAjgia40VOxC_eaVwrULf1TOjmlw2cwqpE")
         
+        // Set period
+        period.dateStart = Date() as NSDate
+        
         return true
     }
 

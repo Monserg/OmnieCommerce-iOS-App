@@ -16,7 +16,6 @@ import JTAppleCalendar
 class OrderCalendarShowViewController: BaseViewController {
     // MARK: - Properties
     let firstDayOfWeek: DaysOfWeek = .monday
-    var ordersDatesPeriod: DatesPeriod!
     var calculatedDate = Date().globalTime()
     var firstDate: Date?
     
@@ -100,8 +99,8 @@ class OrderCalendarShowViewController: BaseViewController {
         var count: Int = 0
 
         // Show Orders dates
-        if (ordersDatesPeriod.0 == ordersDatesPeriod.1) {
-            calendarView.selectDates([ordersDatesPeriod.0], triggerSelectionDelegate: false)
+        if ((period.dateStart as Date).convertToString(withStyle: .DateDot) == (period.dateEnd as Date).convertToString(withStyle: .DateDot)) {
+            calendarView.selectDates([period.dateStart as Date], triggerSelectionDelegate: false)
         } else {
             // TODO: -ADD PERIOD DATES
         }
@@ -204,7 +203,7 @@ class OrderCalendarShowViewController: BaseViewController {
                 }
                 
                 calendarView.selectDates(from: rangeSelectedDates.first!, to: date, keepSelectionIfMultiSelectionAllowed: true)
-                ordersDatesPeriod = (dateStart: calendarView.selectedDates.first!, dateEnd: calendarView.selectedDates.last!)
+//                ordersDatesPeriod = (dateStart: calendarView.selectedDates.first!, dateEnd: calendarView.selectedDates.last!)
             } else {
                 let indexOfNewlySelectedDate = rangeSelectedDates.index(of: date)! + 1
                 let lastIndex = rangeSelectedDates.endIndex
@@ -221,8 +220,8 @@ class OrderCalendarShowViewController: BaseViewController {
     }
     
     @IBAction func handlerSelectPeriodButtonTap(_ sender: BorderVeryLightOrangeButton) {
-        ordersDatesPeriod = (dateStart: calendarView.selectedDates.first!, dateEnd: calendarView.selectedDates.last!)
-        handlerSelectDatesPeriodCompletion!(ordersDatesPeriod)
+//        ordersDatesPeriod = (dateStart: calendarView.selectedDates.first!, dateEnd: calendarView.selectedDates.last!)
+//        handlerSelectDatesPeriodCompletion!(ordersDatesPeriod)
         self.navigationController?.popViewController(animated: true)
     }
 }

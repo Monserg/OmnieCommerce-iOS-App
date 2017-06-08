@@ -107,7 +107,7 @@ class OrderShowPresenter: OrderShowPresenterInput {
         }
         
         // Convert responseAPI body to Order CoreData object
-        let totalPriceViewModel = OrderShowModels.TotalPrice.ViewModel(status: responseModel.responseAPI!.status, value: responseModel.responseAPI!.body as? Double)
+        let totalPriceViewModel = OrderShowModels.TotalPrice.ViewModel(status: responseModel.responseAPI!.status, value: Double(responseModel.responseAPI!.body as! String)!)
         self.viewController.totalPriceDidShowLoad(fromViewModel: totalPriceViewModel)
     }
 }

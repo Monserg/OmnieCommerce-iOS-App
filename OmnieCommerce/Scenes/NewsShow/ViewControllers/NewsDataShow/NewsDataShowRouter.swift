@@ -15,7 +15,7 @@ import UIKit
 protocol NewsDataShowRouterInput {
     func navigateToSomewhere()
     func navigateToNewsItemShowScene(_ item: NewsData)
-    func navigateToCalendar(withServiceID serviceID: String, andOrderPeriod orderPeriod: Period)
+    func navigateToCalendar(withServiceID serviceID: String)
 }
 
 class NewsDataShowRouter: NewsDataShowRouterInput {
@@ -62,10 +62,9 @@ class NewsDataShowRouter: NewsDataShowRouterInput {
     }
 
     
-    func navigateToCalendar(withServiceID serviceID: String, andOrderPeriod orderPeriod: Period) {
+    func navigateToCalendar(withServiceID serviceID: String) {
         let storyboard = UIStoryboard(name: "CalendarShow", bundle: nil)
         let calendarShowVC = storyboard.instantiateViewController(withIdentifier: "CalendarShowVC") as! CalendarShowViewController
-        calendarShowVC.orderPeriod = orderPeriod
         calendarShowVC.serviceID = serviceID
         
         viewController.navigationController?.pushViewController(calendarShowVC, animated: true)

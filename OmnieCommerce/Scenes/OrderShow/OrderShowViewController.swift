@@ -79,6 +79,7 @@ class OrderShowViewController: BaseViewController {
     
     // Cancel Action view
     @IBOutlet weak var cancelActionView: UIView!
+    @IBOutlet weak var cancelActionViewTopConstraint: NSLayoutConstraint!
     
     
     // MARK: - Class initialization
@@ -116,18 +117,22 @@ class OrderShowViewController: BaseViewController {
             return
         }
         
-        // Load Order profile data
+        // Load Order profile data & show CancelAction view
         if (orderID != nil) {
+            actionViewTopConstraint.constant = -actionView.frame.height
+            
+            // FIXME:
+            stateButton.isHidden = false
+            actionView.isHidden = true
+            cancelActionView.isHidden = false
+
             let orderRequestModel = OrderShowModels.OrderItem.RequestModel(parameters: [ "id": orderID! ])
             interactor.orderDidLoad(withRequestModel: orderRequestModel)
-            
+        } else {
+            cancelActionViewTopConstraint.constant = -cancelActionView.frame.height
+            stateButton.isHidden = true
             actionView.isHidden = false
             cancelActionView.isHidden = true
-        } else {
-            actionViewTopConstraint.constant = -actionView.frame.height
-            actionView.isHidden = true
-            stateButton.isHidden = true
-            cancelActionView.isHidden = false
             
             orderProfileDidShow()
         }
@@ -147,10 +152,22 @@ class OrderShowViewController: BaseViewController {
                 serviceNameLabel.text = orderProfile!.serviceName
                 additionalServicesNames.numberOfLines = 0
                 
-//            additionalServicesNames.text = orderProfile.additionalServices
+                if let additionalServices = orderProfile!.additionalServices, additionalServices.count > 0 {
+                    let subServicesList: [AdditionalService] = additionalServices.filter({ ($0 as! AdditionalService).isAvailable == true }) as! [AdditionalService]
+                    
+                    if (subServicesList.count > 0) {
+                        for (index, subService) in subServicesList.enumerated() {
+                            if (index == 0) {
+                                additionalServicesNames.text = subService.name
+                            } else {
+                                additionalServicesNames.text = "\n\(subService.name)"
+                            }
+                        }
+                    }
+                }
                 
-                periodDateLabel.text = orderPrepare!.period.datesPeriod.dateStart.convertToString(withStyle: .DateDot)
-                periodTimesLabel.text = "\("From".localized()) \(String(orderPrepare!.period.timesPeriod.hourStart).twoNumberFormat()):\(String(orderPrepare!.period.timesPeriod.minuteStart).twoNumberFormat()) \("To".localized()) \(String(orderPrepare!.period.timesPeriod.hourEnd).twoNumberFormat()):\(String(orderPrepare!.period.timesPeriod.minuteEnd).twoNumberFormat())"
+                periodDateLabel.text = (period.dateStart as Date).convertToString(withStyle: .DateDot)
+                periodTimesLabel.text = "\("From".localized()) \(String(period.hourStart).twoNumberFormat()):\(String(period.minuteStart).twoNumberFormat()) \("To".localized()) \(String(period.hourEnd).twoNumberFormat()):\(String(period.minuteEnd).twoNumberFormat())"
                 
                 commentTextLabel.numberOfLines = 0
                 commentTextLabel.text = orderProfile!.comment
@@ -158,11 +175,14 @@ class OrderShowViewController: BaseViewController {
         } else {
             organizationNameLabel.text = orderPrepare!.organizationName
             serviceNameLabel.text = orderPrepare!.serviceName
+            
             additionalServicesNames.numberOfLines = 0
             additionalServicesNames.text = orderPrepare!.additionalServices
             additionalServicesNames.sizeToFit()
-            periodDateLabel.text = orderPrepare!.period.datesPeriod.dateStart.convertToString(withStyle: .DateDot)
-            periodTimesLabel.text = "\("From".localized()) \(String(orderPrepare!.period.timesPeriod.hourStart).twoNumberFormat()):\(String(orderPrepare!.period.timesPeriod.minuteStart).twoNumberFormat()) \("To".localized()) \(String(orderPrepare!.period.timesPeriod.hourEnd).twoNumberFormat()):\(String(orderPrepare!.period.timesPeriod.minuteEnd).twoNumberFormat())"
+            
+            periodDateLabel.text = (period.dateStart as Date).convertToString(withStyle: .DateDot)
+            periodTimesLabel.text = "\("From".localized()) \(String(period.hourStart).twoNumberFormat()):\(String(period.minuteStart).twoNumberFormat()) \("To".localized()) \(String(period.hourEnd).twoNumberFormat()):\(String(period.minuteEnd).twoNumberFormat())"
+            
             commentTextLabel.numberOfLines = 0
             commentTextLabel.text = orderPrepare!.comment
             commentTextLabel.sizeToFit()
@@ -198,8 +218,7 @@ class OrderShowViewController: BaseViewController {
     }
     
     @IBAction func handlerCancelButtonTap(_ sender: BorderVeryLightOrangeButton) {
-        let orderCreateRequestModel = OrderShowModels.OrderItem.RequestModel(parameters: [ "id": orderID! ])
-        interactor.orderDidCreate(withRequestModel: orderCreateRequestModel)
+        self.navigationController?.popViewController(animated: true)
     }
     
     @IBAction func handlerCheckButtonTap(_ sender: DLRadioButton) {
@@ -276,11 +295,3 @@ extension OrderShowViewController: OrderShowViewControllerInput {
         }
     }
 }
-
-
-// MARK: - UIScrollViewDelegate
-//extension OrderShowViewController: UIScrollViewDelegate {
-//    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
-//        scrollView.indicatorDidChange(UIColor.veryLightOrange)
-//    }
-//}

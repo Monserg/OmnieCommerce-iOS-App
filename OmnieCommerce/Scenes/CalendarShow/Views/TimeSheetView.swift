@@ -14,8 +14,6 @@ class TimeSheetView: UIView {
     var startPosition = CGPoint.zero
     var originalHeight: CGFloat = 0
     var isResizeDown = true
-    var orderMinDuration: CGFloat = 1.0
-    var timesPeriod: TimesPeriod!
     
     var gestureMode = GestureMode.ScheduleMove {
         willSet {
@@ -135,8 +133,7 @@ class TimeSheetView: UIView {
         }, completion: nil)
     }
     
-    func setCurrentPeriod(_ period: TimesPeriod) {
-        timesPeriod = period
+    func orderTimesDidUpload() {
         startTimeLabel.text = "\(String(period.hourStart).twoNumberFormat()):\(String(period.minuteStart).twoNumberFormat())"
         finishTimeLabel.text = "\(String(period.hourEnd).twoNumberFormat()):\(String(period.minuteEnd).twoNumberFormat())"
     }

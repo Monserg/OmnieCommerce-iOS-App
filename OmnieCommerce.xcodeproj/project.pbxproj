@@ -341,6 +341,9 @@
 		B17EBF1C1E9B69A4000E61AA /* DiscountTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B17EBF1A1E9B69A4000E61AA /* DiscountTableViewCell.xib */; };
 		B184A9581E9BE9F9005B3A10 /* ReviewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B184A9561E9BE9F9005B3A10 /* ReviewCollectionViewCell.swift */; };
 		B184A9591E9BE9F9005B3A10 /* ReviewCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B184A9571E9BE9F9005B3A10 /* ReviewCollectionViewCell.xib */; };
+		B186A9EA1EE9A92800E0C367 /* Period+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B186A9E81EE9A92800E0C367 /* Period+CoreDataClass.swift */; };
+		B186A9EB1EE9A92800E0C367 /* Period+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B186A9E91EE9A92800E0C367 /* Period+CoreDataProperties.swift */; };
+		B186A9EE1EE9B53600E0C367 /* TimeSheetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B186A9ED1EE9B53600E0C367 /* TimeSheetCell.swift */; };
 		B18A45C61DEC21BA003EBD2F /* SmallTopBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B18A45C51DEC21BA003EBD2F /* SmallTopBarView.xib */; };
 		B18A45C81DEC23B2003EBD2F /* SmallTopBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18A45C71DEC23B2003EBD2F /* SmallTopBarView.swift */; };
 		B18A45CA1DEC282B003EBD2F /* DotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18A45C91DEC282B003EBD2F /* DotView.swift */; };
@@ -908,6 +911,9 @@
 		B17EBF1A1E9B69A4000E61AA /* DiscountTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DiscountTableViewCell.xib; sourceTree = "<group>"; };
 		B184A9561E9BE9F9005B3A10 /* ReviewCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewCollectionViewCell.swift; sourceTree = "<group>"; };
 		B184A9571E9BE9F9005B3A10 /* ReviewCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReviewCollectionViewCell.xib; sourceTree = "<group>"; };
+		B186A9E81EE9A92800E0C367 /* Period+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Period+CoreDataClass.swift"; sourceTree = "<group>"; };
+		B186A9E91EE9A92800E0C367 /* Period+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Period+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		B186A9ED1EE9B53600E0C367 /* TimeSheetCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeSheetCell.swift; sourceTree = "<group>"; };
 		B18A45C51DEC21BA003EBD2F /* SmallTopBarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SmallTopBarView.xib; sourceTree = "<group>"; };
 		B18A45C71DEC23B2003EBD2F /* SmallTopBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmallTopBarView.swift; sourceTree = "<group>"; };
 		B18A45C91DEC282B003EBD2F /* DotView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DotView.swift; sourceTree = "<group>"; };
@@ -1265,6 +1271,8 @@
 				B100406E1EB4980D00161073 /* Order+CoreDataProperties.swift */,
 				B1D9AD7F1EA8A40E006A3852 /* Organization+CoreDataClass.swift */,
 				B1D9AD801EA8A40E006A3852 /* Organization+CoreDataProperties.swift */,
+				B186A9E81EE9A92800E0C367 /* Period+CoreDataClass.swift */,
+				B186A9E91EE9A92800E0C367 /* Period+CoreDataProperties.swift */,
 				B10189B61EAB40E700C1AD2F /* Phone+CoreDataClass.swift */,
 				B10189B71EAB40E700C1AD2F /* Phone+CoreDataProperties.swift */,
 				B10189CC1EACB34C00C1AD2F /* Price+CoreDataClass.swift */,
@@ -1445,6 +1453,7 @@
 		B122DF5B1DF7F919003823AD /* CalendarShow */ = {
 			isa = PBXGroup;
 			children = (
+				B186A9EC1EE9B4E300E0C367 /* Models */,
 				B14B8DDC1EBB720700B29511 /* Views */,
 				B19DF2821DF94D94000AFC92 /* UIViewControllers */,
 				B122DF5C1DF7F957003823AD /* CalendarShowConfigurator.swift */,
@@ -2117,6 +2126,14 @@
 			path = RepetitionPasswordShow;
 			sourceTree = "<group>";
 		};
+		B186A9EC1EE9B4E300E0C367 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B186A9ED1EE9B53600E0C367 /* TimeSheetCell.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		B18FBAEA1ECFFDE00037804C /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -2782,6 +2799,7 @@
 				B13F4E721ED5880D00455604 /* DiscountCardCreateInteractor.swift in Sources */,
 				B19DFAC11E64B9F100599073 /* UITextField+Ext.swift in Sources */,
 				B177E55A1E54B739004F1390 /* RepetitionPasswordShowRouter.swift in Sources */,
+				B186A9EE1EE9B53600E0C367 /* TimeSheetCell.swift in Sources */,
 				B15125101EADC619009A6A44 /* ServiceShowRouter.swift in Sources */,
 				B1CF547B1DDB50D900E98049 /* AboutShowViewController.swift in Sources */,
 				B1F7EDB81DF54878003B36AD /* SegmentedControlView.swift in Sources */,
@@ -2977,6 +2995,7 @@
 				B1CF54981DDB512000E98049 /* DiscountCardsShowWorker.swift in Sources */,
 				B122F1FD1DD35BC70018A701 /* FavoriteShowWorker.swift in Sources */,
 				B14E974D1DD8B042001E1DE2 /* SignInShowViewController.swift in Sources */,
+				B186A9EA1EE9A92800E0C367 /* Period+CoreDataClass.swift in Sources */,
 				B1CF54A21DDB515000E98049 /* HandbookShowModels.swift in Sources */,
 				B10874A71E5B3D7E004A4FB6 /* AppUser+CoreDataProperties.swift in Sources */,
 				B1FFF7041E5ECDF900A075D8 /* OrganizationsShowRouter.swift in Sources */,
@@ -3068,6 +3087,7 @@
 				B18A45C81DEC23B2003EBD2F /* SmallTopBarView.swift in Sources */,
 				B18FBB021ECFFF880037804C /* HandbooksShowConfigurator.swift in Sources */,
 				B10B48CB1E8A5AEC007DDD81 /* FavoriteServicesShowConfigurator.swift in Sources */,
+				B186A9EB1EE9A92800E0C367 /* Period+CoreDataProperties.swift in Sources */,
 				B19DFABF1E64B98E00599073 /* UIScrollView+Ext.swift in Sources */,
 				B1FFF7001E5ECDF900A075D8 /* OrganizationsShowConfigurator.swift in Sources */,
 				B1FFF7311E5F0F0F00A075D8 /* LocationManager.swift in Sources */,

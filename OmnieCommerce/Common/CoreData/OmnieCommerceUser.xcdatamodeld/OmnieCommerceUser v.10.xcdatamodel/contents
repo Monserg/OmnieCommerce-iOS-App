@@ -13,6 +13,7 @@
         <attribute name="price" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="unit" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="unitName" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="order" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Order" inverseName="additionalServices" inverseEntity="Order" syncable="YES"/>
         <relationship name="service" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Service" inverseName="additionalServices" inverseEntity="Service" syncable="YES"/>
         <uniquenessConstraints>
             <uniquenessConstraint>
@@ -195,6 +196,7 @@
         <attribute name="priceTotal" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="serviceName" attributeType="String" syncable="YES"/>
         <attribute name="status" attributeType="String" syncable="YES"/>
+        <relationship name="additionalServices" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="AdditionalService" inverseName="order" inverseEntity="AdditionalService" syncable="YES"/>
         <relationship name="lists" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Lists" inverseName="orders" inverseEntity="Lists" syncable="YES"/>
         <uniquenessConstraints>
             <uniquenessConstraint>
@@ -226,6 +228,22 @@
         <relationship name="reviews" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Review" inverseName="organization" inverseEntity="Review" syncable="YES"/>
         <relationship name="schedules" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Schedule" inverseName="organization" inverseEntity="Schedule" syncable="YES"/>
         <relationship name="services" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Service" inverseName="organization" inverseEntity="Service" syncable="YES"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="codeID"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
+    </entity>
+    <entity name="Period" representedClassName="Period" syncable="YES">
+        <attribute name="additionalServicesDuration" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="codeID" attributeType="String" defaultValueString="Zorro" syncable="YES"/>
+        <attribute name="dateEnd" attributeType="Date" defaultDateTimeInterval="518629500" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="dateStart" attributeType="Date" defaultDateTimeInterval="518629560" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="hourEnd" attributeType="Integer 16" minValueString="0" maxValueString="23" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="hourStart" attributeType="Integer 16" minValueString="0" maxValueString="23" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="minuteEnd" attributeType="Integer 16" minValueString="0" maxValueString="59" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="minuteStart" attributeType="Integer 16" minValueString="0" maxValueString="59" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="serviceDuration" attributeType="Float" defaultValueString="1" usesScalarValueType="YES" syncable="YES"/>
         <uniquenessConstraints>
             <uniquenessConstraint>
                 <constraint value="codeID"/>
@@ -364,7 +382,7 @@
     </entity>
     <elements>
         <element name="Actions" positionX="-27" positionY="108" width="128" height="60"/>
-        <element name="AdditionalService" positionX="144" positionY="81" width="128" height="195"/>
+        <element name="AdditionalService" positionX="144" positionY="81" width="128" height="210"/>
         <element name="AppSettings" positionX="-54" positionY="-9" width="128" height="165"/>
         <element name="AppUser" positionX="-63" positionY="-18" width="128" height="330"/>
         <element name="BusinessCard" positionX="144" positionY="81" width="128" height="180"/>
@@ -375,8 +393,9 @@
         <element name="Handbook" positionX="144" positionY="81" width="128" height="150"/>
         <element name="Lists" positionX="144" positionY="81" width="128" height="180"/>
         <element name="NewsData" positionX="-36" positionY="99" width="128" height="195"/>
-        <element name="Order" positionX="144" positionY="81" width="128" height="240"/>
+        <element name="Order" positionX="144" positionY="81" width="128" height="255"/>
         <element name="Organization" positionX="-36" positionY="99" width="128" height="30"/>
+        <element name="Period" positionX="144" positionY="81" width="128" height="180"/>
         <element name="Price" positionX="180" positionY="117" width="128" height="210"/>
         <element name="Review" positionX="171" positionY="108" width="128" height="225"/>
         <element name="Schedule" positionX="153" positionY="90" width="128" height="180"/>

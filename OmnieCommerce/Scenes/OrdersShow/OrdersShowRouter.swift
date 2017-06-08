@@ -13,8 +13,8 @@ import UIKit
 
 // MARK: - Input & Output protocols
 protocol OrdersShowRouterInput {
+    func navigateToOrderCalendarShowScene()
     func navigateToOrderShowScene(withOrderID orderID: String)
-    func navigateToCalendar(withOrdersFromPeriod datesPeriod: DatesPeriod)
 }
 
 class OrdersShowRouter: OrdersShowRouterInput {
@@ -27,27 +27,25 @@ class OrdersShowRouter: OrdersShowRouterInput {
         let storyboard = UIStoryboard(name: "OrderShow", bundle: nil)
         let orderShowVC = storyboard.instantiateViewController(withIdentifier: "OrderShowVC") as! OrderShowViewController
         orderShowVC.orderID = orderID
-//        orderShowVC.orderMode = .Preview
         
         viewController.navigationController?.pushViewController(orderShowVC, animated: true)
     }
     
-    func navigateToCalendar(withOrdersFromPeriod datesPeriod: DatesPeriod) {
+    func navigateToOrderCalendarShowScene() {
         let storyboard = UIStoryboard(name: "OrderCalendarShow", bundle: nil)
         let orderCalendarShowVC = storyboard.instantiateViewController(withIdentifier: "OrderCalendarShowVC") as! OrderCalendarShowViewController
-        orderCalendarShowVC.ordersDatesPeriod = datesPeriod
         
         viewController.navigationController?.pushViewController(orderCalendarShowVC, animated: true)
         
         // Handler select new date completion
         orderCalendarShowVC.handlerSelectDatesPeriodCompletion = { datesPeriod in
-            self.viewController.dateStart = (datesPeriod as! DatesPeriod).dateStart.convertToString(withStyle: .DateHyphen)
-            self.viewController.dateEnd = (datesPeriod as! DatesPeriod).dateEnd.convertToString(withStyle: .DateHyphen)
+            self.viewController.dateStart = (period.dateStart as Date).convertToString(withStyle: .DateHyphen)
+            self.viewController.dateEnd = (period.dateEnd as Date).convertToString(withStyle: .DateHyphen)
             
             if (self.viewController.dateStart == self.viewController.dateEnd) {
-                self.viewController.setupTitleLabel(withDate: (datesPeriod as! DatesPeriod).dateStart)
+                self.viewController.titleLabelDidUpload(withDate: period.dateStart as Date)
             } else {
-                self.viewController.setupTitleLabel(withDatesPeriod: datesPeriod as! DatesPeriod)
+                self.viewController.titleLabelDidUploadWithDatesPeriod()
             }
             
             self.viewController.viewSettingsDidLoad()

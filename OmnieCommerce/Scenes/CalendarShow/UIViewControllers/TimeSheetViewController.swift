@@ -24,17 +24,16 @@ class TimeSheetViewController: BaseViewController {
     var timeSheetView: TimeSheetView?
     var timeSheet: TimeSheet!
     var timeSheetID: String!
-    var minDuration: CGFloat = 1.0
+    
+    // Need to set iteration
+    var serviceDuration: CGFloat = 1.0
 
-    var selectedDate: Date! {
-        willSet {
-            setupTitleLabel(withDate: newValue)
-        }
-    }
+    // Need to add to Order duration
+    var additionalServicesDuration: CGFloat = 0.0
 
     var handlerShowTimeSheetPickersCompletion: HandlerPassDataCompletion?
     
-    // Outlets
+    // MARK: - Outlets
     @IBOutlet weak var currentTimeLine: TimePointer!
     @IBOutlet weak var titleLabel: UbuntuLightVeryLightGrayLabel!
 
@@ -72,19 +71,23 @@ class TimeSheetViewController: BaseViewController {
         tableView.hasHeaders = false
         tableView.tableViewControllerManager = tableViewManager
         
-        timeSheet = CoreDataManager.instance.entityBy("TimeSheet", andCodeID: timeSheetID) as! TimeSheet
 
         // Setup Order min duration
-        minDuration = (timeSheet.minDuration) ? CGFloat(Double(timeSheet.orderDuration) / 1_000.0 / 60.0 / 60.0) : CGFloat(1.0)
+//        minDuration = (timeSheet.minDuration) ? CGFloat(Double(timeSheet.orderDuration) / 1_000.0 / 60.0 / 60.0) : CGFloat(1.0)
         cellHeight = tableView.frame.height / 8.0
 
-        if let timeSheetItems = CoreDataManager.instance.entitiesDidLoad(byName: "TimeSheetItem", andPredicateParameters: NSPredicate.init(format: "timesheet.codeID == %@", timeSheetID)) as? [TimeSheetItem], timeSheetItems.count > 0 {
-            let dataSource = timeSheetItems.sorted(by: { $0.start < $1.start })
-            _ = dataSource.map({ $0.cellHeight = cellHeight })
+        // Create dataSource
+        var dataSource = [TimeSheetCell]()
+        
+        for index in 0...23 {
+            let start = "\(String(index).twoNumberFormat()):00"
+            let end = (index == 23) ? "\(String(index).twoNumberFormat()):59" : "\(String(index + 1).twoNumberFormat()):00"
             
-            tableView.tableViewControllerManager!.dataSource = dataSource
-            tableView.reloadData()
+            dataSource.append(TimeSheetCell(start: start, end: end, cellIdentifier: "TimeSheetTableViewCell", cellHeight: cellHeight))
         }
+
+        tableView.tableViewControllerManager!.dataSource = dataSource.sorted(by: { $0.start < $1.start })
+        tableView.reloadData()
         
         // Handler select cell
         tableView.tableViewControllerManager!.handlerSelectRowCompletion = { item in }
@@ -94,10 +97,6 @@ class TimeSheetViewController: BaseViewController {
         
         // Handler InfiniteScroll
         tableView.tableViewControllerManager.handlerInfiniteScrollCompletion = { _ in }
-        
-        if (selectedDate == nil) {
-            selectedDate = Date()
-        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -119,7 +118,7 @@ class TimeSheetViewController: BaseViewController {
     
     // MARK: - Custom Functions
     func setupTimePointer() {
-        setupTitleLabel(withDate: selectedDate)
+        setupTitleLabel(withDate: period.dateStart as Date)
 
         // Start position
         currentTimeLine.frame = CGRect.init(origin: CGPoint.init(x: 60.0, y: 0.0), size: CGSize.init(width: tableView.frame.width - 68.0, height: 15.0))
@@ -134,7 +133,7 @@ class TimeSheetViewController: BaseViewController {
         timer.handlerTimerActionCompletion = { counter in
             self.print(object: "timerPointer move to new position")
             
-            if (self.selectedDate.didShow(timePointer: self.currentTimeLine, inTableView: self.tableView, withCellHeight: self.cellHeight)) {
+            if ((period.dateStart as Date).didShow(timePointer: self.currentTimeLine, inTableView: self.tableView, withCellHeight: self.cellHeight)) {
                 self.currentTimeLine.didMoveToNewPosition(inTableView: self.tableView, withCellHeight: self.cellHeight, andAnimation: true)
             } else {
                 self.timer.stop()
@@ -159,37 +158,37 @@ class TimeSheetViewController: BaseViewController {
             if let pointIndexPath = tableView.indexPathForRow(at: touchPoint) {
                 // Change mode for timeSheetView
                 if let actionCell = tableView.cellForRow(at: pointIndexPath) as? TimeSheetTableViewCell {
-                    switch actionCell.type {
-                    case "FREE":
-                        if (timeSheetView == nil) {
-                            timeSheetView = TimeSheetView.init(frame: CGRect.init(x: 85,
-                                                                                  y: actionCell.frame.minY - 5,
-                                                                                  width: actionCell.frame.width - (85 + 8),
-                                                                                  height: (actionCell.frame.height + 10) / minDuration))
-                           
-                            timeSheetView!.cell = actionCell
-                            timeSheetView!.setCurrentPeriod((hourStart: pointIndexPath.row, minuteStart: 0, hourEnd: pointIndexPath.row + 1, minuteEnd: 0))
-                            
-                            UIView.animate(withDuration: 0.7, delay: 0, options: .curveEaseIn, animations: {
-                                self.tableView.addSubview(self.timeSheetView!)
-                            }, completion: nil)
-                        } else {
-                            let newPosition = CGPoint.init(x: (timeSheetView?.frame.minX)!, y: actionCell.frame.minY + actionCell.currentTimeLineView.frame.maxY)
-                            timeSheetView?.didMove(to: newPosition)
-                        }
-                        
-                        // Handler show pickers view
-                        self.handlerShowTimeSheetPickersCompletion!(true)
-                        
-                        // Handler begin resize mode
-                        self.timeSheetView!.handlerShowPickersViewCompletion = { _ in
-                            self.handlerShowTimeSheetPickersCompletion!(true)
-                        }
-                        
-                    default:
-                        // CLOSE
-                        self.alertViewDidShow(withTitle: "Error", andMessage: "This time is busy.", completion: {})
-                    }
+//                    switch actionCell.type {
+//                    case "FREE":
+//                        if (timeSheetView == nil) {
+//                            timeSheetView = TimeSheetView.init(frame: CGRect.init(x: 85,
+//                                                                                  y: actionCell.frame.minY - 5,
+//                                                                                  width: actionCell.frame.width - (85 + 8),
+//                                                                                  height: (actionCell.frame.height + 10) / 1.0))
+//                           
+//                            timeSheetView!.cell = actionCell
+//                            timeSheetView!.orderTimesDidUpload()
+//                            
+//                            UIView.animate(withDuration: 0.7, delay: 0, options: .curveEaseIn, animations: {
+//                                self.tableView.addSubview(self.timeSheetView!)
+//                            }, completion: nil)
+//                        } else {
+//                            let newPosition = CGPoint.init(x: (timeSheetView?.frame.minX)!, y: actionCell.frame.minY + actionCell.currentTimeLineView.frame.maxY)
+//                            timeSheetView?.didMove(to: newPosition)
+//                        }
+//                        
+//                        // Handler show pickers view
+//                        self.handlerShowTimeSheetPickersCompletion!(true)
+//                        
+//                        // Handler begin resize mode
+//                        self.timeSheetView!.handlerShowPickersViewCompletion = { _ in
+//                            self.handlerShowTimeSheetPickersCompletion!(true)
+//                        }
+//                        
+//                    default:
+//                        // CLOSE
+//                        self.alertViewDidShow(withTitle: "Error", andMessage: "This time is busy.", completion: {})
+//                    }
                 }
             }
         }
@@ -232,12 +231,16 @@ class TimeSheetViewController: BaseViewController {
     }
     
     @IBAction func handlerPreviuosButtonTap(_ sender: UIButton) {
-        selectedDate = Calendar.current.date(byAdding: .day, value: -1, to: selectedDate)!
+        period.dateStart = Calendar.current.date(byAdding: .day, value: -1, to: period.dateStart as Date)! as NSDate
+        setupTitleLabel(withDate: period.dateStart as Date)
+
         handlerShowTimeSheetPickersCompletion!(false)
     }
     
     @IBAction func handlerNextButtonTap(_ sender: UIButton) {
-        selectedDate = Calendar.current.date(byAdding: .day, value: 1, to: selectedDate)!
+        period.dateStart = Calendar.current.date(byAdding: .day, value: 1, to: period.dateStart as Date)! as NSDate
+        setupTitleLabel(withDate: period.dateStart as Date)
+
         handlerShowTimeSheetPickersCompletion!(false)
     }
 

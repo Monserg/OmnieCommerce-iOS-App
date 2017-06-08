@@ -35,7 +35,7 @@ class OrdersShowViewController: BaseViewController {
 
     var currentDate: Date! {
         didSet {
-            setupTitleLabel(withDate: currentDate)
+            titleLabelDidUpload(withDate: currentDate)
         }
     }
     
@@ -135,12 +135,12 @@ class OrdersShowViewController: BaseViewController {
         }
     }
     
-    func setupTitleLabel(withDate date: Date) {
+    func titleLabelDidUpload(withDate date: Date) {
         calendarTitleLabel.text = date.convertToString(withStyle: .DayMonthYear)
     }
 
-    func setupTitleLabel(withDatesPeriod period: DatesPeriod) {
-        calendarTitleLabel.text = "\(period.dateStart.convertToString(withStyle: .DateDot)) - \(period.dateEnd.convertToString(withStyle: .DateDot))"
+    func titleLabelDidUploadWithDatesPeriod() {
+        calendarTitleLabel.text = "\((period.dateStart as Date).convertToString(withStyle: .DateDot)) - \((period.dateEnd as Date).convertToString(withStyle: .DateDot))"
     }
 
     func ordersListDidLoad(withOffset offset: Int, scrollingData: Bool) {
@@ -208,7 +208,7 @@ class OrdersShowViewController: BaseViewController {
     // MARK: - Actions
     @IBAction func handlerPreviousButtonTap(_ sender: UIButton) {
         calculatedDate = calculatedDate.previousMonth()
-        setupTitleLabel(withDate: calculatedDate)
+        titleLabelDidUpload(withDate: calculatedDate)
 
         // Set Orders list period
         dateStart = calculatedDate.convertToString(withStyle: .DateHyphen)
@@ -222,7 +222,7 @@ class OrdersShowViewController: BaseViewController {
     
     @IBAction func handlerNextButtonTap(_ sender: UIButton) {
         calculatedDate = calculatedDate.nextMonth()
-        setupTitleLabel(withDate: calculatedDate)
+        titleLabelDidUpload(withDate: calculatedDate)
 
         // Set Orders list period
         dateStart = currentDate.convertToString(withStyle: .DateHyphen)
@@ -235,7 +235,7 @@ class OrdersShowViewController: BaseViewController {
     }
     
     @IBAction func handlerCalendarTitleButtonTap(_ sender: UIButton) {
-        self.router.navigateToCalendar(withOrdersFromPeriod: (dateStart.convertToDate(withDateFormat: .ResponseDate), dateEnd.convertToDate(withDateFormat: .ResponseDate)))
+        self.router.navigateToOrderCalendarShowScene()
     }
     
     @IBAction func handlerOrderStatusesButtonTap(_ sender: DropDownButton) {

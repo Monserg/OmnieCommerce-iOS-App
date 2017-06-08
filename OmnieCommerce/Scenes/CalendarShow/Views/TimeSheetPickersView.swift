@@ -10,7 +10,6 @@ import UIKit
 
 class TimeSheetPickersView: UIView {
     // MARK: - Properties
-    var timesPeriod: TimesPeriod!
     var isShow = false
     
     var fromPickerViewManager: MSMPickerViewManager! {
@@ -22,24 +21,24 @@ class TimeSheetPickersView: UIView {
             fromPickerView.delegate = fromPickerViewManager
             fromPickerView.dataSource = fromPickerViewManager
             
-            fromPickerViewManager.selectedHourIndex = timesPeriod.hourStart
-            fromPickerViewManager.selectedMinuteIndex = timesPeriod.minuteStart
+            fromPickerViewManager.selectedHourIndex = Int(period.hourStart)
+            fromPickerViewManager.selectedMinuteIndex = Int(period.minuteStart)
             
             fromPickerView.selectRow(fromPickerViewManager.selectedHourIndex, inComponent: 0, animated: true)
             fromPickerView.selectRow(fromPickerViewManager.selectedMinuteIndex, inComponent: 2, animated: true)
             
             // Handler times change
             fromPickerViewManager.handlerChangeHourCompletion = { value in
-                self.print(object: "\(value as! Int)")
-                self.timesPeriod.hourStart = value as! Int
+                self.print(object: "\(value as! Int16)")
+                period.hourStart = value as! Int16
                 
                 // Compare times
                 self.timesPeriodDidCompare()
             }
 
             fromPickerViewManager.handlerChangeMinuteCompletion = { value in
-                self.print(object: "\(value as! Int)")
-                self.timesPeriod.minuteStart = value as! Int
+                self.print(object: "\(value as! Int16)")
+                period.minuteStart = value as! Int16
                 
                 // Compare times
                 self.timesPeriodDidCompare()
@@ -56,24 +55,24 @@ class TimeSheetPickersView: UIView {
             toPickerView.delegate = toPickerViewManager
             toPickerView.dataSource = toPickerViewManager
             
-            toPickerViewManager.selectedHourIndex = timesPeriod.hourEnd
-            toPickerViewManager.selectedMinuteIndex = timesPeriod.minuteEnd
+            toPickerViewManager.selectedHourIndex = Int(period.hourEnd)
+            toPickerViewManager.selectedMinuteIndex = Int(period.minuteEnd)
             
             toPickerView.selectRow(toPickerViewManager.selectedHourIndex, inComponent: 0, animated: true)
             toPickerView.selectRow(toPickerViewManager.selectedMinuteIndex, inComponent: 2, animated: true)
             
             // Handler times change
             toPickerViewManager.handlerChangeHourCompletion = { value in
-                self.print(object: "\(value as! Int)")
-                self.timesPeriod.hourEnd = value as! Int
+                self.print(object: "\(value as! Int16)")
+                period.hourEnd = value as! Int16
                 
                 // Compare times
                 self.timesPeriodDidCompare()
             }
             
             toPickerViewManager.handlerChangeMinuteCompletion = { value in
-                self.print(object: "\(value as! Int)")
-                self.timesPeriod.minuteEnd = value as! Int
+                self.print(object: "\(value as! Int16)")
+                period.minuteEnd = value as! Int16
 
                 // Compare times
                 self.timesPeriodDidCompare()
@@ -81,8 +80,8 @@ class TimeSheetPickersView: UIView {
         }
     }
 
-    var handlerConfirmButtonCompletion: HandlerPassDataCompletion?
-    var handlerChangeTimesPeriodCompletion: HandlerPassDataCompletion?
+    var handlerConfirmButtonCompletion: HandlerSendButtonCompletion?
+    var handlerChangeTimesPeriodCompletion: HandlerSendButtonCompletion?
 
     // Outlets
     @IBOutlet var view: UIView!
@@ -125,8 +124,8 @@ class TimeSheetPickersView: UIView {
     
     // MARK: - Custom Functions
     func pickerViewDidSetup(_ pickerView: UIPickerView, _ pickerViewManager: MSMPickerViewManager) {
-        pickerViewManager.selectedHourIndex = (pickerView.tag == 0) ? timesPeriod.hourStart : timesPeriod.hourEnd
-        pickerViewManager.selectedMinuteIndex = (pickerView.tag == 0) ? timesPeriod.minuteStart : timesPeriod.minuteEnd
+        pickerViewManager.selectedHourIndex = Int((pickerView.tag == 0) ? period.hourStart : period.hourEnd)
+        pickerViewManager.selectedMinuteIndex = Int((pickerView.tag == 0) ? period.minuteStart : period.minuteEnd)
         
         pickerView.selectRow(pickerViewManager.selectedHourIndex, inComponent: 0, animated: true)
         pickerView.selectRow(pickerViewManager.selectedMinuteIndex, inComponent: 2, animated: true)
@@ -187,32 +186,32 @@ class TimeSheetPickersView: UIView {
     }
 
     func timesPeriodDidCompare() {
-        if (self.timesPeriod.hourStart > self.timesPeriod.hourEnd) {
-            self.toPickerViewManager.selectedHourIndex = self.timesPeriod.hourStart
+        if (period.hourStart > period.hourEnd) {
+            self.toPickerViewManager.selectedHourIndex = Int(period.hourStart)
             self.toPickerViewManager.selectedMinuteIndex = 0
             
             self.toPickerView.selectRow(self.toPickerViewManager.selectedHourIndex, inComponent: 0, animated: true)
             self.toPickerView.selectRow(self.toPickerViewManager.selectedMinuteIndex, inComponent: 2, animated: true)
 
-            self.timesPeriod.hourEnd = self.toPickerViewManager.selectedHourIndex
+            period.hourEnd = Int16(self.toPickerViewManager.selectedHourIndex)
         }
         
-        if (self.timesPeriod.hourStart == self.timesPeriod.hourEnd) {
-            self.toPickerViewManager.selectedMinuteIndex = self.timesPeriod.minuteStart
+        if (period.hourStart == period.hourEnd) {
+            self.toPickerViewManager.selectedMinuteIndex = Int(period.minuteStart)
             
             self.toPickerView.selectRow(self.toPickerViewManager.selectedHourIndex, inComponent: 0, animated: true)
             self.toPickerView.selectRow(self.toPickerViewManager.selectedMinuteIndex, inComponent: 2, animated: true)
         
-            self.timesPeriod.minuteEnd = self.toPickerViewManager.selectedMinuteIndex
+            period.minuteEnd = Int16(self.toPickerViewManager.selectedMinuteIndex)
         }
         
-        self.handlerChangeTimesPeriodCompletion!(self.timesPeriod)
+        self.handlerChangeTimesPeriodCompletion!()
     }
 
     
     // MARK: - Actions
     @IBAction func handlerConfirmButtonTap(_ sender: BorderVeryLightOrangeButton) {
-        handlerConfirmButtonCompletion!(timesPeriod)
+        handlerConfirmButtonCompletion!()
         self.didHide()
     }
 }

@@ -536,6 +536,7 @@
                         <outlet property="actionViewTopConstraint" destination="d9O-Fw-0QC" id="b2X-2k-gIo"/>
                         <outlet property="additionalServicesNames" destination="xaQ-wj-lR8" id="hs9-qf-VFn"/>
                         <outlet property="cancelActionView" destination="fy1-QB-eTo" id="eE4-Xt-9Vu"/>
+                        <outlet property="cancelActionViewTopConstraint" destination="VyA-RJ-Q9Y" id="Jo1-KL-e2F"/>
                         <outlet property="checkButton" destination="wLY-ah-PEE" id="RZ6-ow-6LX"/>
                         <outlet property="commentTextLabel" destination="vRy-9H-guW" id="4kZ-vU-FGc"/>
                         <outlet property="modalView" destination="Cfk-FK-QZa" id="gcf-yZ-ogo"/>

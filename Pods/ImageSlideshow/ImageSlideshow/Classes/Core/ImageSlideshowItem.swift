@@ -30,6 +30,7 @@ open class ImageSlideshowItem: UIScrollView, UIScrollViewDelegate {
 
     fileprivate var lastFrame = CGRect.zero
     fileprivate var imageReleased = false
+    fileprivate var isLoading = false
     fileprivate var singleTapGestureRecognizer: UITapGestureRecognizer?
     fileprivate var loadFailed = false {
         didSet {
@@ -92,7 +93,6 @@ open class ImageSlideshowItem: UIScrollView, UIScrollViewDelegate {
             imageView.frame.size = frame.size
         } else if !isZoomed() {
             imageView.frame.size = calculatePictureSize()
-            setPictoCenter()
         }
 
         if isFullScreen() {
@@ -116,14 +116,16 @@ open class ImageSlideshowItem: UIScrollView, UIScrollViewDelegate {
 
     /// Request to load Image Source to Image View
     func loadImage() {
-        if self.imageView.image == nil {
-            activityIndicator?.show()
+        if self.imageView.image == nil && !isLoading {
+            isLoading = true
             imageReleased = false
+            activityIndicator?.show()
             image.load(to: self.imageView) { image in
                 // set image to nil if there was a release request during the image load
                 self.imageView.image = self.imageReleased ? nil : image
                 self.activityIndicator?.hide()
                 self.loadFailed = image == nil
+                self.isLoading = false
             }
         }
     }
@@ -179,7 +181,7 @@ open class ImageSlideshowItem: UIScrollView, UIScrollViewDelegate {
     }
 
     fileprivate func calculatePictureSize() -> CGSize {
-        if let image = imageView.image {
+        if let image = imageView.image, imageView.contentMode == .scaleAspectFit {
             let picSize = image.size
             let picRatio = picSize.width / picSize.height
             let screenRatio = screenSize().width / screenSize().height

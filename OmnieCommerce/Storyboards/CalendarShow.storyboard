@@ -201,7 +201,7 @@
                                                                 </variation>
                                                             </view>
                                                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Ml-to-0S1" userLabel="Middle View">
-                                                                <rect key="frame" x="120" y="0.0" width="0.0" height="36"/>
+                                                                <rect key="frame" x="120" y="0.0" width="10" height="36"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="42" id="Juo-Hy-d0f"/>
@@ -230,10 +230,10 @@
                                                                 </variation>
                                                             </view>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="uOU-iv-l2D">
-                                                                <rect key="frame" x="120" y="0.0" width="219" height="36"/>
+                                                                <rect key="frame" x="130" y="0.0" width="209" height="36"/>
                                                                 <subviews>
                                                                     <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p0Y-B5-nW5" userLabel="Confirm Button" customClass="FillVeryLightOrangeButton" customModule="OmnieCommerce" customModuleProvider="target">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="175" height="36"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="165" height="36"/>
                                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                                         <state key="normal" title="Confirm" image="icon-confirm-normal"/>
@@ -245,7 +245,7 @@
                                                                         </connections>
                                                                     </button>
                                                                     <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WuZ-ep-v0H" userLabel="Cancel Button" customClass="BorderVeryLightOrangeButton" customModule="OmnieCommerce" customModuleProvider="target">
-                                                                        <rect key="frame" x="183" y="0.0" width="36" height="36"/>
+                                                                        <rect key="frame" x="173" y="0.0" width="36" height="36"/>
                                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" constant="36" id="SmF-w6-8ia"/>

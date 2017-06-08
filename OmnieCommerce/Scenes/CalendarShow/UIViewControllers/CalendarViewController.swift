@@ -16,9 +16,8 @@ class CalendarViewController: BaseViewController {
     var handlerSelectNewDateCompletion: HandlerSelectNewDateCompletion?
 
     let firstDayOfWeek: DaysOfWeek = .monday
-    var selectedDate: Date!
     
-    // Outlets
+    // MARK: - Outlets
     @IBOutlet weak var titleLabel: UbuntuLightVeryLightGrayLabel!
     @IBOutlet var weekdayLabelsCollection: [UbuntuLightDarkCyanLabel]!
     @IBOutlet weak var calendarView: JTAppleCalendarView!
@@ -43,7 +42,6 @@ class CalendarViewController: BaseViewController {
         // Add Calendar scrolling
         calendarView.scrollingMode = .stopAtEachCalendarFrameWidth
         
-        calendarView.scrollToDate(selectedDate)
         setupCalendarView()
     }
     
@@ -59,6 +57,9 @@ class CalendarViewController: BaseViewController {
     // MARK: - Custom Functions
     func setupCalendarView() {
         print(object: "\(#file): \(#function) run in [line \(#line)]")
+        
+        // Set selected date
+        calendarView.selectDates([period.dateStart as Date], triggerSelectionDelegate: false, keepSelectionIfMultiSelectionAllowed: false)
         
         // Set weekday symbols
         let dateFormatter = DateFormatter()
@@ -81,6 +82,8 @@ class CalendarViewController: BaseViewController {
             // FIXME: - Add support first symbol upperCase
             $0.attributedText = NSAttributedString(string: $0.text!.uppercaseFirst, attributes: UIFont.ubuntuLightDarkCyan16)
         })
+        
+        calendarView.scrollToDate(period.dateStart as Date)
     }
     
     func setupTitleLabel(withDate date: Date) {
@@ -149,7 +152,9 @@ extension CalendarViewController: JTAppleCalendarViewDelegate {
     
     func calendar(_ calendar: JTAppleCalendarView, didSelectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
         if let calendarDayCell = cell as? CalendarDayCell {
-            selectedDate = date
+            period.dateStart = date as NSDate
+            period.dateEnd = date as NSDate
+            
             calendarDayCell.viewDidUpload(forCellState: cellState)
         
             // Scroll to out month

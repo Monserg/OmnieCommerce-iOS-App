@@ -9,11 +9,7 @@
 import UIKit
 
 class TimeSheetTableViewCell: UITableViewCell {
-    // MARK: - Properties
-    var time: Int?
-    var type: String = "FREE"
-    
-    // Outlets
+    // MARK: - Outlets
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var currentTimeLineView: UIView!
     
@@ -44,10 +40,10 @@ class TimeSheetTableViewCell: UITableViewCell {
 // MARK: - ConfigureCell
 extension TimeSheetTableViewCell: ConfigureCell {
     func setup(withItem item: Any, andIndexPath indexPath: IndexPath) {
-        let timeSheetItem = item as! TimeSheetItem
+        let timeSheetCell = item as! TimeSheetCell
         
-        timeLabel.text = timeSheetItem.start.components(separatedBy: "T").last!
-        type = timeSheetItem.typeValue
+        timeLabel.text = timeSheetCell.start
+            //.components(separatedBy: "T").last!
         selectionStyle = .none
     }
 }

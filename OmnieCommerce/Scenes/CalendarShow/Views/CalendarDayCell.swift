@@ -32,10 +32,10 @@ class CalendarDayCell: JTAppleCell {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd.MM.yyyy"
 
-        selectedView.layer.cornerRadius = (UIDevice.current.orientation.isPortrait) ? (frame.width - 2 ) / 2 : (frame.height - 2) / 2
+        selectedView.layer.cornerRadius = (frame.height > frame.width) ? (frame.width - 2 ) / 2 : (frame.height - 2) / 2
         selectedView.isHidden = !cellState.isSelected
         
-        currentView.layer.cornerRadius = (UIDevice.current.orientation.isPortrait) ? (frame.width - 2) / 2 : (frame.height - 2) / 2
+        currentView.layer.cornerRadius = (frame.height > frame.width) ? (frame.width - 2) / 2 : (frame.height - 2) / 2
         currentView.isHidden = (dateFormatter.string(from: Date()) == dateFormatter.string(from: cellState.date)) ? false : true
 
         // Text colors
@@ -50,5 +50,7 @@ class CalendarDayCell: JTAppleCell {
                 dateLabel.textColor = (isLightColorAppSchema) ? UIColor.blue : UIColor.veryDarkGrayishBlue56
             }
         }
+        
+        setNeedsDisplay()
     }
 }

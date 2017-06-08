@@ -13,7 +13,7 @@ import UIKit
 
 // MARK: - Input & Output protocols
 protocol ServiceShowRouterInput {
-    func navigateToCalendar(withServiceID serviceID: String, andOrderPeriod orderPeriod: Period)
+    func navigateToCalendar(withServiceID serviceID: String)
     func navigateToOrderShowScene(withOrderPrepare orderPrepare: OrderPrepare, andRequestParameters bodyParameters: [String: AnyObject])
 }
 
@@ -32,19 +32,16 @@ class ServiceShowRouter: ServiceShowRouterInput {
         viewController.navigationController?.pushViewController(orderShowVC, animated: true)
     }
 
-    func navigateToCalendar(withServiceID serviceID: String, andOrderPeriod orderPeriod: Period) {
+    func navigateToCalendar(withServiceID serviceID: String) {
         let storyboard = UIStoryboard(name: "CalendarShow", bundle: nil)
         let calendarShowVC = storyboard.instantiateViewController(withIdentifier: "CalendarShowVC") as! CalendarShowViewController
-        calendarShowVC.orderPeriod = orderPeriod
         calendarShowVC.serviceID = serviceID
         
         viewController.navigationController?.pushViewController(calendarShowVC, animated: true)
         
         // Handler Confirm completion
-        calendarShowVC.handlerConfirmButtonCompletion = { orderPeriod in
+        calendarShowVC.handlerConfirmButtonCompletion = { _ in
             self.viewController.orderButton.isEnabled = true
-            self.viewController.orderPeriod = orderPeriod as! Period
-            self.viewController.orderPrepare.period = orderPeriod as! Period
         }
     }
 
