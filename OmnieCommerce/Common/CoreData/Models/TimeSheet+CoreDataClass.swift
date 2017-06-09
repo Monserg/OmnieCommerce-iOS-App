@@ -18,9 +18,9 @@ public class TimeSheet: NSManagedObject {
         self.workTimeStart = json["start"] as! String
         self.workTimeEnd = json["end"] as! String
         self.breakDuration = json["breakDuration"] as! Int16
-        self.orderDuration = json["orderDuration"] as! Int32
         self.slotsCount = json["slotsCount"] as! Int16
         self.minDuration = json["minDuration"] as! Bool
+        self.orderDuration = (json["orderDuration"] as! UInt64).millisecondsConvertToMinutes()
 
         self.codeID = "\(serviceID)-\(date)"
 

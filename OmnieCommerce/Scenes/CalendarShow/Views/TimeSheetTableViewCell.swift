@@ -43,7 +43,7 @@ extension TimeSheetTableViewCell: ConfigureCell {
         let timeSheetCell = item as! TimeSheetCell
         
         timeLabel.text = timeSheetCell.start
-            //.components(separatedBy: "T").last!
+        topDottedLineView.isHidden = (indexPath.row == 0) ? false : true
         selectionStyle = .none
     }
 }

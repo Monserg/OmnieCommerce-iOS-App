@@ -16,14 +16,42 @@ enum GestureMode {
 
 class TimeSheetViewController: BaseViewController {
     // MARK: - Properties
-    var cellHeight: CGFloat = 64.0
     let cellHeightMin: CGFloat = 45.0
     let cellHeightMax: CGFloat = 104.0
     var gestureMode = GestureMode.TableGesture
     var timer = CustomTimer.init(withTimeInterval: 60)
-    var timeSheetView: TimeSheetView?
-    var timeSheet: TimeSheet!
-    var timeSheetID: String!
+    var timeSheetView: TimeSheetView!
+    
+    // Need to use after change date
+    weak var timeSheet: TimeSheet! {
+        didSet {
+            guard tableView != nil else {
+                return
+            }
+            
+            timeSheetItemsDidUpload()
+        }
+    }
+
+    // DataSource of blocks ORDER & CLOSE
+    var timeSheetItems = [TimeSheetItem]()
+
+    // Array of block views
+    var timeSheetViews = [TimeSheetView]()
+    
+    // Need for API after change date
+    var serviceID: String!
+
+    // Cell height
+    var cellHeight: CGFloat = 64.0 {
+        didSet {
+            cellDivision = (timeSheet.minDuration) ?    CGFloat(cellHeight * CGFloat(timeSheet.orderDuration) / CGFloat(60.0)) :
+                                                        CGFloat(cellHeight / CGFloat(60.0))
+        }
+    }
+
+    // Need for allow duration
+    var cellDivision: CGFloat = CGFloat(45.0 / 60.0)
     
     // Need to set iteration
     var serviceDuration: CGFloat = 1.0
@@ -32,6 +60,7 @@ class TimeSheetViewController: BaseViewController {
     var additionalServicesDuration: CGFloat = 0.0
 
     var handlerShowTimeSheetPickersCompletion: HandlerPassDataCompletion?
+    
     
     // MARK: - Outlets
     @IBOutlet weak var currentTimeLine: TimePointer!
@@ -70,12 +99,8 @@ class TimeSheetViewController: BaseViewController {
         
         tableView.hasHeaders = false
         tableView.tableViewControllerManager = tableViewManager
+        cellHeight = tableView.frame.height / 6.0
         
-
-        // Setup Order min duration
-//        minDuration = (timeSheet.minDuration) ? CGFloat(Double(timeSheet.orderDuration) / 1_000.0 / 60.0 / 60.0) : CGFloat(1.0)
-        cellHeight = tableView.frame.height / 8.0
-
         // Create dataSource
         var dataSource = [TimeSheetCell]()
         
@@ -99,10 +124,11 @@ class TimeSheetViewController: BaseViewController {
         tableView.tableViewControllerManager.handlerInfiniteScrollCompletion = { _ in }
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         
-        setupTimePointer()
+        timePointerDidLoad()
+        timeSheetItemsDidUpload()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -117,11 +143,11 @@ class TimeSheetViewController: BaseViewController {
     
     
     // MARK: - Custom Functions
-    func setupTimePointer() {
-        setupTitleLabel(withDate: period.dateStart as Date)
+    func timePointerDidLoad() {
+        selectedDateDidUpload()
 
         // Start position
-        currentTimeLine.frame = CGRect.init(origin: CGPoint.init(x: 60.0, y: 0.0), size: CGSize.init(width: tableView.frame.width - 68.0, height: 15.0))
+        currentTimeLine.frame = CGRect.init(origin: CGPoint.init(x: 60.0, y: 0.0), size: CGSize.init(width: tableView.frame.width - (60.0 + 8.0), height: 15.0))
         
         _ = Date().didShow(timePointer: currentTimeLine, inTableView: tableView, withCellHeight: cellHeight)
         let topRowIndex = Calendar.current.dateComponents([.hour], from: Date()).hour! - 2
@@ -141,12 +167,55 @@ class TimeSheetViewController: BaseViewController {
         }
     }
     
-    func setupTitleLabel(withDate date: Date) {
+    private func selectedDateDidUpload() {
         if (titleLabel != nil) {
-            titleLabel.text = date.convertToString(withStyle: .DayMonthYear)
+            titleLabel.text = (period.dateStart as Date).convertToString(withStyle: .DayMonthYear)
         }
     }
 
+    func timeSheetItemsDidUpload() {
+        // Get data source
+        if let items = timeSheet.timesheets, items.count > 0 {
+            timeSheetItems = Array(items) as! [TimeSheetItem]
+        }
+
+        // Delete all old time sheet items
+        for timeSheetView in timeSheetViews {
+            timeSheetView.removeFromSuperview()
+        }
+        
+        timeSheetViews.removeAll()
+        
+        // Show new time sheet items blocks
+        for timeSheetItem in timeSheetItems {
+            let timeStart = timeSheetItem.start.components(separatedBy: "T")
+            let timeEnd = timeSheetItem.end.components(separatedBy: "T")
+            let startHour = UInt(timeStart.last!.components(separatedBy: ":").first!)!
+            let startMinute = UInt(timeStart.last!.components(separatedBy: ":").last!)!
+            let endHour = UInt(timeEnd.last!.components(separatedBy: ":").first!)!
+            let endMinute = UInt(timeEnd.last!.components(separatedBy: ":").last!)!
+            
+            let timeSheetView = TimeSheetView.init(frame: CGRect.init(x: 80.0,
+                                                                      y: CGFloat(CGFloat(startHour) + CGFloat(startMinute) * cellDivision) * cellHeight - 0.5,
+                                                                      width: tableView.frame.width - (80.0 + 8.0),
+                                                                      height: CGFloat((endHour * 60 + endMinute) - (startHour * 60 + startMinute)) * cellHeight * cellDivision))
+            
+            timeSheetView.contentView.backgroundColor = UIColor.darkCyanAlpha70
+            timeSheetView.startTimeLabel.text = timeStart.last!
+            timeSheetView.finishTimeLabel.text = timeEnd.last!
+            timeSheetView.startTimeLabel.textColor = UIColor.white
+            timeSheetView.finishTimeLabel.textColor = UIColor.white
+            timeSheetView.separatorTimeLabel.textColor = UIColor.white
+            timeSheetView.isOrderOwn = false
+            
+            tableView.addSubview(timeSheetView)
+            timeSheetViews.append(timeSheetView)
+            
+            tableView.reloadData()
+            timePointerDidLoad()
+        }
+    }
+    
     
     // MARK: - Actions
     func handlerLongPressedGesture(_ sender: UILongPressGestureRecognizer) {
@@ -223,23 +292,26 @@ class TimeSheetViewController: BaseViewController {
     func handlerTapGesture(_ sender: UIGestureRecognizer) {
         print(object: "\(#file): \(#function) run in [line \(#line)]")
         
-        timeSheetView?.didChangeGestureMode(to: .ScheduleMove)
-        tableView.isScrollEnabled = true
-        
-        handlerShowTimeSheetPickersCompletion!(false)
-        tableView.bringSubview(toFront: currentTimeLine)
+        if (gestureMode != .TableGesture) {
+            timeSheetView?.didChangeGestureMode(to: .ScheduleMove)
+            tableView.isScrollEnabled = true
+            
+            handlerShowTimeSheetPickersCompletion!(false)
+            tableView.bringSubview(toFront: currentTimeLine)
+        }
     }
     
     @IBAction func handlerPreviuosButtonTap(_ sender: UIButton) {
-        period.dateStart = Calendar.current.date(byAdding: .day, value: -1, to: period.dateStart as Date)! as NSDate
-        setupTitleLabel(withDate: period.dateStart as Date)
-
+        let selectedDate = Calendar.current.date(byAdding: .day, value: -1, to: period.dateStart as Date)!
+        period.dateStart = (selectedDate.compare(Date()) == .orderedAscending) ? NSDate() : selectedDate as NSDate
+        
+        selectedDateDidUpload()
         handlerShowTimeSheetPickersCompletion!(false)
     }
     
     @IBAction func handlerNextButtonTap(_ sender: UIButton) {
         period.dateStart = Calendar.current.date(byAdding: .day, value: 1, to: period.dateStart as Date)! as NSDate
-        setupTitleLabel(withDate: period.dateStart as Date)
+        selectedDateDidUpload()
 
         handlerShowTimeSheetPickersCompletion!(false)
     }

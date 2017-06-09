@@ -152,9 +152,9 @@ extension CalendarViewController: JTAppleCalendarViewDelegate {
     
     func calendar(_ calendar: JTAppleCalendarView, didSelectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
         if let calendarDayCell = cell as? CalendarDayCell {
-            period.dateStart = date as NSDate
-            period.dateEnd = date as NSDate
-            
+            period.dateStart = (date.compare(Date()) == .orderedAscending) ? NSDate() : date as NSDate
+            period.dateEnd = (date.compare(Date()) == .orderedAscending) ? NSDate() : date as NSDate
+
             calendarDayCell.viewDidUpload(forCellState: cellState)
         
             // Scroll to out month

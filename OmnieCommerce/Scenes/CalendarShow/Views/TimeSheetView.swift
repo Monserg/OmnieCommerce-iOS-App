@@ -14,21 +14,16 @@ class TimeSheetView: UIView {
     var startPosition = CGPoint.zero
     var originalHeight: CGFloat = 0
     var isResizeDown = true
+    var isOrderOwn = false
     
     var gestureMode = GestureMode.ScheduleMove {
         willSet {
             switch newValue {
             case .ScheduleMove:
-                contentView.backgroundColor = UIColor.veryDarkCyan
-                startTimeLabel.textColor = UIColor.white
-                finishTimeLabel.textColor = UIColor.white
-                separatorTimeLabel.textColor = UIColor.white
+                contentView.backgroundColor = UIColor.veryDarkGray
                 
             case .ScheduleResize:
-                contentView.backgroundColor = UIColor.cyan
-                startTimeLabel.textColor = UIColor.black
-                finishTimeLabel.textColor = UIColor.black
-                separatorTimeLabel.textColor = UIColor.black
+                contentView.backgroundColor = UIColor.init(hexString: "#a1e2e3", withAlpha: 0.7)
                 
             default:
                 break
@@ -143,57 +138,59 @@ class TimeSheetView: UIView {
     func handlerPanGesture(_ sender: UIPanGestureRecognizer) {
         print(object: "\(#file): \(#function) run in [line \(#line)]")
         
-        switch gestureMode {
-        case .ScheduleMove:
-            let translate = sender.translation(in: self.superview!)
-            sender.view!.center = CGPoint(x: sender.view!.center.x, y: sender.view!.center.y + translate.y)
-            sender.setTranslation(CGPoint.zero, in: self.superview!)
-            
-            print(object: "Order view new position = \(sender.view?.frame.minY)")
-            
-        case .ScheduleResize:
-            let translation = sender.translation(in: self.superview!)
-            
-            frame = (isResizeDown) ? CGRect.init(origin: frame.origin, size: CGSize.init(width: frame.width, height: frame.height + translation.y)) : CGRect.init(origin: CGPoint.init(x: frame.origin.x, y: frame.origin.y + translation.y), size: CGSize.init(width: frame.width, height: frame.height - translation.y))
-            
-            for subview in (superview?.subviews)! as [UIView] {
-                if ((subview.frame.contains(CGPoint.init(x: frame.minX, y: frame.maxY)) ||
-                    subview.frame.contains(CGPoint.init(x: frame.minX, y: frame.minY))) && !subview.isUserInteractionEnabled) {
-                    gestureMode = .TableGesture
-                    _ = upDownButtonsCollection.map{ $0.isHidden = true}
-                    
-                    frame = (isResizeDown) ? CGRect.init(origin: frame.origin, size: CGSize.init(width: frame.width, height: frame.height - 1.1)) : CGRect.init(origin: CGPoint.init(x: frame.minX, y: frame.minY - 1.1), size: frame.size)
-                    sender.setTranslation(CGPoint.zero, in: self.superview!)
-                    
-                    if (isResizeDown) {
-                        countServiceMinDown -= 1
-                    } else {
-                        countServiceMinUp += 1
-                    }
-                } else {
-                    if (frame.height >= originalHeight) {
+        if (isOrderOwn) {
+            switch gestureMode {
+            case .ScheduleMove:
+                let translate = sender.translation(in: self.superview!)
+                sender.view!.center = CGPoint(x: sender.view!.center.x, y: sender.view!.center.y + translate.y)
+                sender.setTranslation(CGPoint.zero, in: self.superview!)
+                
+                print(object: "Order view new position = \(sender.view?.frame.minY)")
+                
+            case .ScheduleResize:
+                let translation = sender.translation(in: self.superview!)
+                
+                frame = (isResizeDown) ? CGRect.init(origin: frame.origin, size: CGSize.init(width: frame.width, height: frame.height + translation.y)) : CGRect.init(origin: CGPoint.init(x: frame.origin.x, y: frame.origin.y + translation.y), size: CGSize.init(width: frame.width, height: frame.height - translation.y))
+                
+                for subview in (superview?.subviews)! as [UIView] {
+                    if ((subview.frame.contains(CGPoint.init(x: frame.minX, y: frame.maxY)) ||
+                        subview.frame.contains(CGPoint.init(x: frame.minX, y: frame.minY))) && !subview.isUserInteractionEnabled) {
+                        gestureMode = .TableGesture
+                        _ = upDownButtonsCollection.map{ $0.isHidden = true}
+                        
+                        frame = (isResizeDown) ? CGRect.init(origin: frame.origin, size: CGSize.init(width: frame.width, height: frame.height - 1.1)) : CGRect.init(origin: CGPoint.init(x: frame.minX, y: frame.minY - 1.1), size: frame.size)
                         sender.setTranslation(CGPoint.zero, in: self.superview!)
                         
-                        print(object: sender.view!.frame)
+                        if (isResizeDown) {
+                            countServiceMinDown -= 1
+                        } else {
+                            countServiceMinUp += 1
+                        }
                     } else {
-                        sender.setTranslation(CGPoint.init(x: 0, y: 1), in: self.superview!)
+                        if (frame.height >= originalHeight) {
+                            sender.setTranslation(CGPoint.zero, in: self.superview!)
+                            
+                            print(object: sender.view!.frame)
+                        } else {
+                            sender.setTranslation(CGPoint.init(x: 0, y: 1), in: self.superview!)
+                        }
                     }
                 }
+                
+            default:
+                break
             }
-            
-        default:
-            break
         }
     }
     
     func handlerLongPressedGesture(_ sender: UILongPressGestureRecognizer) {
         print(object: "\(#file): \(#function) run in [line \(#line)]")
         
-        if (gestureMode == .ScheduleMove) {
+        if (gestureMode == .ScheduleMove && isOrderOwn) {
             didChangeGestureMode(to: .ScheduleResize)
             (superview as! UITableView).isScrollEnabled = false
             (superview as! UITableView).bringSubview(toFront: self)
-
+            
             handlerShowPickersViewCompletion!()
         }
     }
