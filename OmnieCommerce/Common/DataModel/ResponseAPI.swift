@@ -41,6 +41,7 @@ public enum StatusCodeNote: Int {
     case BAD_REQUEST_4444           =   4444    //  BAD REQUEST
     case WRONG_INPUT_DATA           =   4500    //  WRONG INPUT DATA
     case USER_EXIST                 =   4670
+    case REQUEST_HANDLING_FAIL      =   5005    //  SQL processing failed
     case ORG_NAME_EXIST             =   6992    //  NAME OF ORG HAS UNIQUE CONSTRAIN
     case TIMESHEET_BROKEN           =   8100    //  Timesheet is not available
 

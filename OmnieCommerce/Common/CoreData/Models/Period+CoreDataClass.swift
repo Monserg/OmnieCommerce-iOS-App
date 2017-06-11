@@ -18,6 +18,7 @@ public class Period: NSManagedObject {
         period.hourEnd = 0
         period.minuteEnd = 0
         period.cellHeight = 44.0
+        period.cellDivision = 1.0
         
         if (isDateNeedClear) {
             period.dateStart = Date() as NSDate

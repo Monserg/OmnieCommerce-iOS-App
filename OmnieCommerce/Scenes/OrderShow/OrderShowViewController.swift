@@ -37,7 +37,8 @@ class OrderShowViewController: BaseViewController {
     var bodyRequestParameters: [String: AnyObject]?
     var orderProfile: Order?
     
-    // Outlets
+    
+    // MARK: - Outlets
     @IBOutlet weak var smallTopBarView: SmallTopBarView!
     @IBOutlet var modalView: ModalView!
     
@@ -91,6 +92,18 @@ class OrderShowViewController: BaseViewController {
     
 
     // MARK: - Class Functions
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        if (blackoutView != nil) {
+            modalView?.center = blackoutView!.center
+        }
+        
+        if (spinner.isAnimating) {
+            spinner.center = view.center
+        }
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -194,14 +207,22 @@ class OrderShowViewController: BaseViewController {
         spinnerDidFinish()
     }
     
-    func modalViewDidShow(withHeight height: CGFloat, customSubview subView: CustomView, andValues values: [Any]?) {
+    func modalViewDidShow() {
         if (blackoutView == nil) {
             blackoutView = MSMBlackoutView.init(inView: view)
             blackoutView!.didShow()
         }
         
-        modalView = ModalView.init(inView: blackoutView!, withHeight: height)
-        _ = ConfirmView.init(inView: modalView!)
+        modalView = ModalView.init(inView: blackoutView!, withHeight: 185.0)
+        let popupView = ConfirmSaveView.init(inView: modalView!, withText: "Your order send")
+        
+        // Handler Cancel button tap
+        popupView.handlerCancelButtonCompletion = { _ in
+            self.blackoutView!.didHide()
+            self.blackoutView = nil
+            
+            self.router.navigateToOrdersShowScene()
+        }
     }
     
     
@@ -213,8 +234,10 @@ class OrderShowViewController: BaseViewController {
     
     // MARK: - Actions
     @IBAction func handlerConfirmButtonTap(_ sender: FillVeryLightOrangeButton) {
-        let orderCreateRequestModel = OrderShowModels.OrderItem.RequestModel(parameters: bodyRequestParameters!)
-        interactor.orderDidCreate(withRequestModel: orderCreateRequestModel)
+//        let orderCreateRequestModel = OrderShowModels.OrderItem.RequestModel(parameters: bodyRequestParameters!)
+//        interactor.orderDidCreate(withRequestModel: orderCreateRequestModel)
+        
+        modalViewDidShow()
     }
     
     @IBAction func handlerCancelButtonTap(_ sender: BorderVeryLightOrangeButton) {
@@ -263,7 +286,8 @@ extension OrderShowViewController: OrderShowViewControllerInput {
             return
         }
         
-        self.navigationController?.popToRootViewController(animated: true)
+        // Show success modal view
+        modalViewDidShow()
     }
     
     func orderDidShowCancel(fromViewModel viewModel: OrderShowModels.OrderItem.ViewModel) {
@@ -284,6 +308,7 @@ extension OrderShowViewController: OrderShowViewControllerInput {
         
         // Check for errors
         guard viewModel.status == "SUCCESS" else {
+            self.priceLabel.text = String(format: "%3.2f грн.", 0.0)
             self.alertViewDidShow(withTitle: "Error", andMessage: viewModel.status, completion: { })
             
             return
@@ -291,7 +316,7 @@ extension OrderShowViewController: OrderShowViewControllerInput {
         
         // Price view
         if let totalPrice = viewModel.value {
-            self.priceLabel.text = String(format: "%3.2f UAH", totalPrice)
+            self.priceLabel.text = String(format: "%3.2f грн.", totalPrice)
         }
     }
 }

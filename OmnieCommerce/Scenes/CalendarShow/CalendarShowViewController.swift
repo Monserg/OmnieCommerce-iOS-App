@@ -160,6 +160,12 @@ class CalendarShowViewController: BaseViewController, CalendarShowViewController
         setupContainerView(withSize: view.frame.size)
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(true)
+        
+        self.timesheetVC!.timer.stop()
+    }
+
     
     // MARK: - Custom Functions
     func viewSettingsDidLoad() {
@@ -306,8 +312,8 @@ class CalendarShowViewController: BaseViewController, CalendarShowViewController
     // MARK: - Actions
     @IBAction func handlerConfirmButtonTap(_ sender: CustomButton) {
         print(object: "\(type(of: self)): \(#function) run.")
-        self.navigationController?.popViewController(animated: true)
         handlerConfirmButtonCompletion!()
+        self.navigationController?.popViewController(animated: true)
     }
     
     @IBAction func handlerCancelButtonTap(_ sender: CustomButton) {

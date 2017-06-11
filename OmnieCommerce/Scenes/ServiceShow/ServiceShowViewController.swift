@@ -40,10 +40,7 @@ class ServiceShowViewController: BaseViewController {
                 return
             }
             
-            selectedDateDidUpload()
-            selectedTimesDidUpload()
-            selectedPeriodTitleDidUpload()
-            
+            selectedPeriodDidUpload()
             serviceProfileDidShow()
         }
     }
@@ -130,23 +127,9 @@ class ServiceShowViewController: BaseViewController {
     @IBOutlet weak var calendarView: UIView!
     @IBOutlet weak var selectedTimesLabelTopConstraint: NSLayoutConstraint!
     
-    @IBOutlet weak var selectedDateLabel: UbuntuLightVeryLightOrangeLabel! {
-        didSet {
-            selectedDateDidUpload()
-        }
-    }
-    
-    @IBOutlet weak var selectedTimesLabel: UbuntuLightItalicVeryDarkGrayishBlueLabel! {
-        didSet {
-            selectedTimesDidUpload()
-        }
-    }
-    
-    @IBOutlet weak var selectPeriodTitleLabel: HelveticaNeueCyrLightVeryLightGrayLabel! {
-        didSet {
-            selectedPeriodTitleDidUpload()
-        }
-    }
+    @IBOutlet weak var selectedDateLabel: UbuntuLightVeryLightOrangeLabel!
+    @IBOutlet weak var selectedTimesLabel: UbuntuLightItalicVeryDarkGrayishBlueLabel!
+    @IBOutlet weak var selectPeriodTitleLabel: HelveticaNeueCyrLightVeryLightGrayLabel!
     
     // Comment view
     @IBOutlet weak var commentView: UIView!
@@ -219,7 +202,7 @@ class ServiceShowViewController: BaseViewController {
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(true)
         
-        period.propertiesDidClear(withDate: true)
+//        period.propertiesDidClear(withDate: true)
     }
     
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -262,6 +245,14 @@ class ServiceShowViewController: BaseViewController {
         
         period.serviceDuration = (serviceProfile.minDuration) ? Float(CGFloat(serviceProfile.duration)) : Float(1.0)
         period.additionalServicesDuration = additionalServicesDuration
+        period.dateStart = (serviceProfile.start == nil) ? (Date() as NSDate) : serviceProfile.start!
+        period.hourStart = (serviceProfile.start == nil) ? 0 : Int16((period.dateStart as Date).dateComponents().hour!)
+        period.minuteStart = (serviceProfile.start == nil) ? 0 : Int16((period.dateStart as Date).dateComponents().minute!)
+        period.dateEnd = (serviceProfile.end == nil) ? (Date() as NSDate) : serviceProfile.end!
+        period.hourEnd = (serviceProfile.start == nil) ? 0 : Int16((period.dateEnd as Date).dateComponents().hour!)
+        period.minuteEnd = (serviceProfile.start == nil) ? 0 : Int16((period.dateEnd as Date).dateComponents().minute!)
+        
+        selectedPeriodDidUpload()
         
         // Create OrderPrepare instance
         if (orderPrepareToPreview == nil) {
@@ -395,20 +386,22 @@ class ServiceShowViewController: BaseViewController {
             self.view.layoutIfNeeded()
             additionalServicesTableView.reloadData()
             
-            // Add additional services stirng
-            var services = String()
-            
-            if let subServicesList: [AdditionalService] = Array(additionalServicesList).filter({ ($0 as! AdditionalService).isAvailable == true }) as? [AdditionalService], subServicesList.count > 0 {
-                for (index, additionalService) in subServicesList.enumerated() {
-                    if (index == 0) {
-                        services.append("\(additionalService.name)")
-                    } else {
-                        services.append("\n\(additionalService.name)")
-                    }
-                }
-                
-                orderPrepareToPreview.additionalServices = services
-            }
+            // Add additional services string
+            self.orderPrepareListDidPrepare()
+
+//            var services = String()
+//            
+//            if let subServicesList: [AdditionalService] = Array(additionalServicesList).filter({ ($0 as! AdditionalService).isAvailable == true }) as? [AdditionalService], subServicesList.count > 0 {
+//                for (index, additionalService) in subServicesList.enumerated() {
+//                    if (index == 0) {
+//                        services.append("\(additionalService.name)")
+//                    } else {
+//                        services.append("\n\(additionalService.name)")
+//                    }
+//                }
+//                
+//                orderPrepareToPreview.additionalServices = services
+//            }
         } else {
             additionalServicesView.isHidden = true
         }
@@ -416,7 +409,7 @@ class ServiceShowViewController: BaseViewController {
         // Calendar view
         calendarView.isHidden = false
         
-        if (period.hourStart == 0 && period.minuteStart == 0) {
+        if (period.hourStart == 0 && period.hourEnd == 0) {
             selectedTimesLabelTopConstraint.constant = -15
             selectedTimesLabel.didShow(false, withConstraint: selectedTimesLabelTopConstraint)
         } else {
@@ -544,6 +537,22 @@ class ServiceShowViewController: BaseViewController {
         }
     }
     
+    func orderPrepareListDidPrepare() {
+        var services = String()
+        
+        if let subServicesList: [AdditionalService] = Array(serviceProfile.additionalServices!).filter({ ($0 as! AdditionalService).isAvailable == true }) as? [AdditionalService], subServicesList.count > 0 {
+            for (index, additionalService) in subServicesList.enumerated() {
+                if (index == 0) {
+                    services.append("\(additionalService.name)")
+                } else {
+                    services.append("\n\(additionalService.name)")
+                }
+            }
+        }
+        
+        orderPrepareToPreview.additionalServices = services
+    }
+    
     func orderRequestParametersDidPrepare() -> Dictionary<String, AnyObject> {
         var bodyParameters = Dictionary<String, AnyObject>()
         var subservices = Array<Dictionary<String, AnyObject>>()
@@ -552,8 +561,8 @@ class ServiceShowViewController: BaseViewController {
         
         bodyParameters["start"] = "\((period.dateStart as Date).convertToString(withStyle: .DateHyphen)) \(String(period.hourStart).twoNumberFormat()):\(String(period.minuteStart).twoNumberFormat())" as AnyObject
         
-        let startSeconds: Int64 = Int64((period.hourStart * 60 + period.minuteStart) * 60)
-        let endSeconds: Int64 = Int64((period.hourEnd * 60 + period.minuteEnd) * 60)
+        let startSeconds = Int64((period.hourStart * 60 + period.minuteStart)) * 60
+        let endSeconds = Int64((period.hourEnd * 60 + period.minuteEnd)) * 60
 
         bodyParameters["duration"] = ((endSeconds - startSeconds) * 1_000) as AnyObject
         
@@ -579,12 +588,12 @@ class ServiceShowViewController: BaseViewController {
         return bodyParameters
     }
 
-    func selectedDateDidUpload() {
-        selectedDateLabel.text = (period.hourStart == 0 && period.minuteStart == 0) ? "Select Date click text".localized() : (period.dateStart as Date).convertToString(withStyle: .DateDot)
-    }
+    func selectedPeriodDidUpload() {
+        selectPeriodTitleLabel.text = (period.hourStart == 0 && period.hourEnd == 0) ? "Select Date".localized() : "Turn the Date".localized()
 
-    func selectedTimesDidUpload() {
-        if (period.hourStart == 0 && period.minuteStart == 0) {
+        selectedDateLabel.text = (period.hourStart == 0 && period.hourEnd == 0) ? "Select Date click text".localized() : (period.dateStart as Date).convertToString(withStyle: .DateDot)
+
+        if (period.hourStart == 0 && period.hourEnd == 0) {
             selectedTimesLabel.isHidden = true
         } else {
             let times = "\("From".localized()) \(String(period.hourStart).twoNumberFormat()):\(String(period.minuteStart).twoNumberFormat()) \("To".localized()) \(String(period.hourEnd).twoNumberFormat()):\(String(period.minuteEnd).twoNumberFormat())"
@@ -616,11 +625,15 @@ class ServiceShowViewController: BaseViewController {
                                            range: NSRange.init(location: location, length: timeArray[3].characters.count))
             
             selectedTimesLabel.attributedText = stringAttributed
+            selectedTimesLabel.isHidden = false
         }
     }
     
-    func selectedPeriodTitleDidUpload() {
-        selectPeriodTitleLabel.text = (period.hourStart == 0 && period.minuteStart == 0) ? "Select Date".localized() : "Turn the Date".localized()
+    func calendarViewDidUpload() {
+        selectedPeriodDidUpload()
+        
+        selectedTimesLabelTopConstraint.constant = 15
+        selectedTimesLabel.didShow(true, withConstraint: selectedTimesLabelTopConstraint)
     }
     
     
@@ -669,6 +682,7 @@ class ServiceShowViewController: BaseViewController {
     
     @IBAction func handlerViewOrderButtonTap(_ sender: FillVeryLightOrangeButton) {
         view.endEditing(true)
+        self.orderPrepareListDidPrepare()
         self.router.navigateToOrderShowScene(withOrderPrepare: orderPrepareToPreview, andRequestParameters: orderRequestParametersDidPrepare())
     }
     

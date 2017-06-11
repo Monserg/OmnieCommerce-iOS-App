@@ -42,6 +42,7 @@ class ServiceShowRouter: ServiceShowRouterInput {
         // Handler Confirm completion
         calendarShowVC.handlerConfirmButtonCompletion = { _ in
             self.viewController.orderButton.isEnabled = true
+            self.viewController.calendarViewDidUpload()
         }
     }
 

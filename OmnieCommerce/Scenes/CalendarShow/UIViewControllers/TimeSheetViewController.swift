@@ -30,15 +30,10 @@ class TimeSheetViewController: BaseViewController {
     // Cell height
     var cellHeight: CGFloat = 64.0 {
         didSet {
-            cellDivision = (timeSheet.minDuration) ?    CGFloat(cellHeight * CGFloat(timeSheet.orderDuration) / CGFloat(60.0)) :
-                                                        CGFloat(cellHeight / CGFloat(60.0))
-            
+            period.cellDivision = (timeSheet.minDuration) ? Float(cellHeight * CGFloat(timeSheet.orderDuration) / CGFloat(60.0)) : Float(cellHeight / CGFloat(60.0))
             period.cellHeight = Float(cellHeight)
         }
     }
-
-    // Need for allow duration
-    var cellDivision: CGFloat = CGFloat(45.0 / 60.0)
     
     // Need to set iteration
     var serviceDuration: CGFloat = 1.0
@@ -189,21 +184,21 @@ class TimeSheetViewController: BaseViewController {
             let endHour = UInt(timeEnd.last!.components(separatedBy: ":").first!)!
             let endMinute = UInt(timeEnd.last!.components(separatedBy: ":").last!)!
             
-            let timeSheetView = TimeSheetView.init(frame: CGRect.init(x: 80.0,
-                                                                      y: CGFloat(CGFloat(startHour) + CGFloat(startMinute) * cellDivision) * cellHeight - 0.5,
-                                                                      width: tableView.frame.width - (80.0 + 8.0),
-                                                                      height: CGFloat((endHour * 60 + endMinute) - (startHour * 60 + startMinute)) * cellHeight * cellDivision))
+            let closeTimeSheetView = TimeSheetView.init(frame: CGRect.init(x: 80.0,
+                                                                           y: CGFloat(CGFloat(startHour) + CGFloat(startMinute) * CGFloat(1.0)) * cellHeight - 0.5,
+                                                                           width: tableView.frame.width - (80.0 + 8.0),
+                                                                           height: CGFloat(endHour - startHour) * cellHeight + CGFloat(endMinute - startMinute) * CGFloat(1.0)))
             
-            timeSheetView.contentView.backgroundColor = UIColor.darkCyanAlpha70
-            timeSheetView.startTimeLabel.text = timeStart.last!
-            timeSheetView.finishTimeLabel.text = timeEnd.last!
-            timeSheetView.startTimeLabel.textColor = UIColor.white
-            timeSheetView.finishTimeLabel.textColor = UIColor.white
-            timeSheetView.separatorTimeLabel.textColor = UIColor.white
-            timeSheetView.isOrderOwn = false
+            closeTimeSheetView.contentView.backgroundColor = UIColor.darkCyanAlpha70
+            closeTimeSheetView.startTimeLabel.text = timeStart.last!
+            closeTimeSheetView.finishTimeLabel.text = timeEnd.last!
+            closeTimeSheetView.startTimeLabel.textColor = UIColor.white
+            closeTimeSheetView.finishTimeLabel.textColor = UIColor.white
+            closeTimeSheetView.separatorTimeLabel.textColor = UIColor.white
+            closeTimeSheetView.isOrderOwn = false
             
-            tableView.addSubview(timeSheetView)
-            timeSheetViews.append(timeSheetView)
+            tableView.addSubview(closeTimeSheetView)
+            timeSheetViews.append(closeTimeSheetView)
             
             tableView.reloadData()
             timePointerDidLoad()
@@ -224,9 +219,10 @@ class TimeSheetViewController: BaseViewController {
         
         if (sender.state == .began) {
             let touchPoint = sender.location(in: tableView)
+            let orderDuration = (timeSheet.minDuration && timeSheet.orderDuration == 0) ? CGFloat(30.0) : CGFloat(timeSheet.orderDuration)
             let cellTouchPointIndex = tableView.indexPath(for: tableView.cellForRow(at: tableView.indexPathForRow(at: touchPoint)!)!)!.row
             let pointY: CGFloat =   (touchPoint.y < currentTimeLine.frame.minY &&
-                                    (period.dateStart as Date).isActiveToday()) ?   currentTimeLine.frame.midY + (cellDivision * 10.0) :
+                                    (period.dateStart as Date).isActiveToday()) ?   currentTimeLine.frame.midY + CGFloat(period.cellDivision * 10.0) :
                                                                                     CGFloat(cellTouchPointIndex) * cellHeight
             
             if (timeSheetViews.filter({ $0.frame.contains(touchPoint) }).count > 0) {
@@ -237,8 +233,7 @@ class TimeSheetViewController: BaseViewController {
                     timeSheetView = TimeSheetView.init(frame: CGRect.init(x: 80.0,
                                                                           y: pointY,
                                                                           width: tableView.frame.width - (80.0 + 8.0),
-                                                                          height: (timeSheet.minDuration) ? cellDivision * CGFloat(timeSheet.orderDuration) :
-                                                                                                            cellDivision * 60.0))
+                                                                          height: (timeSheet.minDuration) ? (CGFloat(period.cellDivision) * orderDuration) : CGFloat(period.cellDivision * 60.0)))
                     
                     timeSheetView!.convertToPeriod()
                     timeSheetView!.orderTimesDidUpload()

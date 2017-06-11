@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="landscape">
+    <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -348,7 +348,7 @@
                                                         </connections>
                                                     </button>
                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aEB-CW-Tz4" userLabel="Buttons View">
-                                                        <rect key="frame" x="114" y="76" width="131" height="20"/>
+                                                        <rect key="frame" x="0.0" y="76" width="358" height="20"/>
                                                         <subviews>
                                                             <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2R6-v1-lKb" userLabel="Confirm Button" customClass="FillVeryLightOrangeButton" customModule="OmnieCommerce" customModuleProvider="target">
                                                                 <rect key="frame" x="0.5" y="0.0" width="68" height="20"/>
@@ -377,8 +377,10 @@
                                                         </subviews>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <constraints>
+                                                            <constraint firstItem="e45-Ad-iYc" firstAttribute="width" secondItem="2R6-v1-lKb" secondAttribute="width" id="5Nj-S5-Lbt"/>
                                                             <constraint firstAttribute="bottom" secondItem="e45-Ad-iYc" secondAttribute="bottom" id="Au4-Mf-geQ"/>
                                                             <constraint firstItem="e45-Ad-iYc" firstAttribute="top" secondItem="aEB-CW-Tz4" secondAttribute="top" id="AuN-WN-1SX"/>
+                                                            <constraint firstItem="e45-Ad-iYc" firstAttribute="height" secondItem="2R6-v1-lKb" secondAttribute="height" id="WZZ-8y-U8t"/>
                                                             <constraint firstItem="2R6-v1-lKb" firstAttribute="top" secondItem="aEB-CW-Tz4" secondAttribute="top" id="dkx-Z4-Soc"/>
                                                             <constraint firstAttribute="bottom" secondItem="2R6-v1-lKb" secondAttribute="bottom" id="m4e-No-6T3"/>
                                                             <constraint firstAttribute="trailing" secondItem="e45-Ad-iYc" secondAttribute="trailing" id="nLd-Pg-rwn"/>
@@ -394,6 +396,8 @@
                                                 <constraints>
                                                     <constraint firstAttribute="bottom" secondItem="aEB-CW-Tz4" secondAttribute="bottom" constant="20" id="Mtm-I6-bav"/>
                                                     <constraint firstItem="aEB-CW-Tz4" firstAttribute="top" secondItem="wLY-ah-PEE" secondAttribute="bottom" constant="20" id="QYc-xv-0wc"/>
+                                                    <constraint firstItem="aEB-CW-Tz4" firstAttribute="leading" secondItem="gv5-jF-yHH" secondAttribute="leading" id="ZXP-Gp-fxI"/>
+                                                    <constraint firstAttribute="trailing" secondItem="aEB-CW-Tz4" secondAttribute="trailing" id="ddj-Dg-VwL"/>
                                                     <constraint firstItem="wLY-ah-PEE" firstAttribute="centerX" secondItem="gv5-jF-yHH" secondAttribute="centerX" id="nxh-Qg-gsh"/>
                                                     <constraint firstItem="aEB-CW-Tz4" firstAttribute="centerX" secondItem="gv5-jF-yHH" secondAttribute="centerX" id="r9Y-d4-cha"/>
                                                     <constraint firstAttribute="height" priority="750" constant="116" id="rRZ-5r-wur"/>
@@ -492,11 +496,13 @@
                             <constraint firstItem="kKS-Tc-ZlO" firstAttribute="width" secondItem="Eo6-85-ajl" secondAttribute="width" multiplier="224:667" id="4Hn-w3-YpD"/>
                             <constraint firstItem="Hfh-VF-vjs" firstAttribute="top" secondItem="TOJ-4o-BWv" secondAttribute="bottom" id="4uJ-NS-Kw4"/>
                             <constraint firstItem="kKS-Tc-ZlO" firstAttribute="width" secondItem="Eo6-85-ajl" secondAttribute="width" multiplier="224:375" id="B5k-Pb-uQw"/>
+                            <constraint firstItem="aEB-CW-Tz4" firstAttribute="height" secondItem="Eo6-85-ajl" secondAttribute="height" multiplier="36:375" id="Fbd-xk-ZCK"/>
                             <constraint firstAttribute="trailing" secondItem="TOJ-4o-BWv" secondAttribute="trailing" id="H7m-tW-2tk"/>
                             <constraint firstItem="Wtk-iH-4Z6" firstAttribute="centerX" secondItem="Eo6-85-ajl" secondAttribute="centerX" id="IQk-uV-KGR"/>
                             <constraint firstItem="Hfh-VF-vjs" firstAttribute="leading" secondItem="Eo6-85-ajl" secondAttribute="leading" id="LDE-ia-dea"/>
                             <constraint firstItem="TOJ-4o-BWv" firstAttribute="height" secondItem="Eo6-85-ajl" secondAttribute="height" multiplier="95:667" id="LWc-Pe-Crl"/>
                             <constraint firstItem="TOJ-4o-BWv" firstAttribute="height" secondItem="Eo6-85-ajl" secondAttribute="height" multiplier="80:375" id="XmP-SG-Pci"/>
+                            <constraint firstItem="aEB-CW-Tz4" firstAttribute="height" secondItem="Eo6-85-ajl" secondAttribute="height" multiplier="36:667" id="cpJ-j5-6oj"/>
                             <constraint firstItem="TOJ-4o-BWv" firstAttribute="top" secondItem="Eo6-85-ajl" secondAttribute="top" id="fs8-SN-DTN">
                                 <variation key="heightClass=compact-widthClass=compact" constant="0.0"/>
                                 <variation key="heightClass=compact-widthClass=regular" constant="0.0"/>
@@ -513,6 +519,7 @@
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="LWc-Pe-Crl"/>
+                                <exclude reference="cpJ-j5-6oj"/>
                                 <exclude reference="3iw-cW-Ooz"/>
                                 <exclude reference="B5k-Pb-uQw"/>
                             </mask>
@@ -521,6 +528,8 @@
                             <mask key="constraints">
                                 <include reference="LWc-Pe-Crl"/>
                                 <exclude reference="XmP-SG-Pci"/>
+                                <exclude reference="Fbd-xk-ZCK"/>
+                                <include reference="cpJ-j5-6oj"/>
                                 <include reference="3iw-cW-Ooz"/>
                                 <exclude reference="4Hn-w3-YpD"/>
                                 <include reference="B5k-Pb-uQw"/>

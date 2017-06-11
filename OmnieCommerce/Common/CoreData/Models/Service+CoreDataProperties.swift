@@ -35,6 +35,8 @@ extension Service {
     @NSManaged public var organizationID: String?
     @NSManaged public var placeID: String?
     @NSManaged public var rating: Double
+    @NSManaged public var start: NSDate?
+    @NSManaged public var end: NSDate?
     @NSManaged public var additionalServices: NSSet?
     @NSManaged public var discounts: NSSet?
     @NSManaged public var images: NSSet?

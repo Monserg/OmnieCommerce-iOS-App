@@ -130,7 +130,15 @@ public class Service: NSManagedObject, InitCellParameters, PointAnnotationBindin
         if let rating = json["rating"] as? Double {
             self.rating = rating
         }
-    
+
+        if let start = json["start"] as? String {
+            self.start = start.convertToDate(withDateFormat: .NewsDate) as NSDate
+        }
+
+        if let end = json["end"] as? String {
+            self.end = end.convertToDate(withDateFormat: .NewsDate) as NSDate
+        }
+        
         
         // Prices
         if let prices = json["servicePrices"] as? [[String: AnyObject]], prices.count > 0 {

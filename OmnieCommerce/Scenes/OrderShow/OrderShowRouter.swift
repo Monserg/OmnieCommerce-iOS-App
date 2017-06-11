@@ -13,7 +13,7 @@ import UIKit
 
 // MARK: - Input & Output protocols
 protocol OrderShowRouterInput {
-    func navigateToSomewhere()
+    func navigateToOrdersShowScene()
 }
 
 class OrderShowRouter: OrderShowRouterInput {
@@ -22,6 +22,15 @@ class OrderShowRouter: OrderShowRouterInput {
     
     
     // MARK: - Custom Functions. Navigation
+    func navigateToOrdersShowScene() {
+        let ordersShowNC = UIStoryboard(name: "OrdersShow", bundle: nil).instantiateViewController(withIdentifier: "OrdersShowNC") as! BaseNavigationController
+        viewController.revealViewController().revealToggle(animated: true)
+        viewController.revealViewController().setFront(ordersShowNC, animated: true)
+        viewController.revealViewController().rightRevealToggle(animated: true)
+    }
+
+    
+    
     func navigateToSomewhere() {
         // NOTE: Teach the router how to navigate to another scene. Some examples follow:
         // 1. Trigger a storyboard segue
