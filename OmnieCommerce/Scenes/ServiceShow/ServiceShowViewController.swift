@@ -218,6 +218,8 @@ class ServiceShowViewController: BaseViewController {
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(true)
+        
+        period.propertiesDidClear(withDate: true)
     }
     
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {

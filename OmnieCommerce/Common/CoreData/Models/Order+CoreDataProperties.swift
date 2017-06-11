@@ -28,6 +28,7 @@ extension Order {
     @NSManaged public var priceTotal: Float
     @NSManaged public var serviceName: String
     @NSManaged public var status: String
+    @NSManaged public var statusHexColor: String
     @NSManaged public var additionalServices: NSSet?
     @NSManaged public var lists: NSSet?
 

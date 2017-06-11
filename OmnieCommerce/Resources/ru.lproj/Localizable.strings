@@ -284,8 +284,8 @@
 
 
 // Order states
-"PENDING FOR USER"              =   "Ожидание для пользователя";
-"PENDING FOR ADMIN"             =   "Ожидание для администратора";
+"PENDING FOR USER"              =   "Подтвердить";
+"PENDING FOR ADMIN"             =   "На модерации";
 "CONFIRMED BY USER"             =   "Подтверждено пользователем";
 "CONFIRMED BY ADMIN"            =   "Подтверждено администратором";
 "CANCELED BY USER"              =   "Отменено пользователем";

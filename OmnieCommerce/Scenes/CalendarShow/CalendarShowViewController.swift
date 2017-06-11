@@ -65,22 +65,23 @@ class CalendarShowViewController: BaseViewController, CalendarShowViewController
                             self.timeSheetPickersView.didShow(inView: self.view)
                             
                             self.timeSheetPickersView.handlerConfirmButtonCompletion = { timesPeriod in
-                                self.timesheetVC!.timeSheetView!.didChangeGestureMode(to: .ScheduleMove)
+                                self.timesheetVC!.timeSheetView?.orderModeDidChange(to: .OrderMove)
                                 self.timesheetVC!.handlerTapGesture(UIGestureRecognizer())
                                 self.newDateDidSelect()
                             }
                             
                             // Handler change times in Pickers view
-                            self.timeSheetPickersView.handlerChangeTimesPeriodCompletion = { timesPeriod in
-//                                self.orderPeriod.timesPeriod = timesPeriod as! TimesPeriod
-//                                self.timeSheetPickersView.timesPeriod = timesPeriod as! TimesPeriod
-//                                self.timesheetVC!.timeSheetView!.setCurrentPeriod(timesPeriod as! TimesPeriod)
+                            self.timeSheetPickersView.handlerChangeTimesPeriodCompletion = { _ in
+                                self.timesheetVC!.timeSheetView!.frameDidChangeFromPeriod()
                             }
                         }
                     } else {
-                        self.timesheetVC!.timeSheetView?.didChangeGestureMode(to: .ScheduleMove)
-                        self.timeSheetPickersView.didHide()
+                        self.timeSheetPickersView.periodDidChange()
                         self.newDateDidSelect()
+
+                        if (self.timesheetVC!.timeSheetView?.gestureMode != .OrderResize) {
+                            self.timeSheetPickersView.didHide()
+                        }
                     }
                 }
             }
@@ -224,6 +225,8 @@ class CalendarShowViewController: BaseViewController, CalendarShowViewController
             }
 
             CoreDataManager.instance.didSaveContext()
+            
+            self.timesheetVC!.timeSheetItemsDidUpload()
         })
     }
     
@@ -270,6 +273,23 @@ class CalendarShowViewController: BaseViewController, CalendarShowViewController
             
             self.toTimeLabel.attributedText = stringAttributed
             self.confirmButton.isEnabled = true
+        } else {
+            var stringAttributed = NSMutableAttributedString.init(string: "From".localized())
+            
+            // From
+            stringAttributed.addAttributes([ NSFontAttributeName: UIFont.ubuntuLightItalic12, NSForegroundColorAttributeName: UIColor.veryDarkGrayishBlue56 ],
+                                           range: NSRange.init(location: 0, length: "From".localized().characters.count))
+            
+            self.fromTimeLabel.attributedText = stringAttributed
+
+            // To
+            stringAttributed = NSMutableAttributedString.init(string: "To".localized())
+            
+            stringAttributed.addAttributes([ NSFontAttributeName: UIFont.ubuntuLightItalic12, NSForegroundColorAttributeName: UIColor.veryDarkGrayishBlue56 ],
+                                           range: NSRange.init(location: 0, length: "To".localized().characters.count))
+            
+            self.toTimeLabel.attributedText = stringAttributed
+            self.confirmButton.isEnabled = false
         }
     }
 

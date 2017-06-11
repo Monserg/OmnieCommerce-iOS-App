@@ -116,9 +116,9 @@ extension Date {
     func isActiveToday() -> Bool {
         // MARK: - Properties
         var isToday = false
-        let today = NSDate()
+        let today = Date()
         
-        if (today.compare(self) == .orderedSame) {
+        if (today.convertToString(withStyle: .DateDot) == self.convertToString(withStyle: .DateDot)) {
             isToday = true
         }
 

@@ -284,8 +284,8 @@
 
 
 // Order states
-"PENDING FOR USER"              =   "Pending for user";
-"PENDING FOR ADMIN"             =   "Pending for admin";
+"PENDING FOR USER"              =   "Pending";
+"PENDING FOR ADMIN"             =   "Moderation";
 "CONFIRMED BY USER"             =   "Confirmed by user";
 "CONFIRMED BY ADMIN"            =   "Confirmed by admin";
 "CANCELED BY USER"              =   "Canceled by user";

@@ -20,13 +20,9 @@ class TimeSheetPickersView: UIView {
             
             fromPickerView.delegate = fromPickerViewManager
             fromPickerView.dataSource = fromPickerViewManager
-            
-            fromPickerViewManager.selectedHourIndex = Int(period.hourStart)
-            fromPickerViewManager.selectedMinuteIndex = Int(period.minuteStart)
-            
-            fromPickerView.selectRow(fromPickerViewManager.selectedHourIndex, inComponent: 0, animated: true)
-            fromPickerView.selectRow(fromPickerViewManager.selectedMinuteIndex, inComponent: 2, animated: true)
-            
+
+            periodDidChange()
+
             // Handler times change
             fromPickerViewManager.handlerChangeHourCompletion = { value in
                 self.print(object: "\(value as! Int16)")
@@ -55,12 +51,8 @@ class TimeSheetPickersView: UIView {
             toPickerView.delegate = toPickerViewManager
             toPickerView.dataSource = toPickerViewManager
             
-            toPickerViewManager.selectedHourIndex = Int(period.hourEnd)
-            toPickerViewManager.selectedMinuteIndex = Int(period.minuteEnd)
-            
-            toPickerView.selectRow(toPickerViewManager.selectedHourIndex, inComponent: 0, animated: true)
-            toPickerView.selectRow(toPickerViewManager.selectedMinuteIndex, inComponent: 2, animated: true)
-            
+            periodDidChange()
+
             // Handler times change
             toPickerViewManager.handlerChangeHourCompletion = { value in
                 self.print(object: "\(value as! Int16)")
@@ -206,6 +198,22 @@ class TimeSheetPickersView: UIView {
         }
         
         self.handlerChangeTimesPeriodCompletion!()
+    }
+    
+    func periodDidChange() {
+        guard fromPickerViewManager != nil && toPickerViewManager != nil else {
+            return
+        }
+        
+        fromPickerViewManager.selectedHourIndex = Int(period.hourStart)
+        fromPickerViewManager.selectedMinuteIndex = Int(period.minuteStart)
+        toPickerViewManager.selectedHourIndex = Int(period.hourEnd)
+        toPickerViewManager.selectedMinuteIndex = Int(period.minuteEnd)
+
+        fromPickerView.selectRow(fromPickerViewManager.selectedHourIndex, inComponent: 0, animated: true)
+        fromPickerView.selectRow(fromPickerViewManager.selectedMinuteIndex, inComponent: 2, animated: true)
+        toPickerView.selectRow(toPickerViewManager.selectedHourIndex, inComponent: 0, animated: true)
+        toPickerView.selectRow(toPickerViewManager.selectedMinuteIndex, inComponent: 2, animated: true)
     }
 
     

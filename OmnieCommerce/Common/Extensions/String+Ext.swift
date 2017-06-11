@@ -99,4 +99,22 @@ extension String {
             return self
         }
     }
+    
+    
+    // For Order
+    func convertToHexColor() -> String {
+        switch self {
+        case "PENDING FOR USER", "PENDING FOR ADMIN", "ALL":
+            return "#dedede"
+
+        case "CONFIRMED BY USER", "CONFIRMED BY ADMIN", "DONE":
+            return "#009395"
+            
+        case "CANCELED BY USER", "CANCELED BY ADMIN", "FAILED BY USER":
+            return "#bf3b3c"
+        
+        default:
+            return "#dedede"
+        }
+    }
 }

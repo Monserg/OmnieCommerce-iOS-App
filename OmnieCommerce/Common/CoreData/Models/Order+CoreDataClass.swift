@@ -24,8 +24,9 @@ public class Order: NSManagedObject, InitCellParameters {
         self.organizationName = json["orgName"] as! String
         self.serviceName = json["serviceName"] as! String
         self.dateStart = (json["start"] as! String).convertToDate(withDateFormat: .Default) as NSDate
-        self.status = json["status"] as! String
         self.priceTotal = json["totalPrice"] as! Float
+        self.status = json["status"] as! String
+        self.statusHexColor = self.status.convertToHexColor()
 
         if let imageID = json["imageId"] as? String {
             self.imageID = imageID

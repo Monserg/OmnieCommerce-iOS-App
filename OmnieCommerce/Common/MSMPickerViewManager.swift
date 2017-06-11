@@ -191,7 +191,7 @@ extension MSMPickerViewManager: UIPickerViewDelegate {
         case 0:
             if (scene == "TimeSheetPickersView") {
                 selectedHourIndex = row
-                handlerChangeHourCompletion!(row)
+                handlerChangeHourCompletion!(Int16(row))
             } else {
                 selectedDayIndex = row
             }
@@ -209,7 +209,7 @@ extension MSMPickerViewManager: UIPickerViewDelegate {
             
             if (scene == "TimeSheetPickersView") {
                 selectedMinuteIndex = row
-                handlerChangeMinuteCompletion!(row)
+                handlerChangeMinuteCompletion!(Int16(row))
             }
             
         case 4:

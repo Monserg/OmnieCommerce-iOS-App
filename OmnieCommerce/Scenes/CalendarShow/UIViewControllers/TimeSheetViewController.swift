@@ -8,31 +8,16 @@
 
 import UIKit
 
-enum GestureMode {
-    case TableGesture
-    case ScheduleMove
-    case ScheduleResize
-}
-
 class TimeSheetViewController: BaseViewController {
     // MARK: - Properties
     let cellHeightMin: CGFloat = 45.0
     let cellHeightMax: CGFloat = 104.0
-    var gestureMode = GestureMode.TableGesture
     var timer = CustomTimer.init(withTimeInterval: 60)
-    var timeSheetView: TimeSheetView!
+    var timeSheetView: TimeSheetView?
     
     // Need to use after change date
-    weak var timeSheet: TimeSheet! {
-        didSet {
-            guard tableView != nil else {
-                return
-            }
-            
-            timeSheetItemsDidUpload()
-        }
-    }
-
+    weak var timeSheet: TimeSheet!
+    
     // DataSource of blocks ORDER & CLOSE
     var timeSheetItems = [TimeSheetItem]()
 
@@ -47,6 +32,8 @@ class TimeSheetViewController: BaseViewController {
         didSet {
             cellDivision = (timeSheet.minDuration) ?    CGFloat(cellHeight * CGFloat(timeSheet.orderDuration) / CGFloat(60.0)) :
                                                         CGFloat(cellHeight / CGFloat(60.0))
+            
+            period.cellHeight = Float(cellHeight)
         }
     }
 
@@ -151,7 +138,10 @@ class TimeSheetViewController: BaseViewController {
         
         _ = Date().didShow(timePointer: currentTimeLine, inTableView: tableView, withCellHeight: cellHeight)
         let topRowIndex = Calendar.current.dateComponents([.hour], from: Date()).hour! - 2
-        tableView.scrollToRow(at: IndexPath.init(row: topRowIndex, section: 0), at: .top, animated: true)
+        
+        if ((period.dateStart as Date).isActiveToday()) {
+            self.tableView.scrollToRow(at: IndexPath.init(row: topRowIndex, section: 0), at: .top, animated: true)
+        }
         
         // Setup Timer
         timer.start()
@@ -174,6 +164,10 @@ class TimeSheetViewController: BaseViewController {
     }
 
     func timeSheetItemsDidUpload() {
+        guard tableView != nil else {
+            return
+        }
+        
         // Get data source
         if let items = timeSheet.timesheets, items.count > 0 {
             timeSheetItems = Array(items) as! [TimeSheetItem]
@@ -216,48 +210,74 @@ class TimeSheetViewController: BaseViewController {
         }
     }
     
+    func timeSheetViewsDidRemove() {
+        timeSheetView?.removeFromSuperview()
+        timeSheetView = nil
+        _ = timeSheetViews.map({ $0.removeFromSuperview() })
+        timeSheetViews.removeAll()
+    }
     
-    // MARK: - Actions
+    
+    // MARK: - Gestures
     func handlerLongPressedGesture(_ sender: UILongPressGestureRecognizer) {
         print(object: "\(#file): \(#function) run in [line \(#line)], \(sender.state)")
         
         if (sender.state == .began) {
             let touchPoint = sender.location(in: tableView)
+            let cellTouchPointIndex = tableView.indexPath(for: tableView.cellForRow(at: tableView.indexPathForRow(at: touchPoint)!)!)!.row
+            let pointY: CGFloat =   (touchPoint.y < currentTimeLine.frame.minY &&
+                                    (period.dateStart as Date).isActiveToday()) ?   currentTimeLine.frame.midY + (cellDivision * 10.0) :
+                                                                                    CGFloat(cellTouchPointIndex) * cellHeight
             
-            if let pointIndexPath = tableView.indexPathForRow(at: touchPoint) {
-                // Change mode for timeSheetView
-                if let actionCell = tableView.cellForRow(at: pointIndexPath) as? TimeSheetTableViewCell {
-//                    switch actionCell.type {
-//                    case "FREE":
-//                        if (timeSheetView == nil) {
-//                            timeSheetView = TimeSheetView.init(frame: CGRect.init(x: 85,
-//                                                                                  y: actionCell.frame.minY - 5,
-//                                                                                  width: actionCell.frame.width - (85 + 8),
-//                                                                                  height: (actionCell.frame.height + 10) / 1.0))
-//                           
-//                            timeSheetView!.cell = actionCell
-//                            timeSheetView!.orderTimesDidUpload()
-//                            
-//                            UIView.animate(withDuration: 0.7, delay: 0, options: .curveEaseIn, animations: {
-//                                self.tableView.addSubview(self.timeSheetView!)
-//                            }, completion: nil)
-//                        } else {
-//                            let newPosition = CGPoint.init(x: (timeSheetView?.frame.minX)!, y: actionCell.frame.minY + actionCell.currentTimeLineView.frame.maxY)
-//                            timeSheetView?.didMove(to: newPosition)
-//                        }
-//                        
-//                        // Handler show pickers view
-//                        self.handlerShowTimeSheetPickersCompletion!(true)
-//                        
-//                        // Handler begin resize mode
-//                        self.timeSheetView!.handlerShowPickersViewCompletion = { _ in
-//                            self.handlerShowTimeSheetPickersCompletion!(true)
-//                        }
-//                        
-//                    default:
-//                        // CLOSE
-//                        self.alertViewDidShow(withTitle: "Error", andMessage: "This time is busy.", completion: {})
-//                    }
+            if (timeSheetViews.filter({ $0.frame.contains(touchPoint) }).count > 0) {
+                alertViewDidShow(withTitle: "Info", andMessage: "This time is busy.", completion: {})
+            } else {
+                // Create new Order TimeSheetView
+                if (timeSheetView == nil) {
+                    timeSheetView = TimeSheetView.init(frame: CGRect.init(x: 80.0,
+                                                                          y: pointY,
+                                                                          width: tableView.frame.width - (80.0 + 8.0),
+                                                                          height: (timeSheet.minDuration) ? cellDivision * CGFloat(timeSheet.orderDuration) :
+                                                                                                            cellDivision * 60.0))
+                    
+                    timeSheetView!.convertToPeriod()
+                    timeSheetView!.orderTimesDidUpload()
+                    timeSheetView!.orderModeDidChange(to: .OrderResize)
+                    timeSheetView!.isOrderOwn = true
+                    
+                    UIView.animate(withDuration: 0.7,
+                                   delay: 0,
+                                   options: .curveEaseIn,
+                                   animations: {
+                                        self.tableView.addSubview(self.timeSheetView!)
+                    }, completion: { success in
+                        self.handlerShowTimeSheetPickersCompletion!(true)
+                    })
+                } else {
+                    // Move Order view to new position
+                    let newPosition = CGPoint.init(x: timeSheetView!.frame.minX,
+                                                   y: pointY)
+                    
+                    timeSheetView!.positionDidChange(to: newPosition)
+                    timeSheetView!.convertToPeriod()
+                    
+                    if (touchPoint.y < currentTimeLine.frame.minY && (period.dateStart as Date).isActiveToday()) {
+                        let topRowIndex = Calendar.current.dateComponents([.hour], from: Date()).hour! - 2
+                        self.tableView.scrollToRow(at: IndexPath.init(row: topRowIndex, section: 0), at: .top, animated: true)
+                    }
+                }
+                
+//                // Handler show pickers view
+//                self.handlerShowTimeSheetPickersCompletion!(false)
+                
+                // Handler begin resize mode
+                self.timeSheetView!.handlerShowPickersViewCompletion = { _ in
+                    self.handlerShowTimeSheetPickersCompletion!(true)
+                }
+                
+                // Handler TimeSheetView move completion
+                self.timeSheetView!.handlerTimeSheetViewChangeFrameCompletion = { _ in
+                    self.handlerShowTimeSheetPickersCompletion!(false)
                 }
             }
         }
@@ -292,8 +312,12 @@ class TimeSheetViewController: BaseViewController {
     func handlerTapGesture(_ sender: UIGestureRecognizer) {
         print(object: "\(#file): \(#function) run in [line \(#line)]")
         
-        if (gestureMode != .TableGesture) {
-            timeSheetView?.didChangeGestureMode(to: .ScheduleMove)
+        guard timeSheetView != nil else {
+            return
+        }
+        
+        if (timeSheetView!.gestureMode != .OrderPreview) {
+            timeSheetView!.orderModeDidChange(to: .OrderMove)
             tableView.isScrollEnabled = true
             
             handlerShowTimeSheetPickersCompletion!(false)
@@ -301,18 +325,28 @@ class TimeSheetViewController: BaseViewController {
         }
     }
     
+    
+    // MARK: - Actions
     @IBAction func handlerPreviuosButtonTap(_ sender: UIButton) {
-        let selectedDate = Calendar.current.date(byAdding: .day, value: -1, to: period.dateStart as Date)!
-        period.dateStart = (selectedDate.compare(Date()) == .orderedAscending) ? NSDate() : selectedDate as NSDate
-        
+        if !((period.dateStart as Date).isActiveToday()) {
+            period.propertiesDidClear(withDate: false)
+            timeSheetViewsDidRemove()
+            period.dateStart = Calendar.current.date(byAdding: .day, value: -1, to: period.dateStart as Date)! as NSDate
+        }
+
         selectedDateDidUpload()
+        tableView.isScrollEnabled = true
+
         handlerShowTimeSheetPickersCompletion!(false)
     }
     
     @IBAction func handlerNextButtonTap(_ sender: UIButton) {
         period.dateStart = Calendar.current.date(byAdding: .day, value: 1, to: period.dateStart as Date)! as NSDate
+        period.propertiesDidClear(withDate: false)
         selectedDateDidUpload()
-
+        timeSheetViewsDidRemove()
+        tableView.isScrollEnabled = true
+        
         handlerShowTimeSheetPickersCompletion!(false)
     }
 

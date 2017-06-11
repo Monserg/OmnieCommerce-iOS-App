@@ -27,6 +27,8 @@ class SlideMenuShowViewController: UIViewController {
     
     var menuItemsList = NSDictionary()
     
+    
+    // MARK: - Outlets
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var advertisingView: UIView!
     @IBOutlet weak var textButton: UIButton!
@@ -70,7 +72,7 @@ class SlideMenuShowViewController: UIViewController {
     // MARK: - Custom Functions
     func viewSettingsDidLoad() {
         // Load data
-        let requestModel    =   SlideMenuShow.Something.Request()
+        let requestModel = SlideMenuShow.Something.Request()
         output.doSomething(request: requestModel)
     }
     
