@@ -306,7 +306,15 @@ class CalendarShowViewController: BaseViewController, CalendarShowViewController
         
         setupScene(withSize: size)
         dateLabel.textAlignment = (size.height > size.width) ? .left : .center
-        timeSheetPickersView.fromLabel.setNeedsDisplay()
+        
+        if (timeSheetPickersView.isShow) {
+            timeSheetPickersView.didHide()
+            timesheetVC!.tableView.isScrollEnabled = true
+        }
+        
+        if (timesheetVC!.timeSheetView != nil) {
+            timesheetVC!.timeSheetView!.orderModeDidChange(to: .OrderPreview)
+        }
     }
 
     // MARK: - Actions

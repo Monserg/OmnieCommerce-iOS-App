@@ -60,7 +60,7 @@
                             <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
                         </userDefinedRuntimeAttributes>
                     </label>
-                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xp1-dF-qwx" userLabel="Current Time Line View">
+                    <view hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xp1-dF-qwx" userLabel="Current Time Line View">
                         <rect key="frame" x="60" y="0.0" width="299" height="1"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>

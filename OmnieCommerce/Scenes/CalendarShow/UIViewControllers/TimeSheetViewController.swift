@@ -130,6 +130,7 @@ class TimeSheetViewController: BaseViewController {
 
         // Start position
         currentTimeLine.frame = CGRect.init(origin: CGPoint.init(x: 60.0, y: 0.0), size: CGSize.init(width: tableView.frame.width - (60.0 + 8.0), height: 15.0))
+        currentTimeLine.isHidden = false
         
         _ = Date().didShow(timePointer: currentTimeLine, inTableView: tableView, withCellHeight: cellHeight)
         let topRowIndex = Calendar.current.dateComponents([.hour], from: Date()).hour! - 2

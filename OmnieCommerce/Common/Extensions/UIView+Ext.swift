@@ -129,7 +129,7 @@ extension UIView {
     // Order Creae & Move TimeSheetView
     func convertToPeriod() {
         period.hourStart = Int16((self.frame.minY + CGFloat(2.0)) / CGFloat(period.cellHeight))
-        period.minuteStart = Int16(self.frame.maxY) % Int16(period.cellHeight)
+        period.minuteStart = Int16(self.frame.minY) % Int16(period.cellHeight)
         period.hourEnd = Int16((self.frame.maxY + CGFloat(2.0)) / CGFloat(period.cellHeight))
         period.minuteEnd = Int16(self.frame.maxY) % Int16(period.cellHeight)
     }

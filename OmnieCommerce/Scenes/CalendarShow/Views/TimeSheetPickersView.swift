@@ -170,7 +170,7 @@ class TimeSheetPickersView: UIView {
             })
         } else {
             UIView.animate(withDuration: 0.5, animations: {
-                self.frame = CGRect.init(x: screenSize.width, y: 0, width: 185.0, height: screenSize.height)
+                self.frame = CGRect.init(x: self.frame.minX + 185.0, y: 0, width: 185.0, height: screenSize.height)
             }, completion: { success in
                 self.removeFromSuperview()
             })
@@ -207,11 +207,11 @@ class TimeSheetPickersView: UIView {
         
         fromPickerViewManager.selectedHourIndex = Int(period.hourStart)
         fromPickerViewManager.selectedMinuteIndex = Int(period.minuteStart)
-        toPickerViewManager.selectedHourIndex = Int(period.hourEnd)
-        toPickerViewManager.selectedMinuteIndex = Int(period.minuteEnd)
-
         fromPickerView.selectRow(fromPickerViewManager.selectedHourIndex, inComponent: 0, animated: true)
         fromPickerView.selectRow(fromPickerViewManager.selectedMinuteIndex, inComponent: 2, animated: true)
+
+        toPickerViewManager.selectedHourIndex = Int(period.hourEnd)
+        toPickerViewManager.selectedMinuteIndex = Int(period.minuteEnd)
         toPickerView.selectRow(toPickerViewManager.selectedHourIndex, inComponent: 0, animated: true)
         toPickerView.selectRow(toPickerViewManager.selectedMinuteIndex, inComponent: 2, animated: true)
     }

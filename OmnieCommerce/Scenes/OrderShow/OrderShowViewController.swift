@@ -234,10 +234,8 @@ class OrderShowViewController: BaseViewController {
     
     // MARK: - Actions
     @IBAction func handlerConfirmButtonTap(_ sender: FillVeryLightOrangeButton) {
-//        let orderCreateRequestModel = OrderShowModels.OrderItem.RequestModel(parameters: bodyRequestParameters!)
-//        interactor.orderDidCreate(withRequestModel: orderCreateRequestModel)
-        
-        modalViewDidShow()
+        let orderCreateRequestModel = OrderShowModels.OrderItem.RequestModel(parameters: bodyRequestParameters!)
+        interactor.orderDidCreate(withRequestModel: orderCreateRequestModel)
     }
     
     @IBAction func handlerCancelButtonTap(_ sender: BorderVeryLightOrangeButton) {

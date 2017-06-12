@@ -31,7 +31,7 @@ class TimeSheetView: UIView {
                 contentView.backgroundColor = UIColor.init(hexString: "#a1e2e3", withAlpha: 1.0)
                 
             default:
-                break
+                contentView.backgroundColor = UIColor.veryLightGray
             }
         }
     }
@@ -114,7 +114,7 @@ class TimeSheetView: UIView {
     // MARK: - Custom Functions
     func orderModeDidChange(to mode: TimeSheetViewMode) {
         gestureMode = mode
-        _ = upDownButtonsCollection.map{ $0.isHidden = (mode == .OrderMove) ? true : false }
+        _ = upDownButtonsCollection.map{ $0.isHidden = (mode != .OrderResize) ? true : false }
     }
     
     func positionDidChange(to position: CGPoint) {
@@ -155,9 +155,8 @@ class TimeSheetView: UIView {
                                                                       y: subview.frame.maxY),
                                                  size: self.frame.size)
                     } else {
-                        self.frame = CGRect.init(origin: CGPoint.init(x: self.frame.minX,
-                                                                      y: subview.frame.minY - self.frame.height),
-                                                 size: self.frame.size)
+                        self.frame = CGRect.init(origin: self.frame.origin,
+                                                 size: CGSize.init(width: self.frame.width, height: self.frame.height - 1.0 - (self.frame.maxY - subview.frame.minY)))
                     }
                 }
             }
@@ -175,6 +174,7 @@ class TimeSheetView: UIView {
                                      height: CGFloat(Float(period.hourEnd - period.hourStart) * period.cellHeight) + CGFloat(period.minuteEnd - period.minuteStart))
         })
         
+        didVerifyPositionBeforeMove()
         orderTimesDidUpload()
     }
     
@@ -187,76 +187,163 @@ class TimeSheetView: UIView {
     // MARK: - Actions
     func handlerPanGesture(_ sender: UIPanGestureRecognizer) {
         print(object: "\(#file): \(#function) run in [line \(#line)]")
-        
-        if (isOrderOwn) {
-            switch gestureMode {
-            case .OrderMove:
-                let translate = sender.translation(in: self.superview!)
-                sender.view!.center = CGPoint(x: sender.view!.center.x, y: sender.view!.center.y + translate.y)
-                sender.setTranslation(CGPoint.zero, in: self.superview!)
-                
-                didVerifyPositionBeforeMove()
-                
-            case .OrderResize:
-                let translation = sender.translation(in: self.superview!)
-                isResizeDown = (startPosition.y >= frame.height / 2) ? true : false
-                
-                frame = (isResizeDown) ?    CGRect.init(origin: frame.origin,
-                                                        size: CGSize.init(width: frame.width, height: frame.height + translation.y)) :
-                                            CGRect.init(origin: CGPoint.init(x: frame.origin.x, y: frame.origin.y + translation.y),
-                                                        size: CGSize.init(width: frame.width, height: frame.height - translation.y))
-                
-                // Verify 0 hour
-                if (sender.view!.frame.minY <= 0.0) {
-                    sender.view!.frame = CGRect.init(origin: CGPoint.init(x: sender.view!.frame.minX, y: 0.0),
-                                                     size: sender.view!.frame.size)
-                }
 
-                // Verify current time
-                for subview in (superview?.subviews)! as [UIView] {
-                    // Verify TimePointer time
-                    if (subview is TimePointer && (period.dateStart as Date).isActiveToday()) {
-                        if (sender.view!.frame.minY <= subview.frame.midY) {
-                            sender.view!.frame = CGRect.init(origin: CGPoint.init(x: sender.view!.frame.minX, y: subview.frame.midY),
-                                                             size: sender.view!.frame.size)
+        switch sender.state {
+        case .began:
+            startPosition = sender.translation(in: self.superview!)
+            print(object: "start = \(startPosition)")
+            
+        case .changed:
+            if (isOrderOwn) {
+                switch gestureMode {
+                case .OrderMove:
+                    let newPositionTranslation = sender.translation(in: self.superview!)
+                    sender.view!.center = CGPoint(x: sender.view!.center.x, y: sender.view!.center.y + newPositionTranslation.y)
+                    sender.setTranslation(CGPoint.zero, in: self.superview!)
+                    
+                    didVerifyPositionBeforeMove()
+                    
+                case .OrderResize:
+                    var newFrame = sender.view!.frame
+                    let newPositionTranslation = sender.translation(in: self.superview!)
+                    let velocityTranslation = sender.velocity(in: self.superview!)
+                    
+                    if (isResizeDown) {
+                        newFrame.size.height += newPositionTranslation.y / 100 //(newPositionTranslation.y > 0) ? (newPositionTranslation.y / 100) : -(newPositionTranslation.y / 100)
+//                        didVerifyPositionBeforeMove()
+                        print(object: "velocity = \(velocityTranslation), newPositionTranslation = \(newPositionTranslation)")
+                    } else {
+                        newFrame.origin.y += (newPositionTranslation.y > 0) ? 1.0 : -1.0
+                        newFrame.size.height += (newPositionTranslation.y > 0) ? -1.0 : 1.0
+                        
+                        // Verify 0 hour
+                        if (newFrame.origin.y <= 0.0) {
+                            newFrame.origin.y = 0.0
+                        }
+                        
+                        // Verify current time
+                        for subview in (superview?.subviews)! as [UIView] {
+                            if let closeTimeSheetView = subview as? TimeSheetView, !closeTimeSheetView.isOrderOwn {
+                                // Verify free time
+                                if (sender.view!.frame.intersects(closeTimeSheetView.frame)) {
+                                    frame = (isResizeDown) ?    CGRect.init(origin: CGPoint.init(x: sender.view!.frame.minX, y: closeTimeSheetView.frame.minY),
+                                                                            size: CGSize.init(  width: sender.view!.frame.width,
+                                                                                                height: closeTimeSheetView.frame.minY - sender.view!.frame.minY)) :
+                                                                CGRect.init(origin: CGPoint.init(x: sender.view!.frame.minX, y: closeTimeSheetView.frame.maxY),
+                                                                            size: CGSize.init(width: sender.view!.frame.width, height: sender.view!.frame.maxY - closeTimeSheetView.frame.maxY))
+                                } else {
+                                    frame = (isResizeDown) ?    CGRect.init(origin: frame.origin,
+                                                                            size:  CGSize.init(width: frame.width, height: newPositionTranslation.y)) :
+                                                                CGRect.init(origin: CGPoint.init(x: frame.minX, y: frame.minY - CGFloat(period.cellDivision)),
+                                                                            size: frame.size)
+                                }
+                            }
+                        }
+                    }
+
+                    UIView.animate(withDuration: 0.3,
+                                   delay: 0.0,
+                                   options: .curveLinear,
+                                   animations: {
+                                    sender.view!.frame = newFrame
+                    }, completion: { success in
+                        sender.view!.convertToPeriod()
+                        self.orderTimesDidUpload()
+                    })
+
+                    
+                    
+                    
+//                        self.frameDidChangeFromPeriod()
+                    
+          
+                    /*
+//                    let newPositionTranslation = sender.translation(in: self.superview!)
+                    isResizeDown = (startPosition.y >= frame.height / 2) ? true : false
+                    
+                    frame = (isResizeDown) ?    CGRect.init(origin: frame.origin,
+                                                            size: CGSize.init(width: frame.width, height: frame.height + 1.1)) :
+                        CGRect.init(origin: CGPoint.init(x: frame.origin.x, y: frame.origin.y + 1.1),
+                                    size: CGSize.init(width: frame.width, height: frame.height - 1.1))
+                    
+                    // Verify 0 hour
+                    if (sender.view!.frame.minY <= 0.0) {
+                        sender.view!.frame = CGRect.init(origin: CGPoint.init(x: sender.view!.frame.minX, y: 0.0),
+                                                         size: sender.view!.frame.size)
+                    }
+                    
+                    // Verify current time
+                    for subview in (superview?.subviews)! as [UIView] {
+                        if let closeTimeSheetView = subview as? TimeSheetView, !closeTimeSheetView.isOrderOwn {
+                            // Verify free time
+                            if (sender.view!.frame.intersects(closeTimeSheetView.frame)) {
+                                frame = (isResizeDown) ?    CGRect.init(origin: CGPoint.init(x: sender.view!.frame.minX, y: closeTimeSheetView.frame.minY),
+                                                                        size: CGSize.init(  width: sender.view!.frame.width,
+                                                                                            height: closeTimeSheetView.frame.minY - sender.view!.frame.minY)) :
+                                    CGRect.init(origin: CGPoint.init(x: sender.view!.frame.minX, y: closeTimeSheetView.frame.maxY),
+                                                size: CGSize.init(width: sender.view!.frame.width, height: sender.view!.frame.maxY - closeTimeSheetView.frame.maxY))
+                            } else {
+                                frame = (isResizeDown) ?    CGRect.init(origin: frame.origin,
+                                                                        size:  CGSize.init(width: frame.width, height: newPositionTranslation.y)) :
+                                    CGRect.init(origin: CGPoint.init(x: frame.minX, y: frame.minY - CGFloat(period.cellDivision)),
+                                                size: frame.size)
+                            }
+                        }
+                            
+                        // Verify TimePointer time
+                        else if (subview is TimePointer && (period.dateStart as Date).isActiveToday()) {
+                            if (sender.view!.frame.minY <= subview.frame.midY) {
+                                sender.view!.frame = CGRect.init(origin: CGPoint.init(x: sender.view!.frame.minX, y: subview.frame.midY),
+                                                                 size: sender.view!.frame.size)
+                            }
+                        } else {
+                            
+                            //                        if (isResizeDown) {
+                            //                            frame = CGRect.init(origin: frame.origin, size: CGSize.init(width: frame.width, height: frame.height + 1.1))
+                            //
+                            //                            sender.setTranslation(CGPoint.zero, in: self.superview!)
+                            //                        }
+                            
+                            
+                            //                        frame = (isResizeDown) ? CGRect.init(origin: frame.origin, size: CGSize.init(width: frame.width, height: frame.height - newPositionTranslation.y)) : CGRect.init(origin: CGPoint.init(x: frame.minX, y: frame.minY - newPositionTranslation.y), size: frame.size)
+                            //                        sender.setTranslation(CGPoint.zero, in: self.superview!)
+                            //                    }
+                            
+                            
+                            
+                            if ((subview.frame.contains(CGPoint.init(x: frame.minX, y: frame.maxY)) ||
+                                subview.frame.contains(CGPoint.init(x: frame.minX, y: frame.minY))) && !subview.isUserInteractionEnabled) {
+                                gestureMode = .OrderPreview
+                                _ = upDownButtonsCollection.map{ $0.isHidden = true}
+                                
+                                frame = (isResizeDown) ? CGRect.init(origin: frame.origin, size: CGSize.init(width: frame.width, height: frame.height - 1.1)) : CGRect.init(origin: CGPoint.init(x: frame.minX, y: frame.minY - 1.1), size: frame.size)
+                                sender.setTranslation(CGPoint.zero, in: self.superview!)
+                            } else {
+                                if (frame.height >= originalHeight) {
+                                    sender.setTranslation(CGPoint.zero, in: self.superview!)
+                                    
+                                    print(object: sender.view!.frame)
+                                } else {
+                                    sender.setTranslation(CGPoint.init(x: 0, y: 1), in: self.superview!)
+                                }
+                            }
                         }
                     }
                     
-                    // Verify free time
-                    if ((subview.frame.contains(CGPoint.init(x: frame.minX, y: frame.maxY)) ||
-                        subview.frame.contains(CGPoint.init(x: frame.minX, y: frame.minY))) && !subview.isUserInteractionEnabled) {
-                        gestureMode = .OrderPreview
-                        _ = upDownButtonsCollection.map{ $0.isHidden = true}
-                        
-                        frame = (isResizeDown) ? CGRect.init(origin: frame.origin, size: CGSize.init(width: frame.width, height: frame.height - 1.1)) : CGRect.init(origin: CGPoint.init(x: frame.minX, y: frame.minY - 1.1), size: frame.size)
-                        sender.setTranslation(CGPoint.zero, in: self.superview!)
-                        
-                        //                    if (isResizeDown) {
-                        //                        countServiceMinDown -= 1
-                        //                    } else {
-                        //                        countServiceMinUp += 1
-                        //                    }
-                    } else {
-                        if (frame.height >= originalHeight) {
-                            sender.setTranslation(CGPoint.zero, in: self.superview!)
-                            
-                            print(object: sender.view!.frame)
-                        } else {
-                            sender.setTranslation(CGPoint.init(x: 0, y: 1), in: self.superview!)
-                        }
-                    }
+                    sender.view!.convertToPeriod()
+                    */
+                default:
+                    break
                 }
-                
-                sender.view!.convertToPeriod()
-
-            default:
-                break
             }
-            
-            orderTimesDidUpload()
-            
+
+        case .ended:
             // Inform TimeSheetShowVC about change position
+            orderTimesDidUpload()
             handlerTimeSheetViewChangeFrameCompletion!()
+            
+        default:
+            break
         }
     }
     
