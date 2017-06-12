@@ -227,12 +227,13 @@ class CalendarShowViewController: BaseViewController, CalendarShowViewController
                 if let jsonTimeSheet = responseAPI?.body as? [String: AnyObject] {
                     timeSheet.profileDidUpload(json: jsonTimeSheet, forService: self.serviceID, andDate: (period.dateStart as Date).convertToString(withStyle: .DateHyphen))
                     self.timesheetVC!.timeSheet = timeSheet
+                
+                    CoreDataManager.instance.didSaveContext()
+                    self.timesheetVC!.timeSheetItemsDidUpload()
+                } else if let status = responseAPI?.body as? String {
+                    self.alertViewDidShow(withTitle: "Error", andMessage: status, completion: {})
                 }
             }
-
-            CoreDataManager.instance.didSaveContext()
-            
-            self.timesheetVC!.timeSheetItemsDidUpload()
         })
     }
     

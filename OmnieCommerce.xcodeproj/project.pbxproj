@@ -780,7 +780,7 @@
 		B14B8DE01EBB724B00B29511 /* TimeSheetTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimeSheetTableViewCell.xib; sourceTree = "<group>"; };
 		B14B8DE21EBB724B00B29511 /* TimeSheetView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimeSheetView.xib; sourceTree = "<group>"; };
 		B14B8DE71EBB725A00B29511 /* TimerPointer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerPointer.swift; sourceTree = "<group>"; };
-		B14B8DE91EBB748200B29511 /* TimeSheetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeSheetViewController.swift; sourceTree = "<group>"; };
+		B14B8DE91EBB748200B29511 /* TimeSheetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimeSheetViewController.swift; path = ../../Scenes/CalendarShow/UIViewControllers/TimeSheetViewController.swift; sourceTree = "<group>"; };
 		B14B8DEB1EBB756C00B29511 /* TimeSheetTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeSheetTableViewCell.swift; sourceTree = "<group>"; };
 		B14B8DEF1EBB760C00B29511 /* TimeSheetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeSheetView.swift; sourceTree = "<group>"; };
 		B14B8DF11EBB880F00B29511 /* TimeSheetItem+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TimeSheetItem+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -1701,6 +1701,7 @@
 		B122F23F1DD371830018A701 /* UINavigationControllers */ = {
 			isa = PBXGroup;
 			children = (
+				B14B8DE91EBB748200B29511 /* TimeSheetViewController.swift */,
 				B122F2401DD371B30018A701 /* BaseNavigationController.swift */,
 			);
 			path = UINavigationControllers;
@@ -2196,7 +2197,6 @@
 			isa = PBXGroup;
 			children = (
 				B19DF2831DF94DCD000AFC92 /* CalendarViewController.swift */,
-				B14B8DE91EBB748200B29511 /* TimeSheetViewController.swift */,
 			);
 			path = UIViewControllers;
 			sourceTree = "<group>";
