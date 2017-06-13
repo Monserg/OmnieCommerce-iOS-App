@@ -164,13 +164,13 @@ class OrdersShowViewController: BaseViewController {
         // Setting MSMTableViewControllerManager
         let statusCode = (selectedStatus == "ALL") ? " " : "\(selectedStatus)"
 
-        let ordersList = (isPeriodSelect) ? CoreDataManager.instance.entitiesDidLoad(byName: "Order", andPredicateParameters: NSPredicate.init(format: "ANY status contains[c] %@ AND dateStart >= %@ AND dateEnd <= %@", statusCode, selectedPeriod.startDate as NSDate, selectedPeriod.endDate! as NSDate)) : CoreDataManager.instance.entitiesDidLoad(byName: "Order", andPredicateParameters: NSPredicate.init(format: "ANY dateSearch == %@ AND status contains[c] %@", selectedPeriod.startDate.convertToString(withStyle: .DateDot), statusCode))
+        let ordersList = (isPeriodSelect) ? CoreDataManager.instance.entitiesDidLoad(byName: "Order", andPredicateParameters: NSPredicate.init(format: "ANY status contains[c] %@ AND dateSearch >= %@ AND dateSearch <= %@", statusCode, selectedPeriod.startDate.convertToString(withStyle: .DateDot), selectedPeriod.endDate!.convertToString(withStyle: .DateDot))) : CoreDataManager.instance.entitiesDidLoad(byName: "Order", andPredicateParameters: NSPredicate.init(format: "ANY dateSearch == %@ AND status contains[c] %@", selectedPeriod.startDate.convertToString(withStyle: .DateDot), statusCode))
         
         if let orders = ordersList as? [Order] {
-            let _ = orders.map({ $0.cellIdentifier = "OrderTableViewCell"; $0.cellHeight = 96.0 })
-            let _ = orders.sorted(by: { $0.dateSearch.convertToDate(withDateFormat: .Default) > $1.dateSearch.convertToDate(withDateFormat: .Default) })
+            let ordersSorted = orders.sorted {( $0.dateStart as Date) < ($1.dateEnd as Date) }
+            let _ = ordersSorted.map({ $0.cellIdentifier = "OrderTableViewCell"; $0.cellHeight = 96.0 })
             
-            self.orders = orders
+            self.orders = ordersSorted
             tableView.tableViewControllerManager!.dataSource = self.orders
             tableView!.tableFooterView!.isHidden = (orders.count > 0) ? true : false
             

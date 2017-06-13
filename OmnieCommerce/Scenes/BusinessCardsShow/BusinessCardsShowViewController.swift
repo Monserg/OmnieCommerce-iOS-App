@@ -28,7 +28,8 @@ class BusinessCardsShowViewController: BaseViewController {
     var businessCards = [BusinessCard]()
     var limit: Int!
 
-    // Outlets
+
+    // MARK: - Outlets
     @IBOutlet weak var smallTopBarView: SmallTopBarView!
     @IBOutlet weak var createNewBusinessCardButton: FillColorButton!
     

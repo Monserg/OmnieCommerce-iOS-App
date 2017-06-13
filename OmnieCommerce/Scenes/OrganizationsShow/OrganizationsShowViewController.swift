@@ -76,7 +76,8 @@ class OrganizationsShowViewController: BaseViewController {
         }
     }
 
-    // Outlets
+
+    // MARK: - Outlets
     @IBOutlet weak var smallTopBarView: SmallTopBarView!
     @IBOutlet weak var mapButton: CustomButton!
     @IBOutlet weak var subcategoriesButton: DropDownButton!
@@ -270,7 +271,8 @@ class OrganizationsShowViewController: BaseViewController {
                                                                         andPredicateParameters: NSPredicate(format: "ANY lists.name == %@", "\(keyServices)-\(category!.codeID)-\(keyList!)"))
                 
         if let servicesList = servicesEntities as? [Service] {
-            services = servicesList
+            let servicesListSorted = servicesList.sorted {( $0.start! as Date) < ($1.start! as Date) }
+            services = servicesListSorted
             
             tableView.tableViewControllerManager!.dataSource = services
             tableView!.tableFooterView!.isHidden = (services.count > 0) ? true : false

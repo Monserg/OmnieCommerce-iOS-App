@@ -60,7 +60,8 @@ class PersonalPageShowViewController: BaseViewController {
         }
     }
     
-    // Outlets
+
+    // MARK: - Outlets
     @IBOutlet weak var smallTopBarView: SmallTopBarView!
     @IBOutlet weak var copyrightLabel: CustomLabel!
     @IBOutlet weak var segmentedControlView: SegmentedControlView!

@@ -29,6 +29,8 @@ class FavoriteServicesShowViewController: BaseViewController {
     var services = [Service]()
     var limit: Int!
 
+    
+    // MARK: - Outlets
     @IBOutlet weak var tableView: MSMTableView! {
         didSet {
             tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0)
@@ -101,7 +103,6 @@ class FavoriteServicesShowViewController: BaseViewController {
         if let services = servicesList as? [Service] {
             let _ = services.map({ $0.cellIdentifier = "FavoriteServiceTableViewCell"; $0.cellHeight = 60.0 })
             self.services = services
-            
             tableView.tableViewControllerManager!.dataSource = services
             tableView!.tableFooterView!.isHidden = (services.count > 0) ? true : false
             

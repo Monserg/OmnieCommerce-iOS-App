@@ -19,7 +19,8 @@ class NewsItemShowViewController: BaseViewController {
     
     var router: NewsItemShowRouter!
 
-    // Outlets
+    
+    // MARK: - Outlets
     @IBOutlet weak var smallTopBarView: SmallTopBarView!
     @IBOutlet weak var dateLabel: UbuntuLightItalicVeryDarkGrayishBlueLabel!
     @IBOutlet weak var organizationButton: BorderVeryDarkDesaturatedBlueButton!

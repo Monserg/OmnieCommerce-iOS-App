@@ -13,7 +13,8 @@ class BusinessCardTableViewCell: UITableViewCell, DottedBorderViewBinding {
     // MARK: - Properties
     var businessCardID: String!
     
-    // Outlets
+
+    // MARK: - Outlets
     @IBOutlet weak var logoImageView: UIImageView!
     @IBOutlet weak var organizationNameLabel: UbuntuLightVeryLightGrayLabel!
     @IBOutlet weak var emailLabel: UbuntuLightItalicVeryDarkGrayishBlueLabel!

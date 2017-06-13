@@ -28,7 +28,8 @@ class DiscountCardsShowViewController: BaseViewController {
     var discountCards = [DiscountCard]()
     var limit: Int!
 
-    // Outlets
+    
+    // MARK: - Outlets
     @IBOutlet weak var smallTopBarView: SmallTopBarView!
     @IBOutlet weak var createNewDiscountCardButton: FillColorButton!
     

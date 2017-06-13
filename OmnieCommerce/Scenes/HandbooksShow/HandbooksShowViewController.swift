@@ -31,7 +31,8 @@ class HandbooksShowViewController: BaseViewController {
     var handbooks: [Handbook]!
     var limit: Int!
 
-    // Outlets
+
+    // MARK: - Outlets
     @IBOutlet weak var smallTopBarView: SmallTopBarView!
     @IBOutlet weak var createNewHandbookButton: FillColorButton!
     @IBOutlet var modalView: ModalView!

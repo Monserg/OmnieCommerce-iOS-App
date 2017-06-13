@@ -19,8 +19,9 @@ class AdditionalServiceTableViewCell: UITableViewCell {
             pickerView.dataSource = self
         }
     }
+
     
-    // Outlets
+    // MARK: - Outlets
     @IBOutlet var labelsCollection: [UILabel]!
     @IBOutlet weak var nameLabel: UbuntuLightVeryLightGrayLabel!
     @IBOutlet weak var priceLabel: UbuntuLightVeryLightOrangeLabel!

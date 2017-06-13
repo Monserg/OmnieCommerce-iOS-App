@@ -49,7 +49,8 @@ class SettingsShowViewController: BaseViewController {
         }
     }
 
-    // Outlets
+
+    // MARK: - Outlets
     @IBOutlet weak var smallTopBarView: SmallTopBarView!
     @IBOutlet var modalView: ModalView!
     

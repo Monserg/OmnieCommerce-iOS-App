@@ -29,7 +29,8 @@ class BusinessCardShowViewController: BaseViewController {
     
     var businessCardID: String!
     
-    // Outlets
+    
+    // MARK: - Outlets
     @IBOutlet var modalView: ModalView!
     @IBOutlet weak var cardImageView: UIImageView!
 

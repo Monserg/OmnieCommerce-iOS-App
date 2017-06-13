@@ -9,8 +9,7 @@
 import UIKit
 
 class ConfirmSaveView: CustomView {
-    // MARK: - Properties
-    // Outlets
+    // MARK: - Outlets
     @IBOutlet var view: UIView!
     @IBOutlet weak var messageLabel: UbuntuLightVeryLightGrayLabel!
     

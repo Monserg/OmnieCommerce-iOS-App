@@ -75,7 +75,8 @@ class TimeSheetPickersView: UIView {
     var handlerConfirmButtonCompletion: HandlerSendButtonCompletion?
     var handlerChangeTimesPeriodCompletion: HandlerSendButtonCompletion?
 
-    // Outlets
+
+    // MARK: - Outlets
     @IBOutlet var view: UIView!
     @IBOutlet weak var fromPickerView: UIPickerView!
     @IBOutlet weak var toPickerView: UIPickerView!

@@ -56,7 +56,8 @@ class PersonalDataViewController: BaseViewController, EmailErrorMessageView, Pho
         }
     }
 
-    // Outlets
+
+    // MARK: - Outlets
     @IBOutlet weak var scrollView: UIScrollView! {
         didSet {
             scrollViewBase = scrollView

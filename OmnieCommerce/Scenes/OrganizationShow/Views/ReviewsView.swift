@@ -15,7 +15,8 @@ class ReviewsView: CustomView {
     
     var handlerSendButtonCompletion: HandlerPassDataCompletion?
     
-    // Outlets
+
+    // MARK: - Outlets
     @IBOutlet var view: UIView! {
         didSet {
             let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTapGestureRecognizer))

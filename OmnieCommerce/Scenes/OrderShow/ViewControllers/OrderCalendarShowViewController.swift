@@ -153,20 +153,16 @@ class OrderCalendarShowViewController: BaseViewController {
         let point = gesture.location(in: gesture.view!)
         
         if (gesture.state == .began) {
-            print(object: "0")
             calendarView.deselectAllDates()
         }
         
         if let cellState = calendarView.cellStatus(at: point) {
-            print(object: "1")
             let date = cellState.date
             
             if !rangeSelectedDates.contains(date) {
-                print(object: "2")
                 let dateRange = calendarView.generateDateRange(from: rangeSelectedDates.first ?? date, to: date)
                 
                 for aDate in dateRange {
-                    print(object: "3")
                     if !rangeSelectedDates.contains(aDate) {
                         rangeSelectedDates.append(aDate)
                     }
@@ -174,7 +170,6 @@ class OrderCalendarShowViewController: BaseViewController {
                 
                 calendarView.selectDates(from: rangeSelectedDates.first!, to: date, keepSelectionIfMultiSelectionAllowed: true)
             } else {
-                print(object: "4")
                 let indexOfNewlySelectedDate = rangeSelectedDates.index(of: date)! + 1
                 let lastIndex = rangeSelectedDates.endIndex
                 let followingDay = Calendar.current.date(byAdding: .day, value: 1, to: date)!

@@ -26,7 +26,8 @@ class CategoriesShowViewController: BaseViewController {
     var interactor: CategoriesShowViewControllerOutput!
     var router: CategoriesShowRouter!
     
-    // Outlets
+
+    // MARK: - Outlets
     @IBOutlet weak var cityView: UIView!
     @IBOutlet weak var smallTopBarView: SmallTopBarView!
     @IBOutlet weak var dataSourceEmptyView: UIView!

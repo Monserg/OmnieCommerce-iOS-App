@@ -18,8 +18,6 @@ class OrderTableViewCell: UITableViewCell, DottedBorderViewBinding {
     @IBOutlet weak var organizationNameLabel: UbuntuLightVeryLightGrayLabel!
     @IBOutlet weak var serviceNameLabel: UbuntuLightItalicLightGrayishCyanLabel!
     @IBOutlet weak var dateLabel: UbuntuLightItalicLightGrayishCyanLabel!
-
-    // Outlets
     @IBOutlet weak var organizationImageView: CustomImageView!
     @IBOutlet weak var stateButton: BorderTitleButton!
     

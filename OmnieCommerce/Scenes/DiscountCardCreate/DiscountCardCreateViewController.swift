@@ -45,7 +45,8 @@ class DiscountCardCreateViewController: BaseViewController {
         }
     }
 
-    // Outlets
+
+    // MARK: - Outlets
     @IBOutlet var modalView: ModalView!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var smallTopBarView: SmallTopBarView!

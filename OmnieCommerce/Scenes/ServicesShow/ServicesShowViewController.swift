@@ -30,7 +30,8 @@ class ServicesShowViewController: BaseViewController {
     var services = [Service]()
     var mode: ServicesShowMode = .AllServices
     
-    // Outlets
+
+    // MARK: - Outlets
     @IBOutlet weak var smallTopBarView: SmallTopBarView! {
         didSet {
             smallTopBarView.titleText = ((mode == .AllServices) ? "All services".localized() : "Price List".localized())

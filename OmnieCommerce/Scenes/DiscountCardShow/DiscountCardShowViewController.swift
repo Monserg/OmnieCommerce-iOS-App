@@ -29,7 +29,8 @@ class DiscountCardShowViewController: BaseViewController {
     
     var discountCardID: String!
     
-    // Outlets
+
+    // MARK: - Outlets
     @IBOutlet var modalView: ModalView!
     @IBOutlet weak var codeImageView: UIImageView!
     @IBOutlet weak var codeLabel: UbuntuLightVeryLightGrayLabel!

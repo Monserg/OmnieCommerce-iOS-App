@@ -33,7 +33,8 @@ class NewsActionsShowViewController: BaseViewController {
     var handlerSearchBarHideCompletion: HandlerCancelButtonCompletion?
     var handlerSearchButtonHideCompletion: HandlerPassDataCompletion?
 
-    // Outlets
+
+    // MARK: - Outlets
     @IBOutlet weak var tableView: MSMTableView! {
         didSet {
             tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0)
@@ -115,9 +116,10 @@ class NewsActionsShowViewController: BaseViewController {
                                                                     andPredicateParameters: NSPredicate(format: "ANY newsList.name == %@", keyNewsActions))
         
         if let actions = actionsLists as? [NewsData] {
-            actionsData = actions
+            let actionsSorted = actions.sorted {( $0.activeDate as Date) < ($1.activeDate as Date) }
+            actionsData = actionsSorted
             handlerSearchButtonHideCompletion!(actionsData)
-            tableView.tableViewControllerManager!.dataSource = actions
+            tableView.tableViewControllerManager!.dataSource = actionsData
             tableView!.tableFooterView!.isHidden = (actions.count > 0) ? true : false
             
             (tableView!.tableFooterView as! MSMTableViewFooterView).didUpload(forItemsCount: actions.count,

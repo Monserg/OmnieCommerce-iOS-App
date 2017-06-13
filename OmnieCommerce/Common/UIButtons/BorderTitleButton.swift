@@ -31,7 +31,7 @@ import UIKit
     // MARK: - Class Functions
     override func draw(_ rect: CGRect) {
         if (titleOriginal != nil) {
-            let titleText = "      \(titleOriginal.localized())      " //(titleLabel!.text != nil) ? (titleLabel!.text!.localized()) : String()
+            let titleText = "      \(titleOriginal.localized())      "
             
             if (isLightColorAppSchema) {
                 backgroundColor = UIColor.white

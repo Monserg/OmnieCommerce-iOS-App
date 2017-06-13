@@ -18,7 +18,8 @@ class HandbookTableViewCell: UITableViewCell, DottedBorderViewBinding, iCarousel
     var handlerPhoneButtonTapCompletion: HandlerPassDataCompletion?
     var handlerBussinessCardButtonTapCompletion: HandlerPassDataCompletion?
     
-    // Outlets
+    
+    // MARK: - Outlets
     @IBOutlet weak var organizationNameLabel: UbuntuLightVeryLightGrayLabel!
     @IBOutlet weak var addressLabel: UbuntuLightItalicLightGrayishCyanLabel!
     @IBOutlet weak var phoneButton: FillVeryLightOrangeButton!

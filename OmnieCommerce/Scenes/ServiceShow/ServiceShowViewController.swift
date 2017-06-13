@@ -45,7 +45,8 @@ class ServiceShowViewController: BaseViewController {
         }
     }
 
-    // Outlets
+
+    // MARK: - Outlets
     @IBOutlet var modalView: ModalView?
     @IBOutlet weak var mainStackView: UIStackView!
     @IBOutlet weak var smallTopBarView: SmallTopBarView!

@@ -19,7 +19,8 @@ enum ViewType: String {
     // MARK: - Properties
     var handlerSendButtonCompletion: HandlerSendButtonCompletion?
 
-    // Outlets
+
+    // MARK: - Outlets
     @IBOutlet var view: UIView!
     @IBOutlet weak var circleView: SmallCirleView!
     @IBOutlet weak var titleLabel: CustomLabel!

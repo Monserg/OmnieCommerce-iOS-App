@@ -15,7 +15,8 @@ class ServiceTableViewCell: UITableViewCell, DottedBorderViewBinding {
     var isFavorite = false
     var serviceID: String!
     
-    // Outlets
+
+    // MARK: - Outlets
     @IBOutlet weak var nameLabel: UbuntuLightVeryLightGrayLabel!
     @IBOutlet weak var cityLabel: UbuntuLightItalicLightGrayishCyanLabel!
     @IBOutlet weak var streetLabel: UbuntuLightItalicLightGrayishCyanLabel!

@@ -69,7 +69,8 @@ class BusinessCardCreateViewController: BaseViewController, EmailErrorMessageVie
         }
     }
 
-    // Outlets
+
+    // MARK: - Outlets
     @IBOutlet weak var smallTopBarView: SmallTopBarView!
     @IBOutlet var modalView: ModalView!
     @IBOutlet weak var scrollView: UIScrollView!

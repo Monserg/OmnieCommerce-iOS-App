@@ -35,7 +35,8 @@ class OrganizationsMapShowViewController: BaseViewController {
 
     var handlerPassDataCompletion: HandlerPassDataCompletion?
     
-    // Outlets
+
+    // MARK: - Outlets
     @IBOutlet weak var smallTopBarView: SmallTopBarView!
     
     // Info view
