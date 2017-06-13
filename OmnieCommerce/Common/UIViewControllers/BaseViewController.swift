@@ -110,32 +110,28 @@ class BaseViewController: UIViewController {
     private func didApplySlideMenuSettings() {
         // Set background color
         view.backgroundColor = UIColor.veryDarkDesaturatedBlue24
-
-        if (haveMenuItem) {
-            // Delegate
-            revealViewController().delegate = self
-            
-            revealViewController().rearViewRevealWidth = 296
-            revealViewController().rearViewRevealDisplacement = 198
-            revealViewController().rearViewRevealOverdraw = 0
-            
-            // Faster slide animation
-            revealViewController().toggleAnimationDuration = 0.3
-            
-            // Simply ease out. No Spring animation.
-            revealViewController().toggleAnimationType = .easeOut
-            
-            // More shadow
-            revealViewController().frontViewShadowRadius = 0
-            revealViewController().frontViewShadowColor = UIColor.clear
-            
-            view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-            navigationBarView!.actionButton.addTarget(revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), for: .touchUpInside)
-        } else {
-            view.removeGestureRecognizer(self.revealViewController().panGestureRecognizer())
-        }
+        
+        // Delegate
+        revealViewController().delegate = self
+        
+        revealViewController().rearViewRevealWidth = 296
+        revealViewController().rearViewRevealDisplacement = 198
+        revealViewController().rearViewRevealOverdraw = 0
+        
+        // Faster slide animation
+        revealViewController().toggleAnimationDuration = 0.3
+        
+        // Simply ease out. No Spring animation.
+        revealViewController().toggleAnimationType = .easeOut
+        
+        // More shadow
+        revealViewController().frontViewShadowRadius = 0
+        revealViewController().frontViewShadowColor = UIColor.clear
+        
+        view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        navigationBarView!.actionButton.addTarget(revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), for: .touchUpInside)
     }
- 
+    
     func didAddTapGestureRecognizer() {
         // For all TopBarView
         let gestureRecognizer = UITapGestureRecognizer.init(target: self, action: #selector(BaseViewController.handleTap(gestureRecognizer:)))

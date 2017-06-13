@@ -47,6 +47,7 @@ class OrganizationShowViewController: BaseViewController {
     @IBOutlet weak var priceLabel: UbuntuLightVeryLightGrayLabel!
     @IBOutlet weak var messageButton: FillColorButton!
     @IBOutlet weak var messageLabel: UbuntuLightVeryLightGrayLabel!
+    @IBOutlet weak var headerBackButton: UIButton!
     
     @IBOutlet var scrollView: MXScrollView! {
         didSet {
@@ -165,7 +166,6 @@ class OrganizationShowViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -275,6 +275,7 @@ class OrganizationShowViewController: BaseViewController {
         if let headerID = organizationProfile.headerID {
             headerView = HeaderImageView.init(frame: CGRect.init(origin: CGPoint.zero, size: CGSize.init(width: view.frame.width, height: 150)))
             smallTopBarView.actionButton.isHidden = true
+            headerBackButton.isHidden = false
             
             // Set Header image
             headerView!.imageView.kf.setImage(with: ImageResource(downloadURL: headerID.convertToURL(withSize: .Original, inMode: .Get), cacheKey: headerID),
@@ -779,9 +780,11 @@ extension OrganizationShowViewController: MXParallaxHeaderDelegate {
     func parallaxHeaderDidScroll(_ parallaxHeader: MXParallaxHeader) {
         if (0...0.4 ~= parallaxHeader.progress) {
             parallaxHeader.view?.didHide()
+            headerBackButton.isHidden = true
             smallTopBarView.didShow()
         } else {
             parallaxHeader.view?.didShow()
+            headerBackButton.isHidden = false
             smallTopBarView.didHide()
         }
     }

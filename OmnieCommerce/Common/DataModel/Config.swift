@@ -129,7 +129,7 @@ struct Config {
         static let bigTopBarViewWidthCoefficient: CGFloat       =   300.0 / 667
         
         static let dropDownCellHeight: CGFloat                  =   23.0
-        static let paginationLimit: Int                         =   2
+        static let paginationLimit: Int                         =   8
         
         // FIXME: - DELETE AFTER TEST
         static let errorMessageViewHeight: CGFloat              =   14

@@ -706,7 +706,7 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="type" value="ChildSearch"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZU5-ze-b9v" userLabel="Back Button">
+                            <button hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZU5-ze-b9v" userLabel="Back Button">
                                 <rect key="frame" x="14" y="20" width="44" height="44"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -974,6 +974,7 @@
                         <outlet property="favoriteButton" destination="EKb-ci-h91" id="JtL-Yy-SuX"/>
                         <outlet property="galleryCollectionView" destination="W3J-L4-StC" id="6oj-kb-du8"/>
                         <outlet property="galleryView" destination="xn5-Pp-dGs" id="o11-04-wg9"/>
+                        <outlet property="headerBackButton" destination="ZU5-ze-b9v" id="gA9-uj-C3q"/>
                         <outlet property="infoView" destination="F2J-Sj-SOC" id="tHX-fc-L0E"/>
                         <outlet property="logoImageView" destination="5kB-hm-mY3" id="TBa-UZ-Fqg"/>
                         <outlet property="mainStackView" destination="7hu-c0-ss3" id="ChQ-Za-dlY"/>
