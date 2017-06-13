@@ -1217,8 +1217,8 @@
 		B100405E1EB4910400161073 /* OrderShow */ = {
 			isa = PBXGroup;
 			children = (
-				B1E209A51ECA158700B0226F /* ViewControllers */,
 				B19375501EB4CB6200B48399 /* Views */,
+				B1E209A51ECA158700B0226F /* ViewControllers */,
 				B100405F1EB4912400161073 /* OrderShowConfigurator.swift */,
 				B10040601EB4912400161073 /* OrderShowInteractor.swift */,
 				B10040611EB4912400161073 /* OrderShowModels.swift */,

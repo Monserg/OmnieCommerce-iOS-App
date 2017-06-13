@@ -40,16 +40,15 @@ class OrdersShowRouter: OrdersShowRouterInput {
         
         // Handler select new date completion
         orderCalendarShowVC.handlerSelectDatesPeriodCompletion = { datesPeriod in
-            self.viewController.dateStart = (period.dateStart as Date).convertToString(withStyle: .DateHyphen)
-            self.viewController.dateEnd = (period.dateEnd as Date).convertToString(withStyle: .DateHyphen)
-            
-            if (self.viewController.dateStart == self.viewController.dateEnd) {
-                self.viewController.titleLabelDidUpload(withDate: period.dateStart as Date)
-            } else {
-                self.viewController.titleLabelDidUploadWithDatesPeriod()
+            if let selectedPeriod = datesPeriod as? (startDate: Date, endDate: Date?) {
+                if (selectedPeriod.endDate == nil) {
+                    self.viewController.selectedPeriod = (startDate: selectedPeriod.startDate, endDate: selectedPeriod.startDate)
+                    self.viewController.titleLabelDidUploadWithSelectedDate()
+                } else {
+                    self.viewController.selectedPeriod = selectedPeriod
+                    self.viewController.titleLabelDidUploadWithSelectedPeriod()
+                }
             }
-            
-            self.viewController.viewSettingsDidLoad()
         }
     }
 

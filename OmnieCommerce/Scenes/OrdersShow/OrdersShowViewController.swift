@@ -20,6 +20,8 @@ protocol OrdersShowViewControllerOutput {
     func ordersDidLoad(withRequestModel requestModel: OrdersShowModels.Orders.RequestModel)
 }
 
+typealias SelectedDatesPeriod = (startDate: Date, endDate: Date?)
+
 class OrdersShowViewController: BaseViewController {
     // MARK: - Properties
     var interactor: OrdersShowViewControllerOutput!
@@ -27,18 +29,17 @@ class OrdersShowViewController: BaseViewController {
     
     var orders = [Order]()
     var limit: Int!
-    var dateEnd: String!
-    var dateStart: String!
     var orderStatus: String = "ALL"
     var selectedStatus: String = "ALL"
     var statuses = [DropDownValue]()
-
-    var currentDate: Date! {
+    var isPeriodSelect = false
+   
+    var selectedPeriod: SelectedDatesPeriod! {
         didSet {
-            titleLabelDidUpload(withDate: currentDate)
+            titleLabelDidUploadWithSelectedDate()
         }
     }
-    
+
     let orderStatuses = [ "ALL", "DONE", "PENDING FOR USER", "PENDING FOR ADMIN", "CONFIRMED BY USER", "CONFIRMED BY ADMIN",
                           "CANCELED BY USER", "CANCELED BY ADMIN", "FAILED BY USER" ]
 
@@ -60,7 +61,8 @@ class OrdersShowViewController: BaseViewController {
         }
     }
 
-    // Outlets
+    
+    // MARK: - Outlets
     @IBOutlet weak var smallTopBarView: SmallTopBarView!
     @IBOutlet weak var calendarTitleLabel: UbuntuLightVeryLightGrayLabel!
     @IBOutlet weak var orderStatusesButton: DropDownButton!
@@ -100,9 +102,7 @@ class OrdersShowViewController: BaseViewController {
         navigationBarView = smallTopBarView
         smallTopBarView.type = "Parent"
         haveMenuItem = true
-        currentDate = Date()
-        dateStart = currentDate.convertToString(withStyle: .DateHyphen)
-        dateEnd = dateStart
+        selectedPeriod = (startDate: Date(), endDate: Date())
         
         // Set DropDown lists
         orderStatesDropDownTableView = MSMTableView(frame: .zero, style: .plain)
@@ -112,7 +112,7 @@ class OrdersShowViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
-        limit = (orders.count == 0) ? Config.Constants.paginationLimit : orders.count
+        limit = (orders.count == 0 || isPeriodSelect) ? Config.Constants.paginationLimit : orders.count
         viewSettingsDidLoad()
     }
 
@@ -135,12 +135,14 @@ class OrdersShowViewController: BaseViewController {
         }
     }
     
-    func titleLabelDidUpload(withDate date: Date) {
-        calendarTitleLabel.text = date.convertToString(withStyle: .DayMonthYear)
+    func titleLabelDidUploadWithSelectedDate() {
+        calendarTitleLabel.text = selectedPeriod.startDate.convertToString(withStyle: .DayMonthYear)
+        isPeriodSelect = false
     }
 
-    func titleLabelDidUploadWithDatesPeriod() {
-        calendarTitleLabel.text = "\((period.dateStart as Date).convertToString(withStyle: .DateDot)) - \((period.dateEnd as Date).convertToString(withStyle: .DateDot))"
+    func titleLabelDidUploadWithSelectedPeriod() {
+        calendarTitleLabel.text = "\(selectedPeriod.startDate.convertToString(withStyle: .DateDot)) - \(selectedPeriod.endDate!.convertToString(withStyle: .DateDot))"
+        isPeriodSelect = true
     }
 
     func ordersListDidLoad(withOffset offset: Int, scrollingData: Bool) {
@@ -150,9 +152,9 @@ class OrdersShowViewController: BaseViewController {
         
         let bodyParameters: [String: Any] = [ "limit": limit,
                                               "offset": offset,
-                                              "status": (orderStatus == "ALL" ? "" : orderStatus),
-                                              "start": dateStart,
-                                              "end": dateEnd ]
+                                              "status": (selectedStatus == "ALL" ? "" : selectedStatus),
+                                              "start": selectedPeriod.startDate.convertToString(withStyle: .DateHyphen),
+                                              "end": selectedPeriod.endDate!.convertToString(withStyle: .DateHyphen) ]
         
         let ordersRequestModel = OrdersShowModels.Orders.RequestModel(parameters: bodyParameters, isDatesAPI: false)
         interactor.ordersDidLoad(withRequestModel: ordersRequestModel)
@@ -160,14 +162,16 @@ class OrdersShowViewController: BaseViewController {
 
     func ordersListDidShow() {
         // Setting MSMTableViewControllerManager
-        let listCode = (selectedStatus == "ALL") ? "\(keyOrders)-\(dateStart!)-\(dateEnd!)" : "\(keyOrders)-\(dateStart!)-\(dateEnd!)-\(selectedStatus)"
-        let ordersList = CoreDataManager.instance.entitiesDidLoad(byName: "Order", andPredicateParameters: NSPredicate.init(format: "ANY lists.name contains[c] %@", listCode))
+        let statusCode = (selectedStatus == "ALL") ? " " : "\(selectedStatus)"
+
+        let ordersList = (isPeriodSelect) ? CoreDataManager.instance.entitiesDidLoad(byName: "Order", andPredicateParameters: NSPredicate.init(format: "ANY status contains[c] %@ AND dateStart >= %@ AND dateEnd <= %@", statusCode, selectedPeriod.startDate as NSDate, selectedPeriod.endDate! as NSDate)) : CoreDataManager.instance.entitiesDidLoad(byName: "Order", andPredicateParameters: NSPredicate.init(format: "ANY dateSearch == %@ AND status contains[c] %@", selectedPeriod.startDate.convertToString(withStyle: .DateDot), statusCode))
         
         if let orders = ordersList as? [Order] {
             let _ = orders.map({ $0.cellIdentifier = "OrderTableViewCell"; $0.cellHeight = 96.0 })
-            self.orders = orders
+            let _ = orders.sorted(by: { $0.dateSearch.convertToDate(withDateFormat: .Default) > $1.dateSearch.convertToDate(withDateFormat: .Default) })
             
-            tableView.tableViewControllerManager!.dataSource = orders
+            self.orders = orders
+            tableView.tableViewControllerManager!.dataSource = self.orders
             tableView!.tableFooterView!.isHidden = (orders.count > 0) ? true : false
             
             (tableView!.tableFooterView as! MSMTableViewFooterView).didUpload(forItemsCount: orders.count,
@@ -214,12 +218,8 @@ class OrdersShowViewController: BaseViewController {
     
     // MARK: - Actions
     @IBAction func handlerPreviousButtonTap(_ sender: UIButton) {
-        currentDate = Calendar.current.date(byAdding: .day, value: -1, to: currentDate)
-        titleLabelDidUpload(withDate: currentDate)
-
-        // Set Orders list period
-        dateStart = currentDate.convertToString(withStyle: .DateHyphen)
-        dateEnd = dateStart
+        selectedPeriod.startDate = Calendar.current.date(byAdding: .day, value: -1, to: selectedPeriod.startDate)!
+        selectedPeriod.endDate = selectedPeriod.startDate
         
         // Clear Orders list & run API
         orders = [Order]()
@@ -228,12 +228,8 @@ class OrdersShowViewController: BaseViewController {
     }
     
     @IBAction func handlerNextButtonTap(_ sender: UIButton) {
-        currentDate = Calendar.current.date(byAdding: .day, value: 1, to: currentDate)
-        titleLabelDidUpload(withDate: currentDate)
-
-        // Set Orders list period
-        dateStart = currentDate.convertToString(withStyle: .DateHyphen)
-        dateEnd = dateStart
+        selectedPeriod.startDate = Calendar.current.date(byAdding: .day, value: 1, to: selectedPeriod.startDate)!
+        selectedPeriod.endDate = selectedPeriod.startDate
 
         // Clear Orders list & run API
         orders = [Order]()
@@ -244,15 +240,12 @@ class OrdersShowViewController: BaseViewController {
     @IBAction func handlerCalendarTitleButtonTap(_ sender: UIButton) {
         spinnerDidStart(view)
 
-        dateStart = currentDate.convertToString(withStyle: .DateHyphen)
-        dateEnd = dateStart
-
         let bodyParameters: [String: Any] = [
                                                 "limit": 0,
                                                 "offset": 0,
-                                                "status": (orderStatus == "ALL" ? "" : orderStatus),
-                                                "start": (Calendar.current.date(byAdding: .year, value: -1, to: dateStart.convertToDate(withDateFormat: .ResponseDate)))!.convertToString(withStyle: .DateHyphen),
-                                                "end": (Calendar.current.date(byAdding: .year, value: 1, to: dateEnd.convertToDate(withDateFormat: .ResponseDate)))!.convertToString(withStyle: .DateHyphen)
+                                                "status": (selectedStatus == "ALL" ? "" : selectedStatus),
+                                                "start": (Calendar.current.date(byAdding: .year, value: -1, to: selectedPeriod.startDate))!.convertToString(withStyle: .DateHyphen),
+                                                "end": (Calendar.current.date(byAdding: .year, value: 1, to: selectedPeriod.endDate!))!.convertToString(withStyle: .DateHyphen)
                                             ]
         
         let ordersRequestModel = OrdersShowModels.Orders.RequestModel(parameters: bodyParameters, isDatesAPI: true)

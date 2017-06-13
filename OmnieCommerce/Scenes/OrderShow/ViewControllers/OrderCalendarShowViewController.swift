@@ -17,6 +17,9 @@ class OrderCalendarShowViewController: BaseViewController {
     // MARK: - Properties
     let firstDayOfWeek: DaysOfWeek = .monday
     var allOrdersDatesByStatus: [Date]!
+    var selectedPeriod: (startDate: Date, endDate: Date?)?
+    var firstDate: Date?
+    var rangeSelectedDates: [Date] = []
     
     var handlerSelectDatesPeriodCompletion: HandlerPassDataCompletion?
     
@@ -113,80 +116,80 @@ class OrderCalendarShowViewController: BaseViewController {
         calendarView.scrollToDate(period.dateStart as Date)
     }
     
-    /*
-     func setupCalendarView() {
-     print(object: "\(#file): \(#function) run in [line \(#line)]")
-     
-     // Set weekday symbols
-     let dateFormatter = DateFormatter()
-     dateFormatter.locale = Locale.current
-     var weekdaySymbols = Array<String>()
-     var count: Int = 0
-     
-     // Show Orders dates
-     if ((period.dateStart as Date).convertToString(withStyle: .DateDot) == (period.dateEnd as Date).convertToString(withStyle: .DateDot)) {
-     calendarView.selectDates([period.dateStart as Date], triggerSelectionDelegate: false)
-     } else {
-     // TODO: -ADD PERIOD DATES
-     }
-     
-     
-     for (index, weekdaySymbol) in dateFormatter.shortStandaloneWeekdaySymbols.enumerated() {
-     if (index < firstDayOfWeek.rawValue - 1) {
-     weekdaySymbols.append(weekdaySymbol)
-     } else {
-     weekdaySymbols.insert(weekdaySymbol, at: count)
-     count += 1
-     }
-     }
-     
-     _ = weekdayLabelsCollection.map ({
-     $0.text = (weekdaySymbols[weekdayLabelsCollection.index(of: $0)!])
-     
-     // FIXME: - Add support first symbol upperCase
-     $0.attributedText = NSAttributedString(string: $0.text!.uppercaseFirst, attributes: UIFont.ubuntuLightDarkCyan16)
-     })
-     }
-     */
-    
     func setupTitleLabel(withDate date: Date) {
         titleLabel.text = date.convertToString(withStyle: .MonthYear)
     }
     
+//    func handleSelection(cell: JTAppleDayCellView?, cellState: CellState) {
+//        let dayCustomCell = cell as! CalendarDayCellView
+//        
+//        switch cellState.selectedPosition() {
+//        case .full:
+//            print(object: cellState.selectedPosition())
+//            
+//        case .left:
+//            print(object: cellState.selectedPosition())
+//            
+//        case .right:
+//            print(object: cellState.selectedPosition())
+//            
+//        case .middle:
+//            print(object: cellState.selectedPosition())
+//            
+//            //        myCustomCell.selectedView.isHidden = false
+//            //            myCustomCell.selectedView.backgroundColor = UIColor.init(hexString: "#24323f")!
+//            // Or you can put what ever you like for your rounded corners, and your stand-alone selected cell
+//            
+//        default:
+//            print(object: cellState.selectedPosition())
+//            //            myCustomCell.selectedView.isHidden = true
+//            //            myCustomCell.selectedView.backgroundColor = nil // Have no selection when a cell is not selected
+//        }
+//        
+//        dayCustomCell.setSelection(forState: cellState)
+//    }
     
-    
-    
-    //    func handleSelection(cell: JTAppleDayCellView?, cellState: CellState) {
-    //        let dayCustomCell = cell as! CalendarDayCellView
-    //
-    //        switch cellState.selectedPosition() {
-    //        case .full:
-    //            print(object: cellState.selectedPosition())
-    //
-    //        case .left:
-    //            print(object: cellState.selectedPosition())
-    //
-    //        case .right:
-    //            print(object: cellState.selectedPosition())
-    //
-    //        case .middle:
-    //            print(object: cellState.selectedPosition())
-    //
-    ////        myCustomCell.selectedView.isHidden = false
-    ////            myCustomCell.selectedView.backgroundColor = UIColor.init(hexString: "#24323f")!
-    //            // Or you can put what ever you like for your rounded corners, and your stand-alone selected cell
-    //
-    //        default:
-    //            print(object: cellState.selectedPosition())
-    ////            myCustomCell.selectedView.isHidden = true
-    ////            myCustomCell.selectedView.backgroundColor = nil // Have no selection when a cell is not selected
-    //        }
-    //
-    //        dayCustomCell.setSelection(forState: cellState)
-    //    }
-    
-    
-    
+    func didStartRangeSelecting(gesture: UILongPressGestureRecognizer) {
+        let point = gesture.location(in: gesture.view!)
+        
+        if (gesture.state == .began) {
+            print(object: "0")
+            calendarView.deselectAllDates()
+        }
+        
+        if let cellState = calendarView.cellStatus(at: point) {
+            print(object: "1")
+            let date = cellState.date
+            
+            if !rangeSelectedDates.contains(date) {
+                print(object: "2")
+                let dateRange = calendarView.generateDateRange(from: rangeSelectedDates.first ?? date, to: date)
+                
+                for aDate in dateRange {
+                    print(object: "3")
+                    if !rangeSelectedDates.contains(aDate) {
+                        rangeSelectedDates.append(aDate)
+                    }
+                }
+                
+                calendarView.selectDates(from: rangeSelectedDates.first!, to: date, keepSelectionIfMultiSelectionAllowed: true)
+            } else {
+                print(object: "4")
+                let indexOfNewlySelectedDate = rangeSelectedDates.index(of: date)! + 1
+                let lastIndex = rangeSelectedDates.endIndex
+                let followingDay = Calendar.current.date(byAdding: .day, value: 1, to: date)!
+                
+                calendarView.selectDates(from: followingDay, to: rangeSelectedDates.last!, keepSelectionIfMultiSelectionAllowed: false)
+                rangeSelectedDates.removeSubrange(indexOfNewlySelectedDate..<lastIndex)
+            }
+        }
+        
+        if gesture.state == .ended {
+            selectedPeriod = (startDate: rangeSelectedDates.first!, endDate: rangeSelectedDates.last!)
+            rangeSelectedDates.removeAll()
+            firstDate = nil
+        }
+    }
     
     
     // MARK: - Actions
@@ -214,44 +217,8 @@ class OrderCalendarShowViewController: BaseViewController {
         }
     }
     
-    func didStartRangeSelecting(gesture: UILongPressGestureRecognizer) {
-        var rangeSelectedDates: [Date] = []
-        let point = gesture.location(in: gesture.view!)
-        
-        //        rangeSelectedDates = calendarView.selectedDates
-        
-        if let cellState = calendarView.cellStatus(at: point) {
-            let date = cellState.date
-            
-            if !rangeSelectedDates.contains(date) {
-                let dateRange = calendarView.generateDateRange(from: rangeSelectedDates.first ?? date, to: date)
-                
-                for aDate in dateRange {
-                    if !rangeSelectedDates.contains(aDate) {
-                        rangeSelectedDates.append(aDate)
-                    }
-                }
-                
-                calendarView.selectDates(from: rangeSelectedDates.first!, to: date, keepSelectionIfMultiSelectionAllowed: true)
-                //                ordersDatesPeriod = (dateStart: calendarView.selectedDates.first!, dateEnd: calendarView.selectedDates.last!)
-            } else {
-                let indexOfNewlySelectedDate = rangeSelectedDates.index(of: date)! + 1
-                let lastIndex = rangeSelectedDates.endIndex
-                let followingDay = Calendar.current.date(byAdding: .day, value: 1, to: date)!
-                
-                calendarView.selectDates(from: followingDay, to: rangeSelectedDates.last!, keepSelectionIfMultiSelectionAllowed: false)
-                rangeSelectedDates.removeSubrange(indexOfNewlySelectedDate..<lastIndex)
-            }
-        }
-        
-        if gesture.state == .ended {
-            rangeSelectedDates.removeAll()
-        }
-    }
-    
     @IBAction func handlerSelectPeriodButtonTap(_ sender: BorderVeryLightOrangeButton) {
-        //        ordersDatesPeriod = (dateStart: calendarView.selectedDates.first!, dateEnd: calendarView.selectedDates.last!)
-        //        handlerSelectDatesPeriodCompletion!(ordersDatesPeriod)
+        self.handlerSelectDatesPeriodCompletion!(self.selectedPeriod)
         self.navigationController?.popViewController(animated: true)
     }
 }
@@ -287,42 +254,31 @@ extension OrderCalendarShowViewController: JTAppleCalendarViewDelegate {
         
         return cell
     }
+
+    
+    
+    
     
     func calendar(_ calendar: JTAppleCalendarView, didSelectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
-        if let calendarDayCell = cell as? CalendarDayCell {
-            period.dateStart = (date.compare(Date()) == .orderedAscending) ? NSDate() : date as NSDate
-            period.dateEnd = (date.compare(Date()) == .orderedAscending) ? NSDate() : date as NSDate
+        if (firstDate == nil) {
+            firstDate = date
+            selectedPeriod = nil
             
-            calendarDayCell.viewDidUpload(forCellState: cellState)
-            
-            // Scroll to out month
-            if (cellState.dateBelongsTo != .thisMonth ) {
-                let dateFormatter = DateFormatter()
-                dateFormatter.dateFormat = "dd"
-                
-                if (Int(dateFormatter.string(from: date))! >= 25) {
-                    self.calendarView.scrollToSegment(.previous) {
-                        self.calendarView.visibleDates { (visibleDates: DateSegmentInfo) in
-                            if let date = visibleDates.monthDates.first?.date.globalTime() {
-                                self.setupTitleLabel(withDate: date)
-                            }
-                        }
-                    }
-                } else {
-                    self.calendarView.scrollToSegment(.next) {
-                        self.calendarView.visibleDates { (visibleDates: DateSegmentInfo) in
-                            if let date = visibleDates.monthDates.first?.date.globalTime() {
-                                self.setupTitleLabel(withDate: date)
-                            }
-                        }
-                    }
-                }
+            if (rangeSelectedDates.count == 0) {
+                calendarView.deselectAllDates()
             }
-            
-//            handlerSelectNewDateCompletion!(date)
+        }
+
+        calendarView.selectDates(from: firstDate!, to: date,  triggerSelectionDelegate: false, keepSelectionIfMultiSelectionAllowed: true)
+
+        if (selectedPeriod == nil) {
+            selectedPeriod = (startDate: firstDate!, endDate: nil)
+        } else {
+            selectedPeriod = (startDate: firstDate!, endDate: date)
+            firstDate = nil
         }
     }
-    
+
     func calendar(_ calendar: JTAppleCalendarView, didDeselectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
         if let calendarDayCell = cell as? CalendarDayCell {
             calendarDayCell.viewDidUpload(forCellState: cellState)

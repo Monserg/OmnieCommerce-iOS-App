@@ -24,6 +24,7 @@ public class Order: NSManagedObject, InitCellParameters {
         self.organizationName = json["orgName"] as! String
         self.serviceName = json["serviceName"] as! String
         self.dateStart = (json["start"] as! String).convertToDate(withDateFormat: .NewsDate) as NSDate
+        self.dateSearch = (self.dateStart as Date).convertToString(withStyle: .DateDot)
         self.priceTotal = json["totalPrice"] as! Float
         self.status = json["status"] as! String
         self.statusHexColor = self.status.convertToHexColor()
@@ -46,8 +47,6 @@ public class Order: NSManagedObject, InitCellParameters {
             self.price = price
         }
         
-        let listCode = "\(listName)-\((dateStart as Date).convertToString(withStyle: .DateHyphen))-\((dateEnd as Date).convertToString(withStyle: .DateHyphen))-\(status)"
-
-        self.addToLists(Lists.init(name: listCode, item: self))
+        self.addToLists(Lists.init(name: "\(listName)-\(status)", item: self))
     }
 }

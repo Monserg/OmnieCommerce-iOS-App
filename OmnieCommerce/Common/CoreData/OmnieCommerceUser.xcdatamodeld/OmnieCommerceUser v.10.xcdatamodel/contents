@@ -187,7 +187,8 @@
         <attribute name="codeID" attributeType="String" syncable="YES"/>
         <attribute name="comment" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="dateEnd" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
-        <attribute name="dateStart" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="dateSearch" attributeType="String" syncable="YES"/>
+        <attribute name="dateStart" attributeType="Date" usesScalarValueType="NO" indexed="YES" syncable="YES"/>
         <attribute name="discount" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="imageID" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="isAvailable" optional="YES" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="YES" syncable="YES"/>
@@ -199,6 +200,11 @@
         <attribute name="statusHexColor" attributeType="String" syncable="YES"/>
         <relationship name="additionalServices" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="AdditionalService" inverseName="order" inverseEntity="AdditionalService" syncable="YES"/>
         <relationship name="lists" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Lists" inverseName="orders" inverseEntity="Lists" syncable="YES"/>
+        <compoundIndexes>
+            <compoundIndex>
+                <index value="dateStart"/>
+            </compoundIndex>
+        </compoundIndexes>
         <uniquenessConstraints>
             <uniquenessConstraint>
                 <constraint value="codeID"/>
@@ -398,7 +404,7 @@
         <element name="Handbook" positionX="144" positionY="81" width="128" height="150"/>
         <element name="Lists" positionX="144" positionY="81" width="128" height="180"/>
         <element name="NewsData" positionX="-36" positionY="99" width="128" height="195"/>
-        <element name="Order" positionX="144" positionY="81" width="128" height="270"/>
+        <element name="Order" positionX="144" positionY="81" width="128" height="285"/>
         <element name="Organization" positionX="-36" positionY="99" width="128" height="30"/>
         <element name="Period" positionX="144" positionY="81" width="128" height="210"/>
         <element name="Price" positionX="180" positionY="117" width="128" height="210"/>

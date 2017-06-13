@@ -54,33 +54,7 @@ class OrdersShowPresenter: OrdersShowPresenterInput {
                 }
             }
         }
-        
-        
-        
-        
-        
-        
-        
-//        if let ordersList = responseModel.responseAPI!.body as? [Any], ordersList.count > 0 {
-//            if let orders = ordersList.first as? [String: AnyObject], orders.count > 0 {
-//                if let listOrders = orders["orders"] as? [Any], listOrders.count > 0 {
-//                    for order in listOrders {
-//                        if let jsonOrder = order as? [String: AnyObject] {
-//                            if let codeID = jsonOrder["uuid"] as? String {
-//                                if let order = CoreDataManager.instance.entityBy("Order", andCodeID: codeID) as? Order {
-//                                    if (responseModel.isDatesAPI) {
-//                                        ordersDates.append(order.dateStart as Date)
-//                                    } else {
-//                                        order.profileDidUpload(json: jsonOrder, forList: keyOrders)
-//                                    }
-//                                }
-//                            }
-//                        }
-//                    }
-//                }
-//            }
-//        }
-        
+
         CoreDataManager.instance.didSaveContext()
         
         let ordersViewModel = OrdersShowModels.Orders.ViewModel(status: (responseModel.responseAPI?.status)!,

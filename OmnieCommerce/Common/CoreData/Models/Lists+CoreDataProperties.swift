@@ -2,7 +2,7 @@
 //  Lists+CoreDataProperties.swift
 //  OmnieCommerce
 //
-//  Created by msm72 on 30.05.17.
+//  Created by msm72 on 13.06.17.
 //  Copyright © 2017 Omniesoft. All rights reserved.
 //
 
@@ -16,7 +16,8 @@ extension Lists {
         return NSFetchRequest<Lists>(entityName: "Lists")
     }
 
-    @NSManaged public var name: String?
+    @NSManaged public var name: String
+    @NSManaged public var businessCards: NSSet?
     @NSManaged public var categories: NSSet?
     @NSManaged public var discountCards: NSSet?
     @NSManaged public var handbooks: NSSet?
@@ -24,7 +25,23 @@ extension Lists {
     @NSManaged public var orders: NSSet?
     @NSManaged public var organizations: NSSet?
     @NSManaged public var services: NSSet?
-    @NSManaged public var businessCards: NSSet?
+
+}
+
+// MARK: Generated accessors for businessCards
+extension Lists {
+
+    @objc(addBusinessCardsObject:)
+    @NSManaged public func addToBusinessCards(_ value: BusinessCard)
+
+    @objc(removeBusinessCardsObject:)
+    @NSManaged public func removeFromBusinessCards(_ value: BusinessCard)
+
+    @objc(addBusinessCards:)
+    @NSManaged public func addToBusinessCards(_ values: NSSet)
+
+    @objc(removeBusinessCards:)
+    @NSManaged public func removeFromBusinessCards(_ values: NSSet)
 
 }
 
@@ -144,22 +161,5 @@ extension Lists {
 
     @objc(removeServices:)
     @NSManaged public func removeFromServices(_ values: NSSet)
-
-}
-
-// MARK: Generated accessors for businessCards
-extension Lists {
-
-    @objc(addBusinessCardsObject:)
-    @NSManaged public func addToBusinessCards(_ value: BusinessCard)
-
-    @objc(removeBusinessCardsObject:)
-    @NSManaged public func removeFromBusinessCards(_ value: BusinessCard)
-
-    @objc(addBusinessCards:)
-    @NSManaged public func addToBusinessCards(_ values: NSSet)
-
-    @objc(removeBusinessCards:)
-    @NSManaged public func removeFromBusinessCards(_ values: NSSet)
 
 }
