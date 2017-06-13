@@ -199,6 +199,7 @@ class HandbooksShowViewController: BaseViewController {
         if (blackoutView == nil) {
             blackoutView = MSMBlackoutView.init(inView: view)
             blackoutView!.didShow()
+            self.revealViewController().panGestureRecognizer().isEnabled = false
         }
         
         modalView = ModalView.init(inView: blackoutView!, withHeight: height)
@@ -224,6 +225,7 @@ class HandbooksShowViewController: BaseViewController {
         popupView.handlerCancelButtonCompletion = { _ in
             self.blackoutView!.didHide()
             self.blackoutView = nil
+            self.revealViewController().panGestureRecognizer().isEnabled = true
         }
     }
     

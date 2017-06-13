@@ -318,7 +318,8 @@ class BusinessCardCreateViewController: BaseViewController, EmailErrorMessageVie
         }
         
         blackoutView!.didShow()
-
+        self.revealViewController().panGestureRecognizer().isEnabled = false
+        
         modalView = ModalView.init(inView: blackoutView!, withHeight: height)
         
         if (isQuestion) {
@@ -359,7 +360,8 @@ class BusinessCardCreateViewController: BaseViewController, EmailErrorMessageVie
         popupView.handlerCancelButtonCompletion = { _ in
             self.blackoutView!.didHide()
             self.blackoutView = nil
-            
+            self.revealViewController().panGestureRecognizer().isEnabled = true
+
             self.navigationController!.popViewController(animated: true)
         }
     }

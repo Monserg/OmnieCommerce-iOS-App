@@ -235,6 +235,7 @@ class OrderShowViewController: BaseViewController {
         if (blackoutView == nil) {
             blackoutView = MSMBlackoutView.init(inView: view)
             blackoutView!.didShow()
+            self.revealViewController().panGestureRecognizer().isEnabled = false
         }
         
         modalView = ModalView.init(inView: blackoutView!, withHeight: 185.0)
@@ -244,6 +245,7 @@ class OrderShowViewController: BaseViewController {
         popupView.handlerCancelButtonCompletion = { _ in
             self.blackoutView!.didHide()
             self.blackoutView = nil
+            self.revealViewController().panGestureRecognizer().isEnabled = true
             
             self.router.navigateToOrdersShowScene()
         }

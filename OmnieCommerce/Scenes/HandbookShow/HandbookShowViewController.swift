@@ -254,6 +254,7 @@ class HandbookShowViewController: BaseViewController, PhoneErrorMessageView {
         if (blackoutView == nil) {
             blackoutView = MSMBlackoutView.init(inView: view)
             blackoutView!.didShow()
+            self.revealViewController().panGestureRecognizer().isEnabled = false
         }
         
         modalView = ModalView.init(inView: blackoutView!, withHeight: 185.0)
@@ -263,6 +264,7 @@ class HandbookShowViewController: BaseViewController, PhoneErrorMessageView {
         popupView.handlerCancelButtonCompletion = { _ in
             self.blackoutView!.didHide()
             self.blackoutView = nil
+            self.revealViewController().panGestureRecognizer().isEnabled = true
             
             self.navigationController!.popViewController(animated: true)
         }

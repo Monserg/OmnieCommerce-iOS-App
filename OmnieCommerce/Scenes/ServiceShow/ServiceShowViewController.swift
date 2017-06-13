@@ -493,6 +493,7 @@ class ServiceShowViewController: BaseViewController {
         if (blackoutView == nil) {
             blackoutView = MSMBlackoutView.init(inView: view)
             blackoutView!.didShow()
+            self.revealViewController().panGestureRecognizer().isEnabled = false
         }
         
         modalView = ModalView.init(inView: blackoutView!, withHeight: height)
@@ -514,6 +515,7 @@ class ServiceShowViewController: BaseViewController {
         popupView.handlerCancelButtonCompletion = { _ in
             self.blackoutView!.didHide()
             self.blackoutView = nil
+            self.revealViewController().panGestureRecognizer().isEnabled = true
             
             if ((popupView as? PhotosGalleryView) != nil) {
                 _ = self.serviceProfile.images!.map{ ($0 as! GalleryImage).cellHeight = 102.0 }

@@ -129,7 +129,10 @@ class BaseViewController: UIViewController {
         revealViewController().frontViewShadowColor = UIColor.clear
         
         view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-        navigationBarView!.actionButton.addTarget(revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), for: .touchUpInside)
+        
+        if (haveMenuItem) {
+            navigationBarView!.actionButton.addTarget(revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), for: .touchUpInside)
+        }
     }
     
     func didAddTapGestureRecognizer() {
@@ -227,10 +230,11 @@ extension BaseViewController: SWRevealViewControllerDelegate {
             // Create blackOutView
             blackoutView = MSMBlackoutView.init(inView: view)
             
-            let menuButton = UIButton.init(frame: CGRect.init(origin: .zero, size: CGSize.init(width: 80, height: 80)))
+            let menuButton = UIButton.init(frame: CGRect.init(origin: CGPoint.init(x: 0.0, y: 2.0), size: CGSize.init(width: 50, height: 80)))
+            menuButton.setImage(UIImage.init(named: "icon-menu-normal"), for: .normal)
             menuButton.addTarget(revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), for: .touchUpInside)
             
-            blackoutView?.addSubview(menuButton)
+            blackoutView!.addSubview(menuButton)
             blackoutView!.didShow()
             
         default:

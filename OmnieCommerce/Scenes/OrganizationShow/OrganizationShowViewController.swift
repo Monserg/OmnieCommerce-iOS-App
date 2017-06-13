@@ -206,6 +206,7 @@ class OrganizationShowViewController: BaseViewController {
         if (blackoutView == nil) {
             blackoutView = MSMBlackoutView.init(inView: view)
             blackoutView!.didShow()
+            self.revealViewController().panGestureRecognizer().isEnabled = false
         }
         
         modalView = ModalView.init(inView: blackoutView!, withHeight: height)
@@ -254,12 +255,12 @@ class OrganizationShowViewController: BaseViewController {
             break
         }
         
-        
         // Handler Cancel button tap
         popupView.handlerCancelButtonCompletion = { _ in
-            self.blackoutView!.didHide()
+            self.blackoutView?.didHide()
             self.blackoutView = nil
-            
+            self.revealViewController().panGestureRecognizer().isEnabled = true
+
             if ((popupView as? PhotosGalleryView) != nil) {
                 _ = self.organizationProfile.images!.map { ($0 as! GalleryImage).cellHeight = 102.0 }
             }
@@ -273,13 +274,13 @@ class OrganizationShowViewController: BaseViewController {
 
         // Parallax Header view
         if let headerID = organizationProfile.headerID {
-            headerView = HeaderImageView.init(frame: CGRect.init(origin: CGPoint.zero, size: CGSize.init(width: view.frame.width, height: 150)))
+            headerView = HeaderImageView.init(frame: CGRect.init(origin: .zero, size: CGSize.init(width: view.frame.width, height: view.frame.width / 1.6)))
             smallTopBarView.actionButton.isHidden = true
             headerBackButton.isHidden = false
             
             // Set Header image
             headerView!.imageView.kf.setImage(with: ImageResource(downloadURL: headerID.convertToURL(withSize: .Original, inMode: .Get), cacheKey: headerID),
-                                              placeholder: UIImage.init(named: "image-no-photo"),
+                                              placeholder: nil,
                                               options: [.transition(ImageTransition.fade(1)),
                                                         .processor(ResizingImageProcessor(referenceSize: headerView!.frame.size,
                                                                                           mode: .aspectFill))],
@@ -289,7 +290,7 @@ class OrganizationShowViewController: BaseViewController {
             
             // Settings
             scrollView.parallaxHeader.view = headerView
-            scrollView.parallaxHeader.height = 150
+            scrollView.parallaxHeader.height = view.frame.width / 1.6
             scrollView.parallaxHeader.mode = .fill
             scrollView.parallaxHeader.minimumHeight = smallTopBarView.frame.height
             scrollView.parallaxHeader.delegate = self
@@ -778,13 +779,17 @@ extension OrganizationShowViewController: MXScrollViewDelegate {
 // MARK: - MXParallaxHeaderDelegate
 extension OrganizationShowViewController: MXParallaxHeaderDelegate {
     func parallaxHeaderDidScroll(_ parallaxHeader: MXParallaxHeader) {
-        if (0...0.4 ~= parallaxHeader.progress) {
+        print(object: parallaxHeader.progress)
+  
+        if (0...0.2 ~= parallaxHeader.progress) {
             parallaxHeader.view?.didHide()
             headerBackButton.isHidden = true
+            smallTopBarView.actionButton.isHidden = false
             smallTopBarView.didShow()
         } else {
             parallaxHeader.view?.didShow()
             headerBackButton.isHidden = false
+            smallTopBarView.actionButton.isHidden = true
             smallTopBarView.didHide()
         }
     }

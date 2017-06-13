@@ -92,6 +92,10 @@ public class Organization: NSManagedObject, InitCellParameters, PointAnnotationB
             self.imageID = imageID
         }
         
+        if let headerID = json["backgroundImageId"] as? String {
+            self.headerID = headerID
+        }
+        
         self.addToLists(Lists.init(name: listName, item: self))
 
         
@@ -201,7 +205,7 @@ public class Organization: NSManagedObject, InitCellParameters, PointAnnotationB
             for jsonGalleryImage in galleryImages {
                 if let codeID = jsonGalleryImage["imageId"] as? String {
                     if let image = CoreDataManager.instance.entityBy("GalleryImage", andCodeID: codeID) as? GalleryImage {
-                        image.profileDidUpload(json: json)
+                        image.profileDidUpload(json: jsonGalleryImage)
                         self.addToImages(image)
                     }
                 }
