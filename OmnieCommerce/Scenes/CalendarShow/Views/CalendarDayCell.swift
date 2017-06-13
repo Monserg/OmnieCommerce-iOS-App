@@ -10,7 +10,7 @@ import UIKit
 import JTAppleCalendar
 
 class CalendarDayCell: JTAppleCell {
-    // MARK: - Properties
+    // MARK: - Outlets
     @IBOutlet weak var dateLabel: UbuntuLightVeryLightGrayLabel!
     
     @IBOutlet weak var selectedView: CustomView! {
@@ -19,7 +19,6 @@ class CalendarDayCell: JTAppleCell {
         }
     }
 
-    
     @IBOutlet weak var currentView: CustomView! {
         didSet {
             currentView.style = "Border"

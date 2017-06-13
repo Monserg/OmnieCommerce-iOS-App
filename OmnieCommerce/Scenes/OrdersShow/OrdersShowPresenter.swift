@@ -28,18 +28,22 @@ class OrdersShowPresenter: OrdersShowPresenterInput {
     // MARK: - Custom Functions. Presentation logic
     func ordersDidPrepareToShowLoad(fromResponseModel responseModel: OrdersShowModels.Orders.ResponseModel) {
         guard responseModel.responseAPI != nil else {
-            let ordersViewModel = OrdersShowModels.Orders.ViewModel(status: "RESPONSE_NIL")
+            let ordersViewModel = OrdersShowModels.Orders.ViewModel(status: "RESPONSE_NIL", isDatesAPI: responseModel.isDatesAPI, ordersDates: nil)
             viewController.ordersDidShowLoad(fromViewModel: ordersViewModel)
             
             return
         }
 
         // Convert responseAPI body to Order CoreData objects
-        if let ordersList = responseModel.responseAPI!.body as? [Any], ordersList.count > 0 {
-            if let orders = ordersList.first as? [String: AnyObject], orders.count > 0 {
-                if let ordersList = orders["orders"] as? [Any], ordersList.count > 0 {
-                    for order in ordersList {
-                        if let jsonOrder = order as? [String: AnyObject] {
+        var ordersDates = [Date]()
+        
+        if let dictionaryOrders = responseModel.responseAPI!.body as? [[String: AnyObject]] {
+            for dictionary in dictionaryOrders {
+                if let orders = dictionary["orders"] as? [[String: AnyObject]], orders.count > 0, let ordersDate = dictionary["date"] as? String {
+                    if (responseModel.isDatesAPI) {
+                        ordersDates.append(ordersDate.convertToDate(withDateFormat: .ResponseDate))
+                    } else {
+                        for jsonOrder in orders {
                             if let codeID = jsonOrder["uuid"] as? String {
                                 if let order = CoreDataManager.instance.entityBy("Order", andCodeID: codeID) as? Order {
                                     order.profileDidUpload(json: jsonOrder, forList: keyOrders)
@@ -51,9 +55,38 @@ class OrdersShowPresenter: OrdersShowPresenterInput {
             }
         }
         
+        
+        
+        
+        
+        
+        
+//        if let ordersList = responseModel.responseAPI!.body as? [Any], ordersList.count > 0 {
+//            if let orders = ordersList.first as? [String: AnyObject], orders.count > 0 {
+//                if let listOrders = orders["orders"] as? [Any], listOrders.count > 0 {
+//                    for order in listOrders {
+//                        if let jsonOrder = order as? [String: AnyObject] {
+//                            if let codeID = jsonOrder["uuid"] as? String {
+//                                if let order = CoreDataManager.instance.entityBy("Order", andCodeID: codeID) as? Order {
+//                                    if (responseModel.isDatesAPI) {
+//                                        ordersDates.append(order.dateStart as Date)
+//                                    } else {
+//                                        order.profileDidUpload(json: jsonOrder, forList: keyOrders)
+//                                    }
+//                                }
+//                            }
+//                        }
+//                    }
+//                }
+//            }
+//        }
+        
         CoreDataManager.instance.didSaveContext()
         
-        let ordersViewModel = OrdersShowModels.Orders.ViewModel(status: (responseModel.responseAPI?.status)!)
+        let ordersViewModel = OrdersShowModels.Orders.ViewModel(status: (responseModel.responseAPI?.status)!,
+                                                                isDatesAPI: responseModel.isDatesAPI,
+                                                                ordersDates: (responseModel.isDatesAPI ? ordersDates : nil))
+        
         self.viewController.ordersDidShowLoad(fromViewModel: ordersViewModel)
     }
 }

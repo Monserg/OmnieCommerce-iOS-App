@@ -13,7 +13,7 @@ import UIKit
 
 // MARK: - Input & Output protocols
 protocol OrdersShowRouterInput {
-    func navigateToOrderCalendarShowScene()
+    func navigateToOrderCalendarShowScene(withOrdersDates ordersDates: [Date])
     func navigateToOrderShowScene(withOrderID orderID: String)
 }
 
@@ -31,9 +31,10 @@ class OrdersShowRouter: OrdersShowRouterInput {
         viewController.navigationController?.pushViewController(orderShowVC, animated: true)
     }
     
-    func navigateToOrderCalendarShowScene() {
+    func navigateToOrderCalendarShowScene(withOrdersDates ordersDates: [Date]) {
         let storyboard = UIStoryboard(name: "OrderCalendarShow", bundle: nil)
         let orderCalendarShowVC = storyboard.instantiateViewController(withIdentifier: "OrderCalendarShowVC") as! OrderCalendarShowViewController
+        orderCalendarShowVC.allOrdersDatesByStatus = ordersDates
         
         viewController.navigationController?.pushViewController(orderCalendarShowVC, animated: true)
         

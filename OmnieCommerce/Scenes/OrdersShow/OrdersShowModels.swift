@@ -16,15 +16,19 @@ struct OrdersShowModels {
     struct Orders {
         struct RequestModel {
             let parameters: [String: Any]
+            let isDatesAPI: Bool
         }
         
         struct ResponseModel {
             let responseAPI: ResponseAPI?
             let parameters: [String: Any]
+            let isDatesAPI: Bool
         }
         
         struct ViewModel {
             let status: String
+            let isDatesAPI: Bool
+            let ordersDates: [Date]?
         }
     }
 }

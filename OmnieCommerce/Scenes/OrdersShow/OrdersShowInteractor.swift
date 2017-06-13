@@ -34,7 +34,10 @@ class OrdersShowInteractor: OrdersShowInteractorInput {
         
         // MARK: - Custom Functions. Business logic
         MSMRestApiManager.instance.userRequestDidRun(.userGetOrdersList(requestModel.parameters, true), withHandlerResponseAPICompletion: { responseAPI in
-            let ordersResponseModel = OrdersShowModels.Orders.ResponseModel(responseAPI: responseAPI, parameters: requestModel.parameters)
+            let ordersResponseModel = OrdersShowModels.Orders.ResponseModel(responseAPI: responseAPI,
+                                                                            parameters: requestModel.parameters,
+                                                                            isDatesAPI: requestModel.isDatesAPI)
+            
             self.presenter.ordersDidPrepareToShowLoad(fromResponseModel: ordersResponseModel)
         })
     }

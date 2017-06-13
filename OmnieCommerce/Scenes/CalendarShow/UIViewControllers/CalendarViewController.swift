@@ -13,9 +13,10 @@ class CalendarViewController: BaseViewController {
     // MARK: - Properties
     typealias HandlerSelectNewDateCompletion = ((_ newDate: Date) -> ())
 
+    let firstDayOfWeek: DaysOfWeek = .monday
+
     var handlerSelectNewDateCompletion: HandlerSelectNewDateCompletion?
 
-    let firstDayOfWeek: DaysOfWeek = .monday
     
     // MARK: - Outlets
     @IBOutlet weak var titleLabel: UbuntuLightVeryLightGrayLabel!
@@ -198,55 +199,4 @@ extension CalendarViewController: JTAppleCalendarViewDelegate {
             self.setupTitleLabel(withDate: date.globalTime())
         }
     }
-
-//    func calendar(_ calendar: JTAppleCalendarView, didSelectDate date: Date, cell: JTAppleDayCellView?, cellState: CellState) {
-//        let dayCustomCell = cell as? CalendarDayCellView
-//        
-//        guard dayCustomCell != nil else {
-//            return
-//        }
-//        
-//        // Customize cell
-//        dayCustomCell!.setTextColor(forState: cellState)
-//        dayCustomCell!.setSelection(forState: cellState)
-//        
-//        // Scroll to out month
-//        if (cellState.dateBelongsTo != .thisMonth ) {
-//            let dateFormatter = DateFormatter()
-//            dateFormatter.dateFormat = "dd"
-//            
-//            if (Int(dateFormatter.string(from: date))! >= 25) {
-//                self.calendarView.scrollToSegment(.previous) {
-//                    self.calendarView.visibleDates { (visibleDates: DateSegmentInfo) in
-//                        self.calculatedDate = self.calculatedDate.previousMonth()
-//                        self.setupTitleLabel(withDate: self.calculatedDate.globalTime())
-//                    }
-//                }
-//            } else {
-//                self.calendarView.scrollToSegment(.next) {
-//                    self.calendarView.visibleDates { (visibleDates: DateSegmentInfo) in
-//                        self.calculatedDate = self.calculatedDate.nextMonth()
-//                        self.setupTitleLabel(withDate: self.calculatedDate.globalTime())
-//                    }
-//                }
-//            }
-//        }
-//        
-//        handlerSelectNewDateCompletion!(date)
-//    }
-//    
-//    func calendar(_ calendar: JTAppleCalendarView, didDeselectDate date: Date, cell: JTAppleDayCellView?, cellState: CellState) {
-//        print("\(#function) run in [line \(#line)]")
-//        
-//        guard let dayCustomCell = cell as? CalendarDayCellView else {
-//            return
-//        }
-//        
-//        // Customize cell
-//        dayCustomCell.setTextColor(forState: cellState)
-////        dayCustomCell.selectedView.isHidden = true
-//        dayCustomCell.setSelection(forState: cellState)
-//    }
-    
-    
 }

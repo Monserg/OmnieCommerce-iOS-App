@@ -148,8 +148,13 @@ class OrdersShowViewController: BaseViewController {
             spinnerDidStart(view)
         }
         
-        let bodyParameters: [String: Any] = [ "limit": limit, "offset": offset, "status": (orderStatus == "ALL" ? "" : orderStatus), "start": dateStart, "end": dateEnd ]
-        let ordersRequestModel = OrdersShowModels.Orders.RequestModel(parameters: bodyParameters)
+        let bodyParameters: [String: Any] = [ "limit": limit,
+                                              "offset": offset,
+                                              "status": (orderStatus == "ALL" ? "" : orderStatus),
+                                              "start": dateStart,
+                                              "end": dateEnd ]
+        
+        let ordersRequestModel = OrdersShowModels.Orders.RequestModel(parameters: bodyParameters, isDatesAPI: false)
         interactor.ordersDidLoad(withRequestModel: ordersRequestModel)
     }
 
@@ -237,7 +242,21 @@ class OrdersShowViewController: BaseViewController {
     }
     
     @IBAction func handlerCalendarTitleButtonTap(_ sender: UIButton) {
-//        self.router.navigateToOrderCalendarShowScene()
+        spinnerDidStart(view)
+
+        dateStart = currentDate.convertToString(withStyle: .DateHyphen)
+        dateEnd = dateStart
+
+        let bodyParameters: [String: Any] = [
+                                                "limit": 0,
+                                                "offset": 0,
+                                                "status": (orderStatus == "ALL" ? "" : orderStatus),
+                                                "start": (Calendar.current.date(byAdding: .year, value: -1, to: dateStart.convertToDate(withDateFormat: .ResponseDate)))!.convertToString(withStyle: .DateHyphen),
+                                                "end": (Calendar.current.date(byAdding: .year, value: 1, to: dateEnd.convertToDate(withDateFormat: .ResponseDate)))!.convertToString(withStyle: .DateHyphen)
+                                            ]
+        
+        let ordersRequestModel = OrdersShowModels.Orders.RequestModel(parameters: bodyParameters, isDatesAPI: true)
+        interactor.ordersDidLoad(withRequestModel: ordersRequestModel)
     }
     
     @IBAction func handlerOrderStatusesButtonTap(_ sender: DropDownButton) {
@@ -269,6 +288,11 @@ extension OrdersShowViewController: OrdersShowViewControllerInput {
             return
         }
         
-        self.ordersListDidShow()
+        if (viewModel.isDatesAPI) {
+            self.router.navigateToOrderCalendarShowScene(withOrdersDates: viewModel.ordersDates!)
+            spinnerDidFinish()
+        } else {
+            self.ordersListDidShow()
+        }
     }
 }
