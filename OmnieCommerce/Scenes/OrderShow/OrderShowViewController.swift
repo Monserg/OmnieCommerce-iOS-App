@@ -15,6 +15,7 @@ import UIKit
 protocol OrderShowViewControllerInput {
     func orderDidShowLoad(fromViewModel viewModel: OrderShowModels.OrderItem.ViewModel)
     func orderDidShowCreate(fromViewModel viewModel: OrderShowModels.OrderItem.ViewModel)
+    func orderDidShowAccept(fromViewModel viewModel: OrderShowModels.OrderItem.ViewModel)
     func orderDidShowCancel(fromViewModel viewModel: OrderShowModels.OrderItem.ViewModel)
     func totalPriceDidShowLoad(fromViewModel viewModel: OrderShowModels.TotalPrice.ViewModel)
 }
@@ -23,6 +24,7 @@ protocol OrderShowViewControllerInput {
 protocol OrderShowViewControllerOutput {
     func orderDidLoad(withRequestModel requestModel: OrderShowModels.OrderItem.RequestModel)
     func orderDidCreate(withRequestModel requestModel: OrderShowModels.OrderItem.RequestModel)
+    func orderDidAccept(withRequestModel requestModel: OrderShowModels.OrderItem.RequestModel)
     func orderDidCancel(withRequestModel requestModel: OrderShowModels.OrderItem.RequestModel)
     func totalPriceDidLoad(withRequestModel requestModel: OrderShowModels.TotalPrice.RequestModel)
 }
@@ -134,7 +136,6 @@ class OrderShowViewController: BaseViewController {
         if (orderID != nil) {
             actionViewTopConstraint.constant = -actionView.frame.height
             
-            // FIXME:
             stateButton.isHidden = false
             actionView.isHidden = true
             cancelActionView.isHidden = false
@@ -147,12 +148,12 @@ class OrderShowViewController: BaseViewController {
             actionView.isHidden = false
             cancelActionView.isHidden = true
             
+            // Get total price
+            let priceRequestModel = OrderShowModels.TotalPrice.RequestModel(parameters: bodyRequestParameters!)
+            interactor.totalPriceDidLoad(withRequestModel: priceRequestModel)
+
             orderProfileDidShow()
         }
-        
-        // Get total price
-        let priceRequestModel = OrderShowModels.TotalPrice.RequestModel(parameters: bodyRequestParameters!)
-        interactor.totalPriceDidLoad(withRequestModel: priceRequestModel)
     }
     
     func orderProfileDidShow() {
@@ -164,6 +165,8 @@ class OrderShowViewController: BaseViewController {
                 organizationNameLabel.text = orderProfile!.organizationName
                 serviceNameLabel.text = orderProfile!.serviceName
                 additionalServicesNames.numberOfLines = 0
+                stateButton.titleOriginal = orderProfile!.status
+                self.priceLabel.text = String(format: "%3.2f грн.", orderProfile!.priceTotal)
                 
                 if let additionalServices = orderProfile!.additionalServices, additionalServices.count > 0 {
                     let subServicesList: [AdditionalService] = additionalServices.filter({ ($0 as! AdditionalService).isAvailable == true }) as! [AdditionalService]
@@ -177,13 +180,34 @@ class OrderShowViewController: BaseViewController {
                             }
                         }
                     }
+                } else {
+                    additionalServicesNames.text = nil
                 }
                 
-                periodDateLabel.text = (period.dateStart as Date).convertToString(withStyle: .DateDot)
-                periodTimesLabel.text = "\("From".localized()) \(String(period.hourStart).twoNumberFormat()):\(String(period.minuteStart).twoNumberFormat()) \("To".localized()) \(String(period.hourEnd).twoNumberFormat()):\(String(period.minuteEnd).twoNumberFormat())"
+                let date = (orderProfile!.dateStart as Date).convertToString(withStyle: .DateDot)
+                let startHour = String((orderProfile!.dateStart as Date).dateComponents().hour!).twoNumberFormat()
+                let startMinute = String((orderProfile!.dateStart as Date).dateComponents().minute!).twoNumberFormat()
+                let endHour = String((orderProfile!.dateEnd as Date).dateComponents().hour!).twoNumberFormat()
+                let endMinute = String((orderProfile!.dateEnd as Date).dateComponents().minute!).twoNumberFormat()
+
+                periodDateLabel.text = date
+                periodTimesLabel.text = "\("From".localized()) \(startHour):\(startMinute) \("To".localized()) \(endHour):\(endMinute)"
                 
                 commentTextLabel.numberOfLines = 0
                 commentTextLabel.text = orderProfile!.comment
+                
+                if (orderProfile!.status == "CONFIRMED BY USER" || orderProfile!.status == "CONFIRMED BY ADMIN") {
+                    actionView.isHidden = true
+                    cancelActionView.isHidden = false
+                    
+                    actionViewTopConstraint.constant = -actionView.frame.height
+                    cancelActionViewTopConstraint.constant = cancelActionView.frame.height
+                } else if (orderProfile!.status == "PENDING FOR USER" || orderProfile!.status == "PENDING FOR ADMIN") {
+                    actionView.isHidden = false
+                    cancelActionView.isHidden = true
+                    cancelActionViewTopConstraint.constant = -cancelActionView.frame.height
+                    actionViewTopConstraint.constant = 0 //actionView.frame.height
+                }
             }
         } else {
             organizationNameLabel.text = orderPrepare!.organizationName
@@ -234,12 +258,22 @@ class OrderShowViewController: BaseViewController {
     
     // MARK: - Actions
     @IBAction func handlerConfirmButtonTap(_ sender: FillVeryLightOrangeButton) {
-        let orderCreateRequestModel = OrderShowModels.OrderItem.RequestModel(parameters: bodyRequestParameters!)
-        interactor.orderDidCreate(withRequestModel: orderCreateRequestModel)
+        if (orderID == nil) {
+            let orderCreateRequestModel = OrderShowModels.OrderItem.RequestModel(parameters: bodyRequestParameters!)
+            interactor.orderDidCreate(withRequestModel: orderCreateRequestModel)
+        } else {
+            let orderAcceptRequestModel = OrderShowModels.OrderItem.RequestModel(parameters: [ "id": orderID! ])
+            interactor.orderDidAccept(withRequestModel: orderAcceptRequestModel)
+        }
     }
     
     @IBAction func handlerCancelButtonTap(_ sender: BorderVeryLightOrangeButton) {
-        self.navigationController?.popViewController(animated: true)
+        if (orderID == nil) {
+            self.navigationController?.popViewController(animated: true)
+        } else {
+            let orderCancelRequestModel = OrderShowModels.OrderItem.RequestModel(parameters: [ "id": orderID! ])
+            interactor.orderDidCancel(withRequestModel: orderCancelRequestModel)
+        }
     }
     
     @IBAction func handlerCheckButtonTap(_ sender: DLRadioButton) {
@@ -253,7 +287,12 @@ class OrderShowViewController: BaseViewController {
     }
     
     @IBAction func handlerCancelPreviewOrderButtonTap(_ sender: BorderVeryLightOrangeButton) {
-        self.navigationController?.popViewController(animated: true)
+        if (orderID != nil) {
+            let orderCancelRequestModel = OrderShowModels.OrderItem.RequestModel(parameters: [ "id": orderID! ])
+            interactor.orderDidCancel(withRequestModel: orderCancelRequestModel)
+        } else {
+            self.navigationController?.popViewController(animated: true)
+        }
     }
 }
 
@@ -288,6 +327,19 @@ extension OrderShowViewController: OrderShowViewControllerInput {
         modalViewDidShow()
     }
     
+    func orderDidShowAccept(fromViewModel viewModel: OrderShowModels.OrderItem.ViewModel) {
+        spinnerDidFinish()
+        
+        // Check for errors
+        guard viewModel.status == "SUCCESS" else {
+            self.alertViewDidShow(withTitle: "Error", andMessage: viewModel.status, completion: { })
+            
+            return
+        }
+        
+        self.navigationController?.popViewController(animated: true)
+    }
+
     func orderDidShowCancel(fromViewModel viewModel: OrderShowModels.OrderItem.ViewModel) {
         spinnerDidFinish()
         

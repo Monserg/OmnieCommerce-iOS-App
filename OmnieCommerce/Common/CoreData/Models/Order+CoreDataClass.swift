@@ -23,7 +23,7 @@ public class Order: NSManagedObject, InitCellParameters {
         self.codeID = json["uuid"] as! String
         self.organizationName = json["orgName"] as! String
         self.serviceName = json["serviceName"] as! String
-        self.dateStart = (json["start"] as! String).convertToDate(withDateFormat: .Default) as NSDate
+        self.dateStart = (json["start"] as! String).convertToDate(withDateFormat: .NewsDate) as NSDate
         self.priceTotal = json["totalPrice"] as! Float
         self.status = json["status"] as! String
         self.statusHexColor = self.status.convertToHexColor()
@@ -35,7 +35,7 @@ public class Order: NSManagedObject, InitCellParameters {
 
         // Prepare to save additional data
         if let dateEnd = json["end"] as? String {
-            self.dateEnd = dateEnd
+            self.dateEnd = dateEnd.convertToDate(withDateFormat: .NewsDate) as NSDate
         }
         
         if let discount = json["discount"] as? Float {
@@ -46,6 +46,8 @@ public class Order: NSManagedObject, InitCellParameters {
             self.price = price
         }
         
-        self.addToLists(Lists.init(name: listName, item: self))
+        let listCode = "\(listName)-\((dateStart as Date).convertToString(withStyle: .DateHyphen))-\((dateEnd as Date).convertToString(withStyle: .DateHyphen))-\(status)"
+
+        self.addToLists(Lists.init(name: listCode, item: self))
     }
 }

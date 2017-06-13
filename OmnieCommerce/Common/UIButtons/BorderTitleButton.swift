@@ -12,6 +12,7 @@ import UIKit
     // MARK: - Properties
     var titleOriginal: String! {
         didSet {
+            titleLabel!.text = titleOriginal
             self.setNeedsDisplay()
         }
     }
@@ -30,7 +31,7 @@ import UIKit
     // MARK: - Class Functions
     override func draw(_ rect: CGRect) {
         if (titleOriginal != nil) {
-            let titleText = (titleLabel?.text != nil) ? (titleLabel?.text!.localized())! : String()
+            let titleText = "      \(titleOriginal.localized())      " //(titleLabel!.text != nil) ? (titleLabel!.text!.localized()) : String()
             
             if (isLightColorAppSchema) {
                 backgroundColor = UIColor.white
@@ -47,6 +48,14 @@ import UIKit
                 setAttributedTitle(NSAttributedString(string: titleText, attributes: [NSForegroundColorAttributeName: UIColor.darkCyan]), for: .normal)
                 setAttributedTitle(NSAttributedString(string: titleText, attributes: [NSForegroundColorAttributeName: UIColor.darkCyanAlpha30]), for: .highlighted)
 
+            case "PENDING FOR USER", "PENDING FOR ADMIN":
+                tintColor = (isLightColorAppSchema) ? UIColor.black : UIColor.veryLightGray
+                titleLabel?.font = (isLightColorAppSchema) ? UIFont.systemFont(ofSize: 12) : UIFont.ubuntuLightItalic09
+                borderColor = (isLightColorAppSchema) ? UIColor.black : UIColor.veryLightGray
+                
+                setAttributedTitle(NSAttributedString(string: titleText, attributes: [NSForegroundColorAttributeName: UIColor.veryLightGray]), for: .normal)
+                setAttributedTitle(NSAttributedString(string: titleText, attributes: [NSForegroundColorAttributeName: UIColor.veryLightGrayAlpha30]), for: .highlighted)
+
             default:
                 tintColor = (!isLightColorAppSchema) ? UIColor.black : UIColor.yellow
                 titleLabel?.font = (!isLightColorAppSchema) ? UIFont.systemFont(ofSize: 12) : UIFont.ubuntuLightItalic09
@@ -55,11 +64,13 @@ import UIKit
                 setAttributedTitle(NSAttributedString(string: titleText, attributes: [NSForegroundColorAttributeName: UIColor.lightGrayishCyan]), for: .normal)
                 setAttributedTitle(NSAttributedString(string: titleText, attributes: [NSForegroundColorAttributeName: UIColor.lightGrayishCyanAlpha30]), for: .highlighted)
             }
-            
+
+
             layer.borderWidth = 1
             layer.cornerRadius = frame.height / 2
             titleEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 0)
             clipsToBounds = true
+            sizeToFit()
         }
     }
 }

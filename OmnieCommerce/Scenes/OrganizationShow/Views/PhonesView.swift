@@ -98,7 +98,7 @@ class PhonesView: CustomView {
     @IBAction func handlerPhoneButtonTap(_ sender: CustomButton) {
         let phone = "tel://";
         let str = sender.attributedTitle(for: .normal)?.string
-        let url = URL(string: phone + str!.trimmingCharacters(in: .whitespaces))
+        let url = URL(string: phone + str!.replacingOccurrences(of: " ", with: ""))
         
         guard url != nil else {
             return

@@ -18,7 +18,7 @@ extension Order {
 
     @NSManaged public var codeID: String
     @NSManaged public var comment: String?
-    @NSManaged public var dateEnd: String?
+    @NSManaged public var dateEnd: NSDate
     @NSManaged public var dateStart: NSDate
     @NSManaged public var discount: Float
     @NSManaged public var imageID: String?

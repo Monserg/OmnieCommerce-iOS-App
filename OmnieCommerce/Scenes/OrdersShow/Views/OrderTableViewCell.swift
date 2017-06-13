@@ -13,6 +13,8 @@ class OrderTableViewCell: UITableViewCell, DottedBorderViewBinding {
     // MARK: - Properties
     var orderID: String!
     
+    
+    // MARK: - Outlets
     @IBOutlet weak var organizationNameLabel: UbuntuLightVeryLightGrayLabel!
     @IBOutlet weak var serviceNameLabel: UbuntuLightItalicLightGrayishCyanLabel!
     @IBOutlet weak var dateLabel: UbuntuLightItalicLightGrayishCyanLabel!
@@ -58,8 +60,11 @@ extension OrderTableViewCell: ConfigureCell {
         organizationNameLabel.text = order.organizationName
         serviceNameLabel.text = order.serviceName
         dateLabel.text = (order.dateStart as Date).convertToString(withStyle: .DateDot)
-        stateButton.titleOriginal = order.status
+        selectionStyle = .none
         
+        // Modify state button
+        stateButton.titleOriginal = order.status
+
         if let imageID = order.imageID {
             organizationImageView.kf.setImage(with: ImageResource(downloadURL: imageID.convertToURL(withSize: .Small, inMode: .Get), cacheKey: "\(orderID)-\(imageID)"),
                                               placeholder: UIImage.init(named: "image-no-organization"),

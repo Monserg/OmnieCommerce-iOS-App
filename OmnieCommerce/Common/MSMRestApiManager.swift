@@ -50,6 +50,7 @@ enum RequestType {
     case userMakeNewOrder([String: Any], Bool)
     case userGetOrderByID([String: Any], Bool)
     case userGetOrdersList([String: Any], Bool)
+    case userAcceptOrderByID([String: Any], Bool)
     case userCancelOrderByID([String: Any], Bool)
     case userGetOrderTimeSheetForDay([String: Any], Bool)
     case userGetOrderPriceWithoutDiscount([String: Any], Bool)
@@ -267,6 +268,13 @@ enum RequestType {
                                                                         headers: headersExtended,
                                                                         parameters: (isBodyParams ? nil : params))
             
+        case .userAcceptOrderByID(let params, let isBodyParams):    return (method: .get,
+                                                                            apiStringURL: "/user/order/accept/",
+                                                                            body: (isBodyParams ? params : nil),
+                                                                            bodyType: .Default,
+                                                                            headers: headersExtended,
+                                                                            parameters: (isBodyParams ? nil : params))
+
         case .userCancelOrderByID(let params, let isBodyParams):    return (method: .get,
                                                                             apiStringURL: "/user/order/",
                                                                             body: (isBodyParams ? params : nil),

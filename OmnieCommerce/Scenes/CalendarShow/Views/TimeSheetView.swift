@@ -340,7 +340,12 @@ class TimeSheetView: UIView {
         case .ended:
             // Inform TimeSheetShowVC about change position
             orderTimesDidUpload()
-            handlerTimeSheetViewChangeFrameCompletion!()
+            
+            if (isOrderOwn) {
+                handlerTimeSheetViewChangeFrameCompletion!()
+            } else {
+                
+            }
             
         default:
             break

@@ -30,8 +30,8 @@ class OrdersShowViewController: BaseViewController {
     var dateEnd: String!
     var dateStart: String!
     var orderStatus: String = "ALL"
+    var selectedStatus: String = "ALL"
     var statuses = [DropDownValue]()
-    var calculatedDate = Date()
 
     var currentDate: Date! {
         didSet {
@@ -148,14 +148,15 @@ class OrdersShowViewController: BaseViewController {
             spinnerDidStart(view)
         }
         
-        let bodyParameters: [String: Any] = [ "limit": limit, "offset": offset, "status": orderStatus, "start": dateStart, "end": dateEnd ]
+        let bodyParameters: [String: Any] = [ "limit": limit, "offset": offset, "status": (orderStatus == "ALL" ? "" : orderStatus), "start": dateStart, "end": dateEnd ]
         let ordersRequestModel = OrdersShowModels.Orders.RequestModel(parameters: bodyParameters)
         interactor.ordersDidLoad(withRequestModel: ordersRequestModel)
     }
 
     func ordersListDidShow() {
         // Setting MSMTableViewControllerManager
-        let ordersList = CoreDataManager.instance.entitiesDidLoad(byName: "Order", andPredicateParameters: NSPredicate.init(format: "ANY lists.name == %@", "\(keyOrders)-\(orderStatus)"))
+        let listCode = (selectedStatus == "ALL") ? "\(keyOrders)-\(dateStart!)-\(dateEnd!)" : "\(keyOrders)-\(dateStart!)-\(dateEnd!)-\(selectedStatus)"
+        let ordersList = CoreDataManager.instance.entitiesDidLoad(byName: "Order", andPredicateParameters: NSPredicate.init(format: "ANY lists.name contains[c] %@", listCode))
         
         if let orders = ordersList as? [Order] {
             let _ = orders.map({ $0.cellIdentifier = "OrderTableViewCell"; $0.cellHeight = 96.0 })
@@ -202,16 +203,17 @@ class OrdersShowViewController: BaseViewController {
         smallTopBarView.setNeedsDisplay()
         smallTopBarView.circleView.setNeedsDisplay()
         orderStatusesButton.setNeedsDisplay()
+        _ = tableView.visibleCells.map { $0.setNeedsDisplay() }
     }
     
     
     // MARK: - Actions
     @IBAction func handlerPreviousButtonTap(_ sender: UIButton) {
-        calculatedDate = calculatedDate.previousMonth()
-        titleLabelDidUpload(withDate: calculatedDate)
+        currentDate = Calendar.current.date(byAdding: .day, value: -1, to: currentDate)
+        titleLabelDidUpload(withDate: currentDate)
 
         // Set Orders list period
-        dateStart = calculatedDate.convertToString(withStyle: .DateHyphen)
+        dateStart = currentDate.convertToString(withStyle: .DateHyphen)
         dateEnd = dateStart
         
         // Clear Orders list & run API
@@ -221,8 +223,8 @@ class OrdersShowViewController: BaseViewController {
     }
     
     @IBAction func handlerNextButtonTap(_ sender: UIButton) {
-        calculatedDate = calculatedDate.nextMonth()
-        titleLabelDidUpload(withDate: calculatedDate)
+        currentDate = Calendar.current.date(byAdding: .day, value: 1, to: currentDate)
+        titleLabelDidUpload(withDate: currentDate)
 
         // Set Orders list period
         dateStart = currentDate.convertToString(withStyle: .DateHyphen)
@@ -235,7 +237,7 @@ class OrdersShowViewController: BaseViewController {
     }
     
     @IBAction func handlerCalendarTitleButtonTap(_ sender: UIButton) {
-        self.router.navigateToOrderCalendarShowScene()
+//        self.router.navigateToOrderCalendarShowScene()
     }
     
     @IBAction func handlerOrderStatusesButtonTap(_ sender: DropDownButton) {
@@ -248,6 +250,7 @@ class OrdersShowViewController: BaseViewController {
             sender.itemsListDidHide(self.orderStatesDropDownTableView, inView: self.view)
             self.limit = Config.Constants.paginationLimit
             self.orderStatus = (item as! DropDownItem).name
+            self.selectedStatus = self.orderStatuses[Int((item as! DropDownItem).codeID)!]
             self.viewSettingsDidLoad()
         }
     }

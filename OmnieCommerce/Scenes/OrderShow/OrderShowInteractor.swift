@@ -15,6 +15,7 @@ import UIKit
 protocol OrderShowInteractorInput {
     func orderDidLoad(withRequestModel requestModel: OrderShowModels.OrderItem.RequestModel)
     func orderDidCreate(withRequestModel requestModel: OrderShowModels.OrderItem.RequestModel)
+    func orderDidAccept(withRequestModel requestModel: OrderShowModels.OrderItem.RequestModel)
     func orderDidCancel(withRequestModel requestModel: OrderShowModels.OrderItem.RequestModel)
     func totalPriceDidLoad(withRequestModel requestModel: OrderShowModels.TotalPrice.RequestModel)
 }
@@ -23,6 +24,7 @@ protocol OrderShowInteractorInput {
 protocol OrderShowInteractorOutput {
     func orderDidPrepareToShowLoad(fromResponseModel responseModel: OrderShowModels.OrderItem.ResponseModel)
     func orderDidPrepareToShowCreate(fromResponseModel responseModel: OrderShowModels.OrderItem.ResponseModel)
+    func orderDidPrepareToShowAccept(fromResponseModel responseModel: OrderShowModels.OrderItem.ResponseModel)
     func orderDidPrepareToShowCancel(fromResponseModel responseModel: OrderShowModels.OrderItem.ResponseModel)
     func totalPriceDidPrepareToShowLoad(fromResponseModel responseModel: OrderShowModels.TotalPrice.ResponseModel)
 }
@@ -50,6 +52,14 @@ class OrderShowInteractor: OrderShowInteractorInput {
         })
     }
     
+    func orderDidAccept(withRequestModel requestModel: OrderShowModels.OrderItem.RequestModel) {
+        MSMRestApiManager.instance.userRequestDidRun(.userAcceptOrderByID(requestModel.parameters, false), withHandlerResponseAPICompletion: { responseAPI in
+            // Pass the result to the Presenter
+            let orderResponseModel = OrderShowModels.OrderItem.ResponseModel(responseAPI: responseAPI)
+            self.presenter.orderDidPrepareToShowAccept(fromResponseModel: orderResponseModel)
+        })
+    }
+
     func orderDidCancel(withRequestModel requestModel: OrderShowModels.OrderItem.RequestModel) {
         MSMRestApiManager.instance.userRequestDidRun(.userCancelOrderByID(requestModel.parameters, false), withHandlerResponseAPICompletion: { responseAPI in
             // Pass the result to the Presenter
