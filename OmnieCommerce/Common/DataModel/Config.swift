@@ -12,6 +12,7 @@
 import UIKit
 import MapKit
 import AFNetworking
+import JTAppleCalendar
 
 enum ThemeDesign: String {
     case LightForUser   =   "LightForUser"
@@ -130,7 +131,8 @@ struct Config {
         
         static let dropDownCellHeight: CGFloat                  =   23.0
         static let paginationLimit: Int                         =   8
-        
+        static let firstDayOfWeek: DaysOfWeek                   =   .monday
+
         // FIXME: - DELETE AFTER TEST
         static let errorMessageViewHeight: CGFloat              =   14
     }

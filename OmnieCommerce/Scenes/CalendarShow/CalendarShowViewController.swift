@@ -229,7 +229,7 @@ class CalendarShowViewController: BaseViewController, CalendarShowViewController
                     self.timesheetVC!.timeSheet = timeSheet
                 
                     CoreDataManager.instance.didSaveContext()
-                    self.timesheetVC!.timeSheetItemsDidUpload()
+                    self.timesheetVC!.timeSheetTableViewDidLoad()
                 } else if let status = responseAPI?.body as? String {
                     self.alertViewDidShow(withTitle: "Error", andMessage: status, completion: {})
                 }

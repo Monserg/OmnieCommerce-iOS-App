@@ -39,6 +39,7 @@ class OrganizationShowViewController: BaseViewController {
     var backButton: UIButton?
     var wasLaunchedAPI = false
     
+    // MARK: - Outlets
     // Action buttons
     @IBOutlet weak var animationButton: FillColorButton!
     @IBOutlet weak var cardButton: FillColorButton!
@@ -173,6 +174,15 @@ class OrganizationShowViewController: BaseViewController {
 
         viewSettingsDidLoad()
     }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(true)
+        
+//        if (headerView != nil) {
+//            headerView!.isHidden = true
+//            smallTopBarView.isHidden = false
+//        }
+    }
 
 
     // MARK: - Custom Functions
@@ -273,7 +283,7 @@ class OrganizationShowViewController: BaseViewController {
         smallTopBarView.titleText = organizationProfile.name
 
         // Parallax Header view
-        if let headerID = organizationProfile.headerID {
+        if let headerID = organizationProfile.headerID, headerView == nil {
             headerView = HeaderImageView.init(frame: CGRect.init(origin: .zero, size: CGSize.init(width: view.frame.width, height: view.frame.width / 1.6)))
             smallTopBarView.actionButton.isHidden = true
             headerBackButton.isHidden = false
@@ -423,7 +433,7 @@ class OrganizationShowViewController: BaseViewController {
             let galleryManager = MSMCollectionViewControllerManager(withCollectionView: galleryCollectionView)
             galleryCollectionView.collectionViewControllerManager = galleryManager
             galleryCollectionView.collectionViewControllerManager!.sectionsCount = 1
-            _ = organizationProfile.images!.map { ($0 as! GalleryImage).cellHeight = 102.0 }
+            _ = organizationProfile.images!.map { ($0 as! GalleryImage).cellHeight = galleryView.frame.height * 0.7; ($0 as! GalleryImage).cellIdentifier = "CirclePhotoCollectionViewCell" }
             galleryCollectionView.collectionViewControllerManager!.dataSource = Array(organizationProfile.images!)
             galleryCollectionView.reloadData()
             

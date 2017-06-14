@@ -33,7 +33,6 @@ public class TimeSheetItem: NSManagedObject, InitCellParameters {
     var cellHeight: CGFloat = 45.0
 
     
-    
     // MARK: - Custom Functions
     func profileDidUpload(json: [String: AnyObject], andTimeSheet timesheet: TimeSheet) {
         // Prepare to save data

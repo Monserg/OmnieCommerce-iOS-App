@@ -14,7 +14,7 @@
         <!--Organization Show View Controller-->
         <scene sceneID="41q-Km-ZsM">
             <objects>
-                <viewController storyboardIdentifier="OrganizationShowVC" id="9s1-kT-Mzo" customClass="OrganizationShowViewController" customModule="OmnieCommerce" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="OrganizationShowVC" automaticallyAdjustsScrollViewInsets="NO" id="9s1-kT-Mzo" customClass="OrganizationShowViewController" customModule="OmnieCommerce" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="HJY-HG-h1S"/>
                         <viewControllerLayoutGuide type="bottom" id="eXh-Vn-p6K"/>
@@ -954,6 +954,7 @@
                             </mask>
                         </variation>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" id="M2x-tJ-1Sm"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <nil key="simulatedTopBarMetrics"/>
@@ -992,6 +993,7 @@
                         <outlet property="scheduleButton" destination="UDa-VG-95i" id="Sae-W4-HCN"/>
                         <outlet property="scheduleImageView" destination="k28-Ea-thl" id="agP-re-nWg"/>
                         <outlet property="scrollView" destination="4G7-UZ-bMP" id="Var-lP-9cV"/>
+                        <outlet property="scrollViewTopConstraint" destination="X0Z-7H-RjF" id="bim-MT-ivp"/>
                         <outlet property="servicesButtonView" destination="sig-WZ-mo7" id="j0Q-aS-OhO"/>
                         <outlet property="servicesTableView" destination="n8Y-9T-VbL" id="jSc-uS-bUf"/>
                         <outlet property="servicesTableViewHeightConstraint" destination="CHJ-1w-BSh" id="M0s-iI-9Ez"/>

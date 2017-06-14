@@ -19,7 +19,12 @@ class TimeSheetView: UIView {
     var startPosition = CGPoint.zero
     var originalHeight: CGFloat = 0
     var isResizeDown = true
-    var isOrderOwn = false
+    
+    var isOrderOwn = false {
+        didSet {
+            gestureMode = (isOrderOwn) ? .OrderMove : .OrderPreview
+        }
+    }
 
     var gestureMode = TimeSheetViewMode.OrderMove {
         willSet {
@@ -31,7 +36,8 @@ class TimeSheetView: UIView {
                 contentView.backgroundColor = UIColor.init(hexString: "#a1e2e3", withAlpha: 1.0)
                 
             default:
-                contentView.backgroundColor = UIColor.veryLightGray
+                contentView.backgroundColor = UIColor.darkCyan
+                isUserInteractionEnabled = false
             }
         }
     }
@@ -56,7 +62,7 @@ class TimeSheetView: UIView {
         // Init from XIB
         UINib(nibName: String(describing: TimeSheetView.self), bundle: Bundle(for: TimeSheetView.self)).instantiate(withOwner: self, options: nil)
         view.frame = CGRect.init(origin: CGPoint.zero, size: frame.size)
-        gestureMode = .OrderMove
+        gestureMode = .OrderPreview
         _ = upDownButtonsCollection.map{ $0.isHidden = true }
         originalHeight = frame.height
         addSubview(view)
@@ -79,36 +85,36 @@ class TimeSheetView: UIView {
     
     
     // MARK: - Class Functions
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        print(object: "\(#file): \(#function) run in [line \(#line)]")
-        
-        let tableView = superview as! UITableView
-        tableView.isScrollEnabled = false
-        
-        let touch = touches.first!
-        startPosition = touch.location(in: self)
-        
-        isResizeDown = (startPosition.y >= frame.height / 2) ? true : false
-    }
-    
-    //    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-    //        print(#function, #line)
-    //
-    //        // Change view height by gesture
-    //        let touch = touches.first!
-    //        let endPosition = touch.location(in: self)
-    //        let difference = endPosition.y - startPosition.y
-    //        let newFrame = CGRect.init(x: frame.origin.x, y: frame.origin.y, width: frame.width, height: originalHeight + difference)
-    //
-    //        frame = newFrame
-    //    }
-    
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        print(object: "\(#file): \(#function) run in [line \(#line)]")
-        
-        let tableView = superview as! UITableView
-        tableView.isScrollEnabled = true
-    }
+//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        print(object: "\(#file): \(#function) run in [line \(#line)]")
+//        
+////        let tableView = superview as! UITableView
+////        tableView.isScrollEnabled = false
+//        
+//        let touch = touches.first!
+//        startPosition = touch.location(in: self)
+//        
+//        isResizeDown = (startPosition.y >= frame.height / 2) ? true : false
+//    }
+//    
+//    //    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+//    //        print(#function, #line)
+//    //
+//    //        // Change view height by gesture
+//    //        let touch = touches.first!
+//    //        let endPosition = touch.location(in: self)
+//    //        let difference = endPosition.y - startPosition.y
+//    //        let newFrame = CGRect.init(x: frame.origin.x, y: frame.origin.y, width: frame.width, height: originalHeight + difference)
+//    //
+//    //        frame = newFrame
+//    //    }
+//    
+//    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        print(object: "\(#file): \(#function) run in [line \(#line)]")
+//        
+//        let tableView = superview as! UITableView
+//        tableView.isScrollEnabled = true
+//    }
     
     
     // MARK: - Custom Functions

@@ -271,8 +271,7 @@ class OrganizationsShowViewController: BaseViewController {
                                                                         andPredicateParameters: NSPredicate(format: "ANY lists.name == %@", "\(keyServices)-\(category!.codeID)-\(keyList!)"))
                 
         if let servicesList = servicesEntities as? [Service] {
-            let servicesListSorted = servicesList.sorted {( $0.start! as Date) < ($1.start! as Date) }
-            services = servicesListSorted
+            services = servicesList //servicesListSorted
             
             tableView.tableViewControllerManager!.dataSource = services
             tableView!.tableFooterView!.isHidden = (services.count > 0) ? true : false

@@ -8,9 +8,26 @@
 
 import Foundation
 
-struct TimeSheetCell: InitCellParameters {
-    let start: String
-    let end: String
+class TimeSheetCell: NSObject, InitCellParameters {
+    // MARK: - Properties
+    var start: String!
+    var end: String!
+    
+    
+    // MARK: - Class Initialization
+    init(start: String, end: String, height: CGFloat) {
+        super.init()
+        
+        self.start = start
+        self.end = end
+        self.cellIdentifier = "TimeSheetTableViewCell"
+        self.cellHeight = height
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     
     // Confirm to InitCellParameters protocol
     var cellIdentifier = "TimeSheetTableViewCell"

@@ -13,8 +13,6 @@ class CalendarViewController: BaseViewController {
     // MARK: - Properties
     typealias HandlerSelectNewDateCompletion = ((_ newDate: Date) -> ())
 
-    let firstDayOfWeek: DaysOfWeek = .monday
-
     var handlerSelectNewDateCompletion: HandlerSelectNewDateCompletion?
 
     
@@ -69,7 +67,7 @@ class CalendarViewController: BaseViewController {
         var count: Int = 0
         
         for (index, weekdaySymbol) in dateFormatter.shortStandaloneWeekdaySymbols.enumerated() {
-            if (index < firstDayOfWeek.rawValue - 1) {
+            if (index < Config.Constants.firstDayOfWeek.rawValue - 1) {
                 weekdaySymbols.append(weekdaySymbol)
             } else {
                 weekdaySymbols.insert(weekdaySymbol, at: count)
@@ -133,7 +131,7 @@ extension CalendarViewController: JTAppleCalendarViewDataSource {
                                                  calendar: Calendar.current,
                                                  generateInDates: .forAllMonths,
                                                  generateOutDates: .tillEndOfGrid,
-                                                 firstDayOfWeek: firstDayOfWeek)
+                                                 firstDayOfWeek: Config.Constants.firstDayOfWeek)
         
         return parameters
     }

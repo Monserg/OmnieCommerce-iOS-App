@@ -17,7 +17,7 @@ public class Schedule: NSManagedObject, InitCellParameters {
 
     
     // MARK: - Class Initialization
-    convenience init(codeID: String, name: String, day: UInt16, workTimeStart: String!, workTimeEnd: String!, launchTimeStart: String?, launchTimeEnd: String?, organization: Organization?) {
+    convenience init(codeID: String, name: String, day: UInt16, workTimeStart: String!, workTimeEnd: String!, launchTimeStart: String?, launchTimeEnd: String?, organization: Organization?, organizationID: String) {
         // Create Entity
         self.init(entity: CoreDataManager.instance.entityForName("Schedule")!, insertInto: CoreDataManager.instance.managedObjectContext)
 
@@ -29,6 +29,7 @@ public class Schedule: NSManagedObject, InitCellParameters {
         self.launchTimeStart = launchTimeStart
         self.launchTimeEnd = launchTimeEnd
         self.organization = organization
+        self.organizationID = organizationID
     }
 
     convenience init?(json: [String: AnyObject], andOrganization organization: Organization) {
@@ -68,12 +69,13 @@ public class Schedule: NSManagedObject, InitCellParameters {
         if (self.launchTimeStart != nil) {
             let _ = Schedule.init(codeID: self.codeID + "-launch",
                                   name: "Lunch break".localized(),
-                                  day: 0,
+                                  day: day,
                                   workTimeStart: self.launchTimeStart!,
                                   workTimeEnd: self.launchTimeEnd!,
-                                  launchTimeStart: nil,
-                                  launchTimeEnd: nil,
-                                  organization: organization)
+                                  launchTimeStart: self.launchTimeStart!,
+                                  launchTimeEnd: self.launchTimeEnd!,
+                                  organization: organization,
+                                  organizationID: self.organizationID ?? organization.codeID)
         }
     }
     

@@ -18,12 +18,12 @@ class CurrentTimeLineView: UIView {
     
     
     // MARK: - Custom Functions
-    func didMoveToNewPosition(inTableView tableView: UITableView, withCellHeight cellHeight: CGFloat, andAnimation animation: Bool) {
+    func didMoveToNewPosition(inTableView tableView: UITableView, withCellHeight cellHeight: CGFloat, withScale scale: CGFloat, andAnimation animation: Bool) {
         let workedOutHours = Date().dateComponents().hour!
         let workedOutMinutes = Date().dateComponents().minute!
         
         let newPosition = CGPoint.init(x: self.frame.minX,
-                                       y: CGFloat(workedOutHours) * cellHeight + CGFloat(workedOutMinutes) * cellHeight / 60 - self.frame.height / 2)
+                                       y: (CGFloat(workedOutHours) * cellHeight + CGFloat(workedOutMinutes) * cellHeight / 60 - self.frame.height / 2 + 10.0) * scale)
         
         UIView.animate(withDuration: (animation) ? 0.5 : 0,
                        delay: 0,
