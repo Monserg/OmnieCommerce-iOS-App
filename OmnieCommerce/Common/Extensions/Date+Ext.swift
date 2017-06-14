@@ -173,17 +173,17 @@ extension Date {
         return startTime + " - " + currentTime
     }
     
-    func didShow(timePointer: TimePointer, inTableView tableView: UITableView, withCellHeight cellHeight: CGFloat) -> Bool {
+    func didShow(timeLineView: CurrentTimeLineView, inTableView tableView: UITableView, withCellHeight cellHeight: CGFloat) -> Bool {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "HH dd.MM.yyyy"
         
         if (dateFormatter.string(from: self) == dateFormatter.string(from: Date())) {
             // Initialization
-            if (timePointer.frame.minY == 0) {
-                tableView.addSubview(timePointer)
-                timePointer.didMoveToNewPosition(inTableView: tableView, withCellHeight: cellHeight, andAnimation: false)
+            if (timeLineView.frame.minY == 0) {
+                tableView.addSubview(timeLineView)
+                timeLineView.didMoveToNewPosition(inTableView: tableView, withCellHeight: cellHeight, andAnimation: false)
             } else {
-                timePointer.didMoveToNewPosition(inTableView: tableView, withCellHeight: cellHeight, andAnimation: true)
+                timeLineView.didMoveToNewPosition(inTableView: tableView, withCellHeight: cellHeight, andAnimation: true)
             }
             
             return true

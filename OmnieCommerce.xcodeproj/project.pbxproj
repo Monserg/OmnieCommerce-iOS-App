@@ -213,7 +213,6 @@
 		B14B8DDE1EBB723C00B29511 /* CustomTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14B8DDD1EBB723C00B29511 /* CustomTimer.swift */; };
 		B14B8DE41EBB724B00B29511 /* TimeSheetTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B14B8DE01EBB724B00B29511 /* TimeSheetTableViewCell.xib */; };
 		B14B8DE61EBB724B00B29511 /* TimeSheetView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B14B8DE21EBB724B00B29511 /* TimeSheetView.xib */; };
-		B14B8DE81EBB725A00B29511 /* TimerPointer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14B8DE71EBB725A00B29511 /* TimerPointer.swift */; };
 		B14B8DEA1EBB748200B29511 /* TimeSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14B8DE91EBB748200B29511 /* TimeSheetViewController.swift */; };
 		B14B8DED1EBB756C00B29511 /* TimeSheetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14B8DEB1EBB756C00B29511 /* TimeSheetTableViewCell.swift */; };
 		B14B8DF01EBB760C00B29511 /* TimeSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14B8DEF1EBB760C00B29511 /* TimeSheetView.swift */; };
@@ -247,6 +246,7 @@
 		B14D1D701E5CB70D00D33435 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B14D1D6F1E5CB70D00D33435 /* AddressBook.framework */; };
 		B14D1D721E5CB79200D33435 /* SwiftyVK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B14D1D711E5CB79200D33435 /* SwiftyVK.framework */; };
 		B14D1D741E5CB8B000D33435 /* SocialNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14D1D731E5CB8B000D33435 /* SocialNetworkManager.swift */; };
+		B14DA4DF1EF1002200493EA6 /* CurrentTimeLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14DA4DE1EF1002200493EA6 /* CurrentTimeLineView.swift */; };
 		B14E97481DD8B042001E1DE2 /* SignInShowConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14E97411DD8B042001E1DE2 /* SignInShowConfigurator.swift */; };
 		B14E97491DD8B042001E1DE2 /* SignInShowInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14E97421DD8B042001E1DE2 /* SignInShowInteractor.swift */; };
 		B14E974A1DD8B042001E1DE2 /* SignInShowModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14E97431DD8B042001E1DE2 /* SignInShowModels.swift */; };
@@ -779,8 +779,7 @@
 		B14B8DDD1EBB723C00B29511 /* CustomTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTimer.swift; sourceTree = "<group>"; };
 		B14B8DE01EBB724B00B29511 /* TimeSheetTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimeSheetTableViewCell.xib; sourceTree = "<group>"; };
 		B14B8DE21EBB724B00B29511 /* TimeSheetView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimeSheetView.xib; sourceTree = "<group>"; };
-		B14B8DE71EBB725A00B29511 /* TimerPointer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerPointer.swift; sourceTree = "<group>"; };
-		B14B8DE91EBB748200B29511 /* TimeSheetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimeSheetViewController.swift; path = ../../Scenes/CalendarShow/UIViewControllers/TimeSheetViewController.swift; sourceTree = "<group>"; };
+		B14B8DE91EBB748200B29511 /* TimeSheetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeSheetViewController.swift; sourceTree = "<group>"; };
 		B14B8DEB1EBB756C00B29511 /* TimeSheetTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeSheetTableViewCell.swift; sourceTree = "<group>"; };
 		B14B8DEF1EBB760C00B29511 /* TimeSheetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeSheetView.swift; sourceTree = "<group>"; };
 		B14B8DF11EBB880F00B29511 /* TimeSheetItem+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TimeSheetItem+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -814,6 +813,7 @@
 		B14D1D6F1E5CB70D00D33435 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		B14D1D711E5CB79200D33435 /* SwiftyVK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SwiftyVK.framework; sourceTree = "<group>"; };
 		B14D1D731E5CB8B000D33435 /* SocialNetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialNetworkManager.swift; sourceTree = "<group>"; };
+		B14DA4DE1EF1002200493EA6 /* CurrentTimeLineView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentTimeLineView.swift; sourceTree = "<group>"; };
 		B14E97411DD8B042001E1DE2 /* SignInShowConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInShowConfigurator.swift; sourceTree = "<group>"; };
 		B14E97421DD8B042001E1DE2 /* SignInShowInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInShowInteractor.swift; sourceTree = "<group>"; };
 		B14E97431DD8B042001E1DE2 /* SignInShowModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInShowModels.swift; sourceTree = "<group>"; };
@@ -1701,7 +1701,6 @@
 		B122F23F1DD371830018A701 /* UINavigationControllers */ = {
 			isa = PBXGroup;
 			children = (
-				B14B8DE91EBB748200B29511 /* TimeSheetViewController.swift */,
 				B122F2401DD371B30018A701 /* BaseNavigationController.swift */,
 			);
 			path = UINavigationControllers;
@@ -1875,14 +1874,14 @@
 			isa = PBXGroup;
 			children = (
 				B1A1F7261EE2DBD9009B742A /* CalendarDayCell.swift */,
+				B14DA4DE1EF1002200493EA6 /* CurrentTimeLineView.swift */,
 				B14B8DDD1EBB723C00B29511 /* CustomTimer.swift */,
+				B1A7BA501EE558060092E431 /* TimeSheetPickersView.swift */,
+				B1A7BA521EE558120092E431 /* TimeSheetPickersView.xib */,
 				B14B8DEB1EBB756C00B29511 /* TimeSheetTableViewCell.swift */,
 				B14B8DE01EBB724B00B29511 /* TimeSheetTableViewCell.xib */,
 				B14B8DEF1EBB760C00B29511 /* TimeSheetView.swift */,
 				B14B8DE21EBB724B00B29511 /* TimeSheetView.xib */,
-				B14B8DE71EBB725A00B29511 /* TimerPointer.swift */,
-				B1A7BA501EE558060092E431 /* TimeSheetPickersView.swift */,
-				B1A7BA521EE558120092E431 /* TimeSheetPickersView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -2197,6 +2196,7 @@
 			isa = PBXGroup;
 			children = (
 				B19DF2831DF94DCD000AFC92 /* CalendarViewController.swift */,
+				B14B8DE91EBB748200B29511 /* TimeSheetViewController.swift */,
 			);
 			path = UIViewControllers;
 			sourceTree = "<group>";
@@ -3038,7 +3038,6 @@
 				B122F2251DD35CC80018A701 /* SlideMenuShowPresenter.swift in Sources */,
 				B14E975C1DD8B052001E1DE2 /* SignUpShowWorker.swift in Sources */,
 				B1CF54D81DDB51BE00E98049 /* SettingsShowConfigurator.swift in Sources */,
-				B14B8DE81EBB725A00B29511 /* TimerPointer.swift in Sources */,
 				B18FBB0B1ED004CD0037804C /* Handbook+CoreDataClass.swift in Sources */,
 				B13F4E3A1ED55BB700455604 /* DiscountCardShowConfigurator.swift in Sources */,
 				B13F4E301ED5533300455604 /* DiscountCard+CoreDataClass.swift in Sources */,
@@ -3131,6 +3130,7 @@
 				B14C07201EA0993800556866 /* ServicesShowModels.swift in Sources */,
 				B1CF54791DDB50D900E98049 /* AboutShowPresenter.swift in Sources */,
 				B13F4E751ED5880E00455604 /* DiscountCardCreateRouter.swift in Sources */,
+				B14DA4DF1EF1002200493EA6 /* CurrentTimeLineView.swift in Sources */,
 				B1E209A71ECA15C400B0226F /* OrderCalendarShowViewController.swift in Sources */,
 				B122F1F71DD35BC70018A701 /* FavoriteShowConfigurator.swift in Sources */,
 				B177E53A1E5475EC004F1390 /* SignInContainerShowWorker.swift in Sources */,

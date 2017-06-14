@@ -27,10 +27,10 @@
                         </userDefinedRuntimeAttributes>
                     </view>
                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wKV-uc-uww" userLabel="Top Dotted View">
-                        <rect key="frame" x="8" y="0.0" width="359" height="2"/>
+                        <rect key="frame" x="60" y="9" width="307" height="2"/>
                         <subviews>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f3g-GN-fsT" userLabel="Dotted Line View" customClass="DottedBorderView" customModule="OmnieCommerce" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="359" height="2"/>
+                                <rect key="frame" x="0.0" y="0.0" width="307" height="2"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
@@ -51,8 +51,11 @@
                         </userDefinedRuntimeAttributes>
                     </view>
                     <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4yb-uQ-m57" userLabel="Time Label" customClass="UbuntuLightVeryLightGrayLabel" customModule="OmnieCommerce" customModuleProvider="target">
-                        <rect key="frame" x="8" y="12.5" width="52" height="19.5"/>
+                        <rect key="frame" x="8" y="0.0" width="52" height="19.5"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="Kqc-5v-W6Y"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <color key="textColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
@@ -60,58 +63,18 @@
                             <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
                         </userDefinedRuntimeAttributes>
                     </label>
-                    <view hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xp1-dF-qwx" userLabel="Current Time Line View">
-                        <rect key="frame" x="60" y="0.0" width="299" height="1"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="1" id="rp5-s9-Ekh"/>
-                        </constraints>
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
-                        </userDefinedRuntimeAttributes>
-                    </view>
-                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eHE-Qt-zRG" userLabel="Bottom Dotted View">
-                        <rect key="frame" x="8" y="33.5" width="359" height="10"/>
-                        <subviews>
-                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6bW-ZB-aGY" userLabel="Dotted Line View" customClass="DottedBorderView" customModule="OmnieCommerce" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="359" height="10"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="viewStyle" value="BottomDottedLine"/>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="6bW-ZB-aGY" secondAttribute="trailing" id="3V1-b7-Xwt"/>
-                            <constraint firstItem="6bW-ZB-aGY" firstAttribute="leading" secondItem="eHE-Qt-zRG" secondAttribute="leading" id="Ai1-Zd-5m3"/>
-                            <constraint firstItem="6bW-ZB-aGY" firstAttribute="top" secondItem="eHE-Qt-zRG" secondAttribute="top" id="Dpa-ay-Xp8"/>
-                            <constraint firstAttribute="height" constant="10" id="Z8S-gh-CwJ"/>
-                            <constraint firstAttribute="bottom" secondItem="6bW-ZB-aGY" secondAttribute="bottom" id="dg7-nr-ZTt"/>
-                        </constraints>
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
-                        </userDefinedRuntimeAttributes>
-                    </view>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 <constraints>
-                    <constraint firstItem="wKV-uc-uww" firstAttribute="top" secondItem="4KM-0u-qp9" secondAttribute="top" id="1bK-Ii-gK6"/>
                     <constraint firstAttribute="trailing" secondItem="wKV-uc-uww" secondAttribute="trailing" constant="8" id="53h-Dx-S82"/>
-                    <constraint firstAttribute="trailing" secondItem="xp1-dF-qwx" secondAttribute="trailing" constant="16" id="6Ni-xV-VKc"/>
                     <constraint firstAttribute="trailing" secondItem="7NY-2Y-TLO" secondAttribute="trailing" id="7SD-H5-QmZ"/>
+                    <constraint firstItem="4yb-uQ-m57" firstAttribute="top" secondItem="4KM-0u-qp9" secondAttribute="top" id="7e3-2Q-Bbh"/>
+                    <constraint firstItem="wKV-uc-uww" firstAttribute="leading" secondItem="4KM-0u-qp9" secondAttribute="leading" constant="60" id="9bU-GM-4Bv"/>
                     <constraint firstAttribute="bottom" secondItem="7NY-2Y-TLO" secondAttribute="bottom" id="9ia-Ao-JgK"/>
-                    <constraint firstAttribute="trailing" secondItem="eHE-Qt-zRG" secondAttribute="trailing" constant="8" id="9nc-i7-Zmt"/>
-                    <constraint firstItem="xp1-dF-qwx" firstAttribute="top" secondItem="4KM-0u-qp9" secondAttribute="top" priority="250" id="NJ6-mW-ul9"/>
-                    <constraint firstItem="wKV-uc-uww" firstAttribute="leading" secondItem="4KM-0u-qp9" secondAttribute="leading" constant="8" id="Pmz-n8-d4L"/>
                     <constraint firstItem="7NY-2Y-TLO" firstAttribute="leading" secondItem="4KM-0u-qp9" secondAttribute="leading" id="YE4-Eo-6D8"/>
-                    <constraint firstAttribute="bottom" secondItem="eHE-Qt-zRG" secondAttribute="bottom" id="ZES-Pq-MXT"/>
                     <constraint firstItem="7NY-2Y-TLO" firstAttribute="top" secondItem="4KM-0u-qp9" secondAttribute="top" id="enW-RN-osw"/>
-                    <constraint firstItem="4yb-uQ-m57" firstAttribute="centerY" secondItem="4KM-0u-qp9" secondAttribute="centerY" id="ewh-kN-mc7"/>
+                    <constraint firstItem="4yb-uQ-m57" firstAttribute="centerY" secondItem="wKV-uc-uww" secondAttribute="centerY" id="m1O-d4-mTg"/>
                     <constraint firstItem="4yb-uQ-m57" firstAttribute="leading" secondItem="4KM-0u-qp9" secondAttribute="leading" constant="8" id="qnP-rf-Wbq"/>
-                    <constraint firstItem="eHE-Qt-zRG" firstAttribute="leading" secondItem="4KM-0u-qp9" secondAttribute="leading" constant="8" id="srz-rh-N9C"/>
-                    <constraint firstItem="xp1-dF-qwx" firstAttribute="leading" secondItem="4yb-uQ-m57" secondAttribute="trailing" priority="750" id="uas-Ni-4S9"/>
                 </constraints>
                 <userDefinedRuntimeAttributes>
                     <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
@@ -125,8 +88,6 @@
                 <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
             </userDefinedRuntimeAttributes>
             <connections>
-                <outlet property="bottomDottedLineView" destination="6bW-ZB-aGY" id="nDF-IX-LUn"/>
-                <outlet property="currentTimeLineView" destination="xp1-dF-qwx" id="LOw-F5-QYI"/>
                 <outlet property="timeLabel" destination="4yb-uQ-m57" id="bll-Pg-y2u"/>
                 <outlet property="topDottedLineView" destination="f3g-GN-fsT" id="r23-e9-mr1"/>
             </connections>

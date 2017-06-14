@@ -45,7 +45,7 @@ class TimeSheetViewController: BaseViewController {
     
     
     // MARK: - Outlets
-    @IBOutlet weak var currentTimeLine: TimePointer!
+    @IBOutlet weak var currentTimeLine: CurrentTimeLineView!
     @IBOutlet weak var titleLabel: UbuntuLightVeryLightGrayLabel!
 
     @IBOutlet weak var tableView: MSMTableView! {
@@ -57,6 +57,16 @@ class TimeSheetViewController: BaseViewController {
     
     
     // MARK: - Class Functions
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        self.view.layoutIfNeeded()
+        
+        currentTimeLine.draw(fromPoint: 60.0,
+                                          withFinishOffset: 8.0, //(size.width > size.height) ? -8.0 : 16.0,
+                                          andNewSize: CGSize.init(width: tableView.frame.width, height: 20.0))
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -109,7 +119,7 @@ class TimeSheetViewController: BaseViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         
-        timePointerDidLoad()
+        timeLineViewDidLoad()
         timeSheetItemsDidUpload()
     }
     
@@ -125,31 +135,37 @@ class TimeSheetViewController: BaseViewController {
     
     
     // MARK: - Custom Functions
-    func timePointerDidLoad() {
+    func timeLineViewDidLoad() {
         selectedDateDidUpload()
 
         // Start position
-        currentTimeLine.frame = CGRect.init(origin: CGPoint.init(x: 60.0, y: 0.0), size: CGSize.init(width: tableView.frame.width - (60.0 + 8.0), height: 15.0))
-        currentTimeLine.isHidden = false
-        
-        _ = Date().didShow(timePointer: currentTimeLine, inTableView: tableView, withCellHeight: cellHeight)
-        let topRowIndex = Calendar.current.dateComponents([.hour], from: Date()).hour! - 2
-        
-        if ((period.dateStart as Date).isActiveToday()) {
-            self.tableView.scrollToRow(at: IndexPath.init(row: topRowIndex, section: 0), at: .top, animated: true)
-        }
-        
-        // Setup Timer
-        timer.start()
-        
-        timer.handlerTimerActionCompletion = { counter in
-            self.print(object: "timerPointer move to new position")
+        if ((period.dateStart as Date).isActiveToday() && !currentTimeLine.isShow) {
+            currentTimeLine.frame = CGRect.init(origin: CGPoint.init(x: 60.0, y: 0.0), size: CGSize.init(width: tableView.frame.width - (60.0 + 8.0), height: 20.0))
+            _ = Date().didShow(timeLineView: currentTimeLine, inTableView: tableView, withCellHeight: cellHeight)
             
-            if ((period.dateStart as Date).didShow(timePointer: self.currentTimeLine, inTableView: self.tableView, withCellHeight: self.cellHeight)) {
-                self.currentTimeLine.didMoveToNewPosition(inTableView: self.tableView, withCellHeight: self.cellHeight, andAnimation: true)
-            } else {
-                self.timer.stop()
+            let topRowIndex = Calendar.current.dateComponents([.hour], from: Date()).hour! - 2
+            
+            if ((period.dateStart as Date).isActiveToday()) {
+                self.tableView.scrollToRow(at: IndexPath.init(row: topRowIndex, section: 0), at: .top, animated: true)
             }
+            
+            // Setup Timer
+            timer.start()
+            currentTimeLine.isShow = true
+            
+            timer.handlerTimerActionCompletion = { counter in
+                self.print(object: "timerLineView move to new position")
+                
+                if ((period.dateStart as Date).didShow(timeLineView: self.currentTimeLine, inTableView: self.tableView, withCellHeight: self.cellHeight)) {
+                    self.currentTimeLine.didMoveToNewPosition(inTableView: self.tableView, withCellHeight: self.cellHeight, andAnimation: true)
+                } else {
+                    self.timer.stop()
+                }
+            }
+        } else if !((period.dateStart as Date).isActiveToday()) {
+            currentTimeLine.removeFromSuperview()
+            currentTimeLine.isShow = false
+            timer.stop()
         }
     }
     
@@ -202,7 +218,7 @@ class TimeSheetViewController: BaseViewController {
             timeSheetViews.append(closeTimeSheetView)
             
             tableView.reloadData()
-            timePointerDidLoad()
+            timeLineViewDidLoad()
         }
     }
     
@@ -328,6 +344,8 @@ class TimeSheetViewController: BaseViewController {
             period.propertiesDidClear(withDate: false)
             timeSheetViewsDidRemove()
             period.dateStart = Calendar.current.date(byAdding: .day, value: -1, to: period.dateStart as Date)! as NSDate
+            timer.stop()
+            currentTimeLine.removeFromSuperview()
         }
 
         selectedDateDidUpload()
@@ -345,28 +363,4 @@ class TimeSheetViewController: BaseViewController {
         
         handlerShowTimeSheetPickersCompletion!(false)
     }
-
-    
-    // MARK: - Transition
-    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        timeSheetView?.draw(fromPoint: 85, withFinishOffset: 8, andNewSize: size)
-        currentTimeLine.draw(fromPoint: 60, withFinishOffset: 8, andNewSize: size)
-        handlerShowTimeSheetPickersCompletion!(false)
-    }
 }
-
-
-// FIXME: - DELETE!!!
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return organization.workTimeDuration
-//    }
-//    
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let scheduleCell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! ScheduleTableViewCell
-//        
-//        // Setup cell
-//        scheduleCell.setup(forRow: indexPath, withOrganization: organization, andService: service)
-//        
-//        return scheduleCell
-//    }
-

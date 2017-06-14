@@ -11,7 +11,6 @@ import UIKit
 class TimeSheetTableViewCell: UITableViewCell {
     // MARK: - Outlets
     @IBOutlet weak var timeLabel: UILabel!
-    @IBOutlet weak var currentTimeLineView: UIView!
     
     @IBOutlet weak var topDottedLineView: DottedBorderView! {
         didSet {
@@ -43,7 +42,7 @@ extension TimeSheetTableViewCell: ConfigureCell {
         let timeSheetCell = item as! TimeSheetCell
         
         timeLabel.text = timeSheetCell.start
-        topDottedLineView.isHidden = (indexPath.row == 0) ? false : true
+//        topDottedLineView.isHidden = (indexPath.row == 0) ? false : true
         selectionStyle = .none
     }
 }

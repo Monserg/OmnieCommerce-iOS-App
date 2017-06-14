@@ -139,7 +139,7 @@ class TimeSheetView: UIView {
         // Verify current time
         for subview in (superview?.subviews)! as [UIView] {
             // Verify TimePointer time
-            if (subview is TimePointer && (period.dateStart as Date).isActiveToday()) {
+            if (subview is CurrentTimeLineView && (period.dateStart as Date).isActiveToday()) {
                 if (self.frame.minY <= subview.frame.midY) {
                     self.frame = CGRect.init(origin: CGPoint.init(x: self.frame.minX, y: subview.frame.midY),
                                              size: self.frame.size)
