@@ -19,15 +19,15 @@ class CurrentTimeLineView: UIView {
     
     // MARK: - Custom Functions
     func didMoveToNewPosition(inTableView tableView: UITableView, withCellHeight cellHeight: CGFloat, withScale scale: CGFloat, andAnimation animation: Bool) {
-        let workedOutHours = Date().dateComponents().hour!
-        let workedOutMinutes = Date().dateComponents().minute!
+        let currentTimeHour = Date().dateComponents().hour!
+        let currentTimeMinute = Date().dateComponents().minute!
         
-        guard Int(period.workHourStart) > workedOutHours else {
+        guard Int(period.workHourStart) <= currentTimeHour else {
             return
         }
         
         let newPosition = CGPoint.init(x: self.frame.minX,
-                                       y: (CGFloat(workedOutHours - Int(period.workHourStart)) * cellHeight + CGFloat(workedOutMinutes) * cellHeight / 60 - self.frame.height / 2 + 10.0) * scale)
+                                       y: (CGFloat(currentTimeHour - Int(period.workHourStart)) * cellHeight + CGFloat(currentTimeMinute) * cellHeight / 60 - self.frame.height / 2 + 10.0) * scale)
         
         tableView.bringSubview(toFront: self)
         

@@ -115,7 +115,6 @@ class TimeSheetViewController: BaseViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         
-        timeLineViewDidLoad()
         timeSheetTableViewDidLoad()
     }
     
@@ -136,13 +135,23 @@ class TimeSheetViewController: BaseViewController {
 
         // Start position
         if ((period.dateStart as Date).isActiveToday() && !currentTimeLine.isShow) {
+            guard Int(period.workHourStart) <= (period.dateStart as Date).dateComponents().hour! else {
+                return
+            }
+
             currentTimeLine.frame = CGRect.init(origin: CGPoint.init(x: 60.0, y: 0.0), size: CGSize.init(width: tableView.frame.width - (60.0 + 8.0), height: 20.0))
             _ = Date().didShow(timeLineView: currentTimeLine, inTableView: tableView, withCellHeight: cellHeight, andScale: scale)
             
             let topRowIndex = Calendar.current.dateComponents([.hour], from: Date()).hour! - 2
             
-            if ((period.dateStart as Date).isActiveToday()) {
-                self.tableView.scrollToRow(at: IndexPath.init(row: topRowIndex, section: 0), at: .top, animated: true)
+            if (topRowIndex < Int(period.workHourStart)) {
+                self.tableView.scrollToRow(at: IndexPath.init(row: 0, section: 0),
+                                           at: .top,
+                                           animated: true)
+            } else {
+                self.tableView.scrollToRow(at: IndexPath.init(row: topRowIndex, section: 0),
+                                           at: .top,
+                                           animated: true)
             }
             
             // Setup Timer
@@ -162,6 +171,10 @@ class TimeSheetViewController: BaseViewController {
             currentTimeLine.removeFromSuperview()
             currentTimeLine.isShow = false
             timer.stop()
+            
+            self.tableView.scrollToRow(at: IndexPath.init(row: 0, section: 0),
+                                       at: .top,
+                                       animated: true)
         }
     }
     
@@ -176,17 +189,17 @@ class TimeSheetViewController: BaseViewController {
             return
         }
 
+        startWorkHour = 0
+        startWorkMinute = 0
+        endWorkHour = 23
+        endWorkMinute = 59
+        
         // Get TimeSheetItems
         if let items = timeSheet.timesheets, items.count > 0 {
             var timeSheetItemsList = Array(items) as! [TimeSheetItem]
             let timeSheetItemsListSorted = timeSheetItemsList.sorted(by: { ($0.startDate as Date) < ($1.startDate as Date) })
             timeSheetItemsList = timeSheetItemsListSorted
             
-            startWorkHour = 0
-            startWorkMinute = 0
-            endWorkHour = 23
-            endWorkMinute = 59
-
             // Delete first & last items
             if (timeSheetItemsListSorted.count == 1) {
                 self.timeSheetItems = timeSheetItemsList
@@ -249,6 +262,8 @@ class TimeSheetViewController: BaseViewController {
             }
         }
         
+        period.workHourStart = Int16(startWorkHour)
+        
         var dataSource = [TimeSheetCell]()
         
         for index in startWorkHour...endWorkHour {
@@ -306,8 +321,9 @@ class TimeSheetViewController: BaseViewController {
             closeTimeSheetView.rightAnchor.constraint(equalTo: tableView.rightAnchor, constant: 0.0).isActive = true
  
             tableView.reloadData()
-            timeLineViewDidLoad()
         }
+
+        timeLineViewDidLoad()
     }
     
     func timeSheetViewsDidRemove() {
