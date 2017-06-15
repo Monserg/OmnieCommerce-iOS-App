@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HeaderImageView" customModule="OmnieCommerce" customModuleProvider="target">
             <connections>
                 <outlet property="imageView" destination="Qgd-Yb-v7f" id="EkJ-pE-lgC"/>
+                <outlet property="spinnerView" destination="99a-x4-gdM" id="qlc-Eh-jIC"/>
                 <outlet property="view" destination="iN0-l3-epB" id="irg-WI-ujW"/>
             </connections>
         </placeholder>
@@ -23,20 +24,28 @@
                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VOe-18-hNk" userLabel="Content View">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="150"/>
                     <subviews>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Qgd-Yb-v7f">
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Qgd-Yb-v7f">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="150"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
                             </userDefinedRuntimeAttributes>
                         </imageView>
+                        <activityIndicatorView clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="99a-x4-gdM">
+                            <rect key="frame" x="169" y="57" width="37" height="37"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <color key="color" red="0.0" green="0.57647058823529407" blue="0.58431372549019611" alpha="1" colorSpace="calibratedRGB"/>
+                        </activityIndicatorView>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstItem="Qgd-Yb-v7f" firstAttribute="leading" secondItem="VOe-18-hNk" secondAttribute="leading" id="Cjf-sk-Hsv"/>
                         <constraint firstAttribute="trailing" secondItem="Qgd-Yb-v7f" secondAttribute="trailing" id="HDT-nb-8mz"/>
+                        <constraint firstItem="Qgd-Yb-v7f" firstAttribute="top" secondItem="VOe-18-hNk" secondAttribute="top" id="P7d-7r-gal"/>
+                        <constraint firstItem="99a-x4-gdM" firstAttribute="centerY" secondItem="VOe-18-hNk" secondAttribute="centerY" id="W7l-0a-Q4V"/>
                         <constraint firstItem="Qgd-Yb-v7f" firstAttribute="top" secondItem="VOe-18-hNk" secondAttribute="top" id="Z7l-El-XJM"/>
-                        <constraint firstAttribute="bottom" secondItem="Qgd-Yb-v7f" secondAttribute="bottom" id="tU4-wk-iOS"/>
+                        <constraint firstItem="99a-x4-gdM" firstAttribute="centerX" secondItem="VOe-18-hNk" secondAttribute="centerX" id="bH8-qI-dly"/>
+                        <constraint firstAttribute="bottom" secondItem="Qgd-Yb-v7f" secondAttribute="bottom" id="sPB-71-5kT"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>
@@ -51,6 +60,8 @@
                 <constraint firstAttribute="trailing" secondItem="VOe-18-hNk" secondAttribute="trailing" id="ydv-lC-LIQ"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <userDefinedRuntimeAttributes>
                 <userDefinedRuntimeAttribute type="boolean" keyPath="_clipsToBounds" value="YES"/>

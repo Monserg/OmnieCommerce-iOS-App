@@ -123,8 +123,8 @@ public class Service: NSManagedObject, InitCellParameters, PointAnnotationBindin
             self.minDuration = minDuration
         }
     
-        if let duration = json["duration"] as? Int64 {
-            self.duration = duration
+        if let duration = json["duration"] as? UInt64 {
+            self.duration = duration.millisecondsConvertToMinutes()
         }
 
         if let rating = json["rating"] as? Double {

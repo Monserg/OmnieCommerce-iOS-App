@@ -25,7 +25,7 @@ extension UInt64 {
         return day + hours + minutes
     }
     
-    func millisecondsConvertToMinutes() -> Int32 {
-        return Int32(self / 1_000 / 60 / 60)
+    func millisecondsConvertToMinutes() -> Int64 {
+        return Int64(self / 1_000 / 60)
     }    
 }

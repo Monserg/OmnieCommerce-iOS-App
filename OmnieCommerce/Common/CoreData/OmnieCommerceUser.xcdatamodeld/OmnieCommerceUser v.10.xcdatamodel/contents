@@ -237,17 +237,18 @@
         </uniquenessConstraints>
     </entity>
     <entity name="Period" representedClassName="Period" syncable="YES">
-        <attribute name="additionalServicesDuration" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="cellDivision" attributeType="Float" defaultValueString="1" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="additionalServicesDuration" attributeType="Integer 64" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="cellHeight" attributeType="Float" minValueString="44" maxValueString="104" defaultValueString="44" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="codeID" attributeType="String" defaultValueString="Zorro" syncable="YES"/>
         <attribute name="dateEnd" attributeType="Date" defaultDateTimeInterval="518629500" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="dateStart" attributeType="Date" defaultDateTimeInterval="518629560" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="hourEnd" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="hourStart" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="isServiceFixedTime" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="minuteEnd" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="minuteStart" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="serviceDuration" attributeType="Float" defaultValueString="1" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="serviceDuration" attributeType="Integer 64" defaultValueString="1" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="workHourStart" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <uniquenessConstraints>
             <uniquenessConstraint>
                 <constraint value="codeID"/>
@@ -363,7 +364,7 @@
         <attribute name="codeID" attributeType="String" syncable="YES"/>
         <attribute name="date" attributeType="String" syncable="YES"/>
         <attribute name="minDuration" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="orderDuration" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="orderDuration" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="slotsCount" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="workTimeEnd" attributeType="String" syncable="YES"/>
         <attribute name="workTimeStart" attributeType="String" syncable="YES"/>
@@ -376,8 +377,10 @@
     </entity>
     <entity name="TimeSheetItem" representedClassName="TimeSheetItem" syncable="YES">
         <attribute name="codeID" attributeType="String" syncable="YES"/>
-        <attribute name="end" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="start" attributeType="String" syncable="YES"/>
+        <attribute name="endDate" attributeType="Date" defaultDateTimeInterval="519206880" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="endString" attributeType="String" defaultValueString="Zorro" syncable="YES"/>
+        <attribute name="startDate" attributeType="Date" defaultDateTimeInterval="519206880" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="startString" attributeType="String" defaultValueString="Zorro" syncable="YES"/>
         <attribute name="typeValue" attributeType="String" syncable="YES"/>
         <relationship name="timesheet" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TimeSheet" inverseName="timesheets" inverseEntity="TimeSheet" syncable="YES"/>
         <uniquenessConstraints>
@@ -401,13 +404,13 @@
         <element name="NewsData" positionX="-36" positionY="99" width="128" height="195"/>
         <element name="Order" positionX="144" positionY="81" width="128" height="285"/>
         <element name="Organization" positionX="-36" positionY="99" width="128" height="30"/>
-        <element name="Period" positionX="144" positionY="81" width="128" height="210"/>
+        <element name="Period" positionX="144" positionY="81" width="128" height="225"/>
         <element name="Price" positionX="180" positionY="117" width="128" height="210"/>
         <element name="Review" positionX="171" positionY="108" width="128" height="225"/>
         <element name="Schedule" positionX="153" positionY="90" width="128" height="180"/>
         <element name="Service" positionX="-36" positionY="117" width="128" height="480"/>
         <element name="Subcategory" positionX="475" positionY="-69" width="128" height="165"/>
         <element name="TimeSheet" positionX="144" positionY="81" width="128" height="180"/>
-        <element name="TimeSheetItem" positionX="153" positionY="90" width="128" height="120"/>
+        <element name="TimeSheetItem" positionX="153" positionY="90" width="128" height="150"/>
     </elements>
 </model>

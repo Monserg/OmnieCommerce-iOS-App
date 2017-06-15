@@ -22,8 +22,14 @@ class CurrentTimeLineView: UIView {
         let workedOutHours = Date().dateComponents().hour!
         let workedOutMinutes = Date().dateComponents().minute!
         
+        guard Int(period.workHourStart) > workedOutHours else {
+            return
+        }
+        
         let newPosition = CGPoint.init(x: self.frame.minX,
-                                       y: (CGFloat(workedOutHours) * cellHeight + CGFloat(workedOutMinutes) * cellHeight / 60 - self.frame.height / 2 + 10.0) * scale)
+                                       y: (CGFloat(workedOutHours - Int(period.workHourStart)) * cellHeight + CGFloat(workedOutMinutes) * cellHeight / 60 - self.frame.height / 2 + 10.0) * scale)
+        
+        tableView.bringSubview(toFront: self)
         
         UIView.animate(withDuration: (animation) ? 0.5 : 0,
                        delay: 0,

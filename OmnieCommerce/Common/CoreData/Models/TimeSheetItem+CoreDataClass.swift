@@ -37,11 +37,13 @@ public class TimeSheetItem: NSManagedObject, InitCellParameters {
     func profileDidUpload(json: [String: AnyObject], andTimeSheet timesheet: TimeSheet) {
         // Prepare to save data
         self.timesheet = timesheet
-        self.start = json["start"] as! String
-        self.end = json["end"] as! String
+        self.startString = json["start"] as! String
+        self.startDate = self.startString.convertToDate(withDateFormat: .DiscountCardDate) as NSDate
+        self.endString = json["end"] as! String
+        self.endDate = self.endString.convertToDate(withDateFormat: .DiscountCardDate) as NSDate
         self.type = TimeSheetItemType.init(rawValue: (json["type"] as! String))
         
-        self.codeID = "\(timesheet.codeID)-\(start.components(separatedBy: "T").last!)"
+        self.codeID = "\(timesheet.codeID)-\((json["start"] as! String).components(separatedBy: "T").last!)"
     }
     
     deinit {

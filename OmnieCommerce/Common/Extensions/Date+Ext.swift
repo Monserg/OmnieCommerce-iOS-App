@@ -177,6 +177,8 @@ extension Date {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "HH dd.MM.yyyy"
         
+        tableView.bringSubview(toFront: timeLineView)
+
         if (dateFormatter.string(from: self) == dateFormatter.string(from: Date())) {
             // Initialization
             if (timeLineView.frame.minY == 0) {

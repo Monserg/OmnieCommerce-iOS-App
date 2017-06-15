@@ -39,6 +39,7 @@ class OrganizationShowViewController: BaseViewController {
     var backButton: UIButton?
     var wasLaunchedAPI = false
     
+    
     // MARK: - Outlets
     // Action buttons
     @IBOutlet weak var animationButton: FillColorButton!
@@ -64,13 +65,13 @@ class OrganizationShowViewController: BaseViewController {
     
     // Info view
     @IBOutlet weak var infoView: UIView!
-    @IBOutlet weak var logoImageView: CustomImageView!
     @IBOutlet weak var nameLabel: CustomLabel!
     @IBOutlet weak var favoriteButton: CustomButton!
     @IBOutlet weak var phonesImageView: UIImageView!
     @IBOutlet weak var phonesButton: CustomButton!
     @IBOutlet weak var scheduleImageView: UIImageView!
     @IBOutlet weak var scheduleButton: CustomButton!
+    @IBOutlet weak var logoImageView: CustomImageView!
     
     @IBOutlet var dottedBorderViewsCollection: [DottedBorderView]! {
         didSet {
@@ -163,6 +164,8 @@ class OrganizationShowViewController: BaseViewController {
         
         flowLayout.itemSize = reviewsCollectionView.frame.size
         flowLayout.invalidateLayout()
+        
+        galleryCollectionView.collectionViewLayout.invalidateLayout()
     }
     
     override func viewDidLoad() {
@@ -177,11 +180,6 @@ class OrganizationShowViewController: BaseViewController {
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(true)
-        
-//        if (headerView != nil) {
-//            headerView!.isHidden = true
-//            smallTopBarView.isHidden = false
-//        }
     }
 
 
@@ -284,23 +282,25 @@ class OrganizationShowViewController: BaseViewController {
 
         // Parallax Header view
         if let headerID = organizationProfile.headerID, headerView == nil {
-            headerView = HeaderImageView.init(frame: CGRect.init(origin: .zero, size: CGSize.init(width: view.frame.width, height: view.frame.width / 1.6)))
+            headerView = HeaderImageView.init(frame: .zero)
             smallTopBarView.actionButton.isHidden = true
             headerBackButton.isHidden = false
+            headerView!.spinnerView.startAnimating()
             
             // Set Header image
             headerView!.imageView.kf.setImage(with: ImageResource(downloadURL: headerID.convertToURL(withSize: .Original, inMode: .Get), cacheKey: headerID),
                                               placeholder: nil,
                                               options: [.transition(ImageTransition.fade(1)),
-                                                        .processor(ResizingImageProcessor(referenceSize: headerView!.frame.size,
+                                                        .processor(ResizingImageProcessor(referenceSize: CGSize.init(width: 600.0, height: 600.0 * 16.0 / 9.0), //headerView!.frame.size,
                                                                                           mode: .aspectFill))],
                                               completionHandler: { image, error, cacheType, imageURL in
                                                 self.headerView!.kf.cancelDownloadTask()
+                                                self.headerView!.spinnerView.stopAnimating()
             })
             
             // Settings
             scrollView.parallaxHeader.view = headerView
-            scrollView.parallaxHeader.height = view.frame.width / 1.6
+            scrollView.parallaxHeader.height = 250.0
             scrollView.parallaxHeader.mode = .fill
             scrollView.parallaxHeader.minimumHeight = smallTopBarView.frame.height
             scrollView.parallaxHeader.delegate = self
@@ -310,12 +310,18 @@ class OrganizationShowViewController: BaseViewController {
                 self.smallTopBarView.didHide()
             })
             
-            scrollView.scrollIndicatorInsets = UIEdgeInsets(top: scrollView.parallaxHeader.view!.frame.maxY, left: 0, bottom: 0, right: 0)
+            scrollView.scrollIndicatorInsets = UIEdgeInsets(top: scrollView.parallaxHeader.view!.frame.height, left: 0, bottom: 0, right: 0)
+            scrollViewTopConstraint.constant = ((UIApplication.shared.statusBarOrientation.isPortrait) ? -20.0 : 0.0)
         } else {
-            scrollViewTopConstraint.constant = smallTopBarView.frame.height - ((UIApplication.shared.statusBarOrientation.isPortrait) ? 30.0 : 30.0)
+            if (headerView == nil) {
+                scrollViewTopConstraint.constant = smallTopBarView.frame.height - 30.0
+                scrollView.scrollIndicatorInsets = UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0)
+            } else {
+                scrollViewTopConstraint.constant = ((UIApplication.shared.statusBarOrientation.isPortrait) ? -20.0 : 0.0)
+            }
+            
             self.view.layoutIfNeeded()
             scrollView.scrollsToTop = true
-            scrollView.scrollIndicatorInsets = UIEdgeInsets(top: 15, left: 0, bottom: 0, right: 0)
             
             UIView.animate(withDuration: 0.3, animations: { _ in
                 self.smallTopBarView.didShow()
@@ -350,16 +356,18 @@ class OrganizationShowViewController: BaseViewController {
         // Set Avatar image
         if let imageID = organizationProfile.imageID {
             logoImageView!.kf.setImage(with: ImageResource(downloadURL: imageID.convertToURL(withSize: .Small, inMode: .Get), cacheKey: imageID),
-                                       placeholder: UIImage.init(named: "image-no-organization"),
+                                       placeholder: nil,
                                        options: [.transition(ImageTransition.fade(1)),
                                                  .processor(ResizingImageProcessor(referenceSize: logoImageView!.frame.size,
                                                                                    mode: .aspectFill))],
                                        completionHandler: { image, error, cacheType, imageURL in
                                         self.logoImageView!.kf.cancelDownloadTask()
+
             })
         } else {
             logoImageView!.image = UIImage.init(named: "image-no-organization")
         }
+        
         
         // Title view
         if let descriptionTitle = organizationProfile.descriptionTitle, let descriptionContent = organizationProfile.descriptionContent {
@@ -411,7 +419,7 @@ class OrganizationShowViewController: BaseViewController {
             discountsUserTableView.tableViewControllerManager = discountsUserTableManager
             discountsUserTableView.tableViewControllerManager!.dataSource = discountsUser
             discountsUserTableView.tableFooterView!.isHidden = true
-            discountsUserTableViewHeightConstraint.constant = CGFloat(61.0 + 58.0 * Double(discountsUser.count)) * view.heightRatio
+            discountsUserTableViewHeightConstraint.constant = CGFloat(0.0 + 58.0 * Double(discountsUser.count)) * view.heightRatio
             
             discountsUserTableView.reloadData()
         } else {
@@ -433,7 +441,7 @@ class OrganizationShowViewController: BaseViewController {
             let galleryManager = MSMCollectionViewControllerManager(withCollectionView: galleryCollectionView)
             galleryCollectionView.collectionViewControllerManager = galleryManager
             galleryCollectionView.collectionViewControllerManager!.sectionsCount = 1
-            _ = organizationProfile.images!.map { ($0 as! GalleryImage).cellHeight = galleryView.frame.height * 0.7; ($0 as! GalleryImage).cellIdentifier = "CirclePhotoCollectionViewCell" }
+            _ = organizationProfile.images!.map { ($0 as! GalleryImage).cellHeight = 102.0; ($0 as! GalleryImage).cellIdentifier = "CirclePhotoCollectionViewCell" }
             galleryCollectionView.collectionViewControllerManager!.dataSource = Array(organizationProfile.images!)
             galleryCollectionView.reloadData()
             
@@ -573,11 +581,11 @@ class OrganizationShowViewController: BaseViewController {
         galleryCollectionView.reloadData()
 
         // Album
-        if newCollection.verticalSizeClass == .compact {
-            scrollViewTopConstraint.constant = smallTopBarView.frame.height + 20.0 - 50.0
-        } else {
-            scrollViewTopConstraint.constant = smallTopBarView.frame.height + 20.0 - 30.0
-        }
+//        if newCollection.verticalSizeClass == .compact {
+//            scrollViewTopConstraint.constant = smallTopBarView.frame.height + 20.0 - 50.0
+//        } else {
+//            scrollViewTopConstraint.constant = smallTopBarView.frame.height + 20.0 - 30.0
+//        }
         
         self.view.layoutIfNeeded()
     }

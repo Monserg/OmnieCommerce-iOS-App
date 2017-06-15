@@ -36,7 +36,7 @@ class TimeSheetView: UIView {
                 contentView.backgroundColor = UIColor.init(hexString: "#a1e2e3", withAlpha: 1.0)
                 
             default:
-                contentView.backgroundColor = UIColor.darkCyan
+                contentView.backgroundColor = UIColor.darkCyanAlpha30
                 isUserInteractionEnabled = false
             }
         }
@@ -131,7 +131,7 @@ class TimeSheetView: UIView {
             self.frame = CGRect.init(origin: CGPoint.init(x: position.x, y: position.y), size: self.frame.size)
             self.didVerifyPositionBeforeMove()
             self.convertToPeriod()
-            self.orderTimesDidUpload()
+            self.selectedTimeDidUpload()
         }, completion: nil)
     }
     
@@ -181,10 +181,10 @@ class TimeSheetView: UIView {
         })
         
         didVerifyPositionBeforeMove()
-        orderTimesDidUpload()
+        selectedTimeDidUpload()
     }
     
-    func orderTimesDidUpload() {
+    func selectedTimeDidUpload() {
         startTimeLabel.text = "\(String(period.hourStart).twoNumberFormat()):\(String(period.minuteStart).twoNumberFormat())"
         finishTimeLabel.text = "\(String(period.hourEnd).twoNumberFormat()):\(String(period.minuteEnd).twoNumberFormat())"
     }
@@ -240,7 +240,7 @@ class TimeSheetView: UIView {
                                 } else {
                                     frame = (isResizeDown) ?    CGRect.init(origin: frame.origin,
                                                                             size:  CGSize.init(width: frame.width, height: newPositionTranslation.y)) :
-                                                                CGRect.init(origin: CGPoint.init(x: frame.minX, y: frame.minY - CGFloat(period.cellDivision)),
+                                                                CGRect.init(origin: CGPoint.init(x: frame.minX, y: frame.minY),
                                                                             size: frame.size)
                                 }
                             }
@@ -254,7 +254,7 @@ class TimeSheetView: UIView {
                                     sender.view!.frame = newFrame
                     }, completion: { success in
                         sender.view!.convertToPeriod()
-                        self.orderTimesDidUpload()
+                        self.selectedTimeDidUpload()
                     })
 
                     
@@ -345,7 +345,7 @@ class TimeSheetView: UIView {
 
         case .ended:
             // Inform TimeSheetShowVC about change position
-            orderTimesDidUpload()
+            selectedTimeDidUpload()
             
             if (isOrderOwn) {
                 handlerTimeSheetViewChangeFrameCompletion!()

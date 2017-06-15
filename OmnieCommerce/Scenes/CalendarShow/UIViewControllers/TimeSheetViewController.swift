@@ -16,6 +16,12 @@ class TimeSheetViewController: BaseViewController {
     var timeSheetView: TimeSheetView?
     var scale: CGFloat = 1.0
     
+    // Work time without start & end CLOSE TimeSheetItems
+    var startWorkHour: Int!
+    var startWorkMinute: Int!
+    var endWorkHour: Int!
+    var endWorkMinute: Int!
+    
     // Need to use after change date
     weak var timeSheet: TimeSheet!
     
@@ -32,7 +38,6 @@ class TimeSheetViewController: BaseViewController {
     var cellHeight: CGFloat = 64.0 {
         didSet {
             cellHeight = (cellHeight < cellHeightMin) ? cellHeightMin : (cellHeight > cellHeightMax) ? cellHeightMax : cellHeight
-            period.cellDivision = (timeSheet.minDuration) ? Float(cellHeight * CGFloat(timeSheet.orderDuration) / CGFloat(60.0)) : Float(cellHeight / CGFloat(60.0))
             period.cellHeight = Float(cellHeight)
         }
     }
@@ -72,19 +77,19 @@ class TimeSheetViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Setup TapGesture Recognizer
+        let tapGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handlerTapGesture(_:)))
+        tableView.addGestureRecognizer(tapGesture)
+        
         // Setup PinchGesture Recognizer
         let pinchGesture: UIPinchGestureRecognizer = UIPinchGestureRecognizer(target: self, action: #selector(handlerPinchGesture(_:)))
         tableView.addGestureRecognizer(pinchGesture)
         
         // Setup LongPressGesture Recognizer
         let longPressedGesture: UILongPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(handlerLongPressedGesture(_:)))
-        longPressedGesture.minimumPressDuration = 1.5
+        longPressedGesture.minimumPressDuration = 0.7
         longPressedGesture.cancelsTouchesInView = false
         tableView.addGestureRecognizer(longPressedGesture)
-        
-        // Setup TapGesture Recognizer
-        let tapGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handlerTapGesture(_:)))
-        tableView.addGestureRecognizer(tapGesture)
         
         // Setup Table view
         let tableViewManager = MSMTableViewControllerManager.init(withTableView: tableView,
@@ -171,21 +176,84 @@ class TimeSheetViewController: BaseViewController {
             return
         }
 
-        let startHourIndex = Int(timeSheet.workTimeStart.components(separatedBy: "T").last!.components(separatedBy: ":").first!) ?? 0
-        let startMinuteIndex = Int(timeSheet.workTimeStart.components(separatedBy: "T").last!.components(separatedBy: ":").last!) ?? 0
-        let endHourIndex = Int(timeSheet.workTimeEnd.components(separatedBy: "T").last!.components(separatedBy: ":").first!) ?? 23
-        let endMinuteIndex = Int(timeSheet.workTimeEnd.components(separatedBy: "T").last!.components(separatedBy: ":").last!) ?? 59
-        
-        // Get TimeSheet items
+        // Get TimeSheetItems
         if let items = timeSheet.timesheets, items.count > 0 {
-            timeSheetItems = Array(items) as! [TimeSheetItem]
+            var timeSheetItemsList = Array(items) as! [TimeSheetItem]
+            let timeSheetItemsListSorted = timeSheetItemsList.sorted(by: { ($0.startDate as Date) < ($1.startDate as Date) })
+            timeSheetItemsList = timeSheetItemsListSorted
+            
+            startWorkHour = 0
+            startWorkMinute = 0
+            endWorkHour = 23
+            endWorkMinute = 59
+
+            // Delete first & last items
+            if (timeSheetItemsListSorted.count == 1) {
+                self.timeSheetItems = timeSheetItemsList
+            }
+            
+            if (timeSheetItemsListSorted.count == 2) {
+                startWorkHour = (timeSheetItemsListSorted.first!.endDate as Date).dateComponents().hour!
+                startWorkMinute = (timeSheetItemsListSorted.first!.endDate as Date).dateComponents().minute!
+                endWorkHour = (timeSheetItemsListSorted.last!.startDate as Date).dateComponents().hour!
+                endWorkMinute = (timeSheetItemsListSorted.last!.startDate as Date).dateComponents().minute!
+                
+                // Delete start & end CLOSE TimeSheetItem
+                timeSheetItemsList.removeAll()
+                self.timeSheetItems = timeSheetItemsList
+            }
+            
+            if (timeSheetItemsListSorted.count > 2) {
+                var startTimeSheetItemDeleteIndex = 0
+                var endTimeSheetItemDeleteIndex = 0
+
+                // Find startWorkTime
+                for (index, timeSheetItem) in timeSheetItemsListSorted.enumerated() {
+                    let nextIndex = index + 1
+                    
+                    if (nextIndex <= timeSheetItemsListSorted.count) {
+                        let timeSheetItemForNextIndex = timeSheetItemsListSorted[nextIndex]
+                        let minutesTimeSheetItemForIndex = (timeSheetItem.startDate as Date).dateComponents().hour! * 60 + (timeSheetItem.startDate as Date).dateComponents().minute!
+                        let minutesTimeSheetItemForNextIndex = (timeSheetItemForNextIndex.startDate as Date).dateComponents().hour! * 60 + (timeSheetItemForNextIndex.startDate as Date).dateComponents().minute!
+                        
+                        if (minutesTimeSheetItemForNextIndex - minutesTimeSheetItemForIndex > 0) {
+                            startWorkHour = (timeSheetItem.endDate as Date).dateComponents().hour!
+                            startWorkMinute = (timeSheetItem.endDate as Date).dateComponents().minute!
+                            startTimeSheetItemDeleteIndex = index
+                        }
+                    }
+                }
+                
+                // Find endWorkTime
+                for (index, timeSheetItem) in timeSheetItemsListSorted.reversed().enumerated() {
+                    let previuosIndex = index - 1
+
+                    if (previuosIndex >= 0) {
+                        let timeSheetItemForPreviousIndex = timeSheetItemsListSorted[previuosIndex]
+                        let minutesTimeSheetItemForIndex = (timeSheetItem.startDate as Date).dateComponents().hour! * 60 + (timeSheetItem.startDate as Date).dateComponents().minute!
+                        let minutesTimeSheetItemForPreviousIndex = (timeSheetItemForPreviousIndex.startDate as Date).dateComponents().hour! * 60 + (timeSheetItemForPreviousIndex.startDate as Date).dateComponents().minute!
+
+                        if (minutesTimeSheetItemForIndex - minutesTimeSheetItemForPreviousIndex > 0) {
+                            endWorkHour = (timeSheetItem.startDate as Date).dateComponents().hour!
+                            endWorkMinute = (timeSheetItem.startDate as Date).dateComponents().minute!
+                            endTimeSheetItemDeleteIndex = index
+                        }
+                    }
+                }
+                
+                // Delete start & end CLOSE TimeSheetItem
+                timeSheetItemsList.remove(at: endTimeSheetItemDeleteIndex)
+                timeSheetItemsList.remove(at: startTimeSheetItemDeleteIndex)
+                
+                self.timeSheetItems = timeSheetItemsList
+            }
         }
         
         var dataSource = [TimeSheetCell]()
         
-        for index in startHourIndex...endHourIndex {
-            let start = "\(String(index).twoNumberFormat()):\(String(startMinuteIndex).twoNumberFormat())"
-            let end = (index == 23) ? "\(String(index).twoNumberFormat()):59" : "\(String(index + 1).twoNumberFormat()):\(String(endMinuteIndex).twoNumberFormat())"
+        for index in startWorkHour...endWorkHour {
+            let start = "\(String(index).twoNumberFormat()):\(String(startWorkMinute).twoNumberFormat())"
+            let end = (index == 23) ? "\(String(index).twoNumberFormat()):59" : "\(String(endWorkHour).twoNumberFormat()):\(String(endWorkMinute).twoNumberFormat())"
             
             dataSource.append(TimeSheetCell.init(start: start, end: end, height: cellHeight))
         }
@@ -209,8 +277,8 @@ class TimeSheetViewController: BaseViewController {
         
         // Show new time sheet items blocks
         for timeSheetItem in timeSheetItems {
-            let timeStart = timeSheetItem.start.components(separatedBy: "T")
-            let timeEnd = timeSheetItem.end.components(separatedBy: "T")
+            let timeStart = timeSheetItem.startString.components(separatedBy: "T")
+            let timeEnd = timeSheetItem.endString.components(separatedBy: "T")
             let startHour = UInt(timeStart.last!.components(separatedBy: ":").first!)!
             let startMinute = UInt(timeStart.last!.components(separatedBy: ":").last!)!
             let endHour = UInt(timeEnd.last!.components(separatedBy: ":").first!)!
@@ -273,35 +341,25 @@ class TimeSheetViewController: BaseViewController {
         switch sender.state {
         case .changed:
             print(object: "scale = \(sender.scale)")
-//            if (cellHeightMin...cellHeightMax ~= cellHeight) {
-                print(object: "\(sender.scale), \(cellHeight)")
-                
-                cellHeight *= sender.scale
-                scale = sender.scale
-                sender.scale = 1
-                
-                // Scale table view & cells
-                let dataSource = tableView.tableViewControllerManager!.dataSource as! [TimeSheetCell]
-                _ = dataSource.map({  $0.cellHeight = cellHeight })
-                tableView.tableViewControllerManager!.dataSource = dataSource
-
-                DispatchQueue.main.async(execute: {
-                    self.tableView.reloadRows(at: [IndexPath.init(row: 0, section: 0)], with: .automatic)
-                })
-                
-                DispatchQueue.main.async(execute: {
-                    self.timeSheetViewsDidUpload()
-                })
-//            } else {
-//                if (cellHeight <= cellHeightMin) {
-//                    cellHeight = cellHeightMin
-//                } else if (cellHeight >= cellHeightMax) {
-//                    cellHeight = cellHeightMax
-//                }
-//                
-//                scale = sender.scale
-//            }
-
+            print(object: "\(sender.scale), \(cellHeight)")
+            
+            cellHeight *= sender.scale
+            scale = sender.scale
+            sender.scale = 1
+            
+            // Scale table view & cells
+            let dataSource = tableView.tableViewControllerManager!.dataSource as! [TimeSheetCell]
+            _ = dataSource.map({  $0.cellHeight = cellHeight })
+            tableView.tableViewControllerManager!.dataSource = dataSource
+            
+            DispatchQueue.main.async(execute: {
+                self.tableView.reloadRows(at: [IndexPath.init(row: 0, section: 0)], with: .automatic)
+            })
+            
+            DispatchQueue.main.async(execute: {
+                self.timeSheetViewsDidUpload()
+            })
+            
             if ((period.dateStart as Date).isActiveToday()) {
                 currentTimeLine.didMoveToNewPosition(inTableView: tableView, withCellHeight: cellHeight, withScale: scale, andAnimation: true)
             }
@@ -322,24 +380,23 @@ class TimeSheetViewController: BaseViewController {
         
         if (sender.state == .began) {
             let touchPoint = sender.location(in: tableView)
-            let orderDuration = (timeSheet.minDuration && timeSheet.orderDuration == 0) ? CGFloat(30.0) : CGFloat(timeSheet.orderDuration)
             let cellTouchPointIndex = tableView.indexPath(for: tableView.cellForRow(at: tableView.indexPathForRow(at: touchPoint)!)!)!.row
-            let pointY: CGFloat =   (touchPoint.y < currentTimeLine.frame.minY &&
-                (period.dateStart as Date).isActiveToday()) ?   currentTimeLine.frame.midY + CGFloat(period.cellDivision * 10.0) :
-                CGFloat(cellTouchPointIndex) * cellHeight
             
+            // Verify closed views
             if (timeSheetViews.filter({ $0.frame.contains(touchPoint) }).count > 0) {
                 alertViewDidShow(withTitle: "Info", andMessage: "This time is busy.", completion: {})
             } else {
-                // Create new Order TimeSheetView
+                // Get minY from touch point with use current day & time
+                let pointY: CGFloat = ((touchPoint.y < currentTimeLine.frame.minY && (period.dateStart as Date).isActiveToday()) ?
+                    currentTimeLine.frame.midY : CGFloat(cellTouchPointIndex) * cellHeight) + 10.0
+
+                // Create UserTimeSheetView
                 if (timeSheetView == nil) {
-                    timeSheetView = TimeSheetView.init(frame: CGRect.init(x: 80.0,
-                                                                          y: pointY,
-                                                                          width: tableView.frame.width - (80.0 + 8.0),
-                                                                          height: (timeSheet.minDuration) ? (CGFloat(period.cellDivision) * orderDuration) : CGFloat(period.cellDivision * 60.0)))
-                    
+                    let height = CGFloat(period.serviceDuration + period.additionalServicesDuration)
+                        
+                    timeSheetView = TimeSheetView.init(frame: CGRect.init(x: 80.0,y: pointY, width: tableView.frame.width - (80.0 + 8.0), height: height))
                     timeSheetView!.convertToPeriod()
-                    timeSheetView!.orderTimesDidUpload()
+                    timeSheetView!.selectedTimeDidUpload()
                     timeSheetView!.orderModeDidChange(to: .OrderResize)
                     timeSheetView!.isOrderOwn = true
                     
@@ -352,7 +409,7 @@ class TimeSheetViewController: BaseViewController {
                         self.handlerShowTimeSheetPickersCompletion!(true)
                     })
                 } else {
-                    // Move Order view to new position
+                    // Move UserTimeSheetView to new position
                     let newPosition = CGPoint.init(x: timeSheetView!.frame.minX,
                                                    y: pointY)
                     
@@ -373,7 +430,7 @@ class TimeSheetViewController: BaseViewController {
                     self.handlerShowTimeSheetPickersCompletion!(true)
                 }
                 
-                // Handler TimeSheetView move completion
+                // Handler UserTimeSheetView move completion
                 self.timeSheetView!.handlerTimeSheetViewChangeFrameCompletion = { _ in
                     self.handlerShowTimeSheetPickersCompletion!(false)
                 }

@@ -2,7 +2,7 @@
 //  TimeSheetItem+CoreDataProperties.swift
 //  OmnieCommerce
 //
-//  Created by msm72 on 04.05.17.
+//  Created by msm72 on 15.06.17.
 //  Copyright © 2017 Omniesoft. All rights reserved.
 //
 
@@ -17,9 +17,11 @@ extension TimeSheetItem {
     }
 
     @NSManaged public var codeID: String
+    @NSManaged public var endDate: NSDate
+    @NSManaged public var endString: String
+    @NSManaged public var startDate: NSDate
+    @NSManaged public var startString: String
     @NSManaged public var typeValue: String
-    @NSManaged public var start: String
-    @NSManaged public var end: String
     @NSManaged public var timesheet: TimeSheet?
 
 }
