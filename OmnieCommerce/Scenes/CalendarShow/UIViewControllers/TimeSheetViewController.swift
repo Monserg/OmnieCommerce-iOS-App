@@ -464,8 +464,6 @@ class TimeSheetViewController: BaseViewController {
                                animations: {
                                 self.tableView.addSubview(self.timeSheetView!)
                 }, completion: { success in
-                    self.timeSheetView!.convertToPeriod()
-                    self.timeSheetView!.selectedTimeDidUpload()
                     self.timeSheetView!.orderModeDidChange(to: .OrderResize)
                     self.timeSheetView!.isOrderOwn = true
                     
@@ -474,27 +472,15 @@ class TimeSheetViewController: BaseViewController {
             }
                 
                 
-                // Move UserTimeSheetView to new position
+            // Move UserTimeSheetView to new position
             else {
-                // Verify end work time
-//                if (pointY > 0) {
-//                    
-//                }
-//                
-//                let newPosition = CGPoint.init(x: timeSheetView!.frame.minX, y: pointY)
-//                
-//                timeSheetView!.positionDidChange(to: newPosition)
-//                timeSheetView!.convertToPeriod()
-//                
-//                if (touchPoint.y < currentTimeLine.frame.minY && (period.dateStart as Date).isActiveToday()) {
-//                    let topRowIndex = Calendar.current.dateComponents([.hour], from: Date()).hour! - 2
-//                    self.tableView.scrollToRow(at: IndexPath.init(row: topRowIndex, section: 0), at: .top, animated: true)
-//                }
+                timeSheetView!.positionDidChange(to: newPosition!)
             }
             
-            //                // Handler show pickers view
-            //                self.handlerShowTimeSheetPickersCompletion!(false)
-            
+            // Upload time
+            self.timeSheetView!.convertToPeriod()
+            self.timeSheetView!.selectedTimeDidUpload()
+
             // Handler begin resize mode
             self.timeSheetView!.handlerShowPickersViewCompletion = { _ in
                 self.handlerShowTimeSheetPickersCompletion!(true)
