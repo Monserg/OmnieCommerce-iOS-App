@@ -124,7 +124,7 @@ public class Service: NSManagedObject, InitCellParameters, PointAnnotationBindin
         }
     
         if let duration = json["duration"] as? UInt64 {
-            self.duration = duration.millisecondsConvertToMinutes()
+            self.durationMinutes = duration.millisecondsConvertToMinutes()
         }
 
         if let rating = json["rating"] as? Double {

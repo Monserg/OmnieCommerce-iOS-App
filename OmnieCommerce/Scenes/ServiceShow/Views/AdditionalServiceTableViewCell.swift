@@ -25,7 +25,7 @@ class AdditionalServiceTableViewCell: UITableViewCell {
     @IBOutlet var labelsCollection: [UILabel]!
     @IBOutlet weak var nameLabel: UbuntuLightVeryLightGrayLabel!
     @IBOutlet weak var priceLabel: UbuntuLightVeryLightOrangeLabel!
-    @IBOutlet weak var durationLabel: UbuntuLightItalicLightGrayishCyanLabel!
+    @IBOutlet weak var totalPriceLabel: UbuntuLightItalicLightGrayishCyanLabel!
     @IBOutlet weak var separatorsView: UIView!
     
     @IBOutlet weak var stateSwitch: UISwitch! {
@@ -52,8 +52,10 @@ class AdditionalServiceTableViewCell: UITableViewCell {
     // MARK: - Actions
     @IBAction func handlerChangeSwitchState(_ sender: UISwitch) {
         let _ = labelsCollection.map { $0.isEnabled = sender.isOn }
+
+        pickerView.isHidden = !sender.isOn
+        separatorsView.isHidden = !sender.isOn
         pickerView.isUserInteractionEnabled = sender.isOn
-//        stateSwitch.thumbTintColor = (stateSwitch.isOn) ? UIColor.veryLightOrange : UIColor.init(hexString: "#acaeb0")
         
         handlerSwitchChangeStateCompletion!(sender.isOn)
     }
@@ -64,40 +66,45 @@ class AdditionalServiceTableViewCell: UITableViewCell {
 extension AdditionalServiceTableViewCell: ConfigureCell {
     func setup(withItem item: Any, andIndexPath indexPath: IndexPath) {
         let additionalService = item as! AdditionalService
-        let durationMinutes = Int(additionalService.duration / 60.0 / 1_000.0)
         
         nameLabel.text = additionalService.name
-
-        if (durationMinutes == 0) {
-            durationLabel.text = nil
-            priceLabel.text = String(format: "%3.2f %@", additionalService.price, additionalService.unitName)
-        } else {
-            durationLabel.text = "\(durationMinutes) \("Minutes short".localized())"
-            
-            if (additionalService.unit == 0) {
-                priceLabel.text = String(format: "%3.2f %@", additionalService.price / 60.0 * Double(durationMinutes), additionalService.unitName.components(separatedBy: "/").first!)
-            } else {
-                priceLabel.text = String(format: "%3.2f %@", additionalService.price, additionalService.unitName)
-            }
-        }
+        nameLabel.isEnabled = stateSwitch.isOn
+        priceLabel.isEnabled = stateSwitch.isOn
         
-        if (additionalService.minValue + additionalService.maxValue == 0) {
+        self.pricesDidUpload(forAdditionalService: additionalService)
+        
+        // Quantity UIPickerView
+        pickerView.isHidden = true
+        separatorsView.isHidden = true
+        pickerView.isUserInteractionEnabled = false
+
+        switch (additionalService.minValue + additionalService.maxValue) {
+        case 0:
+            pickerData = Array(Int(1)...Int(2000))
+            pickerView.selectRow(0, inComponent: 0, animated: true)
+            
+        case 2:
             pickerView.isHidden = true
             separatorsView.isHidden = true
-        } else {
-            pickerData = Array(Int(additionalService.minValue)...Int(additionalService.maxValue + 20))
-            pickerView.selectRow(1, inComponent: 0, animated: true)
+
+        default:
+            pickerData = Array(Int(additionalService.minValue)...Int(additionalService.maxValue))
+            pickerView.selectRow(0, inComponent: 0, animated: true)
         }
         
         // Handler change quantity
         handlerPickerChangeValueCompletion = { row in
-            if (additionalService.unit == 0) {
-                self.priceLabel.text = String(format: "%3.2f %@", additionalService.price / 60.0 * Double(durationMinutes * (row as! Int)), additionalService.unitName.components(separatedBy: "/").first!)
-            } else {
-                self.priceLabel.text = String(format: "%3.2f %@", additionalService.price * Double(row as! Int), additionalService.unitName)
-            }
-
-            self.durationLabel.text = "\(durationMinutes * (row as! Int)) \("Minutes short".localized())"
+            self.pricesDidUpload(forAdditionalService: additionalService)
+        }
+    }
+    
+    func pricesDidUpload(forAdditionalService additionalService: AdditionalService) {
+        if (pickerView.selectedRow(inComponent: 0) == 0) {
+            priceLabel.text = String(format: "%3.2f %@", additionalService.price, additionalService.unitName)
+            totalPriceLabel.text = nil
+        } else {
+            priceLabel.text = String(format: "%3.2f %@", additionalService.price, additionalService.unitName)
+            totalPriceLabel.text = String(format: "%3.2f грн.", additionalService.price  * Double(pickerView.selectedRow(inComponent: 0) + 1))
         }
     }
 }

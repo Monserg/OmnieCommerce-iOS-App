@@ -24,9 +24,11 @@ extension Period {
     @NSManaged public var minuteEnd: Int16
     @NSManaged public var minuteStart: Int16
     @NSManaged public var cellHeight: Float
-    @NSManaged public var serviceDuration: Int64
+    @NSManaged public var serviceDurationMinutes: Int64
     @NSManaged public var isServiceFixedTime: Bool
-    @NSManaged public var additionalServicesDuration: Int64
     @NSManaged public var workHourStart: Int16
+    @NSManaged public var workHourEnd: Int16
+    @NSManaged public var workMinuteStart: Int16
+    @NSManaged public var workMinuteEnd: Int16
 
 }

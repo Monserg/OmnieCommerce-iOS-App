@@ -21,7 +21,7 @@ extension Service {
     @NSManaged public var canUserSendReview: Bool
     @NSManaged public var codeID: String
     @NSManaged public var descriptionContent: String?
-    @NSManaged public var duration: Int64
+    @NSManaged public var durationMinutes: Int64
     @NSManaged public var headerID: String?
     @NSManaged public var imageID: String?
     @NSManaged public var isFavorite: Bool

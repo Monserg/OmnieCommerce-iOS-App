@@ -240,16 +240,12 @@ class ServiceShowViewController: BaseViewController {
         // Setting Service profile info
         serviceProfile = CoreDataManager.instance.entityBy("Service", andCodeID: serviceID) as! Service
         smallTopBarView.titleText = serviceProfile.organizationName ?? "Zorro"
-
-        // Create Period
-        let additionalServicesDuration: Float = ((serviceProfile.additionalServices?.count)! > 0) ? Float(Array(serviceProfile.additionalServices!).reduce(0, { $0 + ($1 as! AdditionalService).duration })) : Float(0.0)
-        
-        period.isServiceFixedTime = serviceProfile.minDuration
         
         // Convert millisecond -> minutes
-        period.serviceDuration = serviceProfile.duration
-        period.additionalServicesDuration = UInt64(additionalServicesDuration).millisecondsConvertToMinutes()
+        period.isServiceFixedTime = serviceProfile.minDuration
+        period.serviceDurationMinutes = serviceProfile.durationMinutes
         
+        // Upload Period
         period.dateStart = (serviceProfile.start == nil) ? (Date() as NSDate) : serviceProfile.start!
         period.hourStart = (serviceProfile.start == nil) ? 0 : Int16((period.dateStart as Date).dateComponents().hour!)
         period.minuteStart = (serviceProfile.start == nil) ? 0 : Int16((period.dateStart as Date).dateComponents().minute!)
