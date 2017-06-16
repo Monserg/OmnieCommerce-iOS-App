@@ -349,21 +349,34 @@ class TimeSheetViewController: BaseViewController {
     func timeSheetViewPositionDidVerify(_ touchPoint: CGPoint) -> CGPoint? {
         var cellTouchPointIndex = tableView.indexPath(for: tableView.cellForRow(at: tableView.indexPathForRow(at: touchPoint)!)!)!.row
         
-        if (cellTouchPointIndex == Int(period.workHourEnd)) {
+        if ((cellTouchPointIndex + Int(period.workHourStart)) == Int(period.workHourEnd)) {
             cellTouchPointIndex -= 1
+            
+            // Verify TimeSheetView after end work time
+            let touchRect = CGRect.init(origin: CGPoint.init(x: 80, y: CGFloat(cellTouchPointIndex) * cellHeight * scale + 10.0),
+                                        size: CGSize.init(width: 100.0, height: CGFloat(period.serviceDurationMinutes)))
+            
+            let afterWorkTimeRect = CGRect.init(origin: CGPoint.init(x: 0, y: CGFloat(cellTouchPointIndex) * cellHeight * scale + 10.0),
+                                                size: CGSize.init(width: tableView.frame.width, height: CGFloat(period.workMinuteEnd) * scale))
+            
+            if (afterWorkTimeRect.contains(touchRect)) {
+                return CGPoint.init(x: 80, y: CGFloat(cellTouchPointIndex) * cellHeight * scale + 10.0)
+            } else {
+                return nil
+            }
         }
         
-        // Verify TimeSheetView with CLOSE type
+        // Verify TimeSheetView in CLOSE type
         if (timeSheetViews.filter({ $0.frame.contains(touchPoint) }).count > 0) {
-            alertViewDidShow(withTitle: "Info", andMessage: "This time is busy.", completion: {})
             return nil
         }
-        
-        // Get minY from touch point with use current day & time
-        let pointY: CGFloat = ((touchPoint.y < currentTimeLine.frame.minY && (period.dateStart as Date).isActiveToday()) ?
-            currentTimeLine.frame.midY : CGFloat(cellTouchPointIndex) * cellHeight * scale) + 10.0
-        
-        return CGPoint.init(x: 80.0, y: pointY)
+
+        // Verify current day & time
+        if (touchPoint.y < currentTimeLine.frame.minY && (period.dateStart as Date).isActiveToday()) {
+            return CGPoint.init(x: 80.0, y: currentTimeLine.frame.midY)
+        }
+
+        return CGPoint.init(x: 80, y: CGFloat(cellTouchPointIndex) * cellHeight * scale + 10.0)
     }
     
 
@@ -433,31 +446,35 @@ class TimeSheetViewController: BaseViewController {
             // Verify new position
             let newPosition = timeSheetViewPositionDidVerify(touchPoint)
             
-            if (newPosition != nil) {
-                // Create UserTimeSheetView
-                if (timeSheetView == nil) {
-                    let height = CGFloat(period.serviceDurationMinutes)
-                    
-                    timeSheetView = TimeSheetView.init(frame: CGRect.init(x: 80.0,y: newPosition!.y, width: tableView.frame.width - (80.0 + 8.0), height: height))
-                    
-                    UIView.animate(withDuration: 0.7,
-                                   delay: 0,
-                                   options: .curveEaseIn,
-                                   animations: {
-                                    self.tableView.addSubview(self.timeSheetView!)
-                    }, completion: { success in
-                        self.timeSheetView!.convertToPeriod()
-                        self.timeSheetView!.selectedTimeDidUpload()
-                        self.timeSheetView!.orderModeDidChange(to: .OrderResize)
-                        self.timeSheetView!.isOrderOwn = true
-                        
-                        self.handlerShowTimeSheetPickersCompletion!(true)
-                    })
-                }
+            guard newPosition != nil else {
+                alertViewDidShow(withTitle: "Info", andMessage: "This time is busy.", completion: {})
+                
+                return
             }
             
+            // Create UserTimeSheetView
+            if (timeSheetView == nil) {
+                let height = CGFloat(period.serviceDurationMinutes)
                 
-            // Move UserTimeSheetView to new position
+                timeSheetView = TimeSheetView.init(frame: CGRect.init(x: 80.0,y: newPosition!.y, width: tableView.frame.width - (80.0 + 8.0), height: height))
+                
+                UIView.animate(withDuration: 0.7,
+                               delay: 0,
+                               options: .curveEaseIn,
+                               animations: {
+                                self.tableView.addSubview(self.timeSheetView!)
+                }, completion: { success in
+                    self.timeSheetView!.convertToPeriod()
+                    self.timeSheetView!.selectedTimeDidUpload()
+                    self.timeSheetView!.orderModeDidChange(to: .OrderResize)
+                    self.timeSheetView!.isOrderOwn = true
+                    
+                    self.handlerShowTimeSheetPickersCompletion!(true)
+                })
+            }
+                
+                
+                // Move UserTimeSheetView to new position
             else {
                 // Verify end work time
 //                if (pointY > 0) {
