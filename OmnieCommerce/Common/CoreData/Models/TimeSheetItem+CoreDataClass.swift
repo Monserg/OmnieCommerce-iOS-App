@@ -43,7 +43,7 @@ public class TimeSheetItem: NSManagedObject, InitCellParameters {
         self.endDate = self.endString.convertToDate(withDateFormat: .DiscountCardDate) as NSDate
         self.type = TimeSheetItemType.init(rawValue: (json["type"] as! String))
         
-        self.codeID = "\(timesheet.codeID)-\((json["start"] as! String).components(separatedBy: "T").last!)"
+        self.codeID = "\(timesheet.codeID)-\(self.startString.components(separatedBy: "T").last!)"
     }
     
     deinit {

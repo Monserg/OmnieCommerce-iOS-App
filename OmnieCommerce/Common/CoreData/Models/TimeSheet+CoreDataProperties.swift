@@ -21,7 +21,7 @@ extension TimeSheet {
     @NSManaged public var workTimeStart: String
     @NSManaged public var workTimeEnd: String
     @NSManaged public var breakDuration: Int16
-    @NSManaged public var orderDuration: Int64
+    @NSManaged public var orderDurationMinutes: Int64
     @NSManaged public var slotsCount: Int16
     @NSManaged public var minDuration: Bool
     @NSManaged public var timesheets: NSSet?

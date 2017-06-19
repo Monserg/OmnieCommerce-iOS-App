@@ -14,11 +14,13 @@ import UIKit
 // MARK: - Input protocols for current Interactor component VIP-cicle
 protocol ServiceShowInteractorInput {
     func serviceDidLoad(withRequestModel requestModel: ServiceShowModels.ServiceItem.RequestModel)
+    func serviceReviewDidSend(withRequestModel requestModel: ServiceShowModels.ServiceItem.RequestModel)
 }
 
 // MARK: - Output protocols for Presenter component VIP-cicle
 protocol ServiceShowInteractorOutput {
     func serviceDidPrepareToShowLoad(fromResponseModel responseModel: ServiceShowModels.ServiceItem.ResponseModel)
+    func serviceReviewDidPrepareToShowSend(fromResponseModel responseModel: ServiceShowModels.ServiceItem.ResponseModel)
 }
 
 class ServiceShowInteractor: ServiceShowInteractorInput {
@@ -33,6 +35,14 @@ class ServiceShowInteractor: ServiceShowInteractorInput {
             // Pass the result to the Presenter
             let serviceResponseModel = ServiceShowModels.ServiceItem.ResponseModel(responseAPI: responseAPI, parameters: requestModel.parameters, organizationID: requestModel.organizationID)
             self.presenter.serviceDidPrepareToShowLoad(fromResponseModel: serviceResponseModel)
+        })
+    }
+    
+    func serviceReviewDidSend(withRequestModel requestModel: ServiceShowModels.ServiceItem.RequestModel) {
+        MSMRestApiManager.instance.userRequestDidRun(.userAddServiceReview(requestModel.parameters, false), withHandlerResponseAPICompletion: { responseAPI in
+            // Pass the result to the Presenter
+            let serviceReviewResponseModel = ServiceShowModels.ServiceItem.ResponseModel(responseAPI: responseAPI, parameters: requestModel.parameters, organizationID: requestModel.organizationID)
+            self.presenter.serviceReviewDidPrepareToShowSend(fromResponseModel: serviceReviewResponseModel)
         })
     }
 }

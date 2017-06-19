@@ -232,11 +232,28 @@ public class Service: NSManagedObject, InitCellParameters, PointAnnotationBindin
             }
         }
 
-        
         // Own Review
-//        if let userReview = json["ownReview"] as? [String: AnyObject] {
-//            self.addToReviews(Review.init(json: userReview, withType: .UserReview)!)
-//        }
+        if let userReview = json["ownReview"] as? [String: AnyObject] {
+            if let codeID = userReview["userId"] as? String {
+                if let review = CoreDataManager.instance.entityBy("Review", andCodeID: codeID) as? Review {
+                    review.profileDidUpload(json: userReview, withType: .UserReview, andOrganizationID: nil)
+                    self.addToReviews(review)
+                }
+            }
+        } else if let review = CoreDataManager.instance.entityBy("Review", andCodeID: "\(self.codeID)") as? Review, canUserSendReview {
+            review.content = nil
+            review.dateCreate = Date() as NSDate
+            review.rating = 0.0
+            review.typeValue = "UserReview"
+            review.userName = appUser.userName
+            review.codeID = "\(self.codeID)"
+            review.userID = nil
+            review.imageID = nil
+            review.serviceID = self.codeID
+            review.service = self
+            
+            self.addToReviews(review)
+        }
     }
 
     deinit {

@@ -20,7 +20,7 @@ public class TimeSheet: NSManagedObject {
         self.breakDuration = json["breakDuration"] as! Int16
         self.slotsCount = json["slotsCount"] as! Int16
         self.minDuration = json["minDuration"] as! Bool
-        self.orderDuration = (json["orderDuration"] as! UInt64).millisecondsConvertToMinutes()
+        self.orderDurationMinutes = (json["orderDuration"] as! UInt64).millisecondsConvertToMinutes()
 
         self.codeID = "\(serviceID)-\(date)"
 
@@ -35,6 +35,8 @@ public class TimeSheet: NSManagedObject {
                         
                         if let timeSheetItem = CoreDataManager.instance.entityBy("TimeSheetItem", andCodeID: codeID) as? TimeSheetItem {
                             timeSheetItem.profileDidUpload(json: jsonTimeSheetItem, andTimeSheet: self)
+                            
+                            self.addToTimesheets(timeSheetItem)
                         }
                     }
                 }

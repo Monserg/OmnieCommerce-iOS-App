@@ -11,6 +11,7 @@ import UIKit
 enum ViewStyle: String {
     case None                           =   "None"
     case BottomDottedLine               =   "BottomDottedLine"
+    case MiddleDottedLine               =   "MiddleDottedLine"
     case BottomDottedLineColor          =   "BottomDottedLineColor"
     case AroundDottedRectangle          =   "AroundDottedRectangle"
     case AroundDottedRectangleColor     =   "AroundDottedRectangleColor"
@@ -41,7 +42,7 @@ enum ViewStyle: String {
     // MARK: - Class Functions
     override func draw(_ rect: CGRect) {
         switch style! {
-        case .BottomDottedLine:
+        case .BottomDottedLine, .MiddleDottedLine:
             self.drawDottedLine(withColor: false)
             
         case .BottomDottedLineColor:
@@ -64,19 +65,25 @@ enum ViewStyle: String {
         let dottes: [CGFloat] = [0.0, 4.0]
         let dottedLinePath = UIBezierPath()
         let lineWidth = CGFloat((borderWidth as NSString).floatValue)
-        self.viewStyle = (isColor) ? "BottomDottedLineColor" : "BottomDottedLine"
+        self.viewStyle = self.style.rawValue // (isColor) ? "BottomDottedLineColor" : "BottomDottedLine"
         
         // Create line path around frame as single line
         dottedLinePath.removeAllPoints()
         
-        dottedLinePath.move(to: CGPoint.init(x: self.frame.minX + lineWidth, y: self.frame.maxY - lineWidth))
-        dottedLinePath.addLine(to: CGPoint.init(x: self.frame.maxX + lineWidth, y: self.frame.maxY - lineWidth))
+        if (style == .MiddleDottedLine) {
+            dottedLinePath.move(to: CGPoint.init(x: self.frame.minX + lineWidth, y: self.frame.midY - lineWidth))
+            dottedLinePath.addLine(to: CGPoint.init(x: self.frame.maxX + lineWidth, y: self.frame.midY - lineWidth))
+        } else {
+            dottedLinePath.move(to: CGPoint.init(x: self.frame.minX + lineWidth, y: self.frame.maxY - lineWidth))
+            dottedLinePath.addLine(to: CGPoint.init(x: self.frame.maxX + lineWidth, y: self.frame.maxY - lineWidth))
+        }
+        
         dottedLinePath.lineWidth = lineWidth
         dottedLinePath.setLineDash(dottes, count: dottes.count, phase: 0.0)
         dottedLinePath.lineCapStyle = .round
         
         (isColor) ? ((isLightColorAppSchema) ? UIColor.black.set() : UIColor.veryLightOrangeAlpha60.set()) :
-                    ((isLightColorAppSchema) ? UIColor.black.set() : UIColor.lightGrayAlpha20.set())
+                    ((isLightColorAppSchema) ? UIColor.black.set() : UIColor.lightGray.set())
         
         dottedLinePath.stroke()
     }

@@ -58,16 +58,19 @@ class CalendarShowViewController: BaseViewController, CalendarShowViewController
                 }
             } else {
                 // Handler Pickers confirm button tap
-                timesheetVC!.handlerShowTimeSheetPickersCompletion = { isShow in
-                    if (isShow as! Bool) {
+                timesheetVC!.handlerShowTimeSheetPickersCompletion = { timePickerViewTimes in
+                    if let times = timePickerViewTimes as? TimePickerViewTimes, times.isShow {
                         if !(self.timeSheetPickersView?.isShow)! {
                             self.timeSheetPickersView = TimeSheetPickersView.init(frame: CGRect.init(origin: .zero, size: .zero))
                             self.timeSheetPickersView.didShow(inView: self.view)
                             
                             self.timeSheetPickersView.handlerConfirmButtonCompletion = { timesPeriod in
-                                self.timesheetVC!.timeSheetView?.orderModeDidChange(to: .OrderMove)
+                                self.timesheetVC!.timeSheetView?.gestureModeDidChange(to: .OrderMove)
                                 self.timesheetVC!.handlerTapGesture(UIGestureRecognizer())
-                                self.newDateDidSelect()
+                                
+                                if (times.isNewDate) {
+                                    self.newDateDidSelect()
+                                }
                             }
                             
                             // Handler change times in Pickers view
@@ -77,7 +80,10 @@ class CalendarShowViewController: BaseViewController, CalendarShowViewController
                         }
                     } else {
                         self.timeSheetPickersView.periodDidChange()
-                        self.newDateDidSelect()
+                        
+                        if ((timePickerViewTimes as! TimePickerViewTimes).isNewDate) {
+                            self.newDateDidSelect()
+                        }
 
                         if (self.timesheetVC!.timeSheetView?.gestureMode != .OrderResize) {
                             self.timeSheetPickersView.didHide()
@@ -164,6 +170,7 @@ class CalendarShowViewController: BaseViewController, CalendarShowViewController
         super.viewDidDisappear(true)
         
         self.timesheetVC!.timer.stop()
+        period.propertiesDidClear(withDate: false)
     }
 
     
@@ -310,11 +317,11 @@ class CalendarShowViewController: BaseViewController, CalendarShowViewController
 
         if (timeSheetPickersView.isShow) {
             timeSheetPickersView.didHide()
-            timesheetVC!.tableView.isScrollEnabled = true
+            timesheetVC!.dataTableView.isScrollEnabled = true
         }
         
         if (timesheetVC!.timeSheetView != nil) {
-            timesheetVC!.timeSheetView!.orderModeDidChange(to: .OrderPreview)
+            timesheetVC!.timeSheetView!.gestureModeDidChange(to: .OrderPreview)
         }
     }
 

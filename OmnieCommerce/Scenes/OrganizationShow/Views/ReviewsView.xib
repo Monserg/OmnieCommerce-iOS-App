@@ -16,6 +16,7 @@
                 <outlet property="commentDottedView" destination="VLg-1U-Vf2" id="iO6-Mh-SOu"/>
                 <outlet property="commentTextView" destination="KuI-aW-BRr" id="zuS-Bp-dNx"/>
                 <outlet property="ratingView" destination="Tub-Jn-8Gt" id="3pu-fi-kTK"/>
+                <outlet property="sendButton" destination="CcV-cm-EJ6" id="dcu-PV-kTS"/>
                 <outlet property="themeDottedView" destination="Qjc-o3-B63" id="DT2-xe-eXO"/>
                 <outlet property="themeTextField" destination="YZC-Hm-h81" id="jwX-Ml-zlw"/>
                 <outlet property="view" destination="dvJ-gd-9dv" id="WPc-8z-bHb"/>
@@ -228,7 +229,7 @@
                                         <constraint firstItem="Tub-Jn-8Gt" firstAttribute="leading" secondItem="nSO-YO-6KQ" secondAttribute="leading" id="kem-lN-4dF"/>
                                     </constraints>
                                 </view>
-                                <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CcV-cm-EJ6" userLabel="Send Button" customClass="FillVeryLightOrangeButton" customModule="OmnieCommerce" customModuleProvider="target">
+                                <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CcV-cm-EJ6" userLabel="Send Button" customClass="FillVeryLightOrangeButton" customModule="OmnieCommerce" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="215.5" width="180" height="36"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>

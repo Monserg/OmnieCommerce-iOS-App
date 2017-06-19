@@ -12,11 +12,14 @@ import Cosmos
 class ReviewsView: CustomView {
     // MARK: - Properties
     var isShow: Bool = false
+    var isServiceReview = false
     
     var handlerSendButtonCompletion: HandlerPassDataCompletion?
     
 
     // MARK: - Outlets
+    @IBOutlet weak var sendButton: FillVeryLightOrangeButton!
+    
     @IBOutlet var view: UIView! {
         didSet {
             let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTapGestureRecognizer))
@@ -36,6 +39,10 @@ class ReviewsView: CustomView {
         didSet {
             ratingView.settings.starMargin = Double(CGFloat(ratingView.frame.width - 23.0 * 5) / CGFloat(4.0))
             ratingView.settings.fillMode = .full
+            
+            ratingView.didFinishTouchingCosmos = { _ in
+                self.sendButton.isEnabled = self.requestParametersDidCheck()
+            }
         }
     }
 
@@ -125,6 +132,10 @@ class ReviewsView: CustomView {
         }
     }
     
+    func requestParametersDidCheck() -> Bool {
+        return commentTextView.text != "Comment".localized() && ratingView.rating > 0
+    }
+    
     
     // MARK: - Actions
     @IBAction func handlerSendButtonTap(_ sender: FillVeryLightOrangeButton) {
@@ -135,8 +146,14 @@ class ReviewsView: CustomView {
             return
         }
         
-        // TODO: TEST API "SEND REVIEW"
-        handlerSendButtonCompletion!([ "organizationId": values?.first as! String, "text": commentTextView.text, "mark": Int(ratingView.rating) ])
+        guard requestParametersDidCheck() else {
+            sender.isEnabled = false
+            return
+        }
+        
+        (isServiceReview) ? handlerSendButtonCompletion!([ "serviceId": values?.first as! String, "text": commentTextView.text, "mark": Int(ratingView.rating) ]) :
+                            handlerSendButtonCompletion!([ "organizationId": values?.first as! String, "text": commentTextView.text, "mark": Int(ratingView.rating) ])
+        
         self.didHide()
     }
     
@@ -168,6 +185,8 @@ extension ReviewsView: UITextViewDelegate {
     
     func textViewShouldEndEditing(_ textView: UITextView) -> Bool {
         textViewPlaceholderDidUpload(textView.text)
+        self.sendButton.isEnabled = self.requestParametersDidCheck()
+        
         return true
     }
 

@@ -16,11 +16,13 @@ import Kingfisher
 // MARK: - Input protocols for current ViewController component VIP-cicle
 protocol ServiceShowViewControllerInput {
     func serviceDidShowLoad(fromViewModel viewModel: ServiceShowModels.ServiceItem.ViewModel)
+    func serviceReviewDidShowSend(fromViewModel viewModel: ServiceShowModels.ServiceItem.ViewModel)
 }
 
 // MARK: - Output protocols for Interactor component VIP-cicle
 protocol ServiceShowViewControllerOutput {
     func serviceDidLoad(withRequestModel requestModel: ServiceShowModels.ServiceItem.RequestModel)
+    func serviceReviewDidSend(withRequestModel requestModel: ServiceShowModels.ServiceItem.RequestModel)
 }
 
 class ServiceShowViewController: BaseViewController {
@@ -506,11 +508,17 @@ class ServiceShowViewController: BaseViewController {
             
         case subView as ReviewsView:
             popupView = ReviewsView.init(inView: modalView!)
+            popupView.values = [serviceProfile.codeID]
+            (popupView as! ReviewsView).isServiceReview = true
+
+            // Handler Send button tap
+            (popupView as! ReviewsView).handlerSendButtonCompletion = { requestParameters in
+            
+            }
 
         default:
             break
         }
-        
         
         // Handler Cancel button tap
         popupView.handlerCancelButtonCompletion = { _ in
@@ -708,6 +716,14 @@ extension ServiceShowViewController: ServiceShowViewControllerInput {
         }
         
         self.serviceProfileDidShow()
+    }
+    
+    func serviceReviewDidShowSend(fromViewModel viewModel: ServiceShowModels.ServiceItem.ViewModel) {
+        // Check for errors
+        guard viewModel.status == "SUCCESS" else {
+            self.alertViewDidShow(withTitle: "Error", andMessage: viewModel.status, completion: { })
+            return
+        }
     }
 }
 

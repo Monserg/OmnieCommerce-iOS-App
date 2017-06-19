@@ -14,13 +14,13 @@ import UIKit
 // MARK: - Input protocols for current Presenter component VIP-cicle
 protocol ServiceShowPresenterInput {
     func serviceDidPrepareToShowLoad(fromResponseModel responseModel: ServiceShowModels.ServiceItem.ResponseModel)
-//    func orderDidPrepareToShowLoad(fromResponseModel responseModel: ServiceShowModels.OrderItem.ResponseModel)
+    func serviceReviewDidPrepareToShowSend(fromResponseModel responseModel: ServiceShowModels.ServiceItem.ResponseModel)
 }
 
 // MARK: - Output protocols for ViewController component VIP-cicle
 protocol ServiceShowPresenterOutput: class {
     func serviceDidShowLoad(fromViewModel viewModel: ServiceShowModels.ServiceItem.ViewModel)
-//    func orderDidShowLoad(fromViewModel viewModel: ServiceShowModels.OrderItem.ViewModel)
+    func serviceReviewDidShowSend(fromViewModel viewModel: ServiceShowModels.ServiceItem.ViewModel)
 }
 
 class ServiceShowPresenter: ServiceShowPresenterInput {
@@ -64,29 +64,15 @@ class ServiceShowPresenter: ServiceShowPresenterInput {
         }
     }
     
-    func orderDidPrepareToShowLoad(fromResponseModel responseModel: ServiceShowModels.OrderItem.ResponseModel) {
+    func serviceReviewDidPrepareToShowSend(fromResponseModel responseModel: ServiceShowModels.ServiceItem.ResponseModel) {
         guard responseModel.responseAPI != nil else {
-//            let orderViewModel = ServiceShowModels.OrderItem.ViewModel(status: "RESPONSE_NIL", orderID: nil)
-//            viewController.orderDidShowLoad(fromViewModel: orderViewModel)
+            let serviceReviewViewModel = ServiceShowModels.ServiceItem.ViewModel(status: "RESPONSE_NIL")
+            viewController.serviceReviewDidShowSend(fromViewModel: serviceReviewViewModel)
             
             return
         }
-        
-        // Convert responseAPI body to Order CoreData object
-        var orderCodeID: String?
-        
-        if let jsonOrder = responseModel.responseAPI!.body as? [String: AnyObject] {
-            if let codeID = jsonOrder["uuid"] as? String {
-                if let order = CoreDataManager.instance.entityBy("Order", andCodeID: codeID) as? Order {
-                    order.profileDidUpload(json: jsonOrder, forList: keyOrder)
-                    orderCodeID = codeID
-                }
-            }
-        }
-        
-        CoreDataManager.instance.didSaveContext()
-        
-//        let orderViewModel = ServiceShowModels.OrderItem.ViewModel(status: responseModel.responseAPI!.status, orderID: orderCodeID)
-//        self.viewController.orderDidShowLoad(fromViewModel: orderViewModel)
+
+        let serviceReviewViewModel = ServiceShowModels.ServiceItem.ViewModel(status: responseModel.responseAPI!.status)
+        self.viewController.serviceReviewDidShowSend(fromViewModel: serviceReviewViewModel)
     }
 }

@@ -1,4 +1,4 @@
-//
+
 //  UIView+Ext.swift
 //  OmnieCommerce
 //
@@ -129,10 +129,86 @@ extension UIView {
     // Order Creae & Move TimeSheetView
     func convertToPeriod() {
         period.hourStart = Int16((self.frame.minY) / CGFloat(period.cellHeight)) + period.workHourStart
-        period.minuteStart = Int16(self.frame.minY) % Int16(period.cellHeight) + period.workMinuteStart - 10
         period.hourEnd = Int16((self.frame.maxY) / CGFloat(period.cellHeight)) + period.workHourStart
-        period.minuteEnd = Int16(self.frame.maxY) % Int16(period.cellHeight) + period.workMinuteEnd - 10
+       
+        var minuteStart = Int16(self.frame.minY) % Int16(period.cellHeight)
+        var minuteEnd = Int16(self.frame.maxY) % Int16(period.cellHeight)
+        
+        // Down direction
+        if let view = self as? TimeSheetView, view.isDirectionDown {
+//            if (minuteStart >= 60) {
+//                period.hourStart += 1
+//            }
+            
+            if (minuteStart < 0) {
+                period.hourStart -= 1
+                minuteStart += 60
+//                minuteEnd = minuteStart - Int16(self.frame.height)
+            }
+            
+            if (minuteEnd < 0) {
+                period.hourEnd -= 1
+                minuteEnd += 56
+//                minuteEnd = minuteStart + Int16(self.frame.height)
+            }
+        }
+        
+        // Up direction
+            /*
+        else {
+            if (minuteStart < 0) {
+                period.hourStart -= 1
+                minuteStart += 60
+            }
+            
+            if (minuteEnd < 0) {
+                period.hourEnd -= 1
+                minuteEnd += 56
+            }
+        }
+        */
+        
+        period.minuteStart = minuteStart
+        period.minuteEnd = minuteEnd
+
+        
+        
+////        if let view = self as? TimeSheetView, view.isDirectionDown, minuteStart < 0 {
+////            period.hourStart -= 1
+////            minuteStart += 56
+////        }
+//        
+//        if let view = self as? TimeSheetView, !view.isDirectionDown, minuteStart < 0 {
+//            period.hourStart -= 1
+//            minuteStart += 60
+//            minuteEnd = minuteStart - Int16(self.frame.height)
+//        }
+//        
+//        period.hourEnd = Int16((self.frame.maxY) / CGFloat(period.cellHeight)) + period.workHourStart
+//        
+//        print(object: "minuteEnd = \(minuteEnd)")
+//        
+////        if let view = self as? TimeSheetView, !view.isDirectionDown, minuteEnd < 0 {
+////            period.hourEnd -= 1
+////            minuteEnd += 60
+////        }
+//
+//        if let view = self as? TimeSheetView, view.isDirectionDown, minuteEnd < 0 {
+//            period.hourEnd -= 1
+//            minuteEnd += 56
+//            minuteStart = minuteEnd - Int16(self.frame.height)
+//        }
+
     }
+    
+    // For time
+    func convertToCurrentTime() -> String {
+        let hour = Int16((self.frame.midY) / CGFloat(period.cellHeight)) + period.workHourStart
+        let minute = Int16(Float(Int16(self.frame.midY) % Int16(period.cellHeight) + period.workMinuteStart - Int16(period.timeOffset)) * period.scale)
+
+        return "\(String(hour).twoNumberFormat()):\(String(minute).twoNumberFormat())"
+    }
+
 }
 
 

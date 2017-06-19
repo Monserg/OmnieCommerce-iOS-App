@@ -30,5 +30,7 @@ extension Period {
     @NSManaged public var workHourEnd: Int16
     @NSManaged public var workMinuteStart: Int16
     @NSManaged public var workMinuteEnd: Int16
+    @NSManaged public var timeOffset: Float
+    @NSManaged public var scale: Float
 
 }

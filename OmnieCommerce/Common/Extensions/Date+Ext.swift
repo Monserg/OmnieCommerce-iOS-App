@@ -173,7 +173,7 @@ extension Date {
         return startTime + " - " + currentTime
     }
     
-    func didShow(timeLineView: CurrentTimeLineView, inTableView tableView: UITableView, withCellHeight cellHeight: CGFloat, andScale scale: CGFloat) -> Bool {
+    func didShow(timeLineView: CurrentTimeLineView, inTableView tableView: UITableView) -> Bool {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "HH dd.MM.yyyy"
         
@@ -183,9 +183,9 @@ extension Date {
             // Initialization
             if (timeLineView.frame.minY == 0) {
                 tableView.addSubview(timeLineView)
-                timeLineView.didMoveToNewPosition(inTableView: tableView, withCellHeight: cellHeight, withScale: scale, andAnimation: false)
+                timeLineView.didMoveToNewPosition(inTableView: tableView, andAnimation: false)
             } else {
-                timeLineView.didMoveToNewPosition(inTableView: tableView, withCellHeight: cellHeight, withScale: scale, andAnimation: true)
+                timeLineView.didMoveToNewPosition(inTableView: tableView, andAnimation: true)
             }
             
             return true

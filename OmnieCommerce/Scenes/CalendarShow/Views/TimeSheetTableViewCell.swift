@@ -9,21 +9,16 @@
 import UIKit
 
 class TimeSheetTableViewCell: UITableViewCell {
-    // MARK: - Outlets
-    @IBOutlet weak var timeLabel: UILabel!
+    // MAK: - Outlets
+    @IBOutlet weak var timeLabel: UbuntuLightVeryLightGrayLabel!
+    @IBOutlet weak var zeroMinuteView: UIView!
     
-    @IBOutlet weak var topDottedLineView: DottedBorderView! {
+    @IBOutlet weak var zeroMinuteLineView: DottedBorderView! {
         didSet {
-            topDottedLineView.style = .BottomDottedLine
+            zeroMinuteLineView.style = .MiddleDottedLine
         }
     }
-    
-    @IBOutlet weak var bottomDottedLineView: DottedBorderView! {
-        didSet {
-            bottomDottedLineView.style = .BottomDottedLine
-        }
-    }
-    
+
     
     // MARK: - Class Functions
     override func awakeFromNib() {
@@ -42,7 +37,11 @@ extension TimeSheetTableViewCell: ConfigureCell {
         let timeSheetCell = item as! TimeSheetCell
         
         timeLabel.text = timeSheetCell.start
-//        topDottedLineView.isHidden = (indexPath.row == 0) ? false : true
         selectionStyle = .none
+        
+        if (indexPath.row == 1) {
+            zeroMinuteView.setNeedsLayout()
+            period.timeOffset = Float(zeroMinuteView.frame.midY)
+        }
     }
 }

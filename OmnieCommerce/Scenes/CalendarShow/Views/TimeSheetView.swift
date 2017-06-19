@@ -18,7 +18,7 @@ class TimeSheetView: UIView {
     // MARK: - Properties
     var startPosition = CGPoint.zero
     var originalHeight: CGFloat = 0
-    var isResizeDown = true
+    var isDirectionDown = true
     
     var isOrderOwn = false {
         didSet {
@@ -52,6 +52,7 @@ class TimeSheetView: UIView {
     @IBOutlet weak var separatorTimeLabel: UILabel!
     
     var handlerShowPickersViewCompletion: HandlerSendButtonCompletion?
+    var handlerTimeSheetViewChangePositionCompletion: HandlerPassDataCompletion?
     var handlerTimeSheetViewChangeFrameCompletion: HandlerSendButtonCompletion?
     
     
@@ -75,7 +76,7 @@ class TimeSheetView: UIView {
         
         // Setup LongPressGesture Recognizer
         let longPressedGesture: UILongPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(handlerLongPressedGesture(_:)))
-        longPressedGesture.minimumPressDuration = 1.2
+        longPressedGesture.minimumPressDuration = 0.9
         addGestureRecognizer(longPressedGesture)
     }
     
@@ -84,41 +85,8 @@ class TimeSheetView: UIView {
     }
     
     
-    // MARK: - Class Functions
-//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-//        print(object: "\(#file): \(#function) run in [line \(#line)]")
-//        
-////        let tableView = superview as! UITableView
-////        tableView.isScrollEnabled = false
-//        
-//        let touch = touches.first!
-//        startPosition = touch.location(in: self)
-//        
-//        isResizeDown = (startPosition.y >= frame.height / 2) ? true : false
-//    }
-//    
-//    //    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-//    //        print(#function, #line)
-//    //
-//    //        // Change view height by gesture
-//    //        let touch = touches.first!
-//    //        let endPosition = touch.location(in: self)
-//    //        let difference = endPosition.y - startPosition.y
-//    //        let newFrame = CGRect.init(x: frame.origin.x, y: frame.origin.y, width: frame.width, height: originalHeight + difference)
-//    //
-//    //        frame = newFrame
-//    //    }
-//    
-//    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-//        print(object: "\(#file): \(#function) run in [line \(#line)]")
-//        
-//        let tableView = superview as! UITableView
-//        tableView.isScrollEnabled = true
-//    }
-    
-    
     // MARK: - Custom Functions
-    func orderModeDidChange(to mode: TimeSheetViewMode) {
+    func gestureModeDidChange(to mode: TimeSheetViewMode) {
         gestureMode = mode
         _ = upDownButtonsCollection.map{ $0.isHidden = (mode != .OrderResize) ? true : false }
     }
@@ -187,6 +155,10 @@ class TimeSheetView: UIView {
     func selectedTimeDidUpload() {
         startTimeLabel.text = "\(String(period.hourStart).twoNumberFormat()):\(String(period.minuteStart).twoNumberFormat())"
         finishTimeLabel.text = "\(String(period.hourEnd).twoNumberFormat()):\(String(period.minuteEnd).twoNumberFormat())"
+        
+        startTimeLabel.isHidden = false
+        separatorTimeLabel.isHidden = false
+        finishTimeLabel.isHidden = false
     }
     
     
@@ -207,14 +179,18 @@ class TimeSheetView: UIView {
                     sender.view!.center = CGPoint(x: sender.view!.center.x, y: sender.view!.center.y + newPositionTranslation.y)
                     sender.setTranslation(CGPoint.zero, in: self.superview!)
                     
-                    didVerifyPositionBeforeMove()
+                    isDirectionDown = newPositionTranslation.y > 0
+                    
+                    // Handler -> TimeSheetViewController
+                    self.handlerTimeSheetViewChangePositionCompletion!(newPositionTranslation.y)
+//                    didVerifyPositionBeforeMove()
                     
                 case .OrderResize:
                     var newFrame = sender.view!.frame
                     let newPositionTranslation = sender.translation(in: self.superview!)
                     let velocityTranslation = sender.velocity(in: self.superview!)
                     
-                    if (isResizeDown) {
+                    if (isDirectionDown) {
                         newFrame.size.height += newPositionTranslation.y / 100 //(newPositionTranslation.y > 0) ? (newPositionTranslation.y / 100) : -(newPositionTranslation.y / 100)
 //                        didVerifyPositionBeforeMove()
                         print(object: "velocity = \(velocityTranslation), newPositionTranslation = \(newPositionTranslation)")
@@ -232,13 +208,13 @@ class TimeSheetView: UIView {
                             if let closeTimeSheetView = subview as? TimeSheetView, !closeTimeSheetView.isOrderOwn {
                                 // Verify free time
                                 if (sender.view!.frame.intersects(closeTimeSheetView.frame)) {
-                                    frame = (isResizeDown) ?    CGRect.init(origin: CGPoint.init(x: sender.view!.frame.minX, y: closeTimeSheetView.frame.minY),
+                                    frame = (isDirectionDown) ?    CGRect.init(origin: CGPoint.init(x: sender.view!.frame.minX, y: closeTimeSheetView.frame.minY),
                                                                             size: CGSize.init(  width: sender.view!.frame.width,
                                                                                                 height: closeTimeSheetView.frame.minY - sender.view!.frame.minY)) :
                                                                 CGRect.init(origin: CGPoint.init(x: sender.view!.frame.minX, y: closeTimeSheetView.frame.maxY),
                                                                             size: CGSize.init(width: sender.view!.frame.width, height: sender.view!.frame.maxY - closeTimeSheetView.frame.maxY))
                                 } else {
-                                    frame = (isResizeDown) ?    CGRect.init(origin: frame.origin,
+                                    frame = (isDirectionDown) ?    CGRect.init(origin: frame.origin,
                                                                             size:  CGSize.init(width: frame.width, height: newPositionTranslation.y)) :
                                                                 CGRect.init(origin: CGPoint.init(x: frame.minX, y: frame.minY),
                                                                             size: frame.size)
@@ -362,7 +338,7 @@ class TimeSheetView: UIView {
         print(object: "\(#file): \(#function) run in [line \(#line)]")
         
         if (gestureMode == .OrderMove && isOrderOwn) {
-            orderModeDidChange(to: .OrderResize)
+            gestureModeDidChange(to: .OrderResize)
             (superview as! UITableView).isScrollEnabled = false
             (superview as! UITableView).bringSubview(toFront: self)
             

@@ -13,12 +13,16 @@ class CurrentTimeLineView: UIView {
     var isShow = false
     
     
+    // MARK: - Outlets
+    @IBOutlet weak var timeLabel: UbuntuLightVeryLightGrayLabel!
+    
+    
     // MARK: - Class Functions
     override func draw(_ rect: CGRect) {}
     
     
     // MARK: - Custom Functions
-    func didMoveToNewPosition(inTableView tableView: UITableView, withCellHeight cellHeight: CGFloat, withScale scale: CGFloat, andAnimation animation: Bool) {
+    func didMoveToNewPosition(inTableView tableView: UITableView, andAnimation animation: Bool) {
         let currentTimeHour = Date().dateComponents().hour!
         let currentTimeMinute = Date().dateComponents().minute!
         
@@ -26,8 +30,9 @@ class CurrentTimeLineView: UIView {
             return
         }
         
+        // minY = (timeOffset + hour * cellHeight + minute * cellHeight / 60 - halfHeight ) * scale
         let newPosition = CGPoint.init(x: self.frame.minX,
-                                       y: (CGFloat(currentTimeHour - Int(period.workHourStart)) * cellHeight + CGFloat(currentTimeMinute) * cellHeight / 60 - self.frame.height / 2 + 10.0) * scale)
+                                       y: (CGFloat(period.timeOffset) * CGFloat(period.scale) + CGFloat(currentTimeHour - Int(period.workHourStart)) * CGFloat(period.cellHeight) * CGFloat(period.scale) + CGFloat(currentTimeMinute) * CGFloat(period.cellHeight) / 60 * CGFloat(period.scale) - self.frame.height / 2 * CGFloat(period.scale)))
         
         tableView.bringSubview(toFront: self)
         
@@ -37,6 +42,15 @@ class CurrentTimeLineView: UIView {
                        animations: {
                         self.frame = CGRect.init(origin: newPosition, size: self.frame.size)
         },
-                       completion: nil)
+                       completion: { success in
+                        self.timeLabel.isHidden = true
+        })
+    }
+    
+    
+    // MARK: - Gestures
+    @IBAction func handlerTapGesture(_ sender: UITapGestureRecognizer) {
+        timeLabel.text = self.convertToCurrentTime()
+        timeLabel.isHidden = false
     }
 }
